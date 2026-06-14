@@ -1,0 +1,941 @@
+# Chunk 2 Polished Final Report
+## Summary
+- 总题数：450
+- keep / rewrite / reject：178 / 272 / 0
+- 最终有效题型分布：{'single_choice': 271, 'true_false': 115, 'fill_blank': 64}
+- proposed 去重修复：47 题
+- 手机端填空风险修复：75 题
+- 低质量 keep 改写：33 题
+- theory 引用补充题数：170
+- 最终 evidence insufficient：0
+
+## Validation
+- JSON UTF-8 解析：通过，重读题数 450
+- 输出题数等于输入题数：通过
+- rewrite/reject 缺 proposed_question：0
+- 有效单选 option_links 数量不匹配：0
+- 非必要重复 proposed_question.stem：0 项 / 0 组
+
+## Modified Items
+- EXP_19_3_03_SEMANTIC_FINAL_002：low_keep
+- EXP_19_3_03_SEMANTIC_FINAL_010：dedupe
+- EXP_19_3_03_SEMANTIC_FINAL_012：low_keep
+- EXP_19_3_03_SEMANTIC_FINAL_013：low_keep
+- EXP_19_3_03_SEMANTIC_FINAL_017：low_keep
+- EXP_19_3_03_SEMANTIC_FINAL_019：dedupe
+- EXP_19_3_03_SEMANTIC_FINAL_020：dedupe
+- EXP_19_3_03_SEMANTIC_FINAL_021：phone
+- EXP_19_3_03_SEMANTIC_FINAL_022：phone
+- EXP_19_3_03_SEMANTIC_FINAL_023：phone
+- EXP_19_3_03_SEMANTIC_FINAL_024：phone
+- EXP_19_3_03_SEMANTIC_FINAL_027：low_keep
+- EXP_19_3_03_SEMANTIC_FINAL_028：phone
+- EXP_19_3_03_SEMANTIC_FINAL_029：dedupe, phone
+- EXP_19_3_04_SEMANTIC_FINAL_019：dedupe
+- EXP_19_3_04_SEMANTIC_FINAL_020：dedupe
+- EXP_19_3_04_SEMANTIC_FINAL_023：phone
+- EXP_19_3_04_SEMANTIC_FINAL_027：dedupe
+- EXP_19_3_04_SEMANTIC_FINAL_028：phone
+- EXP_19_3_04_SEMANTIC_FINAL_029：phone
+- EXP_19_3_05_SEMANTIC_FINAL_001：low_keep
+- EXP_19_3_05_SEMANTIC_FINAL_010：low_keep
+- EXP_19_3_05_SEMANTIC_FINAL_020：dedupe
+- EXP_19_3_05_SEMANTIC_FINAL_021：phone
+- EXP_19_3_05_SEMANTIC_FINAL_023：phone
+- EXP_19_3_05_SEMANTIC_FINAL_026：phone
+- EXP_19_3_05_SEMANTIC_FINAL_028：phone
+- EXP_19_3_05_SEMANTIC_FINAL_030：low_keep
+- EXP_19_3_06_SEMANTIC_FINAL_001：low_keep
+- EXP_19_3_06_SEMANTIC_FINAL_019：dedupe
+- EXP_19_3_06_SEMANTIC_FINAL_020：low_keep
+- EXP_19_3_06_SEMANTIC_FINAL_021：phone
+- EXP_19_3_06_SEMANTIC_FINAL_022：phone
+- EXP_19_3_06_SEMANTIC_FINAL_024：phone
+- EXP_19_3_06_SEMANTIC_FINAL_025：phone
+- EXP_19_3_06_SEMANTIC_FINAL_028：phone
+- EXP_19_3_06_SEMANTIC_FINAL_029：phone
+- EXP_19_4_01_SEMANTIC_FINAL_021：phone
+- EXP_19_4_01_SEMANTIC_FINAL_022：phone
+- EXP_19_4_01_SEMANTIC_FINAL_023：phone
+- EXP_19_4_01_SEMANTIC_FINAL_024：phone
+- EXP_19_4_01_SEMANTIC_FINAL_025：phone
+- EXP_19_4_01_SEMANTIC_FINAL_029：phone
+- EXP_19_4_02_SEMANTIC_FINAL_004：low_keep
+- EXP_19_4_02_SEMANTIC_FINAL_005：low_keep
+- EXP_19_4_02_SEMANTIC_FINAL_008：dedupe
+- EXP_19_4_02_SEMANTIC_FINAL_009：dedupe
+- EXP_19_4_02_SEMANTIC_FINAL_015：low_keep
+- EXP_19_4_02_SEMANTIC_FINAL_017：dedupe
+- EXP_19_4_02_SEMANTIC_FINAL_018：dedupe
+- EXP_19_4_02_SEMANTIC_FINAL_019：dedupe
+- EXP_19_4_02_SEMANTIC_FINAL_022：phone
+- EXP_19_4_02_SEMANTIC_FINAL_023：phone
+- EXP_19_4_02_SEMANTIC_FINAL_024：phone
+- EXP_19_4_02_SEMANTIC_FINAL_025：phone
+- EXP_19_4_02_SEMANTIC_FINAL_027：phone
+- EXP_19_4_02_SEMANTIC_FINAL_028：phone
+- EXP_19_4_02_SEMANTIC_FINAL_029：dedupe
+- EXP_19_4_02_SEMANTIC_FINAL_030：phone
+- EXP_19_4_03_SEMANTIC_FINAL_010：dedupe
+- EXP_19_4_03_SEMANTIC_FINAL_019：dedupe
+- EXP_19_4_03_SEMANTIC_FINAL_020：dedupe
+- EXP_19_4_03_SEMANTIC_FINAL_021：phone
+- EXP_19_4_03_SEMANTIC_FINAL_024：phone
+- EXP_19_4_03_SEMANTIC_FINAL_025：phone
+- EXP_19_4_03_SEMANTIC_FINAL_026：phone
+- EXP_19_4_03_SEMANTIC_FINAL_029：phone
+- EXP_19_4_04_SEMANTIC_FINAL_001：low_keep
+- EXP_19_4_04_SEMANTIC_FINAL_006：dedupe
+- EXP_19_4_04_SEMANTIC_FINAL_007：dedupe
+- EXP_19_4_04_SEMANTIC_FINAL_009：dedupe
+- EXP_19_4_04_SEMANTIC_FINAL_019：dedupe
+- EXP_19_4_04_SEMANTIC_FINAL_020：low_keep
+- EXP_19_4_04_SEMANTIC_FINAL_023：low_keep
+- EXP_19_4_04_SEMANTIC_FINAL_024：phone
+- EXP_19_4_04_SEMANTIC_FINAL_025：phone
+- EXP_19_4_04_SEMANTIC_FINAL_026：phone
+- EXP_19_4_04_SEMANTIC_FINAL_029：dedupe
+- EXP_19_4_04_SEMANTIC_FINAL_030：low_keep
+- EXP_19_4_05_SEMANTIC_FINAL_002：dedupe
+- EXP_19_4_05_SEMANTIC_FINAL_003：dedupe
+- EXP_19_4_05_SEMANTIC_FINAL_004：low_keep
+- EXP_19_4_05_SEMANTIC_FINAL_010：dedupe
+- EXP_19_4_05_SEMANTIC_FINAL_012：dedupe
+- EXP_19_4_05_SEMANTIC_FINAL_013：dedupe
+- EXP_19_4_05_SEMANTIC_FINAL_017：dedupe
+- EXP_19_4_05_SEMANTIC_FINAL_019：dedupe
+- EXP_19_4_05_SEMANTIC_FINAL_021：phone
+- EXP_19_4_05_SEMANTIC_FINAL_022：dedupe, phone
+- EXP_19_4_05_SEMANTIC_FINAL_023：dedupe, phone
+- EXP_19_4_05_SEMANTIC_FINAL_024：phone
+- EXP_19_4_05_SEMANTIC_FINAL_027：dedupe, phone
+- EXP_19_4_05_SEMANTIC_FINAL_028：phone
+- EXP_19_4_06_SEMANTIC_FINAL_021：phone
+- EXP_19_4_06_SEMANTIC_FINAL_023：phone
+- EXP_19_4_06_SEMANTIC_FINAL_026：phone
+- EXP_19_4_06_SEMANTIC_FINAL_030：dedupe
+- EXP_19_4_07_SEMANTIC_FINAL_002：low_keep
+- EXP_19_4_07_SEMANTIC_FINAL_003：low_keep
+- EXP_19_4_07_SEMANTIC_FINAL_004：low_keep
+- EXP_19_4_07_SEMANTIC_FINAL_011：low_keep
+- EXP_19_4_07_SEMANTIC_FINAL_012：low_keep
+- EXP_19_4_07_SEMANTIC_FINAL_013：low_keep
+- EXP_19_4_07_SEMANTIC_FINAL_014：low_keep
+- EXP_19_4_07_SEMANTIC_FINAL_022：phone
+- EXP_19_4_07_SEMANTIC_FINAL_023：phone
+- EXP_19_4_07_SEMANTIC_FINAL_024：phone
+- EXP_19_4_07_SEMANTIC_FINAL_026：phone
+- EXP_19_4_07_SEMANTIC_FINAL_027：phone
+- EXP_19_4_07_SEMANTIC_FINAL_030：phone
+- EXP_19_4_08_SEMANTIC_FINAL_017：dedupe
+- EXP_19_4_08_SEMANTIC_FINAL_018：low_keep
+- EXP_19_4_08_SEMANTIC_FINAL_019：dedupe
+- EXP_19_4_08_SEMANTIC_FINAL_021：phone
+- EXP_19_4_08_SEMANTIC_FINAL_022：phone
+- EXP_19_4_08_SEMANTIC_FINAL_024：phone
+- EXP_19_4_08_SEMANTIC_FINAL_026：phone
+- EXP_19_4_08_SEMANTIC_FINAL_027：phone
+- EXP_19_4_08_SEMANTIC_FINAL_028：phone
+- EXP_19_4_08_SEMANTIC_FINAL_030：phone
+- EXP_19_4_09_SEMANTIC_FINAL_002：dedupe
+- EXP_19_4_09_SEMANTIC_FINAL_003：dedupe
+- EXP_19_4_09_SEMANTIC_FINAL_004：dedupe, low_keep
+- EXP_19_4_09_SEMANTIC_FINAL_005：low_keep
+- EXP_19_4_09_SEMANTIC_FINAL_009：dedupe
+- EXP_19_4_09_SEMANTIC_FINAL_010：low_keep
+- EXP_19_4_09_SEMANTIC_FINAL_015：dedupe
+- EXP_19_4_09_SEMANTIC_FINAL_016：low_keep
+- EXP_19_4_09_SEMANTIC_FINAL_017：dedupe
+- EXP_19_4_09_SEMANTIC_FINAL_019：dedupe
+- EXP_19_4_09_SEMANTIC_FINAL_022：dedupe
+- EXP_19_4_09_SEMANTIC_FINAL_023：dedupe
+- EXP_19_4_09_SEMANTIC_FINAL_024：phone
+- EXP_19_4_09_SEMANTIC_FINAL_025：phone
+- EXP_19_4_09_SEMANTIC_FINAL_027：phone
+- EXP_19_4_09_SEMANTIC_FINAL_028：phone
+- EXP_19_4_09_SEMANTIC_FINAL_029：dedupe
+- EXP_19_4_09_SEMANTIC_FINAL_030：phone
+- EXP_19_5_01_SEMANTIC_FINAL_001：low_keep
+- EXP_19_5_01_SEMANTIC_FINAL_002：low_keep
+- EXP_19_5_01_SEMANTIC_FINAL_011：low_keep
+- EXP_19_5_01_SEMANTIC_FINAL_020：dedupe
+- EXP_19_5_01_SEMANTIC_FINAL_022：phone
+- EXP_19_5_01_SEMANTIC_FINAL_024：phone
+- EXP_19_5_01_SEMANTIC_FINAL_025：phone
+- EXP_19_5_01_SEMANTIC_FINAL_029：phone
+- EXP_19_6_01_SEMANTIC_FINAL_022：phone
+- EXP_19_6_01_SEMANTIC_FINAL_024：phone
+- EXP_19_6_01_SEMANTIC_FINAL_025：phone
+- EXP_19_6_01_SEMANTIC_FINAL_029：phone
+
+## Proposed Dedup Fixes
+- EXP_19_3_03_SEMANTIC_FINAL_010
+- EXP_19_3_03_SEMANTIC_FINAL_019
+- EXP_19_3_03_SEMANTIC_FINAL_020
+- EXP_19_3_03_SEMANTIC_FINAL_029
+- EXP_19_3_04_SEMANTIC_FINAL_019
+- EXP_19_3_04_SEMANTIC_FINAL_020
+- EXP_19_3_04_SEMANTIC_FINAL_027
+- EXP_19_3_05_SEMANTIC_FINAL_020
+- EXP_19_3_06_SEMANTIC_FINAL_019
+- EXP_19_4_02_SEMANTIC_FINAL_008
+- EXP_19_4_02_SEMANTIC_FINAL_009
+- EXP_19_4_02_SEMANTIC_FINAL_017
+- EXP_19_4_02_SEMANTIC_FINAL_018
+- EXP_19_4_02_SEMANTIC_FINAL_019
+- EXP_19_4_02_SEMANTIC_FINAL_029
+- EXP_19_4_03_SEMANTIC_FINAL_010
+- EXP_19_4_03_SEMANTIC_FINAL_019
+- EXP_19_4_03_SEMANTIC_FINAL_020
+- EXP_19_4_04_SEMANTIC_FINAL_006
+- EXP_19_4_04_SEMANTIC_FINAL_007
+- EXP_19_4_04_SEMANTIC_FINAL_009
+- EXP_19_4_04_SEMANTIC_FINAL_019
+- EXP_19_4_04_SEMANTIC_FINAL_029
+- EXP_19_4_05_SEMANTIC_FINAL_002
+- EXP_19_4_05_SEMANTIC_FINAL_003
+- EXP_19_4_05_SEMANTIC_FINAL_010
+- EXP_19_4_05_SEMANTIC_FINAL_012
+- EXP_19_4_05_SEMANTIC_FINAL_013
+- EXP_19_4_05_SEMANTIC_FINAL_017
+- EXP_19_4_05_SEMANTIC_FINAL_019
+- EXP_19_4_05_SEMANTIC_FINAL_022
+- EXP_19_4_05_SEMANTIC_FINAL_023
+- EXP_19_4_05_SEMANTIC_FINAL_027
+- EXP_19_4_06_SEMANTIC_FINAL_030
+- EXP_19_4_08_SEMANTIC_FINAL_017
+- EXP_19_4_08_SEMANTIC_FINAL_019
+- EXP_19_4_09_SEMANTIC_FINAL_002
+- EXP_19_4_09_SEMANTIC_FINAL_003
+- EXP_19_4_09_SEMANTIC_FINAL_004
+- EXP_19_4_09_SEMANTIC_FINAL_009
+- EXP_19_4_09_SEMANTIC_FINAL_015
+- EXP_19_4_09_SEMANTIC_FINAL_017
+- EXP_19_4_09_SEMANTIC_FINAL_019
+- EXP_19_4_09_SEMANTIC_FINAL_022
+- EXP_19_4_09_SEMANTIC_FINAL_023
+- EXP_19_4_09_SEMANTIC_FINAL_029
+- EXP_19_5_01_SEMANTIC_FINAL_020
+
+## Option Links Polish
+- 所有最终有效单选题均重建 option_links；correct_evidence 指向主点位，adjacent_point 仅在能匹配相邻 point_key 时使用，其余干扰项改为具体 misconception 说明。
+- 高风险修正范围包括：所有 rewrite/reject 的 proposed 单选、所有手机端填空改成的单选、以及保留 keep 的原单选。
+
+## Low Quality Retained
+- 19-3-03 EXP_19_3_03_SEMANTIC_FINAL_003：仍保留低深度题；理由：点位覆盖稳定、答案机器确定，且没有进入最差批次。题干：在《19-3-03 SO₃²⁻ 的检出》实验中，该实验要求先做的关键处理是哪一项？
+- 19-3-03 EXP_19_3_03_SEMANTIC_FINAL_007：仍保留低深度题；理由：点位覆盖稳定、答案机器确定，且没有进入最差批次。题干：在《19-3-03 SO₃²⁻ 的检出》实验中，涉及 SO₂ 制备或放出的操作应在哪里进行？
+- 19-3-04 EXP_19_3_04_SEMANTIC_FINAL_009：仍保留低深度题；理由：点位覆盖稳定、答案机器确定，且没有进入最差批次。题干：在《19-3-04 性质》实验中，下列哪项不是本实验“性质”部分的操作？
+- 19-3-04 EXP_19_3_04_SEMANTIC_FINAL_014：仍保留低深度题；理由：点位覆盖稳定、答案机器确定，且没有进入最差批次。题干：在《19-3-04 性质》实验中，Na₂S₂O₃ 与 AgNO₃ 反应完全不可能出现沉淀。
+- 19-3-04 EXP_19_3_04_SEMANTIC_FINAL_021：仍保留低深度题；理由：点位覆盖稳定、答案机器确定，且没有进入最差批次。题干：在《19-3-04 性质》实验中，Na₂S₂O₃ 溶液遇 HCl 变浑浊，浑浊主要来自____。
+- 19-3-04 EXP_19_3_04_SEMANTIC_FINAL_022：仍保留低深度题；理由：点位覆盖稳定、答案机器确定，且没有进入最差批次。题干：在《19-3-04 性质》实验中，Na₂S₂O₃ 使碘水褪色时主要表现____性。
+- 19-3-04 EXP_19_3_04_SEMANTIC_FINAL_024：仍保留低深度题；理由：点位覆盖稳定、答案机器确定，且没有进入最差批次。题干：在《19-3-04 性质》实验中，Na₂S₂O₃ 与 AgNO₃ 反应可体现其对 Ag⁺ 的____作用。
+- 19-3-05 EXP_19_3_05_SEMANTIC_FINAL_011：仍保留低深度题；理由：点位覆盖稳定、答案机器确定，且没有进入最差批次。题干：在《19-3-05 过二硫酸盐的氧化性》实验中，K₂S₂O₈ 可在酸性条件下氧化 Mn²⁺。
+- 19-3-05 EXP_19_3_05_SEMANTIC_FINAL_022：仍保留低深度题；理由：点位覆盖稳定、答案机器确定，且没有进入最差批次。题干：在《19-3-05 过二硫酸盐的氧化性》实验中，AgNO₃ 在 Mn²⁺ 被过二硫酸盐氧化实验中主要起____作用。
+- 19-3-06 EXP_19_3_06_SEMANTIC_FINAL_008：仍保留低深度题；理由：点位覆盖稳定、答案机器确定，且没有进入最差批次。题干：在《19-3-06 过硫酸盐的氧化性》实验中，下列哪一项最能概括 K₂S₂O₈ 在该实验中的角色？
+- 19-3-06 EXP_19_3_06_SEMANTIC_FINAL_011：仍保留低深度题；理由：点位覆盖稳定、答案机器确定，且没有进入最差批次。题干：在《19-3-06 过硫酸盐的氧化性》实验中，K₂S₂O₈ 在该实验中作为过硫酸盐氧化剂。
+- 19-4-02 EXP_19_4_02_SEMANTIC_FINAL_026：仍保留低深度题；理由：点位覆盖稳定、答案机器确定，且没有进入最差批次。题干：在《19-4-02 亚硝酸的氧化性》实验中，加入 NaNO₂ 后可____试管继续观察。
+- 19-4-03 EXP_19_4_03_SEMANTIC_FINAL_001：仍保留低深度题；理由：点位覆盖稳定、答案机器确定，且没有进入最差批次。题干：在《19-4-03 亚硝酸的还原性》实验中，实验操作中，KMnO₄ 溶液在滴加 NaNO₂ 前应先用什么酸化？
+- 19-4-03 EXP_19_4_03_SEMANTIC_FINAL_007：仍保留低深度题；理由：点位覆盖稳定、答案机器确定，且没有进入最差批次。题干：在《19-4-03 亚硝酸的还原性》实验中，下列哪项属于本实验使用的氧化剂？
+- 19-4-03 EXP_19_4_03_SEMANTIC_FINAL_018：仍保留低深度题；理由：点位覆盖稳定、答案机器确定，且没有进入最差批次。题干：在《19-4-03 亚硝酸的还原性》实验中，本实验的操作与硝酸根棕色环实验完全相同。
+- 19-4-03 EXP_19_4_03_SEMANTIC_FINAL_023：仍保留低深度题；理由：点位覆盖稳定、答案机器确定，且没有进入最差批次。题干：在《19-4-03 亚硝酸的还原性》实验中，NaNO₂ 在该实验中主要表现____性。
+- 19-4-03 EXP_19_4_03_SEMANTIC_FINAL_027：仍保留低深度题；理由：点位覆盖稳定、答案机器确定，且没有进入最差批次。题干：在《19-4-03 亚硝酸的还原性》实验中，NaNO₂ 溶液应向酸化 KMnO₄ 中____滴加。
+- 19-4-04 EXP_19_4_04_SEMANTIC_FINAL_002：仍保留低深度题；理由：点位覆盖稳定、答案机器确定，且没有进入最差批次。题干：在《19-4-04 亚硝酸根的检验方法》实验中，点滴板法酸化后加入的两种显色试剂是哪一组？
+- 19-4-04 EXP_19_4_04_SEMANTIC_FINAL_010：仍保留低深度题；理由：点位覆盖稳定、答案机器确定，且没有进入最差批次。题干：在《19-4-04 亚硝酸根的检验方法》实验中，该实验的两种检验思路共同指向哪种离子？
+- 19-4-04 EXP_19_4_04_SEMANTIC_FINAL_016：仍保留低深度题；理由：点位覆盖稳定、答案机器确定，且没有进入最差批次。题干：在《19-4-04 亚硝酸根的检验方法》实验中，点滴板法检验 NO₂⁻ 时必须用 NaOH 代替 HAc 酸化。
+- 19-4-04 EXP_19_4_04_SEMANTIC_FINAL_021：仍保留低深度题；理由：点位覆盖稳定、答案机器确定，且没有进入最差批次。题干：在《19-4-04 亚硝酸根的检验方法》实验中，点滴板法中用____溶液酸化 NaNO₂。
+- 19-4-04 EXP_19_4_04_SEMANTIC_FINAL_022：仍保留低深度题；理由：点位覆盖稳定、答案机器确定，且没有进入最差批次。题干：在《19-4-04 亚硝酸根的检验方法》实验中，点滴板法加入对氨基苯磺酸和____溶液。
+- 19-4-05 EXP_19_4_05_SEMANTIC_FINAL_006：仍保留低深度题；理由：点位覆盖稳定、答案机器确定，且没有进入最差批次。题干：在《19-4-05 亚硝酸的氧化还原性》实验中，观察亚硝酸还原性时，酸性 KMnO₄ 中滴加的是哪种溶液？
+- 19-4-05 EXP_19_4_05_SEMANTIC_FINAL_018：仍保留低深度题；理由：点位覆盖稳定、答案机器确定，且没有进入最差批次。题干：在《19-4-05 亚硝酸的氧化还原性》实验中，酸性 KI 中加入 NaNO₂ 后完全不可能生成 I₂。
+- 19-4-05 EXP_19_4_05_SEMANTIC_FINAL_020：仍保留低深度题；理由：点位覆盖稳定、答案机器确定，且没有进入最差批次。题干：在《19-4-05 亚硝酸的氧化还原性》实验中，该实验与亚硝酸的氧化还原性无关，只研究硝酸盐热分解。
+- 19-4-07 EXP_19_4_07_SEMANTIC_FINAL_001：仍保留低深度题；理由：点位覆盖稳定、答案机器确定，且没有进入最差批次。题干：在《19-4-07 硝酸盐的热分解》实验中，该实验比较热分解行为的盐类是哪一类？
+- 19-4-07 EXP_19_4_07_SEMANTIC_FINAL_021：仍保留低深度题；理由：点位覆盖稳定、答案机器确定，且没有进入最差批次。题干：在《19-4-07 硝酸盐的热分解》实验中，该实验研究____的热分解。
+- 19-4-08 EXP_19_4_08_SEMANTIC_FINAL_001：仍保留低深度题；理由：点位覆盖稳定、答案机器确定，且没有进入最差批次。题干：在《19-4-08 硝酸根的检验》实验中，棕色环实验中，实验资料列出的固体试剂是哪一项？
+- 19-4-08 EXP_19_4_08_SEMANTIC_FINAL_002：仍保留低深度题；理由：点位覆盖稳定、答案机器确定，且没有进入最差批次。题干：在《19-4-08 硝酸根的检验》实验中，棕色环实验中，向 FeSO₄·7H₂O 中加入 NaNO₃ 后还需加入哪种试剂？
+- 19-4-08 EXP_19_4_08_SEMANTIC_FINAL_009：仍保留低深度题；理由：点位覆盖稳定、答案机器确定，且没有进入最差批次。题干：在《19-4-08 硝酸根的检验》实验中，该实验中 NaNO₃ 提供的待检离子是？
+- 19-4-08 EXP_19_4_08_SEMANTIC_FINAL_010：仍保留低深度题；理由：点位覆盖稳定、答案机器确定，且没有进入最差批次。题干：在《19-4-08 硝酸根的检验》实验中，棕色环实验属于下列哪类实验？
+- 19-4-08 EXP_19_4_08_SEMANTIC_FINAL_011：仍保留低深度题；理由：点位覆盖稳定、答案机器确定，且没有进入最差批次。题干：在《19-4-08 硝酸根的检验》实验中，棕色环实验使用 FeSO₄·7H₂O、NaNO₃ 和浓 H₂SO₄。
+- 19-4-08 EXP_19_4_08_SEMANTIC_FINAL_015：仍保留低深度题；理由：点位覆盖稳定、答案机器确定，且没有进入最差批次。题干：在《19-4-08 硝酸根的检验》实验中，NaNO₃ 在本实验中提供 NO₃⁻。
+- 19-4-09 EXP_19_4_09_SEMANTIC_FINAL_012：仍保留低深度题；理由：点位覆盖稳定、答案机器确定，且没有进入最差批次。题干：在《19-4-09 硝酸根的检验》实验中，FeSO₄·7H₂O、NaNO₃ 和浓硫酸可用于棕色环检验。
+- 19-4-09 EXP_19_4_09_SEMANTIC_FINAL_018：仍保留低深度题；理由：点位覆盖稳定、答案机器确定，且没有进入最差批次。题干：在《19-4-09 硝酸根的检验》实验中，棕色环法中浓硫酸完全可以用浓氨水替代。
+- 19-4-09 EXP_19_4_09_SEMANTIC_FINAL_020：仍保留低深度题；理由：点位覆盖稳定、答案机器确定，且没有进入最差批次。题干：在《19-4-09 硝酸根的检验》实验中，生成棕色环说明一定生成了 Ni(dmg)₂ 沉淀。
+- 19-5-01 EXP_19_5_01_SEMANTIC_FINAL_003：仍保留低深度题；理由：点位覆盖稳定、答案机器确定，且没有进入最差批次。题干：在《19-5-01 难溶性硅酸盐的生成——“水中花园”》实验中，下列哪种试剂属于该实验列出的可与水玻璃作用的盐？
+- 19-5-01 EXP_19_5_01_SEMANTIC_FINAL_009：仍保留低深度题；理由：点位覆盖稳定、答案机器确定，且没有进入最差批次。题干：在《19-5-01 难溶性硅酸盐的生成——“水中花园”》实验中，下列哪个操作目标最符合本实验名称？
+- 19-5-01 EXP_19_5_01_SEMANTIC_FINAL_013：仍保留低深度题；理由：点位覆盖稳定、答案机器确定，且没有进入最差批次。题干：在《19-5-01 难溶性硅酸盐的生成——“水中花园”》实验中，水玻璃通常指 Na₂SiO₃ 溶液。
+- 19-5-01 EXP_19_5_01_SEMANTIC_FINAL_014：仍保留低深度题；理由：点位覆盖稳定、答案机器确定，且没有进入最差批次。题干：在《19-5-01 难溶性硅酸盐的生成——“水中花园”》实验中，该实验主要观察臭氧的强氧化性。
+- 19-5-01 EXP_19_5_01_SEMANTIC_FINAL_018：仍保留低深度题；理由：点位覆盖稳定、答案机器确定，且没有进入最差批次。题干：在《19-5-01 难溶性硅酸盐的生成——“水中花园”》实验中，该实验应把所有观察都归结为卤素置换反应。
+
+## Evidence Insufficient
+### 原题不足但 proposed 已修复
+- 19-3-03 EXP_19_3_03_SEMANTIC_FINAL_001：too_shallow_title_object
+- 19-3-03 EXP_19_3_03_SEMANTIC_FINAL_002：原题被 rewrite/reject 后以 proposed_question 修复
+- 19-3-03 EXP_19_3_03_SEMANTIC_FINAL_008：off_point_so2_preparation_detail
+- 19-3-03 EXP_19_3_03_SEMANTIC_FINAL_009：off_point_so2_preparation_detail
+- 19-3-03 EXP_19_3_03_SEMANTIC_FINAL_010：meta_item_not_student_reasoning
+- 19-3-03 EXP_19_3_03_SEMANTIC_FINAL_011：too_shallow_title_object
+- 19-3-03 EXP_19_3_03_SEMANTIC_FINAL_012：原题被 rewrite/reject 后以 proposed_question 修复
+- 19-3-03 EXP_19_3_03_SEMANTIC_FINAL_013：原题被 rewrite/reject 后以 proposed_question 修复
+- 19-3-03 EXP_19_3_03_SEMANTIC_FINAL_017：原题被 rewrite/reject 后以 proposed_question 修复
+- 19-3-03 EXP_19_3_03_SEMANTIC_FINAL_018：off_point_so2_preparation_detail
+- 19-3-03 EXP_19_3_03_SEMANTIC_FINAL_019：off_point_so2_preparation_detail
+- 19-3-03 EXP_19_3_03_SEMANTIC_FINAL_020：meta_item_not_student_reasoning
+- 19-3-03 EXP_19_3_03_SEMANTIC_FINAL_021：too_shallow_title_object; phone_formula_alias_needed
+- 19-3-03 EXP_19_3_03_SEMANTIC_FINAL_022：phone_formula_alias_needed
+- 19-3-03 EXP_19_3_03_SEMANTIC_FINAL_023：phone_formula_alias_needed
+- 19-3-03 EXP_19_3_03_SEMANTIC_FINAL_024：phone_formula_alias_needed
+- 19-3-03 EXP_19_3_03_SEMANTIC_FINAL_027：原题被 rewrite/reject 后以 proposed_question 修复
+- 19-3-03 EXP_19_3_03_SEMANTIC_FINAL_028：off_point_so2_preparation_detail; phone_formula_alias_needed
+- 19-3-03 EXP_19_3_03_SEMANTIC_FINAL_029：off_point_so2_preparation_detail; phone_formula_alias_needed
+- 19-3-03 EXP_19_3_03_SEMANTIC_FINAL_030：meta_item_not_student_reasoning
+- 19-3-04 EXP_19_3_04_SEMANTIC_FINAL_005：off_point_preparation_not_property_point
+- 19-3-04 EXP_19_3_04_SEMANTIC_FINAL_015：off_point_preparation_not_property_point
+- 19-3-04 EXP_19_3_04_SEMANTIC_FINAL_018：double_negative_true_false
+- 19-3-04 EXP_19_3_04_SEMANTIC_FINAL_019：double_negative_true_false; off_point_preparation_not_property_point
+- 19-3-04 EXP_19_3_04_SEMANTIC_FINAL_020：double_negative_true_false; meta_item_not_student_reasoning
+- 19-3-04 EXP_19_3_04_SEMANTIC_FINAL_023：phone_formula_alias_needed
+- 19-3-04 EXP_19_3_04_SEMANTIC_FINAL_025：off_point_preparation_not_property_point
+- 19-3-04 EXP_19_3_04_SEMANTIC_FINAL_026：off_point_preparation_not_property_point
+- 19-3-04 EXP_19_3_04_SEMANTIC_FINAL_027：off_point_preparation_not_property_point
+- 19-3-04 EXP_19_3_04_SEMANTIC_FINAL_028：phone_formula_alias_needed
+- 19-3-04 EXP_19_3_04_SEMANTIC_FINAL_029：phone_formula_alias_needed
+- 19-3-05 EXP_19_3_05_SEMANTIC_FINAL_001：原题被 rewrite/reject 后以 proposed_question 修复
+- 19-3-05 EXP_19_3_05_SEMANTIC_FINAL_010：原题被 rewrite/reject 后以 proposed_question 修复
+- 19-3-05 EXP_19_3_05_SEMANTIC_FINAL_018：double_negative_true_false
+- 19-3-05 EXP_19_3_05_SEMANTIC_FINAL_020：double_negative_true_false; meta_item_not_student_reasoning
+- 19-3-05 EXP_19_3_05_SEMANTIC_FINAL_021：phone_formula_alias_needed
+- 19-3-05 EXP_19_3_05_SEMANTIC_FINAL_023：phone_formula_alias_needed
+- 19-3-05 EXP_19_3_05_SEMANTIC_FINAL_026：phone_formula_alias_needed
+- 19-3-05 EXP_19_3_05_SEMANTIC_FINAL_028：phone_formula_alias_needed
+- 19-3-05 EXP_19_3_05_SEMANTIC_FINAL_030：原题被 rewrite/reject 后以 proposed_question 修复
+- 19-3-06 EXP_19_3_06_SEMANTIC_FINAL_001：原题被 rewrite/reject 后以 proposed_question 修复
+- 19-3-06 EXP_19_3_06_SEMANTIC_FINAL_005：no_matching_ki_video_point
+- 19-3-06 EXP_19_3_06_SEMANTIC_FINAL_009：no_matching_ki_video_point
+- 19-3-06 EXP_19_3_06_SEMANTIC_FINAL_014：no_matching_ki_video_point
+- 19-3-06 EXP_19_3_06_SEMANTIC_FINAL_018：double_negative_true_false; no_matching_ki_video_point
+- 19-3-06 EXP_19_3_06_SEMANTIC_FINAL_019：double_negative_true_false
+- 19-3-06 EXP_19_3_06_SEMANTIC_FINAL_020：原题被 rewrite/reject 后以 proposed_question 修复
+- 19-3-06 EXP_19_3_06_SEMANTIC_FINAL_021：missing_or_empty_explanation; phone_formula_alias_needed
+- 19-3-06 EXP_19_3_06_SEMANTIC_FINAL_022：missing_or_empty_explanation; phone_formula_alias_needed
+- 19-3-06 EXP_19_3_06_SEMANTIC_FINAL_023：missing_or_empty_explanation
+- 19-3-06 EXP_19_3_06_SEMANTIC_FINAL_024：missing_or_empty_explanation; phone_formula_alias_needed
+- 19-3-06 EXP_19_3_06_SEMANTIC_FINAL_025：no_matching_ki_video_point; missing_or_empty_explanation; phone_formula_alias_needed
+- 19-3-06 EXP_19_3_06_SEMANTIC_FINAL_026：missing_or_empty_explanation
+- 19-3-06 EXP_19_3_06_SEMANTIC_FINAL_027：missing_or_empty_explanation
+- 19-3-06 EXP_19_3_06_SEMANTIC_FINAL_028：no_matching_ki_video_point; missing_or_empty_explanation; phone_formula_alias_needed
+- 19-3-06 EXP_19_3_06_SEMANTIC_FINAL_029：missing_or_empty_explanation; phone_formula_alias_needed
+- 19-3-06 EXP_19_3_06_SEMANTIC_FINAL_030：missing_or_empty_explanation
+- 19-4-01 EXP_19_4_01_SEMANTIC_FINAL_001：missing_or_empty_explanation
+- 19-4-01 EXP_19_4_01_SEMANTIC_FINAL_002：missing_or_empty_explanation
+- 19-4-01 EXP_19_4_01_SEMANTIC_FINAL_003：missing_or_empty_explanation
+- 19-4-01 EXP_19_4_01_SEMANTIC_FINAL_004：missing_or_empty_explanation
+- 19-4-01 EXP_19_4_01_SEMANTIC_FINAL_005：missing_or_empty_explanation
+- 19-4-01 EXP_19_4_01_SEMANTIC_FINAL_006：missing_or_empty_explanation
+- 19-4-01 EXP_19_4_01_SEMANTIC_FINAL_007：missing_or_empty_explanation
+- 19-4-01 EXP_19_4_01_SEMANTIC_FINAL_008：missing_or_empty_explanation
+- 19-4-01 EXP_19_4_01_SEMANTIC_FINAL_009：missing_or_empty_explanation
+- 19-4-01 EXP_19_4_01_SEMANTIC_FINAL_010：missing_or_empty_explanation
+- 19-4-01 EXP_19_4_01_SEMANTIC_FINAL_011：missing_or_empty_explanation
+- 19-4-01 EXP_19_4_01_SEMANTIC_FINAL_012：missing_or_empty_explanation
+- 19-4-01 EXP_19_4_01_SEMANTIC_FINAL_013：missing_or_empty_explanation
+- 19-4-01 EXP_19_4_01_SEMANTIC_FINAL_014：missing_or_empty_explanation
+- 19-4-01 EXP_19_4_01_SEMANTIC_FINAL_015：missing_or_empty_explanation
+- 19-4-01 EXP_19_4_01_SEMANTIC_FINAL_016：missing_or_empty_explanation
+- 19-4-01 EXP_19_4_01_SEMANTIC_FINAL_017：missing_or_empty_explanation
+- 19-4-01 EXP_19_4_01_SEMANTIC_FINAL_018：missing_or_empty_explanation
+- 19-4-01 EXP_19_4_01_SEMANTIC_FINAL_019：missing_or_empty_explanation
+- 19-4-01 EXP_19_4_01_SEMANTIC_FINAL_020：missing_or_empty_explanation
+- 19-4-01 EXP_19_4_01_SEMANTIC_FINAL_021：missing_or_empty_explanation; phone_formula_alias_needed
+- 19-4-01 EXP_19_4_01_SEMANTIC_FINAL_022：missing_or_empty_explanation; phone_formula_alias_needed
+- 19-4-01 EXP_19_4_01_SEMANTIC_FINAL_023：missing_or_empty_explanation; phone_formula_alias_needed
+- 19-4-01 EXP_19_4_01_SEMANTIC_FINAL_024：missing_or_empty_explanation; phone_formula_alias_needed
+- 19-4-01 EXP_19_4_01_SEMANTIC_FINAL_025：missing_or_empty_explanation; phone_formula_alias_needed
+- 19-4-01 EXP_19_4_01_SEMANTIC_FINAL_026：missing_or_empty_explanation
+- 19-4-01 EXP_19_4_01_SEMANTIC_FINAL_027：missing_or_empty_explanation
+- 19-4-01 EXP_19_4_01_SEMANTIC_FINAL_028：missing_or_empty_explanation
+- 19-4-01 EXP_19_4_01_SEMANTIC_FINAL_029：missing_or_empty_explanation; phone_formula_alias_needed
+- 19-4-01 EXP_19_4_01_SEMANTIC_FINAL_030：missing_or_empty_explanation
+- 19-4-02 EXP_19_4_02_SEMANTIC_FINAL_001：too_shallow_title_object
+- 19-4-02 EXP_19_4_02_SEMANTIC_FINAL_004：原题被 rewrite/reject 后以 proposed_question 修复
+- 19-4-02 EXP_19_4_02_SEMANTIC_FINAL_005：原题被 rewrite/reject 后以 proposed_question 修复
+- 19-4-02 EXP_19_4_02_SEMANTIC_FINAL_008：adjacent_section_generation_decomposition
+- 19-4-02 EXP_19_4_02_SEMANTIC_FINAL_009：adjacent_theory_not_video_point
+- 19-4-02 EXP_19_4_02_SEMANTIC_FINAL_011：too_shallow_title_object
+- 19-4-02 EXP_19_4_02_SEMANTIC_FINAL_015：原题被 rewrite/reject 后以 proposed_question 修复
+- 19-4-02 EXP_19_4_02_SEMANTIC_FINAL_017：tautological_low_value
+- 19-4-02 EXP_19_4_02_SEMANTIC_FINAL_018：adjacent_section_generation_decomposition
+- 19-4-02 EXP_19_4_02_SEMANTIC_FINAL_019：adjacent_theory_not_video_point
+- 19-4-02 EXP_19_4_02_SEMANTIC_FINAL_021：too_shallow_title_object
+- 19-4-02 EXP_19_4_02_SEMANTIC_FINAL_022：phone_formula_alias_needed
+- 19-4-02 EXP_19_4_02_SEMANTIC_FINAL_023：phone_formula_alias_needed
+- 19-4-02 EXP_19_4_02_SEMANTIC_FINAL_024：phone_formula_alias_needed
+- 19-4-02 EXP_19_4_02_SEMANTIC_FINAL_025：phone_formula_alias_needed
+- 19-4-02 EXP_19_4_02_SEMANTIC_FINAL_027：phone_formula_alias_needed
+- 19-4-02 EXP_19_4_02_SEMANTIC_FINAL_028：adjacent_section_generation_decomposition; phone_formula_alias_needed
+- 19-4-02 EXP_19_4_02_SEMANTIC_FINAL_029：adjacent_theory_not_video_point
+- 19-4-02 EXP_19_4_02_SEMANTIC_FINAL_030：phone_formula_alias_needed
+- 19-4-03 EXP_19_4_03_SEMANTIC_FINAL_006：adjacent_oxidation_point_not_current_video_point
+- 19-4-03 EXP_19_4_03_SEMANTIC_FINAL_010：meta_item_not_student_reasoning
+- 19-4-03 EXP_19_4_03_SEMANTIC_FINAL_016：adjacent_oxidation_point_not_current_video_point
+- 19-4-03 EXP_19_4_03_SEMANTIC_FINAL_019：double_negative_true_false
+- 19-4-03 EXP_19_4_03_SEMANTIC_FINAL_020：double_negative_true_false
+- 19-4-03 EXP_19_4_03_SEMANTIC_FINAL_021：phone_formula_alias_needed
+- 19-4-03 EXP_19_4_03_SEMANTIC_FINAL_024：phone_formula_alias_needed
+- 19-4-03 EXP_19_4_03_SEMANTIC_FINAL_025：phone_formula_alias_needed
+- 19-4-03 EXP_19_4_03_SEMANTIC_FINAL_026：phone_formula_alias_needed
+- 19-4-03 EXP_19_4_03_SEMANTIC_FINAL_028：adjacent_oxidation_point_not_current_video_point
+- 19-4-03 EXP_19_4_03_SEMANTIC_FINAL_029：phone_formula_alias_needed
+- 19-4-04 EXP_19_4_04_SEMANTIC_FINAL_001：原题被 rewrite/reject 后以 proposed_question 修复
+- 19-4-04 EXP_19_4_04_SEMANTIC_FINAL_006：adjacent_section_generation_decomposition
+- 19-4-04 EXP_19_4_04_SEMANTIC_FINAL_007：adjacent_reduction_point_not_current_video_point
+- 19-4-04 EXP_19_4_04_SEMANTIC_FINAL_009：unsupported_safety_claim
+- 19-4-04 EXP_19_4_04_SEMANTIC_FINAL_014：unsupported_safety_claim
+- 19-4-04 EXP_19_4_04_SEMANTIC_FINAL_019：double_negative_true_false; adjacent_reduction_point_not_current_video_point
+- 19-4-04 EXP_19_4_04_SEMANTIC_FINAL_020：原题被 rewrite/reject 后以 proposed_question 修复
+- 19-4-04 EXP_19_4_04_SEMANTIC_FINAL_023：原题被 rewrite/reject 后以 proposed_question 修复
+- 19-4-04 EXP_19_4_04_SEMANTIC_FINAL_024：phone_formula_alias_needed
+- 19-4-04 EXP_19_4_04_SEMANTIC_FINAL_025：phone_formula_alias_needed
+- 19-4-04 EXP_19_4_04_SEMANTIC_FINAL_026：adjacent_section_generation_decomposition; phone_formula_alias_needed
+- 19-4-04 EXP_19_4_04_SEMANTIC_FINAL_027：adjacent_reduction_point_not_current_video_point
+- 19-4-04 EXP_19_4_04_SEMANTIC_FINAL_029：unsupported_safety_claim
+- 19-4-04 EXP_19_4_04_SEMANTIC_FINAL_030：原题被 rewrite/reject 后以 proposed_question 修复
+- 19-4-05 EXP_19_4_05_SEMANTIC_FINAL_001：adjacent_section_generation_decomposition
+- 19-4-05 EXP_19_4_05_SEMANTIC_FINAL_002：adjacent_section_generation_decomposition
+- 19-4-05 EXP_19_4_05_SEMANTIC_FINAL_003：adjacent_section_generation_decomposition
+- 19-4-05 EXP_19_4_05_SEMANTIC_FINAL_004：原题被 rewrite/reject 后以 proposed_question 修复
+- 19-4-05 EXP_19_4_05_SEMANTIC_FINAL_010：adjacent_detection_point_not_current_video_point
+- 19-4-05 EXP_19_4_05_SEMANTIC_FINAL_011：adjacent_section_generation_decomposition
+- 19-4-05 EXP_19_4_05_SEMANTIC_FINAL_012：adjacent_section_generation_decomposition
+- 19-4-05 EXP_19_4_05_SEMANTIC_FINAL_013：adjacent_section_generation_decomposition
+- 19-4-05 EXP_19_4_05_SEMANTIC_FINAL_017：double_negative_true_false; adjacent_section_generation_decomposition
+- 19-4-05 EXP_19_4_05_SEMANTIC_FINAL_019：double_negative_true_false
+- 19-4-05 EXP_19_4_05_SEMANTIC_FINAL_021：adjacent_section_generation_decomposition; missing_or_empty_explanation; phone_formula_alias_needed
+- 19-4-05 EXP_19_4_05_SEMANTIC_FINAL_022：adjacent_section_generation_decomposition; missing_or_empty_explanation; phone_formula_alias_needed
+- 19-4-05 EXP_19_4_05_SEMANTIC_FINAL_023：adjacent_section_generation_decomposition; missing_or_empty_explanation; phone_formula_alias_needed
+- 19-4-05 EXP_19_4_05_SEMANTIC_FINAL_024：missing_or_empty_explanation; phone_formula_alias_needed
+- 19-4-05 EXP_19_4_05_SEMANTIC_FINAL_025：missing_or_empty_explanation
+- 19-4-05 EXP_19_4_05_SEMANTIC_FINAL_026：missing_or_empty_explanation
+- 19-4-05 EXP_19_4_05_SEMANTIC_FINAL_027：adjacent_section_generation_decomposition; missing_or_empty_explanation; phone_formula_alias_needed
+- 19-4-05 EXP_19_4_05_SEMANTIC_FINAL_028：missing_or_empty_explanation; phone_formula_alias_needed
+- 19-4-05 EXP_19_4_05_SEMANTIC_FINAL_029：missing_or_empty_explanation
+- 19-4-05 EXP_19_4_05_SEMANTIC_FINAL_030：adjacent_detection_point_not_current_video_point; missing_or_empty_explanation
+- 19-4-06 EXP_19_4_06_SEMANTIC_FINAL_001：missing_or_empty_explanation
+- 19-4-06 EXP_19_4_06_SEMANTIC_FINAL_002：missing_or_empty_explanation
+- 19-4-06 EXP_19_4_06_SEMANTIC_FINAL_003：missing_or_empty_explanation
+- 19-4-06 EXP_19_4_06_SEMANTIC_FINAL_004：missing_or_empty_explanation
+- 19-4-06 EXP_19_4_06_SEMANTIC_FINAL_005：missing_or_empty_explanation
+- 19-4-06 EXP_19_4_06_SEMANTIC_FINAL_006：adjacent_theory_not_video_point; missing_or_empty_explanation
+- 19-4-06 EXP_19_4_06_SEMANTIC_FINAL_007：missing_or_empty_explanation
+- 19-4-06 EXP_19_4_06_SEMANTIC_FINAL_008：missing_or_empty_explanation
+- 19-4-06 EXP_19_4_06_SEMANTIC_FINAL_009：missing_or_empty_explanation
+- 19-4-06 EXP_19_4_06_SEMANTIC_FINAL_010：missing_or_empty_explanation
+- 19-4-06 EXP_19_4_06_SEMANTIC_FINAL_011：missing_or_empty_explanation
+- 19-4-06 EXP_19_4_06_SEMANTIC_FINAL_012：missing_or_empty_explanation
+- 19-4-06 EXP_19_4_06_SEMANTIC_FINAL_013：missing_or_empty_explanation
+- 19-4-06 EXP_19_4_06_SEMANTIC_FINAL_014：missing_or_empty_explanation
+- 19-4-06 EXP_19_4_06_SEMANTIC_FINAL_015：missing_or_empty_explanation
+- 19-4-06 EXP_19_4_06_SEMANTIC_FINAL_016：missing_or_empty_explanation
+- 19-4-06 EXP_19_4_06_SEMANTIC_FINAL_017：missing_or_empty_explanation
+- 19-4-06 EXP_19_4_06_SEMANTIC_FINAL_018：adjacent_theory_not_video_point; missing_or_empty_explanation
+- 19-4-06 EXP_19_4_06_SEMANTIC_FINAL_019：missing_or_empty_explanation
+- 19-4-06 EXP_19_4_06_SEMANTIC_FINAL_020：missing_or_empty_explanation
+- 19-4-06 EXP_19_4_06_SEMANTIC_FINAL_021：missing_or_empty_explanation; phone_formula_alias_needed
+- 19-4-06 EXP_19_4_06_SEMANTIC_FINAL_022：missing_or_empty_explanation
+- 19-4-06 EXP_19_4_06_SEMANTIC_FINAL_023：missing_or_empty_explanation; phone_formula_alias_needed
+- 19-4-06 EXP_19_4_06_SEMANTIC_FINAL_024：missing_or_empty_explanation
+- 19-4-06 EXP_19_4_06_SEMANTIC_FINAL_025：low_value_theory_only; missing_or_empty_explanation
+- 19-4-06 EXP_19_4_06_SEMANTIC_FINAL_026：missing_or_empty_explanation; phone_formula_alias_needed
+- 19-4-06 EXP_19_4_06_SEMANTIC_FINAL_027：missing_or_empty_explanation
+- 19-4-06 EXP_19_4_06_SEMANTIC_FINAL_028：missing_or_empty_explanation
+- 19-4-06 EXP_19_4_06_SEMANTIC_FINAL_029：missing_or_empty_explanation
+- 19-4-06 EXP_19_4_06_SEMANTIC_FINAL_030：adjacent_theory_not_video_point; missing_or_empty_explanation
+- 19-4-07 EXP_19_4_07_SEMANTIC_FINAL_002：原题被 rewrite/reject 后以 proposed_question 修复
+- 19-4-07 EXP_19_4_07_SEMANTIC_FINAL_003：原题被 rewrite/reject 后以 proposed_question 修复
+- 19-4-07 EXP_19_4_07_SEMANTIC_FINAL_004：原题被 rewrite/reject 后以 proposed_question 修复
+- 19-4-07 EXP_19_4_07_SEMANTIC_FINAL_011：原题被 rewrite/reject 后以 proposed_question 修复
+- 19-4-07 EXP_19_4_07_SEMANTIC_FINAL_012：原题被 rewrite/reject 后以 proposed_question 修复
+- 19-4-07 EXP_19_4_07_SEMANTIC_FINAL_013：原题被 rewrite/reject 后以 proposed_question 修复
+- 19-4-07 EXP_19_4_07_SEMANTIC_FINAL_014：原题被 rewrite/reject 后以 proposed_question 修复
+- 19-4-07 EXP_19_4_07_SEMANTIC_FINAL_022：phone_formula_alias_needed
+- 19-4-07 EXP_19_4_07_SEMANTIC_FINAL_023：phone_formula_alias_needed
+- 19-4-07 EXP_19_4_07_SEMANTIC_FINAL_024：phone_formula_alias_needed
+- 19-4-07 EXP_19_4_07_SEMANTIC_FINAL_026：phone_formula_alias_needed
+- 19-4-07 EXP_19_4_07_SEMANTIC_FINAL_027：phone_formula_alias_needed
+- 19-4-07 EXP_19_4_07_SEMANTIC_FINAL_030：phone_formula_alias_needed
+- 19-4-08 EXP_19_4_08_SEMANTIC_FINAL_006：alternate_method_not_video_point
+- 19-4-08 EXP_19_4_08_SEMANTIC_FINAL_016：alternate_method_not_video_point
+- 19-4-08 EXP_19_4_08_SEMANTIC_FINAL_017：double_negative_true_false
+- 19-4-08 EXP_19_4_08_SEMANTIC_FINAL_018：原题被 rewrite/reject 后以 proposed_question 修复
+- 19-4-08 EXP_19_4_08_SEMANTIC_FINAL_019：double_negative_true_false
+- 19-4-08 EXP_19_4_08_SEMANTIC_FINAL_021：phone_formula_alias_needed
+- 19-4-08 EXP_19_4_08_SEMANTIC_FINAL_022：phone_formula_alias_needed
+- 19-4-08 EXP_19_4_08_SEMANTIC_FINAL_024：phone_formula_alias_needed
+- 19-4-08 EXP_19_4_08_SEMANTIC_FINAL_026：phone_formula_alias_needed
+- 19-4-08 EXP_19_4_08_SEMANTIC_FINAL_027：alternate_method_not_video_point; phone_formula_alias_needed
+- 19-4-08 EXP_19_4_08_SEMANTIC_FINAL_028：phone_formula_alias_needed
+- 19-4-08 EXP_19_4_08_SEMANTIC_FINAL_030：phone_formula_alias_needed
+- 19-4-09 EXP_19_4_09_SEMANTIC_FINAL_001：alternate_method_not_video_point
+- 19-4-09 EXP_19_4_09_SEMANTIC_FINAL_002：alternate_method_not_video_point
+- 19-4-09 EXP_19_4_09_SEMANTIC_FINAL_003：alternate_method_not_video_point
+- 19-4-09 EXP_19_4_09_SEMANTIC_FINAL_004：原题被 rewrite/reject 后以 proposed_question 修复
+- 19-4-09 EXP_19_4_09_SEMANTIC_FINAL_005：原题被 rewrite/reject 后以 proposed_question 修复
+- 19-4-09 EXP_19_4_09_SEMANTIC_FINAL_009：unsupported_safety_claim
+- 19-4-09 EXP_19_4_09_SEMANTIC_FINAL_010：原题被 rewrite/reject 后以 proposed_question 修复
+- 19-4-09 EXP_19_4_09_SEMANTIC_FINAL_011：alternate_method_not_video_point
+- 19-4-09 EXP_19_4_09_SEMANTIC_FINAL_015：unsupported_safety_claim
+- 19-4-09 EXP_19_4_09_SEMANTIC_FINAL_016：原题被 rewrite/reject 后以 proposed_question 修复
+- 19-4-09 EXP_19_4_09_SEMANTIC_FINAL_017：alternate_method_not_video_point
+- 19-4-09 EXP_19_4_09_SEMANTIC_FINAL_019：double_negative_true_false
+- 19-4-09 EXP_19_4_09_SEMANTIC_FINAL_021：alternate_method_not_video_point
+- 19-4-09 EXP_19_4_09_SEMANTIC_FINAL_022：alternate_method_not_video_point
+- 19-4-09 EXP_19_4_09_SEMANTIC_FINAL_023：alternate_method_not_video_point
+- 19-4-09 EXP_19_4_09_SEMANTIC_FINAL_024：phone_formula_alias_needed
+- 19-4-09 EXP_19_4_09_SEMANTIC_FINAL_025：phone_formula_alias_needed
+- 19-4-09 EXP_19_4_09_SEMANTIC_FINAL_027：phone_formula_alias_needed
+- 19-4-09 EXP_19_4_09_SEMANTIC_FINAL_028：phone_formula_alias_needed
+- 19-4-09 EXP_19_4_09_SEMANTIC_FINAL_029：unsupported_safety_claim
+- 19-4-09 EXP_19_4_09_SEMANTIC_FINAL_030：phone_formula_alias_needed
+- 19-5-01 EXP_19_5_01_SEMANTIC_FINAL_001：原题被 rewrite/reject 后以 proposed_question 修复
+- 19-5-01 EXP_19_5_01_SEMANTIC_FINAL_002：原题被 rewrite/reject 后以 proposed_question 修复
+- 19-5-01 EXP_19_5_01_SEMANTIC_FINAL_011：原题被 rewrite/reject 后以 proposed_question 修复
+- 19-5-01 EXP_19_5_01_SEMANTIC_FINAL_019：double_negative_true_false
+- 19-5-01 EXP_19_5_01_SEMANTIC_FINAL_020：double_negative_true_false
+- 19-5-01 EXP_19_5_01_SEMANTIC_FINAL_021：missing_or_empty_explanation
+- 19-5-01 EXP_19_5_01_SEMANTIC_FINAL_022：missing_or_empty_explanation; phone_formula_alias_needed
+- 19-5-01 EXP_19_5_01_SEMANTIC_FINAL_023：missing_or_empty_explanation
+- 19-5-01 EXP_19_5_01_SEMANTIC_FINAL_024：missing_or_empty_explanation; phone_formula_alias_needed
+- 19-5-01 EXP_19_5_01_SEMANTIC_FINAL_025：missing_or_empty_explanation; phone_formula_alias_needed
+- 19-5-01 EXP_19_5_01_SEMANTIC_FINAL_026：missing_or_empty_explanation
+- 19-5-01 EXP_19_5_01_SEMANTIC_FINAL_027：missing_or_empty_explanation
+- 19-5-01 EXP_19_5_01_SEMANTIC_FINAL_028：missing_or_empty_explanation
+- 19-5-01 EXP_19_5_01_SEMANTIC_FINAL_029：missing_or_empty_explanation; phone_formula_alias_needed
+- 19-5-01 EXP_19_5_01_SEMANTIC_FINAL_030：meta_item_not_student_reasoning; missing_or_empty_explanation
+- 19-6-01 EXP_19_6_01_SEMANTIC_FINAL_001：missing_or_empty_explanation
+- 19-6-01 EXP_19_6_01_SEMANTIC_FINAL_002：missing_or_empty_explanation
+- 19-6-01 EXP_19_6_01_SEMANTIC_FINAL_003：missing_or_empty_explanation
+- 19-6-01 EXP_19_6_01_SEMANTIC_FINAL_004：missing_or_empty_explanation
+- 19-6-01 EXP_19_6_01_SEMANTIC_FINAL_005：missing_or_empty_explanation
+- 19-6-01 EXP_19_6_01_SEMANTIC_FINAL_006：missing_or_empty_explanation
+- 19-6-01 EXP_19_6_01_SEMANTIC_FINAL_007：missing_or_empty_explanation
+- 19-6-01 EXP_19_6_01_SEMANTIC_FINAL_008：missing_or_empty_explanation
+- 19-6-01 EXP_19_6_01_SEMANTIC_FINAL_009：missing_or_empty_explanation
+- 19-6-01 EXP_19_6_01_SEMANTIC_FINAL_010：too_shallow_title_object; missing_or_empty_explanation
+- 19-6-01 EXP_19_6_01_SEMANTIC_FINAL_011：missing_or_empty_explanation
+- 19-6-01 EXP_19_6_01_SEMANTIC_FINAL_012：missing_or_empty_explanation
+- 19-6-01 EXP_19_6_01_SEMANTIC_FINAL_013：missing_or_empty_explanation
+- 19-6-01 EXP_19_6_01_SEMANTIC_FINAL_014：missing_or_empty_explanation
+- 19-6-01 EXP_19_6_01_SEMANTIC_FINAL_015：missing_or_empty_explanation
+- 19-6-01 EXP_19_6_01_SEMANTIC_FINAL_016：unsupported_safety_claim; missing_or_empty_explanation
+- 19-6-01 EXP_19_6_01_SEMANTIC_FINAL_017：missing_or_empty_explanation
+- 19-6-01 EXP_19_6_01_SEMANTIC_FINAL_018：missing_or_empty_explanation
+- 19-6-01 EXP_19_6_01_SEMANTIC_FINAL_019：missing_or_empty_explanation
+- 19-6-01 EXP_19_6_01_SEMANTIC_FINAL_020：missing_or_empty_explanation
+- 19-6-01 EXP_19_6_01_SEMANTIC_FINAL_021：missing_or_empty_explanation
+- 19-6-01 EXP_19_6_01_SEMANTIC_FINAL_022：missing_or_empty_explanation; phone_formula_alias_needed
+- 19-6-01 EXP_19_6_01_SEMANTIC_FINAL_023：missing_or_empty_explanation
+- 19-6-01 EXP_19_6_01_SEMANTIC_FINAL_024：missing_or_empty_explanation; phone_formula_alias_needed
+- 19-6-01 EXP_19_6_01_SEMANTIC_FINAL_025：missing_or_empty_explanation; phone_formula_alias_needed
+- 19-6-01 EXP_19_6_01_SEMANTIC_FINAL_026：missing_or_empty_explanation
+- 19-6-01 EXP_19_6_01_SEMANTIC_FINAL_027：missing_or_empty_explanation
+- 19-6-01 EXP_19_6_01_SEMANTIC_FINAL_028：missing_or_empty_explanation
+- 19-6-01 EXP_19_6_01_SEMANTIC_FINAL_029：missing_or_empty_explanation; phone_formula_alias_needed
+- 19-6-01 EXP_19_6_01_SEMANTIC_FINAL_030：too_shallow_title_object; missing_or_empty_explanation
+
+### 最终仍不足
+- 无。
+
+## Multiple Point Items
+- 19-3-03 EXP_19_3_03_SEMANTIC_FINAL_001：primary=['candidate-1-26a8e36e', 'candidate-2-795f5a0b']; secondary=[]
+- 19-3-03 EXP_19_3_03_SEMANTIC_FINAL_002：primary=['candidate-1-26a8e36e', 'candidate-2-795f5a0b']; secondary=[]
+- 19-3-03 EXP_19_3_03_SEMANTIC_FINAL_008：primary=['candidate-1-26a8e36e', 'candidate-2-795f5a0b']; secondary=[]
+- 19-3-03 EXP_19_3_03_SEMANTIC_FINAL_018：primary=['candidate-1-26a8e36e', 'candidate-2-795f5a0b']; secondary=[]
+- 19-3-03 EXP_19_3_03_SEMANTIC_FINAL_027：primary=['candidate-1-26a8e36e', 'candidate-2-795f5a0b']; secondary=[]
+- 19-3-03 EXP_19_3_03_SEMANTIC_FINAL_029：primary=['candidate-1-26a8e36e', 'candidate-2-795f5a0b']; secondary=[]
+- 19-3-04 EXP_19_3_04_SEMANTIC_FINAL_007：primary=['candidate-1-122909e7', 'candidate-2-982bdc6e']; secondary=[]
+- 19-3-04 EXP_19_3_04_SEMANTIC_FINAL_009：primary=['candidate-1-122909e7', 'candidate-2-982bdc6e', 'candidate-3-387fff62', 'candidate-4-5013d52a']; secondary=[]
+- 19-3-04 EXP_19_3_04_SEMANTIC_FINAL_030：primary=['candidate-1-122909e7', 'candidate-2-982bdc6e']; secondary=[]
+- 19-3-05 EXP_19_3_05_SEMANTIC_FINAL_001：primary=['candidate-1-86f30b4d', 'candidate-2-8d180ec9']; secondary=[]
+- 19-3-05 EXP_19_3_05_SEMANTIC_FINAL_002：primary=['candidate-1-86f30b4d', 'candidate-2-8d180ec9']; secondary=[]
+- 19-3-05 EXP_19_3_05_SEMANTIC_FINAL_005：primary=['candidate-1-86f30b4d', 'candidate-2-8d180ec9']; secondary=[]
+- 19-3-05 EXP_19_3_05_SEMANTIC_FINAL_008：primary=['candidate-1-86f30b4d', 'candidate-3-6348ebe3']; secondary=[]
+- 19-3-05 EXP_19_3_05_SEMANTIC_FINAL_012：primary=['candidate-1-86f30b4d', 'candidate-2-8d180ec9']; secondary=[]
+- 19-3-05 EXP_19_3_05_SEMANTIC_FINAL_014：primary=['candidate-1-86f30b4d', 'candidate-3-6348ebe3']; secondary=[]
+- 19-3-05 EXP_19_3_05_SEMANTIC_FINAL_017：primary=['candidate-1-86f30b4d', 'candidate-2-8d180ec9']; secondary=[]
+- 19-3-05 EXP_19_3_05_SEMANTIC_FINAL_018：primary=['candidate-1-86f30b4d', 'candidate-2-8d180ec9']; secondary=[]
+- 19-3-05 EXP_19_3_05_SEMANTIC_FINAL_020：primary=['candidate-1-86f30b4d', 'candidate-3-6348ebe3']; secondary=[]
+- 19-3-05 EXP_19_3_05_SEMANTIC_FINAL_021：primary=['candidate-1-86f30b4d', 'candidate-3-6348ebe3']; secondary=[]
+- 19-3-05 EXP_19_3_05_SEMANTIC_FINAL_022：primary=['candidate-1-86f30b4d', 'candidate-2-8d180ec9']; secondary=[]
+- 19-3-05 EXP_19_3_05_SEMANTIC_FINAL_025：primary=['candidate-1-86f30b4d', 'candidate-2-8d180ec9']; secondary=[]
+- 19-3-05 EXP_19_3_05_SEMANTIC_FINAL_028：primary=['candidate-1-86f30b4d', 'candidate-3-6348ebe3']; secondary=[]
+- 19-3-06 EXP_19_3_06_SEMANTIC_FINAL_001：primary=['candidate-1-f8d33e0a', 'candidate-2-1edce2d8']; secondary=[]
+- 19-3-06 EXP_19_3_06_SEMANTIC_FINAL_003：primary=['candidate-1-f8d33e0a', 'candidate-2-1edce2d8']; secondary=[]
+- 19-3-06 EXP_19_3_06_SEMANTIC_FINAL_004：primary=['candidate-1-f8d33e0a', 'candidate-2-1edce2d8']; secondary=[]
+- 19-3-06 EXP_19_3_06_SEMANTIC_FINAL_005：primary=['candidate-1-f8d33e0a', 'candidate-2-1edce2d8']; secondary=[]
+- 19-3-06 EXP_19_3_06_SEMANTIC_FINAL_007：primary=['candidate-1-f8d33e0a', 'candidate-2-1edce2d8']; secondary=[]
+- 19-3-06 EXP_19_3_06_SEMANTIC_FINAL_008：primary=['candidate-1-f8d33e0a', 'candidate-2-1edce2d8']; secondary=[]
+- 19-3-06 EXP_19_3_06_SEMANTIC_FINAL_011：primary=['candidate-1-f8d33e0a', 'candidate-2-1edce2d8']; secondary=[]
+- 19-3-06 EXP_19_3_06_SEMANTIC_FINAL_012：primary=['candidate-1-f8d33e0a', 'candidate-2-1edce2d8']; secondary=[]
+- 19-3-06 EXP_19_3_06_SEMANTIC_FINAL_014：primary=['candidate-1-f8d33e0a', 'candidate-2-1edce2d8']; secondary=[]
+- 19-3-06 EXP_19_3_06_SEMANTIC_FINAL_016：primary=['candidate-1-f8d33e0a', 'candidate-2-1edce2d8']; secondary=[]
+- 19-3-06 EXP_19_3_06_SEMANTIC_FINAL_017：primary=['candidate-1-f8d33e0a', 'candidate-2-1edce2d8']; secondary=[]
+- 19-3-06 EXP_19_3_06_SEMANTIC_FINAL_018：primary=['candidate-1-f8d33e0a', 'candidate-2-1edce2d8']; secondary=[]
+- 19-3-06 EXP_19_3_06_SEMANTIC_FINAL_019：primary=['candidate-1-f8d33e0a', 'candidate-2-1edce2d8']; secondary=[]
+- 19-3-06 EXP_19_3_06_SEMANTIC_FINAL_021：primary=['candidate-1-f8d33e0a', 'candidate-2-1edce2d8']; secondary=[]
+- 19-3-06 EXP_19_3_06_SEMANTIC_FINAL_022：primary=['candidate-1-f8d33e0a', 'candidate-2-1edce2d8']; secondary=[]
+- 19-3-06 EXP_19_3_06_SEMANTIC_FINAL_024：primary=['candidate-1-f8d33e0a', 'candidate-2-1edce2d8']; secondary=[]
+- 19-3-06 EXP_19_3_06_SEMANTIC_FINAL_025：primary=['candidate-1-f8d33e0a', 'candidate-2-1edce2d8']; secondary=[]
+- 19-3-06 EXP_19_3_06_SEMANTIC_FINAL_026：primary=['candidate-1-f8d33e0a', 'candidate-2-1edce2d8']; secondary=[]
+- 19-3-06 EXP_19_3_06_SEMANTIC_FINAL_028：primary=['candidate-1-f8d33e0a', 'candidate-2-1edce2d8']; secondary=[]
+- 19-3-06 EXP_19_3_06_SEMANTIC_FINAL_029：primary=['candidate-1-f8d33e0a', 'candidate-2-1edce2d8']; secondary=[]
+- 19-3-06 EXP_19_3_06_SEMANTIC_FINAL_030：primary=['candidate-1-f8d33e0a', 'candidate-2-1edce2d8']; secondary=[]
+- 19-4-01 EXP_19_4_01_SEMANTIC_FINAL_007：primary=['candidate-1-03b55150', 'candidate-2-0ee21807']; secondary=[]
+- 19-4-01 EXP_19_4_01_SEMANTIC_FINAL_009：primary=['candidate-1-03b55150', 'candidate-2-0ee21807']; secondary=[]
+- 19-4-01 EXP_19_4_01_SEMANTIC_FINAL_010：primary=['candidate-1-03b55150', 'candidate-2-0ee21807']; secondary=[]
+- 19-4-01 EXP_19_4_01_SEMANTIC_FINAL_016：primary=['candidate-1-03b55150', 'candidate-2-0ee21807']; secondary=[]
+- 19-4-01 EXP_19_4_01_SEMANTIC_FINAL_020：primary=['candidate-1-03b55150', 'candidate-2-0ee21807']; secondary=[]
+- 19-4-02 EXP_19_4_02_SEMANTIC_FINAL_001：primary=['candidate-1-88b9b794', 'candidate-2-9aa26776']; secondary=[]
+- 19-4-02 EXP_19_4_02_SEMANTIC_FINAL_004：primary=['candidate-1-88b9b794', 'candidate-2-9aa26776']; secondary=[]
+- 19-4-02 EXP_19_4_02_SEMANTIC_FINAL_008：primary=['candidate-1-88b9b794', 'candidate-2-9aa26776']; secondary=[]
+- 19-4-02 EXP_19_4_02_SEMANTIC_FINAL_009：primary=['candidate-1-88b9b794', 'candidate-2-9aa26776']; secondary=[]
+- 19-4-02 EXP_19_4_02_SEMANTIC_FINAL_010：primary=['candidate-1-88b9b794', 'candidate-2-9aa26776']; secondary=[]
+- 19-4-02 EXP_19_4_02_SEMANTIC_FINAL_019：primary=['candidate-1-88b9b794', 'candidate-2-9aa26776']; secondary=[]
+- 19-4-02 EXP_19_4_02_SEMANTIC_FINAL_029：primary=['candidate-1-88b9b794', 'candidate-2-9aa26776']; secondary=[]
+- 19-4-03 EXP_19_4_03_SEMANTIC_FINAL_007：primary=['candidate-1-80f91837', 'candidate-2-72cbedf8']; secondary=[]
+- 19-4-03 EXP_19_4_03_SEMANTIC_FINAL_026：primary=['candidate-1-80f91837', 'candidate-2-72cbedf8']; secondary=[]
+- 19-4-04 EXP_19_4_04_SEMANTIC_FINAL_010：primary=['candidate-1-724956e8', 'candidate-2-e03872e8']; secondary=[]
+- 19-4-04 EXP_19_4_04_SEMANTIC_FINAL_018：primary=['candidate-1-724956e8', 'candidate-2-e03872e8']; secondary=[]
+- 19-4-04 EXP_19_4_04_SEMANTIC_FINAL_019：primary=['candidate-1-724956e8', 'candidate-2-e03872e8']; secondary=[]
+- 19-4-04 EXP_19_4_04_SEMANTIC_FINAL_030：primary=['candidate-1-724956e8', 'candidate-2-e03872e8']; secondary=[]
+- 19-4-05 EXP_19_4_05_SEMANTIC_FINAL_001：primary=['candidate-1-23649f43', 'candidate-2-98dd8f1e']; secondary=[]
+- 19-4-05 EXP_19_4_05_SEMANTIC_FINAL_003：primary=['candidate-1-23649f43', 'candidate-2-98dd8f1e']; secondary=[]
+- 19-4-05 EXP_19_4_05_SEMANTIC_FINAL_008：primary=['candidate-1-23649f43', 'candidate-2-98dd8f1e']; secondary=[]
+- 19-4-05 EXP_19_4_05_SEMANTIC_FINAL_009：primary=['candidate-1-23649f43', 'candidate-2-98dd8f1e']; secondary=[]
+- 19-4-05 EXP_19_4_05_SEMANTIC_FINAL_010：primary=['candidate-1-23649f43', 'candidate-2-98dd8f1e']; secondary=[]
+- 19-4-05 EXP_19_4_05_SEMANTIC_FINAL_011：primary=['candidate-1-23649f43', 'candidate-2-98dd8f1e']; secondary=[]
+- 19-4-05 EXP_19_4_05_SEMANTIC_FINAL_013：primary=['candidate-1-23649f43', 'candidate-2-98dd8f1e']; secondary=[]
+- 19-4-05 EXP_19_4_05_SEMANTIC_FINAL_016：primary=['candidate-1-23649f43', 'candidate-2-98dd8f1e']; secondary=[]
+- 19-4-05 EXP_19_4_05_SEMANTIC_FINAL_020：primary=['candidate-1-23649f43', 'candidate-2-98dd8f1e']; secondary=[]
+- 19-4-05 EXP_19_4_05_SEMANTIC_FINAL_022：primary=['candidate-1-23649f43', 'candidate-2-98dd8f1e']; secondary=[]
+- 19-4-05 EXP_19_4_05_SEMANTIC_FINAL_023：primary=['candidate-1-23649f43', 'candidate-2-98dd8f1e']; secondary=[]
+- 19-4-05 EXP_19_4_05_SEMANTIC_FINAL_026：primary=['candidate-1-23649f43', 'candidate-2-98dd8f1e']; secondary=[]
+- 19-4-06 EXP_19_4_06_SEMANTIC_FINAL_001：primary=['candidate-1-3326cc9a', 'candidate-2-1c81a775', 'candidate-3-a4523875', 'candidate-4-b4a6a327', 'candidate-5-f5d1e095', 'candidate-6-cabb1217']; secondary=[]
+- 19-4-06 EXP_19_4_06_SEMANTIC_FINAL_004：primary=['candidate-5-f5d1e095', 'candidate-6-cabb1217']; secondary=[]
+- 19-4-06 EXP_19_4_06_SEMANTIC_FINAL_006：primary=['candidate-5-f5d1e095', 'candidate-6-cabb1217']; secondary=[]
+- 19-4-06 EXP_19_4_06_SEMANTIC_FINAL_009：primary=['candidate-1-3326cc9a', 'candidate-2-1c81a775', 'candidate-3-a4523875', 'candidate-4-b4a6a327', 'candidate-5-f5d1e095', 'candidate-6-cabb1217']; secondary=[]
+- 19-4-06 EXP_19_4_06_SEMANTIC_FINAL_010：primary=['candidate-1-3326cc9a', 'candidate-2-1c81a775', 'candidate-3-a4523875', 'candidate-4-b4a6a327', 'candidate-5-f5d1e095', 'candidate-6-cabb1217']; secondary=[]
+- 19-4-06 EXP_19_4_06_SEMANTIC_FINAL_012：primary=['candidate-5-f5d1e095', 'candidate-6-cabb1217']; secondary=[]
+- 19-4-06 EXP_19_4_06_SEMANTIC_FINAL_014：primary=['candidate-5-f5d1e095', 'candidate-6-cabb1217']; secondary=[]
+- 19-4-06 EXP_19_4_06_SEMANTIC_FINAL_015：primary=['candidate-1-3326cc9a', 'candidate-2-1c81a775', 'candidate-3-a4523875', 'candidate-4-b4a6a327', 'candidate-5-f5d1e095', 'candidate-6-cabb1217']; secondary=[]
+- 19-4-06 EXP_19_4_06_SEMANTIC_FINAL_016：primary=['candidate-1-3326cc9a', 'candidate-2-1c81a775']; secondary=[]
+- 19-4-06 EXP_19_4_06_SEMANTIC_FINAL_017：primary=['candidate-1-3326cc9a', 'candidate-2-1c81a775', 'candidate-3-a4523875', 'candidate-4-b4a6a327', 'candidate-5-f5d1e095', 'candidate-6-cabb1217']; secondary=[]
+- 19-4-06 EXP_19_4_06_SEMANTIC_FINAL_018：primary=['candidate-1-3326cc9a', 'candidate-2-1c81a775', 'candidate-3-a4523875', 'candidate-4-b4a6a327', 'candidate-5-f5d1e095']; secondary=[]
+- 19-4-06 EXP_19_4_06_SEMANTIC_FINAL_020：primary=['candidate-1-3326cc9a', 'candidate-2-1c81a775', 'candidate-3-a4523875', 'candidate-4-b4a6a327', 'candidate-5-f5d1e095', 'candidate-6-cabb1217']; secondary=[]
+- 19-4-06 EXP_19_4_06_SEMANTIC_FINAL_023：primary=['candidate-5-f5d1e095', 'candidate-6-cabb1217']; secondary=[]
+- 19-4-06 EXP_19_4_06_SEMANTIC_FINAL_024：primary=['candidate-1-3326cc9a', 'candidate-2-1c81a775', 'candidate-3-a4523875', 'candidate-4-b4a6a327', 'candidate-5-f5d1e095', 'candidate-6-cabb1217']; secondary=[]
+- 19-4-06 EXP_19_4_06_SEMANTIC_FINAL_025：primary=['candidate-5-f5d1e095', 'candidate-6-cabb1217']; secondary=[]
+- 19-4-06 EXP_19_4_06_SEMANTIC_FINAL_027：primary=['candidate-1-3326cc9a', 'candidate-2-1c81a775', 'candidate-3-a4523875', 'candidate-4-b4a6a327', 'candidate-5-f5d1e095', 'candidate-6-cabb1217']; secondary=[]
+- 19-4-06 EXP_19_4_06_SEMANTIC_FINAL_029：primary=['candidate-1-3326cc9a', 'candidate-2-1c81a775', 'candidate-3-a4523875', 'candidate-4-b4a6a327', 'candidate-5-f5d1e095', 'candidate-6-cabb1217']; secondary=[]
+- 19-4-07 EXP_19_4_07_SEMANTIC_FINAL_001：primary=['candidate-1-2241ae7a', 'candidate-2-aa0424f2', 'candidate-3-91bbea2b', 'candidate-4-29485ccd']; secondary=[]
+- 19-4-07 EXP_19_4_07_SEMANTIC_FINAL_002：primary=['candidate-1-2241ae7a', 'candidate-2-aa0424f2', 'candidate-3-91bbea2b']; secondary=[]
+- 19-4-07 EXP_19_4_07_SEMANTIC_FINAL_004：primary=['candidate-2-aa0424f2', 'candidate-3-91bbea2b']; secondary=[]
+- 19-4-07 EXP_19_4_07_SEMANTIC_FINAL_007：primary=['candidate-2-aa0424f2', 'candidate-3-91bbea2b']; secondary=[]
+- 19-4-07 EXP_19_4_07_SEMANTIC_FINAL_008：primary=['candidate-1-2241ae7a', 'candidate-2-aa0424f2', 'candidate-3-91bbea2b', 'candidate-4-29485ccd']; secondary=[]
+- 19-4-07 EXP_19_4_07_SEMANTIC_FINAL_009：primary=['candidate-1-2241ae7a', 'candidate-2-aa0424f2', 'candidate-3-91bbea2b', 'candidate-4-29485ccd']; secondary=[]
+- 19-4-07 EXP_19_4_07_SEMANTIC_FINAL_010：primary=['candidate-2-aa0424f2', 'candidate-3-91bbea2b']; secondary=[]
+- 19-4-07 EXP_19_4_07_SEMANTIC_FINAL_011：primary=['candidate-1-2241ae7a', 'candidate-2-aa0424f2', 'candidate-3-91bbea2b', 'candidate-4-29485ccd']; secondary=[]
+- 19-4-07 EXP_19_4_07_SEMANTIC_FINAL_012：primary=['candidate-1-2241ae7a', 'candidate-2-aa0424f2', 'candidate-3-91bbea2b']; secondary=[]
+- 19-4-07 EXP_19_4_07_SEMANTIC_FINAL_014：primary=['candidate-2-aa0424f2', 'candidate-3-91bbea2b']; secondary=[]
+- 19-4-07 EXP_19_4_07_SEMANTIC_FINAL_017：primary=['candidate-2-aa0424f2', 'candidate-3-91bbea2b']; secondary=[]
+- 19-4-07 EXP_19_4_07_SEMANTIC_FINAL_018：primary=['candidate-1-2241ae7a', 'candidate-2-aa0424f2', 'candidate-3-91bbea2b', 'candidate-4-29485ccd']; secondary=[]
+- 19-4-07 EXP_19_4_07_SEMANTIC_FINAL_019：primary=['candidate-1-2241ae7a', 'candidate-2-aa0424f2', 'candidate-3-91bbea2b', 'candidate-4-29485ccd']; secondary=[]
+- 19-4-07 EXP_19_4_07_SEMANTIC_FINAL_020：primary=['candidate-2-aa0424f2', 'candidate-3-91bbea2b']; secondary=[]
+- 19-4-07 EXP_19_4_07_SEMANTIC_FINAL_021：primary=['candidate-1-2241ae7a', 'candidate-2-aa0424f2', 'candidate-3-91bbea2b', 'candidate-4-29485ccd']; secondary=[]
+- 19-4-07 EXP_19_4_07_SEMANTIC_FINAL_027：primary=['candidate-2-aa0424f2', 'candidate-3-91bbea2b']; secondary=[]
+- 19-4-07 EXP_19_4_07_SEMANTIC_FINAL_028：primary=['candidate-1-2241ae7a', 'candidate-2-aa0424f2', 'candidate-3-91bbea2b', 'candidate-4-29485ccd']; secondary=[]
+- 19-4-07 EXP_19_4_07_SEMANTIC_FINAL_029：primary=['candidate-1-2241ae7a', 'candidate-2-aa0424f2', 'candidate-3-91bbea2b', 'candidate-4-29485ccd']; secondary=[]
+- 19-4-07 EXP_19_4_07_SEMANTIC_FINAL_030：primary=['candidate-2-aa0424f2', 'candidate-3-91bbea2b']; secondary=[]
+- 19-4-09 EXP_19_4_09_SEMANTIC_FINAL_009：primary=['candidate-1-520f0192', 'candidate-2-a452c505']; secondary=[]
+- 19-4-09 EXP_19_4_09_SEMANTIC_FINAL_010：primary=['candidate-1-520f0192', 'candidate-2-a452c505']; secondary=[]
+- 19-4-09 EXP_19_4_09_SEMANTIC_FINAL_023：primary=['candidate-1-520f0192', 'candidate-2-a452c505']; secondary=[]
+- 19-4-09 EXP_19_4_09_SEMANTIC_FINAL_030：primary=['candidate-1-520f0192', 'candidate-2-a452c505']; secondary=[]
+- 19-5-01 EXP_19_5_01_SEMANTIC_FINAL_001：primary=['candidate-1-397a1298', 'candidate-2-df9b9095', 'candidate-3-97208db2', 'candidate-4-b89f131c']; secondary=[]
+- 19-5-01 EXP_19_5_01_SEMANTIC_FINAL_005：primary=['candidate-1-397a1298', 'candidate-2-df9b9095', 'candidate-3-97208db2', 'candidate-4-b89f131c', 'candidate-5-5855225d', 'candidate-6-8f1b6ad6', 'candidate-7-d1ef41c4', 'candidate-8-2b740a96']; secondary=[]
+- 19-5-01 EXP_19_5_01_SEMANTIC_FINAL_006：primary=['candidate-3-97208db2', 'candidate-4-b89f131c', 'candidate-8-2b740a96']; secondary=[]
+- 19-5-01 EXP_19_5_01_SEMANTIC_FINAL_007：primary=['candidate-1-397a1298', 'candidate-2-df9b9095', 'candidate-3-97208db2', 'candidate-4-b89f131c', 'candidate-5-5855225d', 'candidate-6-8f1b6ad6', 'candidate-7-d1ef41c4', 'candidate-8-2b740a96']; secondary=[]
+- 19-5-01 EXP_19_5_01_SEMANTIC_FINAL_008：primary=['candidate-7-d1ef41c4', 'candidate-8-2b740a96']; secondary=[]
+- 19-5-01 EXP_19_5_01_SEMANTIC_FINAL_009：primary=['candidate-1-397a1298', 'candidate-2-df9b9095', 'candidate-3-97208db2', 'candidate-4-b89f131c', 'candidate-5-5855225d', 'candidate-6-8f1b6ad6', 'candidate-7-d1ef41c4', 'candidate-8-2b740a96']; secondary=[]
+- 19-5-01 EXP_19_5_01_SEMANTIC_FINAL_010：primary=['candidate-1-397a1298', 'candidate-2-df9b9095', 'candidate-3-97208db2', 'candidate-4-b89f131c', 'candidate-5-5855225d', 'candidate-6-8f1b6ad6', 'candidate-7-d1ef41c4', 'candidate-8-2b740a96']; secondary=[]
+- 19-5-01 EXP_19_5_01_SEMANTIC_FINAL_011：primary=['candidate-7-d1ef41c4', 'candidate-8-2b740a96']; secondary=[]
+- 19-5-01 EXP_19_5_01_SEMANTIC_FINAL_012：primary=['candidate-1-397a1298', 'candidate-2-df9b9095', 'candidate-8-2b740a96']; secondary=[]
+- 19-5-01 EXP_19_5_01_SEMANTIC_FINAL_013：primary=['candidate-1-397a1298', 'candidate-2-df9b9095', 'candidate-3-97208db2', 'candidate-4-b89f131c', 'candidate-5-5855225d', 'candidate-6-8f1b6ad6', 'candidate-7-d1ef41c4', 'candidate-8-2b740a96']; secondary=[]
+- 19-5-01 EXP_19_5_01_SEMANTIC_FINAL_014：primary=['candidate-1-397a1298', 'candidate-2-df9b9095', 'candidate-3-97208db2', 'candidate-4-b89f131c', 'candidate-5-5855225d', 'candidate-6-8f1b6ad6', 'candidate-7-d1ef41c4', 'candidate-8-2b740a96']; secondary=[]
+- 19-5-01 EXP_19_5_01_SEMANTIC_FINAL_015：primary=['candidate-1-397a1298', 'candidate-2-df9b9095', 'candidate-3-97208db2', 'candidate-4-b89f131c', 'candidate-5-5855225d', 'candidate-6-8f1b6ad6', 'candidate-7-d1ef41c4', 'candidate-8-2b740a96']; secondary=[]
+- 19-5-01 EXP_19_5_01_SEMANTIC_FINAL_016：primary=['candidate-1-397a1298', 'candidate-2-df9b9095', 'candidate-3-97208db2', 'candidate-4-b89f131c', 'candidate-5-5855225d', 'candidate-6-8f1b6ad6', 'candidate-7-d1ef41c4', 'candidate-8-2b740a96']; secondary=[]
+- 19-5-01 EXP_19_5_01_SEMANTIC_FINAL_017：primary=['candidate-7-d1ef41c4', 'candidate-8-2b740a96']; secondary=[]
+- 19-5-01 EXP_19_5_01_SEMANTIC_FINAL_018：primary=['candidate-1-397a1298', 'candidate-2-df9b9095', 'candidate-3-97208db2', 'candidate-4-b89f131c', 'candidate-5-5855225d', 'candidate-6-8f1b6ad6', 'candidate-7-d1ef41c4', 'candidate-8-2b740a96']; secondary=[]
+- 19-5-01 EXP_19_5_01_SEMANTIC_FINAL_019：primary=['candidate-7-d1ef41c4', 'candidate-8-2b740a96']; secondary=[]
+- 19-5-01 EXP_19_5_01_SEMANTIC_FINAL_020：primary=['candidate-1-397a1298', 'candidate-8-2b740a96']; secondary=[]
+- 19-5-01 EXP_19_5_01_SEMANTIC_FINAL_021：primary=['candidate-1-397a1298', 'candidate-2-df9b9095', 'candidate-3-97208db2', 'candidate-4-b89f131c', 'candidate-5-5855225d', 'candidate-6-8f1b6ad6', 'candidate-7-d1ef41c4', 'candidate-8-2b740a96']; secondary=[]
+- 19-5-01 EXP_19_5_01_SEMANTIC_FINAL_022：primary=['candidate-1-397a1298', 'candidate-2-df9b9095', 'candidate-3-97208db2', 'candidate-4-b89f131c', 'candidate-5-5855225d', 'candidate-6-8f1b6ad6', 'candidate-7-d1ef41c4', 'candidate-8-2b740a96']; secondary=[]
+- 19-5-01 EXP_19_5_01_SEMANTIC_FINAL_023：primary=['candidate-1-397a1298', 'candidate-2-df9b9095', 'candidate-3-97208db2', 'candidate-4-b89f131c', 'candidate-5-5855225d', 'candidate-6-8f1b6ad6', 'candidate-7-d1ef41c4', 'candidate-8-2b740a96']; secondary=[]
+- 19-5-01 EXP_19_5_01_SEMANTIC_FINAL_026：primary=['candidate-1-397a1298', 'candidate-2-df9b9095', 'candidate-3-97208db2', 'candidate-4-b89f131c', 'candidate-5-5855225d', 'candidate-6-8f1b6ad6', 'candidate-7-d1ef41c4', 'candidate-8-2b740a96']; secondary=[]
+- 19-5-01 EXP_19_5_01_SEMANTIC_FINAL_027：primary=['candidate-7-d1ef41c4', 'candidate-8-2b740a96']; secondary=[]
+- 19-5-01 EXP_19_5_01_SEMANTIC_FINAL_028：primary=['candidate-1-397a1298', 'candidate-2-df9b9095', 'candidate-3-97208db2', 'candidate-4-b89f131c', 'candidate-5-5855225d', 'candidate-6-8f1b6ad6', 'candidate-7-d1ef41c4', 'candidate-8-2b740a96']; secondary=[]
+- 19-6-01 EXP_19_6_01_SEMANTIC_FINAL_004：primary=['candidate-2-43d12c37', 'candidate-3-42b0372b']; secondary=[]
+- 19-6-01 EXP_19_6_01_SEMANTIC_FINAL_014：primary=['candidate-2-43d12c37', 'candidate-3-42b0372b']; secondary=[]
+- 19-6-01 EXP_19_6_01_SEMANTIC_FINAL_020：primary=['candidate-2-43d12c37', 'candidate-3-42b0372b']; secondary=[]
+- 19-6-01 EXP_19_6_01_SEMANTIC_FINAL_023：primary=['candidate-2-43d12c37', 'candidate-3-42b0372b']; secondary=[]
+
+## Mobile Fill Blank Risk
+### 已修复
+- EXP_19_3_03_SEMANTIC_FINAL_021：原复杂填空已改为单选，避免手机端输入上下标/别名。
+- EXP_19_3_03_SEMANTIC_FINAL_022：原复杂填空已改为单选，避免手机端输入上下标/别名。
+- EXP_19_3_03_SEMANTIC_FINAL_023：原复杂填空已改为单选，避免手机端输入上下标/别名。
+- EXP_19_3_03_SEMANTIC_FINAL_024：原复杂填空已改为单选，避免手机端输入上下标/别名。
+- EXP_19_3_03_SEMANTIC_FINAL_028：原复杂填空已改为单选，避免手机端输入上下标/别名。
+- EXP_19_3_03_SEMANTIC_FINAL_029：原复杂填空已改为单选，避免手机端输入上下标/别名。
+- EXP_19_3_04_SEMANTIC_FINAL_023：原复杂填空已改为单选，避免手机端输入上下标/别名。
+- EXP_19_3_04_SEMANTIC_FINAL_028：原复杂填空已改为单选，避免手机端输入上下标/别名。
+- EXP_19_3_04_SEMANTIC_FINAL_029：原复杂填空已改为单选，避免手机端输入上下标/别名。
+- EXP_19_3_05_SEMANTIC_FINAL_021：原复杂填空已改为单选，避免手机端输入上下标/别名。
+- EXP_19_3_05_SEMANTIC_FINAL_023：原复杂填空已改为单选，避免手机端输入上下标/别名。
+- EXP_19_3_05_SEMANTIC_FINAL_026：原复杂填空已改为单选，避免手机端输入上下标/别名。
+- EXP_19_3_05_SEMANTIC_FINAL_028：原复杂填空已改为单选，避免手机端输入上下标/别名。
+- EXP_19_3_06_SEMANTIC_FINAL_021：原复杂填空已改为单选，避免手机端输入上下标/别名。
+- EXP_19_3_06_SEMANTIC_FINAL_022：原复杂填空已改为单选，避免手机端输入上下标/别名。
+- EXP_19_3_06_SEMANTIC_FINAL_024：原复杂填空已改为单选，避免手机端输入上下标/别名。
+- EXP_19_3_06_SEMANTIC_FINAL_025：原复杂填空已改为单选，避免手机端输入上下标/别名。
+- EXP_19_3_06_SEMANTIC_FINAL_028：原复杂填空已改为单选，避免手机端输入上下标/别名。
+- EXP_19_3_06_SEMANTIC_FINAL_029：原复杂填空已改为单选，避免手机端输入上下标/别名。
+- EXP_19_4_01_SEMANTIC_FINAL_021：原复杂填空已改为单选，避免手机端输入上下标/别名。
+- EXP_19_4_01_SEMANTIC_FINAL_022：原复杂填空已改为单选，避免手机端输入上下标/别名。
+- EXP_19_4_01_SEMANTIC_FINAL_023：原复杂填空已改为单选，避免手机端输入上下标/别名。
+- EXP_19_4_01_SEMANTIC_FINAL_024：原复杂填空已改为单选，避免手机端输入上下标/别名。
+- EXP_19_4_01_SEMANTIC_FINAL_025：原复杂填空已改为单选，避免手机端输入上下标/别名。
+- EXP_19_4_01_SEMANTIC_FINAL_029：原复杂填空已改为单选，避免手机端输入上下标/别名。
+- EXP_19_4_02_SEMANTIC_FINAL_022：原复杂填空已改为单选，避免手机端输入上下标/别名。
+- EXP_19_4_02_SEMANTIC_FINAL_023：原复杂填空已改为单选，避免手机端输入上下标/别名。
+- EXP_19_4_02_SEMANTIC_FINAL_024：原复杂填空已改为单选，避免手机端输入上下标/别名。
+- EXP_19_4_02_SEMANTIC_FINAL_025：原复杂填空已改为单选，避免手机端输入上下标/别名。
+- EXP_19_4_02_SEMANTIC_FINAL_027：原复杂填空已改为单选，避免手机端输入上下标/别名。
+- EXP_19_4_02_SEMANTIC_FINAL_028：原复杂填空已改为单选，避免手机端输入上下标/别名。
+- EXP_19_4_02_SEMANTIC_FINAL_030：原复杂填空已改为单选，避免手机端输入上下标/别名。
+- EXP_19_4_03_SEMANTIC_FINAL_021：原复杂填空已改为单选，避免手机端输入上下标/别名。
+- EXP_19_4_03_SEMANTIC_FINAL_024：原复杂填空已改为单选，避免手机端输入上下标/别名。
+- EXP_19_4_03_SEMANTIC_FINAL_025：原复杂填空已改为单选，避免手机端输入上下标/别名。
+- EXP_19_4_03_SEMANTIC_FINAL_026：原复杂填空已改为单选，避免手机端输入上下标/别名。
+- EXP_19_4_03_SEMANTIC_FINAL_029：原复杂填空已改为单选，避免手机端输入上下标/别名。
+- EXP_19_4_04_SEMANTIC_FINAL_024：原复杂填空已改为单选，避免手机端输入上下标/别名。
+- EXP_19_4_04_SEMANTIC_FINAL_025：原复杂填空已改为单选，避免手机端输入上下标/别名。
+- EXP_19_4_04_SEMANTIC_FINAL_026：原复杂填空已改为单选，避免手机端输入上下标/别名。
+- EXP_19_4_05_SEMANTIC_FINAL_021：原复杂填空已改为单选，避免手机端输入上下标/别名。
+- EXP_19_4_05_SEMANTIC_FINAL_022：原复杂填空已改为单选，避免手机端输入上下标/别名。
+- EXP_19_4_05_SEMANTIC_FINAL_023：原复杂填空已改为单选，避免手机端输入上下标/别名。
+- EXP_19_4_05_SEMANTIC_FINAL_024：原复杂填空已改为单选，避免手机端输入上下标/别名。
+- EXP_19_4_05_SEMANTIC_FINAL_027：原复杂填空已改为单选，避免手机端输入上下标/别名。
+- EXP_19_4_05_SEMANTIC_FINAL_028：原复杂填空已改为单选，避免手机端输入上下标/别名。
+- EXP_19_4_06_SEMANTIC_FINAL_021：原复杂填空已改为单选，避免手机端输入上下标/别名。
+- EXP_19_4_06_SEMANTIC_FINAL_023：原复杂填空已改为单选，避免手机端输入上下标/别名。
+- EXP_19_4_06_SEMANTIC_FINAL_026：原复杂填空已改为单选，避免手机端输入上下标/别名。
+- EXP_19_4_07_SEMANTIC_FINAL_022：原复杂填空已改为单选，避免手机端输入上下标/别名。
+- EXP_19_4_07_SEMANTIC_FINAL_023：原复杂填空已改为单选，避免手机端输入上下标/别名。
+- EXP_19_4_07_SEMANTIC_FINAL_024：原复杂填空已改为单选，避免手机端输入上下标/别名。
+- EXP_19_4_07_SEMANTIC_FINAL_026：原复杂填空已改为单选，避免手机端输入上下标/别名。
+- EXP_19_4_07_SEMANTIC_FINAL_027：原复杂填空已改为单选，避免手机端输入上下标/别名。
+- EXP_19_4_07_SEMANTIC_FINAL_030：原复杂填空已改为单选，避免手机端输入上下标/别名。
+- EXP_19_4_08_SEMANTIC_FINAL_021：原复杂填空已改为单选，避免手机端输入上下标/别名。
+- EXP_19_4_08_SEMANTIC_FINAL_022：原复杂填空已改为单选，避免手机端输入上下标/别名。
+- EXP_19_4_08_SEMANTIC_FINAL_024：原复杂填空已改为单选，避免手机端输入上下标/别名。
+- EXP_19_4_08_SEMANTIC_FINAL_026：原复杂填空已改为单选，避免手机端输入上下标/别名。
+- EXP_19_4_08_SEMANTIC_FINAL_027：原复杂填空已改为单选，避免手机端输入上下标/别名。
+- EXP_19_4_08_SEMANTIC_FINAL_028：原复杂填空已改为单选，避免手机端输入上下标/别名。
+- EXP_19_4_08_SEMANTIC_FINAL_030：原复杂填空已改为单选，避免手机端输入上下标/别名。
+- EXP_19_4_09_SEMANTIC_FINAL_024：原复杂填空已改为单选，避免手机端输入上下标/别名。
+- EXP_19_4_09_SEMANTIC_FINAL_025：原复杂填空已改为单选，避免手机端输入上下标/别名。
+- EXP_19_4_09_SEMANTIC_FINAL_027：原复杂填空已改为单选，避免手机端输入上下标/别名。
+- EXP_19_4_09_SEMANTIC_FINAL_028：原复杂填空已改为单选，避免手机端输入上下标/别名。
+- EXP_19_4_09_SEMANTIC_FINAL_030：原复杂填空已改为单选，避免手机端输入上下标/别名。
+- EXP_19_5_01_SEMANTIC_FINAL_022：原复杂填空已改为单选，避免手机端输入上下标/别名。
+- EXP_19_5_01_SEMANTIC_FINAL_024：原复杂填空已改为单选，避免手机端输入上下标/别名。
+- EXP_19_5_01_SEMANTIC_FINAL_025：原复杂填空已改为单选，避免手机端输入上下标/别名。
+- EXP_19_5_01_SEMANTIC_FINAL_029：原复杂填空已改为单选，避免手机端输入上下标/别名。
+- EXP_19_6_01_SEMANTIC_FINAL_022：原复杂填空已改为单选，避免手机端输入上下标/别名。
+- EXP_19_6_01_SEMANTIC_FINAL_024：原复杂填空已改为单选，避免手机端输入上下标/别名。
+- EXP_19_6_01_SEMANTIC_FINAL_025：原复杂填空已改为单选，避免手机端输入上下标/别名。
+- EXP_19_6_01_SEMANTIC_FINAL_029：原复杂填空已改为单选，避免手机端输入上下标/别名。
+
+### 最终仍有风险
+- 无。
+
+## Theory Dependent Items
+- 19-3-03 EXP_19_3_03_SEMANTIC_FINAL_004：textbook_prose_00340_77f9d61c94, textbook_prose_00363_d345af4100
+- 19-3-03 EXP_19_3_03_SEMANTIC_FINAL_005：textbook_prose_00340_77f9d61c94, textbook_prose_00363_d345af4100
+- 19-3-03 EXP_19_3_03_SEMANTIC_FINAL_006：textbook_prose_00340_77f9d61c94, textbook_prose_00363_d345af4100
+- 19-3-03 EXP_19_3_03_SEMANTIC_FINAL_015：textbook_prose_00340_77f9d61c94, textbook_prose_00363_d345af4100
+- 19-3-03 EXP_19_3_03_SEMANTIC_FINAL_016：textbook_prose_00340_77f9d61c94, textbook_prose_00363_d345af4100
+- 19-3-03 EXP_19_3_03_SEMANTIC_FINAL_024：textbook_prose_00340_77f9d61c94, textbook_prose_00363_d345af4100
+- 19-3-03 EXP_19_3_03_SEMANTIC_FINAL_025：textbook_prose_00340_77f9d61c94, textbook_prose_00363_d345af4100
+- 19-3-03 EXP_19_3_03_SEMANTIC_FINAL_026：textbook_prose_00340_77f9d61c94, textbook_prose_00363_d345af4100
+- 19-3-04 EXP_19_3_04_SEMANTIC_FINAL_001：textbook_prose_00391_2e025ffdda, textbook_prose_00392_f9643d7706, textbook_prose_00393_2db98879c2, textbook_prose_00394_04911a6294, textbook_prose_00395_7ea078c59f
+- 19-3-04 EXP_19_3_04_SEMANTIC_FINAL_002：textbook_prose_00391_2e025ffdda, textbook_prose_00392_f9643d7706, textbook_prose_00393_2db98879c2, textbook_prose_00394_04911a6294, textbook_prose_00395_7ea078c59f
+- 19-3-04 EXP_19_3_04_SEMANTIC_FINAL_003：textbook_prose_00391_2e025ffdda, textbook_prose_00392_f9643d7706, textbook_prose_00393_2db98879c2, textbook_prose_00394_04911a6294, textbook_prose_00395_7ea078c59f
+- 19-3-04 EXP_19_3_04_SEMANTIC_FINAL_006：textbook_prose_00391_2e025ffdda, textbook_prose_00392_f9643d7706, textbook_prose_00393_2db98879c2, textbook_prose_00394_04911a6294, textbook_prose_00395_7ea078c59f
+- 19-3-04 EXP_19_3_04_SEMANTIC_FINAL_007：textbook_prose_00391_2e025ffdda, textbook_prose_00392_f9643d7706, textbook_prose_00393_2db98879c2, textbook_prose_00394_04911a6294, textbook_prose_00395_7ea078c59f
+- 19-3-04 EXP_19_3_04_SEMANTIC_FINAL_008：textbook_prose_00391_2e025ffdda, textbook_prose_00392_f9643d7706, textbook_prose_00393_2db98879c2, textbook_prose_00394_04911a6294, textbook_prose_00395_7ea078c59f
+- 19-3-04 EXP_19_3_04_SEMANTIC_FINAL_010：textbook_prose_00391_2e025ffdda, textbook_prose_00392_f9643d7706, textbook_prose_00393_2db98879c2, textbook_prose_00394_04911a6294, textbook_prose_00395_7ea078c59f
+- 19-3-04 EXP_19_3_04_SEMANTIC_FINAL_011：textbook_prose_00391_2e025ffdda, textbook_prose_00392_f9643d7706, textbook_prose_00393_2db98879c2, textbook_prose_00394_04911a6294, textbook_prose_00395_7ea078c59f
+- 19-3-04 EXP_19_3_04_SEMANTIC_FINAL_012：textbook_prose_00391_2e025ffdda, textbook_prose_00392_f9643d7706, textbook_prose_00393_2db98879c2, textbook_prose_00394_04911a6294, textbook_prose_00395_7ea078c59f
+- 19-3-04 EXP_19_3_04_SEMANTIC_FINAL_014：textbook_prose_00391_2e025ffdda, textbook_prose_00392_f9643d7706, textbook_prose_00393_2db98879c2, textbook_prose_00394_04911a6294, textbook_prose_00395_7ea078c59f
+- 19-3-04 EXP_19_3_04_SEMANTIC_FINAL_016：textbook_prose_00391_2e025ffdda, textbook_prose_00392_f9643d7706, textbook_prose_00393_2db98879c2, textbook_prose_00394_04911a6294, textbook_prose_00395_7ea078c59f
+- 19-3-04 EXP_19_3_04_SEMANTIC_FINAL_017：textbook_prose_00391_2e025ffdda, textbook_prose_00392_f9643d7706, textbook_prose_00393_2db98879c2, textbook_prose_00394_04911a6294, textbook_prose_00395_7ea078c59f
+- 19-3-04 EXP_19_3_04_SEMANTIC_FINAL_028：textbook_prose_00391_2e025ffdda, textbook_prose_00392_f9643d7706, textbook_prose_00393_2db98879c2, textbook_prose_00394_04911a6294, textbook_prose_00395_7ea078c59f
+- 19-3-04 EXP_19_3_04_SEMANTIC_FINAL_029：textbook_prose_00391_2e025ffdda, textbook_prose_00392_f9643d7706, textbook_prose_00393_2db98879c2, textbook_prose_00394_04911a6294, textbook_prose_00395_7ea078c59f
+- 19-3-04 EXP_19_3_04_SEMANTIC_FINAL_030：textbook_prose_00391_2e025ffdda, textbook_prose_00392_f9643d7706, textbook_prose_00393_2db98879c2, textbook_prose_00394_04911a6294, textbook_prose_00395_7ea078c59f
+- 19-3-05 EXP_19_3_05_SEMANTIC_FINAL_004：textbook_prose_00397_b4519b367e, textbook_prose_00398_7d32d54ebf, textbook_prose_01241_99049758ad
+- 19-3-05 EXP_19_3_05_SEMANTIC_FINAL_007：textbook_prose_00397_b4519b367e, textbook_prose_00398_7d32d54ebf, textbook_prose_01241_99049758ad
+- 19-3-05 EXP_19_3_05_SEMANTIC_FINAL_008：textbook_prose_00397_b4519b367e, textbook_prose_00398_7d32d54ebf, textbook_prose_01241_99049758ad
+- 19-3-05 EXP_19_3_05_SEMANTIC_FINAL_009：textbook_prose_00397_b4519b367e, textbook_prose_00398_7d32d54ebf, textbook_prose_01241_99049758ad
+- 19-3-05 EXP_19_3_05_SEMANTIC_FINAL_014：textbook_prose_00397_b4519b367e, textbook_prose_00398_7d32d54ebf, textbook_prose_01241_99049758ad
+- 19-3-05 EXP_19_3_05_SEMANTIC_FINAL_016：textbook_prose_00397_b4519b367e, textbook_prose_00398_7d32d54ebf, textbook_prose_01241_99049758ad
+- 19-3-05 EXP_19_3_05_SEMANTIC_FINAL_019：textbook_prose_00397_b4519b367e, textbook_prose_00398_7d32d54ebf, textbook_prose_01241_99049758ad
+- 19-3-05 EXP_19_3_05_SEMANTIC_FINAL_024：textbook_prose_00397_b4519b367e, textbook_prose_00398_7d32d54ebf, textbook_prose_01241_99049758ad
+- 19-3-05 EXP_19_3_05_SEMANTIC_FINAL_027：textbook_prose_00397_b4519b367e, textbook_prose_00398_7d32d54ebf, textbook_prose_01241_99049758ad
+- 19-3-05 EXP_19_3_05_SEMANTIC_FINAL_028：textbook_prose_00397_b4519b367e, textbook_prose_00398_7d32d54ebf, textbook_prose_01241_99049758ad
+- 19-3-05 EXP_19_3_05_SEMANTIC_FINAL_029：textbook_prose_00397_b4519b367e, textbook_prose_00398_7d32d54ebf, textbook_prose_01241_99049758ad
+- 19-3-06 EXP_19_3_06_SEMANTIC_FINAL_004：textbook_prose_00397_b4519b367e, textbook_prose_00398_7d32d54ebf, textbook_prose_01241_99049758ad
+- 19-3-06 EXP_19_3_06_SEMANTIC_FINAL_006：textbook_prose_00397_b4519b367e, textbook_prose_00398_7d32d54ebf, textbook_prose_01241_99049758ad
+- 19-3-06 EXP_19_3_06_SEMANTIC_FINAL_007：textbook_prose_00397_b4519b367e, textbook_prose_00398_7d32d54ebf, textbook_prose_01241_99049758ad
+- 19-3-06 EXP_19_3_06_SEMANTIC_FINAL_008：textbook_prose_00397_b4519b367e, textbook_prose_00398_7d32d54ebf, textbook_prose_01241_99049758ad
+- 19-3-06 EXP_19_3_06_SEMANTIC_FINAL_015：textbook_prose_00397_b4519b367e, textbook_prose_00398_7d32d54ebf, textbook_prose_01241_99049758ad
+- 19-3-06 EXP_19_3_06_SEMANTIC_FINAL_016：textbook_prose_00397_b4519b367e, textbook_prose_00398_7d32d54ebf, textbook_prose_01241_99049758ad
+- 19-3-06 EXP_19_3_06_SEMANTIC_FINAL_020：textbook_prose_00397_b4519b367e, textbook_prose_00398_7d32d54ebf, textbook_prose_01241_99049758ad
+- 19-3-06 EXP_19_3_06_SEMANTIC_FINAL_024：textbook_prose_00397_b4519b367e, textbook_prose_00398_7d32d54ebf, textbook_prose_01241_99049758ad
+- 19-3-06 EXP_19_3_06_SEMANTIC_FINAL_026：textbook_prose_00397_b4519b367e, textbook_prose_00398_7d32d54ebf, textbook_prose_01241_99049758ad
+- 19-3-06 EXP_19_3_06_SEMANTIC_FINAL_027：textbook_prose_00397_b4519b367e, textbook_prose_00398_7d32d54ebf, textbook_prose_01241_99049758ad
+- 19-3-06 EXP_19_3_06_SEMANTIC_FINAL_029：textbook_prose_00397_b4519b367e, textbook_prose_00398_7d32d54ebf, textbook_prose_01241_99049758ad
+- 19-3-06 EXP_19_3_06_SEMANTIC_FINAL_030：textbook_prose_00397_b4519b367e, textbook_prose_00398_7d32d54ebf, textbook_prose_01241_99049758ad
+- 19-4-02 EXP_19_4_02_SEMANTIC_FINAL_002：textbook_prose_00547_2a1f998120, textbook_prose_00548_e41b91cedc
+- 19-4-02 EXP_19_4_02_SEMANTIC_FINAL_003：textbook_prose_00547_2a1f998120, textbook_prose_00548_e41b91cedc
+- 19-4-02 EXP_19_4_02_SEMANTIC_FINAL_007：textbook_prose_00547_2a1f998120, textbook_prose_00548_e41b91cedc
+- 19-4-02 EXP_19_4_02_SEMANTIC_FINAL_010：textbook_prose_00547_2a1f998120, textbook_prose_00548_e41b91cedc
+- 19-4-02 EXP_19_4_02_SEMANTIC_FINAL_012：textbook_prose_00547_2a1f998120, textbook_prose_00548_e41b91cedc
+- 19-4-02 EXP_19_4_02_SEMANTIC_FINAL_013：textbook_prose_00547_2a1f998120, textbook_prose_00548_e41b91cedc
+- 19-4-02 EXP_19_4_02_SEMANTIC_FINAL_020：textbook_prose_00547_2a1f998120, textbook_prose_00548_e41b91cedc
+- 19-4-02 EXP_19_4_02_SEMANTIC_FINAL_022：textbook_prose_00547_2a1f998120, textbook_prose_00548_e41b91cedc
+- 19-4-02 EXP_19_4_02_SEMANTIC_FINAL_023：textbook_prose_00547_2a1f998120, textbook_prose_00548_e41b91cedc
+- 19-4-02 EXP_19_4_02_SEMANTIC_FINAL_027：textbook_prose_00547_2a1f998120, textbook_prose_00548_e41b91cedc
+- 19-4-02 EXP_19_4_02_SEMANTIC_FINAL_030：textbook_prose_00547_2a1f998120, textbook_prose_00548_e41b91cedc
+- 19-4-03 EXP_19_4_03_SEMANTIC_FINAL_002：textbook_prose_00547_2a1f998120, textbook_prose_00549_1931138c9a
+- 19-4-03 EXP_19_4_03_SEMANTIC_FINAL_003：textbook_prose_00547_2a1f998120, textbook_prose_00549_1931138c9a
+- 19-4-03 EXP_19_4_03_SEMANTIC_FINAL_004：textbook_prose_00547_2a1f998120, textbook_prose_00549_1931138c9a
+- 19-4-03 EXP_19_4_03_SEMANTIC_FINAL_009：textbook_prose_00547_2a1f998120, textbook_prose_00549_1931138c9a
+- 19-4-03 EXP_19_4_03_SEMANTIC_FINAL_012：textbook_prose_00547_2a1f998120, textbook_prose_00549_1931138c9a
+- 19-4-03 EXP_19_4_03_SEMANTIC_FINAL_014：textbook_prose_00547_2a1f998120, textbook_prose_00549_1931138c9a
+- 19-4-03 EXP_19_4_03_SEMANTIC_FINAL_017：textbook_prose_00547_2a1f998120, textbook_prose_00549_1931138c9a
+- 19-4-03 EXP_19_4_03_SEMANTIC_FINAL_022：textbook_prose_00547_2a1f998120, textbook_prose_00549_1931138c9a
+- 19-4-03 EXP_19_4_03_SEMANTIC_FINAL_024：textbook_prose_00547_2a1f998120, textbook_prose_00549_1931138c9a
+- 19-4-03 EXP_19_4_03_SEMANTIC_FINAL_025：textbook_prose_00547_2a1f998120, textbook_prose_00549_1931138c9a
+- 19-4-03 EXP_19_4_03_SEMANTIC_FINAL_029：textbook_prose_00547_2a1f998120, textbook_prose_00549_1931138c9a
+- 19-4-03 EXP_19_4_03_SEMANTIC_FINAL_030：textbook_prose_00547_2a1f998120, textbook_prose_00549_1931138c9a
+- 19-4-04 EXP_19_4_04_SEMANTIC_FINAL_004：textbook_prose_00547_2a1f998120, textbook_prose_00548_e41b91cedc
+- 19-4-04 EXP_19_4_04_SEMANTIC_FINAL_005：textbook_prose_00547_2a1f998120, textbook_prose_00548_e41b91cedc
+- 19-4-04 EXP_19_4_04_SEMANTIC_FINAL_008：textbook_prose_00547_2a1f998120, textbook_prose_00548_e41b91cedc
+- 19-4-04 EXP_19_4_04_SEMANTIC_FINAL_015：textbook_prose_00547_2a1f998120, textbook_prose_00548_e41b91cedc
+- 19-4-04 EXP_19_4_04_SEMANTIC_FINAL_017：textbook_prose_00547_2a1f998120, textbook_prose_00548_e41b91cedc
+- 19-4-04 EXP_19_4_04_SEMANTIC_FINAL_018：textbook_prose_00547_2a1f998120, textbook_prose_00548_e41b91cedc
+- 19-4-04 EXP_19_4_04_SEMANTIC_FINAL_020：textbook_prose_00547_2a1f998120, textbook_prose_00548_e41b91cedc
+- 19-4-04 EXP_19_4_04_SEMANTIC_FINAL_024：textbook_prose_00547_2a1f998120, textbook_prose_00548_e41b91cedc
+- 19-4-04 EXP_19_4_04_SEMANTIC_FINAL_025：textbook_prose_00547_2a1f998120, textbook_prose_00548_e41b91cedc
+- 19-4-04 EXP_19_4_04_SEMANTIC_FINAL_028：textbook_prose_00547_2a1f998120, textbook_prose_00548_e41b91cedc
+- 19-4-05 EXP_19_4_05_SEMANTIC_FINAL_005：textbook_prose_00547_2a1f998120, textbook_prose_00548_e41b91cedc, textbook_prose_00549_1931138c9a
+- 19-4-05 EXP_19_4_05_SEMANTIC_FINAL_007：textbook_prose_00547_2a1f998120, textbook_prose_00548_e41b91cedc, textbook_prose_00549_1931138c9a
+- 19-4-05 EXP_19_4_05_SEMANTIC_FINAL_008：textbook_prose_00547_2a1f998120, textbook_prose_00548_e41b91cedc, textbook_prose_00549_1931138c9a
+- 19-4-05 EXP_19_4_05_SEMANTIC_FINAL_009：textbook_prose_00547_2a1f998120, textbook_prose_00548_e41b91cedc, textbook_prose_00549_1931138c9a
+- 19-4-05 EXP_19_4_05_SEMANTIC_FINAL_014：textbook_prose_00547_2a1f998120, textbook_prose_00548_e41b91cedc, textbook_prose_00549_1931138c9a
+- 19-4-05 EXP_19_4_05_SEMANTIC_FINAL_015：textbook_prose_00547_2a1f998120, textbook_prose_00548_e41b91cedc, textbook_prose_00549_1931138c9a
+- 19-4-05 EXP_19_4_05_SEMANTIC_FINAL_016：textbook_prose_00547_2a1f998120, textbook_prose_00548_e41b91cedc, textbook_prose_00549_1931138c9a
+- 19-4-05 EXP_19_4_05_SEMANTIC_FINAL_018：textbook_prose_00547_2a1f998120, textbook_prose_00548_e41b91cedc, textbook_prose_00549_1931138c9a
+- 19-4-05 EXP_19_4_05_SEMANTIC_FINAL_020：textbook_prose_00547_2a1f998120, textbook_prose_00548_e41b91cedc, textbook_prose_00549_1931138c9a
+- 19-4-05 EXP_19_4_05_SEMANTIC_FINAL_024：textbook_prose_00547_2a1f998120, textbook_prose_00548_e41b91cedc, textbook_prose_00549_1931138c9a
+- 19-4-05 EXP_19_4_05_SEMANTIC_FINAL_025：textbook_prose_00547_2a1f998120, textbook_prose_00548_e41b91cedc, textbook_prose_00549_1931138c9a
+- 19-4-05 EXP_19_4_05_SEMANTIC_FINAL_026：textbook_prose_00547_2a1f998120, textbook_prose_00548_e41b91cedc, textbook_prose_00549_1931138c9a
+- 19-4-05 EXP_19_4_05_SEMANTIC_FINAL_028：textbook_prose_00547_2a1f998120, textbook_prose_00548_e41b91cedc, textbook_prose_00549_1931138c9a
+- 19-4-05 EXP_19_4_05_SEMANTIC_FINAL_029：textbook_prose_00547_2a1f998120, textbook_prose_00548_e41b91cedc, textbook_prose_00549_1931138c9a
+- 19-4-06 EXP_19_4_06_SEMANTIC_FINAL_002：textbook_prose_00558_9cffe40305, textbook_prose_00559_03c424ac53, textbook_prose_00562_ef6a65a064
+- 19-4-06 EXP_19_4_06_SEMANTIC_FINAL_003：textbook_prose_00558_9cffe40305, textbook_prose_00559_03c424ac53, textbook_prose_00562_ef6a65a064
+- 19-4-06 EXP_19_4_06_SEMANTIC_FINAL_005：textbook_prose_00558_9cffe40305, textbook_prose_00559_03c424ac53, textbook_prose_00562_ef6a65a064
+- 19-4-06 EXP_19_4_06_SEMANTIC_FINAL_007：textbook_prose_00558_9cffe40305, textbook_prose_00559_03c424ac53, textbook_prose_00562_ef6a65a064
+- 19-4-06 EXP_19_4_06_SEMANTIC_FINAL_008：textbook_prose_00558_9cffe40305, textbook_prose_00559_03c424ac53, textbook_prose_00562_ef6a65a064
+- 19-4-06 EXP_19_4_06_SEMANTIC_FINAL_009：textbook_prose_00558_9cffe40305, textbook_prose_00559_03c424ac53, textbook_prose_00562_ef6a65a064
+- 19-4-06 EXP_19_4_06_SEMANTIC_FINAL_013：textbook_prose_00558_9cffe40305, textbook_prose_00559_03c424ac53, textbook_prose_00562_ef6a65a064
+- 19-4-06 EXP_19_4_06_SEMANTIC_FINAL_015：textbook_prose_00558_9cffe40305, textbook_prose_00559_03c424ac53, textbook_prose_00562_ef6a65a064
+- 19-4-06 EXP_19_4_06_SEMANTIC_FINAL_016：textbook_prose_00558_9cffe40305, textbook_prose_00559_03c424ac53, textbook_prose_00562_ef6a65a064
+- 19-4-06 EXP_19_4_06_SEMANTIC_FINAL_019：textbook_prose_00558_9cffe40305, textbook_prose_00559_03c424ac53, textbook_prose_00562_ef6a65a064
+- 19-4-06 EXP_19_4_06_SEMANTIC_FINAL_021：textbook_prose_00558_9cffe40305, textbook_prose_00559_03c424ac53, textbook_prose_00562_ef6a65a064
+- 19-4-06 EXP_19_4_06_SEMANTIC_FINAL_022：textbook_prose_00558_9cffe40305, textbook_prose_00559_03c424ac53, textbook_prose_00562_ef6a65a064
+- 19-4-06 EXP_19_4_06_SEMANTIC_FINAL_023：textbook_prose_00558_9cffe40305, textbook_prose_00559_03c424ac53, textbook_prose_00562_ef6a65a064
+- 19-4-06 EXP_19_4_06_SEMANTIC_FINAL_024：textbook_prose_00558_9cffe40305, textbook_prose_00559_03c424ac53, textbook_prose_00562_ef6a65a064
+- 19-4-06 EXP_19_4_06_SEMANTIC_FINAL_026：textbook_prose_00558_9cffe40305, textbook_prose_00559_03c424ac53, textbook_prose_00562_ef6a65a064
+- 19-4-06 EXP_19_4_06_SEMANTIC_FINAL_027：textbook_prose_00558_9cffe40305, textbook_prose_00559_03c424ac53, textbook_prose_00562_ef6a65a064
+- 19-4-06 EXP_19_4_06_SEMANTIC_FINAL_028：textbook_prose_00558_9cffe40305, textbook_prose_00559_03c424ac53, textbook_prose_00562_ef6a65a064
+- 19-4-06 EXP_19_4_06_SEMANTIC_FINAL_029：textbook_prose_00558_9cffe40305, textbook_prose_00559_03c424ac53, textbook_prose_00562_ef6a65a064
+- 19-4-07 EXP_19_4_07_SEMANTIC_FINAL_006：textbook_prose_00562_ef6a65a064, textbook_prose_00565_4ff80431a2
+- 19-4-07 EXP_19_4_07_SEMANTIC_FINAL_007：textbook_prose_00562_ef6a65a064, textbook_prose_00565_4ff80431a2
+- 19-4-07 EXP_19_4_07_SEMANTIC_FINAL_010：textbook_prose_00562_ef6a65a064, textbook_prose_00565_4ff80431a2
+- 19-4-07 EXP_19_4_07_SEMANTIC_FINAL_016：textbook_prose_00562_ef6a65a064, textbook_prose_00565_4ff80431a2
+- 19-4-07 EXP_19_4_07_SEMANTIC_FINAL_017：textbook_prose_00562_ef6a65a064, textbook_prose_00565_4ff80431a2
+- 19-4-07 EXP_19_4_07_SEMANTIC_FINAL_020：textbook_prose_00562_ef6a65a064, textbook_prose_00565_4ff80431a2
+- 19-4-07 EXP_19_4_07_SEMANTIC_FINAL_026：textbook_prose_00562_ef6a65a064, textbook_prose_00565_4ff80431a2
+- 19-4-07 EXP_19_4_07_SEMANTIC_FINAL_027：textbook_prose_00562_ef6a65a064, textbook_prose_00565_4ff80431a2
+- 19-4-07 EXP_19_4_07_SEMANTIC_FINAL_030：textbook_prose_00562_ef6a65a064, textbook_prose_00565_4ff80431a2
+- 19-4-08 EXP_19_4_08_SEMANTIC_FINAL_003：textbook_prose_00522_c509852695, textbook_prose_00556_a4150c286e, textbook_prose_00558_9cffe40305
+- 19-4-08 EXP_19_4_08_SEMANTIC_FINAL_004：textbook_prose_00522_c509852695, textbook_prose_00556_a4150c286e, textbook_prose_00558_9cffe40305
+- 19-4-08 EXP_19_4_08_SEMANTIC_FINAL_007：textbook_prose_00522_c509852695, textbook_prose_00556_a4150c286e, textbook_prose_00558_9cffe40305
+- 19-4-08 EXP_19_4_08_SEMANTIC_FINAL_012：textbook_prose_00522_c509852695, textbook_prose_00556_a4150c286e, textbook_prose_00558_9cffe40305
+- 19-4-08 EXP_19_4_08_SEMANTIC_FINAL_014：textbook_prose_00522_c509852695, textbook_prose_00556_a4150c286e, textbook_prose_00558_9cffe40305
+- 19-4-08 EXP_19_4_08_SEMANTIC_FINAL_020：textbook_prose_00522_c509852695, textbook_prose_00556_a4150c286e, textbook_prose_00558_9cffe40305
+- 19-4-08 EXP_19_4_08_SEMANTIC_FINAL_023：textbook_prose_00522_c509852695, textbook_prose_00556_a4150c286e, textbook_prose_00558_9cffe40305
+- 19-4-08 EXP_19_4_08_SEMANTIC_FINAL_024：textbook_prose_00522_c509852695, textbook_prose_00556_a4150c286e, textbook_prose_00558_9cffe40305
+- 19-4-08 EXP_19_4_08_SEMANTIC_FINAL_028：textbook_prose_00522_c509852695, textbook_prose_00556_a4150c286e, textbook_prose_00558_9cffe40305
+- 19-4-09 EXP_19_4_09_SEMANTIC_FINAL_006：textbook_prose_00522_c509852695, textbook_prose_00556_a4150c286e, textbook_prose_00558_9cffe40305
+- 19-4-09 EXP_19_4_09_SEMANTIC_FINAL_007：textbook_prose_00522_c509852695, textbook_prose_00556_a4150c286e, textbook_prose_00558_9cffe40305
+- 19-4-09 EXP_19_4_09_SEMANTIC_FINAL_008：textbook_prose_00522_c509852695, textbook_prose_00556_a4150c286e, textbook_prose_00558_9cffe40305
+- 19-4-09 EXP_19_4_09_SEMANTIC_FINAL_013：textbook_prose_00522_c509852695, textbook_prose_00556_a4150c286e, textbook_prose_00558_9cffe40305
+- 19-4-09 EXP_19_4_09_SEMANTIC_FINAL_014：textbook_prose_00522_c509852695, textbook_prose_00556_a4150c286e, textbook_prose_00558_9cffe40305
+- 19-4-09 EXP_19_4_09_SEMANTIC_FINAL_016：textbook_prose_00522_c509852695, textbook_prose_00556_a4150c286e, textbook_prose_00558_9cffe40305
+- 19-4-09 EXP_19_4_09_SEMANTIC_FINAL_018：textbook_prose_00522_c509852695, textbook_prose_00556_a4150c286e, textbook_prose_00558_9cffe40305
+- 19-4-09 EXP_19_4_09_SEMANTIC_FINAL_020：textbook_prose_00522_c509852695, textbook_prose_00556_a4150c286e, textbook_prose_00558_9cffe40305
+- 19-4-09 EXP_19_4_09_SEMANTIC_FINAL_026：textbook_prose_00522_c509852695, textbook_prose_00556_a4150c286e, textbook_prose_00558_9cffe40305
+- 19-4-09 EXP_19_4_09_SEMANTIC_FINAL_027：textbook_prose_00522_c509852695, textbook_prose_00556_a4150c286e, textbook_prose_00558_9cffe40305
+- 19-4-09 EXP_19_4_09_SEMANTIC_FINAL_028：textbook_prose_00522_c509852695, textbook_prose_00556_a4150c286e, textbook_prose_00558_9cffe40305
+- 19-5-01 EXP_19_5_01_SEMANTIC_FINAL_001：textbook_prose_00731_22ff2d736a, textbook_prose_00739_3b9f1f082f
+- 19-5-01 EXP_19_5_01_SEMANTIC_FINAL_002：textbook_prose_00731_22ff2d736a, textbook_prose_00739_3b9f1f082f
+- 19-5-01 EXP_19_5_01_SEMANTIC_FINAL_004：textbook_prose_00731_22ff2d736a, textbook_prose_00739_3b9f1f082f
+- 19-5-01 EXP_19_5_01_SEMANTIC_FINAL_005：textbook_prose_00731_22ff2d736a, textbook_prose_00739_3b9f1f082f
+- 19-5-01 EXP_19_5_01_SEMANTIC_FINAL_008：textbook_prose_00731_22ff2d736a, textbook_prose_00739_3b9f1f082f
+- 19-5-01 EXP_19_5_01_SEMANTIC_FINAL_010：textbook_prose_00731_22ff2d736a, textbook_prose_00739_3b9f1f082f
+- 19-5-01 EXP_19_5_01_SEMANTIC_FINAL_013：textbook_prose_00731_22ff2d736a, textbook_prose_00739_3b9f1f082f
+- 19-5-01 EXP_19_5_01_SEMANTIC_FINAL_015：textbook_prose_00731_22ff2d736a, textbook_prose_00739_3b9f1f082f
+- 19-5-01 EXP_19_5_01_SEMANTIC_FINAL_016：textbook_prose_00731_22ff2d736a, textbook_prose_00739_3b9f1f082f
+- 19-5-01 EXP_19_5_01_SEMANTIC_FINAL_017：textbook_prose_00731_22ff2d736a, textbook_prose_00739_3b9f1f082f
+- 19-5-01 EXP_19_5_01_SEMANTIC_FINAL_021：textbook_prose_00731_22ff2d736a, textbook_prose_00739_3b9f1f082f
+- 19-5-01 EXP_19_5_01_SEMANTIC_FINAL_022：textbook_prose_00731_22ff2d736a, textbook_prose_00739_3b9f1f082f
+- 19-5-01 EXP_19_5_01_SEMANTIC_FINAL_023：textbook_prose_00731_22ff2d736a, textbook_prose_00739_3b9f1f082f
+- 19-5-01 EXP_19_5_01_SEMANTIC_FINAL_026：textbook_prose_00731_22ff2d736a, textbook_prose_00739_3b9f1f082f
+- 19-5-01 EXP_19_5_01_SEMANTIC_FINAL_027：textbook_prose_00731_22ff2d736a, textbook_prose_00739_3b9f1f082f
+- 19-5-01 EXP_19_5_01_SEMANTIC_FINAL_028：textbook_prose_00731_22ff2d736a, textbook_prose_00739_3b9f1f082f
+- 19-5-01 EXP_19_5_01_SEMANTIC_FINAL_029：textbook_prose_00731_22ff2d736a, textbook_prose_00739_3b9f1f082f
+- 19-6-01 EXP_19_6_01_SEMANTIC_FINAL_003：textbook_prose_00952_bf111b030e, textbook_prose_00958_18cdf7dc87, textbook_prose_00960_559616cf6d, textbook_prose_00295_e1465a9872
+- 19-6-01 EXP_19_6_01_SEMANTIC_FINAL_004：textbook_prose_00952_bf111b030e, textbook_prose_00958_18cdf7dc87, textbook_prose_00960_559616cf6d, textbook_prose_00295_e1465a9872
+- 19-6-01 EXP_19_6_01_SEMANTIC_FINAL_006：textbook_prose_00952_bf111b030e, textbook_prose_00958_18cdf7dc87, textbook_prose_00960_559616cf6d, textbook_prose_00295_e1465a9872
+- 19-6-01 EXP_19_6_01_SEMANTIC_FINAL_008：textbook_prose_00952_bf111b030e, textbook_prose_00958_18cdf7dc87, textbook_prose_00960_559616cf6d, textbook_prose_00295_e1465a9872
+- 19-6-01 EXP_19_6_01_SEMANTIC_FINAL_009：textbook_prose_00952_bf111b030e, textbook_prose_00958_18cdf7dc87, textbook_prose_00960_559616cf6d, textbook_prose_00295_e1465a9872
+- 19-6-01 EXP_19_6_01_SEMANTIC_FINAL_013：textbook_prose_00952_bf111b030e, textbook_prose_00958_18cdf7dc87, textbook_prose_00960_559616cf6d, textbook_prose_00295_e1465a9872
+- 19-6-01 EXP_19_6_01_SEMANTIC_FINAL_014：textbook_prose_00952_bf111b030e, textbook_prose_00958_18cdf7dc87, textbook_prose_00960_559616cf6d, textbook_prose_00295_e1465a9872
+- 19-6-01 EXP_19_6_01_SEMANTIC_FINAL_015：textbook_prose_00952_bf111b030e, textbook_prose_00958_18cdf7dc87, textbook_prose_00960_559616cf6d, textbook_prose_00295_e1465a9872
+- 19-6-01 EXP_19_6_01_SEMANTIC_FINAL_020：textbook_prose_00952_bf111b030e, textbook_prose_00958_18cdf7dc87, textbook_prose_00960_559616cf6d, textbook_prose_00295_e1465a9872
+- 19-6-01 EXP_19_6_01_SEMANTIC_FINAL_022：textbook_prose_00952_bf111b030e, textbook_prose_00958_18cdf7dc87, textbook_prose_00960_559616cf6d, textbook_prose_00295_e1465a9872
+- 19-6-01 EXP_19_6_01_SEMANTIC_FINAL_023：textbook_prose_00952_bf111b030e, textbook_prose_00958_18cdf7dc87, textbook_prose_00960_559616cf6d, textbook_prose_00295_e1465a9872
+- 19-6-01 EXP_19_6_01_SEMANTIC_FINAL_027：textbook_prose_00952_bf111b030e, textbook_prose_00958_18cdf7dc87, textbook_prose_00960_559616cf6d, textbook_prose_00295_e1465a9872
+- 19-6-01 EXP_19_6_01_SEMANTIC_FINAL_029：textbook_prose_00952_bf111b030e, textbook_prose_00958_18cdf7dc87, textbook_prose_00960_559616cf6d, textbook_prose_00295_e1465a9872
+
+## Final Confirmation
+已按 chunk_2_polish_prompt.md 进行逐题语义终稿打磨：逐题以最终有效题为对象检查点位、证据、题型和机器判分确定性；脚本仅用于统计、字段同步、去重校验、option_links 重建和序列化。

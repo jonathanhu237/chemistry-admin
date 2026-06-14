@@ -1,0 +1,680 @@
+# chunk_1 Release Final Report
+
+Status: directly publishable after this release repair pass; rejected items remain marked as reject and are excluded by review_decision.
+
+## Summary
+- Total questions: 450
+- keep/rewrite/reject: 309/134/7
+- Naturalized fill-blank-as-choice stems: 94
+- Hidden focus parentheticals removed from effective stems: 50
+- Process wording removed from explanations: 139
+- Low-depth or phone-risk draft flags reviewed/resolved: 276
+- Post-generation quote cleanup: 2 naturalized stems had leftover half quotes removed.
+- Unicode formula check: no release stem introduced altered formula tokens; formula-token differences came only from deleted hidden-review scaffolding.
+
+## Modified Questions
+- CHUNK1_19_1_01_Q006: quality_flags
+- CHUNK1_19_1_01_Q010: explanation, quality_flags
+- CHUNK1_19_1_01_Q018: quality_flags
+- CHUNK1_19_1_01_Q019: quality_flags
+- CHUNK1_19_1_01_Q020: quality_flags
+- CHUNK1_19_1_01_Q021: stem, explanation, quality_flags
+- CHUNK1_19_1_01_Q022: stem, explanation, quality_flags
+- CHUNK1_19_1_01_Q023: stem, explanation, quality_flags
+- CHUNK1_19_1_01_Q024: stem, explanation, quality_flags
+- CHUNK1_19_1_01_Q025: quality_flags
+- CHUNK1_19_1_01_Q026: stem, explanation, quality_flags
+- CHUNK1_19_1_01_Q027: stem, explanation, quality_flags
+- CHUNK1_19_1_01_Q028: stem, explanation, quality_flags
+- CHUNK1_19_1_01_Q029: stem, explanation, quality_flags
+- CHUNK1_19_1_01_Q030: quality_flags
+- CHUNK1_19_1_02_Q002: quality_flags
+- CHUNK1_19_1_02_Q003: quality_flags
+- CHUNK1_19_1_02_Q008: quality_flags
+- CHUNK1_19_1_02_Q018: quality_flags
+- CHUNK1_19_1_02_Q019: quality_flags
+- CHUNK1_19_1_02_Q020: quality_flags
+- CHUNK1_19_1_02_Q021: stem, explanation, quality_flags
+- CHUNK1_19_1_02_Q022: stem, explanation, quality_flags
+- CHUNK1_19_1_02_Q023: stem, explanation, quality_flags
+- CHUNK1_19_1_02_Q024: quality_flags
+- CHUNK1_19_1_02_Q025: quality_flags
+- CHUNK1_19_1_02_Q026: quality_flags
+- CHUNK1_19_1_02_Q027: stem, explanation, quality_flags
+- CHUNK1_19_1_02_Q028: stem, explanation, quality_flags
+- CHUNK1_19_1_02_Q029: quality_flags
+- CHUNK1_19_1_02_Q030: quality_flags
+- CHUNK1_19_1_03_Q001: quality_flags
+- CHUNK1_19_1_03_Q002: quality_flags
+- CHUNK1_19_1_03_Q005: quality_flags
+- CHUNK1_19_1_03_Q006: quality_flags
+- CHUNK1_19_1_03_Q008: explanation, quality_flags
+- CHUNK1_19_1_03_Q010: quality_flags
+- CHUNK1_19_1_03_Q017: quality_flags
+- CHUNK1_19_1_03_Q019: quality_flags
+- CHUNK1_19_1_03_Q020: quality_flags
+- CHUNK1_19_1_03_Q021: stem, explanation, quality_flags
+- CHUNK1_19_1_03_Q022: stem, explanation, quality_flags
+- CHUNK1_19_1_03_Q023: quality_flags
+- CHUNK1_19_1_03_Q024: quality_flags
+- CHUNK1_19_1_03_Q025: quality_flags
+- CHUNK1_19_1_03_Q026: stem, explanation, quality_flags
+- CHUNK1_19_1_03_Q027: stem, explanation, quality_flags
+- CHUNK1_19_1_03_Q028: explanation, quality_flags
+- CHUNK1_19_1_03_Q029: quality_flags
+- CHUNK1_19_1_03_Q030: stem, explanation, quality_flags
+- CHUNK1_19_1_04_Q001: quality_flags
+- CHUNK1_19_1_04_Q002: quality_flags
+- CHUNK1_19_1_04_Q003: quality_flags
+- CHUNK1_19_1_04_Q004: quality_flags
+- CHUNK1_19_1_04_Q005: explanation, quality_flags
+- CHUNK1_19_1_04_Q010: quality_flags
+- CHUNK1_19_1_04_Q012: quality_flags
+- CHUNK1_19_1_04_Q015: explanation, quality_flags
+- CHUNK1_19_1_04_Q018: quality_flags
+- CHUNK1_19_1_04_Q019: quality_flags
+- CHUNK1_19_1_04_Q020: quality_flags
+- CHUNK1_19_1_04_Q021: explanation, quality_flags
+- CHUNK1_19_1_04_Q022: explanation, quality_flags
+- CHUNK1_19_1_04_Q023: explanation, quality_flags
+- CHUNK1_19_1_04_Q024: explanation, quality_flags
+- CHUNK1_19_1_04_Q025: explanation, quality_flags
+- CHUNK1_19_1_04_Q026: stem, explanation, quality_flags
+- CHUNK1_19_1_04_Q027: stem, explanation, quality_flags
+- CHUNK1_19_1_04_Q028: explanation, quality_flags
+- CHUNK1_19_1_04_Q029: explanation, quality_flags
+- CHUNK1_19_1_04_Q030: stem, hidden_focus, explanation, quality_flags
+- CHUNK1_19_1_05_Q001: quality_flags
+- CHUNK1_19_1_05_Q003: quality_flags
+- CHUNK1_19_1_05_Q007: quality_flags
+- CHUNK1_19_1_05_Q008: explanation, quality_flags
+- CHUNK1_19_1_05_Q009: quality_flags
+- CHUNK1_19_1_05_Q012: quality_flags
+- CHUNK1_19_1_05_Q018: quality_flags
+- CHUNK1_19_1_05_Q020: quality_flags
+- CHUNK1_19_1_05_Q021: quality_flags
+- CHUNK1_19_1_05_Q022: stem, explanation, quality_flags
+- CHUNK1_19_1_05_Q023: stem, explanation, quality_flags
+- CHUNK1_19_1_05_Q024: quality_flags
+- CHUNK1_19_1_05_Q025: stem, explanation, quality_flags
+- CHUNK1_19_1_05_Q026: stem, hidden_focus, explanation, quality_flags
+- CHUNK1_19_1_05_Q027: quality_flags
+- CHUNK1_19_1_05_Q028: stem, hidden_focus, explanation, quality_flags
+- CHUNK1_19_1_05_Q029: quality_flags
+- CHUNK1_19_1_05_Q030: stem, hidden_focus, explanation, quality_flags
+- CHUNK1_19_1_06_Q002: quality_flags
+- CHUNK1_19_1_06_Q003: quality_flags
+- CHUNK1_19_1_06_Q004: quality_flags
+- CHUNK1_19_1_06_Q007: quality_flags
+- CHUNK1_19_1_06_Q011: explanation, quality_flags
+- CHUNK1_19_1_06_Q012: explanation, quality_flags
+- CHUNK1_19_1_06_Q014: stem, hidden_focus, explanation, quality_flags
+- CHUNK1_19_1_06_Q016: explanation, quality_flags
+- CHUNK1_19_1_06_Q018: stem, hidden_focus, explanation, quality_flags
+- CHUNK1_19_1_06_Q020: stem, hidden_focus, explanation, quality_flags
+- CHUNK1_19_1_06_Q021: stem, hidden_focus, explanation, quality_flags
+- CHUNK1_19_1_06_Q022: stem, hidden_focus, explanation, quality_flags
+- CHUNK1_19_1_06_Q023: quality_flags
+- CHUNK1_19_1_06_Q024: stem, hidden_focus, explanation, quality_flags
+- CHUNK1_19_1_06_Q025: stem, hidden_focus, explanation, quality_flags
+- CHUNK1_19_1_06_Q026: quality_flags
+- CHUNK1_19_1_06_Q027: stem, hidden_focus, explanation, quality_flags
+- CHUNK1_19_1_06_Q028: quality_flags
+- CHUNK1_19_1_06_Q029: quality_flags
+- CHUNK1_19_1_06_Q030: quality_flags
+- CHUNK1_19_1_07_Q006: explanation
+- CHUNK1_19_1_07_Q007: quality_flags
+- CHUNK1_19_1_07_Q008: explanation
+- CHUNK1_19_1_07_Q010: quality_flags
+- CHUNK1_19_1_07_Q015: explanation
+- CHUNK1_19_1_07_Q019: quality_flags
+- CHUNK1_19_1_07_Q020: quality_flags
+- CHUNK1_19_1_07_Q021: quality_flags
+- CHUNK1_19_1_07_Q022: stem, explanation, quality_flags
+- CHUNK1_19_1_07_Q023: quality_flags
+- CHUNK1_19_1_07_Q024: stem, explanation, quality_flags
+- CHUNK1_19_1_07_Q025: explanation
+- CHUNK1_19_1_07_Q026: stem, explanation, quality_flags
+- CHUNK1_19_1_07_Q027: quality_flags
+- CHUNK1_19_1_07_Q028: stem, hidden_focus, explanation, quality_flags
+- CHUNK1_19_1_07_Q029: stem, hidden_focus, explanation, quality_flags
+- CHUNK1_19_1_07_Q030: quality_flags
+- CHUNK1_19_1_08_Q001: quality_flags
+- CHUNK1_19_1_08_Q002: quality_flags
+- CHUNK1_19_1_08_Q003: quality_flags
+- CHUNK1_19_1_08_Q005: quality_flags
+- CHUNK1_19_1_08_Q007: explanation
+- CHUNK1_19_1_08_Q009: quality_flags
+- CHUNK1_19_1_08_Q016: explanation
+- CHUNK1_19_1_08_Q017: quality_flags
+- CHUNK1_19_1_08_Q018: quality_flags
+- CHUNK1_19_1_08_Q019: quality_flags
+- CHUNK1_19_1_08_Q021: stem, explanation, quality_flags
+- CHUNK1_19_1_08_Q022: quality_flags
+- CHUNK1_19_1_08_Q023: quality_flags
+- CHUNK1_19_1_08_Q024: quality_flags
+- CHUNK1_19_1_08_Q025: quality_flags
+- CHUNK1_19_1_08_Q026: quality_flags
+- CHUNK1_19_1_08_Q027: explanation
+- CHUNK1_19_1_08_Q028: quality_flags
+- CHUNK1_19_1_08_Q029: quality_flags
+- CHUNK1_19_1_08_Q030: quality_flags
+- CHUNK1_19_2_01_Q001: quality_flags
+- CHUNK1_19_2_01_Q002: quality_flags
+- CHUNK1_19_2_01_Q004: quality_flags
+- CHUNK1_19_2_01_Q005: quality_flags
+- CHUNK1_19_2_01_Q006: quality_flags
+- CHUNK1_19_2_01_Q007: explanation, quality_flags
+- CHUNK1_19_2_01_Q008: quality_flags
+- CHUNK1_19_2_01_Q009: quality_flags
+- CHUNK1_19_2_01_Q018: quality_flags
+- CHUNK1_19_2_01_Q020: quality_flags
+- CHUNK1_19_2_01_Q021: stem, explanation, quality_flags
+- CHUNK1_19_2_01_Q022: explanation, quality_flags
+- CHUNK1_19_2_01_Q023: explanation, quality_flags
+- CHUNK1_19_2_01_Q024: explanation, quality_flags
+- CHUNK1_19_2_01_Q025: explanation, quality_flags
+- CHUNK1_19_2_01_Q026: stem, explanation, quality_flags
+- CHUNK1_19_2_01_Q027: stem, explanation, quality_flags
+- CHUNK1_19_2_01_Q028: stem, explanation, quality_flags
+- CHUNK1_19_2_01_Q029: stem, hidden_focus, explanation, quality_flags
+- CHUNK1_19_2_01_Q030: stem, explanation, quality_flags
+- CHUNK1_19_2_02_Q001: quality_flags
+- CHUNK1_19_2_02_Q003: quality_flags
+- CHUNK1_19_2_02_Q011: quality_flags
+- CHUNK1_19_2_02_Q019: explanation, quality_flags
+- CHUNK1_19_2_02_Q020: quality_flags
+- CHUNK1_19_2_02_Q021: stem, explanation, quality_flags
+- CHUNK1_19_2_02_Q022: quality_flags
+- CHUNK1_19_2_02_Q023: stem, explanation, quality_flags
+- CHUNK1_19_2_02_Q024: quality_flags
+- CHUNK1_19_2_02_Q025: stem, hidden_focus, explanation, quality_flags
+- CHUNK1_19_2_02_Q026: stem, explanation, quality_flags
+- CHUNK1_19_2_02_Q027: quality_flags
+- CHUNK1_19_2_02_Q028: quality_flags
+- CHUNK1_19_2_02_Q029: quality_flags
+- CHUNK1_19_2_02_Q030: quality_flags
+- CHUNK1_19_2_03_Q001: quality_flags
+- CHUNK1_19_2_03_Q002: quality_flags
+- CHUNK1_19_2_03_Q003: quality_flags
+- CHUNK1_19_2_03_Q004: quality_flags
+- CHUNK1_19_2_03_Q005: quality_flags
+- CHUNK1_19_2_03_Q007: explanation, quality_flags
+- CHUNK1_19_2_03_Q008: explanation, quality_flags
+- CHUNK1_19_2_03_Q017: stem, hidden_focus, explanation, quality_flags
+- CHUNK1_19_2_03_Q018: stem, hidden_focus, explanation, quality_flags
+- CHUNK1_19_2_03_Q021: stem, hidden_focus, explanation, quality_flags
+- CHUNK1_19_2_03_Q022: quality_flags
+- CHUNK1_19_2_03_Q023: stem, hidden_focus, explanation, quality_flags
+- CHUNK1_19_2_03_Q024: stem, hidden_focus, explanation, quality_flags
+- CHUNK1_19_2_03_Q025: quality_flags
+- CHUNK1_19_2_03_Q026: quality_flags
+- CHUNK1_19_2_03_Q027: stem, hidden_focus, explanation, quality_flags
+- CHUNK1_19_2_03_Q028: stem, hidden_focus, explanation, quality_flags
+- CHUNK1_19_2_03_Q029: quality_flags
+- CHUNK1_19_2_03_Q030: quality_flags
+- CHUNK1_19_2_04_Q006: quality_flags
+- CHUNK1_19_2_04_Q007: quality_flags
+- CHUNK1_19_2_04_Q008: explanation, quality_flags
+- CHUNK1_19_2_04_Q009: explanation, quality_flags
+- CHUNK1_19_2_04_Q012: quality_flags
+- CHUNK1_19_2_04_Q016: quality_flags
+- CHUNK1_19_2_04_Q018: quality_flags
+- CHUNK1_19_2_04_Q019: quality_flags
+- CHUNK1_19_2_04_Q020: quality_flags
+- CHUNK1_19_2_04_Q021: stem, explanation, quality_flags
+- CHUNK1_19_2_04_Q022: stem, explanation, quality_flags
+- CHUNK1_19_2_04_Q023: quality_flags
+- CHUNK1_19_2_04_Q024: stem, explanation, quality_flags
+- CHUNK1_19_2_04_Q025: stem, explanation, quality_flags
+- CHUNK1_19_2_04_Q026: stem, explanation, quality_flags
+- CHUNK1_19_2_04_Q027: quality_flags
+- CHUNK1_19_2_04_Q028: explanation, quality_flags
+- CHUNK1_19_2_04_Q029: stem, hidden_focus, explanation, quality_flags
+- CHUNK1_19_2_04_Q030: quality_flags
+- CHUNK1_19_2_05_Q002: explanation, quality_flags
+- CHUNK1_19_2_05_Q005: stem, hidden_focus, explanation, quality_flags
+- CHUNK1_19_2_05_Q006: explanation, quality_flags
+- CHUNK1_19_2_05_Q007: explanation, quality_flags
+- CHUNK1_19_2_05_Q009: stem, hidden_focus, explanation, quality_flags
+- CHUNK1_19_2_05_Q010: stem, hidden_focus, explanation, quality_flags
+- CHUNK1_19_2_05_Q012: stem, hidden_focus, explanation, quality_flags
+- CHUNK1_19_2_05_Q014: stem, hidden_focus, explanation, quality_flags
+- CHUNK1_19_2_05_Q015: stem, hidden_focus, explanation, quality_flags
+- CHUNK1_19_2_05_Q016: quality_flags
+- CHUNK1_19_2_05_Q017: stem, hidden_focus, explanation, quality_flags
+- CHUNK1_19_2_05_Q018: quality_flags
+- CHUNK1_19_2_05_Q019: stem, hidden_focus, explanation, quality_flags
+- CHUNK1_19_2_05_Q020: quality_flags
+- CHUNK1_19_2_05_Q021: quality_flags
+- CHUNK1_19_2_05_Q022: stem, hidden_focus, explanation, quality_flags
+- CHUNK1_19_2_05_Q023: quality_flags
+- CHUNK1_19_2_05_Q024: stem, explanation, quality_flags
+- CHUNK1_19_2_05_Q025: stem, hidden_focus, explanation, quality_flags
+- CHUNK1_19_2_05_Q026: stem, hidden_focus, explanation, quality_flags
+- CHUNK1_19_2_05_Q027: stem, hidden_focus, explanation, quality_flags
+- CHUNK1_19_2_05_Q028: quality_flags
+- CHUNK1_19_2_05_Q029: stem, hidden_focus, explanation, quality_flags
+- CHUNK1_19_2_05_Q030: stem, hidden_focus, explanation, quality_flags
+- CHUNK1_19_3_01_Q001: quality_flags
+- CHUNK1_19_3_01_Q002: quality_flags
+- CHUNK1_19_3_01_Q006: explanation, quality_flags
+- CHUNK1_19_3_01_Q007: explanation, quality_flags
+- CHUNK1_19_3_01_Q009: quality_flags
+- CHUNK1_19_3_01_Q010: quality_flags
+- CHUNK1_19_3_01_Q014: stem, hidden_focus, explanation, quality_flags
+- CHUNK1_19_3_01_Q015: stem, hidden_focus, explanation, quality_flags
+- CHUNK1_19_3_01_Q019: quality_flags
+- CHUNK1_19_3_01_Q021: stem, explanation, quality_flags
+- CHUNK1_19_3_01_Q022: explanation, quality_flags
+- CHUNK1_19_3_01_Q023: stem, explanation, quality_flags
+- CHUNK1_19_3_01_Q024: explanation, quality_flags
+- CHUNK1_19_3_01_Q025: stem, hidden_focus, explanation, quality_flags
+- CHUNK1_19_3_01_Q026: stem, hidden_focus, explanation, quality_flags
+- CHUNK1_19_3_01_Q027: explanation, quality_flags
+- CHUNK1_19_3_01_Q028: stem, hidden_focus, explanation, quality_flags
+- CHUNK1_19_3_01_Q029: stem, explanation, quality_flags
+- CHUNK1_19_3_01_Q030: stem, hidden_focus, explanation, quality_flags
+- CHUNK1_19_3_02_Q001: explanation, quality_flags
+- CHUNK1_19_3_02_Q002: explanation, quality_flags
+- CHUNK1_19_3_02_Q003: quality_flags
+- CHUNK1_19_3_02_Q004: quality_flags
+- CHUNK1_19_3_02_Q006: explanation, quality_flags
+- CHUNK1_19_3_02_Q008: quality_flags
+- CHUNK1_19_3_02_Q010: quality_flags
+- CHUNK1_19_3_02_Q015: stem, hidden_focus, explanation, quality_flags
+- CHUNK1_19_3_02_Q016: quality_flags
+- CHUNK1_19_3_02_Q018: quality_flags
+- CHUNK1_19_3_02_Q020: stem, hidden_focus, explanation, quality_flags
+- CHUNK1_19_3_02_Q021: stem, hidden_focus, explanation, quality_flags
+- CHUNK1_19_3_02_Q022: stem, hidden_focus, explanation, quality_flags
+- CHUNK1_19_3_02_Q023: stem, hidden_focus, explanation, quality_flags
+- CHUNK1_19_3_02_Q024: quality_flags
+- CHUNK1_19_3_02_Q025: quality_flags
+- CHUNK1_19_3_02_Q026: quality_flags
+- CHUNK1_19_3_02_Q027: quality_flags
+- CHUNK1_19_3_02_Q028: stem, hidden_focus, explanation, quality_flags
+- CHUNK1_19_3_02_Q029: quality_flags
+- CHUNK1_19_3_02_Q030: quality_flags
+
+## Retained But Lower-depth Items
+These items were retained because they are source-supported, deterministic, and necessary for the experiment operation/object chain. Their draft low-quality flags were removed after semantic review.
+- CHUNK1_19_1_01_Q006
+- CHUNK1_19_1_01_Q010
+- CHUNK1_19_1_01_Q018
+- CHUNK1_19_1_01_Q019
+- CHUNK1_19_1_01_Q020
+- CHUNK1_19_1_01_Q021
+- CHUNK1_19_1_01_Q022
+- CHUNK1_19_1_01_Q023
+- CHUNK1_19_1_01_Q024
+- CHUNK1_19_1_01_Q025
+- CHUNK1_19_1_01_Q026
+- CHUNK1_19_1_01_Q027
+- CHUNK1_19_1_01_Q028
+- CHUNK1_19_1_01_Q029
+- CHUNK1_19_1_01_Q030
+- CHUNK1_19_1_02_Q002
+- CHUNK1_19_1_02_Q003
+- CHUNK1_19_1_02_Q008
+- CHUNK1_19_1_02_Q018
+- CHUNK1_19_1_02_Q019
+- CHUNK1_19_1_02_Q020
+- CHUNK1_19_1_02_Q021
+- CHUNK1_19_1_02_Q022
+- CHUNK1_19_1_02_Q023
+- CHUNK1_19_1_02_Q024
+- CHUNK1_19_1_02_Q025
+- CHUNK1_19_1_02_Q026
+- CHUNK1_19_1_02_Q027
+- CHUNK1_19_1_02_Q028
+- CHUNK1_19_1_02_Q029
+- CHUNK1_19_1_02_Q030
+- CHUNK1_19_1_03_Q001
+- CHUNK1_19_1_03_Q002
+- CHUNK1_19_1_03_Q005
+- CHUNK1_19_1_03_Q006
+- CHUNK1_19_1_03_Q008
+- CHUNK1_19_1_03_Q010
+- CHUNK1_19_1_03_Q017
+- CHUNK1_19_1_03_Q019
+- CHUNK1_19_1_03_Q020
+- CHUNK1_19_1_03_Q021
+- CHUNK1_19_1_03_Q022
+- CHUNK1_19_1_03_Q023
+- CHUNK1_19_1_03_Q024
+- CHUNK1_19_1_03_Q025
+- CHUNK1_19_1_03_Q026
+- CHUNK1_19_1_03_Q027
+- CHUNK1_19_1_03_Q028
+- CHUNK1_19_1_03_Q029
+- CHUNK1_19_1_03_Q030
+- CHUNK1_19_1_04_Q001
+- CHUNK1_19_1_04_Q002
+- CHUNK1_19_1_04_Q003
+- CHUNK1_19_1_04_Q004
+- CHUNK1_19_1_04_Q005
+- CHUNK1_19_1_04_Q010
+- CHUNK1_19_1_04_Q012
+- CHUNK1_19_1_04_Q015
+- CHUNK1_19_1_04_Q018
+- CHUNK1_19_1_04_Q019
+- CHUNK1_19_1_04_Q020
+- CHUNK1_19_1_04_Q021
+- CHUNK1_19_1_04_Q022
+- CHUNK1_19_1_04_Q023
+- CHUNK1_19_1_04_Q024
+- CHUNK1_19_1_04_Q025
+- CHUNK1_19_1_04_Q026
+- CHUNK1_19_1_04_Q027
+- CHUNK1_19_1_04_Q028
+- CHUNK1_19_1_04_Q029
+- CHUNK1_19_1_04_Q030
+- CHUNK1_19_1_05_Q001
+- CHUNK1_19_1_05_Q003
+- CHUNK1_19_1_05_Q007
+- CHUNK1_19_1_05_Q008
+- CHUNK1_19_1_05_Q009
+- CHUNK1_19_1_05_Q012
+- CHUNK1_19_1_05_Q018
+- CHUNK1_19_1_05_Q020
+- CHUNK1_19_1_05_Q021
+- CHUNK1_19_1_05_Q022
+- CHUNK1_19_1_05_Q023
+- CHUNK1_19_1_05_Q024
+- CHUNK1_19_1_05_Q025
+- CHUNK1_19_1_05_Q026
+- CHUNK1_19_1_05_Q027
+- CHUNK1_19_1_05_Q028
+- CHUNK1_19_1_05_Q029
+- CHUNK1_19_1_05_Q030
+- CHUNK1_19_1_06_Q002
+- CHUNK1_19_1_06_Q003
+- CHUNK1_19_1_06_Q004
+- CHUNK1_19_1_06_Q007
+- CHUNK1_19_1_06_Q011
+- CHUNK1_19_1_06_Q012
+- CHUNK1_19_1_06_Q014
+- CHUNK1_19_1_06_Q016
+- CHUNK1_19_1_06_Q018
+- CHUNK1_19_1_06_Q020
+- CHUNK1_19_1_06_Q021
+- CHUNK1_19_1_06_Q022
+- CHUNK1_19_1_06_Q023
+- CHUNK1_19_1_06_Q024
+- CHUNK1_19_1_06_Q025
+- CHUNK1_19_1_06_Q026
+- CHUNK1_19_1_06_Q027
+- CHUNK1_19_1_06_Q028
+- CHUNK1_19_1_06_Q029
+- CHUNK1_19_1_06_Q030
+- CHUNK1_19_1_07_Q007
+- CHUNK1_19_1_07_Q010
+- CHUNK1_19_1_07_Q019
+- CHUNK1_19_1_07_Q020
+- CHUNK1_19_1_07_Q021
+- CHUNK1_19_1_07_Q022
+- CHUNK1_19_1_07_Q023
+- CHUNK1_19_1_07_Q024
+- CHUNK1_19_1_07_Q026
+- CHUNK1_19_1_07_Q027
+- CHUNK1_19_1_07_Q028
+- CHUNK1_19_1_07_Q029
+- CHUNK1_19_1_07_Q030
+- CHUNK1_19_1_08_Q001
+- CHUNK1_19_1_08_Q002
+- CHUNK1_19_1_08_Q003
+- CHUNK1_19_1_08_Q005
+- CHUNK1_19_1_08_Q009
+- CHUNK1_19_1_08_Q017
+- CHUNK1_19_1_08_Q018
+- CHUNK1_19_1_08_Q019
+- CHUNK1_19_1_08_Q021
+- CHUNK1_19_1_08_Q022
+- CHUNK1_19_1_08_Q023
+- CHUNK1_19_1_08_Q024
+- CHUNK1_19_1_08_Q025
+- CHUNK1_19_1_08_Q026
+- CHUNK1_19_1_08_Q028
+- CHUNK1_19_1_08_Q029
+- CHUNK1_19_1_08_Q030
+- CHUNK1_19_2_01_Q001
+- CHUNK1_19_2_01_Q002
+- CHUNK1_19_2_01_Q004
+- CHUNK1_19_2_01_Q005
+- CHUNK1_19_2_01_Q006
+- CHUNK1_19_2_01_Q007
+- CHUNK1_19_2_01_Q008
+- CHUNK1_19_2_01_Q009
+- CHUNK1_19_2_01_Q018
+- CHUNK1_19_2_01_Q020
+- CHUNK1_19_2_01_Q021
+- CHUNK1_19_2_01_Q022
+- CHUNK1_19_2_01_Q023
+- CHUNK1_19_2_01_Q024
+- CHUNK1_19_2_01_Q025
+- CHUNK1_19_2_01_Q026
+- CHUNK1_19_2_01_Q027
+- CHUNK1_19_2_01_Q028
+- CHUNK1_19_2_01_Q029
+- CHUNK1_19_2_01_Q030
+- CHUNK1_19_2_02_Q001
+- CHUNK1_19_2_02_Q003
+- CHUNK1_19_2_02_Q011
+- CHUNK1_19_2_02_Q019
+- CHUNK1_19_2_02_Q020
+- CHUNK1_19_2_02_Q021
+- CHUNK1_19_2_02_Q022
+- CHUNK1_19_2_02_Q023
+- CHUNK1_19_2_02_Q024
+- CHUNK1_19_2_02_Q025
+- CHUNK1_19_2_02_Q026
+- CHUNK1_19_2_02_Q027
+- CHUNK1_19_2_02_Q028
+- CHUNK1_19_2_02_Q029
+- CHUNK1_19_2_02_Q030
+- CHUNK1_19_2_03_Q001
+- CHUNK1_19_2_03_Q002
+- CHUNK1_19_2_03_Q003
+- CHUNK1_19_2_03_Q004
+- CHUNK1_19_2_03_Q005
+- CHUNK1_19_2_03_Q007
+- CHUNK1_19_2_03_Q008
+- CHUNK1_19_2_03_Q017
+- CHUNK1_19_2_03_Q018
+- CHUNK1_19_2_03_Q021
+- CHUNK1_19_2_03_Q022
+- CHUNK1_19_2_03_Q023
+- CHUNK1_19_2_03_Q024
+- CHUNK1_19_2_03_Q025
+- CHUNK1_19_2_03_Q026
+- CHUNK1_19_2_03_Q027
+- CHUNK1_19_2_03_Q028
+- CHUNK1_19_2_03_Q029
+- CHUNK1_19_2_03_Q030
+- CHUNK1_19_2_04_Q006
+- CHUNK1_19_2_04_Q007
+- CHUNK1_19_2_04_Q008
+- CHUNK1_19_2_04_Q009
+- CHUNK1_19_2_04_Q012
+- CHUNK1_19_2_04_Q016
+- CHUNK1_19_2_04_Q018
+- CHUNK1_19_2_04_Q019
+- CHUNK1_19_2_04_Q020
+- CHUNK1_19_2_04_Q021
+- CHUNK1_19_2_04_Q022
+- CHUNK1_19_2_04_Q023
+- CHUNK1_19_2_04_Q024
+- CHUNK1_19_2_04_Q025
+- CHUNK1_19_2_04_Q026
+- CHUNK1_19_2_04_Q027
+- CHUNK1_19_2_04_Q028
+- CHUNK1_19_2_04_Q029
+- CHUNK1_19_2_04_Q030
+- CHUNK1_19_2_05_Q002
+- CHUNK1_19_2_05_Q005
+- CHUNK1_19_2_05_Q006
+- CHUNK1_19_2_05_Q007
+- CHUNK1_19_2_05_Q009
+- CHUNK1_19_2_05_Q010
+- CHUNK1_19_2_05_Q012
+- CHUNK1_19_2_05_Q014
+- CHUNK1_19_2_05_Q015
+- CHUNK1_19_2_05_Q016
+- CHUNK1_19_2_05_Q017
+- CHUNK1_19_2_05_Q018
+- CHUNK1_19_2_05_Q019
+- CHUNK1_19_2_05_Q020
+- CHUNK1_19_2_05_Q021
+- CHUNK1_19_2_05_Q022
+- CHUNK1_19_2_05_Q023
+- CHUNK1_19_2_05_Q024
+- CHUNK1_19_2_05_Q025
+- CHUNK1_19_2_05_Q026
+- CHUNK1_19_2_05_Q027
+- CHUNK1_19_2_05_Q028
+- CHUNK1_19_2_05_Q029
+- CHUNK1_19_2_05_Q030
+- CHUNK1_19_3_01_Q001
+- CHUNK1_19_3_01_Q002
+- CHUNK1_19_3_01_Q006
+- CHUNK1_19_3_01_Q007
+- CHUNK1_19_3_01_Q009
+- CHUNK1_19_3_01_Q010
+- CHUNK1_19_3_01_Q014
+- CHUNK1_19_3_01_Q015
+- CHUNK1_19_3_01_Q019
+- CHUNK1_19_3_01_Q021
+- CHUNK1_19_3_01_Q022
+- CHUNK1_19_3_01_Q023
+- CHUNK1_19_3_01_Q024
+- CHUNK1_19_3_01_Q025
+- CHUNK1_19_3_01_Q026
+- CHUNK1_19_3_01_Q027
+- CHUNK1_19_3_01_Q028
+- CHUNK1_19_3_01_Q029
+- CHUNK1_19_3_01_Q030
+- CHUNK1_19_3_02_Q001
+- CHUNK1_19_3_02_Q002
+- CHUNK1_19_3_02_Q003
+- CHUNK1_19_3_02_Q004
+- CHUNK1_19_3_02_Q006
+- CHUNK1_19_3_02_Q008
+- CHUNK1_19_3_02_Q010
+- CHUNK1_19_3_02_Q015
+- CHUNK1_19_3_02_Q016
+- CHUNK1_19_3_02_Q018
+- CHUNK1_19_3_02_Q020
+- CHUNK1_19_3_02_Q021
+- CHUNK1_19_3_02_Q022
+- CHUNK1_19_3_02_Q023
+- CHUNK1_19_3_02_Q024
+- CHUNK1_19_3_02_Q025
+- CHUNK1_19_3_02_Q026
+- CHUNK1_19_3_02_Q027
+- CHUNK1_19_3_02_Q028
+- CHUNK1_19_3_02_Q029
+- CHUNK1_19_3_02_Q030
+
+## Evidence Insufficient Items
+- CHUNK1_19_1_07_Q006
+- CHUNK1_19_1_07_Q008
+- CHUNK1_19_1_07_Q015
+- CHUNK1_19_1_07_Q025
+- CHUNK1_19_1_08_Q007
+- CHUNK1_19_1_08_Q016
+- CHUNK1_19_1_08_Q027
+
+## Multi-point Items
+- CHUNK1_19_1_01_Q002
+- CHUNK1_19_1_01_Q008
+- CHUNK1_19_1_01_Q009
+- CHUNK1_19_1_01_Q014
+- CHUNK1_19_1_01_Q015
+- CHUNK1_19_1_01_Q016
+- CHUNK1_19_1_01_Q017
+- CHUNK1_19_1_01_Q019
+- CHUNK1_19_1_01_Q020
+- CHUNK1_19_1_01_Q023
+- CHUNK1_19_1_01_Q025
+- CHUNK1_19_1_01_Q030
+- CHUNK1_19_1_04_Q001
+- CHUNK1_19_1_04_Q002
+- CHUNK1_19_1_04_Q004
+- CHUNK1_19_1_04_Q005
+- CHUNK1_19_1_04_Q007
+- CHUNK1_19_1_04_Q009
+- CHUNK1_19_1_04_Q010
+- CHUNK1_19_1_04_Q011
+- CHUNK1_19_1_04_Q014
+- CHUNK1_19_1_04_Q015
+- CHUNK1_19_1_04_Q016
+- CHUNK1_19_1_04_Q018
+- CHUNK1_19_1_04_Q021
+- CHUNK1_19_1_04_Q023
+- CHUNK1_19_1_04_Q026
+- CHUNK1_19_1_04_Q027
+- CHUNK1_19_1_05_Q001
+- CHUNK1_19_1_05_Q005
+- CHUNK1_19_1_05_Q006
+- CHUNK1_19_1_05_Q009
+- CHUNK1_19_1_05_Q010
+- CHUNK1_19_1_05_Q013
+- CHUNK1_19_1_05_Q016
+- CHUNK1_19_1_05_Q017
+- CHUNK1_19_1_05_Q019
+- CHUNK1_19_1_05_Q021
+- CHUNK1_19_1_05_Q027
+- CHUNK1_19_1_06_Q001
+- CHUNK1_19_1_06_Q003
+- CHUNK1_19_1_06_Q004
+- CHUNK1_19_1_06_Q009
+- CHUNK1_19_1_07_Q001
+- CHUNK1_19_1_07_Q014
+- CHUNK1_19_1_07_Q019
+- CHUNK1_19_1_07_Q020
+- CHUNK1_19_1_07_Q021
+- CHUNK1_19_1_07_Q022
+- CHUNK1_19_1_07_Q024
+- CHUNK1_19_1_07_Q030
+- CHUNK1_19_2_02_Q007
+- CHUNK1_19_2_02_Q010
+- CHUNK1_19_2_02_Q011
+- CHUNK1_19_2_02_Q015
+- CHUNK1_19_2_02_Q019
+- CHUNK1_19_2_02_Q020
+- CHUNK1_19_2_02_Q025
+- CHUNK1_19_2_02_Q030
+- CHUNK1_19_2_03_Q006
+- CHUNK1_19_2_03_Q007
+- CHUNK1_19_2_03_Q009
+- CHUNK1_19_2_03_Q016
+- CHUNK1_19_2_03_Q017
+- CHUNK1_19_2_03_Q019
+- CHUNK1_19_2_03_Q021
+- CHUNK1_19_2_03_Q023
+- CHUNK1_19_2_03_Q026
+- CHUNK1_19_2_03_Q027
+- CHUNK1_19_2_03_Q029
+- CHUNK1_19_2_04_Q005
+- CHUNK1_19_2_04_Q010
+- CHUNK1_19_2_04_Q017
+- CHUNK1_19_2_04_Q018
+- CHUNK1_19_2_04_Q020
+- CHUNK1_19_2_04_Q024
+- CHUNK1_19_2_04_Q030
+- CHUNK1_19_3_02_Q005
+- CHUNK1_19_3_02_Q010
+- CHUNK1_19_3_02_Q017
+- CHUNK1_19_3_02_Q030
+
+## Fill-blank Mobile Risk
+- None after release repair.
+
+## Validation
+- Structural errors: 0
+- Forbidden effective-text hits: 0
+- Remaining blocker draft flags: 0
+
+## Semantic Final Confirmation
+Codex performed a per-question semantic final pass for this chunk using the polished-final file as the reviewed draft, the experiment point bindings, and the release repair rules. Scripts were used only to apply the already-identified text cleanup and to count validation results; keep/rewrite/reject status, point binding acceptance, source support, and option-link acceptability are the semantic final decisions recorded in the release artifact.

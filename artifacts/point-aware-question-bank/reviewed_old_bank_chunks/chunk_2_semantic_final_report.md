@@ -1,0 +1,855 @@
+# Chunk 2 Semantic Final Review Report
+
+## Summary
+
+- 总题数：450
+- keep：211
+- rewrite：239
+- reject：0
+- replacement 数：239
+- 填空题手机端风险数：75
+- evidence insufficient 原题数：73
+- 多点位题目数：158
+
+## Type Distribution
+
+| 题型 | 原题数 | keep | rewrite | reject |
+| --- | ---: | ---: | ---: | ---: |
+| single_choice | 150 | 96 | 54 | 0 |
+| true_false | 150 | 84 | 66 | 0 |
+| fill_blank | 150 | 31 | 119 | 0 |
+
+## Experiment Breakdown
+
+| 实验 | 标题 | 总题数 | keep | rewrite | reject |
+| --- | --- | ---: | ---: | ---: | ---: |
+| 19-3-03 | SO₃²⁻ 的检出 | 30 | 15 | 15 | 0 |
+| 19-3-04 | 性质 | 30 | 19 | 11 | 0 |
+| 19-3-05 | 过二硫酸盐的氧化性 | 30 | 24 | 6 | 0 |
+| 19-3-06 | 过硫酸盐的氧化性 | 30 | 15 | 15 | 0 |
+| 19-4-01 | 亚硝酸的生成与分解 | 30 | 0 | 30 | 0 |
+| 19-4-02 | 亚硝酸的氧化性 | 30 | 14 | 16 | 0 |
+| 19-4-03 | 亚硝酸的还原性 | 30 | 19 | 11 | 0 |
+| 19-4-04 | 亚硝酸根的检验方法 | 30 | 20 | 10 | 0 |
+| 19-4-05 | 亚硝酸的氧化还原性 | 30 | 11 | 19 | 0 |
+| 19-4-06 | 硝酸的氧化性 | 30 | 0 | 30 | 0 |
+| 19-4-07 | 硝酸盐的热分解 | 30 | 24 | 6 | 0 |
+| 19-4-08 | 硝酸根的检验 | 30 | 19 | 11 | 0 |
+| 19-4-09 | 硝酸根的检验 | 30 | 13 | 17 | 0 |
+| 19-5-01 | 难溶性硅酸盐的生成——“水中花园” | 30 | 18 | 12 | 0 |
+| 19-6-01 | 金属钠燃烧及产物性质 | 30 | 0 | 30 | 0 |
+
+## 修改过的题目列表
+
+- 19-3-03 Q01 `single_choice`：too_shallow_title_object；原题：在《19-3-03 SO₃²⁻ 的检出》实验中，该实验设计检出的离子是哪一种？；终审 proposed：在《19-3-03 SO₃²⁻ 的检出》中，检出 SO₃²⁻ 前先除去 SO₄²⁻ 的主要原因是什么？
+- 19-3-03 Q08 `single_choice`：off_point_so2_preparation_detail；原题：在《19-3-03 SO₃²⁻ 的检出》实验中，实验室制备 SO₂ 时蒸馏瓶内放入的固体是哪一种？；终审 proposed：在《19-3-03 SO₃²⁻ 的检出》中，较合理的 SO₃²⁻ 检出流程应先处理哪一类问题？
+- 19-3-03 Q09 `single_choice`：off_point_so2_preparation_detail；原题：在《19-3-03 SO₃²⁻ 的检出》实验中，制备 SO₂ 时分液漏斗内装的酸是哪一种？；终审 proposed：在《19-3-03 SO₃²⁻ 的检出》中，若用 SO₂ 性质间接验证 SO₃²⁻，下列哪项现象最能对应 SO₂ 的还原性？
+- 19-3-03 Q10 `single_choice`：meta_item_not_student_reasoning；原题：在《19-3-03 SO₃²⁻ 的检出》实验中，设计 SO₃²⁻ 检出流程时，最终应写出的核心内容是什么？；终审 proposed：在《19-3-03 SO₃²⁻ 的检出》中，检出 SO₃²⁻ 前先除去 SO₄²⁻ 的主要原因是什么？
+- 19-3-03 Q11 `true_false`：too_shallow_title_object；原题：在《19-3-03 SO₃²⁻ 的检出》实验中，判断：检出对象为“SO₃²⁻”。；终审 proposed：在《19-3-03 SO₃²⁻ 的检出》中，先除去 SO₄²⁻ 是为了减少对 SO₃²⁻ 检出的干扰。
+- 19-3-03 Q18 `true_false`：off_point_so2_preparation_detail；原题：在《19-3-03 SO₃²⁻ 的检出》实验中，判断：SO₂ 制备固体为“NaCl”。；终审 proposed：在《19-3-03 SO₃²⁻ 的检出》中，SO₃²⁻ 是目标检出离子，SO₄²⁻ 是需要先处理的干扰离子。
+- 19-3-03 Q19 `true_false`：off_point_so2_preparation_detail；原题：在《19-3-03 SO₃²⁻ 的检出》实验中，判断：SO₂ 制备酸为“浓 H₂SO₄”。；终审 proposed：在《19-3-03 SO₃²⁻ 的检出》中，先除去 SO₄²⁻ 是为了减少对 SO₃²⁻ 检出的干扰。
+- 19-3-03 Q20 `true_false`：meta_item_not_student_reasoning；原题：在《19-3-03 SO₃²⁻ 的检出》实验中，判断：设计产物为“配位数计算表”。；终审 proposed：在《19-3-03 SO₃²⁻ 的检出》中，SO₃²⁻ 是目标检出离子，SO₄²⁻ 是需要先处理的干扰离子。
+- 19-3-03 Q21 `fill_blank`：too_shallow_title_object, phone_formula_alias_needed；原题：在《19-3-03 SO₃²⁻ 的检出》实验中，该实验要验证样品中是否含有____。；终审 proposed：在《19-3-03 SO₃²⁻ 的检出》中，SO₃²⁻ 检出前应先除去____。
+- 19-3-03 Q22 `fill_blank`：phone_formula_alias_needed；原题：在《19-3-03 SO₃²⁻ 的检出》实验中，含 SO₃²⁻ 的溶液中常有少量____会干扰检出。；终审 proposed：在《19-3-03 SO₃²⁻ 的检出》实验中，含 SO₃²⁻ 的溶液中常有少量____会干扰检出。
+- 19-3-03 Q23 `fill_blank`：phone_formula_alias_needed；原题：在《19-3-03 SO₃²⁻ 的检出》实验中，为避免干扰，应先将____预先除去。；终审 proposed：在《19-3-03 SO₃²⁻ 的检出》实验中，为避免干扰，应先将____预先除去。
+- 19-3-03 Q24 `fill_blank`：phone_formula_alias_needed；原题：在《19-3-03 SO₃²⁻ 的检出》实验中，SO₃²⁻ 经酸化可放出____，再据其性质验证。；终审 proposed：在《19-3-03 SO₃²⁻ 的检出》实验中，SO₃²⁻ 经酸化可放出____，再据其性质验证。
+- 19-3-03 Q28 `fill_blank`：off_point_so2_preparation_detail, phone_formula_alias_needed；原题：在《19-3-03 SO₃²⁻ 的检出》实验中，制备 SO₂ 时蒸馏瓶内可放入____固体。；终审 proposed：在《19-3-03 SO₃²⁻ 的检出》中，酸化 SO₃²⁻ 可放出____用于后续性质验证。
+- 19-3-03 Q29 `fill_blank`：off_point_so2_preparation_detail, phone_formula_alias_needed；原题：在《19-3-03 SO₃²⁻ 的检出》实验中，制备 SO₂ 时分液漏斗内装____。；终审 proposed：在《19-3-03 SO₃²⁻ 的检出》中，SO₃²⁻ 检出前应先除去____。
+- 19-3-03 Q30 `fill_blank`：meta_item_not_student_reasoning；原题：在《19-3-03 SO₃²⁻ 的检出》实验中，题目要求写出分离过程示意图及有关反应的____。；终审 proposed：在《19-3-03 SO₃²⁻ 的检出》中，酸化 SO₃²⁻ 可放出____用于后续性质验证。
+- 19-3-04 Q05 `single_choice`：off_point_preparation_not_property_point；原题：在《19-3-04 性质》实验中，制备 Na₂S₂O₃·5H₂O 时，实验资料中使用的原料组合是哪一项？；终审 proposed：在《19-3-04 性质》中，Na₂S₂O₃ 与 AgNO₃ 反应后继续观察沉淀变化，主要体现什么性质？
+- 19-3-04 Q15 `true_false`：off_point_preparation_not_property_point；原题：在《19-3-04 性质》实验中，本实验性质部分使用的是自制 Na₂S₂O₃·5H₂O 晶体配成的溶液。；终审 proposed：在《19-3-04 性质》中，Na₂S₂O₃ 使碘水褪色，说明它在该点位中表现还原性。
+- 19-3-04 Q18 `true_false`：double_negative_true_false；原题：在《19-3-04 性质》实验中，认为：AgNO₃ 实验可体现 Na₂S₂O₃ 对 Ag⁺ 的配位作用，这一判断是不正确的。；终审 proposed：在《19-3-04 性质》中，AgNO₃ 点位要求观察沉淀生成、颜色变化和配位溶解。
+- 19-3-04 Q19 `true_false`：double_negative_true_false, off_point_preparation_not_property_point；原题：在《19-3-04 性质》实验中，认为：制备 Na₂S₂O₃ 时加入活性炭粉的目的可包括脱色，这一判断是不正确的。；终审 proposed：在《19-3-04 性质》中，Na₂S₂O₃ 使碘水褪色，说明它在该点位中表现还原性。
+- 19-3-04 Q20 `true_false`：double_negative_true_false, meta_item_not_student_reasoning；原题：在《19-3-04 性质》实验中，认为：该实验标题虽为“性质”，但实际属于硫代硫酸钠的制备与性质模块，这一判断是不正确的。；终审 proposed：在《19-3-04 性质》中，AgNO₃ 点位要求观察沉淀生成、颜色变化和配位溶解。
+- 19-3-04 Q23 `fill_blank`：phone_formula_alias_needed；原题：在《19-3-04 性质》实验中，氯水氧化 Na₂S₂O₃ 后，反应后溶液中可验证____离子。；终审 proposed：在《19-3-04 性质》实验中，氯水氧化 Na₂S₂O₃ 后，反应后溶液中可验证____离子。
+- 19-3-04 Q25 `fill_blank`：off_point_preparation_not_property_point；原题：在《19-3-04 性质》实验中，制备 Na₂S₂O₃·5H₂O 的原料之一是____粉。；终审 proposed：在《19-3-04 性质》中，Na₂S₂O₃ 与 Ag⁺ 的后续溶解现象体现____作用。
+- 19-3-04 Q26 `fill_blank`：off_point_preparation_not_property_point；原题：在《19-3-04 性质》实验中，制备 Na₂S₂O₃·5H₂O 时加入活性炭粉的目的之一是____。；终审 proposed：在《19-3-04 性质》中，Na₂S₂O₃ 遇 HCl 变浑浊主要来自单质____。
+- 19-3-04 Q27 `fill_blank`：off_point_preparation_not_property_point；原题：在《19-3-04 性质》实验中，Na₂S₂O₃·5H₂O 性质实验前先将晶体溶于约 5 mL ____中。；终审 proposed：在《19-3-04 性质》中，Na₂S₂O₃ 与 Ag⁺ 的后续溶解现象体现____作用。
+- 19-3-04 Q28 `fill_blank`：phone_formula_alias_needed；原题：在《19-3-04 性质》实验中，验证 SO₄²⁻ 时常用 Ba²⁺ 生成白色____沉淀。；终审 proposed：在《19-3-04 性质》实验中，验证 SO₄²⁻ 时常用 Ba²⁺ 生成白色____沉淀。
+- 19-3-04 Q29 `fill_blank`：phone_formula_alias_needed；原题：在《19-3-04 性质》实验中，Na₂S₂O₃ 的酸分解常伴随生成有刺激性气味的____。；终审 proposed：在《19-3-04 性质》实验中，Na₂S₂O₃ 的酸分解常伴随生成有刺激性气味的____。
+- 19-3-05 Q18 `true_false`：double_negative_true_false；原题：在《19-3-05 过二硫酸盐的氧化性》实验中，认为：Mn²⁺ 氧化为 MnO₄⁻ 的特征颜色可为紫色，这一判断是不正确的。；终审 proposed：在《19-3-05 过二硫酸盐的氧化性》中，加入 AgNO₃ 与不加 AgNO₃ 的对照可用于比较反应现象差异。
+- 19-3-05 Q20 `true_false`：double_negative_true_false, meta_item_not_student_reasoning；原题：在《19-3-05 过二硫酸盐的氧化性》实验中，认为：本实验可以围绕过二硫酸盐的强氧化性设计客观题，这一判断是不正确的。；终审 proposed：在《19-3-05 过二硫酸盐的氧化性》中，加入 AgNO₃ 与不加 AgNO₃ 的对照可用于比较反应现象差异。
+- 19-3-05 Q21 `fill_blank`：phone_formula_alias_needed；原题：在《19-3-05 过二硫酸盐的氧化性》实验中，体现过二硫酸盐氧化性的固体试剂是____。；终审 proposed：在《19-3-05 过二硫酸盐的氧化性》实验中，体现过二硫酸盐氧化性的固体试剂是____。
+- 19-3-05 Q23 `fill_blank`：phone_formula_alias_needed；原题：在《19-3-05 过二硫酸盐的氧化性》实验中，过二硫酸盐氧化 Mn²⁺ 的实验用____溶液酸化。；终审 proposed：在《19-3-05 过二硫酸盐的氧化性》实验中，过二硫酸盐氧化 Mn²⁺ 的实验用____溶液酸化。
+- 19-3-05 Q26 `fill_blank`：phone_formula_alias_needed；原题：在《19-3-05 过二硫酸盐的氧化性》实验中，酸化 KI 与 K₂S₂O₈ 反应时生成的卤素单质是____。；终审 proposed：在《19-3-05 过二硫酸盐的氧化性》实验中，酸化 KI 与 K₂S₂O₈ 反应时生成的卤素单质是____。
+- 19-3-05 Q28 `fill_blank`：phone_formula_alias_needed；原题：在《19-3-05 过二硫酸盐的氧化性》实验中，S₂O₈²⁻ 被还原后通常生成____。；终审 proposed：在《19-3-05 过二硫酸盐的氧化性》实验中，S₂O₈²⁻ 被还原后通常生成____。
+- 19-3-06 Q05 `single_choice`：no_matching_ki_video_point；原题：在《19-3-06 过硫酸盐的氧化性》实验中，酸化 KI 溶液后加入 K₂S₂O₈，主要体现 S₂O₈²⁻ 能氧化哪种离子？；终审 proposed：在《19-3-06 过硫酸盐的氧化性》中，设置加 AgNO₃ 与不加 AgNO₃ 两支试管，主要为了比较什么？
+- 19-3-06 Q09 `single_choice`：no_matching_ki_video_point；原题：在《19-3-06 过硫酸盐的氧化性》实验中，酸化 KI 后加入 K₂S₂O₈ 若生成 I₂，最直接说明的是哪一项？；终审 proposed：在《19-3-06 过硫酸盐的氧化性》中，不加 AgNO₃ 的对照试管仍保留哪些核心试剂？
+- 19-3-06 Q14 `true_false`：no_matching_ki_video_point；原题：在《19-3-06 过硫酸盐的氧化性》实验中，酸化 KI 后加入 K₂S₂O₈，可观察 I⁻ 被氧化的现象。；终审 proposed：在《19-3-06 过硫酸盐的氧化性》中，不加 AgNO₃ 的试管是与加 AgNO₃ 试管比较现象差异的对照。
+- 19-3-06 Q18 `true_false`：double_negative_true_false, no_matching_ki_video_point；原题：在《19-3-06 过硫酸盐的氧化性》实验中，认为：K₂S₂O₈ 与 KI 的反应中，I⁻ 作为被氧化的还原剂，这一判断是不正确的。；终审 proposed：在《19-3-06 过硫酸盐的氧化性》中，本实验已有视频点位聚焦 MnSO₄ 体系，而不是酸化 KI 体系。
+- 19-3-06 Q19 `true_false`：double_negative_true_false；原题：在《19-3-06 过硫酸盐的氧化性》实验中，认为：过硫酸盐氧化 Mn²⁺ 时，若生成 MnO₄⁻，紫红色可作为观察依据，这一判断是不正确的。；终审 proposed：在《19-3-06 过硫酸盐的氧化性》中，不加 AgNO₃ 的试管是与加 AgNO₃ 试管比较现象差异的对照。
+- 19-3-06 Q21 `fill_blank`：missing_or_empty_explanation, phone_formula_alias_needed；原题：在《19-3-06 过硫酸盐的氧化性》实验中，体现过硫酸盐氧化性的固体试剂是____。；终审 proposed：在《19-3-06 过硫酸盐的氧化性》实验中，体现过硫酸盐氧化性的固体试剂是____。
+- 19-3-06 Q22 `fill_blank`：missing_or_empty_explanation, phone_formula_alias_needed；原题：在《19-3-06 过硫酸盐的氧化性》实验中，MnSO₄ 体系中作对照时，一支试管不加____溶液。；终审 proposed：在《19-3-06 过硫酸盐的氧化性》实验中，MnSO₄ 体系中作对照时，一支试管不加____溶液。
+- 19-3-06 Q23 `fill_blank`：missing_or_empty_explanation；原题：在《19-3-06 过硫酸盐的氧化性》实验中，MnSO₄ 体系加入 K₂S₂O₈ 后采用____加热。；终审 proposed：在《19-3-06 过硫酸盐的氧化性》实验中，MnSO₄ 体系加入 K₂S₂O₈ 后采用____加热。
+- 19-3-06 Q24 `fill_blank`：missing_or_empty_explanation, phone_formula_alias_needed；原题：在《19-3-06 过硫酸盐的氧化性》实验中，该实验中常用____提供酸性介质。；终审 proposed：在《19-3-06 过硫酸盐的氧化性》实验中，该实验中常用____提供酸性介质。
+- 19-3-06 Q25 `fill_blank`：no_matching_ki_video_point, missing_or_empty_explanation, phone_formula_alias_needed；原题：在《19-3-06 过硫酸盐的氧化性》实验中，酸化 KI 溶液中被 K₂S₂O₈ 氧化的离子是____。；终审 proposed：在《19-3-06 过硫酸盐的氧化性》中，作对照的一支试管不加____。
+- 19-3-06 Q26 `fill_blank`：missing_or_empty_explanation；原题：在《19-3-06 过硫酸盐的氧化性》实验中，S₂O₈²⁻ 在该实验中主要表现____。；终审 proposed：在《19-3-06 过硫酸盐的氧化性》实验中，S₂O₈²⁻ 在该实验中主要表现____。
+- 19-3-06 Q27 `fill_blank`：missing_or_empty_explanation；原题：在《19-3-06 过硫酸盐的氧化性》实验中，Mn²⁺ 被氧化到 MnO₄⁻ 时溶液常呈____。；终审 proposed：在《19-3-06 过硫酸盐的氧化性》实验中，Mn²⁺ 被氧化到 MnO₄⁻ 时溶液常呈____。
+- 19-3-06 Q28 `fill_blank`：no_matching_ki_video_point, missing_or_empty_explanation, phone_formula_alias_needed；原题：在《19-3-06 过硫酸盐的氧化性》实验中，KI 被氧化后生成的卤素单质是____。；终审 proposed：在《19-3-06 过硫酸盐的氧化性》中，提供 Mn²⁺ 的试剂是____。
+- 19-3-06 Q29 `fill_blank`：missing_or_empty_explanation, phone_formula_alias_needed；原题：在《19-3-06 过硫酸盐的氧化性》实验中，实验中用来提供 Mn²⁺ 的试剂是____。；终审 proposed：在《19-3-06 过硫酸盐的氧化性》实验中，实验中用来提供 Mn²⁺ 的试剂是____。
+- 19-3-06 Q30 `fill_blank`：missing_or_empty_explanation；原题：在《19-3-06 过硫酸盐的氧化性》实验中，比较加和不加 AgNO₃ 的现象，本质上是在考查 Ag⁺ 对反应的____作用。；终审 proposed：在《19-3-06 过硫酸盐的氧化性》实验中，比较加和不加 AgNO₃ 的现象，本质上是在考查 Ag⁺ 对反应的____作用。
+- 19-4-01 Q01 `single_choice`：missing_or_empty_explanation；原题：在《19-4-01 亚硝酸的生成与分解》实验中，生成 HNO₂ 的操作中，混合的是哪两种溶液？；终审 proposed：在《19-4-01 亚硝酸的生成与分解》实验中，生成 HNO₂ 的操作中，混合的是哪两种溶液？
+- 19-4-01 Q02 `single_choice`：missing_or_empty_explanation；原题：在《19-4-01 亚硝酸的生成与分解》实验中，本实验中饱和 NaNO₂ 溶液和 H₂SO₄ 溶液各取多少体积？；终审 proposed：在《19-4-01 亚硝酸的生成与分解》实验中，本实验中饱和 NaNO₂ 溶液和 H₂SO₄ 溶液各取多少体积？
+- 19-4-01 Q03 `single_choice`：missing_or_empty_explanation；原题：在《19-4-01 亚硝酸的生成与分解》实验中，NaNO₂ 与 H₂SO₄ 反应生成的弱酸是下列哪一种？；终审 proposed：在《19-4-01 亚硝酸的生成与分解》实验中，NaNO₂ 与 H₂SO₄ 反应生成的弱酸是下列哪一种？
+- 19-4-01 Q04 `single_choice`：missing_or_empty_explanation；原题：在《19-4-01 亚硝酸的生成与分解》实验中，HNO₂ 分解先生成的蓝色物质可表示为哪一种？；终审 proposed：在《19-4-01 亚硝酸的生成与分解》实验中，HNO₂ 分解先生成的蓝色物质可表示为哪一种？
+- 19-4-01 Q05 `single_choice`：missing_or_empty_explanation；原题：在《19-4-01 亚硝酸的生成与分解》实验中，N₂O₃ 进一步分解可生成哪组气体？；终审 proposed：在《19-4-01 亚硝酸的生成与分解》实验中，N₂O₃ 进一步分解可生成哪组气体？
+- 19-4-01 Q06 `single_choice`：missing_or_empty_explanation；原题：在《19-4-01 亚硝酸的生成与分解》实验中，观察到棕色气体时，最可能与哪种物质有关？；终审 proposed：在《19-4-01 亚硝酸的生成与分解》实验中，观察到棕色气体时，最可能与哪种物质有关？
+- 19-4-01 Q07 `single_choice`：missing_or_empty_explanation；原题：在《19-4-01 亚硝酸的生成与分解》实验中，为什么要使用冰水冷却过的 NaNO₂ 溶液？；终审 proposed：在《19-4-01 亚硝酸的生成与分解》实验中，为什么要使用冰水冷却过的 NaNO₂ 溶液？
+- 19-4-01 Q08 `single_choice`：missing_or_empty_explanation；原题：在《19-4-01 亚硝酸的生成与分解》实验中，下列哪一方程式对应 HNO₂ 的生成？；终审 proposed：在《19-4-01 亚硝酸的生成与分解》实验中，下列哪一方程式对应 HNO₂ 的生成？
+- 19-4-01 Q09 `single_choice`：missing_or_empty_explanation；原题：在《19-4-01 亚硝酸的生成与分解》实验中，本实验的核心现象应围绕哪一项记录？；终审 proposed：在《19-4-01 亚硝酸的生成与分解》实验中，本实验的核心现象应围绕哪一项记录？
+- 19-4-01 Q10 `single_choice`：missing_or_empty_explanation；原题：在《19-4-01 亚硝酸的生成与分解》实验中，下列哪一项不是本实验的主要物种？；终审 proposed：在《19-4-01 亚硝酸的生成与分解》实验中，下列哪一项不是本实验的主要物种？
+- 19-4-01 Q11 `true_false`：missing_or_empty_explanation；原题：在《19-4-01 亚硝酸的生成与分解》实验中，HNO₂ 由 NaNO₂ 与 NaOH 反应生成。；终审 proposed：在《19-4-01 亚硝酸的生成与分解》实验中，HNO₂ 由 NaNO₂ 与 NaOH 反应生成。
+- 19-4-01 Q12 `true_false`：missing_or_empty_explanation；原题：在《19-4-01 亚硝酸的生成与分解》实验中，N₂O₃ 分解只生成无色 N₂ 和 O₂。；终审 proposed：在《19-4-01 亚硝酸的生成与分解》实验中，N₂O₃ 分解只生成无色 N₂ 和 O₂。
+- 19-4-01 Q13 `true_false`：missing_or_empty_explanation；原题：在《19-4-01 亚硝酸的生成与分解》实验中，N₂O₃ 在该实验中被标注为蓝色物质。；终审 proposed：在《19-4-01 亚硝酸的生成与分解》实验中，N₂O₃ 在该实验中被标注为蓝色物质。
+- 19-4-01 Q14 `true_false`：missing_or_empty_explanation；原题：在《19-4-01 亚硝酸的生成与分解》实验中，NO₂ 是棕色气体。；终审 proposed：在《19-4-01 亚硝酸的生成与分解》实验中，NO₂ 是棕色气体。
+- 19-4-01 Q15 `true_false`：missing_or_empty_explanation；原题：在《19-4-01 亚硝酸的生成与分解》实验中，本实验用 Na₂O₂ 和水作为生成 HNO₂ 的原料。；终审 proposed：在《19-4-01 亚硝酸的生成与分解》实验中，本实验用 Na₂O₂ 和水作为生成 HNO₂ 的原料。
+- 19-4-01 Q16 `true_false`：missing_or_empty_explanation；原题：在《19-4-01 亚硝酸的生成与分解》实验中，冰水冷却有助于观察不稳定中间物的变化。；终审 proposed：在《19-4-01 亚硝酸的生成与分解》实验中，冰水冷却有助于观察不稳定中间物的变化。
+- 19-4-01 Q17 `true_false`：missing_or_empty_explanation；原题：在《19-4-01 亚硝酸的生成与分解》实验中，HNO₂ 分解只生成 Na₂SO₄，不会生成含氮气体。；终审 proposed：在《19-4-01 亚硝酸的生成与分解》实验中，HNO₂ 分解只生成 Na₂SO₄，不会生成含氮气体。
+- 19-4-01 Q18 `true_false`：missing_or_empty_explanation；原题：在《19-4-01 亚硝酸的生成与分解》实验中，生成 HNO₂ 的酸是 H₂SO₄ 而不是 NaOH。；终审 proposed：在《19-4-01 亚硝酸的生成与分解》实验中，生成 HNO₂ 的酸是 H₂SO₄ 而不是 NaOH。
+- 19-4-01 Q19 `true_false`：missing_or_empty_explanation；原题：在《19-4-01 亚硝酸的生成与分解》实验中，NO 是棕色气体，NO₂ 是无色气体。；终审 proposed：在《19-4-01 亚硝酸的生成与分解》实验中，NO 是棕色气体，NO₂ 是无色气体。
+- 19-4-01 Q20 `true_false`：missing_or_empty_explanation；原题：在《19-4-01 亚硝酸的生成与分解》实验中，本实验题目应关注亚硝酸的生成与分解，而不是硝酸盐热分解。；终审 proposed：在《19-4-01 亚硝酸的生成与分解》实验中，本实验题目应关注亚硝酸的生成与分解，而不是硝酸盐热分解。
+- 19-4-01 Q21 `fill_blank`：missing_or_empty_explanation, phone_formula_alias_needed；原题：在《19-4-01 亚硝酸的生成与分解》实验中，生成亚硝酸所用的亚硝酸盐是____。；终审 proposed：在《19-4-01 亚硝酸的生成与分解》实验中，生成亚硝酸所用的亚硝酸盐是____。
+- 19-4-01 Q22 `fill_blank`：missing_or_empty_explanation, phone_formula_alias_needed；原题：在《19-4-01 亚硝酸的生成与分解》实验中，与 NaNO₂ 反应生成 HNO₂ 的酸是____。；终审 proposed：在《19-4-01 亚硝酸的生成与分解》实验中，与 NaNO₂ 反应生成 HNO₂ 的酸是____。
+- 19-4-01 Q23 `fill_blank`：missing_or_empty_explanation, phone_formula_alias_needed；原题：在《19-4-01 亚硝酸的生成与分解》实验中，亚硝酸的化学式是____。；终审 proposed：在《19-4-01 亚硝酸的生成与分解》实验中，亚硝酸的化学式是____。
+- 19-4-01 Q24 `fill_blank`：missing_or_empty_explanation, phone_formula_alias_needed；原题：在《19-4-01 亚硝酸的生成与分解》实验中，HNO₂ 分解生成的蓝色物质是____。；终审 proposed：在《19-4-01 亚硝酸的生成与分解》实验中，HNO₂ 分解生成的蓝色物质是____。
+- 19-4-01 Q25 `fill_blank`：missing_or_empty_explanation, phone_formula_alias_needed；原题：在《19-4-01 亚硝酸的生成与分解》实验中，N₂O₃ 进一步分解可产生 NO 和____。；终审 proposed：在《19-4-01 亚硝酸的生成与分解》实验中，N₂O₃ 进一步分解可产生 NO 和____。
+- 19-4-01 Q26 `fill_blank`：missing_or_empty_explanation；原题：在《19-4-01 亚硝酸的生成与分解》实验中，NO₂ 气体的典型颜色是____色。；终审 proposed：在《19-4-01 亚硝酸的生成与分解》实验中，NO₂ 气体的典型颜色是____色。
+- 19-4-01 Q27 `fill_blank`：missing_or_empty_explanation；原题：在《19-4-01 亚硝酸的生成与分解》实验中，本实验中 NaNO₂ 溶液需要先用____冷却。；终审 proposed：在《19-4-01 亚硝酸的生成与分解》实验中，本实验中 NaNO₂ 溶液需要先用____冷却。
+- 19-4-01 Q28 `fill_blank`：missing_or_empty_explanation；原题：在《19-4-01 亚硝酸的生成与分解》实验中，生成 HNO₂ 时 NaNO₂ 溶液和 H₂SO₄ 溶液各取____mL。；终审 proposed：在《19-4-01 亚硝酸的生成与分解》实验中，生成 HNO₂ 时 NaNO₂ 溶液和 H₂SO₄ 溶液各取____mL。
+- 19-4-01 Q29 `fill_blank`：missing_or_empty_explanation, phone_formula_alias_needed；原题：在《19-4-01 亚硝酸的生成与分解》实验中，反应 2NaNO₂ + H₂SO₄ → 2HNO₂ + ____。；终审 proposed：在《19-4-01 亚硝酸的生成与分解》实验中，反应 2NaNO₂ + H₂SO₄ → 2HNO₂ + ____。
+- 19-4-01 Q30 `fill_blank`：missing_or_empty_explanation；原题：在《19-4-01 亚硝酸的生成与分解》实验中，亚硝酸放置后变化明显，说明它具有较差的____性。；终审 proposed：在《19-4-01 亚硝酸的生成与分解》实验中，亚硝酸放置后变化明显，说明它具有较差的____性。
+- 19-4-02 Q01 `single_choice`：too_shallow_title_object；原题：在《19-4-02 亚硝酸的氧化性》实验中，该实验重点验证亚硝酸的哪一种性质？；终审 proposed：在《19-4-02 亚硝酸的氧化性》中，判断亚硝酸有氧化性的直接证据是什么？
+- 19-4-02 Q08 `single_choice`：adjacent_section_generation_decomposition；原题：在《19-4-02 亚硝酸的氧化性》实验中，HNO₂ 分解过程中出现蓝色中间物与棕色气体，说明它较不稳定；棕色气体主要是哪一种？；终审 proposed：在《19-4-02 亚硝酸的氧化性》中，判断亚硝酸有氧化性的直接证据是什么？
+- 19-4-02 Q09 `single_choice`：adjacent_theory_not_video_point；原题：在《19-4-02 亚硝酸的氧化性》实验中，一般不使用 HNO₃ 作该类酸性反应介质的主要原因是什么？；终审 proposed：在《19-4-02 亚硝酸的氧化性》中，判断亚硝酸有氧化性的直接证据是什么？
+- 19-4-02 Q11 `true_false`：too_shallow_title_object；原题：在《19-4-02 亚硝酸的氧化性》实验中，判断：性质类型为“氧化性”。；终审 proposed：在《19-4-02 亚硝酸的氧化性》中，酸性 KI 中加入 NaNO₂ 可体现 HNO₂ 对 I⁻ 的氧化作用。
+- 19-4-02 Q17 `true_false`：tautological_low_value；原题：在《19-4-02 亚硝酸的氧化性》实验中，判断：HNO₂ 生成为“HNO₂”。；终审 proposed：在《19-4-02 亚硝酸的氧化性》中，酸性 KI 中加入 NaNO₂ 可体现 HNO₂ 对 I⁻ 的氧化作用。
+- 19-4-02 Q18 `true_false`：adjacent_section_generation_decomposition；原题：在《19-4-02 亚硝酸的氧化性》实验中，判断：分解颜色为“NH₃”。；终审 proposed：在《19-4-02 亚硝酸的氧化性》中，酸性 KI 中加入 NaNO₂ 可体现 HNO₂ 对 I⁻ 的氧化作用。
+- 19-4-02 Q19 `true_false`：adjacent_theory_not_video_point；原题：在《19-4-02 亚硝酸的氧化性》实验中，判断：避免介质为“HNO₃ 具有氧化性，可能干扰判断”。；终审 proposed：在《19-4-02 亚硝酸的氧化性》中，酸性 KI 中加入 NaNO₂ 可体现 HNO₂ 对 I⁻ 的氧化作用。
+- 19-4-02 Q21 `fill_blank`：too_shallow_title_object；原题：在《19-4-02 亚硝酸的氧化性》实验中，该实验重点验证亚硝酸的____。；终审 proposed：在《19-4-02 亚硝酸的氧化性》中，I⁻ 被氧化后生成____。
+- 19-4-02 Q22 `fill_blank`：phone_formula_alias_needed；原题：在《19-4-02 亚硝酸的氧化性》实验中，酸性 KI 中被氧化的是____。；终审 proposed：在《19-4-02 亚硝酸的氧化性》实验中，酸性 KI 中被氧化的是____。
+- 19-4-02 Q23 `fill_blank`：phone_formula_alias_needed；原题：在《19-4-02 亚硝酸的氧化性》实验中，I⁻ 被氧化后主要生成____。；终审 proposed：在《19-4-02 亚硝酸的氧化性》实验中，I⁻ 被氧化后主要生成____。
+- 19-4-02 Q24 `fill_blank`：phone_formula_alias_needed；原题：在《19-4-02 亚硝酸的氧化性》实验中，KI 溶液用____溶液酸化。；终审 proposed：在《19-4-02 亚硝酸的氧化性》实验中，KI 溶液用____溶液酸化。
+- 19-4-02 Q25 `fill_blank`：phone_formula_alias_needed；原题：在《19-4-02 亚硝酸的氧化性》实验中，酸化 KI 后滴加____溶液。；终审 proposed：在《19-4-02 亚硝酸的氧化性》实验中，酸化 KI 后滴加____溶液。
+- 19-4-02 Q27 `fill_blank`：phone_formula_alias_needed；原题：在《19-4-02 亚硝酸的氧化性》实验中，NaNO₂ 与 H₂SO₄ 作用可生成____。；终审 proposed：在《19-4-02 亚硝酸的氧化性》实验中，NaNO₂ 与 H₂SO₄ 作用可生成____。
+- 19-4-02 Q28 `fill_blank`：adjacent_section_generation_decomposition, phone_formula_alias_needed；原题：在《19-4-02 亚硝酸的氧化性》实验中，HNO₂ 分解可产生棕色的____。；终审 proposed：在《19-4-02 亚硝酸的氧化性》中，I⁻ 被氧化后生成____。
+- 19-4-02 Q29 `fill_blank`：adjacent_theory_not_video_point；原题：在《19-4-02 亚硝酸的氧化性》实验中，不宜用 HNO₃ 作普通酸性介质，是因为它有____性。；终审 proposed：在《19-4-02 亚硝酸的氧化性》中，I⁻ 被氧化后生成____。
+- 19-4-02 Q30 `fill_blank`：phone_formula_alias_needed；原题：在《19-4-02 亚硝酸的氧化性》实验中，亚硝酸表现氧化性的依据是把 I⁻ 氧化为____。；终审 proposed：在《19-4-02 亚硝酸的氧化性》实验中，亚硝酸表现氧化性的依据是把 I⁻ 氧化为____。
+- 19-4-03 Q06 `single_choice`：adjacent_oxidation_point_not_current_video_point；原题：在《19-4-03 亚硝酸的还原性》实验中，NaNO₂ 在亚硝酸的氧化性实验中与 KI 反应，而在本实验中与 KMnO₄ 反应；这说明 HNO₂/NO₂⁻ 具有什么特点？；终审 proposed：在《19-4-03 亚硝酸的还原性》中，滴加 NaNO₂ 后观察 KMnO₄ 紫色变浅，主要说明什么？
+- 19-4-03 Q10 `single_choice`：meta_item_not_student_reasoning；原题：在《19-4-03 亚硝酸的还原性》实验中，本实验所在模块是下列哪一项？；终审 proposed：在《19-4-03 亚硝酸的还原性》中，滴加 NaNO₂ 后观察 KMnO₄ 紫色变浅，主要说明什么？
+- 19-4-03 Q16 `true_false`：adjacent_oxidation_point_not_current_video_point；原题：在《19-4-03 亚硝酸的还原性》实验中，亚硝酸及其盐只能表现还原性，不能表现氧化性。；终审 proposed：在《19-4-03 亚硝酸的还原性》中，NaNO₂ 使酸性 KMnO₄ 颜色变浅，可作为其还原性的观察依据。
+- 19-4-03 Q19 `true_false`：double_negative_true_false；原题：在《19-4-03 亚硝酸的还原性》实验中，认为：用 HCl 代替 H₂SO₄ 酸化可能引入氯离子被氧化的干扰，这一判断是不正确的。；终审 proposed：在《19-4-03 亚硝酸的还原性》中，NaNO₂ 使酸性 KMnO₄ 颜色变浅，可作为其还原性的观察依据。
+- 19-4-03 Q20 `true_false`：double_negative_true_false；原题：在《19-4-03 亚硝酸的还原性》实验中，认为：滴加 NaNO₂ 后若 KMnO₄ 褪色，可说明发生了氧化还原反应，这一判断是不正确的。；终审 proposed：在《19-4-03 亚硝酸的还原性》中，NaNO₂ 使酸性 KMnO₄ 颜色变浅，可作为其还原性的观察依据。
+- 19-4-03 Q21 `fill_blank`：phone_formula_alias_needed；原题：在《19-4-03 亚硝酸的还原性》实验中，本实验中 KMnO₄ 溶液用____酸化。；终审 proposed：在《19-4-03 亚硝酸的还原性》实验中，本实验中 KMnO₄ 溶液用____酸化。
+- 19-4-03 Q24 `fill_blank`：phone_formula_alias_needed；原题：在《19-4-03 亚硝酸的还原性》实验中，NO₂⁻ 表现还原性时常被氧化为____。；终审 proposed：在《19-4-03 亚硝酸的还原性》实验中，NO₂⁻ 表现还原性时常被氧化为____。
+- 19-4-03 Q25 `fill_blank`：phone_formula_alias_needed；原题：在《19-4-03 亚硝酸的还原性》实验中，酸性条件下 MnO₄⁻ 常被还原为____。；终审 proposed：在《19-4-03 亚硝酸的还原性》实验中，酸性条件下 MnO₄⁻ 常被还原为____。
+- 19-4-03 Q26 `fill_blank`：phone_formula_alias_needed；原题：在《19-4-03 亚硝酸的还原性》实验中，本实验使用的紫色氧化剂是____。；终审 proposed：在《19-4-03 亚硝酸的还原性》实验中，本实验使用的紫色氧化剂是____。
+- 19-4-03 Q28 `fill_blank`：adjacent_oxidation_point_not_current_video_point；原题：在《19-4-03 亚硝酸的还原性》实验中，亚硝酸及其盐既可表现氧化性，也可表现____性。；终审 proposed：在《19-4-03 亚硝酸的还原性》中，NaNO₂ 使酸性 KMnO₄ 褪色，主要表现____性。
+- 19-4-03 Q29 `fill_blank`：phone_formula_alias_needed；原题：在《19-4-03 亚硝酸的还原性》实验中，本实验不宜用盐酸酸化，是为了避免____离子被氧化的干扰。；终审 proposed：在《19-4-03 亚硝酸的还原性》实验中，本实验不宜用盐酸酸化，是为了避免____离子被氧化的干扰。
+- 19-4-04 Q06 `single_choice`：adjacent_section_generation_decomposition；原题：在《19-4-04 亚硝酸根的检验方法》实验中，亚硝酸由 NaNO₂ 与硫酸生成后，因不稳定可分解产生哪种棕色气体相关物种？；终审 proposed：在《19-4-04 亚硝酸根的检验方法》中，点滴板法检验 NO₂⁻ 的阳性现象是什么？
+- 19-4-04 Q07 `single_choice`：adjacent_reduction_point_not_current_video_point；原题：在《19-4-04 亚硝酸根的检验方法》实验中，酸性 KMnO₄ 中滴加 NaNO₂，主要体现亚硝酸盐的哪种性质？；终审 proposed：在《19-4-04 亚硝酸根的检验方法》中，点滴板法检验 NO₂⁻ 的阳性现象是什么？
+- 19-4-04 Q09 `single_choice`：unsupported_safety_claim；原题：在《19-4-04 亚硝酸根的检验方法》实验中，NaNO₂ 和亚硝酸盐相关操作中，必须注意的安全点是哪一项？；终审 proposed：在《19-4-04 亚硝酸根的检验方法》中，点滴板法检验 NO₂⁻ 的阳性现象是什么？
+- 19-4-04 Q14 `true_false`：unsupported_safety_claim；原题：在《19-4-04 亚硝酸根的检验方法》实验中，亚硝酸盐有毒，操作中不应入口。；终审 proposed：在《19-4-04 亚硝酸根的检验方法》中，KI-CCl₄ 法的紫色 CCl₄ 层来自 I₂。
+- 19-4-04 Q19 `true_false`：double_negative_true_false, adjacent_reduction_point_not_current_video_point；原题：在《19-4-04 亚硝酸根的检验方法》实验中，认为：酸性 KMnO₄ 与 NaNO₂ 反应可体现 NaNO₂ 的还原性，这一判断是不正确的。；终审 proposed：在《19-4-04 亚硝酸根的检验方法》中，KI-CCl₄ 法的紫色 CCl₄ 层来自 I₂。
+- 19-4-04 Q24 `fill_blank`：phone_formula_alias_needed；原题：在《19-4-04 亚硝酸根的检验方法》实验中，KI/CCl₄ 法中 NO₂⁻ 在酸性条件下氧化____。；终审 proposed：在《19-4-04 亚硝酸根的检验方法》实验中，KI/CCl₄ 法中 NO₂⁻ 在酸性条件下氧化____。
+- 19-4-04 Q25 `fill_blank`：phone_formula_alias_needed；原题：在《19-4-04 亚硝酸根的检验方法》实验中，CCl₄ 层显紫色说明生成了____。；终审 proposed：在《19-4-04 亚硝酸根的检验方法》实验中，CCl₄ 层显紫色说明生成了____。
+- 19-4-04 Q26 `fill_blank`：adjacent_section_generation_decomposition, phone_formula_alias_needed；原题：在《19-4-04 亚硝酸根的检验方法》实验中，亚硝酸分解可产生棕色的____。；终审 proposed：在《19-4-04 亚硝酸根的检验方法》中，点滴板法阳性时溶液应显____。
+- 19-4-04 Q27 `fill_blank`：adjacent_reduction_point_not_current_video_point；原题：在《19-4-04 亚硝酸根的检验方法》实验中，酸性 KMnO₄ 中滴加 NaNO₂ 体现亚硝酸盐的____。；终审 proposed：在《19-4-04 亚硝酸根的检验方法》中，点滴板法阳性时溶液应显____。
+- 19-4-04 Q29 `fill_blank`：unsupported_safety_claim；原题：在《19-4-04 亚硝酸根的检验方法》实验中，亚硝酸盐有毒，注意切勿____。；终审 proposed：在《19-4-04 亚硝酸根的检验方法》中，点滴板法阳性时溶液应显____。
+- 19-4-05 Q01 `single_choice`：adjacent_section_generation_decomposition；原题：在《19-4-05 亚硝酸的氧化还原性》实验中，生成亚硝酸时，冰水冷冻过的饱和 NaNO₂ 溶液与哪种酸混合？；终审 proposed：在《19-4-05 亚硝酸的氧化还原性》中，哪两组点位共同体现 HNO₂/NO₂⁻ 既可氧化又可还原？
+- 19-4-05 Q02 `single_choice`：adjacent_section_generation_decomposition；原题：在《19-4-05 亚硝酸的氧化还原性》实验中，亚硝酸生成与分解过程中，蓝色中间物主要是哪一种？；终审 proposed：在《19-4-05 亚硝酸的氧化还原性》中，哪两组点位共同体现 HNO₂/NO₂⁻ 既可氧化又可还原？
+- 19-4-05 Q03 `single_choice`：adjacent_section_generation_decomposition；原题：在《19-4-05 亚硝酸的氧化还原性》实验中，N₂O₃ 进一步分解时，可形成的棕色气体是下列哪一种？；终审 proposed：在《19-4-05 亚硝酸的氧化还原性》中，哪两组点位共同体现 HNO₂/NO₂⁻ 既可氧化又可还原？
+- 19-4-05 Q10 `single_choice`：adjacent_detection_point_not_current_video_point；原题：在《19-4-05 亚硝酸的氧化还原性》实验中，对 NaNO₂ 溶液进行红色偶氮检验时，酸化常用的是哪种酸？；终审 proposed：在《19-4-05 亚硝酸的氧化还原性》中，哪两组点位共同体现 HNO₂/NO₂⁻ 既可氧化又可还原？
+- 19-4-05 Q11 `true_false`：adjacent_section_generation_decomposition；原题：在《19-4-05 亚硝酸的氧化还原性》实验中，NaNO₂ 与 H₂SO₄ 可生成 HNO₂。；终审 proposed：在《19-4-05 亚硝酸的氧化还原性》中，酸性 KI 点位体现氧化性，酸性 KMnO₄ 点位体现还原性。
+- 19-4-05 Q12 `true_false`：adjacent_section_generation_decomposition；原题：在《19-4-05 亚硝酸的氧化还原性》实验中，HNO₂ 分解可先生成蓝色 N₂O₃。；终审 proposed：在《19-4-05 亚硝酸的氧化还原性》中，酸性 KI 点位体现氧化性，酸性 KMnO₄ 点位体现还原性。
+- 19-4-05 Q13 `true_false`：adjacent_section_generation_decomposition；原题：在《19-4-05 亚硝酸的氧化还原性》实验中，N₂O₃ 分解可产生棕色 NO₂。；终审 proposed：在《19-4-05 亚硝酸的氧化还原性》中，酸性 KI 点位体现氧化性，酸性 KMnO₄ 点位体现还原性。
+- 19-4-05 Q17 `true_false`：double_negative_true_false, adjacent_section_generation_decomposition；原题：在《19-4-05 亚硝酸的氧化还原性》实验中，认为：实验中饱和 NaNO₂ 溶液需要冰水冷冻后使用，这一判断是不正确的。；终审 proposed：在《19-4-05 亚硝酸的氧化还原性》中，酸性 KI 点位体现氧化性，酸性 KMnO₄ 点位体现还原性。
+- 19-4-05 Q19 `true_false`：double_negative_true_false；原题：在《19-4-05 亚硝酸的氧化还原性》实验中，认为：KMnO₄ 的紫色变化可作为判断还原性反应的现象之一，这一判断是不正确的。；终审 proposed：在《19-4-05 亚硝酸的氧化还原性》中，酸性 KI 点位体现氧化性，酸性 KMnO₄ 点位体现还原性。
+- 19-4-05 Q21 `fill_blank`：adjacent_section_generation_decomposition, missing_or_empty_explanation, phone_formula_alias_needed；原题：在《19-4-05 亚硝酸的氧化还原性》实验中，NaNO₂ 与 H₂SO₄ 反应生成的弱酸是____。；终审 proposed：在《19-4-05 亚硝酸的氧化还原性》中，酸性 KMnO₄ 体系中 NaNO₂ 主要表现____性。
+- 19-4-05 Q22 `fill_blank`：adjacent_section_generation_decomposition, missing_or_empty_explanation, phone_formula_alias_needed；原题：在《19-4-05 亚硝酸的氧化还原性》实验中，2HNO₂ 分解可生成蓝色的____。；终审 proposed：在《19-4-05 亚硝酸的氧化还原性》中，酸性 KMnO₄ 体系中 NaNO₂ 主要表现____性。
+- 19-4-05 Q23 `fill_blank`：adjacent_section_generation_decomposition, missing_or_empty_explanation, phone_formula_alias_needed；原题：在《19-4-05 亚硝酸的氧化还原性》实验中，N₂O₃ 分解产生的棕色气体是____。；终审 proposed：在《19-4-05 亚硝酸的氧化还原性》中，酸性 KMnO₄ 体系中 NaNO₂ 主要表现____性。
+- 19-4-05 Q24 `fill_blank`：missing_or_empty_explanation, phone_formula_alias_needed；原题：在《19-4-05 亚硝酸的氧化还原性》实验中，酸性 KI 体系中，HNO₂ 氧化 I⁻ 生成____。；终审 proposed：在《19-4-05 亚硝酸的氧化还原性》实验中，酸性 KI 体系中，HNO₂ 氧化 I⁻ 生成____。
+- 19-4-05 Q25 `fill_blank`：missing_or_empty_explanation；原题：在《19-4-05 亚硝酸的氧化还原性》实验中，酸性 KMnO₄ 体系中，NaNO₂ 主要表现____。；终审 proposed：在《19-4-05 亚硝酸的氧化还原性》实验中，酸性 KMnO₄ 体系中，NaNO₂ 主要表现____。
+- 19-4-05 Q26 `fill_blank`：missing_or_empty_explanation；原题：在《19-4-05 亚硝酸的氧化还原性》实验中，HNO₂ 中氮元素的氧化数为____。；终审 proposed：在《19-4-05 亚硝酸的氧化还原性》实验中，HNO₂ 中氮元素的氧化数为____。
+- 19-4-05 Q27 `fill_blank`：adjacent_section_generation_decomposition, missing_or_empty_explanation, phone_formula_alias_needed；原题：在《19-4-05 亚硝酸的氧化还原性》实验中，制备 HNO₂ 时使用冰水冷冻过的饱和____溶液。；终审 proposed：在《19-4-05 亚硝酸的氧化还原性》中，酸性 KMnO₄ 体系中 NaNO₂ 主要表现____性。
+- 19-4-05 Q28 `fill_blank`：missing_or_empty_explanation, phone_formula_alias_needed；原题：在《19-4-05 亚硝酸的氧化还原性》实验中，用于观察亚硝酸还原性的紫色氧化剂是____。；终审 proposed：在《19-4-05 亚硝酸的氧化还原性》实验中，用于观察亚硝酸还原性的紫色氧化剂是____。
+- 19-4-05 Q29 `fill_blank`：missing_or_empty_explanation；原题：在《19-4-05 亚硝酸的氧化还原性》实验中，酸性 KI 体系体现 HNO₂ 的____。；终审 proposed：在《19-4-05 亚硝酸的氧化还原性》实验中，酸性 KI 体系体现 HNO₂ 的____。
+- 19-4-05 Q30 `fill_blank`：adjacent_detection_point_not_current_video_point, missing_or_empty_explanation；原题：在《19-4-05 亚硝酸的氧化还原性》实验中，NaNO₂ 偶氮显色检验中出现红色可表明存在____。；终审 proposed：在《19-4-05 亚硝酸的氧化还原性》中，酸性 KMnO₄ 体系中 NaNO₂ 主要表现____性。
+- 19-4-06 Q01 `single_choice`：missing_or_empty_explanation；原题：在《19-4-06 硝酸的氧化性》实验中，本实验要求分别试验硝酸与哪些代表性物质的反应？；终审 proposed：在《19-4-06 硝酸的氧化性》实验中，本实验要求分别试验硝酸与哪些代表性物质的反应？
+- 19-4-06 Q02 `single_choice`：missing_or_empty_explanation；原题：在《19-4-06 硝酸的氧化性》实验中，浓硝酸与铜反应时，常见的棕色还原产物是哪一种？；终审 proposed：在《19-4-06 硝酸的氧化性》实验中，浓硝酸与铜反应时，常见的棕色还原产物是哪一种？
+- 19-4-06 Q03 `single_choice`：missing_or_empty_explanation；原题：在《19-4-06 硝酸的氧化性》实验中，稀硝酸与铜反应时，常见的一氧化氮产物是下列哪一种？；终审 proposed：在《19-4-06 硝酸的氧化性》实验中，稀硝酸与铜反应时，常见的一氧化氮产物是下列哪一种？
+- 19-4-06 Q04 `single_choice`：missing_or_empty_explanation；原题：在《19-4-06 硝酸的氧化性》实验中，稀硝酸与 Zn 反应后，本实验要求验证哪类还原产物？；终审 proposed：在《19-4-06 硝酸的氧化性》实验中，稀硝酸与 Zn 反应后，本实验要求验证哪类还原产物？
+- 19-4-06 Q05 `single_choice`：missing_or_empty_explanation；原题：在《19-4-06 硝酸的氧化性》实验中，浓硝酸与硫粉反应主要体现硝酸的哪种性质？；终审 proposed：在《19-4-06 硝酸的氧化性》实验中，浓硝酸与硫粉反应主要体现硝酸的哪种性质？
+- 19-4-06 Q06 `single_choice`：adjacent_theory_not_video_point, missing_or_empty_explanation；原题：在《19-4-06 硝酸的氧化性》实验中，硝酸一般不宜随意作为酸性反应介质，主要原因是哪一项？；终审 proposed：在《19-4-06 硝酸的氧化性》中，验证稀硝酸与 Zn 反应产物时，教材要求关注哪类含氮还原产物？
+- 19-4-06 Q07 `single_choice`：missing_or_empty_explanation；原题：在《19-4-06 硝酸的氧化性》实验中，验证稀硝酸与 Zn 反应产物中 NH₃/NH₄⁺，常需要把铵盐转化为哪种可检气体？；终审 proposed：在《19-4-06 硝酸的氧化性》实验中，验证稀硝酸与 Zn 反应产物中 NH₃/NH₄⁺，常需要把铵盐转化为哪种可检气体？
+- 19-4-06 Q08 `single_choice`：missing_or_empty_explanation；原题：在《19-4-06 硝酸的氧化性》实验中，浓硝酸与 H₂S 或硫化物反应时，H₂S 主要体现哪类角色？；终审 proposed：在《19-4-06 硝酸的氧化性》实验中，浓硝酸与 H₂S 或硫化物反应时，H₂S 主要体现哪类角色？
+- 19-4-06 Q09 `single_choice`：missing_or_empty_explanation；原题：在《19-4-06 硝酸的氧化性》实验中，下列哪项最能概括本实验的比较重点？；终审 proposed：在《19-4-06 硝酸的氧化性》实验中，下列哪项最能概括本实验的比较重点？
+- 19-4-06 Q10 `single_choice`：missing_or_empty_explanation；原题：在《19-4-06 硝酸的氧化性》实验中，下列哪一项不属于本实验“硝酸的氧化性”的主要对象？；终审 proposed：在《19-4-06 硝酸的氧化性》实验中，下列哪一项不属于本实验“硝酸的氧化性”的主要对象？
+- 19-4-06 Q11 `true_false`：missing_or_empty_explanation；原题：在《19-4-06 硝酸的氧化性》实验中，浓硝酸与铜反应的典型棕色产物是 NH₃。；终审 proposed：在《19-4-06 硝酸的氧化性》实验中，浓硝酸与铜反应的典型棕色产物是 NH₃。
+- 19-4-06 Q12 `true_false`：missing_or_empty_explanation；原题：在《19-4-06 硝酸的氧化性》实验中，稀硝酸与锌反应后无需考虑 NH₃ 或 NH₄⁺ 等还原产物。；终审 proposed：在《19-4-06 硝酸的氧化性》实验中，稀硝酸与锌反应后无需考虑 NH₃ 或 NH₄⁺ 等还原产物。
+- 19-4-06 Q13 `true_false`：missing_or_empty_explanation；原题：在《19-4-06 硝酸的氧化性》实验中，铜与稀硝酸反应常涉及 NO，NO 在空气中可继续变为棕色 NO₂。；终审 proposed：在《19-4-06 硝酸的氧化性》实验中，铜与稀硝酸反应常涉及 NO，NO 在空气中可继续变为棕色 NO₂。
+- 19-4-06 Q14 `true_false`：missing_or_empty_explanation；原题：在《19-4-06 硝酸的氧化性》实验中，稀硝酸与锌反应产物中可能需要验证 NH₃ 或 NH₄⁺。；终审 proposed：在《19-4-06 硝酸的氧化性》实验中，稀硝酸与锌反应产物中可能需要验证 NH₃ 或 NH₄⁺。
+- 19-4-06 Q15 `true_false`：missing_or_empty_explanation；原题：在《19-4-06 硝酸的氧化性》实验中，硝酸在这些反应中只表现普通酸性，完全不表现氧化性。；终审 proposed：在《19-4-06 硝酸的氧化性》实验中，硝酸在这些反应中只表现普通酸性，完全不表现氧化性。
+- 19-4-06 Q16 `true_false`：missing_or_empty_explanation；原题：在《19-4-06 硝酸的氧化性》实验中，浓硝酸可氧化硫或硫化氢等还原性物质。；终审 proposed：在《19-4-06 硝酸的氧化性》实验中，浓硝酸可氧化硫或硫化氢等还原性物质。
+- 19-4-06 Q17 `true_false`：missing_or_empty_explanation；原题：在《19-4-06 硝酸的氧化性》实验中，本实验的主要试剂组合包括 PbO₂ 与浓盐酸。；终审 proposed：在《19-4-06 硝酸的氧化性》实验中，本实验的主要试剂组合包括 PbO₂ 与浓盐酸。
+- 19-4-06 Q18 `true_false`：adjacent_theory_not_video_point, missing_or_empty_explanation；原题：在《19-4-06 硝酸的氧化性》实验中，硝酸作为酸性介质时可能因氧化性而干扰其他反应。；终审 proposed：在《19-4-06 硝酸的氧化性》中，浓硝酸和稀硝酸与还原性物质反应时，被还原产物可能不同。
+- 19-4-06 Q19 `true_false`：missing_or_empty_explanation；原题：在《19-4-06 硝酸的氧化性》实验中，Zn 与稀硝酸反应后的 NH₄⁺ 可通过碱化释放 NH₃ 的思路验证。；终审 proposed：在《19-4-06 硝酸的氧化性》实验中，Zn 与稀硝酸反应后的 NH₄⁺ 可通过碱化释放 NH₃ 的思路验证。
+- 19-4-06 Q20 `true_false`：missing_or_empty_explanation；原题：在《19-4-06 硝酸的氧化性》实验中，本实验和亚硝酸生成实验完全相同，均只需要 NaNO₂ 和 H₂SO₄。；终审 proposed：在《19-4-06 硝酸的氧化性》实验中，本实验和亚硝酸生成实验完全相同，均只需要 NaNO₂ 和 H₂SO₄。
+- 19-4-06 Q21 `fill_blank`：missing_or_empty_explanation, phone_formula_alias_needed；原题：在《19-4-06 硝酸的氧化性》实验中，浓硝酸与铜反应常见棕色气体为____。；终审 proposed：在《19-4-06 硝酸的氧化性》实验中，浓硝酸与铜反应常见棕色气体为____。
+- 19-4-06 Q22 `fill_blank`：missing_or_empty_explanation；原题：在《19-4-06 硝酸的氧化性》实验中，稀硝酸与铜反应常见还原产物为____。；终审 proposed：在《19-4-06 硝酸的氧化性》实验中，稀硝酸与铜反应常见还原产物为____。
+- 19-4-06 Q23 `fill_blank`：missing_or_empty_explanation, phone_formula_alias_needed；原题：在《19-4-06 硝酸的氧化性》实验中，稀硝酸与 Zn 反应产物中需验证 NH₃ 或____。；终审 proposed：在《19-4-06 硝酸的氧化性》实验中，稀硝酸与 Zn 反应产物中需验证 NH₃ 或____。
+- 19-4-06 Q24 `fill_blank`：missing_or_empty_explanation；原题：在《19-4-06 硝酸的氧化性》实验中，硝酸与硫、硫化氢、铜、锌反应主要体现其____性。；终审 proposed：在《19-4-06 硝酸的氧化性》实验中，硝酸与硫、硫化氢、铜、锌反应主要体现其____性。
+- 19-4-06 Q25 `fill_blank`：low_value_theory_only, missing_or_empty_explanation；原题：在《19-4-06 硝酸的氧化性》实验中，浓硝酸中的氮为____价。；终审 proposed：在《19-4-06 硝酸的氧化性》中，稀硝酸与 Zn 反应产物需验证 NH₃ 或____。
+- 19-4-06 Q26 `fill_blank`：missing_or_empty_explanation, phone_formula_alias_needed；原题：在《19-4-06 硝酸的氧化性》实验中，验证 NH₄⁺ 时常通过加碱释放____气体。；终审 proposed：在《19-4-06 硝酸的氧化性》实验中，验证 NH₄⁺ 时常通过加碱释放____气体。
+- 19-4-06 Q27 `fill_blank`：missing_or_empty_explanation；原题：在《19-4-06 硝酸的氧化性》实验中，浓硝酸与还原性物质反应时，自身通常被____。；终审 proposed：在《19-4-06 硝酸的氧化性》实验中，浓硝酸与还原性物质反应时，自身通常被____。
+- 19-4-06 Q28 `fill_blank`：missing_or_empty_explanation；原题：在《19-4-06 硝酸的氧化性》实验中，铜与浓硝酸反应生成的 NO₂ 颜色常为____色。；终审 proposed：在《19-4-06 硝酸的氧化性》实验中，铜与浓硝酸反应生成的 NO₂ 颜色常为____色。
+- 19-4-06 Q29 `fill_blank`：missing_or_empty_explanation；原题：在《19-4-06 硝酸的氧化性》实验中，本实验比较的两类硝酸是浓硝酸和____硝酸。；终审 proposed：在《19-4-06 硝酸的氧化性》实验中，本实验比较的两类硝酸是浓硝酸和____硝酸。
+- 19-4-06 Q30 `fill_blank`：adjacent_theory_not_video_point, missing_or_empty_explanation；原题：在《19-4-06 硝酸的氧化性》实验中，硝酸不宜随意作酸性介质，是因为它有明显的____性。；终审 proposed：在《19-4-06 硝酸的氧化性》中，稀硝酸与 Zn 反应产物需验证 NH₃ 或____。
+- 19-4-07 Q22 `fill_blank`：phone_formula_alias_needed；原题：在《19-4-07 硝酸盐的热分解》实验中，热分解比较中使用的钾盐是____。；终审 proposed：在《19-4-07 硝酸盐的热分解》实验中，热分解比较中使用的钾盐是____。
+- 19-4-07 Q23 `fill_blank`：phone_formula_alias_needed；原题：在《19-4-07 硝酸盐的热分解》实验中，热分解比较中使用的铜盐是____。；终审 proposed：在《19-4-07 硝酸盐的热分解》实验中，热分解比较中使用的铜盐是____。
+- 19-4-07 Q24 `fill_blank`：phone_formula_alias_needed；原题：在《19-4-07 硝酸盐的热分解》实验中，热分解比较中使用的银盐是____。；终审 proposed：在《19-4-07 硝酸盐的热分解》实验中，热分解比较中使用的银盐是____。
+- 19-4-07 Q26 `fill_blank`：phone_formula_alias_needed；原题：在《19-4-07 硝酸盐的热分解》实验中，能使余烬复燃的气体是____。；终审 proposed：在《19-4-07 硝酸盐的热分解》实验中，能使余烬复燃的气体是____。
+- 19-4-07 Q27 `fill_blank`：phone_formula_alias_needed；原题：在《19-4-07 硝酸盐的热分解》实验中，部分硝酸盐热分解会产生棕色的____。；终审 proposed：在《19-4-07 硝酸盐的热分解》实验中，部分硝酸盐热分解会产生棕色的____。
+- 19-4-07 Q30 `fill_blank`：phone_formula_alias_needed；原题：在《19-4-07 硝酸盐的热分解》实验中，硝酸盐热分解可能放出有害的____，应注意通风。；终审 proposed：在《19-4-07 硝酸盐的热分解》实验中，硝酸盐热分解可能放出有害的____，应注意通风。
+- 19-4-08 Q06 `single_choice`：alternate_method_not_video_point；原题：在《19-4-08 硝酸根的检验》实验中，硝酸根检验的另一种方法是在强碱性下加入铝屑，检验生成的哪种气体？；终审 proposed：在《19-4-08 硝酸根的检验》中，棕色环实验中最应保持的观察条件是什么？
+- 19-4-08 Q16 `true_false`：alternate_method_not_video_point；原题：在《19-4-08 硝酸根的检验》实验中，强碱性铝屑法可通过产生 NH₃ 来证实 NO₃⁻。；终审 proposed：在《19-4-08 硝酸根的检验》中，剧烈振荡会破坏界面，不利于观察棕色环。
+- 19-4-08 Q17 `true_false`：double_negative_true_false；原题：在《19-4-08 硝酸根的检验》实验中，认为：棕色环的棕色物质可写为 Fe(NO)SO₄，这一判断是不正确的。；终审 proposed：在《19-4-08 硝酸根的检验》中，剧烈振荡会破坏界面，不利于观察棕色环。
+- 19-4-08 Q19 `true_false`：double_negative_true_false；原题：在《19-4-08 硝酸根的检验》实验中，认为：浓硫酸在棕色环实验中提供强酸性环境，这一判断是不正确的。；终审 proposed：在《19-4-08 硝酸根的检验》中，剧烈振荡会破坏界面，不利于观察棕色环。
+- 19-4-08 Q21 `fill_blank`：phone_formula_alias_needed；原题：在《19-4-08 硝酸根的检验》实验中，棕色环实验中使用的亚铁盐是____。；终审 proposed：在《19-4-08 硝酸根的检验》实验中，棕色环实验中使用的亚铁盐是____。
+- 19-4-08 Q22 `fill_blank`：phone_formula_alias_needed；原题：在《19-4-08 硝酸根的检验》实验中，棕色环实验中加入的强酸是____。；终审 proposed：在《19-4-08 硝酸根的检验》实验中，棕色环实验中加入的强酸是____。
+- 19-4-08 Q24 `fill_blank`：phone_formula_alias_needed；原题：在《19-4-08 硝酸根的检验》实验中，棕色环的棕色物质可写作____。；终审 proposed：在《19-4-08 硝酸根的检验》实验中，棕色环的棕色物质可写作____。
+- 19-4-08 Q26 `fill_blank`：phone_formula_alias_needed；原题：在《19-4-08 硝酸根的检验》实验中，NaNO₃ 在实验中提供待检的____离子。；终审 proposed：在《19-4-08 硝酸根的检验》实验中，NaNO₃ 在实验中提供待检的____离子。
+- 19-4-08 Q27 `fill_blank`：alternate_method_not_video_point, phone_formula_alias_needed；原题：在《19-4-08 硝酸根的检验》实验中，强碱性铝屑法中，可用湿 pH 试纸检验生成的____。；终审 proposed：在《19-4-08 硝酸根的检验》中，棕色环实验应静置、不要____。
+- 19-4-08 Q28 `fill_blank`：phone_formula_alias_needed；原题：在《19-4-08 硝酸根的检验》实验中，棕色环实验中 Fe²⁺ 被氧化为____。；终审 proposed：在《19-4-08 硝酸根的检验》实验中，棕色环实验中 Fe²⁺ 被氧化为____。
+- 19-4-08 Q30 `fill_blank`：phone_formula_alias_needed；原题：在《19-4-08 硝酸根的检验》实验中，本实验检验的离子是____。；终审 proposed：在《19-4-08 硝酸根的检验》实验中，本实验检验的离子是____。
+- 19-4-09 Q01 `single_choice`：alternate_method_not_video_point；原题：在《19-4-09 硝酸根的检验》实验中，强碱性铝屑法中，试液先加入哪种溶液至强碱性？；终审 proposed：在《19-4-09 硝酸根的检验》中，棕色环法中提供 Fe²⁺ 的固体试剂是哪一种？
+- 19-4-09 Q02 `single_choice`：alternate_method_not_video_point；原题：在《19-4-09 硝酸根的检验》实验中，强碱性铝屑法中用于还原 NO₃⁻ 的金属是什么？；终审 proposed：在《19-4-09 硝酸根的检验》中，棕色环法中提供 Fe²⁺ 的固体试剂是哪一种？
+- 19-4-09 Q03 `single_choice`：alternate_method_not_video_point；原题：在《19-4-09 硝酸根的检验》实验中，强碱性铝屑法产生的气体可用哪种试纸检验？；终审 proposed：在《19-4-09 硝酸根的检验》中，棕色环法中提供 Fe²⁺ 的固体试剂是哪一种？
+- 19-4-09 Q09 `single_choice`：unsupported_safety_claim；原题：在《19-4-09 硝酸根的检验》实验中，凡涉及氮氧化物生成的反应，合理的安全操作是什么？；终审 proposed：在《19-4-09 硝酸根的检验》中，棕色环法中提供 Fe²⁺ 的固体试剂是哪一种？
+- 19-4-09 Q11 `true_false`：alternate_method_not_video_point；原题：在《19-4-09 硝酸根的检验》实验中，强碱性铝屑法可用于把 NO₃⁻ 还原并用 pH 试纸检验生成的碱性气体。；终审 proposed：在《19-4-09 硝酸根的检验》中，棕色环与 NO 和 Fe²⁺ 形成的棕色配合物有关。
+- 19-4-09 Q15 `true_false`：unsupported_safety_claim；原题：在《19-4-09 硝酸根的检验》实验中，涉及氮氧化物的操作应注意通风橱安全。；终审 proposed：在《19-4-09 硝酸根的检验》中，棕色环与 NO 和 Fe²⁺ 形成的棕色配合物有关。
+- 19-4-09 Q17 `true_false`：alternate_method_not_video_point；原题：在《19-4-09 硝酸根的检验》实验中，强碱性铝屑法中铝屑没有任何还原作用。；终审 proposed：在《19-4-09 硝酸根的检验》中，棕色环与 NO 和 Fe²⁺ 形成的棕色配合物有关。
+- 19-4-09 Q19 `true_false`：double_negative_true_false；原题：在《19-4-09 硝酸根的检验》实验中，认为：反应式 3Fe²⁺ + NO₃⁻ + 4H⁺ 可生成 NO，这一判断是不正确的。；终审 proposed：在《19-4-09 硝酸根的检验》中，棕色环与 NO 和 Fe²⁺ 形成的棕色配合物有关。
+- 19-4-09 Q21 `fill_blank`：alternate_method_not_video_point；原题：在《19-4-09 硝酸根的检验》实验中，强碱性铝屑法中先加入____溶液至强碱性。；终审 proposed：在《19-4-09 硝酸根的检验》中，棕色环的棕色物质可写作____。
+- 19-4-09 Q22 `fill_blank`：alternate_method_not_video_point；原题：在《19-4-09 硝酸根的检验》实验中，强碱性铝屑法中加入少量____。；终审 proposed：在《19-4-09 硝酸根的检验》中，棕色环的棕色物质可写作____。
+- 19-4-09 Q23 `fill_blank`：alternate_method_not_video_point；原题：在《19-4-09 硝酸根的检验》实验中，强碱性铝屑法用____检验产生的气体。；终审 proposed：在《19-4-09 硝酸根的检验》中，棕色环的棕色物质可写作____。
+- 19-4-09 Q24 `fill_blank`：phone_formula_alias_needed；原题：在《19-4-09 硝酸根的检验》实验中，棕色环法中提供 Fe²⁺ 的固体为____。；终审 proposed：在《19-4-09 硝酸根的检验》实验中，棕色环法中提供 Fe²⁺ 的固体为____。
+- 19-4-09 Q25 `fill_blank`：phone_formula_alias_needed；原题：在《19-4-09 硝酸根的检验》实验中，棕色环法中加入 1 滴____。；终审 proposed：在《19-4-09 硝酸根的检验》实验中，棕色环法中加入 1 滴____。
+- 19-4-09 Q27 `fill_blank`：phone_formula_alias_needed；原题：在《19-4-09 硝酸根的检验》实验中，棕色环与____配合物有关。；终审 proposed：在《19-4-09 硝酸根的检验》实验中，棕色环与____配合物有关。
+- 19-4-09 Q28 `fill_blank`：phone_formula_alias_needed；原题：在《19-4-09 硝酸根的检验》实验中，Fe²⁺ 还原 NO₃⁻ 后自身被氧化为____。；终审 proposed：在《19-4-09 硝酸根的检验》实验中，Fe²⁺ 还原 NO₃⁻ 后自身被氧化为____。
+- 19-4-09 Q29 `fill_blank`：unsupported_safety_claim；原题：在《19-4-09 硝酸根的检验》实验中，涉及氮氧化物生成的反应应在____内进行。；终审 proposed：在《19-4-09 硝酸根的检验》中，棕色环的棕色物质可写作____。
+- 19-4-09 Q30 `fill_blank`：phone_formula_alias_needed；原题：在《19-4-09 硝酸根的检验》实验中，该实验检验的目标离子是____。；终审 proposed：在《19-4-09 硝酸根的检验》实验中，该实验检验的目标离子是____。
+- 19-5-01 Q19 `true_false`：double_negative_true_false；原题：在《19-5-01 难溶性硅酸盐的生成——“水中花园”》实验中，认为：CuSO₄ 与水玻璃反应属于实验体系之一，这一判断是不正确的。；终审 proposed：在《19-5-01 难溶性硅酸盐的生成——“水中花园”》中，FeCl₂ 和 FeCl₃ 同列，可用于比较不同铁价态相关的硅酸盐生成现象。
+- 19-5-01 Q20 `true_false`：double_negative_true_false；原题：在《19-5-01 难溶性硅酸盐的生成——“水中花园”》实验中，认为：“水中花园”名称与沉淀形态观察有关，这一判断是不正确的。；终审 proposed：在《19-5-01 难溶性硅酸盐的生成——“水中花园”》中，FeCl₂ 和 FeCl₃ 同列，可用于比较不同铁价态相关的硅酸盐生成现象。
+- 19-5-01 Q21 `fill_blank`：missing_or_empty_explanation；原题：在《19-5-01 难溶性硅酸盐的生成——“水中花园”》实验中，“水中花园”实验使用的核心硅酸盐溶液俗称____。；终审 proposed：在《19-5-01 难溶性硅酸盐的生成——“水中花园”》实验中，“水中花园”实验使用的核心硅酸盐溶液俗称____。
+- 19-5-01 Q22 `fill_blank`：missing_or_empty_explanation, phone_formula_alias_needed；原题：在《19-5-01 难溶性硅酸盐的生成——“水中花园”》实验中，水玻璃的主要成分可写作____。；终审 proposed：在《19-5-01 难溶性硅酸盐的生成——“水中花园”》实验中，水玻璃的主要成分可写作____。
+- 19-5-01 Q23 `fill_blank`：missing_or_empty_explanation；原题：在《19-5-01 难溶性硅酸盐的生成——“水中花园”》实验中，水玻璃与 CaCl₂ 反应生成的难溶物属于____。；终审 proposed：在《19-5-01 难溶性硅酸盐的生成——“水中花园”》实验中，水玻璃与 CaCl₂ 反应生成的难溶物属于____。
+- 19-5-01 Q24 `fill_blank`：missing_or_empty_explanation, phone_formula_alias_needed；原题：在《19-5-01 难溶性硅酸盐的生成——“水中花园”》实验中，实验体系中，水玻璃可与____溶液反应生成铜的硅酸盐沉淀。；终审 proposed：在《19-5-01 难溶性硅酸盐的生成——“水中花园”》实验中，实验体系中，水玻璃可与____溶液反应生成铜的硅酸盐沉淀。
+- 19-5-01 Q25 `fill_blank`：missing_or_empty_explanation, phone_formula_alias_needed；原题：在《19-5-01 难溶性硅酸盐的生成——“水中花园”》实验中，实验体系中，水玻璃可与____反应形成钙的难溶硅酸盐。；终审 proposed：在《19-5-01 难溶性硅酸盐的生成——“水中花园”》实验中，实验体系中，水玻璃可与____反应形成钙的难溶硅酸盐。
+- 19-5-01 Q26 `fill_blank`：missing_or_empty_explanation；原题：在《19-5-01 难溶性硅酸盐的生成——“水中花园”》实验中，“水中花园”实验主要观察沉淀的颜色和____。；终审 proposed：在《19-5-01 难溶性硅酸盐的生成——“水中花园”》实验中，“水中花园”实验主要观察沉淀的颜色和____。
+- 19-5-01 Q27 `fill_blank`：missing_or_empty_explanation；原题：在《19-5-01 难溶性硅酸盐的生成——“水中花园”》实验中，FeCl₂ 和 FeCl₃ 分别提供 Fe(II) 与____离子。；终审 proposed：在《19-5-01 难溶性硅酸盐的生成——“水中花园”》实验中，FeCl₂ 和 FeCl₃ 分别提供 Fe(II) 与____离子。
+- 19-5-01 Q28 `fill_blank`：missing_or_empty_explanation；原题：在《19-5-01 难溶性硅酸盐的生成——“水中花园”》实验中，SiO₃²⁻ 与金属离子形成难溶____。；终审 proposed：在《19-5-01 难溶性硅酸盐的生成——“水中花园”》实验中，SiO₃²⁻ 与金属离子形成难溶____。
+- 19-5-01 Q29 `fill_blank`：missing_or_empty_explanation, phone_formula_alias_needed；原题：在《19-5-01 难溶性硅酸盐的生成——“水中花园”》实验中，NiSO₄ 与水玻璃反应时提供的金属离子是____。；终审 proposed：在《19-5-01 难溶性硅酸盐的生成——“水中花园”》实验中，NiSO₄ 与水玻璃反应时提供的金属离子是____。
+- 19-5-01 Q30 `fill_blank`：meta_item_not_student_reasoning, missing_or_empty_explanation；原题：在《19-5-01 难溶性硅酸盐的生成——“水中花园”》实验中，该实验所属主题围绕碳、硅、硼中____的化合物性质。；终审 proposed：在《19-5-01 难溶性硅酸盐的生成——“水中花园”》中，水玻璃与 CuSO₄ 对应铜盐点位，CuSO₄ 可写作____。
+- 19-6-01 Q01 `single_choice`：missing_or_empty_explanation；原题：在《19-6-01 金属钠燃烧及产物性质》实验中，加热金属钠前，应用什么材料吸干其表面的煤油？；终审 proposed：在《19-6-01 金属钠燃烧及产物性质》实验中，加热金属钠前，应用什么材料吸干其表面的煤油？
+- 19-6-01 Q02 `single_choice`：missing_or_empty_explanation；原题：在《19-6-01 金属钠燃烧及产物性质》实验中，金属钠开始燃烧后，操作上应怎样处理加热？；终审 proposed：在《19-6-01 金属钠燃烧及产物性质》实验中，金属钠开始燃烧后，操作上应怎样处理加热？
+- 19-6-01 Q03 `single_choice`：missing_or_empty_explanation；原题：在《19-6-01 金属钠燃烧及产物性质》实验中，钠在空气中燃烧的主要产物通常是哪一种？；终审 proposed：在《19-6-01 金属钠燃烧及产物性质》实验中，钠在空气中燃烧的主要产物通常是哪一种？
+- 19-6-01 Q04 `single_choice`：missing_or_empty_explanation；原题：在《19-6-01 金属钠燃烧及产物性质》实验中，燃烧产物加少量水溶解、冷却后，检验溶液 pH 通常会显示什么性质？；终审 proposed：在《19-6-01 金属钠燃烧及产物性质》实验中，燃烧产物加少量水溶解、冷却后，检验溶液 pH 通常会显示什么性质？
+- 19-6-01 Q05 `single_choice`：missing_or_empty_explanation；原题：在《19-6-01 金属钠燃烧及产物性质》实验中，酸化燃烧产物溶液所用的酸是下列哪一种？；终审 proposed：在《19-6-01 金属钠燃烧及产物性质》实验中，酸化燃烧产物溶液所用的酸是下列哪一种？
+- 19-6-01 Q06 `single_choice`：missing_or_empty_explanation；原题：在《19-6-01 金属钠燃烧及产物性质》实验中，酸化后加入 1 滴 0.01 mol·L⁻¹ KMnO₄，主要用于检验哪类性质？；终审 proposed：在《19-6-01 金属钠燃烧及产物性质》实验中，酸化后加入 1 滴 0.01 mol·L⁻¹ KMnO₄，主要用于检验哪类性质？
+- 19-6-01 Q07 `single_choice`：missing_or_empty_explanation；原题：在《19-6-01 金属钠燃烧及产物性质》实验中，下列哪项属于本实验处理燃烧产物的正确步骤？；终审 proposed：在《19-6-01 金属钠燃烧及产物性质》实验中，下列哪项属于本实验处理燃烧产物的正确步骤？
+- 19-6-01 Q08 `single_choice`：missing_or_empty_explanation；原题：在《19-6-01 金属钠燃烧及产物性质》实验中，金属钠表面的煤油应先吸干，主要原因是什么？；终审 proposed：在《19-6-01 金属钠燃烧及产物性质》实验中，金属钠表面的煤油应先吸干，主要原因是什么？
+- 19-6-01 Q09 `single_choice`：missing_or_empty_explanation；原题：在《19-6-01 金属钠燃烧及产物性质》实验中，钠燃烧时常见火焰颜色更接近哪一项？；终审 proposed：在《19-6-01 金属钠燃烧及产物性质》实验中，钠燃烧时常见火焰颜色更接近哪一项？
+- 19-6-01 Q10 `single_choice`：too_shallow_title_object, missing_or_empty_explanation；原题：在《19-6-01 金属钠燃烧及产物性质》实验中，本实验的主题最准确的是哪一项？；终审 proposed：在《19-6-01 金属钠燃烧及产物性质》中，钠燃烧产物冷却后的正确处理顺序是哪一项？
+- 19-6-01 Q11 `true_false`：missing_or_empty_explanation；原题：在《19-6-01 金属钠燃烧及产物性质》实验中，钠开始燃烧后应继续强烈加热到产物完全熔干。；终审 proposed：在《19-6-01 金属钠燃烧及产物性质》实验中，钠开始燃烧后应继续强烈加热到产物完全熔干。
+- 19-6-01 Q12 `true_false`：missing_or_empty_explanation；原题：在《19-6-01 金属钠燃烧及产物性质》实验中，酸化后滴加 KMnO₄ 是为了检验 Cl⁻ 沉淀。；终审 proposed：在《19-6-01 金属钠燃烧及产物性质》实验中，酸化后滴加 KMnO₄ 是为了检验 Cl⁻ 沉淀。
+- 19-6-01 Q13 `true_false`：missing_or_empty_explanation；原题：在《19-6-01 金属钠燃烧及产物性质》实验中，钠在空气中燃烧的产物常含 Na₂O₂。；终审 proposed：在《19-6-01 金属钠燃烧及产物性质》实验中，钠在空气中燃烧的产物常含 Na₂O₂。
+- 19-6-01 Q14 `true_false`：missing_or_empty_explanation；原题：在《19-6-01 金属钠燃烧及产物性质》实验中，燃烧产物加水后的溶液通常呈碱性。；终审 proposed：在《19-6-01 金属钠燃烧及产物性质》实验中，燃烧产物加水后的溶液通常呈碱性。
+- 19-6-01 Q15 `true_false`：missing_or_empty_explanation；原题：在《19-6-01 金属钠燃烧及产物性质》实验中，酸化后加入 KMnO₄ 可帮助观察过氧化物相关性质。；终审 proposed：在《19-6-01 金属钠燃烧及产物性质》实验中，酸化后加入 KMnO₄ 可帮助观察过氧化物相关性质。
+- 19-6-01 Q16 `true_false`：unsupported_safety_claim, missing_or_empty_explanation；原题：在《19-6-01 金属钠燃烧及产物性质》实验中，金属钠可以直接用手拿取并投入水中观察。；终审 proposed：在《19-6-01 金属钠燃烧及产物性质》中，酸化产物溶液后滴加 KMnO₄，是为了观察过氧化物相关性质。
+- 19-6-01 Q17 `true_false`：missing_or_empty_explanation；原题：在《19-6-01 金属钠燃烧及产物性质》实验中，钠燃烧产物冷却后应用玻璃棒轻轻捣碎再转入试管。；终审 proposed：在《19-6-01 金属钠燃烧及产物性质》实验中，钠燃烧产物冷却后应用玻璃棒轻轻捣碎再转入试管。
+- 19-6-01 Q18 `true_false`：missing_or_empty_explanation；原题：在《19-6-01 金属钠燃烧及产物性质》实验中，本实验完全不涉及 pH 检验。；终审 proposed：在《19-6-01 金属钠燃烧及产物性质》实验中，本实验完全不涉及 pH 检验。
+- 19-6-01 Q19 `true_false`：missing_or_empty_explanation；原题：在《19-6-01 金属钠燃烧及产物性质》实验中，酸化时使用的是 3 mol·L⁻¹ H₂SO₄ 溶液。；终审 proposed：在《19-6-01 金属钠燃烧及产物性质》实验中，酸化时使用的是 3 mol·L⁻¹ H₂SO₄ 溶液。
+- 19-6-01 Q20 `true_false`：missing_or_empty_explanation；原题：在《19-6-01 金属钠燃烧及产物性质》实验中，钠燃烧产物加水后一定只生成强酸性溶液。；终审 proposed：在《19-6-01 金属钠燃烧及产物性质》实验中，钠燃烧产物加水后一定只生成强酸性溶液。
+- 19-6-01 Q21 `fill_blank`：missing_or_empty_explanation；原题：在《19-6-01 金属钠燃烧及产物性质》实验中，加热前吸干金属钠表面煤油的材料是____。；终审 proposed：在《19-6-01 金属钠燃烧及产物性质》实验中，加热前吸干金属钠表面煤油的材料是____。
+- 19-6-01 Q22 `fill_blank`：missing_or_empty_explanation, phone_formula_alias_needed；原题：在《19-6-01 金属钠燃烧及产物性质》实验中，钠在空气中燃烧常生成过氧化钠，其化学式为____。；终审 proposed：在《19-6-01 金属钠燃烧及产物性质》实验中，钠在空气中燃烧常生成过氧化钠，其化学式为____。
+- 19-6-01 Q23 `fill_blank`：missing_or_empty_explanation；原题：在《19-6-01 金属钠燃烧及产物性质》实验中，燃烧产物加水溶解后，溶液通常呈____性。；终审 proposed：在《19-6-01 金属钠燃烧及产物性质》实验中，燃烧产物加水溶解后，溶液通常呈____性。
+- 19-6-01 Q24 `fill_blank`：missing_or_empty_explanation, phone_formula_alias_needed；原题：在《19-6-01 金属钠燃烧及产物性质》实验中，酸化燃烧产物溶液所用酸为 3 mol·L⁻¹ ____。；终审 proposed：在《19-6-01 金属钠燃烧及产物性质》实验中，酸化燃烧产物溶液所用酸为 3 mol·L⁻¹ ____。
+- 19-6-01 Q25 `fill_blank`：missing_or_empty_explanation, phone_formula_alias_needed；原题：在《19-6-01 金属钠燃烧及产物性质》实验中，酸化后滴加的紫色氧化剂是____。；终审 proposed：在《19-6-01 金属钠燃烧及产物性质》实验中，酸化后滴加的紫色氧化剂是____。
+- 19-6-01 Q26 `fill_blank`：missing_or_empty_explanation；原题：在《19-6-01 金属钠燃烧及产物性质》实验中，金属钠开始燃烧后应停止____。；终审 proposed：在《19-6-01 金属钠燃烧及产物性质》实验中，金属钠开始燃烧后应停止____。
+- 19-6-01 Q27 `fill_blank`：missing_or_empty_explanation；原题：在《19-6-01 金属钠燃烧及产物性质》实验中，钠燃烧时常见火焰为____色。；终审 proposed：在《19-6-01 金属钠燃烧及产物性质》实验中，钠燃烧时常见火焰为____色。
+- 19-6-01 Q28 `fill_blank`：missing_or_empty_explanation；原题：在《19-6-01 金属钠燃烧及产物性质》实验中，燃烧产物冷却后应用玻璃棒轻轻____。；终审 proposed：在《19-6-01 金属钠燃烧及产物性质》实验中，燃烧产物冷却后应用玻璃棒轻轻____。
+- 19-6-01 Q29 `fill_blank`：missing_or_empty_explanation, phone_formula_alias_needed；原题：在《19-6-01 金属钠燃烧及产物性质》实验中，Na₂O₂ 与水作用可形成与____有关的过氧化性质。；终审 proposed：在《19-6-01 金属钠燃烧及产物性质》实验中，Na₂O₂ 与水作用可形成与____有关的过氧化性质。
+- 19-6-01 Q30 `fill_blank`：too_shallow_title_object, missing_or_empty_explanation；原题：在《19-6-01 金属钠燃烧及产物性质》实验中，本实验属于碱金属中____的燃烧及产物性质观察。；终审 proposed：在《19-6-01 金属钠燃烧及产物性质》中，酸化后滴加的紫色试剂是____。
+
+## 仍保留但质量偏低的题目列表及理由
+
+- 19-3-03 Q02：直接问干扰离子；在《19-3-03 SO₃²⁻ 的检出》实验中，检出 SO₃²⁻ 前需要预先除去的常见干扰离子是哪一种？
+- 19-3-03 Q03：直接问先除去 SO4；在《19-3-03 SO₃²⁻ 的检出》实验中，该实验要求先做的关键处理是哪一项？
+- 19-3-03 Q07：安全场所记忆；在《19-3-03 SO₃²⁻ 的检出》实验中，涉及 SO₂ 制备或放出的操作应在哪里进行？
+- 19-3-03 Q12：简单真假辨认；在《19-3-03 SO₃²⁻ 的检出》实验中，判断：干扰离子为“K⁺”。
+- 19-3-03 Q13：简单步骤记忆；在《19-3-03 SO₃²⁻ 的检出》实验中，判断：分离要求为“预先除去 SO₄²⁻”。
+- 19-3-03 Q17：安全场所记忆；在《19-3-03 SO₃²⁻ 的检出》实验中，判断：安全场所为“通风橱内”。
+- 19-3-03 Q27：安全场所填空；在《19-3-03 SO₃²⁻ 的检出》实验中，涉及 SO₂ 的操作应在____内进行。
+- 19-3-04 Q09：否定式排除题；在《19-3-04 性质》实验中，下列哪项不是本实验“性质”部分的操作？
+- 19-3-04 Q14：绝对化 false 判断但仍可机器判分；在《19-3-04 性质》实验中，Na₂S₂O₃ 与 AgNO₃ 反应完全不可能出现沉淀。
+- 19-3-04 Q21：现象-产物短填空；在《19-3-04 性质》实验中，Na₂S₂O₃ 溶液遇 HCl 变浑浊，浑浊主要来自____。
+- 19-3-04 Q22：性质名称短填空；在《19-3-04 性质》实验中，Na₂S₂O₃ 使碘水褪色时主要表现____性。
+- 19-3-04 Q24：性质名称短填空；在《19-3-04 性质》实验中，Na₂S₂O₃ 与 AgNO₃ 反应可体现其对 Ag⁺ 的____作用。
+- 19-3-05 Q01：直接试剂识别；在《19-3-05 过二硫酸盐的氧化性》实验中，用于体现过二硫酸盐氧化性的固体试剂是哪一种？
+- 19-3-05 Q10：直接主题识别；在《19-3-05 过二硫酸盐的氧化性》实验中，本实验主题最核心的是验证过二硫酸盐的哪种性质？
+- 19-3-05 Q11：简单事实判断；在《19-3-05 过二硫酸盐的氧化性》实验中，K₂S₂O₈ 可在酸性条件下氧化 Mn²⁺。
+- 19-3-05 Q22：性质名称填空；在《19-3-05 过二硫酸盐的氧化性》实验中，AgNO₃ 在 Mn²⁺ 被过二硫酸盐氧化实验中主要起____作用。
+- 19-3-05 Q30：标题式填空；在《19-3-05 过二硫酸盐的氧化性》实验中，本实验主题是过二硫酸盐的____。
+- 19-3-06 Q01：直接试剂识别；在《19-3-06 过硫酸盐的氧化性》实验中，用于体现过硫酸盐氧化性的固体试剂是哪一种？
+- 19-3-06 Q08：直接角色识别；在《19-3-06 过硫酸盐的氧化性》实验中，下列哪一项最能概括 K₂S₂O₈ 在该实验中的角色？
+- 19-3-06 Q11：简单事实判断；在《19-3-06 过硫酸盐的氧化性》实验中，K₂S₂O₈ 在该实验中作为过硫酸盐氧化剂。
+- 19-3-06 Q20：明显错误判断；在《19-3-06 过硫酸盐的氧化性》实验中，该实验的核心结论是 K₂S₂O₈ 只能作还原剂。
+- 19-4-02 Q04：直接酸化试剂识别；在《19-4-02 亚硝酸的氧化性》实验中，实验中酸化 KI 溶液使用的酸是哪一种？
+- 19-4-02 Q05：直接加入试剂识别；在《19-4-02 亚硝酸的氧化性》实验中，酸化 KI 后加入的亚硝酸盐溶液是哪一种？
+- 19-4-02 Q15：简单事实判断；在《19-4-02 亚硝酸的氧化性》实验中，判断：加入试剂为“NaNO₂”。
+- 19-4-02 Q26：直接操作填空；在《19-4-02 亚硝酸的氧化性》实验中，加入 NaNO₂ 后可____试管继续观察。
+- 19-4-03 Q01：直接酸化试剂识别；在《19-4-03 亚硝酸的还原性》实验中，实验操作中，KMnO₄ 溶液在滴加 NaNO₂ 前应先用什么酸化？
+- 19-4-03 Q07：直接氧化剂识别；在《19-4-03 亚硝酸的还原性》实验中，下列哪项属于本实验使用的氧化剂？
+- 19-4-03 Q18：明显相邻实验排除；在《19-4-03 亚硝酸的还原性》实验中，本实验的操作与硝酸根棕色环实验完全相同。
+- 19-4-03 Q23：性质名称填空；在《19-4-03 亚硝酸的还原性》实验中，NaNO₂ 在该实验中主要表现____性。
+- 19-4-03 Q27：操作方式填空；在《19-4-03 亚硝酸的还原性》实验中，NaNO₂ 溶液应向酸化 KMnO₄ 中____滴加。
+- 19-4-04 Q01：直接酸化试剂识别；在《19-4-04 亚硝酸根的检验方法》实验中，点滴板法中用于酸化 NaNO₂ 的酸是哪一种？
+- 19-4-04 Q02：直接显色试剂识别；在《19-4-04 亚硝酸根的检验方法》实验中，点滴板法酸化后加入的两种显色试剂是哪一组？
+- 19-4-04 Q10：目标离子识别；在《19-4-04 亚硝酸根的检验方法》实验中，该实验的两种检验思路共同指向哪种离子？
+- 19-4-04 Q16：明显错误判断；在《19-4-04 亚硝酸根的检验方法》实验中，点滴板法检验 NO₂⁻ 时必须用 NaOH 代替 HAc 酸化。
+- 19-4-04 Q20：目标离子排除；在《19-4-04 亚硝酸根的检验方法》实验中，本实验的目标离子是 NO₃⁻，不是 NO₂⁻。
+- 19-4-04 Q21：直接酸化试剂填空；在《19-4-04 亚硝酸根的检验方法》实验中，点滴板法中用____溶液酸化 NaNO₂。
+- 19-4-04 Q22：直接试剂填空；在《19-4-04 亚硝酸根的检验方法》实验中，点滴板法加入对氨基苯磺酸和____溶液。
+- 19-4-04 Q23：直接颜色填空；在《19-4-04 亚硝酸根的检验方法》实验中，点滴板法阳性时溶液应显____。
+- 19-4-04 Q30：目标离子填空；在《19-4-04 亚硝酸根的检验方法》实验中，该实验检验的目标离子是____。
+- 19-4-05 Q04：直接试剂识别；在《19-4-05 亚硝酸的氧化还原性》实验中，观察亚硝酸氧化性时，酸化 KI 后加入的试剂是哪一种？
+- 19-4-05 Q06：直接试剂识别；在《19-4-05 亚硝酸的氧化还原性》实验中，观察亚硝酸还原性时，酸性 KMnO₄ 中滴加的是哪种溶液？
+- 19-4-05 Q18：绝对化 false 判断；在《19-4-05 亚硝酸的氧化还原性》实验中，酸性 KI 中加入 NaNO₂ 后完全不可能生成 I₂。
+- 19-4-05 Q20：明显相邻实验排除；在《19-4-05 亚硝酸的氧化还原性》实验中，该实验与亚硝酸的氧化还原性无关，只研究硝酸盐热分解。
+- 19-4-07 Q01：直接对象识别；在《19-4-07 硝酸盐的热分解》实验中，该实验比较热分解行为的盐类是哪一类？
+- 19-4-07 Q02：直接样品识别；在《19-4-07 硝酸盐的热分解》实验中，参与热分解比较的钾盐样品是哪一种？
+- 19-4-07 Q03：直接样品识别；在《19-4-07 硝酸盐的热分解》实验中，参与热分解比较的铜盐样品是哪一种？
+- 19-4-07 Q04：直接样品识别；在《19-4-07 硝酸盐的热分解》实验中，参与热分解比较的银盐样品是哪一种？
+- 19-4-07 Q11：直接对象判断；在《19-4-07 硝酸盐的热分解》实验中，判断：实验对象为“硝酸盐”。
+- 19-4-07 Q12：简单样品排除；在《19-4-07 硝酸盐的热分解》实验中，判断：钾盐样品为“KCl(s)”。
+- 19-4-07 Q13：直接样品判断；在《19-4-07 硝酸盐的热分解》实验中，判断：铜盐样品为“Cu(NO₃)₂(s)”。
+- 19-4-07 Q14：简单样品排除；在《19-4-07 硝酸盐的热分解》实验中，判断：银盐样品为“AgCl(s)”。
+- 19-4-07 Q21：直接对象填空；在《19-4-07 硝酸盐的热分解》实验中，该实验研究____的热分解。
+- 19-4-08 Q01：直接试剂识别；在《19-4-08 硝酸根的检验》实验中，棕色环实验中，实验资料列出的固体试剂是哪一项？
+- 19-4-08 Q02：直接试剂识别；在《19-4-08 硝酸根的检验》实验中，棕色环实验中，向 FeSO₄·7H₂O 中加入 NaNO₃ 后还需加入哪种试剂？
+- 19-4-08 Q09：目标离子识别；在《19-4-08 硝酸根的检验》实验中，该实验中 NaNO₃ 提供的待检离子是？
+- 19-4-08 Q10：实验类别识别；在《19-4-08 硝酸根的检验》实验中，棕色环实验属于下列哪类实验？
+- 19-4-08 Q11：试剂组合记忆；在《19-4-08 硝酸根的检验》实验中，棕色环实验使用 FeSO₄·7H₂O、NaNO₃ 和浓 H₂SO₄。
+- 19-4-08 Q15：目标离子判断；在《19-4-08 硝酸根的检验》实验中，NaNO₃ 在本实验中提供 NO₃⁻。
+- 19-4-08 Q18：目标离子排除；在《19-4-08 硝酸根的检验》实验中，本实验的核心是检验 NO₂⁻，不是 NO₃⁻。
+- 19-4-09 Q04：直接试剂识别；在《19-4-09 硝酸根的检验》实验中，棕色环法中提供 Fe²⁺ 的固体试剂是哪一种？
+- 19-4-09 Q05：直接试剂识别；在《19-4-09 硝酸根的检验》实验中，棕色环法中加入的强酸是哪一种？
+- 19-4-09 Q10：目标离子识别；在《19-4-09 硝酸根的检验》实验中，该实验的目标检验离子是哪一种？
+- 19-4-09 Q12：试剂组合记忆；在《19-4-09 硝酸根的检验》实验中，FeSO₄·7H₂O、NaNO₃ 和浓硫酸可用于棕色环检验。
+- 19-4-09 Q16：目标离子排除；在《19-4-09 硝酸根的检验》实验中，硝酸根棕色环法的目标离子是 NO₂⁻。
+- 19-4-09 Q18：明显错误替代试剂；在《19-4-09 硝酸根的检验》实验中，棕色环法中浓硫酸完全可以用浓氨水替代。
+- 19-4-09 Q20：明显无关沉淀排除；在《19-4-09 硝酸根的检验》实验中，生成棕色环说明一定生成了 Ni(dmg)₂ 沉淀。
+- 19-5-01 Q01：核心溶液识别；在《19-5-01 难溶性硅酸盐的生成——“水中花园”》实验中，形成“水中花园”的核心溶液通常是哪一种？
+- 19-5-01 Q02：水玻璃成分记忆；在《19-5-01 难溶性硅酸盐的生成——“水中花园”》实验中，水玻璃的主要成分可表示为下列哪一种？
+- 19-5-01 Q03：候选盐识别；在《19-5-01 难溶性硅酸盐的生成——“水中花园”》实验中，下列哪种试剂属于该实验列出的可与水玻璃作用的盐？
+- 19-5-01 Q09：标题式操作目标；在《19-5-01 难溶性硅酸盐的生成——“水中花园”》实验中，下列哪个操作目标最符合本实验名称？
+- 19-5-01 Q11：简单事实判断；在《19-5-01 难溶性硅酸盐的生成——“水中花园”》实验中，“水中花园”实验的核心是水玻璃与某些金属盐生成难溶性硅酸盐。
+- 19-5-01 Q13：成分记忆；在《19-5-01 难溶性硅酸盐的生成——“水中花园”》实验中，水玻璃通常指 Na₂SiO₃ 溶液。
+- 19-5-01 Q14：明显相邻实验排除；在《19-5-01 难溶性硅酸盐的生成——“水中花园”》实验中，该实验主要观察臭氧的强氧化性。
+- 19-5-01 Q18：明显错误归类；在《19-5-01 难溶性硅酸盐的生成——“水中花园”》实验中，该实验应把所有观察都归结为卤素置换反应。
+
+## Evidence Insufficient 原题列表
+
+- 19-3-03 Q08：off_point_so2_preparation_detail；在《19-3-03 SO₃²⁻ 的检出》实验中，实验室制备 SO₂ 时蒸馏瓶内放入的固体是哪一种？
+- 19-3-03 Q09：off_point_so2_preparation_detail；在《19-3-03 SO₃²⁻ 的检出》实验中，制备 SO₂ 时分液漏斗内装的酸是哪一种？
+- 19-3-03 Q10：meta_item_not_student_reasoning；在《19-3-03 SO₃²⁻ 的检出》实验中，设计 SO₃²⁻ 检出流程时，最终应写出的核心内容是什么？
+- 19-3-03 Q18：off_point_so2_preparation_detail；在《19-3-03 SO₃²⁻ 的检出》实验中，判断：SO₂ 制备固体为“NaCl”。
+- 19-3-03 Q19：off_point_so2_preparation_detail；在《19-3-03 SO₃²⁻ 的检出》实验中，判断：SO₂ 制备酸为“浓 H₂SO₄”。
+- 19-3-03 Q20：meta_item_not_student_reasoning；在《19-3-03 SO₃²⁻ 的检出》实验中，判断：设计产物为“配位数计算表”。
+- 19-3-03 Q28：off_point_so2_preparation_detail, phone_formula_alias_needed；在《19-3-03 SO₃²⁻ 的检出》实验中，制备 SO₂ 时蒸馏瓶内可放入____固体。
+- 19-3-03 Q29：off_point_so2_preparation_detail, phone_formula_alias_needed；在《19-3-03 SO₃²⁻ 的检出》实验中，制备 SO₂ 时分液漏斗内装____。
+- 19-3-03 Q30：meta_item_not_student_reasoning；在《19-3-03 SO₃²⁻ 的检出》实验中，题目要求写出分离过程示意图及有关反应的____。
+- 19-3-04 Q05：off_point_preparation_not_property_point；在《19-3-04 性质》实验中，制备 Na₂S₂O₃·5H₂O 时，实验资料中使用的原料组合是哪一项？
+- 19-3-04 Q15：off_point_preparation_not_property_point；在《19-3-04 性质》实验中，本实验性质部分使用的是自制 Na₂S₂O₃·5H₂O 晶体配成的溶液。
+- 19-3-04 Q19：double_negative_true_false, off_point_preparation_not_property_point；在《19-3-04 性质》实验中，认为：制备 Na₂S₂O₃ 时加入活性炭粉的目的可包括脱色，这一判断是不正确的。
+- 19-3-04 Q20：double_negative_true_false, meta_item_not_student_reasoning；在《19-3-04 性质》实验中，认为：该实验标题虽为“性质”，但实际属于硫代硫酸钠的制备与性质模块，这一判断是不正确的。
+- 19-3-04 Q25：off_point_preparation_not_property_point；在《19-3-04 性质》实验中，制备 Na₂S₂O₃·5H₂O 的原料之一是____粉。
+- 19-3-04 Q26：off_point_preparation_not_property_point；在《19-3-04 性质》实验中，制备 Na₂S₂O₃·5H₂O 时加入活性炭粉的目的之一是____。
+- 19-3-04 Q27：off_point_preparation_not_property_point；在《19-3-04 性质》实验中，Na₂S₂O₃·5H₂O 性质实验前先将晶体溶于约 5 mL ____中。
+- 19-3-05 Q20：double_negative_true_false, meta_item_not_student_reasoning；在《19-3-05 过二硫酸盐的氧化性》实验中，认为：本实验可以围绕过二硫酸盐的强氧化性设计客观题，这一判断是不正确的。
+- 19-3-06 Q05：no_matching_ki_video_point；在《19-3-06 过硫酸盐的氧化性》实验中，酸化 KI 溶液后加入 K₂S₂O₈，主要体现 S₂O₈²⁻ 能氧化哪种离子？
+- 19-3-06 Q09：no_matching_ki_video_point；在《19-3-06 过硫酸盐的氧化性》实验中，酸化 KI 后加入 K₂S₂O₈ 若生成 I₂，最直接说明的是哪一项？
+- 19-3-06 Q14：no_matching_ki_video_point；在《19-3-06 过硫酸盐的氧化性》实验中，酸化 KI 后加入 K₂S₂O₈，可观察 I⁻ 被氧化的现象。
+- 19-3-06 Q18：double_negative_true_false, no_matching_ki_video_point；在《19-3-06 过硫酸盐的氧化性》实验中，认为：K₂S₂O₈ 与 KI 的反应中，I⁻ 作为被氧化的还原剂，这一判断是不正确的。
+- 19-3-06 Q25：no_matching_ki_video_point, missing_or_empty_explanation, phone_formula_alias_needed；在《19-3-06 过硫酸盐的氧化性》实验中，酸化 KI 溶液中被 K₂S₂O₈ 氧化的离子是____。
+- 19-3-06 Q28：no_matching_ki_video_point, missing_or_empty_explanation, phone_formula_alias_needed；在《19-3-06 过硫酸盐的氧化性》实验中，KI 被氧化后生成的卤素单质是____。
+- 19-4-02 Q08：adjacent_section_generation_decomposition；在《19-4-02 亚硝酸的氧化性》实验中，HNO₂ 分解过程中出现蓝色中间物与棕色气体，说明它较不稳定；棕色气体主要是哪一种？
+- 19-4-02 Q09：adjacent_theory_not_video_point；在《19-4-02 亚硝酸的氧化性》实验中，一般不使用 HNO₃ 作该类酸性反应介质的主要原因是什么？
+- 19-4-02 Q18：adjacent_section_generation_decomposition；在《19-4-02 亚硝酸的氧化性》实验中，判断：分解颜色为“NH₃”。
+- 19-4-02 Q19：adjacent_theory_not_video_point；在《19-4-02 亚硝酸的氧化性》实验中，判断：避免介质为“HNO₃ 具有氧化性，可能干扰判断”。
+- 19-4-02 Q28：adjacent_section_generation_decomposition, phone_formula_alias_needed；在《19-4-02 亚硝酸的氧化性》实验中，HNO₂ 分解可产生棕色的____。
+- 19-4-02 Q29：adjacent_theory_not_video_point；在《19-4-02 亚硝酸的氧化性》实验中，不宜用 HNO₃ 作普通酸性介质，是因为它有____性。
+- 19-4-03 Q06：adjacent_oxidation_point_not_current_video_point；在《19-4-03 亚硝酸的还原性》实验中，NaNO₂ 在亚硝酸的氧化性实验中与 KI 反应，而在本实验中与 KMnO₄ 反应；这说明 HNO₂/NO₂⁻ 具有什么特点？
+- 19-4-03 Q10：meta_item_not_student_reasoning；在《19-4-03 亚硝酸的还原性》实验中，本实验所在模块是下列哪一项？
+- 19-4-03 Q16：adjacent_oxidation_point_not_current_video_point；在《19-4-03 亚硝酸的还原性》实验中，亚硝酸及其盐只能表现还原性，不能表现氧化性。
+- 19-4-03 Q28：adjacent_oxidation_point_not_current_video_point；在《19-4-03 亚硝酸的还原性》实验中，亚硝酸及其盐既可表现氧化性，也可表现____性。
+- 19-4-04 Q06：adjacent_section_generation_decomposition；在《19-4-04 亚硝酸根的检验方法》实验中，亚硝酸由 NaNO₂ 与硫酸生成后，因不稳定可分解产生哪种棕色气体相关物种？
+- 19-4-04 Q07：adjacent_reduction_point_not_current_video_point；在《19-4-04 亚硝酸根的检验方法》实验中，酸性 KMnO₄ 中滴加 NaNO₂，主要体现亚硝酸盐的哪种性质？
+- 19-4-04 Q09：unsupported_safety_claim；在《19-4-04 亚硝酸根的检验方法》实验中，NaNO₂ 和亚硝酸盐相关操作中，必须注意的安全点是哪一项？
+- 19-4-04 Q14：unsupported_safety_claim；在《19-4-04 亚硝酸根的检验方法》实验中，亚硝酸盐有毒，操作中不应入口。
+- 19-4-04 Q19：double_negative_true_false, adjacent_reduction_point_not_current_video_point；在《19-4-04 亚硝酸根的检验方法》实验中，认为：酸性 KMnO₄ 与 NaNO₂ 反应可体现 NaNO₂ 的还原性，这一判断是不正确的。
+- 19-4-04 Q26：adjacent_section_generation_decomposition, phone_formula_alias_needed；在《19-4-04 亚硝酸根的检验方法》实验中，亚硝酸分解可产生棕色的____。
+- 19-4-04 Q27：adjacent_reduction_point_not_current_video_point；在《19-4-04 亚硝酸根的检验方法》实验中，酸性 KMnO₄ 中滴加 NaNO₂ 体现亚硝酸盐的____。
+- 19-4-04 Q29：unsupported_safety_claim；在《19-4-04 亚硝酸根的检验方法》实验中，亚硝酸盐有毒，注意切勿____。
+- 19-4-05 Q01：adjacent_section_generation_decomposition；在《19-4-05 亚硝酸的氧化还原性》实验中，生成亚硝酸时，冰水冷冻过的饱和 NaNO₂ 溶液与哪种酸混合？
+- 19-4-05 Q02：adjacent_section_generation_decomposition；在《19-4-05 亚硝酸的氧化还原性》实验中，亚硝酸生成与分解过程中，蓝色中间物主要是哪一种？
+- 19-4-05 Q03：adjacent_section_generation_decomposition；在《19-4-05 亚硝酸的氧化还原性》实验中，N₂O₃ 进一步分解时，可形成的棕色气体是下列哪一种？
+- 19-4-05 Q10：adjacent_detection_point_not_current_video_point；在《19-4-05 亚硝酸的氧化还原性》实验中，对 NaNO₂ 溶液进行红色偶氮检验时，酸化常用的是哪种酸？
+- 19-4-05 Q11：adjacent_section_generation_decomposition；在《19-4-05 亚硝酸的氧化还原性》实验中，NaNO₂ 与 H₂SO₄ 可生成 HNO₂。
+- 19-4-05 Q12：adjacent_section_generation_decomposition；在《19-4-05 亚硝酸的氧化还原性》实验中，HNO₂ 分解可先生成蓝色 N₂O₃。
+- 19-4-05 Q13：adjacent_section_generation_decomposition；在《19-4-05 亚硝酸的氧化还原性》实验中，N₂O₃ 分解可产生棕色 NO₂。
+- 19-4-05 Q17：double_negative_true_false, adjacent_section_generation_decomposition；在《19-4-05 亚硝酸的氧化还原性》实验中，认为：实验中饱和 NaNO₂ 溶液需要冰水冷冻后使用，这一判断是不正确的。
+- 19-4-05 Q21：adjacent_section_generation_decomposition, missing_or_empty_explanation, phone_formula_alias_needed；在《19-4-05 亚硝酸的氧化还原性》实验中，NaNO₂ 与 H₂SO₄ 反应生成的弱酸是____。
+- 19-4-05 Q22：adjacent_section_generation_decomposition, missing_or_empty_explanation, phone_formula_alias_needed；在《19-4-05 亚硝酸的氧化还原性》实验中，2HNO₂ 分解可生成蓝色的____。
+- 19-4-05 Q23：adjacent_section_generation_decomposition, missing_or_empty_explanation, phone_formula_alias_needed；在《19-4-05 亚硝酸的氧化还原性》实验中，N₂O₃ 分解产生的棕色气体是____。
+- 19-4-05 Q27：adjacent_section_generation_decomposition, missing_or_empty_explanation, phone_formula_alias_needed；在《19-4-05 亚硝酸的氧化还原性》实验中，制备 HNO₂ 时使用冰水冷冻过的饱和____溶液。
+- 19-4-05 Q30：adjacent_detection_point_not_current_video_point, missing_or_empty_explanation；在《19-4-05 亚硝酸的氧化还原性》实验中，NaNO₂ 偶氮显色检验中出现红色可表明存在____。
+- 19-4-06 Q06：adjacent_theory_not_video_point, missing_or_empty_explanation；在《19-4-06 硝酸的氧化性》实验中，硝酸一般不宜随意作为酸性反应介质，主要原因是哪一项？
+- 19-4-06 Q18：adjacent_theory_not_video_point, missing_or_empty_explanation；在《19-4-06 硝酸的氧化性》实验中，硝酸作为酸性介质时可能因氧化性而干扰其他反应。
+- 19-4-06 Q30：adjacent_theory_not_video_point, missing_or_empty_explanation；在《19-4-06 硝酸的氧化性》实验中，硝酸不宜随意作酸性介质，是因为它有明显的____性。
+- 19-4-08 Q06：alternate_method_not_video_point；在《19-4-08 硝酸根的检验》实验中，硝酸根检验的另一种方法是在强碱性下加入铝屑，检验生成的哪种气体？
+- 19-4-08 Q16：alternate_method_not_video_point；在《19-4-08 硝酸根的检验》实验中，强碱性铝屑法可通过产生 NH₃ 来证实 NO₃⁻。
+- 19-4-08 Q27：alternate_method_not_video_point, phone_formula_alias_needed；在《19-4-08 硝酸根的检验》实验中，强碱性铝屑法中，可用湿 pH 试纸检验生成的____。
+- 19-4-09 Q01：alternate_method_not_video_point；在《19-4-09 硝酸根的检验》实验中，强碱性铝屑法中，试液先加入哪种溶液至强碱性？
+- 19-4-09 Q02：alternate_method_not_video_point；在《19-4-09 硝酸根的检验》实验中，强碱性铝屑法中用于还原 NO₃⁻ 的金属是什么？
+- 19-4-09 Q03：alternate_method_not_video_point；在《19-4-09 硝酸根的检验》实验中，强碱性铝屑法产生的气体可用哪种试纸检验？
+- 19-4-09 Q09：unsupported_safety_claim；在《19-4-09 硝酸根的检验》实验中，凡涉及氮氧化物生成的反应，合理的安全操作是什么？
+- 19-4-09 Q11：alternate_method_not_video_point；在《19-4-09 硝酸根的检验》实验中，强碱性铝屑法可用于把 NO₃⁻ 还原并用 pH 试纸检验生成的碱性气体。
+- 19-4-09 Q15：unsupported_safety_claim；在《19-4-09 硝酸根的检验》实验中，涉及氮氧化物的操作应注意通风橱安全。
+- 19-4-09 Q17：alternate_method_not_video_point；在《19-4-09 硝酸根的检验》实验中，强碱性铝屑法中铝屑没有任何还原作用。
+- 19-4-09 Q21：alternate_method_not_video_point；在《19-4-09 硝酸根的检验》实验中，强碱性铝屑法中先加入____溶液至强碱性。
+- 19-4-09 Q22：alternate_method_not_video_point；在《19-4-09 硝酸根的检验》实验中，强碱性铝屑法中加入少量____。
+- 19-4-09 Q23：alternate_method_not_video_point；在《19-4-09 硝酸根的检验》实验中，强碱性铝屑法用____检验产生的气体。
+- 19-4-09 Q29：unsupported_safety_claim；在《19-4-09 硝酸根的检验》实验中，涉及氮氧化物生成的反应应在____内进行。
+- 19-5-01 Q30：meta_item_not_student_reasoning, missing_or_empty_explanation；在《19-5-01 难溶性硅酸盐的生成——“水中花园”》实验中，该实验所属主题围绕碳、硅、硼中____的化合物性质。
+- 19-6-01 Q16：unsupported_safety_claim, missing_or_empty_explanation；在《19-6-01 金属钠燃烧及产物性质》实验中，金属钠可以直接用手拿取并投入水中观察。
+
+## 多点位题目列表
+
+- 19-3-03 Q10：candidate-1-26a8e36e, candidate-2-795f5a0b；在《19-3-03 SO₃²⁻ 的检出》实验中，设计 SO₃²⁻ 检出流程时，最终应写出的核心内容是什么？
+- 19-3-03 Q20：candidate-1-26a8e36e, candidate-2-795f5a0b；在《19-3-03 SO₃²⁻ 的检出》实验中，判断：设计产物为“配位数计算表”。
+- 19-3-03 Q30：candidate-1-26a8e36e, candidate-2-795f5a0b；在《19-3-03 SO₃²⁻ 的检出》实验中，题目要求写出分离过程示意图及有关反应的____。
+- 19-3-04 Q05：candidate-1-122909e7, candidate-2-982bdc6e, candidate-3-387fff62, candidate-4-5013d52a；在《19-3-04 性质》实验中，制备 Na₂S₂O₃·5H₂O 时，实验资料中使用的原料组合是哪一项？
+- 19-3-04 Q07：candidate-1-122909e7, candidate-2-982bdc6e；在《19-3-04 性质》实验中，Na₂S₂O₃ 与 I₂ 的反应是否适合在强酸性介质中长期进行？
+- 19-3-04 Q09：candidate-1-122909e7, candidate-2-982bdc6e, candidate-3-387fff62, candidate-4-5013d52a；在《19-3-04 性质》实验中，下列哪项不是本实验“性质”部分的操作？
+- 19-3-04 Q15：candidate-1-122909e7, candidate-2-982bdc6e, candidate-3-387fff62, candidate-4-5013d52a；在《19-3-04 性质》实验中，本实验性质部分使用的是自制 Na₂S₂O₃·5H₂O 晶体配成的溶液。
+- 19-3-04 Q19：candidate-1-122909e7, candidate-2-982bdc6e, candidate-3-387fff62, candidate-4-5013d52a；在《19-3-04 性质》实验中，认为：制备 Na₂S₂O₃ 时加入活性炭粉的目的可包括脱色，这一判断是不正确的。
+- 19-3-04 Q20：candidate-1-122909e7, candidate-2-982bdc6e, candidate-3-387fff62, candidate-4-5013d52a；在《19-3-04 性质》实验中，认为：该实验标题虽为“性质”，但实际属于硫代硫酸钠的制备与性质模块，这一判断是不正确的。
+- 19-3-04 Q25：candidate-1-122909e7, candidate-2-982bdc6e, candidate-3-387fff62, candidate-4-5013d52a；在《19-3-04 性质》实验中，制备 Na₂S₂O₃·5H₂O 的原料之一是____粉。
+- 19-3-04 Q26：candidate-1-122909e7, candidate-2-982bdc6e, candidate-3-387fff62, candidate-4-5013d52a；在《19-3-04 性质》实验中，制备 Na₂S₂O₃·5H₂O 时加入活性炭粉的目的之一是____。
+- 19-3-04 Q27：candidate-1-122909e7, candidate-2-982bdc6e, candidate-3-387fff62, candidate-4-5013d52a；在《19-3-04 性质》实验中，Na₂S₂O₃·5H₂O 性质实验前先将晶体溶于约 5 mL ____中。
+- 19-3-04 Q30：candidate-1-122909e7, candidate-2-982bdc6e；在《19-3-04 性质》实验中，本实验中的 Na₂S₂O₃ 与碘水反应不宜在强____性介质中长期进行。
+- 19-3-05 Q01：candidate-1-86f30b4d, candidate-3-6348ebe3；在《19-3-05 过二硫酸盐的氧化性》实验中，用于体现过二硫酸盐氧化性的固体试剂是哪一种？
+- 19-3-05 Q02：candidate-1-86f30b4d, candidate-2-8d180ec9；在《19-3-05 过二硫酸盐的氧化性》实验中，MnSO₄、H₂SO₄ 和 K₂S₂O₈ 体系中加入 AgNO₃ 的主要作用是什么？
+- 19-3-05 Q05：candidate-1-86f30b4d, candidate-2-8d180ec9；在《19-3-05 过二硫酸盐的氧化性》实验中，不加 AgNO₃ 的对照实验主要用于比较什么？
+- 19-3-05 Q08：candidate-1-86f30b4d, candidate-3-6348ebe3；在《19-3-05 过二硫酸盐的氧化性》实验中，过二硫酸根 S₂O₈²⁻ 被还原后通常转化为什么离子？
+- 19-3-05 Q10：candidate-1-86f30b4d, candidate-3-6348ebe3；在《19-3-05 过二硫酸盐的氧化性》实验中，本实验主题最核心的是验证过二硫酸盐的哪种性质？
+- 19-3-05 Q12：candidate-1-86f30b4d, candidate-2-8d180ec9；在《19-3-05 过二硫酸盐的氧化性》实验中，AgNO₃ 的加入可用于比较催化作用对实验现象的影响。
+- 19-3-05 Q14：candidate-1-86f30b4d, candidate-3-6348ebe3；在《19-3-05 过二硫酸盐的氧化性》实验中，过二硫酸盐被还原后通常生成硫酸根。
+- 19-3-05 Q17：candidate-1-86f30b4d, candidate-2-8d180ec9；在《19-3-05 过二硫酸盐的氧化性》实验中，不加 AgNO₃ 的对照实验没有比较意义。
+- 19-3-05 Q21：candidate-1-86f30b4d, candidate-3-6348ebe3；在《19-3-05 过二硫酸盐的氧化性》实验中，体现过二硫酸盐氧化性的固体试剂是____。
+- 19-3-05 Q22：candidate-1-86f30b4d, candidate-2-8d180ec9；在《19-3-05 过二硫酸盐的氧化性》实验中，AgNO₃ 在 Mn²⁺ 被过二硫酸盐氧化实验中主要起____作用。
+- 19-3-05 Q25：candidate-1-86f30b4d, candidate-2-8d180ec9；在《19-3-05 过二硫酸盐的氧化性》实验中，不加 AgNO₃ 的对照用于比较反应____。
+- 19-3-05 Q28：candidate-1-86f30b4d, candidate-3-6348ebe3；在《19-3-05 过二硫酸盐的氧化性》实验中，S₂O₈²⁻ 被还原后通常生成____。
+- 19-3-05 Q30：candidate-1-86f30b4d, candidate-3-6348ebe3；在《19-3-05 过二硫酸盐的氧化性》实验中，本实验主题是过二硫酸盐的____。
+- 19-3-06 Q01：candidate-1-f8d33e0a, candidate-2-1edce2d8；在《19-3-06 过硫酸盐的氧化性》实验中，用于体现过硫酸盐氧化性的固体试剂是哪一种？
+- 19-3-06 Q03：candidate-1-f8d33e0a, candidate-2-1edce2d8；在《19-3-06 过硫酸盐的氧化性》实验中，与加 AgNO₃ 的试管作对照时，另一支试管特意省去哪种试剂？
+- 19-3-06 Q04：candidate-1-f8d33e0a, candidate-2-1edce2d8；在《19-3-06 过硫酸盐的氧化性》实验中，AgNO₃ 在 Mn²⁺ 被过硫酸盐氧化的实验中最接近哪种作用？
+- 19-3-06 Q05：candidate-1-f8d33e0a, candidate-2-1edce2d8；在《19-3-06 过硫酸盐的氧化性》实验中，酸化 KI 溶液后加入 K₂S₂O₈，主要体现 S₂O₈²⁻ 能氧化哪种离子？
+- 19-3-06 Q07：candidate-1-f8d33e0a, candidate-2-1edce2d8；在《19-3-06 过硫酸盐的氧化性》实验中，该实验中 H₂SO₄ 的主要作用之一是提供哪种介质？
+- 19-3-06 Q08：candidate-1-f8d33e0a, candidate-2-1edce2d8；在《19-3-06 过硫酸盐的氧化性》实验中，下列哪一项最能概括 K₂S₂O₈ 在该实验中的角色？
+- 19-3-06 Q09：candidate-1-f8d33e0a, candidate-2-1edce2d8；在《19-3-06 过硫酸盐的氧化性》实验中，酸化 KI 后加入 K₂S₂O₈ 若生成 I₂，最直接说明的是哪一项？
+- 19-3-06 Q11：candidate-1-f8d33e0a, candidate-2-1edce2d8；在《19-3-06 过硫酸盐的氧化性》实验中，K₂S₂O₈ 在该实验中作为过硫酸盐氧化剂。
+- 19-3-06 Q12：candidate-1-f8d33e0a, candidate-2-1edce2d8；在《19-3-06 过硫酸盐的氧化性》实验中，MnSO₄ 体系设置了加 AgNO₃ 与不加 AgNO₃ 的对照。
+- 19-3-06 Q14：candidate-1-f8d33e0a, candidate-2-1edce2d8；在《19-3-06 过硫酸盐的氧化性》实验中，酸化 KI 后加入 K₂S₂O₈，可观察 I⁻ 被氧化的现象。
+- 19-3-06 Q16：candidate-1-f8d33e0a, candidate-2-1edce2d8；在《19-3-06 过硫酸盐的氧化性》实验中，该实验完全不涉及酸性介质。
+- 19-3-06 Q17：candidate-1-f8d33e0a, candidate-2-1edce2d8；在《19-3-06 过硫酸盐的氧化性》实验中，不加 AgNO₃ 的对照可以帮助比较反应现象差异。
+- 19-3-06 Q18：candidate-1-f8d33e0a, candidate-2-1edce2d8；在《19-3-06 过硫酸盐的氧化性》实验中，认为：K₂S₂O₈ 与 KI 的反应中，I⁻ 作为被氧化的还原剂，这一判断是不正确的。
+- 19-3-06 Q20：candidate-1-f8d33e0a, candidate-2-1edce2d8；在《19-3-06 过硫酸盐的氧化性》实验中，该实验的核心结论是 K₂S₂O₈ 只能作还原剂。
+- 19-3-06 Q21：candidate-1-f8d33e0a, candidate-2-1edce2d8；在《19-3-06 过硫酸盐的氧化性》实验中，体现过硫酸盐氧化性的固体试剂是____。
+- 19-3-06 Q22：candidate-1-f8d33e0a, candidate-2-1edce2d8；在《19-3-06 过硫酸盐的氧化性》实验中，MnSO₄ 体系中作对照时，一支试管不加____溶液。
+- 19-3-06 Q24：candidate-1-f8d33e0a, candidate-2-1edce2d8；在《19-3-06 过硫酸盐的氧化性》实验中，该实验中常用____提供酸性介质。
+- 19-3-06 Q25：candidate-1-f8d33e0a, candidate-2-1edce2d8；在《19-3-06 过硫酸盐的氧化性》实验中，酸化 KI 溶液中被 K₂S₂O₈ 氧化的离子是____。
+- 19-3-06 Q26：candidate-1-f8d33e0a, candidate-2-1edce2d8；在《19-3-06 过硫酸盐的氧化性》实验中，S₂O₈²⁻ 在该实验中主要表现____。
+- 19-3-06 Q28：candidate-1-f8d33e0a, candidate-2-1edce2d8；在《19-3-06 过硫酸盐的氧化性》实验中，KI 被氧化后生成的卤素单质是____。
+- 19-3-06 Q29：candidate-1-f8d33e0a, candidate-2-1edce2d8；在《19-3-06 过硫酸盐的氧化性》实验中，实验中用来提供 Mn²⁺ 的试剂是____。
+- 19-3-06 Q30：candidate-1-f8d33e0a, candidate-2-1edce2d8；在《19-3-06 过硫酸盐的氧化性》实验中，比较加和不加 AgNO₃ 的现象，本质上是在考查 Ag⁺ 对反应的____作用。
+- 19-4-01 Q07：candidate-1-03b55150, candidate-2-0ee21807；在《19-4-01 亚硝酸的生成与分解》实验中，为什么要使用冰水冷却过的 NaNO₂ 溶液？
+- 19-4-01 Q09：candidate-1-03b55150, candidate-2-0ee21807；在《19-4-01 亚硝酸的生成与分解》实验中，本实验的核心现象应围绕哪一项记录？
+- 19-4-01 Q10：candidate-1-03b55150, candidate-2-0ee21807；在《19-4-01 亚硝酸的生成与分解》实验中，下列哪一项不是本实验的主要物种？
+- 19-4-01 Q16：candidate-1-03b55150, candidate-2-0ee21807；在《19-4-01 亚硝酸的生成与分解》实验中，冰水冷却有助于观察不稳定中间物的变化。
+- 19-4-01 Q20：candidate-1-03b55150, candidate-2-0ee21807；在《19-4-01 亚硝酸的生成与分解》实验中，本实验题目应关注亚硝酸的生成与分解，而不是硝酸盐热分解。
+- 19-4-02 Q10：candidate-1-88b9b794, candidate-2-9aa26776；在《19-4-02 亚硝酸的氧化性》实验中，该实验判断亚硝酸有氧化性的直接依据是什么？
+- 19-4-03 Q06：candidate-1-80f91837, candidate-2-72cbedf8；在《19-4-03 亚硝酸的还原性》实验中，NaNO₂ 在亚硝酸的氧化性实验中与 KI 反应，而在本实验中与 KMnO₄ 反应；这说明 HNO₂/NO₂⁻ 具有什么特点？
+- 19-4-03 Q07：candidate-1-80f91837, candidate-2-72cbedf8；在《19-4-03 亚硝酸的还原性》实验中，下列哪项属于本实验使用的氧化剂？
+- 19-4-03 Q10：candidate-1-80f91837, candidate-2-72cbedf8；在《19-4-03 亚硝酸的还原性》实验中，本实验所在模块是下列哪一项？
+- 19-4-03 Q16：candidate-1-80f91837, candidate-2-72cbedf8；在《19-4-03 亚硝酸的还原性》实验中，亚硝酸及其盐只能表现还原性，不能表现氧化性。
+- 19-4-03 Q19：candidate-1-80f91837, candidate-2-72cbedf8；在《19-4-03 亚硝酸的还原性》实验中，认为：用 HCl 代替 H₂SO₄ 酸化可能引入氯离子被氧化的干扰，这一判断是不正确的。
+- 19-4-03 Q20：candidate-1-80f91837, candidate-2-72cbedf8；在《19-4-03 亚硝酸的还原性》实验中，认为：滴加 NaNO₂ 后若 KMnO₄ 褪色，可说明发生了氧化还原反应，这一判断是不正确的。
+- 19-4-03 Q26：candidate-1-80f91837, candidate-2-72cbedf8；在《19-4-03 亚硝酸的还原性》实验中，本实验使用的紫色氧化剂是____。
+- 19-4-03 Q28：candidate-1-80f91837, candidate-2-72cbedf8；在《19-4-03 亚硝酸的还原性》实验中，亚硝酸及其盐既可表现氧化性，也可表现____性。
+- 19-4-04 Q06：candidate-1-724956e8, candidate-2-e03872e8；在《19-4-04 亚硝酸根的检验方法》实验中，亚硝酸由 NaNO₂ 与硫酸生成后，因不稳定可分解产生哪种棕色气体相关物种？
+- 19-4-04 Q07：candidate-1-724956e8, candidate-2-e03872e8；在《19-4-04 亚硝酸根的检验方法》实验中，酸性 KMnO₄ 中滴加 NaNO₂，主要体现亚硝酸盐的哪种性质？
+- 19-4-04 Q09：candidate-1-724956e8, candidate-2-e03872e8；在《19-4-04 亚硝酸根的检验方法》实验中，NaNO₂ 和亚硝酸盐相关操作中，必须注意的安全点是哪一项？
+- 19-4-04 Q10：candidate-1-724956e8, candidate-2-e03872e8；在《19-4-04 亚硝酸根的检验方法》实验中，该实验的两种检验思路共同指向哪种离子？
+- 19-4-04 Q14：candidate-1-724956e8, candidate-2-e03872e8；在《19-4-04 亚硝酸根的检验方法》实验中，亚硝酸盐有毒，操作中不应入口。
+- 19-4-04 Q18：candidate-1-724956e8, candidate-2-e03872e8；在《19-4-04 亚硝酸根的检验方法》实验中，亚硝酸根检验完全不需要考虑酸性条件。
+- 19-4-04 Q19：candidate-1-724956e8, candidate-2-e03872e8；在《19-4-04 亚硝酸根的检验方法》实验中，认为：酸性 KMnO₄ 与 NaNO₂ 反应可体现 NaNO₂ 的还原性，这一判断是不正确的。
+- 19-4-04 Q20：candidate-1-724956e8, candidate-2-e03872e8；在《19-4-04 亚硝酸根的检验方法》实验中，本实验的目标离子是 NO₃⁻，不是 NO₂⁻。
+- 19-4-04 Q26：candidate-1-724956e8, candidate-2-e03872e8；在《19-4-04 亚硝酸根的检验方法》实验中，亚硝酸分解可产生棕色的____。
+- 19-4-04 Q27：candidate-1-724956e8, candidate-2-e03872e8；在《19-4-04 亚硝酸根的检验方法》实验中，酸性 KMnO₄ 中滴加 NaNO₂ 体现亚硝酸盐的____。
+- 19-4-04 Q29：candidate-1-724956e8, candidate-2-e03872e8；在《19-4-04 亚硝酸根的检验方法》实验中，亚硝酸盐有毒，注意切勿____。
+- 19-4-04 Q30：candidate-1-724956e8, candidate-2-e03872e8；在《19-4-04 亚硝酸根的检验方法》实验中，该实验检验的目标离子是____。
+- 19-4-05 Q01：candidate-1-23649f43, candidate-2-98dd8f1e；在《19-4-05 亚硝酸的氧化还原性》实验中，生成亚硝酸时，冰水冷冻过的饱和 NaNO₂ 溶液与哪种酸混合？
+- 19-4-05 Q02：candidate-1-23649f43, candidate-2-98dd8f1e；在《19-4-05 亚硝酸的氧化还原性》实验中，亚硝酸生成与分解过程中，蓝色中间物主要是哪一种？
+- 19-4-05 Q03：candidate-1-23649f43, candidate-2-98dd8f1e；在《19-4-05 亚硝酸的氧化还原性》实验中，N₂O₃ 进一步分解时，可形成的棕色气体是下列哪一种？
+- 19-4-05 Q08：candidate-1-23649f43, candidate-2-98dd8f1e；在《19-4-05 亚硝酸的氧化还原性》实验中，亚硝酸既能氧化 I⁻ 又能还原 MnO₄⁻，与氮的哪个中间价态有关？
+- 19-4-05 Q09：candidate-1-23649f43, candidate-2-98dd8f1e；在《19-4-05 亚硝酸的氧化还原性》实验中，下列哪组实验最能同时体现 HNO₂ 的氧化性和还原性？
+- 19-4-05 Q10：candidate-1-23649f43, candidate-2-98dd8f1e；在《19-4-05 亚硝酸的氧化还原性》实验中，对 NaNO₂ 溶液进行红色偶氮检验时，酸化常用的是哪种酸？
+- 19-4-05 Q11：candidate-1-23649f43, candidate-2-98dd8f1e；在《19-4-05 亚硝酸的氧化还原性》实验中，NaNO₂ 与 H₂SO₄ 可生成 HNO₂。
+- 19-4-05 Q12：candidate-1-23649f43, candidate-2-98dd8f1e；在《19-4-05 亚硝酸的氧化还原性》实验中，HNO₂ 分解可先生成蓝色 N₂O₃。
+- 19-4-05 Q13：candidate-1-23649f43, candidate-2-98dd8f1e；在《19-4-05 亚硝酸的氧化还原性》实验中，N₂O₃ 分解可产生棕色 NO₂。
+- 19-4-05 Q16：candidate-1-23649f43, candidate-2-98dd8f1e；在《19-4-05 亚硝酸的氧化还原性》实验中，HNO₂ 中氮为 +3 价，因此只能表现氧化性，不能表现还原性。
+- 19-4-05 Q17：candidate-1-23649f43, candidate-2-98dd8f1e；在《19-4-05 亚硝酸的氧化还原性》实验中，认为：实验中饱和 NaNO₂ 溶液需要冰水冷冻后使用，这一判断是不正确的。
+- 19-4-05 Q19：candidate-1-23649f43, candidate-2-98dd8f1e；在《19-4-05 亚硝酸的氧化还原性》实验中，认为：KMnO₄ 的紫色变化可作为判断还原性反应的现象之一，这一判断是不正确的。
+- 19-4-05 Q20：candidate-1-23649f43, candidate-2-98dd8f1e；在《19-4-05 亚硝酸的氧化还原性》实验中，该实验与亚硝酸的氧化还原性无关，只研究硝酸盐热分解。
+- 19-4-05 Q21：candidate-1-23649f43, candidate-2-98dd8f1e；在《19-4-05 亚硝酸的氧化还原性》实验中，NaNO₂ 与 H₂SO₄ 反应生成的弱酸是____。
+- 19-4-05 Q22：candidate-1-23649f43, candidate-2-98dd8f1e；在《19-4-05 亚硝酸的氧化还原性》实验中，2HNO₂ 分解可生成蓝色的____。
+- 19-4-05 Q23：candidate-1-23649f43, candidate-2-98dd8f1e；在《19-4-05 亚硝酸的氧化还原性》实验中，N₂O₃ 分解产生的棕色气体是____。
+- 19-4-05 Q26：candidate-1-23649f43, candidate-2-98dd8f1e；在《19-4-05 亚硝酸的氧化还原性》实验中，HNO₂ 中氮元素的氧化数为____。
+- 19-4-05 Q27：candidate-1-23649f43, candidate-2-98dd8f1e；在《19-4-05 亚硝酸的氧化还原性》实验中，制备 HNO₂ 时使用冰水冷冻过的饱和____溶液。
+- 19-4-05 Q30：candidate-1-23649f43, candidate-2-98dd8f1e；在《19-4-05 亚硝酸的氧化还原性》实验中，NaNO₂ 偶氮显色检验中出现红色可表明存在____。
+- 19-4-06 Q01：candidate-1-3326cc9a, candidate-2-1c81a775, candidate-3-a4523875, candidate-4-b4a6a327, candidate-5-f5d1e095, candidate-6-cabb1217；在《19-4-06 硝酸的氧化性》实验中，本实验要求分别试验硝酸与哪些代表性物质的反应？
+- 19-4-06 Q04：candidate-5-f5d1e095, candidate-6-cabb1217；在《19-4-06 硝酸的氧化性》实验中，稀硝酸与 Zn 反应后，本实验要求验证哪类还原产物？
+- 19-4-06 Q06：candidate-1-3326cc9a, candidate-2-1c81a775, candidate-3-a4523875, candidate-4-b4a6a327, candidate-5-f5d1e095, candidate-6-cabb1217；在《19-4-06 硝酸的氧化性》实验中，硝酸一般不宜随意作为酸性反应介质，主要原因是哪一项？
+- 19-4-06 Q09：candidate-1-3326cc9a, candidate-2-1c81a775, candidate-3-a4523875, candidate-4-b4a6a327, candidate-5-f5d1e095, candidate-6-cabb1217；在《19-4-06 硝酸的氧化性》实验中，下列哪项最能概括本实验的比较重点？
+- 19-4-06 Q10：candidate-1-3326cc9a, candidate-2-1c81a775, candidate-3-a4523875, candidate-4-b4a6a327, candidate-5-f5d1e095, candidate-6-cabb1217；在《19-4-06 硝酸的氧化性》实验中，下列哪一项不属于本实验“硝酸的氧化性”的主要对象？
+- 19-4-06 Q12：candidate-5-f5d1e095, candidate-6-cabb1217；在《19-4-06 硝酸的氧化性》实验中，稀硝酸与锌反应后无需考虑 NH₃ 或 NH₄⁺ 等还原产物。
+- 19-4-06 Q14：candidate-5-f5d1e095, candidate-6-cabb1217；在《19-4-06 硝酸的氧化性》实验中，稀硝酸与锌反应产物中可能需要验证 NH₃ 或 NH₄⁺。
+- 19-4-06 Q15：candidate-1-3326cc9a, candidate-2-1c81a775, candidate-3-a4523875, candidate-4-b4a6a327, candidate-5-f5d1e095, candidate-6-cabb1217；在《19-4-06 硝酸的氧化性》实验中，硝酸在这些反应中只表现普通酸性，完全不表现氧化性。
+- 19-4-06 Q16：candidate-1-3326cc9a, candidate-2-1c81a775；在《19-4-06 硝酸的氧化性》实验中，浓硝酸可氧化硫或硫化氢等还原性物质。
+- 19-4-06 Q17：candidate-1-3326cc9a, candidate-2-1c81a775, candidate-3-a4523875, candidate-4-b4a6a327, candidate-5-f5d1e095, candidate-6-cabb1217；在《19-4-06 硝酸的氧化性》实验中，本实验的主要试剂组合包括 PbO₂ 与浓盐酸。
+- 19-4-06 Q18：candidate-1-3326cc9a, candidate-2-1c81a775, candidate-3-a4523875, candidate-4-b4a6a327, candidate-5-f5d1e095, candidate-6-cabb1217；在《19-4-06 硝酸的氧化性》实验中，硝酸作为酸性介质时可能因氧化性而干扰其他反应。
+- 19-4-06 Q20：candidate-1-3326cc9a, candidate-2-1c81a775, candidate-3-a4523875, candidate-4-b4a6a327, candidate-5-f5d1e095, candidate-6-cabb1217；在《19-4-06 硝酸的氧化性》实验中，本实验和亚硝酸生成实验完全相同，均只需要 NaNO₂ 和 H₂SO₄。
+- 19-4-06 Q23：candidate-5-f5d1e095, candidate-6-cabb1217；在《19-4-06 硝酸的氧化性》实验中，稀硝酸与 Zn 反应产物中需验证 NH₃ 或____。
+- 19-4-06 Q24：candidate-1-3326cc9a, candidate-2-1c81a775, candidate-3-a4523875, candidate-4-b4a6a327, candidate-5-f5d1e095, candidate-6-cabb1217；在《19-4-06 硝酸的氧化性》实验中，硝酸与硫、硫化氢、铜、锌反应主要体现其____性。
+- 19-4-06 Q25：candidate-1-3326cc9a, candidate-2-1c81a775, candidate-3-a4523875, candidate-4-b4a6a327, candidate-5-f5d1e095, candidate-6-cabb1217；在《19-4-06 硝酸的氧化性》实验中，浓硝酸中的氮为____价。
+- 19-4-06 Q27：candidate-1-3326cc9a, candidate-2-1c81a775, candidate-3-a4523875, candidate-4-b4a6a327, candidate-5-f5d1e095, candidate-6-cabb1217；在《19-4-06 硝酸的氧化性》实验中，浓硝酸与还原性物质反应时，自身通常被____。
+- 19-4-06 Q29：candidate-1-3326cc9a, candidate-2-1c81a775, candidate-3-a4523875, candidate-4-b4a6a327, candidate-5-f5d1e095, candidate-6-cabb1217；在《19-4-06 硝酸的氧化性》实验中，本实验比较的两类硝酸是浓硝酸和____硝酸。
+- 19-4-06 Q30：candidate-1-3326cc9a, candidate-2-1c81a775, candidate-3-a4523875, candidate-4-b4a6a327, candidate-5-f5d1e095, candidate-6-cabb1217；在《19-4-06 硝酸的氧化性》实验中，硝酸不宜随意作酸性介质，是因为它有明显的____性。
+- 19-4-07 Q01：candidate-1-2241ae7a, candidate-2-aa0424f2, candidate-3-91bbea2b, candidate-4-29485ccd；在《19-4-07 硝酸盐的热分解》实验中，该实验比较热分解行为的盐类是哪一类？
+- 19-4-07 Q07：candidate-2-aa0424f2, candidate-3-91bbea2b；在《19-4-07 硝酸盐的热分解》实验中，Cu(NO₃)₂ 或 AgNO₃ 热分解时常可观察到的棕色气体是哪一种？
+- 19-4-07 Q08：candidate-1-2241ae7a, candidate-2-aa0424f2, candidate-3-91bbea2b, candidate-4-29485ccd；在《19-4-07 硝酸盐的热分解》实验中，该实验要求比较不同硝酸盐热分解反应的哪一方面？
+- 19-4-07 Q09：candidate-1-2241ae7a, candidate-2-aa0424f2, candidate-3-91bbea2b, candidate-4-29485ccd；在《19-4-07 硝酸盐的热分解》实验中，该实验的主要操作方式是哪一项？
+- 19-4-07 Q10：candidate-2-aa0424f2, candidate-3-91bbea2b；在《19-4-07 硝酸盐的热分解》实验中，进行 Cu(NO₃)₂ 或 AgNO₃ 热分解时，应特别注意哪种有害气体？
+- 19-4-07 Q11：candidate-1-2241ae7a, candidate-2-aa0424f2, candidate-3-91bbea2b, candidate-4-29485ccd；在《19-4-07 硝酸盐的热分解》实验中，判断：实验对象为“硝酸盐”。
+- 19-4-07 Q17：candidate-2-aa0424f2, candidate-3-91bbea2b；在《19-4-07 硝酸盐的热分解》实验中，判断：棕色气体为“NO₂”。
+- 19-4-07 Q18：candidate-1-2241ae7a, candidate-2-aa0424f2, candidate-3-91bbea2b, candidate-4-29485ccd；在《19-4-07 硝酸盐的热分解》实验中，判断：固体差异为“溶解度曲线”。
+- 19-4-07 Q19：candidate-1-2241ae7a, candidate-2-aa0424f2, candidate-3-91bbea2b, candidate-4-29485ccd；在《19-4-07 硝酸盐的热分解》实验中，判断：操作方式为“加热固体硝酸盐”。
+- 19-4-07 Q20：candidate-2-aa0424f2, candidate-3-91bbea2b；在《19-4-07 硝酸盐的热分解》实验中，判断：安全关注为“He”。
+- 19-4-07 Q21：candidate-1-2241ae7a, candidate-2-aa0424f2, candidate-3-91bbea2b, candidate-4-29485ccd；在《19-4-07 硝酸盐的热分解》实验中，该实验研究____的热分解。
+- 19-4-07 Q27：candidate-2-aa0424f2, candidate-3-91bbea2b；在《19-4-07 硝酸盐的热分解》实验中，部分硝酸盐热分解会产生棕色的____。
+- 19-4-07 Q28：candidate-1-2241ae7a, candidate-2-aa0424f2, candidate-3-91bbea2b, candidate-4-29485ccd；在《19-4-07 硝酸盐的热分解》实验中，实验要求说明三种硝酸盐热分解反应的____。
+- 19-4-07 Q29：candidate-1-2241ae7a, candidate-2-aa0424f2, candidate-3-91bbea2b, candidate-4-29485ccd；在《19-4-07 硝酸盐的热分解》实验中，硝酸盐热分解实验的主要操作是____固体样品。
+- 19-4-07 Q30：candidate-2-aa0424f2, candidate-3-91bbea2b；在《19-4-07 硝酸盐的热分解》实验中，硝酸盐热分解可能放出有害的____，应注意通风。
+- 19-4-09 Q10：candidate-1-520f0192, candidate-2-a452c505；在《19-4-09 硝酸根的检验》实验中，该实验的目标检验离子是哪一种？
+- 19-4-09 Q30：candidate-1-520f0192, candidate-2-a452c505；在《19-4-09 硝酸根的检验》实验中，该实验检验的目标离子是____。
+- 19-5-01 Q01：candidate-1-397a1298, candidate-2-df9b9095, candidate-3-97208db2, candidate-4-b89f131c, candidate-5-5855225d, candidate-6-8f1b6ad6, candidate-7-d1ef41c4, candidate-8-2b740a96；在《19-5-01 难溶性硅酸盐的生成——“水中花园”》实验中，形成“水中花园”的核心溶液通常是哪一种？
+- 19-5-01 Q02：candidate-1-397a1298, candidate-2-df9b9095, candidate-3-97208db2, candidate-4-b89f131c, candidate-5-5855225d, candidate-6-8f1b6ad6, candidate-7-d1ef41c4, candidate-8-2b740a96；在《19-5-01 难溶性硅酸盐的生成——“水中花园”》实验中，水玻璃的主要成分可表示为下列哪一种？
+- 19-5-01 Q05：candidate-1-397a1298, candidate-2-df9b9095, candidate-3-97208db2, candidate-4-b89f131c, candidate-5-5855225d, candidate-6-8f1b6ad6, candidate-7-d1ef41c4, candidate-8-2b740a96；在《19-5-01 难溶性硅酸盐的生成——“水中花园”》实验中，“水中花园”现象的观察重点最接近哪一项？
+- 19-5-01 Q06：candidate-3-97208db2, candidate-4-b89f131c, candidate-8-2b740a96；在《19-5-01 难溶性硅酸盐的生成——“水中花园”》实验中，下列哪一组均属于候选金属盐？
+- 19-5-01 Q07：candidate-1-397a1298, candidate-2-df9b9095, candidate-3-97208db2, candidate-4-b89f131c, candidate-5-5855225d, candidate-6-8f1b6ad6, candidate-7-d1ef41c4, candidate-8-2b740a96；在《19-5-01 难溶性硅酸盐的生成——“水中花园”》实验中，如果要比较不同金属离子形成硅酸盐的现象，最合理的做法是哪一项？
+- 19-5-01 Q08：candidate-7-d1ef41c4, candidate-8-2b740a96；在《19-5-01 难溶性硅酸盐的生成——“水中花园”》实验中，FeCl₂ 和 FeCl₃ 都出现在实验体系中，说明实验可比较哪类离子形成硅酸盐的差异？
+- 19-5-01 Q09：candidate-1-397a1298, candidate-2-df9b9095, candidate-3-97208db2, candidate-4-b89f131c, candidate-5-5855225d, candidate-6-8f1b6ad6, candidate-7-d1ef41c4, candidate-8-2b740a96；在《19-5-01 难溶性硅酸盐的生成——“水中花园”》实验中，下列哪个操作目标最符合本实验名称？
+- 19-5-01 Q10：candidate-1-397a1298, candidate-2-df9b9095, candidate-3-97208db2, candidate-4-b89f131c, candidate-5-5855225d, candidate-6-8f1b6ad6, candidate-7-d1ef41c4, candidate-8-2b740a96；在《19-5-01 难溶性硅酸盐的生成——“水中花园”》实验中，该实验中水玻璃与多种盐反应的本质最接近哪一项？
+- 19-5-01 Q11：candidate-1-397a1298, candidate-2-df9b9095, candidate-3-97208db2, candidate-4-b89f131c, candidate-5-5855225d, candidate-6-8f1b6ad6, candidate-7-d1ef41c4, candidate-8-2b740a96；在《19-5-01 难溶性硅酸盐的生成——“水中花园”》实验中，“水中花园”实验的核心是水玻璃与某些金属盐生成难溶性硅酸盐。
+- 19-5-01 Q12：candidate-1-397a1298, candidate-2-df9b9095, candidate-8-2b740a96；在《19-5-01 难溶性硅酸盐的生成——“水中花园”》实验中，CaCl₂、CuSO₄、FeCl₃ 都可作为与水玻璃反应的候选盐。
+- 19-5-01 Q13：candidate-1-397a1298, candidate-2-df9b9095, candidate-3-97208db2, candidate-4-b89f131c, candidate-5-5855225d, candidate-6-8f1b6ad6, candidate-7-d1ef41c4, candidate-8-2b740a96；在《19-5-01 难溶性硅酸盐的生成——“水中花园”》实验中，水玻璃通常指 Na₂SiO₃ 溶液。
+- 19-5-01 Q14：candidate-1-397a1298, candidate-2-df9b9095, candidate-3-97208db2, candidate-4-b89f131c, candidate-5-5855225d, candidate-6-8f1b6ad6, candidate-7-d1ef41c4, candidate-8-2b740a96；在《19-5-01 难溶性硅酸盐的生成——“水中花园”》实验中，该实验主要观察臭氧的强氧化性。
+- 19-5-01 Q15：candidate-1-397a1298, candidate-2-df9b9095, candidate-3-97208db2, candidate-4-b89f131c, candidate-5-5855225d, candidate-6-8f1b6ad6, candidate-7-d1ef41c4, candidate-8-2b740a96；在《19-5-01 难溶性硅酸盐的生成——“水中花园”》实验中，生成难溶硅酸盐时可能出现有形态的沉淀生长。
+- 19-5-01 Q16：candidate-1-397a1298, candidate-2-df9b9095, candidate-3-97208db2, candidate-4-b89f131c, candidate-5-5855225d, candidate-6-8f1b6ad6, candidate-7-d1ef41c4, candidate-8-2b740a96；在《19-5-01 难溶性硅酸盐的生成——“水中花园”》实验中，水玻璃与金属盐反应时，金属离子完全不参与沉淀形成。
+- 19-5-01 Q17：candidate-7-d1ef41c4, candidate-8-2b740a96；在《19-5-01 难溶性硅酸盐的生成——“水中花园”》实验中，FeCl₂ 和 FeCl₃ 同时出现时，可以比较不同铁价态相关现象。
+- 19-5-01 Q18：candidate-1-397a1298, candidate-2-df9b9095, candidate-3-97208db2, candidate-4-b89f131c, candidate-5-5855225d, candidate-6-8f1b6ad6, candidate-7-d1ef41c4, candidate-8-2b740a96；在《19-5-01 难溶性硅酸盐的生成——“水中花园”》实验中，该实验应把所有观察都归结为卤素置换反应。
+- 19-5-01 Q20：candidate-1-397a1298, candidate-2-df9b9095, candidate-3-97208db2, candidate-4-b89f131c, candidate-5-5855225d, candidate-6-8f1b6ad6, candidate-7-d1ef41c4, candidate-8-2b740a96；在《19-5-01 难溶性硅酸盐的生成——“水中花园”》实验中，认为：“水中花园”名称与沉淀形态观察有关，这一判断是不正确的。
+- 19-5-01 Q21：candidate-1-397a1298, candidate-2-df9b9095, candidate-3-97208db2, candidate-4-b89f131c, candidate-5-5855225d, candidate-6-8f1b6ad6, candidate-7-d1ef41c4, candidate-8-2b740a96；在《19-5-01 难溶性硅酸盐的生成——“水中花园”》实验中，“水中花园”实验使用的核心硅酸盐溶液俗称____。
+- 19-5-01 Q22：candidate-1-397a1298, candidate-2-df9b9095, candidate-3-97208db2, candidate-4-b89f131c, candidate-5-5855225d, candidate-6-8f1b6ad6, candidate-7-d1ef41c4, candidate-8-2b740a96；在《19-5-01 难溶性硅酸盐的生成——“水中花园”》实验中，水玻璃的主要成分可写作____。
+- 19-5-01 Q23：candidate-1-397a1298, candidate-2-df9b9095, candidate-3-97208db2, candidate-4-b89f131c, candidate-5-5855225d, candidate-6-8f1b6ad6, candidate-7-d1ef41c4, candidate-8-2b740a96；在《19-5-01 难溶性硅酸盐的生成——“水中花园”》实验中，水玻璃与 CaCl₂ 反应生成的难溶物属于____。
+- 19-5-01 Q26：candidate-1-397a1298, candidate-2-df9b9095, candidate-3-97208db2, candidate-4-b89f131c, candidate-5-5855225d, candidate-6-8f1b6ad6, candidate-7-d1ef41c4, candidate-8-2b740a96；在《19-5-01 难溶性硅酸盐的生成——“水中花园”》实验中，“水中花园”实验主要观察沉淀的颜色和____。
+- 19-5-01 Q27：candidate-7-d1ef41c4, candidate-8-2b740a96；在《19-5-01 难溶性硅酸盐的生成——“水中花园”》实验中，FeCl₂ 和 FeCl₃ 分别提供 Fe(II) 与____离子。
+- 19-5-01 Q28：candidate-1-397a1298, candidate-2-df9b9095, candidate-3-97208db2, candidate-4-b89f131c, candidate-5-5855225d, candidate-6-8f1b6ad6, candidate-7-d1ef41c4, candidate-8-2b740a96；在《19-5-01 难溶性硅酸盐的生成——“水中花园”》实验中，SiO₃²⁻ 与金属离子形成难溶____。
+- 19-5-01 Q30：candidate-1-397a1298, candidate-2-df9b9095, candidate-3-97208db2, candidate-4-b89f131c, candidate-5-5855225d, candidate-6-8f1b6ad6, candidate-7-d1ef41c4, candidate-8-2b740a96；在《19-5-01 难溶性硅酸盐的生成——“水中花园”》实验中，该实验所属主题围绕碳、硅、硼中____的化合物性质。
+- 19-6-01 Q04：candidate-2-43d12c37, candidate-3-42b0372b；在《19-6-01 金属钠燃烧及产物性质》实验中，燃烧产物加少量水溶解、冷却后，检验溶液 pH 通常会显示什么性质？
+- 19-6-01 Q10：candidate-2-43d12c37, candidate-3-42b0372b；在《19-6-01 金属钠燃烧及产物性质》实验中，本实验的主题最准确的是哪一项？
+- 19-6-01 Q14：candidate-2-43d12c37, candidate-3-42b0372b；在《19-6-01 金属钠燃烧及产物性质》实验中，燃烧产物加水后的溶液通常呈碱性。
+- 19-6-01 Q20：candidate-2-43d12c37, candidate-3-42b0372b；在《19-6-01 金属钠燃烧及产物性质》实验中，钠燃烧产物加水后一定只生成强酸性溶液。
+- 19-6-01 Q23：candidate-2-43d12c37, candidate-3-42b0372b；在《19-6-01 金属钠燃烧及产物性质》实验中，燃烧产物加水溶解后，溶液通常呈____性。
+- 19-6-01 Q30：candidate-2-43d12c37, candidate-3-42b0372b；在《19-6-01 金属钠燃烧及产物性质》实验中，本实验属于碱金属中____的燃烧及产物性质观察。
+
+## 填空题手机端风险列表
+
+- 19-3-03 Q21：原答案 ['SO₃²⁻']；decision=rewrite；在《19-3-03 SO₃²⁻ 的检出》实验中，该实验要验证样品中是否含有____。
+- 19-3-03 Q22：原答案 ['SO₄²⁻']；decision=rewrite；在《19-3-03 SO₃²⁻ 的检出》实验中，含 SO₃²⁻ 的溶液中常有少量____会干扰检出。
+- 19-3-03 Q23：原答案 ['SO₄²⁻']；decision=rewrite；在《19-3-03 SO₃²⁻ 的检出》实验中，为避免干扰，应先将____预先除去。
+- 19-3-03 Q24：原答案 ['SO₂']；decision=rewrite；在《19-3-03 SO₃²⁻ 的检出》实验中，SO₃²⁻ 经酸化可放出____，再据其性质验证。
+- 19-3-03 Q28：原答案 ['Na₂SO₃']；decision=rewrite；在《19-3-03 SO₃²⁻ 的检出》实验中，制备 SO₂ 时蒸馏瓶内可放入____固体。
+- 19-3-03 Q29：原答案 ['浓 H₂SO₄']；decision=rewrite；在《19-3-03 SO₃²⁻ 的检出》实验中，制备 SO₂ 时分液漏斗内装____。
+- 19-3-04 Q23：原答案 ['SO₄²⁻', '硫酸根']；decision=rewrite；在《19-3-04 性质》实验中，氯水氧化 Na₂S₂O₃ 后，反应后溶液中可验证____离子。
+- 19-3-04 Q28：原答案 ['BaSO₄', '硫酸钡']；decision=rewrite；在《19-3-04 性质》实验中，验证 SO₄²⁻ 时常用 Ba²⁺ 生成白色____沉淀。
+- 19-3-04 Q29：原答案 ['SO₂', '二氧化硫']；decision=rewrite；在《19-3-04 性质》实验中，Na₂S₂O₃ 的酸分解常伴随生成有刺激性气味的____。
+- 19-3-05 Q21：原答案 ['K₂S₂O₈', '过二硫酸钾']；decision=rewrite；在《19-3-05 过二硫酸盐的氧化性》实验中，体现过二硫酸盐氧化性的固体试剂是____。
+- 19-3-05 Q23：原答案 ['H₂SO₄', '硫酸']；decision=rewrite；在《19-3-05 过二硫酸盐的氧化性》实验中，过二硫酸盐氧化 Mn²⁺ 的实验用____溶液酸化。
+- 19-3-05 Q26：原答案 ['I₂', '碘']；decision=rewrite；在《19-3-05 过二硫酸盐的氧化性》实验中，酸化 KI 与 K₂S₂O₈ 反应时生成的卤素单质是____。
+- 19-3-05 Q28：原答案 ['SO₄²⁻', '硫酸根']；decision=rewrite；在《19-3-05 过二硫酸盐的氧化性》实验中，S₂O₈²⁻ 被还原后通常生成____。
+- 19-3-06 Q21：原答案 ['K₂S₂O₈', '过二硫酸钾', '过硫酸钾']；decision=rewrite；在《19-3-06 过硫酸盐的氧化性》实验中，体现过硫酸盐氧化性的固体试剂是____。
+- 19-3-06 Q22：原答案 ['AgNO₃', '硝酸银']；decision=rewrite；在《19-3-06 过硫酸盐的氧化性》实验中，MnSO₄ 体系中作对照时，一支试管不加____溶液。
+- 19-3-06 Q24：原答案 ['H₂SO₄', '硫酸']；decision=rewrite；在《19-3-06 过硫酸盐的氧化性》实验中，该实验中常用____提供酸性介质。
+- 19-3-06 Q25：原答案 ['I⁻', '碘离子']；decision=rewrite；在《19-3-06 过硫酸盐的氧化性》实验中，酸化 KI 溶液中被 K₂S₂O₈ 氧化的离子是____。
+- 19-3-06 Q28：原答案 ['I₂', '碘']；decision=rewrite；在《19-3-06 过硫酸盐的氧化性》实验中，KI 被氧化后生成的卤素单质是____。
+- 19-3-06 Q29：原答案 ['MnSO₄', '硫酸锰']；decision=rewrite；在《19-3-06 过硫酸盐的氧化性》实验中，实验中用来提供 Mn²⁺ 的试剂是____。
+- 19-4-01 Q21：原答案 ['NaNO₂', '亚硝酸钠']；decision=rewrite；在《19-4-01 亚硝酸的生成与分解》实验中，生成亚硝酸所用的亚硝酸盐是____。
+- 19-4-01 Q22：原答案 ['H₂SO₄', '硫酸']；decision=rewrite；在《19-4-01 亚硝酸的生成与分解》实验中，与 NaNO₂ 反应生成 HNO₂ 的酸是____。
+- 19-4-01 Q23：原答案 ['HNO₂']；decision=rewrite；在《19-4-01 亚硝酸的生成与分解》实验中，亚硝酸的化学式是____。
+- 19-4-01 Q24：原答案 ['N₂O₃']；decision=rewrite；在《19-4-01 亚硝酸的生成与分解》实验中，HNO₂ 分解生成的蓝色物质是____。
+- 19-4-01 Q25：原答案 ['NO₂', '二氧化氮']；decision=rewrite；在《19-4-01 亚硝酸的生成与分解》实验中，N₂O₃ 进一步分解可产生 NO 和____。
+- 19-4-01 Q29：原答案 ['Na₂SO₄', '硫酸钠']；decision=rewrite；在《19-4-01 亚硝酸的生成与分解》实验中，反应 2NaNO₂ + H₂SO₄ → 2HNO₂ + ____。
+- 19-4-02 Q22：原答案 ['I⁻']；decision=rewrite；在《19-4-02 亚硝酸的氧化性》实验中，酸性 KI 中被氧化的是____。
+- 19-4-02 Q23：原答案 ['I₂']；decision=rewrite；在《19-4-02 亚硝酸的氧化性》实验中，I⁻ 被氧化后主要生成____。
+- 19-4-02 Q24：原答案 ['H₂SO₄']；decision=rewrite；在《19-4-02 亚硝酸的氧化性》实验中，KI 溶液用____溶液酸化。
+- 19-4-02 Q25：原答案 ['NaNO₂']；decision=rewrite；在《19-4-02 亚硝酸的氧化性》实验中，酸化 KI 后滴加____溶液。
+- 19-4-02 Q27：原答案 ['HNO₂']；decision=rewrite；在《19-4-02 亚硝酸的氧化性》实验中，NaNO₂ 与 H₂SO₄ 作用可生成____。
+- 19-4-02 Q28：原答案 ['NO₂']；decision=rewrite；在《19-4-02 亚硝酸的氧化性》实验中，HNO₂ 分解可产生棕色的____。
+- 19-4-02 Q30：原答案 ['I₂']；decision=rewrite；在《19-4-02 亚硝酸的氧化性》实验中，亚硝酸表现氧化性的依据是把 I⁻ 氧化为____。
+- 19-4-03 Q21：原答案 ['H₂SO₄', '硫酸']；decision=rewrite；在《19-4-03 亚硝酸的还原性》实验中，本实验中 KMnO₄ 溶液用____酸化。
+- 19-4-03 Q24：原答案 ['NO₃⁻', '硝酸根']；decision=rewrite；在《19-4-03 亚硝酸的还原性》实验中，NO₂⁻ 表现还原性时常被氧化为____。
+- 19-4-03 Q25：原答案 ['Mn²⁺', '锰(II)离子']；decision=rewrite；在《19-4-03 亚硝酸的还原性》实验中，酸性条件下 MnO₄⁻ 常被还原为____。
+- 19-4-03 Q26：原答案 ['KMnO₄', '高锰酸钾']；decision=rewrite；在《19-4-03 亚硝酸的还原性》实验中，本实验使用的紫色氧化剂是____。
+- 19-4-03 Q29：原答案 ['Cl⁻', '氯', '氯离子']；decision=rewrite；在《19-4-03 亚硝酸的还原性》实验中，本实验不宜用盐酸酸化，是为了避免____离子被氧化的干扰。
+- 19-4-04 Q24：原答案 ['I⁻', '碘离子']；decision=rewrite；在《19-4-04 亚硝酸根的检验方法》实验中，KI/CCl₄ 法中 NO₂⁻ 在酸性条件下氧化____。
+- 19-4-04 Q25：原答案 ['I₂', '碘']；decision=rewrite；在《19-4-04 亚硝酸根的检验方法》实验中，CCl₄ 层显紫色说明生成了____。
+- 19-4-04 Q26：原答案 ['NO₂', '二氧化氮']；decision=rewrite；在《19-4-04 亚硝酸根的检验方法》实验中，亚硝酸分解可产生棕色的____。
+- 19-4-05 Q21：原答案 ['HNO₂', '亚硝酸']；decision=rewrite；在《19-4-05 亚硝酸的氧化还原性》实验中，NaNO₂ 与 H₂SO₄ 反应生成的弱酸是____。
+- 19-4-05 Q22：原答案 ['N₂O₃', '三氧化二氮']；decision=rewrite；在《19-4-05 亚硝酸的氧化还原性》实验中，2HNO₂ 分解可生成蓝色的____。
+- 19-4-05 Q23：原答案 ['NO₂', '二氧化氮']；decision=rewrite；在《19-4-05 亚硝酸的氧化还原性》实验中，N₂O₃ 分解产生的棕色气体是____。
+- 19-4-05 Q24：原答案 ['I₂', '碘']；decision=rewrite；在《19-4-05 亚硝酸的氧化还原性》实验中，酸性 KI 体系中，HNO₂ 氧化 I⁻ 生成____。
+- 19-4-05 Q27：原答案 ['NaNO₂', '亚硝酸钠']；decision=rewrite；在《19-4-05 亚硝酸的氧化还原性》实验中，制备 HNO₂ 时使用冰水冷冻过的饱和____溶液。
+- 19-4-05 Q28：原答案 ['KMnO₄', '高锰酸钾']；decision=rewrite；在《19-4-05 亚硝酸的氧化还原性》实验中，用于观察亚硝酸还原性的紫色氧化剂是____。
+- 19-4-06 Q21：原答案 ['NO₂', '二氧化氮']；decision=rewrite；在《19-4-06 硝酸的氧化性》实验中，浓硝酸与铜反应常见棕色气体为____。
+- 19-4-06 Q23：原答案 ['NH₄⁺', '铵根']；decision=rewrite；在《19-4-06 硝酸的氧化性》实验中，稀硝酸与 Zn 反应产物中需验证 NH₃ 或____。
+- 19-4-06 Q26：原答案 ['NH₃', '氨']；decision=rewrite；在《19-4-06 硝酸的氧化性》实验中，验证 NH₄⁺ 时常通过加碱释放____气体。
+- 19-4-07 Q22：原答案 ['KNO₃(s)']；decision=rewrite；在《19-4-07 硝酸盐的热分解》实验中，热分解比较中使用的钾盐是____。
+- 19-4-07 Q23：原答案 ['Cu(NO₃)₂(s)']；decision=rewrite；在《19-4-07 硝酸盐的热分解》实验中，热分解比较中使用的铜盐是____。
+- 19-4-07 Q24：原答案 ['AgNO₃(s)']；decision=rewrite；在《19-4-07 硝酸盐的热分解》实验中，热分解比较中使用的银盐是____。
+- 19-4-07 Q26：原答案 ['O₂']；decision=rewrite；在《19-4-07 硝酸盐的热分解》实验中，能使余烬复燃的气体是____。
+- 19-4-07 Q27：原答案 ['NO₂']；decision=rewrite；在《19-4-07 硝酸盐的热分解》实验中，部分硝酸盐热分解会产生棕色的____。
+- 19-4-07 Q30：原答案 ['NO₂']；decision=rewrite；在《19-4-07 硝酸盐的热分解》实验中，硝酸盐热分解可能放出有害的____，应注意通风。
+- 19-4-08 Q21：原答案 ['FeSO₄·7H₂O', 'FeSO₄']；decision=rewrite；在《19-4-08 硝酸根的检验》实验中，棕色环实验中使用的亚铁盐是____。
+- 19-4-08 Q22：原答案 ['浓 H₂SO₄', '浓硫酸']；decision=rewrite；在《19-4-08 硝酸根的检验》实验中，棕色环实验中加入的强酸是____。
+- 19-4-08 Q24：原答案 ['Fe(NO)SO₄']；decision=rewrite；在《19-4-08 硝酸根的检验》实验中，棕色环的棕色物质可写作____。
+- 19-4-08 Q26：原答案 ['NO₃⁻', '硝酸根']；decision=rewrite；在《19-4-08 硝酸根的检验》实验中，NaNO₃ 在实验中提供待检的____离子。
+- 19-4-08 Q27：原答案 ['NH₃', '氨气']；decision=rewrite；在《19-4-08 硝酸根的检验》实验中，强碱性铝屑法中，可用湿 pH 试纸检验生成的____。
+- 19-4-08 Q28：原答案 ['Fe³⁺', '铁(III)']；decision=rewrite；在《19-4-08 硝酸根的检验》实验中，棕色环实验中 Fe²⁺ 被氧化为____。
+- 19-4-08 Q30：原答案 ['NO₃⁻', '硝酸根']；decision=rewrite；在《19-4-08 硝酸根的检验》实验中，本实验检验的离子是____。
+- 19-4-09 Q24：原答案 ['FeSO₄·7H₂O', '七水合硫酸亚铁']；decision=rewrite；在《19-4-09 硝酸根的检验》实验中，棕色环法中提供 Fe²⁺ 的固体为____。
+- 19-4-09 Q25：原答案 ['浓 H₂SO₄', '浓硫酸']；decision=rewrite；在《19-4-09 硝酸根的检验》实验中，棕色环法中加入 1 滴____。
+- 19-4-09 Q27：原答案 ['Fe(NO)SO₄']；decision=rewrite；在《19-4-09 硝酸根的检验》实验中，棕色环与____配合物有关。
+- 19-4-09 Q28：原答案 ['Fe³⁺', '铁(III)']；decision=rewrite；在《19-4-09 硝酸根的检验》实验中，Fe²⁺ 还原 NO₃⁻ 后自身被氧化为____。
+- 19-4-09 Q30：原答案 ['NO₃⁻', '硝酸根']；decision=rewrite；在《19-4-09 硝酸根的检验》实验中，该实验检验的目标离子是____。
+- 19-5-01 Q22：原答案 ['Na₂SiO₃', '硅酸钠']；decision=rewrite；在《19-5-01 难溶性硅酸盐的生成——“水中花园”》实验中，水玻璃的主要成分可写作____。
+- 19-5-01 Q24：原答案 ['CuSO₄', '硫酸铜']；decision=rewrite；在《19-5-01 难溶性硅酸盐的生成——“水中花园”》实验中，实验体系中，水玻璃可与____溶液反应生成铜的硅酸盐沉淀。
+- 19-5-01 Q25：原答案 ['CaCl₂', '氯化钙']；decision=rewrite；在《19-5-01 难溶性硅酸盐的生成——“水中花园”》实验中，实验体系中，水玻璃可与____反应形成钙的难溶硅酸盐。
+- 19-5-01 Q29：原答案 ['Ni²⁺', '镍离子']；decision=rewrite；在《19-5-01 难溶性硅酸盐的生成——“水中花园”》实验中，NiSO₄ 与水玻璃反应时提供的金属离子是____。
+- 19-6-01 Q22：原答案 ['Na₂O₂']；decision=rewrite；在《19-6-01 金属钠燃烧及产物性质》实验中，钠在空气中燃烧常生成过氧化钠，其化学式为____。
+- 19-6-01 Q24：原答案 ['H₂SO₄', '硫酸']；decision=rewrite；在《19-6-01 金属钠燃烧及产物性质》实验中，酸化燃烧产物溶液所用酸为 3 mol·L⁻¹ ____。
+- 19-6-01 Q25：原答案 ['KMnO₄', '高锰酸钾']；decision=rewrite；在《19-6-01 金属钠燃烧及产物性质》实验中，酸化后滴加的紫色氧化剂是____。
+- 19-6-01 Q29：原答案 ['H₂O₂', '过氧化氢']；decision=rewrite；在《19-6-01 金属钠燃烧及产物性质》实验中，Na₂O₂ 与水作用可形成与____有关的过氧化性质。
+
+## 依赖 Supporting Theory 的判断列表
+
+- 19-3-03 Q04：在《19-3-03 SO₃²⁻ 的检出》实验中，验证 SO₃²⁻ 的常用思路是哪一项？
+- 19-3-03 Q05：在《19-3-03 SO₃²⁻ 的检出》实验中，SO₂ 通入酸性 KMnO₄ 溶液时，最能说明 SO₂ 还原性的现象是哪一项？
+- 19-3-03 Q06：在《19-3-03 SO₃²⁻ 的检出》实验中，SO₂ 通入品红溶液时主要观察哪一现象？
+- 19-3-03 Q15：在《19-3-03 SO₃²⁻ 的检出》实验中，判断：SO₂ 还原性为“紫色褪去”。
+- 19-3-03 Q16：在《19-3-03 SO₃²⁻ 的检出》实验中，判断：SO₂ 漂白性为“品红变成深蓝”。
+- 19-3-03 Q24：在《19-3-03 SO₃²⁻ 的检出》实验中，SO₃²⁻ 经酸化可放出____，再据其性质验证。
+- 19-3-03 Q25：在《19-3-03 SO₃²⁻ 的检出》实验中，SO₂ 能使酸性 KMnO₄ 溶液的____色褪去。
+- 19-3-03 Q26：在《19-3-03 SO₃²⁻ 的检出》实验中，SO₂ 通入品红溶液可使品红____。
+- 19-3-04 Q01：在《19-3-04 性质》实验中，向 Na₂S₂O₃ 溶液中滴加 HCl 后，最合理的观察重点是哪一项？
+- 19-3-04 Q02：在《19-3-04 性质》实验中，Na₂S₂O₃ 与碘水反应使碘水褪色，说明 Na₂S₂O₃ 具有什么性质？
+- 19-3-04 Q03：在《19-3-04 性质》实验中，用氯水处理 Na₂S₂O₃ 后验证 SO₄²⁻，说明氯水对硫代硫酸根主要起什么作用？
+- 19-3-04 Q06：在《19-3-04 性质》实验中，Na₂S₂O₃ 与 HCl 反应的“变浑浊”通常来自哪种物质？
+- 19-3-04 Q07：在《19-3-04 性质》实验中，Na₂S₂O₃ 与 I₂ 的反应是否适合在强酸性介质中长期进行？
+- 19-3-04 Q08：在《19-3-04 性质》实验中，Na₂S₂O₃ 与 Ag⁺ 形成稳定配离子时，最能体现哪一类性质？
+- 19-3-04 Q10：在《19-3-04 性质》实验中，验证反应后有 SO₄²⁻ 存在时，常用的思路是哪一项？
+- 19-3-04 Q11：在《19-3-04 性质》实验中，Na₂S₂O₃ 遇 HCl 可发生分解并出现浑浊。
+- 19-3-04 Q12：在《19-3-04 性质》实验中，Na₂S₂O₃ 能使碘水褪色，说明它可作还原剂。
+- 19-3-04 Q14：在《19-3-04 性质》实验中，Na₂S₂O₃ 与 AgNO₃ 反应完全不可能出现沉淀。
+- 19-3-04 Q16：在《19-3-04 性质》实验中，Na₂S₂O₃ 与 HCl 的反应能说明其在酸性条件下稳定性较差。
+- 19-3-04 Q17：在《19-3-04 性质》实验中，Na₂S₂O₃ 与碘水反应的核心是配位沉淀，不涉及氧化还原。
+- 19-3-04 Q28：在《19-3-04 性质》实验中，验证 SO₄²⁻ 时常用 Ba²⁺ 生成白色____沉淀。
+- 19-3-04 Q29：在《19-3-04 性质》实验中，Na₂S₂O₃ 的酸分解常伴随生成有刺激性气味的____。
+- 19-3-04 Q30：在《19-3-04 性质》实验中，本实验中的 Na₂S₂O₃ 与碘水反应不宜在强____性介质中长期进行。
+- 19-3-05 Q04：在《19-3-05 过二硫酸盐的氧化性》实验中，Mn²⁺ 被强氧化剂氧化到高价锰时，溶液可能出现哪种特征颜色？
+- 19-3-05 Q07：在《19-3-05 过二硫酸盐的氧化性》实验中，K₂S₂O₈ 氧化 I⁻ 时，I⁻ 在反应中表现为什么性质？
+- 19-3-05 Q08：在《19-3-05 过二硫酸盐的氧化性》实验中，过二硫酸根 S₂O₈²⁻ 被还原后通常转化为什么离子？
+- 19-3-05 Q09：在《19-3-05 过二硫酸盐的氧化性》实验中，该实验中水浴加热的合理目的是什么？
+- 19-3-05 Q14：在《19-3-05 过二硫酸盐的氧化性》实验中，过二硫酸盐被还原后通常生成硫酸根。
+- 19-3-05 Q16：在《19-3-05 过二硫酸盐的氧化性》实验中，K₂S₂O₈ 在本实验中主要作为还原剂把 I₂ 还原为 I⁻。
+- 19-3-05 Q19：在《19-3-05 过二硫酸盐的氧化性》实验中，酸性介质在 Mn²⁺ 被过二硫酸盐氧化的实验中完全不需要。
+- 19-3-05 Q24：在《19-3-05 过二硫酸盐的氧化性》实验中，Mn²⁺ 被氧化为 MnO₄⁻ 时，溶液呈____。
+- 19-3-05 Q27：在《19-3-05 过二硫酸盐的氧化性》实验中，K₂S₂O₈ 氧化 I⁻ 时，I⁻ 表现____。
+- 19-3-05 Q28：在《19-3-05 过二硫酸盐的氧化性》实验中，S₂O₈²⁻ 被还原后通常生成____。
+- 19-3-05 Q29：在《19-3-05 过二硫酸盐的氧化性》实验中，水浴加热主要用于促进____反应进行。
+- 19-3-06 Q04：在《19-3-06 过硫酸盐的氧化性》实验中，AgNO₃ 在 Mn²⁺ 被过硫酸盐氧化的实验中最接近哪种作用？
+- 19-3-06 Q06：在《19-3-06 过硫酸盐的氧化性》实验中，MnSO₄ 体系中若 Mn²⁺ 被强氧化，溶液可能出现的典型颜色是下列哪一种？
+- 19-3-06 Q07：在《19-3-06 过硫酸盐的氧化性》实验中，该实验中 H₂SO₄ 的主要作用之一是提供哪种介质？
+- 19-3-06 Q08：在《19-3-06 过硫酸盐的氧化性》实验中，下列哪一项最能概括 K₂S₂O₈ 在该实验中的角色？
+- 19-3-06 Q15：在《19-3-06 过硫酸盐的氧化性》实验中，AgNO₃ 是该实验中唯一的锰盐来源。
+- 19-3-06 Q16：在《19-3-06 过硫酸盐的氧化性》实验中，该实验完全不涉及酸性介质。
+- 19-3-06 Q20：在《19-3-06 过硫酸盐的氧化性》实验中，该实验的核心结论是 K₂S₂O₈ 只能作还原剂。
+- 19-3-06 Q24：在《19-3-06 过硫酸盐的氧化性》实验中，该实验中常用____提供酸性介质。
+- 19-3-06 Q26：在《19-3-06 过硫酸盐的氧化性》实验中，S₂O₈²⁻ 在该实验中主要表现____。
+- 19-3-06 Q27：在《19-3-06 过硫酸盐的氧化性》实验中，Mn²⁺ 被氧化到 MnO₄⁻ 时溶液常呈____。
+- 19-3-06 Q29：在《19-3-06 过硫酸盐的氧化性》实验中，实验中用来提供 Mn²⁺ 的试剂是____。
+- 19-3-06 Q30：在《19-3-06 过硫酸盐的氧化性》实验中，比较加和不加 AgNO₃ 的现象，本质上是在考查 Ag⁺ 对反应的____作用。
+- 19-4-02 Q02：在《19-4-02 亚硝酸的氧化性》实验中，酸性 KI 溶液中被 HNO₂ 氧化的主要离子是哪一种？
+- 19-4-02 Q03：在《19-4-02 亚硝酸的氧化性》实验中，酸性 KI 与 NaNO₂ 反应时，I⁻ 被氧化后主要生成哪种单质？
+- 19-4-02 Q07：在《19-4-02 亚硝酸的氧化性》实验中，NaNO₂ 与 H₂SO₄ 作用首先生成的弱酸是哪一种？
+- 19-4-02 Q10：在《19-4-02 亚硝酸的氧化性》实验中，该实验判断亚硝酸有氧化性的直接依据是什么？
+- 19-4-02 Q12：在《19-4-02 亚硝酸的氧化性》实验中，判断：被氧化离子为“K⁺”。
+- 19-4-02 Q13：在《19-4-02 亚硝酸的氧化性》实验中，判断：氧化产物为“I₂”。
+- 19-4-02 Q20：在《19-4-02 亚硝酸的氧化性》实验中，判断：判据为“能把 I₂ 还原为 I⁻”。
+- 19-4-02 Q22：在《19-4-02 亚硝酸的氧化性》实验中，酸性 KI 中被氧化的是____。
+- 19-4-02 Q23：在《19-4-02 亚硝酸的氧化性》实验中，I⁻ 被氧化后主要生成____。
+- 19-4-02 Q27：在《19-4-02 亚硝酸的氧化性》实验中，NaNO₂ 与 H₂SO₄ 作用可生成____。
+- 19-4-02 Q30：在《19-4-02 亚硝酸的氧化性》实验中，亚硝酸表现氧化性的依据是把 I⁻ 氧化为____。
+- 19-4-03 Q02：在《19-4-03 亚硝酸的还原性》实验中，酸性 KMnO₄ 与 NaNO₂ 反应褪色，说明亚硝酸或亚硝酸盐表现什么性质？
+- 19-4-03 Q03：在《19-4-03 亚硝酸的还原性》实验中，在酸性 KMnO₄ 体系中，NO₂⁻ 通常被氧化为哪种离子？
+- 19-4-03 Q04：在《19-4-03 亚硝酸的还原性》实验中，酸性 KMnO₄ 被 NaNO₂ 还原后，锰的主要低价产物可视为哪种离子？
+- 19-4-03 Q09：在《19-4-03 亚硝酸的还原性》实验中，不宜用盐酸酸化 KMnO₄ 与 NaNO₂ 体系的原因之一是？
+- 19-4-03 Q12：在《19-4-03 亚硝酸的还原性》实验中，本实验中 NaNO₂ 是主要氧化剂，KMnO₄ 是主要还原剂。
+- 19-4-03 Q14：在《19-4-03 亚硝酸的还原性》实验中，NO₂⁻ 在该反应中可被氧化为 NO₃⁻。
+- 19-4-03 Q17：在《19-4-03 亚硝酸的还原性》实验中，在酸性介质中，MnO₄⁻ 通常被还原为 Mn²⁺。
+- 19-4-03 Q22：在《19-4-03 亚硝酸的还原性》实验中，酸性 KMnO₄ 的紫色褪去说明 MnO₄⁻ 被____。
+- 19-4-03 Q24：在《19-4-03 亚硝酸的还原性》实验中，NO₂⁻ 表现还原性时常被氧化为____。
+- 19-4-03 Q25：在《19-4-03 亚硝酸的还原性》实验中，酸性条件下 MnO₄⁻ 常被还原为____。
+- 19-4-03 Q29：在《19-4-03 亚硝酸的还原性》实验中，本实验不宜用盐酸酸化，是为了避免____离子被氧化的干扰。
+- 19-4-03 Q30：在《19-4-03 亚硝酸的还原性》实验中，本实验观察的关键现象是 KMnO₄ 的紫色____。
+- 19-4-04 Q04：在《19-4-04 亚硝酸根的检验方法》实验中，KI/CCl₄ 法中，NO₂⁻ 在酸性条件下主要氧化哪种离子？
+- 19-4-04 Q05：在《19-4-04 亚硝酸根的检验方法》实验中，KI/CCl₄ 法中 CCl₄ 层显紫色说明生成了什么？
+- 19-4-04 Q08：在《19-4-04 亚硝酸根的检验方法》实验中，酸化 KI 后加入 NaNO₂，主要体现亚硝酸的哪种性质？
+- 19-4-04 Q15：在《19-4-04 亚硝酸根的检验方法》实验中，酸性 NaNO₂ 可氧化 I⁻，体现亚硝酸的氧化性。
+- 19-4-04 Q17：在《19-4-04 亚硝酸根的检验方法》实验中，KI/CCl₄ 法中 CCl₄ 层显紫色是因为生成了 AgCl。
+- 19-4-04 Q18：在《19-4-04 亚硝酸根的检验方法》实验中，亚硝酸根检验完全不需要考虑酸性条件。
+- 19-4-04 Q20：在《19-4-04 亚硝酸根的检验方法》实验中，本实验的目标离子是 NO₃⁻，不是 NO₂⁻。
+- 19-4-04 Q24：在《19-4-04 亚硝酸根的检验方法》实验中，KI/CCl₄ 法中 NO₂⁻ 在酸性条件下氧化____。
+- 19-4-04 Q25：在《19-4-04 亚硝酸根的检验方法》实验中，CCl₄ 层显紫色说明生成了____。
+- 19-4-04 Q28：在《19-4-04 亚硝酸根的检验方法》实验中，酸化 KI 后加入 NaNO₂ 体现亚硝酸的____。
+- 19-4-05 Q05：在《19-4-05 亚硝酸的氧化还原性》实验中，酸性 KI 与 HNO₂ 反应生成 I₂，说明 HNO₂ 表现哪种性质？
+- 19-4-05 Q07：在《19-4-05 亚硝酸的氧化还原性》实验中，NaNO₂ 使酸性 KMnO₄ 褪色时，HNO₂/NO₂⁻ 主要表现哪种性质？
+- 19-4-05 Q08：在《19-4-05 亚硝酸的氧化还原性》实验中，亚硝酸既能氧化 I⁻ 又能还原 MnO₄⁻，与氮的哪个中间价态有关？
+- 19-4-05 Q09：在《19-4-05 亚硝酸的氧化还原性》实验中，下列哪组实验最能同时体现 HNO₂ 的氧化性和还原性？
+- 19-4-05 Q14：在《19-4-05 亚硝酸的氧化还原性》实验中，酸性 KI 与 NaNO₂ 体系可体现亚硝酸的氧化性。
+- 19-4-05 Q15：在《19-4-05 亚硝酸的氧化还原性》实验中，酸性 KMnO₄ 与 NaNO₂ 体系可体现亚硝酸的还原性。
+- 19-4-05 Q16：在《19-4-05 亚硝酸的氧化还原性》实验中，HNO₂ 中氮为 +3 价，因此只能表现氧化性，不能表现还原性。
+- 19-4-05 Q18：在《19-4-05 亚硝酸的氧化还原性》实验中，酸性 KI 中加入 NaNO₂ 后完全不可能生成 I₂。
+- 19-4-05 Q20：在《19-4-05 亚硝酸的氧化还原性》实验中，该实验与亚硝酸的氧化还原性无关，只研究硝酸盐热分解。
+- 19-4-05 Q24：在《19-4-05 亚硝酸的氧化还原性》实验中，酸性 KI 体系中，HNO₂ 氧化 I⁻ 生成____。
+- 19-4-05 Q25：在《19-4-05 亚硝酸的氧化还原性》实验中，酸性 KMnO₄ 体系中，NaNO₂ 主要表现____。
+- 19-4-05 Q26：在《19-4-05 亚硝酸的氧化还原性》实验中，HNO₂ 中氮元素的氧化数为____。
+- 19-4-05 Q28：在《19-4-05 亚硝酸的氧化还原性》实验中，用于观察亚硝酸还原性的紫色氧化剂是____。
+- 19-4-05 Q29：在《19-4-05 亚硝酸的氧化还原性》实验中，酸性 KI 体系体现 HNO₂ 的____。
+- 19-4-06 Q02：在《19-4-06 硝酸的氧化性》实验中，浓硝酸与铜反应时，常见的棕色还原产物是哪一种？
+- 19-4-06 Q03：在《19-4-06 硝酸的氧化性》实验中，稀硝酸与铜反应时，常见的一氧化氮产物是下列哪一种？
+- 19-4-06 Q05：在《19-4-06 硝酸的氧化性》实验中，浓硝酸与硫粉反应主要体现硝酸的哪种性质？
+- 19-4-06 Q07：在《19-4-06 硝酸的氧化性》实验中，验证稀硝酸与 Zn 反应产物中 NH₃/NH₄⁺，常需要把铵盐转化为哪种可检气体？
+- 19-4-06 Q08：在《19-4-06 硝酸的氧化性》实验中，浓硝酸与 H₂S 或硫化物反应时，H₂S 主要体现哪类角色？
+- 19-4-06 Q09：在《19-4-06 硝酸的氧化性》实验中，下列哪项最能概括本实验的比较重点？
+- 19-4-06 Q13：在《19-4-06 硝酸的氧化性》实验中，铜与稀硝酸反应常涉及 NO，NO 在空气中可继续变为棕色 NO₂。
+- 19-4-06 Q15：在《19-4-06 硝酸的氧化性》实验中，硝酸在这些反应中只表现普通酸性，完全不表现氧化性。
+- 19-4-06 Q16：在《19-4-06 硝酸的氧化性》实验中，浓硝酸可氧化硫或硫化氢等还原性物质。
+- 19-4-06 Q19：在《19-4-06 硝酸的氧化性》实验中，Zn 与稀硝酸反应后的 NH₄⁺ 可通过碱化释放 NH₃ 的思路验证。
+- 19-4-06 Q21：在《19-4-06 硝酸的氧化性》实验中，浓硝酸与铜反应常见棕色气体为____。
+- 19-4-06 Q22：在《19-4-06 硝酸的氧化性》实验中，稀硝酸与铜反应常见还原产物为____。
+- 19-4-06 Q23：在《19-4-06 硝酸的氧化性》实验中，稀硝酸与 Zn 反应产物中需验证 NH₃ 或____。
+- 19-4-06 Q24：在《19-4-06 硝酸的氧化性》实验中，硝酸与硫、硫化氢、铜、锌反应主要体现其____性。
+- 19-4-06 Q26：在《19-4-06 硝酸的氧化性》实验中，验证 NH₄⁺ 时常通过加碱释放____气体。
+- 19-4-06 Q27：在《19-4-06 硝酸的氧化性》实验中，浓硝酸与还原性物质反应时，自身通常被____。
+- 19-4-06 Q28：在《19-4-06 硝酸的氧化性》实验中，铜与浓硝酸反应生成的 NO₂ 颜色常为____色。
+- 19-4-06 Q29：在《19-4-06 硝酸的氧化性》实验中，本实验比较的两类硝酸是浓硝酸和____硝酸。
+- 19-4-07 Q06：在《19-4-07 硝酸盐的热分解》实验中，用火柴余烬复燃来判断的气体主要是哪一种？
+- 19-4-07 Q07：在《19-4-07 硝酸盐的热分解》实验中，Cu(NO₃)₂ 或 AgNO₃ 热分解时常可观察到的棕色气体是哪一种？
+- 19-4-07 Q10：在《19-4-07 硝酸盐的热分解》实验中，进行 Cu(NO₃)₂ 或 AgNO₃ 热分解时，应特别注意哪种有害气体？
+- 19-4-07 Q16：在《19-4-07 硝酸盐的热分解》实验中，判断：被检气体为“NH₃”。
+- 19-4-07 Q17：在《19-4-07 硝酸盐的热分解》实验中，判断：棕色气体为“NO₂”。
+- 19-4-07 Q20：在《19-4-07 硝酸盐的热分解》实验中，判断：安全关注为“He”。
+- 19-4-07 Q26：在《19-4-07 硝酸盐的热分解》实验中，能使余烬复燃的气体是____。
+- 19-4-07 Q27：在《19-4-07 硝酸盐的热分解》实验中，部分硝酸盐热分解会产生棕色的____。
+- 19-4-07 Q30：在《19-4-07 硝酸盐的热分解》实验中，硝酸盐热分解可能放出有害的____，应注意通风。
+- 19-4-08 Q03：在《19-4-08 硝酸根的检验》实验中，硝酸根在酸性条件下把 Fe²⁺ 氧化时，自身主要被还原为哪种物质？
+- 19-4-08 Q04：在《19-4-08 硝酸根的检验》实验中，棕色环的棕色物质可表示为下列哪一项？
+- 19-4-08 Q07：在《19-4-08 硝酸根的检验》实验中，棕色环实验中 Fe²⁺ 的作用最接近哪一项？
+- 19-4-08 Q12：在《19-4-08 硝酸根的检验》实验中，棕色环的形成与 NO 和 Fe²⁺ 的配合有关。
+- 19-4-08 Q14：在《19-4-08 硝酸根的检验》实验中，NO₃⁻ 在酸性条件下可把 Fe²⁺ 氧化为 Fe³⁺。
+- 19-4-08 Q20：在《19-4-08 硝酸根的检验》实验中，该实验不涉及任何氧化还原过程。
+- 19-4-08 Q23：在《19-4-08 硝酸根的检验》实验中，NO₃⁻ 在酸性条件下被还原生成____。
+- 19-4-08 Q24：在《19-4-08 硝酸根的检验》实验中，棕色环的棕色物质可写作____。
+- 19-4-08 Q28：在《19-4-08 硝酸根的检验》实验中，棕色环实验中 Fe²⁺ 被氧化为____。
+- 19-4-09 Q06：在《19-4-09 硝酸根的检验》实验中，NO₃⁻ 在酸性 Fe²⁺ 条件下被还原生成的关键小分子是什么？
+- 19-4-09 Q07：在《19-4-09 硝酸根的检验》实验中，棕色环的颜色来自哪种配合物描述最接近？
+- 19-4-09 Q08：在《19-4-09 硝酸根的检验》实验中，Fe²⁺ 在还原 NO₃⁻ 的反应中被氧化成哪种离子？
+- 19-4-09 Q13：在《19-4-09 硝酸根的检验》实验中，棕色环与 NO 和 Fe²⁺ 形成的配合物有关。
+- 19-4-09 Q14：在《19-4-09 硝酸根的检验》实验中，Fe²⁺ 在硝酸根检验中可被氧化为 Fe³⁺。
+- 19-4-09 Q16：在《19-4-09 硝酸根的检验》实验中，硝酸根棕色环法的目标离子是 NO₂⁻。
+- 19-4-09 Q18：在《19-4-09 硝酸根的检验》实验中，棕色环法中浓硫酸完全可以用浓氨水替代。
+- 19-4-09 Q20：在《19-4-09 硝酸根的检验》实验中，生成棕色环说明一定生成了 Ni(dmg)₂ 沉淀。
+- 19-4-09 Q26：在《19-4-09 硝酸根的检验》实验中，NO₃⁻ 被 Fe²⁺ 还原时可生成____。
+- 19-4-09 Q27：在《19-4-09 硝酸根的检验》实验中，棕色环与____配合物有关。
+- 19-4-09 Q28：在《19-4-09 硝酸根的检验》实验中，Fe²⁺ 还原 NO₃⁻ 后自身被氧化为____。
+- 19-5-01 Q01：在《19-5-01 难溶性硅酸盐的生成——“水中花园”》实验中，形成“水中花园”的核心溶液通常是哪一种？
+- 19-5-01 Q02：在《19-5-01 难溶性硅酸盐的生成——“水中花园”》实验中，水玻璃的主要成分可表示为下列哪一种？
+- 19-5-01 Q04：在《19-5-01 难溶性硅酸盐的生成——“水中花园”》实验中，水玻璃与 CaCl₂ 反应时，主要生成的难溶物类别是下列哪一种？
+- 19-5-01 Q05：在《19-5-01 难溶性硅酸盐的生成——“水中花园”》实验中，“水中花园”现象的观察重点最接近哪一项？
+- 19-5-01 Q08：在《19-5-01 难溶性硅酸盐的生成——“水中花园”》实验中，FeCl₂ 和 FeCl₃ 都出现在实验体系中，说明实验可比较哪类离子形成硅酸盐的差异？
+- 19-5-01 Q10：在《19-5-01 难溶性硅酸盐的生成——“水中花园”》实验中，该实验中水玻璃与多种盐反应的本质最接近哪一项？
+- 19-5-01 Q13：在《19-5-01 难溶性硅酸盐的生成——“水中花园”》实验中，水玻璃通常指 Na₂SiO₃ 溶液。
+- 19-5-01 Q15：在《19-5-01 难溶性硅酸盐的生成——“水中花园”》实验中，生成难溶硅酸盐时可能出现有形态的沉淀生长。
+- 19-5-01 Q16：在《19-5-01 难溶性硅酸盐的生成——“水中花园”》实验中，水玻璃与金属盐反应时，金属离子完全不参与沉淀形成。
+- 19-5-01 Q17：在《19-5-01 难溶性硅酸盐的生成——“水中花园”》实验中，FeCl₂ 和 FeCl₃ 同时出现时，可以比较不同铁价态相关现象。
+- 19-5-01 Q21：在《19-5-01 难溶性硅酸盐的生成——“水中花园”》实验中，“水中花园”实验使用的核心硅酸盐溶液俗称____。
+- 19-5-01 Q22：在《19-5-01 难溶性硅酸盐的生成——“水中花园”》实验中，水玻璃的主要成分可写作____。
+- 19-5-01 Q23：在《19-5-01 难溶性硅酸盐的生成——“水中花园”》实验中，水玻璃与 CaCl₂ 反应生成的难溶物属于____。
+- 19-5-01 Q26：在《19-5-01 难溶性硅酸盐的生成——“水中花园”》实验中，“水中花园”实验主要观察沉淀的颜色和____。
+- 19-5-01 Q27：在《19-5-01 难溶性硅酸盐的生成——“水中花园”》实验中，FeCl₂ 和 FeCl₃ 分别提供 Fe(II) 与____离子。
+- 19-5-01 Q28：在《19-5-01 难溶性硅酸盐的生成——“水中花园”》实验中，SiO₃²⁻ 与金属离子形成难溶____。
+- 19-5-01 Q29：在《19-5-01 难溶性硅酸盐的生成——“水中花园”》实验中，NiSO₄ 与水玻璃反应时提供的金属离子是____。
+- 19-6-01 Q03：在《19-6-01 金属钠燃烧及产物性质》实验中，钠在空气中燃烧的主要产物通常是哪一种？
+- 19-6-01 Q04：在《19-6-01 金属钠燃烧及产物性质》实验中，燃烧产物加少量水溶解、冷却后，检验溶液 pH 通常会显示什么性质？
+- 19-6-01 Q06：在《19-6-01 金属钠燃烧及产物性质》实验中，酸化后加入 1 滴 0.01 mol·L⁻¹ KMnO₄，主要用于检验哪类性质？
+- 19-6-01 Q08：在《19-6-01 金属钠燃烧及产物性质》实验中，金属钠表面的煤油应先吸干，主要原因是什么？
+- 19-6-01 Q09：在《19-6-01 金属钠燃烧及产物性质》实验中，钠燃烧时常见火焰颜色更接近哪一项？
+- 19-6-01 Q13：在《19-6-01 金属钠燃烧及产物性质》实验中，钠在空气中燃烧的产物常含 Na₂O₂。
+- 19-6-01 Q14：在《19-6-01 金属钠燃烧及产物性质》实验中，燃烧产物加水后的溶液通常呈碱性。
+- 19-6-01 Q15：在《19-6-01 金属钠燃烧及产物性质》实验中，酸化后加入 KMnO₄ 可帮助观察过氧化物相关性质。
+- 19-6-01 Q20：在《19-6-01 金属钠燃烧及产物性质》实验中，钠燃烧产物加水后一定只生成强酸性溶液。
+- 19-6-01 Q22：在《19-6-01 金属钠燃烧及产物性质》实验中，钠在空气中燃烧常生成过氧化钠，其化学式为____。
+- 19-6-01 Q23：在《19-6-01 金属钠燃烧及产物性质》实验中，燃烧产物加水溶解后，溶液通常呈____性。
+- 19-6-01 Q27：在《19-6-01 金属钠燃烧及产物性质》实验中，钠燃烧时常见火焰为____色。
+- 19-6-01 Q29：在《19-6-01 金属钠燃烧及产物性质》实验中，Na₂O₂ 与水作用可形成与____有关的过氧化性质。
+
+## Final Confirmation
+
+- 已逐题语义终审：本轮重新阅读了 chunk 2 的 450 道 original_question 的题干、选项/答案/解析，并对照本实验 video_points 与 canonical 教材原文。
+- 对 reviewed_v1 中已有 proposed_question 的题，本轮没有直接沿用；每题在 `reviewed_v1_proposed_question_review` 中标记为保留为修复基础、语义替换或不再需要。
+- 本轮修正了 reviewed_v1 中的模板化/批量误标：尤其是 KI 反应误绑到 `19-3-06`、强碱性铝屑法误绑到棕色环视频点位、以及多个亚硝酸相邻小节串题。
+- 所有 rewrite/reject 均给出 concrete `proposed_question`；没有只写 rewrite_direction 的条目。
+- 没有引入 AI 语义判分；所有题目仍为 single_choice、true_false 或 normalized_exact fill_blank，可机器确定性判分。

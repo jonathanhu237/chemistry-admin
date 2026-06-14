@@ -8,12 +8,13 @@ It includes:
 - FastAPI admin backend in `server`
 - database migrations in `server/migrations`
 - admin bootstrap/import scripts in `scripts`
-- seed and processed curriculum data needed for admin setup in `data/seed` and `data/processed`
+- seed data for the formal experiment catalog and reviewed curriculum data for admin setup
 
 It intentionally excludes:
 
 - WeChat/student mini-program source
 - generated student app JSON bundles
+- legacy courseware-derived demo chunks, guessed links, and generated placeholder question seeds
 - raw PDF extraction inputs
 - intermediate extraction output
 - uploaded media files
@@ -84,12 +85,14 @@ Create or update an admin user:
 python scripts/bootstrap_admin.py --username admin
 ```
 
-Import seed data when needed:
+Import formal admin data and canonical evidence when needed:
 
 ```powershell
-python scripts/import_seed_to_postgres.py
 python scripts/seed_formal_experiments.py
 python scripts/publish_reviewed_curriculum.py
+python scripts/import_canonical_evidence.py
+python scripts/import_experiment_question_bank.py --skip-migrations
+python scripts/verify_canonical_evidence.py
 ```
 
 ## Validation

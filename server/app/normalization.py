@@ -20,7 +20,7 @@ CHAPTER_AREA_MAP: dict[str, dict[str, str]] = {
     "CH19": {"area_id": "ds", "area_name": "ds区", "chapter_title": "第 19 章 铜锌副族元素"},
     "CH20": {"area_id": "d", "area_name": "d区", "chapter_title": "第 20 章 d区过渡金属元素"},
     "CH21": {"area_id": "f", "area_name": "f区", "chapter_title": "第 21 章 镧系和锕系元素"},
-    "CH22": {"area_id": "integrated", "area_name": "综合", "chapter_title": "第 22 章 氢和稀有气体"},
+    "CH22": {"area_id": "integrated", "area_name": "氢和稀有气体", "chapter_title": "第 22 章 氢和稀有气体"},
 }
 
 AREA_DEFINITIONS: list[dict[str, Any]] = [
@@ -56,8 +56,8 @@ AREA_DEFINITIONS: list[dict[str, Any]] = [
     },
     {
         "area_id": "integrated",
-        "area_name": "综合",
-        "description": "氢、稀有气体等综合章节内容。",
+        "area_name": "氢和稀有气体",
+        "description": "氢与稀有气体的结构、性质、制备和应用。",
         "chapter_ids": ["CH22"],
     },
     {

@@ -208,6 +208,8 @@ export type LearningResourceUnit = {
   knowledge_points: LearningResourceKnowledgePoint[];
 };
 
+export type ResourceCountMap = Record<string, number>;
+
 export type LearningResourceExperiment = {
   id: string;
   code?: string;
@@ -215,7 +217,13 @@ export type LearningResourceExperiment = {
   status: string;
   display_order?: number | null;
   media_count: number;
+  media_ready_count?: number;
+  media_published_count?: number;
+  media_asset_status_counts?: ResourceCountMap;
+  media_binding_status_counts?: ResourceCountMap;
   question_count: number;
+  question_status_counts?: ResourceCountMap;
+  question_type_counts?: ResourceCountMap;
 };
 
 export type LearningResourceGroup = {
@@ -231,7 +239,13 @@ export type LearningResourceGroup = {
   knowledge_point_count: number;
   experiment_count: number;
   question_count: number;
+  question_status_counts?: ResourceCountMap;
+  question_type_counts?: ResourceCountMap;
   media_count: number;
+  media_ready_count?: number;
+  media_published_count?: number;
+  media_asset_status_counts?: ResourceCountMap;
+  media_binding_status_counts?: ResourceCountMap;
   units: LearningResourceUnit[];
   experiments: LearningResourceExperiment[];
 };
@@ -248,7 +262,76 @@ export type LearningResourceArea = {
     experiment_count: number;
     question_count: number;
     media_count: number;
+    media_ready_count?: number;
+    media_published_count?: number;
   };
+};
+
+export type ExperimentFrameworkNode = {
+  id: string;
+  parent_id?: string | null;
+  source_collection: string;
+  doc_id: string;
+  book_title: string;
+  node_type: "book" | "chapter" | "section" | "protocol";
+  title: string;
+  full_path: string[];
+  depth: number;
+  display_order: number;
+  page_start?: number | null;
+  page_end?: number | null;
+  metadata?: Record<string, unknown>;
+  content_status?: string;
+  direct_evidence_count: number;
+  evidence_count: number;
+  direct_formal_experiment_count: number;
+  formal_experiment_count: number;
+  child_count: number;
+  video_count: number;
+  published_video_count: number;
+  question_count: number;
+  published_question_count: number;
+};
+
+export type ExperimentFrameworkFormalLink = {
+  node_id: string;
+  experiment_id: string;
+  experiment_code?: string | null;
+  experiment_title: string;
+  experiment_status: string;
+  relation_type: "formal_parent_title" | "canonical_evidence";
+  link_source?: string | null;
+  evidence_chunk_id?: string | null;
+  evidence_section_title?: string | null;
+  confidence?: number | string | null;
+  sort_order?: number | null;
+};
+
+export type ExperimentKnowledgeFrameworkOverview = {
+  available: boolean;
+  source: {
+    source_collection: string;
+    doc_id: string;
+    book_title: string;
+  };
+  metrics: {
+    node_count: number;
+    chapter_count: number;
+    section_count: number;
+    protocol_count: number;
+    canonical_chunk_count: number;
+    linked_chunk_count: number;
+    formal_experiment_count: number;
+    formal_link_count: number;
+    canonical_evidence_link_count: number;
+    video_count: number;
+    published_video_count: number;
+    question_count: number;
+    published_question_count: number;
+  };
+  roots: ExperimentFrameworkNode[];
+  nodes: ExperimentFrameworkNode[];
+  formal_links: ExperimentFrameworkFormalLink[];
 };
 
 export type LearningResourceOverview = {
@@ -258,9 +341,55 @@ export type LearningResourceOverview = {
     experiment_count: number;
     media_resource_count: number;
     question_count: number;
+    published_question_count?: number;
+    draft_question_count?: number;
+    published_video_binding_count?: number;
+    video_asset_count?: number;
+    class_count?: number;
+    student_count?: number;
+  };
+  domains?: {
+    knowledge?: {
+      title?: string;
+      knowledge_unit_count: number;
+      knowledge_point_count: number;
+      source_document_count: number;
+      source_chunk_count: number;
+      embedding_count: number;
+    };
+    experiment_video?: {
+      title?: string;
+      experiment_count: number;
+      experiment_status_counts?: ResourceCountMap;
+      video_asset_count: number;
+      video_binding_count: number;
+      ready_video_count: number;
+      published_video_count: number;
+      asset_status_counts?: ResourceCountMap;
+      binding_status_counts?: ResourceCountMap;
+    };
+    question_bank?: {
+      title?: string;
+      question_count: number;
+      status_counts?: ResourceCountMap;
+      type_counts?: ResourceCountMap;
+      published_question_count: number;
+      draft_question_count: number;
+    };
+    classes_students?: {
+      title?: string;
+      class_count: number;
+      class_status_counts?: ResourceCountMap;
+      roster_count: number;
+      roster_status_counts?: ResourceCountMap;
+      student_account_count: number;
+      student_status_counts?: ResourceCountMap;
+      active_student_count: number;
+    };
   };
   areas: LearningResourceArea[];
   groups: LearningResourceGroup[];
+  experiment_framework?: ExperimentKnowledgeFrameworkOverview | null;
 };
 
 export type ChapterBinding = {
@@ -279,6 +408,7 @@ export type MediaResource = {
   original_file_name?: string;
   mime_type?: string;
   file_size_bytes?: number;
+  thumbnail_relative_path?: string | null;
   upload_status?: string;
   binding_status?: string;
   point_key?: string | null;
@@ -307,13 +437,70 @@ export type MediaAsset = {
   title: string;
   original_file_name: string;
   relative_path?: string;
+  source_relative_path?: string | null;
+  thumbnail_relative_path?: string | null;
+  playback_relative_path?: string | null;
+  playback_mime_type?: string | null;
+  checksum_sha256?: string | null;
   mime_type?: string | null;
   file_size_bytes?: number | null;
+  duration_seconds?: number | null;
+  width?: number | null;
+  height?: number | null;
+  fps?: number | null;
+  bitrate?: number | null;
+  video_codec?: string | null;
+  audio_codec?: string | null;
   upload_status: string;
+  processing_phase?: string | null;
+  processing_progress?: number | null;
   error_reason?: string | null;
   created_at?: string;
   updated_at?: string;
   association_count?: number;
+  processing_job?: MediaProcessingJob | null;
+  renditions?: MediaRendition[];
+  duplicate_candidates?: MediaDuplicateCandidate[];
+};
+
+export type MediaProcessingJob = {
+  id: string;
+  status: string;
+  phase?: string | null;
+  progress?: number | null;
+  attempts?: number | null;
+  error_reason?: string | null;
+  updated_at?: string | null;
+};
+
+export type MediaRendition = {
+  id?: string;
+  kind: string;
+  relative_path?: string | null;
+  mime_type?: string | null;
+  file_size_bytes?: number | null;
+  duration_seconds?: number | null;
+  width?: number | null;
+  height?: number | null;
+  status?: string | null;
+  video_codec?: string | null;
+  audio_codec?: string | null;
+};
+
+export type MediaDuplicateCandidate = {
+  id: string;
+  duplicate_type: "exact" | "suspected";
+  score?: number | null;
+  algorithm: string;
+  status: "pending" | "kept" | "reused" | "ignored";
+  candidate_asset_id?: string | null;
+  candidate_title?: string | null;
+  candidate_thumbnail_relative_path?: string | null;
+};
+
+export type MediaDuplicatePrecheck = {
+  exists: boolean;
+  asset?: MediaAsset | null;
 };
 
 export type ExperimentVideoPointResource = {
@@ -330,6 +517,7 @@ export type ExperimentVideoPointResource = {
   original_file_name: string;
   mime_type?: string | null;
   file_size_bytes?: number | null;
+  thumbnail_relative_path?: string | null;
   upload_status: string;
   error_reason?: string | null;
   published_at?: string | null;
@@ -389,6 +577,21 @@ export type Question = {
   related_knowledge_point_ids?: string[];
   source_chunk_ids?: string[];
   source_refs?: Array<Record<string, unknown>>;
+  metadata?: {
+    point_aware_question_bank?: boolean;
+    primary_point_keys?: string[];
+    primary_points?: Array<{ point_key?: string; point_title?: string }>;
+    coverage_tags?: string[];
+    review_decision?: string;
+    quality_flags?: string[];
+    source_audit?: {
+      evidence_sufficient?: boolean;
+      canonical_chunk_ids?: string[];
+      supporting_theory_chunk_ids?: string[];
+      reviewer_note?: string;
+    };
+    [key: string]: unknown;
+  };
   created_at?: string;
   updated_at?: string;
 };

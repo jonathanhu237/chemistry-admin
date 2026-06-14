@@ -5,8 +5,6 @@ import re
 from difflib import SequenceMatcher
 from typing import Any
 
-from server.app.db import load_chunks
-
 CHEMISTRY_TERMS = [
     "卤素",
     "氟",
@@ -99,42 +97,4 @@ def retrieve(
     knowledge_point_ids: list[str] | None = None,
     top_k: int = 5,
 ) -> tuple[list[dict[str, Any]], str]:
-    chunks = load_chunks()
-    knowledge_point_ids = knowledge_point_ids or []
-    scopes: list[list[dict[str, Any]]] = []
-
-    if chapter_id or experiment_id or knowledge_point_ids:
-        scoped = [
-            chunk
-            for chunk in chunks
-            if metadata_match(chunk, chapter_id=chapter_id, experiment_id=experiment_id, knowledge_point_ids=knowledge_point_ids)
-        ]
-        scopes.append(scoped)
-    if chapter_id:
-        scopes.append([chunk for chunk in chunks if chunk.get("chapter_id") == chapter_id])
-    scopes.append(chunks)
-
-    seen_scope_ids: set[int] = set()
-    for scope in scopes:
-        if id(scope) in seen_scope_ids:
-            continue
-        seen_scope_ids.add(id(scope))
-        scored = [
-            (
-                keyword_score(
-                    question,
-                    chunk,
-                    chapter_id=chapter_id,
-                    experiment_id=experiment_id,
-                    knowledge_point_ids=knowledge_point_ids,
-                ),
-                chunk,
-            )
-            for chunk in scope
-        ]
-        scored = [(score, chunk) for score, chunk in scored if score > 0]
-        scored.sort(key=lambda item: item[0], reverse=True)
-        if scored:
-            return [{**chunk, "_score": score} for score, chunk in scored[:top_k]], "keyword"
-    return [], "keyword"
-
+    return [], "canonical-db-required"

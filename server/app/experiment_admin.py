@@ -15,13 +15,13 @@ from fastapi import APIRouter, Depends, File, Form, HTTPException, Path, Query, 
 from pydantic import BaseModel, Field
 from sqlalchemy import text
 
-from server.app import data_loader
 from server.app.auth import AuthUser, require_roles
+from server.app.canonical_evidence import load_evidence_source_refs
 from server.app.config import get_settings
 from server.app.database import db_session
+from server.app.experiment_framework import build_experiment_framework_overview
 from server.app.media import create_media_asset, create_media_binding
 from server.app.platform_settings import ai_feature_enabled, effective_ai_settings
-from server.app.retrieval import keyword_score
 
 admin_router = APIRouter(prefix="/api/admin", tags=["experiment-admin"])
 student_router = APIRouter(prefix="/api", tags=["experiment-learning"])
@@ -378,6 +378,7 @@ def _experiment_select_sql(where_clause: str = "") -> str:
                 'original_file_name', ma.original_file_name,
                 'mime_type', ma.mime_type,
                 'file_size_bytes', ma.file_size_bytes,
+                'thumbnail_relative_path', ma.thumbnail_relative_path,
                 'upload_status', ma.upload_status,
                 'binding_status', mb.status,
                 'point_key', mb.metadata->>'point_key',
@@ -469,7 +470,7 @@ def _list_experiments(
 
 def _list_experiment_video_resources(experiment_id: str | None = None) -> list[dict[str, Any]]:
     params: dict[str, Any] = {}
-    filters = ["mb.target_type = 'experiment'"]
+    filters = ["mb.target_type = 'experiment'", "mb.status <> 'archived'"]
     if experiment_id:
         filters.append("mb.target_id = :experiment_id")
         params["experiment_id"] = experiment_id
@@ -485,13 +486,40 @@ def _list_experiment_video_resources(experiment_id: str | None = None) -> list[d
                            mb.metadata->>'point_key' AS point_key,
                            mb.metadata->>'point_title' AS point_title,
                            ma.id AS media_id, ma.title AS media_title, ma.original_file_name,
-                           ma.mime_type, ma.file_size_bytes, ma.upload_status, ma.error_reason,
+                           ma.mime_type, ma.file_size_bytes, ma.thumbnail_relative_path,
+                           ma.upload_status, ma.error_reason,
                            ma.created_at, ma.updated_at
                     FROM media_bindings mb
                     JOIN media_assets ma ON ma.id = mb.media_asset_id
                     LEFT JOIN formal_experiments fe ON fe.id = mb.target_id
                     WHERE {" AND ".join(filters)}
                     ORDER BY mb.sort_order, ma.created_at DESC
+                    """
+                ),
+                params,
+            )
+            .mappings()
+            .all()
+        ]
+        point_attempts = [
+            dict(row)
+            for row in session.execute(
+                text(
+                    f"""
+                    SELECT a.experiment_id,
+                           fe.code AS experiment_code,
+                           fe.title AS experiment_title,
+                           a.question_id,
+                           q.stem,
+                           a.correct,
+                           a.metadata,
+                           q.metadata AS question_metadata
+                    FROM experiment_question_attempts a
+                    LEFT JOIN experiment_questions q ON q.id = a.question_id
+                    LEFT JOIN formal_experiments fe ON fe.id = a.experiment_id
+                    WHERE {filter_sql}
+                    ORDER BY a.created_at DESC
+                    LIMIT 1000
                     """
                 ),
                 params,
@@ -945,6 +973,12 @@ def _insert_question(
 
 CURRENT_BANK_STATUSES = {"draft", "published", "disabled"}
 PUBLISHED_RESOURCE_STATUSES = {"published", "ready"}
+QUESTION_STATUS_ORDER = ("draft", "published", "disabled", "archived")
+QUESTION_TYPE_ORDER = ("single_choice", "true_false", "fill_blank")
+MEDIA_UPLOAD_STATUS_ORDER = ("ready", "processing", "failed")
+MEDIA_BINDING_STATUS_ORDER = ("draft", "published", "archived")
+CLASS_STATUS_ORDER = ("active", "archived", "disabled")
+ROSTER_STATUS_ORDER = ("pending", "active", "disabled")
 THEORY_AREA_BY_CHAPTER = {
     "CH13": ("p", "p 区元素"),
     "CH14": ("p", "p 区元素"),
@@ -955,9 +989,118 @@ THEORY_AREA_BY_CHAPTER = {
     "CH19": ("ds", "ds 区元素"),
     "CH20": ("d", "d 区元素"),
     "CH21": ("f", "f 区元素"),
+    "CH22": ("integrated", "氢和稀有气体"),
 }
 GENERAL_RESOURCE_AREA_ID = "general"
 GENERAL_RESOURCE_AREA_NAME = "通识资源"
+
+
+def _zero_counts(keys: tuple[str, ...] | list[str] | set[str]) -> dict[str, int]:
+    return {str(key): 0 for key in keys}
+
+
+def _counts_from_sets(value_sets: dict[str, set[str]], keys: tuple[str, ...]) -> dict[str, int]:
+    counts = _zero_counts(keys)
+    for key, values in value_sets.items():
+        counts[str(key)] = len(values)
+    return counts
+
+
+def _db_table_exists(session: Any, table_name: str) -> bool:
+    row = session.execute(text("SELECT to_regclass(:name) AS table_name"), {"name": f"public.{table_name}"}).mappings().first()
+    return bool(row and row.get("table_name"))
+
+
+def _db_count_rows(session: Any, table_name: str, where_sql: str = "", params: dict[str, Any] | None = None) -> int:
+    if not _db_table_exists(session, table_name):
+        return 0
+    sql = f"SELECT COUNT(*) AS count FROM {table_name}"
+    if where_sql:
+        sql += f" WHERE {where_sql}"
+    row = session.execute(text(sql), params or {}).mappings().first()
+    return int(row["count"] if row else 0)
+
+
+def _db_count_by_column(
+    session: Any,
+    *,
+    table_name: str,
+    column_name: str,
+    keys: tuple[str, ...],
+    where_sql: str = "",
+    params: dict[str, Any] | None = None,
+) -> dict[str, int]:
+    counts = _zero_counts(keys)
+    if not _db_table_exists(session, table_name):
+        return counts
+    sql = f"""
+        SELECT COALESCE({column_name}, 'unknown') AS key, COUNT(*) AS count
+        FROM {table_name}
+    """
+    if where_sql:
+        sql += f" WHERE {where_sql}"
+    sql += " GROUP BY COALESCE({column_name}, 'unknown')".format(column_name=column_name)
+    for row in session.execute(text(sql), params or {}).mappings().all():
+        counts[str(row["key"])] = int(row["count"])
+    return counts
+
+
+def _load_learning_resource_dashboard_stats(session: Any) -> dict[str, Any]:
+    media_asset_status_counts = _db_count_by_column(
+        session,
+        table_name="media_assets",
+        column_name="upload_status",
+        keys=MEDIA_UPLOAD_STATUS_ORDER,
+    )
+    media_binding_status_counts = _db_count_by_column(
+        session,
+        table_name="media_bindings",
+        column_name="status",
+        keys=MEDIA_BINDING_STATUS_ORDER,
+        where_sql="target_type = 'experiment'",
+    )
+    class_status_counts = _db_count_by_column(
+        session,
+        table_name="classes",
+        column_name="status",
+        keys=CLASS_STATUS_ORDER,
+    )
+    roster_status_counts = _db_count_by_column(
+        session,
+        table_name="roster_entries",
+        column_name="status",
+        keys=ROSTER_STATUS_ORDER,
+    )
+    student_status_counts = _db_count_by_column(
+        session,
+        table_name="students",
+        column_name="status",
+        keys=ROSTER_STATUS_ORDER,
+    )
+    return {
+        "rag": {
+            "source_document_count": _db_count_rows(session, "source_documents"),
+            "source_chunk_count": _db_count_rows(session, "source_chunks"),
+            "embedding_count": _db_count_rows(session, "chunk_embeddings"),
+        },
+        "media": {
+            "asset_count": _db_count_rows(session, "media_assets"),
+            "binding_count": _db_count_rows(session, "media_bindings", "target_type = 'experiment'"),
+            "asset_status_counts": media_asset_status_counts,
+            "binding_status_counts": media_binding_status_counts,
+            "ready_asset_count": int(media_asset_status_counts.get("ready", 0)),
+            "published_binding_count": int(media_binding_status_counts.get("published", 0)),
+        },
+        "classes_students": {
+            "class_count": _db_count_rows(session, "classes"),
+            "class_status_counts": class_status_counts,
+            "roster_count": _db_count_rows(session, "roster_entries"),
+            "roster_status_counts": roster_status_counts,
+            "student_account_count": _db_count_rows(session, "students"),
+            "student_status_counts": student_status_counts,
+            "active_student_count": int(student_status_counts.get("active", 0)),
+        },
+    }
 
 
 def _strip_chapter_number(title: str) -> str:
@@ -1115,22 +1258,29 @@ def _question_row_id(question: dict[str, Any]) -> str:
     return str(question.get("id") or question.get("question_id") or "")
 
 
-def _count_questions_by_chapter_and_experiment(
+def _summarize_questions_for_overview(
     questions: list[dict[str, Any]],
     bindings_by_experiment: dict[str, list[str]],
-) -> tuple[dict[str, int], dict[str, int], int]:
+) -> dict[str, Any]:
     by_chapter_sets: dict[str, set[str]] = defaultdict(set)
     by_experiment_sets: dict[str, set[str]] = defaultdict(set)
     all_question_ids: set[str] = set()
+    status_sets: dict[str, set[str]] = defaultdict(set)
+    type_sets: dict[str, set[str]] = defaultdict(set)
+    by_chapter_status_sets: dict[str, dict[str, set[str]]] = defaultdict(lambda: defaultdict(set))
+    by_chapter_type_sets: dict[str, dict[str, set[str]]] = defaultdict(lambda: defaultdict(set))
+    by_experiment_status_sets: dict[str, dict[str, set[str]]] = defaultdict(lambda: defaultdict(set))
+    by_experiment_type_sets: dict[str, dict[str, set[str]]] = defaultdict(lambda: defaultdict(set))
     for question in questions:
         status_value = str(question.get("status") or "")
-        if status_value and status_value != "published":
+        if status_value and status_value not in QUESTION_STATUSES:
             continue
         if not status_value and question.get("student_visible") is False:
             continue
         question_id = _question_row_id(question)
         if not question_id:
             continue
+        question_type = str(question.get("question_type") or "")
         experiment_ids = [str(item) for item in question.get("related_experiment_ids") or [] if str(item).strip()]
         if question.get("experiment_id"):
             experiment_ids.append(str(question.get("experiment_id")))
@@ -1143,19 +1293,80 @@ def _count_questions_by_chapter_and_experiment(
             all_question_ids.add(question_id)
             for experiment_id in experiment_ids:
                 by_experiment_sets[experiment_id].add(question_id)
+                if status_value:
+                    by_experiment_status_sets[experiment_id][status_value].add(question_id)
+                if question_type:
+                    by_experiment_type_sets[experiment_id][question_type].add(question_id)
         elif chapter_ids:
             all_question_ids.add(question_id)
         else:
             continue
+        if status_value:
+            status_sets[status_value].add(question_id)
+        if question_type:
+            type_sets[question_type].add(question_id)
         if experiment_ids and not chapter_ids:
             chapter_ids = sorted({chapter_id for experiment_id in experiment_ids for chapter_id in bindings_by_experiment.get(experiment_id, [])})
         for chapter_id in chapter_ids:
             by_chapter_sets[chapter_id].add(question_id)
-    return (
-        {chapter_id: len(question_ids) for chapter_id, question_ids in by_chapter_sets.items()},
-        {experiment_id: len(question_ids) for experiment_id, question_ids in by_experiment_sets.items()},
-        len(all_question_ids),
-    )
+            if status_value:
+                by_chapter_status_sets[chapter_id][status_value].add(question_id)
+            if question_type:
+                by_chapter_type_sets[chapter_id][question_type].add(question_id)
+    return {
+        "by_chapter_count": {chapter_id: len(question_ids) for chapter_id, question_ids in by_chapter_sets.items()},
+        "by_experiment_count": {experiment_id: len(question_ids) for experiment_id, question_ids in by_experiment_sets.items()},
+        "total_count": len(all_question_ids),
+        "status_counts": _counts_from_sets(status_sets, QUESTION_STATUS_ORDER),
+        "type_counts": _counts_from_sets(type_sets, QUESTION_TYPE_ORDER),
+        "by_chapter_status_counts": {
+            chapter_id: _counts_from_sets(value_sets, QUESTION_STATUS_ORDER)
+            for chapter_id, value_sets in by_chapter_status_sets.items()
+        },
+        "by_chapter_type_counts": {
+            chapter_id: _counts_from_sets(value_sets, QUESTION_TYPE_ORDER)
+            for chapter_id, value_sets in by_chapter_type_sets.items()
+        },
+        "by_experiment_status_counts": {
+            experiment_id: _counts_from_sets(value_sets, QUESTION_STATUS_ORDER)
+            for experiment_id, value_sets in by_experiment_status_sets.items()
+        },
+        "by_experiment_type_counts": {
+            experiment_id: _counts_from_sets(value_sets, QUESTION_TYPE_ORDER)
+            for experiment_id, value_sets in by_experiment_type_sets.items()
+        },
+    }
+
+
+def _summarize_media_resources_for_overview(media_resources: list[Any]) -> dict[str, Any]:
+    asset_ids: set[str] = set()
+    asset_status_counts = _zero_counts(MEDIA_UPLOAD_STATUS_ORDER)
+    binding_status_counts = _zero_counts(MEDIA_BINDING_STATUS_ORDER)
+    for index, media_resource in enumerate(media_resources):
+        if isinstance(media_resource, dict):
+            media_id = str(
+                media_resource.get("media_id")
+                or media_resource.get("binding_id")
+                or media_resource.get("id")
+                or f"media:{index}"
+            )
+            upload_status = str(media_resource.get("upload_status") or "unknown")
+            binding_status = str(media_resource.get("binding_status") or media_resource.get("status") or "unknown")
+        else:
+            media_id = f"media:{index}"
+            upload_status = "unknown"
+            binding_status = "unknown"
+        asset_ids.add(media_id)
+        asset_status_counts[upload_status] = asset_status_counts.get(upload_status, 0) + 1
+        binding_status_counts[binding_status] = binding_status_counts.get(binding_status, 0) + 1
+    return {
+        "media_ids": asset_ids,
+        "asset_status_counts": asset_status_counts,
+        "binding_status_counts": binding_status_counts,
+        "ready_count": int(asset_status_counts.get("ready", 0)),
+        "published_count": int(binding_status_counts.get("published", 0)),
+        "draft_count": int(binding_status_counts.get("draft", 0)),
+    }
 
 
 def _build_learning_resource_overview(
@@ -1166,10 +1377,14 @@ def _build_learning_resource_overview(
     experiments: list[dict[str, Any]],
     questions: list[dict[str, Any]],
     bindings_by_experiment: dict[str, list[str]],
+    dashboard_stats: dict[str, Any] | None = None,
+    experiment_framework: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
-    question_counts_by_chapter, question_counts_by_experiment, total_published_questions = _count_questions_by_chapter_and_experiment(
-        questions, bindings_by_experiment
-    )
+    dashboard_stats = dashboard_stats or {}
+    question_summary = _summarize_questions_for_overview(questions, bindings_by_experiment)
+    question_counts_by_chapter = question_summary["by_chapter_count"]
+    question_counts_by_experiment = question_summary["by_experiment_count"]
+    total_question_count = int(question_summary["total_count"])
 
     sorted_chapters = sorted(chapters, key=_chapter_sort_key)
     group_by_chapter: dict[str, dict[str, Any]] = {}
@@ -1183,7 +1398,13 @@ def _build_learning_resource_overview(
             "knowledge_point_count": 0,
             "experiment_count": 0,
             "question_count": int(question_counts_by_chapter.get(chapter_id, 0)),
+            "question_status_counts": question_summary["by_chapter_status_counts"].get(chapter_id, _zero_counts(QUESTION_STATUS_ORDER)),
+            "question_type_counts": question_summary["by_chapter_type_counts"].get(chapter_id, _zero_counts(QUESTION_TYPE_ORDER)),
             "media_count": 0,
+            "media_ready_count": 0,
+            "media_published_count": 0,
+            "media_asset_status_counts": _zero_counts(MEDIA_UPLOAD_STATUS_ORDER),
+            "media_binding_status_counts": _zero_counts(MEDIA_BINDING_STATUS_ORDER),
             "units": [],
             "experiments": [],
         }
@@ -1236,17 +1457,8 @@ def _build_learning_resource_overview(
         all_experiment_ids.add(experiment_id)
         media_resources = experiment.get("media_resources") or []
         experiment_media_count = len(media_resources)
-        for index, media_resource in enumerate(media_resources):
-            if isinstance(media_resource, dict):
-                media_id = str(
-                    media_resource.get("media_id")
-                    or media_resource.get("binding_id")
-                    or media_resource.get("id")
-                    or f"{experiment_id}:{index}"
-                )
-            else:
-                media_id = f"{experiment_id}:{index}"
-            all_media_ids.add(media_id)
+        media_summary = _summarize_media_resources_for_overview(media_resources)
+        all_media_ids.update(media_summary["media_ids"])
         chapter_bindings = experiment.get("chapter_bindings") or []
         chapter_ids = [
             str(binding.get("chapter_id") or "")
@@ -1266,13 +1478,25 @@ def _build_learning_resource_overview(
                     "status": experiment.get("status") or experiment.get("content_status") or "published",
                     "display_order": experiment.get("display_order"),
                     "media_count": experiment_media_count,
+                    "media_ready_count": media_summary["ready_count"],
+                    "media_published_count": media_summary["published_count"],
+                    "media_asset_status_counts": media_summary["asset_status_counts"],
+                    "media_binding_status_counts": media_summary["binding_status_counts"],
                     "question_count": int(question_counts_by_experiment.get(experiment_id, 0)),
+                    "question_status_counts": question_summary["by_experiment_status_counts"].get(experiment_id, _zero_counts(QUESTION_STATUS_ORDER)),
+                    "question_type_counts": question_summary["by_experiment_type_counts"].get(experiment_id, _zero_counts(QUESTION_TYPE_ORDER)),
                 }
             )
             group["experiment_count"] += 1
             group["media_count"] += experiment_media_count
+            group["media_ready_count"] += media_summary["ready_count"]
+            group["media_published_count"] += media_summary["published_count"]
+            for key, value in media_summary["asset_status_counts"].items():
+                group["media_asset_status_counts"][key] = group["media_asset_status_counts"].get(key, 0) + int(value)
+            for key, value in media_summary["binding_status_counts"].items():
+                group["media_binding_status_counts"][key] = group["media_binding_status_counts"].get(key, 0) + int(value)
 
-    area_order = ["p", "s", "ds", "d", "f", GENERAL_RESOURCE_AREA_ID, "other"]
+    area_order = ["p", "s", "ds", "d", "f", "integrated", GENERAL_RESOURCE_AREA_ID, "other"]
     area_by_id: dict[str, dict[str, Any]] = {}
     for group in groups:
         area_id = str(group["area_id"])
@@ -1290,23 +1514,85 @@ def _build_learning_resource_overview(
                     "experiment_count": 0,
                     "question_count": 0,
                     "media_count": 0,
+                    "media_ready_count": 0,
+                    "media_published_count": 0,
                 },
             },
         )
         area["group_ids"].append(group["id"])
         area["metrics"]["group_count"] += 1
-        for key in ("knowledge_unit_count", "knowledge_point_count", "experiment_count", "question_count", "media_count"):
+        for key in (
+            "knowledge_unit_count",
+            "knowledge_point_count",
+            "experiment_count",
+            "question_count",
+            "media_count",
+            "media_ready_count",
+            "media_published_count",
+        ):
             area["metrics"][key] += int(group.get(key) or 0)
 
     areas = sorted(area_by_id.values(), key=lambda item: (area_order.index(item["area_id"]) if item["area_id"] in area_order else 99, item["area_name"]))
+    experiment_status_counts = _zero_counts(("draft", "published", "archived"))
+    for experiment in experiments:
+        status_value = str(experiment.get("status") or "published")
+        experiment_status_counts[status_value] = experiment_status_counts.get(status_value, 0) + 1
+    rag_stats = dashboard_stats.get("rag") or {}
+    media_stats = dashboard_stats.get("media") or {}
+    class_stats = dashboard_stats.get("classes_students") or {}
     metrics = {
         "knowledge_unit_count": sum(int(group.get("knowledge_unit_count") or 0) for group in groups),
         "knowledge_point_count": sum(int(group.get("knowledge_point_count") or 0) for group in groups),
         "experiment_count": len(all_experiment_ids),
         "media_resource_count": len(all_media_ids),
-        "question_count": total_published_questions,
+        "question_count": total_question_count,
+        "published_question_count": int(question_summary["status_counts"].get("published", 0)),
+        "draft_question_count": int(question_summary["status_counts"].get("draft", 0)),
+        "published_video_binding_count": int(media_stats.get("published_binding_count", 0)),
+        "video_asset_count": int(media_stats.get("asset_count", 0)),
+        "class_count": int(class_stats.get("class_count", 0)),
+        "student_count": int(class_stats.get("roster_count", 0)),
     }
-    return {"metrics": metrics, "areas": areas, "groups": groups}
+    domains = {
+        "knowledge": {
+            "title": "知识框架 / 检索语料",
+            "knowledge_unit_count": metrics["knowledge_unit_count"],
+            "knowledge_point_count": metrics["knowledge_point_count"],
+            "source_document_count": int(rag_stats.get("source_document_count", 0)),
+            "source_chunk_count": int(rag_stats.get("source_chunk_count", 0)),
+            "embedding_count": int(rag_stats.get("embedding_count", 0)),
+        },
+        "experiment_video": {
+            "title": "实验与视频",
+            "experiment_count": metrics["experiment_count"],
+            "experiment_status_counts": experiment_status_counts,
+            "video_asset_count": int(media_stats.get("asset_count", 0)),
+            "video_binding_count": int(media_stats.get("binding_count", 0)),
+            "ready_video_count": int(media_stats.get("ready_asset_count", 0)),
+            "published_video_count": int(media_stats.get("published_binding_count", 0)),
+            "asset_status_counts": media_stats.get("asset_status_counts") or _zero_counts(MEDIA_UPLOAD_STATUS_ORDER),
+            "binding_status_counts": media_stats.get("binding_status_counts") or _zero_counts(MEDIA_BINDING_STATUS_ORDER),
+        },
+        "question_bank": {
+            "title": "题库",
+            "question_count": total_question_count,
+            "status_counts": question_summary["status_counts"],
+            "type_counts": question_summary["type_counts"],
+            "published_question_count": int(question_summary["status_counts"].get("published", 0)),
+            "draft_question_count": int(question_summary["status_counts"].get("draft", 0)),
+        },
+        "classes_students": {
+            "title": "班级与学生",
+            **class_stats,
+        },
+    }
+    return {
+        "metrics": metrics,
+        "domains": domains,
+        "areas": areas,
+        "groups": groups,
+        "experiment_framework": experiment_framework,
+    }
 
 
 def _filter_questions_for_chapter(
@@ -1535,6 +1821,7 @@ def _list_question_bank_question_rows(session: Any) -> list[dict[str, Any]]:
                        q.source_chunk_ids,
                        q.source_refs,
                        q.status,
+                       q.metadata,
                        q.created_at,
                        q.updated_at,
                        b.bank_kind,
@@ -1614,67 +1901,10 @@ def _list_learning_resource_experiments(session: Any) -> list[dict[str, Any]]:
     ]
 
 
-def _json_learning_resource_overview() -> dict[str, Any]:
-    experiments: list[dict[str, Any]] = []
-    bindings_by_experiment: dict[str, list[str]] = {}
-    experiment_ids: set[str] = set()
-    for experiment in data_loader.experiments():
-        experiment_id = str(experiment.get("id") or experiment.get("experiment_id") or "")
-        chapter_id = str(experiment.get("normalized_chapter_id") or experiment.get("chapter_id") or "")
-        if not experiment_id or not chapter_id:
-            continue
-        experiment_ids.add(experiment_id)
-        media_resources = []
-        if experiment.get("video_url") and str(experiment.get("media_status") or "") in {"ready", "published"}:
-            media_resources.append(
-                {
-                    "media_id": experiment_id,
-                    "title": experiment.get("name") or experiment_id,
-                }
-            )
-        experiments.append(
-            {
-                "id": experiment_id,
-                "code": experiment.get("code") or "",
-                "title": experiment.get("name") or experiment.get("normalized_name") or experiment_id,
-                "status": "published" if experiment.get("student_visible", True) else "draft",
-                "display_order": experiment.get("display_order"),
-                "chapter_bindings": [{"chapter_id": chapter_id}],
-                "media_resources": media_resources,
-            }
-        )
-        bindings_by_experiment[experiment_id] = [chapter_id]
-
-    experiment_questions: list[dict[str, Any]] = []
-    for question in data_loader.questions():
-        related_experiment_ids = [
-            str(experiment_id)
-            for experiment_id in question.get("related_experiment_ids") or []
-            if str(experiment_id) in experiment_ids
-        ]
-        if not related_experiment_ids and str(question.get("experiment_id") or "") not in experiment_ids:
-            continue
-        item = dict(question)
-        item["related_experiment_ids"] = related_experiment_ids
-        experiment_questions.append(item)
-
-    return _build_learning_resource_overview(
-        chapters=data_loader.chapters(),
-        units=data_loader.units(),
-        knowledge_points=data_loader.knowledge_points(),
-        experiments=experiments,
-        questions=experiment_questions,
-        bindings_by_experiment=bindings_by_experiment,
-    )
-
-
 @admin_router.get("/learning-resources/overview")
 async def admin_learning_resources_overview(
     user: AuthUser = Depends(require_roles("admin", "teacher")),
 ) -> dict[str, Any]:
-    if get_settings().data_backend == "json":
-        return _json_learning_resource_overview()
-
     with db_session() as session:
         chapters = _list_learning_resource_chapters(session)
         units = _list_learning_resource_units(session)
@@ -1682,6 +1912,8 @@ async def admin_learning_resources_overview(
         experiments = _list_learning_resource_experiments(session)
         bindings_by_experiment = _question_bank_bindings_by_experiment(session)
         questions = _list_question_bank_question_rows(session)
+        dashboard_stats = _load_learning_resource_dashboard_stats(session)
+        experiment_framework = build_experiment_framework_overview(session)
     return _build_learning_resource_overview(
         chapters=chapters,
         units=units,
@@ -1689,47 +1921,23 @@ async def admin_learning_resources_overview(
         experiments=experiments,
         questions=questions,
         bindings_by_experiment=bindings_by_experiment,
+        dashboard_stats=dashboard_stats,
+        experiment_framework=experiment_framework,
     )
+
+
+@admin_router.get("/experiment-knowledge-framework/overview")
+async def admin_experiment_knowledge_framework_overview(
+    user: AuthUser = Depends(require_roles("admin", "teacher")),
+) -> dict[str, Any]:
+    with db_session() as session:
+        return build_experiment_framework_overview(session)
 
 
 def _load_chapter_source_refs(session: Any, *, chapter_id: str | None, prompt: str, limit: int = 6) -> list[dict[str, Any]]:
     if not chapter_id:
         return []
-    rows = [
-        dict(row)
-        for row in session.execute(
-            text(
-                """
-                SELECT sc.id AS chunk_id, sc.text, sc.markdown, sc.chapter_id, sc.page_number,
-                       sc.section_title, sd.file_name AS source_file
-                FROM source_chunks sc
-                LEFT JOIN source_documents sd ON sd.id = sc.document_id
-                WHERE sc.chapter_id = :chapter_id
-                  AND COALESCE(sc.content_status, 'published') = 'published'
-                ORDER BY sc.document_id, sc.chunk_index
-                LIMIT 120
-                """
-            ),
-            {"chapter_id": chapter_id},
-        )
-        .mappings()
-        .all()
-    ]
-    rows.sort(
-        key=lambda row: keyword_score(prompt, {"text": row.get("text") or row.get("markdown") or ""}, chapter_id=row.get("chapter_id")),
-        reverse=True,
-    )
-    return [
-        {
-            "chunk_id": row.get("chunk_id"),
-            "source_file": row.get("source_file"),
-            "chapter_id": row.get("chapter_id"),
-            "page_number": row.get("page_number"),
-            "section_title": row.get("section_title"),
-            "text_preview": " ".join((row.get("text") or row.get("markdown") or "").split())[:360],
-        }
-        for row in rows[:limit]
-    ]
+    return load_evidence_source_refs(session, prompt=prompt, chapter_ids=[chapter_id], limit=limit)
 
 
 @admin_router.get("/question-banks/chapters")
@@ -2161,47 +2369,14 @@ def _load_generation_sources(
             .mappings()
             .all()
         ]
-    filters = ["COALESCE(sc.content_status, 'published') = 'published'"]
-    params: dict[str, Any] = {}
-    if chapter_ids:
-        filters.append("sc.chapter_id = ANY(:chapter_ids)")
-        params["chapter_ids"] = chapter_ids
-    if knowledge_point_ids:
-        filters.append("sc.related_knowledge_point_ids && :knowledge_point_ids")
-        params["knowledge_point_ids"] = knowledge_point_ids
-    rows = [
-        dict(row)
-        for row in session.execute(
-            text(
-                f"""
-                SELECT sc.id AS chunk_id, sc.text, sc.markdown, sc.chapter_id, sc.page_number,
-                       sc.section_title, sc.related_knowledge_point_ids, sc.related_experiment_ids,
-                       sd.file_name AS source_file
-                FROM source_chunks sc
-                LEFT JOIN source_documents sd ON sd.id = sc.document_id
-                WHERE {" AND ".join(filters)}
-                ORDER BY sc.document_id, sc.chunk_index
-                LIMIT 200
-                """
-            ),
-            params,
-        )
-        .mappings()
-        .all()
-    ]
-    query = " ".join([prompt, experiment.get("title") or "", experiment.get("summary") or ""])
-    rows.sort(key=lambda row: keyword_score(query, {"text": row.get("text") or row.get("markdown") or ""}, chapter_id=row.get("chapter_id")), reverse=True)
-    return [
-        {
-            "chunk_id": row.get("chunk_id"),
-            "source_file": row.get("source_file"),
-            "chapter_id": row.get("chapter_id"),
-            "page_number": row.get("page_number"),
-            "section_title": row.get("section_title"),
-            "text_preview": " ".join((row.get("text") or row.get("markdown") or "").split())[:360],
-        }
-        for row in rows[:limit]
-    ]
+    return load_evidence_source_refs(
+        session,
+        prompt=prompt,
+        experiment=experiment,
+        chapter_ids=chapter_ids,
+        knowledge_point_ids=knowledge_point_ids,
+        limit=limit,
+    )
 
 
 def _local_generated_questions(
@@ -2563,6 +2738,62 @@ def _grade_answer(question_type: str, expected: dict[str, Any], submitted: Any) 
     return False
 
 
+def _single_choice_label(submitted: Any) -> str | None:
+    raw = submitted.get("value") if isinstance(submitted, dict) else submitted
+    label = str(raw or "").strip()
+    return label.upper() if label else None
+
+
+def _attempt_diagnostic_metadata(question: dict[str, Any], submitted: Any, correct: bool) -> dict[str, Any]:
+    question_metadata = question.get("metadata") if isinstance(question.get("metadata"), dict) else {}
+    primary_point_keys = [
+        str(item)
+        for item in question_metadata.get("primary_point_keys") or []
+        if str(item).strip()
+    ]
+    primary_points = [
+        item
+        for item in question_metadata.get("primary_points") or []
+        if isinstance(item, dict) and item.get("point_key")
+    ]
+    selected_label = _single_choice_label(submitted) if question.get("question_type") == "single_choice" else None
+    option_links = [
+        item
+        for item in question_metadata.get("option_links") or []
+        if isinstance(item, dict)
+    ]
+    selected_option_link = None
+    if selected_label:
+        selected_option_link = next(
+            (
+                item
+                for item in option_links
+                if str(item.get("label") or "").strip().upper() == selected_label
+            ),
+            None,
+        )
+    return {
+        "point_aware_question_bank": bool(question_metadata.get("point_aware_question_bank")),
+        "primary_point_keys": primary_point_keys,
+        "primary_points": primary_points,
+        "coverage_tags": list(question_metadata.get("coverage_tags") or []),
+        "selected_option_label": selected_label,
+        "selected_option_link": selected_option_link,
+        "diagnostic_role": selected_option_link.get("role") if isinstance(selected_option_link, dict) else None,
+        "correct": correct,
+    }
+
+
+def _attempt_primary_points(attempt: dict[str, Any]) -> list[dict[str, Any]]:
+    metadata = attempt.get("metadata") if isinstance(attempt.get("metadata"), dict) else {}
+    question_metadata = attempt.get("question_metadata") if isinstance(attempt.get("question_metadata"), dict) else {}
+    points = metadata.get("primary_points") or question_metadata.get("primary_points") or []
+    if points:
+        return [item for item in points if isinstance(item, dict) and item.get("point_key")]
+    keys = metadata.get("primary_point_keys") or question_metadata.get("primary_point_keys") or []
+    return [{"point_key": str(key), "point_title": str(key)} for key in keys if str(key).strip()]
+
+
 @student_router.post("/experiment-questions/submit")
 async def submit_experiment_questions(payload: ExperimentQuestionSubmitRequest) -> dict[str, Any]:
     answer_lookup = {answer.question_id: answer.answer for answer in payload.answers}
@@ -2637,10 +2868,16 @@ async def submit_experiment_questions(payload: ExperimentQuestionSubmitRequest) 
             .all()
         ]
         correct_count = 0
+        submitted_point_keys: set[str] = set()
+        submitted_option_links: list[dict[str, Any]] = []
         for question in questions:
             submitted = answer_lookup.get(str(question["id"]))
             correct = _grade_answer(question["question_type"], question["answer"], submitted)
             correct_count += 1 if correct else 0
+            attempt_metadata = _attempt_diagnostic_metadata(question, submitted, correct)
+            submitted_point_keys.update(attempt_metadata.get("primary_point_keys") or [])
+            if isinstance(attempt_metadata.get("selected_option_link"), dict):
+                submitted_option_links.append(attempt_metadata["selected_option_link"])
             session.execute(
                 text(
                     """
@@ -2650,7 +2887,7 @@ async def submit_experiment_questions(payload: ExperimentQuestionSubmitRequest) 
                     )
                     VALUES (
                       :student_id, :class_id, :experiment_id, CAST(:question_id AS uuid), :question_type,
-                      CAST(:submitted_answer AS jsonb), :correct, :score, :attempt_kind, '{}'::jsonb
+                      CAST(:submitted_answer AS jsonb), :correct, :score, :attempt_kind, CAST(:metadata AS jsonb)
                     )
                     """
                 ),
@@ -2664,6 +2901,7 @@ async def submit_experiment_questions(payload: ExperimentQuestionSubmitRequest) 
                     "correct": correct,
                     "score": 1 if correct else 0,
                     "attempt_kind": payload.attempt_kind,
+                    "metadata": _json(attempt_metadata),
                 },
             )
         total = len(questions)
@@ -2732,7 +2970,15 @@ async def submit_experiment_questions(payload: ExperimentQuestionSubmitRequest) 
                 "chapter_id": primary_chapter,
                 "experiment_id": payload.experiment_id,
                 "correct": score >= 60 if total else None,
-                "metadata": _json({"score": score, "correct_count": correct_count, "total_count": total}),
+                "metadata": _json(
+                    {
+                        "score": score,
+                        "correct_count": correct_count,
+                        "total_count": total,
+                        "point_keys": sorted(submitted_point_keys),
+                        "selected_option_links": submitted_option_links,
+                    }
+                ),
             },
         )
     return {"score": score, "correct_count": correct_count, "total_count": total}
@@ -2920,7 +3166,8 @@ async def admin_student_report(
             for row in session.execute(
                 text(
                     """
-                    SELECT a.*, q.stem, q.related_knowledge_point_ids, fe.code AS experiment_code, fe.title AS experiment_title
+                    SELECT a.*, q.stem, q.related_knowledge_point_ids, q.metadata AS question_metadata,
+                           fe.code AS experiment_code, fe.title AS experiment_title
                     FROM experiment_question_attempts a
                     LEFT JOIN experiment_questions q ON q.id = a.question_id
                     LEFT JOIN formal_experiments fe ON fe.id = a.experiment_id
@@ -2952,9 +3199,26 @@ async def admin_student_report(
             .all()
         ]
     weak_points: dict[str, dict[str, Any]] = {}
+    weak_video_points: dict[str, dict[str, Any]] = {}
     for attempt in attempts:
         if attempt.get("correct") is True:
             continue
+        for point in _attempt_primary_points(attempt):
+            point_key = str(point.get("point_key") or "")
+            if not point_key:
+                continue
+            weak_video_points.setdefault(
+                point_key,
+                {
+                    "point_key": point_key,
+                    "point_title": point.get("point_title") or point_key,
+                    "experiment_id": attempt.get("experiment_id"),
+                    "experiment_code": attempt.get("experiment_code"),
+                    "experiment_title": attempt.get("experiment_title"),
+                    "incorrect_count": 0,
+                },
+            )
+            weak_video_points[point_key]["incorrect_count"] += 1
         kp_ids = attempt.get("related_knowledge_point_ids") or []
         if not kp_ids:
             weak_points.setdefault("unmapped", {"knowledge_point_id": None, "title": "未映射理论 KP", "incorrect_count": 0})
@@ -2968,6 +3232,7 @@ async def admin_student_report(
         "progress": progress,
         "attempts": attempts,
         "weak_points": sorted(weak_points.values(), key=lambda row: row["incorrect_count"], reverse=True),
+        "weak_video_points": sorted(weak_video_points.values(), key=lambda row: row["incorrect_count"], reverse=True),
         "timeline": timeline,
     }
 
@@ -3020,7 +3285,49 @@ async def admin_class_weak_points(
                 "incorrect_rate": round(100 * int(row["incorrect_count"]) / max(1, int(row["attempt_count"])), 2),
             }
         )
-    return {"items": items, "total": len(items)}
+    point_items_by_key: dict[str, dict[str, Any]] = {}
+    for attempt in point_attempts:
+        points = _attempt_primary_points(attempt)
+        if not points:
+            continue
+        selected_link = None
+        metadata = attempt.get("metadata") if isinstance(attempt.get("metadata"), dict) else {}
+        if isinstance(metadata.get("selected_option_link"), dict):
+            selected_link = metadata["selected_option_link"]
+        for point in points:
+            point_key = str(point.get("point_key") or "")
+            if not point_key:
+                continue
+            item = point_items_by_key.setdefault(
+                point_key,
+                {
+                    "point_key": point_key,
+                    "point_title": point.get("point_title") or point_key,
+                    "experiment_id": attempt.get("experiment_id"),
+                    "experiment_code": attempt.get("experiment_code"),
+                    "experiment_title": attempt.get("experiment_title"),
+                    "attempt_count": 0,
+                    "incorrect_count": 0,
+                    "representative_questions": [],
+                    "selected_option_links": [],
+                    "kp_unmapped": True,
+                },
+            )
+            item["attempt_count"] += 1
+            if attempt.get("correct") is False:
+                item["incorrect_count"] += 1
+                if attempt.get("stem") and len(item["representative_questions"]) < 3:
+                    item["representative_questions"].append(
+                        {"question_id": str(attempt.get("question_id") or ""), "stem": attempt.get("stem")}
+                    )
+                if selected_link and len(item["selected_option_links"]) < 10:
+                    item["selected_option_links"].append(selected_link)
+    point_items = []
+    for item in point_items_by_key.values():
+        item["incorrect_rate"] = round(100 * int(item["incorrect_count"]) / max(1, int(item["attempt_count"])), 2)
+        point_items.append(item)
+    point_items.sort(key=lambda row: (row["incorrect_count"], row["attempt_count"]), reverse=True)
+    return {"items": items, "total": len(items), "point_items": point_items, "point_total": len(point_items)}
 
 
 @admin_router.get("/analytics/classes/{class_id}/export")

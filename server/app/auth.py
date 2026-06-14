@@ -340,11 +340,9 @@ async def register_student(payload: StudentActivateRequest) -> LoginResponse:
     return await activate_student(payload)
 
 
-async def get_current_user(credentials: HTTPAuthorizationCredentials | None = Depends(bearer)) -> AuthUser:
-    if not credentials:
-        raise _auth_error()
+def get_user_from_access_token(access_token: str) -> AuthUser:
     try:
-        claims = decode_access_token(credentials.credentials)
+        claims = decode_access_token(access_token)
     except AuthError as exc:
         raise _auth_error(str(exc)) from exc
 
@@ -378,6 +376,12 @@ async def get_current_user(credentials: HTTPAuthorizationCredentials | None = De
     if user.status != "active" or user.password_version != int(claims.get("password_version") or 0):
         raise _auth_error("User session is no longer valid")
     return user
+
+
+async def get_current_user(credentials: HTTPAuthorizationCredentials | None = Depends(bearer)) -> AuthUser:
+    if not credentials:
+        raise _auth_error()
+    return get_user_from_access_token(credentials.credentials)
 
 
 def require_roles(*roles: str) -> Callable[[AuthUser], AuthUser]:

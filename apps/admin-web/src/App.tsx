@@ -1,4 +1,4 @@
-﻿import { useEffect, useMemo, useState } from "react";
+﻿import { useEffect, useMemo, useRef, useState } from "react";
 import { Navigate, Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { lazy, Suspense } from "react";
@@ -31,6 +31,7 @@ import {
   Table,
   Tabs,
   Tag,
+  Tooltip,
   Typography,
   Upload,
   theme,
@@ -43,6 +44,7 @@ import {
   BookOutlined,
   CheckCircleOutlined,
   CloudUploadOutlined,
+  CloseCircleOutlined,
   DatabaseOutlined,
   DeleteOutlined,
   EditOutlined,
@@ -52,14 +54,20 @@ import {
   KeyOutlined,
   LogoutOutlined,
   MessageOutlined,
+  PauseCircleOutlined,
+  PlayCircleOutlined,
   PlusOutlined,
   QuestionCircleOutlined,
+  ReloadOutlined,
   SafetyCertificateOutlined,
   SettingOutlined,
   TeamOutlined,
   UnorderedListOutlined,
   VideoCameraOutlined,
 } from "@ant-design/icons";
+import Uppy from "@uppy/core";
+import Tus from "@uppy/tus";
+import { createSHA256 } from "hash-wasm";
 import dayjs from "dayjs";
 import {
   api,
@@ -90,6 +98,7 @@ import type {
   FeedbackUpdate,
   LearningResourceOverview,
   MediaAsset,
+  MediaDuplicatePrecheck,
   Question,
   ChapterQuestion,
   QuestionBankAssistantPreview,
@@ -138,7 +147,7 @@ type VideoPreviewTarget = {
 type VideoPointFilter = "all" | "empty" | "referenced" | "published";
 
 const navItems = [
-  { key: "/overview", icon: <BookOutlined />, label: "学习资源" },
+  { key: "/overview", icon: <BookOutlined />, label: "资源总览" },
   { key: "/classes", icon: <TeamOutlined />, label: "班级与学生" },
   { key: "/experiments", icon: <ExperimentOutlined />, label: "实验管理" },
   { key: "/videos", icon: <VideoCameraOutlined />, label: "视频资源" },
@@ -467,7 +476,7 @@ function PageTitle({ title, description, extra }: { title: string; description?:
     <Flex align="center" justify="space-between" gap={16} className="page-title">
       <div>
         <Title level={2}>{title}</Title>
-        {description ? <Text type="secondary">{description}</Text> : null}
+        {description ? <Text type="secondary" className="page-title-description">{description}</Text> : null}
       </div>
       {extra}
     </Flex>
@@ -530,8 +539,211 @@ const theoryChapters: TheoryChapter[] = [
   { chapter_id: "CH19", chapter_number: 19, chapter_title: "第19章 铜锌副族元素", area_id: "ds", area_name: "ds 区元素" },
   { chapter_id: "CH20", chapter_number: 20, chapter_title: "第20章 d 区过渡金属元素", area_id: "d", area_name: "d 区元素" },
   { chapter_id: "CH21", chapter_number: 21, chapter_title: "第21章 镧系和锕系元素", area_id: "f", area_name: "f 区元素" },
-  { chapter_id: "CH22", chapter_number: 22, chapter_title: "第22章 氢和稀有气体", area_id: "integrated", area_name: "综合章节" },
+  { chapter_id: "CH22", chapter_number: 22, chapter_title: "第22章 氢和稀有气体", area_id: "integrated", area_name: "氢和稀有气体" },
 ];
+
+const resourceAreaMeta: Record<string, { label: string; shortLabel: string; color: string; ink: string; selected: string }> = {
+  s: { label: "s 区元素", shortLabel: "s", color: "#d9f0c7", ink: "#355b16", selected: "#91c96d" },
+  p: { label: "p 区元素", shortLabel: "p", color: "#cdeee1", ink: "#005826", selected: "#2fa66d" },
+  d: { label: "d 区元素", shortLabel: "d", color: "#d8e7ff", ink: "#254a7a", selected: "#83a9e8" },
+  ds: { label: "ds 区元素", shortLabel: "ds", color: "#f3dfb8", ink: "#76531b", selected: "#e1b94f" },
+  f: { label: "f 区元素", shortLabel: "f", color: "#eadcf8", ink: "#6b4a86", selected: "#ba8cde" },
+  integrated: { label: "氢和稀有气体", shortLabel: "氢/稀气", color: "#e8f1f7", ink: "#356f9c", selected: "#7ba3c9" },
+  general: { label: "通识资源", shortLabel: "通识", color: "#edf3ee", ink: "#375247", selected: "#9bbbaa" },
+  other: { label: "其他资源", shortLabel: "其他", color: "#eef1ef", ink: "#53635b", selected: "#aebbb4" },
+};
+
+const periodicElementSymbols: Record<string, string> = {
+  "1-1": "H",
+  "1-18": "He",
+  "2-1": "Li",
+  "2-2": "Be",
+  "2-13": "B",
+  "2-14": "C",
+  "2-15": "N",
+  "2-16": "O",
+  "2-17": "F",
+  "2-18": "Ne",
+  "3-1": "Na",
+  "3-2": "Mg",
+  "3-13": "Al",
+  "3-14": "Si",
+  "3-15": "P",
+  "3-16": "S",
+  "3-17": "Cl",
+  "3-18": "Ar",
+  "4-1": "K",
+  "4-2": "Ca",
+  "4-3": "Sc",
+  "4-4": "Ti",
+  "4-5": "V",
+  "4-6": "Cr",
+  "4-7": "Mn",
+  "4-8": "Fe",
+  "4-9": "Co",
+  "4-10": "Ni",
+  "4-11": "Cu",
+  "4-12": "Zn",
+  "4-13": "Ga",
+  "4-14": "Ge",
+  "4-15": "As",
+  "4-16": "Se",
+  "4-17": "Br",
+  "4-18": "Kr",
+  "5-1": "Rb",
+  "5-2": "Sr",
+  "5-3": "Y",
+  "5-4": "Zr",
+  "5-5": "Nb",
+  "5-6": "Mo",
+  "5-7": "Tc",
+  "5-8": "Ru",
+  "5-9": "Rh",
+  "5-10": "Pd",
+  "5-11": "Ag",
+  "5-12": "Cd",
+  "5-13": "In",
+  "5-14": "Sn",
+  "5-15": "Sb",
+  "5-16": "Te",
+  "5-17": "I",
+  "5-18": "Xe",
+  "6-1": "Cs",
+  "6-2": "Ba",
+  "6-3": "La",
+  "6-4": "Hf",
+  "6-5": "Ta",
+  "6-6": "W",
+  "6-7": "Re",
+  "6-8": "Os",
+  "6-9": "Ir",
+  "6-10": "Pt",
+  "6-11": "Au",
+  "6-12": "Hg",
+  "6-13": "Tl",
+  "6-14": "Pb",
+  "6-15": "Bi",
+  "6-16": "Po",
+  "6-17": "At",
+  "6-18": "Rn",
+  "7-1": "Fr",
+  "7-2": "Ra",
+  "7-3": "Ac",
+  "7-4": "Rf",
+  "7-5": "Db",
+  "7-6": "Sg",
+  "7-7": "Bh",
+  "7-8": "Hs",
+  "7-9": "Mt",
+  "7-10": "Ds",
+  "7-11": "Rg",
+  "7-12": "Cn",
+  "7-13": "Nh",
+  "7-14": "Fl",
+  "7-15": "Mc",
+  "7-16": "Lv",
+  "7-17": "Ts",
+  "7-18": "Og",
+};
+
+const fBlockSymbols = [
+  ["Ce", "Pr", "Nd", "Pm", "Sm", "Eu", "Gd", "Tb", "Dy", "Ho", "Er", "Tm", "Yb", "Lu"],
+  ["Th", "Pa", "U", "Np", "Pu", "Am", "Cm", "Bk", "Cf", "Es", "Fm", "Md", "No", "Lr"],
+];
+
+const hydrogenNobleGasPositions = new Set(["1-1", "1-18", "2-18", "3-18", "4-18", "5-18", "6-18", "7-18"]);
+
+function periodicAreaForPosition(defaultArea: string, period: number, group: number) {
+  return hydrogenNobleGasPositions.has(`${period}-${group}`) ? "integrated" : defaultArea;
+}
+
+const periodicAreaCells = [
+  ...Array.from({ length: 7 }, (_, index) => ({
+    area: periodicAreaForPosition("s", index + 1, 1),
+    group: 1,
+    period: index + 1,
+    symbol: periodicElementSymbols[`${index + 1}-1`],
+  })),
+  ...Array.from({ length: 6 }, (_, index) => ({ area: "s", group: 2, period: index + 2, symbol: periodicElementSymbols[`${index + 2}-2`] })),
+  ...Array.from({ length: 4 }, (_, periodIndex) =>
+    Array.from({ length: 8 }, (_, groupIndex) => ({
+      area: "d",
+      group: groupIndex + 3,
+      period: periodIndex + 4,
+      symbol: periodicElementSymbols[`${periodIndex + 4}-${groupIndex + 3}`],
+    })),
+  ).flat(),
+  ...Array.from({ length: 4 }, (_, periodIndex) =>
+    Array.from({ length: 2 }, (_, groupIndex) => ({
+      area: "ds",
+      group: groupIndex + 11,
+      period: periodIndex + 4,
+      symbol: periodicElementSymbols[`${periodIndex + 4}-${groupIndex + 11}`],
+    })),
+  ).flat(),
+  ...Array.from({ length: 6 }, (_, periodIndex) =>
+    Array.from({ length: 6 }, (_, groupIndex) => ({
+      area: periodicAreaForPosition("p", periodIndex + 2, groupIndex + 13),
+      group: groupIndex + 13,
+      period: periodIndex + 2,
+      symbol: periodicElementSymbols[`${periodIndex + 2}-${groupIndex + 13}`],
+    })),
+  ).flat(),
+  ...Array.from({ length: 2 }, (_, periodIndex) =>
+    Array.from({ length: 14 }, (_, groupIndex) => ({
+      area: "f",
+      group: groupIndex + 5,
+      period: periodIndex + 8,
+      symbol: fBlockSymbols[periodIndex][groupIndex],
+    })),
+  ).flat(),
+  { area: "integrated", group: 18, period: 1, symbol: periodicElementSymbols["1-18"] },
+];
+
+function areaMeta(areaId?: string | null) {
+  return resourceAreaMeta[areaId || ""] || resourceAreaMeta.other;
+}
+
+function countValue(counts: Record<string, number> | undefined, key: string) {
+  return Number(counts?.[key] || 0);
+}
+
+function resourcePercent(value: number, total: number) {
+  if (!total) return 0;
+  return Math.round((value / total) * 100);
+}
+
+function ResourceMiniStat({
+  label,
+  value,
+  tone = "default",
+  compact = false,
+}: {
+  label: string;
+  value: string | number;
+  tone?: "default" | "green" | "blue" | "amber";
+  compact?: boolean;
+}) {
+  const className = ["resource-mini-stat", `resource-mini-stat-${tone}`, compact ? "compact" : ""].filter(Boolean).join(" ");
+  return (
+    <div className={className}>
+      <span>{label}</span>
+      <strong>{value}</strong>
+    </div>
+  );
+}
+
+function shortResourceTitle(title?: string | null) {
+  return (title || "").replace(/^第\s*(\d+)\s*章\s*/, "$1. ").trim();
+}
+
+function questionTypeSummary(counts?: Record<string, number>) {
+  return [
+    { label: "单选", value: countValue(counts, "single_choice") },
+    { label: "判断", value: countValue(counts, "true_false") },
+    { label: "填空", value: countValue(counts, "fill_blank") },
+  ];
+}
 
 function isGeneralResourceTitle(title?: string | null, chapterId?: string | null) {
   const text = `${chapterId || ""} ${title || ""}`;
@@ -571,6 +783,684 @@ function isPreviewableVideo(asset?: MediaAsset | null): boolean {
   return !asset.mime_type || asset.mime_type.startsWith("video/");
 }
 
+function ResourceDomainCard({
+  title,
+  eyebrow,
+  value,
+  icon,
+  children,
+  tone = "green",
+}: {
+  title: string;
+  eyebrow: string;
+  value: React.ReactNode;
+  icon: React.ReactNode;
+  children: React.ReactNode;
+  tone?: "green" | "blue" | "amber" | "purple";
+}) {
+  return (
+    <Card className={`resource-domain-card resource-domain-${tone}`}>
+      <Flex align="flex-start" justify="space-between" gap={14}>
+        <div className="resource-domain-copy">
+          <Text type="secondary">{eyebrow}</Text>
+          <strong>{title}</strong>
+        </div>
+        <span className="resource-domain-icon">{icon}</span>
+      </Flex>
+      <div className="resource-domain-value">{value}</div>
+      {children}
+    </Card>
+  );
+}
+
+function ResourceOverviewNavigator({
+  overview,
+  selectedGroupId,
+  onSelectGroup,
+}: {
+  overview?: LearningResourceOverview;
+  selectedGroupId?: string;
+  onSelectGroup: (groupId: string) => void;
+}) {
+  const groups = overview?.groups || [];
+  const areas = overview?.areas || [];
+  const selectedGroup = groups.find((group) => group.id === selectedGroupId) || groups[0];
+  const selectedAreaId = selectedGroup?.area_id || areas[0]?.area_id;
+  const selectedArea = areas.find((area) => area.area_id === selectedAreaId) || areas[0];
+  const areaLookup = new Map(areas.map((area) => [area.area_id, area]));
+  const generalArea = areaLookup.get("general");
+  const specialAreas = ["other"]
+    .map((areaId) => areaLookup.get(areaId))
+    .filter((area): area is NonNullable<typeof area> => Boolean(area));
+  const selectedAreaGroups = (selectedArea?.group_ids || [])
+    .map((groupId) => groups.find((item) => item.id === groupId))
+    .filter((group): group is NonNullable<typeof group> => Boolean(group));
+  const showFamilyGrid = !(selectedArea?.area_id === "general" && selectedAreaGroups.length <= 1);
+
+  const selectArea = (areaId: string) => {
+    const area = areaLookup.get(areaId);
+    const firstGroup = area?.group_ids.find((groupId) => groups.some((group) => group.id === groupId));
+    if (firstGroup) onSelectGroup(firstGroup);
+  };
+
+  return (
+    <Card className="resource-periodic-card">
+      <Flex justify="space-between" align="flex-start" gap={16} className="resource-periodic-heading">
+        <div>
+          <Text type="secondary">资源目录</Text>
+          <Title level={4}>按元素区选择章节</Title>
+        </div>
+        {selectedArea ? (
+          <Tag color={areaMeta(selectedArea.area_id).ink}>
+            {areaMeta(selectedArea.area_id).label} · {selectedArea.metrics.group_count}
+          </Tag>
+        ) : null}
+      </Flex>
+
+      <div className="resource-area-legend">
+        {areas.map((area) => {
+          const meta = areaMeta(area.area_id);
+          const active = area.area_id === selectedArea?.area_id;
+          return (
+            <button
+              key={area.area_id}
+              type="button"
+              className={active ? "selected" : ""}
+              style={{ "--area-color": meta.color, "--area-ink": meta.ink } as React.CSSProperties}
+              onClick={() => selectArea(area.area_id)}
+            >
+              <i />
+              <span>{meta.label}</span>
+              <b>{area.metrics.group_count}</b>
+            </button>
+          );
+        })}
+      </div>
+
+      <div className="resource-periodic-grid" aria-label="元素周期表式资源区选择">
+        {Array.from({ length: 18 }, (_, index) => (
+          <div className="resource-periodic-group-number" key={index + 1} style={{ gridColumn: index + 2, gridRow: 1 }}>
+            {index + 1}
+          </div>
+        ))}
+        {["一", "二", "三", "四", "五", "六", "七", "镧系", "锕系"].map((period, index) => (
+          <div className="resource-periodic-period-number" key={period} style={{ gridColumn: 1, gridRow: index + 2 }}>
+            {period}
+          </div>
+        ))}
+        {generalArea ? (
+          <button
+            type="button"
+            aria-label={`选择通识资源，${generalArea.metrics.knowledge_point_count} 个知识点`}
+            className={
+              selectedArea?.area_id === "general"
+                ? "resource-periodic-general-zone active"
+                : "resource-periodic-general-zone"
+            }
+            style={
+              {
+                "--area-color": areaMeta("general").color,
+                "--area-ink": areaMeta("general").ink,
+              } as React.CSSProperties
+            }
+            onClick={() => selectArea("general")}
+          />
+        ) : null}
+        {periodicAreaCells.map((cell, index) => {
+          const meta = areaMeta(cell.area);
+          const available = areaLookup.has(cell.area);
+          const active = selectedArea?.area_id === cell.area;
+          return (
+            <button
+              key={`${cell.area}-${cell.group}-${cell.period}-${index}`}
+              type="button"
+              disabled={!available}
+              className={active ? "resource-element-cell selected-area" : "resource-element-cell"}
+              style={{
+                gridColumn: cell.group + 1,
+                gridRow: cell.period + 1,
+                background: active ? meta.selected : meta.color,
+                "--cell-ink": meta.ink,
+              } as React.CSSProperties}
+              title={`${cell.symbol || meta.label} · ${meta.label}`}
+              onClick={() => selectArea(cell.area)}
+            >
+              <span>{cell.symbol}</span>
+            </button>
+          );
+        })}
+      </div>
+
+      {specialAreas.length ? (
+        <div className="resource-periodic-specials">
+          {specialAreas.map((area) => {
+            const meta = areaMeta(area.area_id);
+            const active = area.area_id === selectedArea?.area_id;
+            return (
+              <button
+                key={area.area_id}
+                type="button"
+                className={active ? "active" : ""}
+                style={{ "--area-color": meta.color, "--area-ink": meta.ink } as React.CSSProperties}
+                onClick={() => selectArea(area.area_id)}
+              >
+                <span>{meta.label}</span>
+                <strong>{area.area_id === "general" ? "通识/跨章节" : area.area_name}</strong>
+                <small>
+                  知识点 {area.metrics.knowledge_point_count} · 实验 {area.metrics.experiment_count} · 题目 {area.metrics.question_count}
+                </small>
+              </button>
+            );
+          })}
+        </div>
+      ) : null}
+
+      {showFamilyGrid ? (
+        <div className="resource-family-grid">
+          {selectedAreaGroups.map((group) => {
+            const active = group.id === selectedGroup?.id;
+            return (
+              <button
+                key={group.id}
+                type="button"
+                className={active ? "resource-family-card active" : "resource-family-card"}
+                onClick={() => onSelectGroup(group.id)}
+              >
+                <span>{group.area_name}</span>
+                <strong>{shortResourceTitle(group.title)}</strong>
+                <small>
+                  知识点 {group.knowledge_point_count} · 实验 {group.experiment_count} · 题目 {group.question_count}
+                </small>
+              </button>
+            );
+          })}
+        </div>
+      ) : null}
+    </Card>
+  );
+}
+
+function ResourceChapterWorkbench({ group }: { group?: LearningResourceOverview["groups"][number] }) {
+  if (!group) return null;
+  const area = areaMeta(group.area_id);
+  const isGeneralGroup = group.kind === "general" || group.area_id === "general";
+  const publishedQuestions = countValue(group.question_status_counts, "published");
+  const publishedVideo = Number(group.media_published_count || 0);
+  const pendingVideo = Math.max(0, Number(group.media_count || 0) - publishedVideo);
+  const questionTypes = questionTypeSummary(group.question_type_counts);
+
+  return (
+    <Card className="resource-workbench-card">
+      <div className="resource-workbench-hero" style={{ "--area-color": area.color, "--area-ink": area.ink } as React.CSSProperties}>
+        <div>
+          <Space wrap className="resource-workbench-tags">
+            <Tag color={area.ink}>{area.label}</Tag>
+            {group.kind === "general" ? <Tag color="blue">通识</Tag> : <Tag>章节</Tag>}
+          </Space>
+          <Title level={3}>{group.title}</Title>
+        </div>
+        <div className="resource-workbench-metrics">
+          <Statistic title="知识单元" value={group.knowledge_unit_count} />
+          <Statistic title="知识点" value={group.knowledge_point_count} />
+          <Statistic title="实验" value={group.experiment_count} />
+          <Statistic title="视频" value={group.media_count} />
+          <Statistic title="题目" value={group.question_count} />
+        </div>
+      </div>
+
+      <div className="resource-workbench-grid">
+        <section className="resource-workbench-panel resource-knowledge-panel">
+          <Flex justify="space-between" align="center" gap={12}>
+            <div>
+              <Text type="secondary">知识框架</Text>
+              <h3>知识单元与知识点</h3>
+            </div>
+          </Flex>
+          <div className="resource-knowledge-status">
+            <div>
+              <span>知识单元</span>
+              <strong>{group.knowledge_unit_count}</strong>
+            </div>
+            <div>
+              <span>知识点</span>
+              <strong>{group.knowledge_point_count}</strong>
+            </div>
+          </div>
+          <div className="resource-unit-stack">
+            {group.units.length ? (
+              group.units.map((unit) => (
+                <div key={unit.unit_id} className="resource-unit-card">
+                  <Text strong>{unit.unit_title}</Text>
+                  <div className="resource-kp-list">
+                    {unit.knowledge_points.slice(0, 4).map((point) => (
+                      <Tooltip key={point.knowledge_point_id} title={point.content} placement="right" overlayClassName="resource-kp-tooltip">
+                        <div className="resource-kp-node">
+                          <span>{point.content}</span>
+                        </div>
+                      </Tooltip>
+                    ))}
+                    {unit.knowledge_points.length > 4 ? (
+                      <Text type="secondary" className="resource-more-text">
+                        另有 {unit.knowledge_points.length - 4} 个知识点
+                      </Text>
+                    ) : null}
+                  </div>
+                </div>
+              ))
+            ) : (
+              <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description="暂无知识单元" />
+            )}
+          </div>
+        </section>
+
+        <section className="resource-workbench-panel resource-experiment-panel">
+          <Flex justify="space-between" align="center" gap={12}>
+            <div>
+              <Text type="secondary">{isGeneralGroup ? "通识定位" : "实验与视频"}</Text>
+              <h3>{isGeneralGroup ? "通识资源说明" : "正式实验资源"}</h3>
+            </div>
+          </Flex>
+          {isGeneralGroup ? (
+            <div className="resource-general-context-card">
+              <strong>通识资源不绑定正式实验</strong>
+              <span>这里用于承载跨章节基础知识、模型方法和通用概念，作为理论教材的背景支撑，不要求引用实验视频。</span>
+              <div className="resource-general-context-tags">
+                <Tag color="green">跨章节</Tag>
+              </div>
+              <div className="resource-general-context-stats">
+                <ResourceMiniStat label="知识单元" value={group.knowledge_unit_count} compact />
+                <ResourceMiniStat label="知识点" value={group.knowledge_point_count} compact />
+              </div>
+            </div>
+          ) : (
+            <>
+              <div className="resource-readiness-row">
+                <div>
+                  <span>已绑定视频</span>
+                  <strong>{group.media_count}</strong>
+                </div>
+                <div>
+                  <span>已发布视频</span>
+                  <strong>{publishedVideo}</strong>
+                </div>
+                <div>
+                  <span>待发布</span>
+                  <strong>{pendingVideo}</strong>
+                </div>
+              </div>
+              {!group.media_count ? <Alert type="warning" showIcon message="本章节实验还没有绑定视频资源" /> : null}
+              <div className="resource-experiment-list">
+                {group.experiments.length ? (
+                  group.experiments.map((experiment) => (
+                    <div key={experiment.id} className="resource-experiment-card">
+                      <Flex justify="space-between" gap={12} align="flex-start">
+                        <div>
+                          <Text strong>
+                            {experiment.code ? `${experiment.code} · ` : ""}
+                            {experiment.title}
+                          </Text>
+                          <Space wrap className="resource-experiment-meta">
+                            <Tag color={statusColor[experiment.status] || "default"}>{statusLabel[experiment.status] || experiment.status}</Tag>
+                            <Tag color={experiment.media_count ? "blue" : "default"}>视频 {experiment.media_count}</Tag>
+                            <Tag color={experiment.media_published_count ? "green" : "default"}>已发布视频 {experiment.media_published_count || 0}</Tag>
+                            <Tag color={experiment.question_count ? "green" : "default"}>题目 {experiment.question_count}</Tag>
+                          </Space>
+                        </div>
+                      </Flex>
+                    </div>
+                  ))
+                ) : (
+                  <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description="暂无绑定实验" />
+                )}
+              </div>
+            </>
+          )}
+        </section>
+
+        <section className="resource-workbench-panel resource-question-panel">
+          <Flex justify="space-between" align="center" gap={12}>
+            <div>
+              <Text type="secondary">题库覆盖</Text>
+              <h3>总数与题型</h3>
+            </div>
+          </Flex>
+          <div className="resource-question-status">
+            <div>
+              <span>题目总数</span>
+              <strong>{group.question_count}</strong>
+            </div>
+            <div>
+              <span>已发布</span>
+              <strong>{publishedQuestions}</strong>
+            </div>
+          </div>
+          <div className="resource-question-type-list">
+            {questionTypes.map((item) => (
+              <div key={item.label}>
+                <span>{item.label}</span>
+                <Progress percent={resourcePercent(item.value, group.question_count)} size="small" showInfo={false} />
+                <strong>{item.value}</strong>
+              </div>
+            ))}
+          </div>
+        </section>
+      </div>
+    </Card>
+  );
+}
+
+type ExperimentFrameworkOverviewData = NonNullable<LearningResourceOverview["experiment_framework"]>;
+type ExperimentFrameworkNodeData = ExperimentFrameworkOverviewData["nodes"][number];
+type ExperimentFrameworkLinkData = ExperimentFrameworkOverviewData["formal_links"][number];
+
+function experimentFrameworkNodeLabel(node?: ExperimentFrameworkNodeData | null) {
+  if (!node) return "-";
+  if (node.node_type === "book") return "教材";
+  if (node.node_type === "chapter") return "章节";
+  if (node.node_type === "protocol") return "实验条目";
+  return "小节";
+}
+
+function collectExperimentFrameworkNodeIds(framework: ExperimentFrameworkOverviewData, rootId: string) {
+  const children = new Map<string, string[]>();
+  framework.nodes.forEach((node) => {
+    if (!node.parent_id) return;
+    const list = children.get(node.parent_id) || [];
+    list.push(node.id);
+    children.set(node.parent_id, list);
+  });
+  const ids = new Set<string>();
+  const stack = [rootId];
+  while (stack.length) {
+    const nodeId = stack.pop();
+    if (!nodeId || ids.has(nodeId)) continue;
+    ids.add(nodeId);
+    (children.get(nodeId) || []).forEach((childId) => stack.push(childId));
+  }
+  return ids;
+}
+
+function uniqueExperimentFrameworkLinks(links: ExperimentFrameworkLinkData[]) {
+  const byExperiment = new Map<string, ExperimentFrameworkLinkData & { relation_count: number; has_canonical_evidence: boolean }>();
+  links.forEach((link) => {
+    const existing = byExperiment.get(link.experiment_id);
+    if (!existing) {
+      byExperiment.set(link.experiment_id, {
+        ...link,
+        relation_count: 1,
+        has_canonical_evidence: link.relation_type === "canonical_evidence",
+      });
+      return;
+    }
+    existing.relation_count += 1;
+    existing.has_canonical_evidence = existing.has_canonical_evidence || link.relation_type === "canonical_evidence";
+  });
+  return Array.from(byExperiment.values()).sort((a, b) => {
+    const orderA = Number(a.sort_order || 0);
+    const orderB = Number(b.sort_order || 0);
+    if (orderA !== orderB) return orderA - orderB;
+    return String(a.experiment_code || "").localeCompare(String(b.experiment_code || ""), "zh-Hans-CN");
+  });
+}
+
+function preferredExperimentFrameworkRoot(roots: ExperimentFrameworkNodeData[]) {
+  return [...roots].sort((a, b) => {
+    const formalDelta = Number(b.formal_experiment_count || 0) - Number(a.formal_experiment_count || 0);
+    if (formalDelta) return formalDelta;
+    const evidenceDelta = Number(b.evidence_count || 0) - Number(a.evidence_count || 0);
+    if (evidenceDelta) return evidenceDelta;
+    return a.display_order - b.display_order;
+  })[0];
+}
+
+function isStructuralExperimentFrameworkRoot(node: ExperimentFrameworkNodeData) {
+  const compactTitle = node.title.replace(/\s+/g, "");
+  return (
+    /^第[一二三四五六七八九十]+部分/.test(compactTitle) &&
+    Number(node.evidence_count || 0) <= 1 &&
+    Number(node.child_count || 0) === 0 &&
+    Number(node.formal_experiment_count || 0) === 0
+  );
+}
+
+function experimentFrameworkDisplayRoots(roots: ExperimentFrameworkNodeData[]) {
+  const visible = roots.filter((node) => !isStructuralExperimentFrameworkRoot(node));
+  return visible.length ? visible : roots;
+}
+
+function experimentFrameworkSourceContext(roots: ExperimentFrameworkNodeData[]) {
+  return roots.find((node) => isStructuralExperimentFrameworkRoot(node));
+}
+
+function experimentFrameworkRootActive(
+  framework: ExperimentFrameworkOverviewData,
+  root: ExperimentFrameworkNodeData,
+  selectedNode?: ExperimentFrameworkNodeData,
+) {
+  if (!selectedNode) return false;
+  if (root.id === selectedNode.id) return true;
+  return collectExperimentFrameworkNodeIds(framework, root.id).has(selectedNode.id);
+}
+
+function ExperimentKnowledgeFrameworkPanel({ framework }: { framework?: LearningResourceOverview["experiment_framework"] | null }) {
+  const rawRoots = framework?.roots || [];
+  const roots = useMemo(() => experimentFrameworkDisplayRoots(rawRoots), [rawRoots]);
+  const [selectedNodeId, setSelectedNodeId] = useState<string>();
+
+  useEffect(() => {
+    if (!framework?.available || !roots.length) return;
+    if (!selectedNodeId || !framework.nodes.some((node) => node.id === selectedNodeId)) {
+      setSelectedNodeId(preferredExperimentFrameworkRoot(roots).id);
+    }
+  }, [framework, roots, selectedNodeId]);
+
+  if (!framework) return null;
+  if (!framework.available) {
+    return (
+      <section className="experiment-framework-card">
+        <Alert
+          type="info"
+          showIcon
+          message="实验教材知识框架尚未导入"
+          description="导入无机化学实验教材的标准分块后，这里会展示实验基本知识、基本操作、元素性质实验和通识内容。"
+        />
+      </section>
+    );
+  }
+
+  const selectedNode = framework.nodes.find((node) => node.id === selectedNodeId) || preferredExperimentFrameworkRoot(roots);
+  const selectedNodeIds = selectedNode ? collectExperimentFrameworkNodeIds(framework, selectedNode.id) : new Set<string>();
+  const childNodes = framework.nodes
+    .filter((node) => node.parent_id === selectedNode?.id)
+    .sort((a, b) => a.display_order - b.display_order);
+  const relatedLinks = uniqueExperimentFrameworkLinks(
+    framework.formal_links.filter((link) => selectedNodeIds.has(link.node_id)),
+  );
+  const evidenceLinkCount = framework.formal_links.filter(
+    (link) => selectedNodeIds.has(link.node_id) && link.relation_type === "canonical_evidence",
+  ).length;
+  const hasOperationalCoverage =
+    Number(selectedNode?.formal_experiment_count || 0) > 0 ||
+    Number(selectedNode?.video_count || 0) > 0 ||
+    Number(selectedNode?.question_count || 0) > 0;
+
+  return (
+    <section className="experiment-framework-card">
+      <div className="experiment-framework-layout">
+        <section className="experiment-framework-tree">
+          <Flex justify="space-between" align="center" gap={12}>
+            <div>
+              <Text type="secondary">教材目录</Text>
+              <h3>{framework.source.book_title || "无机化学实验（第四版）"}</h3>
+            </div>
+          </Flex>
+          <div className="experiment-framework-root-list">
+            {roots.map((node) => (
+              <button
+                key={node.id}
+                type="button"
+                className={experimentFrameworkRootActive(framework, node, selectedNode) ? "active" : ""}
+                onClick={() => setSelectedNodeId(node.id)}
+              >
+                <span>{experimentFrameworkNodeLabel(node)}</span>
+                <strong>{node.title}</strong>
+                <small>
+                  语料分块 {node.evidence_count}
+                  {node.formal_experiment_count ? ` · 实验 ${node.formal_experiment_count}` : ""}
+                  {node.question_count ? ` · 题目 ${node.question_count}` : ""}
+                </small>
+              </button>
+            ))}
+          </div>
+        </section>
+
+        <section className="experiment-framework-detail">
+          <div className="experiment-framework-detail-hero">
+            <div>
+              <Space wrap>
+                <Tag color="green">{experimentFrameworkNodeLabel(selectedNode)}</Tag>
+                {selectedNode?.page_start ? <Tag>页码 {selectedNode.page_start}-{selectedNode.page_end || selectedNode.page_start}</Tag> : null}
+              </Space>
+              <Title level={4}>{selectedNode?.title}</Title>
+              <Text type="secondary">{(selectedNode?.full_path || []).join(" / ")}</Text>
+            </div>
+            <div className={hasOperationalCoverage ? "experiment-framework-detail-stats" : "experiment-framework-support-summary"}>
+              <Statistic title="语料分块" value={selectedNode?.evidence_count || 0} />
+              <Statistic title="小节" value={childNodes.length} />
+              {hasOperationalCoverage ? (
+                <>
+                  <Statistic title="正式实验" value={selectedNode?.formal_experiment_count || 0} />
+                  <Statistic title="题目" value={selectedNode?.question_count || 0} />
+                </>
+              ) : null}
+            </div>
+          </div>
+
+          <div className="experiment-framework-detail-grid">
+            <div className="experiment-framework-child-panel">
+              <Flex justify="space-between" align="center" gap={12}>
+                <h3>小节</h3>
+                <Tag>{childNodes.length} 个小节</Tag>
+              </Flex>
+              <div className="experiment-framework-child-list">
+                {childNodes.length ? (
+                  childNodes.map((node) => (
+                    <div key={node.id} className="experiment-framework-child-card">
+                      <span>{experimentFrameworkNodeLabel(node)}</span>
+                      <strong>{node.title}</strong>
+                      <small>
+                        语料分块 {node.evidence_count}
+                        {node.formal_experiment_count ? ` · 实验 ${node.formal_experiment_count}` : ""}
+                        {node.question_count ? ` · 题目 ${node.question_count}` : ""}
+                      </small>
+                    </div>
+                  ))
+                ) : (
+                  <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description="暂无小节" />
+                )}
+              </div>
+            </div>
+
+            <div className="experiment-framework-formal-panel">
+              <Flex justify="space-between" align="center" gap={12}>
+                <h3>关联正式实验</h3>
+                <Tag color={evidenceLinkCount ? "green" : "default"}>语料映射 {evidenceLinkCount}</Tag>
+              </Flex>
+              <div className="experiment-framework-formal-list">
+                {relatedLinks.length ? (
+                  relatedLinks.map((link) => (
+                    <div key={link.experiment_id} className="experiment-framework-formal-card">
+                      <Text strong>
+                        {link.experiment_code ? `${link.experiment_code} · ` : ""}
+                        {link.experiment_title}
+                      </Text>
+                      <Space wrap>
+                        <Tag color={statusColor[link.experiment_status] || "default"}>
+                          {statusLabel[link.experiment_status] || link.experiment_status}
+                        </Tag>
+                        <Tag color={link.has_canonical_evidence ? "green" : "blue"}>
+                          {link.has_canonical_evidence ? "教材语料" : "目录映射"}
+                        </Tag>
+                        {link.relation_count > 1 ? <Tag>关联 {link.relation_count}</Tag> : null}
+                      </Space>
+                    </div>
+                  ))
+                ) : (
+                  <Alert
+                    className="experiment-framework-support-alert"
+                    type="info"
+                    showIcon
+                    message="本章暂无正式实验引用"
+                    description="本章属于实验通识、基本操作无需关联实验。"
+                  />
+                )}
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </section>
+  );
+}
+
+type ResourceSourceKey = "theory" | "experiment";
+
+function ResourceSourceWorkspace({
+  overview,
+  selectedGroup,
+  onSelectGroup,
+}: {
+  overview?: LearningResourceOverview;
+  selectedGroup?: LearningResourceOverview["groups"][number];
+  onSelectGroup: (groupId: string) => void;
+}) {
+  const [activeSource, setActiveSource] = useState<ResourceSourceKey>("theory");
+  const knowledgeDomain = overview?.domains?.knowledge;
+  const experimentFramework = overview?.experiment_framework;
+
+  return (
+    <section className="resource-source-workspace">
+      <div className="resource-source-workspace-header">
+        <Segmented
+          value={activeSource}
+          onChange={(value) => setActiveSource(value as ResourceSourceKey)}
+          options={[
+            {
+              value: "theory",
+              label: (
+                <span className="resource-source-switch-label">
+                  <span>理论教材</span>
+                  <b>{knowledgeDomain?.source_chunk_count || 0} 语料分块</b>
+                </span>
+              ),
+            },
+            {
+              value: "experiment",
+              label: (
+                <span className="resource-source-switch-label">
+                  <span>实验教材</span>
+                  <b>{experimentFramework?.metrics.linked_chunk_count || 0} 语料分块</b>
+                </span>
+              ),
+            },
+          ]}
+        />
+      </div>
+
+      {activeSource === "theory" ? (
+        <div className="resource-source-panel resource-source-theory-panel">
+          <ResourceOverviewNavigator overview={overview} selectedGroupId={selectedGroup?.id} onSelectGroup={onSelectGroup} />
+          <ResourceChapterWorkbench group={selectedGroup} />
+        </div>
+      ) : (
+        <div className="resource-source-panel resource-source-experiment-panel">
+          <ExperimentKnowledgeFrameworkPanel framework={overview?.experiment_framework} />
+        </div>
+      )}
+    </section>
+  );
+}
+
 function LearningResourcesPage() {
   const overview = useQuery({
     queryKey: ["admin-learning-resources-overview"],
@@ -587,177 +1477,101 @@ function LearningResourcesPage() {
   }, [groups, selectedGroupId]);
 
   const selectedGroup = groups.find((group) => group.id === selectedGroupId) || groups[0];
-  const metrics = overview.data?.metrics;
-  const selectedGroupMetrics = selectedGroup
-    ? [
-        { label: "知识单元", value: selectedGroup.knowledge_unit_count },
-        { label: "知识点", value: selectedGroup.knowledge_point_count },
-        { label: "实验", value: selectedGroup.experiment_count },
-        { label: "视频", value: selectedGroup.media_count },
-        { label: "题目", value: selectedGroup.question_count },
-      ]
-    : [];
-  const totalUnitCount = selectedGroup?.units.length || 0;
-  const totalExperimentQuestionCount = selectedGroup?.experiments.reduce((sum, item) => sum + Number(item.question_count || 0), 0) || 0;
+  const domains = overview.data?.domains;
+  const knowledge = domains?.knowledge;
+  const experimentVideo = domains?.experiment_video;
+  const questionBank = domains?.question_bank;
+  const classesStudents = domains?.classes_students;
+  const publishedQuestions = Number(questionBank?.published_question_count || 0);
+  const totalQuestions = Number(questionBank?.question_count || 0);
+  const publishedVideos = Number(experimentVideo?.published_video_count || 0);
+  const totalVideoAssets = Number(experimentVideo?.video_asset_count || 0);
+  const rosterCount = Number(classesStudents?.roster_count || 0);
+  const activeStudents = Number(classesStudents?.active_student_count || 0);
 
   return (
     <Space direction="vertical" size={18} className="full">
       <PageTitle
-        title="学习资源"
-        description="按章节和通识资源查看知识单元、知识点、实验、视频和题目覆盖。"
+        title="资源总览"
+        description="统一查看知识框架、智能检索事实资源、实验视频、题库与班级学生的建设状态。"
       />
-      <div className="resource-metric-grid">
-        <Card>
-          <Statistic title="知识单元" value={metrics?.knowledge_unit_count || 0} prefix={<DatabaseOutlined />} />
-        </Card>
-        <Card>
-          <Statistic title="知识点" value={metrics?.knowledge_point_count || 0} prefix={<DatabaseOutlined />} />
-        </Card>
-        <Card>
-          <Statistic title="实验" value={metrics?.experiment_count || 0} prefix={<ExperimentOutlined />} />
-        </Card>
-        <Card>
-          <Statistic title="媒体资源" value={metrics?.media_resource_count || 0} prefix={<CloudUploadOutlined />} />
-        </Card>
-        <Card>
-          <Statistic title="题目" value={metrics?.question_count || 0} prefix={<QuestionCircleOutlined />} />
-        </Card>
-      </div>
 
       <QueryState loading={overview.isLoading} error={overview.error} empty={!groups.length}>
-        <div className="learning-resource-layout">
-          <Card title="资源目录" className="learning-resource-directory">
-            {(overview.data?.areas || []).map((area) => (
-              <div key={area.area_id} className="resource-directory-section">
-                <Flex align="center" justify="space-between" className="resource-directory-heading">
-                  <Text strong>{area.area_name}</Text>
-                  <Tag>{area.metrics.group_count}</Tag>
-                </Flex>
-                <div className="resource-directory-list">
-                  {area.group_ids.map((groupId) => {
-                    const group = groups.find((item) => item.id === groupId);
-                    if (!group) return null;
-                    const active = group.id === selectedGroup?.id;
-                    return (
-                      <button
-                        key={group.id}
-                        type="button"
-                        className={`resource-directory-item${active ? " resource-directory-item-active" : ""}`}
-                        onClick={() => setSelectedGroupId(group.id)}
-                      >
-                        <span>{group.title}</span>
-                        <small>
-                          知识单元 {group.knowledge_unit_count} · 知识点 {group.knowledge_point_count}
-                        </small>
-                      </button>
-                    );
-                  })}
-                </div>
-              </div>
-            ))}
-          </Card>
+        <div className="resource-dashboard-grid">
+          <ResourceDomainCard
+            title="知识框架 / 检索语料"
+            eyebrow="教材事实资源"
+            value={`${knowledge?.knowledge_unit_count || 0} / ${knowledge?.knowledge_point_count || 0}`}
+            icon={<DatabaseOutlined />}
+          >
+            <div className="resource-domain-subgrid">
+              <span>知识单元</span>
+              <strong>{knowledge?.knowledge_unit_count || 0}</strong>
+              <span>知识点</span>
+              <strong>{knowledge?.knowledge_point_count || 0}</strong>
+              <span>标准语料分块</span>
+              <strong>{knowledge?.source_chunk_count || 0}</strong>
+              <span>向量索引</span>
+              <strong>{knowledge?.embedding_count || 0}</strong>
+            </div>
+          </ResourceDomainCard>
 
-          <div className="learning-resource-main">
-            <Card
-              className="learning-resource-map-card"
-              title={
-                <Flex align="center" justify="space-between" gap={12}>
-                  <span>{selectedGroup?.title || "资源总览"}</span>
-                  {selectedGroup ? <Tag color={selectedGroup.kind === "general" ? "#356f9c" : "#005826"}>{selectedGroup.area_name}</Tag> : null}
-                </Flex>
-              }
-            >
-              <div className="resource-group-summary">
-                {selectedGroupMetrics.map((item) => (
-                  <div key={item.label}>
-                    <Text type="secondary">{item.label}</Text>
-                    <strong>{item.value}</strong>
-                  </div>
-                ))}
-              </div>
+          <ResourceDomainCard
+            title="实验与视频"
+            eyebrow="实验管理概况"
+            value={`${experimentVideo?.experiment_count || 0} 个实验`}
+            icon={<ExperimentOutlined />}
+            tone="blue"
+          >
+            <Progress percent={resourcePercent(publishedVideos, Math.max(totalVideoAssets, 1))} showInfo={false} />
+            <div className="resource-domain-subgrid">
+              <span>视频库</span>
+              <strong>{totalVideoAssets}</strong>
+              <span>已发布引用</span>
+              <strong>{publishedVideos}</strong>
+            </div>
+            {!totalVideoAssets ? <Text type="secondary">视频库暂未上传资源</Text> : null}
+          </ResourceDomainCard>
 
-              <div className="learning-resource-map">
-                <div className="resource-map-root">
-                  <Text type="secondary">{selectedGroup?.kind === "general" ? "通识资源" : "理论章节"}</Text>
-                  <strong>{selectedGroup?.title}</strong>
-                  <span>{totalUnitCount} 个知识单元</span>
-                </div>
+          <ResourceDomainCard
+            title="题库"
+            eyebrow="当前题目状态"
+            value={`${totalQuestions} 道`}
+            icon={<QuestionCircleOutlined />}
+            tone="amber"
+          >
+            <Progress percent={resourcePercent(publishedQuestions, totalQuestions)} showInfo={false} />
+            <div className="resource-domain-subgrid">
+              <span>题目总数</span>
+              <strong>{totalQuestions}</strong>
+              <span>已发布</span>
+              <strong>{publishedQuestions}</strong>
+              <span>单选/判断/填空</span>
+              <strong>
+                {countValue(questionBank?.type_counts, "single_choice")} / {countValue(questionBank?.type_counts, "true_false")} / {countValue(questionBank?.type_counts, "fill_blank")}
+              </strong>
+            </div>
+          </ResourceDomainCard>
 
-                <div className="resource-map-units">
-                  {(selectedGroup?.units || []).map((unit) => (
-                    <div key={unit.unit_id} className="resource-unit-card">
-                      <Flex align="center" justify="space-between" gap={10}>
-                        <Text strong>{unit.unit_title}</Text>
-                        <Tag>知识点 {unit.knowledge_point_count}</Tag>
-                      </Flex>
-                      <div className="resource-kp-list">
-                        {unit.knowledge_points.slice(0, 4).map((point) => (
-                          <div key={point.knowledge_point_id} className="resource-kp-node">
-                            <span>{point.content}</span>
-                          </div>
-                        ))}
-                        {unit.knowledge_points.length > 4 ? (
-                          <Text type="secondary" className="resource-more-text">
-                            另有 {unit.knowledge_points.length - 4} 个知识点。
-                          </Text>
-                        ) : null}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="resource-map-assets">
-                  <div className="resource-asset-block">
-                    <Flex align="center" justify="space-between">
-                      <Text strong>实验</Text>
-                      <Tag>{selectedGroup?.experiment_count || 0}</Tag>
-                    </Flex>
-                    <div className="resource-chip-list">
-                      {(selectedGroup?.experiments || []).length ? (
-                        selectedGroup?.experiments.map((experiment) => (
-                          <div key={experiment.id} className="resource-experiment-row">
-                            <div>
-                              <Text strong>
-                                {experiment.code ? `${experiment.code} · ` : ""}
-                                {experiment.title}
-                              </Text>
-                              <div className="resource-experiment-meta">
-                                <Tag color={statusColor[experiment.status] || "default"}>{statusLabel[experiment.status] || experiment.status}</Tag>
-                              </div>
-                            </div>
-                            <div className="resource-experiment-counts">
-                              <Tag color={experiment.media_count ? "#356f9c" : "default"}>视频 {experiment.media_count}</Tag>
-                              <Tag color={experiment.question_count ? "#005826" : "default"}>题目 {experiment.question_count}</Tag>
-                            </div>
-                          </div>
-                        ))
-                      ) : (
-                        <Text type="secondary">暂无绑定实验</Text>
-                      )}
-                    </div>
-                  </div>
-                  <div className="resource-asset-block">
-                    <Text strong>覆盖摘要</Text>
-                    <div className="resource-coverage-list">
-                      <div>
-                        <span>媒体资源</span>
-                        <strong>{selectedGroup?.media_count || 0}</strong>
-                      </div>
-                      <div>
-                        <span>题目</span>
-                        <strong>{selectedGroup?.question_count || totalExperimentQuestionCount}</strong>
-                      </div>
-                      <div>
-                        <span>知识点</span>
-                        <strong>{selectedGroup?.knowledge_point_count || 0}</strong>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </Card>
-          </div>
+          <ResourceDomainCard
+            title="班级与学生"
+            eyebrow="教学运营"
+            value={`${classesStudents?.class_count || 0} 个班级`}
+            icon={<TeamOutlined />}
+            tone="purple"
+          >
+            <Progress percent={resourcePercent(activeStudents, rosterCount)} showInfo={false} />
+            <div className="resource-domain-subgrid">
+              <span>花名册学生</span>
+              <strong>{rosterCount}</strong>
+              <span>已激活账号</span>
+              <strong>{activeStudents}</strong>
+            </div>
+            {!classesStudents?.class_count ? <Text type="secondary">尚未建立班级与花名册</Text> : null}
+          </ResourceDomainCard>
         </div>
+
+        <ResourceSourceWorkspace overview={overview.data} selectedGroup={selectedGroup} onSelectGroup={setSelectedGroupId} />
       </QueryState>
     </Space>
   );
@@ -1454,6 +2268,10 @@ function ExperimentsPage() {
   const [previewUrl, setPreviewUrl] = useState<string>();
   const [previewLoading, setPreviewLoading] = useState(false);
   const [previewError, setPreviewError] = useState("");
+  const [pendingVideoBindingAction, setPendingVideoBindingAction] = useState<{
+    bindingId: string;
+    action: "publish" | "unpublish" | "delete";
+  } | null>(null);
   const searchParams = new URLSearchParams();
   if (chapterId) searchParams.set("chapter_id", chapterId);
   if (statusFilter) searchParams.set("status_filter", statusFilter);
@@ -1528,6 +2346,7 @@ function ExperimentsPage() {
     setAssetKeyword("");
     setSelectedAssetIds([]);
     setPreviewTarget(null);
+    setPendingVideoBindingAction(null);
   }, [selected?.id]);
 
   useEffect(() => {
@@ -1668,12 +2487,48 @@ function ExperimentsPage() {
   const publishPointResource = useMutation({
     mutationFn: (resource: ExperimentVideoPointResource) =>
       postJson<Record<string, unknown>>(`/api/admin/media/bindings/${resource.binding_id}/publish`, {}),
+    onMutate: (resource) => {
+      setPendingVideoBindingAction({ bindingId: resource.binding_id, action: "publish" });
+    },
     onSuccess: (_, resource) => {
-      message.success("视频引用已发布，学生端可见");
+      message.success("视频引用已发布");
       invalidateVideoReferenceData(resource.experiment_id);
     },
     onError: (error) => message.error(errorMessage(error)),
+    onSettled: () => setPendingVideoBindingAction(null),
   });
+
+  const unpublishPointResource = useMutation({
+    mutationFn: (resource: ExperimentVideoPointResource) =>
+      postJson<Record<string, unknown>>(`/api/admin/media/bindings/${resource.binding_id}/unpublish`, {}),
+    onMutate: (resource) => {
+      setPendingVideoBindingAction({ bindingId: resource.binding_id, action: "unpublish" });
+    },
+    onSuccess: (_, resource) => {
+      message.success("视频引用已取消发布");
+      invalidateVideoReferenceData(resource.experiment_id);
+    },
+    onError: (error) => message.error(errorMessage(error)),
+    onSettled: () => setPendingVideoBindingAction(null),
+  });
+
+  const deletePointResource = useMutation({
+    mutationFn: (resource: ExperimentVideoPointResource) =>
+      api<Record<string, unknown>>(`/api/admin/media/bindings/${resource.binding_id}`, { method: "DELETE" }),
+    onMutate: (resource) => {
+      setPendingVideoBindingAction({ bindingId: resource.binding_id, action: "delete" });
+    },
+    onSuccess: (_, resource) => {
+      message.success("视频引用已移除");
+      invalidateVideoReferenceData(resource.experiment_id);
+    },
+    onError: (error) => message.error(errorMessage(error)),
+    onSettled: () => setPendingVideoBindingAction(null),
+  });
+
+  const isVideoBindingActionPending = (resource: ExperimentVideoPointResource, action: "publish" | "unpublish" | "delete") =>
+    pendingVideoBindingAction?.bindingId === resource.binding_id && pendingVideoBindingAction.action === action;
+  const isVideoBindingBusy = (resource: ExperimentVideoPointResource) => pendingVideoBindingAction?.bindingId === resource.binding_id;
 
   const chapterTitleById = useMemo(() => {
     const values = new Map(theoryChapters.map((chapter) => [chapter.chapter_id, formatChapterTitle(chapter.chapter_title, chapter.chapter_id)]));
@@ -1916,7 +2771,7 @@ function ExperimentsPage() {
                     <Space size={6} wrap>
                       <Tag>点位 {videoPointCount}</Tag>
                       <Tag color={resourceCount ? "blue" : "default"}>已引用 {resourceCount}</Tag>
-                      <Tag color={publishedResourceCount ? "green" : "default"}>学生可见 {publishedResourceCount}</Tag>
+                      <Tag color={publishedResourceCount ? "green" : "default"}>已发布 {publishedResourceCount}</Tag>
                     </Space>
                   </Flex>
                 }
@@ -1960,7 +2815,7 @@ function ExperimentsPage() {
                                   <Text strong>{point.point_title}</Text>
                                   <Space size={6} wrap>
                                     <Tag color={point.resource_count ? "blue" : "default"}>已引用 {point.resource_count}</Tag>
-                                    <Tag color={point.published_count ? "green" : "default"}>学生可见 {point.published_count}</Tag>
+                                    <Tag color={point.published_count ? "green" : "default"}>已发布 {point.published_count}</Tag>
                                   </Space>
                                 </div>
                               </Space>
@@ -1971,14 +2826,44 @@ function ExperimentsPage() {
 
                             {point.resources.length ? (
                               <div className="video-point-resources">
-                                {point.resources.map((resource) => (
+                                {point.resources.map((resource) => {
+                                  const resourceTitle =
+                                    resource.media_title || resource.title || resource.binding_title || resource.original_file_name;
+                                  const thumbnailSrc = resource.thumbnail_relative_path
+                                    ? `${apiBase}/api/admin/media/assets/${resource.media_id}/thumbnail`
+                                    : null;
+                                  const resourceBusy = isVideoBindingBusy(resource);
+                                  const openResourcePreview = () =>
+                                    setPreviewTarget({
+                                      id: resource.media_id,
+                                      title: resource.media_title || resourceTitle,
+                                      original_file_name: resource.original_file_name,
+                                      mime_type: resource.mime_type,
+                                      upload_status: resource.upload_status,
+                                    });
+                                  return (
                                   <div className="video-point-resource" key={resource.binding_id}>
-                                    <div className="video-resource-thumb">
-                                      <VideoCameraOutlined />
-                                    </div>
+                                    <button
+                                      type="button"
+                                      className={thumbnailSrc ? "video-resource-thumb has-image" : "video-resource-thumb"}
+                                      disabled={resource.upload_status !== "ready"}
+                                      aria-label={`预览视频：${resourceTitle}`}
+                                      title={resource.upload_status === "ready" ? "预览视频" : "视频未就绪，暂不能预览"}
+                                      onClick={openResourcePreview}
+                                    >
+                                      <AuthenticatedImage src={thumbnailSrc} alt={resourceTitle} className="video-resource-thumb-image" />
+                                      <div className="video-resource-thumb-fallback">
+                                        <VideoCameraOutlined />
+                                      </div>
+                                      {resource.upload_status === "ready" ? (
+                                        <span className="video-resource-thumb-play">
+                                          <PlayCircleOutlined />
+                                        </span>
+                                      ) : null}
+                                    </button>
                                     <div className="video-point-resource-main">
                                       <Text strong className="video-point-resource-title">
-                                        {resource.media_title || resource.title || resource.binding_title || resource.original_file_name}
+                                        {resourceTitle}
                                       </Text>
                                       <Text type="secondary" className="video-point-resource-file">
                                         {resource.original_file_name}
@@ -1990,39 +2875,50 @@ function ExperimentsPage() {
                                       </Space>
                                     </div>
                                     <Space size={8} wrap className="video-point-resource-actions">
-                                      <Button
-                                        size="small"
-                                        icon={<EyeOutlined />}
-                                        disabled={resource.upload_status !== "ready"}
-                                        onClick={() =>
-                                          setPreviewTarget({
-                                            id: resource.media_id,
-                                            title: resource.media_title || resource.original_file_name,
-                                            original_file_name: resource.original_file_name,
-                                            mime_type: resource.mime_type,
-                                            upload_status: resource.upload_status,
-                                          })
-                                        }
-                                      >
-                                        预览
-                                      </Button>
                                       {resource.binding_status === "published" ? (
-                                        <Tag color="green">学生可见</Tag>
+                                        <Button
+                                          size="small"
+                                          icon={<PauseCircleOutlined />}
+                                          disabled={resourceBusy}
+                                          loading={isVideoBindingActionPending(resource, "unpublish")}
+                                          onClick={() => unpublishPointResource.mutate(resource)}
+                                        >
+                                          取消发布
+                                        </Button>
                                       ) : (
                                         <Button
                                           size="small"
                                           type="primary"
                                           icon={<CheckCircleOutlined />}
-                                          disabled={resource.upload_status !== "ready"}
-                                          loading={publishPointResource.isPending}
+                                          disabled={resource.upload_status !== "ready" || resourceBusy}
+                                          loading={isVideoBindingActionPending(resource, "publish")}
                                           onClick={() => publishPointResource.mutate(resource)}
                                         >
                                           发布引用
                                         </Button>
                                       )}
+                                      <Popconfirm
+                                        title="移除视频引用？"
+                                        description="只删除本实验点位和该视频的引用关系，不删除视频资源库素材。"
+                                        okText="移除"
+                                        cancelText="取消"
+                                        okButtonProps={{ danger: true }}
+                                        onConfirm={() => deletePointResource.mutate(resource)}
+                                      >
+                                        <Button
+                                          size="small"
+                                          danger
+                                          icon={<DeleteOutlined />}
+                                          disabled={resourceBusy}
+                                          loading={isVideoBindingActionPending(resource, "delete")}
+                                        >
+                                          移除引用
+                                        </Button>
+                                      </Popconfirm>
                                     </Space>
                                   </div>
-                                ))}
+                                  );
+                                })}
                               </div>
                             ) : (
                               <button type="button" className="video-point-empty" onClick={() => setReferencePoint(point)}>
@@ -2205,6 +3101,272 @@ function ExperimentsPage() {
   );
 }
 
+type VideoUploadStage =
+  | "idle"
+  | "pending"
+  | "hashing"
+  | "ready"
+  | "duplicate"
+  | "uploading"
+  | "paused"
+  | "finalizing"
+  | "processing"
+  | "complete"
+  | "error";
+
+type VideoUploadState = {
+  stage: VideoUploadStage;
+  hashProgress: number;
+  progress: number;
+  uploadedBytes: number;
+  totalBytes: number;
+  checksum?: string;
+  duplicateAsset?: MediaAsset | null;
+  error?: string;
+  note?: string;
+};
+
+type VideoUploadQueueItem = {
+  id: string;
+  file: File;
+  title: string;
+  status: VideoUploadStage;
+  hashProgress: number;
+  progress: number;
+  uploadedBytes: number;
+  totalBytes: number;
+  checksum?: string;
+  duplicateAsset?: MediaAsset | null;
+  error?: string;
+  note?: string;
+};
+
+const emptyUploadState: VideoUploadState = {
+  stage: "idle",
+  hashProgress: 0,
+  progress: 0,
+  uploadedBytes: 0,
+  totalBytes: 0,
+};
+
+const mediaStatusLabels: Record<string, string> = {
+  pending: "待处理",
+  processing: "处理中",
+  ready: "就绪",
+  failed: "处理失败",
+  replaced: "已替换",
+};
+
+const mediaStatusColors: Record<string, string> = {
+  pending: "#b8892f",
+  processing: "#356f9c",
+  ready: "#005826",
+  failed: "#b42318",
+  replaced: "default",
+};
+
+const processingPhaseLabels: Record<string, string> = {
+  queued: "已排队",
+  starting: "启动中",
+  validating: "校验文件",
+  probing: "读取元数据",
+  thumbnailing: "生成缩略图",
+  transcoding: "生成学生播放源",
+  fingerprinting: "生成相似度签名",
+  comparing: "比对相似视频",
+  ready: "已就绪",
+  failed: "处理失败",
+};
+
+const duplicateDecisionLabels: Record<string, string> = {
+  pending: "待确认",
+  kept: "已保留",
+  reused: "已复用",
+  ignored: "已忽略",
+};
+
+function mediaStatusTag(status?: string) {
+  const value = status || "pending";
+  return <Tag color={mediaStatusColors[value] || "default"}>{mediaStatusLabels[value] || value}</Tag>;
+}
+
+function processingPhaseText(asset?: MediaAsset | null): string {
+  const phase = asset?.processing_phase || asset?.processing_job?.phase || asset?.upload_status || "";
+  return processingPhaseLabels[phase] || phase || "-";
+}
+
+function processingProgressValue(asset?: MediaAsset | null): number {
+  return Math.max(0, Math.min(100, Number(asset?.processing_progress ?? asset?.processing_job?.progress ?? 0)));
+}
+
+function formatDurationSeconds(value?: number | null): string {
+  if (!value) return "-";
+  const total = Math.round(Number(value));
+  const minutes = Math.floor(total / 60);
+  const seconds = String(total % 60).padStart(2, "0");
+  if (minutes < 60) return String(minutes) + ":" + seconds;
+  const hours = Math.floor(minutes / 60);
+  return String(hours) + ":" + String(minutes % 60).padStart(2, "0") + ":" + seconds;
+}
+
+function formatResolution(asset?: { width?: number | null; height?: number | null } | null): string {
+  return asset?.width && asset?.height ? String(asset.width) + " x " + String(asset.height) : "-";
+}
+
+function selectedRendition(asset: MediaAsset) {
+  return asset.renditions?.find((rendition) => rendition.kind === "learning") || asset.renditions?.[0];
+}
+
+function renditionSavings(asset: MediaAsset) {
+  const rendition = selectedRendition(asset);
+  const sourceSize = Number(asset.file_size_bytes || 0);
+  const renditionSize = Number(rendition?.file_size_bytes || 0);
+  const savedBytes = sourceSize && renditionSize ? Math.max(0, sourceSize - renditionSize) : 0;
+  const savedPercent = sourceSize && savedBytes ? Math.round((savedBytes / sourceSize) * 100) : 0;
+  return { rendition, savedBytes, savedPercent };
+}
+
+function pendingDuplicateCandidates(asset?: MediaAsset | null) {
+  return (asset?.duplicate_candidates || []).filter((candidate) => candidate.status === "pending");
+}
+
+function hasPendingDuplicate(asset?: MediaAsset | null): boolean {
+  return pendingDuplicateCandidates(asset).length > 0;
+}
+
+function duplicateScoreText(score?: number | null): string {
+  if (score == null) return "-";
+  const value = Number(score);
+  if (!Number.isFinite(value)) return "-";
+  return value > 1 ? value.toFixed(1) + "%" : Math.round(value * 100) + "%";
+}
+
+function uploadStepCurrent(stage: VideoUploadStage): number {
+  if (["uploading", "paused", "finalizing"].includes(stage)) return 1;
+  if (["processing", "complete"].includes(stage)) return 2;
+  return 0;
+}
+
+function uploadStageText(stage: VideoUploadStage): string {
+  if (stage === "pending") return "已加入队列，点击开始后会按顺序上传";
+  if (stage === "hashing") return "正在做 SHA-256 完全重复校验";
+  if (stage === "duplicate") return "发现完全相同的已上传文件";
+  if (stage === "ready") return "文件已就绪，可以开始上传";
+  if (stage === "uploading") return "正在上传文件";
+  if (stage === "paused") return "上传已暂停，可继续断点续传";
+  if (stage === "finalizing") return "正在完成入库并交给后台";
+  if (stage === "processing") return "上传完成，后台正在处理";
+  if (stage === "complete") return "上传已完成，已加入后台处理队列";
+  if (stage === "error") return "上传遇到问题";
+  return "选择视频后会先校验，再上传";
+}
+
+function videoTitleFromFile(file: File): string {
+  return file.name.replace(/\.[^.]+$/, "").trim() || file.name;
+}
+
+function uploadQueueItemText(item: VideoUploadQueueItem): string {
+  if (item.status === "pending") return "等待上传";
+  if (item.status === "hashing") return "校验重复 " + item.hashProgress + "%";
+  if (item.status === "ready") return "准备上传";
+  if (item.status === "duplicate") return "完全重复，已复用";
+  if (item.status === "uploading") return "上传中 " + item.progress + "%";
+  if (item.status === "paused") return "已暂停";
+  if (item.status === "finalizing") return "正在入库";
+  if (item.status === "processing") return "已交给后台处理";
+  if (item.status === "complete") return "已完成";
+  if (item.status === "error") return item.error || "上传失败";
+  return uploadStageText(item.status);
+}
+
+async function computeVideoFileSha256(file: File, onProgress: (progress: number) => void): Promise<string> {
+  const hasher = await createSHA256();
+  hasher.init();
+  const chunkSize = 8 * 1024 * 1024;
+  let offset = 0;
+  while (offset < file.size) {
+    const nextOffset = Math.min(offset + chunkSize, file.size);
+    const chunk = new Uint8Array(await file.slice(offset, nextOffset).arrayBuffer());
+    hasher.update(chunk);
+    offset = nextOffset;
+    onProgress(file.size ? Math.round((offset / file.size) * 100) : 100);
+    await new Promise((resolve) => window.setTimeout(resolve, 0));
+  }
+  return hasher.digest("hex");
+}
+
+function extractTusUploadId(uploadUrl?: string | null): string {
+  if (!uploadUrl) return "";
+  try {
+    const url = new URL(uploadUrl, window.location.href);
+    const parts = url.pathname.split("/").filter(Boolean);
+    return decodeURIComponent(parts[parts.length - 1] || "");
+  } catch {
+    const parts = uploadUrl.split("/").filter(Boolean);
+    return decodeURIComponent(parts[parts.length - 1] || "");
+  }
+}
+
+function AuthenticatedImage({ src, alt, className }: { src?: string | null; alt: string; className?: string }) {
+  const [objectUrl, setObjectUrl] = useState<string>();
+  const [failed, setFailed] = useState(false);
+  useEffect(() => {
+    let cancelled = false;
+    let nextUrl: string | undefined;
+    setObjectUrl(undefined);
+    setFailed(false);
+    if (!src) return undefined;
+    const headers = new Headers();
+    const token = getAuthToken();
+    if (token) headers.set("Authorization", "Bearer " + token);
+    void fetch(src, { headers })
+      .then((response) => {
+        if (!response.ok) throw new Error("image_load_failed");
+        return response.blob();
+      })
+      .then((blob) => {
+        if (cancelled) return;
+        nextUrl = URL.createObjectURL(blob);
+        setObjectUrl(nextUrl);
+      })
+      .catch(() => {
+        if (!cancelled) {
+          setObjectUrl(undefined);
+          setFailed(true);
+        }
+      });
+    return () => {
+      cancelled = true;
+      if (nextUrl) URL.revokeObjectURL(nextUrl);
+    };
+  }, [src]);
+  return objectUrl && !failed ? (
+    <img
+      src={objectUrl}
+      alt={alt}
+      className={className}
+      onError={() => {
+        setObjectUrl(undefined);
+        setFailed(true);
+      }}
+    />
+  ) : null;
+}
+
+function MediaThumbnail({ asset, compact = false }: { asset: MediaAsset; compact?: boolean }) {
+  const src = asset.thumbnail_relative_path ? apiBase + "/api/admin/media/assets/" + asset.id + "/thumbnail" : null;
+  const className = compact ? "video-thumb-image compact" : "video-thumb-image";
+  return (
+    <div className={compact ? "video-thumb-frame compact" : "video-thumb-frame"}>
+      <AuthenticatedImage src={src} alt={asset.title} className={className} />
+      <div className="video-thumb-fallback">
+        <VideoCameraOutlined />
+        <span>{asset.thumbnail_relative_path ? "缩略图" : asset.upload_status === "ready" ? mediaAssetType(asset) : processingPhaseText(asset)}</span>
+      </div>
+    </div>
+  );
+}
+
 function VideoResourcesPage() {
   const { message } = AntApp.useApp();
   const queryClient = useQueryClient();
@@ -2212,17 +3374,29 @@ function VideoResourcesPage() {
     queryKey: ["media-assets"],
     queryFn: () => api<ApiList<MediaAsset>>("/api/admin/media/assets?limit=200"),
   });
+  const tusEndpoint = String(import.meta.env.VITE_TUS_ENDPOINT || "").trim().replace(/\/+$/, "");
   const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
   const [keyword, setKeyword] = useState("");
   const [statusFilter, setStatusFilter] = useState<string>();
   const [sortKey, setSortKey] = useState<"updated_desc" | "name_asc" | "size_desc">("updated_desc");
   const [uploadOpen, setUploadOpen] = useState(false);
   const [uploadTitle, setUploadTitle] = useState("");
-  const [uploadFile, setUploadFile] = useState<File | null>(null);
+  const [uploadItems, setUploadItems] = useState<VideoUploadQueueItem[]>([]);
+  const [currentUploadId, setCurrentUploadId] = useState<string>();
+  const [batchRunning, setBatchRunning] = useState(false);
+  const [uploadState, setUploadState] = useState<VideoUploadState>(emptyUploadState);
   const [previewAsset, setPreviewAsset] = useState<MediaAsset | null>(null);
   const [previewUrl, setPreviewUrl] = useState<string>();
+  const [previewPosterUrl, setPreviewPosterUrl] = useState<string>();
   const [previewLoading, setPreviewLoading] = useState(false);
   const [previewError, setPreviewError] = useState("");
+  const uppyRef = useRef<Uppy | null>(null);
+  const uppyFileIdRef = useRef("");
+  const xhrRef = useRef<XMLHttpRequest | null>(null);
+  const hashRunRef = useRef(0);
+  const uploadItemsRef = useRef<VideoUploadQueueItem[]>([]);
+  const currentUploadIdRef = useRef<string | undefined>(undefined);
+  const cancelBatchRef = useRef(false);
 
   const assetItems = useMemo(() => assets.data?.items || [], [assets.data?.items]);
   const readyAssets = useMemo(() => assetItems.filter((asset) => asset.upload_status === "ready"), [assetItems]);
@@ -2230,24 +3404,41 @@ function VideoResourcesPage() {
     () => assetItems.filter((asset) => ["pending", "processing"].includes(asset.upload_status)),
     [assetItems],
   );
-  const totalBytes = useMemo(
+  const failedAssets = useMemo(() => assetItems.filter((asset) => asset.upload_status === "failed"), [assetItems]);
+  const pendingDuplicateAssets = useMemo(() => assetItems.filter((asset) => hasPendingDuplicate(asset)), [assetItems]);
+  const sourceBytes = useMemo(
     () => assetItems.reduce((sum, asset) => sum + Number(asset.file_size_bytes || 0), 0),
     [assetItems],
   );
+  const renditionBytes = useMemo(
+    () => assetItems.reduce((sum, asset) => sum + (asset.renditions || []).reduce((subtotal, rendition) => subtotal + Number(rendition.file_size_bytes || 0), 0), 0),
+    [assetItems],
+  );
+  const savedBytes = Math.max(0, sourceBytes - renditionBytes);
+  const savedPercent = sourceBytes > 0 && renditionBytes > 0 ? Math.round((savedBytes / sourceBytes) * 100) : 0;
+  const currentUploadItem = useMemo(
+    () => uploadItems.find((item) => item.id === currentUploadId) || null,
+    [currentUploadId, uploadItems],
+  );
+  const uploadQueueDoneCount = useMemo(
+    () => uploadItems.filter((item) => ["duplicate", "processing", "complete"].includes(item.status)).length,
+    [uploadItems],
+  );
+  const uploadQueueTotalBytes = useMemo(() => uploadItems.reduce((sum, item) => sum + item.totalBytes, 0), [uploadItems]);
+  const uploadQueueUploadedBytes = useMemo(() => uploadItems.reduce((sum, item) => sum + item.uploadedBytes, 0), [uploadItems]);
+  const uploadQueueProgress = uploadQueueTotalBytes ? Math.round((uploadQueueUploadedBytes / uploadQueueTotalBytes) * 100) : 0;
+  const hasActiveWork = workingAssets.length > 0 || batchRunning || uploadItems.some((item) => ["uploading", "paused", "finalizing", "hashing"].includes(item.status));
   const filteredAssets = useMemo(() => {
     const normalized = keyword.trim().toLowerCase();
     const list = assetItems.filter((asset) => {
-      if (statusFilter && asset.upload_status !== statusFilter) return false;
+      if (statusFilter === "duplicate_pending" && !hasPendingDuplicate(asset)) return false;
+      if (statusFilter && statusFilter !== "duplicate_pending" && asset.upload_status !== statusFilter) return false;
       if (!normalized) return true;
-      return `${asset.title} ${asset.original_file_name}`.toLowerCase().includes(normalized);
+      return (asset.title + " " + asset.original_file_name).toLowerCase().includes(normalized);
     });
     return [...list].sort((left, right) => {
-      if (sortKey === "name_asc") {
-        return left.title.localeCompare(right.title, "zh-Hans-CN");
-      }
-      if (sortKey === "size_desc") {
-        return Number(right.file_size_bytes || 0) - Number(left.file_size_bytes || 0);
-      }
+      if (sortKey === "name_asc") return left.title.localeCompare(right.title, "zh-Hans-CN");
+      if (sortKey === "size_desc") return Number(right.file_size_bytes || 0) - Number(left.file_size_bytes || 0);
       const rightTime = new Date(right.updated_at || right.created_at || "").getTime() || 0;
       const leftTime = new Date(left.updated_at || left.created_at || "").getTime() || 0;
       return rightTime - leftTime;
@@ -2255,315 +3446,794 @@ function VideoResourcesPage() {
   }, [assetItems, keyword, sortKey, statusFilter]);
 
   useEffect(() => {
-    let objectUrl: string | undefined;
+    uploadItemsRef.current = uploadItems;
+  }, [uploadItems]);
+
+  useEffect(() => {
+    if (!hasActiveWork) return undefined;
+    const timer = window.setInterval(() => {
+      void queryClient.invalidateQueries({ queryKey: ["media-assets"] });
+    }, 3000);
+    return () => window.clearInterval(timer);
+  }, [hasActiveWork, queryClient]);
+
+  useEffect(() => {
+    let posterObjectUrl: string | undefined;
     let cancelled = false;
     setPreviewUrl(undefined);
+    setPreviewPosterUrl(undefined);
     setPreviewError("");
     setPreviewLoading(false);
-    if (!previewAsset || !isPreviewableVideo(previewAsset)) {
-      return undefined;
-    }
+    if (!previewAsset || !isPreviewableVideo(previewAsset)) return undefined;
     setPreviewLoading(true);
     const headers = new Headers();
     const token = getAuthToken();
-    if (token) {
-      headers.set("Authorization", `Bearer ${token}`);
+    if (token) headers.set("Authorization", "Bearer " + token);
+    if (!token) {
+      setPreviewError("登录状态已失效，请重新登录后预览视频");
+      setPreviewLoading(false);
+      return undefined;
     }
-    void fetch(`${apiBase}/api/admin/media/assets/${previewAsset.id}/file`, { headers })
-      .then(async (response) => {
-        if (!response.ok) {
-          throw new Error(response.status === 409 ? "视频还未就绪，暂不能预览" : "视频预览加载失败");
-        }
-        return response.blob();
-      })
-      .then((blob) => {
-        if (cancelled) return;
-        objectUrl = URL.createObjectURL(blob);
-        setPreviewUrl(objectUrl);
-      })
-      .catch((error) => {
-        if (!cancelled) setPreviewError(errorMessage(error));
-      })
-      .finally(() => {
-        if (!cancelled) setPreviewLoading(false);
-      });
+    setPreviewUrl(apiBase + "/api/admin/media/assets/" + previewAsset.id + "/stream?access_token=" + encodeURIComponent(token));
+    setPreviewLoading(false);
+    if (previewAsset.thumbnail_relative_path) {
+      void fetch(apiBase + "/api/admin/media/assets/" + previewAsset.id + "/thumbnail", { headers })
+        .then((response) => {
+          if (!response.ok) throw new Error("poster_load_failed");
+          return response.blob();
+        })
+        .then((blob) => {
+          if (cancelled) return;
+          posterObjectUrl = URL.createObjectURL(blob);
+          setPreviewPosterUrl(posterObjectUrl);
+        })
+        .catch(() => {
+          if (!cancelled) setPreviewPosterUrl(undefined);
+        });
+    }
     return () => {
       cancelled = true;
-      if (objectUrl) URL.revokeObjectURL(objectUrl);
+      if (posterObjectUrl) URL.revokeObjectURL(posterObjectUrl);
     };
   }, [previewAsset]);
+
+  useEffect(() => {
+    return () => {
+      uppyRef.current?.destroy();
+      xhrRef.current?.abort();
+    };
+  }, []);
 
   const invalidateVideoData = () => {
     void queryClient.invalidateQueries({ queryKey: ["media-assets"] });
   };
 
-  const uploadAsset = useMutation({
-    mutationFn: async () => {
-      if (!uploadTitle.trim() || !uploadFile) {
-        throw new Error("请输入视频标题并选择文件");
+  const disposeUploadClient = () => {
+    uppyRef.current?.destroy();
+    uppyRef.current = null;
+    uppyFileIdRef.current = "";
+    xhrRef.current?.abort();
+    xhrRef.current = null;
+  };
+
+  const resetUploadModal = () => {
+    hashRunRef.current += 1;
+    cancelBatchRef.current = true;
+    disposeUploadClient();
+    setUploadTitle("");
+    uploadItemsRef.current = [];
+    currentUploadIdRef.current = undefined;
+    setUploadItems([]);
+    setCurrentUploadId(undefined);
+    setBatchRunning(false);
+    setUploadState(emptyUploadState);
+  };
+
+  const makeUploadQueueItem = (file: File, id?: string): VideoUploadQueueItem => ({
+    id: id || `${file.name}-${file.size}-${file.lastModified}-${Math.random().toString(36).slice(2)}`,
+    file,
+    title: videoTitleFromFile(file),
+    status: "pending",
+    hashProgress: 0,
+    progress: 0,
+    uploadedBytes: 0,
+    totalBytes: file.size,
+  });
+
+  const updateUploadItem = (itemId: string, patch: Partial<VideoUploadQueueItem>) => {
+    const nextItems = uploadItemsRef.current.map((item) => (item.id === itemId ? { ...item, ...patch } : item));
+    uploadItemsRef.current = nextItems;
+    setUploadItems(nextItems);
+  };
+
+  const setActiveUploadItemState = (itemId: string, patch: Partial<VideoUploadQueueItem>) => {
+    updateUploadItem(itemId, patch);
+    setUploadState((current) => ({
+      ...current,
+      stage: patch.status || current.stage,
+      hashProgress: patch.hashProgress ?? current.hashProgress,
+      progress: patch.progress ?? current.progress,
+      uploadedBytes: patch.uploadedBytes ?? current.uploadedBytes,
+      totalBytes: patch.totalBytes ?? current.totalBytes,
+      checksum: patch.checksum ?? current.checksum,
+      duplicateAsset: patch.duplicateAsset !== undefined ? patch.duplicateAsset : current.duplicateAsset,
+      error: patch.error,
+      note: patch.note,
+    }));
+  };
+
+  const handleUploadFiles = (files: File[]) => {
+    if (batchRunning) {
+      message.warning("队列正在上传，请先暂停或取消当前队列");
+      return;
+    }
+    hashRunRef.current += 1;
+    disposeUploadClient();
+    const videoFiles = files.filter((file) => file.type.startsWith("video/") || /\.(mp4|mov|m4v|webm|avi)$/i.test(file.name));
+    const nextItems = videoFiles.map((file) => makeUploadQueueItem(file, (file as File & { uid?: string }).uid));
+    uploadItemsRef.current = nextItems;
+    currentUploadIdRef.current = undefined;
+    setUploadItems(nextItems);
+    setCurrentUploadId(undefined);
+    setUploadTitle(nextItems.length === 1 ? nextItems[0].title : "");
+    setUploadState({
+      ...emptyUploadState,
+      stage: nextItems.length ? "pending" : "idle",
+      totalBytes: nextItems.reduce((sum, item) => sum + item.totalBytes, 0),
+      note: nextItems.length > 1 ? `已选择 ${nextItems.length} 个视频，将按顺序逐个上传。` : undefined,
+    });
+    if (files.length && !videoFiles.length) {
+      message.warning("请选择视频文件");
+    }
+  };
+
+  const updateSingleUploadTitle = (value: string) => {
+    setUploadTitle(value);
+    if (uploadItems.length === 1) {
+      updateUploadItem(uploadItems[0].id, { title: value });
+    }
+  };
+
+  const runDuplicatePrecheck = async (item: VideoUploadQueueItem) => {
+    const runId = hashRunRef.current;
+    setActiveUploadItemState(item.id, {
+      status: "hashing",
+      hashProgress: 0,
+      progress: 0,
+      uploadedBytes: 0,
+      totalBytes: item.file.size,
+      error: undefined,
+      note: undefined,
+      duplicateAsset: null,
+    });
+    try {
+      const checksum = await computeVideoFileSha256(item.file, (progress) => {
+        if (hashRunRef.current !== runId) return;
+        setActiveUploadItemState(item.id, { hashProgress: progress });
+      });
+      if (hashRunRef.current !== runId || cancelBatchRef.current) return { checksum: undefined, duplicateAsset: null };
+      const precheck = await postJson<MediaDuplicatePrecheck>("/api/admin/media/assets/precheck", {
+        checksum_sha256: checksum,
+        file_size_bytes: item.file.size,
+      });
+      if (hashRunRef.current !== runId || cancelBatchRef.current) return { checksum, duplicateAsset: null };
+      setActiveUploadItemState(item.id, {
+        status: precheck.exists && precheck.asset ? "duplicate" : "ready",
+        hashProgress: 100,
+        totalBytes: item.file.size,
+        checksum,
+        duplicateAsset: precheck.asset || null,
+        note: precheck.exists && precheck.asset ? "发现完全相同的已上传文件，已复用已有视频。" : undefined,
+      });
+      return { checksum, duplicateAsset: precheck.asset || null };
+    } catch (error) {
+      if (hashRunRef.current !== runId || cancelBatchRef.current) return { checksum: undefined, duplicateAsset: null };
+      setActiveUploadItemState(item.id, {
+        status: "ready",
+        totalBytes: item.file.size,
+        note: "预检未完成：" + errorMessage(error),
+      });
+      return { checksum: undefined, duplicateAsset: null };
+    }
+  };
+
+  const finalizeResumableUpload = async (item: VideoUploadQueueItem, uploadUrl?: string | null, checksum?: string) => {
+    const uploadId = extractTusUploadId(uploadUrl);
+    if (!uploadId) throw new Error("无法识别 tus 上传编号");
+    setActiveUploadItemState(item.id, { status: "finalizing", progress: 100, uploadedBytes: item.file.size, totalBytes: item.file.size });
+    const asset = await postJson<MediaAsset>("/api/admin/media/assets/complete-upload", {
+      title: item.title.trim() || videoTitleFromFile(item.file),
+      upload_id: uploadId,
+      filename: item.file.name,
+      content_type: item.file.type || "video/mp4",
+      checksum_sha256: checksum || undefined,
+    });
+    setActiveUploadItemState(item.id, {
+      status: asset.upload_status === "ready" ? "complete" : "processing",
+      progress: 100,
+      uploadedBytes: item.file.size,
+      totalBytes: item.file.size,
+      note: asset.upload_status === "ready" ? "已复用已有视频" : "已进入后台处理",
+    });
+    invalidateVideoData();
+  };
+
+  const uploadItemWithTus = async (item: VideoUploadQueueItem, checksum?: string) => {
+    if (!tusEndpoint) throw new Error("未配置 tus 上传端点");
+    disposeUploadClient();
+    const uppy = new Uppy({ autoProceed: false, restrictions: { maxNumberOfFiles: 1 } });
+    uppy.use(Tus, {
+      endpoint: tusEndpoint + "/",
+      chunkSize: 10 * 1024 * 1024,
+      retryDelays: [0, 1000, 3000, 5000],
+      storeFingerprintForResuming: true,
+      removeFingerprintOnSuccess: false,
+      metadata: {
+        filename: item.file.name,
+        filetype: item.file.type || "video/mp4",
+      },
+    });
+    uppyFileIdRef.current = uppy.addFile({ name: item.file.name, type: item.file.type || "video/mp4", data: item.file });
+    uppyRef.current = uppy;
+    setActiveUploadItemState(item.id, { status: "uploading", progress: 0, uploadedBytes: 0, totalBytes: item.file.size, error: undefined });
+    await new Promise<void>((resolve, reject) => {
+      let settled = false;
+      const settle = (fn: () => void) => {
+        if (settled) return;
+        settled = true;
+        fn();
+      };
+      uppy.on("upload-progress", (_file, progress) => {
+        const uploadedBytes = Number(progress.bytesUploaded || 0);
+        const totalBytes = Number(progress.bytesTotal || item.file.size || 0);
+        setActiveUploadItemState(item.id, {
+          status: "uploading",
+          uploadedBytes,
+          totalBytes,
+          progress: totalBytes ? Math.round((uploadedBytes / totalBytes) * 100) : item.progress,
+        });
+      });
+      uppy.on("upload-error", (_file, error) => {
+        settle(() => reject(error));
+      });
+      uppy.on("upload-success", (file, response) => {
+        const uploadUrl = response.uploadURL || (file as unknown as { uploadURL?: string }).uploadURL;
+        void finalizeResumableUpload(item, uploadUrl, checksum).then(() => settle(resolve)).catch((error) => settle(() => reject(error)));
+      });
+      void uppy.upload().catch((error) => settle(() => reject(error)));
+    });
+  };
+
+  const uploadItemWithFallback = async (item: VideoUploadQueueItem, checksum?: string) => {
+    disposeUploadClient();
+    const body = new FormData();
+    body.append("title", item.title.trim() || videoTitleFromFile(item.file));
+    body.append("file", item.file);
+    if (checksum) body.append("checksum_sha256", checksum);
+    setActiveUploadItemState(item.id, { status: "uploading", progress: 0, uploadedBytes: 0, totalBytes: item.file.size, error: undefined });
+    await new Promise<void>((resolve, reject) => {
+      const xhr = new XMLHttpRequest();
+      xhrRef.current = xhr;
+      xhr.open("POST", apiBase + "/api/admin/media/assets");
+      const token = getAuthToken();
+      if (token) xhr.setRequestHeader("Authorization", "Bearer " + token);
+      xhr.upload.onprogress = (event) => {
+        if (!event.lengthComputable) return;
+        setActiveUploadItemState(item.id, {
+          status: "uploading",
+          uploadedBytes: event.loaded,
+          totalBytes: event.total,
+          progress: Math.round((event.loaded / event.total) * 100),
+        });
+      };
+      xhr.onload = () => {
+        if (xhr.status >= 200 && xhr.status < 300) {
+          const asset = JSON.parse(xhr.responseText || "{}") as MediaAsset;
+          setActiveUploadItemState(item.id, {
+            status: asset.upload_status === "ready" ? "complete" : "processing",
+            progress: 100,
+            uploadedBytes: item.file.size,
+            totalBytes: item.file.size,
+            note: asset.upload_status === "ready" ? "已复用已有视频" : "已进入后台处理",
+          });
+          invalidateVideoData();
+          resolve();
+        } else {
+          reject(new Error(xhr.responseText || "HTTP " + xhr.status));
+        }
+      };
+      xhr.onerror = () => reject(new Error("上传失败"));
+      xhr.onabort = () => reject(new Error("上传已取消"));
+      xhr.send(body);
+    });
+  };
+
+  const processUploadItem = async (item: VideoUploadQueueItem) => {
+    currentUploadIdRef.current = item.id;
+    setCurrentUploadId(item.id);
+    const title = item.title.trim() || videoTitleFromFile(item.file);
+    updateUploadItem(item.id, { title });
+    const precheck = await runDuplicatePrecheck({ ...item, title });
+    if (cancelBatchRef.current) return;
+    if (precheck.duplicateAsset) {
+      setActiveUploadItemState(item.id, {
+        status: "duplicate",
+        progress: 100,
+        uploadedBytes: item.file.size,
+        totalBytes: item.file.size,
+        duplicateAsset: precheck.duplicateAsset,
+        note: "完全相同文件已存在，未重复上传。",
+      });
+      invalidateVideoData();
+      return;
+    }
+    const itemForUpload = { ...item, title };
+    if (tusEndpoint) await uploadItemWithTus(itemForUpload, precheck.checksum);
+    else await uploadItemWithFallback(itemForUpload, precheck.checksum);
+  };
+
+  const startUpload = async () => {
+    if (!uploadItems.length) {
+      message.warning("请先选择视频文件");
+      return;
+    }
+    if (uploadItems.length === 1 && !uploadItems[0].title.trim()) {
+      message.warning("请输入视频标题");
+      return;
+    }
+    cancelBatchRef.current = false;
+    hashRunRef.current += 1;
+    setBatchRunning(true);
+    try {
+      const queue = uploadItemsRef.current.filter((item) => ["pending", "ready", "error"].includes(item.status));
+      for (const queuedItem of queue) {
+        if (cancelBatchRef.current) break;
+        const latest = uploadItemsRef.current.find((item) => item.id === queuedItem.id) || queuedItem;
+        await processUploadItem(latest);
       }
-      const body = new FormData();
-      body.append("title", uploadTitle.trim());
-      body.append("file", uploadFile);
-      return api<MediaAsset>("/api/admin/media/assets", { method: "POST", body });
-    },
+      disposeUploadClient();
+      currentUploadIdRef.current = undefined;
+      setCurrentUploadId(undefined);
+      if (cancelBatchRef.current) {
+        setUploadState((current) => ({ ...current, stage: uploadItemsRef.current.length ? "pending" : "idle", note: "上传队列已取消" }));
+      } else {
+        setUploadState((current) => ({ ...current, stage: "complete", progress: 100, note: `队列已处理 ${uploadItemsRef.current.length} 个视频，后台会继续生成缩略图和学生播放源。` }));
+        message.success("上传队列已处理完成");
+        invalidateVideoData();
+      }
+    } catch (error) {
+      const failedItemId = currentUploadIdRef.current || currentUploadId;
+      if (failedItemId) updateUploadItem(failedItemId, { status: "error", error: errorMessage(error) });
+      setUploadState((current) => ({ ...current, stage: "error", error: errorMessage(error), note: "队列已暂停，修复后可点击重试继续。" }));
+      message.error(errorMessage(error));
+    } finally {
+      setBatchRunning(false);
+    }
+  };
+
+  const toggleUploadPause = () => {
+    if (!uppyRef.current || !uppyFileIdRef.current) return;
+    const paused = uppyRef.current.pauseResume(uppyFileIdRef.current);
+    const activeItemId = currentUploadIdRef.current || currentUploadId;
+    if (activeItemId) updateUploadItem(activeItemId, { status: paused ? "paused" : "uploading" });
+    setUploadState((current) => ({ ...current, stage: paused ? "paused" : "uploading" }));
+  };
+
+  const retryUpload = () => {
+    if (uppyRef.current && uppyFileIdRef.current) {
+      setUploadState((current) => ({ ...current, stage: "uploading", error: undefined }));
+      void uppyRef.current.retryUpload(uppyFileIdRef.current);
+      return;
+    }
+    void startUpload();
+  };
+
+  const cancelUpload = () => {
+    cancelBatchRef.current = true;
+    disposeUploadClient();
+    setBatchRunning(false);
+    const activeItemId = currentUploadIdRef.current || currentUploadId;
+    if (activeItemId) {
+      updateUploadItem(activeItemId, { status: "error", error: "已取消，可重新开始队列" });
+    }
+    currentUploadIdRef.current = undefined;
+    setUploadState((current) => ({ ...current, stage: uploadItems.length ? "pending" : "idle", progress: 0, uploadedBytes: 0, note: "上传队列已取消" }));
+  };
+
+  const reuseDuplicate = () => {
+    if (!currentUploadItem?.duplicateAsset && !uploadState.duplicateAsset) return;
+    message.success("已使用已有视频，未重复上传");
+    invalidateVideoData();
+  };
+
+  const retryProcessing = useMutation({
+    mutationFn: (assetId: string) => postJson("/api/admin/media/assets/" + assetId + "/retry-processing", {}),
     onSuccess: () => {
-      message.success("视频已上传到资源库");
-      setUploadTitle("");
-      setUploadFile(null);
-      setUploadOpen(false);
+      message.success("已重新排队处理");
       invalidateVideoData();
     },
     onError: (error) => message.error(errorMessage(error)),
   });
 
+  const duplicateDecision = useMutation({
+    mutationFn: ({ id, status }: { id: string; status: "kept" | "reused" | "ignored" }) =>
+      patchJson("/api/admin/media/duplicate-candidates/" + id, { status }),
+    onSuccess: () => {
+      message.success("重复提示已更新");
+      invalidateVideoData();
+    },
+    onError: (error) => message.error(errorMessage(error)),
+  });
+
+  const uploadBusy = batchRunning || ["hashing", "uploading", "paused", "finalizing"].includes(uploadState.stage);
+  const canStartUpload = uploadItems.length > 0 && !batchRunning && uploadItems.some((item) => ["pending", "ready", "error"].includes(item.status)) && (uploadItems.length > 1 || Boolean(uploadItems[0].title.trim()));
+  const canPause = Boolean(tusEndpoint && uppyRef.current && uppyFileIdRef.current && ["uploading", "paused"].includes(uploadState.stage));
+  const canCancel = batchRunning || ["uploading", "paused", "finalizing", "hashing"].includes(uploadState.stage);
+  const uploadFinished = uploadState.stage === "complete";
+  const closeUploadModal = () => {
+    resetUploadModal();
+    setUploadOpen(false);
+  };
+  const uploadModalFooter = uploadFinished
+    ? [
+        <Button key="again" onClick={resetUploadModal}>继续上传其他视频</Button>,
+        <Button key="done" type="primary" icon={<CheckCircleOutlined />} onClick={closeUploadModal}>完成并查看列表</Button>,
+      ]
+    : [
+        <Button key="close" onClick={closeUploadModal}>关闭</Button>,
+        canPause ? <Button key="pause" icon={uploadState.stage === "paused" ? <PlayCircleOutlined /> : <PauseCircleOutlined />} onClick={toggleUploadPause}>{uploadState.stage === "paused" ? "继续当前文件" : "暂停当前文件"}</Button> : null,
+        uploadState.stage === "error" && !batchRunning ? <Button key="retry" icon={<ReloadOutlined />} onClick={retryUpload}>重试队列</Button> : null,
+        canCancel ? <Button key="cancel" danger icon={<CloseCircleOutlined />} onClick={cancelUpload}>取消队列</Button> : null,
+        <Button key="upload" type="primary" icon={<CloudUploadOutlined />} loading={uploadBusy && uploadState.stage !== "paused"} disabled={!canStartUpload} onClick={() => void startUpload()}>{uploadItems.length > 1 ? "开始队列上传" : tusEndpoint ? "开始上传" : "小文件上传"}</Button>,
+      ].filter(Boolean);
+
+  const renderAssetBadges = (asset: MediaAsset) => (
+    <Space size={[4, 4]} wrap className="video-asset-badges">
+      {hasPendingDuplicate(asset) ? <Tag color="#b8892f">疑似重复待确认</Tag> : null}
+      {asset.upload_status !== "ready" && asset.upload_status !== "failed" ? <Tag>{processingPhaseText(asset)}</Tag> : null}
+    </Space>
+  );
+
   const renderAssetName = (asset: MediaAsset) => (
     <Space size={10} align="start" className="video-asset-name">
-      <div className="video-file-mark">
-        <VideoCameraOutlined />
-      </div>
+      <MediaThumbnail asset={asset} compact />
       <Space direction="vertical" size={1}>
         <Text strong>{asset.title}</Text>
         <Text type="secondary">{asset.original_file_name}</Text>
+        {renderAssetBadges(asset)}
       </Space>
     </Space>
   );
+
+  const renderProcessingLine = (asset: MediaAsset) => {
+    if (asset.upload_status === "ready") return <Text type="secondary">{formatDurationSeconds(asset.duration_seconds)} · {formatResolution(asset)}</Text>;
+    if (asset.upload_status === "failed") return <Text type="danger">{asset.error_reason || asset.processing_job?.error_reason || "处理失败"}</Text>;
+    return <Progress percent={processingProgressValue(asset)} size="small" status="active" format={() => processingPhaseText(asset)} />;
+  };
+
+  const renderVersionPanel = (asset: MediaAsset) => {
+    const { rendition, savedPercent } = renditionSavings(asset);
+    return (
+      <div className="video-version-panel">
+        <div className="video-version-item">
+          <Text strong>原始文件</Text>
+          <Text type="secondary" className="block-text">老师上传的源文件，保留在本地媒体目录，用于备份、审计和后续重新处理。</Text>
+          <Text>{formatBytes(asset.file_size_bytes)} · {formatResolution(asset)} · {(asset.video_codec || "-") + " / " + (asset.audio_codec || "-")}</Text>
+        </div>
+        <div className="video-version-item">
+          <Text strong>学生播放源</Text>
+          <Text type="secondary" className="block-text">后台用 FFmpeg 生成或确认的学生观看文件；这里会显示体积、分辨率和节省比例。</Text>
+          <Text>{rendition ? formatBytes(rendition.file_size_bytes) + " · " + formatResolution(rendition) + (savedPercent ? " · 节省 " + savedPercent + "%" : " · 未明显压缩") : "未生成或仍在处理中"}</Text>
+        </div>
+      </div>
+    );
+  };
+
+  const renderDuplicateCandidates = (asset: MediaAsset) => {
+    const candidates = asset.duplicate_candidates || [];
+    if (!candidates.length) return null;
+    return (
+      <div className="video-duplicate-panel">
+        <Flex justify="space-between" align="start" gap={12} wrap="wrap">
+          <div>
+            <Text strong>疑似内容重复</Text>
+            <Text type="secondary" className="block-text">这是 vPDQ/ThreatExchange 相似度工具给出的内容相近提示，不代表 SHA-256 完全相同；系统不会自动删除或跳过。</Text>
+          </div>
+          <Tag color={hasPendingDuplicate(asset) ? "#b8892f" : "default"}>{pendingDuplicateCandidates(asset).length ? pendingDuplicateCandidates(asset).length + " 个待确认" : "已处理"}</Tag>
+        </Flex>
+        <div className="video-duplicate-list">
+          {candidates.map((candidate) => (
+            <div key={candidate.id} className="video-duplicate-item">
+              <Space align="center" size={10} className="video-duplicate-copy">
+                <div className="video-duplicate-thumb">
+                  <AuthenticatedImage
+                    src={candidate.candidate_asset_id ? apiBase + "/api/admin/media/assets/" + candidate.candidate_asset_id + "/thumbnail" : null}
+                    alt={candidate.candidate_title || "疑似重复视频"}
+                    className="video-thumb-image compact"
+                  />
+                  <VideoCameraOutlined />
+                </div>
+                <div>
+                  <Text strong>{candidate.candidate_title || candidate.candidate_asset_id || "未知视频"}</Text>
+                  <Text type="secondary" className="block-text">
+                    内容相似度 {duplicateScoreText(candidate.score)} · {candidate.algorithm} · {duplicateDecisionLabels[candidate.status] || candidate.status}
+                  </Text>
+                </div>
+              </Space>
+              <div className="video-duplicate-actions">
+                {candidate.status === "pending" ? (
+                  <Space size={6} wrap>
+                    <Button size="small" onClick={() => duplicateDecision.mutate({ id: candidate.id, status: "kept" })}>保留两个</Button>
+                    <Button size="small" onClick={() => duplicateDecision.mutate({ id: candidate.id, status: "reused" })}>复用已有</Button>
+                    <Button size="small" onClick={() => duplicateDecision.mutate({ id: candidate.id, status: "ignored" })}>忽略提示</Button>
+                  </Space>
+                ) : (
+                  <Tag>{duplicateDecisionLabels[candidate.status] || candidate.status}</Tag>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  };
 
   return (
     <Space direction="vertical" size={18} className="full">
       <PageTitle
         title="视频资源"
-        description="像素材网盘一样管理已上传视频：上传、搜索、预览和查看处理状态；实验引用不在这个页面完成。"
-        extra={
-          <Button type="primary" icon={<CloudUploadOutlined />} onClick={() => setUploadOpen(true)}>
-            上传视频
-          </Button>
-        }
+        description="这里是后台的视频资源库，用来集中管理老师上传的视频文件。上传支持断点续传，上传完成后系统会在后台自动读取视频信息、生成真实缩略图、为学生端选择或生成更适合在线播放的学生播放源，并提示可能重复的视频。这个页面只负责上传、检索、预览和处理状态查看；把视频引用到具体实验点，仍然在实验管理页面完成。若出现处理失败，通常表示后台无法读取或生成视频输出，比如文件损坏、编码不兼容、磁盘空间不足或视频处理服务中断，可以稍后重试。"
+        extra={<Button type="primary" icon={<CloudUploadOutlined />} onClick={() => setUploadOpen(true)}>上传视频</Button>}
       />
 
       <div className="video-resource-metrics">
-        <Card>
-          <Statistic title="资源库视频" value={assets.data?.total || 0} prefix={<VideoCameraOutlined />} />
-        </Card>
-        <Card>
-          <Statistic title="可预览" value={readyAssets.length} />
-        </Card>
-        <Card>
-          <Statistic title="处理中" value={workingAssets.length} />
-        </Card>
-        <Card>
-          <Statistic title="占用空间" value={formatBytes(totalBytes)} />
-        </Card>
+        <Card><Statistic title="资源库视频" value={assets.data?.total || 0} prefix={<VideoCameraOutlined />} /></Card>
+        <Card><Statistic title="可预览" value={readyAssets.length} /></Card>
+        <Card><Statistic title="处理中" value={workingAssets.length} /></Card>
+        <Card><Statistic title="待确认重复" value={pendingDuplicateAssets.length} /></Card>
+        <Card><Statistic title="处理失败" value={failedAssets.length} /></Card>
+        <Card><Statistic title="原始空间" value={formatBytes(sourceBytes)} /></Card>
+        <Card><Statistic title="学生播放源空间" value={formatBytes(renditionBytes)} /></Card>
+        <Card><Statistic title="已节省空间" value={savedBytes ? formatBytes(savedBytes) : "-"} suffix={savedPercent ? " / " + savedPercent + "%" : undefined} /></Card>
       </div>
 
       <div className="video-drive-panel">
-        <Flex justify="space-between" align="center" gap={14} wrap="wrap" className="video-drive-toolbar">
-          <Input.Search
-            allowClear
-            placeholder="搜索视频标题或文件名"
-            value={keyword}
-            onChange={(event) => setKeyword(event.target.value)}
-            style={{ width: 360 }}
+        {pendingDuplicateAssets.length ? (
+          <Alert
+            type="warning"
+            showIcon
+            className="video-review-alert"
+            message={"有 " + pendingDuplicateAssets.length + " 个疑似重复视频待确认"}
+            description="这些视频内容可能与已有视频相近，但不是完全相同文件。建议集中查看后决定保留、复用已有视频或忽略提示。"
+            action={<Button size="small" onClick={() => setStatusFilter("duplicate_pending")}>查看待确认</Button>}
           />
+        ) : null}
+        <Flex justify="space-between" align="center" gap={14} wrap="wrap" className="video-drive-toolbar">
+          <Input.Search allowClear placeholder="搜索视频标题或文件名" value={keyword} onChange={(event) => setKeyword(event.target.value)} style={{ width: 360 }} />
           <Space size={10} wrap>
-            <Select
-              allowClear
-              placeholder="全部状态"
-              value={statusFilter}
-              onChange={setStatusFilter}
-              style={{ width: 140 }}
-              options={[
-                { value: "ready", label: "就绪" },
-                { value: "processing", label: "处理中" },
-                { value: "pending", label: "待处理" },
-                { value: "failed", label: "失败" },
-                { value: "replaced", label: "已替换" },
-              ]}
-            />
-            <Select
-              value={sortKey}
-              onChange={setSortKey}
-              style={{ width: 150 }}
-              options={[
-                { value: "updated_desc", label: "最近更新" },
-                { value: "name_asc", label: "名称 A-Z" },
-                { value: "size_desc", label: "文件最大" },
-              ]}
-            />
-            <Segmented
-              value={viewMode}
-              onChange={(value) => setViewMode(value as "grid" | "list")}
-              options={[
-                { value: "list", icon: <UnorderedListOutlined />, label: "条" },
-                { value: "grid", icon: <AppstoreOutlined />, label: "块" },
-              ]}
-            />
+            <Select allowClear placeholder="全部状态" value={statusFilter} onChange={setStatusFilter} style={{ width: 160 }} options={[{ value: "duplicate_pending", label: "待确认重复" }, { value: "ready", label: "就绪" }, { value: "processing", label: "处理中" }, { value: "pending", label: "待处理" }, { value: "failed", label: "处理失败" }, { value: "replaced", label: "已替换" }]} />
+            <Select value={sortKey} onChange={setSortKey} style={{ width: 150 }} options={[{ value: "updated_desc", label: "最近更新" }, { value: "name_asc", label: "名称 A-Z" }, { value: "size_desc", label: "文件最大" }]} />
+            <Segmented value={viewMode} onChange={(value) => setViewMode(value as "grid" | "list")} options={[{ value: "list", icon: <UnorderedListOutlined />, label: "条" }, { value: "grid", icon: <AppstoreOutlined />, label: "块" }]} />
           </Space>
         </Flex>
 
         <QueryState loading={assets.isLoading} error={assets.error} empty={!assetItems.length}>
-          {!filteredAssets.length ? (
-            <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description="没有匹配的视频" />
-          ) : viewMode === "grid" ? (
+          {!filteredAssets.length ? <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description="没有匹配的视频" /> : viewMode === "grid" ? (
             <div className="video-drive-grid">
               {filteredAssets.map((asset) => (
                 <div className="video-asset-card" key={asset.id}>
-                  <button
-                    type="button"
-                    className="video-asset-cover"
-                    onClick={() => setPreviewAsset(asset)}
-                    disabled={!isPreviewableVideo(asset)}
-                  >
-                    <VideoCameraOutlined />
-                    <span>{mediaAssetType(asset)}</span>
-                  </button>
+                  <button type="button" className="video-asset-cover" onClick={() => setPreviewAsset(asset)} disabled={!isPreviewableVideo(asset)}><MediaThumbnail asset={asset} /></button>
                   <Space direction="vertical" size={8} className="full">
-                    <div>
-                      <Text strong className="video-asset-title">
-                        {asset.title}
-                      </Text>
-                      <Text type="secondary" className="video-asset-file">
-                        {asset.original_file_name}
-                      </Text>
-                    </div>
-                    <Flex justify="space-between" align="center" gap={8}>
-                      {statusTag(asset.upload_status)}
-                      <Text type="secondary">{formatBytes(asset.file_size_bytes)}</Text>
-                    </Flex>
+                    <div><Text strong className="video-asset-title">{asset.title}</Text><Text type="secondary" className="video-asset-file">{asset.original_file_name}</Text></div>
+                    <Flex justify="space-between" align="center" gap={8}>{mediaStatusTag(asset.upload_status)}<Text type="secondary">{formatBytes(asset.file_size_bytes)}</Text></Flex>
+                    {renderProcessingLine(asset)}
+                    {renderAssetBadges(asset)}
                     <Flex justify="space-between" align="center" gap={8}>
                       <Text type="secondary">{mediaAssetTime(asset)}</Text>
-                      <Button
-                        size="small"
-                        icon={<EyeOutlined />}
-                        disabled={!isPreviewableVideo(asset)}
-                        onClick={() => setPreviewAsset(asset)}
-                      >
-                        预览
-                      </Button>
+                      <Space size={6}>{asset.upload_status === "failed" ? <Button size="small" icon={<ReloadOutlined />} loading={retryProcessing.isPending} onClick={() => retryProcessing.mutate(asset.id)}>重试</Button> : null}<Button size="small" icon={<EyeOutlined />} disabled={!isPreviewableVideo(asset)} onClick={() => setPreviewAsset(asset)}>预览</Button></Space>
                     </Flex>
                   </Space>
                 </div>
               ))}
             </div>
           ) : (
-            <Table
-              rowKey="id"
-              dataSource={filteredAssets}
-              pagination={{ pageSize: 12, showSizeChanger: false }}
-              columns={[
-                {
-                  title: "文件名",
-                  render: (_: unknown, asset: MediaAsset) => renderAssetName(asset),
-                },
-                { title: "类型", width: 96, render: (_: unknown, asset: MediaAsset) => mediaAssetType(asset) },
-                { title: "大小", width: 110, render: (_: unknown, asset: MediaAsset) => formatBytes(asset.file_size_bytes) },
-                { title: "状态", width: 110, render: (_: unknown, asset: MediaAsset) => statusTag(asset.upload_status) },
-                { title: "引用", width: 90, render: (_: unknown, asset: MediaAsset) => asset.association_count || 0 },
-                { title: "更新时间", width: 170, render: (_: unknown, asset: MediaAsset) => mediaAssetTime(asset) },
-                {
-                  title: "操作",
-                  width: 110,
-                  render: (_: unknown, asset: MediaAsset) => (
-                    <Button
-                      size="small"
-                      icon={<EyeOutlined />}
-                      disabled={!isPreviewableVideo(asset)}
-                      onClick={() => setPreviewAsset(asset)}
-                    >
-                      预览
-                    </Button>
-                  ),
-                },
-              ]}
-            />
+            <Table rowKey="id" dataSource={filteredAssets} pagination={{ pageSize: 12, showSizeChanger: false }} columns={[{ title: "文件名", render: (_: unknown, asset: MediaAsset) => renderAssetName(asset) }, { title: "处理", width: 190, render: (_: unknown, asset: MediaAsset) => renderProcessingLine(asset) }, { title: "大小", width: 110, render: (_: unknown, asset: MediaAsset) => formatBytes(asset.file_size_bytes) }, { title: "状态", width: 110, render: (_: unknown, asset: MediaAsset) => mediaStatusTag(asset.upload_status) }, { title: "引用", width: 90, render: (_: unknown, asset: MediaAsset) => asset.association_count || 0 }, { title: "更新时间", width: 170, render: (_: unknown, asset: MediaAsset) => mediaAssetTime(asset) }, { title: "操作", width: 170, render: (_: unknown, asset: MediaAsset) => <Space size={6}>{asset.upload_status === "failed" ? <Button size="small" icon={<ReloadOutlined />} onClick={() => retryProcessing.mutate(asset.id)}>重试</Button> : null}<Button size="small" icon={<EyeOutlined />} disabled={!isPreviewableVideo(asset)} onClick={() => setPreviewAsset(asset)}>预览</Button></Space> }]} />
           )}
         </QueryState>
       </div>
 
-      <Modal
-        title="上传视频"
-        open={uploadOpen}
-        onCancel={() => {
-          setUploadOpen(false);
-          setUploadFile(null);
-          setUploadTitle("");
-        }}
-        okText="上传到视频库"
-        cancelText="取消"
-        okButtonProps={{ loading: uploadAsset.isPending, disabled: !uploadTitle.trim() || !uploadFile }}
-        onOk={() => uploadAsset.mutate()}
-      >
+      <Modal title="上传视频" open={uploadOpen} onCancel={closeUploadModal} footer={uploadModalFooter} width={780}>
         <Space direction="vertical" size={14} className="full">
-          <Input placeholder="视频标题" value={uploadTitle} onChange={(event) => setUploadTitle(event.target.value)} />
-          <Upload.Dragger
-            accept="video/*,.mp4,.mov,.m4v,.webm,.avi"
-            maxCount={1}
-            fileList={
-              uploadFile
-                ? [
+          {!uploadFinished ? (
+            <>
+              {!tusEndpoint ? <Alert type="warning" showIcon message="当前使用小文件回退上传" description="配置 VITE_TUS_ENDPOINT 后可启用断点续传。" /> : null}
+              <Input
+                placeholder={uploadItems.length > 1 ? "多个视频将默认使用各自文件名作为标题" : "视频标题"}
+                value={uploadItems.length > 1 ? "" : uploadTitle}
+                disabled={uploadItems.length > 1 || batchRunning}
+                onChange={(event) => updateSingleUploadTitle(event.target.value)}
+              />
+              <div className="video-upload-guide">
+                <div className="video-upload-guide-head">
+                  <div>
+                    <Text strong>上传后会自动处理</Text>
+                    <Text type="secondary" className="block-text">{uploadStageText(uploadState.stage)}</Text>
+                  </div>
+                  <span>{tusEndpoint ? "断点续传" : "小文件上传"}</span>
+                </div>
+                <div className="video-upload-flow">
+                  {[
                     {
-                      uid: "local-video",
-                      name: uploadFile.name,
-                      status: "done",
+                      title: "校验",
+                      description: uploadState.stage === "hashing" ? "正在校验 " + uploadState.hashProgress + "%" : "识别完全重复文件",
                     },
-                  ]
-                : []
-            }
-            beforeUpload={(file) => {
-              const nextFile = file as File;
-              setUploadFile(nextFile);
-              if (!uploadTitle.trim()) {
-                setUploadTitle(nextFile.name.replace(/\.[^.]+$/, ""));
-              }
-              return false;
-            }}
-            onRemove={() => setUploadFile(null)}
-          >
-            <p className="ant-upload-drag-icon">
-              <CloudUploadOutlined />
-            </p>
-            <p className="ant-upload-text">拖拽视频到这里，或点击选择文件</p>
-            <p className="ant-upload-hint">支持 mp4、mov、m4v、webm、avi；上传后先进入素材库。</p>
-          </Upload.Dragger>
+                    {
+                      title: "上传",
+                      description: tusEndpoint ? "中断后可继续传" : "当前走普通上传",
+                    },
+                    {
+                      title: "处理",
+                      description: "缩略图、学生播放源、相似度",
+                    },
+                  ].map((step, index) => {
+                    const currentStep = uploadStepCurrent(uploadState.stage);
+                    const stateClass = currentStep > index ? "done" : currentStep === index ? "active" : "";
+                    return (
+                      <div key={step.title} className={`video-upload-flow-step ${stateClass}`}>
+                        <span className="video-upload-flow-dot">{currentStep > index ? <CheckCircleOutlined /> : index + 1}</span>
+                        <div>
+                          <strong>{step.title}</strong>
+                          <small>{step.description}</small>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+                <div className="video-upload-guide-notes">
+                  <span>同一浏览器重新选择同一文件，会尽量从已上传位置继续</span>
+                  <span>多个视频会按队列串行上传，完成后进入后台处理</span>
+                </div>
+              </div>
+              <Upload.Dragger
+                accept="video/*,.mp4,.mov,.m4v,.webm,.avi"
+                multiple
+                showUploadList={false}
+                disabled={batchRunning}
+                beforeUpload={(file, fileList) => {
+                  const maybeFile = file as File & { uid?: string };
+                  const lastFile = fileList[fileList.length - 1] as File & { uid?: string };
+                  if (maybeFile.uid === lastFile?.uid) handleUploadFiles(fileList as File[]);
+                  return false;
+                }}
+              >
+                <p className="ant-upload-drag-icon"><CloudUploadOutlined /></p>
+                <p className="ant-upload-text">拖拽一个或多个视频到这里，或点击选择文件</p>
+                <p className="ant-upload-hint">支持 mp4、mov、m4v、webm、avi；多个文件会串行上传，上传完成后自动进入后台处理。</p>
+              </Upload.Dragger>
+            </>
+          ) : (
+            <div className="video-upload-complete-card">
+              <span className="video-upload-complete-icon"><CheckCircleOutlined /></span>
+              <div>
+                <Text strong>上传已完成，视频已加入后台处理队列</Text>
+                <Text type="secondary" className="block-text">现在可以回到列表查看结果。后台会继续读取元数据、生成真实缩略图、准备学生播放源，并完成相似视频检测；列表会自动刷新处理阶段。</Text>
+              </div>
+            </div>
+          )}
+          {uploadItems.length ? (
+            <div className="video-upload-queue">
+              <Flex justify="space-between" align="center" gap={10} wrap="wrap">
+                <Text strong>{batchRunning ? "队列上传中" : "上传队列"}</Text>
+                <Text type="secondary">{uploadQueueDoneCount} / {uploadItems.length} 个已处理 · {formatBytes(uploadQueueUploadedBytes)} / {formatBytes(uploadQueueTotalBytes)}</Text>
+              </Flex>
+              <Progress percent={uploadQueueProgress} status={uploadState.stage === "error" ? "exception" : batchRunning ? "active" : "normal"} />
+              <div className="video-upload-queue-list">
+                {uploadItems.map((item, index) => {
+                  const itemPercent = item.status === "hashing" ? item.hashProgress : item.progress;
+                  const itemActive = item.id === currentUploadId;
+                  return (
+                    <div key={item.id} className={itemActive ? "video-upload-queue-item active" : "video-upload-queue-item"}>
+                      <div className="video-upload-queue-copy">
+                        <Text strong>{index + 1}. {item.title || videoTitleFromFile(item.file)}</Text>
+                        <Text type="secondary" className="block-text">{item.file.name} · {formatBytes(item.file.size)}</Text>
+                        {item.duplicateAsset ? <Text type="secondary" className="block-text">复用：{item.duplicateAsset.title}</Text> : null}
+                      </div>
+                      <div className="video-upload-queue-state">
+                        <Tag color={item.status === "error" ? "red" : ["duplicate", "processing", "complete"].includes(item.status) ? "green" : itemActive ? "#b8892f" : "default"}>{uploadQueueItemText(item)}</Tag>
+                        {["hashing", "uploading", "paused", "finalizing"].includes(item.status) ? <Progress percent={itemPercent} size="small" status={item.status === "paused" ? "normal" : "active"} /> : null}
+                      </div>
+                      {!batchRunning && !uploadFinished ? (
+                        <Button
+                          size="small"
+                          danger
+                          icon={<DeleteOutlined />}
+                          onClick={() => {
+                            const nextItems = uploadItems.filter((candidate) => candidate.id !== item.id);
+                            uploadItemsRef.current = nextItems;
+                            setUploadItems(nextItems);
+                            if (!nextItems.length) {
+                              setUploadTitle("");
+                              setUploadState(emptyUploadState);
+                              return;
+                            }
+                            if (nextItems.length === 1) setUploadTitle(nextItems[0].title);
+                            setUploadState((current) => ({
+                              ...current,
+                              stage: nextItems.length ? current.stage : "idle",
+                              uploadedBytes: nextItems.reduce((sum, candidate) => sum + candidate.uploadedBytes, 0),
+                              totalBytes: nextItems.reduce((sum, candidate) => sum + candidate.totalBytes, 0),
+                              note: nextItems.length > 1 ? `已选择 ${nextItems.length} 个视频，将按顺序逐个上传。` : undefined,
+                            }));
+                          }}
+                        >
+                          移除
+                        </Button>
+                      ) : null}
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          ) : null}
+          {uploadState.stage === "hashing" ? <div className="video-upload-status"><Text strong>正在校验当前文件</Text><Progress percent={uploadState.hashProgress} /></div> : null}
+          {uploadState.note && !["processing", "complete"].includes(uploadState.stage) ? <div className="video-upload-inline-note">{uploadState.note}</div> : null}
+          {(currentUploadItem?.duplicateAsset || uploadState.duplicateAsset) ? <Alert type="success" showIcon message="发现完全相同的已上传文件" description={<Space align="center" size={12}><MediaThumbnail asset={(currentUploadItem?.duplicateAsset || uploadState.duplicateAsset) as MediaAsset} compact /><div><Text strong>{(currentUploadItem?.duplicateAsset || uploadState.duplicateAsset)?.title}</Text><Text type="secondary" className="block-text">{(currentUploadItem?.duplicateAsset || uploadState.duplicateAsset)?.original_file_name} · {formatBytes((currentUploadItem?.duplicateAsset || uploadState.duplicateAsset)?.file_size_bytes)} · {mediaStatusLabels[(currentUploadItem?.duplicateAsset || uploadState.duplicateAsset)?.upload_status || ""] || (currentUploadItem?.duplicateAsset || uploadState.duplicateAsset)?.upload_status}</Text></div></Space>} /> : null}
+          {["uploading", "paused", "finalizing"].includes(uploadState.stage) ? <div className="video-upload-status"><Flex justify="space-between" align="center"><Text strong>{uploadState.stage === "finalizing" ? "正在完成当前文件入库" : uploadState.stage === "paused" ? "当前文件已暂停" : "正在上传当前文件"}</Text><Text type="secondary">{formatBytes(uploadState.uploadedBytes)} / {formatBytes(uploadState.totalBytes || currentUploadItem?.file.size)}</Text></Flex><Progress percent={uploadState.progress} status={uploadState.stage === "paused" ? "normal" : "active"} /></div> : null}
+          {uploadState.stage === "processing" ? (
+            <div className="video-upload-inline-note success">当前文件已上传，队列会继续上传后续文件；已完成的视频会留在列表里显示后台处理阶段。</div>
+          ) : null}
+          {uploadState.error ? <Alert type="error" showIcon message={uploadState.error} /> : null}
         </Space>
       </Modal>
 
       <Modal
-        title={previewAsset?.title || "视频预览"}
+        title={previewAsset ? (
+          <Space size={8} wrap className="video-preview-title">
+            <span>{previewAsset.title}</span>
+            {hasPendingDuplicate(previewAsset) ? <Tag color="#b8892f">疑似重复待确认</Tag> : null}
+          </Space>
+        ) : "视频预览"}
         open={Boolean(previewAsset)}
         onCancel={() => setPreviewAsset(null)}
-        footer={[
-          <Button key="close" onClick={() => setPreviewAsset(null)}>
-            关闭
-          </Button>,
-        ]}
-        width={920}
+        footer={[<Button key="close" onClick={() => setPreviewAsset(null)}>关闭</Button>]}
+        width={1040}
       >
         {previewAsset ? (
-          <div className="video-preview-layout">
-            <div className="video-preview-stage">
-              {previewLoading ? (
-                <Spin />
-              ) : previewError ? (
-                <Alert type="error" showIcon message={previewError} />
-              ) : previewUrl ? (
-                <video controls src={previewUrl} />
-              ) : (
-                <Alert type="info" showIcon message="该视频当前不可预览" description="只有上传状态为就绪的视频可以在线播放。" />
-              )}
+          <Space direction="vertical" size={16} className="full">
+            {hasPendingDuplicate(previewAsset) ? (
+              <Alert
+                type="warning"
+                showIcon
+                message="这个视频可能与已有视频内容相近"
+                description="这是感知相似度检测结果，不是完全相同文件。请在下方重复审核区确认保留、复用或忽略。"
+              />
+            ) : null}
+            <div className="video-preview-layout">
+              <div className="video-preview-stage">
+                {previewLoading ? <Spin /> : previewError ? <Alert type="error" showIcon message={previewError} /> : previewUrl ? <video controls preload="metadata" className="video-preview-player" src={previewUrl} poster={previewPosterUrl} /> : <Alert type="info" showIcon message="该视频当前不可预览" description="只有上传状态为就绪的视频可以在线播放。" />}
+              </div>
+              <Descriptions
+                size="small"
+                column={1}
+                items={[
+                  { key: "file", label: "原始文件", children: previewAsset.original_file_name },
+                  { key: "status", label: "状态", children: mediaStatusTag(previewAsset.upload_status) },
+                  { key: "phase", label: "处理阶段", children: processingPhaseText(previewAsset) },
+                  { key: "source", label: "原始大小", children: formatBytes(previewAsset.file_size_bytes) },
+                  { key: "duration", label: "时长", children: formatDurationSeconds(previewAsset.duration_seconds) },
+                  { key: "resolution", label: "分辨率", children: formatResolution(previewAsset) },
+                  { key: "codec", label: "编码", children: (previewAsset.video_codec || "-") + " / " + (previewAsset.audio_codec || "-") },
+                  { key: "rendition", label: "学生播放源", children: selectedRendition(previewAsset) ? formatBytes(selectedRendition(previewAsset)?.file_size_bytes) + " · " + formatResolution(selectedRendition(previewAsset)) : "未生成" },
+                  { key: "playback", label: "播放源", children: previewAsset.playback_relative_path ? "学生播放源（预览/学生端优先使用）" : "原始文件（原文件已可播放）" },
+                  { key: "time", label: "更新时间", children: mediaAssetTime(previewAsset) },
+                ]}
+              />
             </div>
-            <Descriptions
-              size="small"
-              column={1}
-              items={[
-                { key: "file", label: "原始文件", children: previewAsset.original_file_name },
-                { key: "type", label: "类型", children: mediaAssetType(previewAsset) },
-                { key: "size", label: "大小", children: formatBytes(previewAsset.file_size_bytes) },
-                { key: "status", label: "状态", children: statusTag(previewAsset.upload_status) },
-                { key: "time", label: "更新时间", children: mediaAssetTime(previewAsset) },
-              ]}
-            />
-          </div>
+            {renderVersionPanel(previewAsset)}
+            {previewAsset.upload_status !== "ready" ? <Progress percent={processingProgressValue(previewAsset)} status={previewAsset.upload_status === "failed" ? "exception" : "active"} format={() => processingPhaseText(previewAsset)} /> : null}
+            {previewAsset.error_reason ? <Alert type="error" showIcon message={previewAsset.error_reason} /> : null}
+            {renderDuplicateCandidates(previewAsset)}
+          </Space>
         ) : null}
       </Modal>
     </Space>
@@ -2594,11 +4264,27 @@ function sourceRefLabel(ref: Record<string, unknown>) {
   return `${file}${page}${section}`;
 }
 
+function questionPointTitles(question: ChapterQuestion) {
+  const points = question.metadata?.primary_points || [];
+  if (points.length) {
+    return points.map((point) => String(point.point_title || point.point_key || "")).filter(Boolean);
+  }
+  return (question.metadata?.primary_point_keys || []).map((key) => String(key));
+}
+
+function reviewDecisionTag(decision?: string) {
+  if (decision === "keep") return <Tag color="green">已审查保留</Tag>;
+  if (decision === "rewrite") return <Tag color="gold">改写来源</Tag>;
+  if (decision === "reject") return <Tag>已拒绝</Tag>;
+  return null;
+}
+
 function assistantActionLabel(action: QuestionBankAssistantPreview["actions"][number]) {
   if (action.action_type === "add_question") return "新增题目建议";
   if (action.action_type === "repair_question") return "审核建议";
   return action.title || action.action_type;
 }
+
 
 function questionBankStatusTag(status?: string) {
   if (status === "published") return <Tag color="green">启用</Tag>;
@@ -2936,6 +4622,32 @@ function QuestionBanksPage() {
                 <Descriptions.Item label="答案">{answerText(selectedQuestion.answer)}</Descriptions.Item>
                 <Descriptions.Item label="解析">{selectedQuestion.explanation || "暂无解析"}</Descriptions.Item>
               </Descriptions>
+              {selectedQuestion.metadata?.point_aware_question_bank ? (
+                <div className="question-point-section">
+                  <Flex justify="space-between" align="center" gap={10} wrap="wrap">
+                    <Text strong>点位与审查</Text>
+                    <Space size={6} wrap>
+                      {reviewDecisionTag(selectedQuestion.metadata.review_decision)}
+                      {selectedQuestion.metadata.source_audit?.evidence_sufficient ? <Tag color="green">证据已核对</Tag> : <Tag>证据待核对</Tag>}
+                    </Space>
+                  </Flex>
+                  <Space wrap className="question-point-list">
+                    {questionPointTitles(selectedQuestion).map((title) => (
+                      <Tag key={title} color="cyan">
+                        {title}
+                      </Tag>
+                    ))}
+                    {selectedQuestion.metadata.coverage_tags?.map((tag) => (
+                      <Tag key={tag}>{tag}</Tag>
+                    ))}
+                  </Space>
+                  {selectedQuestion.metadata.source_audit?.reviewer_note ? (
+                    <Text type="secondary" className="block-text">
+                      {selectedQuestion.metadata.source_audit.reviewer_note}
+                    </Text>
+                  ) : null}
+                </div>
+              ) : null}
               {selectedQuestion.source_refs?.length ? (
                 <div className="question-source-section">
                   <Text strong>来源依据</Text>

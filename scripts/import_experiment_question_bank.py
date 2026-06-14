@@ -16,6 +16,7 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from server.app.database import apply_migrations, db_session
+from server.app.canonical_evidence import missing_canonical_chunk_ids, resolve_source_refs
 from server.app.experiment_admin import _validate_question_payload
 
 DEFAULT_BANK_PATH = Path(
@@ -341,6 +342,65 @@ def replace_default_bank_questions(
     }
 
 
+def attach_canonical_source_refs(session: Any, rows: list[dict[str, Any]]) -> dict[str, Any]:
+    all_chunk_ids = sorted({chunk_id for row in rows for chunk_id in row.get("source_chunk_ids") or []})
+    missing = missing_canonical_chunk_ids(session, all_chunk_ids)
+    if missing:
+        raise ValueError(
+            "Question bank references missing canonical source chunks:\n"
+            + "\n".join(missing[:80])
+        )
+    refs_by_id = {str(ref["chunk_id"]): ref for ref in resolve_source_refs(session, all_chunk_ids)}
+    rows_with_refs = 0
+    for row in rows:
+        source_chunk_ids = [str(chunk_id) for chunk_id in row.get("source_chunk_ids") or []]
+        row["source_refs"] = [refs_by_id[chunk_id] for chunk_id in source_chunk_ids if chunk_id in refs_by_id]
+        if row["source_refs"]:
+            rows_with_refs += 1
+    return {
+        "referenced_chunk_count": len(all_chunk_ids),
+        "rows_with_source_refs": rows_with_refs,
+    }
+
+
+def update_experiment_evidence_coverage(session: Any, rows: list[dict[str, Any]]) -> dict[str, Any]:
+    experiments_by_chunk: dict[str, set[str]] = defaultdict(set)
+    for row in rows:
+        experiment_id = str(row.get("experiment_id") or "")
+        if not experiment_id:
+            continue
+        for chunk_id in row.get("source_chunk_ids") or []:
+            experiments_by_chunk[str(chunk_id)].add(experiment_id)
+
+    updated = 0
+    for chunk_id, experiment_ids in experiments_by_chunk.items():
+        existing = (
+            session.execute(
+                text("SELECT related_experiment_ids FROM source_chunks WHERE id = :chunk_id"),
+                {"chunk_id": chunk_id},
+            )
+            .scalar_one_or_none()
+            or []
+        )
+        merged = sorted(set(existing).union(experiment_ids))
+        session.execute(
+            text(
+                """
+                UPDATE source_chunks
+                SET related_experiment_ids = :experiment_ids,
+                    updated_at = now()
+                WHERE id = :chunk_id
+                """
+            ),
+            {"chunk_id": chunk_id, "experiment_ids": merged},
+        )
+        updated += 1
+    return {
+        "experiment_evidence_chunk_count": updated,
+        "experiment_evidence_link_count": sum(len(value) for value in experiments_by_chunk.values()),
+    }
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="Import the reviewed offline experiment question bank.")
     parser.add_argument("--file", type=Path, default=DEFAULT_BANK_PATH)
@@ -354,6 +414,8 @@ def main() -> None:
     with db_session() as session:
         formal_by_id = formal_experiments_by_id(session)
         normalized_rows, validation_report = validate_rows(raw_rows, formal_by_id)
+        source_ref_report = attach_canonical_source_refs(session, normalized_rows)
+        evidence_coverage_report = update_experiment_evidence_coverage(session, normalized_rows)
         import_report = replace_default_bank_questions(
             session,
             normalized_rows,
@@ -367,6 +429,8 @@ def main() -> None:
         "source_file": str(args.file),
         "source_sha256": sha256,
         **validation_report,
+        **source_ref_report,
+        **evidence_coverage_report,
         **import_report,
     }
     sys.stdout.buffer.write((json.dumps(result, ensure_ascii=False, indent=2) + "\n").encode("utf-8"))

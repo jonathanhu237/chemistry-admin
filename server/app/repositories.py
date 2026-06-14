@@ -558,8 +558,12 @@ class PostgresMediaRepository:
             SELECT mb.id AS binding_id, mb.target_type, mb.target_id, mb.title,
                    mb.metadata->>'point_key' AS point_key,
                    mb.metadata->>'point_title' AS point_title,
-                   ma.id AS media_id, ma.original_file_name, ma.relative_path,
-                   ma.mime_type, ma.file_size_bytes, ma.duration_seconds
+                   ma.id AS media_id, ma.original_file_name,
+                   COALESCE(ma.playback_relative_path, ma.relative_path) AS relative_path,
+                   ma.thumbnail_relative_path,
+                   COALESCE(ma.playback_mime_type, ma.mime_type) AS mime_type,
+                   ma.file_size_bytes, ma.duration_seconds,
+                   ma.width, ma.height, ma.video_codec, ma.audio_codec
             FROM media_bindings mb
             JOIN media_assets ma ON ma.id = mb.media_asset_id
             WHERE mb.target_type = :target_type
@@ -573,6 +577,8 @@ class PostgresMediaRepository:
         public_base_url = get_settings().api_public_base_url
         for row in rows:
             row["playback_url"] = f"{public_base_url}/api/media/{row['media_id']}"
+            if row.get("thumbnail_relative_path"):
+                row["poster_url"] = f"{public_base_url}/api/media/{row['media_id']}/poster"
         return rows
 
 

@@ -12,7 +12,7 @@ from pydantic import BaseModel, Field
 from sqlalchemy import text
 from sqlalchemy.exc import IntegrityError
 
-from server.app.auth import AuthUser, require_roles
+from server.app.auth import AuthUser, get_user_from_access_token, require_roles
 from server.app.config import get_settings
 from server.app.curriculum import (
     archive_curriculum_version,
@@ -24,7 +24,19 @@ from server.app.curriculum import (
 )
 from server.app.database import db_session
 from server.app.feedback import FEEDBACK_STATUSES, normalize_feedback_type, feedback_row_to_item, feedback_visibility_sql
-from server.app.media import create_media_asset, create_media_binding, list_media_assets, publish_media_binding
+from server.app.media import (
+    active_media_processing_status,
+    complete_resumable_upload,
+    create_media_asset,
+    create_media_binding,
+    delete_media_binding,
+    decide_duplicate_candidate,
+    list_media_assets,
+    precheck_exact_duplicate,
+    publish_media_binding,
+    retry_media_processing,
+    unpublish_media_binding,
+)
 from server.app.platform_settings import (
     AIConfigurationResponse,
     AIConfigurationUpdate,
@@ -133,6 +145,23 @@ class MediaBindingRequest(BaseModel):
     title: str | None = None
     status: str = Field(default="draft", pattern="^(draft|published|archived)$")
     metadata: dict[str, Any] = Field(default_factory=dict)
+
+
+class MediaDuplicatePrecheckRequest(BaseModel):
+    checksum_sha256: str = Field(min_length=64, max_length=128)
+    file_size_bytes: int = Field(gt=0)
+
+
+class MediaUploadCompleteRequest(BaseModel):
+    title: str = Field(min_length=1, max_length=200)
+    upload_id: str = Field(min_length=1, max_length=200)
+    filename: str = Field(min_length=1, max_length=260)
+    content_type: str | None = None
+    checksum_sha256: str | None = Field(default=None, min_length=64, max_length=128)
+
+
+class MediaDuplicateDecisionRequest(BaseModel):
+    status: str = Field(pattern="^(kept|reused|ignored)$")
 
 
 @router.get("/platform-settings", response_model=PlatformSettingsResponse)
@@ -849,17 +878,56 @@ async def admin_list_media_assets(
     return list_media_assets(upload_status=upload_status, limit=limit)
 
 
-@router.get("/media/assets/{asset_id}/file", include_in_schema=False)
-async def admin_get_media_asset_file(
-    asset_id: str = PathParam(min_length=1),
+@router.post("/media/assets/precheck")
+async def admin_precheck_media_asset(
+    payload: MediaDuplicatePrecheckRequest,
     user: AuthUser = Depends(require_roles("admin", "teacher")),
-) -> FileResponse:
+) -> dict[str, Any]:
+    return precheck_exact_duplicate(
+        checksum_sha256_value=payload.checksum_sha256,
+        file_size_bytes=payload.file_size_bytes,
+    )
+
+
+@router.get("/media/assets/processing")
+async def admin_media_processing_status(
+    limit: int = Query(default=200, ge=1, le=1000),
+    user: AuthUser = Depends(require_roles("admin", "teacher")),
+) -> dict[str, Any]:
+    return active_media_processing_status(limit=limit)
+
+
+@router.post("/media/assets/complete-upload")
+async def admin_complete_resumable_media_upload(
+    payload: MediaUploadCompleteRequest,
+    user: AuthUser = Depends(require_roles("admin", "teacher")),
+) -> dict[str, Any]:
+    try:
+        return complete_resumable_upload(
+            title=payload.title,
+            upload_id=payload.upload_id,
+            filename=payload.filename,
+            content_type=payload.content_type,
+            uploaded_by=user.id,
+            checksum_sha256_value=payload.checksum_sha256,
+        )
+    except FileNotFoundError as exc:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=str(exc)) from exc
+    except ValueError as exc:
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=str(exc)) from exc
+
+
+def _media_asset_file_response(asset_id: str) -> FileResponse:
     with db_session() as session:
         row = (
             session.execute(
                 text(
                     """
-                    SELECT id, relative_path, mime_type, original_file_name, upload_status
+                    SELECT id,
+                           COALESCE(playback_relative_path, relative_path) AS relative_path,
+                           COALESCE(playback_mime_type, mime_type) AS mime_type,
+                           original_file_name,
+                           upload_status
                     FROM media_assets
                     WHERE id = CAST(:asset_id AS uuid)
                     """
@@ -884,6 +952,79 @@ async def admin_get_media_asset_file(
         media_type=row.get("mime_type") or "application/octet-stream",
         filename=row.get("original_file_name") or file_path.name,
     )
+
+
+@router.get("/media/assets/{asset_id}/file", include_in_schema=False)
+async def admin_get_media_asset_file(
+    asset_id: str = PathParam(min_length=1),
+    user: AuthUser = Depends(require_roles("admin", "teacher")),
+) -> FileResponse:
+    return _media_asset_file_response(asset_id)
+
+
+@router.get("/media/assets/{asset_id}/stream", include_in_schema=False)
+async def admin_stream_media_asset_file(
+    asset_id: str = PathParam(min_length=1),
+    access_token: str = Query(min_length=1),
+) -> FileResponse:
+    user = get_user_from_access_token(access_token)
+    if user.role not in {"admin", "teacher"}:
+        raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Insufficient permissions")
+    return _media_asset_file_response(asset_id)
+
+
+@router.get("/media/assets/{asset_id}/thumbnail", include_in_schema=False)
+async def admin_get_media_asset_thumbnail(
+    asset_id: str = PathParam(min_length=1),
+    user: AuthUser = Depends(require_roles("admin", "teacher")),
+) -> FileResponse:
+    with db_session() as session:
+        row = (
+            session.execute(
+                text(
+                    """
+                    SELECT thumbnail_relative_path, original_file_name
+                    FROM media_assets
+                    WHERE id = CAST(:asset_id AS uuid)
+                    """
+                ),
+                {"asset_id": asset_id},
+            )
+            .mappings()
+            .first()
+        )
+    if not row or not row.get("thumbnail_relative_path"):
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Media thumbnail not found")
+    root = get_settings().media_root.resolve()
+    file_path = (root / row["thumbnail_relative_path"]).resolve()
+    if root != file_path and root not in file_path.parents:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Media thumbnail not found")
+    if not file_path.exists():
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Media thumbnail not found")
+    return FileResponse(file_path, media_type="image/jpeg", filename=f"{asset_id}.jpg")
+
+
+@router.post("/media/assets/{asset_id}/retry-processing")
+async def admin_retry_media_asset_processing(
+    asset_id: str = PathParam(min_length=1),
+    user: AuthUser = Depends(require_roles("admin")),
+) -> dict[str, Any]:
+    try:
+        return retry_media_processing(asset_id)
+    except ValueError as exc:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=str(exc)) from exc
+
+
+@router.patch("/media/duplicate-candidates/{candidate_id}")
+async def admin_decide_media_duplicate_candidate(
+    payload: MediaDuplicateDecisionRequest,
+    candidate_id: str = PathParam(min_length=1),
+    user: AuthUser = Depends(require_roles("admin", "teacher")),
+) -> dict[str, Any]:
+    try:
+        return decide_duplicate_candidate(candidate_id, decision=payload.status, actor_user_id=user.id)
+    except ValueError as exc:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=str(exc)) from exc
 
 
 @router.post("/media/assets")
@@ -942,6 +1083,50 @@ async def admin_publish_media_binding(
 ) -> dict[str, Any]:
     try:
         return publish_media_binding(binding_id, actor_user_id=user.id)
+    except ValueError as exc:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=str(exc)) from exc
+
+
+@router.post("/media/bindings/{binding_id}/unpublish")
+async def admin_unpublish_media_binding(
+    binding_id: str = PathParam(min_length=1),
+    user: AuthUser = Depends(require_roles("admin", "teacher")),
+) -> dict[str, Any]:
+    try:
+        return unpublish_media_binding(binding_id)
+    except ValueError as exc:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=str(exc)) from exc
+
+
+@router.delete("/media/bindings/{binding_id}")
+async def admin_delete_media_binding(
+    binding_id: str = PathParam(min_length=1),
+    user: AuthUser = Depends(require_roles("admin", "teacher")),
+) -> dict[str, Any]:
+    try:
+        return delete_media_binding(binding_id)
+    except ValueError as exc:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=str(exc)) from exc
+
+
+@router.post("/media/bindings/{binding_id}/delete")
+async def admin_delete_media_binding_post(
+    binding_id: str = PathParam(min_length=1),
+    user: AuthUser = Depends(require_roles("admin", "teacher")),
+) -> dict[str, Any]:
+    try:
+        return delete_media_binding(binding_id)
+    except ValueError as exc:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=str(exc)) from exc
+
+
+@router.post("/media/bindings/{binding_id}/archive")
+async def admin_archive_media_binding_compat(
+    binding_id: str = PathParam(min_length=1),
+    user: AuthUser = Depends(require_roles("admin", "teacher")),
+) -> dict[str, Any]:
+    try:
+        return delete_media_binding(binding_id)
     except ValueError as exc:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=str(exc)) from exc
 

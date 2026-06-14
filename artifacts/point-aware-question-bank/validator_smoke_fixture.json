@@ -1,0 +1,52 @@
+{
+  "metadata": {
+    "artifact_type": "point_aware_question_bank",
+    "version": "validator-smoke-fixture",
+    "generated_at": "2026-06-14T00:00:00Z"
+  },
+  "experiments": [
+    {
+      "experiment_id": "EXP_19_1_01",
+      "experiment_code": "19-1-01",
+      "experiment_title": "氯、溴、碘的置换次序",
+      "video_points": [
+        {
+          "point_key": "candidate-1-034a8366",
+          "point_title": "氯水 + KBr 溶液 + CCl₄"
+        }
+      ],
+      "questions": [
+        {
+          "question_id": "SMOKE_EXP_19_1_01_Q001",
+          "question_type": "single_choice",
+          "stem": "要用本实验点位证明 Cl₂ 的氧化性强于 Br₂，下列哪一组最合适？",
+          "options": [
+            {"label": "A", "text": "氯水 + KBr 溶液 + CCl₄"},
+            {"label": "B", "text": "溴水 + KI 溶液 + CCl₄"},
+            {"label": "C", "text": "氯水 + KI 溶液 + CCl₄"},
+            {"label": "D", "text": "只加入 CCl₄"}
+          ],
+          "answer": {"value": "A"},
+          "explanation": "要比较 Cl₂ 和 Br₂，需要观察氯水是否能在 KBr 体系中置换出 Br₂；B 比较 Br₂ 和 I₂，C 比较 Cl₂ 和 I₂。",
+          "difficulty": "basic",
+          "review_decision": "keep",
+          "quality_flags": [],
+          "primary_point_keys": ["candidate-1-034a8366"],
+          "coverage_tags": ["cl2_greater_than_br2"],
+          "option_links": [
+            {"label": "A", "point_key": "candidate-1-034a8366", "role": "correct_evidence", "diagnostic_note": "对应氯水与 KBr 点位。"},
+            {"label": "B", "point_key": null, "role": "adjacent_point", "diagnostic_note": "该点位比较 Br₂ 和 I₂，不足以证明 Cl₂ > Br₂。"},
+            {"label": "C", "point_key": null, "role": "adjacent_point", "diagnostic_note": "该点位比较 Cl₂ 和 I₂，不足以直接证明 Cl₂ > Br₂。"},
+            {"label": "D", "point_key": null, "role": "unrelated_distractor", "diagnostic_note": "CCl₄ 单独不能完成置换比较。"}
+          ],
+          "source_audit": {
+            "canonical_chunk_ids": ["expchunk_00199_8240477bff"],
+            "supporting_theory_chunk_ids": [],
+            "evidence_sufficient": true,
+            "reviewer_note": "原文列出 KBr、KI、CCl4、氯水、溴水并要求设计试管实验说明置换次序；该题绑定到氯水 + KBr 点位。"
+          }
+        }
+      ]
+    }
+  ]
+}

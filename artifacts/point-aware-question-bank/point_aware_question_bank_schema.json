@@ -1,0 +1,55 @@
+{
+  "artifact_type": "point_aware_question_bank",
+  "version": "point-aware-question-bank-v1",
+  "required_top_level_keys": [
+    "metadata",
+    "experiments"
+  ],
+  "experiment_required_keys": [
+    "experiment_id",
+    "experiment_code",
+    "experiment_title",
+    "video_points",
+    "questions"
+  ],
+  "question_required_keys": [
+    "question_id",
+    "question_type",
+    "stem",
+    "answer",
+    "explanation",
+    "review_decision",
+    "primary_point_keys",
+    "coverage_tags",
+    "source_audit"
+  ],
+  "allowed_question_types": [
+    "fill_blank",
+    "single_choice",
+    "true_false"
+  ],
+  "allowed_review_decisions": [
+    "keep",
+    "reject",
+    "rewrite"
+  ],
+  "allowed_option_link_roles": [
+    "adjacent_experiment",
+    "adjacent_point",
+    "correct_evidence",
+    "distractor_misconception",
+    "uncertain",
+    "unrelated_distractor",
+    "weak_distractor"
+  ],
+  "fill_blank_policy": {
+    "grading": "deterministic_normalized_exact",
+    "max_answer_length": 12,
+    "forbidden_answer_shapes": [
+      "long reagent combination",
+      "full equation",
+      "multi-clause explanation",
+      "free-form reasoning"
+    ]
+  }
+}
