@@ -1,0 +1,1973 @@
+{
+  "metadata": {
+    "schema_version": "rebuilt_experiment_question_package_v1",
+    "artifact_type": "manual_small_packet_semantic_reconstruction",
+    "source_packet": "E:\\chemistry-admin\\artifacts\\point-aware-question-bank\\reviewed_old_bank_chunks\\slim_release_work_v1\\semantic_work_packets\\chunk_5\\20-2-09.json",
+    "experiment_code": "20-2-09",
+    "experiment_title": "钛(IV)盐的水解",
+    "question_count": 30,
+    "chunk": "chunk_5",
+    "reconstruction_status": "manual_question_by_question_semantic_rebuild",
+    "evidence_policy": "RAG text was read for every cited id. JSON stores ids, source file, line number, and concise evidence role only; no release JSON was edited.",
+    "rag_source_dir": "E:\\chemistry-rag\\data\\rag_ready",
+    "release_json_direct_edit": false
+  },
+  "video_points": [
+    {
+      "point_key": "candidate-1-5b0beabb",
+      "point_title": "TiOSO₄ 稀释后加热煮沸"
+    }
+  ],
+  "evidence_sources": {
+    "canonical_experiment_chunks": [
+      {
+        "chunk_id": "expchunk_00322_6c10a1661c",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+        "line_number": 335,
+        "evidence_role": "Primary canonical experiment text for metal-ion hydrolysis. It states that titanium(IV) salt hydrolysis is observed by taking 1-2 drops of TiOSO₄ solution, adding suitable distilled water, heating to boiling, and observing the phenomenon."
+      }
+    ],
+    "supporting_theory_chunks": [
+      {
+        "chunk_id": "textbook_prose_01156_e3d54318a3",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+        "line_number": 1809,
+        "evidence_role": "Supporting theory for TiOSO₄ hydrolysis. It says dilution and heating make TiOSO₄ hydrolyze to H₂TiO₃, later yielding TiO₂ after calcination."
+      },
+      {
+        "chunk_id": "textbook_prose_01157_702c31a997",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+        "line_number": 1810,
+        "evidence_role": "Supporting reaction evidence for TiOSO₄ hydrolysis: TiOSO₄ with water under heating gives solid H₂TiO₃ and acid."
+      }
+    ]
+  },
+  "questions": [
+    {
+      "question_id": "CHK5_SEM_EXP_20_2_09_001",
+      "question_type": "single_choice",
+      "stem": "在《20-2-09 钛(Ⅳ)盐的水解》中，哪组操作完整对应教材步骤“TiOSO₄ 稀释后加热煮沸”？",
+      "options": [
+        {
+          "label": "A",
+          "text": "只取 TiOSO₄ 溶液，不加水也不加热"
+        },
+        {
+          "label": "B",
+          "text": "取 1-2 滴 TiOSO₄ 溶液，加入适量蒸馏水，加热煮沸并观察现象"
+        },
+        {
+          "label": "C",
+          "text": "加热煮沸少量蒸馏水后滴加 FeCl₃ 溶液"
+        },
+        {
+          "label": "D",
+          "text": "向 Cr₂(SO₄)₃ 溶液中滴加 Na₂CO₃ 溶液"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "实验步骤明确写到钛(Ⅳ)盐水解是取 TiOSO₄ 溶液，加入适量蒸馏水，加热煮沸并观察现象；C、D 分别是相邻的铁(Ⅲ)盐和铬(Ⅲ)盐水解步骤。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-5b0beabb"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "operation_identification",
+        "neighbor_experiment_disambiguation"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "incomplete_operation_distractor",
+          "diagnostic_note": "A 只保留 TiOSO₄ 名称，缺少加水、煮沸和观察任务。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-1-5b0beabb",
+          "role": "correct_evidence",
+          "diagnostic_note": "B 完整覆盖教材步骤中的取样、加水、加热和观察。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "adjacent_experiment_distractor",
+          "diagnostic_note": "C 是同一小节的铁(Ⅲ)盐水解，不是钛(Ⅳ)盐水解。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "adjacent_experiment_distractor",
+          "diagnostic_note": "D 是同一小节的铬(Ⅲ)盐水解，不是本实验。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00322_6c10a1661c"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "人工逐题判断：原题方向正确但重复泛化，重写为完整操作识别。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_2_09_002",
+      "question_type": "single_choice",
+      "stem": "在 TiOSO₄ 溶液加入适量蒸馏水之后，教材步骤紧接着要求做什么？",
+      "options": [
+        {
+          "label": "A",
+          "text": "加入 KSCN"
+        },
+        {
+          "label": "B",
+          "text": "加入 CCl₄ 萃取"
+        },
+        {
+          "label": "C",
+          "text": "用砂纸打磨"
+        },
+        {
+          "label": "D",
+          "text": "加热煮沸"
+        }
+      ],
+      "answer": {
+        "value": "D"
+      },
+      "explanation": "实验步骤为“加入适量蒸馏水，加热煮沸，观察现象”，因此加水之后的关键操作是加热煮沸。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-5b0beabb"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "operation_sequence"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "wrong_reagent_distractor",
+          "diagnostic_note": "KSCN 不在本水解步骤中。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "wrong_operation_distractor",
+          "diagnostic_note": "本实验没有 CCl₄ 萃取。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "wrong_operation_distractor",
+          "diagnostic_note": "打磨固体不是 TiOSO₄ 水解步骤。"
+        },
+        {
+          "label": "D",
+          "point_key": "candidate-1-5b0beabb",
+          "role": "correct_evidence",
+          "diagnostic_note": "D 是教材步骤中加水后的下一步。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00322_6c10a1661c"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "人工逐题判断：原题证据充分、点位准确，保留并补足具体 option diagnostics。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_2_09_003",
+      "question_type": "single_choice",
+      "stem": "关于 TiOSO₄ 稀释、加热后的水解产物，哪项说法符合相关化学原理？",
+      "options": [
+        {
+          "label": "A",
+          "text": "稀释、加热可使 TiOSO₄ 水解生成 H₂TiO₃，进一步处理可得到 TiO₂"
+        },
+        {
+          "label": "B",
+          "text": "TiOSO₄ 水解生成银镜"
+        },
+        {
+          "label": "C",
+          "text": "TiOSO₄ 水解生成碘单质"
+        },
+        {
+          "label": "D",
+          "text": "TiOSO₄ 水解生成金属钠"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "相关化学原理明确写到稀释、加热使 TiOSO₄ 水解得到 H₂TiO₃，并进一步煅烧得到 TiO₂；其他选项不属于该水解体系。",
+      "difficulty": "intermediate",
+      "primary_point_keys": [
+        "candidate-1-5b0beabb"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "supporting_theory_dependency",
+        "hydrolysis_product"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-1-5b0beabb",
+          "role": "correct_theory_evidence",
+          "diagnostic_note": "A 与 TiOSO₄ 水解相关化学原理直接对应。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "unrelated_product_distractor",
+          "diagnostic_note": "银镜不属于 TiOSO₄ 水解。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "unrelated_product_distractor",
+          "diagnostic_note": "碘单质与本钛盐水解无关。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "unrelated_product_distractor",
+          "diagnostic_note": "金属钠不是 TiOSO₄ 水解产物。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00322_6c10a1661c"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01156_e3d54318a3",
+          "textbook_prose_01157_702c31a997"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "人工逐题判断：原题产物判断需要 theory；保留主题但重写为有证据边界的产物题。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_2_09_004",
+      "question_type": "single_choice",
+      "stem": "关于“加水稀释”在本实验中的作用，哪项判断最稳妥？",
+      "options": [
+        {
+          "label": "A",
+          "text": "加水稀释完全阻止 TiOSO₄ 水解"
+        },
+        {
+          "label": "B",
+          "text": "加水稀释是促进 TiOSO₄ 水解观察的必要操作之一"
+        },
+        {
+          "label": "C",
+          "text": "加水稀释只为改变试管颜色，与水解无关"
+        },
+        {
+          "label": "D",
+          "text": "加水稀释会生成氨气"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "实验步骤要求加入适量蒸馏水，相关化学原理进一步说明稀释、加热使 TiOSO₄ 水解得到 H₂TiO₃，因此 B 能把操作和水解目的对应起来。",
+      "difficulty": "intermediate",
+      "primary_point_keys": [
+        "candidate-1-5b0beabb"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "operation_purpose",
+        "supporting_theory_dependency"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "opposite_effect_distractor",
+          "diagnostic_note": "A 与相关化学原理中“稀释、加热使 TiOSO₄ 水解”相反。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-1-5b0beabb",
+          "role": "correct_evidence",
+          "diagnostic_note": "B 同时符合实验步骤和相关化学原理解释。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "unsupported_distractor",
+          "diagnostic_note": "C 割裂加水与水解，没有证据。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "unrelated_product_distractor",
+          "diagnostic_note": "该体系没有生成氨气的证据。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00322_6c10a1661c"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01156_e3d54318a3"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "人工逐题判断：旧题说“促进水解”需要 theory，已明确引用。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_2_09_005",
+      "question_type": "single_choice",
+      "stem": "关于“加热煮沸”的作用，哪项最符合本实验与相关化学原理的结合？",
+      "options": [
+        {
+          "label": "A",
+          "text": "把 TiOSO₄ 变成 KSCN"
+        },
+        {
+          "label": "B",
+          "text": "生成氯气"
+        },
+        {
+          "label": "C",
+          "text": "配合稀释促进 TiOSO₄ 水解并利于观察水解产物"
+        },
+        {
+          "label": "D",
+          "text": "溶解所有水解产物"
+        }
+      ],
+      "answer": {
+        "value": "C"
+      },
+      "explanation": "教材步骤要求加热煮沸并观察现象；相关化学原理明确写到稀释、加热使 TiOSO₄ 水解得到 H₂TiO₃。C 才把操作和目的连起来。",
+      "difficulty": "intermediate",
+      "primary_point_keys": [
+        "candidate-1-5b0beabb"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "operation_purpose",
+        "hydrolysis_product"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "impossible_conversion_distractor",
+          "diagnostic_note": "KSCN 不是本实验试剂或产物。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "unrelated_product_distractor",
+          "diagnostic_note": "实验步骤和相关化学原理都没有氯气生成。"
+        },
+        {
+          "label": "C",
+          "point_key": "candidate-1-5b0beabb",
+          "role": "correct_evidence",
+          "diagnostic_note": "C 由加热步骤和 TiOSO₄ 水解相关化学原理共同支撑。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "opposite_effect_distractor",
+          "diagnostic_note": "相关化学原理指向水解生成固体 H₂TiO₃，而不是溶解所有产物。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00322_6c10a1661c"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01156_e3d54318a3",
+          "textbook_prose_01157_702c31a997"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "人工逐题判断：原题可用但解析泛化，重写为操作目的题。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_2_09_006",
+      "question_type": "single_choice",
+      "stem": "下列哪项是本实验的相邻实验干扰项，而不是钛(Ⅳ)盐水解？",
+      "options": [
+        {
+          "label": "A",
+          "text": "取 1-2 滴 TiOSO₄ 溶液"
+        },
+        {
+          "label": "B",
+          "text": "加入适量蒸馏水"
+        },
+        {
+          "label": "C",
+          "text": "加热煮沸观察现象"
+        },
+        {
+          "label": "D",
+          "text": "向 Cr₂(SO₄)₃ 溶液中滴加 Na₂CO₃ 溶液"
+        }
+      ],
+      "answer": {
+        "value": "D"
+      },
+      "explanation": "D 是同一小节中铬(Ⅲ)盐水解的步骤。A、B、C 都是 TiOSO₄ 水解操作的一部分。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-5b0beabb"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "neighbor_experiment_disambiguation"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-1-5b0beabb",
+          "role": "not_distractor_but_evidence",
+          "diagnostic_note": "A 是 Ti(Ⅳ)盐水解的起始操作。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-1-5b0beabb",
+          "role": "not_distractor_but_evidence",
+          "diagnostic_note": "B 是本实验中的稀释操作。"
+        },
+        {
+          "label": "C",
+          "point_key": "candidate-1-5b0beabb",
+          "role": "not_distractor_but_evidence",
+          "diagnostic_note": "C 是本实验中的加热和观察操作。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "correct_distractor_identification",
+          "diagnostic_note": "D 属于铬(Ⅲ)盐水解，不应混入本实验。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00322_6c10a1661c"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "人工逐题判断：替换重复泛化题，专考相邻实验排除。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_2_09_007",
+      "question_type": "single_choice",
+      "stem": "若只取 TiOSO₄ 溶液而不加水、不加热，主要缺少哪些关键步骤？",
+      "options": [
+        {
+          "label": "A",
+          "text": "缺少加水、煮沸和观察现象，无法完成水解观察"
+        },
+        {
+          "label": "B",
+          "text": "会自动完成铁(Ⅲ)和铬(Ⅲ)的水解步骤"
+        },
+        {
+          "label": "C",
+          "text": "已经能证明 H₂TiO₃ 的生成机理"
+        },
+        {
+          "label": "D",
+          "text": "可以不观察加热后的体系变化"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "本实验要求 TiOSO₄ 溶液加适量蒸馏水后加热煮沸并观察现象，而不是只取 TiOSO₄ 溶液。",
+      "difficulty": "intermediate",
+      "primary_point_keys": [
+        "candidate-1-5b0beabb"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "low_depth_repair",
+        "operation_semantics"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-1-5b0beabb",
+          "role": "correct_missing_steps",
+          "diagnostic_note": "A 指出只取试剂会遗漏稀释、煮沸和观察。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "overcoverage_distractor",
+          "diagnostic_note": "TiOSO₄ 取样不能自动覆盖相邻 Fe/Cr 水解。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "unsupported_overclaim",
+          "diagnostic_note": "生成 H₂TiO₃ 需要相关化学原理支撑，不是试剂名自动证明。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "point_binding_error",
+          "diagnostic_note": "本实验必须落实 TiOSO₄ 稀释、煮沸和观察。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00322_6c10a1661c"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "人工逐题判断：从旧重复题重写为低深度识别题。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_2_09_008",
+      "question_type": "single_choice",
+      "stem": "哪项最准确地区分“实验步骤直接说明”和“产物判断需要原理补充”的内容？",
+      "options": [
+        {
+          "label": "A",
+          "text": "只凭实验步骤就断定 H₂TiO₃ 的生成方程式"
+        },
+        {
+          "label": "B",
+          "text": "实验步骤说明 TiOSO₄ 加水、煮沸、观察现象；涉及 H₂TiO₃ 时还需相关化学原理"
+        },
+        {
+          "label": "C",
+          "text": "用 CoCl₂ 与 KSCN 反应来说明 TiOSO₄ 水解"
+        },
+        {
+          "label": "D",
+          "text": "只要材料中出现钛元素，就直接推出 TiOSO₄ 的水解产物"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "实验步骤直接说明操作过程；TiOSO₄ 水解产物和 TiO₂ 转化的相关化学原理可用于判断 H₂TiO₃ 的生成。B 明确区分这两类内容。",
+      "difficulty": "intermediate",
+      "primary_point_keys": [
+        "candidate-1-5b0beabb"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "evidence_sufficiency",
+        "supporting_theory_dependency"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "insufficient_evidence_distractor",
+          "diagnostic_note": "A 只用实验操作承载产物方程判断，依据不足。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-1-5b0beabb",
+          "role": "correct_reasoning_boundary",
+          "diagnostic_note": "B 正确区分实验步骤和相关化学原理的作用边界。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "wrong_context_distractor",
+          "diagnostic_note": "C 是配合物显色语境，不支撑 TiOSO₄ 水解。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "locator_fallacy_distractor",
+          "diagnostic_note": "D 把含钛材料泛化为产物判断，推理过度。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00322_6c10a1661c"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01156_e3d54318a3",
+          "textbook_prose_01157_702c31a997"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "人工逐题判断：新增证据分工题，避免旧包把 theory 泛化成万能支撑。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_2_09_009",
+      "question_type": "single_choice",
+      "stem": "关于观察现象，哪项表述最稳妥？",
+      "options": [
+        {
+          "label": "A",
+          "text": "教材步骤只要求观察现象；若写白色沉淀或 H₂TiO₃，应另有相关化学原理支撑"
+        },
+        {
+          "label": "B",
+          "text": "教材资料已逐字写明“红色沉淀”"
+        },
+        {
+          "label": "C",
+          "text": "教材资料已逐字写明“CCl₄ 层变紫”"
+        },
+        {
+          "label": "D",
+          "text": "教材资料已逐字写明“金属钠熔成小球”"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "实验步骤只写观察现象，没有直接给出具体颜色。白色水解产物或 H₂TiO₃ 需要相关化学原理；B、C、D 都缺少对应依据或属于错误实验语境。",
+      "difficulty": "intermediate",
+      "primary_point_keys": [
+        "candidate-1-5b0beabb"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "observation_scope",
+        "avoid_overclaim"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-1-5b0beabb",
+          "role": "correct_scope_judgement",
+          "diagnostic_note": "A 控制了实验步骤和相关化学原理的边界。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "unsupported_overclaim",
+          "diagnostic_note": "教材步骤没有写红色沉淀。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "wrong_context_distractor",
+          "diagnostic_note": "CCl₄ 萃取不是本点位。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "unrelated_distractor",
+          "diagnostic_note": "金属钠现象不属于该实验。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00322_6c10a1661c"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01156_e3d54318a3",
+          "textbook_prose_01157_702c31a997"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "人工逐题判断：原题直接问白色浑浊，改为观察范围判断，避免 canonical overclaim。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_2_09_010",
+      "question_type": "single_choice",
+      "stem": "下列哪项不是本实验的合理操作？",
+      "options": [
+        {
+          "label": "A",
+          "text": "取 1-2 滴 TiOSO₄ 溶液"
+        },
+        {
+          "label": "B",
+          "text": "加入适量蒸馏水稀释"
+        },
+        {
+          "label": "C",
+          "text": "加热煮沸并观察现象"
+        },
+        {
+          "label": "D",
+          "text": "加入戊醇和 KSCN 鉴定 Co²⁺"
+        }
+      ],
+      "answer": {
+        "value": "D"
+      },
+      "explanation": "A、B、C 直接来自教材资料的钛(Ⅳ)盐水解步骤；D 是钴离子鉴定或配合物显色语境，不属于本实验。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-5b0beabb"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "operation_discrimination"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-1-5b0beabb",
+          "role": "valid_operation",
+          "diagnostic_note": "A 是本实验第一步。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-1-5b0beabb",
+          "role": "valid_operation",
+          "diagnostic_note": "B 是本实验稀释步骤。"
+        },
+        {
+          "label": "C",
+          "point_key": "candidate-1-5b0beabb",
+          "role": "valid_operation",
+          "diagnostic_note": "C 是本实验加热观察步骤。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "correct_invalid_operation",
+          "diagnostic_note": "D 不属于 TiOSO₄ 水解。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00322_6c10a1661c"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "人工逐题判断：原题可保留，修正 option diagnostics。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_2_09_011",
+      "question_type": "single_choice",
+      "stem": "本实验应围绕哪一项操作？",
+      "options": [
+        {
+          "label": "A",
+          "text": "取 TiOSO₄ 溶液，加水稀释后加热煮沸并观察现象"
+        },
+        {
+          "label": "B",
+          "text": "同时加入铁(Ⅲ)盐水解步骤，因为它在教材同一小节"
+        },
+        {
+          "label": "C",
+          "text": "同时加入铬(Ⅲ)盐水解步骤，因为它也在同一小节"
+        },
+        {
+          "label": "D",
+          "text": "不做具体操作，只引用章节标题"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "本实验的核心操作是 TiOSO₄ 加水稀释后加热煮沸并观察现象。铁(Ⅲ)和铬(Ⅲ)水解步骤只能作为相邻干扰项，不是本实验要完成的额外步骤。",
+      "difficulty": "intermediate",
+      "primary_point_keys": [
+        "candidate-1-5b0beabb"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "point_binding",
+        "multi_point_control"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-1-5b0beabb",
+          "role": "correct_operation",
+          "diagnostic_note": "A 与本实验的核心操作一致。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "overbinding_distractor",
+          "diagnostic_note": "B 把教材同一小节的相邻步骤误认为本实验操作。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "overbinding_distractor",
+          "diagnostic_note": "C 同样是相邻步骤误绑定。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "underbinding_distractor",
+          "diagnostic_note": "D 丢失实际实验操作。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00322_6c10a1661c"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "人工逐题判断：新增点位绑定题，确认本包没有真实多点位题。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_2_09_012",
+      "question_type": "true_false",
+      "stem": "判断：TiOSO₄ 溶液加入蒸馏水后加热煮沸，是本实验观察钛(Ⅳ)盐水解的核心操作。",
+      "options": [
+        {
+          "label": "T",
+          "text": "正确"
+        },
+        {
+          "label": "F",
+          "text": "错误"
+        }
+      ],
+      "answer": {
+        "value": true
+      },
+      "explanation": "判断正确。这句话概括了教材中钛(Ⅳ)盐水解步骤。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-5b0beabb"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "true_false",
+        "operation_identification"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00322_6c10a1661c"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "人工逐题判断：原判断题证据充分，保留并清理泛化解释。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_2_09_013",
+      "question_type": "true_false",
+      "stem": "判断：TiOSO₄ 水解得到 H₂TiO₃ 的判断需要相关化学原理，而不是只靠实验步骤中的“观察现象”。",
+      "options": [
+        {
+          "label": "T",
+          "text": "正确"
+        },
+        {
+          "label": "F",
+          "text": "错误"
+        }
+      ],
+      "answer": {
+        "value": true
+      },
+      "explanation": "判断正确。教材步骤只写观察现象；TiOSO₄ 水解产物和 TiO₂ 转化的相关化学原理才明确给出 TiOSO₄ 水解得到 H₂TiO₃。",
+      "difficulty": "intermediate",
+      "primary_point_keys": [
+        "candidate-1-5b0beabb"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "true_false",
+        "supporting_theory_dependency"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00322_6c10a1661c"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01156_e3d54318a3",
+          "textbook_prose_01157_702c31a997"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "人工逐题判断：旧题直接写产物，改为证据依赖判断。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_2_09_014",
+      "question_type": "true_false",
+      "stem": "判断：加水稀释通常会阻止 TiOSO₄ 水解，因此本实验不应加蒸馏水。",
+      "options": [
+        {
+          "label": "T",
+          "text": "正确"
+        },
+        {
+          "label": "F",
+          "text": "错误"
+        }
+      ],
+      "answer": {
+        "value": false
+      },
+      "explanation": "判断错误。教材明确要求加入适量蒸馏水，相关化学原理也说明稀释、加热使 TiOSO₄ 水解。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-5b0beabb"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "true_false",
+        "operation_purpose"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00322_6c10a1661c"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01156_e3d54318a3"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "人工逐题判断：旧判断题可用但解释过短，重写为非双重否定的明确判断。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_2_09_015",
+      "question_type": "true_false",
+      "stem": "判断：只知道标题含“钛(Ⅳ)盐”，还不足以回答本实验的具体操作。",
+      "options": [
+        {
+          "label": "T",
+          "text": "正确"
+        },
+        {
+          "label": "F",
+          "text": "错误"
+        }
+      ],
+      "answer": {
+        "value": true
+      },
+      "explanation": "判断正确。具体操作还必须包括 TiOSO₄ 溶液、加入蒸馏水、加热煮沸和观察现象，不能只背标题或价态。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-5b0beabb"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "true_false",
+        "low_depth_repair"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00322_6c10a1661c"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "人工逐题判断：原题只考 Ti(IV)价态，过低深度；重写为标题不足以替代操作证据。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_2_09_016",
+      "question_type": "true_false",
+      "stem": "判断：同一教材小节还列出铁(Ⅲ)盐和铬(Ⅲ)盐水解，但它们只能作相邻背景，不能替代钛(Ⅳ)盐水解操作。",
+      "options": [
+        {
+          "label": "T",
+          "text": "正确"
+        },
+        {
+          "label": "F",
+          "text": "错误"
+        }
+      ],
+      "answer": {
+        "value": true
+      },
+      "explanation": "判断正确。同一小节中 Fe、Cr、Ti 三个水解步骤并列；本实验只涉及 TiOSO₄ 稀释煮沸这一操作。",
+      "difficulty": "intermediate",
+      "primary_point_keys": [
+        "candidate-1-5b0beabb"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "true_false",
+        "neighbor_experiment_disambiguation"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00322_6c10a1661c"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "人工逐题判断：重写旧泛化判断，明确相邻内容不构成多点位绑定。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_2_09_017",
+      "question_type": "true_false",
+      "stem": "判断：只写“钛盐水解”而不写加水、加热和观察，会遗漏本实验的关键步骤。",
+      "options": [
+        {
+          "label": "T",
+          "text": "正确"
+        },
+        {
+          "label": "F",
+          "text": "错误"
+        }
+      ],
+      "answer": {
+        "value": true
+      },
+      "explanation": "判断正确。教材步骤包括取 TiOSO₄ 溶液、加入适量蒸馏水、加热煮沸并观察现象；只写“钛盐水解”不够完整。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-5b0beabb"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "true_false",
+        "mobile_input_risk"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00322_6c10a1661c"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01156_e3d54318a3"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "人工逐题判断：用判断题处理公式填空风险，避免复杂可见答案。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_2_09_018",
+      "question_type": "single_choice",
+      "stem": "哪项最准确地区分本实验与相邻铁(Ⅲ)盐水解步骤？",
+      "options": [
+        {
+          "label": "A",
+          "text": "FeCl₃ 沸水水解是同小节相邻步骤，不是 TiOSO₄ 稀释煮沸"
+        },
+        {
+          "label": "B",
+          "text": "FeCl₃ 沸水水解与 TiOSO₄ 稀释煮沸完全相同"
+        },
+        {
+          "label": "C",
+          "text": "“TiOSO₄ 与 Na₂CO₃ 是同一操作”"
+        },
+        {
+          "label": "D",
+          "text": "“CoCl₂ 与 KSCN 显色可替代所有水解实验”"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "教材同一小节中列出相邻水解步骤。FeCl₃ 沸水水解属于铁(Ⅲ)盐水解，而本实验是 TiOSO₄ 稀释后加热煮沸。",
+      "difficulty": "intermediate",
+      "primary_point_keys": [
+        "candidate-1-5b0beabb"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "option_link_quality",
+        "diagnostic_specificity"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-1-5b0beabb",
+          "role": "correct_adjacent_step_boundary",
+          "diagnostic_note": "A 准确区分铁(Ⅲ)盐水解与钛(Ⅳ)盐水解。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "false_equivalence_distractor",
+          "diagnostic_note": "B 把两个相邻实验错误等同。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "false_equivalence_distractor",
+          "diagnostic_note": "TiOSO₄ 水解和 Na₂CO₃ 铬盐水解不是同一操作。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "overgeneralization_distractor",
+          "diagnostic_note": "CoCl₂ 与 KSCN 属于其他配合物显色语境。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00322_6c10a1661c"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "人工逐题判断：从旧重复题重写为 option_link 质量题。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_2_09_019",
+      "question_type": "single_choice",
+      "stem": "若要判断“TiOSO₄ 稀释、加热后水解得到 H₂TiO₃”，应同时关注哪两类内容？",
+      "options": [
+        {
+          "label": "A",
+          "text": "只关注金属离子水解实验步骤"
+        },
+        {
+          "label": "B",
+          "text": "金属离子水解实验步骤，以及 TiOSO₄ 水解产物和 TiO₂ 转化的相关化学原理"
+        },
+        {
+          "label": "C",
+          "text": "只用钛(Ⅳ)过氧化氢鉴定中的显色反应"
+        },
+        {
+          "label": "D",
+          "text": "任意含钛内容都可直接推出该产物"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "实验步骤能说明 TiOSO₄ 加水、煮沸并观察；TiOSO₄ 水解产物和 TiO₂ 转化的相关化学原理能说明 H₂TiO₃ 的生成。只用实验步骤不足以证明产物，任意含钛内容也不能直接推出该判断。",
+      "difficulty": "intermediate",
+      "primary_point_keys": [
+        "candidate-1-5b0beabb"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "evidence_id_selection",
+        "supporting_theory_dependency"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "insufficient_evidence_distractor",
+          "diagnostic_note": "教材步骤只写操作和观察，不直接给出 H₂TiO₃。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-1-5b0beabb",
+          "role": "correct_reasoning_set",
+          "diagnostic_note": "B 同时覆盖操作过程和产物相关化学原理。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "wrong_theory_scope",
+          "diagnostic_note": "钛(Ⅳ)过氧化氢鉴定讨论 TiO²⁺ 与 H₂O₂ 显色，不是本水解产物判断的主要依据。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "locator_fallacy_distractor",
+          "diagnostic_note": "含钛内容出现不等于能说明该产物判断。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00322_6c10a1661c"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01156_e3d54318a3",
+          "textbook_prose_01157_702c31a997"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "人工逐题判断：明确选择 evidence ids，不再沿用泛化 reviewer note。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_2_09_020",
+      "question_type": "single_choice",
+      "stem": "下列哪项最能说明钛(Ⅳ)过氧化氢鉴定不适合直接判断本实验的水解产物？",
+      "options": [
+        {
+          "label": "A",
+          "text": "它讨论 TiO²⁺ 与 H₂O₂ 的显色反应，而不是 TiOSO₄ 稀释、加热水解得到 H₂TiO₃"
+        },
+        {
+          "label": "B",
+          "text": "它没有提到 TiOSO₄ 稀释、加热水解得到 H₂TiO₃"
+        },
+        {
+          "label": "C",
+          "text": "它证明 FeCl₃ 沸水水解"
+        },
+        {
+          "label": "D",
+          "text": "它证明 Cr₂(SO₄)₃ 与 Na₂CO₃ 的反应"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "该内容讨论 TiO²⁺ 与 H₂O₂ 的显色反应，可用于钛或过氧化氢比色分析，不是本 TiOSO₄ 稀释煮沸水解的主要产物依据。",
+      "difficulty": "intermediate",
+      "primary_point_keys": [
+        "candidate-1-5b0beabb"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "theory_filtering",
+        "evidence_scope"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-1-5b0beabb",
+          "role": "correct_theory_filter",
+          "diagnostic_note": "A 准确指出钛(Ⅳ)过氧化氢鉴定的显色语境与本水解产物判断不匹配。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "false_reason_distractor",
+          "diagnostic_note": "该显色内容确实存在，但不适合说明本水解产物。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "wrong_context_distractor",
+          "diagnostic_note": "FeCl₃ 水解来自教材步骤相邻步骤。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "wrong_context_distractor",
+          "diagnostic_note": "Cr₂(SO₄)₃ 与 Na₂CO₃ 是铬(Ⅲ)盐水解。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00322_6c10a1661c"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01156_e3d54318a3",
+          "textbook_prose_01157_702c31a997"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "人工逐题判断：用题目形式记录 theory 过滤理由。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_2_09_021",
+      "question_type": "single_choice",
+      "stem": "若把本实验回答成“CoCl₂ 与 KSCN 显色”，哪项判断正确？",
+      "options": [
+        {
+          "label": "A",
+          "text": "正确，因为显色反应都能替代水解观察"
+        },
+        {
+          "label": "B",
+          "text": "错误；CoCl₂ 与 KSCN 属于其他配合物显色实验，不是 TiOSO₄ 稀释煮沸水解"
+        },
+        {
+          "label": "C",
+          "text": "正确，因为 KSCN 是 TiOSO₄ 的水解产物"
+        },
+        {
+          "label": "D",
+          "text": "无法判断，因为教材未给出本实验试剂"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "教材资料明确给出本实验试剂和操作为 TiOSO₄ 加水、煮沸、观察。CoCl₂ 与 KSCN 不属于该步骤。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-5b0beabb"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "misconception_feedback",
+        "wrong_context_distractor"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "overgeneralization_distractor",
+          "diagnostic_note": "显色反应不能替代水解观察。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-1-5b0beabb",
+          "role": "correct_correction",
+          "diagnostic_note": "B 明确指出错在把配合物显色语境替换成本水解实验。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "false_product_distractor",
+          "diagnostic_note": "KSCN 不是 TiOSO₄ 水解产物。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "contradicted_by_evidence",
+          "diagnostic_note": "教材步骤已给出 TiOSO₄、蒸馏水、加热煮沸。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00322_6c10a1661c"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "人工逐题判断：替换旧重复题，加入具体错答反馈。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_2_09_022",
+      "question_type": "fill_blank",
+      "stem": "在《20-2-09 钛(Ⅳ)盐的水解》中，TiOSO₄ 稀释后需加热____。",
+      "answer": {
+        "accepted_answers": [
+          "煮沸"
+        ],
+        "hidden_grading_aliases": [],
+        "match": "normalized_exact"
+      },
+      "accepted_answers": [
+        "煮沸"
+      ],
+      "hidden_grading_aliases": [],
+      "explanation": "实验步骤写明加入适量蒸馏水后加热煮沸。答案是短中文词，能直接对应操作。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-5b0beabb"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "fill_blank",
+        "short_answer_safe",
+        "operation_sequence"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00322_6c10a1661c"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "人工逐题判断：原填空答案短且确定，保留；没有暴露化学式 alias。"
+      },
+      "mobile_input_risk": "low_short_chinese_answer",
+      "machine_grading": "deterministic",
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_2_09_023",
+      "question_type": "single_choice",
+      "stem": "若要判断 TiOSO₄ 在本实验中的作用，哪项说法正确？",
+      "options": [
+        {
+          "label": "A",
+          "text": "TiOSO₄ 与本实验无关"
+        },
+        {
+          "label": "B",
+          "text": "TiOSO₄ 是取样后加水稀释、加热煮沸的钛(Ⅳ)盐溶液"
+        },
+        {
+          "label": "C",
+          "text": "TiOSO₄ 用来替代 FeCl₃ 沸水水解"
+        },
+        {
+          "label": "D",
+          "text": "TiOSO₄ 用于 CoCl₂ 与 KSCN 的蓝色显色"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "教材步骤明确写到取 1-2 滴 TiOSO₄ 溶液，加入适量蒸馏水，加热煮沸并观察现象，因此 TiOSO₄ 是本水解实验的起始钛盐溶液。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-5b0beabb"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "mobile_input_risk",
+        "rewrite_strategy"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "wrong_reagent_distractor",
+          "diagnostic_note": "A 否认了教材步骤中出现的 TiOSO₄。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-1-5b0beabb",
+          "role": "correct_reagent_role",
+          "diagnostic_note": "B 准确说明 TiOSO₄ 在本实验中的操作角色。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "adjacent_step_confusion",
+          "diagnostic_note": "C 把钛(Ⅳ)盐水解与铁(Ⅲ)盐水解混淆。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "wrong_context_distractor",
+          "diagnostic_note": "D 把 TiOSO₄ 误放进钴配合物显色语境。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00322_6c10a1661c"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "人工逐题判断：将旧公式/名称填空风险改为发布策略题。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_2_09_024",
+      "question_type": "single_choice",
+      "stem": "若要判断 TiOSO₄ 水解后可能出现白色 H₂TiO₃，哪项说法最准确？",
+      "options": [
+        {
+          "label": "A",
+          "text": "教材步骤只写观察现象；白色 H₂TiO₃ 或水合 TiO₂ 判断要结合相关化学原理"
+        },
+        {
+          "label": "B",
+          "text": "教材资料已经逐字写明白色 H₂TiO₃"
+        },
+        {
+          "label": "C",
+          "text": "TiOSO₄ 水解一定生成血红色络合物"
+        },
+        {
+          "label": "D",
+          "text": "所有沉淀判断都不能讨论"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "教材步骤没有写具体颜色或产物；相关化学原理说明 TiOSO₄ 水解得到 H₂TiO₃，因此白色沉淀或产物判断需要结合这些原理。",
+      "difficulty": "intermediate",
+      "primary_point_keys": [
+        "candidate-1-5b0beabb"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "precipitate_reasoning",
+        "supporting_theory_dependency"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-1-5b0beabb",
+          "role": "correct_scope_judgement",
+          "diagnostic_note": "A 正确控制了实验步骤和相关化学原理的分工。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "contradicted_by_evidence",
+          "diagnostic_note": "教材步骤没有逐字写白色 H₂TiO₃。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "wrong_context_distractor",
+          "diagnostic_note": "血红色络合物不是本水解产物。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "overrestriction_distractor",
+          "diagnostic_note": "沉淀判断可以讨论，但需要匹配相关化学原理并保持结论确定。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00322_6c10a1661c"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01156_e3d54318a3",
+          "textbook_prose_01157_702c31a997"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "人工逐题判断：重写旧产物题，避免从 canonical 过度推出颜色。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_2_09_025",
+      "question_type": "fill_blank",
+      "stem": "在《20-2-09 钛(Ⅳ)盐的水解》中，加水____是 TiOSO₄ 水解观察的重要操作。",
+      "answer": {
+        "accepted_answers": [
+          "稀释"
+        ],
+        "hidden_grading_aliases": [],
+        "match": "normalized_exact"
+      },
+      "accepted_answers": [
+        "稀释"
+      ],
+      "hidden_grading_aliases": [],
+      "explanation": "教材步骤要求加入适量蒸馏水，相关化学原理也写到稀释、加热使 TiOSO₄ 水解。答案“稀释”短且确定。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-5b0beabb"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "fill_blank",
+        "short_answer_safe",
+        "operation_purpose"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00322_6c10a1661c"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01156_e3d54318a3"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "人工逐题判断：原填空方向可用，但题干和解析已重写，并补上 theory 依赖。"
+      },
+      "mobile_input_risk": "low_short_chinese_answer",
+      "machine_grading": "deterministic",
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_2_09_026",
+      "question_type": "single_choice",
+      "stem": "下列哪项最准确描述本实验的操作顺序？",
+      "options": [
+        {
+          "label": "A",
+          "text": "先加热蒸馏水，再滴加 FeCl₃，再继续煮沸"
+        },
+        {
+          "label": "B",
+          "text": "取 TiOSO₄ 溶液，加入适量蒸馏水，再加热煮沸观察"
+        },
+        {
+          "label": "C",
+          "text": "向 Cr₂(SO₄)₃ 加 Na₂CO₃ 后立即改做 TiOSO₄"
+        },
+        {
+          "label": "D",
+          "text": "先加入 KSCN，再用 CCl₄ 萃取"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "B 完整复述了教材资料中钛(Ⅳ)盐水解的顺序；A 和 C 是同小节相邻 Fe/Cr 步骤，D 是无关鉴定操作。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-5b0beabb"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "operation_sequence",
+        "neighbor_experiment_disambiguation"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "adjacent_experiment_distractor",
+          "diagnostic_note": "A 对应 Fe(Ⅲ)盐水解。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-1-5b0beabb",
+          "role": "correct_evidence",
+          "diagnostic_note": "B 与 TiOSO₄ 水解步骤一致。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "mixed_steps_distractor",
+          "diagnostic_note": "C 混入 Cr(Ⅲ)盐水解。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "wrong_context_distractor",
+          "diagnostic_note": "D 与本水解点位无关。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00322_6c10a1661c"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "人工逐题判断：从重复题改为操作顺序题。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_2_09_027",
+      "question_type": "fill_blank",
+      "stem": "TiOSO₄ 水解后若出现浑浊，说明体系中生成了难溶____。",
+      "answer": {
+        "accepted_answers": [
+          "沉淀"
+        ],
+        "hidden_grading_aliases": [
+          "水解产物"
+        ],
+        "match": "normalized_exact"
+      },
+      "accepted_answers": [
+        "沉淀"
+      ],
+      "hidden_grading_aliases": [
+        "水解产物"
+      ],
+      "explanation": "TiOSO₄ 水解产物 H₂TiO₃ 为固体，宏观上可表现为难溶沉淀或浑浊。可见答案只保留短词“沉淀”，避免复杂化学式填空。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-5b0beabb"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "fill_blank",
+        "short_answer_safe",
+        "supporting_theory_dependency"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00322_6c10a1661c"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01156_e3d54318a3",
+          "textbook_prose_01157_702c31a997"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "人工逐题判断：原填空保留为短中文答案，但将“水解产物”移入 hidden alias，并补 theory。"
+      },
+      "mobile_input_risk": "low_short_chinese_answer",
+      "machine_grading": "deterministic",
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_2_09_028",
+      "question_type": "single_choice",
+      "stem": "下列哪项最能说明本实验不是“只取 TiOSO₄ 即完成”？",
+      "options": [
+        {
+          "label": "A",
+          "text": "教材资料还要求加入适量蒸馏水、加热煮沸并观察现象"
+        },
+        {
+          "label": "B",
+          "text": "TiOSO₄ 与蒸馏水无关"
+        },
+        {
+          "label": "C",
+          "text": "本实验改用 CoCl₂ 和 KSCN"
+        },
+        {
+          "label": "D",
+          "text": "本实验不需要观察任何现象"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "TiOSO₄ 是实验对象，但完整操作还包括加水、煮沸和观察。只取试剂不足以完成实验。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-5b0beabb"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "procedure_completeness",
+        "low_depth_repair"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-1-5b0beabb",
+          "role": "correct_evidence",
+          "diagnostic_note": "A 列出教材步骤里除取样外的关键步骤。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "contradicted_by_evidence",
+          "diagnostic_note": "教材步骤明确要求加入蒸馏水。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "wrong_context_distractor",
+          "diagnostic_note": "CoCl₂ 和 KSCN 不属于本水解实验。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "contradicted_by_evidence",
+          "diagnostic_note": "教材步骤明确要求观察现象。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00322_6c10a1661c"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "人工逐题判断：重写旧重复题，强调完整步骤而非试剂名背诵。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_2_09_029",
+      "question_type": "single_choice",
+      "stem": "若要找到本实验 TiOSO₄ 加水、煮沸、观察的直接来源，哪项教材内容最合适？",
+      "options": [
+        {
+          "label": "A",
+          "text": "金属离子水解实验步骤"
+        },
+        {
+          "label": "B",
+          "text": "钛(Ⅳ)过氧化氢鉴定"
+        },
+        {
+          "label": "C",
+          "text": "钛化合物表格"
+        },
+        {
+          "label": "D",
+          "text": "任意 TiO₂ 附录表格记录"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "金属离子水解实验步骤直接包含 TiOSO₄ 加水、煮沸、观察现象。其他内容可作特定相关化学原理背景，但不是本实验步骤的直接来源。",
+      "difficulty": "intermediate",
+      "primary_point_keys": [
+        "candidate-1-5b0beabb"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "evidence_id_selection",
+        "canonical_locator"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-1-5b0beabb",
+          "role": "correct_step_source",
+          "diagnostic_note": "A 直接对应本实验步骤。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "wrong_theory_scope",
+          "diagnostic_note": "B 是 TiO²⁺ 与 H₂O₂ 显色，不是本步骤主要依据。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "appendix_context_distractor",
+          "diagnostic_note": "C 是 TiO₂ 热力学附录记录，不是本实验操作步骤。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "locator_fallacy_distractor",
+          "diagnostic_note": "附录记录不能替代教材中的实验操作步骤。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00322_6c10a1661c"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "人工逐题判断：重写旧相邻背景题为 canonical id 选择题。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_2_09_030",
+      "question_type": "fill_blank",
+      "stem": "在《20-2-09 钛(Ⅳ)盐的水解》中，钛(Ⅳ)盐水解前需要加入适量____水。",
+      "answer": {
+        "accepted_answers": [
+          "蒸馏"
+        ],
+        "hidden_grading_aliases": [
+          "蒸馏水"
+        ],
+        "match": "normalized_exact"
+      },
+      "accepted_answers": [
+        "蒸馏"
+      ],
+      "hidden_grading_aliases": [
+        "蒸馏水"
+      ],
+      "explanation": "实验步骤写明加入适量蒸馏水，因此空格前后组成“蒸馏水”。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-5b0beabb"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "fill_blank",
+        "short_answer_safe",
+        "reagent_medium"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00322_6c10a1661c"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "人工逐题判断：原题短填空可保留；将“蒸馏水”作为 hidden alias， visible answer 使用更稳定的“蒸馏”。"
+      },
+      "mobile_input_risk": "low_short_chinese_answer",
+      "machine_grading": "deterministic",
+      "review_decision": "keep"
+    }
+  ]
+}

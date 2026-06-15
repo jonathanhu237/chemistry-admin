@@ -1,0 +1,982 @@
+{
+  "metadata": {
+    "schema": "manual_semantic_rebuilt_question_package",
+    "version": "rebuilt-v1",
+    "chunk": "chunk_2",
+    "experiment_code": "19-4-09",
+    "experiment_title": "硝酸根的检验",
+    "question_count": 30,
+    "source_packet": "semantic_work_packets/chunk_2/19-4-09.json",
+    "manual_reconstruction": true,
+    "direct_release_json_modified": false
+  },
+  "video_points": [
+    {
+      "point_key": "candidate-1-520f0192",
+      "point_title": "FeSO₄·7H₂O + NaNO₃ + 浓 H₂SO₄"
+    },
+    {
+      "point_key": "candidate-2-a452c505",
+      "point_title": "观察棕色环"
+    }
+  ],
+  "evidence_sources": {
+    "canonical_experiment_chunks": [
+      {
+        "chunk_id": "expchunk_00243_765fc7b450",
+        "line_number": 256,
+        "evidence_note": "contains nitrate-test operation using FeSO₄·7H₂O, NaNO₃, concentrated sulfuric acid, and nitrate reduction to NO"
+      },
+      {
+        "chunk_id": "expchunk_00244_53c663efb4",
+        "line_number": 257,
+        "evidence_note": "contains brown Fe(NO)SO₄ formation"
+      }
+    ],
+    "supporting_theory_chunks": [
+      {
+        "chunk_id": "textbook_prose_00522_c509852695",
+        "line_number": 814,
+        "evidence_note": "supports NO coordination with Fe²⁺"
+      },
+      {
+        "chunk_id": "textbook_prose_00556_a4150c286e",
+        "line_number": 866,
+        "evidence_note": "supports nitrate in concentrated sulfuric acid context"
+      },
+      {
+        "chunk_id": "textbook_prose_00558_9cffe40305",
+        "line_number": 868,
+        "evidence_note": "supports nitrate reduction chemistry in acidic media"
+      }
+    ]
+  },
+  "questions": [
+    {
+      "question_id": "REBUILT_CH2_19_4_09_Q001",
+      "question_type": "single_choice",
+      "stem": "棕色环检验中，提供亚铁离子的固体试剂是哪一项？",
+      "options": [
+        { "label": "A", "text": "七水合硫酸亚铁" },
+        { "label": "B", "text": "硝酸钠" },
+        { "label": "C", "text": "浓硫酸" },
+        { "label": "D", "text": "四氯化碳" }
+      ],
+      "answer": { "value": "A" },
+      "explanation": "教材操作取少量七水合硫酸亚铁固体，它是亚铁离子的来源。",
+      "difficulty": "easy",
+      "primary_point_keys": ["candidate-1-520f0192"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["reagent_role", "ferrous_source"],
+      "option_links": [
+        { "label": "A", "linked": true, "reason": "listed ferrous reagent" },
+        { "label": "B", "linked": false, "reason": "nitrate source, not ferrous source" },
+        { "label": "C", "linked": false, "reason": "acid reagent" },
+        { "label": "D", "linked": false, "reason": "not used in this test" }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00243_765fc7b450"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "direct reagent-role question"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": { "grading_type": "single_label" },
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_09_Q002",
+      "question_type": "single_choice",
+      "stem": "该棕色环检验中，NaNO₃ 的主要作用是哪一项？",
+      "options": [
+        { "label": "A", "text": "提供待检硝酸根" },
+        { "label": "B", "text": "提供亚铁离子" },
+        { "label": "C", "text": "提供硫酸根沉淀剂" },
+        { "label": "D", "text": "提供碱性介质" }
+      ],
+      "answer": { "value": "A" },
+      "explanation": "NaNO₃ 在本实验中提供被检验的硝酸根。",
+      "difficulty": "easy",
+      "primary_point_keys": ["candidate-1-520f0192"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["target_ion", "reagent_role"],
+      "option_links": [
+        { "label": "A", "linked": true, "reason": "target nitrate source" },
+        { "label": "B", "linked": false, "reason": "FeSO₄·7H₂O provides Fe²⁺" },
+        { "label": "C", "linked": false, "reason": "not a sulfate precipitation test" },
+        { "label": "D", "linked": false, "reason": "operation is acidic" }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00243_765fc7b450"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "nitrate source from the named reagent"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": { "grading_type": "single_label" },
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_09_Q003",
+      "question_type": "single_choice",
+      "stem": "棕色环检验中，加入浓硫酸的作用最接近哪一项？",
+      "options": [
+        { "label": "A", "text": "提供酸性环境，使硝酸根可参与还原反应" },
+        { "label": "B", "text": "直接生成蓝色淀粉络合物" },
+        { "label": "C", "text": "把 Na⁺ 沉淀出来" },
+        { "label": "D", "text": "替代七水合硫酸亚铁" }
+      ],
+      "answer": { "value": "A" },
+      "explanation": "教材反应式显示硝酸根在酸性条件下与 Fe²⁺ 发生氧化还原。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-1-520f0192"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["acidic_medium", "redox_principle"],
+      "option_links": [
+        { "label": "A", "linked": true, "reason": "matches acid-dependent nitrate reduction" },
+        { "label": "B", "linked": false, "reason": "not starch-iodine chemistry" },
+        { "label": "C", "linked": false, "reason": "sodium precipitation is irrelevant" },
+        { "label": "D", "linked": false, "reason": "acid cannot supply Fe²⁺" }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00243_765fc7b450"],
+        "supporting_theory_chunk_ids": ["textbook_prose_00556_a4150c286e", "textbook_prose_00558_9cffe40305"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "protocol acid plus supporting acidic nitrate context"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": { "grading_type": "single_label" },
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_09_Q004",
+      "question_type": "single_choice",
+      "stem": "酸性条件下，硝酸根把 Fe²⁺ 氧化时，自身被还原生成的关键小分子是哪一项？",
+      "options": [
+        { "label": "A", "text": "一氧化氮" },
+        { "label": "B", "text": "氨气" },
+        { "label": "C", "text": "氢气" },
+        { "label": "D", "text": "氧气" }
+      ],
+      "answer": { "value": "A" },
+      "explanation": "教材方程中硝酸根在酸性条件下生成 NO。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-1-520f0192"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["redox_product", "nitrate_reduction"],
+      "option_links": [
+        { "label": "A", "linked": true, "reason": "canonical product" },
+        { "label": "B", "linked": false, "reason": "not the product of this cited reaction" },
+        { "label": "C", "linked": false, "reason": "not involved" },
+        { "label": "D", "linked": false, "reason": "not the nitrate reduction product here" }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00243_765fc7b450"],
+        "supporting_theory_chunk_ids": ["textbook_prose_00558_9cffe40305"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "canonical redox equation with theory support"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": { "grading_type": "single_label" },
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_09_Q005",
+      "question_type": "single_choice",
+      "stem": "下列哪一项最能说明棕色环现象的来源？",
+      "options": [
+        { "label": "A", "text": "NO 与亚铁相关物种形成棕色物质" },
+        { "label": "B", "text": "Na⁺ 与水生成棕色沉淀" },
+        { "label": "C", "text": "硝酸根直接挥发成棕色蒸气" },
+        { "label": "D", "text": "浓 H₂SO₄ 被还原成单质硫" }
+      ],
+      "answer": { "value": "A" },
+      "explanation": "证据给出 Fe²⁺、NO 与硫酸根形成棕色 Fe(NO)SO₄。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-2-a452c505"],
+      "secondary_point_keys": ["candidate-1-520f0192"],
+      "coverage_tags": ["brown_ring_origin", "complex_formation"],
+      "option_links": [
+        { "label": "A", "linked": true, "reason": "matches brown species formation" },
+        { "label": "B", "linked": false, "reason": "sodium is not chromogenic here" },
+        { "label": "C", "linked": false, "reason": "not a volatilization explanation" },
+        { "label": "D", "linked": false, "reason": "not cited in this test" }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00243_765fc7b450", "expchunk_00244_53c663efb4"],
+        "supporting_theory_chunk_ids": ["textbook_prose_00522_c509852695"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "links reagent chemistry to observed ring"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": { "grading_type": "single_label" },
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_09_Q006",
+      "question_type": "single_choice",
+      "stem": "棕色环检验中，Fe²⁺ 在氧化还原反应后的去向最符合哪一项？",
+      "options": [
+        { "label": "A", "text": "被氧化为 Fe³⁺" },
+        { "label": "B", "text": "被还原为金属铁" },
+        { "label": "C", "text": "转化为钠盐" },
+        { "label": "D", "text": "完全变成氨气" }
+      ],
+      "answer": { "value": "A" },
+      "explanation": "教材反应式中 Fe²⁺ 被硝酸根氧化为 Fe³⁺。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-1-520f0192"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["ferrous_oxidation", "redox_principle"],
+      "option_links": [
+        { "label": "A", "linked": true, "reason": "canonical oxidation product" },
+        { "label": "B", "linked": false, "reason": "opposite of cited oxidation" },
+        { "label": "C", "linked": false, "reason": "not supported" },
+        { "label": "D", "linked": false, "reason": "chemically irrelevant" }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00243_765fc7b450"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "follows canonical equation"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": { "grading_type": "single_label" },
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_09_Q007",
+      "question_type": "single_choice",
+      "stem": "棕色环检验最适合用哪一项作为阳性判断依据？",
+      "options": [
+        { "label": "A", "text": "观察到棕色环" },
+        { "label": "B", "text": "出现白色硫酸钡沉淀" },
+        { "label": "C", "text": "出现蓝色淀粉络合物" },
+        { "label": "D", "text": "产生银镜" }
+      ],
+      "answer": { "value": "A" },
+      "explanation": "本实验的第二个观察要点就是观察棕色环。",
+      "difficulty": "easy",
+      "primary_point_keys": ["candidate-2-a452c505"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["positive_observation", "brown_ring"],
+      "option_links": [
+        { "label": "A", "linked": true, "reason": "video point observation" },
+        { "label": "B", "linked": false, "reason": "not nitrate brown-ring evidence" },
+        { "label": "C", "linked": false, "reason": "iodine-starch context" },
+        { "label": "D", "linked": false, "reason": "not used here" }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00244_53c663efb4"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "direct observation point"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": { "grading_type": "single_label" },
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_09_Q008",
+      "question_type": "single_choice",
+      "stem": "下列哪一组试剂最符合棕色环检验的操作组合？",
+      "options": [
+        { "label": "A", "text": "七水合硫酸亚铁、硝酸钠、浓硫酸" },
+        { "label": "B", "text": "碘化钾、淀粉、稀硫酸" },
+        { "label": "C", "text": "氯化钡、稀盐酸、硫酸盐" },
+        { "label": "D", "text": "硝酸银、氨水、葡萄糖" }
+      ],
+      "answer": { "value": "A" },
+      "explanation": "实验观察和教材操作对应七水合硫酸亚铁、硝酸钠与浓硫酸的组合。",
+      "difficulty": "easy",
+      "primary_point_keys": ["candidate-1-520f0192"],
+      "secondary_point_keys": ["candidate-2-a452c505"],
+      "coverage_tags": ["reagent_set", "packet_scope"],
+      "option_links": [
+        { "label": "A", "linked": true, "reason": "scoped reagent set" },
+        { "label": "B", "linked": false, "reason": "iodine-related set" },
+        { "label": "C", "linked": false, "reason": "sulfate precipitation set" },
+        { "label": "D", "linked": false, "reason": "silver mirror set" }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00243_765fc7b450"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "full point-scope reagent identification"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": { "grading_type": "single_label" },
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_09_Q009",
+      "question_type": "single_choice",
+      "stem": "本实验的目标离子应表述为哪一项？",
+      "options": [
+        { "label": "A", "text": "硝酸根" },
+        { "label": "B", "text": "亚硝酸根" },
+        { "label": "C", "text": "铵根" },
+        { "label": "D", "text": "碘离子" }
+      ],
+      "answer": { "value": "A" },
+      "explanation": "试剂组合和 NaNO₃ 都指向硝酸根检验。",
+      "difficulty": "easy",
+      "primary_point_keys": ["candidate-1-520f0192"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["target_ion"],
+      "option_links": [
+        { "label": "A", "linked": true, "reason": "target ion" },
+        { "label": "B", "linked": false, "reason": "different nitrogen oxyanion" },
+        { "label": "C", "linked": false, "reason": "not target" },
+        { "label": "D", "linked": false, "reason": "not target" }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00243_765fc7b450"],
+        "supporting_theory_chunk_ids": ["textbook_prose_00556_a4150c286e"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "target ion follows from experiment title and reagent"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": { "grading_type": "single_label" },
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_09_Q010",
+      "question_type": "single_choice",
+      "stem": "若只凭“加入浓 H₂SO₄”判断本实验，最容易忽略哪一项核心信息？",
+      "options": [
+        { "label": "A", "text": "必须结合亚铁盐和 NaNO₃ 观察棕色环" },
+        { "label": "B", "text": "必须加入大量氨水" },
+        { "label": "C", "text": "必须生成银镜" },
+        { "label": "D", "text": "必须用火柴余烬检验氧气" }
+      ],
+      "answer": { "value": "A" },
+      "explanation": "浓 H₂SO₄ 只是该检验中的酸性试剂，核心是亚铁盐、硝酸根和棕色环观察共同成立。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-1-520f0192", "candidate-2-a452c505"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["multi_point_integration", "scope_control"],
+      "option_links": [
+        { "label": "A", "linked": true, "reason": "complete packet logic" },
+        { "label": "B", "linked": false, "reason": "not the acidic brown-ring method" },
+        { "label": "C", "linked": false, "reason": "not nitrate test" },
+        { "label": "D", "linked": false, "reason": "thermal decomposition packet" }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00243_765fc7b450", "expchunk_00244_53c663efb4"],
+        "supporting_theory_chunk_ids": ["textbook_prose_00556_a4150c286e"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "integrates reagent set with observation point"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": { "grading_type": "single_label" },
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_09_Q011",
+      "question_type": "single_choice",
+      "stem": "从物质归属看，棕色环中的棕色物质最接近哪一项？",
+      "options": [
+        { "label": "A", "text": "Fe(NO)SO₄" },
+        { "label": "B", "text": "Ni(dmg)₂" },
+        { "label": "C", "text": "AgCl" },
+        { "label": "D", "text": "I₂" }
+      ],
+      "answer": { "value": "A" },
+      "explanation": "实验相邻证据给出 Fe(NO)SO₄，并标注为棕色。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-2-a452c505"],
+      "secondary_point_keys": ["candidate-1-520f0192"],
+      "coverage_tags": ["brown_species", "complex_formation"],
+      "option_links": [
+        { "label": "A", "linked": true, "reason": "canonical brown species" },
+        { "label": "B", "linked": false, "reason": "nickel dimethylglyoxime context" },
+        { "label": "C", "linked": false, "reason": "white precipitate, unrelated" },
+        { "label": "D", "linked": false, "reason": "iodine is not the brown-ring species" }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00244_53c663efb4"],
+        "supporting_theory_chunk_ids": ["textbook_prose_00522_c509852695"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "brown species support"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": { "grading_type": "single_label" },
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_09_Q012",
+      "question_type": "single_choice",
+      "stem": "下列哪一项最不符合硝酸根棕色环检验的实验结论？",
+      "options": [
+        { "label": "A", "text": "观察棕色环可作为硝酸根检验现象" },
+        { "label": "B", "text": "NaNO₃ 提供待检硝酸根" },
+        { "label": "C", "text": "Fe²⁺ 参与酸性氧化还原过程" },
+        { "label": "D", "text": "棕色环证明样品中含有碘单质" }
+      ],
+      "answer": { "value": "D" },
+      "explanation": "本实验以硝酸根棕色环法为核心，不以碘单质作为检验目标。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-1-520f0192", "candidate-2-a452c505"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["misconception_check", "packet_scope"],
+      "option_links": [
+        { "label": "A", "linked": true, "reason": "valid conclusion" },
+        { "label": "B", "linked": true, "reason": "valid reagent role" },
+        { "label": "C", "linked": true, "reason": "valid redox role" },
+        { "label": "D", "linked": false, "reason": "not supported by packet evidence" }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00243_765fc7b450", "expchunk_00244_53c663efb4"],
+        "supporting_theory_chunk_ids": ["textbook_prose_00522_c509852695", "textbook_prose_00558_9cffe40305"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "filters wrong iodide/iodine association"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": { "grading_type": "single_label" },
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_09_Q013",
+      "question_type": "single_choice",
+      "stem": "若要把本实验写成一句原则说明，哪一项最准确？",
+      "options": [
+        { "label": "A", "text": "酸性硝酸根氧化 Fe²⁺ 并生成 NO，随后形成棕色物质" },
+        { "label": "B", "text": "硝酸根与钡离子直接生成棕色沉淀" },
+        { "label": "C", "text": "Na⁺ 还原 Fe³⁺ 并显棕色" },
+        { "label": "D", "text": "浓 H₂SO₄ 与水反应直接产生棕色环" }
+      ],
+      "answer": { "value": "A" },
+      "explanation": "该选项同时覆盖硝酸根酸性还原为 NO、Fe²⁺ 被氧化和棕色物质形成。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-1-520f0192", "candidate-2-a452c505"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["principle_summary", "multi_point_integration"],
+      "option_links": [
+        { "label": "A", "linked": true, "reason": "complete principle summary" },
+        { "label": "B", "linked": false, "reason": "not barium precipitation" },
+        { "label": "C", "linked": false, "reason": "wrong redox roles" },
+        { "label": "D", "linked": false, "reason": "acid alone does not account for brown ring" }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00243_765fc7b450", "expchunk_00244_53c663efb4"],
+        "supporting_theory_chunk_ids": ["textbook_prose_00522_c509852695", "textbook_prose_00558_9cffe40305"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "integrated principle item"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": { "grading_type": "single_label" },
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_09_Q014",
+      "question_type": "single_choice",
+      "stem": "观察棕色环时，最直接需要关注什么？",
+      "options": [
+        { "label": "A", "text": "颜色与环状现象是否出现" },
+        { "label": "B", "text": "固体是否完全干燥" },
+        { "label": "C", "text": "气体是否能使余烬复燃" },
+        { "label": "D", "text": "沉淀是否溶于氨水" }
+      ],
+      "answer": { "value": "A" },
+      "explanation": "该观察的关键词是棕色环，核心是颜色和环状现象。",
+      "difficulty": "easy",
+      "primary_point_keys": ["candidate-2-a452c505"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["observation_focus"],
+      "option_links": [
+        { "label": "A", "linked": true, "reason": "direct observation focus" },
+        { "label": "B", "linked": false, "reason": "not the observation target" },
+        { "label": "C", "linked": false, "reason": "nitrate thermal decomposition packet" },
+        { "label": "D", "linked": false, "reason": "not this nitrate test" }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00244_53c663efb4"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "direct observation-point item"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": { "grading_type": "single_label" },
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_09_Q015",
+      "question_type": "single_choice",
+      "stem": "棕色环检验与硝酸盐热分解实验的正确区分是哪一项？",
+      "options": [
+        { "label": "A", "text": "棕色环检验观察棕色环；硝酸盐热分解关注分解气体" },
+        { "label": "B", "text": "棕色环检验用火柴余烬检验氧气；硝酸盐热分解检验棕色环" },
+        { "label": "C", "text": "两者都只检验磷酸盐" },
+        { "label": "D", "text": "两者都以碘单质显色为核心" }
+      ],
+      "answer": { "value": "A" },
+      "explanation": "棕色环实验是硝酸根检验；硝酸盐热分解实验关注加热分解及气体检验。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-2-a452c505"],
+      "secondary_point_keys": ["candidate-1-520f0192"],
+      "coverage_tags": ["scope_control", "neighbor_packet_distinction"],
+      "option_links": [
+        { "label": "A", "linked": true, "reason": "correct packet distinction" },
+        { "label": "B", "linked": false, "reason": "reversed and wrong" },
+        { "label": "C", "linked": false, "reason": "not phosphate packets" },
+        { "label": "D", "linked": false, "reason": "not iodine-centered" }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00243_765fc7b450", "expchunk_00244_53c663efb4"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "prevents carryover from adjacent nitrate thermal decomposition content"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": { "grading_type": "single_label" },
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_09_Q016",
+      "question_type": "true_false",
+      "stem": "硝酸根棕色环检验使用七水合硫酸亚铁、硝酸钠和浓硫酸。",
+      "options": [
+        { "label": "T", "text": "正确" },
+        { "label": "F", "text": "错误" }
+      ],
+      "answer": { "value": true },
+      "explanation": "这正是本实验的试剂组合要求。",
+      "difficulty": "easy",
+      "primary_point_keys": ["candidate-1-520f0192"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["reagent_set"],
+      "option_links": [
+        { "label": "T", "linked": true, "reason": "matches reagent point" },
+        { "label": "F", "linked": false, "reason": "contradicts reagent point" }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00243_765fc7b450"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "direct reagent point"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": { "grading_type": "true_false" },
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_09_Q017",
+      "question_type": "true_false",
+      "stem": "棕色环的形成与 NO 和 Fe²⁺ 相关物种形成棕色物质有关。",
+      "options": [
+        { "label": "T", "text": "正确" },
+        { "label": "F", "text": "错误" }
+      ],
+      "answer": { "value": true },
+      "explanation": "证据指出 Fe²⁺、NO 与硫酸根形成 Fe(NO)SO₄，且该物质为棕色。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-2-a452c505"],
+      "secondary_point_keys": ["candidate-1-520f0192"],
+      "coverage_tags": ["brown_species", "complex_formation"],
+      "option_links": [
+        { "label": "T", "linked": true, "reason": "matches brown species evidence" },
+        { "label": "F", "linked": false, "reason": "denies cited evidence" }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00244_53c663efb4"],
+        "supporting_theory_chunk_ids": ["textbook_prose_00522_c509852695"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "brown complex statement"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": { "grading_type": "true_false" },
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_09_Q018",
+      "question_type": "true_false",
+      "stem": "本实验中 Fe²⁺ 被硝酸根氧化为 Fe³⁺。",
+      "options": [
+        { "label": "T", "text": "正确" },
+        { "label": "F", "text": "错误" }
+      ],
+      "answer": { "value": true },
+      "explanation": "教材反应式明确体现 Fe²⁺ 到 Fe³⁺ 的氧化。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-1-520f0192"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["redox_principle"],
+      "option_links": [
+        { "label": "T", "linked": true, "reason": "canonical redox equation" },
+        { "label": "F", "linked": false, "reason": "contradicts equation" }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00243_765fc7b450"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "canonical equation"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": { "grading_type": "true_false" },
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_09_Q019",
+      "question_type": "true_false",
+      "stem": "浓 H₂SO₄ 在此处可以简单替换为浓氨水而不影响棕色环检验的酸性反应条件。",
+      "options": [
+        { "label": "T", "text": "正确" },
+        { "label": "F", "text": "错误" }
+      ],
+      "answer": { "value": false },
+      "explanation": "本反应需要酸性条件，教材列明加入浓 H₂SO₄；浓氨水会改变介质。",
+      "difficulty": "easy",
+      "primary_point_keys": ["candidate-1-520f0192"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["acidic_medium", "misconception_check"],
+      "option_links": [
+        { "label": "T", "linked": false, "reason": "incorrect substitution" },
+        { "label": "F", "linked": true, "reason": "rejects alkaline substitution" }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00243_765fc7b450"],
+        "supporting_theory_chunk_ids": ["textbook_prose_00558_9cffe40305"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "acidic condition check"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": { "grading_type": "true_false" },
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_09_Q020",
+      "question_type": "true_false",
+      "stem": "棕色环现象可归因于 Ni(dmg)₂ 沉淀生成。",
+      "options": [
+        { "label": "T", "text": "正确" },
+        { "label": "F", "text": "错误" }
+      ],
+      "answer": { "value": false },
+      "explanation": "本实验的棕色物质是 Fe(NO)SO₄ 相关物种，不是镍的丁二酮肟沉淀。",
+      "difficulty": "easy",
+      "primary_point_keys": ["candidate-2-a452c505"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["misconception_check", "brown_species"],
+      "option_links": [
+        { "label": "T", "linked": false, "reason": "wrong compound" },
+        { "label": "F", "linked": true, "reason": "correctly rejects wrong compound" }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00244_53c663efb4"],
+        "supporting_theory_chunk_ids": ["textbook_prose_00522_c509852695"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "wrong-compound filter"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": { "grading_type": "true_false" },
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_09_Q021",
+      "question_type": "true_false",
+      "stem": "只观察棕色环而不理解试剂来源，容易漏掉硝酸根、Fe²⁺ 和酸性介质之间的关系。",
+      "options": [
+        { "label": "T", "text": "正确" },
+        { "label": "F", "text": "错误" }
+      ],
+      "answer": { "value": true },
+      "explanation": "棕色环检验同时覆盖试剂组合和棕色环观察，需要把反应物角色与现象联系起来。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-1-520f0192", "candidate-2-a452c505"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["multi_point_integration", "principle_and_observation"],
+      "option_links": [
+        { "label": "T", "linked": true, "reason": "captures both packet points" },
+        { "label": "F", "linked": false, "reason": "would separate evidence from observation" }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00243_765fc7b450", "expchunk_00244_53c663efb4"],
+        "supporting_theory_chunk_ids": ["textbook_prose_00522_c509852695", "textbook_prose_00558_9cffe40305"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "integrates reagent point and observation point"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": { "grading_type": "true_false" },
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_09_Q022",
+      "question_type": "true_false",
+      "stem": "硝酸根棕色环检验的主要目标是检验硝酸盐热分解产生的氧气。",
+      "options": [
+        { "label": "T", "text": "正确" },
+        { "label": "F", "text": "错误" }
+      ],
+      "answer": { "value": false },
+      "explanation": "这是硝酸根棕色环检验；热分解和氧气检验属于相邻的硝酸盐热分解内容。",
+      "difficulty": "easy",
+      "primary_point_keys": ["candidate-1-520f0192", "candidate-2-a452c505"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["scope_control", "neighbor_packet_distinction"],
+      "option_links": [
+        { "label": "T", "linked": false, "reason": "confuses adjacent packet" },
+        { "label": "F", "linked": true, "reason": "correctly separates packet scope" }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00243_765fc7b450", "expchunk_00244_53c663efb4"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "prevents thermal-decomposition carryover"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": { "grading_type": "true_false" },
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_09_Q023",
+      "question_type": "fill_blank",
+      "stem": "棕色环法检验的目标离子是____。",
+      "answer": {
+        "accepted_answers": ["硝酸根", "硝酸根离子"],
+        "match": "normalized_exact"
+      },
+      "explanation": "NaNO₃ 提供硝酸根，棕色环法的目标也是硝酸根检验。",
+      "difficulty": "easy",
+      "primary_point_keys": ["candidate-1-520f0192"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["target_ion", "fill_blank_low_risk"],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00243_765fc7b450"],
+        "supporting_theory_chunk_ids": ["textbook_prose_00556_a4150c286e"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "concept-name answer avoids formula fill"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": { "grading_type": "normalized_text", "case_sensitive": false },
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_09_Q024",
+      "question_type": "fill_blank",
+      "stem": "该检验中，硝酸根在酸性条件下生成的含氮小分子是____。",
+      "answer": {
+        "accepted_answers": ["一氧化氮"],
+        "match": "normalized_exact"
+      },
+      "explanation": "教材方程中的含氮还原产物为 NO；填空仅要求中文名称。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-1-520f0192"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["redox_product", "fill_blank_low_risk"],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00243_765fc7b450"],
+        "supporting_theory_chunk_ids": ["textbook_prose_00558_9cffe40305"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "Chinese answer avoids formula input risk"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": { "grading_type": "normalized_text", "case_sensitive": false },
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_09_Q025",
+      "question_type": "fill_blank",
+      "stem": "该实验的阳性现象是观察到____。",
+      "answer": {
+        "accepted_answers": ["棕色环", "棕环"],
+        "match": "normalized_exact"
+      },
+      "explanation": "实验观察直接要求关注棕色环。",
+      "difficulty": "easy",
+      "primary_point_keys": ["candidate-2-a452c505"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["positive_observation", "fill_blank_low_risk"],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00244_53c663efb4"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "simple observation phrase"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": { "grading_type": "normalized_text", "case_sensitive": false },
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_09_Q026",
+      "question_type": "fill_blank",
+      "stem": "本检验中提供酸性环境的试剂是____。",
+      "answer": {
+        "accepted_answers": ["浓硫酸"],
+        "match": "normalized_exact"
+      },
+      "explanation": "教材操作中加入浓 H₂SO₄，填空使用中文名称以降低输入风险。",
+      "difficulty": "easy",
+      "primary_point_keys": ["candidate-1-520f0192"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["acidic_medium", "fill_blank_low_risk"],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00243_765fc7b450"],
+        "supporting_theory_chunk_ids": ["textbook_prose_00556_a4150c286e"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "Chinese reagent name avoids formula fill"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": { "grading_type": "normalized_text", "case_sensitive": false },
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_09_Q027",
+      "question_type": "single_choice",
+      "stem": "把试剂和现象对应起来，哪一项最能代表本实验的完整考点？",
+      "options": [
+        { "label": "A", "text": "亚铁盐、硝酸盐和浓硫酸共同作用，观察棕色环" },
+        { "label": "B", "text": "硝酸盐受热分解，余烬复燃" },
+        { "label": "C", "text": "碘水被萃取到有机层显紫色" },
+        { "label": "D", "text": "钙盐加入磷酸盐生成沉淀" }
+      ],
+      "answer": { "value": "A" },
+      "explanation": "该检验的两个观察重点分别是试剂组合和棕色环现象。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-1-520f0192", "candidate-2-a452c505"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["multi_point_integration", "packet_summary"],
+      "option_links": [
+        { "label": "A", "linked": true, "reason": "complete scoped content" },
+        { "label": "B", "linked": false, "reason": "nitrate thermal decomposition" },
+        { "label": "C", "linked": false, "reason": "nitrite/iodide style chemistry" },
+        { "label": "D", "linked": false, "reason": "phosphate chemistry" }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00243_765fc7b450", "expchunk_00244_53c663efb4"],
+        "supporting_theory_chunk_ids": ["textbook_prose_00522_c509852695"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "explicit point-pair item"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": { "grading_type": "single_label" },
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_09_Q028",
+      "question_type": "single_choice",
+      "stem": "下列哪一项最适合放入本实验的“现象到结论”链条？",
+      "options": [
+        { "label": "A", "text": "棕色环出现，支持硝酸根存在的判断" },
+        { "label": "B", "text": "白色沉淀出现，支持氯离子存在" },
+        { "label": "C", "text": "余烬复燃，支持热分解产生氧气" },
+        { "label": "D", "text": "蓝色出现，支持淀粉存在" }
+      ],
+      "answer": { "value": "A" },
+      "explanation": "本实验以棕色环作为硝酸根检验的阳性现象。",
+      "difficulty": "easy",
+      "primary_point_keys": ["candidate-2-a452c505"],
+      "secondary_point_keys": ["candidate-1-520f0192"],
+      "coverage_tags": ["observation_to_conclusion", "qualitative_test"],
+      "option_links": [
+        { "label": "A", "linked": true, "reason": "correct observation-conclusion chain" },
+        { "label": "B", "linked": false, "reason": "not nitrate brown-ring" },
+        { "label": "C", "linked": false, "reason": "neighbor thermal decomposition" },
+        { "label": "D", "linked": false, "reason": "not this test" }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00243_765fc7b450", "expchunk_00244_53c663efb4"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "phenomenon-to-conclusion item"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": { "grading_type": "single_label" },
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_09_Q029",
+      "question_type": "single_choice",
+      "stem": "若把本实验理解成“只要有棕色就一定是硝酸根”，最需要补充的限定是哪一项？",
+      "options": [
+        { "label": "A", "text": "必须是在指定亚铁盐、硝酸盐和强酸条件下形成棕色环" },
+        { "label": "B", "text": "必须同时产生大量氢气" },
+        { "label": "C", "text": "必须先加入氯化钡" },
+        { "label": "D", "text": "必须把样品完全蒸干" }
+      ],
+      "answer": { "value": "A" },
+      "explanation": "棕色环检验的证据链依赖规定试剂和酸性氧化还原条件，不能脱离条件泛化。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-1-520f0192", "candidate-2-a452c505"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["condition_control", "misconception_check"],
+      "option_links": [
+        { "label": "A", "linked": true, "reason": "correct conditional interpretation" },
+        { "label": "B", "linked": false, "reason": "not required" },
+        { "label": "C", "linked": false, "reason": "not the method" },
+        { "label": "D", "linked": false, "reason": "not the operation" }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00243_765fc7b450", "expchunk_00244_53c663efb4"],
+        "supporting_theory_chunk_ids": ["textbook_prose_00522_c509852695", "textbook_prose_00558_9cffe40305"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "guards against overgeneralizing the observation"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": { "grading_type": "single_label" },
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_09_Q030",
+      "question_type": "single_choice",
+      "stem": "围绕 FeSO₄、NaNO₃ 和浓 H₂SO₄ 的棕色环现象，最合理的学习目标是哪一项？",
+      "options": [
+        { "label": "A", "text": "掌握硝酸根的棕色环检验及其主要现象" },
+        { "label": "B", "text": "比较三种硝酸盐热分解差异" },
+        { "label": "C", "text": "鉴别正磷酸盐、焦磷酸盐和偏磷酸盐" },
+        { "label": "D", "text": "验证硫代硫酸根被碘水氧化" }
+      ],
+      "answer": { "value": "A" },
+      "explanation": "试剂组合和棕色环现象都指向硝酸根棕色环检验。",
+      "difficulty": "easy",
+      "primary_point_keys": ["candidate-1-520f0192", "candidate-2-a452c505"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["learning_objective", "packet_scope"],
+      "option_links": [
+        { "label": "A", "linked": true, "reason": "matches packet title and points" },
+        { "label": "B", "linked": false, "reason": "different nitrate packet" },
+        { "label": "C", "linked": false, "reason": "phosphate packet" },
+        { "label": "D", "linked": false, "reason": "thiosulfate packet" }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00243_765fc7b450", "expchunk_00244_53c663efb4"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "packet-scope summary"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": { "grading_type": "single_label" },
+      "rebuild_decision": "rewrite"
+    }
+  ]
+}

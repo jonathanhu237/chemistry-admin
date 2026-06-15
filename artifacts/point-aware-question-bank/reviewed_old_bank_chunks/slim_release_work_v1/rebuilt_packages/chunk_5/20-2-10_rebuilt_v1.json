@@ -1,0 +1,1968 @@
+{
+  "metadata": {
+    "schema_version": "rebuilt_experiment_question_package_v1",
+    "artifact_type": "manual_small_packet_semantic_reconstruction",
+    "source_packet": "E:\\chemistry-admin\\artifacts\\point-aware-question-bank\\reviewed_old_bank_chunks\\slim_release_work_v1\\semantic_work_packets\\chunk_5\\20-2-10.json",
+    "experiment_code": "20-2-10",
+    "experiment_title": "小设计实验",
+    "question_count": 30,
+    "chunk": "chunk_5",
+    "reconstruction_status": "manual_question_by_question_semantic_rebuild",
+    "evidence_policy": "RAG text was read for every cited id. JSON stores ids, source file, line number, and concise evidence role only; no release JSON was edited.",
+    "rag_source_dir": "E:\\chemistry-rag\\data\\rag_ready",
+    "release_json_direct_edit": false
+  },
+  "video_points": [
+    {
+      "point_key": "candidate-1-121e9e71",
+      "point_title": "含 Cr³⁺、Al³⁺、Mn²⁺ 的混合溶液分离检出"
+    }
+  ],
+  "evidence_sources": {
+    "canonical_experiment_chunks": [
+      {
+        "chunk_id": "expchunk_00323_56549b57c0",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+        "line_number": 336,
+        "evidence_role": "Primary canonical task. It asks students to design a scheme to separate and detect a mixed solution containing Cr³⁺, Al³⁺, and Mn²⁺."
+      },
+      {
+        "chunk_id": "expchunk_00319_b995aa9123",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+        "line_number": 332,
+        "evidence_role": "Preceding experiment support for hydroxide acid-base behavior using NaOH and checking precipitate acid-base properties."
+      },
+      {
+        "chunk_id": "expchunk_00321_53b9414bde",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+        "line_number": 334,
+        "evidence_role": "Preceding experiment support for chromium redox design with Cr₂(SO₄)₃, H₂O₂, NaOH, and acid medium."
+      }
+    ],
+    "supporting_theory_chunks": [
+      {
+        "chunk_id": "textbook_prose_00835_0d3c423061",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+        "line_number": 1338,
+        "evidence_role": "Aluminum background: Al(OH)₃ is amphoteric."
+      },
+      {
+        "chunk_id": "textbook_prose_01208_f648cd206f",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+        "line_number": 1863,
+        "evidence_role": "Chromium background: Cr(OH)₃ is amphoteric and similar to Al(OH)₃."
+      },
+      {
+        "chunk_id": "textbook_prose_01209_56d80e2580",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+        "line_number": 1864,
+        "evidence_role": "Chromium hydroxide equilibrium from Cr³⁺ to Cr(OH)₃ to [Cr(OH)₄]⁻."
+      },
+      {
+        "chunk_id": "textbook_prose_01211_3fe6c336b5",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+        "line_number": 1869,
+        "evidence_role": "Cr³⁺ and Al³⁺ separation should not rely only on ammonia; H₂O₂ is added to oxidize Cr(III) to Cr(VI)."
+      },
+      {
+        "chunk_id": "textbook_prose_01212_9b1152bdeb",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+        "line_number": 1868,
+        "evidence_role": "Cr(III)/Al(III) separation: Al(OH)₃ precipitates while Cr(III) is oxidized to CrO₄²⁻."
+      },
+      {
+        "chunk_id": "textbook_prose_01213_dedb851b08",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+        "line_number": 1866,
+        "evidence_role": "Alkaline H₂O₂ oxidizes chromite species to CrO₄²⁻."
+      },
+      {
+        "chunk_id": "textbook_prose_01239_7b36e4736b",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+        "line_number": 1893,
+        "evidence_role": "Mn(II) compounds: Mn(OH)₂ is sparingly soluble and Mn²⁺ exists as a hydrated ion."
+      },
+      {
+        "chunk_id": "textbook_prose_01240_f358ee9f2c",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+        "line_number": 1897,
+        "evidence_role": "Mn²⁺ reacts with hydroxide to give Mn(OH)₂ and can be oxidized by strong oxidants in acid to MnO₄⁻."
+      },
+      {
+        "chunk_id": "textbook_prose_01241_99049758ad",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+        "line_number": 1898,
+        "evidence_role": "Mn²⁺ can be oxidized to MnO₄⁻; the purple color makes this useful for identification."
+      },
+      {
+        "chunk_id": "textbook_prose_01119_8478df1f7f",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+        "line_number": 1747,
+        "evidence_role": "Color support: CrO₄²⁻ is yellow and MnO₄⁻ is purple."
+      }
+    ]
+  },
+  "questions": [
+    {
+      "question_id": "CHK5_SEM_EXP_20_2_10_001",
+      "question_type": "single_choice",
+      "stem": "在《20-2-10 小设计实验》中，需要分离并检出的混合离子是哪一组？",
+      "options": [
+        {
+          "label": "A",
+          "text": "Cr³⁺、Al³⁺、Mn²⁺"
+        },
+        {
+          "label": "B",
+          "text": "Ag⁺、Pb²⁺、Zn²⁺、Cu²⁺"
+        },
+        {
+          "label": "C",
+          "text": "Li⁺、Na⁺、K⁺"
+        },
+        {
+          "label": "D",
+          "text": "NO₂⁻、NO₃⁻、I⁻"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "教材中的小设计实验要求把含 Cr³⁺、Al³⁺、Mn²⁺ 的混合溶液分离并检出；其他选项属于不同离子组。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-121e9e71"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "target_ion_scope",
+        "design_task"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-1-121e9e71",
+          "role": "correct_canonical_target",
+          "diagnostic_note": "A 逐项对应教材步骤的三种目标离子。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "wrong_ion_group_distractor",
+          "diagnostic_note": "B 是另一类阳离子分组，不是本小设计实验对象。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "wrong_ion_group_distractor",
+          "diagnostic_note": "C 是碱金属阳离子组，不符合本题目标。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "wrong_ion_group_distractor",
+          "diagnostic_note": "D 是阴离子组，不是本实验的混合阳离子。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00323_56549b57c0"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "人工逐题判断：原题直接命中 canonical 任务对象，保留并补足选项诊断。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_2_10_002",
+      "question_type": "single_choice",
+      "stem": "设计分离 Cr³⁺、Al³⁺、Mn²⁺ 时，加入 NaOH 的合理作用是什么？",
+      "options": [
+        {
+          "label": "A",
+          "text": "把三种离子全部变成挥发性气体"
+        },
+        {
+          "label": "B",
+          "text": "利用金属氢氧化物生成和酸碱性差异，为后续分离提供依据"
+        },
+        {
+          "label": "C",
+          "text": "直接生成 AgCl 沉淀"
+        },
+        {
+          "label": "D",
+          "text": "替代所有检出步骤，不再需要观察或确认"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "前置氢氧化物酸碱性实验要求向相关金属盐溶液滴加 NaOH、观察沉淀并检验酸碱性；小设计实验可借用这一类性质来组织分离步骤。",
+      "difficulty": "intermediate",
+      "primary_point_keys": [
+        "candidate-1-121e9e71"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "hydroxide_separation_logic",
+        "operation_purpose"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "unsupported_product_distractor",
+          "diagnostic_note": "A 把沉淀/溶解性质错误说成挥发性气体。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-1-121e9e71",
+          "role": "correct_property_basis",
+          "diagnostic_note": "B 符合前置 NaOH 性质实验和本设计任务的联系。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "wrong_context_distractor",
+          "diagnostic_note": "AgCl 不属于 Cr³⁺、Al³⁺、Mn²⁺ 的分离检出。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "incomplete_scheme_distractor",
+          "diagnostic_note": "NaOH 只能提供分离线索，不能替代分步检出证据。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00323_56549b57c0",
+          "expchunk_00319_b995aa9123"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01208_f648cd206f",
+          "textbook_prose_01239_7b36e4736b"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "人工逐题判断：旧题只问 Mn(OH)₂ 名称，低深度且公式输入风险高，重写为 NaOH 在设计中的作用判断。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_2_10_003",
+      "question_type": "single_choice",
+      "stem": "Cr(OH)₃ 与 Al(OH)₃ 的哪一共同性质可用于把它们与 Mn(OH)₂ 区分开来？",
+      "options": [
+        {
+          "label": "A",
+          "text": "感光性"
+        },
+        {
+          "label": "B",
+          "text": "强挥发性"
+        },
+        {
+          "label": "C",
+          "text": "两性"
+        },
+        {
+          "label": "D",
+          "text": "钠黄焰色"
+        }
+      ],
+      "answer": {
+        "value": "C"
+      },
+      "explanation": "相关化学原理明确说明 Cr(OH)₃ 也具有两性并与 Al(OH)₃ 相似；这个性质可与锰(Ⅱ)氢氧化物的处理差异结合，用于设计分离。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-121e9e71"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "amphoterism",
+        "separation_basis"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "irrelevant_property_distractor",
+          "diagnostic_note": "感光性不是三种离子的分离依据。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "unsupported_property_distractor",
+          "diagnostic_note": "金属氢氧化物在该设计中不是靠挥发分离。"
+        },
+        {
+          "label": "C",
+          "point_key": "candidate-1-121e9e71",
+          "role": "correct_theory_basis",
+          "diagnostic_note": "C 对应 Cr(OH)₃ 与 Al(OH)₃ 的两性。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "wrong_experiment_distractor",
+          "diagnostic_note": "钠焰色不属于本混合离子分离。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00323_56549b57c0",
+          "expchunk_00319_b995aa9123"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00835_0d3c423061",
+          "textbook_prose_01208_f648cd206f",
+          "textbook_prose_01239_7b36e4736b"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "人工逐题判断：原题主题可用，但与 Mn(OH)₂ 分离关系不够清楚，重写为比较性分离依据题。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_2_10_004",
+      "question_type": "single_choice",
+      "stem": "在碱性 H₂O₂ 条件下，铬(Ⅲ)可转化成哪种黄色含氧阴离子，从而为 Cr 的检出提供依据？",
+      "options": [
+        {
+          "label": "A",
+          "text": "MnO₄⁻"
+        },
+        {
+          "label": "B",
+          "text": "NO₃⁻"
+        },
+        {
+          "label": "C",
+          "text": "[Ag(S₂O₃)₂]³⁻"
+        },
+        {
+          "label": "D",
+          "text": "CrO₄²⁻"
+        }
+      ],
+      "answer": {
+        "value": "D"
+      },
+      "explanation": "前置铬氧化还原实验和相关化学原理都指向碱性过氧化氢可把铬(Ⅲ)氧化为 CrO₄²⁻；颜色相关化学原理说明 CrO₄²⁻ 呈黄色。",
+      "difficulty": "intermediate",
+      "primary_point_keys": [
+        "candidate-1-121e9e71"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "chromium_detection",
+        "redox_conversion",
+        "color_evidence"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "wrong_manganese_species",
+          "diagnostic_note": "MnO₄⁻ 用于锰的检出语境，不是 Cr(Ⅲ) 的产物。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "unrelated_anion_distractor",
+          "diagnostic_note": "硝酸根不由该铬转化产生。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "wrong_complex_distractor",
+          "diagnostic_note": "银硫代硫酸根配合物与本设计无关。"
+        },
+        {
+          "label": "D",
+          "point_key": "candidate-1-121e9e71",
+          "role": "correct_theory_evidence",
+          "diagnostic_note": "D 符合 Cr(Ⅲ) 在碱性 H₂O₂ 中氧化为铬酸根的相关化学原理。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00323_56549b57c0",
+          "expchunk_00321_53b9414bde"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01211_3fe6c336b5",
+          "textbook_prose_01213_dedb851b08",
+          "textbook_prose_01119_8478df1f7f"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "人工逐题判断：原题证据充分且聚焦 Cr 检出，保留题型并重写解析/诊断。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_2_10_005",
+      "question_type": "single_choice",
+      "stem": "在 NH₃/H₂O₂ 条件下分离铬(Ⅲ)与铝(Ⅲ)时，铝(Ⅲ)的主要去向是什么？",
+      "options": [
+        {
+          "label": "A",
+          "text": "形成 Al(OH)₃ 沉淀"
+        },
+        {
+          "label": "B",
+          "text": "转化为紫色 MnO₄⁻"
+        },
+        {
+          "label": "C",
+          "text": "直接变成金属铝"
+        },
+        {
+          "label": "D",
+          "text": "与 KSCN 形成血红色络合物"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "相关化学原理的铬(Ⅲ)/铝(Ⅲ)分离示意说明，NH₃/H₂O₂ 条件下 Al 生成 Al(OH)₃ 沉淀，而铬(Ⅲ)被氧化为 CrO₄²⁻ 留在溶液中。",
+      "difficulty": "intermediate",
+      "primary_point_keys": [
+        "candidate-1-121e9e71"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "aluminum_separation",
+        "nh3_h2o2_condition"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-1-121e9e71",
+          "role": "correct_separation_outcome",
+          "diagnostic_note": "A 对应 Al(Ⅲ) 在 NH₃/H₂O₂ 条件下形成沉淀的分离路径。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "wrong_manganese_context",
+          "diagnostic_note": "MnO₄⁻ 是锰的检出语境，不是铝的去向。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "unsupported_reduction_distractor",
+          "diagnostic_note": "教材内容未支持该条件下 Al(Ⅲ) 变成金属铝。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "wrong_iron_context",
+          "diagnostic_note": "KSCN 血红色是铁相关鉴定语境，不是铝分离。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00323_56549b57c0"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01211_3fe6c336b5",
+          "textbook_prose_01212_9b1152bdeb"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "人工逐题判断：原题只问 Al(OH)₃，重写为 Cr/Al 分离中的 Al 去向，避免孤立背化学式。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_2_10_006",
+      "question_type": "single_choice",
+      "stem": "检出 Mn²⁺ 的一个保守思路是用强氧化剂在酸性条件下把它转化成什么有色物种？",
+      "options": [
+        {
+          "label": "A",
+          "text": "AgCl"
+        },
+        {
+          "label": "B",
+          "text": "MnO₄⁻"
+        },
+        {
+          "label": "C",
+          "text": "CrO₄²⁻"
+        },
+        {
+          "label": "D",
+          "text": "丁二酮肟镍沉淀"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "锰(Ⅱ)相关化学原理说明，强氧化剂可把 Mn²⁺ 氧化为 MnO₄⁻，且 MnO₄⁻ 呈紫色，现象明显，可用于鉴定 Mn²⁺。",
+      "difficulty": "intermediate",
+      "primary_point_keys": [
+        "candidate-1-121e9e71"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "manganese_detection",
+        "redox_conversion",
+        "color_evidence"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "wrong_precipitate_distractor",
+          "diagnostic_note": "AgCl 与 Mn²⁺ 检出无关。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-1-121e9e71",
+          "role": "correct_detection_product",
+          "diagnostic_note": "B 是 Mn²⁺ 氧化检出的紫色物种。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "wrong_chromium_context",
+          "diagnostic_note": "CrO₄²⁻ 是铬的转化/检出语境。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "wrong_nickel_context",
+          "diagnostic_note": "Ni(dmg)₂ 是镍鉴定，不属于本混合离子。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00323_56549b57c0"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01240_f358ee9f2c",
+          "textbook_prose_01241_99049758ad",
+          "textbook_prose_01119_8478df1f7f"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "人工逐题判断：原题可用但需明确强氧化剂/酸性条件和颜色证据，已重写。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_2_10_007",
+      "question_type": "single_choice",
+      "stem": "本小设计实验中，每一步分离之后最不应省略的内容是什么？",
+      "options": [
+        {
+          "label": "A",
+          "text": "仅记录仪器品牌"
+        },
+        {
+          "label": "B",
+          "text": "只比较火焰颜色"
+        },
+        {
+          "label": "C",
+          "text": "对目标离子进行确认检出"
+        },
+        {
+          "label": "D",
+          "text": "只称滤纸质量"
+        }
+      ],
+      "answer": {
+        "value": "C"
+      },
+      "explanation": "教材步骤要求“分离检出”，因此设计方案不只写分离操作，还要给出每种目标离子的检出依据或确认现象。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-121e9e71"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "scheme_completeness",
+        "detection_requirement"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "irrelevant_record_distractor",
+          "diagnostic_note": "仪器品牌不是分离检出的证据。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "overgeneralized_method_distractor",
+          "diagnostic_note": "火焰颜色不覆盖 Cr³⁺、Al³⁺、Mn²⁺ 的分离检出。"
+        },
+        {
+          "label": "C",
+          "point_key": "candidate-1-121e9e71",
+          "role": "correct_design_requirement",
+          "diagnostic_note": "C 直接落实“分离检出”的检出部分。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "irrelevant_measurement_distractor",
+          "diagnostic_note": "称滤纸不能证明三种离子分别检出。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00323_56549b57c0"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "人工逐题判断：原题语义准确，保留并补足诊断。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_2_10_008",
+      "question_type": "single_choice",
+      "stem": "Cr³⁺ 与 Al³⁺ 的分离可利用铬(Ⅲ)被氧化而铝(Ⅲ)不发生同样转化，这主要属于哪类性质差异？",
+      "options": [
+        {
+          "label": "A",
+          "text": "钥匙遮光差异"
+        },
+        {
+          "label": "B",
+          "text": "滤纸感光差异"
+        },
+        {
+          "label": "C",
+          "text": "钠焰色差异"
+        },
+        {
+          "label": "D",
+          "text": "氧化还原性质差异"
+        }
+      ],
+      "answer": {
+        "value": "D"
+      },
+      "explanation": "Cr³⁺ 与 Al³⁺ 在 NH₃/H₂O₂ 条件下的分离依赖铬(Ⅲ)被氧化为 CrO₄²⁻，这属于氧化还原性质差异。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-121e9e71"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "redox_basis",
+        "cr_al_separation"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "nonsense_distractor",
+          "diagnostic_note": "钥匙遮光与该离子分离没有化学关系。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "wrong_property_distractor",
+          "diagnostic_note": "滤纸感光不是 Cr/Al 分离依据。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "wrong_experiment_distractor",
+          "diagnostic_note": "钠焰色不用于这组三价/二价过渡金属离子的分离。"
+        },
+        {
+          "label": "D",
+          "point_key": "candidate-1-121e9e71",
+          "role": "correct_property_class",
+          "diagnostic_note": "D 对应 Cr(Ⅲ) 氧化转化与 Al(Ⅲ) 沉淀分离的性质差异。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00323_56549b57c0"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01211_3fe6c336b5",
+          "textbook_prose_01212_9b1152bdeb",
+          "textbook_prose_01213_dedb851b08"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "人工逐题判断：原题方向正确，但补充 Cr/Al 分离机制并重写解释。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_2_10_009",
+      "question_type": "single_choice",
+      "stem": "下列哪项最符合《20-2-10 小设计实验》的任务要求？",
+      "options": [
+        {
+          "label": "A",
+          "text": "把 Fe³⁺-KSCN 血红色反应套用于三种离子"
+        },
+        {
+          "label": "B",
+          "text": "方案必须能分离并分别检出 Cr³⁺、Al³⁺、Mn²⁺"
+        },
+        {
+          "label": "C",
+          "text": "把所有试剂一次加入混合液中，不记录分步现象"
+        },
+        {
+          "label": "D",
+          "text": "只检出 Cr³⁺，不处理 Al³⁺ 与 Mn²⁺"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "教材任务的关键词是“分离检出”三种离子，因此方案应体现分步分离与分别检出，而不是套用无关铁显色或只处理其中一种离子。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-121e9e71"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "design_scope",
+        "wrong_context_filter"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "wrong_context_distractor",
+          "diagnostic_note": "Fe³⁺-KSCN 不属于目标三离子的分离检出。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-1-121e9e71",
+          "role": "correct_design_scope",
+          "diagnostic_note": "B 同时覆盖分离和分别检出的要求。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "non_stepwise_scheme_distractor",
+          "diagnostic_note": "一次混加会丢失分离顺序和现象依据。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "partial_scope_distractor",
+          "diagnostic_note": "只检出 Cr³⁺ 不满足三种离子的任务。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00323_56549b57c0"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "人工逐题判断：原题重复泛化，重写为发布语义范围题。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_2_10_010",
+      "question_type": "single_choice",
+      "stem": "本设计方案中最不应忽略的是哪一类内容？",
+      "options": [
+        {
+          "label": "A",
+          "text": "试管标签颜色"
+        },
+        {
+          "label": "B",
+          "text": "分离顺序和检出证据"
+        },
+        {
+          "label": "C",
+          "text": "火柴品牌"
+        },
+        {
+          "label": "D",
+          "text": "钥匙形状"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "“分离检出”要求方案有顺序、有对象、有检出依据；只关注无关细节不能证明三种离子被分离并确认。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-121e9e71"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "scheme_completeness",
+        "detection_evidence"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "irrelevant_surface_feature",
+          "diagnostic_note": "排版颜色不是化学方案内容。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-1-121e9e71",
+          "role": "correct_design_requirement",
+          "diagnostic_note": "B 准确表达设计方案最核心的两个内容。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "irrelevant_object_distractor",
+          "diagnostic_note": "火柴品牌与本实验无关。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "irrelevant_object_distractor",
+          "diagnostic_note": "钥匙形状与分离检出无关。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00323_56549b57c0"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "人工逐题判断：原题能直接考查设计方案完整性，保留并重写解析。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_2_10_011",
+      "question_type": "true_false",
+      "stem": "在《20-2-10 小设计实验》中，混合溶液含 Cr³⁺、Al³⁺、Mn²⁺。",
+      "options": [
+        {
+          "label": "T",
+          "text": "正确"
+        },
+        {
+          "label": "F",
+          "text": "错误"
+        }
+      ],
+      "answer": {
+        "value": true
+      },
+      "explanation": "教材资料明确给出小设计实验的目标混合溶液含 Cr³⁺、Al³⁺、Mn²⁺。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-121e9e71"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "true_false",
+        "target_ion_scope"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00323_56549b57c0"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "人工逐题判断：原判断题短、证据直接、机器确定，保留。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_2_10_012",
+      "question_type": "true_false",
+      "stem": "在 NH₃/H₂O₂ 条件下处理 Cr³⁺ 与 Al³⁺ 时，Al 可形成 Al(OH)₃ 沉淀，而铬(Ⅲ)可被氧化为 CrO₄²⁻。",
+      "options": [
+        {
+          "label": "T",
+          "text": "正确"
+        },
+        {
+          "label": "F",
+          "text": "错误"
+        }
+      ],
+      "answer": {
+        "value": true
+      },
+      "explanation": "相关化学原理对铬(Ⅲ)/铝(Ⅲ)分离的说明正是：Al(OH)₃ 沉淀，铬(Ⅲ)被氧化为 CrO₄²⁻；这可支撑本小设计实验中的 Cr/Al 分离环节。",
+      "difficulty": "intermediate",
+      "primary_point_keys": [
+        "candidate-1-121e9e71"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "true_false",
+        "cr_al_separation",
+        "nh3_h2o2_condition"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00323_56549b57c0"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01211_3fe6c336b5",
+          "textbook_prose_01212_9b1152bdeb"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "人工逐题判断：旧题泛称两性，重写为分离结果判断。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_2_10_013",
+      "question_type": "true_false",
+      "stem": "在碱性条件下，H₂O₂ 可把含铬(Ⅲ)的羟基配合物氧化为 CrO₄²⁻。",
+      "options": [
+        {
+          "label": "T",
+          "text": "正确"
+        },
+        {
+          "label": "F",
+          "text": "错误"
+        }
+      ],
+      "answer": {
+        "value": true
+      },
+      "explanation": "相关化学原理给出碱性过氧化氢将铬(Ⅲ)羟基配合物氧化为 CrO₄²⁻ 的反应证据，因此该判断正确。",
+      "difficulty": "intermediate",
+      "primary_point_keys": [
+        "candidate-1-121e9e71"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "true_false",
+        "chromium_redox",
+        "supporting_theory_dependency"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00323_56549b57c0",
+          "expchunk_00321_53b9414bde"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01213_dedb851b08"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "人工逐题判断：原题只写结论，重写为有条件和物种边界的判断。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_2_10_014",
+      "question_type": "true_false",
+      "stem": "分离 Cr³⁺ 与 Al³⁺ 时，只加氨水、不加入 H₂O₂，就足以体现相关化学原理中的推荐分离思路。",
+      "options": [
+        {
+          "label": "T",
+          "text": "正确"
+        },
+        {
+          "label": "F",
+          "text": "错误"
+        }
+      ],
+      "answer": {
+        "value": false
+      },
+      "explanation": "相关化学原理明确说 Cr³⁺ 和 Al³⁺ 不采用只加氨水的方法，而是在加氨水的同时加入 H₂O₂，先把铬(Ⅲ)氧化。",
+      "difficulty": "intermediate",
+      "primary_point_keys": [
+        "candidate-1-121e9e71"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "true_false",
+        "misconception_feedback",
+        "cr_al_separation"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00323_56549b57c0"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01211_3fe6c336b5",
+          "textbook_prose_01212_9b1152bdeb"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "人工逐题判断：将旧的正判断改为常见误区判断，证据更具体。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_2_10_015",
+      "question_type": "true_false",
+      "stem": "Mn²⁺ 可通过被强氧化剂氧化成紫色 MnO₄⁻ 的思路进行确认检出。",
+      "options": [
+        {
+          "label": "T",
+          "text": "正确"
+        },
+        {
+          "label": "F",
+          "text": "错误"
+        }
+      ],
+      "answer": {
+        "value": true
+      },
+      "explanation": "锰(Ⅱ)相关化学原理明确指出，把 Mn²⁺ 氧化成 MnO₄⁻ 且因紫色现象明显，可用于鉴定 Mn²⁺。",
+      "difficulty": "intermediate",
+      "primary_point_keys": [
+        "candidate-1-121e9e71"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "true_false",
+        "manganese_detection",
+        "color_evidence"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00323_56549b57c0"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01241_99049758ad",
+          "textbook_prose_01119_8478df1f7f"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "人工逐题判断：旧题结论可用，但重写为强氧化剂与颜色证据共同闭合。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_2_10_016",
+      "question_type": "true_false",
+      "stem": "本小设计实验的混合离子是 Ag⁺、Pb²⁺、Zn²⁺、Cu²⁺。",
+      "options": [
+        {
+          "label": "T",
+          "text": "正确"
+        },
+        {
+          "label": "F",
+          "text": "错误"
+        }
+      ],
+      "answer": {
+        "value": false
+      },
+      "explanation": "教材资料指定的是 Cr³⁺、Al³⁺、Mn²⁺，不是 Ag⁺、Pb²⁺、Zn²⁺、Cu²⁺。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-121e9e71"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "true_false",
+        "target_ion_scope",
+        "wrong_group_filter"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00323_56549b57c0"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "人工逐题判断：保留反向判断语义，但重写解释并确认无多点位绑定。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_2_10_017",
+      "question_type": "true_false",
+      "stem": "Cr³⁺ 与 Al³⁺ 的分离不需要任何性质差异，只要把两者写在同一个方案中即可。",
+      "options": [
+        {
+          "label": "T",
+          "text": "正确"
+        },
+        {
+          "label": "F",
+          "text": "错误"
+        }
+      ],
+      "answer": {
+        "value": false
+      },
+      "explanation": "设计分离必须依赖可验证的性质差异；Cr/Al 可借助 NH₃/H₂O₂ 条件下 Al(OH)₃ 沉淀与铬(Ⅲ)氧化转化的差异。",
+      "difficulty": "intermediate",
+      "primary_point_keys": [
+        "candidate-1-121e9e71"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "true_false",
+        "separation_basis",
+        "misconception_feedback"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00323_56549b57c0"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01211_3fe6c336b5",
+          "textbook_prose_01212_9b1152bdeb"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "人工逐题判断：原题过泛，重写为分离依据误区判断。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_2_10_018",
+      "question_type": "true_false",
+      "stem": "设计方案只写加入试剂名称而不写检出依据，也足够完成《20-2-10 小设计实验》。",
+      "options": [
+        {
+          "label": "T",
+          "text": "正确"
+        },
+        {
+          "label": "F",
+          "text": "错误"
+        }
+      ],
+      "answer": {
+        "value": false
+      },
+      "explanation": "教材步骤要求分离检出。方案只列试剂不能证明每种目标离子已被分别确认，因此不完整。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-121e9e71"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "true_false",
+        "scheme_completeness",
+        "detection_requirement"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00323_56549b57c0"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "人工逐题判断：原判断题直接针对设计完整性，保留并重写解释。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_2_10_019",
+      "question_type": "true_false",
+      "stem": "NaOH 可用于生成部分金属氢氧化物沉淀，并帮助建立 Cr³⁺、Al³⁺、Mn²⁺ 的分离线索。",
+      "options": [
+        {
+          "label": "T",
+          "text": "正确"
+        },
+        {
+          "label": "F",
+          "text": "错误"
+        }
+      ],
+      "answer": {
+        "value": true
+      },
+      "explanation": "前置实验要求滴加 NaOH 并检验沉淀酸碱性；相关化学原理也支持 Cr(OH)₃、Al(OH)₃、Mn(OH)₂ 等性质差异可服务于分离设计。",
+      "difficulty": "intermediate",
+      "primary_point_keys": [
+        "candidate-1-121e9e71"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "true_false",
+        "hydroxide_separation_logic"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00323_56549b57c0",
+          "expchunk_00319_b995aa9123"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01208_f648cd206f",
+          "textbook_prose_01239_7b36e4736b",
+          "textbook_prose_01240_f358ee9f2c"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "人工逐题判断：源题无 options 且证据泛化，补上明确性质支撑。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_2_10_020",
+      "question_type": "true_false",
+      "stem": "这个小设计实验可同时借用氢氧化物酸碱性和氧化还原转化作为方案依据。",
+      "options": [
+        {
+          "label": "T",
+          "text": "正确"
+        },
+        {
+          "label": "F",
+          "text": "错误"
+        }
+      ],
+      "answer": {
+        "value": true
+      },
+      "explanation": "Cr³⁺、Al³⁺、Mn²⁺ 的分离检出既可借助氢氧化物沉淀/两性差异，也可借助铬(Ⅲ)、锰(Ⅱ)的氧化还原检出转化。",
+      "difficulty": "intermediate",
+      "primary_point_keys": [
+        "candidate-1-121e9e71"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "true_false",
+        "cross_property_design",
+        "scheme_basis"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00323_56549b57c0",
+          "expchunk_00319_b995aa9123",
+          "expchunk_00321_53b9414bde"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01208_f648cd206f",
+          "textbook_prose_01213_dedb851b08",
+          "textbook_prose_01241_99049758ad"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "人工逐题判断：旧题泛称 d 区性质，重写为本方案可用的两类具体性质。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_2_10_021",
+      "question_type": "single_choice",
+      "stem": "若把本设计写成“用 Fe³⁺-KSCN 血红色反应检出三种离子”，哪项判断正确？",
+      "options": [
+        {
+          "label": "A",
+          "text": "正确，因为所有过渡金属离子都可用 KSCN 检出"
+        },
+        {
+          "label": "B",
+          "text": "错误；该反应不对应 Cr³⁺、Al³⁺、Mn²⁺ 的分离检出任务"
+        },
+        {
+          "label": "C",
+          "text": "正确，因为 KSCN 可直接生成 Al(OH)₃"
+        },
+        {
+          "label": "D",
+          "text": "无法判断，因为教材资料没有给出目标离子"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "教材资料已明确目标离子为 Cr³⁺、Al³⁺、Mn²⁺。Fe³⁺-KSCN 显色是错误语境，不能替代三种目标离子的分离检出。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-121e9e71"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "wrong_context_feedback",
+        "target_ion_scope"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "overgeneralization_distractor",
+          "diagnostic_note": "KSCN 不能泛化为所有过渡金属离子的检出。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-1-121e9e71",
+          "role": "correct_correction",
+          "diagnostic_note": "B 准确指出错在套用无关铁显色反应。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "false_reaction_distractor",
+          "diagnostic_note": "KSCN 不用于生成 Al(OH)₃。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "contradicted_by_canonical",
+          "diagnostic_note": "教材步骤已给出三种目标离子。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00323_56549b57c0"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "人工逐题判断：旧重复题重写为错答反馈题，避免错绑 Fe/KSCN 点位。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_2_10_022",
+      "question_type": "single_choice",
+      "stem": "关于 Mn²⁺ 在碱性分离步骤中的表现，哪项说法符合相关化学原理？",
+      "options": [
+        {
+          "label": "A",
+          "text": "Mn²⁺ 与 OH⁻ 不会发生任何可观察变化"
+        },
+        {
+          "label": "B",
+          "text": "Mn²⁺ 可与 OH⁻ 生成 Mn(OH)₂ 沉淀，随后还可能被空气氧化"
+        },
+        {
+          "label": "C",
+          "text": "Mn²⁺ 会自动转化成 Al(OH)₃"
+        },
+        {
+          "label": "D",
+          "text": "Mn²⁺ 的检出必须用 Fe³⁺-KSCN 血红色反应"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "锰(Ⅱ)相关化学原理说明 Mn²⁺ 与 OH⁻ 先生成 Mn(OH)₂ 沉淀，放置后可被氧化为棕色沉淀；这可作为分离和后续检出的线索。",
+      "difficulty": "intermediate",
+      "primary_point_keys": [
+        "candidate-1-121e9e71"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "manganese_hydroxide",
+        "separation_basis"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "contradicted_by_theory",
+          "diagnostic_note": "相关化学原理明确支持 Mn²⁺ 与 OH⁻ 生成沉淀。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-1-121e9e71",
+          "role": "correct_theory_evidence",
+          "diagnostic_note": "B 符合 Mn(Ⅱ) 氢氧化物生成与后续氧化变化。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "wrong_element_distractor",
+          "diagnostic_note": "Al(OH)₃ 是铝的沉淀，不由 Mn²⁺ 自动转化。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "wrong_context_distractor",
+          "diagnostic_note": "Fe³⁺-KSCN 与 Mn²⁺ 检出无关。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00323_56549b57c0",
+          "expchunk_00319_b995aa9123"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01239_7b36e4736b",
+          "textbook_prose_01240_f358ee9f2c"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "人工逐题判断：旧题重复泛化，重写为 Mn²⁺ 分离现象依据题。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_2_10_023",
+      "question_type": "fill_blank",
+      "stem": "Cr(OH)₃ 和 Al(OH)₃ 具有____，可作为设计分离时的重要性质依据。",
+      "answer": {
+        "accepted_answers": [
+          "两性"
+        ],
+        "hidden_grading_aliases": [
+          "酸碱两性"
+        ],
+        "match": "normalized_exact"
+      },
+      "accepted_answers": [
+        "两性"
+      ],
+      "hidden_grading_aliases": [
+        "酸碱两性"
+      ],
+      "explanation": "相关化学原理明确写到 Al(OH)₃ 呈酸碱两性，Cr(OH)₃ 也具有两性并与 Al(OH)₃ 相似。答案是短中文词，能直接概括该性质。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-121e9e71"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "fill_blank",
+        "short_answer_safe",
+        "amphoterism"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00323_56549b57c0",
+          "expchunk_00319_b995aa9123"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00835_0d3c423061",
+          "textbook_prose_01208_f648cd206f"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "人工逐题判断：原填空答案短且确定，保留；补充 theory 依据并避免公式填空。"
+      },
+      "mobile_input_risk": "low_short_chinese_answer",
+      "machine_grading": "deterministic",
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_2_10_024",
+      "question_type": "single_choice",
+      "stem": "若要说明铬(Ⅲ)转化为铬酸根，哪项内容组合最合适？",
+      "options": [
+        {
+          "label": "A",
+          "text": "只引用小设计任务，不引用任何氧化还原性质"
+        },
+        {
+          "label": "B",
+          "text": "用小设计任务定位目标，再用碱性 H₂O₂ 氧化铬(Ⅲ)的相关化学原理解释转化"
+        },
+        {
+          "label": "C",
+          "text": "引用铂配合物的顺反异构"
+        },
+        {
+          "label": "D",
+          "text": "引用 Fe³⁺-KSCN 血红色反应"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "小设计任务只规定要分离检出 Cr³⁺、Al³⁺、Mn²⁺；铬(Ⅲ)到 CrO₄²⁻ 的转化需要结合前置铬氧化还原实验和相关化学原理才能判断完整。",
+      "difficulty": "intermediate",
+      "primary_point_keys": [
+        "candidate-1-121e9e71"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "evidence_sufficiency",
+        "chromium_detection"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "insufficient_evidence_distractor",
+          "diagnostic_note": "小设计任务本身没有写具体转化反应。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-1-121e9e71",
+          "role": "correct_reasoning_set",
+          "diagnostic_note": "B 同时包含目标离子定位和转化相关化学原理。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "irrelevant_theory_distractor",
+          "diagnostic_note": "铂配合物顺反异构与本实验无关。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "wrong_context_distractor",
+          "diagnostic_note": "铁显色不能支撑铬转化。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00323_56549b57c0",
+          "expchunk_00321_53b9414bde"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01211_3fe6c336b5",
+          "textbook_prose_01213_dedb851b08"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "人工逐题判断：旧题只问正确陈述，重写为 evidence-first 证据组合题。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_2_10_025",
+      "question_type": "single_choice",
+      "stem": "在 Cr/Al 分离环节中，为什么不宜只写“加入氨水，观察沉淀”作为完整方案？",
+      "options": [
+        {
+          "label": "A",
+          "text": "因为教材资料不允许使用任何碱"
+        },
+        {
+          "label": "B",
+          "text": "因为相关化学原理指出 Cr³⁺ 与 Al³⁺ 分离需结合 H₂O₂ 氧化铬(Ⅲ)，而不是只靠氨水"
+        },
+        {
+          "label": "C",
+          "text": "因为 Al(Ⅲ) 必须用 KSCN 检出"
+        },
+        {
+          "label": "D",
+          "text": "因为 Mn²⁺ 会直接生成 CrO₄²⁻"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "相关化学原理明确说明 Cr³⁺ 和 Al³⁺ 不采用只加氨水的方法，而是在加氨水的同时加入 H₂O₂，将铬(Ⅲ)氧化后实现分离。",
+      "difficulty": "intermediate",
+      "primary_point_keys": [
+        "candidate-1-121e9e71"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "scheme_quality",
+        "cr_al_separation",
+        "misconception_feedback"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "false_constraint_distractor",
+          "diagnostic_note": "教材步骤没有限制不能用碱，前置实验还使用 NaOH。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-1-121e9e71",
+          "role": "correct_scheme_diagnosis",
+          "diagnostic_note": "B 准确指出只加氨水方案缺少关键氧化步骤。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "wrong_reagent_distractor",
+          "diagnostic_note": "KSCN 不是 Al(Ⅲ) 检出依据。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "wrong_element_conversion",
+          "diagnostic_note": "Mn²⁺ 不会直接生成铬酸根。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00323_56549b57c0"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01211_3fe6c336b5",
+          "textbook_prose_01212_9b1152bdeb"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "人工逐题判断：旧题公式答案导向明显，重写为方案质量诊断题。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_2_10_026",
+      "question_type": "single_choice",
+      "stem": "对于 Mn²⁺ 的最终确认，哪项表述最稳妥？",
+      "options": [
+        {
+          "label": "A",
+          "text": "只要看到任意沉淀，就可断定是 Mn²⁺"
+        },
+        {
+          "label": "B",
+          "text": "可用强氧化剂把 Mn²⁺ 转化为紫色 MnO₄⁻，作为确认思路"
+        },
+        {
+          "label": "C",
+          "text": "用 CrO₄²⁻ 的黄色直接确认 Mn²⁺"
+        },
+        {
+          "label": "D",
+          "text": "用 Al(OH)₃ 沉淀直接确认 Mn²⁺"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "相关化学原理指出 Mn²⁺ 可被强氧化剂氧化为 MnO₄⁻，且紫色现象明显，因此可作为 Mn²⁺ 的确认检出思路。",
+      "difficulty": "intermediate",
+      "primary_point_keys": [
+        "candidate-1-121e9e71"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "manganese_detection",
+        "avoid_overclaim",
+        "color_evidence"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "overclaim_distractor",
+          "diagnostic_note": "任意沉淀不能唯一证明 Mn²⁺。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-1-121e9e71",
+          "role": "correct_detection_strategy",
+          "diagnostic_note": "B 有转化和颜色双重依据。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "wrong_chromium_color",
+          "diagnostic_note": "CrO₄²⁻ 的黄色属于铬检出语境。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "wrong_aluminum_precipitate",
+          "diagnostic_note": "Al(OH)₃ 沉淀不能确认 Mn²⁺。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00323_56549b57c0"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01241_99049758ad",
+          "textbook_prose_01119_8478df1f7f"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "人工逐题判断：旧题“Mn²⁺ 可氧化为紫色 MnO₄⁻”可用但太裸，重写为确认检出边界题。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_2_10_027",
+      "question_type": "fill_blank",
+      "stem": "完成分离后，方案还应对每种目标离子进行____，才符合“分离检出”的要求。",
+      "answer": {
+        "accepted_answers": [
+          "检出",
+          "确认检出"
+        ],
+        "hidden_grading_aliases": [
+          "验证检出"
+        ],
+        "match": "normalized_exact"
+      },
+      "accepted_answers": [
+        "检出",
+        "确认检出"
+      ],
+      "hidden_grading_aliases": [
+        "验证检出"
+      ],
+      "explanation": "教材要求不是单纯分离，而是分离检出；答案“检出”能直接补足任务要求。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-121e9e71"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "fill_blank",
+        "short_answer_safe",
+        "detection_requirement"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00323_56549b57c0"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "人工逐题判断：原填空可用但过泛，重写为直接承接 canonical 关键词的手机端短填空。"
+      },
+      "mobile_input_risk": "low_short_chinese_answer",
+      "machine_grading": "deterministic",
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_2_10_028",
+      "question_type": "fill_blank",
+      "stem": "Cr³⁺ 与 Al³⁺ 可利用铬(Ⅲ)被氧化、铝(Ⅲ)保持沉淀的差异来分离，这属于____性质差异。",
+      "answer": {
+        "accepted_answers": [
+          "氧化还原",
+          "氧化还原性质"
+        ],
+        "hidden_grading_aliases": [],
+        "match": "normalized_exact"
+      },
+      "accepted_answers": [
+        "氧化还原",
+        "氧化还原性质"
+      ],
+      "hidden_grading_aliases": [],
+      "explanation": "Cr/Al 分离示意依赖 H₂O₂ 把铬(Ⅲ)氧化，而铝(Ⅲ)形成 Al(OH)₃ 沉淀；因此答案是氧化还原性质差异。",
+      "difficulty": "intermediate",
+      "primary_point_keys": [
+        "candidate-1-121e9e71"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "fill_blank",
+        "short_answer_safe",
+        "redox_basis"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00323_56549b57c0"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01211_3fe6c336b5",
+          "textbook_prose_01212_9b1152bdeb"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "人工逐题判断：原填空答案短，但题干证据边界不清，重写为 Cr/Al 具体差异。"
+      },
+      "mobile_input_risk": "low_short_chinese_answer",
+      "machine_grading": "deterministic",
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_2_10_029",
+      "question_type": "single_choice",
+      "stem": "哪种方案表述最符合分步分离检出的要求，而不是只背结论？",
+      "options": [
+        {
+          "label": "A",
+          "text": "把所有试剂一次加入混合液，最后只写“成功”"
+        },
+        {
+          "label": "B",
+          "text": "按步骤说明 Mn 的沉淀/检出、Cr 的氧化检出和 Al 的沉淀分离依据"
+        },
+        {
+          "label": "C",
+          "text": "只写 Cr³⁺、Al³⁺、Mn²⁺ 三个离子名称"
+        },
+        {
+          "label": "D",
+          "text": "只写一种试剂名称，不说明现象或检出证据"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "完整方案应体现分离顺序、每步依据和检出现象。B 将 Mn、Cr、Al 的不同检出思路分开表达，最符合“分离检出”。",
+      "difficulty": "intermediate",
+      "primary_point_keys": [
+        "candidate-1-121e9e71"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "scheme_quality",
+        "machine_grading",
+        "stepwise_design"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "non_deterministic_scheme",
+          "diagnostic_note": "A 没有分步依据，无法确认每种离子是否检出。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-1-121e9e71",
+          "role": "correct_stepwise_design",
+          "diagnostic_note": "B 体现三种离子的分离与检出依据。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "low_depth_distractor",
+          "diagnostic_note": "只背离子名称不等于完成分离检出方案。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "incomplete_scheme_distractor",
+          "diagnostic_note": "只列试剂没有现象或检出证据。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00323_56549b57c0"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01212_9b1152bdeb",
+          "textbook_prose_01240_f358ee9f2c",
+          "textbook_prose_01241_99049758ad"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "人工逐题判断：旧题重复同一正确项模板，重写为方案可评分性判断。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_2_10_030",
+      "question_type": "fill_blank",
+      "stem": "本小设计实验的方案应写清分离顺序和____。",
+      "answer": {
+        "accepted_answers": [
+          "检出依据",
+          "检出证据"
+        ],
+        "hidden_grading_aliases": [
+          "确认依据"
+        ],
+        "match": "normalized_exact"
+      },
+      "accepted_answers": [
+        "检出依据",
+        "检出证据"
+      ],
+      "hidden_grading_aliases": [
+        "确认依据"
+      ],
+      "explanation": "因为教材步骤要求“分离检出”，方案必须既有分离顺序，也有能确认目标离子的检出依据。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-121e9e71"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "fill_blank",
+        "short_answer_safe",
+        "scheme_completeness"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00323_56549b57c0"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "人工逐题判断：原填空短且确定，保留并规范可接受答案。"
+      },
+      "mobile_input_risk": "low_short_chinese_answer",
+      "machine_grading": "deterministic",
+      "review_decision": "keep"
+    }
+  ]
+}

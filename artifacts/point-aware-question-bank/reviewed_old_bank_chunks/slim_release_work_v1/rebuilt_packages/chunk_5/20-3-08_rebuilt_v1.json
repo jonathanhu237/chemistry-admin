@@ -1,0 +1,1807 @@
+{
+  "metadata": {
+    "schema_version": "rebuilt_experiment_question_package_v1",
+    "artifact_type": "manual_small_packet_semantic_reconstruction",
+    "source_packet": "E:\\chemistry-admin\\artifacts\\point-aware-question-bank\\reviewed_old_bank_chunks\\slim_release_work_v1\\semantic_work_packets\\chunk_5\\20-3-08.json",
+    "experiment_code": "20-3-08",
+    "experiment_title": "铁的鉴定",
+    "question_count": 30,
+    "chunk": "chunk_5",
+    "reconstruction_status": "manual_question_by_question_semantic_rebuild",
+    "evidence_policy": "RAG text was read for every cited id. JSON stores ids, source file, line number, and concise evidence role only; no release JSON was edited.",
+    "rag_source_dir": "E:\\chemistry-rag\\data\\rag_ready",
+    "release_json_direct_edit": false
+  },
+  "video_points": [
+    {
+      "point_key": "candidate-1-19f29b28",
+      "point_title": "Fe(Ⅱ) 的鉴定"
+    },
+    {
+      "point_key": "candidate-2-d3d9277b",
+      "point_title": "Fe(Ⅲ) 的鉴定"
+    }
+  ],
+  "evidence_sources": {
+    "canonical_experiment_chunks": [
+      {
+        "chunk_id": "expchunk_00327_e59c162b54",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+        "line_number": 340,
+        "evidence_role": "Experiment purpose: apply complexes to metal ion identification."
+      },
+      {
+        "chunk_id": "expchunk_00334_8229cac865",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+        "line_number": 347,
+        "evidence_role": "Canonical metal-ion identification section: identify iron(II) and iron(III) according to learned knowledge."
+      }
+    ],
+    "supporting_theory_chunks": [
+      {
+        "chunk_id": "textbook_prose_01304_9920c29f9d",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+        "line_number": 1990,
+        "evidence_role": "Thiocyanate with Fe3+ gives a blood-red isothiocyanato complex; used for Fe3+ identification."
+      },
+      {
+        "chunk_id": "textbook_table_record_table_p224_t01_r071",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+        "line_number": 1977,
+        "evidence_role": "Table 20.10 records Fe3+ with NCS- as blood red."
+      },
+      {
+        "chunk_id": "textbook_prose_01296_e1b954e16b",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+        "line_number": 1983,
+        "evidence_role": "Adding Fe2+ to ferricyanide solution forms Turnbull's blue; a sensitive Fe2+ identification reaction."
+      },
+      {
+        "chunk_id": "textbook_prose_01297_b761f39d9a",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+        "line_number": 1984,
+        "evidence_role": "Reaction and structure notes for Turnbull's/Prussian blue involving Fe2+ and Fe3+ coordination."
+      },
+      {
+        "chunk_id": "textbook_prose_01156_e3d54318a3",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+        "line_number": 1809,
+        "evidence_role": "States Fe2+ can be oxidized under air exposure; used only to justify avoiding oxidation during Fe2+ identification."
+      }
+    ]
+  },
+  "questions": [
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_08_001",
+      "question_type": "single_choice",
+      "stem": "铁的鉴定实验要求区分的铁离子主要是哪两种价态？",
+      "options": [
+        {
+          "label": "A",
+          "text": "Fe(Ⅱ) 和 Fe(Ⅲ)"
+        },
+        {
+          "label": "B",
+          "text": "铁单质和 Fe(Ⅵ)"
+        },
+        {
+          "label": "C",
+          "text": "Co(Ⅱ) 和 Ni(Ⅱ)"
+        },
+        {
+          "label": "D",
+          "text": "砷(Ⅲ) 和铋(Ⅲ)"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "教材资料明确要求进行铁(Ⅱ)和铁(Ⅲ)的鉴定。",
+      "primary_point_keys": [
+        "candidate-1-19f29b28"
+      ],
+      "secondary_point_keys": [
+        "candidate-2-d3d9277b"
+      ],
+      "coverage_tags": [
+        "iron_valence_scope"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-1-19f29b28",
+          "role": "correct_scope"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "wrong_scope"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "wrong_metals"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "wrong_elements"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00334_8229cac865"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "保留并将 ASCII 价态改为 Unicode。"
+      },
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_08_002",
+      "question_type": "single_choice",
+      "stem": "鉴定 Fe(Ⅲ) 时，常用且能生成血红色配合物的试剂是哪一种？",
+      "options": [
+        {
+          "label": "A",
+          "text": "CCl₄"
+        },
+        {
+          "label": "B",
+          "text": "KSCN"
+        },
+        {
+          "label": "C",
+          "text": "Na₂CO₃"
+        },
+        {
+          "label": "D",
+          "text": "乙醚"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "相关化学原理明确硫氰根离子与 Fe³⁺ 可生成血红色配合物，可用于鉴定 Fe³⁺。",
+      "primary_point_keys": [
+        "candidate-2-d3d9277b"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "fe3_scn_test"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "wrong_solvent"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-2-d3d9277b",
+          "role": "correct_reagent"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "wrong_reagent"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "wrong_solvent"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00334_8229cac865"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01304_9920c29f9d",
+          "textbook_table_record_table_p224_t01_r071"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留。"
+      },
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_08_003",
+      "question_type": "single_choice",
+      "stem": "Fe(Ⅲ) 与 SCN⁻ 的阳性现象是哪一项？",
+      "options": [
+        {
+          "label": "A",
+          "text": "深蓝色铜氨溶液"
+        },
+        {
+          "label": "B",
+          "text": "白色 MgO 固体"
+        },
+        {
+          "label": "C",
+          "text": "血红色溶液"
+        },
+        {
+          "label": "D",
+          "text": "乙醚层蓝色"
+        }
+      ],
+      "answer": {
+        "value": "C"
+      },
+      "explanation": "Fe³⁺ 与硫氰根形成血红色配合物是 Fe(Ⅲ) 鉴定反应。",
+      "primary_point_keys": [
+        "candidate-2-d3d9277b"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "fe3_positive_observation"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "wrong_observation"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "wrong_observation"
+        },
+        {
+          "label": "C",
+          "point_key": "candidate-2-d3d9277b",
+          "role": "correct_observation"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "co_context_distractor"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00334_8229cac865"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01304_9920c29f9d",
+          "textbook_table_record_table_p224_t01_r071"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留。"
+      },
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_08_004",
+      "question_type": "single_choice",
+      "stem": "鉴定 Fe(Ⅱ) 时常用铁氰化钾，阳性可生成什么颜色沉淀？",
+      "options": [
+        {
+          "label": "A",
+          "text": "镍丁二酮肟沉淀"
+        },
+        {
+          "label": "B",
+          "text": "黑色硫化汞"
+        },
+        {
+          "label": "C",
+          "text": "白色硫酸钡"
+        },
+        {
+          "label": "D",
+          "text": "蓝色沉淀"
+        }
+      ],
+      "answer": {
+        "value": "D"
+      },
+      "explanation": "相关化学原理明确 Fe²⁺ 与铁氰化物体系生成滕氏蓝的蓝色沉淀，是鉴定 Fe²⁺ 的灵敏反应。",
+      "primary_point_keys": [
+        "candidate-1-19f29b28"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "fe2_ferricyanide_test"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "ni_distractor"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "wrong_precipitate"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "wrong_precipitate"
+        },
+        {
+          "label": "D",
+          "point_key": "candidate-1-19f29b28",
+          "role": "correct_observation"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00334_8229cac865"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01296_e1b954e16b",
+          "textbook_prose_01297_b761f39d9a"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留并替换可见 Ni(dmg)₂。"
+      },
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_08_005",
+      "question_type": "single_choice",
+      "stem": "鉴定 Fe(Ⅱ) 时应尽量避免什么造成误判？",
+      "options": [
+        {
+          "label": "A",
+          "text": "Fe(Ⅱ) 被空气氧化为 Fe(Ⅲ)"
+        },
+        {
+          "label": "B",
+          "text": "Fe(Ⅱ) 被 CCl₄ 萃取"
+        },
+        {
+          "label": "C",
+          "text": "Fe(Ⅱ) 热分解为 O₂"
+        },
+        {
+          "label": "D",
+          "text": "Fe(Ⅱ) 与镁燃烧"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "Fe²⁺ 容易在空气等条件下被氧化为 Fe³⁺，鉴定时需避免价态改变造成误判。",
+      "primary_point_keys": [
+        "candidate-1-19f29b28"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "fe2_oxidation_risk"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-1-19f29b28",
+          "role": "correct_risk"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "wrong_process"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "wrong_process"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "wrong_process"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00334_8229cac865"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01156_e3d54318a3"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留。"
+      },
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_08_006",
+      "question_type": "single_choice",
+      "stem": "关于铁离子鉴定，哪项表述正确？",
+      "options": [
+        {
+          "label": "A",
+          "text": "只写 Fe 字样，不说明价态和阳性现象"
+        },
+        {
+          "label": "B",
+          "text": "应区分 Fe(Ⅱ) 与 Fe(Ⅲ) 两条鉴定路线"
+        },
+        {
+          "label": "C",
+          "text": "忽略 Fe(Ⅱ) 与 Fe(Ⅲ) 的价态差异"
+        },
+        {
+          "label": "D",
+          "text": "把两种价态混成同一反应"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "教材资料明确分别进行铁(Ⅱ)和铁(Ⅲ)的鉴定。",
+      "primary_point_keys": [
+        "candidate-1-19f29b28"
+      ],
+      "secondary_point_keys": [
+        "candidate-2-d3d9277b"
+      ],
+      "coverage_tags": [
+        "route_distinction",
+        "rewrite"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "insufficient"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-1-19f29b28",
+          "role": "correct"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "wrong"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "wrong"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00334_8229cac865"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "重写：去模板化。"
+      },
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_08_007",
+      "question_type": "single_choice",
+      "stem": "关于 Fe(Ⅲ) 的硫氰根鉴定，哪项表述正确？",
+      "options": [
+        {
+          "label": "A",
+          "text": "该反应可直接当作 Fe(Ⅱ) 的专属判断"
+        },
+        {
+          "label": "B",
+          "text": "Fe(Ⅲ) 可用 SCN⁻ 的血红色反应鉴定"
+        },
+        {
+          "label": "C",
+          "text": "该反应必须改成钴(Ⅱ)-KSCN 鉴定"
+        },
+        {
+          "label": "D",
+          "text": "该反应与配合物形成无关"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "硫氰根与 Fe³⁺ 形成血红色配合物，此反应用于鉴定 Fe³⁺。",
+      "primary_point_keys": [
+        "candidate-2-d3d9277b"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "fe3_scn_test",
+        "rewrite"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-1-19f29b28",
+          "role": "wrong_valence"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-2-d3d9277b",
+          "role": "correct"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "wrong_metal"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "wrong_concept"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00334_8229cac865"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01304_9920c29f9d"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "重写：去模板化。"
+      },
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_08_008",
+      "question_type": "single_choice",
+      "stem": "区分 Fe(Ⅱ) 与 Fe(Ⅲ) 的关键是什么？",
+      "options": [
+        {
+          "label": "A",
+          "text": "只比较溶液体积"
+        },
+        {
+          "label": "B",
+          "text": "只观察是否沸腾"
+        },
+        {
+          "label": "C",
+          "text": "只测量试管质量"
+        },
+        {
+          "label": "D",
+          "text": "选择能区分价态的特征配合反应"
+        }
+      ],
+      "answer": {
+        "value": "D"
+      },
+      "explanation": "铁(Ⅱ)和铁(Ⅲ)需要分别用能体现价态差异的配合反应鉴定。",
+      "primary_point_keys": [
+        "candidate-1-19f29b28"
+      ],
+      "secondary_point_keys": [
+        "candidate-2-d3d9277b"
+      ],
+      "coverage_tags": [
+        "valence_discrimination"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "irrelevant"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "irrelevant"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "irrelevant"
+        },
+        {
+          "label": "D",
+          "point_key": "candidate-1-19f29b28",
+          "role": "correct"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00327_e59c162b54",
+          "expchunk_00334_8229cac865"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01304_9920c29f9d",
+          "textbook_prose_01296_e1b954e16b"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留。"
+      },
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_08_009",
+      "question_type": "single_choice",
+      "stem": "若未知铁样可能含 Fe(Ⅲ)，先加入 KSCN 的目的是什么？",
+      "options": [
+        {
+          "label": "A",
+          "text": "快速检查 Fe(Ⅲ)"
+        },
+        {
+          "label": "B",
+          "text": "生成 MgO"
+        },
+        {
+          "label": "C",
+          "text": "放出 SO₂"
+        },
+        {
+          "label": "D",
+          "text": "还原 V(Ⅴ)"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "KSCN 与 Fe³⁺ 生成血红色配合物，可作为 Fe(Ⅲ) 的快速鉴定反应。",
+      "primary_point_keys": [
+        "candidate-2-d3d9277b"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "fe3_screening"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-2-d3d9277b",
+          "role": "correct"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "wrong"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "wrong"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "wrong"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00334_8229cac865"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01304_9920c29f9d"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留。"
+      },
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_08_010",
+      "question_type": "single_choice",
+      "stem": "该实验最核心的学习目标是什么？",
+      "options": [
+        {
+          "label": "A",
+          "text": "比较卤素置换顺序"
+        },
+        {
+          "label": "B",
+          "text": "利用配合反应鉴定铁离子"
+        },
+        {
+          "label": "C",
+          "text": "制备臭氧"
+        },
+        {
+          "label": "D",
+          "text": "验证氯酸盐酸性增强"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "实验目的包括了解配合物在鉴定金属离子中的应用，铁的鉴定正属于该应用。",
+      "primary_point_keys": [
+        "candidate-1-19f29b28"
+      ],
+      "secondary_point_keys": [
+        "candidate-2-d3d9277b"
+      ],
+      "coverage_tags": [
+        "experiment_objective"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "wrong_experiment"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-1-19f29b28",
+          "role": "correct"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "wrong_experiment"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "wrong_experiment"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00327_e59c162b54",
+          "expchunk_00334_8229cac865"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "保留。"
+      },
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_08_011",
+      "question_type": "true_false",
+      "stem": "本实验的鉴定对象包括 Fe(Ⅱ) 和 Fe(Ⅲ)。",
+      "options": [
+        {
+          "label": "T",
+          "text": "正确"
+        },
+        {
+          "label": "F",
+          "text": "错误"
+        }
+      ],
+      "answer": {
+        "value": true
+      },
+      "explanation": "教材资料明确要求进行铁(Ⅱ)和铁(Ⅲ)的鉴定。",
+      "primary_point_keys": [
+        "candidate-1-19f29b28"
+      ],
+      "secondary_point_keys": [
+        "candidate-2-d3d9277b"
+      ],
+      "coverage_tags": [
+        "true_false",
+        "scope"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00334_8229cac865"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "保留。"
+      },
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_08_012",
+      "question_type": "true_false",
+      "stem": "CCl₄ 是鉴定 Fe(Ⅲ) 的血红色显色试剂。",
+      "options": [
+        {
+          "label": "T",
+          "text": "正确"
+        },
+        {
+          "label": "F",
+          "text": "错误"
+        }
+      ],
+      "answer": {
+        "value": false
+      },
+      "explanation": "Fe(Ⅲ) 的血红色显色试剂是硫氰根来源试剂，如 KSCN，不是 CCl₄。",
+      "primary_point_keys": [
+        "candidate-2-d3d9277b"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "true_false",
+        "fe3_scn_test"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00334_8229cac865"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01304_9920c29f9d"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留。"
+      },
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_08_013",
+      "question_type": "true_false",
+      "stem": "Fe(Ⅲ) 与硫氰根的阳性现象可表现为血红色溶液。",
+      "options": [
+        {
+          "label": "T",
+          "text": "正确"
+        },
+        {
+          "label": "F",
+          "text": "错误"
+        }
+      ],
+      "answer": {
+        "value": true
+      },
+      "explanation": "相关化学原理明确该配合物为血红色，可用于 Fe³⁺ 鉴定。",
+      "primary_point_keys": [
+        "candidate-2-d3d9277b"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "true_false",
+        "fe3_positive_observation"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00334_8229cac865"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01304_9920c29f9d",
+          "textbook_table_record_table_p224_t01_r071"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留。"
+      },
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_08_014",
+      "question_type": "true_false",
+      "stem": "Fe(Ⅱ) 的鉴定可以用镍丁二酮肟沉淀反应替代。",
+      "options": [
+        {
+          "label": "T",
+          "text": "正确"
+        },
+        {
+          "label": "F",
+          "text": "错误"
+        }
+      ],
+      "answer": {
+        "value": false
+      },
+      "explanation": "镍丁二酮肟沉淀属于镍的鉴定语境；Fe(Ⅱ) 可用铁氰化物生成蓝色沉淀的反应鉴定。",
+      "primary_point_keys": [
+        "candidate-1-19f29b28"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "true_false",
+        "scope_discrimination"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00334_8229cac865"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01296_e1b954e16b"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "重写：去掉可见 Ni(dmg)₂ 并纠正颜色噪声。"
+      },
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_08_015",
+      "question_type": "true_false",
+      "stem": "鉴定 Fe(Ⅱ) 时，应注意 Fe(Ⅱ) 可能被空气氧化为 Fe(Ⅲ)。",
+      "options": [
+        {
+          "label": "T",
+          "text": "正确"
+        },
+        {
+          "label": "F",
+          "text": "错误"
+        }
+      ],
+      "answer": {
+        "value": true
+      },
+      "explanation": "Fe²⁺ 在空气条件下可被氧化，价态改变会影响鉴定判断。",
+      "primary_point_keys": [
+        "candidate-1-19f29b28"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "true_false",
+        "fe2_oxidation_risk"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00334_8229cac865"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01156_e3d54318a3"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留。"
+      },
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_08_016",
+      "question_type": "true_false",
+      "stem": "铁的鉴定实验主要体现硝酸盐热分解。",
+      "options": [
+        {
+          "label": "T",
+          "text": "正确"
+        },
+        {
+          "label": "F",
+          "text": "错误"
+        }
+      ],
+      "answer": {
+        "value": false
+      },
+      "explanation": "本实验属于配合物在金属离子鉴定中的应用，不是硝酸盐热分解。",
+      "primary_point_keys": [
+        "candidate-1-19f29b28"
+      ],
+      "secondary_point_keys": [
+        "candidate-2-d3d9277b"
+      ],
+      "coverage_tags": [
+        "true_false",
+        "scope_discrimination"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00327_e59c162b54",
+          "expchunk_00334_8229cac865"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "保留。"
+      },
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_08_017",
+      "question_type": "single_choice",
+      "stem": "铁离子鉴定记录中，哪项最符合本实验要求？",
+      "options": [
+        {
+          "label": "A",
+          "text": "只写 Fe 字样"
+        },
+        {
+          "label": "B",
+          "text": "同时记录价态、试剂和阳性现象"
+        },
+        {
+          "label": "C",
+          "text": "把铁、钴、镍鉴定混成同一反应"
+        },
+        {
+          "label": "D",
+          "text": "不区分 Fe(Ⅱ) 与 Fe(Ⅲ)"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "教材步骤要求鉴定 Fe(Ⅱ) 和 Fe(Ⅲ)，因此记录必须体现价态和对应阳性现象。",
+      "primary_point_keys": [
+        "candidate-2-d3d9277b"
+      ],
+      "secondary_point_keys": [
+        "candidate-1-19f29b28"
+      ],
+      "coverage_tags": [
+        "record_quality",
+        "rewrite"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "insufficient"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-2-d3d9277b",
+          "role": "correct"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "wrong_scope"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "wrong_scope"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00334_8229cac865"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01304_9920c29f9d",
+          "textbook_prose_01296_e1b954e16b"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "重写：去模板化。"
+      },
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_08_018",
+      "question_type": "true_false",
+      "stem": "区分 Fe(Ⅱ) 与 Fe(Ⅲ) 时，只比较溶液体积即可。",
+      "options": [
+        {
+          "label": "T",
+          "text": "正确"
+        },
+        {
+          "label": "F",
+          "text": "错误"
+        }
+      ],
+      "answer": {
+        "value": false
+      },
+      "explanation": "应选择能区分价态的特征配合反应，而不是只比较体积。",
+      "primary_point_keys": [
+        "candidate-1-19f29b28"
+      ],
+      "secondary_point_keys": [
+        "candidate-2-d3d9277b"
+      ],
+      "coverage_tags": [
+        "true_false",
+        "method_discrimination"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00334_8229cac865"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01304_9920c29f9d",
+          "textbook_prose_01296_e1b954e16b"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留。"
+      },
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_08_019",
+      "question_type": "true_false",
+      "stem": "若怀疑样品中有 Fe(Ⅲ)，KSCN 血红色反应可用于快速检查。",
+      "options": [
+        {
+          "label": "T",
+          "text": "正确"
+        },
+        {
+          "label": "F",
+          "text": "错误"
+        }
+      ],
+      "answer": {
+        "value": true
+      },
+      "explanation": "硫氰根与 Fe³⁺ 的血红色反应用于 Fe³⁺ 鉴定。",
+      "primary_point_keys": [
+        "candidate-2-d3d9277b"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "true_false",
+        "fe3_screening"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00334_8229cac865"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01304_9920c29f9d"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "重写：原“样品顺序”表述不自然，改为可证实判断。"
+      },
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_08_020",
+      "question_type": "true_false",
+      "stem": "铁的鉴定实验目的不是比较卤素置换顺序。",
+      "options": [
+        {
+          "label": "T",
+          "text": "正确"
+        },
+        {
+          "label": "F",
+          "text": "错误"
+        }
+      ],
+      "answer": {
+        "value": true
+      },
+      "explanation": "实验目的为配合物在金属离子鉴定中的应用，具体到 Fe(Ⅱ) 和 Fe(Ⅲ) 鉴定。",
+      "primary_point_keys": [
+        "candidate-1-19f29b28"
+      ],
+      "secondary_point_keys": [
+        "candidate-2-d3d9277b"
+      ],
+      "coverage_tags": [
+        "true_false",
+        "scope_discrimination"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00327_e59c162b54",
+          "expchunk_00334_8229cac865"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "重写：原题答案与否定句容易混淆，改成正向可判定句。"
+      },
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_08_021",
+      "question_type": "single_choice",
+      "stem": "铁的鉴定通常需要区分哪两条路线？",
+      "options": [
+        {
+          "label": "A",
+          "text": "钴(Ⅱ) 与镍(Ⅱ)"
+        },
+        {
+          "label": "B",
+          "text": "Fe(Ⅱ) 与 Fe(Ⅲ)"
+        },
+        {
+          "label": "C",
+          "text": "钛(Ⅳ) 与钒(Ⅴ)"
+        },
+        {
+          "label": "D",
+          "text": "硫酸根与硝酸根"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "教材资料明确进行铁(Ⅱ)和铁(Ⅲ)的鉴定。",
+      "primary_point_keys": [
+        "candidate-1-19f29b28"
+      ],
+      "secondary_point_keys": [
+        "candidate-2-d3d9277b"
+      ],
+      "coverage_tags": [
+        "route_distinction",
+        "rewrite"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "wrong_metals"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-1-19f29b28",
+          "role": "correct"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "wrong_metals"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "wrong_ions"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00334_8229cac865"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "重写：去模板化。"
+      },
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_08_022",
+      "question_type": "single_choice",
+      "stem": "Fe(Ⅲ) 可用哪种显色反应鉴定？",
+      "options": [
+        {
+          "label": "A",
+          "text": "与 CCl₄ 形成无色有机层"
+        },
+        {
+          "label": "B",
+          "text": "与 KSCN 显血红色"
+        },
+        {
+          "label": "C",
+          "text": "与丁二酮肟生成镍沉淀"
+        },
+        {
+          "label": "D",
+          "text": "与铁氰化钾专属生成滕氏蓝"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "硫氰根离子与 Fe³⁺ 可生成血红色配合物，用于鉴定 Fe³⁺。",
+      "primary_point_keys": [
+        "candidate-2-d3d9277b"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "fe3_scn_test",
+        "rewrite"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "wrong"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-2-d3d9277b",
+          "role": "correct"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "ni_distractor"
+        },
+        {
+          "label": "D",
+          "point_key": "candidate-1-19f29b28",
+          "role": "fe2_distractor"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00334_8229cac865"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01304_9920c29f9d"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "重写：去模板化。"
+      },
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_08_023",
+      "question_type": "single_choice",
+      "stem": "Fe(Ⅲ) 与 SCN⁻ 反应呈阳性时，最典型的颜色是什么？",
+      "options": [
+        {
+          "label": "A",
+          "text": "亮绿色"
+        },
+        {
+          "label": "B",
+          "text": "血红色"
+        },
+        {
+          "label": "C",
+          "text": "白色"
+        },
+        {
+          "label": "D",
+          "text": "无色"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "Fe³⁺ 与硫氰根形成血红色配合物。",
+      "primary_point_keys": [
+        "candidate-2-d3d9277b"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "fe3_positive_observation",
+        "rewrite"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "wrong_color"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-2-d3d9277b",
+          "role": "correct"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "wrong_color"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "wrong_color"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00334_8229cac865"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01304_9920c29f9d",
+          "textbook_table_record_table_p224_t01_r071"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "重写：去模板化。"
+      },
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_08_024",
+      "question_type": "fill_blank",
+      "stem": "Fe(Ⅱ) 与铁氰化钾阳性时可生成____沉淀。",
+      "options": [],
+      "answer": {
+        "accepted_answers": [
+          "蓝色",
+          "蓝"
+        ],
+        "hidden_grading_aliases": [
+          "滕氏蓝",
+          "蓝色的滕氏蓝"
+        ],
+        "match": "normalized_exact"
+      },
+      "accepted_answers": [
+        "蓝色",
+        "蓝"
+      ],
+      "hidden_grading_aliases": [
+        "滕氏蓝",
+        "蓝色的滕氏蓝"
+      ],
+      "explanation": "相关化学原理明确 Fe²⁺ 的铁氰化物鉴定反应生成滕氏蓝的蓝色沉淀。",
+      "primary_point_keys": [
+        "candidate-1-19f29b28"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "fe2_ferricyanide_test",
+        "fill_blank"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00334_8229cac865"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01296_e1b954e16b",
+          "textbook_prose_01297_b761f39d9a"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留：短答案，手机输入风险低。"
+      },
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_08_025",
+      "question_type": "fill_blank",
+      "stem": "鉴定 Fe(Ⅱ) 时应避免其被空气____为 Fe(Ⅲ)。",
+      "options": [],
+      "answer": {
+        "accepted_answers": [
+          "氧化"
+        ],
+        "hidden_grading_aliases": [
+          "氧化成",
+          "氧化为"
+        ],
+        "match": "normalized_exact"
+      },
+      "accepted_answers": [
+        "氧化"
+      ],
+      "hidden_grading_aliases": [
+        "氧化成",
+        "氧化为"
+      ],
+      "explanation": "Fe²⁺ 被氧化为 Fe³⁺ 会改变价态并影响鉴定。",
+      "primary_point_keys": [
+        "candidate-1-19f29b28"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "fe2_oxidation_risk",
+        "fill_blank"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00334_8229cac865"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01156_e3d54318a3"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留。"
+      },
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_08_026",
+      "question_type": "single_choice",
+      "stem": "铁的鉴定体现了配合物反应的哪种应用？",
+      "options": [
+        {
+          "label": "A",
+          "text": "只记金属名称"
+        },
+        {
+          "label": "B",
+          "text": "金属离子鉴定"
+        },
+        {
+          "label": "C",
+          "text": "硝酸盐热分解"
+        },
+        {
+          "label": "D",
+          "text": "臭氧制备"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "实验目的明确包括了解配合物在鉴定金属离子中的应用。",
+      "primary_point_keys": [
+        "candidate-1-19f29b28"
+      ],
+      "secondary_point_keys": [
+        "candidate-2-d3d9277b"
+      ],
+      "coverage_tags": [
+        "complex_application",
+        "rewrite"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "insufficient"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-1-19f29b28",
+          "role": "correct"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "wrong"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "wrong"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00327_e59c162b54",
+          "expchunk_00334_8229cac865"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "重写：去模板化。"
+      },
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_08_027",
+      "question_type": "single_choice",
+      "stem": "关于 Fe(Ⅱ) 与 Fe(Ⅲ) 的鉴定路线，哪项正确？",
+      "options": [
+        {
+          "label": "A",
+          "text": "两种价态可以完全混用同一阳性现象"
+        },
+        {
+          "label": "B",
+          "text": "应按价态分别选择特征反应"
+        },
+        {
+          "label": "C",
+          "text": "只要写 Fe 即可"
+        },
+        {
+          "label": "D",
+          "text": "用钴或镍鉴定替代铁鉴定"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "教材步骤要求分别鉴定铁(Ⅱ)和铁(Ⅲ)，相关化学原理也给出不同阳性反应。",
+      "primary_point_keys": [
+        "candidate-2-d3d9277b"
+      ],
+      "secondary_point_keys": [
+        "candidate-1-19f29b28"
+      ],
+      "coverage_tags": [
+        "route_distinction",
+        "rewrite"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "wrong"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-2-d3d9277b",
+          "role": "correct"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "insufficient"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "wrong_scope"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00334_8229cac865"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01304_9920c29f9d",
+          "textbook_prose_01296_e1b954e16b"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "重写：去模板化。"
+      },
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_08_028",
+      "question_type": "fill_blank",
+      "stem": "区分两种铁离子应选择能区分____的特征反应。",
+      "options": [],
+      "answer": {
+        "accepted_answers": [
+          "价态"
+        ],
+        "hidden_grading_aliases": [
+          "氧化态"
+        ],
+        "match": "normalized_exact"
+      },
+      "accepted_answers": [
+        "价态"
+      ],
+      "hidden_grading_aliases": [
+        "氧化态"
+      ],
+      "explanation": "铁(Ⅱ)与铁(Ⅲ)的核心差异是价态，应选用对应的特征配合反应。",
+      "primary_point_keys": [
+        "candidate-1-19f29b28"
+      ],
+      "secondary_point_keys": [
+        "candidate-2-d3d9277b"
+      ],
+      "coverage_tags": [
+        "valence_discrimination",
+        "fill_blank"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00334_8229cac865"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01304_9920c29f9d",
+          "textbook_prose_01296_e1b954e16b"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留。"
+      },
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_08_029",
+      "question_type": "single_choice",
+      "stem": "先加 KSCN 可快速检查哪一种铁离子？",
+      "options": [
+        {
+          "label": "A",
+          "text": "Fe(Ⅱ)"
+        },
+        {
+          "label": "B",
+          "text": "Fe(Ⅲ)"
+        },
+        {
+          "label": "C",
+          "text": "Ni²⁺"
+        },
+        {
+          "label": "D",
+          "text": "Co²⁺"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "KSCN 与 Fe³⁺ 形成血红色配合物，用于 Fe(Ⅲ) 鉴定。",
+      "primary_point_keys": [
+        "candidate-2-d3d9277b"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "fe3_screening",
+        "rewrite"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-1-19f29b28",
+          "role": "wrong_valence"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-2-d3d9277b",
+          "role": "correct"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "wrong_metal"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "wrong_metal"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00334_8229cac865"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01304_9920c29f9d"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "重写：去模板化。"
+      },
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_08_030",
+      "question_type": "fill_blank",
+      "stem": "该实验核心是利用____反应鉴定铁离子。",
+      "options": [],
+      "answer": {
+        "accepted_answers": [
+          "配合"
+        ],
+        "hidden_grading_aliases": [
+          "配位",
+          "配合物"
+        ],
+        "match": "normalized_exact"
+      },
+      "accepted_answers": [
+        "配合"
+      ],
+      "hidden_grading_aliases": [
+        "配位",
+        "配合物"
+      ],
+      "explanation": "实验目的明确为了解配合物在金属离子鉴定中的应用。",
+      "primary_point_keys": [
+        "candidate-1-19f29b28"
+      ],
+      "secondary_point_keys": [
+        "candidate-2-d3d9277b"
+      ],
+      "coverage_tags": [
+        "complex_application",
+        "fill_blank"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00327_e59c162b54",
+          "expchunk_00334_8229cac865"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "保留。"
+      },
+      "review_decision": "keep"
+    }
+  ]
+}

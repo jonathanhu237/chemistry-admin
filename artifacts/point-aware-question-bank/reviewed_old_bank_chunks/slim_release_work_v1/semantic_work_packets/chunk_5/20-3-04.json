@@ -1,0 +1,4260 @@
+{
+  "metadata": {
+    "version": "chunk-5-release-slim-v1",
+    "artifact_type": "slim_question_bank_work_file",
+    "generated_at": "2026-06-15T03:27:59.225537+00:00",
+    "source_file": "E:\\chemistry-admin\\artifacts\\point-aware-question-bank\\reviewed_old_bank_chunks\\chunk_5_release_final_v1.json",
+    "normalization_rule": "effective question plus minimal lineage, evidence IDs, point bindings, option links, evidence locators, and mechanical risk flags",
+    "evidence_policy": "RAG source text is not embedded; packets carry locators and reviewers must read E:/chemistry-rag/data/rag_ready directly",
+    "chunk_id_policy": "inherited chunk ids are untrusted locator candidates until manually compared with RAG text",
+    "semantic_status": "not_semantically_repaired_by_this_script",
+    "packet_type": "single_experiment_semantic_repair_work_packet",
+    "chunk": 5,
+    "experiment_code": "20-3-04",
+    "question_count": 30
+  },
+  "experiment": {
+    "experiment_id": "EXP_20_3_04",
+    "experiment_code": "20-3-04",
+    "experiment_title": "观察不同配体的 Co(II) 配合物的颜色",
+    "chapter_bindings": [
+      {
+        "chapter_id": "CH20",
+        "coverage_type": "primary",
+        "sort_order": 1
+      }
+    ],
+    "video_points": [
+      {
+        "point_key": "candidate-1-2059a278",
+        "point_title": "CoCl₂ + KSCN 生成蓝紫色配合物",
+        "source": null,
+        "candidate_index": null,
+        "resource_count": null,
+        "published_count": null,
+        "resource_titles": []
+      },
+      {
+        "point_key": "candidate-2-5eaed5b5",
+        "point_title": "原溶液作为对照",
+        "source": null,
+        "candidate_index": null,
+        "resource_count": null,
+        "published_count": null,
+        "resource_titles": []
+      },
+      {
+        "point_key": "candidate-3-c47ca8d9",
+        "point_title": "加水后的颜色变化",
+        "source": null,
+        "candidate_index": null,
+        "resource_count": null,
+        "published_count": null,
+        "resource_titles": []
+      },
+      {
+        "point_key": "candidate-4-e1fb1262",
+        "point_title": "加丙酮后的颜色变化",
+        "source": null,
+        "candidate_index": null,
+        "resource_count": null,
+        "published_count": null,
+        "resource_titles": []
+      }
+    ],
+    "canonical_chunk_ids": [
+      "expchunk_00331_3f7cc41ff9"
+    ],
+    "evidence_lookup": {
+      "policy": "locator_only; canonical RAG text is not embedded in this packet",
+      "chunk_id_policy": "metadata chunk ids are inherited claims, not trusted evidence; reviewers must compare the RAG text against the question stem/options/answer/explanation and replace or remove wrong ids",
+      "primary_source_dir": "E:\\chemistry-rag\\data\\rag_ready",
+      "source_files": {
+        "experiment_chunks": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+        "supporting_theory_chunks": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl"
+      },
+      "search_hints": {
+        "experiment_code": "20-3-04",
+        "parent_experiment_code": "20-3",
+        "experiment_title": "观察不同配体的 Co(II) 配合物的颜色",
+        "video_point_titles": [
+          "CoCl₂ + KSCN 生成蓝紫色配合物",
+          "原溶液作为对照",
+          "加水后的颜色变化",
+          "加丙酮后的颜色变化"
+        ],
+        "canonical_chunk_ids_from_metadata": [
+          "expchunk_00331_3f7cc41ff9"
+        ],
+        "supporting_theory_chunk_ids_from_metadata": [
+          "textbook_table_record_table_p224_t01_r051",
+          "textbook_table_record_table_p224_t01_r071"
+        ],
+        "suggested_search_patterns": [
+          "20-3-04",
+          "20-3",
+          "观察不同配体的 Co(II) 配合物的颜色",
+          "CoCl₂ + KSCN 生成蓝紫色配合物",
+          "原溶液作为对照",
+          "加水后的颜色变化",
+          "加丙酮后的颜色变化",
+          "expchunk_00331_3f7cc41ff9",
+          "textbook_table_record_table_p224_t01_r051",
+          "textbook_table_record_table_p224_t01_r071"
+        ]
+      },
+      "rag_exact_id_presence": {
+        "meaning": "id presence only; this does not validate semantic relevance",
+        "found_ids": [
+          "expchunk_00331_3f7cc41ff9",
+          "textbook_table_record_table_p224_t01_r051",
+          "textbook_table_record_table_p224_t01_r071"
+        ],
+        "missing_ids": [],
+        "found_locator_summaries": [
+          {
+            "chunk_id": "expchunk_00331_3f7cc41ff9",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+            "line_number": 344,
+            "source_collection": "textbook_experiment_clean_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学实验（第四版）",
+            "page_start": 166,
+            "page_end": 166,
+            "section_path": [
+              "第7章 元素性质实验",
+              "实验 20-3 d 区元素化合物的性质（二）",
+              "（三）实验内容",
+              "2. 某些过渡金属元素离子的颜色变化"
+            ],
+            "content_type": "reaction",
+            "knowledge_unit": "reaction",
+            "parent_id": "expchunk_protocol_4faa721af035",
+            "prev_chunk_id": "expchunk_00330_3a60414cf4",
+            "next_chunk_id": "expchunk_00332_42b6908ee0",
+            "relations": {
+              "section_id": "expsec_cf45ceaf4c46c88c",
+              "experiment_id": "experiment:实验_20-3_d_区元素化合物的性质_二",
+              "page_anchor": "page_166",
+              "parent": "expchunk_protocol_4faa721af035"
+            }
+          },
+          {
+            "chunk_id": "textbook_table_record_table_p224_t01_r051",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+            "line_number": 1975,
+            "source_collection": "textbook_inorganic_lower_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学（下册）（第二版）",
+            "page_start": 224,
+            "page_end": 224,
+            "section_path": [
+              "第 20 章 d 区过渡金属元素",
+              "20.2 第一过渡系列金属元素及其常见化合物",
+              "20.2.6 铁、钴、镍",
+              "ii)氰配合物"
+            ],
+            "content_type": "table_record",
+            "knowledge_unit": "table_record",
+            "parent_id": "textbook_table_context_p224_0e08e79e44",
+            "prev_chunk_id": "textbook_table_record_table_p224_t01_r041",
+            "next_chunk_id": "textbook_table_record_table_p224_t01_r061",
+            "relations": {
+              "parent": "textbook_table_context_p224_0e08e79e44",
+              "table_context": "textbook_table_context_p224_0e08e79e44",
+              "prev": "textbook_table_record_table_p224_t01_r041",
+              "next": "textbook_table_record_table_p224_t01_r061"
+            }
+          },
+          {
+            "chunk_id": "textbook_table_record_table_p224_t01_r071",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+            "line_number": 1977,
+            "source_collection": "textbook_inorganic_lower_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学（下册）（第二版）",
+            "page_start": 224,
+            "page_end": 224,
+            "section_path": [
+              "第 20 章 d 区过渡金属元素",
+              "20.2 第一过渡系列金属元素及其常见化合物",
+              "20.2.6 铁、钴、镍",
+              "ii)氰配合物"
+            ],
+            "content_type": "table_record",
+            "knowledge_unit": "table_record",
+            "parent_id": "textbook_table_context_p224_0e08e79e44",
+            "prev_chunk_id": "textbook_table_record_table_p224_t01_r061",
+            "next_chunk_id": "textbook_table_record_table_p224_t01_r081",
+            "relations": {
+              "parent": "textbook_table_context_p224_0e08e79e44",
+              "table_context": "textbook_table_context_p224_0e08e79e44",
+              "prev": "textbook_table_record_table_p224_t01_r061",
+              "next": "textbook_table_record_table_p224_t01_r081"
+            }
+          }
+        ]
+      },
+      "legacy_locator_summaries": [
+        {
+          "chunk_id": "expchunk_00331_3f7cc41ff9",
+          "source_file": "无机化学实验（第四版）",
+          "book_title": "无机化学实验（第四版）",
+          "document_id": "DOC_CANONICAL_EXPERIMENT_V1",
+          "source_collection": "textbook_experiment_clean_v1",
+          "source_role": "canonical_textbook",
+          "content_type": "reaction",
+          "chapter_id": null,
+          "page_number": 166,
+          "section_title": "实验 20-3 d 区元素化合物的性质（二） / （三）实验内容 / 2. 某些过渡金属元素离子的颜色变化",
+          "section_path": [
+            "第7章 元素性质实验",
+            "实验 20-3 d 区元素化合物的性质（二）",
+            "（三）实验内容",
+            "2. 某些过渡金属元素离子的颜色变化"
+          ]
+        }
+      ],
+      "legacy_missing_ids": [
+        "textbook_table_record_table_p224_t01_r051",
+        "textbook_table_record_table_p224_t01_r071"
+      ]
+    },
+    "questions": [
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_04_001",
+        "source_review_id": "CHK5_SEM_EXP_20_3_04_001",
+        "source_question_index": 1,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-3-04 观察不同配体的 Co(II) 配合物的颜色》实验中，制备蓝紫色 [Co(SCN)₄]²⁻ 配合物时，向哪种饱和溶液中滴加 CoCl₂？",
+        "options": [
+          {
+            "label": "A",
+            "text": "KSCN 饱和溶液"
+          },
+          {
+            "label": "B",
+            "text": "NaCl 饱和溶液"
+          },
+          {
+            "label": "C",
+            "text": "NaOH 溶液"
+          },
+          {
+            "label": "D",
+            "text": "AgNO₃ 溶液"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "实验资料写明向 KSCN 饱和溶液滴加 CoCl₂ 至蓝紫色。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-2059a278"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "single_choice"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "KSCN 饱和溶液",
+            "point_key": "candidate-1-2059a278",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“Co(II)-SCN 配合物在水和丙酮条件下的颜色变化”点位：KSCN 饱和溶液。"
+          },
+          {
+            "label": "B",
+            "text": "NaCl 饱和溶液",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Co(II)-SCN 配合物在水和丙酮条件下的颜色变化”点位：NaCl 饱和溶液。"
+          },
+          {
+            "label": "C",
+            "text": "NaOH 溶液",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Co(II)-SCN 配合物在水和丙酮条件下的颜色变化”点位：NaOH 溶液。"
+          },
+          {
+            "label": "D",
+            "text": "AgNO₃ 溶液",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Co(II)-SCN 配合物在水和丙酮条件下的颜色变化”点位：AgNO₃ 溶液。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00331_3f7cc41ff9"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00331_3f7cc41ff9"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-04 观察不同配体的 Co(II) 配合物的颜色》实验中，制备蓝紫色 [Co(SCN)₄]²⁻ 配合物时，向哪种饱和溶液中滴加 CoCl₂？",
+            "options": [
+              {
+                "label": "A",
+                "text": "KSCN 饱和溶液"
+              },
+              {
+                "label": "B",
+                "text": "NaCl 饱和溶液"
+              },
+              {
+                "label": "C",
+                "text": "NaOH 溶液"
+              },
+              {
+                "label": "D",
+                "text": "AgNO₃ 溶液"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "实验资料写明向 KSCN 饱和溶液滴加 CoCl₂ 至蓝紫色。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00331_3f7cc41ff9"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_04_002",
+        "source_review_id": "CHK5_SEM_EXP_20_3_04_002",
+        "source_question_index": 2,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-3-04 观察不同配体的 Co(II) 配合物的颜色》实验中，将蓝紫色 [Co(SCN)₄]²⁻ 溶液分成三份后，其中两份分别加入什么？",
+        "options": [
+          {
+            "label": "A",
+            "text": "HCl 和 HNO₃"
+          },
+          {
+            "label": "B",
+            "text": "蒸馏水和丙酮"
+          },
+          {
+            "label": "C",
+            "text": "NaOH 和 Al"
+          },
+          {
+            "label": "D",
+            "text": "KI 和 CCl₄"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "实验资料明确为蒸馏水和丙酮。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-5eaed5b5"
+        ],
+        "secondary_point_keys": [
+          "candidate-3-c47ca8d9",
+          "candidate-4-e1fb1262"
+        ],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "single_choice"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "HCl 和 HNO₃",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Co(II)-SCN 配合物在水和丙酮条件下的颜色变化”点位：HCl 和 HNO₃。"
+          },
+          {
+            "label": "B",
+            "text": "蒸馏水和丙酮",
+            "point_key": "candidate-2-5eaed5b5",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“Co(II)-SCN 配合物在水和丙酮条件下的颜色变化”点位：蒸馏水和丙酮。"
+          },
+          {
+            "label": "C",
+            "text": "NaOH 和 Al",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Co(II)-SCN 配合物在水和丙酮条件下的颜色变化”点位：NaOH 和 Al。"
+          },
+          {
+            "label": "D",
+            "text": "KI 和 CCl₄",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Co(II)-SCN 配合物在水和丙酮条件下的颜色变化”点位：KI 和 CCl₄。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00331_3f7cc41ff9"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00331_3f7cc41ff9"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-04 观察不同配体的 Co(II) 配合物的颜色》实验中，将蓝紫色 [Co(SCN)₄]²⁻ 溶液分成三份后，其中两份分别加入什么？",
+            "options": [
+              {
+                "label": "A",
+                "text": "HCl 和 HNO₃"
+              },
+              {
+                "label": "B",
+                "text": "蒸馏水和丙酮"
+              },
+              {
+                "label": "C",
+                "text": "NaOH 和 Al"
+              },
+              {
+                "label": "D",
+                "text": "KI 和 CCl₄"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "实验资料明确为蒸馏水和丙酮。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00331_3f7cc41ff9"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_04_003",
+        "source_review_id": "CHK5_SEM_EXP_20_3_04_003",
+        "source_question_index": 3,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-3-04 观察不同配体的 Co(II) 配合物的颜色》实验中，加入蒸馏水后，平衡更有利于形成哪种配合物？",
+        "options": [
+          {
+            "label": "A",
+            "text": "[Co(SCN)₄]²⁻"
+          },
+          {
+            "label": "B",
+            "text": "Fe(NO)SO₄"
+          },
+          {
+            "label": "C",
+            "text": "[Co(H₂O)₆]²⁺"
+          },
+          {
+            "label": "D",
+            "text": "Ni(dmg)₂"
+          }
+        ],
+        "answer": {
+          "value": "C"
+        },
+        "explanation": "反应式显示水促使生成六水合钴(II)。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-c47ca8d9"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "single_choice"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "[Co(SCN)₄]²⁻",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Co(II)-SCN 配合物在水和丙酮条件下的颜色变化”点位：[Co(SCN)₄]²⁻。"
+          },
+          {
+            "label": "B",
+            "text": "Fe(NO)SO₄",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Co(II)-SCN 配合物在水和丙酮条件下的颜色变化”点位：Fe(NO)SO₄。"
+          },
+          {
+            "label": "C",
+            "text": "[Co(H₂O)₆]²⁺",
+            "point_key": "candidate-3-c47ca8d9",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“Co(II)-SCN 配合物在水和丙酮条件下的颜色变化”点位：[Co(H₂O)₆]²⁺。"
+          },
+          {
+            "label": "D",
+            "text": "Ni(dmg)₂",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Co(II)-SCN 配合物在水和丙酮条件下的颜色变化”点位：Ni(dmg)₂。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00331_3f7cc41ff9"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_table_record_table_p224_t01_r051"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical。有效题由实验原文支撑；其中颜色、配位、氧化还原或鉴定依据需最小引用 supporting theory：textbook_table_record_table_p224_t01_r051。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00331_3f7cc41ff9"
+          ],
+          "supporting_theory_ids": [
+            "textbook_table_record_table_p224_t01_r051"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_table_record_table_p224_t01_r051"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-04 观察不同配体的 Co(II) 配合物的颜色》实验中，加入蒸馏水后，平衡更有利于形成哪种配合物？",
+            "options": [
+              {
+                "label": "A",
+                "text": "[Co(SCN)₄]²⁻"
+              },
+              {
+                "label": "B",
+                "text": "Fe(NO)SO₄"
+              },
+              {
+                "label": "C",
+                "text": "[Co(H₂O)₆]²⁺"
+              },
+              {
+                "label": "D",
+                "text": "Ni(dmg)₂"
+              }
+            ],
+            "answer": {
+              "value": "C"
+            },
+            "explanation": "反应式显示水促使生成六水合钴(II)。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00331_3f7cc41ff9"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_04_004",
+        "source_review_id": "CHK5_SEM_EXP_20_3_04_004",
+        "source_question_index": 4,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-3-04 观察不同配体的 Co(II) 配合物的颜色》实验中，加入丙酮后，平衡更有利于哪种蓝色/蓝紫色配合物？",
+        "options": [
+          {
+            "label": "A",
+            "text": "[Co(H₂O)₆]²⁺"
+          },
+          {
+            "label": "B",
+            "text": "[Ag(NH₃)₂]⁺"
+          },
+          {
+            "label": "C",
+            "text": "MnO₄⁻"
+          },
+          {
+            "label": "D",
+            "text": "[Co(SCN)₄]²⁻"
+          }
+        ],
+        "answer": {
+          "value": "D"
+        },
+        "explanation": "反应式标注丙酮方向有利于硫氰合钴配合物。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-4-e1fb1262"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "single_choice"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "[Co(H₂O)₆]²⁺",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Co(II)-SCN 配合物在水和丙酮条件下的颜色变化”点位：[Co(H₂O)₆]²⁺。"
+          },
+          {
+            "label": "B",
+            "text": "[Ag(NH₃)₂]⁺",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Co(II)-SCN 配合物在水和丙酮条件下的颜色变化”点位：[Ag(NH₃)₂]⁺。"
+          },
+          {
+            "label": "C",
+            "text": "MnO₄⁻",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Co(II)-SCN 配合物在水和丙酮条件下的颜色变化”点位：MnO₄⁻。"
+          },
+          {
+            "label": "D",
+            "text": "[Co(SCN)₄]²⁻",
+            "point_key": "candidate-4-e1fb1262",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“Co(II)-SCN 配合物在水和丙酮条件下的颜色变化”点位：[Co(SCN)₄]²⁻。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00331_3f7cc41ff9"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_table_record_table_p224_t01_r071",
+            "textbook_table_record_table_p224_t01_r051"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical。有效题由实验原文支撑；其中颜色、配位、氧化还原或鉴定依据需最小引用 supporting theory：textbook_table_record_table_p224_t01_r071, textbook_table_record_table_p224_t01_r051。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00331_3f7cc41ff9"
+          ],
+          "supporting_theory_ids": [
+            "textbook_table_record_table_p224_t01_r071",
+            "textbook_table_record_table_p224_t01_r051"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_table_record_table_p224_t01_r071",
+            "textbook_table_record_table_p224_t01_r051"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-04 观察不同配体的 Co(II) 配合物的颜色》实验中，加入丙酮后，平衡更有利于哪种蓝色/蓝紫色配合物？",
+            "options": [
+              {
+                "label": "A",
+                "text": "[Co(H₂O)₆]²⁺"
+              },
+              {
+                "label": "B",
+                "text": "[Ag(NH₃)₂]⁺"
+              },
+              {
+                "label": "C",
+                "text": "MnO₄⁻"
+              },
+              {
+                "label": "D",
+                "text": "[Co(SCN)₄]²⁻"
+              }
+            ],
+            "answer": {
+              "value": "D"
+            },
+            "explanation": "反应式标注丙酮方向有利于硫氰合钴配合物。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00331_3f7cc41ff9"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_04_005",
+        "source_review_id": "CHK5_SEM_EXP_20_3_04_005",
+        "source_question_index": 5,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-3-04 观察不同配体的 Co(II) 配合物的颜色》实验中，该实验的核心变量是哪一项？",
+        "options": [
+          {
+            "label": "A",
+            "text": "配体和溶剂环境"
+          },
+          {
+            "label": "B",
+            "text": "金属钠大小"
+          },
+          {
+            "label": "C",
+            "text": "浓硫酸层厚度"
+          },
+          {
+            "label": "D",
+            "text": "镁条长度"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "不同配体和溶剂改变 Co(II) 配合物颜色。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-2059a278"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-5eaed5b5",
+          "candidate-3-c47ca8d9",
+          "candidate-4-e1fb1262"
+        ],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "single_choice"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "配体和溶剂环境",
+            "point_key": "candidate-1-2059a278",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“Co(II)-SCN 配合物在水和丙酮条件下的颜色变化”点位：配体和溶剂环境。"
+          },
+          {
+            "label": "B",
+            "text": "金属钠大小",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Co(II)-SCN 配合物在水和丙酮条件下的颜色变化”点位：金属钠大小。"
+          },
+          {
+            "label": "C",
+            "text": "浓硫酸层厚度",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Co(II)-SCN 配合物在水和丙酮条件下的颜色变化”点位：浓硫酸层厚度。"
+          },
+          {
+            "label": "D",
+            "text": "镁条长度",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Co(II)-SCN 配合物在水和丙酮条件下的颜色变化”点位：镁条长度。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00331_3f7cc41ff9"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_table_record_table_p224_t01_r051"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical。有效题由实验原文支撑；其中颜色、配位、氧化还原或鉴定依据需最小引用 supporting theory：textbook_table_record_table_p224_t01_r051。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00331_3f7cc41ff9"
+          ],
+          "supporting_theory_ids": [
+            "textbook_table_record_table_p224_t01_r051"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_table_record_table_p224_t01_r051"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-04 观察不同配体的 Co(II) 配合物的颜色》实验中，该实验的核心变量是哪一项？",
+            "options": [
+              {
+                "label": "A",
+                "text": "配体和溶剂环境"
+              },
+              {
+                "label": "B",
+                "text": "金属钠大小"
+              },
+              {
+                "label": "C",
+                "text": "浓硫酸层厚度"
+              },
+              {
+                "label": "D",
+                "text": "镁条长度"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "不同配体和溶剂改变 Co(II) 配合物颜色。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00331_3f7cc41ff9"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_04_006",
+        "source_review_id": "CHK5_SEM_EXP_20_3_04_006",
+        "source_question_index": 6,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-3-04 观察不同配体的 Co(II) 配合物的颜色》实验中，CoCl₂ 与 KSCN 形成蓝紫色配合物的主要配体是？",
+        "options": [
+          {
+            "label": "A",
+            "text": "NO₃⁻"
+          },
+          {
+            "label": "B",
+            "text": "SCN⁻"
+          },
+          {
+            "label": "C",
+            "text": "OH⁻"
+          },
+          {
+            "label": "D",
+            "text": "SO₄²⁻"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "硫氰酸根与 Co(II) 形成 [Co(SCN)₄]²⁻。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-2059a278"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "single_choice"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "NO₃⁻",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Co(II)-SCN 配合物在水和丙酮条件下的颜色变化”点位：NO₃⁻。"
+          },
+          {
+            "label": "B",
+            "text": "SCN⁻",
+            "point_key": "candidate-1-2059a278",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“Co(II)-SCN 配合物在水和丙酮条件下的颜色变化”点位：SCN⁻。"
+          },
+          {
+            "label": "C",
+            "text": "OH⁻",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Co(II)-SCN 配合物在水和丙酮条件下的颜色变化”点位：OH⁻。"
+          },
+          {
+            "label": "D",
+            "text": "SO₄²⁻",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Co(II)-SCN 配合物在水和丙酮条件下的颜色变化”点位：SO₄²⁻。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00331_3f7cc41ff9"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_table_record_table_p224_t01_r071",
+            "textbook_table_record_table_p224_t01_r051"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical。有效题由实验原文支撑；其中颜色、配位、氧化还原或鉴定依据需最小引用 supporting theory：textbook_table_record_table_p224_t01_r071, textbook_table_record_table_p224_t01_r051。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00331_3f7cc41ff9"
+          ],
+          "supporting_theory_ids": [
+            "textbook_table_record_table_p224_t01_r071",
+            "textbook_table_record_table_p224_t01_r051"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_table_record_table_p224_t01_r071",
+            "textbook_table_record_table_p224_t01_r051"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-04 观察不同配体的 Co(II) 配合物的颜色》实验中，CoCl₂ 与 KSCN 形成蓝紫色配合物的主要配体是？",
+            "options": [
+              {
+                "label": "A",
+                "text": "NO₃⁻"
+              },
+              {
+                "label": "B",
+                "text": "SCN⁻"
+              },
+              {
+                "label": "C",
+                "text": "OH⁻"
+              },
+              {
+                "label": "D",
+                "text": "SO₄²⁻"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "硫氰酸根与 Co(II) 形成 [Co(SCN)₄]²⁻。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00331_3f7cc41ff9"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_04_007",
+        "source_review_id": "CHK5_SEM_EXP_20_3_04_007",
+        "source_question_index": 7,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-3-04 观察不同配体的 Co(II) 配合物的颜色》实验中，本实验中保留一支原溶液作为对照的目的是什么？",
+        "options": [
+          {
+            "label": "A",
+            "text": "检验是否有氨气"
+          },
+          {
+            "label": "B",
+            "text": "沉淀所有钠离子"
+          },
+          {
+            "label": "C",
+            "text": "比较加水、加丙酮后的颜色变化"
+          },
+          {
+            "label": "D",
+            "text": "测定 pH 纸颜色"
+          }
+        ],
+        "answer": {
+          "value": "C"
+        },
+        "explanation": "实验记录列出原溶液作为对照。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-5eaed5b5"
+        ],
+        "secondary_point_keys": [
+          "candidate-3-c47ca8d9",
+          "candidate-4-e1fb1262"
+        ],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "single_choice"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "检验是否有氨气",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Co(II)-SCN 配合物在水和丙酮条件下的颜色变化”点位：检验是否有氨气。"
+          },
+          {
+            "label": "B",
+            "text": "沉淀所有钠离子",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Co(II)-SCN 配合物在水和丙酮条件下的颜色变化”点位：沉淀所有钠离子。"
+          },
+          {
+            "label": "C",
+            "text": "比较加水、加丙酮后的颜色变化",
+            "point_key": "candidate-2-5eaed5b5",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“Co(II)-SCN 配合物在水和丙酮条件下的颜色变化”点位：比较加水、加丙酮后的颜色变化。"
+          },
+          {
+            "label": "D",
+            "text": "测定 pH 纸颜色",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Co(II)-SCN 配合物在水和丙酮条件下的颜色变化”点位：测定 pH 纸颜色。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00331_3f7cc41ff9"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00331_3f7cc41ff9"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-04 观察不同配体的 Co(II) 配合物的颜色》实验中，本实验中保留一支原溶液作为对照的目的是什么？",
+            "options": [
+              {
+                "label": "A",
+                "text": "检验是否有氨气"
+              },
+              {
+                "label": "B",
+                "text": "沉淀所有钠离子"
+              },
+              {
+                "label": "C",
+                "text": "比较加水、加丙酮后的颜色变化"
+              },
+              {
+                "label": "D",
+                "text": "测定 pH 纸颜色"
+              }
+            ],
+            "answer": {
+              "value": "C"
+            },
+            "explanation": "实验记录列出原溶液作为对照。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00331_3f7cc41ff9"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_04_008",
+        "source_review_id": "CHK5_SEM_EXP_20_3_04_008",
+        "source_question_index": 8,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-3-04 观察不同配体的 Co(II) 配合物的颜色》实验中，Co(II) 水合离子 [Co(H₂O)₆]²⁺ 通常偏什么颜色？",
+        "options": [
+          {
+            "label": "A",
+            "text": "纯黑色"
+          },
+          {
+            "label": "B",
+            "text": "亮黄色"
+          },
+          {
+            "label": "C",
+            "text": "银白色"
+          },
+          {
+            "label": "D",
+            "text": "粉红色"
+          }
+        ],
+        "answer": {
+          "value": "D"
+        },
+        "explanation": "六水合钴(II)常呈粉红色。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-c47ca8d9"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "single_choice"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "纯黑色",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Co(II)-SCN 配合物在水和丙酮条件下的颜色变化”点位：纯黑色。"
+          },
+          {
+            "label": "B",
+            "text": "亮黄色",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Co(II)-SCN 配合物在水和丙酮条件下的颜色变化”点位：亮黄色。"
+          },
+          {
+            "label": "C",
+            "text": "银白色",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Co(II)-SCN 配合物在水和丙酮条件下的颜色变化”点位：银白色。"
+          },
+          {
+            "label": "D",
+            "text": "粉红色",
+            "point_key": "candidate-3-c47ca8d9",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“Co(II)-SCN 配合物在水和丙酮条件下的颜色变化”点位：粉红色。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00331_3f7cc41ff9"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_table_record_table_p224_t01_r051"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical。有效题由实验原文支撑；其中颜色、配位、氧化还原或鉴定依据需最小引用 supporting theory：textbook_table_record_table_p224_t01_r051。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00331_3f7cc41ff9"
+          ],
+          "supporting_theory_ids": [
+            "textbook_table_record_table_p224_t01_r051"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_table_record_table_p224_t01_r051"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-04 观察不同配体的 Co(II) 配合物的颜色》实验中，Co(II) 水合离子 [Co(H₂O)₆]²⁺ 通常偏什么颜色？",
+            "options": [
+              {
+                "label": "A",
+                "text": "纯黑色"
+              },
+              {
+                "label": "B",
+                "text": "亮黄色"
+              },
+              {
+                "label": "C",
+                "text": "银白色"
+              },
+              {
+                "label": "D",
+                "text": "粉红色"
+              }
+            ],
+            "answer": {
+              "value": "D"
+            },
+            "explanation": "六水合钴(II)常呈粉红色。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00331_3f7cc41ff9"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_04_009",
+        "source_review_id": "CHK5_SEM_EXP_20_3_04_009",
+        "source_question_index": 9,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-3-04 观察不同配体的 Co(II) 配合物的颜色》实验中，[Co(SCN)₄]²⁻ 中 Co 的配位数是多少？",
+        "options": [
+          {
+            "label": "A",
+            "text": "4"
+          },
+          {
+            "label": "B",
+            "text": "2"
+          },
+          {
+            "label": "C",
+            "text": "6"
+          },
+          {
+            "label": "D",
+            "text": "8"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "配合物含四个 SCN⁻ 配体。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-2059a278"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "single_choice"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "4",
+            "point_key": "candidate-1-2059a278",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“Co(II)-SCN 配合物在水和丙酮条件下的颜色变化”点位：4。"
+          },
+          {
+            "label": "B",
+            "text": "2",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Co(II)-SCN 配合物在水和丙酮条件下的颜色变化”点位：2。"
+          },
+          {
+            "label": "C",
+            "text": "6",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Co(II)-SCN 配合物在水和丙酮条件下的颜色变化”点位：6。"
+          },
+          {
+            "label": "D",
+            "text": "8",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Co(II)-SCN 配合物在水和丙酮条件下的颜色变化”点位：8。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00331_3f7cc41ff9"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_table_record_table_p224_t01_r071",
+            "textbook_table_record_table_p224_t01_r051"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical。有效题由实验原文支撑；其中颜色、配位、氧化还原或鉴定依据需最小引用 supporting theory：textbook_table_record_table_p224_t01_r071, textbook_table_record_table_p224_t01_r051。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00331_3f7cc41ff9"
+          ],
+          "supporting_theory_ids": [
+            "textbook_table_record_table_p224_t01_r071",
+            "textbook_table_record_table_p224_t01_r051"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_table_record_table_p224_t01_r071",
+            "textbook_table_record_table_p224_t01_r051"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-04 观察不同配体的 Co(II) 配合物的颜色》实验中，[Co(SCN)₄]²⁻ 中 Co 的配位数是多少？",
+            "options": [
+              {
+                "label": "A",
+                "text": "4"
+              },
+              {
+                "label": "B",
+                "text": "2"
+              },
+              {
+                "label": "C",
+                "text": "6"
+              },
+              {
+                "label": "D",
+                "text": "8"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "配合物含四个 SCN⁻ 配体。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00331_3f7cc41ff9"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_04_010",
+        "source_review_id": "CHK5_SEM_EXP_20_3_04_010",
+        "source_question_index": 10,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-3-04 观察不同配体的 Co(II) 配合物的颜色》实验中，下列哪项不是本实验直接操作？",
+        "options": [
+          {
+            "label": "A",
+            "text": "加入 CoCl₂ 至蓝紫色"
+          },
+          {
+            "label": "B",
+            "text": "加入丁二酮肟生成红色沉淀"
+          },
+          {
+            "label": "C",
+            "text": "加入蒸馏水"
+          },
+          {
+            "label": "D",
+            "text": "加入丙酮"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "丁二酮肟用于 Ni(II) 鉴定。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-2059a278"
+        ],
+        "secondary_point_keys": [
+          "candidate-3-c47ca8d9",
+          "candidate-4-e1fb1262"
+        ],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "single_choice"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "加入 CoCl₂ 至蓝紫色",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Co(II)-SCN 配合物在水和丙酮条件下的颜色变化”点位：加入 CoCl₂ 至蓝紫色。"
+          },
+          {
+            "label": "B",
+            "text": "加入丁二酮肟生成红色沉淀",
+            "point_key": "candidate-1-2059a278",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“Co(II)-SCN 配合物在水和丙酮条件下的颜色变化”点位：加入丁二酮肟生成红色沉淀。"
+          },
+          {
+            "label": "C",
+            "text": "加入蒸馏水",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Co(II)-SCN 配合物在水和丙酮条件下的颜色变化”点位：加入蒸馏水。"
+          },
+          {
+            "label": "D",
+            "text": "加入丙酮",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Co(II)-SCN 配合物在水和丙酮条件下的颜色变化”点位：加入丙酮。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00331_3f7cc41ff9"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00331_3f7cc41ff9"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-04 观察不同配体的 Co(II) 配合物的颜色》实验中，下列哪项不是本实验直接操作？",
+            "options": [
+              {
+                "label": "A",
+                "text": "加入 CoCl₂ 至蓝紫色"
+              },
+              {
+                "label": "B",
+                "text": "加入丁二酮肟生成红色沉淀"
+              },
+              {
+                "label": "C",
+                "text": "加入蒸馏水"
+              },
+              {
+                "label": "D",
+                "text": "加入丙酮"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "丁二酮肟用于 Ni(II) 鉴定。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00331_3f7cc41ff9"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_04_011",
+        "source_review_id": "CHK5_SEM_EXP_20_3_04_011",
+        "source_question_index": 11,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《20-3-04 观察不同配体的 Co(II) 配合物的颜色》实验中，本实验通过加水和加丙酮比较 Co(II) 配合物颜色变化。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "实验资料明确。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-5eaed5b5"
+        ],
+        "secondary_point_keys": [
+          "candidate-3-c47ca8d9",
+          "candidate-4-e1fb1262"
+        ],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "true_false"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00331_3f7cc41ff9"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00331_3f7cc41ff9"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-3-04 观察不同配体的 Co(II) 配合物的颜色》实验中，本实验通过加水和加丙酮比较 Co(II) 配合物颜色变化。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "实验资料明确。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00331_3f7cc41ff9"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_04_012",
+        "source_review_id": "CHK5_SEM_EXP_20_3_04_012",
+        "source_question_index": 12,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《20-3-04 观察不同配体的 Co(II) 配合物的颜色》实验中，KSCN 提供 SCN⁻ 配体。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "KSCN 是硫氰酸钾。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-2059a278"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "true_false"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00331_3f7cc41ff9"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00331_3f7cc41ff9"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-3-04 观察不同配体的 Co(II) 配合物的颜色》实验中，KSCN 提供 SCN⁻ 配体。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "KSCN 是硫氰酸钾。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00331_3f7cc41ff9"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_04_013",
+        "source_review_id": "CHK5_SEM_EXP_20_3_04_013",
+        "source_question_index": 13,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《20-3-04 观察不同配体的 Co(II) 配合物的颜色》实验中，加入蒸馏水有利于形成 [Co(H₂O)₆]²⁺。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "水作为配体推动水合配合物形成。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-c47ca8d9"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "true_false"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00331_3f7cc41ff9"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_table_record_table_p224_t01_r051"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical。有效题由实验原文支撑；其中颜色、配位、氧化还原或鉴定依据需最小引用 supporting theory：textbook_table_record_table_p224_t01_r051。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00331_3f7cc41ff9"
+          ],
+          "supporting_theory_ids": [
+            "textbook_table_record_table_p224_t01_r051"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_table_record_table_p224_t01_r051"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-3-04 观察不同配体的 Co(II) 配合物的颜色》实验中，加入蒸馏水有利于形成 [Co(H₂O)₆]²⁺。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "水作为配体推动水合配合物形成。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00331_3f7cc41ff9"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_04_014",
+        "source_review_id": "CHK5_SEM_EXP_20_3_04_014",
+        "source_question_index": 14,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《20-3-04 观察不同配体的 Co(II) 配合物的颜色》实验中，加入丙酮有利于保持或增强 [Co(SCN)₄]²⁻ 的颜色。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "反应式将丙酮标在硫氰合配合物方向。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-4-e1fb1262"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "true_false"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00331_3f7cc41ff9"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_table_record_table_p224_t01_r071",
+            "textbook_table_record_table_p224_t01_r051"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical。有效题由实验原文支撑；其中颜色、配位、氧化还原或鉴定依据需最小引用 supporting theory：textbook_table_record_table_p224_t01_r071, textbook_table_record_table_p224_t01_r051。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00331_3f7cc41ff9"
+          ],
+          "supporting_theory_ids": [
+            "textbook_table_record_table_p224_t01_r071",
+            "textbook_table_record_table_p224_t01_r051"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_table_record_table_p224_t01_r071",
+            "textbook_table_record_table_p224_t01_r051"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-3-04 观察不同配体的 Co(II) 配合物的颜色》实验中，加入丙酮有利于保持或增强 [Co(SCN)₄]²⁻ 的颜色。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "反应式将丙酮标在硫氰合配合物方向。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00331_3f7cc41ff9"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_04_015",
+        "source_review_id": "CHK5_SEM_EXP_20_3_04_015",
+        "source_question_index": 15,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《20-3-04 观察不同配体的 Co(II) 配合物的颜色》实验中，Co(II) 配合物颜色与配体无关。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": false
+        },
+        "explanation": "本实验正是观察不同配体颜色差异。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-2059a278"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-5eaed5b5",
+          "candidate-3-c47ca8d9",
+          "candidate-4-e1fb1262"
+        ],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "true_false"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00331_3f7cc41ff9"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_table_record_table_p224_t01_r051"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical。有效题由实验原文支撑；其中颜色、配位、氧化还原或鉴定依据需最小引用 supporting theory：textbook_table_record_table_p224_t01_r051。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00331_3f7cc41ff9"
+          ],
+          "supporting_theory_ids": [
+            "textbook_table_record_table_p224_t01_r051"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_table_record_table_p224_t01_r051"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-3-04 观察不同配体的 Co(II) 配合物的颜色》实验中，Co(II) 配合物颜色与配体无关。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "本实验正是观察不同配体颜色差异。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00331_3f7cc41ff9"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_04_016",
+        "source_review_id": "CHK5_SEM_EXP_20_3_04_016",
+        "source_question_index": 16,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《20-3-04 观察不同配体的 Co(II) 配合物的颜色》实验中，原溶液作为对照有助于比较颜色变化。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "对照可区分水和丙酮的影响。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-5eaed5b5"
+        ],
+        "secondary_point_keys": [
+          "candidate-3-c47ca8d9",
+          "candidate-4-e1fb1262"
+        ],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "true_false"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00331_3f7cc41ff9"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00331_3f7cc41ff9"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-3-04 观察不同配体的 Co(II) 配合物的颜色》实验中，原溶液作为对照有助于比较颜色变化。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "对照可区分水和丙酮的影响。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00331_3f7cc41ff9"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_04_017",
+        "source_review_id": "CHK5_SEM_EXP_20_3_04_017",
+        "source_question_index": 17,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "true_false",
+        "stem": "在《20-3-04 观察不同配体的 Co(II) 配合物的颜色》中，判断：[Co(SCN)₄]²⁻ 中 SCN⁻ 是配体。",
+        "options": [],
+        "answer": {
+          "value": true
+        },
+        "explanation": "该判断与实验原文的操作、现象或结论一致。",
+        "difficulty": "basic",
+        "status": "reviewed_polished",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-2059a278"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "true_false"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00331_3f7cc41ff9"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_table_record_table_p224_t01_r071",
+            "textbook_table_record_table_p224_t01_r051"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical。有效题由实验原文支撑；其中颜色、配位、氧化还原或鉴定依据需最小引用 supporting theory：textbook_table_record_table_p224_t01_r071, textbook_table_record_table_p224_t01_r051。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00331_3f7cc41ff9"
+          ],
+          "supporting_theory_ids": [
+            "textbook_table_record_table_p224_t01_r071",
+            "textbook_table_record_table_p224_t01_r051"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_table_record_table_p224_t01_r071",
+            "textbook_table_record_table_p224_t01_r051"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-3-04 观察不同配体的 Co(II) 配合物的颜色》实验中，认为：[Co(SCN)₄]²⁻ 中 SCN⁻ 是配体，这一判断是不正确的。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "这一判断本身是正确的。硫氰酸根直接配位 Co(II)。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00331_3f7cc41ff9"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "true_false",
+            "stem": "在《20-3-04 观察不同配体的 Co(II) 配合物的颜色》中，判断：[Co(SCN)₄]²⁻ 中 SCN⁻ 是配体。",
+            "options": [],
+            "answer": {
+              "value": true
+            },
+            "explanation": "该判断与实验原文的操作、现象或结论一致。",
+            "difficulty": "basic",
+            "status": "reviewed_polished",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00331_3f7cc41ff9"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_04_018",
+        "source_review_id": "CHK5_SEM_EXP_20_3_04_018",
+        "source_question_index": 18,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《20-3-04 观察不同配体的 Co(II) 配合物的颜色》中，关于 Co(II)-SCN 配合物在水和丙酮条件下的颜色变化，哪项表述正确？",
+        "options": [
+          {
+            "label": "A",
+            "text": "用 Fe(III)-SCN 血红色反应替代 Co(II)-SCN 蓝紫色反应"
+          },
+          {
+            "label": "B",
+            "text": "以 CoCl₂ 原溶液为对照，比较加入 KSCN、加水和加丙酮后的 Co(II) 配合物颜色"
+          },
+          {
+            "label": "C",
+            "text": "用 Ni(II)-丁二酮肟沉淀回答配体颜色变化题"
+          },
+          {
+            "label": "D",
+            "text": "把加水后的现象和加丙酮后的现象互换"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "本实验以 CoCl₂ 原溶液为对照，比较加入 KSCN、加水和加丙酮后的 Co(II)配合物颜色；TiOSO₄ 不属于该实验。",
+        "difficulty": "basic",
+        "status": "reviewed_polished",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-2059a278"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "true_false"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "用 Fe(III)-SCN 血红色反应替代 Co(II)-SCN 蓝紫色反应",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“Co(II)-SCN 配合物在水和丙酮条件下的颜色变化”点位的关键对象或条件：用 Fe(III)-SCN 血红色反应替代 Co(II)-SCN 蓝紫色反应。"
+          },
+          {
+            "label": "B",
+            "text": "以 CoCl₂ 原溶液为对照，比较加入 KSCN、加水和加丙酮后的 Co(II) 配合物颜色",
+            "point_key": "candidate-1-2059a278",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“Co(II)-SCN 配合物在水和丙酮条件下的颜色变化”点位：以 CoCl₂ 原溶液为对照，比较加入 KSCN、加水和加丙酮后的 Co(II) 配合物颜色。"
+          },
+          {
+            "label": "C",
+            "text": "用 Ni(II)-丁二酮肟沉淀回答配体颜色变化题",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Co(II)-SCN 配合物在水和丙酮条件下的颜色变化”点位：用 Ni(II)-丁二酮肟沉淀回答配体颜色变化题。"
+          },
+          {
+            "label": "D",
+            "text": "把加水后的现象和加丙酮后的现象互换",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Co(II)-SCN 配合物在水和丙酮条件下的颜色变化”点位：把加水后的现象和加丙酮后的现象互换。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00331_3f7cc41ff9"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00331_3f7cc41ff9"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-3-04 观察不同配体的 Co(II) 配合物的颜色》实验中，本实验的核心试剂是 TiOSO₄。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "TiOSO₄ 属于钛盐水解。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00331_3f7cc41ff9"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-04 观察不同配体的 Co(II) 配合物的颜色》中，关于 Co(II)-SCN 配合物在水和丙酮条件下的颜色变化，哪项表述正确？",
+            "options": [
+              {
+                "label": "A",
+                "text": "用 Fe(III)-SCN 血红色反应替代 Co(II)-SCN 蓝紫色反应"
+              },
+              {
+                "label": "B",
+                "text": "以 CoCl₂ 原溶液为对照，比较加入 KSCN、加水和加丙酮后的 Co(II) 配合物颜色"
+              },
+              {
+                "label": "C",
+                "text": "用 Ni(II)-丁二酮肟沉淀回答配体颜色变化题"
+              },
+              {
+                "label": "D",
+                "text": "把加水后的现象和加丙酮后的现象互换"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "本实验以 CoCl₂ 原溶液为对照，比较加入 KSCN、加水和加丙酮后的 Co(II)配合物颜色；TiOSO₄ 不属于该实验。",
+            "difficulty": "basic",
+            "status": "reviewed_polished",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00331_3f7cc41ff9"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "generic_shell_rewritten"
+          ]
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_04_019",
+        "source_review_id": "CHK5_SEM_EXP_20_3_04_019",
+        "source_question_index": 19,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "true_false",
+        "stem": "在《20-3-04 观察不同配体的 Co(II) 配合物的颜色》中，判断：CoCl₂ 溶液滴入 KSCN 饱和溶液至蓝紫色是本实验操作之一。",
+        "options": [],
+        "answer": {
+          "value": true
+        },
+        "explanation": "该判断与实验原文的操作、现象或结论一致。",
+        "difficulty": "basic",
+        "status": "reviewed_polished",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-2059a278"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "true_false"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00331_3f7cc41ff9"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00331_3f7cc41ff9"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-3-04 观察不同配体的 Co(II) 配合物的颜色》实验中，认为：CoCl₂ 溶液滴入 KSCN 饱和溶液至蓝紫色是本实验操作之一，这一判断是不正确的。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "这一判断本身是正确的。实验资料明确写出。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00331_3f7cc41ff9"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "true_false",
+            "stem": "在《20-3-04 观察不同配体的 Co(II) 配合物的颜色》中，判断：CoCl₂ 溶液滴入 KSCN 饱和溶液至蓝紫色是本实验操作之一。",
+            "options": [],
+            "answer": {
+              "value": true
+            },
+            "explanation": "该判断与实验原文的操作、现象或结论一致。",
+            "difficulty": "basic",
+            "status": "reviewed_polished",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00331_3f7cc41ff9"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_04_020",
+        "source_review_id": "CHK5_SEM_EXP_20_3_04_020",
+        "source_question_index": 20,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "true_false",
+        "stem": "在《20-3-04 观察不同配体的 Co(II) 配合物的颜色》中，判断：[Co(H₂O)₆]²⁺ 和 [Co(SCN)₄]²⁻ 可通过配体交换相互转化。",
+        "options": [],
+        "answer": {
+          "value": true
+        },
+        "explanation": "该判断与实验原文的操作、现象或结论一致。",
+        "difficulty": "basic",
+        "status": "reviewed_polished",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-2059a278"
+        ],
+        "secondary_point_keys": [
+          "candidate-3-c47ca8d9",
+          "candidate-4-e1fb1262"
+        ],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "true_false"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00331_3f7cc41ff9"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_table_record_table_p224_t01_r071",
+            "textbook_table_record_table_p224_t01_r051"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical。有效题由实验原文支撑；其中颜色、配位、氧化还原或鉴定依据需最小引用 supporting theory：textbook_table_record_table_p224_t01_r071, textbook_table_record_table_p224_t01_r051。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00331_3f7cc41ff9"
+          ],
+          "supporting_theory_ids": [
+            "textbook_table_record_table_p224_t01_r071",
+            "textbook_table_record_table_p224_t01_r051"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_table_record_table_p224_t01_r071",
+            "textbook_table_record_table_p224_t01_r051"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-3-04 观察不同配体的 Co(II) 配合物的颜色》实验中，认为：[Co(H₂O)₆]²⁺ 和 [Co(SCN)₄]²⁻ 可通过配体交换相互转化，这一判断是不正确的。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "这一判断本身是正确的。实验资料方程式展示了二者平衡。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00331_3f7cc41ff9"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "true_false",
+            "stem": "在《20-3-04 观察不同配体的 Co(II) 配合物的颜色》中，判断：[Co(H₂O)₆]²⁺ 和 [Co(SCN)₄]²⁻ 可通过配体交换相互转化。",
+            "options": [],
+            "answer": {
+              "value": true
+            },
+            "explanation": "该判断与实验原文的操作、现象或结论一致。",
+            "difficulty": "basic",
+            "status": "reviewed_polished",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00331_3f7cc41ff9"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_04_021",
+        "source_review_id": "CHK5_SEM_EXP_20_3_04_021",
+        "source_question_index": 21,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《20-3-04 观察不同配体的 Co(II) 配合物的颜色》中，关于 Co(II)-SCN 配合物在水和丙酮条件下的颜色变化，哪项表述正确？",
+        "options": [
+          {
+            "label": "A",
+            "text": "省略原 CoCl₂ 溶液对照，只看最终颜色"
+          },
+          {
+            "label": "B",
+            "text": "制备蓝紫色 Co(II) 配合物时使用的饱和溶液是 KSCN。"
+          },
+          {
+            "label": "C",
+            "text": "用 Fe(III)-SCN 血红色反应替代 Co(II)-SCN 蓝紫色反应"
+          },
+          {
+            "label": "D",
+            "text": "用 Ni(II)-丁二酮肟沉淀回答配体颜色变化题"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "KSCN 提供 SCN⁻ 配体，与 CoCl₂ 溶液作用可形成蓝紫色 Co(II)配合物。",
+        "difficulty": "basic",
+        "status": "reviewed_polished",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-2059a278"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "fill_blank"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "省略原 CoCl₂ 溶液对照，只看最终颜色",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“Co(II)-SCN 配合物在水和丙酮条件下的颜色变化”点位的关键对象或条件：省略原 CoCl₂ 溶液对照，只看最终颜色。"
+          },
+          {
+            "label": "B",
+            "text": "制备蓝紫色 Co(II) 配合物时使用的饱和溶液是 KSCN。",
+            "point_key": "candidate-1-2059a278",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“Co(II)-SCN 配合物在水和丙酮条件下的颜色变化”点位：制备蓝紫色 Co(II) 配合物时使用的饱和溶液是 KSCN。"
+          },
+          {
+            "label": "C",
+            "text": "用 Fe(III)-SCN 血红色反应替代 Co(II)-SCN 蓝紫色反应",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“Co(II)-SCN 配合物在水和丙酮条件下的颜色变化”点位的关键对象或条件：用 Fe(III)-SCN 血红色反应替代 Co(II)-SCN 蓝紫色反应。"
+          },
+          {
+            "label": "D",
+            "text": "用 Ni(II)-丁二酮肟沉淀回答配体颜色变化题",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Co(II)-SCN 配合物在水和丙酮条件下的颜色变化”点位：用 Ni(II)-丁二酮肟沉淀回答配体颜色变化题。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00331_3f7cc41ff9"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00331_3f7cc41ff9"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-3-04 观察不同配体的 Co(II) 配合物的颜色》实验中，制备蓝紫色 Co(II) 配合物时使用的饱和溶液是____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "KSCN",
+                "硫氰酸钾"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "实验资料写明 KSCN 饱和溶液。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00331_3f7cc41ff9"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-04 观察不同配体的 Co(II) 配合物的颜色》中，关于 Co(II)-SCN 配合物在水和丙酮条件下的颜色变化，哪项表述正确？",
+            "options": [
+              {
+                "label": "A",
+                "text": "省略原 CoCl₂ 溶液对照，只看最终颜色"
+              },
+              {
+                "label": "B",
+                "text": "制备蓝紫色 Co(II) 配合物时使用的饱和溶液是 KSCN。"
+              },
+              {
+                "label": "C",
+                "text": "用 Fe(III)-SCN 血红色反应替代 Co(II)-SCN 蓝紫色反应"
+              },
+              {
+                "label": "D",
+                "text": "用 Ni(II)-丁二酮肟沉淀回答配体颜色变化题"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "KSCN 提供 SCN⁻ 配体，与 CoCl₂ 溶液作用可形成蓝紫色 Co(II)配合物。",
+            "difficulty": "basic",
+            "status": "reviewed_polished",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00331_3f7cc41ff9"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "generic_shell_rewritten"
+          ]
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_04_022",
+        "source_review_id": "CHK5_SEM_EXP_20_3_04_022",
+        "source_question_index": 22,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《20-3-04 观察不同配体的 Co(II) 配合物的颜色》中，关于 Co(II)-SCN 配合物在水和丙酮条件下的颜色变化，哪项表述正确？",
+        "options": [
+          {
+            "label": "A",
+            "text": "用 Fe(III)-SCN 血红色反应替代 Co(II)-SCN 蓝紫色反应"
+          },
+          {
+            "label": "B",
+            "text": "向 KSCN 饱和溶液滴加的钴盐是 CoCl₂。"
+          },
+          {
+            "label": "C",
+            "text": "用 Ni(II)-丁二酮肟沉淀回答配体颜色变化题"
+          },
+          {
+            "label": "D",
+            "text": "把加水后的现象和加丙酮后的现象互换"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "CoCl₂ 提供 Co(II)，与 KSCN 作用后用于比较不同配体环境下的配合物颜色。",
+        "difficulty": "basic",
+        "status": "reviewed_polished",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-2059a278"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "fill_blank"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "用 Fe(III)-SCN 血红色反应替代 Co(II)-SCN 蓝紫色反应",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“Co(II)-SCN 配合物在水和丙酮条件下的颜色变化”点位的关键对象或条件：用 Fe(III)-SCN 血红色反应替代 Co(II)-SCN 蓝紫色反应。"
+          },
+          {
+            "label": "B",
+            "text": "向 KSCN 饱和溶液滴加的钴盐是 CoCl₂。",
+            "point_key": "candidate-1-2059a278",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“Co(II)-SCN 配合物在水和丙酮条件下的颜色变化”点位：向 KSCN 饱和溶液滴加的钴盐是 CoCl₂。"
+          },
+          {
+            "label": "C",
+            "text": "用 Ni(II)-丁二酮肟沉淀回答配体颜色变化题",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Co(II)-SCN 配合物在水和丙酮条件下的颜色变化”点位：用 Ni(II)-丁二酮肟沉淀回答配体颜色变化题。"
+          },
+          {
+            "label": "D",
+            "text": "把加水后的现象和加丙酮后的现象互换",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Co(II)-SCN 配合物在水和丙酮条件下的颜色变化”点位：把加水后的现象和加丙酮后的现象互换。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00331_3f7cc41ff9"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00331_3f7cc41ff9"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-3-04 观察不同配体的 Co(II) 配合物的颜色》实验中，向 KSCN 饱和溶液滴加的钴盐是____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "CoCl₂",
+                "氯化钴"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "实验资料写明 CoCl₂。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00331_3f7cc41ff9"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-04 观察不同配体的 Co(II) 配合物的颜色》中，关于 Co(II)-SCN 配合物在水和丙酮条件下的颜色变化，哪项表述正确？",
+            "options": [
+              {
+                "label": "A",
+                "text": "用 Fe(III)-SCN 血红色反应替代 Co(II)-SCN 蓝紫色反应"
+              },
+              {
+                "label": "B",
+                "text": "向 KSCN 饱和溶液滴加的钴盐是 CoCl₂。"
+              },
+              {
+                "label": "C",
+                "text": "用 Ni(II)-丁二酮肟沉淀回答配体颜色变化题"
+              },
+              {
+                "label": "D",
+                "text": "把加水后的现象和加丙酮后的现象互换"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "CoCl₂ 提供 Co(II)，与 KSCN 作用后用于比较不同配体环境下的配合物颜色。",
+            "difficulty": "basic",
+            "status": "reviewed_polished",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00331_3f7cc41ff9"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "generic_shell_rewritten"
+          ]
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_04_023",
+        "source_review_id": "CHK5_SEM_EXP_20_3_04_023",
+        "source_question_index": 23,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《20-3-04 观察不同配体的 Co(II) 配合物的颜色》中，关于 Co(II)-SCN 配合物在水和丙酮条件下的颜色变化，哪项表述正确？",
+        "options": [
+          {
+            "label": "A",
+            "text": "用 Ni(II)-丁二酮肟沉淀回答配体颜色变化题"
+          },
+          {
+            "label": "B",
+            "text": "三支试管中两支分别加入蒸馏水和丙酮，用于比较配体环境改变后的颜色。"
+          },
+          {
+            "label": "C",
+            "text": "把加水后的现象和加丙酮后的现象互换"
+          },
+          {
+            "label": "D",
+            "text": "省略原 CoCl₂ 溶液对照，只看最终颜色"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "保留原溶液并分别加入蒸馏水、丙酮，有助于比较配体环境变化对 Co(II)配合物颜色的影响。",
+        "difficulty": "basic",
+        "status": "reviewed_polished",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-c47ca8d9"
+        ],
+        "secondary_point_keys": [
+          "candidate-4-e1fb1262"
+        ],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "fill_blank"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "用 Ni(II)-丁二酮肟沉淀回答配体颜色变化题",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Co(II)-SCN 配合物在水和丙酮条件下的颜色变化”点位：用 Ni(II)-丁二酮肟沉淀回答配体颜色变化题。"
+          },
+          {
+            "label": "B",
+            "text": "三支试管中两支分别加入蒸馏水和丙酮，用于比较配体环境改变后的颜色。",
+            "point_key": "candidate-3-c47ca8d9",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“Co(II)-SCN 配合物在水和丙酮条件下的颜色变化”点位：三支试管中两支分别加入蒸馏水和丙酮，用于比较配体环境改变后的颜色。"
+          },
+          {
+            "label": "C",
+            "text": "把加水后的现象和加丙酮后的现象互换",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Co(II)-SCN 配合物在水和丙酮条件下的颜色变化”点位：把加水后的现象和加丙酮后的现象互换。"
+          },
+          {
+            "label": "D",
+            "text": "省略原 CoCl₂ 溶液对照，只看最终颜色",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“Co(II)-SCN 配合物在水和丙酮条件下的颜色变化”点位的关键对象或条件：省略原 CoCl₂ 溶液对照，只看最终颜色。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00331_3f7cc41ff9"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00331_3f7cc41ff9"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-3-04 观察不同配体的 Co(II) 配合物的颜色》实验中，三支试管中两支分别加入蒸馏水和____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "丙酮"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "实验资料明确。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00331_3f7cc41ff9"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-04 观察不同配体的 Co(II) 配合物的颜色》中，关于 Co(II)-SCN 配合物在水和丙酮条件下的颜色变化，哪项表述正确？",
+            "options": [
+              {
+                "label": "A",
+                "text": "用 Ni(II)-丁二酮肟沉淀回答配体颜色变化题"
+              },
+              {
+                "label": "B",
+                "text": "三支试管中两支分别加入蒸馏水和丙酮，用于比较配体环境改变后的颜色。"
+              },
+              {
+                "label": "C",
+                "text": "把加水后的现象和加丙酮后的现象互换"
+              },
+              {
+                "label": "D",
+                "text": "省略原 CoCl₂ 溶液对照，只看最终颜色"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "保留原溶液并分别加入蒸馏水、丙酮，有助于比较配体环境变化对 Co(II)配合物颜色的影响。",
+            "difficulty": "basic",
+            "status": "reviewed_polished",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00331_3f7cc41ff9"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "generic_shell_rewritten"
+          ]
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_04_024",
+        "source_review_id": "CHK5_SEM_EXP_20_3_04_024",
+        "source_question_index": 24,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《20-3-04 观察不同配体的 Co(II) 配合物的颜色》中，关于 Co(II)-SCN 配合物在水和丙酮条件下的颜色变化，哪项表述正确？",
+        "options": [
+          {
+            "label": "A",
+            "text": "把加水后的现象和加丙酮后的现象互换"
+          },
+          {
+            "label": "B",
+            "text": "加入蒸馏水有利于形成 [Co(H₂O)₆]²⁺ 配合物。"
+          },
+          {
+            "label": "C",
+            "text": "省略原 CoCl₂ 溶液对照，只看最终颜色"
+          },
+          {
+            "label": "D",
+            "text": "用 Fe(III)-SCN 血红色反应替代 Co(II)-SCN 蓝紫色反应"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "加水会改变 Co(II) 的配位环境，有利于水合配合物形成并引起颜色变化。",
+        "difficulty": "basic",
+        "status": "reviewed_polished",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-c47ca8d9"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "fill_blank"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "把加水后的现象和加丙酮后的现象互换",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Co(II)-SCN 配合物在水和丙酮条件下的颜色变化”点位：把加水后的现象和加丙酮后的现象互换。"
+          },
+          {
+            "label": "B",
+            "text": "加入蒸馏水有利于形成 [Co(H₂O)₆]²⁺ 配合物。",
+            "point_key": "candidate-3-c47ca8d9",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“Co(II)-SCN 配合物在水和丙酮条件下的颜色变化”点位：加入蒸馏水有利于形成 [Co(H₂O)₆]²⁺ 配合物。"
+          },
+          {
+            "label": "C",
+            "text": "省略原 CoCl₂ 溶液对照，只看最终颜色",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“Co(II)-SCN 配合物在水和丙酮条件下的颜色变化”点位的关键对象或条件：省略原 CoCl₂ 溶液对照，只看最终颜色。"
+          },
+          {
+            "label": "D",
+            "text": "用 Fe(III)-SCN 血红色反应替代 Co(II)-SCN 蓝紫色反应",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“Co(II)-SCN 配合物在水和丙酮条件下的颜色变化”点位的关键对象或条件：用 Fe(III)-SCN 血红色反应替代 Co(II)-SCN 蓝紫色反应。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00331_3f7cc41ff9"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_table_record_table_p224_t01_r071",
+            "textbook_table_record_table_p224_t01_r051"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical。有效题由实验原文支撑；其中颜色、配位、氧化还原或鉴定依据需最小引用 supporting theory：textbook_table_record_table_p224_t01_r071, textbook_table_record_table_p224_t01_r051。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00331_3f7cc41ff9"
+          ],
+          "supporting_theory_ids": [
+            "textbook_table_record_table_p224_t01_r071",
+            "textbook_table_record_table_p224_t01_r051"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_table_record_table_p224_t01_r071",
+            "textbook_table_record_table_p224_t01_r051"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-3-04 观察不同配体的 Co(II) 配合物的颜色》实验中，加入蒸馏水有利于形成____配合物。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "[Co(H₂O)₆]²⁺",
+                "六水合钴(II)"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "水合配合物形成。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00331_3f7cc41ff9"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-04 观察不同配体的 Co(II) 配合物的颜色》中，关于 Co(II)-SCN 配合物在水和丙酮条件下的颜色变化，哪项表述正确？",
+            "options": [
+              {
+                "label": "A",
+                "text": "把加水后的现象和加丙酮后的现象互换"
+              },
+              {
+                "label": "B",
+                "text": "加入蒸馏水有利于形成 [Co(H₂O)₆]²⁺ 配合物。"
+              },
+              {
+                "label": "C",
+                "text": "省略原 CoCl₂ 溶液对照，只看最终颜色"
+              },
+              {
+                "label": "D",
+                "text": "用 Fe(III)-SCN 血红色反应替代 Co(II)-SCN 蓝紫色反应"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "加水会改变 Co(II) 的配位环境，有利于水合配合物形成并引起颜色变化。",
+            "difficulty": "basic",
+            "status": "reviewed_polished",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00331_3f7cc41ff9"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "requires_supporting_theory",
+            "generic_shell_rewritten"
+          ]
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_04_025",
+        "source_review_id": "CHK5_SEM_EXP_20_3_04_025",
+        "source_question_index": 25,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《20-3-04 观察不同配体的 Co(II) 配合物的颜色》中，关于 Co(II)-SCN 配合物在水和丙酮条件下的颜色变化，哪项表述正确？",
+        "options": [
+          {
+            "label": "A",
+            "text": "省略原 CoCl₂ 溶液对照，只看最终颜色"
+          },
+          {
+            "label": "B",
+            "text": "加入丙酮有利于形成或保持 [Co(SCN)₄]²⁻。"
+          },
+          {
+            "label": "C",
+            "text": "用 Fe(III)-SCN 血红色反应替代 Co(II)-SCN 蓝紫色反应"
+          },
+          {
+            "label": "D",
+            "text": "用 Ni(II)-丁二酮肟沉淀回答配体颜色变化题"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "丙酮改变溶剂环境，有利于观察 Co(II)-SCN 配合物的颜色表现。",
+        "difficulty": "basic",
+        "status": "reviewed_polished",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-4-e1fb1262"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "fill_blank"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "省略原 CoCl₂ 溶液对照，只看最终颜色",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“Co(II)-SCN 配合物在水和丙酮条件下的颜色变化”点位的关键对象或条件：省略原 CoCl₂ 溶液对照，只看最终颜色。"
+          },
+          {
+            "label": "B",
+            "text": "加入丙酮有利于形成或保持 [Co(SCN)₄]²⁻。",
+            "point_key": "candidate-4-e1fb1262",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“Co(II)-SCN 配合物在水和丙酮条件下的颜色变化”点位：加入丙酮有利于形成或保持 [Co(SCN)₄]²⁻。"
+          },
+          {
+            "label": "C",
+            "text": "用 Fe(III)-SCN 血红色反应替代 Co(II)-SCN 蓝紫色反应",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“Co(II)-SCN 配合物在水和丙酮条件下的颜色变化”点位的关键对象或条件：用 Fe(III)-SCN 血红色反应替代 Co(II)-SCN 蓝紫色反应。"
+          },
+          {
+            "label": "D",
+            "text": "用 Ni(II)-丁二酮肟沉淀回答配体颜色变化题",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Co(II)-SCN 配合物在水和丙酮条件下的颜色变化”点位：用 Ni(II)-丁二酮肟沉淀回答配体颜色变化题。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00331_3f7cc41ff9"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_table_record_table_p224_t01_r071",
+            "textbook_table_record_table_p224_t01_r051"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical。有效题由实验原文支撑；其中颜色、配位、氧化还原或鉴定依据需最小引用 supporting theory：textbook_table_record_table_p224_t01_r071, textbook_table_record_table_p224_t01_r051。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00331_3f7cc41ff9"
+          ],
+          "supporting_theory_ids": [
+            "textbook_table_record_table_p224_t01_r071",
+            "textbook_table_record_table_p224_t01_r051"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_table_record_table_p224_t01_r071",
+            "textbook_table_record_table_p224_t01_r051"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-3-04 观察不同配体的 Co(II) 配合物的颜色》实验中，加入丙酮有利于形成或保持____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "[Co(SCN)₄]²⁻",
+                "四硫氰合钴(II)"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "丙酮方向有利于硫氰合配合物。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00331_3f7cc41ff9"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-04 观察不同配体的 Co(II) 配合物的颜色》中，关于 Co(II)-SCN 配合物在水和丙酮条件下的颜色变化，哪项表述正确？",
+            "options": [
+              {
+                "label": "A",
+                "text": "省略原 CoCl₂ 溶液对照，只看最终颜色"
+              },
+              {
+                "label": "B",
+                "text": "加入丙酮有利于形成或保持 [Co(SCN)₄]²⁻。"
+              },
+              {
+                "label": "C",
+                "text": "用 Fe(III)-SCN 血红色反应替代 Co(II)-SCN 蓝紫色反应"
+              },
+              {
+                "label": "D",
+                "text": "用 Ni(II)-丁二酮肟沉淀回答配体颜色变化题"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "丙酮改变溶剂环境，有利于观察 Co(II)-SCN 配合物的颜色表现。",
+            "difficulty": "basic",
+            "status": "reviewed_polished",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00331_3f7cc41ff9"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "requires_supporting_theory",
+            "generic_shell_rewritten"
+          ]
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_04_026",
+        "source_review_id": "CHK5_SEM_EXP_20_3_04_026",
+        "source_question_index": 26,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《20-3-04 观察不同配体的 Co(II) 配合物的颜色》中，关于 Co(II)-SCN 配合物在水和丙酮条件下的颜色变化，哪项表述正确？",
+        "options": [
+          {
+            "label": "A",
+            "text": "用 Fe(III)-SCN 血红色反应替代 Co(II)-SCN 蓝紫色反应"
+          },
+          {
+            "label": "B",
+            "text": "[Co(SCN)₄]²⁻ 的配体是 SCN⁻。"
+          },
+          {
+            "label": "C",
+            "text": "用 Ni(II)-丁二酮肟沉淀回答配体颜色变化题"
+          },
+          {
+            "label": "D",
+            "text": "把加水后的现象和加丙酮后的现象互换"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "[Co(SCN)₄]²⁻ 是 Co(II)-SCN 配合物，SCN⁻ 是其中的配体。",
+        "difficulty": "basic",
+        "status": "reviewed_polished",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-2059a278"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "fill_blank"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "用 Fe(III)-SCN 血红色反应替代 Co(II)-SCN 蓝紫色反应",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“Co(II)-SCN 配合物在水和丙酮条件下的颜色变化”点位的关键对象或条件：用 Fe(III)-SCN 血红色反应替代 Co(II)-SCN 蓝紫色反应。"
+          },
+          {
+            "label": "B",
+            "text": "[Co(SCN)₄]²⁻ 的配体是 SCN⁻。",
+            "point_key": "candidate-1-2059a278",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“Co(II)-SCN 配合物在水和丙酮条件下的颜色变化”点位：[Co(SCN)₄]²⁻ 的配体是 SCN⁻。"
+          },
+          {
+            "label": "C",
+            "text": "用 Ni(II)-丁二酮肟沉淀回答配体颜色变化题",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Co(II)-SCN 配合物在水和丙酮条件下的颜色变化”点位：用 Ni(II)-丁二酮肟沉淀回答配体颜色变化题。"
+          },
+          {
+            "label": "D",
+            "text": "把加水后的现象和加丙酮后的现象互换",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Co(II)-SCN 配合物在水和丙酮条件下的颜色变化”点位：把加水后的现象和加丙酮后的现象互换。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00331_3f7cc41ff9"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_table_record_table_p224_t01_r071",
+            "textbook_table_record_table_p224_t01_r051"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical。有效题由实验原文支撑；其中颜色、配位、氧化还原或鉴定依据需最小引用 supporting theory：textbook_table_record_table_p224_t01_r071, textbook_table_record_table_p224_t01_r051。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00331_3f7cc41ff9"
+          ],
+          "supporting_theory_ids": [
+            "textbook_table_record_table_p224_t01_r071",
+            "textbook_table_record_table_p224_t01_r051"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_table_record_table_p224_t01_r071",
+            "textbook_table_record_table_p224_t01_r051"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-3-04 观察不同配体的 Co(II) 配合物的颜色》实验中，[Co(SCN)₄]²⁻ 的配体是____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "SCN⁻",
+                "硫氰酸根"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "SCN⁻ 为配体。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00331_3f7cc41ff9"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-04 观察不同配体的 Co(II) 配合物的颜色》中，关于 Co(II)-SCN 配合物在水和丙酮条件下的颜色变化，哪项表述正确？",
+            "options": [
+              {
+                "label": "A",
+                "text": "用 Fe(III)-SCN 血红色反应替代 Co(II)-SCN 蓝紫色反应"
+              },
+              {
+                "label": "B",
+                "text": "[Co(SCN)₄]²⁻ 的配体是 SCN⁻。"
+              },
+              {
+                "label": "C",
+                "text": "用 Ni(II)-丁二酮肟沉淀回答配体颜色变化题"
+              },
+              {
+                "label": "D",
+                "text": "把加水后的现象和加丙酮后的现象互换"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "[Co(SCN)₄]²⁻ 是 Co(II)-SCN 配合物，SCN⁻ 是其中的配体。",
+            "difficulty": "basic",
+            "status": "reviewed_polished",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00331_3f7cc41ff9"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "requires_supporting_theory",
+            "generic_shell_rewritten"
+          ]
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_04_027",
+        "source_review_id": "CHK5_SEM_EXP_20_3_04_027",
+        "source_question_index": 27,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《20-3-04 观察不同配体的 Co(II) 配合物的颜色》中，关于 Co(II)-SCN 配合物在水和丙酮条件下的颜色变化，哪项表述正确？",
+        "options": [
+          {
+            "label": "A",
+            "text": "用 Ni(II)-丁二酮肟沉淀回答配体颜色变化题"
+          },
+          {
+            "label": "B",
+            "text": "[Co(SCN)₄]²⁻ 中 Co 的配位数为 4。"
+          },
+          {
+            "label": "C",
+            "text": "把加水后的现象和加丙酮后的现象互换"
+          },
+          {
+            "label": "D",
+            "text": "省略原 CoCl₂ 溶液对照，只看最终颜色"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "[Co(SCN)₄]²⁻ 中有四个 SCN⁻ 配体与 Co 配位，因此配位数为 4。",
+        "difficulty": "basic",
+        "status": "reviewed_polished",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-2059a278"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "fill_blank"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "用 Ni(II)-丁二酮肟沉淀回答配体颜色变化题",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Co(II)-SCN 配合物在水和丙酮条件下的颜色变化”点位：用 Ni(II)-丁二酮肟沉淀回答配体颜色变化题。"
+          },
+          {
+            "label": "B",
+            "text": "[Co(SCN)₄]²⁻ 中 Co 的配位数为 4。",
+            "point_key": "candidate-1-2059a278",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“Co(II)-SCN 配合物在水和丙酮条件下的颜色变化”点位：[Co(SCN)₄]²⁻ 中 Co 的配位数为 4。"
+          },
+          {
+            "label": "C",
+            "text": "把加水后的现象和加丙酮后的现象互换",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Co(II)-SCN 配合物在水和丙酮条件下的颜色变化”点位：把加水后的现象和加丙酮后的现象互换。"
+          },
+          {
+            "label": "D",
+            "text": "省略原 CoCl₂ 溶液对照，只看最终颜色",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“Co(II)-SCN 配合物在水和丙酮条件下的颜色变化”点位的关键对象或条件：省略原 CoCl₂ 溶液对照，只看最终颜色。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00331_3f7cc41ff9"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_table_record_table_p224_t01_r071",
+            "textbook_table_record_table_p224_t01_r051"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical。有效题由实验原文支撑；其中颜色、配位、氧化还原或鉴定依据需最小引用 supporting theory：textbook_table_record_table_p224_t01_r071, textbook_table_record_table_p224_t01_r051。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00331_3f7cc41ff9"
+          ],
+          "supporting_theory_ids": [
+            "textbook_table_record_table_p224_t01_r071",
+            "textbook_table_record_table_p224_t01_r051"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_table_record_table_p224_t01_r071",
+            "textbook_table_record_table_p224_t01_r051"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-3-04 观察不同配体的 Co(II) 配合物的颜色》实验中，[Co(SCN)₄]²⁻ 中 Co 的配位数为____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "4",
+                "四"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "四个 SCN⁻。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00331_3f7cc41ff9"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-04 观察不同配体的 Co(II) 配合物的颜色》中，关于 Co(II)-SCN 配合物在水和丙酮条件下的颜色变化，哪项表述正确？",
+            "options": [
+              {
+                "label": "A",
+                "text": "用 Ni(II)-丁二酮肟沉淀回答配体颜色变化题"
+              },
+              {
+                "label": "B",
+                "text": "[Co(SCN)₄]²⁻ 中 Co 的配位数为 4。"
+              },
+              {
+                "label": "C",
+                "text": "把加水后的现象和加丙酮后的现象互换"
+              },
+              {
+                "label": "D",
+                "text": "省略原 CoCl₂ 溶液对照，只看最终颜色"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "[Co(SCN)₄]²⁻ 中有四个 SCN⁻ 配体与 Co 配位，因此配位数为 4。",
+            "difficulty": "basic",
+            "status": "reviewed_polished",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00331_3f7cc41ff9"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "requires_supporting_theory",
+            "generic_shell_rewritten"
+          ]
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_04_028",
+        "source_review_id": "CHK5_SEM_EXP_20_3_04_028",
+        "source_question_index": 28,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《20-3-04 观察不同配体的 Co(II) 配合物的颜色》中，关于 Co(II)-SCN 配合物在水和丙酮条件下的颜色变化，哪项表述正确？",
+        "options": [
+          {
+            "label": "A",
+            "text": "把加水后的现象和加丙酮后的现象互换"
+          },
+          {
+            "label": "B",
+            "text": "[Co(H₂O)₆]²⁺ 中水的配位数为 6。"
+          },
+          {
+            "label": "C",
+            "text": "省略原 CoCl₂ 溶液对照，只看最终颜色"
+          },
+          {
+            "label": "D",
+            "text": "用 Fe(III)-SCN 血红色反应替代 Co(II)-SCN 蓝紫色反应"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "[Co(H₂O)₆]²⁺ 中有六个水分子配位，符合水合 Co(II) 配合物的表示。",
+        "difficulty": "basic",
+        "status": "reviewed_polished",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-c47ca8d9"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "fill_blank"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "把加水后的现象和加丙酮后的现象互换",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Co(II)-SCN 配合物在水和丙酮条件下的颜色变化”点位：把加水后的现象和加丙酮后的现象互换。"
+          },
+          {
+            "label": "B",
+            "text": "[Co(H₂O)₆]²⁺ 中水的配位数为 6。",
+            "point_key": "candidate-3-c47ca8d9",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“Co(II)-SCN 配合物在水和丙酮条件下的颜色变化”点位：[Co(H₂O)₆]²⁺ 中水的配位数为 6。"
+          },
+          {
+            "label": "C",
+            "text": "省略原 CoCl₂ 溶液对照，只看最终颜色",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“Co(II)-SCN 配合物在水和丙酮条件下的颜色变化”点位的关键对象或条件：省略原 CoCl₂ 溶液对照，只看最终颜色。"
+          },
+          {
+            "label": "D",
+            "text": "用 Fe(III)-SCN 血红色反应替代 Co(II)-SCN 蓝紫色反应",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“Co(II)-SCN 配合物在水和丙酮条件下的颜色变化”点位的关键对象或条件：用 Fe(III)-SCN 血红色反应替代 Co(II)-SCN 蓝紫色反应。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00331_3f7cc41ff9"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_table_record_table_p224_t01_r071",
+            "textbook_table_record_table_p224_t01_r051"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical。有效题由实验原文支撑；其中颜色、配位、氧化还原或鉴定依据需最小引用 supporting theory：textbook_table_record_table_p224_t01_r071, textbook_table_record_table_p224_t01_r051。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00331_3f7cc41ff9"
+          ],
+          "supporting_theory_ids": [
+            "textbook_table_record_table_p224_t01_r071",
+            "textbook_table_record_table_p224_t01_r051"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_table_record_table_p224_t01_r071",
+            "textbook_table_record_table_p224_t01_r051"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-3-04 观察不同配体的 Co(II) 配合物的颜色》实验中，[Co(H₂O)₆]²⁺ 中水的配位数为____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "6",
+                "六"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "六水合钴(II)。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00331_3f7cc41ff9"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-04 观察不同配体的 Co(II) 配合物的颜色》中，关于 Co(II)-SCN 配合物在水和丙酮条件下的颜色变化，哪项表述正确？",
+            "options": [
+              {
+                "label": "A",
+                "text": "把加水后的现象和加丙酮后的现象互换"
+              },
+              {
+                "label": "B",
+                "text": "[Co(H₂O)₆]²⁺ 中水的配位数为 6。"
+              },
+              {
+                "label": "C",
+                "text": "省略原 CoCl₂ 溶液对照，只看最终颜色"
+              },
+              {
+                "label": "D",
+                "text": "用 Fe(III)-SCN 血红色反应替代 Co(II)-SCN 蓝紫色反应"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "[Co(H₂O)₆]²⁺ 中有六个水分子配位，符合水合 Co(II) 配合物的表示。",
+            "difficulty": "basic",
+            "status": "reviewed_polished",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00331_3f7cc41ff9"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "requires_supporting_theory",
+            "generic_shell_rewritten"
+          ]
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_04_029",
+        "source_review_id": "CHK5_SEM_EXP_20_3_04_029",
+        "source_question_index": 29,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《20-3-04 观察不同配体的 Co(II) 配合物的颜色》中，关于 Co(II)-SCN 配合物在水和丙酮条件下的颜色变化，哪项表述正确？",
+        "options": [
+          {
+            "label": "A",
+            "text": "省略原 CoCl₂ 溶液对照，只看最终颜色"
+          },
+          {
+            "label": "B",
+            "text": "本实验观察不同配体条件下 Co(II) 配合物的颜色变化。"
+          },
+          {
+            "label": "C",
+            "text": "用 Fe(III)-SCN 血红色反应替代 Co(II)-SCN 蓝紫色反应"
+          },
+          {
+            "label": "D",
+            "text": "用 Ni(II)-丁二酮肟沉淀回答配体颜色变化题"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "本实验通过 KSCN、加水和加丙酮等条件比较 Co(II) 配合物颜色变化，核心就是不同配体环境的影响。",
+        "difficulty": "basic",
+        "status": "reviewed_polished",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-2059a278"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-5eaed5b5",
+          "candidate-3-c47ca8d9",
+          "candidate-4-e1fb1262"
+        ],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "fill_blank"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "省略原 CoCl₂ 溶液对照，只看最终颜色",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“Co(II)-SCN 配合物在水和丙酮条件下的颜色变化”点位的关键对象或条件：省略原 CoCl₂ 溶液对照，只看最终颜色。"
+          },
+          {
+            "label": "B",
+            "text": "本实验观察不同配体条件下 Co(II) 配合物的颜色变化。",
+            "point_key": "candidate-1-2059a278",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“Co(II)-SCN 配合物在水和丙酮条件下的颜色变化”点位：本实验观察不同配体条件下 Co(II) 配合物的颜色变化。"
+          },
+          {
+            "label": "C",
+            "text": "用 Fe(III)-SCN 血红色反应替代 Co(II)-SCN 蓝紫色反应",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“Co(II)-SCN 配合物在水和丙酮条件下的颜色变化”点位的关键对象或条件：用 Fe(III)-SCN 血红色反应替代 Co(II)-SCN 蓝紫色反应。"
+          },
+          {
+            "label": "D",
+            "text": "用 Ni(II)-丁二酮肟沉淀回答配体颜色变化题",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Co(II)-SCN 配合物在水和丙酮条件下的颜色变化”点位：用 Ni(II)-丁二酮肟沉淀回答配体颜色变化题。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00331_3f7cc41ff9"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_table_record_table_p224_t01_r071",
+            "textbook_table_record_table_p224_t01_r051"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical。有效题由实验原文支撑；其中颜色、配位、氧化还原或鉴定依据需最小引用 supporting theory：textbook_table_record_table_p224_t01_r071, textbook_table_record_table_p224_t01_r051。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00331_3f7cc41ff9"
+          ],
+          "supporting_theory_ids": [
+            "textbook_table_record_table_p224_t01_r071",
+            "textbook_table_record_table_p224_t01_r051"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_table_record_table_p224_t01_r071",
+            "textbook_table_record_table_p224_t01_r051"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-3-04 观察不同配体的 Co(II) 配合物的颜色》实验中，本实验观察不同____的 Co(II) 配合物颜色。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "配体"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "标题即不同配体。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00331_3f7cc41ff9"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-04 观察不同配体的 Co(II) 配合物的颜色》中，关于 Co(II)-SCN 配合物在水和丙酮条件下的颜色变化，哪项表述正确？",
+            "options": [
+              {
+                "label": "A",
+                "text": "省略原 CoCl₂ 溶液对照，只看最终颜色"
+              },
+              {
+                "label": "B",
+                "text": "本实验观察不同配体条件下 Co(II) 配合物的颜色变化。"
+              },
+              {
+                "label": "C",
+                "text": "用 Fe(III)-SCN 血红色反应替代 Co(II)-SCN 蓝紫色反应"
+              },
+              {
+                "label": "D",
+                "text": "用 Ni(II)-丁二酮肟沉淀回答配体颜色变化题"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "本实验通过 KSCN、加水和加丙酮等条件比较 Co(II) 配合物颜色变化，核心就是不同配体环境的影响。",
+            "difficulty": "basic",
+            "status": "reviewed_polished",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00331_3f7cc41ff9"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "requires_supporting_theory",
+            "generic_shell_rewritten"
+          ]
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_04_030",
+        "source_review_id": "CHK5_SEM_EXP_20_3_04_030",
+        "source_question_index": 30,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《20-3-04 观察不同配体的 Co(II) 配合物的颜色》中，关于 Co(II)-SCN 配合物在水和丙酮条件下的颜色变化，哪项表述正确？",
+        "options": [
+          {
+            "label": "A",
+            "text": "用 Fe(III)-SCN 血红色反应替代 Co(II)-SCN 蓝紫色反应"
+          },
+          {
+            "label": "B",
+            "text": "保留原溶液作为对照有助于比较颜色变化。"
+          },
+          {
+            "label": "C",
+            "text": "用 Ni(II)-丁二酮肟沉淀回答配体颜色变化题"
+          },
+          {
+            "label": "D",
+            "text": "把加水后的现象和加丙酮后的现象互换"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "以 CoCl₂ 原溶液为对照，才能比较加入 KSCN、蒸馏水或丙酮后的颜色变化。",
+        "difficulty": "basic",
+        "status": "reviewed_polished",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-5eaed5b5"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "fill_blank"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "用 Fe(III)-SCN 血红色反应替代 Co(II)-SCN 蓝紫色反应",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“Co(II)-SCN 配合物在水和丙酮条件下的颜色变化”点位的关键对象或条件：用 Fe(III)-SCN 血红色反应替代 Co(II)-SCN 蓝紫色反应。"
+          },
+          {
+            "label": "B",
+            "text": "保留原溶液作为对照有助于比较颜色变化。",
+            "point_key": "candidate-2-5eaed5b5",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“Co(II)-SCN 配合物在水和丙酮条件下的颜色变化”点位：保留原溶液作为对照有助于比较颜色变化。"
+          },
+          {
+            "label": "C",
+            "text": "用 Ni(II)-丁二酮肟沉淀回答配体颜色变化题",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Co(II)-SCN 配合物在水和丙酮条件下的颜色变化”点位：用 Ni(II)-丁二酮肟沉淀回答配体颜色变化题。"
+          },
+          {
+            "label": "D",
+            "text": "把加水后的现象和加丙酮后的现象互换",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Co(II)-SCN 配合物在水和丙酮条件下的颜色变化”点位：把加水后的现象和加丙酮后的现象互换。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00331_3f7cc41ff9"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00331_3f7cc41ff9"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-3-04 观察不同配体的 Co(II) 配合物的颜色》实验中，保留原溶液作为____有助于比较颜色变化。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "对照"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "实验记录列出原溶液作为对照。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00331_3f7cc41ff9"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-04 观察不同配体的 Co(II) 配合物的颜色》中，关于 Co(II)-SCN 配合物在水和丙酮条件下的颜色变化，哪项表述正确？",
+            "options": [
+              {
+                "label": "A",
+                "text": "用 Fe(III)-SCN 血红色反应替代 Co(II)-SCN 蓝紫色反应"
+              },
+              {
+                "label": "B",
+                "text": "保留原溶液作为对照有助于比较颜色变化。"
+              },
+              {
+                "label": "C",
+                "text": "用 Ni(II)-丁二酮肟沉淀回答配体颜色变化题"
+              },
+              {
+                "label": "D",
+                "text": "把加水后的现象和加丙酮后的现象互换"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "以 CoCl₂ 原溶液为对照，才能比较加入 KSCN、蒸馏水或丙酮后的颜色变化。",
+            "difficulty": "basic",
+            "status": "reviewed_polished",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00331_3f7cc41ff9"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "generic_shell_rewritten"
+          ]
+        }
+      }
+    ]
+  }
+}

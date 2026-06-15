@@ -1,0 +1,3712 @@
+{
+  "metadata": {
+    "version": "chunk-5-release-slim-v1",
+    "artifact_type": "slim_question_bank_work_file",
+    "generated_at": "2026-06-15T03:27:59.225537+00:00",
+    "source_file": "E:\\chemistry-admin\\artifacts\\point-aware-question-bank\\reviewed_old_bank_chunks\\chunk_5_release_final_v1.json",
+    "normalization_rule": "effective question plus minimal lineage, evidence IDs, point bindings, option links, evidence locators, and mechanical risk flags",
+    "evidence_policy": "RAG source text is not embedded; packets carry locators and reviewers must read E:/chemistry-rag/data/rag_ready directly",
+    "chunk_id_policy": "inherited chunk ids are untrusted locator candidates until manually compared with RAG text",
+    "semantic_status": "not_semantically_repaired_by_this_script",
+    "packet_type": "single_experiment_semantic_repair_work_packet",
+    "chunk": 5,
+    "experiment_code": "20-3-03",
+    "question_count": 30
+  },
+  "experiment": {
+    "experiment_id": "EXP_20_3_03",
+    "experiment_code": "20-3-03",
+    "experiment_title": "Cr(III) 的水合异构现象",
+    "chapter_bindings": [
+      {
+        "chapter_id": "CH20",
+        "coverage_type": "primary",
+        "sort_order": 1
+      }
+    ],
+    "video_points": [
+      {
+        "point_key": "candidate-1-80cf72b8",
+        "point_title": "加热 Cr(NO₃)₃ 溶液",
+        "source": null,
+        "candidate_index": null,
+        "resource_count": null,
+        "published_count": null,
+        "resource_titles": []
+      },
+      {
+        "point_key": "candidate-2-9d1424ba",
+        "point_title": "比较加热前后溶液颜色",
+        "source": null,
+        "candidate_index": null,
+        "resource_count": null,
+        "published_count": null,
+        "resource_titles": []
+      }
+    ],
+    "canonical_chunk_ids": [
+      "expchunk_protocol_4faa721af035",
+      "expchunk_00331_3f7cc41ff9"
+    ],
+    "evidence_lookup": {
+      "policy": "locator_only; canonical RAG text is not embedded in this packet",
+      "chunk_id_policy": "metadata chunk ids are inherited claims, not trusted evidence; reviewers must compare the RAG text against the question stem/options/answer/explanation and replace or remove wrong ids",
+      "primary_source_dir": "E:\\chemistry-rag\\data\\rag_ready",
+      "source_files": {
+        "experiment_chunks": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+        "supporting_theory_chunks": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl"
+      },
+      "search_hints": {
+        "experiment_code": "20-3-03",
+        "parent_experiment_code": "20-3",
+        "experiment_title": "Cr(III) 的水合异构现象",
+        "video_point_titles": [
+          "加热 Cr(NO₃)₃ 溶液",
+          "比较加热前后溶液颜色"
+        ],
+        "canonical_chunk_ids_from_metadata": [
+          "expchunk_00331_3f7cc41ff9",
+          "expchunk_protocol_4faa721af035"
+        ],
+        "supporting_theory_chunk_ids_from_metadata": [],
+        "suggested_search_patterns": [
+          "20-3-03",
+          "20-3",
+          "Cr(III) 的水合异构现象",
+          "加热 Cr(NO₃)₃ 溶液",
+          "比较加热前后溶液颜色",
+          "expchunk_00331_3f7cc41ff9",
+          "expchunk_protocol_4faa721af035"
+        ]
+      },
+      "rag_exact_id_presence": {
+        "meaning": "id presence only; this does not validate semantic relevance",
+        "found_ids": [
+          "expchunk_00331_3f7cc41ff9",
+          "expchunk_protocol_4faa721af035"
+        ],
+        "missing_ids": [],
+        "found_locator_summaries": [
+          {
+            "chunk_id": "expchunk_00331_3f7cc41ff9",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+            "line_number": 344,
+            "source_collection": "textbook_experiment_clean_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学实验（第四版）",
+            "page_start": 166,
+            "page_end": 166,
+            "section_path": [
+              "第7章 元素性质实验",
+              "实验 20-3 d 区元素化合物的性质（二）",
+              "（三）实验内容",
+              "2. 某些过渡金属元素离子的颜色变化"
+            ],
+            "content_type": "reaction",
+            "knowledge_unit": "reaction",
+            "parent_id": "expchunk_protocol_4faa721af035",
+            "prev_chunk_id": "expchunk_00330_3a60414cf4",
+            "next_chunk_id": "expchunk_00332_42b6908ee0",
+            "relations": {
+              "section_id": "expsec_cf45ceaf4c46c88c",
+              "experiment_id": "experiment:实验_20-3_d_区元素化合物的性质_二",
+              "page_anchor": "page_166",
+              "parent": "expchunk_protocol_4faa721af035"
+            }
+          },
+          {
+            "chunk_id": "expchunk_protocol_4faa721af035",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+            "line_number": 13,
+            "source_collection": "textbook_experiment_clean_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学实验（第四版）",
+            "page_start": 166,
+            "page_end": 168,
+            "section_path": [
+              "第7章",
+              "实验 20-3 d 区元素化合物的性质（二）"
+            ],
+            "content_type": "experiment_protocol",
+            "knowledge_unit": "experiment_protocol",
+            "parent_id": null,
+            "prev_chunk_id": "expchunk_protocol_721ef1f8d319",
+            "next_chunk_id": "expchunk_00001_5bbbf409d4",
+            "relations": {
+              "protocol_id": "experiment:实验_20-3_d_区元素化合物的性质_二",
+              "children": [
+                "expsec_3f275559bf77e0d1",
+                "expsec_046f0d51cde14eb6",
+                "expsec_b801e9192187f120",
+                "expsec_e3c2c8b9d23f7f73",
+                "expsec_6cdc713d5495da94",
+                "expsec_cf45ceaf4c46c88c",
+                "expsec_45a51870395ff8dd",
+                "expsec_aa6882611823c3bd",
+                "expsec_269f9734072225be",
+                "expsec_6d78bbfd0a5a924b",
+                "expsec_c88494496fe0a91d",
+                "expsec_11d70d295d8d7937"
+              ],
+              "parent": null
+            }
+          }
+        ]
+      },
+      "legacy_locator_summaries": [
+        {
+          "chunk_id": "expchunk_00331_3f7cc41ff9",
+          "source_file": "无机化学实验（第四版）",
+          "book_title": "无机化学实验（第四版）",
+          "document_id": "DOC_CANONICAL_EXPERIMENT_V1",
+          "source_collection": "textbook_experiment_clean_v1",
+          "source_role": "canonical_textbook",
+          "content_type": "reaction",
+          "chapter_id": null,
+          "page_number": 166,
+          "section_title": "实验 20-3 d 区元素化合物的性质（二） / （三）实验内容 / 2. 某些过渡金属元素离子的颜色变化",
+          "section_path": [
+            "第7章 元素性质实验",
+            "实验 20-3 d 区元素化合物的性质（二）",
+            "（三）实验内容",
+            "2. 某些过渡金属元素离子的颜色变化"
+          ]
+        },
+        {
+          "chunk_id": "expchunk_protocol_4faa721af035",
+          "source_file": "无机化学实验（第四版）",
+          "book_title": "无机化学实验（第四版）",
+          "document_id": "DOC_CANONICAL_EXPERIMENT_V1",
+          "source_collection": "textbook_experiment_clean_v1",
+          "source_role": "canonical_textbook",
+          "content_type": "experiment_protocol",
+          "chapter_id": null,
+          "page_number": 166,
+          "section_title": "第7章 / 实验 20-3 d 区元素化合物的性质（二）",
+          "section_path": [
+            "第7章",
+            "实验 20-3 d 区元素化合物的性质（二）"
+          ]
+        }
+      ],
+      "legacy_missing_ids": []
+    },
+    "questions": [
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_03_001",
+        "source_review_id": "CHK5_SEM_EXP_20_3_03_001",
+        "source_question_index": 1,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-3-03 Cr(III) 的水合异构现象》实验中，该实验观察水合异构现象的金属离子是哪一种？",
+        "options": [
+          {
+            "label": "A",
+            "text": "Co(II)"
+          },
+          {
+            "label": "B",
+            "text": "Ni(II)"
+          },
+          {
+            "label": "C",
+            "text": "Cr(III)"
+          },
+          {
+            "label": "D",
+            "text": "V(V)"
+          }
+        ],
+        "answer": {
+          "value": "C"
+        },
+        "explanation": "标题为 Cr(III) 的水合异构现象。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-80cf72b8"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "single_choice"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "Co(II)",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Cr(NO₃)₃ 加热前后的 Cr(III) 水合异构现象”点位：Co(II)。"
+          },
+          {
+            "label": "B",
+            "text": "Ni(II)",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Cr(NO₃)₃ 加热前后的 Cr(III) 水合异构现象”点位：Ni(II)。"
+          },
+          {
+            "label": "C",
+            "text": "Cr(III)",
+            "point_key": "candidate-1-80cf72b8",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“Cr(NO₃)₃ 加热前后的 Cr(III) 水合异构现象”点位：Cr(III)。"
+          },
+          {
+            "label": "D",
+            "text": "V(V)",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Cr(NO₃)₃ 加热前后的 Cr(III) 水合异构现象”点位：V(V)。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00331_3f7cc41ff9",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00331_3f7cc41ff9",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-03 Cr(III) 的水合异构现象》实验中，该实验观察水合异构现象的金属离子是哪一种？",
+            "options": [
+              {
+                "label": "A",
+                "text": "Co(II)"
+              },
+              {
+                "label": "B",
+                "text": "Ni(II)"
+              },
+              {
+                "label": "C",
+                "text": "Cr(III)"
+              },
+              {
+                "label": "D",
+                "text": "V(V)"
+              }
+            ],
+            "answer": {
+              "value": "C"
+            },
+            "explanation": "标题为 Cr(III) 的水合异构现象。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00331_3f7cc41ff9",
+              "expchunk_protocol_4faa721af035"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_03_002",
+        "source_review_id": "CHK5_SEM_EXP_20_3_03_002",
+        "source_question_index": 2,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-3-03 Cr(III) 的水合异构现象》实验中，用于观察 Cr(III) 水合异构的溶液是哪一种？",
+        "options": [
+          {
+            "label": "A",
+            "text": "Cr₂(SO₄)₃ 加 Na₂CO₃"
+          },
+          {
+            "label": "B",
+            "text": "K₂CrO₄"
+          },
+          {
+            "label": "C",
+            "text": "CoCl₂"
+          },
+          {
+            "label": "D",
+            "text": "Cr(NO₃)₃"
+          }
+        ],
+        "answer": {
+          "value": "D"
+        },
+        "explanation": "原文指定 Cr(NO₃)₃ 溶液。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-80cf72b8"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "single_choice"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "Cr₂(SO₄)₃ 加 Na₂CO₃",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Cr(NO₃)₃ 加热前后的 Cr(III) 水合异构现象”点位：Cr₂(SO₄)₃ 加 Na₂CO₃。"
+          },
+          {
+            "label": "B",
+            "text": "K₂CrO₄",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Cr(NO₃)₃ 加热前后的 Cr(III) 水合异构现象”点位：K₂CrO₄。"
+          },
+          {
+            "label": "C",
+            "text": "CoCl₂",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Cr(NO₃)₃ 加热前后的 Cr(III) 水合异构现象”点位：CoCl₂。"
+          },
+          {
+            "label": "D",
+            "text": "Cr(NO₃)₃",
+            "point_key": "candidate-1-80cf72b8",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“Cr(NO₃)₃ 加热前后的 Cr(III) 水合异构现象”点位：Cr(NO₃)₃。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00331_3f7cc41ff9",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00331_3f7cc41ff9",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-03 Cr(III) 的水合异构现象》实验中，用于观察 Cr(III) 水合异构的溶液是哪一种？",
+            "options": [
+              {
+                "label": "A",
+                "text": "Cr₂(SO₄)₃ 加 Na₂CO₃"
+              },
+              {
+                "label": "B",
+                "text": "K₂CrO₄"
+              },
+              {
+                "label": "C",
+                "text": "CoCl₂"
+              },
+              {
+                "label": "D",
+                "text": "Cr(NO₃)₃"
+              }
+            ],
+            "answer": {
+              "value": "D"
+            },
+            "explanation": "原文指定 Cr(NO₃)₃ 溶液。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00331_3f7cc41ff9",
+              "expchunk_protocol_4faa721af035"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_03_003",
+        "source_review_id": "CHK5_SEM_EXP_20_3_03_003",
+        "source_question_index": 3,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-3-03 Cr(III) 的水合异构现象》实验中，引发 Cr(III) 水合异构变化的主要操作是什么？",
+        "options": [
+          {
+            "label": "A",
+            "text": "加热溶液"
+          },
+          {
+            "label": "B",
+            "text": "加入金属汞"
+          },
+          {
+            "label": "C",
+            "text": "用乙醚萃取"
+          },
+          {
+            "label": "D",
+            "text": "通入 SO₂"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "步骤要求加热并比较加热前后颜色。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-80cf72b8"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "single_choice"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "加热溶液",
+            "point_key": "candidate-1-80cf72b8",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“Cr(NO₃)₃ 加热前后的 Cr(III) 水合异构现象”点位：加热溶液。"
+          },
+          {
+            "label": "B",
+            "text": "加入金属汞",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Cr(NO₃)₃ 加热前后的 Cr(III) 水合异构现象”点位：加入金属汞。"
+          },
+          {
+            "label": "C",
+            "text": "用乙醚萃取",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Cr(NO₃)₃ 加热前后的 Cr(III) 水合异构现象”点位：用乙醚萃取。"
+          },
+          {
+            "label": "D",
+            "text": "通入 SO₂",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Cr(NO₃)₃ 加热前后的 Cr(III) 水合异构现象”点位：通入 SO₂。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00331_3f7cc41ff9",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00331_3f7cc41ff9",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-03 Cr(III) 的水合异构现象》实验中，引发 Cr(III) 水合异构变化的主要操作是什么？",
+            "options": [
+              {
+                "label": "A",
+                "text": "加热溶液"
+              },
+              {
+                "label": "B",
+                "text": "加入金属汞"
+              },
+              {
+                "label": "C",
+                "text": "用乙醚萃取"
+              },
+              {
+                "label": "D",
+                "text": "通入 SO₂"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "步骤要求加热并比较加热前后颜色。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00331_3f7cc41ff9",
+              "expchunk_protocol_4faa721af035"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_03_004",
+        "source_review_id": "CHK5_SEM_EXP_20_3_03_004",
+        "source_question_index": 4,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-3-03 Cr(III) 的水合异构现象》实验中，该实验主要比较加热前后溶液的什么变化？",
+        "options": [
+          {
+            "label": "A",
+            "text": "质量变化"
+          },
+          {
+            "label": "B",
+            "text": "颜色变化"
+          },
+          {
+            "label": "C",
+            "text": "沸点变化"
+          },
+          {
+            "label": "D",
+            "text": "折射率变化"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "实验资料明确要求观察颜色变化。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-9d1424ba"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "single_choice"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "质量变化",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Cr(NO₃)₃ 加热前后的 Cr(III) 水合异构现象”点位：质量变化。"
+          },
+          {
+            "label": "B",
+            "text": "颜色变化",
+            "point_key": "candidate-2-9d1424ba",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“Cr(NO₃)₃ 加热前后的 Cr(III) 水合异构现象”点位：颜色变化。"
+          },
+          {
+            "label": "C",
+            "text": "沸点变化",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Cr(NO₃)₃ 加热前后的 Cr(III) 水合异构现象”点位：沸点变化。"
+          },
+          {
+            "label": "D",
+            "text": "折射率变化",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Cr(NO₃)₃ 加热前后的 Cr(III) 水合异构现象”点位：折射率变化。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00331_3f7cc41ff9",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00331_3f7cc41ff9",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-03 Cr(III) 的水合异构现象》实验中，该实验主要比较加热前后溶液的什么变化？",
+            "options": [
+              {
+                "label": "A",
+                "text": "质量变化"
+              },
+              {
+                "label": "B",
+                "text": "颜色变化"
+              },
+              {
+                "label": "C",
+                "text": "沸点变化"
+              },
+              {
+                "label": "D",
+                "text": "折射率变化"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "实验资料明确要求观察颜色变化。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00331_3f7cc41ff9",
+              "expchunk_protocol_4faa721af035"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_03_005",
+        "source_review_id": "CHK5_SEM_EXP_20_3_03_005",
+        "source_question_index": 5,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-3-03 Cr(III) 的水合异构现象》实验中，方程式中加热前的外界硝酸盐配合物是哪一种？",
+        "options": [
+          {
+            "label": "A",
+            "text": "[Co(SCN)₄]²⁻"
+          },
+          {
+            "label": "B",
+            "text": "Ni(dmg)₂"
+          },
+          {
+            "label": "C",
+            "text": "[Cr(H₂O)₆](NO₃)₃"
+          },
+          {
+            "label": "D",
+            "text": "[Ag(NH₃)₂]⁺"
+          }
+        ],
+        "answer": {
+          "value": "C"
+        },
+        "explanation": "原文给出该水合铬(III)硝酸盐。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-80cf72b8"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-9d1424ba"
+        ],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "single_choice"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "[Co(SCN)₄]²⁻",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Cr(NO₃)₃ 加热前后的 Cr(III) 水合异构现象”点位：[Co(SCN)₄]²⁻。"
+          },
+          {
+            "label": "B",
+            "text": "Ni(dmg)₂",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Cr(NO₃)₃ 加热前后的 Cr(III) 水合异构现象”点位：Ni(dmg)₂。"
+          },
+          {
+            "label": "C",
+            "text": "[Cr(H₂O)₆](NO₃)₃",
+            "point_key": "candidate-1-80cf72b8",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“Cr(NO₃)₃ 加热前后的 Cr(III) 水合异构现象”点位：[Cr(H₂O)₆](NO₃)₃。"
+          },
+          {
+            "label": "D",
+            "text": "[Ag(NH₃)₂]⁺",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Cr(NO₃)₃ 加热前后的 Cr(III) 水合异构现象”点位：[Ag(NH₃)₂]⁺。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00331_3f7cc41ff9",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00331_3f7cc41ff9",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-03 Cr(III) 的水合异构现象》实验中，方程式中加热前的外界硝酸盐配合物是哪一种？",
+            "options": [
+              {
+                "label": "A",
+                "text": "[Co(SCN)₄]²⁻"
+              },
+              {
+                "label": "B",
+                "text": "Ni(dmg)₂"
+              },
+              {
+                "label": "C",
+                "text": "[Cr(H₂O)₆](NO₃)₃"
+              },
+              {
+                "label": "D",
+                "text": "[Ag(NH₃)₂]⁺"
+              }
+            ],
+            "answer": {
+              "value": "C"
+            },
+            "explanation": "原文给出该水合铬(III)硝酸盐。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00331_3f7cc41ff9",
+              "expchunk_protocol_4faa721af035"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_03_006",
+        "source_review_id": "CHK5_SEM_EXP_20_3_03_006",
+        "source_question_index": 6,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-3-03 Cr(III) 的水合异构现象》实验中，方程式中加热后硝酸根进入内界的物种是哪一种？",
+        "options": [
+          {
+            "label": "A",
+            "text": "[Cr(H₂O)₆](NO₃)₃"
+          },
+          {
+            "label": "B",
+            "text": "[Co(H₂O)₆]²⁺"
+          },
+          {
+            "label": "C",
+            "text": "CrO₄²⁻"
+          },
+          {
+            "label": "D",
+            "text": "[Cr(H₂O)₅NO₃](NO₃)₂"
+          }
+        ],
+        "answer": {
+          "value": "D"
+        },
+        "explanation": "原文方程式列出该物种。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-80cf72b8"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-9d1424ba"
+        ],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "single_choice"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "[Cr(H₂O)₆](NO₃)₃",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Cr(NO₃)₃ 加热前后的 Cr(III) 水合异构现象”点位：[Cr(H₂O)₆](NO₃)₃。"
+          },
+          {
+            "label": "B",
+            "text": "[Co(H₂O)₆]²⁺",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Cr(NO₃)₃ 加热前后的 Cr(III) 水合异构现象”点位：[Co(H₂O)₆]²⁺。"
+          },
+          {
+            "label": "C",
+            "text": "CrO₄²⁻",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Cr(NO₃)₃ 加热前后的 Cr(III) 水合异构现象”点位：CrO₄²⁻。"
+          },
+          {
+            "label": "D",
+            "text": "[Cr(H₂O)₅NO₃](NO₃)₂",
+            "point_key": "candidate-1-80cf72b8",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“Cr(NO₃)₃ 加热前后的 Cr(III) 水合异构现象”点位：[Cr(H₂O)₅NO₃](NO₃)₂。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00331_3f7cc41ff9",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00331_3f7cc41ff9",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-03 Cr(III) 的水合异构现象》实验中，方程式中加热后硝酸根进入内界的物种是哪一种？",
+            "options": [
+              {
+                "label": "A",
+                "text": "[Cr(H₂O)₆](NO₃)₃"
+              },
+              {
+                "label": "B",
+                "text": "[Co(H₂O)₆]²⁺"
+              },
+              {
+                "label": "C",
+                "text": "CrO₄²⁻"
+              },
+              {
+                "label": "D",
+                "text": "[Cr(H₂O)₅NO₃](NO₃)₂"
+              }
+            ],
+            "answer": {
+              "value": "D"
+            },
+            "explanation": "原文方程式列出该物种。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00331_3f7cc41ff9",
+              "expchunk_protocol_4faa721af035"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_03_007",
+        "source_review_id": "CHK5_SEM_EXP_20_3_03_007",
+        "source_question_index": 7,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-3-03 Cr(III) 的水合异构现象》实验中，方程式上方标注“热/冷”说明该变化具有什么特点？",
+        "options": [
+          {
+            "label": "A",
+            "text": "受温度影响并可逆"
+          },
+          {
+            "label": "B",
+            "text": "完全不可逆"
+          },
+          {
+            "label": "C",
+            "text": "只在强碱中发生"
+          },
+          {
+            "label": "D",
+            "text": "只由 AgNO₃ 引发"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "加热和冷却可推动不同水合异构体间转化。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-80cf72b8"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-9d1424ba"
+        ],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "single_choice"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "受温度影响并可逆",
+            "point_key": "candidate-1-80cf72b8",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“Cr(NO₃)₃ 加热前后的 Cr(III) 水合异构现象”点位：受温度影响并可逆。"
+          },
+          {
+            "label": "B",
+            "text": "完全不可逆",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Cr(NO₃)₃ 加热前后的 Cr(III) 水合异构现象”点位：完全不可逆。"
+          },
+          {
+            "label": "C",
+            "text": "只在强碱中发生",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Cr(NO₃)₃ 加热前后的 Cr(III) 水合异构现象”点位：只在强碱中发生。"
+          },
+          {
+            "label": "D",
+            "text": "只由 AgNO₃ 引发",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Cr(NO₃)₃ 加热前后的 Cr(III) 水合异构现象”点位：只由 AgNO₃ 引发。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00331_3f7cc41ff9",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00331_3f7cc41ff9",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-03 Cr(III) 的水合异构现象》实验中，方程式上方标注“热/冷”说明该变化具有什么特点？",
+            "options": [
+              {
+                "label": "A",
+                "text": "受温度影响并可逆"
+              },
+              {
+                "label": "B",
+                "text": "完全不可逆"
+              },
+              {
+                "label": "C",
+                "text": "只在强碱中发生"
+              },
+              {
+                "label": "D",
+                "text": "只由 AgNO₃ 引发"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "加热和冷却可推动不同水合异构体间转化。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00331_3f7cc41ff9",
+              "expchunk_protocol_4faa721af035"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_03_008",
+        "source_review_id": "CHK5_SEM_EXP_20_3_03_008",
+        "source_question_index": 8,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-3-03 Cr(III) 的水合异构现象》实验中，该水合异构变化的核心是哪种配体进入 Cr(III) 的内配位层？",
+        "options": [
+          {
+            "label": "A",
+            "text": "SCN⁻"
+          },
+          {
+            "label": "B",
+            "text": "NO₃⁻"
+          },
+          {
+            "label": "C",
+            "text": "NH₃"
+          },
+          {
+            "label": "D",
+            "text": "Cl⁻"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "产物含 [Cr(H₂O)₅NO₃]，说明硝酸根进入内界。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-80cf72b8"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-9d1424ba"
+        ],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "single_choice"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "SCN⁻",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Cr(NO₃)₃ 加热前后的 Cr(III) 水合异构现象”点位：SCN⁻。"
+          },
+          {
+            "label": "B",
+            "text": "NO₃⁻",
+            "point_key": "candidate-1-80cf72b8",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“Cr(NO₃)₃ 加热前后的 Cr(III) 水合异构现象”点位：NO₃⁻。"
+          },
+          {
+            "label": "C",
+            "text": "NH₃",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Cr(NO₃)₃ 加热前后的 Cr(III) 水合异构现象”点位：NH₃。"
+          },
+          {
+            "label": "D",
+            "text": "Cl⁻",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Cr(NO₃)₃ 加热前后的 Cr(III) 水合异构现象”点位：Cl⁻。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00331_3f7cc41ff9",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00331_3f7cc41ff9",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-03 Cr(III) 的水合异构现象》实验中，该水合异构变化的核心是哪种配体进入 Cr(III) 的内配位层？",
+            "options": [
+              {
+                "label": "A",
+                "text": "SCN⁻"
+              },
+              {
+                "label": "B",
+                "text": "NO₃⁻"
+              },
+              {
+                "label": "C",
+                "text": "NH₃"
+              },
+              {
+                "label": "D",
+                "text": "Cl⁻"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "产物含 [Cr(H₂O)₅NO₃]，说明硝酸根进入内界。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00331_3f7cc41ff9",
+              "expchunk_protocol_4faa721af035"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_03_009",
+        "source_review_id": "CHK5_SEM_EXP_20_3_03_009",
+        "source_question_index": 9,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-3-03 Cr(III) 的水合异构现象》实验中，从 [Cr(H₂O)₆] 到 [Cr(H₂O)₅NO₃] 的变化中，内界少了一个什么配体？",
+        "options": [
+          {
+            "label": "A",
+            "text": "NH₃"
+          },
+          {
+            "label": "B",
+            "text": "CO"
+          },
+          {
+            "label": "C",
+            "text": "H₂O"
+          },
+          {
+            "label": "D",
+            "text": "CCl₄"
+          }
+        ],
+        "answer": {
+          "value": "C"
+        },
+        "explanation": "一个水配体被硝酸根取代。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-80cf72b8"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-9d1424ba"
+        ],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "single_choice"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "NH₃",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Cr(NO₃)₃ 加热前后的 Cr(III) 水合异构现象”点位：NH₃。"
+          },
+          {
+            "label": "B",
+            "text": "CO",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Cr(NO₃)₃ 加热前后的 Cr(III) 水合异构现象”点位：CO。"
+          },
+          {
+            "label": "C",
+            "text": "H₂O",
+            "point_key": "candidate-1-80cf72b8",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“Cr(NO₃)₃ 加热前后的 Cr(III) 水合异构现象”点位：H₂O。"
+          },
+          {
+            "label": "D",
+            "text": "CCl₄",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Cr(NO₃)₃ 加热前后的 Cr(III) 水合异构现象”点位：CCl₄。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00331_3f7cc41ff9",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00331_3f7cc41ff9",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-03 Cr(III) 的水合异构现象》实验中，从 [Cr(H₂O)₆] 到 [Cr(H₂O)₅NO₃] 的变化中，内界少了一个什么配体？",
+            "options": [
+              {
+                "label": "A",
+                "text": "NH₃"
+              },
+              {
+                "label": "B",
+                "text": "CO"
+              },
+              {
+                "label": "C",
+                "text": "H₂O"
+              },
+              {
+                "label": "D",
+                "text": "CCl₄"
+              }
+            ],
+            "answer": {
+              "value": "C"
+            },
+            "explanation": "一个水配体被硝酸根取代。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00331_3f7cc41ff9",
+              "expchunk_protocol_4faa721af035"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_03_010",
+        "source_review_id": "CHK5_SEM_EXP_20_3_03_010",
+        "source_question_index": 10,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-3-03 Cr(III) 的水合异构现象》实验中，若加热 Cr(NO₃)₃ 后颜色改变，最直接说明了什么？",
+        "options": [
+          {
+            "label": "A",
+            "text": "Cr 完全变成金属单质"
+          },
+          {
+            "label": "B",
+            "text": "硝酸盐热分解已完成"
+          },
+          {
+            "label": "C",
+            "text": "生成了 Cl₂"
+          },
+          {
+            "label": "D",
+            "text": "Cr(III) 配位环境发生变化"
+          }
+        ],
+        "answer": {
+          "value": "D"
+        },
+        "explanation": "过渡金属配位环境变化常引起颜色改变。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-9d1424ba"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "single_choice"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "Cr 完全变成金属单质",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Cr(NO₃)₃ 加热前后的 Cr(III) 水合异构现象”点位：Cr 完全变成金属单质。"
+          },
+          {
+            "label": "B",
+            "text": "硝酸盐热分解已完成",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Cr(NO₃)₃ 加热前后的 Cr(III) 水合异构现象”点位：硝酸盐热分解已完成。"
+          },
+          {
+            "label": "C",
+            "text": "生成了 Cl₂",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Cr(NO₃)₃ 加热前后的 Cr(III) 水合异构现象”点位：生成了 Cl₂。"
+          },
+          {
+            "label": "D",
+            "text": "Cr(III) 配位环境发生变化",
+            "point_key": "candidate-2-9d1424ba",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“Cr(NO₃)₃ 加热前后的 Cr(III) 水合异构现象”点位：Cr(III) 配位环境发生变化。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00331_3f7cc41ff9",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00331_3f7cc41ff9",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-03 Cr(III) 的水合异构现象》实验中，若加热 Cr(NO₃)₃ 后颜色改变，最直接说明了什么？",
+            "options": [
+              {
+                "label": "A",
+                "text": "Cr 完全变成金属单质"
+              },
+              {
+                "label": "B",
+                "text": "硝酸盐热分解已完成"
+              },
+              {
+                "label": "C",
+                "text": "生成了 Cl₂"
+              },
+              {
+                "label": "D",
+                "text": "Cr(III) 配位环境发生变化"
+              }
+            ],
+            "answer": {
+              "value": "D"
+            },
+            "explanation": "过渡金属配位环境变化常引起颜色改变。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00331_3f7cc41ff9",
+              "expchunk_protocol_4faa721af035"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_03_011",
+        "source_review_id": "CHK5_SEM_EXP_20_3_03_011",
+        "source_question_index": 11,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《20-3-03 Cr(III) 的水合异构现象》实验中，判断：实验对象为“Cr(III)”。",
+        "options": [],
+        "answer": {
+          "value": true
+        },
+        "explanation": "标题为 Cr(III) 的水合异构现象。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-80cf72b8"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "true_false"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00331_3f7cc41ff9",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00331_3f7cc41ff9",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-3-03 Cr(III) 的水合异构现象》实验中，判断：实验对象为“Cr(III)”。",
+            "options": [],
+            "answer": {
+              "value": true
+            },
+            "explanation": "标题为 Cr(III) 的水合异构现象。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00331_3f7cc41ff9",
+              "expchunk_protocol_4faa721af035"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_03_012",
+        "source_review_id": "CHK5_SEM_EXP_20_3_03_012",
+        "source_question_index": 12,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《20-3-03 Cr(III) 的水合异构现象》实验中，判断：起始试剂为“Cr₂(SO₄)₃ 加 Na₂CO₃”。",
+        "options": [],
+        "answer": {
+          "value": false
+        },
+        "explanation": "该说法与本实验事实不符；原文指定 Cr(NO₃)₃ 溶液。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-80cf72b8"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "true_false"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00331_3f7cc41ff9",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00331_3f7cc41ff9",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-3-03 Cr(III) 的水合异构现象》实验中，判断：起始试剂为“Cr₂(SO₄)₃ 加 Na₂CO₃”。",
+            "options": [],
+            "answer": {
+              "value": false
+            },
+            "explanation": "该说法与本实验事实不符；原文指定 Cr(NO₃)₃ 溶液。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00331_3f7cc41ff9",
+              "expchunk_protocol_4faa721af035"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_03_013",
+        "source_review_id": "CHK5_SEM_EXP_20_3_03_013",
+        "source_question_index": 13,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《20-3-03 Cr(III) 的水合异构现象》实验中，判断：操作方式为“加热溶液”。",
+        "options": [],
+        "answer": {
+          "value": true
+        },
+        "explanation": "步骤要求加热并比较加热前后颜色。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-80cf72b8"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "true_false"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00331_3f7cc41ff9",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00331_3f7cc41ff9",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-3-03 Cr(III) 的水合异构现象》实验中，判断：操作方式为“加热溶液”。",
+            "options": [],
+            "answer": {
+              "value": true
+            },
+            "explanation": "步骤要求加热并比较加热前后颜色。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00331_3f7cc41ff9",
+              "expchunk_protocol_4faa721af035"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_03_014",
+        "source_review_id": "CHK5_SEM_EXP_20_3_03_014",
+        "source_question_index": 14,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《20-3-03 Cr(III) 的水合异构现象》实验中，判断：观察指标为“质量变化”。",
+        "options": [],
+        "answer": {
+          "value": false
+        },
+        "explanation": "该说法与本实验事实不符；实验资料明确要求观察颜色变化。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-9d1424ba"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "true_false"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00331_3f7cc41ff9",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00331_3f7cc41ff9",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-3-03 Cr(III) 的水合异构现象》实验中，判断：观察指标为“质量变化”。",
+            "options": [],
+            "answer": {
+              "value": false
+            },
+            "explanation": "该说法与本实验事实不符；实验资料明确要求观察颜色变化。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00331_3f7cc41ff9",
+              "expchunk_protocol_4faa721af035"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_03_015",
+        "source_review_id": "CHK5_SEM_EXP_20_3_03_015",
+        "source_question_index": 15,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《20-3-03 Cr(III) 的水合异构现象》实验中，判断：初始配合物为“[Cr(H₂O)₆](NO₃)₃”。",
+        "options": [],
+        "answer": {
+          "value": true
+        },
+        "explanation": "原文给出该水合铬(III)硝酸盐。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-80cf72b8"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "true_false"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00331_3f7cc41ff9",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00331_3f7cc41ff9",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-3-03 Cr(III) 的水合异构现象》实验中，判断：初始配合物为“[Cr(H₂O)₆](NO₃)₃”。",
+            "options": [],
+            "answer": {
+              "value": true
+            },
+            "explanation": "原文给出该水合铬(III)硝酸盐。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00331_3f7cc41ff9",
+              "expchunk_protocol_4faa721af035"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_03_016",
+        "source_review_id": "CHK5_SEM_EXP_20_3_03_016",
+        "source_question_index": 16,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《20-3-03 Cr(III) 的水合异构现象》实验中，判断：加热产物为“[Cr(H₂O)₆](NO₃)₃”。",
+        "options": [],
+        "answer": {
+          "value": false
+        },
+        "explanation": "该说法与本实验事实不符；原文方程式列出该物种。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-80cf72b8"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-9d1424ba"
+        ],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "true_false"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00331_3f7cc41ff9",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00331_3f7cc41ff9",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-3-03 Cr(III) 的水合异构现象》实验中，判断：加热产物为“[Cr(H₂O)₆](NO₃)₃”。",
+            "options": [],
+            "answer": {
+              "value": false
+            },
+            "explanation": "该说法与本实验事实不符；原文方程式列出该物种。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00331_3f7cc41ff9",
+              "expchunk_protocol_4faa721af035"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_03_017",
+        "source_review_id": "CHK5_SEM_EXP_20_3_03_017",
+        "source_question_index": 17,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《20-3-03 Cr(III) 的水合异构现象》实验中，判断：可逆性为“受温度影响并可逆”。",
+        "options": [],
+        "answer": {
+          "value": true
+        },
+        "explanation": "加热和冷却可推动不同水合异构体间转化。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-80cf72b8"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-9d1424ba"
+        ],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "true_false"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00331_3f7cc41ff9",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00331_3f7cc41ff9",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-3-03 Cr(III) 的水合异构现象》实验中，判断：可逆性为“受温度影响并可逆”。",
+            "options": [],
+            "answer": {
+              "value": true
+            },
+            "explanation": "加热和冷却可推动不同水合异构体间转化。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00331_3f7cc41ff9",
+              "expchunk_protocol_4faa721af035"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_03_018",
+        "source_review_id": "CHK5_SEM_EXP_20_3_03_018",
+        "source_question_index": 18,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《20-3-03 Cr(III) 的水合异构现象》实验中，判断：内界变化为“SCN⁻”。",
+        "options": [],
+        "answer": {
+          "value": false
+        },
+        "explanation": "该说法与本实验事实不符；产物含 [Cr(H₂O)₅NO₃]，说明硝酸根进入内界。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-80cf72b8"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-9d1424ba"
+        ],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "true_false"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00331_3f7cc41ff9",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00331_3f7cc41ff9",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-3-03 Cr(III) 的水合异构现象》实验中，判断：内界变化为“SCN⁻”。",
+            "options": [],
+            "answer": {
+              "value": false
+            },
+            "explanation": "该说法与本实验事实不符；产物含 [Cr(H₂O)₅NO₃]，说明硝酸根进入内界。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00331_3f7cc41ff9",
+              "expchunk_protocol_4faa721af035"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_03_019",
+        "source_review_id": "CHK5_SEM_EXP_20_3_03_019",
+        "source_question_index": 19,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《20-3-03 Cr(III) 的水合异构现象》实验中，判断：水分子变化为“H₂O”。",
+        "options": [],
+        "answer": {
+          "value": true
+        },
+        "explanation": "一个水配体被硝酸根取代。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-80cf72b8"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-9d1424ba"
+        ],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "true_false"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00331_3f7cc41ff9",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00331_3f7cc41ff9",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-3-03 Cr(III) 的水合异构现象》实验中，判断：水分子变化为“H₂O”。",
+            "options": [],
+            "answer": {
+              "value": true
+            },
+            "explanation": "一个水配体被硝酸根取代。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00331_3f7cc41ff9",
+              "expchunk_protocol_4faa721af035"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_03_020",
+        "source_review_id": "CHK5_SEM_EXP_20_3_03_020",
+        "source_question_index": 20,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《20-3-03 Cr(III) 的水合异构现象》实验中，判断：实验结论为“Cr 完全变成金属单质”。",
+        "options": [],
+        "answer": {
+          "value": false
+        },
+        "explanation": "该说法与本实验事实不符；过渡金属配位环境变化常引起颜色改变。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-9d1424ba"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "true_false"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00331_3f7cc41ff9",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00331_3f7cc41ff9",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-3-03 Cr(III) 的水合异构现象》实验中，判断：实验结论为“Cr 完全变成金属单质”。",
+            "options": [],
+            "answer": {
+              "value": false
+            },
+            "explanation": "该说法与本实验事实不符；过渡金属配位环境变化常引起颜色改变。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00331_3f7cc41ff9",
+              "expchunk_protocol_4faa721af035"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_03_021",
+        "source_review_id": "CHK5_SEM_EXP_20_3_03_021",
+        "source_question_index": 21,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《20-3-03 Cr(III) 的水合异构现象》中，关于 Cr(NO₃)₃ 加热前后的 Cr(III) 水合异构现象，哪项表述正确？",
+        "options": [
+          {
+            "label": "A",
+            "text": "把 CoCl₂ 与 KSCN 的蓝紫色反应当作本题现象"
+          },
+          {
+            "label": "B",
+            "text": "加热 Cr(NO₃)₃ 溶液并比较前后颜色变化，可观察 Cr(III) 的水合异构现象。"
+          },
+          {
+            "label": "C",
+            "text": "跳过加热步骤直接按标题判断"
+          },
+          {
+            "label": "D",
+            "text": "用 Ni(II)-丁二酮肟红色沉淀替代水合异构观察"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "加热 Cr(NO₃)₃ 溶液并比较前后颜色变化，是观察 Cr(III) 水合异构现象的实验依据。",
+        "difficulty": "basic",
+        "status": "reviewed_polished",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-80cf72b8"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "fill_blank"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "把 CoCl₂ 与 KSCN 的蓝紫色反应当作本题现象",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Cr(NO₃)₃ 加热前后的 Cr(III) 水合异构现象”点位：把 CoCl₂ 与 KSCN 的蓝紫色反应当作本题现象。"
+          },
+          {
+            "label": "B",
+            "text": "加热 Cr(NO₃)₃ 溶液并比较前后颜色变化，可观察 Cr(III) 的水合异构现象。",
+            "point_key": "candidate-1-80cf72b8",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“Cr(NO₃)₃ 加热前后的 Cr(III) 水合异构现象”点位：加热 Cr(NO₃)₃ 溶液并比较前后颜色变化，可观察 Cr(III) 的水合异构现象。"
+          },
+          {
+            "label": "C",
+            "text": "跳过加热步骤直接按标题判断",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“Cr(NO₃)₃ 加热前后的 Cr(III) 水合异构现象”点位的关键对象或条件：跳过加热步骤直接按标题判断。"
+          },
+          {
+            "label": "D",
+            "text": "用 Ni(II)-丁二酮肟红色沉淀替代水合异构观察",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“Cr(NO₃)₃ 加热前后的 Cr(III) 水合异构现象”点位的关键对象或条件：用 Ni(II)-丁二酮肟红色沉淀替代水合异构观察。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00331_3f7cc41ff9",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00331_3f7cc41ff9",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-3-03 Cr(III) 的水合异构现象》实验中，该实验观察____的水合异构现象。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "Cr(III)"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "标题为 Cr(III) 的水合异构现象。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00331_3f7cc41ff9",
+              "expchunk_protocol_4faa721af035"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-03 Cr(III) 的水合异构现象》中，关于 Cr(NO₃)₃ 加热前后的 Cr(III) 水合异构现象，哪项表述正确？",
+            "options": [
+              {
+                "label": "A",
+                "text": "把 CoCl₂ 与 KSCN 的蓝紫色反应当作本题现象"
+              },
+              {
+                "label": "B",
+                "text": "加热 Cr(NO₃)₃ 溶液并比较前后颜色变化，可观察 Cr(III) 的水合异构现象。"
+              },
+              {
+                "label": "C",
+                "text": "跳过加热步骤直接按标题判断"
+              },
+              {
+                "label": "D",
+                "text": "用 Ni(II)-丁二酮肟红色沉淀替代水合异构观察"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "加热 Cr(NO₃)₃ 溶液并比较前后颜色变化，是观察 Cr(III) 水合异构现象的实验依据。",
+            "difficulty": "basic",
+            "status": "reviewed_polished",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00331_3f7cc41ff9",
+              "expchunk_protocol_4faa721af035"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "generic_shell_rewritten"
+          ]
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_03_022",
+        "source_review_id": "CHK5_SEM_EXP_20_3_03_022",
+        "source_question_index": 22,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《20-3-03 Cr(III) 的水合异构现象》中，关于 Cr(NO₃)₃ 加热前后的 Cr(III) 水合异构现象，哪项表述正确？",
+        "options": [
+          {
+            "label": "A",
+            "text": "跳过加热步骤直接按标题判断"
+          },
+          {
+            "label": "B",
+            "text": "取少量 1 mol·L⁻¹ Cr(NO₃)₃ 溶液进行加热，并比较加热前后的颜色变化。"
+          },
+          {
+            "label": "C",
+            "text": "用 Ni(II)-丁二酮肟红色沉淀替代水合异构观察"
+          },
+          {
+            "label": "D",
+            "text": "只写 Cr(III) 名称，不比较加热前后的颜色"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "本实验的操作是取少量 1 mol·L⁻¹ Cr(NO₃)₃ 溶液加热，并观察颜色变化。",
+        "difficulty": "basic",
+        "status": "reviewed_polished",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-80cf72b8"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "fill_blank"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "跳过加热步骤直接按标题判断",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“Cr(NO₃)₃ 加热前后的 Cr(III) 水合异构现象”点位的关键对象或条件：跳过加热步骤直接按标题判断。"
+          },
+          {
+            "label": "B",
+            "text": "取少量 1 mol·L⁻¹ Cr(NO₃)₃ 溶液进行加热，并比较加热前后的颜色变化。",
+            "point_key": "candidate-1-80cf72b8",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“Cr(NO₃)₃ 加热前后的 Cr(III) 水合异构现象”点位：取少量 1 mol·L⁻¹ Cr(NO₃)₃ 溶液进行加热，并比较加热前后的颜色变化。"
+          },
+          {
+            "label": "C",
+            "text": "用 Ni(II)-丁二酮肟红色沉淀替代水合异构观察",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“Cr(NO₃)₃ 加热前后的 Cr(III) 水合异构现象”点位的关键对象或条件：用 Ni(II)-丁二酮肟红色沉淀替代水合异构观察。"
+          },
+          {
+            "label": "D",
+            "text": "只写 Cr(III) 名称，不比较加热前后的颜色",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“Cr(NO₃)₃ 加热前后的 Cr(III) 水合异构现象”点位的关键对象或条件：只写 Cr(III) 名称，不比较加热前后的颜色。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00331_3f7cc41ff9",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00331_3f7cc41ff9",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-3-03 Cr(III) 的水合异构现象》实验中，取少量 1 mol·L⁻¹ ____溶液进行加热。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "Cr(NO₃)₃"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "原文指定 Cr(NO₃)₃ 溶液。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00331_3f7cc41ff9",
+              "expchunk_protocol_4faa721af035"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-03 Cr(III) 的水合异构现象》中，关于 Cr(NO₃)₃ 加热前后的 Cr(III) 水合异构现象，哪项表述正确？",
+            "options": [
+              {
+                "label": "A",
+                "text": "跳过加热步骤直接按标题判断"
+              },
+              {
+                "label": "B",
+                "text": "取少量 1 mol·L⁻¹ Cr(NO₃)₃ 溶液进行加热，并比较加热前后的颜色变化。"
+              },
+              {
+                "label": "C",
+                "text": "用 Ni(II)-丁二酮肟红色沉淀替代水合异构观察"
+              },
+              {
+                "label": "D",
+                "text": "只写 Cr(III) 名称，不比较加热前后的颜色"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "本实验的操作是取少量 1 mol·L⁻¹ Cr(NO₃)₃ 溶液加热，并观察颜色变化。",
+            "difficulty": "basic",
+            "status": "reviewed_polished",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00331_3f7cc41ff9",
+              "expchunk_protocol_4faa721af035"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "generic_shell_rewritten"
+          ]
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_03_023",
+        "source_review_id": "CHK5_SEM_EXP_20_3_03_023",
+        "source_question_index": 23,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《20-3-03 Cr(III) 的水合异构现象》中，关于 Cr(NO₃)₃ 加热前后的 Cr(III) 水合异构现象，哪项表述正确？",
+        "options": [
+          {
+            "label": "A",
+            "text": "用 Ni(II)-丁二酮肟红色沉淀替代水合异构观察"
+          },
+          {
+            "label": "B",
+            "text": "通过加热 Cr(NO₃)₃ 溶液观察颜色变化。"
+          },
+          {
+            "label": "C",
+            "text": "只写 Cr(III) 名称，不比较加热前后的颜色"
+          },
+          {
+            "label": "D",
+            "text": "把 CoCl₂ 与 KSCN 的蓝紫色反应当作本题现象"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "加热 Cr(NO₃)₃ 溶液并比较颜色变化，是该水合异构实验的直接观察任务。",
+        "difficulty": "basic",
+        "status": "reviewed_polished",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-80cf72b8"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "fill_blank"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "用 Ni(II)-丁二酮肟红色沉淀替代水合异构观察",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“Cr(NO₃)₃ 加热前后的 Cr(III) 水合异构现象”点位的关键对象或条件：用 Ni(II)-丁二酮肟红色沉淀替代水合异构观察。"
+          },
+          {
+            "label": "B",
+            "text": "通过加热 Cr(NO₃)₃ 溶液观察颜色变化。",
+            "point_key": "candidate-1-80cf72b8",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“Cr(NO₃)₃ 加热前后的 Cr(III) 水合异构现象”点位：通过加热 Cr(NO₃)₃ 溶液观察颜色变化。"
+          },
+          {
+            "label": "C",
+            "text": "只写 Cr(III) 名称，不比较加热前后的颜色",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“Cr(NO₃)₃ 加热前后的 Cr(III) 水合异构现象”点位的关键对象或条件：只写 Cr(III) 名称，不比较加热前后的颜色。"
+          },
+          {
+            "label": "D",
+            "text": "把 CoCl₂ 与 KSCN 的蓝紫色反应当作本题现象",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Cr(NO₃)₃ 加热前后的 Cr(III) 水合异构现象”点位：把 CoCl₂ 与 KSCN 的蓝紫色反应当作本题现象。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00331_3f7cc41ff9",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00331_3f7cc41ff9",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-3-03 Cr(III) 的水合异构现象》实验中，通过____Cr(NO₃)₃ 溶液观察颜色变化。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "加热"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "步骤要求加热并比较加热前后颜色。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00331_3f7cc41ff9",
+              "expchunk_protocol_4faa721af035"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-03 Cr(III) 的水合异构现象》中，关于 Cr(NO₃)₃ 加热前后的 Cr(III) 水合异构现象，哪项表述正确？",
+            "options": [
+              {
+                "label": "A",
+                "text": "用 Ni(II)-丁二酮肟红色沉淀替代水合异构观察"
+              },
+              {
+                "label": "B",
+                "text": "通过加热 Cr(NO₃)₃ 溶液观察颜色变化。"
+              },
+              {
+                "label": "C",
+                "text": "只写 Cr(III) 名称，不比较加热前后的颜色"
+              },
+              {
+                "label": "D",
+                "text": "把 CoCl₂ 与 KSCN 的蓝紫色反应当作本题现象"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "加热 Cr(NO₃)₃ 溶液并比较颜色变化，是该水合异构实验的直接观察任务。",
+            "difficulty": "basic",
+            "status": "reviewed_polished",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00331_3f7cc41ff9",
+              "expchunk_protocol_4faa721af035"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "generic_shell_rewritten"
+          ]
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_03_024",
+        "source_review_id": "CHK5_SEM_EXP_20_3_03_024",
+        "source_question_index": 24,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《20-3-03 Cr(III) 的水合异构现象》实验中，实验重点观察加热前后溶液____的变化。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "颜色"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "实验资料明确要求观察颜色变化。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-9d1424ba"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "fill_blank"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00331_3f7cc41ff9",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00331_3f7cc41ff9",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-3-03 Cr(III) 的水合异构现象》实验中，实验重点观察加热前后溶液____的变化。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "颜色"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "实验资料明确要求观察颜色变化。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00331_3f7cc41ff9",
+              "expchunk_protocol_4faa721af035"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_03_025",
+        "source_review_id": "CHK5_SEM_EXP_20_3_03_025",
+        "source_question_index": 25,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《20-3-03 Cr(III) 的水合异构现象》中，关于 Cr(NO₃)₃ 加热前后的 Cr(III) 水合异构现象，哪项表述正确？",
+        "options": [
+          {
+            "label": "A",
+            "text": "把 CoCl₂ 与 KSCN 的蓝紫色反应当作本题现象"
+          },
+          {
+            "label": "B",
+            "text": "加热前的水合铬(III)硝酸盐可写作 [Cr(H₂O)₆](NO₃)₃。"
+          },
+          {
+            "label": "C",
+            "text": "跳过加热步骤直接按标题判断"
+          },
+          {
+            "label": "D",
+            "text": "用 Ni(II)-丁二酮肟红色沉淀替代水合异构观察"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "[Cr(H₂O)₆](NO₃)₃ 表示加热前 Cr(III) 主要以六水合配合物形式存在。",
+        "difficulty": "basic",
+        "status": "reviewed_polished",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-80cf72b8"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "fill_blank"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "把 CoCl₂ 与 KSCN 的蓝紫色反应当作本题现象",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Cr(NO₃)₃ 加热前后的 Cr(III) 水合异构现象”点位：把 CoCl₂ 与 KSCN 的蓝紫色反应当作本题现象。"
+          },
+          {
+            "label": "B",
+            "text": "加热前的水合铬(III)硝酸盐可写作 [Cr(H₂O)₆](NO₃)₃。",
+            "point_key": "candidate-1-80cf72b8",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“Cr(NO₃)₃ 加热前后的 Cr(III) 水合异构现象”点位：加热前的水合铬(III)硝酸盐可写作 [Cr(H₂O)₆](NO₃)₃。"
+          },
+          {
+            "label": "C",
+            "text": "跳过加热步骤直接按标题判断",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“Cr(NO₃)₃ 加热前后的 Cr(III) 水合异构现象”点位的关键对象或条件：跳过加热步骤直接按标题判断。"
+          },
+          {
+            "label": "D",
+            "text": "用 Ni(II)-丁二酮肟红色沉淀替代水合异构观察",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“Cr(NO₃)₃ 加热前后的 Cr(III) 水合异构现象”点位的关键对象或条件：用 Ni(II)-丁二酮肟红色沉淀替代水合异构观察。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00331_3f7cc41ff9",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00331_3f7cc41ff9",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-3-03 Cr(III) 的水合异构现象》实验中，加热前可写作____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "[Cr(H₂O)₆](NO₃)₃"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "原文给出该水合铬(III)硝酸盐。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00331_3f7cc41ff9",
+              "expchunk_protocol_4faa721af035"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-03 Cr(III) 的水合异构现象》中，关于 Cr(NO₃)₃ 加热前后的 Cr(III) 水合异构现象，哪项表述正确？",
+            "options": [
+              {
+                "label": "A",
+                "text": "把 CoCl₂ 与 KSCN 的蓝紫色反应当作本题现象"
+              },
+              {
+                "label": "B",
+                "text": "加热前的水合铬(III)硝酸盐可写作 [Cr(H₂O)₆](NO₃)₃。"
+              },
+              {
+                "label": "C",
+                "text": "跳过加热步骤直接按标题判断"
+              },
+              {
+                "label": "D",
+                "text": "用 Ni(II)-丁二酮肟红色沉淀替代水合异构观察"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "[Cr(H₂O)₆](NO₃)₃ 表示加热前 Cr(III) 主要以六水合配合物形式存在。",
+            "difficulty": "basic",
+            "status": "reviewed_polished",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00331_3f7cc41ff9",
+              "expchunk_protocol_4faa721af035"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "generic_shell_rewritten"
+          ]
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_03_026",
+        "source_review_id": "CHK5_SEM_EXP_20_3_03_026",
+        "source_question_index": 26,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《20-3-03 Cr(III) 的水合异构现象》中，关于 Cr(NO₃)₃ 加热前后的 Cr(III) 水合异构现象，哪项表述正确？",
+        "options": [
+          {
+            "label": "A",
+            "text": "跳过加热步骤直接按标题判断"
+          },
+          {
+            "label": "B",
+            "text": "加热后可形成 [Cr(H₂O)₅NO₃](NO₃)₂，表现出水合异构。"
+          },
+          {
+            "label": "C",
+            "text": "用 Ni(II)-丁二酮肟红色沉淀替代水合异构观察"
+          },
+          {
+            "label": "D",
+            "text": "只写 Cr(III) 名称，不比较加热前后的颜色"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "加热后 NO₃⁻ 进入内界，可形成 [Cr(H₂O)₅NO₃](NO₃)₂，体现水合异构。",
+        "difficulty": "basic",
+        "status": "reviewed_polished",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-80cf72b8"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-9d1424ba"
+        ],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "fill_blank"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "跳过加热步骤直接按标题判断",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“Cr(NO₃)₃ 加热前后的 Cr(III) 水合异构现象”点位的关键对象或条件：跳过加热步骤直接按标题判断。"
+          },
+          {
+            "label": "B",
+            "text": "加热后可形成 [Cr(H₂O)₅NO₃](NO₃)₂，表现出水合异构。",
+            "point_key": "candidate-1-80cf72b8",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“Cr(NO₃)₃ 加热前后的 Cr(III) 水合异构现象”点位：加热后可形成 [Cr(H₂O)₅NO₃](NO₃)₂，表现出水合异构。"
+          },
+          {
+            "label": "C",
+            "text": "用 Ni(II)-丁二酮肟红色沉淀替代水合异构观察",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“Cr(NO₃)₃ 加热前后的 Cr(III) 水合异构现象”点位的关键对象或条件：用 Ni(II)-丁二酮肟红色沉淀替代水合异构观察。"
+          },
+          {
+            "label": "D",
+            "text": "只写 Cr(III) 名称，不比较加热前后的颜色",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“Cr(NO₃)₃ 加热前后的 Cr(III) 水合异构现象”点位的关键对象或条件：只写 Cr(III) 名称，不比较加热前后的颜色。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00331_3f7cc41ff9",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00331_3f7cc41ff9",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-3-03 Cr(III) 的水合异构现象》实验中，加热后可形成____，表现出水合异构。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "[Cr(H₂O)₅NO₃](NO₃)₂"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "原文方程式列出该物种。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00331_3f7cc41ff9",
+              "expchunk_protocol_4faa721af035"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-03 Cr(III) 的水合异构现象》中，关于 Cr(NO₃)₃ 加热前后的 Cr(III) 水合异构现象，哪项表述正确？",
+            "options": [
+              {
+                "label": "A",
+                "text": "跳过加热步骤直接按标题判断"
+              },
+              {
+                "label": "B",
+                "text": "加热后可形成 [Cr(H₂O)₅NO₃](NO₃)₂，表现出水合异构。"
+              },
+              {
+                "label": "C",
+                "text": "用 Ni(II)-丁二酮肟红色沉淀替代水合异构观察"
+              },
+              {
+                "label": "D",
+                "text": "只写 Cr(III) 名称，不比较加热前后的颜色"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "加热后 NO₃⁻ 进入内界，可形成 [Cr(H₂O)₅NO₃](NO₃)₂，体现水合异构。",
+            "difficulty": "basic",
+            "status": "reviewed_polished",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00331_3f7cc41ff9",
+              "expchunk_protocol_4faa721af035"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "generic_shell_rewritten"
+          ]
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_03_027",
+        "source_review_id": "CHK5_SEM_EXP_20_3_03_027",
+        "source_question_index": 27,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《20-3-03 Cr(III) 的水合异构现象》实验中，“热/冷”标注说明该变化受____影响。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "温度"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "加热和冷却可推动不同水合异构体间转化。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-80cf72b8"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-9d1424ba"
+        ],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "fill_blank"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00331_3f7cc41ff9",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00331_3f7cc41ff9",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-3-03 Cr(III) 的水合异构现象》实验中，“热/冷”标注说明该变化受____影响。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "温度"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "加热和冷却可推动不同水合异构体间转化。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00331_3f7cc41ff9",
+              "expchunk_protocol_4faa721af035"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_03_028",
+        "source_review_id": "CHK5_SEM_EXP_20_3_03_028",
+        "source_question_index": 28,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《20-3-03 Cr(III) 的水合异构现象》中，关于 Cr(NO₃)₃ 加热前后的 Cr(III) 水合异构现象，哪项表述正确？",
+        "options": [
+          {
+            "label": "A",
+            "text": "只写 Cr(III) 名称，不比较加热前后的颜色"
+          },
+          {
+            "label": "B",
+            "text": "加热后进入内界的配体是 NO₃⁻。"
+          },
+          {
+            "label": "C",
+            "text": "把 CoCl₂ 与 KSCN 的蓝紫色反应当作本题现象"
+          },
+          {
+            "label": "D",
+            "text": "跳过加热步骤直接按标题判断"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "Cr(NO₃)₃ 溶液加热后，NO₃⁻ 可进入配合物内界，引起配位环境变化。",
+        "difficulty": "basic",
+        "status": "reviewed_polished",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-80cf72b8"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-9d1424ba"
+        ],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "fill_blank"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "只写 Cr(III) 名称，不比较加热前后的颜色",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“Cr(NO₃)₃ 加热前后的 Cr(III) 水合异构现象”点位的关键对象或条件：只写 Cr(III) 名称，不比较加热前后的颜色。"
+          },
+          {
+            "label": "B",
+            "text": "加热后进入内界的配体是 NO₃⁻。",
+            "point_key": "candidate-1-80cf72b8",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“Cr(NO₃)₃ 加热前后的 Cr(III) 水合异构现象”点位：加热后进入内界的配体是 NO₃⁻。"
+          },
+          {
+            "label": "C",
+            "text": "把 CoCl₂ 与 KSCN 的蓝紫色反应当作本题现象",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Cr(NO₃)₃ 加热前后的 Cr(III) 水合异构现象”点位：把 CoCl₂ 与 KSCN 的蓝紫色反应当作本题现象。"
+          },
+          {
+            "label": "D",
+            "text": "跳过加热步骤直接按标题判断",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“Cr(NO₃)₃ 加热前后的 Cr(III) 水合异构现象”点位的关键对象或条件：跳过加热步骤直接按标题判断。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00331_3f7cc41ff9",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00331_3f7cc41ff9",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-3-03 Cr(III) 的水合异构现象》实验中，加热后进入内界的配体是____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "NO₃⁻"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "产物含 [Cr(H₂O)₅NO₃]，说明硝酸根进入内界。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00331_3f7cc41ff9",
+              "expchunk_protocol_4faa721af035"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-03 Cr(III) 的水合异构现象》中，关于 Cr(NO₃)₃ 加热前后的 Cr(III) 水合异构现象，哪项表述正确？",
+            "options": [
+              {
+                "label": "A",
+                "text": "只写 Cr(III) 名称，不比较加热前后的颜色"
+              },
+              {
+                "label": "B",
+                "text": "加热后进入内界的配体是 NO₃⁻。"
+              },
+              {
+                "label": "C",
+                "text": "把 CoCl₂ 与 KSCN 的蓝紫色反应当作本题现象"
+              },
+              {
+                "label": "D",
+                "text": "跳过加热步骤直接按标题判断"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "Cr(NO₃)₃ 溶液加热后，NO₃⁻ 可进入配合物内界，引起配位环境变化。",
+            "difficulty": "basic",
+            "status": "reviewed_polished",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00331_3f7cc41ff9",
+              "expchunk_protocol_4faa721af035"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "generic_shell_rewritten"
+          ]
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_03_029",
+        "source_review_id": "CHK5_SEM_EXP_20_3_03_029",
+        "source_question_index": 29,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《20-3-03 Cr(III) 的水合异构现象》中，关于 Cr(NO₃)₃ 加热前后的 Cr(III) 水合异构现象，哪项表述正确？",
+        "options": [
+          {
+            "label": "A",
+            "text": "把 CoCl₂ 与 KSCN 的蓝紫色反应当作本题现象"
+          },
+          {
+            "label": "B",
+            "text": "内界由六个水变为五个水，少了一个 H₂O 配体。"
+          },
+          {
+            "label": "C",
+            "text": "跳过加热步骤直接按标题判断"
+          },
+          {
+            "label": "D",
+            "text": "用 Ni(II)-丁二酮肟红色沉淀替代水合异构观察"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "由 [Cr(H₂O)₆](NO₃)₃ 到 [Cr(H₂O)₅NO₃](NO₃)₂，内界水配体数从 6 减为 5。",
+        "difficulty": "basic",
+        "status": "reviewed_polished",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-80cf72b8"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-9d1424ba"
+        ],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "fill_blank"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "把 CoCl₂ 与 KSCN 的蓝紫色反应当作本题现象",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Cr(NO₃)₃ 加热前后的 Cr(III) 水合异构现象”点位：把 CoCl₂ 与 KSCN 的蓝紫色反应当作本题现象。"
+          },
+          {
+            "label": "B",
+            "text": "内界由六个水变为五个水，少了一个 H₂O 配体。",
+            "point_key": "candidate-1-80cf72b8",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“Cr(NO₃)₃ 加热前后的 Cr(III) 水合异构现象”点位：内界由六个水变为五个水，少了一个 H₂O 配体。"
+          },
+          {
+            "label": "C",
+            "text": "跳过加热步骤直接按标题判断",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“Cr(NO₃)₃ 加热前后的 Cr(III) 水合异构现象”点位的关键对象或条件：跳过加热步骤直接按标题判断。"
+          },
+          {
+            "label": "D",
+            "text": "用 Ni(II)-丁二酮肟红色沉淀替代水合异构观察",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“Cr(NO₃)₃ 加热前后的 Cr(III) 水合异构现象”点位的关键对象或条件：用 Ni(II)-丁二酮肟红色沉淀替代水合异构观察。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00331_3f7cc41ff9",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00331_3f7cc41ff9",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-3-03 Cr(III) 的水合异构现象》实验中，内界由六个水变为五个水，少了一个____配体。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "H₂O"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "一个水配体被硝酸根取代。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00331_3f7cc41ff9",
+              "expchunk_protocol_4faa721af035"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-03 Cr(III) 的水合异构现象》中，关于 Cr(NO₃)₃ 加热前后的 Cr(III) 水合异构现象，哪项表述正确？",
+            "options": [
+              {
+                "label": "A",
+                "text": "把 CoCl₂ 与 KSCN 的蓝紫色反应当作本题现象"
+              },
+              {
+                "label": "B",
+                "text": "内界由六个水变为五个水，少了一个 H₂O 配体。"
+              },
+              {
+                "label": "C",
+                "text": "跳过加热步骤直接按标题判断"
+              },
+              {
+                "label": "D",
+                "text": "用 Ni(II)-丁二酮肟红色沉淀替代水合异构观察"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "由 [Cr(H₂O)₆](NO₃)₃ 到 [Cr(H₂O)₅NO₃](NO₃)₂，内界水配体数从 6 减为 5。",
+            "difficulty": "basic",
+            "status": "reviewed_polished",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00331_3f7cc41ff9",
+              "expchunk_protocol_4faa721af035"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "generic_shell_rewritten"
+          ]
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_03_030",
+        "source_review_id": "CHK5_SEM_EXP_20_3_03_030",
+        "source_question_index": 30,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《20-3-03 Cr(III) 的水合异构现象》中，关于 Cr(NO₃)₃ 加热前后的 Cr(III) 水合异构现象，哪项表述正确？",
+        "options": [
+          {
+            "label": "A",
+            "text": "跳过加热步骤直接按标题判断"
+          },
+          {
+            "label": "B",
+            "text": "颜色变化说明 Cr(III) 的配位环境发生变化。"
+          },
+          {
+            "label": "C",
+            "text": "用 Ni(II)-丁二酮肟红色沉淀替代水合异构观察"
+          },
+          {
+            "label": "D",
+            "text": "只写 Cr(III) 名称，不比较加热前后的颜色"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "加热前后颜色变化可作为 Cr(III) 配位环境变化的观察证据。",
+        "difficulty": "basic",
+        "status": "reviewed_polished",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-9d1424ba"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "fill_blank"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "跳过加热步骤直接按标题判断",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“Cr(NO₃)₃ 加热前后的 Cr(III) 水合异构现象”点位的关键对象或条件：跳过加热步骤直接按标题判断。"
+          },
+          {
+            "label": "B",
+            "text": "颜色变化说明 Cr(III) 的配位环境发生变化。",
+            "point_key": "candidate-2-9d1424ba",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“Cr(NO₃)₃ 加热前后的 Cr(III) 水合异构现象”点位：颜色变化说明 Cr(III) 的配位环境发生变化。"
+          },
+          {
+            "label": "C",
+            "text": "用 Ni(II)-丁二酮肟红色沉淀替代水合异构观察",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“Cr(NO₃)₃ 加热前后的 Cr(III) 水合异构现象”点位的关键对象或条件：用 Ni(II)-丁二酮肟红色沉淀替代水合异构观察。"
+          },
+          {
+            "label": "D",
+            "text": "只写 Cr(III) 名称，不比较加热前后的颜色",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“Cr(NO₃)₃ 加热前后的 Cr(III) 水合异构现象”点位的关键对象或条件：只写 Cr(III) 名称，不比较加热前后的颜色。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00331_3f7cc41ff9",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00331_3f7cc41ff9",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-3-03 Cr(III) 的水合异构现象》实验中，颜色变化说明 Cr(III) 的____环境发生变化。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "配位"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "过渡金属配位环境变化常引起颜色改变。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00331_3f7cc41ff9",
+              "expchunk_protocol_4faa721af035"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-03 Cr(III) 的水合异构现象》中，关于 Cr(NO₃)₃ 加热前后的 Cr(III) 水合异构现象，哪项表述正确？",
+            "options": [
+              {
+                "label": "A",
+                "text": "跳过加热步骤直接按标题判断"
+              },
+              {
+                "label": "B",
+                "text": "颜色变化说明 Cr(III) 的配位环境发生变化。"
+              },
+              {
+                "label": "C",
+                "text": "用 Ni(II)-丁二酮肟红色沉淀替代水合异构观察"
+              },
+              {
+                "label": "D",
+                "text": "只写 Cr(III) 名称，不比较加热前后的颜色"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "加热前后颜色变化可作为 Cr(III) 配位环境变化的观察证据。",
+            "difficulty": "basic",
+            "status": "reviewed_polished",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00331_3f7cc41ff9",
+              "expchunk_protocol_4faa721af035"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "generic_shell_rewritten"
+          ]
+        }
+      }
+    ]
+  }
+}

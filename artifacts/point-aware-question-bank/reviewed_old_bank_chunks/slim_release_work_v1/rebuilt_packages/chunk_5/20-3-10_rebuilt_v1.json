@@ -1,0 +1,1771 @@
+{
+  "metadata": {
+    "schema_version": "rebuilt_experiment_question_package_v1",
+    "artifact_type": "manual_small_packet_semantic_reconstruction",
+    "source_packet": "E:\\chemistry-admin\\artifacts\\point-aware-question-bank\\reviewed_old_bank_chunks\\slim_release_work_v1\\semantic_work_packets\\chunk_5\\20-3-10.json",
+    "experiment_code": "20-3-10",
+    "experiment_title": "镍(Ⅱ)的鉴定",
+    "question_count": 30,
+    "chunk": "chunk_5",
+    "reconstruction_status": "manual_question_by_question_semantic_rebuild",
+    "evidence_policy": "RAG text was read for every cited id. JSON stores ids, source file, line number, and concise evidence role only; no release JSON was edited.",
+    "rag_source_dir": "E:\\chemistry-rag\\data\\rag_ready",
+    "release_json_direct_edit": false
+  },
+  "video_points": [
+    {
+      "point_key": "candidate-1-8de46ba4",
+      "point_title": "NiSO₄ + NH₃·H₂O 调至弱碱性"
+    },
+    {
+      "point_key": "candidate-2-18c41387",
+      "point_title": "加入丁二酮肟，鉴定 Ni²⁺"
+    }
+  ],
+  "evidence_sources": {
+    "canonical_experiment_chunks": [
+      {
+        "chunk_id": "expchunk_00334_8229cac865",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+        "line_number": 347,
+        "evidence_role": "Canonical metal-ion identification section: nickel(II) is identified by making NiSO4 solution weakly alkaline with NH3.H2O, then adding one drop of 1% dimethylglyoxime."
+      }
+    ],
+    "supporting_theory_chunks": [
+      {
+        "chunk_id": "textbook_prose_01305_dd5a94da50",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+        "line_number": 1991,
+        "evidence_role": "Dimethylglyoxime gives a bright red precipitate with Ni2+ and is used to identify Ni2+."
+      },
+      {
+        "chunk_id": "textbook_prose_01306_0a0d67a34e",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+        "line_number": 1992,
+        "evidence_role": "Supporting reaction for Ni2+ with dimethylglyoxime producing a nickel dimethylglyoxime precipitate and acid."
+      }
+    ]
+  },
+  "questions": [
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_10_001",
+      "question_type": "single_choice",
+      "stem": "镍(Ⅱ)鉴定实验中，哪种溶液用于提供 Ni²⁺ 并先用 NH₃·H₂O 调至弱碱性？",
+      "options": [
+        {
+          "label": "A",
+          "text": "NiSO₄ 溶液"
+        },
+        {
+          "label": "B",
+          "text": "CoCl₂ 溶液"
+        },
+        {
+          "label": "C",
+          "text": "Cr₂(SO₄)₃ 溶液"
+        },
+        {
+          "label": "D",
+          "text": "CuSO₄ 溶液"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "NiSO₄ 溶液提供 Ni²⁺，实验步骤要求先用氨水调至弱碱性。",
+      "primary_point_keys": [
+        "candidate-1-8de46ba4"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "single_choice",
+        "nickel_source"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-1-8de46ba4",
+          "role": "correct_nickel_source"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "cobalt_distractor"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "chromium_distractor"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "copper_distractor"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00334_8229cac865"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "保留。"
+      },
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_10_002",
+      "question_type": "single_choice",
+      "stem": "加入丁二酮肟前，NiSO₄ 溶液应先用哪种试剂调至弱碱性？",
+      "options": [
+        {
+          "label": "A",
+          "text": "浓盐酸"
+        },
+        {
+          "label": "B",
+          "text": "NH₃·H₂O 溶液"
+        },
+        {
+          "label": "C",
+          "text": "CCl₄"
+        },
+        {
+          "label": "D",
+          "text": "HNO₃"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "实验步骤写明加入氨水至呈弱碱性。",
+      "primary_point_keys": [
+        "candidate-1-8de46ba4"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "single_choice",
+        "weak_base_adjustment"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "wrong_acid"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-1-8de46ba4",
+          "role": "correct_base"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "wrong_solvent"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "wrong_acid"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00334_8229cac865"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "保留。"
+      },
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_10_003",
+      "question_type": "single_choice",
+      "stem": "镍(Ⅱ)鉴定中加入的特征有机试剂是哪一种？",
+      "options": [
+        {
+          "label": "A",
+          "text": "对氨基苯磺酸"
+        },
+        {
+          "label": "B",
+          "text": "萘胺"
+        },
+        {
+          "label": "C",
+          "text": "丁二酮肟"
+        },
+        {
+          "label": "D",
+          "text": "淀粉"
+        }
+      ],
+      "answer": {
+        "value": "C"
+      },
+      "explanation": "镍(Ⅱ)鉴定的特征有机试剂是丁二酮肟。",
+      "primary_point_keys": [
+        "candidate-2-18c41387"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "single_choice",
+        "dmg_reagent"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "wrong_reagent"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "wrong_reagent"
+        },
+        {
+          "label": "C",
+          "point_key": "candidate-2-18c41387",
+          "role": "correct_reagent"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "wrong_reagent"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00334_8229cac865"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "保留。"
+      },
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_10_004",
+      "question_type": "single_choice",
+      "stem": "镍(Ⅱ)鉴定中，丁二酮肟溶液的质量分数是多少？",
+      "options": [
+        {
+          "label": "A",
+          "text": "40%"
+        },
+        {
+          "label": "B",
+          "text": "10%"
+        },
+        {
+          "label": "C",
+          "text": "3%"
+        },
+        {
+          "label": "D",
+          "text": "1%"
+        }
+      ],
+      "answer": {
+        "value": "D"
+      },
+      "explanation": "实验步骤写明加入 1 滴 1% 丁二酮肟溶液。",
+      "primary_point_keys": [
+        "candidate-2-18c41387"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "single_choice",
+        "dmg_concentration"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "wrong_concentration"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "wrong_concentration"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "wrong_concentration"
+        },
+        {
+          "label": "D",
+          "point_key": "candidate-2-18c41387",
+          "role": "correct_concentration"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00334_8229cac865"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "保留。"
+      },
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_10_005",
+      "question_type": "single_choice",
+      "stem": "Ni²⁺ 与丁二酮肟在弱碱性条件下的阳性现象是什么？",
+      "options": [
+        {
+          "label": "A",
+          "text": "生成鲜红色沉淀"
+        },
+        {
+          "label": "B",
+          "text": "生成棕色环"
+        },
+        {
+          "label": "C",
+          "text": "火焰显黄色"
+        },
+        {
+          "label": "D",
+          "text": "滤纸出现钥匙轮廓"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "丁二酮肟与 Ni²⁺ 反应可生成鲜红色沉淀，可用于镍离子鉴定。",
+      "primary_point_keys": [
+        "candidate-2-18c41387"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "single_choice",
+        "positive_observation"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-2-18c41387",
+          "role": "correct_observation"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "wrong_observation"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "wrong_observation"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "wrong_observation"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00334_8229cac865"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01305_dd5a94da50"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留。"
+      },
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_10_006",
+      "question_type": "single_choice",
+      "stem": "Ni²⁺ 与丁二酮肟形成的特征沉淀通常称为什么？",
+      "options": [
+        {
+          "label": "A",
+          "text": "碘化亚铜"
+        },
+        {
+          "label": "B",
+          "text": "丁二酮肟镍沉淀"
+        },
+        {
+          "label": "C",
+          "text": "铁亚硝酰配合物"
+        },
+        {
+          "label": "D",
+          "text": "氯化银沉淀"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "丁二酮肟与 Ni²⁺ 生成鲜红色丁二酮肟镍沉淀。",
+      "primary_point_keys": [
+        "candidate-2-18c41387"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "single_choice",
+        "precipitate_identity"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "wrong_precipitate"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-2-18c41387",
+          "role": "correct_precipitate"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "wrong_complex"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "wrong_precipitate"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00334_8229cac865"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01305_dd5a94da50",
+          "textbook_prose_01306_0a0d67a34e"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "重写。原题选项暴露沉淀公式，改为中文沉淀名称。"
+      },
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_10_007",
+      "question_type": "single_choice",
+      "stem": "反应式中 H₂dmg 表示什么试剂？",
+      "options": [
+        {
+          "label": "A",
+          "text": "过氧化氢"
+        },
+        {
+          "label": "B",
+          "text": "硫代硫酸根"
+        },
+        {
+          "label": "C",
+          "text": "丁二酮肟"
+        },
+        {
+          "label": "D",
+          "text": "二氧化铅"
+        }
+      ],
+      "answer": {
+        "value": "C"
+      },
+      "explanation": "教材资料文字说明 H₂dmg 表示丁二酮肟。",
+      "primary_point_keys": [
+        "candidate-2-18c41387"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "single_choice",
+        "h2dmg_meaning"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "wrong_reagent"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "wrong_species"
+        },
+        {
+          "label": "C",
+          "point_key": "candidate-2-18c41387",
+          "role": "correct_meaning"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "wrong_reagent"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00334_8229cac865"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "保留。"
+      },
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_10_008",
+      "question_type": "single_choice",
+      "stem": "Ni²⁺ 与丁二酮肟、氨反应时，主要生成哪类沉淀？",
+      "options": [
+        {
+          "label": "A",
+          "text": "氯化镍沉淀"
+        },
+        {
+          "label": "B",
+          "text": "高镍酸盐"
+        },
+        {
+          "label": "C",
+          "text": "硫酸镍晶体"
+        },
+        {
+          "label": "D",
+          "text": "丁二酮肟镍沉淀"
+        }
+      ],
+      "answer": {
+        "value": "D"
+      },
+      "explanation": "在弱碱性条件下，Ni²⁺ 与丁二酮肟形成特征性的丁二酮肟镍沉淀。",
+      "primary_point_keys": [
+        "candidate-2-18c41387"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "single_choice",
+        "precipitate_identity"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "wrong_precipitate"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "wrong_species"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "wrong_product"
+        },
+        {
+          "label": "D",
+          "point_key": "candidate-2-18c41387",
+          "role": "correct_product"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00334_8229cac865"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01305_dd5a94da50",
+          "textbook_prose_01306_0a0d67a34e"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "重写。原题暴露沉淀公式，改为中文沉淀名称。"
+      },
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_10_009",
+      "question_type": "single_choice",
+      "stem": "氨水在该鉴定中除了调节弱碱性，还可消耗反应产生的哪种离子形成 NH₄⁺？",
+      "options": [
+        {
+          "label": "A",
+          "text": "H⁺"
+        },
+        {
+          "label": "B",
+          "text": "Ag⁺"
+        },
+        {
+          "label": "C",
+          "text": "Cl⁻"
+        },
+        {
+          "label": "D",
+          "text": "K⁺"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "教材反应式显示 NH₃ 与酸性氢结合形成 NH₄⁺。",
+      "primary_point_keys": [
+        "candidate-1-8de46ba4"
+      ],
+      "secondary_point_keys": [
+        "candidate-2-18c41387"
+      ],
+      "coverage_tags": [
+        "single_choice",
+        "ammonia_role"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-1-8de46ba4",
+          "role": "correct_ion"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "wrong_ion"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "wrong_ion"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "wrong_ion"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00334_8229cac865"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01306_0a0d67a34e"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留。"
+      },
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_10_010",
+      "question_type": "single_choice",
+      "stem": "该鉴定反应主要用于确认哪种金属离子？",
+      "options": [
+        {
+          "label": "A",
+          "text": "Co²⁺"
+        },
+        {
+          "label": "B",
+          "text": "Ni²⁺"
+        },
+        {
+          "label": "C",
+          "text": "Fe³⁺"
+        },
+        {
+          "label": "D",
+          "text": "Cr³⁺"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "丁二酮肟鉴定主要用于确认 Ni²⁺。",
+      "primary_point_keys": [
+        "candidate-2-18c41387"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "single_choice",
+        "target_ion"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "cobalt_distractor"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-2-18c41387",
+          "role": "correct_target"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "iron_distractor"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "chromium_distractor"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00334_8229cac865"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01305_dd5a94da50"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留。"
+      },
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_10_011",
+      "question_type": "true_false",
+      "stem": "NiSO₄ 溶液需先用氨水调至弱碱性，再加入丁二酮肟。",
+      "options": [
+        {
+          "label": "T",
+          "text": "正确"
+        },
+        {
+          "label": "F",
+          "text": "错误"
+        }
+      ],
+      "answer": {
+        "value": true
+      },
+      "explanation": "实验步骤明确要求先用氨水调至弱碱性，再加入丁二酮肟。",
+      "primary_point_keys": [
+        "candidate-1-8de46ba4"
+      ],
+      "secondary_point_keys": [
+        "candidate-2-18c41387"
+      ],
+      "coverage_tags": [
+        "true_false",
+        "procedure_sequence"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00334_8229cac865"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "保留。"
+      },
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_10_012",
+      "question_type": "true_false",
+      "stem": "Ni²⁺ 与丁二酮肟可生成鲜红色丁二酮肟镍沉淀。",
+      "options": [
+        {
+          "label": "T",
+          "text": "正确"
+        },
+        {
+          "label": "F",
+          "text": "错误"
+        }
+      ],
+      "answer": {
+        "value": true
+      },
+      "explanation": "丁二酮肟与 Ni²⁺ 反应生成鲜红色沉淀，可用于镍离子鉴定。",
+      "primary_point_keys": [
+        "candidate-2-18c41387"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "true_false",
+        "positive_observation"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00334_8229cac865"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01305_dd5a94da50"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "重写。原题暴露沉淀公式，改为中文沉淀名称。"
+      },
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_10_013",
+      "question_type": "true_false",
+      "stem": "H₂dmg 表示丁二酮肟。",
+      "options": [
+        {
+          "label": "T",
+          "text": "正确"
+        },
+        {
+          "label": "F",
+          "text": "错误"
+        }
+      ],
+      "answer": {
+        "value": true
+      },
+      "explanation": "教材资料文字说明 H₂dmg 表示丁二酮肟。",
+      "primary_point_keys": [
+        "candidate-2-18c41387"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "true_false",
+        "h2dmg_meaning"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00334_8229cac865"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "保留。"
+      },
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_10_014",
+      "question_type": "true_false",
+      "stem": "该鉴定反应可用于确认 Ni²⁺。",
+      "options": [
+        {
+          "label": "T",
+          "text": "正确"
+        },
+        {
+          "label": "F",
+          "text": "错误"
+        }
+      ],
+      "answer": {
+        "value": true
+      },
+      "explanation": "丁二酮肟与 Ni²⁺ 生成鲜红色沉淀，是镍离子鉴定反应。",
+      "primary_point_keys": [
+        "candidate-2-18c41387"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "true_false",
+        "target_ion"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00334_8229cac865"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01305_dd5a94da50"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留。"
+      },
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_10_015",
+      "question_type": "true_false",
+      "stem": "氨水参与形成适宜的弱碱性条件。",
+      "options": [
+        {
+          "label": "T",
+          "text": "正确"
+        },
+        {
+          "label": "F",
+          "text": "错误"
+        }
+      ],
+      "answer": {
+        "value": true
+      },
+      "explanation": "实验步骤要求加入氨水至弱碱性后再加入丁二酮肟。",
+      "primary_point_keys": [
+        "candidate-1-8de46ba4"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "true_false",
+        "weak_base_adjustment"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00334_8229cac865"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "保留。"
+      },
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_10_016",
+      "question_type": "true_false",
+      "stem": "镍(Ⅱ)鉴定的特征试剂是对氨基苯磺酸和萘胺。",
+      "options": [
+        {
+          "label": "T",
+          "text": "正确"
+        },
+        {
+          "label": "F",
+          "text": "错误"
+        }
+      ],
+      "answer": {
+        "value": false
+      },
+      "explanation": "镍(Ⅱ)鉴定的特征试剂是丁二酮肟，不是对氨基苯磺酸和萘胺。",
+      "primary_point_keys": [
+        "candidate-2-18c41387"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "true_false",
+        "wrong_reagent"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00334_8229cac865"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "保留。"
+      },
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_10_017",
+      "question_type": "true_false",
+      "stem": "镍(Ⅱ)鉴定的阳性现象是生成无色气体而没有沉淀。",
+      "options": [
+        {
+          "label": "T",
+          "text": "正确"
+        },
+        {
+          "label": "F",
+          "text": "错误"
+        }
+      ],
+      "answer": {
+        "value": false
+      },
+      "explanation": "阳性现象是生成鲜红色沉淀。",
+      "primary_point_keys": [
+        "candidate-2-18c41387"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "true_false",
+        "wrong_observation"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00334_8229cac865"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01305_dd5a94da50"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留。"
+      },
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_10_018",
+      "question_type": "true_false",
+      "stem": "丁二酮肟镍沉淀是镍离子与丁二酮肟形成的特征沉淀。",
+      "options": [
+        {
+          "label": "T",
+          "text": "正确"
+        },
+        {
+          "label": "F",
+          "text": "错误"
+        }
+      ],
+      "answer": {
+        "value": true
+      },
+      "explanation": "教材说明丁二酮肟与 Ni²⁺ 可生成鲜红色丁二酮肟镍沉淀。",
+      "primary_point_keys": [
+        "candidate-2-18c41387"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "true_false",
+        "precipitate_identity"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00334_8229cac865"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01305_dd5a94da50",
+          "textbook_prose_01306_0a0d67a34e"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "重写并移除可见沉淀公式。"
+      },
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_10_019",
+      "question_type": "true_false",
+      "stem": "本实验必须透过钴玻璃观察 K⁺ 焰色。",
+      "options": [
+        {
+          "label": "T",
+          "text": "正确"
+        },
+        {
+          "label": "F",
+          "text": "错误"
+        }
+      ],
+      "answer": {
+        "value": false
+      },
+      "explanation": "本实验是丁二酮肟鉴定 Ni²⁺，不涉及 K⁺ 焰色观察。",
+      "primary_point_keys": [
+        "candidate-1-8de46ba4"
+      ],
+      "secondary_point_keys": [
+        "candidate-2-18c41387"
+      ],
+      "coverage_tags": [
+        "true_false",
+        "wrong_test"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00334_8229cac865"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "保留。"
+      },
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_10_020",
+      "question_type": "true_false",
+      "stem": "丁二酮肟镍沉淀常呈鲜红色，因此适合做镍离子鉴定。",
+      "options": [
+        {
+          "label": "T",
+          "text": "正确"
+        },
+        {
+          "label": "F",
+          "text": "错误"
+        }
+      ],
+      "answer": {
+        "value": true
+      },
+      "explanation": "鲜红色沉淀是丁二酮肟鉴定 Ni²⁺ 的关键阳性现象。",
+      "primary_point_keys": [
+        "candidate-2-18c41387"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "true_false",
+        "positive_observation"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00334_8229cac865"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01305_dd5a94da50"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "重写模板化解释。"
+      },
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_10_021",
+      "question_type": "single_choice",
+      "stem": "关于镍(Ⅱ)与丁二酮肟的鉴定，哪项表述正确？",
+      "options": [
+        {
+          "label": "A",
+          "text": "用钴(Ⅱ)-硫氰根蓝色配合物替代镍(Ⅱ)鉴定"
+        },
+        {
+          "label": "B",
+          "text": "镍(Ⅱ)鉴定使用 NiSO₄ 溶液作为镍源"
+        },
+        {
+          "label": "C",
+          "text": "只写丁二酮肟名称，不说明红色沉淀阳性现象"
+        },
+        {
+          "label": "D",
+          "text": "把铁(Ⅲ)-硫氰根血红色反应当成镍的鉴定"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "NiSO₄ 提供 Ni²⁺，用于丁二酮肟鉴定镍(Ⅱ)的实验。",
+      "primary_point_keys": [
+        "candidate-1-8de46ba4"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "single_choice",
+        "nickel_source"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "cobalt_distractor"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-1-8de46ba4",
+          "role": "correct_statement"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "incomplete_statement"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "iron_distractor"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00334_8229cac865"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "重写泛化模板题。"
+      },
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_10_022",
+      "question_type": "single_choice",
+      "stem": "关于加入丁二酮肟前的处理，哪项正确？",
+      "options": [
+        {
+          "label": "A",
+          "text": "先加入浓盐酸至强酸性"
+        },
+        {
+          "label": "B",
+          "text": "先用 NH₃·H₂O 调至弱碱性"
+        },
+        {
+          "label": "C",
+          "text": "先加入 KSCN 形成蓝色配合物"
+        },
+        {
+          "label": "D",
+          "text": "先透过钴玻璃观察焰色"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "镍(Ⅱ)鉴定需先用 NH₃·H₂O 调至弱碱性，再加入丁二酮肟。",
+      "primary_point_keys": [
+        "candidate-1-8de46ba4"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "single_choice",
+        "weak_base_adjustment"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "wrong_acidity"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-1-8de46ba4",
+          "role": "correct_step"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "cobalt_distractor"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "wrong_test"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00334_8229cac865"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "重写泛化模板题。"
+      },
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_10_023",
+      "question_type": "single_choice",
+      "stem": "镍(Ⅱ)鉴定的特征试剂是哪一项？",
+      "options": [
+        {
+          "label": "A",
+          "text": "KSCN"
+        },
+        {
+          "label": "B",
+          "text": "丁二酮肟"
+        },
+        {
+          "label": "C",
+          "text": "稀硫酸"
+        },
+        {
+          "label": "D",
+          "text": "乙醚"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "丁二酮肟能与 Ni²⁺ 形成特征性鲜红色沉淀，是镍(Ⅱ)鉴定试剂。",
+      "primary_point_keys": [
+        "candidate-2-18c41387"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "single_choice",
+        "dmg_reagent"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "cobalt_reagent_distractor"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-2-18c41387",
+          "role": "correct_reagent"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "wrong_reagent"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "wrong_solvent"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00334_8229cac865"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01305_dd5a94da50"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "重写泛化模板题。"
+      },
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_10_024",
+      "question_type": "single_choice",
+      "stem": "关于丁二酮肟溶液用量和浓度，哪项与实验一致？",
+      "options": [
+        {
+          "label": "A",
+          "text": "加入过量 40% 溶液"
+        },
+        {
+          "label": "B",
+          "text": "加入 1 滴 1% 溶液"
+        },
+        {
+          "label": "C",
+          "text": "加入 3% 过氧化氢"
+        },
+        {
+          "label": "D",
+          "text": "不需要加入丁二酮肟"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "实验步骤要求加入 1 滴 1% 丁二酮肟溶液。",
+      "primary_point_keys": [
+        "candidate-2-18c41387"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "single_choice",
+        "dmg_concentration"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "wrong_concentration"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-2-18c41387",
+          "role": "correct_amount"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "wrong_reagent"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "missing_reagent"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00334_8229cac865"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "重写泛化模板题。"
+      },
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_10_025",
+      "question_type": "fill_blank",
+      "stem": "Ni²⁺ 与丁二酮肟阳性时生成____沉淀。",
+      "options": [],
+      "answer": {
+        "accepted_answers": [
+          "鲜红色",
+          "红色"
+        ],
+        "hidden_grading_aliases": [
+          "鲜红"
+        ],
+        "match": "normalized_exact"
+      },
+      "accepted_answers": [
+        "鲜红色",
+        "红色"
+      ],
+      "hidden_grading_aliases": [
+        "鲜红"
+      ],
+      "explanation": "丁二酮肟与 Ni²⁺ 生成鲜红色沉淀。",
+      "primary_point_keys": [
+        "candidate-2-18c41387"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "fill_blank",
+        "positive_observation"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00334_8229cac865"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01305_dd5a94da50"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留，并补充顶层 accepted_answers。"
+      },
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_10_026",
+      "question_type": "single_choice",
+      "stem": "关于 Ni²⁺ 与丁二酮肟形成的产物，哪项表述正确？",
+      "options": [
+        {
+          "label": "A",
+          "text": "只产生无色气体"
+        },
+        {
+          "label": "B",
+          "text": "生成丁二酮肟镍沉淀"
+        },
+        {
+          "label": "C",
+          "text": "生成铁(Ⅲ)-硫氰根血红色配合物"
+        },
+        {
+          "label": "D",
+          "text": "生成钴(Ⅱ)-硫氰根蓝色配合物"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "Ni²⁺ 与丁二酮肟形成鲜红色丁二酮肟镍沉淀。",
+      "primary_point_keys": [
+        "candidate-2-18c41387"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "single_choice",
+        "precipitate_identity"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "wrong_observation"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-2-18c41387",
+          "role": "correct_product"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "iron_distractor"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "cobalt_distractor"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00334_8229cac865"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01305_dd5a94da50",
+          "textbook_prose_01306_0a0d67a34e"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "重写并移除可见沉淀公式。"
+      },
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_10_027",
+      "question_type": "fill_blank",
+      "stem": "反应式中 H₂dmg 表示____。",
+      "options": [],
+      "answer": {
+        "accepted_answers": [
+          "丁二酮肟"
+        ],
+        "hidden_grading_aliases": [
+          "二甲基乙二肟",
+          "HDMG"
+        ],
+        "match": "normalized_exact"
+      },
+      "accepted_answers": [
+        "丁二酮肟"
+      ],
+      "hidden_grading_aliases": [
+        "二甲基乙二肟",
+        "HDMG"
+      ],
+      "explanation": "教材资料文字说明 H₂dmg 表示丁二酮肟。",
+      "primary_point_keys": [
+        "candidate-2-18c41387"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "fill_blank",
+        "h2dmg_meaning"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00334_8229cac865"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01305_dd5a94da50"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留，并补充顶层 accepted_answers。"
+      },
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_10_028",
+      "question_type": "single_choice",
+      "stem": "关于镍(Ⅱ)鉴定反应式的含义，哪项正确？",
+      "options": [
+        {
+          "label": "A",
+          "text": "不调至弱碱性也可直接得任意沉淀"
+        },
+        {
+          "label": "B",
+          "text": "Ni²⁺ 与丁二酮肟在氨存在下可生成丁二酮肟镍沉淀"
+        },
+        {
+          "label": "C",
+          "text": "该反应实际是钴(Ⅱ)-硫氰根显蓝"
+        },
+        {
+          "label": "D",
+          "text": "该反应实际是铁(Ⅲ)-硫氰根显血红"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "教材反应式说明 Ni²⁺、丁二酮肟和氨参与形成丁二酮肟镍沉淀。",
+      "primary_point_keys": [
+        "candidate-2-18c41387"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "single_choice",
+        "reaction_meaning"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "wrong_condition"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-2-18c41387",
+          "role": "correct_reaction_meaning"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "cobalt_distractor"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "iron_distractor"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00334_8229cac865"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01306_0a0d67a34e"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "重写并移除可见沉淀公式。"
+      },
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_10_029",
+      "question_type": "single_choice",
+      "stem": "关于氨水在镍(Ⅱ)鉴定中的作用，哪项正确？",
+      "options": [
+        {
+          "label": "A",
+          "text": "作为钴(Ⅱ)-硫氰根显色的有机溶剂"
+        },
+        {
+          "label": "B",
+          "text": "调节弱碱性并有助于沉淀形成"
+        },
+        {
+          "label": "C",
+          "text": "把铁(Ⅲ)-硫氰根反应变成镍鉴定"
+        },
+        {
+          "label": "D",
+          "text": "使丁二酮肟完全失去作用"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "实验要求用氨水调至弱碱性，再加入丁二酮肟观察鲜红色沉淀。",
+      "primary_point_keys": [
+        "candidate-1-8de46ba4"
+      ],
+      "secondary_point_keys": [
+        "candidate-2-18c41387"
+      ],
+      "coverage_tags": [
+        "single_choice",
+        "ammonia_role"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "cobalt_distractor"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-1-8de46ba4",
+          "role": "correct_role"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "iron_distractor"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "wrong_effect"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00334_8229cac865"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01306_0a0d67a34e"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "重写泛化模板题。"
+      },
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_10_030",
+      "question_type": "single_choice",
+      "stem": "完整概括镍(Ⅱ)鉴定的是哪一项？",
+      "options": [
+        {
+          "label": "A",
+          "text": "NiSO₄ 溶液加氨水至弱碱性，再加 1% 丁二酮肟，观察鲜红色沉淀"
+        },
+        {
+          "label": "B",
+          "text": "CoCl₂ 溶液加戊醇和 KSCN，观察蓝色"
+        },
+        {
+          "label": "C",
+          "text": "铁(Ⅲ)溶液加 KSCN，观察血红色"
+        },
+        {
+          "label": "D",
+          "text": "钒酸盐加酸和过氧化氢，观察棕红到粉红"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "A 同时包含镍源、弱碱性条件、丁二酮肟试剂和鲜红色沉淀，是本鉴定的完整概括。",
+      "primary_point_keys": [
+        "candidate-1-8de46ba4"
+      ],
+      "secondary_point_keys": [
+        "candidate-2-18c41387"
+      ],
+      "coverage_tags": [
+        "single_choice",
+        "integrated_summary"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-1-8de46ba4",
+          "role": "correct_complete_summary"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "cobalt_distractor"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "iron_distractor"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "vanadium_distractor"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00334_8229cac865"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01305_dd5a94da50"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "重写泛化模板题为完整流程概括题。"
+      },
+      "review_decision": "rewrite"
+    }
+  ]
+}

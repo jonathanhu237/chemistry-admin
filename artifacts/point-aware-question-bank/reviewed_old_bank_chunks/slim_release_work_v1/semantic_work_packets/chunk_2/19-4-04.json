@@ -1,0 +1,4144 @@
+{
+  "metadata": {
+    "version": "chunk-2-release-slim-v1",
+    "artifact_type": "slim_question_bank_work_file",
+    "generated_at": "2026-06-15T03:27:58.719338+00:00",
+    "source_file": "E:\\chemistry-admin\\artifacts\\point-aware-question-bank\\reviewed_old_bank_chunks\\chunk_2_release_final_v1.json",
+    "normalization_rule": "effective question plus minimal lineage, evidence IDs, point bindings, option links, evidence locators, and mechanical risk flags",
+    "evidence_policy": "RAG source text is not embedded; packets carry locators and reviewers must read E:/chemistry-rag/data/rag_ready directly",
+    "chunk_id_policy": "inherited chunk ids are untrusted locator candidates until manually compared with RAG text",
+    "semantic_status": "not_semantically_repaired_by_this_script",
+    "packet_type": "single_experiment_semantic_repair_work_packet",
+    "chunk": 2,
+    "experiment_code": "19-4-04",
+    "question_count": 30
+  },
+  "experiment": {
+    "experiment_id": "EXP_19_4_04",
+    "experiment_code": "19-4-04",
+    "experiment_title": "亚硝酸根的检验方法",
+    "chapter_bindings": [
+      {
+        "chapter_id": "CH15",
+        "coverage_type": "primary",
+        "sort_order": 1
+      }
+    ],
+    "video_points": [
+      {
+        "point_key": "candidate-1-724956e8",
+        "point_title": "点滴板法：NaNO₂ + HAc + 对氨基苯磺酸 + 萘胺",
+        "source": "formal_experiment.video_candidates",
+        "candidate_index": 1,
+        "resource_count": 0,
+        "published_count": 0,
+        "resource_titles": []
+      },
+      {
+        "point_key": "candidate-2-e03872e8",
+        "point_title": "KI-CCl₄ 法：NaNO₂ + KI + 酸化 + CCl₄，观察 CCl₄ 层颜色",
+        "source": "formal_experiment.video_candidates",
+        "candidate_index": 2,
+        "resource_count": 0,
+        "published_count": 0,
+        "resource_titles": []
+      }
+    ],
+    "canonical_chunk_ids": [
+      "expchunk_00242_2da7ff3435",
+      "expchunk_00248_a94cd0af07"
+    ],
+    "evidence_lookup": {
+      "policy": "locator_only; canonical RAG text is not embedded in this packet",
+      "chunk_id_policy": "metadata chunk ids are inherited claims, not trusted evidence; reviewers must compare the RAG text against the question stem/options/answer/explanation and replace or remove wrong ids",
+      "primary_source_dir": "E:\\chemistry-rag\\data\\rag_ready",
+      "source_files": {
+        "experiment_chunks": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+        "supporting_theory_chunks": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl"
+      },
+      "search_hints": {
+        "experiment_code": "19-4-04",
+        "parent_experiment_code": "19-4",
+        "experiment_title": "亚硝酸根的检验方法",
+        "video_point_titles": [
+          "点滴板法：NaNO₂ + HAc + 对氨基苯磺酸 + 萘胺",
+          "KI-CCl₄ 法：NaNO₂ + KI + 酸化 + CCl₄，观察 CCl₄ 层颜色"
+        ],
+        "canonical_chunk_ids_from_metadata": [
+          "expchunk_00242_2da7ff3435",
+          "expchunk_00248_a94cd0af07"
+        ],
+        "supporting_theory_chunk_ids_from_metadata": [
+          "textbook_prose_00547_2a1f998120",
+          "textbook_prose_00548_e41b91cedc"
+        ],
+        "suggested_search_patterns": [
+          "19-4-04",
+          "19-4",
+          "亚硝酸根的检验方法",
+          "点滴板法：NaNO₂ + HAc + 对氨基苯磺酸 + 萘胺",
+          "KI-CCl₄ 法：NaNO₂ + KI + 酸化 + CCl₄，观察 CCl₄ 层颜色",
+          "expchunk_00242_2da7ff3435",
+          "expchunk_00248_a94cd0af07",
+          "textbook_prose_00547_2a1f998120",
+          "textbook_prose_00548_e41b91cedc"
+        ]
+      },
+      "rag_exact_id_presence": {
+        "meaning": "id presence only; this does not validate semantic relevance",
+        "found_ids": [
+          "expchunk_00242_2da7ff3435",
+          "expchunk_00248_a94cd0af07",
+          "textbook_prose_00547_2a1f998120",
+          "textbook_prose_00548_e41b91cedc"
+        ],
+        "missing_ids": [],
+        "found_locator_summaries": [
+          {
+            "chunk_id": "expchunk_00242_2da7ff3435",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+            "line_number": 255,
+            "source_collection": "textbook_experiment_clean_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学实验（第四版）",
+            "page_start": 148,
+            "page_end": 148,
+            "section_path": [
+              "第7章 元素性质实验",
+              "实验 19-4 氮和磷",
+              "（四）实验内容",
+              "2. 亚硝酸及其盐的性质"
+            ],
+            "content_type": "reaction",
+            "knowledge_unit": "reaction",
+            "parent_id": "expchunk_protocol_80d6d1e3c854",
+            "prev_chunk_id": "expchunk_00241_4f35eeeede",
+            "next_chunk_id": "expchunk_00243_765fc7b450",
+            "relations": {
+              "section_id": "expsec_5d2112ddac67e104",
+              "experiment_id": "experiment:实验_19-4_氮和磷",
+              "page_anchor": "page_148",
+              "parent": "expchunk_protocol_80d6d1e3c854"
+            }
+          },
+          {
+            "chunk_id": "expchunk_00248_a94cd0af07",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+            "line_number": 261,
+            "source_collection": "textbook_experiment_clean_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学实验（第四版）",
+            "page_start": 149,
+            "page_end": 149,
+            "section_path": [
+              "第7章 元素性质实验",
+              "实验 19-4 氮和磷",
+              "思考题"
+            ],
+            "content_type": "teaching_question_seed",
+            "knowledge_unit": "teaching_question_seed",
+            "parent_id": "expchunk_protocol_80d6d1e3c854",
+            "prev_chunk_id": "expchunk_00247_483e94caa5",
+            "next_chunk_id": "expchunk_00249_cd3b9d7249",
+            "relations": {
+              "section_id": "expsec_d4fdae0a46ac6acd",
+              "experiment_id": "experiment:实验_19-4_氮和磷",
+              "page_anchor": "page_149",
+              "parent": "expchunk_protocol_80d6d1e3c854"
+            }
+          },
+          {
+            "chunk_id": "textbook_prose_00547_2a1f998120",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+            "line_number": 857,
+            "source_collection": "textbook_inorganic_lower_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学（下册）（第二版）",
+            "page_start": 93,
+            "page_end": 93,
+            "section_path": [
+              "第 15 章 氮族元素",
+              "15.4 氮族元素的氧化物、含氧酸及其盐",
+              "15.4.2 氮的含氧酸及其盐",
+              "1. 亚硝酸及其盐"
+            ],
+            "content_type": "reaction",
+            "knowledge_unit": "reaction",
+            "parent_id": "section:b2b3d723ed08",
+            "prev_chunk_id": "textbook_prose_00546_867c348536",
+            "next_chunk_id": "textbook_prose_00548_e41b91cedc",
+            "relations": {
+              "parent": "section:b2b3d723ed08",
+              "source_route": "clean_pages",
+              "prev": "textbook_prose_00546_867c348536",
+              "next": "textbook_prose_00548_e41b91cedc"
+            }
+          },
+          {
+            "chunk_id": "textbook_prose_00548_e41b91cedc",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+            "line_number": 858,
+            "source_collection": "textbook_inorganic_lower_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学（下册）（第二版）",
+            "page_start": 93,
+            "page_end": 93,
+            "section_path": [
+              "第 15 章 氮族元素",
+              "15.4 氮族元素的氧化物、含氧酸及其盐",
+              "15.4.2 氮的含氧酸及其盐",
+              "1. 亚硝酸及其盐"
+            ],
+            "content_type": "reaction",
+            "knowledge_unit": "reaction",
+            "parent_id": "section:b2b3d723ed08",
+            "prev_chunk_id": "textbook_prose_00547_2a1f998120",
+            "next_chunk_id": "textbook_prose_00549_1931138c9a",
+            "relations": {
+              "parent": "section:b2b3d723ed08",
+              "source_route": "clean_pages",
+              "prev": "textbook_prose_00547_2a1f998120",
+              "next": "textbook_prose_00549_1931138c9a"
+            }
+          }
+        ]
+      },
+      "legacy_locator_summaries": [
+        {
+          "chunk_id": "expchunk_00242_2da7ff3435",
+          "source_file": "无机化学实验（第四版）",
+          "book_title": "无机化学实验（第四版）",
+          "document_id": "DOC_CANONICAL_EXPERIMENT_V1",
+          "source_collection": "textbook_experiment_clean_v1",
+          "source_role": "canonical_textbook",
+          "content_type": "reaction",
+          "chapter_id": null,
+          "page_number": 148,
+          "section_title": "实验 19-4 氮和磷 / （四）实验内容 / 2. 亚硝酸及其盐的性质",
+          "section_path": [
+            "第7章 元素性质实验",
+            "实验 19-4 氮和磷",
+            "（四）实验内容",
+            "2. 亚硝酸及其盐的性质"
+          ]
+        },
+        {
+          "chunk_id": "expchunk_00248_a94cd0af07",
+          "source_file": "无机化学实验（第四版）",
+          "book_title": "无机化学实验（第四版）",
+          "document_id": "DOC_CANONICAL_EXPERIMENT_V1",
+          "source_collection": "textbook_experiment_clean_v1",
+          "source_role": "canonical_textbook",
+          "content_type": "teaching_question_seed",
+          "chapter_id": null,
+          "page_number": 149,
+          "section_title": "第7章 元素性质实验 / 实验 19-4 氮和磷 / 思考题",
+          "section_path": [
+            "第7章 元素性质实验",
+            "实验 19-4 氮和磷",
+            "思考题"
+          ]
+        }
+      ],
+      "legacy_missing_ids": [
+        "textbook_prose_00547_2a1f998120",
+        "textbook_prose_00548_e41b91cedc"
+      ]
+    },
+    "questions": [
+      {
+        "question_id": "EXP_19_4_04_SEMANTIC_FINAL_001",
+        "source_review_id": "EXP_19_4_04_SEMANTIC_FINAL_001",
+        "source_question_index": 1,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-4-04 亚硝酸根的检验方法》中，点滴板法检验 NO₂⁻ 的阳性现象是什么？",
+        "options": [
+          {
+            "label": "A",
+            "text": "出现棕色环"
+          },
+          {
+            "label": "B",
+            "text": "CCl₄ 层无色"
+          },
+          {
+            "label": "C",
+            "text": "出现红色"
+          },
+          {
+            "label": "D",
+            "text": "生成黄色钠火焰"
+          }
+        ],
+        "answer": {
+          "value": "C"
+        },
+        "explanation": "对氨基苯磺酸和萘胺显色法阳性为红色。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-724956e8"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_1_724956e8"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "出现棕色环",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“出现棕色环”混入其他实验或相邻操作，易造成点位错配；本题实际问的是“在《19-4-04 亚硝酸根的检验方法》中，点滴板法检验 NO₂⁻ 的阳性现象是什么？”。"
+          },
+          {
+            "label": "B",
+            "text": "CCl₄ 层无色",
+            "point_key": "candidate-2-e03872e8",
+            "role": "adjacent_point",
+            "diagnostic_note": "干扰项“CCl₄ 层无色”对应相邻点位“KI-CCl₄ 法：NaNO₂ + KI + 酸化 + CCl₄，观察 CCl₄ 层颜色”，但不是本题所绑定点位的答案。"
+          },
+          {
+            "label": "C",
+            "text": "出现红色",
+            "point_key": "candidate-1-724956e8",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“出现红色”直接支撑题干所问：在《19-4-04 亚硝酸根的检验方法》中，点滴板法检验 NO₂⁻ 的阳性现象是什么？；对应点位为“点滴板法：NaNO₂ + HAc + 对氨基苯磺酸 + 萘胺”。"
+          },
+          {
+            "label": "D",
+            "text": "生成黄色钠火焰",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“生成黄色钠火焰”与本题焦点“在《19-4-04 亚硝酸根的检验方法》中，点滴板法检验 NO₂⁻ 的阳性现象是什么？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“生成黄色钠火焰”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00242_2da7ff3435",
+            "expchunk_00248_a94cd0af07"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final rewrite：low_quality_keep_rewritten；有效题为本 proposed_question。；原题存在证据、深度或题型风险，最终有效题已由 proposed_question 修复。",
+          "supporting_theory_note": ""
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00242_2da7ff3435",
+            "expchunk_00248_a94cd0af07"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-4-04 亚硝酸根的检验方法》实验中，点滴板法中用于酸化 NaNO₂ 的酸是哪一种？",
+            "options": [
+              {
+                "label": "A",
+                "text": "HAc 溶液"
+              },
+              {
+                "label": "B",
+                "text": "浓氨水"
+              },
+              {
+                "label": "C",
+                "text": "NaOH 溶液"
+              },
+              {
+                "label": "D",
+                "text": "CCl₄"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "答案为：HAc 溶液。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00242_2da7ff3435",
+              "expchunk_00248_a94cd0af07"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-4-04 亚硝酸根的检验方法》中，点滴板法检验 NO₂⁻ 的阳性现象是什么？",
+            "options": [
+              {
+                "label": "A",
+                "text": "出现棕色环"
+              },
+              {
+                "label": "B",
+                "text": "CCl₄ 层无色"
+              },
+              {
+                "label": "C",
+                "text": "出现红色"
+              },
+              {
+                "label": "D",
+                "text": "生成黄色钠火焰"
+              }
+            ],
+            "answer": {
+              "value": "C"
+            },
+            "explanation": "对氨基苯磺酸和萘胺显色法阳性为红色。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_4_04_SEMANTIC_FINAL_002",
+        "source_review_id": "EXP_19_4_04_SEMANTIC_FINAL_002",
+        "source_question_index": 2,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-4-04 亚硝酸根的检验方法》实验中，点滴板法酸化后加入的两种显色试剂是哪一组？",
+        "options": [
+          {
+            "label": "A",
+            "text": "FeSO₄ 和浓硫酸"
+          },
+          {
+            "label": "B",
+            "text": "对氨基苯磺酸和萘胺"
+          },
+          {
+            "label": "C",
+            "text": "KBr 和 CCl₄"
+          },
+          {
+            "label": "D",
+            "text": "NaOH 和铝屑"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "“对氨基苯磺酸和萘胺”与实验操作、观察目标或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-724956e8"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "19_4_04_point_1"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "FeSO₄ 和浓硫酸",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“FeSO₄ 和浓硫酸”混入其他实验或相邻操作，易造成点位错配；本题实际问的是“在《19-4-04 亚硝酸根的检验方法》实验中，点滴板法酸化后加入的两种显色试剂是哪一组？”。"
+          },
+          {
+            "label": "B",
+            "text": "对氨基苯磺酸和萘胺",
+            "point_key": "candidate-1-724956e8",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“对氨基苯磺酸和萘胺”直接支撑题干所问：在《19-4-04 亚硝酸根的检验方法》实验中，点滴板法酸化后加入的两种显色试剂是哪一组？；对应点位为“点滴板法：NaNO₂ + HAc + 对氨基苯磺酸 + 萘胺”。"
+          },
+          {
+            "label": "C",
+            "text": "KBr 和 CCl₄",
+            "point_key": "candidate-2-e03872e8",
+            "role": "adjacent_point",
+            "diagnostic_note": "干扰项“KBr 和 CCl₄”对应相邻点位“KI-CCl₄ 法：NaNO₂ + KI + 酸化 + CCl₄，观察 CCl₄ 层颜色”，但不是本题所绑定点位的答案。"
+          },
+          {
+            "label": "D",
+            "text": "NaOH 和铝屑",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“NaOH 和铝屑”混入其他实验或相邻操作，易造成点位错配；本题实际问的是“在《19-4-04 亚硝酸根的检验方法》实验中，点滴板法酸化后加入的两种显色试剂是哪一组？”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00242_2da7ff3435",
+            "expchunk_00248_a94cd0af07"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "终审保留：题干、答案和解析与教材实验点位语义一致。",
+          "supporting_theory_note": ""
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00242_2da7ff3435",
+            "expchunk_00248_a94cd0af07"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-4-04 亚硝酸根的检验方法》实验中，点滴板法酸化后加入的两种显色试剂是哪一组？",
+            "options": [
+              {
+                "label": "A",
+                "text": "FeSO₄ 和浓硫酸"
+              },
+              {
+                "label": "B",
+                "text": "对氨基苯磺酸和萘胺"
+              },
+              {
+                "label": "C",
+                "text": "KBr 和 CCl₄"
+              },
+              {
+                "label": "D",
+                "text": "NaOH 和铝屑"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "“对氨基苯磺酸和萘胺”与实验操作、观察目标或结论一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00242_2da7ff3435",
+              "expchunk_00248_a94cd0af07"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_4_04_SEMANTIC_FINAL_003",
+        "source_review_id": "EXP_19_4_04_SEMANTIC_FINAL_003",
+        "source_question_index": 3,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-4-04 亚硝酸根的检验方法》实验中，点滴板法检出 NO₂⁻ 的阳性现象是什么？",
+        "options": [
+          {
+            "label": "A",
+            "text": "出现银镜"
+          },
+          {
+            "label": "B",
+            "text": "火焰显黄色"
+          },
+          {
+            "label": "C",
+            "text": "溶液显红色"
+          },
+          {
+            "label": "D",
+            "text": "生成钥匙轮廓"
+          }
+        ],
+        "answer": {
+          "value": "C"
+        },
+        "explanation": "“溶液显红色”与实验操作、观察目标或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-724956e8"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "19_4_04_point_1"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "出现银镜",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“出现银镜”与本题焦点“在《19-4-04 亚硝酸根的检验方法》实验中，点滴板法检出 NO₂⁻ 的阳性现象是什么？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“出现银镜”。"
+          },
+          {
+            "label": "B",
+            "text": "火焰显黄色",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“火焰显黄色”与本题焦点“在《19-4-04 亚硝酸根的检验方法》实验中，点滴板法检出 NO₂⁻ 的阳性现象是什么？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“火焰显黄色”。"
+          },
+          {
+            "label": "C",
+            "text": "溶液显红色",
+            "point_key": "candidate-1-724956e8",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“溶液显红色”直接支撑题干所问：在《19-4-04 亚硝酸根的检验方法》实验中，点滴板法检出 NO₂⁻ 的阳性现象是什么？；对应点位为“点滴板法：NaNO₂ + HAc + 对氨基苯磺酸 + 萘胺”。"
+          },
+          {
+            "label": "D",
+            "text": "生成钥匙轮廓",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“生成钥匙轮廓”与本题焦点“在《19-4-04 亚硝酸根的检验方法》实验中，点滴板法检出 NO₂⁻ 的阳性现象是什么？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“生成钥匙轮廓”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00242_2da7ff3435",
+            "expchunk_00248_a94cd0af07"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "终审保留：题干、答案和解析与教材实验点位语义一致。",
+          "supporting_theory_note": ""
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00242_2da7ff3435",
+            "expchunk_00248_a94cd0af07"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-4-04 亚硝酸根的检验方法》实验中，点滴板法检出 NO₂⁻ 的阳性现象是什么？",
+            "options": [
+              {
+                "label": "A",
+                "text": "出现银镜"
+              },
+              {
+                "label": "B",
+                "text": "火焰显黄色"
+              },
+              {
+                "label": "C",
+                "text": "溶液显红色"
+              },
+              {
+                "label": "D",
+                "text": "生成钥匙轮廓"
+              }
+            ],
+            "answer": {
+              "value": "C"
+            },
+            "explanation": "“溶液显红色”与实验操作、观察目标或结论一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00242_2da7ff3435",
+              "expchunk_00248_a94cd0af07"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_4_04_SEMANTIC_FINAL_004",
+        "source_review_id": "EXP_19_4_04_SEMANTIC_FINAL_004",
+        "source_question_index": 4,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-4-04 亚硝酸根的检验方法》实验中，KI/CCl₄ 法中，NO₂⁻ 在酸性条件下主要氧化哪种离子？",
+        "options": [
+          {
+            "label": "A",
+            "text": "K⁺"
+          },
+          {
+            "label": "B",
+            "text": "Na⁺"
+          },
+          {
+            "label": "C",
+            "text": "SO₄²⁻"
+          },
+          {
+            "label": "D",
+            "text": "I⁻"
+          }
+        ],
+        "answer": {
+          "value": "D"
+        },
+        "explanation": "“I⁻”与实验操作、观察目标或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-e03872e8"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "19_4_04_point_2"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "K⁺",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“K⁺”与本题焦点“在《19-4-04 亚硝酸根的检验方法》实验中，KI/CCl₄ 法中，NO₂⁻ 在酸性条件下主要氧化哪种离子？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“K⁺”。"
+          },
+          {
+            "label": "B",
+            "text": "Na⁺",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“Na⁺”与本题焦点“在《19-4-04 亚硝酸根的检验方法》实验中，KI/CCl₄ 法中，NO₂⁻ 在酸性条件下主要氧化哪种离子？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“Na⁺”。"
+          },
+          {
+            "label": "C",
+            "text": "SO₄²⁻",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“SO₄²⁻”与本题焦点“在《19-4-04 亚硝酸根的检验方法》实验中，KI/CCl₄ 法中，NO₂⁻ 在酸性条件下主要氧化哪种离子？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“SO₄²⁻”。"
+          },
+          {
+            "label": "D",
+            "text": "I⁻",
+            "point_key": "candidate-2-e03872e8",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“I⁻”直接支撑题干所问：在《19-4-04 亚硝酸根的检验方法》实验中，KI/CCl₄ 法中，NO₂⁻ 在酸性条件下主要氧化哪种离子？；对应点位为“KI-CCl₄ 法：NaNO₂ + KI + 酸化 + CCl₄，观察 CCl₄ 层颜色”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00242_2da7ff3435",
+            "expchunk_00248_a94cd0af07"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00547_2a1f998120",
+            "textbook_prose_00548_e41b91cedc"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "终审保留：题干、答案和解析与教材实验点位语义一致。；polished final 补充 supporting theory 引用：textbook_prose_00547_2a1f998120, textbook_prose_00548_e41b91cedc。",
+          "supporting_theory_note": "该判断依赖教材理论 chunk：textbook_prose_00547_2a1f998120, textbook_prose_00548_e41b91cedc。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00242_2da7ff3435",
+            "expchunk_00248_a94cd0af07"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00547_2a1f998120",
+            "textbook_prose_00548_e41b91cedc"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00547_2a1f998120",
+            "textbook_prose_00548_e41b91cedc"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-4-04 亚硝酸根的检验方法》实验中，KI/CCl₄ 法中，NO₂⁻ 在酸性条件下主要氧化哪种离子？",
+            "options": [
+              {
+                "label": "A",
+                "text": "K⁺"
+              },
+              {
+                "label": "B",
+                "text": "Na⁺"
+              },
+              {
+                "label": "C",
+                "text": "SO₄²⁻"
+              },
+              {
+                "label": "D",
+                "text": "I⁻"
+              }
+            ],
+            "answer": {
+              "value": "D"
+            },
+            "explanation": "“I⁻”与实验操作、观察目标或结论一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00242_2da7ff3435",
+              "expchunk_00248_a94cd0af07"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_4_04_SEMANTIC_FINAL_005",
+        "source_review_id": "EXP_19_4_04_SEMANTIC_FINAL_005",
+        "source_question_index": 5,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-4-04 亚硝酸根的检验方法》实验中，KI/CCl₄ 法中 CCl₄ 层显紫色说明生成了什么？",
+        "options": [
+          {
+            "label": "A",
+            "text": "I₂"
+          },
+          {
+            "label": "B",
+            "text": "AgCl"
+          },
+          {
+            "label": "C",
+            "text": "NH₃"
+          },
+          {
+            "label": "D",
+            "text": "PbSO₄"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "“I₂”与实验操作、观察目标或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-e03872e8"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "19_4_04_point_2"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "I₂",
+            "point_key": "candidate-2-e03872e8",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“I₂”直接支撑题干所问：在《19-4-04 亚硝酸根的检验方法》实验中，KI/CCl₄ 法中 CCl₄ 层显紫色说明生成了什么？；对应点位为“KI-CCl₄ 法：NaNO₂ + KI + 酸化 + CCl₄，观察 CCl₄ 层颜色”。"
+          },
+          {
+            "label": "B",
+            "text": "AgCl",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“AgCl”混入其他实验或相邻操作，易造成点位错配；本题实际问的是“在《19-4-04 亚硝酸根的检验方法》实验中，KI/CCl₄ 法中 CCl₄ 层显紫色说明生成了什么？”。"
+          },
+          {
+            "label": "C",
+            "text": "NH₃",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“NH₃”与本题焦点“在《19-4-04 亚硝酸根的检验方法》实验中，KI/CCl₄ 法中 CCl₄ 层显紫色说明生成了什么？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“NH₃”。"
+          },
+          {
+            "label": "D",
+            "text": "PbSO₄",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“PbSO₄”与本题焦点“在《19-4-04 亚硝酸根的检验方法》实验中，KI/CCl₄ 法中 CCl₄ 层显紫色说明生成了什么？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“PbSO₄”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00242_2da7ff3435",
+            "expchunk_00248_a94cd0af07"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00547_2a1f998120",
+            "textbook_prose_00548_e41b91cedc"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "终审保留：题干、答案和解析与教材实验点位语义一致。；polished final 补充 supporting theory 引用：textbook_prose_00547_2a1f998120, textbook_prose_00548_e41b91cedc。",
+          "supporting_theory_note": "该判断依赖教材理论 chunk：textbook_prose_00547_2a1f998120, textbook_prose_00548_e41b91cedc。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00242_2da7ff3435",
+            "expchunk_00248_a94cd0af07"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00547_2a1f998120",
+            "textbook_prose_00548_e41b91cedc"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00547_2a1f998120",
+            "textbook_prose_00548_e41b91cedc"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-4-04 亚硝酸根的检验方法》实验中，KI/CCl₄ 法中 CCl₄ 层显紫色说明生成了什么？",
+            "options": [
+              {
+                "label": "A",
+                "text": "I₂"
+              },
+              {
+                "label": "B",
+                "text": "AgCl"
+              },
+              {
+                "label": "C",
+                "text": "NH₃"
+              },
+              {
+                "label": "D",
+                "text": "PbSO₄"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "“I₂”与实验操作、观察目标或结论一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00242_2da7ff3435",
+              "expchunk_00248_a94cd0af07"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_4_04_SEMANTIC_FINAL_006",
+        "source_review_id": "EXP_19_4_04_SEMANTIC_FINAL_006",
+        "source_question_index": 6,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-4-04 亚硝酸根的检验方法》中，点滴板法检验 NO₂⁻ 的阳性现象是什么（从对照作用角度判断）？",
+        "options": [
+          {
+            "label": "A",
+            "text": "出现红色"
+          },
+          {
+            "label": "B",
+            "text": "出现棕色环"
+          },
+          {
+            "label": "C",
+            "text": "CCl₄ 层无色"
+          },
+          {
+            "label": "D",
+            "text": "生成黄色钠火焰"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "对氨基苯磺酸和萘胺显色法阳性为红色。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-724956e8"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_1_724956e8"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "出现红色",
+            "point_key": "candidate-1-724956e8",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“出现红色”直接支撑题干所问：在《19-4-04 亚硝酸根的检验方法》中，点滴板法检验 NO₂⁻ 的阳性现象是什么（从对照作用角度判断）？；对应点位为“点滴板法：NaNO₂ + HAc + 对氨基苯磺酸 + 萘胺”。"
+          },
+          {
+            "label": "B",
+            "text": "出现棕色环",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“出现棕色环”混入其他实验或相邻操作，易造成点位错配；本题实际问的是“在《19-4-04 亚硝酸根的检验方法》中，点滴板法检验 NO₂⁻ 的阳性现象是什么（从对照作用角度判断）？”。"
+          },
+          {
+            "label": "C",
+            "text": "CCl₄ 层无色",
+            "point_key": "candidate-2-e03872e8",
+            "role": "adjacent_point",
+            "diagnostic_note": "干扰项“CCl₄ 层无色”对应相邻点位“KI-CCl₄ 法：NaNO₂ + KI + 酸化 + CCl₄，观察 CCl₄ 层颜色”，但不是本题所绑定点位的答案。"
+          },
+          {
+            "label": "D",
+            "text": "生成黄色钠火焰",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“生成黄色钠火焰”与本题焦点“在《19-4-04 亚硝酸根的检验方法》中，点滴板法检验 NO₂⁻ 的阳性现象是什么（从对照作用角度判断）？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“生成黄色钠火焰”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00242_2da7ff3435",
+            "expchunk_00248_a94cd0af07"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final rewrite：deduplicated_proposed_question；有效题为本 proposed_question。；原题存在证据、深度或题型风险，最终有效题已由 proposed_question 修复。",
+          "supporting_theory_note": ""
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00242_2da7ff3435",
+            "expchunk_00248_a94cd0af07"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-4-04 亚硝酸根的检验方法》实验中，亚硝酸由 NaNO₂ 与硫酸生成后，因不稳定可分解产生哪种棕色气体相关物种？",
+            "options": [
+              {
+                "label": "A",
+                "text": "NH₃"
+              },
+              {
+                "label": "B",
+                "text": "NO₂"
+              },
+              {
+                "label": "C",
+                "text": "H₂"
+              },
+              {
+                "label": "D",
+                "text": "O₂"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "答案为：NO₂。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00242_2da7ff3435",
+              "expchunk_00248_a94cd0af07"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-4-04 亚硝酸根的检验方法》中，点滴板法检验 NO₂⁻ 的阳性现象是什么（从对照作用角度判断）？",
+            "options": [
+              {
+                "label": "A",
+                "text": "出现红色"
+              },
+              {
+                "label": "B",
+                "text": "出现棕色环"
+              },
+              {
+                "label": "C",
+                "text": "CCl₄ 层无色"
+              },
+              {
+                "label": "D",
+                "text": "生成黄色钠火焰"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "对氨基苯磺酸和萘胺显色法阳性为红色。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_4_04_SEMANTIC_FINAL_007",
+        "source_review_id": "EXP_19_4_04_SEMANTIC_FINAL_007",
+        "source_question_index": 7,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-4-04 亚硝酸根的检验方法》中，KI-CCl₄ 法中 CCl₄ 层显紫色，说明生成了什么（从安全要求角度判断）？",
+        "options": [
+          {
+            "label": "A",
+            "text": "AgCl"
+          },
+          {
+            "label": "B",
+            "text": "Na₂O₂"
+          },
+          {
+            "label": "C",
+            "text": "Fe(NO)SO₄"
+          },
+          {
+            "label": "D",
+            "text": "I₂"
+          }
+        ],
+        "answer": {
+          "value": "D"
+        },
+        "explanation": "I₂ 溶于 CCl₄ 显紫色。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-e03872e8"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_2_e03872e8"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "AgCl",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“AgCl”混入其他实验或相邻操作，易造成点位错配；本题实际问的是“在《19-4-04 亚硝酸根的检验方法》中，KI-CCl₄ 法中 CCl₄ 层显紫色，说明生成了什么（从安全要求角度判断）？”。"
+          },
+          {
+            "label": "B",
+            "text": "Na₂O₂",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“Na₂O₂”与本题焦点“在《19-4-04 亚硝酸根的检验方法》中，KI-CCl₄ 法中 CCl₄ 层显紫色，说明生成了什么（从安全要求角度判断）？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“Na₂O₂”。"
+          },
+          {
+            "label": "C",
+            "text": "Fe(NO)SO₄",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“Fe(NO)SO₄”与本题焦点“在《19-4-04 亚硝酸根的检验方法》中，KI-CCl₄ 法中 CCl₄ 层显紫色，说明生成了什么（从安全要求角度判断）？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“Fe(NO)SO₄”。"
+          },
+          {
+            "label": "D",
+            "text": "I₂",
+            "point_key": "candidate-2-e03872e8",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“I₂”直接支撑题干所问：在《19-4-04 亚硝酸根的检验方法》中，KI-CCl₄ 法中 CCl₄ 层显紫色，说明生成了什么（从安全要求角度判断）？；对应点位为“KI-CCl₄ 法：NaNO₂ + KI + 酸化 + CCl₄，观察 CCl₄ 层颜色”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00242_2da7ff3435",
+            "expchunk_00248_a94cd0af07"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final rewrite：deduplicated_proposed_question；有效题为本 proposed_question。；原题存在证据、深度或题型风险，最终有效题已由 proposed_question 修复。",
+          "supporting_theory_note": ""
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00242_2da7ff3435",
+            "expchunk_00248_a94cd0af07"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-4-04 亚硝酸根的检验方法》实验中，酸性 KMnO₄ 中滴加 NaNO₂，主要体现亚硝酸盐的哪种性质？",
+            "options": [
+              {
+                "label": "A",
+                "text": "感光性"
+              },
+              {
+                "label": "B",
+                "text": "焰色性"
+              },
+              {
+                "label": "C",
+                "text": "还原性"
+              },
+              {
+                "label": "D",
+                "text": "强配位性"
+              }
+            ],
+            "answer": {
+              "value": "C"
+            },
+            "explanation": "答案为：还原性。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00242_2da7ff3435",
+              "expchunk_00248_a94cd0af07"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-4-04 亚硝酸根的检验方法》中，KI-CCl₄ 法中 CCl₄ 层显紫色，说明生成了什么（从安全要求角度判断）？",
+            "options": [
+              {
+                "label": "A",
+                "text": "AgCl"
+              },
+              {
+                "label": "B",
+                "text": "Na₂O₂"
+              },
+              {
+                "label": "C",
+                "text": "Fe(NO)SO₄"
+              },
+              {
+                "label": "D",
+                "text": "I₂"
+              }
+            ],
+            "answer": {
+              "value": "D"
+            },
+            "explanation": "I₂ 溶于 CCl₄ 显紫色。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_4_04_SEMANTIC_FINAL_008",
+        "source_review_id": "EXP_19_4_04_SEMANTIC_FINAL_008",
+        "source_question_index": 8,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-4-04 亚硝酸根的检验方法》实验中，酸化 KI 后加入 NaNO₂，主要体现亚硝酸的哪种性质？",
+        "options": [
+          {
+            "label": "A",
+            "text": "弱磁性"
+          },
+          {
+            "label": "B",
+            "text": "强碱性"
+          },
+          {
+            "label": "C",
+            "text": "难溶性"
+          },
+          {
+            "label": "D",
+            "text": "氧化性"
+          }
+        ],
+        "answer": {
+          "value": "D"
+        },
+        "explanation": "“氧化性”与实验操作、观察目标或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-e03872e8"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "19_4_04_point_2"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "弱磁性",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“弱磁性”与本题焦点“在《19-4-04 亚硝酸根的检验方法》实验中，酸化 KI 后加入 NaNO₂，主要体现亚硝酸的哪种性质？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“弱磁性”。"
+          },
+          {
+            "label": "B",
+            "text": "强碱性",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“强碱性”与本题焦点“在《19-4-04 亚硝酸根的检验方法》实验中，酸化 KI 后加入 NaNO₂，主要体现亚硝酸的哪种性质？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“强碱性”。"
+          },
+          {
+            "label": "C",
+            "text": "难溶性",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“难溶性”与本题焦点“在《19-4-04 亚硝酸根的检验方法》实验中，酸化 KI 后加入 NaNO₂，主要体现亚硝酸的哪种性质？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“难溶性”。"
+          },
+          {
+            "label": "D",
+            "text": "氧化性",
+            "point_key": "candidate-2-e03872e8",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“氧化性”直接支撑题干所问：在《19-4-04 亚硝酸根的检验方法》实验中，酸化 KI 后加入 NaNO₂，主要体现亚硝酸的哪种性质？；对应点位为“KI-CCl₄ 法：NaNO₂ + KI + 酸化 + CCl₄，观察 CCl₄ 层颜色”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00242_2da7ff3435",
+            "expchunk_00248_a94cd0af07"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00547_2a1f998120",
+            "textbook_prose_00548_e41b91cedc"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "终审保留：题干、答案和解析与教材实验点位语义一致。；polished final 补充 supporting theory 引用：textbook_prose_00547_2a1f998120, textbook_prose_00548_e41b91cedc。",
+          "supporting_theory_note": "该判断依赖教材理论 chunk：textbook_prose_00547_2a1f998120, textbook_prose_00548_e41b91cedc。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00242_2da7ff3435",
+            "expchunk_00248_a94cd0af07"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00547_2a1f998120",
+            "textbook_prose_00548_e41b91cedc"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00547_2a1f998120",
+            "textbook_prose_00548_e41b91cedc"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-4-04 亚硝酸根的检验方法》实验中，酸化 KI 后加入 NaNO₂，主要体现亚硝酸的哪种性质？",
+            "options": [
+              {
+                "label": "A",
+                "text": "弱磁性"
+              },
+              {
+                "label": "B",
+                "text": "强碱性"
+              },
+              {
+                "label": "C",
+                "text": "难溶性"
+              },
+              {
+                "label": "D",
+                "text": "氧化性"
+              }
+            ],
+            "answer": {
+              "value": "D"
+            },
+            "explanation": "“氧化性”与实验操作、观察目标或结论一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00242_2da7ff3435",
+              "expchunk_00248_a94cd0af07"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_4_04_SEMANTIC_FINAL_009",
+        "source_review_id": "EXP_19_4_04_SEMANTIC_FINAL_009",
+        "source_question_index": 9,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-4-04 亚硝酸根的检验方法》中，KI-CCl₄ 法体现 NO₂⁻ 在酸性条件下的哪种作用（从产物判断角度判断）？",
+        "options": [
+          {
+            "label": "A",
+            "text": "氧化 I⁻"
+          },
+          {
+            "label": "B",
+            "text": "还原 I₂"
+          },
+          {
+            "label": "C",
+            "text": "沉淀 Ag⁺"
+          },
+          {
+            "label": "D",
+            "text": "生成硅酸盐"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "酸性 NO₂⁻ 可氧化 I⁻。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-e03872e8"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_2_e03872e8"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "氧化 I⁻",
+            "point_key": "candidate-2-e03872e8",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“氧化 I⁻”直接支撑题干所问：在《19-4-04 亚硝酸根的检验方法》中，KI-CCl₄ 法体现 NO₂⁻ 在酸性条件下的哪种作用（从产物判断角度判断）？；对应点位为“KI-CCl₄ 法：NaNO₂ + KI + 酸化 + CCl₄，观察 CCl₄ 层颜色”。"
+          },
+          {
+            "label": "B",
+            "text": "还原 I₂",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“还原 I₂”与本题焦点“在《19-4-04 亚硝酸根的检验方法》中，KI-CCl₄ 法体现 NO₂⁻ 在酸性条件下的哪种作用（从产物判断角度判断）？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“还原 I₂”。"
+          },
+          {
+            "label": "C",
+            "text": "沉淀 Ag⁺",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“沉淀 Ag⁺”与本题焦点“在《19-4-04 亚硝酸根的检验方法》中，KI-CCl₄ 法体现 NO₂⁻ 在酸性条件下的哪种作用（从产物判断角度判断）？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“沉淀 Ag⁺”。"
+          },
+          {
+            "label": "D",
+            "text": "生成硅酸盐",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“生成硅酸盐”与本题焦点“在《19-4-04 亚硝酸根的检验方法》中，KI-CCl₄ 法体现 NO₂⁻ 在酸性条件下的哪种作用（从产物判断角度判断）？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“生成硅酸盐”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00242_2da7ff3435",
+            "expchunk_00248_a94cd0af07"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final rewrite：deduplicated_proposed_question；有效题为本 proposed_question。；原题存在证据、深度或题型风险，最终有效题已由 proposed_question 修复。",
+          "supporting_theory_note": ""
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00242_2da7ff3435",
+            "expchunk_00248_a94cd0af07"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-4-04 亚硝酸根的检验方法》实验中，NaNO₂ 和亚硝酸盐相关操作中，必须注意的安全点是哪一项？",
+            "options": [
+              {
+                "label": "A",
+                "text": "有毒，避免入口"
+              },
+              {
+                "label": "B",
+                "text": "可直接尝味"
+              },
+              {
+                "label": "C",
+                "text": "可当食盐使用"
+              },
+              {
+                "label": "D",
+                "text": "必须在强光下保存"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "答案为：有毒，避免入口。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00242_2da7ff3435",
+              "expchunk_00248_a94cd0af07"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-4-04 亚硝酸根的检验方法》中，KI-CCl₄ 法体现 NO₂⁻ 在酸性条件下的哪种作用（从产物判断角度判断）？",
+            "options": [
+              {
+                "label": "A",
+                "text": "氧化 I⁻"
+              },
+              {
+                "label": "B",
+                "text": "还原 I₂"
+              },
+              {
+                "label": "C",
+                "text": "沉淀 Ag⁺"
+              },
+              {
+                "label": "D",
+                "text": "生成硅酸盐"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "酸性 NO₂⁻ 可氧化 I⁻。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_4_04_SEMANTIC_FINAL_010",
+        "source_review_id": "EXP_19_4_04_SEMANTIC_FINAL_010",
+        "source_question_index": 10,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-4-04 亚硝酸根的检验方法》实验中，该实验的两种检验思路共同指向哪种离子？",
+        "options": [
+          {
+            "label": "A",
+            "text": "NO₃⁻"
+          },
+          {
+            "label": "B",
+            "text": "NO₂⁻"
+          },
+          {
+            "label": "C",
+            "text": "SO₄²⁻"
+          },
+          {
+            "label": "D",
+            "text": "Cl⁻"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "“NO₂⁻”与实验操作、观察目标或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-724956e8",
+          "candidate-2-e03872e8"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "19_4_04_point_1",
+          "19_4_04_point_2"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "NO₃⁻",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“NO₃⁻”与本题焦点“在《19-4-04 亚硝酸根的检验方法》实验中，该实验的两种检验思路共同指向哪种离子？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“NO₃⁻”。"
+          },
+          {
+            "label": "B",
+            "text": "NO₂⁻",
+            "point_key": "candidate-1-724956e8",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“NO₂⁻”直接支撑题干所问：在《19-4-04 亚硝酸根的检验方法》实验中，该实验的两种检验思路共同指向哪种离子？；对应点位为“点滴板法：NaNO₂ + HAc + 对氨基苯磺酸 + 萘胺”。"
+          },
+          {
+            "label": "C",
+            "text": "SO₄²⁻",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“SO₄²⁻”与本题焦点“在《19-4-04 亚硝酸根的检验方法》实验中，该实验的两种检验思路共同指向哪种离子？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“SO₄²⁻”。"
+          },
+          {
+            "label": "D",
+            "text": "Cl⁻",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“Cl⁻”与本题焦点“在《19-4-04 亚硝酸根的检验方法》实验中，该实验的两种检验思路共同指向哪种离子？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“Cl⁻”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00242_2da7ff3435",
+            "expchunk_00248_a94cd0af07"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "终审保留：题干、答案和解析与教材实验点位语义一致。",
+          "supporting_theory_note": ""
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00242_2da7ff3435",
+            "expchunk_00248_a94cd0af07"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-4-04 亚硝酸根的检验方法》实验中，该实验的两种检验思路共同指向哪种离子？",
+            "options": [
+              {
+                "label": "A",
+                "text": "NO₃⁻"
+              },
+              {
+                "label": "B",
+                "text": "NO₂⁻"
+              },
+              {
+                "label": "C",
+                "text": "SO₄²⁻"
+              },
+              {
+                "label": "D",
+                "text": "Cl⁻"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "“NO₂⁻”与实验操作、观察目标或结论一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00242_2da7ff3435",
+              "expchunk_00248_a94cd0af07"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_4_04_SEMANTIC_FINAL_011",
+        "source_review_id": "EXP_19_4_04_SEMANTIC_FINAL_011",
+        "source_question_index": 11,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-4-04 亚硝酸根的检验方法》实验中，HAc、对氨基苯磺酸和萘胺可用于 NO₂⁻ 的点滴板显色检验。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "点滴板法使用 NaNO₂、HAc、对氨基苯磺酸和萘胺进行显色，因此该试剂组合正确。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-724956e8"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "19_4_04_point_1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00242_2da7ff3435",
+            "expchunk_00248_a94cd0af07"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "终审保留：题干、答案和解析与教材实验点位语义一致。",
+          "supporting_theory_note": ""
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00242_2da7ff3435",
+            "expchunk_00248_a94cd0af07"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-4-04 亚硝酸根的检验方法》实验中，HAc、对氨基苯磺酸和萘胺可用于 NO₂⁻ 的点滴板显色检验。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "点滴板法使用 NaNO₂、HAc、对氨基苯磺酸和萘胺进行显色，因此该试剂组合正确。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00242_2da7ff3435",
+              "expchunk_00248_a94cd0af07"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "evidence_first_generic_explanation_repaired"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_4_04_SEMANTIC_FINAL_012",
+        "source_review_id": "EXP_19_4_04_SEMANTIC_FINAL_012",
+        "source_question_index": 12,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-4-04 亚硝酸根的检验方法》实验中，点滴板法阳性现象可表现为溶液显红色。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "点滴板法阳性会出现红色显色，红色现象是判断 NO₂⁻ 的直接依据。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-724956e8"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "19_4_04_point_1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00242_2da7ff3435",
+            "expchunk_00248_a94cd0af07"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "终审保留：题干、答案和解析与教材实验点位语义一致。",
+          "supporting_theory_note": ""
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00242_2da7ff3435",
+            "expchunk_00248_a94cd0af07"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-4-04 亚硝酸根的检验方法》实验中，点滴板法阳性现象可表现为溶液显红色。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "点滴板法阳性会出现红色显色，红色现象是判断 NO₂⁻ 的直接依据。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00242_2da7ff3435",
+              "expchunk_00248_a94cd0af07"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "evidence_first_generic_explanation_repaired"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_4_04_SEMANTIC_FINAL_013",
+        "source_review_id": "EXP_19_4_04_SEMANTIC_FINAL_013",
+        "source_question_index": 13,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-4-04 亚硝酸根的检验方法》实验中，KI/CCl₄ 法中 CCl₄ 层显紫色可说明有 I₂ 生成。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "KI/CCl₄ 法中酸性 NO₂⁻氧化 I⁻生成 I₂，I₂ 进入 CCl₄ 层呈紫色。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-e03872e8"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "19_4_04_point_2"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00242_2da7ff3435",
+            "expchunk_00248_a94cd0af07"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "终审保留：题干、答案和解析与教材实验点位语义一致。",
+          "supporting_theory_note": ""
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00242_2da7ff3435",
+            "expchunk_00248_a94cd0af07"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-4-04 亚硝酸根的检验方法》实验中，KI/CCl₄ 法中 CCl₄ 层显紫色可说明有 I₂ 生成。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "KI/CCl₄ 法中酸性 NO₂⁻氧化 I⁻生成 I₂，I₂ 进入 CCl₄ 层呈紫色。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00242_2da7ff3435",
+              "expchunk_00248_a94cd0af07"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "evidence_first_generic_explanation_repaired"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_4_04_SEMANTIC_FINAL_014",
+        "source_review_id": "EXP_19_4_04_SEMANTIC_FINAL_014",
+        "source_question_index": 14,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "true_false",
+        "stem": "在《19-4-04 亚硝酸根的检验方法》中，KI-CCl₄ 法的紫色 CCl₄ 层来自 I₂。",
+        "options": [],
+        "answer": {
+          "value": true
+        },
+        "explanation": "酸性 NO₂⁻ 氧化 I⁻，I₂ 进入 CCl₄ 层显紫色。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-e03872e8"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "19_4_04_point_2"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00242_2da7ff3435",
+            "expchunk_00248_a94cd0af07"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "酸性 NO₂⁻ 氧化 I⁻，I₂ 进入 CCl₄ 层显紫色。；原题存在证据、深度或题型风险，最终有效题已由 proposed_question 修复。",
+          "supporting_theory_note": ""
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00242_2da7ff3435",
+            "expchunk_00248_a94cd0af07"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-4-04 亚硝酸根的检验方法》实验中，亚硝酸盐有毒，操作中不应入口。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "该判断题答案为“正确”。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00242_2da7ff3435",
+              "expchunk_00248_a94cd0af07"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "true_false",
+            "stem": "在《19-4-04 亚硝酸根的检验方法》中，KI-CCl₄ 法的紫色 CCl₄ 层来自 I₂。",
+            "options": [],
+            "answer": {
+              "value": true
+            },
+            "explanation": "酸性 NO₂⁻ 氧化 I⁻，I₂ 进入 CCl₄ 层显紫色。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_4_04_SEMANTIC_FINAL_015",
+        "source_review_id": "EXP_19_4_04_SEMANTIC_FINAL_015",
+        "source_question_index": 15,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-4-04 亚硝酸根的检验方法》实验中，酸性 NaNO₂ 可氧化 I⁻，体现亚硝酸的氧化性。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "酸性 NaNO₂ 能氧化 I⁻生成 I₂，这一反应体现亚硝酸/亚硝酸根体系的氧化性。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-e03872e8"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "19_4_04_point_2"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00242_2da7ff3435",
+            "expchunk_00248_a94cd0af07"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00547_2a1f998120",
+            "textbook_prose_00548_e41b91cedc"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "终审保留：题干、答案和解析与教材实验点位语义一致。；polished final 补充 supporting theory 引用：textbook_prose_00547_2a1f998120, textbook_prose_00548_e41b91cedc。",
+          "supporting_theory_note": "该判断依赖教材理论 chunk：textbook_prose_00547_2a1f998120, textbook_prose_00548_e41b91cedc。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00242_2da7ff3435",
+            "expchunk_00248_a94cd0af07"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00547_2a1f998120",
+            "textbook_prose_00548_e41b91cedc"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00547_2a1f998120",
+            "textbook_prose_00548_e41b91cedc"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-4-04 亚硝酸根的检验方法》实验中，酸性 NaNO₂ 可氧化 I⁻，体现亚硝酸的氧化性。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "酸性 NaNO₂ 能氧化 I⁻生成 I₂，这一反应体现亚硝酸/亚硝酸根体系的氧化性。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00242_2da7ff3435",
+              "expchunk_00248_a94cd0af07"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "requires_supporting_theory",
+            "evidence_first_generic_explanation_repaired"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_4_04_SEMANTIC_FINAL_016",
+        "source_review_id": "EXP_19_4_04_SEMANTIC_FINAL_016",
+        "source_question_index": 16,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-4-04 亚硝酸根的检验方法》实验中，点滴板法检验 NO₂⁻ 时必须用 NaOH 代替 HAc 酸化。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": false
+        },
+        "explanation": "点滴板法使用 HAc 提供酸性条件，不能用 NaOH 代替 HAc 来完成该显色检验。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-724956e8"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "19_4_04_point_1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00242_2da7ff3435",
+            "expchunk_00248_a94cd0af07"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "终审保留：题干、答案和解析与教材实验点位语义一致。",
+          "supporting_theory_note": ""
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00242_2da7ff3435",
+            "expchunk_00248_a94cd0af07"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-4-04 亚硝酸根的检验方法》实验中，点滴板法检验 NO₂⁻ 时必须用 NaOH 代替 HAc 酸化。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "点滴板法使用 HAc 提供酸性条件，不能用 NaOH 代替 HAc 来完成该显色检验。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00242_2da7ff3435",
+              "expchunk_00248_a94cd0af07"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "evidence_first_generic_explanation_repaired"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_4_04_SEMANTIC_FINAL_017",
+        "source_review_id": "EXP_19_4_04_SEMANTIC_FINAL_017",
+        "source_question_index": 17,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-4-04 亚硝酸根的检验方法》实验中，KI/CCl₄ 法中 CCl₄ 层显紫色是因为生成了 AgCl。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": false
+        },
+        "explanation": "CCl₄ 层紫色来自 I₂ 的萃取显色，AgCl 是白色沉淀且不属于该颜色来源。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-e03872e8"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "19_4_04_point_2"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00242_2da7ff3435",
+            "expchunk_00248_a94cd0af07"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00547_2a1f998120",
+            "textbook_prose_00548_e41b91cedc"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "终审保留：题干、答案和解析与教材实验点位语义一致。；polished final 补充 supporting theory 引用：textbook_prose_00547_2a1f998120, textbook_prose_00548_e41b91cedc。",
+          "supporting_theory_note": "该判断依赖教材理论 chunk：textbook_prose_00547_2a1f998120, textbook_prose_00548_e41b91cedc。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00242_2da7ff3435",
+            "expchunk_00248_a94cd0af07"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00547_2a1f998120",
+            "textbook_prose_00548_e41b91cedc"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00547_2a1f998120",
+            "textbook_prose_00548_e41b91cedc"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-4-04 亚硝酸根的检验方法》实验中，KI/CCl₄ 法中 CCl₄ 层显紫色是因为生成了 AgCl。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "CCl₄ 层紫色来自 I₂ 的萃取显色，AgCl 是白色沉淀且不属于该颜色来源。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00242_2da7ff3435",
+              "expchunk_00248_a94cd0af07"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "requires_supporting_theory",
+            "evidence_first_generic_explanation_repaired"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_4_04_SEMANTIC_FINAL_018",
+        "source_review_id": "EXP_19_4_04_SEMANTIC_FINAL_018",
+        "source_question_index": 18,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-4-04 亚硝酸根的检验方法》实验中，亚硝酸根检验完全不需要考虑酸性条件。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": false
+        },
+        "explanation": "点滴板法用 HAc，KI/CCl₄ 法也需酸化；说完全不需要酸性条件是错误的。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-724956e8",
+          "candidate-2-e03872e8"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "19_4_04_point_1",
+          "19_4_04_point_2"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00242_2da7ff3435",
+            "expchunk_00248_a94cd0af07"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00547_2a1f998120",
+            "textbook_prose_00548_e41b91cedc"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "终审保留：题干、答案和解析与教材实验点位语义一致。；polished final 补充 supporting theory 引用：textbook_prose_00547_2a1f998120, textbook_prose_00548_e41b91cedc。",
+          "supporting_theory_note": "该判断依赖教材理论 chunk：textbook_prose_00547_2a1f998120, textbook_prose_00548_e41b91cedc。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00242_2da7ff3435",
+            "expchunk_00248_a94cd0af07"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00547_2a1f998120",
+            "textbook_prose_00548_e41b91cedc"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00547_2a1f998120",
+            "textbook_prose_00548_e41b91cedc"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-4-04 亚硝酸根的检验方法》实验中，亚硝酸根检验完全不需要考虑酸性条件。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "点滴板法用 HAc，KI/CCl₄ 法也需酸化；说完全不需要酸性条件是错误的。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00242_2da7ff3435",
+              "expchunk_00248_a94cd0af07"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "requires_supporting_theory",
+            "evidence_first_generic_explanation_repaired"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_4_04_SEMANTIC_FINAL_019",
+        "source_review_id": "EXP_19_4_04_SEMANTIC_FINAL_019",
+        "source_question_index": 19,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-4-04 亚硝酸根的检验方法》中，本实验的两种方法共同指向哪种待检离子（从性质判断角度判断）？",
+        "options": [
+          {
+            "label": "A",
+            "text": "NO₃⁻"
+          },
+          {
+            "label": "B",
+            "text": "NO₂⁻"
+          },
+          {
+            "label": "C",
+            "text": "SO₄²⁻"
+          },
+          {
+            "label": "D",
+            "text": "SiO₃²⁻"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "点滴板法和 KI-CCl₄ 法均用于亚硝酸根检验。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-724956e8",
+          "candidate-2-e03872e8"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_1_724956e8",
+          "point_candidate_2_e03872e8"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "NO₃⁻",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“NO₃⁻”与本题焦点“在《19-4-04 亚硝酸根的检验方法》中，本实验的两种方法共同指向哪种待检离子（从性质判断角度判断）？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“NO₃⁻”。"
+          },
+          {
+            "label": "B",
+            "text": "NO₂⁻",
+            "point_key": "candidate-1-724956e8",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“NO₂⁻”直接支撑题干所问：在《19-4-04 亚硝酸根的检验方法》中，本实验的两种方法共同指向哪种待检离子（从性质判断角度判断）？；对应点位为“点滴板法：NaNO₂ + HAc + 对氨基苯磺酸 + 萘胺”。"
+          },
+          {
+            "label": "C",
+            "text": "SO₄²⁻",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“SO₄²⁻”与本题焦点“在《19-4-04 亚硝酸根的检验方法》中，本实验的两种方法共同指向哪种待检离子（从性质判断角度判断）？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“SO₄²⁻”。"
+          },
+          {
+            "label": "D",
+            "text": "SiO₃²⁻",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“SiO₃²⁻”与本题焦点“在《19-4-04 亚硝酸根的检验方法》中，本实验的两种方法共同指向哪种待检离子（从性质判断角度判断）？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“SiO₃²⁻”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00242_2da7ff3435",
+            "expchunk_00248_a94cd0af07"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final rewrite：deduplicated_proposed_question；有效题为本 proposed_question。；原题存在证据、深度或题型风险，最终有效题已由 proposed_question 修复。",
+          "supporting_theory_note": ""
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00242_2da7ff3435",
+            "expchunk_00248_a94cd0af07"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-4-04 亚硝酸根的检验方法》实验中，认为：酸性 KMnO₄ 与 NaNO₂ 反应可体现 NaNO₂ 的还原性，这一判断是不正确的。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "这一判断本身是正确的。该判断题答案为“错误”。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00242_2da7ff3435",
+              "expchunk_00248_a94cd0af07"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-4-04 亚硝酸根的检验方法》中，本实验的两种方法共同指向哪种待检离子（从性质判断角度判断）？",
+            "options": [
+              {
+                "label": "A",
+                "text": "NO₃⁻"
+              },
+              {
+                "label": "B",
+                "text": "NO₂⁻"
+              },
+              {
+                "label": "C",
+                "text": "SO₄²⁻"
+              },
+              {
+                "label": "D",
+                "text": "SiO₃²⁻"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "点滴板法和 KI-CCl₄ 法均用于亚硝酸根检验。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_4_04_SEMANTIC_FINAL_020",
+        "source_review_id": "EXP_19_4_04_SEMANTIC_FINAL_020",
+        "source_question_index": 20,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-4-04 亚硝酸根的检验方法》中，KI-CCl₄ 法中 CCl₄ 层显紫色，说明生成了什么？",
+        "options": [
+          {
+            "label": "A",
+            "text": "AgCl"
+          },
+          {
+            "label": "B",
+            "text": "I₂"
+          },
+          {
+            "label": "C",
+            "text": "Na₂O₂"
+          },
+          {
+            "label": "D",
+            "text": "Fe(NO)SO₄"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "I₂ 溶于 CCl₄ 显紫色。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-e03872e8"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_2_e03872e8"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "AgCl",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“AgCl”混入其他实验或相邻操作，易造成点位错配；本题实际问的是“在《19-4-04 亚硝酸根的检验方法》中，KI-CCl₄ 法中 CCl₄ 层显紫色，说明生成了什么？”。"
+          },
+          {
+            "label": "B",
+            "text": "I₂",
+            "point_key": "candidate-2-e03872e8",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“I₂”直接支撑题干所问：在《19-4-04 亚硝酸根的检验方法》中，KI-CCl₄ 法中 CCl₄ 层显紫色，说明生成了什么？；对应点位为“KI-CCl₄ 法：NaNO₂ + KI + 酸化 + CCl₄，观察 CCl₄ 层颜色”。"
+          },
+          {
+            "label": "C",
+            "text": "Na₂O₂",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“Na₂O₂”与本题焦点“在《19-4-04 亚硝酸根的检验方法》中，KI-CCl₄ 法中 CCl₄ 层显紫色，说明生成了什么？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“Na₂O₂”。"
+          },
+          {
+            "label": "D",
+            "text": "Fe(NO)SO₄",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“Fe(NO)SO₄”与本题焦点“在《19-4-04 亚硝酸根的检验方法》中，KI-CCl₄ 法中 CCl₄ 层显紫色，说明生成了什么？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“Fe(NO)SO₄”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00242_2da7ff3435",
+            "expchunk_00248_a94cd0af07"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00547_2a1f998120",
+            "textbook_prose_00548_e41b91cedc"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final rewrite：low_quality_keep_rewritten；有效题为本 proposed_question。；原题存在证据、深度或题型风险，最终有效题已由 proposed_question 修复。",
+          "supporting_theory_note": "本题判断除实验操作/现象外，还依赖 supporting theory: textbook_prose_00547_2a1f998120, textbook_prose_00548_e41b91cedc。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00242_2da7ff3435",
+            "expchunk_00248_a94cd0af07"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00547_2a1f998120",
+            "textbook_prose_00548_e41b91cedc"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00547_2a1f998120",
+            "textbook_prose_00548_e41b91cedc"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-4-04 亚硝酸根的检验方法》实验中，本实验的目标离子是 NO₃⁻，不是 NO₂⁻。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "该判断题答案为“错误”。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00242_2da7ff3435",
+              "expchunk_00248_a94cd0af07"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-4-04 亚硝酸根的检验方法》中，KI-CCl₄ 法中 CCl₄ 层显紫色，说明生成了什么？",
+            "options": [
+              {
+                "label": "A",
+                "text": "AgCl"
+              },
+              {
+                "label": "B",
+                "text": "I₂"
+              },
+              {
+                "label": "C",
+                "text": "Na₂O₂"
+              },
+              {
+                "label": "D",
+                "text": "Fe(NO)SO₄"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "I₂ 溶于 CCl₄ 显紫色。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_4_04_SEMANTIC_FINAL_021",
+        "source_review_id": "EXP_19_4_04_SEMANTIC_FINAL_021",
+        "source_question_index": 21,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《19-4-04 亚硝酸根的检验方法》实验中，点滴板法中用____溶液酸化 NaNO₂。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "HAc",
+            "醋酸",
+            "乙酸"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "参考答案：HAc。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-724956e8"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "19_4_04_point_1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00242_2da7ff3435",
+            "expchunk_00248_a94cd0af07"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "终审保留：题干、答案和解析与教材实验点位语义一致。",
+          "supporting_theory_note": ""
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00242_2da7ff3435",
+            "expchunk_00248_a94cd0af07"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "formula_or_symbolic_fill_blank_answer",
+          "generic_or_answer_shell_explanation",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-4-04 亚硝酸根的检验方法》实验中，点滴板法中用____溶液酸化 NaNO₂。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "HAc",
+                "醋酸",
+                "乙酸"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "参考答案：HAc。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00242_2da7ff3435",
+              "expchunk_00248_a94cd0af07"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_4_04_SEMANTIC_FINAL_022",
+        "source_review_id": "EXP_19_4_04_SEMANTIC_FINAL_022",
+        "source_question_index": 22,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《19-4-04 亚硝酸根的检验方法》实验中，点滴板法加入对氨基苯磺酸和____溶液。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "萘胺"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "参考答案：萘胺。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-724956e8"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "19_4_04_point_1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00242_2da7ff3435",
+            "expchunk_00248_a94cd0af07"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "终审保留：题干、答案和解析与教材实验点位语义一致。",
+          "supporting_theory_note": ""
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00242_2da7ff3435",
+            "expchunk_00248_a94cd0af07"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "generic_or_answer_shell_explanation",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-4-04 亚硝酸根的检验方法》实验中，点滴板法加入对氨基苯磺酸和____溶液。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "萘胺"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "参考答案：萘胺。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00242_2da7ff3435",
+              "expchunk_00248_a94cd0af07"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_4_04_SEMANTIC_FINAL_023",
+        "source_review_id": "EXP_19_4_04_SEMANTIC_FINAL_023",
+        "source_question_index": 23,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-4-04 亚硝酸根的检验方法》中，KI-CCl₄ 法体现 NO₂⁻ 在酸性条件下的哪种作用？",
+        "options": [
+          {
+            "label": "A",
+            "text": "氧化 I⁻"
+          },
+          {
+            "label": "B",
+            "text": "还原 I₂"
+          },
+          {
+            "label": "C",
+            "text": "沉淀 Ag⁺"
+          },
+          {
+            "label": "D",
+            "text": "生成硅酸盐"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "酸性 NO₂⁻ 可氧化 I⁻。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-e03872e8"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_2_e03872e8"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "氧化 I⁻",
+            "point_key": "candidate-2-e03872e8",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“氧化 I⁻”直接支撑题干所问：在《19-4-04 亚硝酸根的检验方法》中，KI-CCl₄ 法体现 NO₂⁻ 在酸性条件下的哪种作用？；对应点位为“KI-CCl₄ 法：NaNO₂ + KI + 酸化 + CCl₄，观察 CCl₄ 层颜色”。"
+          },
+          {
+            "label": "B",
+            "text": "还原 I₂",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“还原 I₂”与本题焦点“在《19-4-04 亚硝酸根的检验方法》中，KI-CCl₄ 法体现 NO₂⁻ 在酸性条件下的哪种作用？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“还原 I₂”。"
+          },
+          {
+            "label": "C",
+            "text": "沉淀 Ag⁺",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“沉淀 Ag⁺”与本题焦点“在《19-4-04 亚硝酸根的检验方法》中，KI-CCl₄ 法体现 NO₂⁻ 在酸性条件下的哪种作用？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“沉淀 Ag⁺”。"
+          },
+          {
+            "label": "D",
+            "text": "生成硅酸盐",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“生成硅酸盐”与本题焦点“在《19-4-04 亚硝酸根的检验方法》中，KI-CCl₄ 法体现 NO₂⁻ 在酸性条件下的哪种作用？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“生成硅酸盐”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00242_2da7ff3435",
+            "expchunk_00248_a94cd0af07"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final rewrite：low_quality_keep_rewritten；有效题为本 proposed_question。；原题存在证据、深度或题型风险，最终有效题已由 proposed_question 修复。",
+          "supporting_theory_note": ""
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00242_2da7ff3435",
+            "expchunk_00248_a94cd0af07"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-4-04 亚硝酸根的检验方法》实验中，点滴板法阳性时溶液应显____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "红色"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "参考答案：红色。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00242_2da7ff3435",
+              "expchunk_00248_a94cd0af07"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-4-04 亚硝酸根的检验方法》中，KI-CCl₄ 法体现 NO₂⁻ 在酸性条件下的哪种作用？",
+            "options": [
+              {
+                "label": "A",
+                "text": "氧化 I⁻"
+              },
+              {
+                "label": "B",
+                "text": "还原 I₂"
+              },
+              {
+                "label": "C",
+                "text": "沉淀 Ag⁺"
+              },
+              {
+                "label": "D",
+                "text": "生成硅酸盐"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "酸性 NO₂⁻ 可氧化 I⁻。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_4_04_SEMANTIC_FINAL_024",
+        "source_review_id": "EXP_19_4_04_SEMANTIC_FINAL_024",
+        "source_question_index": 24,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-4-04 亚硝酸根的检验方法》实验中，KI/CCl₄ 法中 NO₂⁻ 在酸性条件下氧化____。下列哪一项最适合填入空白处？",
+        "options": [
+          {
+            "label": "A",
+            "text": "I⁻"
+          },
+          {
+            "label": "B",
+            "text": "氧化性"
+          },
+          {
+            "label": "C",
+            "text": "还原性"
+          },
+          {
+            "label": "D",
+            "text": "配位性"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "空白处应填“I⁻”。本轮将原手机端高风险填空改为单选，避免上下标、别名或复杂化学式输入导致机器判分不稳定。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-e03872e8"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_2_e03872e8"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "I⁻",
+            "point_key": "candidate-2-e03872e8",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“I⁻”直接支撑题干所问：在《19-4-04 亚硝酸根的检验方法》实验中，KI/CCl₄ 法中 NO₂⁻ 在酸性条件下氧化____。下列哪一项最适合填入空；对应点位为“KI-CCl₄ 法：NaNO₂ + KI + 酸化 + CCl₄，观察 CCl₄ 层颜色”。"
+          },
+          {
+            "label": "B",
+            "text": "氧化性",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“氧化性”与本题焦点“在《19-4-04 亚硝酸根的检验方法》实验中，KI/CCl₄ 法中 NO₂⁻ 在酸性条件下氧化____。下列哪一项最适合填入空”不匹配；错误点在于把应判断的操作、现象或结论替换成了“氧化性”。"
+          },
+          {
+            "label": "C",
+            "text": "还原性",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“还原性”与本题焦点“在《19-4-04 亚硝酸根的检验方法》实验中，KI/CCl₄ 法中 NO₂⁻ 在酸性条件下氧化____。下列哪一项最适合填入空”不匹配；错误点在于把应判断的操作、现象或结论替换成了“还原性”。"
+          },
+          {
+            "label": "D",
+            "text": "配位性",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“配位性”与本题焦点“在《19-4-04 亚硝酸根的检验方法》实验中，KI/CCl₄ 法中 NO₂⁻ 在酸性条件下氧化____。下列哪一项最适合填入空”不匹配；错误点在于把应判断的操作、现象或结论替换成了“配位性”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00242_2da7ff3435",
+            "expchunk_00248_a94cd0af07"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00547_2a1f998120",
+            "textbook_prose_00548_e41b91cedc"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final rewrite：phone_risk_repaired_as_single_choice；有效题为本 proposed_question。；原题存在证据、深度或题型风险，最终有效题已由 proposed_question 修复。",
+          "supporting_theory_note": "本题判断除实验操作/现象外，还依赖 supporting theory: textbook_prose_00547_2a1f998120, textbook_prose_00548_e41b91cedc。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00242_2da7ff3435",
+            "expchunk_00248_a94cd0af07"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00547_2a1f998120",
+            "textbook_prose_00548_e41b91cedc"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00547_2a1f998120",
+            "textbook_prose_00548_e41b91cedc"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "generic_or_answer_shell_explanation",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-4-04 亚硝酸根的检验方法》实验中，KI/CCl₄ 法中 NO₂⁻ 在酸性条件下氧化____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "I⁻",
+                "碘离子"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "参考答案：I⁻。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00242_2da7ff3435",
+              "expchunk_00248_a94cd0af07"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-4-04 亚硝酸根的检验方法》实验中，KI/CCl₄ 法中 NO₂⁻ 在酸性条件下氧化____。下列哪一项最适合填入空白处？",
+            "options": [
+              {
+                "label": "A",
+                "text": "I⁻"
+              },
+              {
+                "label": "B",
+                "text": "氧化性"
+              },
+              {
+                "label": "C",
+                "text": "还原性"
+              },
+              {
+                "label": "D",
+                "text": "配位性"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "空白处应填“I⁻”。本轮将原手机端高风险填空改为单选，避免上下标、别名或复杂化学式输入导致机器判分不稳定。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_4_04_SEMANTIC_FINAL_025",
+        "source_review_id": "EXP_19_4_04_SEMANTIC_FINAL_025",
+        "source_question_index": 25,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-4-04 亚硝酸根的检验方法》实验中，CCl₄ 层显紫色说明生成了____。下列哪一项最适合填入空白处？",
+        "options": [
+          {
+            "label": "A",
+            "text": "NO₃⁻"
+          },
+          {
+            "label": "B",
+            "text": "I₂"
+          },
+          {
+            "label": "C",
+            "text": "AgCl"
+          },
+          {
+            "label": "D",
+            "text": "Fe(NO)SO₄"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "空白处应填“I₂”。本轮将原手机端高风险填空改为单选，避免上下标、别名或复杂化学式输入导致机器判分不稳定。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-e03872e8"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_2_e03872e8"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "NO₃⁻",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“NO₃⁻”与本题焦点“在《19-4-04 亚硝酸根的检验方法》实验中，CCl₄ 层显紫色说明生成了____。下列哪一项最适合填入空白处？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“NO₃⁻”。"
+          },
+          {
+            "label": "B",
+            "text": "I₂",
+            "point_key": "candidate-2-e03872e8",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“I₂”直接支撑题干所问：在《19-4-04 亚硝酸根的检验方法》实验中，CCl₄ 层显紫色说明生成了____。下列哪一项最适合填入空白处？；对应点位为“KI-CCl₄ 法：NaNO₂ + KI + 酸化 + CCl₄，观察 CCl₄ 层颜色”。"
+          },
+          {
+            "label": "C",
+            "text": "AgCl",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“AgCl”混入其他实验或相邻操作，易造成点位错配；本题实际问的是“在《19-4-04 亚硝酸根的检验方法》实验中，CCl₄ 层显紫色说明生成了____。下列哪一项最适合填入空白处？”。"
+          },
+          {
+            "label": "D",
+            "text": "Fe(NO)SO₄",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“Fe(NO)SO₄”与本题焦点“在《19-4-04 亚硝酸根的检验方法》实验中，CCl₄ 层显紫色说明生成了____。下列哪一项最适合填入空白处？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“Fe(NO)SO₄”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00242_2da7ff3435",
+            "expchunk_00248_a94cd0af07"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00547_2a1f998120",
+            "textbook_prose_00548_e41b91cedc"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final rewrite：phone_risk_repaired_as_single_choice；有效题为本 proposed_question。；原题存在证据、深度或题型风险，最终有效题已由 proposed_question 修复。",
+          "supporting_theory_note": "本题判断除实验操作/现象外，还依赖 supporting theory: textbook_prose_00547_2a1f998120, textbook_prose_00548_e41b91cedc。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00242_2da7ff3435",
+            "expchunk_00248_a94cd0af07"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00547_2a1f998120",
+            "textbook_prose_00548_e41b91cedc"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00547_2a1f998120",
+            "textbook_prose_00548_e41b91cedc"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "generic_or_answer_shell_explanation",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-4-04 亚硝酸根的检验方法》实验中，CCl₄ 层显紫色说明生成了____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "I₂",
+                "碘"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "参考答案：I₂。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00242_2da7ff3435",
+              "expchunk_00248_a94cd0af07"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-4-04 亚硝酸根的检验方法》实验中，CCl₄ 层显紫色说明生成了____。下列哪一项最适合填入空白处？",
+            "options": [
+              {
+                "label": "A",
+                "text": "NO₃⁻"
+              },
+              {
+                "label": "B",
+                "text": "I₂"
+              },
+              {
+                "label": "C",
+                "text": "AgCl"
+              },
+              {
+                "label": "D",
+                "text": "Fe(NO)SO₄"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "空白处应填“I₂”。本轮将原手机端高风险填空改为单选，避免上下标、别名或复杂化学式输入导致机器判分不稳定。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_4_04_SEMANTIC_FINAL_026",
+        "source_review_id": "EXP_19_4_04_SEMANTIC_FINAL_026",
+        "source_question_index": 26,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-4-04 亚硝酸根的检验方法》中，点滴板法阳性时溶液应显____。下列哪一项最适合填入空白处？",
+        "options": [
+          {
+            "label": "A",
+            "text": "氧化性"
+          },
+          {
+            "label": "B",
+            "text": "还原性"
+          },
+          {
+            "label": "C",
+            "text": "红色"
+          },
+          {
+            "label": "D",
+            "text": "配位性"
+          }
+        ],
+        "answer": {
+          "value": "C"
+        },
+        "explanation": "空白处应填“红色”。本轮将原手机端高风险填空改为单选，避免上下标、别名或复杂化学式输入导致机器判分不稳定。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-724956e8"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_1_724956e8"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "氧化性",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“氧化性”与本题焦点“在《19-4-04 亚硝酸根的检验方法》中，点滴板法阳性时溶液应显____。下列哪一项最适合填入空白处？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“氧化性”。"
+          },
+          {
+            "label": "B",
+            "text": "还原性",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“还原性”与本题焦点“在《19-4-04 亚硝酸根的检验方法》中，点滴板法阳性时溶液应显____。下列哪一项最适合填入空白处？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“还原性”。"
+          },
+          {
+            "label": "C",
+            "text": "红色",
+            "point_key": "candidate-1-724956e8",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“红色”直接支撑题干所问：在《19-4-04 亚硝酸根的检验方法》中，点滴板法阳性时溶液应显____。下列哪一项最适合填入空白处？；对应点位为“点滴板法：NaNO₂ + HAc + 对氨基苯磺酸 + 萘胺”。"
+          },
+          {
+            "label": "D",
+            "text": "配位性",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“配位性”与本题焦点“在《19-4-04 亚硝酸根的检验方法》中，点滴板法阳性时溶液应显____。下列哪一项最适合填入空白处？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“配位性”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00242_2da7ff3435",
+            "expchunk_00248_a94cd0af07"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final rewrite：phone_risk_repaired_as_single_choice；有效题为本 proposed_question。；原题存在证据、深度或题型风险，最终有效题已由 proposed_question 修复。",
+          "supporting_theory_note": ""
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00242_2da7ff3435",
+            "expchunk_00248_a94cd0af07"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "generic_or_answer_shell_explanation",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-4-04 亚硝酸根的检验方法》实验中，亚硝酸分解可产生棕色的____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "NO₂",
+                "二氧化氮"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "参考答案：NO₂。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00242_2da7ff3435",
+              "expchunk_00248_a94cd0af07"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-4-04 亚硝酸根的检验方法》中，点滴板法阳性时溶液应显____。下列哪一项最适合填入空白处？",
+            "options": [
+              {
+                "label": "A",
+                "text": "氧化性"
+              },
+              {
+                "label": "B",
+                "text": "还原性"
+              },
+              {
+                "label": "C",
+                "text": "红色"
+              },
+              {
+                "label": "D",
+                "text": "配位性"
+              }
+            ],
+            "answer": {
+              "value": "C"
+            },
+            "explanation": "空白处应填“红色”。本轮将原手机端高风险填空改为单选，避免上下标、别名或复杂化学式输入导致机器判分不稳定。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_4_04_SEMANTIC_FINAL_027",
+        "source_review_id": "EXP_19_4_04_SEMANTIC_FINAL_027",
+        "source_question_index": 27,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "fill_blank",
+        "stem": "在《19-4-04 亚硝酸根的检验方法》中，点滴板法阳性时溶液应显____。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "红色"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "对应的实验操作或现象内容是“红色”。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-724956e8"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "19_4_04_point_1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00242_2da7ff3435",
+            "expchunk_00248_a94cd0af07"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "答案为红色，适合手机端。；原题存在证据、深度或题型风险，最终有效题已由 proposed_question 修复。",
+          "supporting_theory_note": ""
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00242_2da7ff3435",
+            "expchunk_00248_a94cd0af07"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "generic_or_answer_shell_explanation",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-4-04 亚硝酸根的检验方法》实验中，酸性 KMnO₄ 中滴加 NaNO₂ 体现亚硝酸盐的____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "还原性"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "参考答案：还原性。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00242_2da7ff3435",
+              "expchunk_00248_a94cd0af07"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-4-04 亚硝酸根的检验方法》中，点滴板法阳性时溶液应显____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "红色"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "对应的实验操作或现象内容是“红色”。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_4_04_SEMANTIC_FINAL_028",
+        "source_review_id": "EXP_19_4_04_SEMANTIC_FINAL_028",
+        "source_question_index": 28,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《19-4-04 亚硝酸根的检验方法》实验中，酸化 KI 后加入 NaNO₂ 体现亚硝酸的____。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "氧化性"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "参考答案：氧化性。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-e03872e8"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "19_4_04_point_2"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00242_2da7ff3435",
+            "expchunk_00248_a94cd0af07"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00547_2a1f998120",
+            "textbook_prose_00548_e41b91cedc"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "终审保留：题干、答案和解析与教材实验点位语义一致。；polished final 补充 supporting theory 引用：textbook_prose_00547_2a1f998120, textbook_prose_00548_e41b91cedc。",
+          "supporting_theory_note": "该判断依赖教材理论 chunk：textbook_prose_00547_2a1f998120, textbook_prose_00548_e41b91cedc。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00242_2da7ff3435",
+            "expchunk_00248_a94cd0af07"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00547_2a1f998120",
+            "textbook_prose_00548_e41b91cedc"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00547_2a1f998120",
+            "textbook_prose_00548_e41b91cedc"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "generic_or_answer_shell_explanation",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-4-04 亚硝酸根的检验方法》实验中，酸化 KI 后加入 NaNO₂ 体现亚硝酸的____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "氧化性"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "参考答案：氧化性。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00242_2da7ff3435",
+              "expchunk_00248_a94cd0af07"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_4_04_SEMANTIC_FINAL_029",
+        "source_review_id": "EXP_19_4_04_SEMANTIC_FINAL_029",
+        "source_question_index": 29,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-4-04 亚硝酸根的检验方法》中，点滴板法检验 NO₂⁻ 的阳性现象是什么（从介质作用角度判断）？",
+        "options": [
+          {
+            "label": "A",
+            "text": "出现棕色环"
+          },
+          {
+            "label": "B",
+            "text": "CCl₄ 层无色"
+          },
+          {
+            "label": "C",
+            "text": "出现红色"
+          },
+          {
+            "label": "D",
+            "text": "生成黄色钠火焰"
+          }
+        ],
+        "answer": {
+          "value": "C"
+        },
+        "explanation": "对氨基苯磺酸和萘胺显色法阳性为红色。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-724956e8"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_1_724956e8"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "出现棕色环",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“出现棕色环”混入其他实验或相邻操作，易造成点位错配；本题实际问的是“在《19-4-04 亚硝酸根的检验方法》中，点滴板法检验 NO₂⁻ 的阳性现象是什么（从介质作用角度判断）？”。"
+          },
+          {
+            "label": "B",
+            "text": "CCl₄ 层无色",
+            "point_key": "candidate-2-e03872e8",
+            "role": "adjacent_point",
+            "diagnostic_note": "干扰项“CCl₄ 层无色”对应相邻点位“KI-CCl₄ 法：NaNO₂ + KI + 酸化 + CCl₄，观察 CCl₄ 层颜色”，但不是本题所绑定点位的答案。"
+          },
+          {
+            "label": "C",
+            "text": "出现红色",
+            "point_key": "candidate-1-724956e8",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“出现红色”直接支撑题干所问：在《19-4-04 亚硝酸根的检验方法》中，点滴板法检验 NO₂⁻ 的阳性现象是什么（从介质作用角度判断）？；对应点位为“点滴板法：NaNO₂ + HAc + 对氨基苯磺酸 + 萘胺”。"
+          },
+          {
+            "label": "D",
+            "text": "生成黄色钠火焰",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“生成黄色钠火焰”与本题焦点“在《19-4-04 亚硝酸根的检验方法》中，点滴板法检验 NO₂⁻ 的阳性现象是什么（从介质作用角度判断）？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“生成黄色钠火焰”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00242_2da7ff3435",
+            "expchunk_00248_a94cd0af07"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final rewrite：deduplicated_proposed_question；有效题为本 proposed_question。；原题存在证据、深度或题型风险，最终有效题已由 proposed_question 修复。",
+          "supporting_theory_note": ""
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00242_2da7ff3435",
+            "expchunk_00248_a94cd0af07"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-4-04 亚硝酸根的检验方法》实验中，亚硝酸盐有毒，注意切勿____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "入口"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "参考答案：入口。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00242_2da7ff3435",
+              "expchunk_00248_a94cd0af07"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-4-04 亚硝酸根的检验方法》中，点滴板法检验 NO₂⁻ 的阳性现象是什么（从介质作用角度判断）？",
+            "options": [
+              {
+                "label": "A",
+                "text": "出现棕色环"
+              },
+              {
+                "label": "B",
+                "text": "CCl₄ 层无色"
+              },
+              {
+                "label": "C",
+                "text": "出现红色"
+              },
+              {
+                "label": "D",
+                "text": "生成黄色钠火焰"
+              }
+            ],
+            "answer": {
+              "value": "C"
+            },
+            "explanation": "对氨基苯磺酸和萘胺显色法阳性为红色。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_4_04_SEMANTIC_FINAL_030",
+        "source_review_id": "EXP_19_4_04_SEMANTIC_FINAL_030",
+        "source_question_index": 30,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-4-04 亚硝酸根的检验方法》中，本实验的两种方法共同指向哪种待检离子？",
+        "options": [
+          {
+            "label": "A",
+            "text": "NO₃⁻"
+          },
+          {
+            "label": "B",
+            "text": "SO₄²⁻"
+          },
+          {
+            "label": "C",
+            "text": "SiO₃²⁻"
+          },
+          {
+            "label": "D",
+            "text": "NO₂⁻"
+          }
+        ],
+        "answer": {
+          "value": "D"
+        },
+        "explanation": "点滴板法和 KI-CCl₄ 法均用于亚硝酸根检验。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-724956e8",
+          "candidate-2-e03872e8"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_1_724956e8",
+          "point_candidate_2_e03872e8"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "NO₃⁻",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“NO₃⁻”与本题焦点“在《19-4-04 亚硝酸根的检验方法》中，本实验的两种方法共同指向哪种待检离子？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“NO₃⁻”。"
+          },
+          {
+            "label": "B",
+            "text": "SO₄²⁻",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“SO₄²⁻”与本题焦点“在《19-4-04 亚硝酸根的检验方法》中，本实验的两种方法共同指向哪种待检离子？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“SO₄²⁻”。"
+          },
+          {
+            "label": "C",
+            "text": "SiO₃²⁻",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“SiO₃²⁻”与本题焦点“在《19-4-04 亚硝酸根的检验方法》中，本实验的两种方法共同指向哪种待检离子？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“SiO₃²⁻”。"
+          },
+          {
+            "label": "D",
+            "text": "NO₂⁻",
+            "point_key": "candidate-1-724956e8",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“NO₂⁻”直接支撑题干所问：在《19-4-04 亚硝酸根的检验方法》中，本实验的两种方法共同指向哪种待检离子？；对应点位为“点滴板法：NaNO₂ + HAc + 对氨基苯磺酸 + 萘胺”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00242_2da7ff3435",
+            "expchunk_00248_a94cd0af07"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final rewrite：low_quality_keep_rewritten；有效题为本 proposed_question。；原题存在证据、深度或题型风险，最终有效题已由 proposed_question 修复。",
+          "supporting_theory_note": ""
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00242_2da7ff3435",
+            "expchunk_00248_a94cd0af07"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-4-04 亚硝酸根的检验方法》实验中，该实验检验的目标离子是____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "亚硝酸根"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "参考答案：NO₂⁻。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00242_2da7ff3435",
+              "expchunk_00248_a94cd0af07"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-4-04 亚硝酸根的检验方法》中，本实验的两种方法共同指向哪种待检离子？",
+            "options": [
+              {
+                "label": "A",
+                "text": "NO₃⁻"
+              },
+              {
+                "label": "B",
+                "text": "SO₄²⁻"
+              },
+              {
+                "label": "C",
+                "text": "SiO₃²⁻"
+              },
+              {
+                "label": "D",
+                "text": "NO₂⁻"
+              }
+            ],
+            "answer": {
+              "value": "D"
+            },
+            "explanation": "点滴板法和 KI-CCl₄ 法均用于亚硝酸根检验。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,1995 @@
+{
+  "metadata": {
+    "schema_version": "rebuilt_experiment_question_package_v1",
+    "artifact_type": "manual_semantic_rebuild",
+    "chunk": "chunk_4",
+    "source_packet": "E:\\chemistry-admin\\artifacts\\point-aware-question-bank\\reviewed_old_bank_chunks\\slim_release_work_v1\\semantic_work_packets\\chunk_4\\20-1-05.json",
+    "experiment_code": "20-1-05",
+    "experiment_title": "氯化亚铜的形成和性质",
+    "question_count": 30,
+    "type_counts": {
+      "single_choice": 20,
+      "true_false": 6,
+      "fill_blank": 4
+    },
+    "merge_status": "not_merged_do_not_modify_release_json_directly",
+    "rebuild_policy": [
+      "逐题读取 source question、选项、答案、解释、point keys、video points 与 RAG 证据后重构。",
+      "把公式型填空改写为选择题、判断题或短中文填空。",
+      "区分制备操作、沉淀生成、浓氨水性质试验、浓盐酸性质试验四类点位。"
+    ],
+    "manual_rebuild_statement": "本 packet 已逐题语义重构，不是脚本批量生成。"
+  },
+  "video_points": [
+    {
+      "point_key": "candidate-1-5a316034",
+      "point_title": "CuCl₂ + NaSO₃ / Na₂SO₃"
+    },
+    {
+      "point_key": "candidate-2-0a590e08",
+      "point_title": "生成 CuCl 沉淀"
+    },
+    {
+      "point_key": "candidate-3-57873b85",
+      "point_title": "CuCl + 浓氨水"
+    },
+    {
+      "point_key": "candidate-4-53f91c9c",
+      "point_title": "CuCl + 浓盐酸"
+    }
+  ],
+  "evidence_sources": {
+    "canonical_experiment_chunks": [
+      {
+        "chunk_id": "expchunk_00311_c770d017e2",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+        "line_number": 324,
+        "evidence_role": "直接支持氯化亚铜形成和性质操作：取少量 CuCl₂ 固体，加入 Na₂SO₃ 溶液，搅拌观察；若有沉淀，分别试验其与浓氨水、浓盐酸作用。"
+      }
+    ],
+    "supporting_theory_chunks": [
+      {
+        "chunk_id": "textbook_prose_01036_551b4dc475",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+        "line_number": 1616,
+        "evidence_role": "支持铜(Ⅰ)卤化物为白色难溶物、铜(Ⅱ)卤化物可经还原生成铜(Ⅰ)卤化物，并给出氯化亚铜沉淀的理论背景。"
+      },
+      {
+        "chunk_id": "textbook_prose_01043_ae32379ec7",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+        "line_number": 1629,
+        "evidence_role": "支持氯化铜(Ⅱ)的溶解性和氯配合物背景，用于限定氯化铜(Ⅱ)起始体系和浓盐酸相关解释边界。"
+      }
+    ]
+  },
+  "questions": [
+    {
+      "question_id": "REV_CH4_EXP_20_1_05_Q001",
+      "question_type": "single_choice",
+      "stem": "氯化亚铜形成实验中，取少量氯化铜(Ⅱ)固体后，加入的关键溶液是哪一种？",
+      "options": [
+        {
+          "label": "A",
+          "text": "亚硫酸钠溶液"
+        },
+        {
+          "label": "B",
+          "text": "葡萄糖溶液"
+        },
+        {
+          "label": "C",
+          "text": "硝酸汞溶液"
+        },
+        {
+          "label": "D",
+          "text": "银氨溶液"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "实验步骤要求取少量氯化铜(Ⅱ)固体后加入亚硫酸钠溶液，搅拌并观察现象。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-5a316034"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "cuprous_chloride_preparation",
+        "reagent_pair"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-1-5a316034",
+          "role": "correct_evidence",
+          "diagnostic_note": "对应氯化铜(Ⅱ)与亚硫酸钠的起始操作。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "distractor_adjacent_experiment",
+          "diagnostic_note": "葡萄糖属于氧化亚铜后续小实验。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "distractor_wrong_system",
+          "diagnostic_note": "硝酸汞属于汞化合物实验。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_wrong_system",
+          "diagnostic_note": "银氨溶液属于银镜实验。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00311_c770d017e2"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "保留源题试剂入口，但改成中文试剂名并收窄到第一个点位。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "kept_after_manual_tightening"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_05_Q002",
+      "question_type": "single_choice",
+      "stem": "在本实验设计中，亚硫酸钠的关键作用最接近哪一项？",
+      "options": [
+        {
+          "label": "A",
+          "text": "把铜(Ⅱ)引向铜(Ⅰ)沉淀的形成"
+        },
+        {
+          "label": "B",
+          "text": "直接检验铵盐"
+        },
+        {
+          "label": "C",
+          "text": "生成银镜"
+        },
+        {
+          "label": "D",
+          "text": "使汞沉淀歧化"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "实验目标是由氯化铜(Ⅱ)体系生成氯化亚铜沉淀；亚硫酸钠在该设计中服务于铜(Ⅱ)到铜(Ⅰ)沉淀的形成。",
+      "difficulty": "medium",
+      "primary_point_keys": [
+        "candidate-1-5a316034"
+      ],
+      "secondary_point_keys": [
+        "candidate-2-0a590e08"
+      ],
+      "coverage_tags": [
+        "sodium_sulfite_role",
+        "cuprous_chloride_product"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-1-5a316034",
+          "role": "correct_evidence",
+          "diagnostic_note": "对应亚硫酸钠引发氯化亚铜沉淀形成。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "distractor_wrong_system",
+          "diagnostic_note": "铵盐检验属于汞碘配合物体系。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "distractor_wrong_system",
+          "diagnostic_note": "银镜属于银氨配合物。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_wrong_system",
+          "diagnostic_note": "汞沉淀歧化不是本实验。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00311_c770d017e2"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01036_551b4dc475"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "重写为作用判断，避免只背 Na₂SO₃ 符号。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "kept_after_manual_tightening"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_05_Q003",
+      "question_type": "single_choice",
+      "stem": "本实验生成的主要铜(Ⅰ)沉淀中文名称是什么？",
+      "options": [
+        {
+          "label": "A",
+          "text": "氯化亚铜"
+        },
+        {
+          "label": "B",
+          "text": "碘化亚铜"
+        },
+        {
+          "label": "C",
+          "text": "氧化亚铜"
+        },
+        {
+          "label": "D",
+          "text": "氢氧化铜"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "本实验的产物沉淀是氯化亚铜；碘化亚铜和氧化亚铜属于相邻的其他小实验。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-2-0a590e08"
+      ],
+      "secondary_point_keys": [
+        "candidate-1-5a316034"
+      ],
+      "coverage_tags": [
+        "cuprous_chloride_product",
+        "product_discrimination"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-2-0a590e08",
+          "role": "correct_evidence",
+          "diagnostic_note": "对应生成氯化亚铜沉淀。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "distractor_adjacent_experiment",
+            "diagnostic_note": "碘化亚铜属于相邻铜碘化物实验。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "distractor_adjacent_experiment",
+          "diagnostic_note": "氧化亚铜属于后续小实验。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_wrong_product",
+          "diagnostic_note": "本实验不是氢氧化物生成实验。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00311_c770d017e2"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01036_551b4dc475"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "源题公式产物考点保留，但中文化并加入相邻产物干扰。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "kept_after_manual_tightening"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_05_Q004",
+      "question_type": "single_choice",
+      "stem": "若有氯化亚铜沉淀产生，实验步骤要求分别用哪两种试剂继续试验？",
+      "options": [
+        {
+          "label": "A",
+          "text": "浓氨水和浓盐酸"
+        },
+        {
+          "label": "B",
+          "text": "葡萄糖和氢氧化钠"
+        },
+        {
+          "label": "C",
+          "text": "碘化钾和淀粉"
+        },
+        {
+          "label": "D",
+          "text": "锌盐和钴盐"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "教材步骤写明：若有沉淀产生，取少许分别试验沉淀与浓氨水、浓盐酸作用，观察现象。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-3-57873b85",
+        "candidate-4-53f91c9c"
+      ],
+      "secondary_point_keys": [
+        "candidate-2-0a590e08"
+      ],
+      "coverage_tags": [
+        "cucl_followup_reagents",
+        "multi_point"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-3-57873b85",
+          "role": "correct_evidence",
+          "diagnostic_note": "浓氨水和浓盐酸是两个后续性质试验点。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "distractor_adjacent_experiment",
+          "diagnostic_note": "葡萄糖和氢氧化钠属于氧化亚铜形成。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "distractor_adjacent_experiment",
+          "diagnostic_note": "碘化钾和淀粉属于碘化亚铜副产物验证。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_wrong_system",
+          "diagnostic_note": "锌盐和钴盐属于汞硫氰体系。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00311_c770d017e2"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "保留后续试剂题，但点位只绑定浓氨水和浓盐酸两步。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "kept_after_manual_tightening"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_05_Q005",
+      "question_type": "single_choice",
+      "stem": "氯化铜(Ⅱ)转为氯化亚铜时，铜的价态变化最准确的是哪项？",
+      "options": [
+        {
+          "label": "A",
+          "text": "铜(Ⅱ)被还原为铜(Ⅰ)"
+        },
+        {
+          "label": "B",
+          "text": "铜(Ⅰ)被氧化为铜(Ⅱ)"
+        },
+        {
+          "label": "C",
+          "text": "铜(Ⅱ)被氧化为铜(Ⅲ)"
+        },
+        {
+          "label": "D",
+          "text": "铜的价态没有变化"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "氯化亚铜属于铜(Ⅰ)化合物，因此从氯化铜(Ⅱ)生成氯化亚铜体现铜(Ⅱ)被还原为铜(Ⅰ)。",
+      "difficulty": "medium",
+      "primary_point_keys": [
+        "candidate-1-5a316034",
+        "candidate-2-0a590e08"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "redox_direction",
+        "cuprous_chloride_product",
+        "multi_point"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-2-0a590e08",
+          "role": "correct_evidence",
+          "diagnostic_note": "氯化亚铜是铜(Ⅰ)产物。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "distractor_reversed_redox",
+          "diagnostic_note": "方向被倒置。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "distractor_wrong_state",
+          "diagnostic_note": "本实验不生成铜(Ⅲ)。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_misconception",
+          "diagnostic_note": "铜价态发生变化。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00311_c770d017e2"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01036_551b4dc475"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留价态变化考点并避免 Cu(II)/Cu(I) ASCII 写法。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "kept_after_manual_tightening"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_05_Q006",
+      "question_type": "single_choice",
+      "stem": "试验氯化亚铜沉淀与浓氨水、浓盐酸作用，主要服务于哪一类学习目标？",
+      "options": [
+        {
+          "label": "A",
+          "text": "考察铜(Ⅰ)沉淀在不同配体/介质中的性质"
+        },
+        {
+          "label": "B",
+          "text": "制备银镜"
+        },
+        {
+          "label": "C",
+          "text": "检验铵盐"
+        },
+        {
+          "label": "D",
+          "text": "比较银卤化物溶解度"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "后续两步都围绕已生成的氯化亚铜沉淀展开，用浓氨水和浓盐酸观察其性质变化。",
+      "difficulty": "medium",
+      "primary_point_keys": [
+        "candidate-3-57873b85",
+        "candidate-4-53f91c9c"
+      ],
+      "secondary_point_keys": [
+        "candidate-2-0a590e08"
+      ],
+      "coverage_tags": [
+        "cucl_property_tests",
+        "multi_point"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-3-57873b85",
+          "role": "correct_evidence",
+          "diagnostic_note": "浓氨水和浓盐酸都是氯化亚铜性质试验。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "distractor_wrong_system",
+          "diagnostic_note": "银镜属于相邻的银氨配合物实验。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "distractor_wrong_system",
+          "diagnostic_note": "铵盐检验属于汞碘配合物。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_wrong_system",
+          "diagnostic_note": "银卤化物比较属于其他配体实验。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00311_c770d017e2"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "不强行断言后续现象，只考 canonical 支持的试验目的。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "kept_after_manual_tightening"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_05_Q007",
+      "question_type": "single_choice",
+      "stem": "教材步骤中氯化铜(Ⅱ)的取用形式是哪一项？",
+      "options": [
+        {
+          "label": "A",
+          "text": "少量固体"
+        },
+        {
+          "label": "B",
+          "text": "饱和气体"
+        },
+        {
+          "label": "C",
+          "text": "银镜镀层"
+        },
+        {
+          "label": "D",
+          "text": "汞滴"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "实验文本写明取少量氯化铜(Ⅱ)固体，因此该处应填“氯化铜(Ⅱ)”。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-5a316034"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "operation_detail",
+        "solid_reagent"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-1-5a316034",
+          "role": "correct_evidence",
+          "diagnostic_note": "对应少量固体起始物。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "distractor_wrong_form",
+          "diagnostic_note": "本步骤不是气体实验。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "distractor_wrong_system",
+          "diagnostic_note": "银镜镀层不属于本实验。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_wrong_system",
+          "diagnostic_note": "汞滴属于汞转化实验。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00311_c770d017e2"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "保留具体操作细节题，但删去旧标题套壳。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "kept_after_manual_tightening"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_05_Q008",
+      "question_type": "single_choice",
+      "stem": "加入亚硫酸钠溶液后，实验步骤要求进行哪项基本操作？",
+      "options": [
+        {
+          "label": "A",
+          "text": "搅拌并观察现象"
+        },
+        {
+          "label": "B",
+          "text": "立即离心并弃去沉淀"
+        },
+        {
+          "label": "C",
+          "text": "先加葡萄糖水浴"
+        },
+        {
+          "label": "D",
+          "text": "先加铵盐检验"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "教材步骤在加入亚硫酸钠溶液后要求搅拌、观察现象；若有沉淀再做后续性质试验。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-5a316034"
+      ],
+      "secondary_point_keys": [
+        "candidate-2-0a590e08"
+      ],
+      "coverage_tags": [
+        "stir_and_observe",
+        "operation_sequence"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-1-5a316034",
+          "role": "correct_evidence",
+          "diagnostic_note": "对应搅拌观察。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "distractor_wrong_sequence",
+          "diagnostic_note": "实验步骤没有立即弃去沉淀。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "distractor_adjacent_experiment",
+          "diagnostic_note": "葡萄糖水浴属于氧化亚铜实验。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_wrong_system",
+          "diagnostic_note": "铵盐检验属于汞碘体系。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00311_c770d017e2"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "保留搅拌观察考点，移除不必要的多点泛绑。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "kept_after_manual_tightening"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_05_Q009",
+      "question_type": "single_choice",
+      "stem": "氯化亚铜形成及性质试验的核心实验目的是什么？",
+      "options": [
+        {
+          "label": "A",
+          "text": "制备氯化亚铜沉淀，并考察其与浓氨水、浓盐酸的作用"
+        },
+        {
+          "label": "B",
+          "text": "制备银镜并鉴定醛类"
+        },
+        {
+          "label": "C",
+          "text": "比较 AgCl、AgBr、AgI 的溶解度"
+        },
+        {
+          "label": "D",
+          "text": "检验锌盐和钴盐的汞硫氰沉淀"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "本实验包含氯化亚铜沉淀的形成，以及沉淀与浓氨水、浓盐酸作用的后续性质试验。",
+      "difficulty": "medium",
+      "primary_point_keys": [
+        "candidate-1-5a316034",
+        "candidate-2-0a590e08",
+        "candidate-3-57873b85",
+        "candidate-4-53f91c9c"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "packet_goal",
+        "multi_point"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-2-0a590e08",
+          "role": "correct_evidence",
+          "diagnostic_note": "覆盖沉淀形成和两项性质试验等完整实验环节。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "distractor_wrong_system",
+          "diagnostic_note": "银镜属于相邻的银氨配合物实验。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "distractor_wrong_system",
+          "diagnostic_note": "银卤化物比较属于其他配体实验。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_wrong_system",
+          "diagnostic_note": "汞硫氰沉淀属于汞配合物实验。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00311_c770d017e2"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01036_551b4dc475"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留实验目的题，但让多点绑定真正对应全流程。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "kept_after_manual_tightening"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_05_Q010",
+      "question_type": "single_choice",
+      "stem": "为什么本实验用亚硫酸钠，而不是只把可溶性铜(Ⅱ)盐与氯离子简单混合？",
+      "options": [
+        {
+          "label": "A",
+          "text": "需要把铜(Ⅱ)转化到铜(Ⅰ)并形成难溶氯化亚铜"
+        },
+        {
+          "label": "B",
+          "text": "需要把铜(Ⅰ)全部氧化为铜(Ⅲ)"
+        },
+        {
+          "label": "C",
+          "text": "需要生成银氨配合物"
+        },
+        {
+          "label": "D",
+          "text": "需要生成汞硫氰配合物"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "氯化亚铜是铜(Ⅰ)化合物；本实验设计的关键不是单纯加入氯离子，而是促成铜(Ⅱ)到铜(Ⅰ)并形成难溶沉淀。",
+      "difficulty": "hard",
+      "primary_point_keys": [
+        "candidate-1-5a316034",
+        "candidate-2-0a590e08"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "reduction_needed",
+        "evidence_boundary",
+        "multi_point"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-1-5a316034",
+          "role": "correct_evidence",
+          "diagnostic_note": "需要还原并沉淀氯化亚铜。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "distractor_wrong_state",
+          "diagnostic_note": "本实验不生成铜(Ⅲ)。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "distractor_wrong_system",
+          "diagnostic_note": "银氨配合物属于相邻银配合物实验。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_wrong_system",
+          "diagnostic_note": "汞硫氰配合物属于汞配合物实验。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00311_c770d017e2"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01036_551b4dc475"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "重写源包关键意义题，避免出现 CuSO₄/KCl 等跨 packet 干扰。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "rewrite"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_05_Q011",
+      "question_type": "single_choice",
+      "stem": "哪一项可直接从实验步骤判断，不需要理论解释？",
+      "options": [
+        {
+          "label": "A",
+          "text": "若有沉淀，要分别试验其与浓氨水和浓盐酸作用"
+        },
+        {
+          "label": "B",
+          "text": "氯化亚铜为什么难溶"
+        },
+        {
+          "label": "C",
+          "text": "亚硫酸钠为什么能促成铜(Ⅰ)生成"
+        },
+        {
+          "label": "D",
+          "text": "铜(Ⅰ)卤化物的溶解度顺序"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "后续试验用浓氨水和浓盐酸是实验步骤中的直接操作；性质解释则需要相关化学原理。",
+      "difficulty": "hard",
+      "primary_point_keys": [
+        "candidate-3-57873b85",
+        "candidate-4-53f91c9c"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "evidence_boundary",
+        "canonical_operation"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-3-57873b85",
+          "role": "correct_evidence",
+          "diagnostic_note": "后续两个试剂直接来自实验步骤。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-2-0a590e08",
+          "role": "distractor_requires_theory",
+          "diagnostic_note": "难溶性质需要铜(Ⅰ)卤化物性质解释。"
+        },
+        {
+          "label": "C",
+          "point_key": "candidate-1-5a316034",
+          "role": "distractor_requires_theory",
+          "diagnostic_note": "还原作用需要氧化还原原理解释。"
+        },
+        {
+          "label": "D",
+          "point_key": "candidate-2-0a590e08",
+          "role": "distractor_requires_theory",
+          "diagnostic_note": "溶解度顺序来自理论。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00311_c770d017e2"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "新增证据边界题，区分操作文本和理论解释。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "rewrite"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_05_Q012",
+      "question_type": "single_choice",
+      "stem": "下列哪一项最符合“氯化亚铜与浓氨水作用”的实验要求？",
+      "options": [
+        {
+          "label": "A",
+          "text": "取少许氯化亚铜沉淀，观察其与浓氨水作用"
+        },
+        {
+          "label": "B",
+          "text": "向氯化铜(Ⅱ)固体中加入亚硫酸钠"
+        },
+        {
+          "label": "C",
+          "text": "取少许氯化亚铜沉淀，观察其与浓盐酸作用"
+        },
+        {
+          "label": "D",
+          "text": "向铜(Ⅱ)盐中加入碘化钾"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "“氯化亚铜与浓氨水作用”对应的是沉淀生成后的浓氨水性质试验，而不是起始制备或浓盐酸试验。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-3-57873b85"
+      ],
+      "secondary_point_keys": [
+        "candidate-2-0a590e08"
+      ],
+      "coverage_tags": [
+        "ammonia_followup",
+        "point_binding_boundary"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-3-57873b85",
+          "role": "correct_evidence",
+          "diagnostic_note": "正是浓氨水后续试验。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-1-5a316034",
+          "role": "distractor_adjacent_point",
+          "diagnostic_note": "这是起始制备点。"
+        },
+        {
+          "label": "C",
+          "point_key": "candidate-4-53f91c9c",
+          "role": "distractor_adjacent_point",
+          "diagnostic_note": "这是浓盐酸后续试验。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_adjacent_experiment",
+          "diagnostic_note": "碘化钾属于碘化亚铜形成。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00311_c770d017e2"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "新增单点绑定题，防止把浓氨水/浓盐酸混成同一标签。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "rewrite"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_05_Q013",
+      "question_type": "single_choice",
+      "stem": "下列哪一项最符合“氯化亚铜与浓盐酸作用”的实验要求？",
+      "options": [
+        {
+          "label": "A",
+          "text": "取少许氯化亚铜沉淀，观察其与浓盐酸作用"
+        },
+        {
+          "label": "B",
+          "text": "取少许氯化亚铜沉淀，观察其与浓氨水作用"
+        },
+        {
+          "label": "C",
+          "text": "用亚硫酸钠还原氯化铜(Ⅱ)"
+        },
+        {
+          "label": "D",
+          "text": "用葡萄糖还原铜(Ⅱ)碱性溶液"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "浓盐酸步骤是沉淀生成后的另一个后续试验，应与浓氨水步骤和起始还原制备分开。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-4-53f91c9c"
+      ],
+      "secondary_point_keys": [
+        "candidate-2-0a590e08"
+      ],
+      "coverage_tags": [
+        "hydrochloric_acid_followup",
+        "point_binding_boundary"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-4-53f91c9c",
+          "role": "correct_evidence",
+          "diagnostic_note": "正是浓盐酸后续试验。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-3-57873b85",
+          "role": "distractor_adjacent_point",
+          "diagnostic_note": "这是浓氨水后续试验。"
+        },
+        {
+          "label": "C",
+          "point_key": "candidate-1-5a316034",
+          "role": "distractor_adjacent_point",
+          "diagnostic_note": "这是起始制备点。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_adjacent_experiment",
+          "diagnostic_note": "葡萄糖还原属于氧化亚铜形成。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00311_c770d017e2"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01036_551b4dc475",
+          "textbook_prose_01043_ae32379ec7"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "新增浓盐酸单点绑定题，避免后续性质试验泛化。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "rewrite"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_05_Q014",
+      "question_type": "single_choice",
+      "stem": "哪项属于后续小实验，而不是本实验的内容？",
+      "options": [
+        {
+          "label": "A",
+          "text": "葡萄糖参与氧化亚铜形成实验"
+        },
+        {
+          "label": "B",
+          "text": "氯化铜(Ⅱ)与亚硫酸钠反应"
+        },
+        {
+          "label": "C",
+          "text": "氯化亚铜沉淀与浓氨水作用"
+        },
+        {
+          "label": "D",
+          "text": "氯化亚铜沉淀与浓盐酸作用"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "氧化亚铜形成属于下一段后续小实验；本实验只覆盖氯化亚铜的形成和后续两种试剂性质试验。",
+      "difficulty": "medium",
+      "primary_point_keys": [
+        "candidate-1-5a316034",
+        "candidate-2-0a590e08",
+        "candidate-3-57873b85",
+        "candidate-4-53f91c9c"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "packet_scope_boundary",
+        "same_chunk_other_subexperiment"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "correct_out_of_scope",
+          "diagnostic_note": "氧化亚铜形成是后续小实验。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-1-5a316034",
+          "role": "in_scope_distractor",
+          "diagnostic_note": "属于本实验起始反应。"
+        },
+        {
+          "label": "C",
+          "point_key": "candidate-3-57873b85",
+          "role": "in_scope_distractor",
+          "diagnostic_note": "属于本实验后续性质试验。"
+        },
+        {
+          "label": "D",
+          "point_key": "candidate-4-53f91c9c",
+          "role": "in_scope_distractor",
+          "diagnostic_note": "属于本实验后续性质试验。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00311_c770d017e2"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "新增同 chunk 范围边界题，避免把 20-1-06 混入 20-1-05。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "rewrite"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_05_Q015",
+      "question_type": "single_choice",
+      "stem": "关于“生成氯化亚铜沉淀”的证据，哪项说法最准确？",
+      "options": [
+        {
+          "label": "A",
+          "text": "实验步骤支持操作判断，白色难溶等性质需理论补充"
+        },
+        {
+          "label": "B",
+          "text": "只靠银镜理论即可支持"
+        },
+        {
+          "label": "C",
+          "text": "只靠汞硫氰沉淀理论即可支持"
+        },
+        {
+          "label": "D",
+          "text": "不需要任何产物验证或性质依据"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "实验文本给出制备和观察内容；氯化亚铜的铜(Ⅰ)、白色难溶等性质需要铜(Ⅰ)卤化物理论支持。",
+      "difficulty": "hard",
+      "primary_point_keys": [
+        "candidate-2-0a590e08"
+      ],
+      "secondary_point_keys": [
+        "candidate-1-5a316034"
+      ],
+      "coverage_tags": [
+        "evidence_boundary",
+        "supporting_theory_required"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-2-0a590e08",
+          "role": "correct_evidence",
+          "diagnostic_note": "操作和性质需要分层证据。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "distractor_wrong_system",
+          "diagnostic_note": "银镜理论不支持氯化亚铜沉淀。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "distractor_wrong_system",
+          "diagnostic_note": "汞硫氰理论不支持本实验。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_quality_issue",
+          "diagnostic_note": "产物判断不能缺少证据。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00311_c770d017e2"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01036_551b4dc475"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "新增证据边界题，避免 source 中 inherited theory 泛用。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "rewrite"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_05_Q016",
+      "question_type": "single_choice",
+      "stem": "下列哪组最能完整覆盖本实验的四个观察内容？",
+      "options": [
+        {
+          "label": "A",
+          "text": "起始反应、沉淀生成、浓氨水试验、浓盐酸试验"
+        },
+        {
+          "label": "B",
+          "text": "银镜、汞碘、汞硫氰、铜氯配合物"
+        },
+        {
+          "label": "C",
+          "text": "碘化亚铜、氯化亚铜、氧化亚铜、汞转化"
+        },
+        {
+          "label": "D",
+          "text": "只记录加入亚硫酸钠，不看沉淀后续性质"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "本实验的四个观察内容依次是氯化铜(Ⅱ)与亚硫酸钠反应、生成氯化亚铜沉淀、沉淀与浓氨水作用、沉淀与浓盐酸作用。",
+      "difficulty": "medium",
+      "primary_point_keys": [
+        "candidate-1-5a316034",
+        "candidate-2-0a590e08",
+        "candidate-3-57873b85",
+        "candidate-4-53f91c9c"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "point_coverage",
+        "multi_point"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-1-5a316034",
+          "role": "correct_evidence",
+          "diagnostic_note": "完整覆盖本实验的四项观察任务。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "distractor_wrong_system",
+          "diagnostic_note": "混入其他实验内容。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "distractor_same_chunk_overreach",
+          "diagnostic_note": "混入相邻小实验。"
+        },
+        {
+          "label": "D",
+          "point_key": "candidate-1-5a316034",
+          "role": "distractor_incomplete",
+          "diagnostic_note": "只覆盖起始反应，不覆盖后续性质。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00311_c770d017e2"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01036_551b4dc475",
+          "textbook_prose_01043_ae32379ec7"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "新增四点覆盖题，替换源包最后过度泛绑题。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "rewrite"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_05_Q017",
+      "question_type": "single_choice",
+      "stem": "哪项说法最能避免把本实验误解成单纯沉淀反应？",
+      "options": [
+        {
+          "label": "A",
+          "text": "沉淀生成伴随铜(Ⅱ)向铜(Ⅰ)的转化"
+        },
+        {
+          "label": "B",
+          "text": "沉淀只是氯离子和钠离子结合"
+        },
+        {
+          "label": "C",
+          "text": "沉淀生成后不需要再观察"
+        },
+        {
+          "label": "D",
+          "text": "浓氨水和浓盐酸试验都与沉淀无关"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "本实验既有沉淀生成，也体现铜价态从铜(Ⅱ)到铜(Ⅰ)的变化，并且还要继续做沉淀的性质试验。",
+      "difficulty": "medium",
+      "primary_point_keys": [
+        "candidate-1-5a316034",
+        "candidate-2-0a590e08"
+      ],
+      "secondary_point_keys": [
+        "candidate-3-57873b85",
+        "candidate-4-53f91c9c"
+      ],
+      "coverage_tags": [
+        "misconception_repair",
+        "redox_and_precipitation",
+        "multi_point"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-2-0a590e08",
+          "role": "correct_evidence",
+          "diagnostic_note": "兼顾沉淀和价态变化。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "distractor_misconception",
+          "diagnostic_note": "沉淀不是钠离子和氯离子结合。"
+        },
+        {
+          "label": "C",
+          "point_key": "candidate-3-57873b85",
+          "role": "distractor_incomplete",
+          "diagnostic_note": "沉淀后还要做性质试验。"
+        },
+        {
+          "label": "D",
+          "point_key": "candidate-4-53f91c9c",
+          "role": "distractor_misconception",
+          "diagnostic_note": "二者正是沉淀后续试验。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00311_c770d017e2"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01036_551b4dc475"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "新增误区修复题，提升语义深度。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "rewrite"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_05_Q018",
+      "question_type": "single_choice",
+      "stem": "关于浓盐酸后续试验，下列哪项说法最稳妥？",
+      "options": [
+        {
+          "label": "A",
+          "text": "实验步骤要求试验浓盐酸作用；具体配合变化可结合铜氯配合物原理解释"
+        },
+        {
+          "label": "B",
+          "text": "实验步骤直接给出所有配离子结构和颜色"
+        },
+        {
+          "label": "C",
+          "text": "银镜理论可直接解释浓盐酸作用"
+        },
+        {
+          "label": "D",
+          "text": "不需要记录浓盐酸步骤"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "教材步骤直接要求试验沉淀与浓盐酸作用；若进一步解释氯配合背景，可使用铜氯配合物原理，但不能把配离子结构和颜色说成实验步骤直接给出。",
+      "difficulty": "hard",
+      "primary_point_keys": [
+        "candidate-4-53f91c9c"
+      ],
+      "secondary_point_keys": [
+        "candidate-2-0a590e08"
+      ],
+      "coverage_tags": [
+        "hydrochloric_acid_followup",
+        "evidence_boundary"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-4-53f91c9c",
+          "role": "correct_evidence",
+          "diagnostic_note": "操作来自实验步骤，具体变化可用配合物原理解释。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-4-53f91c9c",
+          "role": "distractor_overclaim",
+          "diagnostic_note": "实验步骤没有给出全部配离子结构和颜色。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "distractor_wrong_system",
+          "diagnostic_note": "银镜理论不解释本步骤。"
+        },
+        {
+          "label": "D",
+          "point_key": "candidate-4-53f91c9c",
+          "role": "distractor_omits_required_step",
+          "diagnostic_note": "浓盐酸步骤是本实验的后续性质试验。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00311_c770d017e2"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01043_ae32379ec7"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "新增浓盐酸证据边界题，避免过度解释。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "rewrite"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_05_Q019",
+      "question_type": "single_choice",
+      "stem": "哪项最不适合作为本实验的填空题答案？",
+      "options": [
+        {
+          "label": "A",
+          "text": "一长串配离子反应式"
+        },
+        {
+          "label": "B",
+          "text": "亚硫酸钠"
+        },
+        {
+          "label": "C",
+          "text": "氯化亚铜"
+        },
+        {
+          "label": "D",
+          "text": "浓盐酸"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "填空题只适合保留短中文答案，复杂反应式或配离子结构应改成选择、判断或解释型题。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-5a316034",
+        "candidate-2-0a590e08",
+        "candidate-4-53f91c9c"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "mobile_input_quality",
+        "formula_fill_avoidance"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-4-53f91c9c",
+          "role": "correct_quality_issue",
+          "diagnostic_note": "长反应式不适合填空。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-1-5a316034",
+          "role": "safe_fill_distractor",
+          "diagnostic_note": "短中文试剂名适合填空。"
+        },
+        {
+          "label": "C",
+          "point_key": "candidate-2-0a590e08",
+          "role": "safe_fill_distractor",
+          "diagnostic_note": "短中文产物名适合填空。"
+        },
+        {
+          "label": "D",
+          "point_key": "candidate-4-53f91c9c",
+          "role": "safe_fill_distractor",
+          "diagnostic_note": "短中文试剂名适合填空。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00311_c770d017e2"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01036_551b4dc475",
+          "textbook_prose_01043_ae32379ec7"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "替换源包多个公式式填空，保留移动端安全策略。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "rewrite"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_05_Q020",
+      "question_type": "single_choice",
+      "stem": "若只保留“加入亚硫酸钠”而删去沉淀与浓氨水、浓盐酸的试验，会造成什么问题？",
+      "options": [
+        {
+          "label": "A",
+          "text": "丢失氯化亚铜性质试验的两个后续步骤"
+        },
+        {
+          "label": "B",
+          "text": "更完整地覆盖本实验"
+        },
+        {
+          "label": "C",
+          "text": "自动覆盖银镜实验"
+        },
+        {
+          "label": "D",
+          "text": "自动覆盖氧化亚铜实验"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "本实验不只是制备氯化亚铜，还要求分别考察沉淀与浓氨水、浓盐酸作用。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-3-57873b85",
+        "candidate-4-53f91c9c"
+      ],
+      "secondary_point_keys": [
+        "candidate-1-5a316034",
+        "candidate-2-0a590e08"
+      ],
+      "coverage_tags": [
+        "point_coverage",
+        "multi_point"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-3-57873b85",
+          "role": "correct_evidence",
+          "diagnostic_note": "删去后续试验会漏掉浓氨水和浓盐酸两项性质观察。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-1-5a316034",
+          "role": "distractor_incomplete",
+          "diagnostic_note": "只保留制备不完整。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "distractor_wrong_system",
+          "diagnostic_note": "银镜属于相邻银氨配合物实验。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_adjacent_experiment",
+          "diagnostic_note": "氧化亚铜是后续小实验。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00311_c770d017e2"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "新增点位覆盖题，防止只重建制备步骤。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "rewrite"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_05_Q021",
+      "question_type": "true_false",
+      "stem": "本实验用氯化铜(Ⅱ)固体和亚硫酸钠溶液作为形成氯化亚铜沉淀的起始体系。",
+      "options": [],
+      "answer": {
+        "value": true
+      },
+      "explanation": "实验文本直接给出氯化铜(Ⅱ)固体和亚硫酸钠溶液这一操作组合。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-5a316034"
+      ],
+      "secondary_point_keys": [
+        "candidate-2-0a590e08"
+      ],
+      "coverage_tags": [
+        "cuprous_chloride_preparation",
+        "true_false"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00311_c770d017e2"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "保留起始体系判断，中文化。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "kept_after_manual_tightening"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_05_Q022",
+      "question_type": "true_false",
+      "stem": "氯化亚铜是铜(Ⅰ)化合物，因此由氯化铜(Ⅱ)生成它涉及价态降低。",
+      "options": [],
+      "answer": {
+        "value": true
+      },
+      "explanation": "氯化亚铜中铜为一价，氯化铜(Ⅱ)中铜为二价；从二价到一价是还原方向。",
+      "difficulty": "medium",
+      "primary_point_keys": [
+        "candidate-2-0a590e08"
+      ],
+      "secondary_point_keys": [
+        "candidate-1-5a316034"
+      ],
+      "coverage_tags": [
+        "redox_direction",
+        "true_false"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00311_c770d017e2"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01036_551b4dc475"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留价态判断，避免 Cu(I)/Cu(II) ASCII 写法。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "kept_after_manual_tightening"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_05_Q023",
+      "question_type": "true_false",
+      "stem": "沉淀生成后，教材要求分别试验其与浓氨水和浓盐酸作用。",
+      "options": [],
+      "answer": {
+        "value": true
+      },
+      "explanation": "这句话直接对应实验步骤中的后续性质试验要求。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-3-57873b85",
+        "candidate-4-53f91c9c"
+      ],
+      "secondary_point_keys": [
+        "candidate-2-0a590e08"
+      ],
+      "coverage_tags": [
+        "cucl_followup_reagents",
+        "true_false",
+        "multi_point"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00311_c770d017e2"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "保留后续试剂判断并明确双点位。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "kept_after_manual_tightening"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_05_Q024",
+      "question_type": "true_false",
+      "stem": "本实验的后续性质试验只需要浓氨水，浓盐酸步骤可以省略。",
+      "options": [],
+      "answer": {
+        "value": false
+      },
+      "explanation": "实验步骤要求分别试验浓氨水和浓盐酸，两者都是本实验的后续性质试验。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-3-57873b85",
+        "candidate-4-53f91c9c"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "point_coverage",
+        "true_false"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00311_c770d017e2"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "新增漏点判断，防止只保留浓氨水点。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "rewrite"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_05_Q025",
+      "question_type": "true_false",
+      "stem": "把本实验解释成“生成氯化铜(Ⅱ)沉淀”是正确的。",
+      "options": [],
+      "answer": {
+        "value": false
+      },
+      "explanation": "本实验生成的是铜(Ⅰ)的氯化亚铜沉淀，不是氯化铜(Ⅱ)沉淀。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-2-0a590e08"
+      ],
+      "secondary_point_keys": [
+        "candidate-1-5a316034"
+      ],
+      "coverage_tags": [
+        "product_discrimination",
+        "true_false"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00311_c770d017e2"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01036_551b4dc475"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "新增产物误区判断，替代公式填空。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "rewrite"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_05_Q026",
+      "question_type": "true_false",
+      "stem": "本实验可以直接并入氧化亚铜形成实验，因为二者都属于铜(Ⅰ)化合物部分。",
+      "options": [],
+      "answer": {
+        "value": false
+      },
+      "explanation": "二者同属铜(Ⅰ)化合物部分，但本实验的操作和观察只覆盖氯化亚铜的形成和性质。",
+      "difficulty": "medium",
+      "primary_point_keys": [
+        "candidate-1-5a316034",
+        "candidate-2-0a590e08",
+        "candidate-3-57873b85",
+        "candidate-4-53f91c9c"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "packet_scope_boundary",
+        "true_false",
+        "multi_point"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00311_c770d017e2"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "新增范围边界判断，避免与 20-1-06 合并。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "rewrite"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_05_Q027",
+      "question_type": "fill_blank",
+      "stem": "氯化亚铜形成实验中，向氯化铜(Ⅱ)固体中加入____溶液后搅拌观察。",
+      "options": [],
+      "answer": {
+        "accepted_answers": [
+          "亚硫酸钠"
+        ],
+        "match": "normalized_exact",
+        "visible_input_policy": "short_ordinary_chinese_only"
+      },
+      "explanation": "实验步骤中的关键溶液是亚硫酸钠溶液；填空只要求中文试剂名。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-5a316034"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "cuprous_chloride_preparation",
+        "mobile_safe_fill"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00311_c770d017e2"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "将 Na₂SO₃ 符号填空改为中文短答案。"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": {
+        "mode": "normalized_exact",
+        "deterministic": true
+      },
+      "rebuilt_action": "rewrite"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_05_Q028",
+      "question_type": "fill_blank",
+      "stem": "本实验生成的铜(Ⅰ)沉淀中文名称为____。",
+      "options": [],
+      "answer": {
+        "accepted_answers": [
+          "氯化亚铜"
+        ],
+        "match": "normalized_exact",
+        "visible_input_policy": "short_ordinary_chinese_only"
+      },
+      "explanation": "该沉淀为氯化亚铜；填空不要求输入化学式。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-2-0a590e08"
+      ],
+      "secondary_point_keys": [
+        "candidate-1-5a316034"
+      ],
+      "coverage_tags": [
+        "cuprous_chloride_product",
+        "mobile_safe_fill"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00311_c770d017e2"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01036_551b4dc475"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "将 CuCl 公式填空改为中文名称填空。"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": {
+        "mode": "normalized_exact",
+        "deterministic": true
+      },
+      "rebuilt_action": "rewrite"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_05_Q029",
+      "question_type": "fill_blank",
+      "stem": "生成沉淀后，实验要求分别试验其与浓氨水和____作用。",
+      "options": [],
+      "answer": {
+        "accepted_answers": [
+          "浓盐酸"
+        ],
+        "match": "normalized_exact",
+        "visible_input_policy": "short_ordinary_chinese_only"
+      },
+      "explanation": "后续性质试验的两种试剂是浓氨水和浓盐酸。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-4-53f91c9c"
+      ],
+      "secondary_point_keys": [
+        "candidate-3-57873b85",
+        "candidate-2-0a590e08"
+      ],
+      "coverage_tags": [
+        "hydrochloric_acid_followup",
+        "mobile_safe_fill"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00311_c770d017e2"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "保留浓盐酸填空但修正点位为浓盐酸后续试验。"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": {
+        "mode": "normalized_exact",
+        "deterministic": true
+      },
+      "rebuilt_action": "kept_after_manual_tightening"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_05_Q030",
+      "question_type": "fill_blank",
+      "stem": "从氯化铜(Ⅱ)到氯化亚铜的转化中，亚硫酸钠主要体现为____。",
+      "options": [],
+      "answer": {
+        "accepted_answers": [
+          "还原剂"
+        ],
+        "match": "normalized_exact",
+        "visible_input_policy": "short_ordinary_chinese_only"
+      },
+      "explanation": "亚硫酸钠服务于铜(Ⅱ)向铜(Ⅰ)的转化，因此空格应填“还原剂”。",
+      "difficulty": "medium",
+      "primary_point_keys": [
+        "candidate-1-5a316034"
+      ],
+      "secondary_point_keys": [
+        "candidate-2-0a590e08"
+      ],
+      "coverage_tags": [
+        "sodium_sulfite_role",
+        "mobile_safe_fill"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00311_c770d017e2"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01036_551b4dc475"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留还原剂概念填空，删除 Na₂SO₃/价态符号答案。"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": {
+        "mode": "normalized_exact",
+        "deterministic": true
+      },
+      "rebuilt_action": "kept_after_manual_tightening"
+    }
+  ]
+}

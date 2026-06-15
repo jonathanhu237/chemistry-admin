@@ -1,0 +1,1977 @@
+{
+  "metadata": {
+    "schema_version": "rebuilt_experiment_question_package_v1",
+    "artifact_type": "manual_semantic_rebuild",
+    "chunk": "chunk_4",
+    "source_packet": "E:\\chemistry-admin\\artifacts\\point-aware-question-bank\\reviewed_old_bank_chunks\\slim_release_work_v1\\semantic_work_packets\\chunk_4\\20-1-02.json",
+    "experiment_code": "20-1-02",
+    "experiment_title": "氨合物",
+    "question_count": 30,
+    "type_counts": {
+      "single_choice": 20,
+      "true_false": 6,
+      "fill_blank": 4
+    },
+    "merge_status": "not_merged_do_not_modify_release_json_directly",
+    "rebuild_policy": [
+      "逐题比对 source question、点位、选项、答案、解析与 RAG 证据后重构。",
+      "保留少量证据充分且题型稳定的题，其余低深度试剂名/公式填空/重复判断题改写为操作、观察链、稳定性、设计目的和理论依赖题。",
+      "题库 JSON 只保留 evidence locator 与简短 role summary，不嵌入 RAG 原文大段。"
+    ],
+    "manual_rebuild_statement": "本 packet 已逐题语义重构，不是脚本批量生成。"
+  },
+  "video_points": [
+    {
+      "point_key": "candidate-1-5b3e91cf",
+      "point_title": "CuSO₄ + NH₃·H₂O"
+    },
+    {
+      "point_key": "candidate-2-167c639f",
+      "point_title": "AgNO₃ + NH₃·H₂O"
+    },
+    {
+      "point_key": "candidate-3-ee066dec",
+      "point_title": "ZnSO₄ + NH₃·H₂O"
+    },
+    {
+      "point_key": "candidate-4-968503d0",
+      "point_title": "CdSO₄ + NH₃·H₂O"
+    },
+    {
+      "point_key": "candidate-5-2962277d",
+      "point_title": "HgCl₂ + NH₃·H₂O"
+    },
+    {
+      "point_key": "candidate-6-e34dc5e9",
+      "point_title": "观察沉淀生成与过量氨水中的溶解"
+    },
+    {
+      "point_key": "candidate-7-bff176fd",
+      "point_title": "试验氨合物对酸、碱和热的稳定性"
+    },
+    {
+      "point_key": "candidate-8-31e3319e",
+      "point_title": "设计实验确定 CuSO₄ 与氨水反应生成配合物的外界与内界"
+    }
+  ],
+  "evidence_sources": {
+    "canonical_experiment_chunks": [
+      {
+        "chunk_id": "expchunk_00309_5610e5bc6f",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+        "line_number": 322,
+        "evidence_role": "实验内容直接列出 CuSO₄、AgNO₃、ZnSO₄、CdSO₄、HgCl₂ 溶液分别滴加 NH₃·H₂O，观察沉淀生成与溶解；并要求试验溶解后溶液对酸、碱、热的稳定性及设计 CuSO₄ 反应产物内外界实验。"
+      },
+      {
+        "chunk_id": "expchunk_00314_c493a6ddc5",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+        "line_number": 327,
+        "evidence_role": "思考题要求比较锌盐与镉盐、锌盐与铜盐、银盐与汞盐，并比较 ds 区元素化合物生成配合物能力；用于支持比较与延伸设计类题。"
+      }
+    ],
+    "supporting_theory_chunks": [
+      {
+        "chunk_id": "textbook_prose_00473_d672f2b358",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+        "line_number": 752,
+        "evidence_role": "给出 AgCl 和 Cu(OH)₂ 与浓氨反应生成银氨/铜氨配离子的理论依据，并说明氨可作为路易斯碱形成配合物。"
+      },
+      {
+        "chunk_id": "textbook_prose_01050_e04444dc5f",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+        "line_number": 1628,
+        "evidence_role": "说明 Cu²⁺ 与单齿配体形成配合物，熟悉的 [Cu(NH₃)₄]²⁺ 呈深蓝色；用于支持铜氨深蓝色判断。"
+      }
+    ]
+  },
+  "questions": [
+    {
+      "question_id": "REV_CH4_EXP_20_1_02_Q001",
+      "question_type": "single_choice",
+      "stem": "在氨合物实验中，向 CuSO₄ 溶液滴加 NH₃·H₂O 后，判断氨合物生成应重点抓住哪一条观察链？",
+      "options": [
+        {
+          "label": "A",
+          "text": "先观察沉淀生成，再观察过量氨水中沉淀是否溶解"
+        },
+        {
+          "label": "B",
+          "text": "只记录加入了 NH₃·H₂O，不再观察沉淀变化"
+        },
+        {
+          "label": "C",
+          "text": "观察 CCl₄ 有机层颜色是否改变"
+        },
+        {
+          "label": "D",
+          "text": "改用氯化钠提供 NH₃ 配体"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "实验原文要求向 CuSO₄ 等盐溶液中滴加 NH₃·H₂O，观察沉淀的生成与溶解。对 CuSO₄ 体系而言，只有把初生沉淀和过量氨水中的溶解连续观察，才能作为氨合物生成的有效证据。",
+      "difficulty": "medium",
+      "primary_point_keys": [
+        "candidate-1-5b3e91cf",
+        "candidate-6-e34dc5e9"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "cu_ammine_observation_chain",
+        "multi_point"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-6-e34dc5e9",
+          "role": "correct_evidence",
+          "diagnostic_note": "对应教材中“观察沉淀的生成与溶解”的完整观察链。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-1-5b3e91cf",
+          "role": "distractor_misconception",
+          "diagnostic_note": "只记录试剂名，遗漏了判断氨合物生成所需的沉淀变化。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "distractor_wrong_experiment",
+          "diagnostic_note": "CCl₄ 萃取属于卤素或碘相关观察，不属于本实验的氨合物观察。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_chemistry_error",
+          "diagnostic_note": "氯化钠不能提供 NH₃ 配体，也不是本实验操作。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00309_5610e5bc6f"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "保留源包中已经重写过的高质量题；逐题核对后确认 stem、answer、explanation 与 CuSO₄ 点位和共同观察点位匹配。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "keep"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_02_Q002",
+      "question_type": "single_choice",
+      "stem": "本实验同时安排 CuSO₄、AgNO₃、ZnSO₄、CdSO₄、HgCl₂ 与 NH₃·H₂O 反应，最合适的实验目的是什么？",
+      "options": [
+        {
+          "label": "A",
+          "text": "比较不同金属盐在氨水中沉淀生成与溶解的差异，从而认识氨合物生成"
+        },
+        {
+          "label": "B",
+          "text": "测定五种盐的精确摩尔质量"
+        },
+        {
+          "label": "C",
+          "text": "证明所有沉淀都必须在加热后才出现"
+        },
+        {
+          "label": "D",
+          "text": "用同一种盐替代所有金属离子，减少比较对象"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "教材把五种金属盐并列放在同一操作下，要求滴加 NH₃·H₂O 并观察沉淀的生成与溶解；核心不是测量质量或减少对象，而是通过并列比较认识不同金属离子形成氨合物的表现。",
+      "difficulty": "medium",
+      "primary_point_keys": [
+        "candidate-1-5b3e91cf",
+        "candidate-2-167c639f",
+        "candidate-3-ee066dec",
+        "candidate-4-968503d0",
+        "candidate-5-2962277d",
+        "candidate-6-e34dc5e9"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "experiment_purpose",
+        "comparative_design",
+        "multi_point"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-6-e34dc5e9",
+          "role": "correct_evidence",
+          "diagnostic_note": "把五种金属盐反应与共同的沉淀生成、溶解观察合并为真实比较任务。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "distractor_wrong_measurement",
+          "diagnostic_note": "教材没有安排称量或摩尔质量测定。"
+        },
+        {
+          "label": "C",
+          "point_key": "candidate-7-bff176fd",
+          "role": "distractor_sequence_error",
+          "diagnostic_note": "热稳定性是沉淀溶解后溶液的后续试验，不是沉淀出现的必要条件。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_design_error",
+          "diagnostic_note": "去掉并列金属盐会破坏本实验的比较意义。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00309_5610e5bc6f"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "由原先低深度“铜盐是哪一种”题改写为整体实验目的题，真实使用五个金属盐点位和共同观察点位。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "rewrite"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_02_Q003",
+      "question_type": "single_choice",
+      "stem": "对五种金属盐进行氨合物实验时，哪一项操作是共同的第一步？",
+      "options": [
+        {
+          "label": "A",
+          "text": "分别向各盐溶液中滴加 NH₃·H₂O"
+        },
+        {
+          "label": "B",
+          "text": "先加入浓盐酸并温热"
+        },
+        {
+          "label": "C",
+          "text": "先用 CCl₄ 萃取有机层"
+        },
+        {
+          "label": "D",
+          "text": "先加入碘化钾以生成 CuI"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "实验原文把 CuSO₄、AgNO₃、ZnSO₄、CdSO₄、HgCl₂ 溶液并列列出，要求分别滴加 NH₃·H₂O 并观察沉淀变化。其他选项属于不同实验或后续/无关操作。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-5b3e91cf",
+        "candidate-2-167c639f",
+        "candidate-3-ee066dec",
+        "candidate-4-968503d0",
+        "candidate-5-2962277d"
+      ],
+      "secondary_point_keys": [
+        "candidate-6-e34dc5e9"
+      ],
+      "coverage_tags": [
+        "common_operation",
+        "multi_point"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-6-e34dc5e9",
+          "role": "correct_evidence",
+          "diagnostic_note": "直接对应五种盐共同的 NH₃·H₂O 滴加操作。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "distractor_wrong_subexperiment",
+          "diagnostic_note": "浓盐酸温热属于后文铜（Ⅱ）配合物相关操作，不是氨合物第一步。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "distractor_wrong_method",
+          "diagnostic_note": "CCl₄ 萃取不是本氨合物实验的共同操作。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_wrong_experiment",
+          "diagnostic_note": "碘化钾生成碘化亚铜属于铜（Ⅰ）化合物实验，不是氨合物第一步。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00309_5610e5bc6f"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "把原 AgNO₃ 试剂名题改写为共同操作题，减少单纯背盐名。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "rewrite"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_02_Q004",
+      "question_type": "single_choice",
+      "stem": "若某组只记录“出现沉淀”就停止实验，漏掉了哪一项关键判断？",
+      "options": [
+        {
+          "label": "A",
+          "text": "沉淀在过量氨水中是否继续溶解"
+        },
+        {
+          "label": "B",
+          "text": "CCl₄ 层是否呈紫色"
+        },
+        {
+          "label": "C",
+          "text": "气体是否能使品红褪色"
+        },
+        {
+          "label": "D",
+          "text": "镁条燃烧后是否生成白色粉末"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "本实验要求观察沉淀的生成与溶解。初生沉淀只能说明发生了沉淀反应；继续加入过量氨水并观察溶解，才与可溶性氨合物生成相连。",
+      "difficulty": "medium",
+      "primary_point_keys": [
+        "candidate-6-e34dc5e9"
+      ],
+      "secondary_point_keys": [
+        "candidate-1-5b3e91cf",
+        "candidate-2-167c639f",
+        "candidate-3-ee066dec",
+        "candidate-4-968503d0",
+        "candidate-5-2962277d"
+      ],
+      "coverage_tags": [
+        "observation_completeness",
+        "multi_point"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-6-e34dc5e9",
+          "role": "correct_evidence",
+          "diagnostic_note": "对应教材明确要求的“生成与溶解”两段式观察。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "distractor_wrong_experiment",
+          "diagnostic_note": "紫色有机层常见于碘萃取情境，与氨合物判断无关。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "distractor_wrong_property",
+          "diagnostic_note": "品红褪色属于 SO₂ 等气体性质判断，不是本实验观察。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_wrong_experiment",
+          "diagnostic_note": "镁条燃烧不是本实验内容。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00309_5610e5bc6f"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "由源包多个沉淀/溶解重复题压缩重构为观察完整性题。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "rewrite"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_02_Q005",
+      "question_type": "single_choice",
+      "stem": "思考题要求区别锌盐与镉盐。本实验中最直接提供比较入口的是哪一组试剂组合？",
+      "options": [
+        {
+          "label": "A",
+          "text": "ZnSO₄ + NH₃·H₂O 与 CdSO₄ + NH₃·H₂O"
+        },
+        {
+          "label": "B",
+          "text": "AgNO₃ + NH₃·H₂O 与 HgCl₂ + NH₃·H₂O"
+        },
+        {
+          "label": "C",
+          "text": "CuSO₄ + NH₃·H₂O 与酸、碱、热稳定性"
+        },
+        {
+          "label": "D",
+          "text": "CCl₄ 萃取与镁条燃烧"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "思考题明确提出区别锌盐与镉盐，而本实验的五种盐中正好有 ZnSO₄ 和 CdSO₄ 两个与 NH₃·H₂O 的并列观察对象。判断重点不是单个试剂名，而是把比较任务与具体实验操作对应起来。",
+      "difficulty": "medium",
+      "primary_point_keys": [
+        "candidate-3-ee066dec",
+        "candidate-4-968503d0"
+      ],
+      "secondary_point_keys": [
+        "candidate-6-e34dc5e9"
+      ],
+      "coverage_tags": [
+        "comparative_design",
+        "thought_question_link",
+        "multi_point"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-3-ee066dec",
+          "role": "correct_evidence",
+          "diagnostic_note": "ZnSO₄ 与 CdSO₄ 正好对应“锌盐与镉盐”的比较要求。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-2-167c639f",
+          "role": "distractor_adjacent_pair",
+          "diagnostic_note": "银盐与汞盐是另一条思考题比较线，不回答锌/镉比较。"
+        },
+        {
+          "label": "C",
+          "point_key": "candidate-7-bff176fd",
+          "role": "distractor_scope_shift",
+          "diagnostic_note": "稳定性测试可用于氨合物性质，但不是锌盐与镉盐的直接比较入口。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_wrong_experiment",
+          "diagnostic_note": "两个操作都不属于本实验的氨水反应比较。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00309_5610e5bc6f",
+          "expchunk_00314_c493a6ddc5"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "将原 ZnSO₄/CdSO₄ 试剂名题重构为思考题驱动的点位比较题。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "rewrite"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_02_Q006",
+      "question_type": "single_choice",
+      "stem": "若要围绕“银盐与汞盐”的思考题做氨水反应比较，应优先选哪两个盐溶液组合？",
+      "options": [
+        {
+          "label": "A",
+          "text": "AgNO₃ + NH₃·H₂O 与 HgCl₂ + NH₃·H₂O"
+        },
+        {
+          "label": "B",
+          "text": "CuSO₄ + NH₃·H₂O 与 ZnSO₄ + NH₃·H₂O"
+        },
+        {
+          "label": "C",
+          "text": "CdSO₄ + NH₃·H₂O 与酸、碱、热稳定性"
+        },
+        {
+          "label": "D",
+          "text": "内外界设计与 CCl₄ 萃取"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "思考题包含“银盐与汞盐”的区别，本实验中可直接对应的操作是 AgNO₃ 与 HgCl₂ 分别加 NH₃·H₂O 后观察沉淀生成与溶解。",
+      "difficulty": "medium",
+      "primary_point_keys": [
+        "candidate-2-167c639f",
+        "candidate-5-2962277d"
+      ],
+      "secondary_point_keys": [
+        "candidate-6-e34dc5e9"
+      ],
+      "coverage_tags": [
+        "comparative_design",
+        "thought_question_link",
+        "multi_point"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-2-167c639f",
+          "role": "correct_evidence",
+          "diagnostic_note": "AgNO₃ 和 HgCl₂ 分别对应该比较任务中的银盐与汞盐。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-1-5b3e91cf",
+          "role": "distractor_wrong_pair",
+          "diagnostic_note": "铜盐与锌盐不是银/汞比较。"
+        },
+        {
+          "label": "C",
+          "point_key": "candidate-7-bff176fd",
+          "role": "distractor_partial_scope",
+          "diagnostic_note": "稳定性测试不是银盐与汞盐的成对比较。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_mixed_scope",
+          "diagnostic_note": "内外界设计只指向 CuSO₄ 产物，CCl₄ 萃取不属于本实验。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00309_5610e5bc6f",
+          "expchunk_00314_c493a6ddc5"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "由单个汞盐识别题改写为银/汞比较点位选择题，减少重复背盐名。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "rewrite"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_02_Q007",
+      "question_type": "single_choice",
+      "stem": "关于“沉淀在过量氨水中溶解”的解释，哪一项最符合本实验的化学判断？",
+      "options": [
+        {
+          "label": "A",
+          "text": "说明原沉淀可转入含 NH₃ 配体的可溶性配合物体系"
+        },
+        {
+          "label": "B",
+          "text": "说明所有金属盐都已经被加热分解"
+        },
+        {
+          "label": "C",
+          "text": "说明沉淀一定变成单质金属"
+        },
+        {
+          "label": "D",
+          "text": "说明 NH₃·H₂O 只起稀释作用"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "实验观察要求包括沉淀生成与溶解；理论上 NH₃ 可作为配体形成配合物，因而过量氨水中的溶解可作为生成可溶性氨合物的证据。其他选项把溶解误解为热分解、还原成单质或单纯稀释。",
+      "difficulty": "medium",
+      "primary_point_keys": [
+        "candidate-6-e34dc5e9"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "precipitate_dissolution_reasoning",
+        "supporting_theory"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-6-e34dc5e9",
+          "role": "correct_evidence",
+          "diagnostic_note": "把过量氨水中溶解与 NH₃ 配位形成可溶配合物相连。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-7-bff176fd",
+          "role": "distractor_sequence_error",
+          "diagnostic_note": "热稳定性是后续测试，不是所有金属盐热分解。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "distractor_redox_error",
+          "diagnostic_note": "本观察链不要求把沉淀还原成单质金属。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_misconception",
+          "diagnostic_note": "NH₃·H₂O 不是单纯稀释剂，NH₃ 配位能力是判断依据。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00309_5610e5bc6f"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00473_d672f2b358"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留源包“过量氨水作用”考点，但改成解释型单选，显式引入 NH₃ 配位理论。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "rewrite"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_02_Q008",
+      "question_type": "single_choice",
+      "stem": "CuSO₄ 与过量氨水形成铜氨配合物时，典型溶液颜色是哪一项？",
+      "options": [
+        {
+          "label": "A",
+          "text": "无色"
+        },
+        {
+          "label": "B",
+          "text": "深蓝色"
+        },
+        {
+          "label": "C",
+          "text": "血红色"
+        },
+        {
+          "label": "D",
+          "text": "紫黑色"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "实验原文给出 CuSO₄ 与氨水反应的操作和观察内容；颜色判断需要结合铜氨配合物理论，[Cu(NH₃)₄]²⁺ 的典型颜色为深蓝色。",
+      "difficulty": "medium",
+      "primary_point_keys": [
+        "candidate-1-5b3e91cf"
+      ],
+      "secondary_point_keys": [
+        "candidate-6-e34dc5e9"
+      ],
+      "coverage_tags": [
+        "copper_ammine_color",
+        "supporting_theory"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "distractor_wrong_phenomenon",
+          "diagnostic_note": "无色不符合 Cu²⁺ 氨配合物的深蓝色理论判断。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-1-5b3e91cf",
+          "role": "correct_evidence",
+          "diagnostic_note": "硫酸铜与氨水的操作结合铜氨配合物理论可确定深蓝色。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "distractor_wrong_phenomenon",
+          "diagnostic_note": "血红色常见于其他络合反应情境，不是铜氨配合物。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_wrong_phenomenon",
+          "diagnostic_note": "紫黑色不对应本实验的铜氨体系。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00309_5610e5bc6f"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01050_e04444dc5f"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留高质量颜色题，但剔除不精确的 inherited theory id，仅使用铜氨深蓝色直接理论证据。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "keep"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_02_Q009",
+      "question_type": "single_choice",
+      "stem": "沉淀溶解后的溶液还要接受哪一组稳定性试验？",
+      "options": [
+        {
+          "label": "A",
+          "text": "光、电和磁"
+        },
+        {
+          "label": "B",
+          "text": "盐、糖和油"
+        },
+        {
+          "label": "C",
+          "text": "酸、碱和热"
+        },
+        {
+          "label": "D",
+          "text": "氮气、氩气和氦气"
+        }
+      ],
+      "answer": {
+        "value": "C"
+      },
+      "explanation": "教材明确写明“再试验沉淀溶解后的溶液对酸、碱和热的稳定性”，因此正确组别是酸、碱和热。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-7-bff176fd"
+      ],
+      "secondary_point_keys": [
+        "candidate-6-e34dc5e9"
+      ],
+      "coverage_tags": [
+        "stability_test_conditions"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "distractor_unlisted_conditions",
+          "diagnostic_note": "光、电、磁未出现在该稳定性试验要求中。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "distractor_unlisted_conditions",
+          "diagnostic_note": "盐、糖、油不是教材列出的稳定性条件。"
+        },
+        {
+          "label": "C",
+          "point_key": "candidate-7-bff176fd",
+          "role": "correct_evidence",
+          "diagnostic_note": "直接对应酸、碱、热三类稳定性试验。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_unlisted_conditions",
+          "diagnostic_note": "惰性气体组不属于该实验稳定性测试。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00309_5610e5bc6f"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "保留源包中证据直接、手机端稳定的稳定性条件题。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "keep"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_02_Q010",
+      "question_type": "single_choice",
+      "stem": "关于稳定性试验的先后顺序，哪一项符合教材表述？",
+      "options": [
+        {
+          "label": "A",
+          "text": "先让沉淀在过量氨水中溶解，再试验溶解后溶液对酸、碱、热的稳定性"
+        },
+        {
+          "label": "B",
+          "text": "先加酸、碱和热，再决定是否滴加 NH₃·H₂O"
+        },
+        {
+          "label": "C",
+          "text": "只做颜色记录，不需要稳定性试验"
+        },
+        {
+          "label": "D",
+          "text": "稳定性试验只针对未溶解的固体沉淀"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "教材语序是先观察沉淀生成与溶解，再试验“沉淀溶解后的溶液”对酸、碱和热的稳定性。该顺序决定了稳定性试验对象是溶解后的配合物溶液。",
+      "difficulty": "medium",
+      "primary_point_keys": [
+        "candidate-6-e34dc5e9",
+        "candidate-7-bff176fd"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "procedure_sequence",
+        "stability_test_object",
+        "multi_point"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-7-bff176fd",
+          "role": "correct_evidence",
+          "diagnostic_note": "准确连接“溶解后溶液”与酸、碱、热稳定性测试。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-6-e34dc5e9",
+          "role": "distractor_reversed_sequence",
+          "diagnostic_note": "把教材中的先观察溶解、后测稳定性颠倒了。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "distractor_incomplete_task",
+          "diagnostic_note": "颜色记录不能替代稳定性测试。"
+        },
+        {
+          "label": "D",
+          "point_key": "candidate-7-bff176fd",
+          "role": "distractor_wrong_object",
+          "diagnostic_note": "教材对象是沉淀溶解后的溶液，不是未溶固体。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00309_5610e5bc6f"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "由简单条件枚举题扩展为顺序/对象判断题，覆盖 candidate-6 与 candidate-7 的真实多点关系。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "rewrite"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_02_Q011",
+      "question_type": "single_choice",
+      "stem": "设计实验确定 CuSO₄ 与氨水生成配合物的内界与外界，核心判断对象是哪一项？",
+      "options": [
+        {
+          "label": "A",
+          "text": "镁条是否燃烧"
+        },
+        {
+          "label": "B",
+          "text": "硝酸盐是否热分解"
+        },
+        {
+          "label": "C",
+          "text": "哪些离子或配体属于配离子的内界或外界"
+        },
+        {
+          "label": "D",
+          "text": "CCl₄ 是否萃取碘"
+        }
+      ],
+      "answer": {
+        "value": "C"
+      },
+      "explanation": "教材明确要求设计实验确定 CuSO₄ 与氨水反应生成配合物的外界与内界，因此核心是判断产物中哪些组分属于配离子内界或外界，而不是燃烧、热分解或萃取。",
+      "difficulty": "medium",
+      "primary_point_keys": [
+        "candidate-8-31e3319e"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "inner_outer_sphere_design"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "distractor_wrong_experiment",
+          "diagnostic_note": "镁条燃烧与 CuSO₄ 氨合物内外界判断无关。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "distractor_wrong_experiment",
+          "diagnostic_note": "硝酸盐热分解不是本设计实验目标。"
+        },
+        {
+          "label": "C",
+          "point_key": "candidate-8-31e3319e",
+          "role": "correct_evidence",
+          "diagnostic_note": "直接对应“确定配合物外界与内界”的设计任务。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_wrong_method",
+          "diagnostic_note": "CCl₄ 萃取不是本实验要求的配合物内外界设计。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00309_5610e5bc6f"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "保留源包中已经从荒谬判断题改写出的内外界设计题；该题证据来自 canonical 实验任务本身。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "keep"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_02_Q012",
+      "question_type": "true_false",
+      "stem": "判断：在本实验中，氨水只作为普通碱使用，不需要观察过量氨水中沉淀是否溶解。",
+      "answer": {
+        "value": false
+      },
+      "explanation": "该判断错误。实验明确要求观察沉淀生成与溶解；过量氨水中的溶解是判断形成可溶性氨合物的重要证据。",
+      "difficulty": "medium",
+      "primary_point_keys": [
+        "candidate-6-e34dc5e9"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "true_false",
+        "observation_completeness"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00309_5610e5bc6f"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00473_d672f2b358"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "替换源包“NH₃ 配体来源”低深度判断题；最终题判断单一、无双重否定，依赖实验观察链和 NH₃ 配位理论。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "rewrite"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_02_Q013",
+      "question_type": "true_false",
+      "stem": "判断：CuSO₄、AgNO₃、ZnSO₄、CdSO₄、HgCl₂ 这五种盐在教材中被并列用于与 NH₃·H₂O 反应观察。",
+      "answer": {
+        "value": true
+      },
+      "explanation": "该判断正确。教材把这五种盐溶液并列列出，统一要求滴加 NH₃·H₂O，观察沉淀的生成与溶解。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-5b3e91cf",
+        "candidate-2-167c639f",
+        "candidate-3-ee066dec",
+        "candidate-4-968503d0",
+        "candidate-5-2962277d"
+      ],
+      "secondary_point_keys": [
+        "candidate-6-e34dc5e9"
+      ],
+      "coverage_tags": [
+        "true_false",
+        "common_operation",
+        "multi_point"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00309_5610e5bc6f"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "保留必要的五盐范围确认，但合并为一个范围判断，避免五道单独背盐名题。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "rewrite"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_02_Q014",
+      "question_type": "true_false",
+      "stem": "判断：稳定性测试的对象是沉淀溶解后的溶液，而不是尚未溶解的固体沉淀。",
+      "answer": {
+        "value": true
+      },
+      "explanation": "该判断正确。教材表述为“再试验沉淀溶解后的溶液对酸、碱和热的稳定性”，对象明确是溶解后的溶液。",
+      "difficulty": "medium",
+      "primary_point_keys": [
+        "candidate-7-bff176fd"
+      ],
+      "secondary_point_keys": [
+        "candidate-6-e34dc5e9"
+      ],
+      "coverage_tags": [
+        "true_false",
+        "stability_test_object",
+        "multi_point"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00309_5610e5bc6f"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "由简单“酸碱热”记忆题升级为稳定性测试对象判断。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "rewrite"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_02_Q015",
+      "question_type": "true_false",
+      "stem": "判断：CuSO₄ 内外界设计实验可以用 CCl₄ 萃取现象直接替代。",
+      "answer": {
+        "value": false
+      },
+      "explanation": "该判断错误。CuSO₄ 与氨水生成配合物的内外界判断属于配位化学设计内容，CCl₄ 萃取不是本实验的设计方法或观察内容。",
+      "difficulty": "medium",
+      "primary_point_keys": [
+        "candidate-8-31e3319e"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "true_false",
+        "inner_outer_sphere_design"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00309_5610e5bc6f"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "替换源包中靠猜的错误盐名判断题；最终题针对内外界设计边界，判断明确。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "rewrite"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_02_Q016",
+      "question_type": "true_false",
+      "stem": "判断：仅凭“加入了氨水”这一事实，就足以证明已经生成可溶性氨合物。",
+      "answer": {
+        "value": false
+      },
+      "explanation": "该判断错误。加入氨水只是操作，是否形成可溶性氨合物要结合沉淀生成后在过量氨水中是否溶解等现象来判断。",
+      "difficulty": "medium",
+      "primary_point_keys": [
+        "candidate-6-e34dc5e9"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "true_false",
+        "evidence_based_judgement"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00309_5610e5bc6f"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "把源包多个“是否某盐/某试剂”判断题重构为证据充分性判断题。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "rewrite"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_02_Q017",
+      "question_type": "true_false",
+      "stem": "判断：铜氨深蓝色这一结论只靠本实验操作文字就能确定，不需要任何配合物颜色原理支持。",
+      "answer": {
+        "value": false
+      },
+      "explanation": "该判断错误。实验文字要求观察，但没有在该段直接写出深蓝色；深蓝色判断需要结合铜氨配合物颜色原理。",
+      "difficulty": "hard",
+      "primary_point_keys": [
+        "candidate-1-5b3e91cf"
+      ],
+      "secondary_point_keys": [
+        "candidate-6-e34dc5e9"
+      ],
+      "coverage_tags": [
+        "true_false",
+        "supporting_theory_boundary"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00309_5610e5bc6f"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01050_e04444dc5f"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留铜氨颜色考点但明确 evidence boundary，避免把 canonical locator 当作完整颜色证据。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "rewrite"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_02_Q018",
+      "question_type": "single_choice",
+      "stem": "下列哪一项最能说明判断“铜氨深蓝色”需要结合配合物颜色原理？",
+      "options": [
+        {
+          "label": "A",
+          "text": "实验段只要求观察，理论段明确指出 [Cu(NH₃)₄]²⁺ 呈深蓝色"
+        },
+        {
+          "label": "B",
+          "text": "实验段没有出现 CuSO₄"
+        },
+        {
+          "label": "C",
+          "text": "稳定性试验只涉及光照和磁性"
+        },
+        {
+          "label": "D",
+          "text": "CCl₄ 萃取能直接证明铜氨颜色"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "实验段能支持 CuSO₄ 与氨水反应及观察内容，但并未直接给出深蓝色；[Cu(NH₃)₄]²⁺ 的深蓝色需要结合相关化学原理判断。",
+      "difficulty": "hard",
+      "primary_point_keys": [
+        "candidate-1-5b3e91cf"
+      ],
+      "secondary_point_keys": [
+        "candidate-6-e34dc5e9"
+      ],
+      "coverage_tags": [
+        "evidence_boundary",
+        "supporting_theory",
+        "copper_ammine_color"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-1-5b3e91cf",
+          "role": "correct_evidence",
+          "diagnostic_note": "准确区分实验操作证据与颜色理论证据。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-1-5b3e91cf",
+          "role": "distractor_false_claim",
+          "diagnostic_note": "实验段确实列出了 CuSO₄，问题不在操作证据缺失，而在颜色结论需理论支持。"
+        },
+        {
+          "label": "C",
+          "point_key": "candidate-7-bff176fd",
+          "role": "distractor_wrong_condition",
+          "diagnostic_note": "稳定性试验条件是酸、碱和热，不是光和磁。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_wrong_method",
+          "diagnostic_note": "CCl₄ 萃取不是铜氨颜色判断的证据。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00309_5610e5bc6f"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01050_e04444dc5f"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "新增 evidence-boundary 题，回应源包 inherited theory ids 过宽的问题。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "rewrite"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_02_Q019",
+      "question_type": "fill_blank",
+      "stem": "教材要求滴加 NH₃·H₂O 后观察____的生成与溶解。",
+      "answer": {
+        "accepted_answers": [
+          "沉淀"
+        ],
+        "match": "normalized_exact",
+        "visible_input_policy": "short_ordinary_chinese_only"
+      },
+      "explanation": "本实验的共同观察对象是沉淀：先看沉淀是否生成，再看其在过量氨水中是否溶解。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-6-e34dc5e9"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "mobile_safe_fill_blank",
+        "observation_object"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00309_5610e5bc6f"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "保留填空但改成短普通中文答案；无公式输入风险。"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": {
+        "mode": "normalized_exact",
+        "deterministic": true
+      },
+      "rebuilt_action": "rewrite"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_02_Q020",
+      "question_type": "fill_blank",
+      "stem": "只看初生沉淀不够，还必须观察其在过量氨水中是否____。",
+      "answer": {
+        "accepted_answers": [
+          "溶解"
+        ],
+        "match": "normalized_exact",
+        "visible_input_policy": "short_ordinary_chinese_only"
+      },
+      "explanation": "沉淀在过量氨水中的溶解，是把普通沉淀反应推进到氨合物生成判断的关键现象。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-6-e34dc5e9"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "mobile_safe_fill_blank",
+        "observation_chain"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00309_5610e5bc6f"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "替换公式型填空为短中文现象填空，手机端可稳定判分。"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": {
+        "mode": "normalized_exact",
+        "deterministic": true
+      },
+      "rebuilt_action": "rewrite"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_02_Q021",
+      "question_type": "fill_blank",
+      "stem": "沉淀溶解后的溶液稳定性试验包括酸、碱和____。",
+      "answer": {
+        "accepted_answers": [
+          "热"
+        ],
+        "match": "normalized_exact",
+        "visible_input_policy": "short_ordinary_chinese_only"
+      },
+      "explanation": "教材明确列出稳定性试验条件为酸、碱和热。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-7-bff176fd"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "mobile_safe_fill_blank",
+        "stability_test_conditions"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00309_5610e5bc6f"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "保留源包短填空，答案为普通中文单字，手机端风险低。"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": {
+        "mode": "normalized_exact",
+        "deterministic": true
+      },
+      "rebuilt_action": "keep"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_02_Q022",
+      "question_type": "fill_blank",
+      "stem": "CuSO₄ 与氨水生成配合物的设计实验，关注配离子的内界和____。",
+      "answer": {
+        "accepted_answers": [
+          "外界"
+        ],
+        "match": "normalized_exact",
+        "visible_input_policy": "short_ordinary_chinese_only"
+      },
+      "explanation": "教材要求设计实验确定该配合物的外界与内界；“外界”是与“内界”成对的设计判断对象。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-8-31e3319e"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "mobile_safe_fill_blank",
+        "inner_outer_sphere_design"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00309_5610e5bc6f"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "由源包“内界”填空调整为内外界成对概念填空，仍为短中文答案。"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": {
+        "mode": "normalized_exact",
+        "deterministic": true
+      },
+      "rebuilt_action": "rewrite"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_02_Q023",
+      "question_type": "single_choice",
+      "stem": "观察铜氨配合物生成时，实验中应选哪一种铜盐溶液？",
+      "options": [
+        {
+          "label": "A",
+          "text": "硝酸银（AgNO₃）"
+        },
+        {
+          "label": "B",
+          "text": "硫酸铜（CuSO₄）"
+        },
+        {
+          "label": "C",
+          "text": "硫酸锌（ZnSO₄）"
+        },
+        {
+          "label": "D",
+          "text": "氯化汞（HgCl₂）"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "实验列出的铜氨体系是硫酸铜溶液与氨水作用，因此应选硫酸铜溶液。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-5b3e91cf"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "cu_ammine_starting_salt",
+        "mobile_risk_rewritten"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-2-167c639f",
+          "role": "distractor_adjacent_point",
+          "diagnostic_note": "硝酸银对应银氨体系，不是铜氨体系。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-1-5b3e91cf",
+          "role": "correct_evidence",
+          "diagnostic_note": "硫酸铜是铜氨配合物生成所用的起始铜盐。"
+        },
+        {
+          "label": "C",
+          "point_key": "candidate-3-ee066dec",
+          "role": "distractor_adjacent_point",
+          "diagnostic_note": "硫酸锌对应锌盐与氨水反应，不是铜氨体系。"
+        },
+        {
+          "label": "D",
+          "point_key": "candidate-5-2962277d",
+          "role": "distractor_adjacent_point",
+          "diagnostic_note": "氯化汞对应汞盐与氨水反应。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00309_5610e5bc6f"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "原题为公式/别名填空，手机输入风险高；重写为单选并保留点位定位价值。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "rewrite"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_02_Q024",
+      "question_type": "single_choice",
+      "stem": "观察银氨体系时，教材列出的银盐是哪一种？",
+      "options": [
+        {
+          "label": "A",
+          "text": "硫酸铜（CuSO₄）"
+        },
+        {
+          "label": "B",
+          "text": "硫酸锌（ZnSO₄）"
+        },
+        {
+          "label": "C",
+          "text": "硝酸银（AgNO₃）"
+        },
+        {
+          "label": "D",
+          "text": "氯化汞（HgCl₂）"
+        }
+      ],
+      "answer": {
+        "value": "C"
+      },
+      "explanation": "教材在氨合物部分列出 AgNO₃ 溶液与 NH₃·H₂O 作用，答案指向试剂和现象本身。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-2-167c639f"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "ag_ammine_starting_salt",
+        "mobile_risk_rewritten"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-1-5b3e91cf",
+          "role": "distractor_adjacent_point",
+          "diagnostic_note": "硫酸铜属于铜盐与氨水反应。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-3-ee066dec",
+          "role": "distractor_adjacent_point",
+          "diagnostic_note": "硫酸锌属于锌盐与氨水反应。"
+        },
+        {
+          "label": "C",
+          "point_key": "candidate-2-167c639f",
+          "role": "correct_evidence",
+          "diagnostic_note": "AgNO₃ 是银氨体系的起始银盐。"
+        },
+        {
+          "label": "D",
+          "point_key": "candidate-5-2962277d",
+          "role": "distractor_adjacent_point",
+          "diagnostic_note": "氯化汞属于汞盐与氨水反应。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00309_5610e5bc6f"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "原题为 AgNO₃ 公式填空，已改为确定性单选。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "rewrite"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_02_Q025",
+      "question_type": "single_choice",
+      "stem": "在氨水反应观察中，哪一组同时对应锌盐和镉盐？",
+      "options": [
+        {
+          "label": "A",
+          "text": "ZnSO₄ 和 CdSO₄"
+        },
+        {
+          "label": "B",
+          "text": "CuSO₄ 和 AgNO₃"
+        },
+        {
+          "label": "C",
+          "text": "HgCl₂ 和 AgNO₃"
+        },
+        {
+          "label": "D",
+          "text": "碘化亚铜和氯化亚铜"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "教材并列列出 ZnSO₄ 和 CdSO₄ 溶液与 NH₃·H₂O 反应观察，这也与思考题中“区别锌盐与镉盐”的比较要求相衔接。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-3-ee066dec",
+        "candidate-4-968503d0"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "zn_cd_pair",
+        "mobile_risk_rewritten",
+        "multi_point"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-3-ee066dec",
+          "role": "correct_evidence",
+          "diagnostic_note": "硫酸锌和硫酸镉是锌盐、镉盐与氨水反应的并列对象。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-1-5b3e91cf",
+          "role": "distractor_wrong_pair",
+          "diagnostic_note": "该组选到铜盐和银盐，未对应锌/镉比较。"
+        },
+        {
+          "label": "C",
+          "point_key": "candidate-5-2962277d",
+          "role": "distractor_wrong_pair",
+          "diagnostic_note": "该组对应银/汞比较，不是锌/镉。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_wrong_experiment",
+          "diagnostic_note": "碘化亚铜和氯化亚铜属于铜（Ⅰ）化合物情境，不是本实验的五种氨水反应盐。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00309_5610e5bc6f",
+          "expchunk_00314_c493a6ddc5"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "把两个公式填空合并为比较型单选，减少重复并保留思考题联系。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "rewrite"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_02_Q026",
+      "question_type": "single_choice",
+      "stem": "观察汞盐与氨水反应时，实验中列出的汞盐是哪一种？",
+      "options": [
+        {
+          "label": "A",
+          "text": "硝酸汞(Ⅱ)（Hg(NO₃)₂）"
+        },
+        {
+          "label": "B",
+          "text": "氯化汞（HgCl₂）"
+        },
+        {
+          "label": "C",
+          "text": "氯化亚汞（Hg₂Cl₂）"
+        },
+        {
+          "label": "D",
+          "text": "硝酸银（AgNO₃）"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "实验列出的汞盐是氯化汞溶液，它与氨水作用属于本组氨合物观察。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-5-2962277d"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "hg_ammine_starting_salt",
+        "mobile_risk_rewritten"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "distractor_wrong_mercury_salt",
+          "diagnostic_note": "硝酸汞出现在后续其他汞配合物实验中，不是本氨合物实验列出的汞盐。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-5-2962277d",
+          "role": "correct_evidence",
+          "diagnostic_note": "氯化汞是本实验中与氨水反应的汞盐。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "distractor_wrong_oxidation_state",
+          "diagnostic_note": "Hg₂Cl₂ 是亚汞盐，不是此处教材列出的 HgCl₂。"
+        },
+        {
+          "label": "D",
+          "point_key": "candidate-2-167c639f",
+          "role": "distractor_adjacent_point",
+          "diagnostic_note": "硝酸银是银盐与氨水反应对象，不是汞盐。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00309_5610e5bc6f"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "原 HgCl₂ 填空因公式和命名别名过多改写为单选；选项按相邻汞盐/银盐误区设计。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "rewrite"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_02_Q027",
+      "question_type": "single_choice",
+      "stem": "下列哪一项最适合作为本实验“酸、碱和热稳定性”测试的对象？",
+      "options": [
+        {
+          "label": "A",
+          "text": "沉淀溶解后的氨合物溶液"
+        },
+        {
+          "label": "B",
+          "text": "尚未加入氨水的原盐溶液"
+        },
+        {
+          "label": "C",
+          "text": "CCl₄ 萃取后的有机层"
+        },
+        {
+          "label": "D",
+          "text": "燃烧后的镁条残留物"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "教材明确说“沉淀溶解后的溶液”再接受酸、碱和热稳定性试验。该对象限定能避免把稳定性测试泛化到原盐溶液或无关体系。",
+      "difficulty": "medium",
+      "primary_point_keys": [
+        "candidate-7-bff176fd"
+      ],
+      "secondary_point_keys": [
+        "candidate-6-e34dc5e9"
+      ],
+      "coverage_tags": [
+        "stability_test_object",
+        "multi_point"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-7-bff176fd",
+          "role": "correct_evidence",
+          "diagnostic_note": "对应稳定性测试对象：沉淀溶解后的溶液。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "distractor_wrong_object",
+          "diagnostic_note": "原盐溶液尚未经历氨水生成/溶解观察。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "distractor_wrong_experiment",
+          "diagnostic_note": "有机层萃取不是本氨合物稳定性试验对象。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_wrong_experiment",
+          "diagnostic_note": "镁条燃烧残留物与该稳定性测试无关。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00309_5610e5bc6f"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "新增对象限定题，防止稳定性题只背“酸碱热”。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "rewrite"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_02_Q028",
+      "question_type": "single_choice",
+      "stem": "如果需要同时判断“选用 CuSO₄ 体系”和“过量氨水中沉淀是否溶解”，应同时覆盖哪些观察内容？",
+      "options": [
+        {
+          "label": "A",
+          "text": "CuSO₄ + NH₃·H₂O 操作与沉淀生成、溶解观察"
+        },
+        {
+          "label": "B",
+          "text": "只覆盖酸、碱、热稳定性测试"
+        },
+        {
+          "label": "C",
+          "text": "只覆盖 HgCl₂ + NH₃·H₂O 操作"
+        },
+        {
+          "label": "D",
+          "text": "覆盖 CCl₄ 萃取操作"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "该判断同时涉及硫酸铜体系和共同观察链，因此需要同时关注硫酸铜与氨水作用，以及沉淀生成和过量氨水中溶解这两个连续现象。",
+      "difficulty": "medium",
+      "primary_point_keys": [
+        "candidate-1-5b3e91cf",
+        "candidate-6-e34dc5e9"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "point_binding",
+        "multi_point"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-1-5b3e91cf",
+          "role": "correct_evidence",
+          "diagnostic_note": "两组观察分别对应硫酸铜体系和共同沉淀变化。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-7-bff176fd",
+          "role": "distractor_wrong_binding",
+          "diagnostic_note": "稳定性测试不能替代硫酸铜起始体系和过量氨水溶解观察。"
+        },
+        {
+          "label": "C",
+          "point_key": "candidate-5-2962277d",
+          "role": "distractor_wrong_binding",
+          "diagnostic_note": "氯化汞与氨水反应不匹配硫酸铜体系。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_nonexistent_point",
+          "diagnostic_note": "CCl₄ 萃取不属于本实验的氨合物观察。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00309_5610e5bc6f"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "新增点位绑定判断题，用来修复源包模板化 multi_point_binding 的问题。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "rewrite"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_02_Q029",
+      "question_type": "single_choice",
+      "stem": "哪一种实验任务最需要同时比较五种金属盐和共同沉淀变化？",
+      "options": [
+        {
+          "label": "A",
+          "text": "比较五种金属盐加氨水后沉淀生成与溶解的表现"
+        },
+        {
+          "label": "B",
+          "text": "只问铜盐的名称"
+        },
+        {
+          "label": "C",
+          "text": "只问稳定性条件中的“热”"
+        },
+        {
+          "label": "D",
+          "text": "只问配离子的外界与内界"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "只有比较五种盐在同一氨水操作下的沉淀生成与溶解，才需要同时涉及五种金属盐和共同观察链。单个铜盐名、稳定性单项、内外界设计都应缩窄到对应实验内容。",
+      "difficulty": "medium",
+      "primary_point_keys": [
+        "candidate-1-5b3e91cf",
+        "candidate-2-167c639f",
+        "candidate-3-ee066dec",
+        "candidate-4-968503d0",
+        "candidate-5-2962277d",
+        "candidate-6-e34dc5e9"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "point_binding",
+        "comparative_design",
+        "multi_point"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-6-e34dc5e9",
+          "role": "correct_evidence",
+          "diagnostic_note": "比较五种金属盐的共同观察才需要同时覆盖全部金属盐和共同沉淀变化。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-1-5b3e91cf",
+          "role": "distractor_overbinding",
+          "diagnostic_note": "只问铜盐名称只涉及硫酸铜，不涉及五种金属盐的完整比较。"
+        },
+        {
+          "label": "C",
+          "point_key": "candidate-7-bff176fd",
+          "role": "distractor_overbinding",
+          "diagnostic_note": "只问“热”只涉及稳定性测试，不需要五种盐的完整比较。"
+        },
+        {
+          "label": "D",
+          "point_key": "candidate-8-31e3319e",
+          "role": "distractor_overbinding",
+          "diagnostic_note": "内外界设计属于硫酸铜产物判断任务，不需要五种盐的完整比较。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00309_5610e5bc6f"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "新增多点位理由题，防止继承 broad point binding。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "rewrite"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_02_Q030",
+      "question_type": "single_choice",
+      "stem": "下列哪项可以只依据实验段直接判断，不需要再结合相关化学原理？",
+      "options": [
+        {
+          "label": "A",
+          "text": "沉淀溶解后的溶液要测试酸、碱和热稳定性"
+        },
+        {
+          "label": "B",
+          "text": "[Cu(NH₃)₄]²⁺ 为什么呈深蓝色"
+        },
+        {
+          "label": "C",
+          "text": "NH₃ 为什么能作为路易斯碱配位"
+        },
+        {
+          "label": "D",
+          "text": "铜氨配离子的具体空间构型"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "酸、碱和热稳定性测试直接写在实验段中；铜氨深蓝色、NH₃ 配位理论和具体构型都超出该实验文字，需要相关化学原理才能支撑。",
+      "difficulty": "hard",
+      "primary_point_keys": [
+        "candidate-7-bff176fd"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "evidence_boundary",
+        "stability_test_conditions"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-7-bff176fd",
+          "role": "correct_evidence",
+          "diagnostic_note": "酸、碱、热稳定性测试是实验步骤中的直接操作。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-1-5b3e91cf",
+          "role": "distractor_theory_required",
+          "diagnostic_note": "深蓝色判断需要结合铜氨配合物颜色原理。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "distractor_theory_required",
+          "diagnostic_note": "NH₃ 作为路易斯碱属于配位原理内容。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_theory_required",
+          "diagnostic_note": "具体构型不是本实验步骤直接观察到的内容。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00309_5610e5bc6f"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "新增 evidence-boundary 题，明确哪些判断可只用实验段，哪些必须引入理论。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "rewrite"
+    }
+  ]
+}

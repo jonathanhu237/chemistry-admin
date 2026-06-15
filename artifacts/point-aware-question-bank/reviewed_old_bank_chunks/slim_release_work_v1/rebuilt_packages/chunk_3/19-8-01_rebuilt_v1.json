@@ -1,0 +1,941 @@
+{
+  "metadata": {
+    "schema_version": "rebuilt_experiment_question_package_v1",
+    "artifact_type": "manual_semantic_reconstruction_v1",
+    "source_packet": "E:\\chemistry-admin\\artifacts\\point-aware-question-bank\\reviewed_old_bank_chunks\\slim_release_work_v1\\semantic_work_packets\\chunk_3\\19-8-01.json",
+    "experiment_code": "19-8-01",
+    "experiment_title": "Pb(OH)2 的生成与性质",
+    "chunk": "chunk_3",
+    "question_count": 30,
+    "reconstruction_mode": "manual_per_question_semantic_rebuild",
+    "release_json_modified": false,
+    "evidence_policy": [
+      "每道题按 source question、video point、canonical RAG 和必要 supporting theory 重新判断。",
+      "canonical 实验文本直接支持向硝酸铅溶液滴加氢氧化钠溶液、观察现象，并分别试验生成沉淀与硝酸溶液及氢氧化钠溶液的反应。",
+      "canonical 文本支持“测试酸碱性/判断两侧反应”的实验设计，但不直接给出沉淀一定溶解的具体观察句；旧题中的溶解现象断言已改写为证据边界或实验目的题。",
+      "旧题中 Pb(OH)2、Pb(NO3)2、NaOH、HNO3、Pb2+ 等可见公式填空已改为中文短答案或单选/判断。"
+    ],
+    "rag_source_dir": "E:\\chemistry-rag\\data\\rag_ready"
+  },
+  "video_points": [
+    {
+      "point_key": "candidate-1-356d797d",
+      "point_title": "Pb(NO3)2 + NaOH"
+    },
+    {
+      "point_key": "candidate-2-38e31e57",
+      "point_title": "Pb(OH)2 + HNO3"
+    },
+    {
+      "point_key": "candidate-3-2d7041d5",
+      "point_title": "Pb(OH)2 + NaOH"
+    }
+  ],
+  "evidence_sources": {
+    "canonical_experiment_chunks": [
+      {
+        "chunk_id": "expchunk_protocol_ccb6245e7635",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+        "line_number": 9,
+        "source_summary": "实验 19-8 的 protocol 父节点，用于确认本 packet 所属实验。"
+      },
+      {
+        "chunk_id": "expchunk_00290_963bb10320",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+        "line_number": 303,
+        "source_summary": "实验目的包括掌握锡、铅、砷、锑与铋等氢氧化物的酸碱性。"
+      },
+      {
+        "chunk_id": "expchunk_00295_b30319fd2c",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+        "line_number": 308,
+        "source_summary": "氢氧化铅的生成与性质：向硝酸铅溶液中滴加氢氧化钠溶液，观察现象；分别试验生成的沉淀与硝酸溶液及氢氧化钠溶液的反应。"
+      }
+    ],
+    "supporting_theory_chunks": [
+      {
+        "chunk_id": "textbook_prose_00171_6743bd6e37",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+        "line_number": 331,
+        "source_summary": "一般说明 R-O-H 类物质可表现酸式、碱式或酸碱两性，用于支撑“两性”概念边界，不直接替代本实验观察。"
+      }
+    ]
+  },
+  "questions": [
+    {
+      "question_id": "REBUILT_CH3_19_8_01_Q001",
+      "source_question_ids": ["OLD_CHUNK3_EXP_19_8_01_Q001", "OLD_CHUNK3_EXP_19_8_01_Q024"],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "single_choice",
+      "stem": "按教材步骤，生成氢氧化铅沉淀时，向硝酸铅溶液中滴加的是哪种溶液？",
+      "options": [
+        {"label": "A", "text": "碘化钾溶液"},
+        {"label": "B", "text": "四氯化碳"},
+        {"label": "C", "text": "氢氧化钠溶液"},
+        {"label": "D", "text": "硫氰酸钾溶液"}
+      ],
+      "answer": {"value": "C"},
+      "explanation": "教材明确写到向硝酸铅溶液中滴加氢氧化钠溶液并观察现象。A、B、D 是相邻实验中常见的干扰线索。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-1-356d797d"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["operation_reagent", "precipitate_generation", "canonical_detail"],
+      "option_links": [
+        {"label": "A", "point_key": null, "role": "distractor_adjacent_experiment", "diagnostic_note": "碘化钾属于卤化物或氧化还原相关干扰。"},
+        {"label": "B", "point_key": null, "role": "distractor_adjacent_experiment", "diagnostic_note": "四氯化碳不属于本氢氧化物性质步骤。"},
+        {"label": "C", "point_key": "candidate-1-356d797d", "role": "correct_evidence", "diagnostic_note": "氢氧化钠是生成沉淀的教材步骤中的试剂。"},
+        {"label": "D", "point_key": null, "role": "distractor_adjacent_experiment", "diagnostic_note": "硫氰酸钾常用于铁离子检验，不属于本题。"}
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00295_b30319fd2c"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "原题保留为生成步骤锚点，选项改为中文名称以降低公式噪声。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_label"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_01_Q002",
+      "source_question_ids": ["OLD_CHUNK3_EXP_19_8_01_Q011", "OLD_CHUNK3_EXP_19_8_01_Q021", "OLD_CHUNK3_EXP_19_8_01_Q029"],
+      "rewrite_action": "rewrite",
+      "question_type": "single_choice",
+      "stem": "向硝酸铅溶液滴加氢氧化钠后，后续文字把生成物称作什么，说明初步观察应关注哪类现象？",
+      "options": [
+        {"label": "A", "text": "沉淀，关注沉淀生成"},
+        {"label": "B", "text": "气体，关注气体收集"},
+        {"label": "C", "text": "有机层，关注萃取颜色"},
+        {"label": "D", "text": "金属单质，关注置换析出"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "教材材料先要求滴加氢氧化钠并观察现象，随后说“分别试验生成的沉淀”与酸、碱的反应，因此初步生成物按沉淀处理。该实验更适合关注沉淀生成的现象类型，而不是要求书写化学式。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-1-356d797d"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["observation_type", "precipitate_generation", "mobile_safe_rewrite"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-1-356d797d", "role": "correct_evidence", "diagnostic_note": "沉淀生成由后续“生成的沉淀”直接支持。"},
+        {"label": "B", "point_key": null, "role": "distractor_wrong_observation", "diagnostic_note": "本步骤没有气体收集任务。"},
+        {"label": "C", "point_key": null, "role": "distractor_adjacent_experiment", "diagnostic_note": "有机层萃取不是本实验。"},
+        {"label": "D", "point_key": null, "role": "distractor_wrong_observation", "diagnostic_note": "原文没有置换金属单质观察。"}
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00295_b30319fd2c"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "将 Pb(OH)2 公式填空替换为沉淀现象判断。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_label"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_01_Q003",
+      "source_question_ids": ["OLD_CHUNK3_EXP_19_8_01_Q003", "OLD_CHUNK3_EXP_19_8_01_Q012", "OLD_CHUNK3_EXP_19_8_01_Q025"],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "single_choice",
+      "stem": "生成的氢氧化铅沉淀需要分别与哪两类溶液作用？",
+      "options": [
+        {"label": "A", "text": "硝酸溶液和氢氧化钠溶液"},
+        {"label": "B", "text": "碘化钾溶液和四氯化碳"},
+        {"label": "C", "text": "硫氰酸钾溶液和氯化铁溶液"},
+        {"label": "D", "text": "氯化钡溶液和硫酸溶液"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "实验步骤要求分别试验生成的沉淀与硝酸溶液及氢氧化钠溶液的反应，覆盖酸侧和碱侧两条实验环节。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-2-38e31e57", "candidate-3-2d7041d5"],
+      "secondary_point_keys": ["candidate-1-356d797d"],
+      "coverage_tags": ["acid_base_test_pair", "multi_point", "canonical_detail"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-2-38e31e57", "role": "correct_evidence", "diagnostic_note": "硝酸和氢氧化钠对应沉淀的酸、碱两侧测试。"},
+        {"label": "B", "point_key": null, "role": "distractor_adjacent_experiment", "diagnostic_note": "碘化钾/四氯化碳来自其他实验。"},
+        {"label": "C", "point_key": null, "role": "distractor_adjacent_experiment", "diagnostic_note": "硫氰酸钾/氯化铁不是本实验。"},
+        {"label": "D", "point_key": null, "role": "distractor_wrong_pair", "diagnostic_note": "氯化钡/硫酸不用于本沉淀酸碱性测试。"}
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00295_b30319fd2c"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "原题保留，但使用中文试剂名并明确两点位绑定。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_label"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_01_Q004",
+      "source_question_ids": ["OLD_CHUNK3_EXP_19_8_01_Q002_R1", "OLD_CHUNK3_EXP_19_8_01_Q004", "OLD_CHUNK3_EXP_19_8_01_Q014_SF1", "OLD_CHUNK3_EXP_19_8_01_Q023"],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "single_choice",
+      "stem": "把生成沉淀分别和酸、碱两类试剂作用，最主要是为了判断哪类性质？",
+      "options": [
+        {"label": "A", "text": "是否具有酸碱两性特征"},
+        {"label": "B", "text": "硝酸铅溶液的精确配制浓度"},
+        {"label": "C", "text": "四氯化碳是否能萃取铅离子"},
+        {"label": "D", "text": "硫氰酸钾是否能检验铅的高价态"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "本小节和实验目的都围绕氢氧化物酸碱性；教材要求把沉淀分别与酸和碱作用。结合氢氧化物酸碱两性概念，可以判断实验关注的是两性特征，但不能直接断言具体溶解现象。",
+      "difficulty": "intermediate",
+      "primary_point_keys": ["candidate-2-38e31e57", "candidate-3-2d7041d5"],
+      "secondary_point_keys": ["candidate-1-356d797d"],
+      "coverage_tags": ["experiment_purpose", "amphoteric_boundary", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-2-38e31e57", "role": "correct_evidence", "diagnostic_note": "酸侧和碱侧试验共同服务于酸碱两性判断。"},
+        {"label": "B", "point_key": "candidate-1-356d797d", "role": "distractor_low_value_detail", "diagnostic_note": "浓度不是该实验判断的重点。"},
+        {"label": "C", "point_key": null, "role": "distractor_adjacent_experiment", "diagnostic_note": "四氯化碳萃取不是本实验。"},
+        {"label": "D", "point_key": null, "role": "distractor_adjacent_experiment", "diagnostic_note": "硫氰酸钾检验铁离子语境不适用于本题。"}
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00290_963bb10320", "expchunk_00295_b30319fd2c"],
+        "supporting_theory_chunk_ids": ["textbook_prose_00171_6743bd6e37"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留旧重写题核心，但从“已证明溶解”收窄为“判断是否具有两性特征”。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_label"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_01_Q005",
+      "source_question_ids": ["OLD_CHUNK3_EXP_19_8_01_Q005", "OLD_CHUNK3_EXP_19_8_01_Q010", "OLD_CHUNK3_EXP_19_8_01_Q017", "OLD_CHUNK3_EXP_19_8_01_Q027"],
+      "rewrite_action": "rewrite",
+      "question_type": "single_choice",
+      "stem": "关于酸侧试验，哪一项操作最符合本实验？",
+      "options": [
+        {"label": "A", "text": "用硝酸溶液试验生成沉淀的反应"},
+        {"label": "B", "text": "用盐酸蒸气直接熏蒸全部样品"},
+        {"label": "C", "text": "用四氯化碳萃取生成物"},
+        {"label": "D", "text": "用硫氰酸钾检验红色配合物"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "氢氧化铅部分要求试验生成沉淀与硝酸溶液的反应，因此酸侧操作应围绕沉淀与硝酸作用来判断。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-2-38e31e57"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["acid_branch", "evidence_boundary", "canonical_operation"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-2-38e31e57", "role": "correct_evidence", "diagnostic_note": "硝酸溶液对应酸侧实验环节。"},
+        {"label": "B", "point_key": null, "role": "distractor_wrong_acid", "diagnostic_note": "盐酸蒸气不是本步骤。"},
+        {"label": "C", "point_key": null, "role": "distractor_adjacent_experiment", "diagnostic_note": "四氯化碳萃取不属于本实验。"},
+        {"label": "D", "point_key": null, "role": "distractor_adjacent_experiment", "diagnostic_note": "硫氰酸钾检验不属于本酸侧试验。"}
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00295_b30319fd2c"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "把未直接给出的酸中溶解现象改写为酸侧操作。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_label"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_01_Q006",
+      "source_question_ids": ["OLD_CHUNK3_EXP_19_8_01_Q006", "OLD_CHUNK3_EXP_19_8_01_Q016", "OLD_CHUNK3_EXP_19_8_01_Q028"],
+      "rewrite_action": "rewrite",
+      "question_type": "single_choice",
+      "stem": "关于碱侧试验，哪一项操作最符合本实验？",
+      "options": [
+        {"label": "A", "text": "生成沉淀后，还要试验其与氢氧化钠溶液的反应"},
+        {"label": "B", "text": "氢氧化钠只用于生成沉淀，不能作为后续试验试剂"},
+        {"label": "C", "text": "生成沉淀后只需加入硫酸钡"},
+        {"label": "D", "text": "生成沉淀后转入有机层萃取"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "氢氧化钠既用于滴加生成沉淀，也用于后续试验生成沉淀与碱的反应；该操作指向酸碱性试验方向，不需要写出复杂公式。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-3-2d7041d5"],
+      "secondary_point_keys": ["candidate-1-356d797d"],
+      "coverage_tags": ["base_branch", "dual_role_reagent", "canonical_operation"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-3-2d7041d5", "role": "correct_evidence", "diagnostic_note": "对应后续碱侧试验。"},
+        {"label": "B", "point_key": "candidate-1-356d797d", "role": "distractor_half_truth", "diagnostic_note": "只说生成沉淀，漏掉了后续碱侧试验。"},
+        {"label": "C", "point_key": null, "role": "distractor_wrong_reagent", "diagnostic_note": "硫酸钡不是本步骤试剂。"},
+        {"label": "D", "point_key": null, "role": "distractor_adjacent_experiment", "diagnostic_note": "有机萃取不属于本实验。"}
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00295_b30319fd2c"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "将 NaOH 的双重用途作为点位诊断，降低公式填空风险。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_label"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_01_Q007",
+      "source_question_ids": ["OLD_CHUNK3_EXP_19_8_01_Q007", "OLD_CHUNK3_EXP_19_8_01_Q022", "OLD_CHUNK3_EXP_19_8_01_Q026"],
+      "rewrite_action": "rewrite",
+      "question_type": "single_choice",
+      "stem": "初始铅源来自哪种溶液？",
+      "options": [
+        {"label": "A", "text": "硝酸铅溶液"},
+        {"label": "B", "text": "氯化铁溶液"},
+        {"label": "C", "text": "硫酸钡悬浊液"},
+        {"label": "D", "text": "碘化钾溶液"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "教材材料写明向硝酸铅溶液中滴加氢氧化钠溶液。这类题要求输入铅离子或硝酸铅公式，现改为中文试剂识别。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-1-356d797d"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["initial_lead_source", "mobile_safe_rewrite", "canonical_detail"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-1-356d797d", "role": "correct_evidence", "diagnostic_note": "硝酸铅溶液是原文初始铅源。"},
+        {"label": "B", "point_key": null, "role": "distractor_adjacent_experiment", "diagnostic_note": "氯化铁属于其他检验语境。"},
+        {"label": "C", "point_key": null, "role": "distractor_wrong_compound", "diagnostic_note": "硫酸钡不提供本实验铅源。"},
+        {"label": "D", "point_key": null, "role": "distractor_wrong_reagent", "diagnostic_note": "碘化钾不是初始铅盐。"}
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00295_b30319fd2c"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "避免 Pb2+ 和 Pb(NO3)2 可见填空。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_label"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_01_Q008",
+      "source_question_ids": ["OLD_CHUNK3_EXP_19_8_01_Q008", "OLD_CHUNK3_EXP_19_8_01_Q020"],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "single_choice",
+      "stem": "铅的氢氧化物酸碱性实验主要通过哪组操作体现？",
+      "options": [
+        {"label": "A", "text": "只背记硝酸铅溶液浓度"},
+        {"label": "B", "text": "通过生成沉淀并试验其与酸、碱的反应，认识铅的氢氧化物酸碱性"},
+        {"label": "C", "text": "用四氯化碳萃取碘单质"},
+        {"label": "D", "text": "用硫氰酸钾检验铁离子"}
+      ],
+      "answer": {"value": "B"},
+      "explanation": "教材中的目的包括掌握铅等氢氧化物酸碱性；教材材料给出生成沉淀并分别与酸、碱作用的操作。B 才是本实验主线。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-1-356d797d", "candidate-2-38e31e57", "candidate-3-2d7041d5"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["experiment_goal", "multi_point", "acid_base_properties"],
+      "option_links": [
+        {"label": "A", "point_key": null, "role": "distractor_low_value_detail", "diagnostic_note": "浓度细节不是本实验主目标。"},
+        {"label": "B", "point_key": "candidate-1-356d797d", "role": "correct_evidence", "diagnostic_note": "覆盖生成、酸侧和碱侧三个实验环节。"},
+        {"label": "C", "point_key": null, "role": "distractor_adjacent_experiment", "diagnostic_note": "四氯化碳萃取不属于本实验。"},
+        {"label": "D", "point_key": null, "role": "distractor_adjacent_experiment", "diagnostic_note": "铁离子检验不是本实验目的。"}
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00290_963bb10320", "expchunk_00295_b30319fd2c"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "保留目的题并消除背浓度导向。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_label"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_01_Q009",
+      "source_question_ids": ["OLD_CHUNK3_EXP_19_8_01_Q009", "OLD_CHUNK3_EXP_19_8_01_Q029"],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "single_choice",
+      "stem": "滴加氢氧化钠初期生成氢氧化铅，按实验记录应归入哪类现象？",
+      "options": [
+        {"label": "A", "text": "焰色变化"},
+        {"label": "B", "text": "有机层显色"},
+        {"label": "C", "text": "沉淀生成"},
+        {"label": "D", "text": "气体爆鸣"}
+      ],
+      "answer": {"value": "C"},
+      "explanation": "教材材料后续称其为“生成的沉淀”，因此该初步现象属于沉淀生成。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-1-356d797d"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["observation_type", "precipitate_generation", "canonical_detail"],
+      "option_links": [
+        {"label": "A", "point_key": null, "role": "distractor_wrong_observation", "diagnostic_note": "焰色变化不属于本实验。"},
+        {"label": "B", "point_key": null, "role": "distractor_adjacent_experiment", "diagnostic_note": "有机层显色不是本步骤。"},
+        {"label": "C", "point_key": "candidate-1-356d797d", "role": "correct_evidence", "diagnostic_note": "沉淀生成对应 point 1。"},
+        {"label": "D", "point_key": null, "role": "distractor_wrong_observation", "diagnostic_note": "气体爆鸣不属于本实验。"}
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00295_b30319fd2c"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "保留沉淀现象题。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_label"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_01_Q010",
+      "source_question_ids": ["OLD_CHUNK3_EXP_19_8_01_Q030_R1_PF1"],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "single_choice",
+      "stem": "如果只让生成沉淀与硝酸作用，而不再比较其与氢氧化钠溶液的作用，会缺少哪一侧材料？",
+      "options": [
+        {"label": "A", "text": "碱侧反应材料"},
+        {"label": "B", "text": "焰色反应材料"},
+        {"label": "C", "text": "萃取材料"},
+        {"label": "D", "text": "气体收集材料"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "两性或酸碱性判断需要酸侧和碱侧都被试验；若只做硝酸一侧，就缺少与氢氧化钠溶液作用的碱侧材料。",
+      "difficulty": "intermediate",
+      "primary_point_keys": ["candidate-2-38e31e57", "candidate-3-2d7041d5"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["evidence_boundary", "amphoteric_boundary", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-3-2d7041d5", "role": "correct_evidence", "diagnostic_note": "缺少碱侧试验实验环节。"},
+        {"label": "B", "point_key": null, "role": "distractor_wrong_packet", "diagnostic_note": "焰色反应不是本实验。"},
+        {"label": "C", "point_key": null, "role": "distractor_wrong_packet", "diagnostic_note": "萃取不是本实验。"},
+        {"label": "D", "point_key": null, "role": "distractor_wrong_packet", "diagnostic_note": "气体收集不是本实验。"}
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00295_b30319fd2c"],
+        "supporting_theory_chunk_ids": ["textbook_prose_00171_6743bd6e37"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留旧替换题的核心逻辑，但以证据缺口表达。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_label"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_01_Q011",
+      "source_question_ids": ["OLD_CHUNK3_EXP_19_8_01_Q016", "OLD_CHUNK3_EXP_19_8_01_Q024"],
+      "rewrite_action": "rewrite",
+      "question_type": "single_choice",
+      "stem": "关于氢氧化钠在本实验中的角色，哪一项正确？",
+      "options": [
+        {"label": "A", "text": "既用于生成沉淀，也用于后续碱侧试验"},
+        {"label": "B", "text": "只用于清洗玻璃棒"},
+        {"label": "C", "text": "只用于酸化沉淀"},
+        {"label": "D", "text": "只用于有机萃取"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "教材材料中氢氧化钠先用于向硝酸铅溶液滴加生成沉淀，后又作为试验生成沉淀反应的碱侧试剂。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-1-356d797d", "candidate-3-2d7041d5"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["dual_role_reagent", "point_binding", "canonical_detail"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-1-356d797d", "role": "correct_evidence", "diagnostic_note": "同时覆盖生成和碱侧试验。"},
+        {"label": "B", "point_key": null, "role": "distractor_wrong_use", "diagnostic_note": "原文没有清洗玻璃棒用途。"},
+        {"label": "C", "point_key": null, "role": "distractor_wrong_acid_base", "diagnostic_note": "酸化不是氢氧化钠的作用。"},
+        {"label": "D", "point_key": null, "role": "distractor_adjacent_experiment", "diagnostic_note": "有机萃取不是本实验。"}
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00295_b30319fd2c"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "用角色题替代 NaOH 公式填空。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_label"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_01_Q012",
+      "source_question_ids": ["OLD_CHUNK3_EXP_19_8_01_Q018"],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "single_choice",
+      "stem": "下列哪一项最能说明这类题“臭氧制备主要产物”不属于本实验？",
+      "options": [
+        {"label": "A", "text": "本实验主题是铅的氢氧化物生成与酸碱性试验"},
+        {"label": "B", "text": "本实验要求收集三瓶氧气"},
+        {"label": "C", "text": "本实验要求用四氯化碳萃取碘"},
+        {"label": "D", "text": "本实验要求检验铁离子血红色"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "教材中 Pb 部分围绕氢氧化铅沉淀的生成及其与酸、碱反应；臭氧制备属于其他实验，不应作为本实验的核心产物。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-1-356d797d", "candidate-2-38e31e57", "candidate-3-2d7041d5"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["unrelated_distractor_cleanup", "package_scope", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-1-356d797d", "role": "correct_scope", "diagnostic_note": "准确界定本实验范围。"},
+        {"label": "B", "point_key": null, "role": "distractor_wrong_packet", "diagnostic_note": "氧气收集是其他实验。"},
+        {"label": "C", "point_key": null, "role": "distractor_wrong_packet", "diagnostic_note": "萃取碘不是本实验。"},
+        {"label": "D", "point_key": null, "role": "distractor_wrong_packet", "diagnostic_note": "铁离子检验不是本实验。"}
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00295_b30319fd2c"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "保留旧反向判断的范围诊断价值。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_label"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_01_Q013",
+      "source_question_ids": ["OLD_CHUNK3_EXP_19_8_01_Q004", "OLD_CHUNK3_EXP_19_8_01_Q005", "OLD_CHUNK3_EXP_19_8_01_Q006", "OLD_CHUNK3_EXP_19_8_01_Q013"],
+      "rewrite_action": "rewrite",
+      "question_type": "single_choice",
+      "stem": "生成的氢氧化铅沉淀与酸、碱作用时，最稳妥的实验表述是哪一项？",
+      "options": [
+        {"label": "A", "text": "分别试验生成沉淀与硝酸溶液、氢氧化钠溶液的反应"},
+        {"label": "B", "text": "直接断言所有沉淀变化，不关注实验步骤"},
+        {"label": "C", "text": "省略酸、碱两侧试验"},
+        {"label": "D", "text": "转为有机萃取现象"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "教材明确要求试验生成沉淀与硝酸及氢氧化钠溶液的反应，但未在该句中写出沉淀具体怎样变化。因此应围绕操作和目的作答，不把未给出的现象写成确定事实。",
+      "difficulty": "intermediate",
+      "primary_point_keys": ["candidate-2-38e31e57", "candidate-3-2d7041d5"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["evidence_boundary", "semantic_repair", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-2-38e31e57", "role": "correct_evidence_boundary", "diagnostic_note": "准确处理教材支持范围。"},
+        {"label": "B", "point_key": null, "role": "distractor_overclaim", "diagnostic_note": "具体溶解现象需另有材料。"},
+        {"label": "C", "point_key": null, "role": "distractor_over_reject", "diagnostic_note": "酸、碱试验本身有教材材料。"},
+        {"label": "D", "point_key": null, "role": "distractor_wrong_scope", "diagnostic_note": "有机萃取不是本小包。"}
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00295_b30319fd2c"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "把旧现象断言重构为证据边界题。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_label"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_01_Q014",
+      "source_question_ids": ["OLD_CHUNK3_EXP_19_8_01_Q002_R1", "OLD_CHUNK3_EXP_19_8_01_Q003", "OLD_CHUNK3_EXP_19_8_01_Q014_SF1"],
+      "rewrite_action": "rewrite",
+      "question_type": "single_choice",
+      "stem": "关于铅(Ⅱ)氢氧化物两性实验，下列哪一项实验环节对应关系最合理？",
+      "options": [
+        {"label": "A", "text": "先由硝酸铅加氢氧化钠生成沉淀，再分别观察沉淀与硝酸、氢氧化钠的作用"},
+        {"label": "B", "text": "硝酸侧试验只对应初始生成沉淀"},
+        {"label": "C", "text": "氢氧化钠后续试验只对应硝酸侧"},
+        {"label": "D", "text": "所有判断都必须同时涉及三个环节"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "初始步骤是硝酸铅加氢氧化钠生成沉淀；酸侧步骤观察沉淀与硝酸作用；碱侧步骤观察沉淀与氢氧化钠作用。只有讨论完整流程或实验目的时才需要同时关联三个环节。",
+      "difficulty": "intermediate",
+      "primary_point_keys": ["candidate-1-356d797d", "candidate-2-38e31e57", "candidate-3-2d7041d5"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["point_binding", "semantic_repair", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-1-356d797d", "role": "correct_binding", "diagnostic_note": "准确区分生成、酸侧、碱侧。"},
+        {"label": "B", "point_key": "candidate-1-356d797d", "role": "distractor_wrong_binding", "diagnostic_note": "硝酸侧对应沉淀与硝酸作用。"},
+        {"label": "C", "point_key": "candidate-2-38e31e57", "role": "distractor_wrong_binding", "diagnostic_note": "氢氧化钠后续试验对应碱侧作用。"},
+        {"label": "D", "point_key": null, "role": "distractor_over_binding", "diagnostic_note": "单一环节判断不需要强行涉及三个环节。"}
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00295_b30319fd2c"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "修复旧题多点绑定过宽问题。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_label"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_01_Q015",
+      "source_question_ids": ["OLD_CHUNK3_EXP_19_8_01_Q019_R1", "OLD_CHUNK3_EXP_19_8_01_Q021", "OLD_CHUNK3_EXP_19_8_01_Q026"],
+      "rewrite_action": "rewrite",
+      "question_type": "single_choice",
+      "stem": "铅(Ⅱ)氢氧化物实验中，哪项说法能正确概括硝酸铅、沉淀和氢氧化铅的关系？",
+      "options": [
+        {"label": "A", "text": "硝酸铅与氢氧化钠作用生成沉淀，该沉淀可按氢氧化铅理解"},
+        {"label": "B", "text": "只有写出带上下标的离子符号才算描述完整"},
+        {"label": "C", "text": "该实验应转入臭氧制备流程"},
+        {"label": "D", "text": "该实验的核心是记录教材未给出的颜色变化"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "硝酸铅加氢氧化钠后生成沉淀；在本组酸碱性试验语境中，该沉淀与氢氧化铅相关。中文概念表述足以表达实验关系。",
+      "difficulty": "intermediate",
+      "primary_point_keys": ["candidate-1-356d797d"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["mobile_input_risk", "formula_alias", "semantic_repair"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-1-356d797d", "role": "correct_rewrite_policy", "diagnostic_note": "兼顾语义和可作答性。"},
+        {"label": "B", "point_key": null, "role": "distractor_mobile_risk", "diagnostic_note": "上下标符号填空风险高。"},
+        {"label": "C", "point_key": null, "role": "distractor_wrong_scope", "diagnostic_note": "臭氧制备不是本实验。"},
+        {"label": "D", "point_key": null, "role": "distractor_no_evidence", "diagnostic_note": "颜色题没有本实验材料。"}
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00295_b30319fd2c"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "移动端公式填空风险处理题。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_label"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_01_Q016",
+      "source_question_ids": ["OLD_CHUNK3_EXP_19_8_01_Q011", "OLD_CHUNK3_EXP_19_8_01_Q015"],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "true_false",
+      "stem": "氢氧化铅沉淀的生成步骤，是向硝酸铅溶液中滴加氢氧化钠溶液并观察现象。",
+      "options": [],
+      "answer": {"value": true},
+      "explanation": "该判断直接对应教材材料的氢氧化铅生成步骤。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-1-356d797d"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["true_false", "operation_sequence", "precipitate_generation"],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00295_b30319fd2c"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "保留生成步骤判断。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_bool"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_01_Q017",
+      "source_question_ids": ["OLD_CHUNK3_EXP_19_8_01_Q012"],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "true_false",
+      "stem": "生成的沉淀要分别试验与硝酸溶液和氢氧化钠溶液的反应。",
+      "options": [],
+      "answer": {"value": true},
+      "explanation": "教材明确要求分别试验生成的沉淀与硝酸溶液及氢氧化钠溶液的反应。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-2-38e31e57", "candidate-3-2d7041d5"],
+      "secondary_point_keys": ["candidate-1-356d797d"],
+      "coverage_tags": ["true_false", "acid_base_test_pair", "multi_point"],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00295_b30319fd2c"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "保留酸碱双侧判断。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_bool"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_01_Q018",
+      "source_question_ids": ["OLD_CHUNK3_EXP_19_8_01_Q016"],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "true_false",
+      "stem": "氢氧化钠在本实验中只用于生成沉淀，不能用于后续酸碱性试验。",
+      "options": [],
+      "answer": {"value": false},
+      "explanation": "氢氧化钠既用于生成沉淀，也用于试验生成沉淀与碱的反应；该判断漏掉了后者。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-1-356d797d", "candidate-3-2d7041d5"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["true_false", "dual_role_reagent", "base_branch"],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00295_b30319fd2c"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "保留 NaOH 双重角色的反向判断。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_bool"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_01_Q019",
+      "source_question_ids": ["OLD_CHUNK3_EXP_19_8_01_Q030_R1_PF1"],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "true_false",
+      "stem": "只做沉淀与硝酸的反应，而不比较其与氢氧化钠溶液的反应，不能充分体现酸、碱两侧的判断。",
+      "options": [],
+      "answer": {"value": true},
+      "explanation": "本实验的核心设计是生成沉淀后分别做酸侧和碱侧试验，少做碱侧会破坏两侧比较。",
+      "difficulty": "intermediate",
+      "primary_point_keys": ["candidate-2-38e31e57", "candidate-3-2d7041d5"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["true_false", "evidence_boundary", "amphoteric_boundary"],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00295_b30319fd2c"],
+        "supporting_theory_chunk_ids": ["textbook_prose_00171_6743bd6e37"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留旧题核心逻辑，表述为实验设计充分性。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_bool"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_01_Q020",
+      "source_question_ids": ["OLD_CHUNK3_EXP_19_8_01_Q018"],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "true_false",
+      "stem": "氢氧化铅是臭氧制备实验的主要产物。",
+      "options": [],
+      "answer": {"value": false},
+      "explanation": "本实验属于实验 19-8 中氢氧化物的性质，围绕铅的氢氧化物生成与酸碱性试验；臭氧制备属于其他实验。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-1-356d797d"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["true_false", "unrelated_distractor_cleanup", "package_scope"],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00295_b30319fd2c"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "保留跨实验干扰的反向判断。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_bool"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_01_Q021",
+      "source_question_ids": ["OLD_CHUNK3_EXP_19_8_01_Q013", "OLD_CHUNK3_EXP_19_8_01_Q020"],
+      "rewrite_action": "rewrite",
+      "question_type": "true_false",
+      "stem": "本实验不应把生成沉淀后的酸侧、碱侧试验与氢氧化物酸碱性联系起来。",
+      "options": [],
+      "answer": {"value": false},
+      "explanation": "实验目的和本步骤都围绕氢氧化物酸碱性；酸侧、碱侧试验正是判断酸碱性的核心设计。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-2-38e31e57", "candidate-3-2d7041d5"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["true_false", "experiment_goal", "acid_base_properties"],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00290_963bb10320", "expchunk_00295_b30319fd2c"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "保留酸碱性关联判断。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_bool"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_01_Q022",
+      "source_question_ids": ["OLD_CHUNK3_EXP_19_8_01_Q005", "OLD_CHUNK3_EXP_19_8_01_Q006"],
+      "rewrite_action": "rewrite",
+      "question_type": "true_false",
+      "stem": "教材原文直接写明了生成沉淀在硝酸和氢氧化钠中分别“溶解”的具体现象。",
+      "options": [],
+      "answer": {"value": false},
+      "explanation": "教材材料只要求试验生成沉淀与硝酸溶液及氢氧化钠溶液的反应，没有直接写出具体溶解现象。最终题应避免把未给出的观察写成原文事实。",
+      "difficulty": "intermediate",
+      "primary_point_keys": ["candidate-2-38e31e57", "candidate-3-2d7041d5"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["true_false", "evidence_boundary", "observation_claim"],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00295_b30319fd2c"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "显式标出旧题溶解现象断言的证据边界。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_bool"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_01_Q023",
+      "source_question_ids": ["OLD_CHUNK3_EXP_19_8_01_Q019_R1"],
+      "rewrite_action": "rewrite",
+      "question_type": "true_false",
+      "stem": "把硝酸铅溶液与氢氧化钠溶液作用生成沉淀，是本实验的第一步核心操作。",
+      "options": [],
+      "answer": {"value": true},
+      "explanation": "氢氧化铅部分的第一句就是向硝酸铅溶液滴加氢氧化钠并观察现象，随后再试验生成沉淀与酸、碱的反应。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-1-356d797d"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["true_false", "operation_sequence", "mobile_safe_rewrite"],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00295_b30319fd2c"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "将公式离子判断改写为中文操作判断。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_bool"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_01_Q024",
+      "source_question_ids": ["OLD_CHUNK3_EXP_19_8_01_Q024"],
+      "rewrite_action": "rewrite",
+      "question_type": "fill_blank",
+      "stem": "铅盐生成沉淀和后续碱侧试验都涉及的碱是____。",
+      "options": [],
+      "answer": {"value": "氢氧化钠", "match": "normalized_exact"},
+      "explanation": "教材材料中氢氧化钠既用于生成沉淀，也用于后续碱侧反应试验。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-1-356d797d", "candidate-3-2d7041d5"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["fill_blank", "mobile_safe", "dual_role_reagent"],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00295_b30319fd2c"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "替代 NaOH 公式填空。"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": "deterministic_normalized_exact"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_01_Q025",
+      "source_question_ids": ["OLD_CHUNK3_EXP_19_8_01_Q022", "OLD_CHUNK3_EXP_19_8_01_Q026"],
+      "rewrite_action": "rewrite",
+      "question_type": "fill_blank",
+      "stem": "本步骤初始使用的铅盐是____。",
+      "options": [],
+      "answer": {"value": "硝酸铅", "match": "normalized_exact"},
+      "explanation": "实验步骤写明向硝酸铅溶液中滴加氢氧化钠。该填空用中文名称替代铅盐公式。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-1-356d797d"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["fill_blank", "mobile_safe", "initial_lead_source"],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00295_b30319fd2c"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "替代 Pb(NO3)2 / Pb2+ 公式填空。"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": "deterministic_normalized_exact"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_01_Q026",
+      "source_question_ids": ["OLD_CHUNK3_EXP_19_8_01_Q021", "OLD_CHUNK3_EXP_19_8_01_Q029"],
+      "rewrite_action": "rewrite",
+      "question_type": "fill_blank",
+      "stem": "滴加氢氧化钠后，后续文本把生成物称为生成的____。",
+      "options": [],
+      "answer": {"value": "沉淀", "match": "normalized_exact"},
+      "explanation": "教材材料使用“生成的沉淀”这一表述，观察类别为沉淀。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-1-356d797d"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["fill_blank", "mobile_safe", "observation_type"],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00295_b30319fd2c"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "替代 Pb(OH)2 公式填空。"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": "deterministic_normalized_exact"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_01_Q027",
+      "source_question_ids": ["OLD_CHUNK3_EXP_19_8_01_Q025"],
+      "rewrite_action": "rewrite",
+      "question_type": "fill_blank",
+      "stem": "试验生成沉淀与酸反应时，所用的酸是____。",
+      "options": [],
+      "answer": {"value": "硝酸", "match": "normalized_exact"},
+      "explanation": "教材要求试验生成沉淀与硝酸溶液的反应。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-2-38e31e57"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["fill_blank", "mobile_safe", "acid_branch"],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00295_b30319fd2c"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "替代 HNO3 公式填空。"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": "deterministic_normalized_exact"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_01_Q028",
+      "source_question_ids": ["OLD_CHUNK3_EXP_19_8_01_Q008", "OLD_CHUNK3_EXP_19_8_01_Q023"],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "fill_blank",
+      "stem": "实验 19-8 的目的要求掌握铅等氢氧化物的____。",
+      "options": [],
+      "answer": {"value": "酸碱性", "match": "normalized_exact"},
+      "explanation": "教材明确写到掌握锡、铅、砷、锑与铋等氢氧化物的酸碱性。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-1-356d797d", "candidate-2-38e31e57", "candidate-3-2d7041d5"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["fill_blank", "mobile_safe", "experiment_goal"],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00290_963bb10320"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "保留目的性短中文填空。"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": "deterministic_normalized_exact"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_01_Q029",
+      "source_question_ids": ["OLD_CHUNK3_EXP_19_8_01_Q023", "OLD_CHUNK3_EXP_19_8_01_Q027", "OLD_CHUNK3_EXP_19_8_01_Q028"],
+      "rewrite_action": "rewrite",
+      "question_type": "fill_blank",
+      "stem": "若一个氢氧化物需要从酸侧和碱侧共同考察，通常是在判断其是否具有____。",
+      "options": [],
+      "answer": {"value": "两性", "match": "normalized_exact"},
+      "explanation": "教材支持酸、碱两侧试验，相关理论说明氢氧化物可表现酸碱两性。",
+      "difficulty": "intermediate",
+      "primary_point_keys": ["candidate-2-38e31e57", "candidate-3-2d7041d5"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["fill_blank", "mobile_safe", "amphoteric_boundary"],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00295_b30319fd2c"],
+        "supporting_theory_chunk_ids": ["textbook_prose_00171_6743bd6e37"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "替代公式密集的酸性/碱性填空，用短中文概念答案。"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": "deterministic_normalized_exact"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_01_Q030",
+      "source_question_ids": ["OLD_CHUNK3_EXP_19_8_01_Q003", "OLD_CHUNK3_EXP_19_8_01_Q012"],
+      "rewrite_action": "rewrite",
+      "question_type": "fill_blank",
+      "stem": "生成沉淀后，需要分别试验其与酸、____两类试剂的反应。",
+      "options": [],
+      "answer": {"value": "碱", "match": "normalized_exact"},
+      "explanation": "生成沉淀后分别与硝酸溶液及氢氧化钠溶液反应，对应酸、碱两类试剂。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-2-38e31e57", "candidate-3-2d7041d5"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["fill_blank", "mobile_safe", "acid_base_test_pair"],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00295_b30319fd2c"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "用酸/碱类别替代试剂公式填空。"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": "deterministic_normalized_exact"
+    }
+  ],
+  "validation_notes": {
+    "manual_semantic_rebuild_statement": "本 packet 已逐题语义重构，不是脚本批量生成；脚本仅用于读取、RAG id 查找和 JSON validation。",
+    "visible_formula_policy": "旧题中 Pb(OH)2、Pb(NO3)2、NaOH、HNO3、Pb2+ 等可见公式填空已改写为中文短答、单选或判断。",
+    "evidence_insufficient_publishable_questions": 0
+  }
+}

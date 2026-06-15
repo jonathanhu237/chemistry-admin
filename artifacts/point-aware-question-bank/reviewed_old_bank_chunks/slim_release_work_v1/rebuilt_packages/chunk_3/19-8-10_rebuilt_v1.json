@@ -1,0 +1,1894 @@
+{
+  "metadata": {
+    "schema_version": "rebuilt_experiment_question_package_v1",
+    "artifact_type": "manual_semantic_reconstruction_v1",
+    "source_packet": "E:\\chemistry-admin\\artifacts\\point-aware-question-bank\\reviewed_old_bank_chunks\\slim_release_work_v1\\semantic_work_packets\\chunk_3\\19-8-10.json",
+    "experiment_code": "19-8-10",
+    "experiment_title": "Sn、Pb、Bi 不同价态离子的氧化还原性",
+    "chunk": "chunk_3",
+    "question_count": 30,
+    "reconstruction_mode": "manual_per_question_semantic_rebuild",
+    "release_json_modified": false,
+    "evidence_policy": [
+      "每题按 Sn(II)、Pb(IV)、Bi(III)/Bi(V) 支线分别核对 canonical RAG。",
+      "Sn(II) 支线的 FeCl3/KSCN 操作由 expchunk_00296 支撑，HgCl2/SnCl2 操作由 expchunk_00297 和 textbook_prose_01090 支撑。",
+      "Pb(IV) 支线的 PbO2 与浓盐酸、酸性 MnSO4 操作由 expchunk_00297 支撑，具体反应方向和紫色高锰酸根由 supporting theory 支撑。",
+      "Bi 相关题只在 canonical 与 supporting theory 共同支撑的范围内表述，不把相邻小节的观察任意扩展。"
+    ],
+    "rag_source_dir": "E:\\chemistry-rag\\data\\rag_ready"
+  },
+  "video_points": [
+    {
+      "point_key": "candidate-1-409f5477",
+      "point_title": "Sn(II) 的还原性：HgCl2 与 SnCl2"
+    },
+    {
+      "point_key": "candidate-2-16bf61f8",
+      "point_title": "Pb(IV) 的氧化性：PbO2、H2SO4、MnSO4，水浴加热"
+    },
+    {
+      "point_key": "candidate-3-45280201",
+      "point_title": "Bi(III)/Bi(V) 氧化还原性"
+    }
+  ],
+  "evidence_sources": {
+    "canonical_experiment_chunks": [
+      {
+        "chunk_id": "expchunk_protocol_ccb6245e7635",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+        "line_number": 9,
+        "source_summary": "实验 19-8 的总 protocol，确认本 packet 属于锡、铅、砷、锑、铋元素性质实验。"
+      },
+      {
+        "chunk_id": "expchunk_00290_963bb10320",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+        "line_number": 303,
+        "source_summary": "实验目的包括掌握锡、铅、砷、锑、铋等不同氧化态的氧化还原性。"
+      },
+      {
+        "chunk_id": "expchunk_00296_a4c00bb9d1",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+        "line_number": 309,
+        "source_summary": "Sn(II) 还原性第一条操作：FeCl3 溶液中滴加 SnCl2，并用 KSCN 检验是否仍有 Fe(III)。"
+      },
+      {
+        "chunk_id": "expchunk_00297_c03527ab79",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+        "line_number": 310,
+        "source_summary": "Sn(II) 与 HgCl2 操作、Pb(IV) 氧化性两条操作，以及 As/Sb/Bi 三价与五价相关氧化还原性操作。"
+      }
+    ],
+    "supporting_theory_chunks": [
+      {
+        "chunk_id": "textbook_prose_01090_56461596a1",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+        "line_number": 1648,
+        "source_summary": "HgCl2 在酸性溶液中有氧化性；适量 SnCl2 将其还原为白色 Hg2Cl2，过量 SnCl2 可进一步还原为汞，使沉淀变黑。"
+      },
+      {
+        "chunk_id": "textbook_prose_00758_5f5fd037a3",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+        "line_number": 1190,
+        "source_summary": "PbO2 可在酸性中把 Mn(II) 氧化为高锰酸根，也可与盐酸反应生成氯气。"
+      },
+      {
+        "chunk_id": "textbook_prose_01241_99049758ad",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+        "line_number": 1898,
+        "source_summary": "二价锰可被强氧化剂氧化为高锰酸根，高锰酸根显紫色，现象明显。"
+      },
+      {
+        "chunk_id": "textbook_prose_00597_06f7e56f06",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+        "line_number": 928,
+        "source_summary": "Bi(III) 可被氯水和 NaOH 氧化为铋酸盐；砷酸盐、锑酸盐、铋酸盐氧化性依次增强，铋酸盐在酸性中为强氧化剂。"
+      },
+      {
+        "chunk_id": "textbook_prose_00598_cadca448de",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+        "line_number": 947,
+        "source_summary": "给出 NaBiO3 氧化 Mn(II) 为高锰酸根的反应，并说明 Bi(V) 氧化性更强。"
+      }
+    ]
+  },
+  "questions": [
+    {
+      "question_id": "REBUILT_CH3_19_8_10_Q001",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_10_Q001"
+      ],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "single_choice",
+      "stem": "本实验的共同主题最准确的是：",
+      "options": [
+        {
+          "label": "A",
+          "text": "Sn、Pb、Bi 不同价态物种的氧化还原性"
+        },
+        {
+          "label": "B",
+          "text": "碱金属的焰色反应"
+        },
+        {
+          "label": "C",
+          "text": "卤素单质的颜色比较"
+        },
+        {
+          "label": "D",
+          "text": "难溶铅盐的沉淀转化"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "教材实验目的指向 Sn、Pb、Bi 相关不同价态物种的氧化还原性。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-409f5477",
+        "candidate-2-16bf61f8",
+        "candidate-3-45280201"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "experiment_goal",
+        "multi_point",
+        "redox"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-1-409f5477",
+          "role": "correct_evidence",
+          "diagnostic_note": "覆盖三个实验环节的共同红氧主题。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "distractor_wrong_chapter",
+          "diagnostic_note": "不属于本实验。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "distractor_adjacent_redox",
+          "diagnostic_note": "卤素颜色不是本实验的共同主题。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_other_subsection",
+          "diagnostic_note": "难溶铅盐是实验目的之一，但不是本实验三个点的共同主题。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00290_963bb10320",
+          "expchunk_00296_a4c00bb9d1",
+          "expchunk_00297_c03527ab79"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "保留 packet 主题题。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_label"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_10_Q002",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_10_Q002",
+        "OLD_CHUNK3_EXP_19_8_10_Q021"
+      ],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "single_choice",
+      "stem": "在氯化汞溶液中用于体现 Sn(Ⅱ) 还原性的试剂是：",
+      "options": [
+        {
+          "label": "A",
+          "text": "硫氰酸钾"
+        },
+        {
+          "label": "B",
+          "text": "氯化亚锡"
+        },
+        {
+          "label": "C",
+          "text": "二氧化铅"
+        },
+        {
+          "label": "D",
+          "text": "氯水"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "教材材料指定在 HgCl₂ 溶液中滴加 SnCl₂ 溶液观察现象；SnCl₂ 体现 Sn(Ⅱ) 的还原性。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-409f5477"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "sn_branch",
+        "operation_reagent"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-1-409f5477",
+          "role": "adjacent_reagent",
+          "diagnostic_note": "硫氰酸钾用于 Fe(Ⅲ) 检验，不是加入 HgCl₂ 的还原剂。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-1-409f5477",
+          "role": "correct_evidence",
+          "diagnostic_note": "对应 HgCl₂ + SnCl₂ 操作。"
+        },
+        {
+          "label": "C",
+          "point_key": "candidate-2-16bf61f8",
+          "role": "adjacent_point",
+          "diagnostic_note": "属于 Pb(Ⅳ) 支线。"
+        },
+        {
+          "label": "D",
+          "point_key": "candidate-3-45280201",
+          "role": "adjacent_point",
+          "diagnostic_note": "属于 Bi(Ⅲ) 氧化支线。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00297_c03527ab79"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01090_56461596a1"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留 SnCl2 识别题，答案中文化。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_label"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_10_Q003",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_10_Q003",
+        "OLD_CHUNK3_EXP_19_8_10_Q022"
+      ],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "single_choice",
+      "stem": "在 FeCl₃ 溶液中滴加 SnCl₂ 后，教材要求用哪种试剂检验 Fe(Ⅲ) 是否仍存在？",
+      "options": [
+        {
+          "label": "A",
+          "text": "氯化汞"
+        },
+        {
+          "label": "B",
+          "text": "四氯化碳"
+        },
+        {
+          "label": "C",
+          "text": "硫氰酸钾"
+        },
+        {
+          "label": "D",
+          "text": "硫酸锰"
+        }
+      ],
+      "answer": {
+        "value": "C"
+      },
+      "explanation": "教材明确要求试用硫氰酸钾溶液检验溶液中是否还存在 Fe(Ⅲ)。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-409f5477"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "sn_branch",
+        "fe_test",
+        "operation_reagent"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-1-409f5477",
+          "role": "adjacent_reagent",
+          "diagnostic_note": "HgCl₂ 用于另一 Sn(Ⅱ) 还原性操作。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "distractor_extraction",
+          "diagnostic_note": "四氯化碳属于 As/Sb/Bi(Ⅴ) 支线。"
+        },
+        {
+          "label": "C",
+          "point_key": "candidate-1-409f5477",
+          "role": "correct_evidence",
+          "diagnostic_note": "硫氰酸钾是教材材料指定的 Fe(Ⅲ) 检验试剂。"
+        },
+        {
+          "label": "D",
+          "point_key": "candidate-2-16bf61f8",
+          "role": "adjacent_point",
+          "diagnostic_note": "MnSO₄ 属于 Pb(Ⅳ) 支线。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00296_a4c00bb9d1"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "保留 KSCN 题并改为中文名称。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_label"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_10_Q004",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_10_Q004"
+      ],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "single_choice",
+      "stem": "适量氯化亚锡还原氯化汞时，相关理论给出的初步沉淀是：",
+      "options": [
+        {
+          "label": "A",
+          "text": "黄色碘化汞"
+        },
+        {
+          "label": "B",
+          "text": "红棕色二氧化锰"
+        },
+        {
+          "label": "C",
+          "text": "紫色高锰酸根"
+        },
+        {
+          "label": "D",
+          "text": "白色氯化亚汞沉淀"
+        }
+      ],
+      "answer": {
+        "value": "D"
+      },
+      "explanation": "教材相关内容说明适量 SnCl₂ 可将 HgCl₂ 还原为难溶于水的白色 Hg₂Cl₂ 沉淀。",
+      "difficulty": "intermediate",
+      "primary_point_keys": [
+        "candidate-1-409f5477"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "sn_branch",
+        "supporting_theory",
+        "observation"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "distractor_mercury_iodide",
+          "diagnostic_note": "不是 SnCl₂ 还原 HgCl₂ 的初步产物。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "distractor_manganese",
+          "diagnostic_note": "不属于汞支线。"
+        },
+        {
+          "label": "C",
+          "point_key": "candidate-2-16bf61f8",
+          "role": "adjacent_point",
+          "diagnostic_note": "紫色高锰酸根属于 PbO₂/MnSO₄ 支线。"
+        },
+        {
+          "label": "D",
+          "point_key": "candidate-1-409f5477",
+          "role": "correct_evidence",
+          "diagnostic_note": "对应 Hg₂Cl₂ 白色沉淀。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00297_c03527ab79"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01090_56461596a1"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留 HgCl2/SnCl2 观察题，明确 theory 依赖。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_label"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_10_Q005",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_10_Q005"
+      ],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "single_choice",
+      "stem": "若氯化亚锡过量，白色氯化亚汞可进一步被还原，现象会转向：",
+      "options": [
+        {
+          "label": "A",
+          "text": "沉淀变黑，生成汞"
+        },
+        {
+          "label": "B",
+          "text": "溶液变成血红色"
+        },
+        {
+          "label": "C",
+          "text": "产生氯气"
+        },
+        {
+          "label": "D",
+          "text": "生成紫色高锰酸根"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "教材相关内容说明过量 SnCl₂ 可把 Hg₂Cl₂ 进一步还原为汞，使沉淀变黑。",
+      "difficulty": "intermediate",
+      "primary_point_keys": [
+        "candidate-1-409f5477"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "sn_branch",
+        "supporting_theory",
+        "observation"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-1-409f5477",
+          "role": "correct_evidence",
+          "diagnostic_note": "对应过量 SnCl₂ 的后续还原。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-1-409f5477",
+          "role": "distractor_fe_scn",
+          "diagnostic_note": "血红色属于 Fe(Ⅲ)-SCN 络合物语境。"
+        },
+        {
+          "label": "C",
+          "point_key": "candidate-2-16bf61f8",
+          "role": "adjacent_point",
+          "diagnostic_note": "氯气对应 PbO₂ 与浓盐酸。"
+        },
+        {
+          "label": "D",
+          "point_key": "candidate-2-16bf61f8",
+          "role": "adjacent_point",
+          "diagnostic_note": "高锰酸根对应 PbO₂/MnSO₄ 支线。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00297_c03527ab79"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01090_56461596a1"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留黑色汞现象题。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_label"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_10_Q006",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_10_Q006",
+        "OLD_CHUNK3_EXP_19_8_10_Q023"
+      ],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "single_choice",
+      "stem": "Pb(Ⅳ) 氧化性支线中，教材材料指定放入试管的少量固体是：",
+      "options": [
+        {
+          "label": "A",
+          "text": "氯化亚锡"
+        },
+        {
+          "label": "B",
+          "text": "二氧化铅"
+        },
+        {
+          "label": "C",
+          "text": "铋酸钠"
+        },
+        {
+          "label": "D",
+          "text": "硫氰酸钾"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "教材材料在 Pb(Ⅳ) 氧化性部分两条操作都以少量 PbO₂ 固体为起点。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-2-16bf61f8"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "pb_branch",
+        "operation_reagent"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-1-409f5477",
+          "role": "adjacent_point",
+          "diagnostic_note": "属于 Sn(Ⅱ) 支线。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-2-16bf61f8",
+          "role": "correct_evidence",
+          "diagnostic_note": "对应 PbO₂ 固体。"
+        },
+        {
+          "label": "C",
+          "point_key": "candidate-3-45280201",
+          "role": "adjacent_point",
+          "diagnostic_note": "属于 Bi(Ⅴ) 或 As/Sb/Bi(Ⅴ) 语境。"
+        },
+        {
+          "label": "D",
+          "point_key": "candidate-1-409f5477",
+          "role": "adjacent_reagent",
+          "diagnostic_note": "用于 Fe(Ⅲ) 检验。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00297_c03527ab79"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00758_5f5fd037a3"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留 PbO2 识别题，答案中文化。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_label"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_10_Q007",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_10_Q007",
+        "OLD_CHUNK3_EXP_19_8_10_Q024"
+      ],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "single_choice",
+      "stem": "二氧化铅与浓盐酸反应时，相关理论支持生成的氧化产物是：",
+      "options": [
+        {
+          "label": "A",
+          "text": "氨气"
+        },
+        {
+          "label": "B",
+          "text": "氢气"
+        },
+        {
+          "label": "C",
+          "text": "氯气"
+        },
+        {
+          "label": "D",
+          "text": "二氧化硫"
+        }
+      ],
+      "answer": {
+        "value": "C"
+      },
+      "explanation": "教材相关内容给出 PbO₂ 与盐酸反应生成 PbCl₂、Cl₂ 和水；因此氧化产物为氯气。",
+      "difficulty": "intermediate",
+      "primary_point_keys": [
+        "candidate-2-16bf61f8"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "pb_branch",
+        "supporting_theory",
+        "chloride_oxidation"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "distractor_wrong_gas",
+          "diagnostic_note": "本反应不生成氨气。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "distractor_wrong_gas",
+          "diagnostic_note": "不是该氧化反应产物。"
+        },
+        {
+          "label": "C",
+          "point_key": "candidate-2-16bf61f8",
+          "role": "correct_evidence",
+          "diagnostic_note": "对应 PbO₂ 氧化氯离子。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_wrong_gas",
+          "diagnostic_note": "本支线没有二氧化硫。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00297_c03527ab79"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00758_5f5fd037a3"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留 Cl2 填空意图，改成单选和中文选项。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_label"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_10_Q008",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_10_Q008",
+        "OLD_CHUNK3_EXP_19_8_10_Q025"
+      ],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "single_choice",
+      "stem": "在二氧化铅、硫酸和硫酸锰水浴加热支线中，紫色现象最合理对应：",
+      "options": [
+        {
+          "label": "A",
+          "text": "高锰酸根生成"
+        },
+        {
+          "label": "B",
+          "text": "氯气溶于水"
+        },
+        {
+          "label": "C",
+          "text": "汞生成"
+        },
+        {
+          "label": "D",
+          "text": "铁离子络合"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "教材相关内容支持 PbO₂ 氧化 Mn(Ⅱ) 为高锰酸根；教材相关内容说明高锰酸根显紫色。",
+      "difficulty": "intermediate",
+      "primary_point_keys": [
+        "candidate-2-16bf61f8"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "pb_branch",
+        "manganese_branch",
+        "supporting_theory"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-2-16bf61f8",
+          "role": "correct_evidence",
+          "diagnostic_note": "紫色与高锰酸根对应。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-2-16bf61f8",
+          "role": "adjacent_branch",
+          "diagnostic_note": "氯气对应浓盐酸支线。"
+        },
+        {
+          "label": "C",
+          "point_key": "candidate-1-409f5477",
+          "role": "adjacent_point",
+          "diagnostic_note": "汞生成属于 HgCl₂/SnCl₂ 支线。"
+        },
+        {
+          "label": "D",
+          "point_key": "candidate-1-409f5477",
+          "role": "adjacent_fe_test",
+          "diagnostic_note": "铁离子络合属于硫氰酸钾检验语境。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00297_c03527ab79"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00758_5f5fd037a3",
+          "textbook_prose_01241_99049758ad"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留 MnO4- 填空意图，答案中文化。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_label"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_10_Q009",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_10_Q009",
+        "OLD_CHUNK3_EXP_19_8_10_Q028"
+      ],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "single_choice",
+      "stem": "在 Pb(Ⅳ) 支线中，二氧化铅主要体现的性质是：",
+      "options": [
+        {
+          "label": "A",
+          "text": "强氧化性"
+        },
+        {
+          "label": "B",
+          "text": "强还原性"
+        },
+        {
+          "label": "C",
+          "text": "酸碱两性"
+        },
+        {
+          "label": "D",
+          "text": "络合性"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "教材材料标题为 Pb(Ⅳ) 的氧化性；相关理论中 PbO₂ 可氧化氯离子和 Mn(Ⅱ)。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-2-16bf61f8"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "pb_branch",
+        "oxidizing_power"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-2-16bf61f8",
+          "role": "correct_evidence",
+          "diagnostic_note": "与教材材料小标题和反应方向一致。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "distractor_wrong_redox_direction",
+          "diagnostic_note": "PbO₂ 在这些支线中作为氧化剂。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "distractor_other_property",
+          "diagnostic_note": "酸碱两性不是本支线核心。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_wrong_property",
+          "diagnostic_note": "本题不是络合反应。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00297_c03527ab79"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00758_5f5fd037a3",
+          "textbook_prose_01241_99049758ad"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留 Pb(IV) 性质题。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_label"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_10_Q010",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_10_Q010",
+        "OLD_CHUNK3_EXP_19_8_10_Q030"
+      ],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "single_choice",
+      "stem": "下列哪项最能概括本实验三条支线的共同训练目标？",
+      "options": [
+        {
+          "label": "A",
+          "text": "只记忆试剂颜色"
+        },
+        {
+          "label": "B",
+          "text": "用实验现象比较不同价态物种的氧化还原性"
+        },
+        {
+          "label": "C",
+          "text": "测定溶液浓度"
+        },
+        {
+          "label": "D",
+          "text": "制备纯金属样品"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "实验目的要求掌握这些元素不同氧化态的氧化还原性；三条支线均服务于红氧性质比较。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-409f5477",
+        "candidate-2-16bf61f8",
+        "candidate-3-45280201"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "experiment_goal",
+        "multi_point",
+        "redox_comparison"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "distractor_too_narrow",
+          "diagnostic_note": "现象服务于红氧判断，不只是颜色记忆。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-1-409f5477",
+          "role": "correct_evidence",
+          "diagnostic_note": "对应实验目的。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "distractor_analytical_task",
+          "diagnostic_note": "不是浓度测定实验。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_preparation",
+          "diagnostic_note": "不是制备纯金属的目标。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00290_963bb10320",
+          "expchunk_00296_a4c00bb9d1",
+          "expchunk_00297_c03527ab79"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "保留多点目标题。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_label"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_10_Q011",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_10_Q026",
+        "OLD_CHUNK3_EXP_19_8_10_Q027_PF1"
+      ],
+      "rewrite_action": "rewrite",
+      "question_type": "single_choice",
+      "stem": "关于 Bi(Ⅲ)/Bi(Ⅴ) 支线，最符合教材材料的说法是：",
+      "options": [
+        {
+          "label": "A",
+          "text": "氯水和碱可把 Bi(Ⅲ) 氧化为铋酸盐，铋酸盐再体现强氧化性"
+        },
+        {
+          "label": "B",
+          "text": "Bi(Ⅲ) 在该支线中只能作为氧化剂"
+        },
+        {
+          "label": "C",
+          "text": "铋酸盐没有氧化性"
+        },
+        {
+          "label": "D",
+          "text": "Bi(Ⅴ) 与 Pb(Ⅳ) 支线完全无关，不能比较氧化性"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "教材相关内容支持 Bi(OH)₃ 在氯水和 NaOH 条件下转化为 NaBiO₃，并说明铋酸盐在酸性中是很强的氧化剂。",
+      "difficulty": "advanced",
+      "primary_point_keys": [
+        "candidate-3-45280201"
+      ],
+      "secondary_point_keys": [
+        "candidate-2-16bf61f8"
+      ],
+      "coverage_tags": [
+        "bi_branch",
+        "supporting_theory",
+        "redox_link"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-3-45280201",
+          "role": "correct_evidence",
+          "diagnostic_note": "符合 Bi(Ⅲ)/Bi(Ⅴ) 的材料链。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "distractor_wrong_role",
+          "diagnostic_note": "Bi(Ⅲ) 在氯水碱性条件下被氧化。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "distractor_wrong_property",
+          "diagnostic_note": "铋酸盐有强氧化性。"
+        },
+        {
+          "label": "D",
+          "point_key": "candidate-2-16bf61f8",
+          "role": "distractor_overseparation",
+          "diagnostic_note": "Pb(Ⅳ) 与 Bi(Ⅴ) 都在强氧化性比较语境中。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00297_c03527ab79"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00597_06f7e56f06",
+          "textbook_prose_00598_cadca448de"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "将 Bi 支线从旧公式填空改为可解释单选。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_label"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_10_Q012",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_10_Q018_R1"
+      ],
+      "rewrite_action": "rewrite",
+      "question_type": "single_choice",
+      "stem": "若只依据教材材料，哪项属于明确给出的操作而不是推断性终点结论？",
+      "options": [
+        {
+          "label": "A",
+          "text": "HgCl₂ 中滴加 SnCl₂ 并观察现象"
+        },
+        {
+          "label": "B",
+          "text": "每次加入 SnCl₂ 都必定得到同一种终点颜色"
+        },
+        {
+          "label": "C",
+          "text": "所有 PbO₂ 反应都无需加热"
+        },
+        {
+          "label": "D",
+          "text": "Bi(Ⅴ) 在任意条件下都不反应"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "教材明确给出 HgCl₂ 中滴加 SnCl₂ 的操作并要求观察；具体颜色和终点需要相关理论或实际观察记录支撑。",
+      "difficulty": "advanced",
+      "primary_point_keys": [
+        "candidate-1-409f5477"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "evidence_boundary",
+        "canonical_only",
+        "sn_branch"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-1-409f5477",
+          "role": "correct_evidence",
+          "diagnostic_note": "直接来自教材材料。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "distractor_overclaim",
+          "diagnostic_note": "教材未给出所有终点颜色。"
+        },
+        {
+          "label": "C",
+          "point_key": "candidate-2-16bf61f8",
+          "role": "distractor_wrong_condition",
+          "diagnostic_note": "PbO₂/MnSO₄ 支线要求水浴加热。"
+        },
+        {
+          "label": "D",
+          "point_key": "candidate-3-45280201",
+          "role": "distractor_wrong_property",
+          "diagnostic_note": "Bi(Ⅴ) 相关强氧化性有相关理论支撑。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00297_c03527ab79"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "新增 canonical 证据边界题。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_label"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_10_Q013",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_10_Q019_R1"
+      ],
+      "rewrite_action": "rewrite",
+      "question_type": "single_choice",
+      "stem": "关于二氧化铅和铋酸盐在酸性中氧化二价锰的说法，哪项最稳妥？",
+      "options": [
+        {
+          "label": "A",
+          "text": "两者均有相关理论指向把二价锰氧化为高锰酸根"
+        },
+        {
+          "label": "B",
+          "text": "只有氯化亚锡能把二价锰氧化为高锰酸根"
+        },
+        {
+          "label": "C",
+          "text": "二氧化铅只能作为还原剂"
+        },
+        {
+          "label": "D",
+          "text": "铋酸盐只能在碱性中表现强氧化性"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "教材相关内容支持 PbO₂ 氧化 Mn(Ⅱ)，相关理论也支持铋酸盐氧化 Mn(Ⅱ) 为高锰酸根。",
+      "difficulty": "advanced",
+      "primary_point_keys": [
+        "candidate-2-16bf61f8",
+        "candidate-3-45280201"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "multi_point",
+        "supporting_theory",
+        "manganese_branch"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-2-16bf61f8",
+          "role": "correct_evidence",
+          "diagnostic_note": "两个支线都能被相关理论支撑。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "distractor_wrong_reagent",
+          "diagnostic_note": "SnCl₂ 是还原剂，不是该氧化剂。"
+        },
+        {
+          "label": "C",
+          "point_key": "candidate-2-16bf61f8",
+          "role": "distractor_wrong_role",
+          "diagnostic_note": "PbO₂ 在该语境中作氧化剂。"
+        },
+        {
+          "label": "D",
+          "point_key": "candidate-3-45280201",
+          "role": "distractor_wrong_condition",
+          "diagnostic_note": "铋酸盐在酸性中是强氧化剂。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00297_c03527ab79"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00758_5f5fd037a3",
+          "textbook_prose_00598_cadca448de",
+          "textbook_prose_01241_99049758ad"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "改写成跨 Pb/Bi 的 theory-bound 对照题。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_label"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_10_Q014",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_10_Q020"
+      ],
+      "rewrite_action": "rewrite",
+      "question_type": "single_choice",
+      "stem": "下列哪项最容易把 Sn(Ⅱ) 支线和 Pb(Ⅳ) 支线混淆？",
+      "options": [
+        {
+          "label": "A",
+          "text": "SnCl₂ 体现还原性，PbO₂ 体现氧化性"
+        },
+        {
+          "label": "B",
+          "text": "硫氰酸钾用于检查 Fe(Ⅲ) 是否仍存在"
+        },
+        {
+          "label": "C",
+          "text": "PbO₂ 与酸性 MnSO₄ 需水浴加热观察"
+        },
+        {
+          "label": "D",
+          "text": "HgCl₂ 与 SnCl₂ 反应用于说明 Pb(Ⅳ) 的氧化性"
+        }
+      ],
+      "answer": {
+        "value": "D"
+      },
+      "explanation": "HgCl₂ 与 SnCl₂ 反应属于 Sn(Ⅱ) 还原性支线，不是 Pb(Ⅳ) 氧化性支线。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-409f5477",
+        "candidate-2-16bf61f8"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "misconception_cleanup",
+        "branch_discrimination",
+        "multi_point"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-1-409f5477",
+          "role": "true_statement",
+          "diagnostic_note": "正确区分两个支线。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-1-409f5477",
+          "role": "true_statement",
+          "diagnostic_note": "属于 Sn(Ⅱ)/Fe(Ⅲ) 检验。"
+        },
+        {
+          "label": "C",
+          "point_key": "candidate-2-16bf61f8",
+          "role": "true_statement",
+          "diagnostic_note": "属于 Pb(Ⅳ) 支线。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "correct_misconception",
+          "diagnostic_note": "将 Sn 支线误归为 Pb 支线。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00296_a4c00bb9d1",
+          "expchunk_00297_c03527ab79"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01090_56461596a1",
+          "textbook_prose_00758_5f5fd037a3"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "改写支线混淆判断。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_label"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_10_Q015",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_10_Q029"
+      ],
+      "rewrite_action": "rewrite",
+      "question_type": "single_choice",
+      "stem": "关于本组氧化性实验的酸化条件，下列哪项最符合教材材料？",
+      "options": [
+        {
+          "label": "A",
+          "text": "教材明确指定硝酸酸化所有支线"
+        },
+        {
+          "label": "B",
+          "text": "Pb/Mn 支线明确是硫酸酸化，As/Sb/Bi(Ⅴ) 支线只写稀酸酸化而未限定为硝酸"
+        },
+        {
+          "label": "C",
+          "text": "都应使用盐酸，因为所有支线都用盐酸"
+        },
+        {
+          "label": "D",
+          "text": "都应使用氨水，因为能稳定所有氧化剂"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "教材材料在 PbO₂/MnSO₄ 支线明确使用 H₂SO₄ 酸化；As/Sb/Bi(Ⅴ) 支线写“以稀酸酸化（用什么酸？）”，未给出唯一硝酸条件。",
+      "difficulty": "advanced",
+      "primary_point_keys": [
+        "candidate-2-16bf61f8",
+        "candidate-3-45280201"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "evidence_boundary",
+        "misconception_cleanup",
+        "acidification"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "distractor_overclaim",
+          "diagnostic_note": "教材材料没有这样指定。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-2-16bf61f8",
+          "role": "correct_evidence_boundary",
+          "diagnostic_note": "符合教材对酸化条件的表述。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "distractor_wrong_generalization",
+          "diagnostic_note": "盐酸只在 PbO₂ 另一支线出现。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_wrong_reagent",
+          "diagnostic_note": "氨水不属于这些氧化性支线核心。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00297_c03527ab79"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00597_06f7e56f06"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "旧硝酸填空证据边界不足，改写为审核型题。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_label"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_10_Q016",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_10_Q011"
+      ],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "true_false",
+      "stem": "氯化亚锡在氯化汞支线中表现还原性。",
+      "options": [],
+      "answer": {
+        "value": true
+      },
+      "explanation": "教材要求 HgCl₂ 中滴加 SnCl₂；相关理论说明 SnCl₂ 可还原 HgCl₂。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-409f5477"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "true_false",
+        "sn_branch"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00297_c03527ab79"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01090_56461596a1"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留 Sn(II) 还原性判断。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_bool"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_10_Q017",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_10_Q012"
+      ],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "true_false",
+      "stem": "FeCl₃ 与 SnCl₂ 支线中，硫氰酸钾的作用是检验溶液中是否还存在 Fe(Ⅲ)。",
+      "options": [],
+      "answer": {
+        "value": true
+      },
+      "explanation": "教材明确写明用硫氰酸钾溶液检验溶液中是否还存在 Fe(Ⅲ)。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-409f5477"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "true_false",
+        "sn_branch",
+        "fe_test"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00296_a4c00bb9d1"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "保留 KSCN 检验判断。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_bool"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_10_Q018",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_10_Q013"
+      ],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "true_false",
+      "stem": "过量氯化亚锡可把白色氯化亚汞进一步还原为汞，使沉淀变黑。",
+      "options": [],
+      "answer": {
+        "value": true
+      },
+      "explanation": "教材相关内容直接支持该现象和反应方向。",
+      "difficulty": "intermediate",
+      "primary_point_keys": [
+        "candidate-1-409f5477"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "true_false",
+        "sn_branch",
+        "supporting_theory"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00297_c03527ab79"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01090_56461596a1"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留过量 SnCl2 现象判断。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_bool"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_10_Q019",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_10_Q014"
+      ],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "true_false",
+      "stem": "二氧化铅与浓盐酸反应可体现 Pb(Ⅳ) 的氧化性，并可生成氯气。",
+      "options": [],
+      "answer": {
+        "value": true
+      },
+      "explanation": "教材要求 PbO₂ 中滴加浓盐酸观察；教材相关内容给出 PbO₂ 与盐酸生成 Cl₂ 的反应。",
+      "difficulty": "intermediate",
+      "primary_point_keys": [
+        "candidate-2-16bf61f8"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "true_false",
+        "pb_branch",
+        "supporting_theory"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00297_c03527ab79"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00758_5f5fd037a3"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留 PbO2/HCl 判断。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_bool"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_10_Q020",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_10_Q015"
+      ],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "true_false",
+      "stem": "二氧化铅、硫酸和硫酸锰支线需要水浴加热并观察现象。",
+      "options": [],
+      "answer": {
+        "value": true
+      },
+      "explanation": "教材明确要求在 PbO₂、H₂SO₄、MnSO₄ 支线中水浴加热，观察现象。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-2-16bf61f8"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "true_false",
+        "pb_branch",
+        "operation_condition"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00297_c03527ab79"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "保留水浴加热操作判断。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_bool"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_10_Q021",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_10_Q016"
+      ],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "true_false",
+      "stem": "在二氧化铅、硫酸和硫酸锰支线中，紫色现象可用高锰酸根生成来解释。",
+      "options": [],
+      "answer": {
+        "value": true
+      },
+      "explanation": "教材相关内容支持 PbO₂ 氧化 Mn(Ⅱ) 为高锰酸根；教材相关内容说明高锰酸根显紫色。",
+      "difficulty": "intermediate",
+      "primary_point_keys": [
+        "candidate-2-16bf61f8"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "true_false",
+        "pb_branch",
+        "supporting_theory"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00297_c03527ab79"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00758_5f5fd037a3",
+          "textbook_prose_01241_99049758ad"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留紫色判断并绑定 theory。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_bool"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_10_Q022",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_10_Q017"
+      ],
+      "rewrite_action": "rewrite",
+      "question_type": "true_false",
+      "stem": "氯水和碱作用于 Bi(Ⅲ) 的支线表示 Bi(Ⅴ) 被还原为 Bi(Ⅲ)。",
+      "options": [],
+      "answer": {
+        "value": false
+      },
+      "explanation": "相关理论支持 Bi(OH)₃ 在氯水和 NaOH 条件下被氧化生成铋酸盐；方向是 Bi(Ⅲ) 被氧化为 Bi(Ⅴ)，不是反向还原。",
+      "difficulty": "intermediate",
+      "primary_point_keys": [
+        "candidate-3-45280201"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "true_false",
+        "bi_branch",
+        "misconception_cleanup"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00297_c03527ab79"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00597_06f7e56f06"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "改写 Bi 支线方向错误判断。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_bool"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_10_Q023",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_10_Q020"
+      ],
+      "rewrite_action": "rewrite",
+      "question_type": "true_false",
+      "stem": "本实验的全部结论都能只由教材操作文字直接推出，不需要任何相关理论。",
+      "options": [],
+      "answer": {
+        "value": false
+      },
+      "explanation": "教材材料多处只写操作和观察现象；白色/黑色汞沉淀、氯气、高锰酸根紫色、铋酸盐强氧化性等解释均需要相关理论。",
+      "difficulty": "advanced",
+      "primary_point_keys": [
+        "candidate-1-409f5477",
+        "candidate-2-16bf61f8",
+        "candidate-3-45280201"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "true_false",
+        "evidence_boundary",
+        "multi_point"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00296_a4c00bb9d1",
+          "expchunk_00297_c03527ab79"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01090_56461596a1",
+          "textbook_prose_00758_5f5fd037a3",
+          "textbook_prose_00597_06f7e56f06",
+          "textbook_prose_00598_cadca448de",
+          "textbook_prose_01241_99049758ad"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "新增整体证据边界判断。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_bool"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_10_Q024",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_10_Q021"
+      ],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "fill_blank",
+      "stem": "氯化汞支线中，滴加的 Sn(Ⅱ) 试剂中文名是____。",
+      "options": [],
+      "answer": {
+        "value": "氯化亚锡",
+        "match": "normalized_exact"
+      },
+      "explanation": "教材材料指定滴加 SnCl₂ 溶液。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-409f5477"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "fill_blank",
+        "mobile_safe",
+        "sn_branch"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00297_c03527ab79"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01090_56461596a1"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留 SnCl2 填空意图，答案中文化。"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": "deterministic_normalized_exact"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_10_Q025",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_10_Q022"
+      ],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "fill_blank",
+      "stem": "Fe(Ⅲ) 是否仍存在，可用____溶液检验。",
+      "options": [],
+      "answer": {
+        "value": "硫氰酸钾",
+        "match": "normalized_exact"
+      },
+      "explanation": "教材材料指定用硫氰酸钾溶液检验是否仍存在 Fe(Ⅲ)。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-409f5477"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "fill_blank",
+        "mobile_safe",
+        "fe_test"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00296_a4c00bb9d1"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "保留 KSCN 填空意图，答案中文化。"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": "deterministic_normalized_exact"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_10_Q026",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_10_Q023"
+      ],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "fill_blank",
+      "stem": "Pb(Ⅳ) 氧化性支线所用固体 PbO₂ 的中文名是____。",
+      "options": [],
+      "answer": {
+        "value": "二氧化铅",
+        "match": "normalized_exact"
+      },
+      "explanation": "教材材料在 Pb(Ⅳ) 氧化性两条操作中都使用 PbO₂(s)。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-2-16bf61f8"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "fill_blank",
+        "mobile_safe",
+        "pb_branch"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00297_c03527ab79"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00758_5f5fd037a3"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留 PbO2 填空意图，答案中文化。"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": "deterministic_normalized_exact"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_10_Q027",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_10_Q024"
+      ],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "fill_blank",
+      "stem": "二氧化铅与浓盐酸反应时，可生成的气体是____。",
+      "options": [],
+      "answer": {
+        "value": "氯气",
+        "match": "normalized_exact"
+      },
+      "explanation": "教材相关内容给出 PbO₂ 与 HCl 反应生成 Cl₂。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-2-16bf61f8"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "fill_blank",
+        "mobile_safe",
+        "pb_branch"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00297_c03527ab79"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00758_5f5fd037a3"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留 Cl2 填空意图，答案中文化。"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": "deterministic_normalized_exact"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_10_Q028",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_10_Q025"
+      ],
+      "rewrite_action": "rewrite",
+      "question_type": "fill_blank",
+      "stem": "二氧化铅可把二价锰氧化为____。",
+      "options": [],
+      "answer": {
+        "value": "高锰酸根",
+        "match": "normalized_exact"
+      },
+      "explanation": "教材相关内容支持 PbO₂ 把 Mn(Ⅱ) 氧化为高锰酸根。",
+      "difficulty": "intermediate",
+      "primary_point_keys": [
+        "candidate-2-16bf61f8"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "fill_blank",
+        "mobile_safe",
+        "pb_branch",
+        "supporting_theory"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00297_c03527ab79"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00758_5f5fd037a3",
+          "textbook_prose_01241_99049758ad"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留 MnO4- 填空意图，答案中文化。"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": "deterministic_normalized_exact"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_10_Q029",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_10_Q015"
+      ],
+      "rewrite_action": "rewrite",
+      "question_type": "fill_blank",
+      "stem": "PbO₂、硫酸和硫酸锰支线中，教材要求的加热方式是____。",
+      "options": [],
+      "answer": {
+        "value": "水浴加热",
+        "match": "normalized_exact"
+      },
+      "explanation": "教材明确要求加入 MnSO₄ 后水浴加热并观察现象。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-2-16bf61f8"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "fill_blank",
+        "mobile_safe",
+        "operation_condition"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00297_c03527ab79"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "用可直接由 canonical 支撑的操作条件替代旧硝酸填空。"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": "deterministic_normalized_exact"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_10_Q030",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_10_Q026",
+        "OLD_CHUNK3_EXP_19_8_10_Q027_PF1"
+      ],
+      "rewrite_action": "rewrite",
+      "question_type": "fill_blank",
+      "stem": "Bi(Ⅲ) 在氯水和碱作用下可被氧化为____。",
+      "options": [],
+      "answer": {
+        "value": "铋酸盐",
+        "match": "normalized_exact"
+      },
+      "explanation": "教材相关内容支持 Bi(OH)₃ 与氯水、NaOH 生成 NaBiO₃，概念上为铋酸盐。",
+      "difficulty": "intermediate",
+      "primary_point_keys": [
+        "candidate-3-45280201"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "fill_blank",
+        "mobile_safe",
+        "bi_branch",
+        "supporting_theory"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00297_c03527ab79"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00597_06f7e56f06",
+          "textbook_prose_00598_cadca448de"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "将 Bi 公式题改为中文概念填空。"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": "deterministic_normalized_exact"
+    }
+  ]
+}

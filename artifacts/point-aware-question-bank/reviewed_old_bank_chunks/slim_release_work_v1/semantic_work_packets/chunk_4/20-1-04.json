@@ -1,0 +1,3829 @@
+{
+  "metadata": {
+    "version": "chunk-4-release-slim-v1",
+    "artifact_type": "slim_question_bank_work_file",
+    "generated_at": "2026-06-15T03:27:59.050817+00:00",
+    "source_file": "E:\\chemistry-admin\\artifacts\\point-aware-question-bank\\reviewed_old_bank_chunks\\chunk_4_release_final_v1.json",
+    "normalization_rule": "effective question plus minimal lineage, evidence IDs, point bindings, option links, evidence locators, and mechanical risk flags",
+    "evidence_policy": "RAG source text is not embedded; packets carry locators and reviewers must read E:/chemistry-rag/data/rag_ready directly",
+    "chunk_id_policy": "inherited chunk ids are untrusted locator candidates until manually compared with RAG text",
+    "semantic_status": "not_semantically_repaired_by_this_script",
+    "packet_type": "single_experiment_semantic_repair_work_packet",
+    "chunk": 4,
+    "experiment_code": "20-1-04",
+    "question_count": 30
+  },
+  "experiment": {
+    "experiment_id": "EXP_20_1_04",
+    "experiment_code": "20-1-04",
+    "experiment_title": "碘化亚铜的形成",
+    "chapter_bindings": [
+      {
+        "chapter_id": "CH19",
+        "coverage_type": "primary",
+        "sort_order": 1
+      }
+    ],
+    "video_points": [
+      {
+        "point_key": "candidate-1-062b9ba9",
+        "point_title": "CuSO₄ + KI",
+        "source": null,
+        "candidate_index": null,
+        "resource_count": null,
+        "published_count": null,
+        "resource_titles": []
+      },
+      {
+        "point_key": "candidate-2-90599e67",
+        "point_title": "验证生成 CuI 及副产物",
+        "source": null,
+        "candidate_index": null,
+        "resource_count": null,
+        "published_count": null,
+        "resource_titles": []
+      }
+    ],
+    "canonical_chunk_ids": [
+      "expchunk_00311_c770d017e2"
+    ],
+    "evidence_lookup": {
+      "policy": "locator_only; canonical RAG text is not embedded in this packet",
+      "chunk_id_policy": "metadata chunk ids are inherited claims, not trusted evidence; reviewers must compare the RAG text against the question stem/options/answer/explanation and replace or remove wrong ids",
+      "primary_source_dir": "E:\\chemistry-rag\\data\\rag_ready",
+      "source_files": {
+        "experiment_chunks": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+        "supporting_theory_chunks": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl"
+      },
+      "search_hints": {
+        "experiment_code": "20-1-04",
+        "parent_experiment_code": "20-1",
+        "experiment_title": "碘化亚铜的形成",
+        "video_point_titles": [
+          "CuSO₄ + KI",
+          "验证生成 CuI 及副产物"
+        ],
+        "canonical_chunk_ids_from_metadata": [
+          "expchunk_00311_c770d017e2"
+        ],
+        "supporting_theory_chunk_ids_from_metadata": [
+          "textbook_prose_01036_551b4dc475"
+        ],
+        "suggested_search_patterns": [
+          "20-1-04",
+          "20-1",
+          "碘化亚铜的形成",
+          "CuSO₄ + KI",
+          "验证生成 CuI 及副产物",
+          "expchunk_00311_c770d017e2",
+          "textbook_prose_01036_551b4dc475"
+        ]
+      },
+      "rag_exact_id_presence": {
+        "meaning": "id presence only; this does not validate semantic relevance",
+        "found_ids": [
+          "expchunk_00311_c770d017e2",
+          "textbook_prose_01036_551b4dc475"
+        ],
+        "missing_ids": [],
+        "found_locator_summaries": [
+          {
+            "chunk_id": "expchunk_00311_c770d017e2",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+            "line_number": 324,
+            "source_collection": "textbook_experiment_clean_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学实验（第四版）",
+            "page_start": 163,
+            "page_end": 163,
+            "section_path": [
+              "第7章 元素性质实验",
+              "实验 20-1 ds 区元素化合物的性质",
+              "（三）实验内容",
+              "3. 铜（Ⅰ）化合物及其性质"
+            ],
+            "content_type": "property_test",
+            "knowledge_unit": "property_test",
+            "parent_id": "expchunk_protocol_174e0c432181",
+            "prev_chunk_id": "expchunk_00310_822a1490b4",
+            "next_chunk_id": "expchunk_00312_3907d19546",
+            "relations": {
+              "section_id": "expsec_be7132a657f79d09",
+              "experiment_id": "experiment:实验_20-1_ds_区元素化合物的性质",
+              "page_anchor": "page_163",
+              "parent": "expchunk_protocol_174e0c432181"
+            }
+          },
+          {
+            "chunk_id": "textbook_prose_01036_551b4dc475",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+            "line_number": 1616,
+            "source_collection": "textbook_inorganic_lower_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学（下册）（第二版）",
+            "page_start": 174,
+            "page_end": 175,
+            "section_path": [
+              "第 19 章 铜锌副族元素",
+              "19.2 铜副族",
+              "19.2.2 铜的化合物",
+              "2) 卤化物和硫化物"
+            ],
+            "content_type": "principle",
+            "knowledge_unit": "principle",
+            "parent_id": "section:13a81251202c",
+            "prev_chunk_id": null,
+            "next_chunk_id": "textbook_prose_01037_bfb84a2e55",
+            "relations": {
+              "parent": "section:13a81251202c",
+              "source_route": "clean_pages",
+              "prev": null,
+              "next": "textbook_prose_01037_bfb84a2e55"
+            }
+          }
+        ]
+      },
+      "legacy_locator_summaries": [
+        {
+          "chunk_id": "expchunk_00311_c770d017e2",
+          "source_file": "无机化学实验（第四版）",
+          "book_title": "无机化学实验（第四版）",
+          "document_id": "DOC_CANONICAL_EXPERIMENT_V1",
+          "source_collection": "textbook_experiment_clean_v1",
+          "source_role": "canonical_textbook",
+          "content_type": "property_test",
+          "chapter_id": null,
+          "page_number": 163,
+          "section_title": "实验 20-1 ds 区元素化合物的性质 / （三）实验内容 / 3. 铜（Ⅰ）化合物及其性质",
+          "section_path": [
+            "第7章 元素性质实验",
+            "实验 20-1 ds 区元素化合物的性质",
+            "（三）实验内容",
+            "3. 铜（Ⅰ）化合物及其性质"
+          ]
+        }
+      ],
+      "legacy_missing_ids": [
+        "textbook_prose_01036_551b4dc475",
+        "textbook_prose_01055_5a225925ae"
+      ]
+    },
+    "questions": [
+      {
+        "question_id": "REV_CH4_EXP_20_1_04_Q001",
+        "source_review_id": "REV_CH4_EXP_20_1_04_Q001",
+        "source_question_index": 1,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-1-04 碘化亚铜的形成》实验中，形成 CuI 的实验中，在 CuSO₄ 溶液中加入的试剂是哪一种？",
+        "options": [
+          {
+            "label": "A",
+            "text": "KSCN 溶液"
+          },
+          {
+            "label": "B",
+            "text": "NaOH 固体"
+          },
+          {
+            "label": "C",
+            "text": "KI 溶液"
+          },
+          {
+            "label": "D",
+            "text": "丁二酮肟"
+          }
+        ],
+        "answer": {
+          "value": "C"
+        },
+        "explanation": "“KI 溶液”与实验操作、观察目标或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-062b9ba9"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "cui_reagent"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "KSCN 溶液",
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "该选项为“KSCN 溶液”，与题干中的实验对象关联较弱；本题有效答案是“KI 溶液”。"
+          },
+          {
+            "label": "B",
+            "text": "NaOH 固体",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项为“NaOH 固体”，会把本题锁定的实验对象、操作或现象转向错误判断；本题有效答案是“KI 溶液”。"
+          },
+          {
+            "label": "C",
+            "text": "KI 溶液",
+            "point_key": "candidate-1-062b9ba9",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项为“KI 溶液”，与题干所问和解析中的有效答案一致，并绑定到实验点位“CuSO₄ + KI”。"
+          },
+          {
+            "label": "D",
+            "text": "丁二酮肟",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "“丁二酮肟”是 Ni²⁺ 鉴定干扰项；若选它，是把镍检出反应误认为“形成 CuI 的实验中，在 CuSO₄ 溶液中加入的试剂是哪种？”的证据。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00311_c770d017e2",
+            "textbook_prose_01055_5a225925ae"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 保留 original_question；已核对题干、选项/答案/解析、点位和源文，最终有效题证据充分。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00311_c770d017e2",
+            "textbook_prose_01055_5a225925ae"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [
+            "textbook_prose_01055_5a225925ae"
+          ],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-1-04 碘化亚铜的形成》实验中，形成 CuI 的实验中，在 CuSO₄ 溶液中加入的试剂是哪一种？",
+            "options": [
+              {
+                "label": "A",
+                "text": "KSCN 溶液"
+              },
+              {
+                "label": "B",
+                "text": "NaOH 固体"
+              },
+              {
+                "label": "C",
+                "text": "KI 溶液"
+              },
+              {
+                "label": "D",
+                "text": "丁二酮肟"
+              }
+            ],
+            "answer": {
+              "value": "C"
+            },
+            "explanation": "“KI 溶液”与实验操作、观察目标或结论一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00311_c770d017e2",
+              "textbook_prose_01055_5a225925ae"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_04_Q002",
+        "source_review_id": "REV_CH4_EXP_20_1_04_Q002",
+        "source_question_index": 2,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-1-04 碘化亚铜的形成》实验中，CuSO₄ 与 KI 反应生成的铜(I)沉淀是什么？",
+        "options": [
+          {
+            "label": "A",
+            "text": "CuCl₂"
+          },
+          {
+            "label": "B",
+            "text": "CuO"
+          },
+          {
+            "label": "C",
+            "text": "CuSO₄"
+          },
+          {
+            "label": "D",
+            "text": "CuI"
+          }
+        ],
+        "answer": {
+          "value": "D"
+        },
+        "explanation": "“CuI”与实验操作、观察目标或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-062b9ba9"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-90599e67"
+        ],
+        "coverage_tags": [
+          "cui_product"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "CuCl₂",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项为“CuCl₂”，会把本题锁定的实验对象、操作或现象转向错误判断；本题有效答案是“CuI”。"
+          },
+          {
+            "label": "B",
+            "text": "CuO",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项为“CuO”，会把本题锁定的实验对象、操作或现象转向错误判断；本题有效答案是“CuI”。"
+          },
+          {
+            "label": "C",
+            "text": "CuSO₄",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项为“CuSO₄”，会把本题锁定的实验对象、操作或现象转向错误判断；本题有效答案是“CuI”。"
+          },
+          {
+            "label": "D",
+            "text": "CuI",
+            "point_key": "candidate-1-062b9ba9",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项为“CuI”，与题干所问和解析中的有效答案一致，并绑定到实验点位“CuSO₄ + KI”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00311_c770d017e2",
+            "textbook_prose_01055_5a225925ae"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 保留 original_question；已核对题干、选项/答案/解析、点位和源文，最终有效题证据充分。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00311_c770d017e2",
+            "textbook_prose_01055_5a225925ae"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [
+            "textbook_prose_01055_5a225925ae"
+          ],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-1-04 碘化亚铜的形成》实验中，CuSO₄ 与 KI 反应生成的铜(I)沉淀是什么？",
+            "options": [
+              {
+                "label": "A",
+                "text": "CuCl₂"
+              },
+              {
+                "label": "B",
+                "text": "CuO"
+              },
+              {
+                "label": "C",
+                "text": "CuSO₄"
+              },
+              {
+                "label": "D",
+                "text": "CuI"
+              }
+            ],
+            "answer": {
+              "value": "D"
+            },
+            "explanation": "“CuI”与实验操作、观察目标或结论一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00311_c770d017e2",
+              "textbook_prose_01055_5a225925ae"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "multi_point_binding"
+          ]
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_04_Q003",
+        "source_review_id": "REV_CH4_EXP_20_1_04_Q003",
+        "source_question_index": 3,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-1-04 碘化亚铜的形成》实验中，CuSO₄ 与 KI 反应时，除 CuI 外还生成的副产物通常是哪一种？",
+        "options": [
+          {
+            "label": "A",
+            "text": "I₂"
+          },
+          {
+            "label": "B",
+            "text": "Cl₂"
+          },
+          {
+            "label": "C",
+            "text": "NH₃"
+          },
+          {
+            "label": "D",
+            "text": "Ag"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "“I₂”与实验操作、观察目标或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-90599e67"
+        ],
+        "secondary_point_keys": [
+          "candidate-1-062b9ba9"
+        ],
+        "coverage_tags": [
+          "iodine_byproduct"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "I₂",
+            "point_key": "candidate-2-90599e67",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项为“I₂”，与题干所问和解析中的有效答案一致，并绑定到实验点位“验证生成 CuI 及副产物”。"
+          },
+          {
+            "label": "B",
+            "text": "Cl₂",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项为“Cl₂”，会把本题锁定的实验对象、操作或现象转向错误判断；本题有效答案是“I₂”。"
+          },
+          {
+            "label": "C",
+            "text": "NH₃",
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "该选项为“NH₃”，与题干中的实验对象关联较弱；本题有效答案是“I₂”。"
+          },
+          {
+            "label": "D",
+            "text": "Ag",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项为“Ag”，会把本题锁定的实验对象、操作或现象转向错误判断；本题有效答案是“I₂”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00311_c770d017e2",
+            "textbook_prose_01055_5a225925ae"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01036_551b4dc475"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 保留 original_question；已核对题干、选项/答案/解析、点位和源文，最终有效题证据充分。",
+          "supporting_theory_note": "依赖 CuSO₄ 与 I⁻ 反应生成 CuI 和 I₂、Cu(I) 难溶卤化物稳定性的理论。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00311_c770d017e2",
+            "textbook_prose_01055_5a225925ae"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01036_551b4dc475"
+          ],
+          "missing_canonical_ids": [
+            "textbook_prose_01055_5a225925ae"
+          ],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01036_551b4dc475"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-1-04 碘化亚铜的形成》实验中，CuSO₄ 与 KI 反应时，除 CuI 外还生成的副产物通常是哪一种？",
+            "options": [
+              {
+                "label": "A",
+                "text": "I₂"
+              },
+              {
+                "label": "B",
+                "text": "Cl₂"
+              },
+              {
+                "label": "C",
+                "text": "NH₃"
+              },
+              {
+                "label": "D",
+                "text": "Ag"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "“I₂”与实验操作、观察目标或结论一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00311_c770d017e2",
+              "textbook_prose_01055_5a225925ae"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "multi_point_binding",
+            "source_requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_04_Q004",
+        "source_review_id": "REV_CH4_EXP_20_1_04_Q004",
+        "source_question_index": 4,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-1-04 碘化亚铜的形成》实验中，该反应中 Cu²⁺ 被还原到哪种价态？",
+        "options": [
+          {
+            "label": "A",
+            "text": "Cu(0)"
+          },
+          {
+            "label": "B",
+            "text": "Cu(I)"
+          },
+          {
+            "label": "C",
+            "text": "Cu(III)"
+          },
+          {
+            "label": "D",
+            "text": "Cu(VI)"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "“Cu(I)”与实验操作、观察目标或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-062b9ba9"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-90599e67"
+        ],
+        "coverage_tags": [
+          "copper_reduction_to_cu_i"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "Cu(0)",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项为“Cu(0)”，会把本题锁定的实验对象、操作或现象转向错误判断；本题有效答案是“Cu(I)”。"
+          },
+          {
+            "label": "B",
+            "text": "Cu(I)",
+            "point_key": "candidate-1-062b9ba9",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项为“Cu(I)”，与题干所问和解析中的有效答案一致，并绑定到实验点位“CuSO₄ + KI”。"
+          },
+          {
+            "label": "C",
+            "text": "Cu(III)",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项为“Cu(III)”，会把本题锁定的实验对象、操作或现象转向错误判断；本题有效答案是“Cu(I)”。"
+          },
+          {
+            "label": "D",
+            "text": "Cu(VI)",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项为“Cu(VI)”，会把本题锁定的实验对象、操作或现象转向错误判断；本题有效答案是“Cu(I)”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00311_c770d017e2",
+            "textbook_prose_01055_5a225925ae"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01036_551b4dc475"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 保留 original_question；已核对题干、选项/答案/解析、点位和源文，最终有效题证据充分。",
+          "supporting_theory_note": "依赖 CuSO₄ 与 I⁻ 反应生成 CuI 和 I₂、Cu(I) 难溶卤化物稳定性的理论。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00311_c770d017e2",
+            "textbook_prose_01055_5a225925ae"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01036_551b4dc475"
+          ],
+          "missing_canonical_ids": [
+            "textbook_prose_01055_5a225925ae"
+          ],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01036_551b4dc475"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-1-04 碘化亚铜的形成》实验中，该反应中 Cu²⁺ 被还原到哪种价态？",
+            "options": [
+              {
+                "label": "A",
+                "text": "Cu(0)"
+              },
+              {
+                "label": "B",
+                "text": "Cu(I)"
+              },
+              {
+                "label": "C",
+                "text": "Cu(III)"
+              },
+              {
+                "label": "D",
+                "text": "Cu(VI)"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "“Cu(I)”与实验操作、观察目标或结论一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00311_c770d017e2",
+              "textbook_prose_01055_5a225925ae"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "multi_point_binding",
+            "source_requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_04_Q005",
+        "source_review_id": "REV_CH4_EXP_20_1_04_Q005",
+        "source_question_index": 5,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-1-04 碘化亚铜的形成》实验中，该反应中 I⁻ 主要表现为什么性质？",
+        "options": [
+          {
+            "label": "A",
+            "text": "强碱性"
+          },
+          {
+            "label": "B",
+            "text": "沉淀惰性"
+          },
+          {
+            "label": "C",
+            "text": "还原性"
+          },
+          {
+            "label": "D",
+            "text": "感光性"
+          }
+        ],
+        "answer": {
+          "value": "C"
+        },
+        "explanation": "“还原性”与实验操作、观察目标或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-062b9ba9"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-90599e67"
+        ],
+        "coverage_tags": [
+          "iodide_reducing_property"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "强碱性",
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "该选项为“强碱性”，与题干中的实验对象关联较弱；本题有效答案是“还原性”。"
+          },
+          {
+            "label": "B",
+            "text": "沉淀惰性",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项为“沉淀惰性”，会把本题锁定的实验对象、操作或现象转向错误判断；本题有效答案是“还原性”。"
+          },
+          {
+            "label": "C",
+            "text": "还原性",
+            "point_key": "candidate-1-062b9ba9",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项为“还原性”，与题干所问和解析中的有效答案一致，并绑定到实验点位“CuSO₄ + KI”。"
+          },
+          {
+            "label": "D",
+            "text": "感光性",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "“感光性”来自银盐感光或遮光演示思路；选择它会把光化学情境误套到“该反应中 I⁻ 主要表现为什么性质？”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00311_c770d017e2",
+            "textbook_prose_01055_5a225925ae"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01036_551b4dc475"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 保留 original_question；已核对题干、选项/答案/解析、点位和源文，最终有效题证据充分。",
+          "supporting_theory_note": "依赖 CuSO₄ 与 I⁻ 反应生成 CuI 和 I₂、Cu(I) 难溶卤化物稳定性的理论。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00311_c770d017e2",
+            "textbook_prose_01055_5a225925ae"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01036_551b4dc475"
+          ],
+          "missing_canonical_ids": [
+            "textbook_prose_01055_5a225925ae"
+          ],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01036_551b4dc475"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-1-04 碘化亚铜的形成》实验中，该反应中 I⁻ 主要表现为什么性质？",
+            "options": [
+              {
+                "label": "A",
+                "text": "强碱性"
+              },
+              {
+                "label": "B",
+                "text": "沉淀惰性"
+              },
+              {
+                "label": "C",
+                "text": "还原性"
+              },
+              {
+                "label": "D",
+                "text": "感光性"
+              }
+            ],
+            "answer": {
+              "value": "C"
+            },
+            "explanation": "“还原性”与实验操作、观察目标或结论一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00311_c770d017e2",
+              "textbook_prose_01055_5a225925ae"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "multi_point_binding",
+            "source_requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_04_Q006",
+        "source_review_id": "REV_CH4_EXP_20_1_04_Q006",
+        "source_question_index": 6,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-1-04 碘化亚铜的形成》实验中，降低溶液中 Cu⁺ 浓度、推动反应进行的关键因素是什么？",
+        "options": [
+          {
+            "label": "A",
+            "text": "Na⁺ 焰色很强"
+          },
+          {
+            "label": "B",
+            "text": "钥匙遮光"
+          },
+          {
+            "label": "C",
+            "text": "Ni(dmg)₂ 生成"
+          },
+          {
+            "label": "D",
+            "text": "CuI 难溶沉淀生成"
+          }
+        ],
+        "answer": {
+          "value": "D"
+        },
+        "explanation": "“CuI 难溶沉淀生成”与实验操作、观察目标或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-062b9ba9"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-90599e67"
+        ],
+        "coverage_tags": [
+          "cui_precipitation_drives_reaction"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "Na⁺ 焰色很强",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "“Na⁺ 焰色很强”属于焰色反应识别线索；本题“降低溶液中 Cu⁺ 浓度、推动反应进行的关键因素是什么？”考查的是本实验试剂/现象而非火焰颜色。"
+          },
+          {
+            "label": "B",
+            "text": "钥匙遮光",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "“钥匙遮光”来自银盐感光或遮光演示思路；选择它会把光化学情境误套到“降低溶液中 Cu⁺ 浓度、推动反应进行的关键因素是什么？”。"
+          },
+          {
+            "label": "C",
+            "text": "Ni(dmg)₂ 生成",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "“Ni(dmg)₂ 生成”是 Ni²⁺ 鉴定干扰项；若选它，是把镍检出反应误认为“降低溶液中 Cu⁺ 浓度、推动反应进行的关键因素是什么？”的证据。"
+          },
+          {
+            "label": "D",
+            "text": "CuI 难溶沉淀生成",
+            "point_key": "candidate-1-062b9ba9",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项为“CuI 难溶沉淀生成”，与题干所问和解析中的有效答案一致，并绑定到实验点位“CuSO₄ + KI”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00311_c770d017e2",
+            "textbook_prose_01055_5a225925ae"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 保留 original_question；已核对题干、选项/答案/解析、点位和源文，最终有效题证据充分。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00311_c770d017e2",
+            "textbook_prose_01055_5a225925ae"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [
+            "textbook_prose_01055_5a225925ae"
+          ],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-1-04 碘化亚铜的形成》实验中，降低溶液中 Cu⁺ 浓度、推动反应进行的关键因素是什么？",
+            "options": [
+              {
+                "label": "A",
+                "text": "Na⁺ 焰色很强"
+              },
+              {
+                "label": "B",
+                "text": "钥匙遮光"
+              },
+              {
+                "label": "C",
+                "text": "Ni(dmg)₂ 生成"
+              },
+              {
+                "label": "D",
+                "text": "CuI 难溶沉淀生成"
+              }
+            ],
+            "answer": {
+              "value": "D"
+            },
+            "explanation": "“CuI 难溶沉淀生成”与实验操作、观察目标或结论一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00311_c770d017e2",
+              "textbook_prose_01055_5a225925ae"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "multi_point_binding"
+          ]
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_04_Q007",
+        "source_review_id": "REV_CH4_EXP_20_1_04_Q007",
+        "source_question_index": 7,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-1-04 碘化亚铜的形成》实验中，表示该反应的离子方程式最接近哪一项？",
+        "options": [
+          {
+            "label": "A",
+            "text": "2Cu²⁺ + 4I⁻ = 2CuI(s) + I₂"
+          },
+          {
+            "label": "B",
+            "text": "Cu²⁺ + 2OH⁻ = Cu(OH)₂"
+          },
+          {
+            "label": "C",
+            "text": "Ag⁺ + Cl⁻ = AgCl"
+          },
+          {
+            "label": "D",
+            "text": "Ni²⁺ + 2H₂dmg = Ni(dmg)₂"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "“2Cu²⁺ + 4I⁻ = 2CuI(s) + I₂”与实验操作、观察目标或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-062b9ba9"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-90599e67"
+        ],
+        "coverage_tags": [
+          "cui_reaction_equation"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "2Cu²⁺ + 4I⁻ = 2CuI(s) + I₂",
+            "point_key": "candidate-1-062b9ba9",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项为“2Cu²⁺ + 4I⁻ = 2CuI(s) + I₂”，与题干所问和解析中的有效答案一致，并绑定到实验点位“CuSO₄ + KI”。"
+          },
+          {
+            "label": "B",
+            "text": "Cu²⁺ + 2OH⁻ = Cu(OH)₂",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项为“Cu²⁺ + 2OH⁻ = Cu(OH)₂”，会把本题锁定的实验对象、操作或现象转向错误判断；本题有效答案是“2Cu²⁺ + 4I⁻ = 2CuI(s) + I₂”。"
+          },
+          {
+            "label": "C",
+            "text": "Ag⁺ + Cl⁻ = AgCl",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项为“Ag⁺ + Cl⁻ = AgCl”，会把本题锁定的实验对象、操作或现象转向错误判断；本题有效答案是“2Cu²⁺ + 4I⁻ = 2CuI(s) + I₂”。"
+          },
+          {
+            "label": "D",
+            "text": "Ni²⁺ + 2H₂dmg = Ni(dmg)₂",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "“Ni²⁺ + 2H₂dmg = Ni(dmg)₂”是 Ni²⁺ 鉴定干扰项；若选它，是把镍检出反应误认为“表示该反应的离子方程式最接近哪一项？”的证据。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00311_c770d017e2",
+            "textbook_prose_01055_5a225925ae"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01036_551b4dc475"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 保留 original_question；已核对题干、选项/答案/解析、点位和源文，最终有效题证据充分。",
+          "supporting_theory_note": "依赖 CuSO₄ 与 I⁻ 反应生成 CuI 和 I₂、Cu(I) 难溶卤化物稳定性的理论。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00311_c770d017e2",
+            "textbook_prose_01055_5a225925ae"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01036_551b4dc475"
+          ],
+          "missing_canonical_ids": [
+            "textbook_prose_01055_5a225925ae"
+          ],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01036_551b4dc475"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-1-04 碘化亚铜的形成》实验中，表示该反应的离子方程式最接近哪一项？",
+            "options": [
+              {
+                "label": "A",
+                "text": "2Cu²⁺ + 4I⁻ = 2CuI(s) + I₂"
+              },
+              {
+                "label": "B",
+                "text": "Cu²⁺ + 2OH⁻ = Cu(OH)₂"
+              },
+              {
+                "label": "C",
+                "text": "Ag⁺ + Cl⁻ = AgCl"
+              },
+              {
+                "label": "D",
+                "text": "Ni²⁺ + 2H₂dmg = Ni(dmg)₂"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "“2Cu²⁺ + 4I⁻ = 2CuI(s) + I₂”与实验操作、观察目标或结论一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00311_c770d017e2",
+              "textbook_prose_01055_5a225925ae"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "multi_point_binding",
+            "source_requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_04_Q008",
+        "source_review_id": "REV_CH4_EXP_20_1_04_Q008",
+        "source_question_index": 8,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-1-04 碘化亚铜的形成》实验中，验证副产物 I₂ 时，可利用其与哪种试剂产生蓝色的反应？",
+        "options": [
+          {
+            "label": "A",
+            "text": "钴玻璃"
+          },
+          {
+            "label": "B",
+            "text": "淀粉溶液"
+          },
+          {
+            "label": "C",
+            "text": "浓氨水"
+          },
+          {
+            "label": "D",
+            "text": "铝屑"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "“淀粉溶液”与实验操作、观察目标或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-90599e67"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "iodine_verification"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "钴玻璃",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "“钴玻璃”属于焰色反应识别线索；本题“验证副产物 I₂ 时，可利用其与哪种试剂产生蓝色的反应？”考查的是本实验试剂/现象而非火焰颜色。"
+          },
+          {
+            "label": "B",
+            "text": "淀粉溶液",
+            "point_key": "candidate-2-90599e67",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项为“淀粉溶液”，与题干所问和解析中的有效答案一致，并绑定到实验点位“验证生成 CuI 及副产物”。"
+          },
+          {
+            "label": "C",
+            "text": "浓氨水",
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "该选项为“浓氨水”，与题干中的实验对象关联较弱；本题有效答案是“淀粉溶液”。"
+          },
+          {
+            "label": "D",
+            "text": "铝屑",
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "该选项为“铝屑”，与题干中的实验对象关联较弱；本题有效答案是“淀粉溶液”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00311_c770d017e2",
+            "textbook_prose_01055_5a225925ae"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01036_551b4dc475"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 保留 original_question；已核对题干、选项/答案/解析、点位和源文，最终有效题证据充分。",
+          "supporting_theory_note": "依赖 CuSO₄ 与 I⁻ 反应生成 CuI 和 I₂、Cu(I) 难溶卤化物稳定性的理论。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00311_c770d017e2",
+            "textbook_prose_01055_5a225925ae"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01036_551b4dc475"
+          ],
+          "missing_canonical_ids": [
+            "textbook_prose_01055_5a225925ae"
+          ],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01036_551b4dc475"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-1-04 碘化亚铜的形成》实验中，验证副产物 I₂ 时，可利用其与哪种试剂产生蓝色的反应？",
+            "options": [
+              {
+                "label": "A",
+                "text": "钴玻璃"
+              },
+              {
+                "label": "B",
+                "text": "淀粉溶液"
+              },
+              {
+                "label": "C",
+                "text": "浓氨水"
+              },
+              {
+                "label": "D",
+                "text": "铝屑"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "“淀粉溶液”与实验操作、观察目标或结论一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00311_c770d017e2",
+              "textbook_prose_01055_5a225925ae"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "source_requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_04_Q009",
+        "source_review_id": "REV_CH4_EXP_20_1_04_Q009",
+        "source_question_index": 9,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-1-04 碘化亚铜的形成》实验中，CuI 沉淀的常见颜色是什么？",
+        "options": [
+          {
+            "label": "A",
+            "text": "鲜红色"
+          },
+          {
+            "label": "B",
+            "text": "深蓝色"
+          },
+          {
+            "label": "C",
+            "text": "白色"
+          },
+          {
+            "label": "D",
+            "text": "紫黑色"
+          }
+        ],
+        "answer": {
+          "value": "C"
+        },
+        "explanation": "“白色”与实验操作、观察目标或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-062b9ba9"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-90599e67"
+        ],
+        "coverage_tags": [
+          "cui_observation"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "鲜红色",
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "该选项为“鲜红色”，与题干中的实验对象关联较弱；本题有效答案是“白色”。"
+          },
+          {
+            "label": "B",
+            "text": "深蓝色",
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "该选项为“深蓝色”，与题干中的实验对象关联较弱；本题有效答案是“白色”。"
+          },
+          {
+            "label": "C",
+            "text": "白色",
+            "point_key": "candidate-1-062b9ba9",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项为“白色”，与题干所问和解析中的有效答案一致，并绑定到实验点位“CuSO₄ + KI”。"
+          },
+          {
+            "label": "D",
+            "text": "紫黑色",
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "该选项为“紫黑色”，与题干中的实验对象关联较弱；本题有效答案是“白色”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00311_c770d017e2",
+            "textbook_prose_01055_5a225925ae"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01036_551b4dc475"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 保留 original_question；已核对题干、选项/答案/解析、点位和源文，最终有效题证据充分。",
+          "supporting_theory_note": "依赖 CuSO₄ 与 I⁻ 反应生成 CuI 和 I₂、Cu(I) 难溶卤化物稳定性的理论。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00311_c770d017e2",
+            "textbook_prose_01055_5a225925ae"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01036_551b4dc475"
+          ],
+          "missing_canonical_ids": [
+            "textbook_prose_01055_5a225925ae"
+          ],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01036_551b4dc475"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-1-04 碘化亚铜的形成》实验中，CuI 沉淀的常见颜色是什么？",
+            "options": [
+              {
+                "label": "A",
+                "text": "鲜红色"
+              },
+              {
+                "label": "B",
+                "text": "深蓝色"
+              },
+              {
+                "label": "C",
+                "text": "白色"
+              },
+              {
+                "label": "D",
+                "text": "紫黑色"
+              }
+            ],
+            "answer": {
+              "value": "C"
+            },
+            "explanation": "“白色”与实验操作、观察目标或结论一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00311_c770d017e2",
+              "textbook_prose_01055_5a225925ae"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "multi_point_binding",
+            "source_requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_04_Q010",
+        "source_review_id": "REV_CH4_EXP_20_1_04_Q010",
+        "source_question_index": 10,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《20-1-04 碘化亚铜的形成》实验中，最能体现该实验价值的是哪一项？",
+        "options": [
+          {
+            "label": "A",
+            "text": "只背实验标题"
+          },
+          {
+            "label": "B",
+            "text": "通过 CuSO₄ 与 KI 反应同时认识 Cu(I) 沉淀生成和 I⁻ 的还原性"
+          },
+          {
+            "label": "C",
+            "text": "验证钴玻璃滤光"
+          },
+          {
+            "label": "D",
+            "text": "比较 Fe(OH)₃ 水解"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "“通过 CuSO₄ 与 KI 反应同时认识 Cu(I) 沉淀生成和 I⁻ 的还原性”与实验操作、观察目标或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-062b9ba9"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "cu_i_compound_module",
+          "polished_final_rewrite"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": null,
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "“只背实验标题”不能作为“最能体现该实验价值的是哪一项？”的教材证据；它排除的是无关操作、条件或观察对象。"
+          },
+          {
+            "label": "B",
+            "text": null,
+            "point_key": "candidate-1-062b9ba9",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“通过 CuSO₄ 与 KI 反应同时认识 Cu(I) 沉淀生成和 I⁻ 的还原性”直接支撑“最能体现该实验价值的是哪一项？”；对应点位是“CuSO₄ + KI”。"
+          },
+          {
+            "label": "C",
+            "text": null,
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "“验证钴玻璃滤光”属于焰色反应识别线索；本题“最能体现该实验价值的是哪一项？”考查的是本实验试剂/现象而非火焰颜色。"
+          },
+          {
+            "label": "D",
+            "text": null,
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "“比较 Fe(OH)₃ 水解”与正确项“通过 CuSO₄ 与 KI 反应同时认识 Cu(I) 沉淀生成和 I⁻ 的还原性”同属相近化学概念，但在“最能体现该实验价值的是哪一项？”中混淆了试剂、价态、产物或现象。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00311_c770d017e2",
+            "textbook_prose_01055_5a225925ae"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01036_551b4dc475"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final proposed_question 已核对 canonical 实验原文、点位和必要 theory；可机器确定性判分。",
+          "supporting_theory_note": "依赖 CuSO₄ 与 I⁻ 反应生成 CuI 和 I₂、Cu(I) 难溶卤化物稳定性的理论。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00311_c770d017e2",
+            "textbook_prose_01055_5a225925ae"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01036_551b4dc475"
+          ],
+          "missing_canonical_ids": [
+            "textbook_prose_01055_5a225925ae"
+          ],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01036_551b4dc475"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-1-04 碘化亚铜的形成》实验中，本实验属于铜(I)化合物及其性质中哪一项内容？",
+            "options": [
+              {
+                "label": "A",
+                "text": "镍(II)的鉴定"
+              },
+              {
+                "label": "B",
+                "text": "硝酸根棕色环"
+              },
+              {
+                "label": "C",
+                "text": "焰色反应"
+              },
+              {
+                "label": "D",
+                "text": "碘化亚铜的形成"
+              }
+            ],
+            "answer": {
+              "value": "D"
+            },
+            "explanation": "答案为：碘化亚铜的形成。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00311_c770d017e2",
+              "textbook_prose_01055_5a225925ae"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-1-04 碘化亚铜的形成》实验中，最能体现该实验价值的是哪一项？",
+            "options": [
+              {
+                "label": "A",
+                "text": "只背实验标题"
+              },
+              {
+                "label": "B",
+                "text": "通过 CuSO₄ 与 KI 反应同时认识 Cu(I) 沉淀生成和 I⁻ 的还原性"
+              },
+              {
+                "label": "C",
+                "text": "验证钴玻璃滤光"
+              },
+              {
+                "label": "D",
+                "text": "比较 Fe(OH)₃ 水解"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "“通过 CuSO₄ 与 KI 反应同时认识 Cu(I) 沉淀生成和 I⁻ 的还原性”与实验操作、观察目标或结论一致。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "source_requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_04_Q011",
+        "source_review_id": "REV_CH4_EXP_20_1_04_Q011",
+        "source_question_index": 11,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《20-1-04 碘化亚铜的形成》实验中，CuSO₄ 溶液与 KI 溶液反应可生成白色 CuI 沉淀。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "该判断与实验原文的操作、现象或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-062b9ba9"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "cui_reagent"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00311_c770d017e2",
+            "textbook_prose_01055_5a225925ae"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 保留 original_question；已核对题干、选项/答案/解析、点位和源文，最终有效题证据充分。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00311_c770d017e2",
+            "textbook_prose_01055_5a225925ae"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [
+            "textbook_prose_01055_5a225925ae"
+          ],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-1-04 碘化亚铜的形成》实验中，CuSO₄ 溶液与 KI 溶液反应可生成白色 CuI 沉淀。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "该判断与实验原文的操作、现象或结论一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00311_c770d017e2",
+              "textbook_prose_01055_5a225925ae"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_04_Q012",
+        "source_review_id": "REV_CH4_EXP_20_1_04_Q012",
+        "source_question_index": 12,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《20-1-04 碘化亚铜的形成》实验中，该反应中 I⁻ 可被氧化为 I₂。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "该判断与实验原文的操作、现象或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-062b9ba9"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-90599e67"
+        ],
+        "coverage_tags": [
+          "cui_product"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00311_c770d017e2",
+            "textbook_prose_01055_5a225925ae"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 保留 original_question；已核对题干、选项/答案/解析、点位和源文，最终有效题证据充分。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00311_c770d017e2",
+            "textbook_prose_01055_5a225925ae"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [
+            "textbook_prose_01055_5a225925ae"
+          ],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-1-04 碘化亚铜的形成》实验中，该反应中 I⁻ 可被氧化为 I₂。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "该判断与实验原文的操作、现象或结论一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00311_c770d017e2",
+              "textbook_prose_01055_5a225925ae"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "multi_point_binding"
+          ]
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_04_Q013",
+        "source_review_id": "REV_CH4_EXP_20_1_04_Q013",
+        "source_question_index": 13,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《20-1-04 碘化亚铜的形成》实验中，CuI 难溶沉淀的形成有利于稳定 Cu(I)。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "该判断与实验原文的操作、现象或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-90599e67"
+        ],
+        "secondary_point_keys": [
+          "candidate-1-062b9ba9"
+        ],
+        "coverage_tags": [
+          "iodine_byproduct"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00311_c770d017e2",
+            "textbook_prose_01055_5a225925ae"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01036_551b4dc475"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 保留 original_question；已核对题干、选项/答案/解析、点位和源文，最终有效题证据充分。",
+          "supporting_theory_note": "依赖 CuSO₄ 与 I⁻ 反应生成 CuI 和 I₂、Cu(I) 难溶卤化物稳定性的理论。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00311_c770d017e2",
+            "textbook_prose_01055_5a225925ae"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01036_551b4dc475"
+          ],
+          "missing_canonical_ids": [
+            "textbook_prose_01055_5a225925ae"
+          ],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01036_551b4dc475"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-1-04 碘化亚铜的形成》实验中，CuI 难溶沉淀的形成有利于稳定 Cu(I)。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "该判断与实验原文的操作、现象或结论一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00311_c770d017e2",
+              "textbook_prose_01055_5a225925ae"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "multi_point_binding",
+            "source_requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_04_Q014",
+        "source_review_id": "REV_CH4_EXP_20_1_04_Q014",
+        "source_question_index": 14,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《20-1-04 碘化亚铜的形成》实验中，反应式 2Cu²⁺ + 4I⁻ = 2CuI(s) + I₂ 可描述该过程。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "该判断与实验原文的操作、现象或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-062b9ba9"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-90599e67"
+        ],
+        "coverage_tags": [
+          "copper_reduction_to_cu_i"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00311_c770d017e2",
+            "textbook_prose_01055_5a225925ae"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01036_551b4dc475"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 保留 original_question；已核对题干、选项/答案/解析、点位和源文，最终有效题证据充分。",
+          "supporting_theory_note": "依赖 CuSO₄ 与 I⁻ 反应生成 CuI 和 I₂、Cu(I) 难溶卤化物稳定性的理论。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00311_c770d017e2",
+            "textbook_prose_01055_5a225925ae"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01036_551b4dc475"
+          ],
+          "missing_canonical_ids": [
+            "textbook_prose_01055_5a225925ae"
+          ],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01036_551b4dc475"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-1-04 碘化亚铜的形成》实验中，反应式 2Cu²⁺ + 4I⁻ = 2CuI(s) + I₂ 可描述该过程。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "该判断与实验原文的操作、现象或结论一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00311_c770d017e2",
+              "textbook_prose_01055_5a225925ae"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "multi_point_binding",
+            "source_requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_04_Q015",
+        "source_review_id": "REV_CH4_EXP_20_1_04_Q015",
+        "source_question_index": 15,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《20-1-04 碘化亚铜的形成》实验中，淀粉溶液可用于辅助验证 I₂ 的存在。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "该判断与实验原文的操作、现象或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-062b9ba9"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-90599e67"
+        ],
+        "coverage_tags": [
+          "iodide_reducing_property"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00311_c770d017e2",
+            "textbook_prose_01055_5a225925ae"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01036_551b4dc475"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 保留 original_question；已核对题干、选项/答案/解析、点位和源文，最终有效题证据充分。",
+          "supporting_theory_note": "依赖 CuSO₄ 与 I⁻ 反应生成 CuI 和 I₂、Cu(I) 难溶卤化物稳定性的理论。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00311_c770d017e2",
+            "textbook_prose_01055_5a225925ae"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01036_551b4dc475"
+          ],
+          "missing_canonical_ids": [
+            "textbook_prose_01055_5a225925ae"
+          ],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01036_551b4dc475"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-1-04 碘化亚铜的形成》实验中，淀粉溶液可用于辅助验证 I₂ 的存在。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "该判断与实验原文的操作、现象或结论一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00311_c770d017e2",
+              "textbook_prose_01055_5a225925ae"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "multi_point_binding",
+            "source_requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_04_Q016",
+        "source_review_id": "REV_CH4_EXP_20_1_04_Q016",
+        "source_question_index": 16,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《20-1-04 碘化亚铜的形成》实验中，CuSO₄ 与 KI 反应的主要铜(I)沉淀是哪一项？",
+        "options": [
+          {
+            "label": "A",
+            "text": "Ni(dmg)₂"
+          },
+          {
+            "label": "B",
+            "text": "CuI"
+          },
+          {
+            "label": "C",
+            "text": "Fe(OH)₃"
+          },
+          {
+            "label": "D",
+            "text": "PbSO₄"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "本实验目标是形成碘化亚铜 CuI，并可验证副产物 I₂。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-062b9ba9"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-90599e67"
+        ],
+        "coverage_tags": [
+          "cui_precipitation_drives_reaction",
+          "semantic_final_rewrite"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": null,
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "“Ni(dmg)₂”是 Ni²⁺ 鉴定干扰项；若选它，是把镍检出反应误认为“CuSO₄ 与 KI 反应的主要铜(I)沉淀是哪一项？”的证据。"
+          },
+          {
+            "label": "B",
+            "text": null,
+            "point_key": "candidate-1-062b9ba9",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“CuI”直接支撑“CuSO₄ 与 KI 反应的主要铜(I)沉淀是哪一项？”；对应点位是“CuSO₄ + KI”。"
+          },
+          {
+            "label": "C",
+            "text": null,
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "“Fe(OH)₃”与正确项“CuI”同属相近化学概念，但在“CuSO₄ 与 KI 反应的主要铜(I)沉淀是哪一项？”中混淆了试剂、价态、产物或现象。"
+          },
+          {
+            "label": "D",
+            "text": null,
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "“PbSO₄”不能作为“CuSO₄ 与 KI 反应的主要铜(I)沉淀是哪一项？”的教材证据；它排除的是无关操作、条件或观察对象。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00311_c770d017e2",
+            "textbook_prose_01055_5a225925ae"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01036_551b4dc475"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final proposed_question 已核对 canonical 实验原文、点位和必要 theory；可机器确定性判分。",
+          "supporting_theory_note": "依赖 CuSO₄ 与 I⁻ 反应生成 CuI 和 I₂、Cu(I) 难溶卤化物稳定性的理论。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00311_c770d017e2",
+            "textbook_prose_01055_5a225925ae"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01036_551b4dc475"
+          ],
+          "missing_canonical_ids": [
+            "textbook_prose_01055_5a225925ae"
+          ],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01036_551b4dc475"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-1-04 碘化亚铜的形成》实验中，在 CuSO₄ 中加入 KI 的主要产物是 Ni(dmg)₂ 鲜红沉淀。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "该判断题答案为“错误”。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00311_c770d017e2",
+              "textbook_prose_01055_5a225925ae"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-1-04 碘化亚铜的形成》实验中，CuSO₄ 与 KI 反应的主要铜(I)沉淀是哪一项？",
+            "options": [
+              {
+                "label": "A",
+                "text": "Ni(dmg)₂"
+              },
+              {
+                "label": "B",
+                "text": "CuI"
+              },
+              {
+                "label": "C",
+                "text": "Fe(OH)₃"
+              },
+              {
+                "label": "D",
+                "text": "PbSO₄"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "本实验目标是形成碘化亚铜 CuI，并可验证副产物 I₂。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "multi_point_binding",
+            "source_requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_04_Q017",
+        "source_review_id": "REV_CH4_EXP_20_1_04_Q017",
+        "source_question_index": 17,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《20-1-04 碘化亚铜的形成》实验中，Cu²⁺ 在该反应中被氧化成 Cu(III)。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": false
+        },
+        "explanation": "该判断与实验原文的操作、现象或结论不一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-062b9ba9"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-90599e67"
+        ],
+        "coverage_tags": [
+          "cui_reaction_equation"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00311_c770d017e2",
+            "textbook_prose_01055_5a225925ae"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01036_551b4dc475"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 保留 original_question；已核对题干、选项/答案/解析、点位和源文，最终有效题证据充分。",
+          "supporting_theory_note": "依赖 CuSO₄ 与 I⁻ 反应生成 CuI 和 I₂、Cu(I) 难溶卤化物稳定性的理论。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00311_c770d017e2",
+            "textbook_prose_01055_5a225925ae"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01036_551b4dc475"
+          ],
+          "missing_canonical_ids": [
+            "textbook_prose_01055_5a225925ae"
+          ],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01036_551b4dc475"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-1-04 碘化亚铜的形成》实验中，Cu²⁺ 在该反应中被氧化成 Cu(III)。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "该判断与实验原文的操作、现象或结论不一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00311_c770d017e2",
+              "textbook_prose_01055_5a225925ae"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "multi_point_binding",
+            "source_requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_04_Q018",
+        "source_review_id": "REV_CH4_EXP_20_1_04_Q018",
+        "source_question_index": 18,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "true_false",
+        "stem": "在《20-1-04 碘化亚铜的形成》实验中，I⁻ 参与氧化还原并可被氧化为 I₂。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "CuSO₄ 与 KI 反应中 Cu(II) 被还原，I⁻ 被氧化为 I₂。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-90599e67"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "iodine_verification",
+          "semantic_final_rewrite"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00311_c770d017e2",
+            "textbook_prose_01055_5a225925ae"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final proposed_question 已核对 canonical 实验原文、点位和必要 theory；可机器确定性判分。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00311_c770d017e2",
+            "textbook_prose_01055_5a225925ae"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [
+            "textbook_prose_01055_5a225925ae"
+          ],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-1-04 碘化亚铜的形成》实验中，KI 在该反应中只提供旁观离子，完全不参与氧化还原。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "该判断题答案为“错误”。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00311_c770d017e2",
+              "textbook_prose_01055_5a225925ae"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "true_false",
+            "stem": "在《20-1-04 碘化亚铜的形成》实验中，I⁻ 参与氧化还原并可被氧化为 I₂。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "CuSO₄ 与 KI 反应中 Cu(II) 被还原，I⁻ 被氧化为 I₂。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_04_Q019",
+        "source_review_id": "REV_CH4_EXP_20_1_04_Q019",
+        "source_question_index": 19,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "true_false",
+        "stem": "在《20-1-04 碘化亚铜的形成》实验中，判断：CuI 的形成属于铜(I)化合物性质内容。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "该判断与实验原文的操作、现象或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-062b9ba9"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-90599e67"
+        ],
+        "coverage_tags": [
+          "cui_observation",
+          "semantic_final_rewrite"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00311_c770d017e2",
+            "textbook_prose_01055_5a225925ae"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01036_551b4dc475"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final proposed_question 已核对 canonical 实验原文、点位和必要 theory；可机器确定性判分。",
+          "supporting_theory_note": "依赖 CuSO₄ 与 I⁻ 反应生成 CuI 和 I₂、Cu(I) 难溶卤化物稳定性的理论。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00311_c770d017e2",
+            "textbook_prose_01055_5a225925ae"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01036_551b4dc475"
+          ],
+          "missing_canonical_ids": [
+            "textbook_prose_01055_5a225925ae"
+          ],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01036_551b4dc475"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-1-04 碘化亚铜的形成》实验中，认为：CuI 的形成属于铜(I)化合物性质内容，这一判断是不正确的。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "这一判断本身是正确的。该判断题答案为“错误”。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00311_c770d017e2",
+              "textbook_prose_01055_5a225925ae"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "true_false",
+            "stem": "在《20-1-04 碘化亚铜的形成》实验中，判断：CuI 的形成属于铜(I)化合物性质内容。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "该判断与实验原文的操作、现象或结论一致。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "multi_point_binding",
+            "source_requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_04_Q020",
+        "source_review_id": "REV_CH4_EXP_20_1_04_Q020",
+        "source_question_index": 20,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《20-1-04 碘化亚铜的形成》实验中，最符合教材原文的操作核心是哪一项？",
+        "options": [
+          {
+            "label": "A",
+            "text": "用钥匙遮挡滤纸后光照"
+          },
+          {
+            "label": "B",
+            "text": "CuSO₄ 溶液与 KI 溶液反应并验证 CuI/副产物"
+          },
+          {
+            "label": "C",
+            "text": "TiOSO₄ 与 H₂O₂ 显色"
+          },
+          {
+            "label": "D",
+            "text": "CoCl₂ 与 KSCN 萃取"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "教材原文要求 CuSO₄ 与 KI 反应并验证生成 CuI 及副产物。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-062b9ba9"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "cu_i_compound_module",
+          "semantic_final_rewrite"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": null,
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "“用钥匙遮挡滤纸后光照”来自银盐感光或遮光演示思路；选择它会把光化学情境误套到“最符合教材原文的操作核心是哪一项？”。"
+          },
+          {
+            "label": "B",
+            "text": null,
+            "point_key": "candidate-1-062b9ba9",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“CuSO₄ 溶液与 KI 溶液反应并验证 CuI/副产物”直接支撑“最符合教材原文的操作核心是哪一项？”；对应点位是“CuSO₄ + KI”。"
+          },
+          {
+            "label": "C",
+            "text": null,
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "“TiOSO₄ 与 H₂O₂ 显色”不能作为“最符合教材原文的操作核心是哪一项？”的教材证据；它排除的是无关操作、条件或观察对象。"
+          },
+          {
+            "label": "D",
+            "text": null,
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "“CoCl₂ 与 KSCN 萃取”与正确项“CuSO₄ 溶液与 KI 溶液反应并验证 CuI/副产物”同属相近化学概念，但在“最符合教材原文的操作核心是哪一项？”中混淆了试剂、价态、产物或现象。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00311_c770d017e2",
+            "textbook_prose_01055_5a225925ae"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01036_551b4dc475"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final proposed_question 已核对 canonical 实验原文、点位和必要 theory；可机器确定性判分。",
+          "supporting_theory_note": "依赖 CuSO₄ 与 I⁻ 反应生成 CuI 和 I₂、Cu(I) 难溶卤化物稳定性的理论。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00311_c770d017e2",
+            "textbook_prose_01055_5a225925ae"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01036_551b4dc475"
+          ],
+          "missing_canonical_ids": [
+            "textbook_prose_01055_5a225925ae"
+          ],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01036_551b4dc475"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-1-04 碘化亚铜的形成》实验中，该实验要求用钥匙遮挡滤纸后光照。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "该判断题答案为“错误”。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00311_c770d017e2",
+              "textbook_prose_01055_5a225925ae"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-1-04 碘化亚铜的形成》实验中，最符合教材原文的操作核心是哪一项？",
+            "options": [
+              {
+                "label": "A",
+                "text": "用钥匙遮挡滤纸后光照"
+              },
+              {
+                "label": "B",
+                "text": "CuSO₄ 溶液与 KI 溶液反应并验证 CuI/副产物"
+              },
+              {
+                "label": "C",
+                "text": "TiOSO₄ 与 H₂O₂ 显色"
+              },
+              {
+                "label": "D",
+                "text": "CoCl₂ 与 KSCN 萃取"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "教材原文要求 CuSO₄ 与 KI 反应并验证生成 CuI 及副产物。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "source_requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_04_Q021",
+        "source_review_id": "REV_CH4_EXP_20_1_04_Q021",
+        "source_question_index": 21,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "fill_blank",
+        "stem": "在《20-1-04 碘化亚铜的形成》实验中，形成 CuI 时向 CuSO₄ 溶液中加入____（填中文名称）溶液。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "碘化钾"
+          ],
+          "match": "normalized_exact",
+          "grading_mode": "normalized_exact",
+          "machine_deterministic": true
+        },
+        "explanation": "对应的实验操作或现象内容是“碘化钾”。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-062b9ba9"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "cui_reagent",
+          "polished_mobile_fill"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00311_c770d017e2",
+            "textbook_prose_01055_5a225925ae"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final proposed_question 已核对 canonical 实验原文、点位和必要 theory；可机器确定性判分。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00311_c770d017e2",
+            "textbook_prose_01055_5a225925ae"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [
+            "textbook_prose_01055_5a225925ae"
+          ],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "generic_or_answer_shell_explanation",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-1-04 碘化亚铜的形成》实验中，形成 CuI 时向 CuSO₄ 溶液中加入____溶液。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "KI",
+                "碘化钾"
+              ],
+              "match": "normalized_exact",
+              "grading_mode": "normalized_exact",
+              "machine_deterministic": true
+            },
+            "explanation": "参考答案：KI。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00311_c770d017e2",
+              "textbook_prose_01055_5a225925ae"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-1-04 碘化亚铜的形成》实验中，形成 CuI 时向 CuSO₄ 溶液中加入____（填中文名称）溶液。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "碘化钾"
+              ],
+              "match": "normalized_exact",
+              "grading_mode": "normalized_exact",
+              "machine_deterministic": true
+            },
+            "explanation": "对应的实验操作或现象内容是“碘化钾”。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_04_Q022",
+        "source_review_id": "REV_CH4_EXP_20_1_04_Q022",
+        "source_question_index": 22,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "fill_blank",
+        "stem": "在《20-1-04 碘化亚铜的形成》实验中，CuSO₄ 与 KI 反应生成的铜(I)沉淀为____（填中文名称）。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "碘化亚铜"
+          ],
+          "match": "normalized_exact",
+          "grading_mode": "normalized_exact",
+          "machine_deterministic": true
+        },
+        "explanation": "对应的实验操作或现象内容是“碘化亚铜”。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-062b9ba9"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-90599e67"
+        ],
+        "coverage_tags": [
+          "cui_product",
+          "polished_mobile_fill"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00311_c770d017e2",
+            "textbook_prose_01055_5a225925ae"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final proposed_question 已核对 canonical 实验原文、点位和必要 theory；可机器确定性判分。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00311_c770d017e2",
+            "textbook_prose_01055_5a225925ae"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [
+            "textbook_prose_01055_5a225925ae"
+          ],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "generic_or_answer_shell_explanation",
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-1-04 碘化亚铜的形成》实验中，CuSO₄ 与 KI 反应生成的铜(I)沉淀为____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "CuI",
+                "碘化亚铜"
+              ],
+              "match": "normalized_exact",
+              "grading_mode": "normalized_exact",
+              "machine_deterministic": true
+            },
+            "explanation": "参考答案：CuI。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00311_c770d017e2",
+              "textbook_prose_01055_5a225925ae"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-1-04 碘化亚铜的形成》实验中，CuSO₄ 与 KI 反应生成的铜(I)沉淀为____（填中文名称）。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "碘化亚铜"
+              ],
+              "match": "normalized_exact",
+              "grading_mode": "normalized_exact",
+              "machine_deterministic": true
+            },
+            "explanation": "对应的实验操作或现象内容是“碘化亚铜”。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "multi_point_binding"
+          ]
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_04_Q023",
+        "source_review_id": "REV_CH4_EXP_20_1_04_Q023",
+        "source_question_index": 23,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "fill_blank",
+        "stem": "在《20-1-04 碘化亚铜的形成》实验中，CuSO₄ 与 KI 反应除 CuI 外还可生成____（填中文名称）。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "碘"
+          ],
+          "match": "normalized_exact",
+          "grading_mode": "normalized_exact",
+          "machine_deterministic": true
+        },
+        "explanation": "对应的实验操作或现象内容是“碘”。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-90599e67"
+        ],
+        "secondary_point_keys": [
+          "candidate-1-062b9ba9"
+        ],
+        "coverage_tags": [
+          "iodine_byproduct",
+          "polished_mobile_fill"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00311_c770d017e2",
+            "textbook_prose_01055_5a225925ae"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final proposed_question 已核对 canonical 实验原文、点位和必要 theory；可机器确定性判分。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00311_c770d017e2",
+            "textbook_prose_01055_5a225925ae"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [
+            "textbook_prose_01055_5a225925ae"
+          ],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "generic_or_answer_shell_explanation",
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-1-04 碘化亚铜的形成》实验中，CuSO₄ 与 KI 反应除 CuI 外还可生成____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "I₂",
+                "碘"
+              ],
+              "match": "normalized_exact",
+              "grading_mode": "normalized_exact",
+              "machine_deterministic": true
+            },
+            "explanation": "参考答案：I₂。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00311_c770d017e2",
+              "textbook_prose_01055_5a225925ae"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-1-04 碘化亚铜的形成》实验中，CuSO₄ 与 KI 反应除 CuI 外还可生成____（填中文名称）。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "碘"
+              ],
+              "match": "normalized_exact",
+              "grading_mode": "normalized_exact",
+              "machine_deterministic": true
+            },
+            "explanation": "对应的实验操作或现象内容是“碘”。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "multi_point_binding"
+          ]
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_04_Q024",
+        "source_review_id": "REV_CH4_EXP_20_1_04_Q024",
+        "source_question_index": 24,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "fill_blank",
+        "stem": "在《20-1-04 碘化亚铜的形成》实验中，该反应中 Cu²⁺ 被还原为____（填中文名称）。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "一价铜"
+          ],
+          "match": "normalized_exact",
+          "grading_mode": "normalized_exact",
+          "machine_deterministic": true
+        },
+        "explanation": "对应的实验操作或现象内容是“一价铜”。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-062b9ba9"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-90599e67"
+        ],
+        "coverage_tags": [
+          "copper_reduction_to_cu_i",
+          "polished_mobile_fill"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00311_c770d017e2",
+            "textbook_prose_01055_5a225925ae"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01036_551b4dc475"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final proposed_question 已核对 canonical 实验原文、点位和必要 theory；可机器确定性判分。",
+          "supporting_theory_note": "依赖 CuSO₄ 与 I⁻ 反应生成 CuI 和 I₂、Cu(I) 难溶卤化物稳定性的理论。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00311_c770d017e2",
+            "textbook_prose_01055_5a225925ae"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01036_551b4dc475"
+          ],
+          "missing_canonical_ids": [
+            "textbook_prose_01055_5a225925ae"
+          ],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01036_551b4dc475"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "generic_or_answer_shell_explanation",
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-1-04 碘化亚铜的形成》实验中，该反应中 Cu²⁺ 被还原为____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "Cu(I)",
+                "Cu⁺",
+                "一价铜"
+              ],
+              "match": "normalized_exact",
+              "grading_mode": "normalized_exact",
+              "machine_deterministic": true
+            },
+            "explanation": "参考答案：Cu(I)。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00311_c770d017e2",
+              "textbook_prose_01055_5a225925ae"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-1-04 碘化亚铜的形成》实验中，该反应中 Cu²⁺ 被还原为____（填中文名称）。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "一价铜"
+              ],
+              "match": "normalized_exact",
+              "grading_mode": "normalized_exact",
+              "machine_deterministic": true
+            },
+            "explanation": "对应的实验操作或现象内容是“一价铜”。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "multi_point_binding",
+            "source_requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_04_Q025",
+        "source_review_id": "REV_CH4_EXP_20_1_04_Q025",
+        "source_question_index": 25,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《20-1-04 碘化亚铜的形成》实验中，该反应中 I⁻ 表现____。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "还原性"
+          ],
+          "match": "normalized_exact",
+          "grading_mode": "normalized_exact",
+          "machine_deterministic": true
+        },
+        "explanation": "参考答案：还原性。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-062b9ba9"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-90599e67"
+        ],
+        "coverage_tags": [
+          "iodide_reducing_property"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00311_c770d017e2",
+            "textbook_prose_01055_5a225925ae"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01036_551b4dc475"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 保留 original_question；已核对题干、选项/答案/解析、点位和源文，最终有效题证据充分。",
+          "supporting_theory_note": "依赖 CuSO₄ 与 I⁻ 反应生成 CuI 和 I₂、Cu(I) 难溶卤化物稳定性的理论。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00311_c770d017e2",
+            "textbook_prose_01055_5a225925ae"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01036_551b4dc475"
+          ],
+          "missing_canonical_ids": [
+            "textbook_prose_01055_5a225925ae"
+          ],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01036_551b4dc475"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "generic_or_answer_shell_explanation",
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-1-04 碘化亚铜的形成》实验中，该反应中 I⁻ 表现____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "还原性"
+              ],
+              "match": "normalized_exact",
+              "grading_mode": "normalized_exact",
+              "machine_deterministic": true
+            },
+            "explanation": "参考答案：还原性。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00311_c770d017e2",
+              "textbook_prose_01055_5a225925ae"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "multi_point_binding",
+            "source_requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_04_Q026",
+        "source_review_id": "REV_CH4_EXP_20_1_04_Q026",
+        "source_question_index": 26,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《20-1-04 碘化亚铜的形成》实验中，CuI 的____生成能降低 Cu⁺ 浓度。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "难溶沉淀",
+            "沉淀"
+          ],
+          "match": "normalized_exact",
+          "grading_mode": "normalized_exact",
+          "machine_deterministic": true
+        },
+        "explanation": "参考答案：难溶沉淀。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-062b9ba9"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-90599e67"
+        ],
+        "coverage_tags": [
+          "cui_precipitation_drives_reaction"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00311_c770d017e2",
+            "textbook_prose_01055_5a225925ae"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 保留 original_question；已核对题干、选项/答案/解析、点位和源文，最终有效题证据充分。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00311_c770d017e2",
+            "textbook_prose_01055_5a225925ae"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [
+            "textbook_prose_01055_5a225925ae"
+          ],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "generic_or_answer_shell_explanation",
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-1-04 碘化亚铜的形成》实验中，CuI 的____生成能降低 Cu⁺ 浓度。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "难溶沉淀",
+                "沉淀"
+              ],
+              "match": "normalized_exact",
+              "grading_mode": "normalized_exact",
+              "machine_deterministic": true
+            },
+            "explanation": "参考答案：难溶沉淀。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00311_c770d017e2",
+              "textbook_prose_01055_5a225925ae"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "multi_point_binding"
+          ]
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_04_Q027",
+        "source_review_id": "REV_CH4_EXP_20_1_04_Q027",
+        "source_question_index": 27,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "fill_blank",
+        "stem": "在《20-1-04 碘化亚铜的形成》实验中，该反应中 2Cu²⁺ 与 4I⁻ 生成 2CuI 和____（填中文名称）。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "碘"
+          ],
+          "match": "normalized_exact",
+          "grading_mode": "normalized_exact",
+          "machine_deterministic": true
+        },
+        "explanation": "对应的实验操作或现象内容是“碘”。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-062b9ba9"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-90599e67"
+        ],
+        "coverage_tags": [
+          "cui_reaction_equation",
+          "polished_mobile_fill"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00311_c770d017e2",
+            "textbook_prose_01055_5a225925ae"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01036_551b4dc475"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final proposed_question 已核对 canonical 实验原文、点位和必要 theory；可机器确定性判分。",
+          "supporting_theory_note": "依赖 CuSO₄ 与 I⁻ 反应生成 CuI 和 I₂、Cu(I) 难溶卤化物稳定性的理论。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00311_c770d017e2",
+            "textbook_prose_01055_5a225925ae"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01036_551b4dc475"
+          ],
+          "missing_canonical_ids": [
+            "textbook_prose_01055_5a225925ae"
+          ],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01036_551b4dc475"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "generic_or_answer_shell_explanation",
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-1-04 碘化亚铜的形成》实验中，该反应中 2Cu²⁺ 与 4I⁻ 生成 2CuI 和____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "I₂",
+                "碘"
+              ],
+              "match": "normalized_exact",
+              "grading_mode": "normalized_exact",
+              "machine_deterministic": true
+            },
+            "explanation": "参考答案：I₂。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00311_c770d017e2",
+              "textbook_prose_01055_5a225925ae"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-1-04 碘化亚铜的形成》实验中，该反应中 2Cu²⁺ 与 4I⁻ 生成 2CuI 和____（填中文名称）。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "碘"
+              ],
+              "match": "normalized_exact",
+              "grading_mode": "normalized_exact",
+              "machine_deterministic": true
+            },
+            "explanation": "对应的实验操作或现象内容是“碘”。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "multi_point_binding",
+            "source_requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_04_Q028",
+        "source_review_id": "REV_CH4_EXP_20_1_04_Q028",
+        "source_question_index": 28,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《20-1-04 碘化亚铜的形成》实验中，验证 I₂ 可加入____溶液观察蓝色。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "淀粉",
+            "淀粉溶液"
+          ],
+          "match": "normalized_exact",
+          "grading_mode": "normalized_exact",
+          "machine_deterministic": true
+        },
+        "explanation": "参考答案：淀粉。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-90599e67"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "iodine_verification"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00311_c770d017e2",
+            "textbook_prose_01055_5a225925ae"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 保留 original_question；已核对题干、选项/答案/解析、点位和源文，最终有效题证据充分。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00311_c770d017e2",
+            "textbook_prose_01055_5a225925ae"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [
+            "textbook_prose_01055_5a225925ae"
+          ],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "generic_or_answer_shell_explanation",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-1-04 碘化亚铜的形成》实验中，验证 I₂ 可加入____溶液观察蓝色。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "淀粉",
+                "淀粉溶液"
+              ],
+              "match": "normalized_exact",
+              "grading_mode": "normalized_exact",
+              "machine_deterministic": true
+            },
+            "explanation": "参考答案：淀粉。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00311_c770d017e2",
+              "textbook_prose_01055_5a225925ae"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_04_Q029",
+        "source_review_id": "REV_CH4_EXP_20_1_04_Q029",
+        "source_question_index": 29,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《20-1-04 碘化亚铜的形成》实验中，CuI 沉淀通常为____。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "白色"
+          ],
+          "match": "normalized_exact",
+          "grading_mode": "normalized_exact",
+          "machine_deterministic": true
+        },
+        "explanation": "参考答案：白色。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-062b9ba9"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-90599e67"
+        ],
+        "coverage_tags": [
+          "cui_observation"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00311_c770d017e2",
+            "textbook_prose_01055_5a225925ae"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 保留 original_question；已核对题干、选项/答案/解析、点位和源文，最终有效题证据充分。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00311_c770d017e2",
+            "textbook_prose_01055_5a225925ae"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [
+            "textbook_prose_01055_5a225925ae"
+          ],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "generic_or_answer_shell_explanation",
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-1-04 碘化亚铜的形成》实验中，CuI 沉淀通常为____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "白色"
+              ],
+              "match": "normalized_exact",
+              "grading_mode": "normalized_exact",
+              "machine_deterministic": true
+            },
+            "explanation": "参考答案：白色。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00311_c770d017e2",
+              "textbook_prose_01055_5a225925ae"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "multi_point_binding"
+          ]
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_04_Q030",
+        "source_review_id": "REV_CH4_EXP_20_1_04_Q030",
+        "source_question_index": 30,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《20-1-04 碘化亚铜的形成》实验中，本实验内容是____的形成。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "碘化亚铜",
+            "CuI"
+          ],
+          "match": "normalized_exact",
+          "grading_mode": "normalized_exact",
+          "machine_deterministic": true
+        },
+        "explanation": "参考答案：碘化亚铜。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-062b9ba9"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "cu_i_compound_module"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00311_c770d017e2",
+            "textbook_prose_01055_5a225925ae"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 保留 original_question；已核对题干、选项/答案/解析、点位和源文，最终有效题证据充分。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00311_c770d017e2",
+            "textbook_prose_01055_5a225925ae"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [
+            "textbook_prose_01055_5a225925ae"
+          ],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "formula_or_symbolic_fill_blank_answer",
+          "generic_or_answer_shell_explanation",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-1-04 碘化亚铜的形成》实验中，本实验内容是____的形成。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "碘化亚铜",
+                "CuI"
+              ],
+              "match": "normalized_exact",
+              "grading_mode": "normalized_exact",
+              "machine_deterministic": true
+            },
+            "explanation": "参考答案：碘化亚铜。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00311_c770d017e2",
+              "textbook_prose_01055_5a225925ae"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      }
+    ]
+  }
+}

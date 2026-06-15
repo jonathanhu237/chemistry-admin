@@ -1,0 +1,4241 @@
+{
+  "metadata": {
+    "version": "chunk-2-release-slim-v1",
+    "artifact_type": "slim_question_bank_work_file",
+    "generated_at": "2026-06-15T03:27:58.719338+00:00",
+    "source_file": "E:\\chemistry-admin\\artifacts\\point-aware-question-bank\\reviewed_old_bank_chunks\\chunk_2_release_final_v1.json",
+    "normalization_rule": "effective question plus minimal lineage, evidence IDs, point bindings, option links, evidence locators, and mechanical risk flags",
+    "evidence_policy": "RAG source text is not embedded; packets carry locators and reviewers must read E:/chemistry-rag/data/rag_ready directly",
+    "chunk_id_policy": "inherited chunk ids are untrusted locator candidates until manually compared with RAG text",
+    "semantic_status": "not_semantically_repaired_by_this_script",
+    "packet_type": "single_experiment_semantic_repair_work_packet",
+    "chunk": 2,
+    "experiment_code": "19-3-04",
+    "question_count": 30
+  },
+  "experiment": {
+    "experiment_id": "EXP_19_3_04",
+    "experiment_code": "19-3-04",
+    "experiment_title": "性质",
+    "chapter_bindings": [
+      {
+        "chapter_id": "CH14",
+        "coverage_type": "primary",
+        "sort_order": 1
+      }
+    ],
+    "video_points": [
+      {
+        "point_key": "candidate-1-122909e7",
+        "point_title": "Na₂S₂O₃ + HCl",
+        "source": "formal_experiment.video_candidates",
+        "candidate_index": 1,
+        "resource_count": 0,
+        "published_count": 0,
+        "resource_titles": []
+      },
+      {
+        "point_key": "candidate-2-982bdc6e",
+        "point_title": "Na₂S₂O₃ + 碘水",
+        "source": "formal_experiment.video_candidates",
+        "candidate_index": 2,
+        "resource_count": 0,
+        "published_count": 0,
+        "resource_titles": []
+      },
+      {
+        "point_key": "candidate-3-387fff62",
+        "point_title": "Na₂S₂O₃ 反应后溶液中 SO₄²⁻ 的验证实验",
+        "source": "formal_experiment.video_candidates",
+        "candidate_index": 3,
+        "resource_count": 0,
+        "published_count": 0,
+        "resource_titles": []
+      },
+      {
+        "point_key": "candidate-4-5013d52a",
+        "point_title": "Na₂S₂O₃ + AgNO₃，观察沉淀生成、颜色变化及配位溶解",
+        "source": "formal_experiment.video_candidates",
+        "candidate_index": 4,
+        "resource_count": 0,
+        "published_count": 0,
+        "resource_titles": []
+      }
+    ],
+    "canonical_chunk_ids": [
+      "expchunk_00229_23988fd5d4",
+      "expchunk_00230_5e24188739"
+    ],
+    "evidence_lookup": {
+      "policy": "locator_only; canonical RAG text is not embedded in this packet",
+      "chunk_id_policy": "metadata chunk ids are inherited claims, not trusted evidence; reviewers must compare the RAG text against the question stem/options/answer/explanation and replace or remove wrong ids",
+      "primary_source_dir": "E:\\chemistry-rag\\data\\rag_ready",
+      "source_files": {
+        "experiment_chunks": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+        "supporting_theory_chunks": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl"
+      },
+      "search_hints": {
+        "experiment_code": "19-3-04",
+        "parent_experiment_code": "19-3",
+        "experiment_title": "性质",
+        "video_point_titles": [
+          "Na₂S₂O₃ + HCl",
+          "Na₂S₂O₃ + 碘水",
+          "Na₂S₂O₃ 反应后溶液中 SO₄²⁻ 的验证实验",
+          "Na₂S₂O₃ + AgNO₃，观察沉淀生成、颜色变化及配位溶解"
+        ],
+        "canonical_chunk_ids_from_metadata": [
+          "expchunk_00229_23988fd5d4",
+          "expchunk_00230_5e24188739"
+        ],
+        "supporting_theory_chunk_ids_from_metadata": [
+          "textbook_prose_00391_2e025ffdda",
+          "textbook_prose_00392_f9643d7706",
+          "textbook_prose_00393_2db98879c2",
+          "textbook_prose_00394_04911a6294",
+          "textbook_prose_00395_7ea078c59f"
+        ],
+        "suggested_search_patterns": [
+          "19-3-04",
+          "19-3",
+          "性质",
+          "Na₂S₂O₃ + HCl",
+          "Na₂S₂O₃ + 碘水",
+          "Na₂S₂O₃ 反应后溶液中 SO₄²⁻ 的验证实验",
+          "Na₂S₂O₃ + AgNO₃，观察沉淀生成、颜色变化及配位溶解",
+          "expchunk_00229_23988fd5d4",
+          "expchunk_00230_5e24188739",
+          "textbook_prose_00391_2e025ffdda",
+          "textbook_prose_00392_f9643d7706",
+          "textbook_prose_00393_2db98879c2",
+          "textbook_prose_00394_04911a6294",
+          "textbook_prose_00395_7ea078c59f"
+        ]
+      },
+      "rag_exact_id_presence": {
+        "meaning": "id presence only; this does not validate semantic relevance",
+        "found_ids": [
+          "expchunk_00229_23988fd5d4",
+          "expchunk_00230_5e24188739",
+          "textbook_prose_00391_2e025ffdda",
+          "textbook_prose_00392_f9643d7706",
+          "textbook_prose_00393_2db98879c2",
+          "textbook_prose_00394_04911a6294",
+          "textbook_prose_00395_7ea078c59f"
+        ],
+        "missing_ids": [],
+        "found_locator_summaries": [
+          {
+            "chunk_id": "expchunk_00229_23988fd5d4",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+            "line_number": 242,
+            "source_collection": "textbook_experiment_clean_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学实验（第四版）",
+            "page_start": 145,
+            "page_end": 145,
+            "section_path": [
+              "第7章 元素性质实验",
+              "实验 19-3 硫及其化合物",
+              "（四）实验内容",
+              "3. 硫代硫酸钠的制备与性质"
+            ],
+            "content_type": "property_test",
+            "knowledge_unit": "property_test",
+            "parent_id": "expchunk_protocol_81411c02b5a6",
+            "prev_chunk_id": "expchunk_00228_5e99fe31b9",
+            "next_chunk_id": "expchunk_00230_5e24188739",
+            "relations": {
+              "section_id": "expsec_2be5eb49b6e8e307",
+              "experiment_id": "experiment:实验_19-3_硫及其化合物",
+              "page_anchor": "page_145",
+              "parent": "expchunk_protocol_81411c02b5a6"
+            }
+          },
+          {
+            "chunk_id": "expchunk_00230_5e24188739",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+            "line_number": 243,
+            "source_collection": "textbook_experiment_clean_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学实验（第四版）",
+            "page_start": 146,
+            "page_end": 146,
+            "section_path": [
+              "第7章 元素性质实验",
+              "实验 19-3 硫及其化合物",
+              "（四）实验内容",
+              "3. 硫代硫酸钠的制备与性质"
+            ],
+            "content_type": "property_test",
+            "knowledge_unit": "property_test",
+            "parent_id": "expchunk_protocol_81411c02b5a6",
+            "prev_chunk_id": "expchunk_00229_23988fd5d4",
+            "next_chunk_id": "expchunk_00231_3725c0805d",
+            "relations": {
+              "section_id": "expsec_dd9b0b62cb1425b7",
+              "experiment_id": "experiment:实验_19-3_硫及其化合物",
+              "page_anchor": "page_146",
+              "parent": "expchunk_protocol_81411c02b5a6"
+            }
+          },
+          {
+            "chunk_id": "textbook_prose_00391_2e025ffdda",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+            "line_number": 654,
+            "source_collection": "textbook_inorganic_lower_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学（下册）（第二版）",
+            "page_start": 72,
+            "page_end": 72,
+            "section_path": [
+              "第 14 章 氧族元素",
+              "14.4 硫单质及化合物",
+              "14.4.4 硫的氧化物、含氧酸及其盐",
+              "4) 硫代硫酸及其盐"
+            ],
+            "content_type": "reaction",
+            "knowledge_unit": "reaction",
+            "parent_id": "section:7f8d161286da",
+            "prev_chunk_id": "textbook_prose_00390_e7e1864ff2",
+            "next_chunk_id": "textbook_prose_00392_f9643d7706",
+            "relations": {
+              "parent": "section:7f8d161286da",
+              "source_route": "clean_pages",
+              "prev": "textbook_prose_00390_e7e1864ff2",
+              "next": "textbook_prose_00392_f9643d7706"
+            }
+          },
+          {
+            "chunk_id": "textbook_prose_00392_f9643d7706",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+            "line_number": 655,
+            "source_collection": "textbook_inorganic_lower_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学（下册）（第二版）",
+            "page_start": 72,
+            "page_end": 72,
+            "section_path": [
+              "第 14 章 氧族元素",
+              "14.4 硫单质及化合物",
+              "14.4.4 硫的氧化物、含氧酸及其盐",
+              "4) 硫代硫酸及其盐"
+            ],
+            "content_type": "reaction",
+            "knowledge_unit": "reaction",
+            "parent_id": "section:7f8d161286da",
+            "prev_chunk_id": "textbook_prose_00391_2e025ffdda",
+            "next_chunk_id": "textbook_prose_00393_2db98879c2",
+            "relations": {
+              "parent": "section:7f8d161286da",
+              "source_route": "clean_pages",
+              "prev": "textbook_prose_00391_2e025ffdda",
+              "next": "textbook_prose_00393_2db98879c2"
+            }
+          },
+          {
+            "chunk_id": "textbook_prose_00393_2db98879c2",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+            "line_number": 656,
+            "source_collection": "textbook_inorganic_lower_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学（下册）（第二版）",
+            "page_start": 72,
+            "page_end": 72,
+            "section_path": [
+              "第 14 章 氧族元素",
+              "14.4 硫单质及化合物",
+              "14.4.4 硫的氧化物、含氧酸及其盐",
+              "4) 硫代硫酸及其盐"
+            ],
+            "content_type": "reaction",
+            "knowledge_unit": "reaction",
+            "parent_id": "section:7f8d161286da",
+            "prev_chunk_id": "textbook_prose_00392_f9643d7706",
+            "next_chunk_id": "textbook_prose_00394_04911a6294",
+            "relations": {
+              "parent": "section:7f8d161286da",
+              "source_route": "clean_pages",
+              "prev": "textbook_prose_00392_f9643d7706",
+              "next": "textbook_prose_00394_04911a6294"
+            }
+          },
+          {
+            "chunk_id": "textbook_prose_00394_04911a6294",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+            "line_number": 657,
+            "source_collection": "textbook_inorganic_lower_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学（下册）（第二版）",
+            "page_start": 72,
+            "page_end": 72,
+            "section_path": [
+              "第 14 章 氧族元素",
+              "14.4 硫单质及化合物",
+              "14.4.4 硫的氧化物、含氧酸及其盐",
+              "4) 硫代硫酸及其盐"
+            ],
+            "content_type": "reaction",
+            "knowledge_unit": "reaction",
+            "parent_id": "section:7f8d161286da",
+            "prev_chunk_id": "textbook_prose_00393_2db98879c2",
+            "next_chunk_id": "textbook_prose_00395_7ea078c59f",
+            "relations": {
+              "parent": "section:7f8d161286da",
+              "source_route": "clean_pages",
+              "prev": "textbook_prose_00393_2db98879c2",
+              "next": "textbook_prose_00395_7ea078c59f"
+            }
+          },
+          {
+            "chunk_id": "textbook_prose_00395_7ea078c59f",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+            "line_number": 658,
+            "source_collection": "textbook_inorganic_lower_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学（下册）（第二版）",
+            "page_start": 72,
+            "page_end": 72,
+            "section_path": [
+              "第 14 章 氧族元素",
+              "14.4 硫单质及化合物",
+              "14.4.4 硫的氧化物、含氧酸及其盐",
+              "4) 硫代硫酸及其盐"
+            ],
+            "content_type": "reaction",
+            "knowledge_unit": "reaction",
+            "parent_id": "section:7f8d161286da",
+            "prev_chunk_id": "textbook_prose_00394_04911a6294",
+            "next_chunk_id": null,
+            "relations": {
+              "parent": "section:7f8d161286da",
+              "source_route": "clean_pages",
+              "prev": "textbook_prose_00394_04911a6294",
+              "next": null
+            }
+          }
+        ]
+      },
+      "legacy_locator_summaries": [
+        {
+          "chunk_id": "expchunk_00229_23988fd5d4",
+          "source_file": "无机化学实验（第四版）",
+          "book_title": "无机化学实验（第四版）",
+          "document_id": "DOC_CANONICAL_EXPERIMENT_V1",
+          "source_collection": "textbook_experiment_clean_v1",
+          "source_role": "canonical_textbook",
+          "content_type": "property_test",
+          "chapter_id": null,
+          "page_number": 145,
+          "section_title": "实验 19-3 硫及其化合物 / （四）实验内容 / 3. 硫代硫酸钠的制备与性质",
+          "section_path": [
+            "第7章 元素性质实验",
+            "实验 19-3 硫及其化合物",
+            "（四）实验内容",
+            "3. 硫代硫酸钠的制备与性质"
+          ]
+        },
+        {
+          "chunk_id": "expchunk_00230_5e24188739",
+          "source_file": "无机化学实验（第四版）",
+          "book_title": "无机化学实验（第四版）",
+          "document_id": "DOC_CANONICAL_EXPERIMENT_V1",
+          "source_collection": "textbook_experiment_clean_v1",
+          "source_role": "canonical_textbook",
+          "content_type": "property_test",
+          "chapter_id": null,
+          "page_number": 146,
+          "section_title": "实验 19-3 硫及其化合物 / （四）实验内容 / 3. 硫代硫酸钠的制备与性质",
+          "section_path": [
+            "第7章 元素性质实验",
+            "实验 19-3 硫及其化合物",
+            "（四）实验内容",
+            "3. 硫代硫酸钠的制备与性质"
+          ]
+        }
+      ],
+      "legacy_missing_ids": [
+        "textbook_prose_00391_2e025ffdda",
+        "textbook_prose_00392_f9643d7706",
+        "textbook_prose_00393_2db98879c2",
+        "textbook_prose_00394_04911a6294",
+        "textbook_prose_00395_7ea078c59f"
+      ]
+    },
+    "questions": [
+      {
+        "question_id": "EXP_19_3_04_SEMANTIC_FINAL_001",
+        "source_review_id": "EXP_19_3_04_SEMANTIC_FINAL_001",
+        "source_question_index": 1,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-3-04 性质》实验中，向 Na₂S₂O₃ 溶液中滴加 HCl 后，最合理的观察重点是哪一项？",
+        "options": [
+          {
+            "label": "A",
+            "text": "溶液变浑浊并可能有刺激性气体生成"
+          },
+          {
+            "label": "B",
+            "text": "立即生成银镜"
+          },
+          {
+            "label": "C",
+            "text": "出现蓝紫色配合物"
+          },
+          {
+            "label": "D",
+            "text": "产生红色镍沉淀"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "硫代硫酸盐遇酸不稳定，可析出硫并产生 SO₂。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-122909e7"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "19_3_04_point_1"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "溶液变浑浊并可能有刺激性气体生成",
+            "point_key": "candidate-1-122909e7",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“溶液变浑浊并可能有刺激性气体生成”直接支撑题干所问：在《19-3-04 性质》实验中，向 Na₂S₂O₃ 溶液中滴加 HCl 后，最合理的观察重点是哪一项？；对应点位为“Na₂S₂O₃ + HCl”。"
+          },
+          {
+            "label": "B",
+            "text": "立即生成银镜",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“立即生成银镜”与本题焦点“在《19-3-04 性质》实验中，向 Na₂S₂O₃ 溶液中滴加 HCl 后，最合理的观察重点是哪一项？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“立即生成银镜”。"
+          },
+          {
+            "label": "C",
+            "text": "出现蓝紫色配合物",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“出现蓝紫色配合物”与本题焦点“在《19-3-04 性质》实验中，向 Na₂S₂O₃ 溶液中滴加 HCl 后，最合理的观察重点是哪一项？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“出现蓝紫色配合物”。"
+          },
+          {
+            "label": "D",
+            "text": "产生红色镍沉淀",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“产生红色镍沉淀”与本题焦点“在《19-3-04 性质》实验中，向 Na₂S₂O₃ 溶液中滴加 HCl 后，最合理的观察重点是哪一项？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“产生红色镍沉淀”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00229_23988fd5d4",
+            "expchunk_00230_5e24188739"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00391_2e025ffdda",
+            "textbook_prose_00392_f9643d7706",
+            "textbook_prose_00393_2db98879c2",
+            "textbook_prose_00394_04911a6294",
+            "textbook_prose_00395_7ea078c59f"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "终审保留：题干、答案和解析与教材实验点位语义一致。；polished final 补充 supporting theory 引用：textbook_prose_00391_2e025ffdda, textbook_prose_00392_f9643d7706, textbook_prose_00393_2db98879c2, textbook_prose_00394_04911a6294, textbook_prose_00395_7ea078c59f。",
+          "supporting_theory_note": "该判断依赖教材理论 chunk：textbook_prose_00391_2e025ffdda, textbook_prose_00392_f9643d7706, textbook_prose_00393_2db98879c2, textbook_prose_00394_04911a6294, textbook_prose_00395_7ea078c59f。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00229_23988fd5d4",
+            "expchunk_00230_5e24188739"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00391_2e025ffdda",
+            "textbook_prose_00392_f9643d7706",
+            "textbook_prose_00393_2db98879c2",
+            "textbook_prose_00394_04911a6294",
+            "textbook_prose_00395_7ea078c59f"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00391_2e025ffdda",
+            "textbook_prose_00392_f9643d7706",
+            "textbook_prose_00393_2db98879c2",
+            "textbook_prose_00394_04911a6294",
+            "textbook_prose_00395_7ea078c59f"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-3-04 性质》实验中，向 Na₂S₂O₃ 溶液中滴加 HCl 后，最合理的观察重点是哪一项？",
+            "options": [
+              {
+                "label": "A",
+                "text": "溶液变浑浊并可能有刺激性气体生成"
+              },
+              {
+                "label": "B",
+                "text": "立即生成银镜"
+              },
+              {
+                "label": "C",
+                "text": "出现蓝紫色配合物"
+              },
+              {
+                "label": "D",
+                "text": "产生红色镍沉淀"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "硫代硫酸盐遇酸不稳定，可析出硫并产生 SO₂。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00230_5e24188739",
+              "expchunk_00229_23988fd5d4"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_3_04_SEMANTIC_FINAL_002",
+        "source_review_id": "EXP_19_3_04_SEMANTIC_FINAL_002",
+        "source_question_index": 2,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-3-04 性质》实验中，Na₂S₂O₃ 与碘水反应使碘水褪色，说明 Na₂S₂O₃ 具有什么性质？",
+        "options": [
+          {
+            "label": "A",
+            "text": "强氧化性"
+          },
+          {
+            "label": "B",
+            "text": "还原性"
+          },
+          {
+            "label": "C",
+            "text": "强酸性"
+          },
+          {
+            "label": "D",
+            "text": "挥发性"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "硫代硫酸根还原 I₂。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-982bdc6e"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "19_3_04_point_2"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "强氧化性",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“强氧化性”与本题焦点“在《19-3-04 性质》实验中，Na₂S₂O₃ 与碘水反应使碘水褪色，说明 Na₂S₂O₃ 具有什么性质？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“强氧化性”。"
+          },
+          {
+            "label": "B",
+            "text": "还原性",
+            "point_key": "candidate-2-982bdc6e",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“还原性”直接支撑题干所问：在《19-3-04 性质》实验中，Na₂S₂O₃ 与碘水反应使碘水褪色，说明 Na₂S₂O₃ 具有什么性质？；对应点位为“Na₂S₂O₃ + 碘水”。"
+          },
+          {
+            "label": "C",
+            "text": "强酸性",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“强酸性”与本题焦点“在《19-3-04 性质》实验中，Na₂S₂O₃ 与碘水反应使碘水褪色，说明 Na₂S₂O₃ 具有什么性质？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“强酸性”。"
+          },
+          {
+            "label": "D",
+            "text": "挥发性",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“挥发性”与本题焦点“在《19-3-04 性质》实验中，Na₂S₂O₃ 与碘水反应使碘水褪色，说明 Na₂S₂O₃ 具有什么性质？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“挥发性”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00229_23988fd5d4",
+            "expchunk_00230_5e24188739"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00391_2e025ffdda",
+            "textbook_prose_00392_f9643d7706",
+            "textbook_prose_00393_2db98879c2",
+            "textbook_prose_00394_04911a6294",
+            "textbook_prose_00395_7ea078c59f"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "终审保留：题干、答案和解析与教材实验点位语义一致。；polished final 补充 supporting theory 引用：textbook_prose_00391_2e025ffdda, textbook_prose_00392_f9643d7706, textbook_prose_00393_2db98879c2, textbook_prose_00394_04911a6294, textbook_prose_00395_7ea078c59f。",
+          "supporting_theory_note": "该判断依赖教材理论 chunk：textbook_prose_00391_2e025ffdda, textbook_prose_00392_f9643d7706, textbook_prose_00393_2db98879c2, textbook_prose_00394_04911a6294, textbook_prose_00395_7ea078c59f。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00229_23988fd5d4",
+            "expchunk_00230_5e24188739"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00391_2e025ffdda",
+            "textbook_prose_00392_f9643d7706",
+            "textbook_prose_00393_2db98879c2",
+            "textbook_prose_00394_04911a6294",
+            "textbook_prose_00395_7ea078c59f"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00391_2e025ffdda",
+            "textbook_prose_00392_f9643d7706",
+            "textbook_prose_00393_2db98879c2",
+            "textbook_prose_00394_04911a6294",
+            "textbook_prose_00395_7ea078c59f"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-3-04 性质》实验中，Na₂S₂O₃ 与碘水反应使碘水褪色，说明 Na₂S₂O₃ 具有什么性质？",
+            "options": [
+              {
+                "label": "A",
+                "text": "强氧化性"
+              },
+              {
+                "label": "B",
+                "text": "还原性"
+              },
+              {
+                "label": "C",
+                "text": "强酸性"
+              },
+              {
+                "label": "D",
+                "text": "挥发性"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "硫代硫酸根还原 I₂。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00230_5e24188739",
+              "expchunk_00229_23988fd5d4"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_3_04_SEMANTIC_FINAL_003",
+        "source_review_id": "EXP_19_3_04_SEMANTIC_FINAL_003",
+        "source_question_index": 3,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-3-04 性质》实验中，用氯水处理 Na₂S₂O₃ 后验证 SO₄²⁻，说明氯水对硫代硫酸根主要起什么作用？",
+        "options": [
+          {
+            "label": "A",
+            "text": "配位作用"
+          },
+          {
+            "label": "B",
+            "text": "缓冲作用"
+          },
+          {
+            "label": "C",
+            "text": "氧化作用"
+          },
+          {
+            "label": "D",
+            "text": "萃取作用"
+          }
+        ],
+        "answer": {
+          "value": "C"
+        },
+        "explanation": "氯水可把硫代硫酸根氧化到硫酸根。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-387fff62"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "19_3_04_point_3"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "配位作用",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“配位作用”与本题焦点“在《19-3-04 性质》实验中，用氯水处理 Na₂S₂O₃ 后验证 SO₄²⁻，说明氯水对硫代硫酸根主要起什么作用？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“配位作用”。"
+          },
+          {
+            "label": "B",
+            "text": "缓冲作用",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“缓冲作用”与本题焦点“在《19-3-04 性质》实验中，用氯水处理 Na₂S₂O₃ 后验证 SO₄²⁻，说明氯水对硫代硫酸根主要起什么作用？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“缓冲作用”。"
+          },
+          {
+            "label": "C",
+            "text": "氧化作用",
+            "point_key": "candidate-3-387fff62",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“氧化作用”直接支撑题干所问：在《19-3-04 性质》实验中，用氯水处理 Na₂S₂O₃ 后验证 SO₄²⁻，说明氯水对硫代硫酸根主要起什么作用？；对应点位为“Na₂S₂O₃ 反应后溶液中 SO₄²⁻ 的验证实验”。"
+          },
+          {
+            "label": "D",
+            "text": "萃取作用",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“萃取作用”与本题焦点“在《19-3-04 性质》实验中，用氯水处理 Na₂S₂O₃ 后验证 SO₄²⁻，说明氯水对硫代硫酸根主要起什么作用？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“萃取作用”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00229_23988fd5d4",
+            "expchunk_00230_5e24188739"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00391_2e025ffdda",
+            "textbook_prose_00392_f9643d7706",
+            "textbook_prose_00393_2db98879c2",
+            "textbook_prose_00394_04911a6294",
+            "textbook_prose_00395_7ea078c59f"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "终审保留：题干、答案和解析与教材实验点位语义一致。；polished final 补充 supporting theory 引用：textbook_prose_00391_2e025ffdda, textbook_prose_00392_f9643d7706, textbook_prose_00393_2db98879c2, textbook_prose_00394_04911a6294, textbook_prose_00395_7ea078c59f。",
+          "supporting_theory_note": "该判断依赖教材理论 chunk：textbook_prose_00391_2e025ffdda, textbook_prose_00392_f9643d7706, textbook_prose_00393_2db98879c2, textbook_prose_00394_04911a6294, textbook_prose_00395_7ea078c59f。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00229_23988fd5d4",
+            "expchunk_00230_5e24188739"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00391_2e025ffdda",
+            "textbook_prose_00392_f9643d7706",
+            "textbook_prose_00393_2db98879c2",
+            "textbook_prose_00394_04911a6294",
+            "textbook_prose_00395_7ea078c59f"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00391_2e025ffdda",
+            "textbook_prose_00392_f9643d7706",
+            "textbook_prose_00393_2db98879c2",
+            "textbook_prose_00394_04911a6294",
+            "textbook_prose_00395_7ea078c59f"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-3-04 性质》实验中，用氯水处理 Na₂S₂O₃ 后验证 SO₄²⁻，说明氯水对硫代硫酸根主要起什么作用？",
+            "options": [
+              {
+                "label": "A",
+                "text": "配位作用"
+              },
+              {
+                "label": "B",
+                "text": "缓冲作用"
+              },
+              {
+                "label": "C",
+                "text": "氧化作用"
+              },
+              {
+                "label": "D",
+                "text": "萃取作用"
+              }
+            ],
+            "answer": {
+              "value": "C"
+            },
+            "explanation": "氯水可把硫代硫酸根氧化到硫酸根。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00230_5e24188739",
+              "expchunk_00229_23988fd5d4"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_3_04_SEMANTIC_FINAL_004",
+        "source_review_id": "EXP_19_3_04_SEMANTIC_FINAL_004",
+        "source_question_index": 4,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-3-04 性质》实验中，Na₂S₂O₃ 与 AgNO₃ 反应时，需要仔细观察沉淀生成、颜色变化和什么现象？",
+        "options": [
+          {
+            "label": "A",
+            "text": "气体燃烧"
+          },
+          {
+            "label": "B",
+            "text": "金属钠熔化"
+          },
+          {
+            "label": "C",
+            "text": "棕色环形成"
+          },
+          {
+            "label": "D",
+            "text": "配位溶解"
+          }
+        ],
+        "answer": {
+          "value": "D"
+        },
+        "explanation": "实验资料指出该实验说明 Na₂S₂O₃ 的性质，包括与 Ag⁺ 的配位作用。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-4-5013d52a"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "19_3_04_point_4"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "气体燃烧",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“气体燃烧”与本题焦点“在《19-3-04 性质》实验中，Na₂S₂O₃ 与 AgNO₃ 反应时，需要仔细观察沉淀生成、颜色变化和什么现象？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“气体燃烧”。"
+          },
+          {
+            "label": "B",
+            "text": "金属钠熔化",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“金属钠熔化”与本题焦点“在《19-3-04 性质》实验中，Na₂S₂O₃ 与 AgNO₃ 反应时，需要仔细观察沉淀生成、颜色变化和什么现象？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“金属钠熔化”。"
+          },
+          {
+            "label": "C",
+            "text": "棕色环形成",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“棕色环形成”混入其他实验或相邻操作，易造成点位错配；本题实际问的是“在《19-3-04 性质》实验中，Na₂S₂O₃ 与 AgNO₃ 反应时，需要仔细观察沉淀生成、颜色变化和什么现象？”。"
+          },
+          {
+            "label": "D",
+            "text": "配位溶解",
+            "point_key": "candidate-4-5013d52a",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“配位溶解”直接支撑题干所问：在《19-3-04 性质》实验中，Na₂S₂O₃ 与 AgNO₃ 反应时，需要仔细观察沉淀生成、颜色变化和什么现象？；对应点位为“Na₂S₂O₃ + AgNO₃，观察沉淀生成、颜色变化及配位溶解”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00229_23988fd5d4",
+            "expchunk_00230_5e24188739"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "终审保留：题干、答案和解析与教材实验点位语义一致。",
+          "supporting_theory_note": ""
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00229_23988fd5d4",
+            "expchunk_00230_5e24188739"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-3-04 性质》实验中，Na₂S₂O₃ 与 AgNO₃ 反应时，需要仔细观察沉淀生成、颜色变化和什么现象？",
+            "options": [
+              {
+                "label": "A",
+                "text": "气体燃烧"
+              },
+              {
+                "label": "B",
+                "text": "金属钠熔化"
+              },
+              {
+                "label": "C",
+                "text": "棕色环形成"
+              },
+              {
+                "label": "D",
+                "text": "配位溶解"
+              }
+            ],
+            "answer": {
+              "value": "D"
+            },
+            "explanation": "实验资料指出该实验说明 Na₂S₂O₃ 的性质，包括与 Ag⁺ 的配位作用。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00230_5e24188739",
+              "expchunk_00229_23988fd5d4"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_3_04_SEMANTIC_FINAL_005",
+        "source_review_id": "EXP_19_3_04_SEMANTIC_FINAL_005",
+        "source_question_index": 5,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-3-04 性质》中，Na₂S₂O₃ 与 AgNO₃ 反应后继续观察沉淀变化，主要体现什么性质？",
+        "options": [
+          {
+            "label": "A",
+            "text": "酸分解性"
+          },
+          {
+            "label": "B",
+            "text": "还原性"
+          },
+          {
+            "label": "C",
+            "text": "对 Ag⁺ 的配位/络合作用"
+          },
+          {
+            "label": "D",
+            "text": "硝酸根检验"
+          }
+        ],
+        "answer": {
+          "value": "C"
+        },
+        "explanation": "该点位要求观察 AgNO₃ 与 Na₂S₂O₃ 的沉淀、颜色和配位溶解现象。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-4-5013d52a"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "19_3_04_point_4"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "酸分解性",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“酸分解性”与本题焦点“在《19-3-04 性质》中，Na₂S₂O₃ 与 AgNO₃ 反应后继续观察沉淀变化，主要体现什么性质？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“酸分解性”。"
+          },
+          {
+            "label": "B",
+            "text": "还原性",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“还原性”与本题焦点“在《19-3-04 性质》中，Na₂S₂O₃ 与 AgNO₃ 反应后继续观察沉淀变化，主要体现什么性质？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“还原性”。"
+          },
+          {
+            "label": "C",
+            "text": "对 Ag⁺ 的配位/络合作用",
+            "point_key": "candidate-4-5013d52a",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“对 Ag⁺ 的配位/络合作用”直接支撑题干所问：在《19-3-04 性质》中，Na₂S₂O₃ 与 AgNO₃ 反应后继续观察沉淀变化，主要体现什么性质？；对应点位为“Na₂S₂O₃ + AgNO₃，观察沉淀生成、颜色变化及配位溶解”。"
+          },
+          {
+            "label": "D",
+            "text": "硝酸根检验",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“硝酸根检验”与本题焦点“在《19-3-04 性质》中，Na₂S₂O₃ 与 AgNO₃ 反应后继续观察沉淀变化，主要体现什么性质？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“硝酸根检验”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00229_23988fd5d4",
+            "expchunk_00230_5e24188739"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "该点位要求观察 AgNO₃ 与 Na₂S₂O₃ 的沉淀、颜色和配位溶解现象。；原题存在证据、深度或题型风险，最终有效题已由 proposed_question 修复。",
+          "supporting_theory_note": ""
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00229_23988fd5d4",
+            "expchunk_00230_5e24188739"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-3-04 性质》实验中，制备 Na₂S₂O₃·5H₂O 时，实验资料中使用的原料组合是哪一项？",
+            "options": [
+              {
+                "label": "A",
+                "text": "Na₂SO₃、硫黄粉和水"
+              },
+              {
+                "label": "B",
+                "text": "NaCl、KBr 和 CCl₄"
+              },
+              {
+                "label": "C",
+                "text": "CoCl₂、KSCN 和丙酮"
+              },
+              {
+                "label": "D",
+                "text": "TiOSO₄ 和 FeCl₃"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "实验资料列出 Na₂SO₃ 固体、研细硫黄粉和水煮沸制备。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00230_5e24188739",
+              "expchunk_00229_23988fd5d4"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-3-04 性质》中，Na₂S₂O₃ 与 AgNO₃ 反应后继续观察沉淀变化，主要体现什么性质？",
+            "options": [
+              {
+                "label": "A",
+                "text": "酸分解性"
+              },
+              {
+                "label": "B",
+                "text": "还原性"
+              },
+              {
+                "label": "C",
+                "text": "对 Ag⁺ 的配位/络合作用"
+              },
+              {
+                "label": "D",
+                "text": "硝酸根检验"
+              }
+            ],
+            "answer": {
+              "value": "C"
+            },
+            "explanation": "该点位要求观察 AgNO₃ 与 Na₂S₂O₃ 的沉淀、颜色和配位溶解现象。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_3_04_SEMANTIC_FINAL_006",
+        "source_review_id": "EXP_19_3_04_SEMANTIC_FINAL_006",
+        "source_question_index": 6,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-3-04 性质》实验中，Na₂S₂O₃ 与 HCl 反应的“变浑浊”通常来自哪种物质？",
+        "options": [
+          {
+            "label": "A",
+            "text": "AgCl"
+          },
+          {
+            "label": "B",
+            "text": "单质硫"
+          },
+          {
+            "label": "C",
+            "text": "PbI₂"
+          },
+          {
+            "label": "D",
+            "text": "Ni(dmg)₂"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "酸分解硫代硫酸盐会析出硫。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-122909e7"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "19_3_04_point_1"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "AgCl",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“AgCl”混入其他实验或相邻操作，易造成点位错配；本题实际问的是“在《19-3-04 性质》实验中，Na₂S₂O₃ 与 HCl 反应的“变浑浊”通常来自哪种物质？”。"
+          },
+          {
+            "label": "B",
+            "text": "单质硫",
+            "point_key": "candidate-1-122909e7",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“单质硫”直接支撑题干所问：在《19-3-04 性质》实验中，Na₂S₂O₃ 与 HCl 反应的“变浑浊”通常来自哪种物质？；对应点位为“Na₂S₂O₃ + HCl”。"
+          },
+          {
+            "label": "C",
+            "text": "PbI₂",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“PbI₂”与本题焦点“在《19-3-04 性质》实验中，Na₂S₂O₃ 与 HCl 反应的“变浑浊”通常来自哪种物质？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“PbI₂”。"
+          },
+          {
+            "label": "D",
+            "text": "Ni(dmg)₂",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“Ni(dmg)₂”与本题焦点“在《19-3-04 性质》实验中，Na₂S₂O₃ 与 HCl 反应的“变浑浊”通常来自哪种物质？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“Ni(dmg)₂”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00229_23988fd5d4",
+            "expchunk_00230_5e24188739"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00391_2e025ffdda",
+            "textbook_prose_00392_f9643d7706",
+            "textbook_prose_00393_2db98879c2",
+            "textbook_prose_00394_04911a6294",
+            "textbook_prose_00395_7ea078c59f"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "终审保留：题干、答案和解析与教材实验点位语义一致。；polished final 补充 supporting theory 引用：textbook_prose_00391_2e025ffdda, textbook_prose_00392_f9643d7706, textbook_prose_00393_2db98879c2, textbook_prose_00394_04911a6294, textbook_prose_00395_7ea078c59f。",
+          "supporting_theory_note": "该判断依赖教材理论 chunk：textbook_prose_00391_2e025ffdda, textbook_prose_00392_f9643d7706, textbook_prose_00393_2db98879c2, textbook_prose_00394_04911a6294, textbook_prose_00395_7ea078c59f。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00229_23988fd5d4",
+            "expchunk_00230_5e24188739"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00391_2e025ffdda",
+            "textbook_prose_00392_f9643d7706",
+            "textbook_prose_00393_2db98879c2",
+            "textbook_prose_00394_04911a6294",
+            "textbook_prose_00395_7ea078c59f"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00391_2e025ffdda",
+            "textbook_prose_00392_f9643d7706",
+            "textbook_prose_00393_2db98879c2",
+            "textbook_prose_00394_04911a6294",
+            "textbook_prose_00395_7ea078c59f"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-3-04 性质》实验中，Na₂S₂O₃ 与 HCl 反应的“变浑浊”通常来自哪种物质？",
+            "options": [
+              {
+                "label": "A",
+                "text": "AgCl"
+              },
+              {
+                "label": "B",
+                "text": "单质硫"
+              },
+              {
+                "label": "C",
+                "text": "PbI₂"
+              },
+              {
+                "label": "D",
+                "text": "Ni(dmg)₂"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "酸分解硫代硫酸盐会析出硫。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00230_5e24188739",
+              "expchunk_00229_23988fd5d4"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_3_04_SEMANTIC_FINAL_007",
+        "source_review_id": "EXP_19_3_04_SEMANTIC_FINAL_007",
+        "source_question_index": 7,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-3-04 性质》实验中，Na₂S₂O₃ 与 I₂ 的反应是否适合在强酸性介质中长期进行？",
+        "options": [
+          {
+            "label": "A",
+            "text": "适合，酸越强越稳定"
+          },
+          {
+            "label": "B",
+            "text": "只与 pH 无关"
+          },
+          {
+            "label": "C",
+            "text": "不适合，硫代硫酸盐在酸中不稳定"
+          },
+          {
+            "label": "D",
+            "text": "必须在无水乙醚中进行"
+          }
+        ],
+        "answer": {
+          "value": "C"
+        },
+        "explanation": "思考题提示 Na₂S₂O₃ 与 I₂ 的反应能否在酸性介质进行，酸中硫代硫酸盐会分解。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-122909e7",
+          "candidate-2-982bdc6e"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "19_3_04_point_1",
+          "19_3_04_point_2"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "适合，酸越强越稳定",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“适合，酸越强越稳定”与本题焦点“在《19-3-04 性质》实验中，Na₂S₂O₃ 与 I₂ 的反应是否适合在强酸性介质中长期进行？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“适合，酸越强越稳定”。"
+          },
+          {
+            "label": "B",
+            "text": "只与 pH 无关",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“只与 pH 无关”与本题焦点“在《19-3-04 性质》实验中，Na₂S₂O₃ 与 I₂ 的反应是否适合在强酸性介质中长期进行？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“只与 pH 无关”。"
+          },
+          {
+            "label": "C",
+            "text": "不适合，硫代硫酸盐在酸中不稳定",
+            "point_key": "candidate-1-122909e7",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“不适合，硫代硫酸盐在酸中不稳定”直接支撑题干所问：在《19-3-04 性质》实验中，Na₂S₂O₃ 与 I₂ 的反应是否适合在强酸性介质中长期进行？；对应点位为“Na₂S₂O₃ + HCl”。"
+          },
+          {
+            "label": "D",
+            "text": "必须在无水乙醚中进行",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“必须在无水乙醚中进行”与本题焦点“在《19-3-04 性质》实验中，Na₂S₂O₃ 与 I₂ 的反应是否适合在强酸性介质中长期进行？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“必须在无水乙醚中进行”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00229_23988fd5d4",
+            "expchunk_00230_5e24188739"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00391_2e025ffdda",
+            "textbook_prose_00392_f9643d7706",
+            "textbook_prose_00393_2db98879c2",
+            "textbook_prose_00394_04911a6294",
+            "textbook_prose_00395_7ea078c59f"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "终审保留：题干、答案和解析与教材实验点位语义一致。；polished final 补充 supporting theory 引用：textbook_prose_00391_2e025ffdda, textbook_prose_00392_f9643d7706, textbook_prose_00393_2db98879c2, textbook_prose_00394_04911a6294, textbook_prose_00395_7ea078c59f。",
+          "supporting_theory_note": "该判断依赖教材理论 chunk：textbook_prose_00391_2e025ffdda, textbook_prose_00392_f9643d7706, textbook_prose_00393_2db98879c2, textbook_prose_00394_04911a6294, textbook_prose_00395_7ea078c59f。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00229_23988fd5d4",
+            "expchunk_00230_5e24188739"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00391_2e025ffdda",
+            "textbook_prose_00392_f9643d7706",
+            "textbook_prose_00393_2db98879c2",
+            "textbook_prose_00394_04911a6294",
+            "textbook_prose_00395_7ea078c59f"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00391_2e025ffdda",
+            "textbook_prose_00392_f9643d7706",
+            "textbook_prose_00393_2db98879c2",
+            "textbook_prose_00394_04911a6294",
+            "textbook_prose_00395_7ea078c59f"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-3-04 性质》实验中，Na₂S₂O₃ 与 I₂ 的反应是否适合在强酸性介质中长期进行？",
+            "options": [
+              {
+                "label": "A",
+                "text": "适合，酸越强越稳定"
+              },
+              {
+                "label": "B",
+                "text": "只与 pH 无关"
+              },
+              {
+                "label": "C",
+                "text": "不适合，硫代硫酸盐在酸中不稳定"
+              },
+              {
+                "label": "D",
+                "text": "必须在无水乙醚中进行"
+              }
+            ],
+            "answer": {
+              "value": "C"
+            },
+            "explanation": "思考题提示 Na₂S₂O₃ 与 I₂ 的反应能否在酸性介质进行，酸中硫代硫酸盐会分解。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00230_5e24188739",
+              "expchunk_00229_23988fd5d4"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_3_04_SEMANTIC_FINAL_008",
+        "source_review_id": "EXP_19_3_04_SEMANTIC_FINAL_008",
+        "source_question_index": 8,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-3-04 性质》实验中，Na₂S₂O₃ 与 Ag⁺ 形成稳定配离子时，最能体现哪一类性质？",
+        "options": [
+          {
+            "label": "A",
+            "text": "强磁性"
+          },
+          {
+            "label": "B",
+            "text": "升华性"
+          },
+          {
+            "label": "C",
+            "text": "酸碱指示性"
+          },
+          {
+            "label": "D",
+            "text": "配位能力"
+          }
+        ],
+        "answer": {
+          "value": "D"
+        },
+        "explanation": "硫代硫酸根可与银离子形成配合物。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-4-5013d52a"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "19_3_04_point_4"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "强磁性",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“强磁性”与本题焦点“在《19-3-04 性质》实验中，Na₂S₂O₃ 与 Ag⁺ 形成稳定配离子时，最能体现哪一类性质？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“强磁性”。"
+          },
+          {
+            "label": "B",
+            "text": "升华性",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“升华性”与本题焦点“在《19-3-04 性质》实验中，Na₂S₂O₃ 与 Ag⁺ 形成稳定配离子时，最能体现哪一类性质？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“升华性”。"
+          },
+          {
+            "label": "C",
+            "text": "酸碱指示性",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“酸碱指示性”与本题焦点“在《19-3-04 性质》实验中，Na₂S₂O₃ 与 Ag⁺ 形成稳定配离子时，最能体现哪一类性质？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“酸碱指示性”。"
+          },
+          {
+            "label": "D",
+            "text": "配位能力",
+            "point_key": "candidate-4-5013d52a",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“配位能力”直接支撑题干所问：在《19-3-04 性质》实验中，Na₂S₂O₃ 与 Ag⁺ 形成稳定配离子时，最能体现哪一类性质？；对应点位为“Na₂S₂O₃ + AgNO₃，观察沉淀生成、颜色变化及配位溶解”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00229_23988fd5d4",
+            "expchunk_00230_5e24188739"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00391_2e025ffdda",
+            "textbook_prose_00392_f9643d7706",
+            "textbook_prose_00393_2db98879c2",
+            "textbook_prose_00394_04911a6294",
+            "textbook_prose_00395_7ea078c59f"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "终审保留：题干、答案和解析与教材实验点位语义一致。；polished final 补充 supporting theory 引用：textbook_prose_00391_2e025ffdda, textbook_prose_00392_f9643d7706, textbook_prose_00393_2db98879c2, textbook_prose_00394_04911a6294, textbook_prose_00395_7ea078c59f。",
+          "supporting_theory_note": "该判断依赖教材理论 chunk：textbook_prose_00391_2e025ffdda, textbook_prose_00392_f9643d7706, textbook_prose_00393_2db98879c2, textbook_prose_00394_04911a6294, textbook_prose_00395_7ea078c59f。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00229_23988fd5d4",
+            "expchunk_00230_5e24188739"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00391_2e025ffdda",
+            "textbook_prose_00392_f9643d7706",
+            "textbook_prose_00393_2db98879c2",
+            "textbook_prose_00394_04911a6294",
+            "textbook_prose_00395_7ea078c59f"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00391_2e025ffdda",
+            "textbook_prose_00392_f9643d7706",
+            "textbook_prose_00393_2db98879c2",
+            "textbook_prose_00394_04911a6294",
+            "textbook_prose_00395_7ea078c59f"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-3-04 性质》实验中，Na₂S₂O₃ 与 Ag⁺ 形成稳定配离子时，最能体现哪一类性质？",
+            "options": [
+              {
+                "label": "A",
+                "text": "强磁性"
+              },
+              {
+                "label": "B",
+                "text": "升华性"
+              },
+              {
+                "label": "C",
+                "text": "酸碱指示性"
+              },
+              {
+                "label": "D",
+                "text": "配位能力"
+              }
+            ],
+            "answer": {
+              "value": "D"
+            },
+            "explanation": "硫代硫酸根可与银离子形成配合物。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00230_5e24188739",
+              "expchunk_00229_23988fd5d4"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_3_04_SEMANTIC_FINAL_009",
+        "source_review_id": "EXP_19_3_04_SEMANTIC_FINAL_009",
+        "source_question_index": 9,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-3-04 性质》实验中，下列哪项不是本实验“性质”部分的操作？",
+        "options": [
+          {
+            "label": "A",
+            "text": "用 Na₂S₂O₃ 溶液检验 Co²⁺"
+          },
+          {
+            "label": "B",
+            "text": "向 Na₂S₂O₃ 溶液滴加 HCl"
+          },
+          {
+            "label": "C",
+            "text": "向 Na₂S₂O₃ 溶液滴加碘水"
+          },
+          {
+            "label": "D",
+            "text": "向 AgNO₃ 中滴加 Na₂S₂O₃ 溶液"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "Co²⁺ 鉴定属于后续过渡金属实验。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-122909e7",
+          "candidate-2-982bdc6e",
+          "candidate-3-387fff62",
+          "candidate-4-5013d52a"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "19_3_04_point_1",
+          "19_3_04_point_2",
+          "19_3_04_point_3",
+          "19_3_04_point_4"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "用 Na₂S₂O₃ 溶液检验 Co²⁺",
+            "point_key": "candidate-1-122909e7",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“用 Na₂S₂O₃ 溶液检验 Co²⁺”直接支撑题干所问：在《19-3-04 性质》实验中，下列哪项不是本实验“性质”部分的操作？；对应点位为“Na₂S₂O₃ + HCl”。"
+          },
+          {
+            "label": "B",
+            "text": "向 Na₂S₂O₃ 溶液滴加 HCl",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“向 Na₂S₂O₃ 溶液滴加 HCl”与本题焦点“在《19-3-04 性质》实验中，下列哪项不是本实验“性质”部分的操作？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“向 Na₂S₂O₃ 溶液滴加 HCl”。"
+          },
+          {
+            "label": "C",
+            "text": "向 Na₂S₂O₃ 溶液滴加碘水",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“向 Na₂S₂O₃ 溶液滴加碘水”与本题焦点“在《19-3-04 性质》实验中，下列哪项不是本实验“性质”部分的操作？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“向 Na₂S₂O₃ 溶液滴加碘水”。"
+          },
+          {
+            "label": "D",
+            "text": "向 AgNO₃ 中滴加 Na₂S₂O₃ 溶液",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“向 AgNO₃ 中滴加 Na₂S₂O₃ 溶液”与本题焦点“在《19-3-04 性质》实验中，下列哪项不是本实验“性质”部分的操作？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“向 AgNO₃ 中滴加 Na₂S₂O₃ 溶液”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00229_23988fd5d4",
+            "expchunk_00230_5e24188739"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "终审保留：题干、答案和解析与教材实验点位语义一致。",
+          "supporting_theory_note": ""
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00229_23988fd5d4",
+            "expchunk_00230_5e24188739"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-3-04 性质》实验中，下列哪项不是本实验“性质”部分的操作？",
+            "options": [
+              {
+                "label": "A",
+                "text": "用 Na₂S₂O₃ 溶液检验 Co²⁺"
+              },
+              {
+                "label": "B",
+                "text": "向 Na₂S₂O₃ 溶液滴加 HCl"
+              },
+              {
+                "label": "C",
+                "text": "向 Na₂S₂O₃ 溶液滴加碘水"
+              },
+              {
+                "label": "D",
+                "text": "向 AgNO₃ 中滴加 Na₂S₂O₃ 溶液"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "Co²⁺ 鉴定属于后续过渡金属实验。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00230_5e24188739",
+              "expchunk_00229_23988fd5d4"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_3_04_SEMANTIC_FINAL_010",
+        "source_review_id": "EXP_19_3_04_SEMANTIC_FINAL_010",
+        "source_question_index": 10,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-3-04 性质》实验中，验证反应后有 SO₄²⁻ 存在时，常用的思路是哪一项？",
+        "options": [
+          {
+            "label": "A",
+            "text": "加入 KSCN 生成蓝色配合物"
+          },
+          {
+            "label": "B",
+            "text": "加入 Ba²⁺ 试剂观察硫酸钡沉淀"
+          },
+          {
+            "label": "C",
+            "text": "加入丁二酮肟生成红色沉淀"
+          },
+          {
+            "label": "D",
+            "text": "加入戊醇萃取碘"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "硫酸根通常可用 Ba²⁺ 生成 BaSO₄ 沉淀来验证。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-387fff62"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "19_3_04_point_3"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "加入 KSCN 生成蓝色配合物",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“加入 KSCN 生成蓝色配合物”与本题焦点“在《19-3-04 性质》实验中，验证反应后有 SO₄²⁻ 存在时，常用的思路是哪一项？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“加入 KSCN 生成蓝色配合物”。"
+          },
+          {
+            "label": "B",
+            "text": "加入 Ba²⁺ 试剂观察硫酸钡沉淀",
+            "point_key": "candidate-3-387fff62",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“加入 Ba²⁺ 试剂观察硫酸钡沉淀”直接支撑题干所问：在《19-3-04 性质》实验中，验证反应后有 SO₄²⁻ 存在时，常用的思路是哪一项？；对应点位为“Na₂S₂O₃ 反应后溶液中 SO₄²⁻ 的验证实验”。"
+          },
+          {
+            "label": "C",
+            "text": "加入丁二酮肟生成红色沉淀",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“加入丁二酮肟生成红色沉淀”与本题焦点“在《19-3-04 性质》实验中，验证反应后有 SO₄²⁻ 存在时，常用的思路是哪一项？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“加入丁二酮肟生成红色沉淀”。"
+          },
+          {
+            "label": "D",
+            "text": "加入戊醇萃取碘",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“加入戊醇萃取碘”与本题焦点“在《19-3-04 性质》实验中，验证反应后有 SO₄²⁻ 存在时，常用的思路是哪一项？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“加入戊醇萃取碘”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00229_23988fd5d4",
+            "expchunk_00230_5e24188739"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00391_2e025ffdda",
+            "textbook_prose_00392_f9643d7706",
+            "textbook_prose_00393_2db98879c2",
+            "textbook_prose_00394_04911a6294",
+            "textbook_prose_00395_7ea078c59f"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "终审保留：题干、答案和解析与教材实验点位语义一致。；polished final 补充 supporting theory 引用：textbook_prose_00391_2e025ffdda, textbook_prose_00392_f9643d7706, textbook_prose_00393_2db98879c2, textbook_prose_00394_04911a6294, textbook_prose_00395_7ea078c59f。",
+          "supporting_theory_note": "该判断依赖教材理论 chunk：textbook_prose_00391_2e025ffdda, textbook_prose_00392_f9643d7706, textbook_prose_00393_2db98879c2, textbook_prose_00394_04911a6294, textbook_prose_00395_7ea078c59f。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00229_23988fd5d4",
+            "expchunk_00230_5e24188739"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00391_2e025ffdda",
+            "textbook_prose_00392_f9643d7706",
+            "textbook_prose_00393_2db98879c2",
+            "textbook_prose_00394_04911a6294",
+            "textbook_prose_00395_7ea078c59f"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00391_2e025ffdda",
+            "textbook_prose_00392_f9643d7706",
+            "textbook_prose_00393_2db98879c2",
+            "textbook_prose_00394_04911a6294",
+            "textbook_prose_00395_7ea078c59f"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-3-04 性质》实验中，验证反应后有 SO₄²⁻ 存在时，常用的思路是哪一项？",
+            "options": [
+              {
+                "label": "A",
+                "text": "加入 KSCN 生成蓝色配合物"
+              },
+              {
+                "label": "B",
+                "text": "加入 Ba²⁺ 试剂观察硫酸钡沉淀"
+              },
+              {
+                "label": "C",
+                "text": "加入丁二酮肟生成红色沉淀"
+              },
+              {
+                "label": "D",
+                "text": "加入戊醇萃取碘"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "硫酸根通常可用 Ba²⁺ 生成 BaSO₄ 沉淀来验证。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00230_5e24188739",
+              "expchunk_00229_23988fd5d4"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_3_04_SEMANTIC_FINAL_011",
+        "source_review_id": "EXP_19_3_04_SEMANTIC_FINAL_011",
+        "source_question_index": 11,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-3-04 性质》实验中，Na₂S₂O₃ 遇 HCl 可发生分解并出现浑浊。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "酸化会使硫代硫酸盐析出硫。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-122909e7"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "19_3_04_point_1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00229_23988fd5d4",
+            "expchunk_00230_5e24188739"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00391_2e025ffdda",
+            "textbook_prose_00392_f9643d7706",
+            "textbook_prose_00393_2db98879c2",
+            "textbook_prose_00394_04911a6294",
+            "textbook_prose_00395_7ea078c59f"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "终审保留：题干、答案和解析与教材实验点位语义一致。；polished final 补充 supporting theory 引用：textbook_prose_00391_2e025ffdda, textbook_prose_00392_f9643d7706, textbook_prose_00393_2db98879c2, textbook_prose_00394_04911a6294, textbook_prose_00395_7ea078c59f。",
+          "supporting_theory_note": "该判断依赖教材理论 chunk：textbook_prose_00391_2e025ffdda, textbook_prose_00392_f9643d7706, textbook_prose_00393_2db98879c2, textbook_prose_00394_04911a6294, textbook_prose_00395_7ea078c59f。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00229_23988fd5d4",
+            "expchunk_00230_5e24188739"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00391_2e025ffdda",
+            "textbook_prose_00392_f9643d7706",
+            "textbook_prose_00393_2db98879c2",
+            "textbook_prose_00394_04911a6294",
+            "textbook_prose_00395_7ea078c59f"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00391_2e025ffdda",
+            "textbook_prose_00392_f9643d7706",
+            "textbook_prose_00393_2db98879c2",
+            "textbook_prose_00394_04911a6294",
+            "textbook_prose_00395_7ea078c59f"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-3-04 性质》实验中，Na₂S₂O₃ 遇 HCl 可发生分解并出现浑浊。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "酸化会使硫代硫酸盐析出硫。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00230_5e24188739",
+              "expchunk_00229_23988fd5d4"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_3_04_SEMANTIC_FINAL_012",
+        "source_review_id": "EXP_19_3_04_SEMANTIC_FINAL_012",
+        "source_question_index": 12,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-3-04 性质》实验中，Na₂S₂O₃ 能使碘水褪色，说明它可作还原剂。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "硫代硫酸根还原 I₂。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-982bdc6e"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "19_3_04_point_2"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00229_23988fd5d4",
+            "expchunk_00230_5e24188739"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00391_2e025ffdda",
+            "textbook_prose_00392_f9643d7706",
+            "textbook_prose_00393_2db98879c2",
+            "textbook_prose_00394_04911a6294",
+            "textbook_prose_00395_7ea078c59f"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "终审保留：题干、答案和解析与教材实验点位语义一致。；polished final 补充 supporting theory 引用：textbook_prose_00391_2e025ffdda, textbook_prose_00392_f9643d7706, textbook_prose_00393_2db98879c2, textbook_prose_00394_04911a6294, textbook_prose_00395_7ea078c59f。",
+          "supporting_theory_note": "该判断依赖教材理论 chunk：textbook_prose_00391_2e025ffdda, textbook_prose_00392_f9643d7706, textbook_prose_00393_2db98879c2, textbook_prose_00394_04911a6294, textbook_prose_00395_7ea078c59f。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00229_23988fd5d4",
+            "expchunk_00230_5e24188739"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00391_2e025ffdda",
+            "textbook_prose_00392_f9643d7706",
+            "textbook_prose_00393_2db98879c2",
+            "textbook_prose_00394_04911a6294",
+            "textbook_prose_00395_7ea078c59f"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00391_2e025ffdda",
+            "textbook_prose_00392_f9643d7706",
+            "textbook_prose_00393_2db98879c2",
+            "textbook_prose_00394_04911a6294",
+            "textbook_prose_00395_7ea078c59f"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-3-04 性质》实验中，Na₂S₂O₃ 能使碘水褪色，说明它可作还原剂。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "硫代硫酸根还原 I₂。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00230_5e24188739",
+              "expchunk_00229_23988fd5d4"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_3_04_SEMANTIC_FINAL_013",
+        "source_review_id": "EXP_19_3_04_SEMANTIC_FINAL_013",
+        "source_question_index": 13,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-3-04 性质》实验中，氯水可把 Na₂S₂O₃ 氧化，反应后可验证 SO₄²⁻。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "实验资料明确列出氯水氧化并证实 SO₄²⁻。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-387fff62"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "19_3_04_point_3"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00229_23988fd5d4",
+            "expchunk_00230_5e24188739"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "终审保留：题干、答案和解析与教材实验点位语义一致。",
+          "supporting_theory_note": ""
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00229_23988fd5d4",
+            "expchunk_00230_5e24188739"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-3-04 性质》实验中，氯水可把 Na₂S₂O₃ 氧化，反应后可验证 SO₄²⁻。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "实验资料明确列出氯水氧化并证实 SO₄²⁻。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00230_5e24188739",
+              "expchunk_00229_23988fd5d4"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_3_04_SEMANTIC_FINAL_014",
+        "source_review_id": "EXP_19_3_04_SEMANTIC_FINAL_014",
+        "source_question_index": 14,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-3-04 性质》实验中，Na₂S₂O₃ 与 AgNO₃ 反应完全不可能出现沉淀。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": false
+        },
+        "explanation": "实验资料要求观察沉淀生成、颜色变化及配位溶解。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-4-5013d52a"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "19_3_04_point_4"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00229_23988fd5d4",
+            "expchunk_00230_5e24188739"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00391_2e025ffdda",
+            "textbook_prose_00392_f9643d7706",
+            "textbook_prose_00393_2db98879c2",
+            "textbook_prose_00394_04911a6294",
+            "textbook_prose_00395_7ea078c59f"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "终审保留：题干、答案和解析与教材实验点位语义一致。；polished final 补充 supporting theory 引用：textbook_prose_00391_2e025ffdda, textbook_prose_00392_f9643d7706, textbook_prose_00393_2db98879c2, textbook_prose_00394_04911a6294, textbook_prose_00395_7ea078c59f。",
+          "supporting_theory_note": "该判断依赖教材理论 chunk：textbook_prose_00391_2e025ffdda, textbook_prose_00392_f9643d7706, textbook_prose_00393_2db98879c2, textbook_prose_00394_04911a6294, textbook_prose_00395_7ea078c59f。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00229_23988fd5d4",
+            "expchunk_00230_5e24188739"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00391_2e025ffdda",
+            "textbook_prose_00392_f9643d7706",
+            "textbook_prose_00393_2db98879c2",
+            "textbook_prose_00394_04911a6294",
+            "textbook_prose_00395_7ea078c59f"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00391_2e025ffdda",
+            "textbook_prose_00392_f9643d7706",
+            "textbook_prose_00393_2db98879c2",
+            "textbook_prose_00394_04911a6294",
+            "textbook_prose_00395_7ea078c59f"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-3-04 性质》实验中，Na₂S₂O₃ 与 AgNO₃ 反应完全不可能出现沉淀。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "实验资料要求观察沉淀生成、颜色变化及配位溶解。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00230_5e24188739",
+              "expchunk_00229_23988fd5d4"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_3_04_SEMANTIC_FINAL_015",
+        "source_review_id": "EXP_19_3_04_SEMANTIC_FINAL_015",
+        "source_question_index": 15,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "true_false",
+        "stem": "在《19-3-04 性质》中，Na₂S₂O₃ 使碘水褪色，说明它在该点位中表现还原性。",
+        "options": [],
+        "answer": {
+          "value": true
+        },
+        "explanation": "碘水褪色对应 Na₂S₂O₃ 还原 I₂。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-982bdc6e"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "19_3_04_point_2"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00229_23988fd5d4",
+            "expchunk_00230_5e24188739"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "碘水褪色对应 Na₂S₂O₃ 还原 I₂。；原题存在证据、深度或题型风险，最终有效题已由 proposed_question 修复。",
+          "supporting_theory_note": ""
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00229_23988fd5d4",
+            "expchunk_00230_5e24188739"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-3-04 性质》实验中，本实验性质部分使用的是自制 Na₂S₂O₃·5H₂O 晶体配成的溶液。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "实验资料指出取自制晶体溶于约 5 mL 水。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00230_5e24188739",
+              "expchunk_00229_23988fd5d4"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "true_false",
+            "stem": "在《19-3-04 性质》中，Na₂S₂O₃ 使碘水褪色，说明它在该点位中表现还原性。",
+            "options": [],
+            "answer": {
+              "value": true
+            },
+            "explanation": "碘水褪色对应 Na₂S₂O₃ 还原 I₂。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_3_04_SEMANTIC_FINAL_016",
+        "source_review_id": "EXP_19_3_04_SEMANTIC_FINAL_016",
+        "source_question_index": 16,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-3-04 性质》实验中，Na₂S₂O₃ 与 HCl 的反应能说明其在酸性条件下稳定性较差。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "酸化后分解是关键现象。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-122909e7"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "19_3_04_point_1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00229_23988fd5d4",
+            "expchunk_00230_5e24188739"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00391_2e025ffdda",
+            "textbook_prose_00392_f9643d7706",
+            "textbook_prose_00393_2db98879c2",
+            "textbook_prose_00394_04911a6294",
+            "textbook_prose_00395_7ea078c59f"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "终审保留：题干、答案和解析与教材实验点位语义一致。；polished final 补充 supporting theory 引用：textbook_prose_00391_2e025ffdda, textbook_prose_00392_f9643d7706, textbook_prose_00393_2db98879c2, textbook_prose_00394_04911a6294, textbook_prose_00395_7ea078c59f。",
+          "supporting_theory_note": "该判断依赖教材理论 chunk：textbook_prose_00391_2e025ffdda, textbook_prose_00392_f9643d7706, textbook_prose_00393_2db98879c2, textbook_prose_00394_04911a6294, textbook_prose_00395_7ea078c59f。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00229_23988fd5d4",
+            "expchunk_00230_5e24188739"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00391_2e025ffdda",
+            "textbook_prose_00392_f9643d7706",
+            "textbook_prose_00393_2db98879c2",
+            "textbook_prose_00394_04911a6294",
+            "textbook_prose_00395_7ea078c59f"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00391_2e025ffdda",
+            "textbook_prose_00392_f9643d7706",
+            "textbook_prose_00393_2db98879c2",
+            "textbook_prose_00394_04911a6294",
+            "textbook_prose_00395_7ea078c59f"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-3-04 性质》实验中，Na₂S₂O₃ 与 HCl 的反应能说明其在酸性条件下稳定性较差。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "酸化后分解是关键现象。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00230_5e24188739",
+              "expchunk_00229_23988fd5d4"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_3_04_SEMANTIC_FINAL_017",
+        "source_review_id": "EXP_19_3_04_SEMANTIC_FINAL_017",
+        "source_question_index": 17,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-3-04 性质》实验中，Na₂S₂O₃ 与碘水反应的核心是配位沉淀，不涉及氧化还原。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": false
+        },
+        "explanation": "碘被还原，硫代硫酸根被氧化。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-982bdc6e"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "19_3_04_point_2"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00229_23988fd5d4",
+            "expchunk_00230_5e24188739"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00391_2e025ffdda",
+            "textbook_prose_00392_f9643d7706",
+            "textbook_prose_00393_2db98879c2",
+            "textbook_prose_00394_04911a6294",
+            "textbook_prose_00395_7ea078c59f"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "终审保留：题干、答案和解析与教材实验点位语义一致。；polished final 补充 supporting theory 引用：textbook_prose_00391_2e025ffdda, textbook_prose_00392_f9643d7706, textbook_prose_00393_2db98879c2, textbook_prose_00394_04911a6294, textbook_prose_00395_7ea078c59f。",
+          "supporting_theory_note": "该判断依赖教材理论 chunk：textbook_prose_00391_2e025ffdda, textbook_prose_00392_f9643d7706, textbook_prose_00393_2db98879c2, textbook_prose_00394_04911a6294, textbook_prose_00395_7ea078c59f。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00229_23988fd5d4",
+            "expchunk_00230_5e24188739"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00391_2e025ffdda",
+            "textbook_prose_00392_f9643d7706",
+            "textbook_prose_00393_2db98879c2",
+            "textbook_prose_00394_04911a6294",
+            "textbook_prose_00395_7ea078c59f"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00391_2e025ffdda",
+            "textbook_prose_00392_f9643d7706",
+            "textbook_prose_00393_2db98879c2",
+            "textbook_prose_00394_04911a6294",
+            "textbook_prose_00395_7ea078c59f"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-3-04 性质》实验中，Na₂S₂O₃ 与碘水反应的核心是配位沉淀，不涉及氧化还原。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "碘被还原，硫代硫酸根被氧化。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00230_5e24188739",
+              "expchunk_00229_23988fd5d4"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_3_04_SEMANTIC_FINAL_018",
+        "source_review_id": "EXP_19_3_04_SEMANTIC_FINAL_018",
+        "source_question_index": 18,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "true_false",
+        "stem": "在《19-3-04 性质》中，AgNO₃ 点位要求观察沉淀生成、颜色变化和配位溶解。",
+        "options": [],
+        "answer": {
+          "value": true
+        },
+        "explanation": "教材原文明确要求仔细观察 AgNO₃ 与 Na₂S₂O₃ 的反应现象。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-4-5013d52a"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "19_3_04_point_4"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00229_23988fd5d4",
+            "expchunk_00230_5e24188739"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "教材原文明确要求仔细观察 AgNO₃ 与 Na₂S₂O₃ 的反应现象。；原题存在证据、深度或题型风险，最终有效题已由 proposed_question 修复。",
+          "supporting_theory_note": ""
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00229_23988fd5d4",
+            "expchunk_00230_5e24188739"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-3-04 性质》实验中，认为：AgNO₃ 实验可体现 Na₂S₂O₃ 对 Ag⁺ 的配位作用，这一判断是不正确的。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "这一判断本身是正确的。硫代硫酸根可形成银配合物。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00230_5e24188739",
+              "expchunk_00229_23988fd5d4"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "true_false",
+            "stem": "在《19-3-04 性质》中，AgNO₃ 点位要求观察沉淀生成、颜色变化和配位溶解。",
+            "options": [],
+            "answer": {
+              "value": true
+            },
+            "explanation": "教材原文明确要求仔细观察 AgNO₃ 与 Na₂S₂O₃ 的反应现象。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_3_04_SEMANTIC_FINAL_019",
+        "source_review_id": "EXP_19_3_04_SEMANTIC_FINAL_019",
+        "source_question_index": 19,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-3-04 性质》中，Na₂S₂O₃ 遇 HCl 后出现浑浊，主要说明哪一类变化？",
+        "options": [
+          {
+            "label": "A",
+            "text": "生成硝酸根棕色环"
+          },
+          {
+            "label": "B",
+            "text": "钠燃烧生成过氧化钠"
+          },
+          {
+            "label": "C",
+            "text": "酸性条件下分解生成硫等产物"
+          },
+          {
+            "label": "D",
+            "text": "硅酸盐水中花园"
+          }
+        ],
+        "answer": {
+          "value": "C"
+        },
+        "explanation": "硫代硫酸钠在酸性条件下分解，出现浑浊。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-122909e7"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_1_122909e7"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "生成硝酸根棕色环",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“生成硝酸根棕色环”混入其他实验或相邻操作，易造成点位错配；本题实际问的是“在《19-3-04 性质》中，Na₂S₂O₃ 遇 HCl 后出现浑浊，主要说明哪一类变化？”。"
+          },
+          {
+            "label": "B",
+            "text": "钠燃烧生成过氧化钠",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“钠燃烧生成过氧化钠”混入其他实验或相邻操作，易造成点位错配；本题实际问的是“在《19-3-04 性质》中，Na₂S₂O₃ 遇 HCl 后出现浑浊，主要说明哪一类变化？”。"
+          },
+          {
+            "label": "C",
+            "text": "酸性条件下分解生成硫等产物",
+            "point_key": "candidate-1-122909e7",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“酸性条件下分解生成硫等产物”直接支撑题干所问：在《19-3-04 性质》中，Na₂S₂O₃ 遇 HCl 后出现浑浊，主要说明哪一类变化？；对应点位为“Na₂S₂O₃ + HCl”。"
+          },
+          {
+            "label": "D",
+            "text": "硅酸盐水中花园",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“硅酸盐水中花园”与本题焦点“在《19-3-04 性质》中，Na₂S₂O₃ 遇 HCl 后出现浑浊，主要说明哪一类变化？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“硅酸盐水中花园”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00229_23988fd5d4",
+            "expchunk_00230_5e24188739"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final rewrite：deduplicated_proposed_question；有效题为本 proposed_question。；原题存在证据、深度或题型风险，最终有效题已由 proposed_question 修复。",
+          "supporting_theory_note": ""
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00229_23988fd5d4",
+            "expchunk_00230_5e24188739"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-3-04 性质》实验中，认为：制备 Na₂S₂O₃ 时加入活性炭粉的目的可包括脱色，这一判断是不正确的。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "这一判断本身是正确的。实验资料中写有加入少量活性炭粉脱色。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00230_5e24188739",
+              "expchunk_00229_23988fd5d4"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-3-04 性质》中，Na₂S₂O₃ 遇 HCl 后出现浑浊，主要说明哪一类变化？",
+            "options": [
+              {
+                "label": "A",
+                "text": "生成硝酸根棕色环"
+              },
+              {
+                "label": "B",
+                "text": "钠燃烧生成过氧化钠"
+              },
+              {
+                "label": "C",
+                "text": "酸性条件下分解生成硫等产物"
+              },
+              {
+                "label": "D",
+                "text": "硅酸盐水中花园"
+              }
+            ],
+            "answer": {
+              "value": "C"
+            },
+            "explanation": "硫代硫酸钠在酸性条件下分解，出现浑浊。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_3_04_SEMANTIC_FINAL_020",
+        "source_review_id": "EXP_19_3_04_SEMANTIC_FINAL_020",
+        "source_question_index": 20,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-3-04 性质》中，Na₂S₂O₃ 使碘水褪色，最能说明它表现什么性质？",
+        "options": [
+          {
+            "label": "A",
+            "text": "强氧化性"
+          },
+          {
+            "label": "B",
+            "text": "还原性"
+          },
+          {
+            "label": "C",
+            "text": "强酸性"
+          },
+          {
+            "label": "D",
+            "text": "惰性气体性质"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "硫代硫酸根与碘反应，碘水褪色，体现还原性。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-982bdc6e"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_2_982bdc6e"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "强氧化性",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“强氧化性”与本题焦点“在《19-3-04 性质》中，Na₂S₂O₃ 使碘水褪色，最能说明它表现什么性质？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“强氧化性”。"
+          },
+          {
+            "label": "B",
+            "text": "还原性",
+            "point_key": "candidate-2-982bdc6e",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“还原性”直接支撑题干所问：在《19-3-04 性质》中，Na₂S₂O₃ 使碘水褪色，最能说明它表现什么性质？；对应点位为“Na₂S₂O₃ + 碘水”。"
+          },
+          {
+            "label": "C",
+            "text": "强酸性",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“强酸性”与本题焦点“在《19-3-04 性质》中，Na₂S₂O₃ 使碘水褪色，最能说明它表现什么性质？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“强酸性”。"
+          },
+          {
+            "label": "D",
+            "text": "惰性气体性质",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“惰性气体性质”与本题焦点“在《19-3-04 性质》中，Na₂S₂O₃ 使碘水褪色，最能说明它表现什么性质？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“惰性气体性质”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00229_23988fd5d4",
+            "expchunk_00230_5e24188739"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final rewrite：deduplicated_proposed_question；有效题为本 proposed_question。；原题存在证据、深度或题型风险，最终有效题已由 proposed_question 修复。",
+          "supporting_theory_note": ""
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00229_23988fd5d4",
+            "expchunk_00230_5e24188739"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-3-04 性质》实验中，认为：该实验标题虽为“性质”，但实际属于硫代硫酸钠的制备与性质模块，这一判断是不正确的。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "这一判断本身是正确的。实验资料中模块为硫代硫酸钠的制备与性质。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00230_5e24188739",
+              "expchunk_00229_23988fd5d4"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-3-04 性质》中，Na₂S₂O₃ 使碘水褪色，最能说明它表现什么性质？",
+            "options": [
+              {
+                "label": "A",
+                "text": "强氧化性"
+              },
+              {
+                "label": "B",
+                "text": "还原性"
+              },
+              {
+                "label": "C",
+                "text": "强酸性"
+              },
+              {
+                "label": "D",
+                "text": "惰性气体性质"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "硫代硫酸根与碘反应，碘水褪色，体现还原性。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_3_04_SEMANTIC_FINAL_021",
+        "source_review_id": "EXP_19_3_04_SEMANTIC_FINAL_021",
+        "source_question_index": 21,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《19-3-04 性质》实验中，Na₂S₂O₃ 溶液遇 HCl 变浑浊，浑浊主要来自____。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "硫",
+            "单质硫",
+            "S"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "硫代硫酸盐酸分解可析出硫。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-122909e7"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "19_3_04_point_1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00229_23988fd5d4",
+            "expchunk_00230_5e24188739"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "终审保留：题干、答案和解析与教材实验点位语义一致。",
+          "supporting_theory_note": ""
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00229_23988fd5d4",
+            "expchunk_00230_5e24188739"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "formula_or_symbolic_fill_blank_answer",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-3-04 性质》实验中，Na₂S₂O₃ 溶液遇 HCl 变浑浊，浑浊主要来自____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "硫",
+                "单质硫",
+                "S"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "硫代硫酸盐酸分解可析出硫。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00230_5e24188739",
+              "expchunk_00229_23988fd5d4"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_3_04_SEMANTIC_FINAL_022",
+        "source_review_id": "EXP_19_3_04_SEMANTIC_FINAL_022",
+        "source_question_index": 22,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《19-3-04 性质》实验中，Na₂S₂O₃ 使碘水褪色时主要表现____性。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "还原",
+            "还原性"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "Na₂S₂O₃ 还原 I₂。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-982bdc6e"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "19_3_04_point_2"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00229_23988fd5d4",
+            "expchunk_00230_5e24188739"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "终审保留：题干、答案和解析与教材实验点位语义一致。",
+          "supporting_theory_note": ""
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00229_23988fd5d4",
+            "expchunk_00230_5e24188739"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-3-04 性质》实验中，Na₂S₂O₃ 使碘水褪色时主要表现____性。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "还原",
+                "还原性"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "Na₂S₂O₃ 还原 I₂。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00230_5e24188739",
+              "expchunk_00229_23988fd5d4"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_3_04_SEMANTIC_FINAL_023",
+        "source_review_id": "EXP_19_3_04_SEMANTIC_FINAL_023",
+        "source_question_index": 23,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-3-04 性质》实验中，氯水氧化 Na₂S₂O₃ 后，反应后溶液中可验证____离子。下列哪一项最适合填入空白处？",
+        "options": [
+          {
+            "label": "A",
+            "text": "氧化性"
+          },
+          {
+            "label": "B",
+            "text": "还原性"
+          },
+          {
+            "label": "C",
+            "text": "配位性"
+          },
+          {
+            "label": "D",
+            "text": "SO₄²⁻"
+          }
+        ],
+        "answer": {
+          "value": "D"
+        },
+        "explanation": "空白处应填“SO₄²⁻”。本轮将原手机端高风险填空改为单选，避免上下标、别名或复杂化学式输入导致机器判分不稳定。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-387fff62"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_3_387fff62"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "氧化性",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“氧化性”与本题焦点“在《19-3-04 性质》实验中，氯水氧化 Na₂S₂O₃ 后，反应后溶液中可验证____离子。下列哪一项最适合填入空白处？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“氧化性”。"
+          },
+          {
+            "label": "B",
+            "text": "还原性",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“还原性”与本题焦点“在《19-3-04 性质》实验中，氯水氧化 Na₂S₂O₃ 后，反应后溶液中可验证____离子。下列哪一项最适合填入空白处？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“还原性”。"
+          },
+          {
+            "label": "C",
+            "text": "配位性",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“配位性”与本题焦点“在《19-3-04 性质》实验中，氯水氧化 Na₂S₂O₃ 后，反应后溶液中可验证____离子。下列哪一项最适合填入空白处？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“配位性”。"
+          },
+          {
+            "label": "D",
+            "text": "SO₄²⁻",
+            "point_key": "candidate-3-387fff62",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“SO₄²⁻”直接支撑题干所问：在《19-3-04 性质》实验中，氯水氧化 Na₂S₂O₃ 后，反应后溶液中可验证____离子。下列哪一项最适合填入空白处？；对应点位为“Na₂S₂O₃ 反应后溶液中 SO₄²⁻ 的验证实验”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00229_23988fd5d4",
+            "expchunk_00230_5e24188739"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final rewrite：phone_risk_repaired_as_single_choice；有效题为本 proposed_question。；原题存在证据、深度或题型风险，最终有效题已由 proposed_question 修复。",
+          "supporting_theory_note": ""
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00229_23988fd5d4",
+            "expchunk_00230_5e24188739"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "generic_or_answer_shell_explanation",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-3-04 性质》实验中，氯水氧化 Na₂S₂O₃ 后，反应后溶液中可验证____离子。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "SO₄²⁻",
+                "硫酸根"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "实验资料明确要求证实 SO₄²⁻。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00230_5e24188739",
+              "expchunk_00229_23988fd5d4"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-3-04 性质》实验中，氯水氧化 Na₂S₂O₃ 后，反应后溶液中可验证____离子。下列哪一项最适合填入空白处？",
+            "options": [
+              {
+                "label": "A",
+                "text": "氧化性"
+              },
+              {
+                "label": "B",
+                "text": "还原性"
+              },
+              {
+                "label": "C",
+                "text": "配位性"
+              },
+              {
+                "label": "D",
+                "text": "SO₄²⁻"
+              }
+            ],
+            "answer": {
+              "value": "D"
+            },
+            "explanation": "空白处应填“SO₄²⁻”。本轮将原手机端高风险填空改为单选，避免上下标、别名或复杂化学式输入导致机器判分不稳定。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_3_04_SEMANTIC_FINAL_024",
+        "source_review_id": "EXP_19_3_04_SEMANTIC_FINAL_024",
+        "source_question_index": 24,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《19-3-04 性质》实验中，Na₂S₂O₃ 与 AgNO₃ 反应可体现其对 Ag⁺ 的____作用。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "配位",
+            "络合"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "硫代硫酸根能与 Ag⁺ 形成配合物。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-4-5013d52a"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "19_3_04_point_4"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00229_23988fd5d4",
+            "expchunk_00230_5e24188739"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "终审保留：题干、答案和解析与教材实验点位语义一致。",
+          "supporting_theory_note": ""
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00229_23988fd5d4",
+            "expchunk_00230_5e24188739"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-3-04 性质》实验中，Na₂S₂O₃ 与 AgNO₃ 反应可体现其对 Ag⁺ 的____作用。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "配位",
+                "络合"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "硫代硫酸根能与 Ag⁺ 形成配合物。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00230_5e24188739",
+              "expchunk_00229_23988fd5d4"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_3_04_SEMANTIC_FINAL_025",
+        "source_review_id": "EXP_19_3_04_SEMANTIC_FINAL_025",
+        "source_question_index": 25,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "fill_blank",
+        "stem": "在《19-3-04 性质》中，Na₂S₂O₃ 与 Ag⁺ 的后续溶解现象体现____作用。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "配位",
+            "络合"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "对应的实验操作或现象内容是“配位或络合”。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-4-5013d52a"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "19_3_04_point_4"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00229_23988fd5d4",
+            "expchunk_00230_5e24188739"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "答案为配位或络合，短且可机器判分。；原题存在证据、深度或题型风险，最终有效题已由 proposed_question 修复。",
+          "supporting_theory_note": ""
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00229_23988fd5d4",
+            "expchunk_00230_5e24188739"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "generic_or_answer_shell_explanation",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-3-04 性质》实验中，制备 Na₂S₂O₃·5H₂O 的原料之一是____粉。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "硫黄",
+                "硫"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "实验资料列出研细的硫黄粉。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00230_5e24188739",
+              "expchunk_00229_23988fd5d4"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-3-04 性质》中，Na₂S₂O₃ 与 Ag⁺ 的后续溶解现象体现____作用。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "配位",
+                "络合"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "对应的实验操作或现象内容是“配位或络合”。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_3_04_SEMANTIC_FINAL_026",
+        "source_review_id": "EXP_19_3_04_SEMANTIC_FINAL_026",
+        "source_question_index": 26,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "fill_blank",
+        "stem": "在《19-3-04 性质》中，Na₂S₂O₃ 遇 HCl 变浑浊主要来自单质____。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "硫",
+            "S"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "对应的实验操作或现象内容是“硫”。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-122909e7"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "19_3_04_point_1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00229_23988fd5d4",
+            "expchunk_00230_5e24188739"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "答案为硫，直接对应酸分解现象。；原题存在证据、深度或题型风险，最终有效题已由 proposed_question 修复。",
+          "supporting_theory_note": ""
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00229_23988fd5d4",
+            "expchunk_00230_5e24188739"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "formula_or_symbolic_fill_blank_answer",
+          "generic_or_answer_shell_explanation",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-3-04 性质》实验中，制备 Na₂S₂O₃·5H₂O 时加入活性炭粉的目的之一是____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "脱色"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "实验资料明确写有脱色。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00230_5e24188739",
+              "expchunk_00229_23988fd5d4"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-3-04 性质》中，Na₂S₂O₃ 遇 HCl 变浑浊主要来自单质____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "硫",
+                "S"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "对应的实验操作或现象内容是“硫”。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_3_04_SEMANTIC_FINAL_027",
+        "source_review_id": "EXP_19_3_04_SEMANTIC_FINAL_027",
+        "source_question_index": 27,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-3-04 性质》中，氯水处理 Na₂S₂O₃ 后验证 SO₄²⁻，本质上说明氯水起什么作用？",
+        "options": [
+          {
+            "label": "A",
+            "text": "把硫代硫酸根氧化为硫酸根"
+          },
+          {
+            "label": "B",
+            "text": "还原硫酸根"
+          },
+          {
+            "label": "C",
+            "text": "生成硝酸根"
+          },
+          {
+            "label": "D",
+            "text": "萃取碘单质"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "强氧化剂可将硫代硫酸盐氧化成硫酸盐。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-387fff62"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_3_387fff62"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "把硫代硫酸根氧化为硫酸根",
+            "point_key": "candidate-3-387fff62",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“把硫代硫酸根氧化为硫酸根”直接支撑题干所问：在《19-3-04 性质》中，氯水处理 Na₂S₂O₃ 后验证 SO₄²⁻，本质上说明氯水起什么作用？；对应点位为“Na₂S₂O₃ 反应后溶液中 SO₄²⁻ 的验证实验”。"
+          },
+          {
+            "label": "B",
+            "text": "还原硫酸根",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“还原硫酸根”与本题焦点“在《19-3-04 性质》中，氯水处理 Na₂S₂O₃ 后验证 SO₄²⁻，本质上说明氯水起什么作用？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“还原硫酸根”。"
+          },
+          {
+            "label": "C",
+            "text": "生成硝酸根",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“生成硝酸根”与本题焦点“在《19-3-04 性质》中，氯水处理 Na₂S₂O₃ 后验证 SO₄²⁻，本质上说明氯水起什么作用？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“生成硝酸根”。"
+          },
+          {
+            "label": "D",
+            "text": "萃取碘单质",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“萃取碘单质”与本题焦点“在《19-3-04 性质》中，氯水处理 Na₂S₂O₃ 后验证 SO₄²⁻，本质上说明氯水起什么作用？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“萃取碘单质”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00229_23988fd5d4",
+            "expchunk_00230_5e24188739"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final rewrite：deduplicated_proposed_question；有效题为本 proposed_question。；原题存在证据、深度或题型风险，最终有效题已由 proposed_question 修复。",
+          "supporting_theory_note": ""
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00229_23988fd5d4",
+            "expchunk_00230_5e24188739"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-3-04 性质》实验中，Na₂S₂O₃·5H₂O 性质实验前先将晶体溶于约 5 mL ____中。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "水",
+                "蒸馏水"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "实验资料写有溶于约 5 mL 水。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00230_5e24188739",
+              "expchunk_00229_23988fd5d4"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-3-04 性质》中，氯水处理 Na₂S₂O₃ 后验证 SO₄²⁻，本质上说明氯水起什么作用？",
+            "options": [
+              {
+                "label": "A",
+                "text": "把硫代硫酸根氧化为硫酸根"
+              },
+              {
+                "label": "B",
+                "text": "还原硫酸根"
+              },
+              {
+                "label": "C",
+                "text": "生成硝酸根"
+              },
+              {
+                "label": "D",
+                "text": "萃取碘单质"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "强氧化剂可将硫代硫酸盐氧化成硫酸盐。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_3_04_SEMANTIC_FINAL_028",
+        "source_review_id": "EXP_19_3_04_SEMANTIC_FINAL_028",
+        "source_question_index": 28,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-3-04 性质》实验中，验证 SO₄²⁻ 时常用 Ba²⁺ 生成白色____沉淀。下列哪一项最适合填入空白处？",
+        "options": [
+          {
+            "label": "A",
+            "text": "BaSO₄"
+          },
+          {
+            "label": "B",
+            "text": "氧化性"
+          },
+          {
+            "label": "C",
+            "text": "还原性"
+          },
+          {
+            "label": "D",
+            "text": "配位性"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "空白处应填“BaSO₄”。本轮将原手机端高风险填空改为单选，避免上下标、别名或复杂化学式输入导致机器判分不稳定。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-387fff62"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_3_387fff62"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "BaSO₄",
+            "point_key": "candidate-3-387fff62",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“BaSO₄”直接支撑题干所问：在《19-3-04 性质》实验中，验证 SO₄²⁻ 时常用 Ba²⁺ 生成白色____沉淀。下列哪一项最适合填入空白处？；对应点位为“Na₂S₂O₃ 反应后溶液中 SO₄²⁻ 的验证实验”。"
+          },
+          {
+            "label": "B",
+            "text": "氧化性",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“氧化性”与本题焦点“在《19-3-04 性质》实验中，验证 SO₄²⁻ 时常用 Ba²⁺ 生成白色____沉淀。下列哪一项最适合填入空白处？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“氧化性”。"
+          },
+          {
+            "label": "C",
+            "text": "还原性",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“还原性”与本题焦点“在《19-3-04 性质》实验中，验证 SO₄²⁻ 时常用 Ba²⁺ 生成白色____沉淀。下列哪一项最适合填入空白处？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“还原性”。"
+          },
+          {
+            "label": "D",
+            "text": "配位性",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“配位性”与本题焦点“在《19-3-04 性质》实验中，验证 SO₄²⁻ 时常用 Ba²⁺ 生成白色____沉淀。下列哪一项最适合填入空白处？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“配位性”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00229_23988fd5d4",
+            "expchunk_00230_5e24188739"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00391_2e025ffdda",
+            "textbook_prose_00392_f9643d7706",
+            "textbook_prose_00393_2db98879c2",
+            "textbook_prose_00394_04911a6294",
+            "textbook_prose_00395_7ea078c59f"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final rewrite：phone_risk_repaired_as_single_choice；有效题为本 proposed_question。；原题存在证据、深度或题型风险，最终有效题已由 proposed_question 修复。",
+          "supporting_theory_note": "本题判断除实验操作/现象外，还依赖 supporting theory: textbook_prose_00391_2e025ffdda, textbook_prose_00392_f9643d7706, textbook_prose_00393_2db98879c2, textbook_prose_00394_04911a6294, textbook_prose_00395_7ea078c59f。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00229_23988fd5d4",
+            "expchunk_00230_5e24188739"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00391_2e025ffdda",
+            "textbook_prose_00392_f9643d7706",
+            "textbook_prose_00393_2db98879c2",
+            "textbook_prose_00394_04911a6294",
+            "textbook_prose_00395_7ea078c59f"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00391_2e025ffdda",
+            "textbook_prose_00392_f9643d7706",
+            "textbook_prose_00393_2db98879c2",
+            "textbook_prose_00394_04911a6294",
+            "textbook_prose_00395_7ea078c59f"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "generic_or_answer_shell_explanation",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-3-04 性质》实验中，验证 SO₄²⁻ 时常用 Ba²⁺ 生成白色____沉淀。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "BaSO₄",
+                "硫酸钡"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "硫酸根与钡离子生成硫酸钡。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00230_5e24188739",
+              "expchunk_00229_23988fd5d4"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-3-04 性质》实验中，验证 SO₄²⁻ 时常用 Ba²⁺ 生成白色____沉淀。下列哪一项最适合填入空白处？",
+            "options": [
+              {
+                "label": "A",
+                "text": "BaSO₄"
+              },
+              {
+                "label": "B",
+                "text": "氧化性"
+              },
+              {
+                "label": "C",
+                "text": "还原性"
+              },
+              {
+                "label": "D",
+                "text": "配位性"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "空白处应填“BaSO₄”。本轮将原手机端高风险填空改为单选，避免上下标、别名或复杂化学式输入导致机器判分不稳定。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_3_04_SEMANTIC_FINAL_029",
+        "source_review_id": "EXP_19_3_04_SEMANTIC_FINAL_029",
+        "source_question_index": 29,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-3-04 性质》实验中，Na₂S₂O₃ 的酸分解常伴随生成有刺激性气味的____。下列哪一项最适合填入空白处？",
+        "options": [
+          {
+            "label": "A",
+            "text": "氧化性"
+          },
+          {
+            "label": "B",
+            "text": "SO₂"
+          },
+          {
+            "label": "C",
+            "text": "还原性"
+          },
+          {
+            "label": "D",
+            "text": "配位性"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "空白处应填“SO₂”。本轮将原手机端高风险填空改为单选，避免上下标、别名或复杂化学式输入导致机器判分不稳定。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-122909e7"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_1_122909e7"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "氧化性",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“氧化性”与本题焦点“在《19-3-04 性质》实验中，Na₂S₂O₃ 的酸分解常伴随生成有刺激性气味的____。下列哪一项最适合填入空白处？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“氧化性”。"
+          },
+          {
+            "label": "B",
+            "text": "SO₂",
+            "point_key": "candidate-1-122909e7",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“SO₂”直接支撑题干所问：在《19-3-04 性质》实验中，Na₂S₂O₃ 的酸分解常伴随生成有刺激性气味的____。下列哪一项最适合填入空白处？；对应点位为“Na₂S₂O₃ + HCl”。"
+          },
+          {
+            "label": "C",
+            "text": "还原性",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“还原性”与本题焦点“在《19-3-04 性质》实验中，Na₂S₂O₃ 的酸分解常伴随生成有刺激性气味的____。下列哪一项最适合填入空白处？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“还原性”。"
+          },
+          {
+            "label": "D",
+            "text": "配位性",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“配位性”与本题焦点“在《19-3-04 性质》实验中，Na₂S₂O₃ 的酸分解常伴随生成有刺激性气味的____。下列哪一项最适合填入空白处？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“配位性”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00229_23988fd5d4",
+            "expchunk_00230_5e24188739"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00391_2e025ffdda",
+            "textbook_prose_00392_f9643d7706",
+            "textbook_prose_00393_2db98879c2",
+            "textbook_prose_00394_04911a6294",
+            "textbook_prose_00395_7ea078c59f"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final rewrite：phone_risk_repaired_as_single_choice；有效题为本 proposed_question。；原题存在证据、深度或题型风险，最终有效题已由 proposed_question 修复。",
+          "supporting_theory_note": "本题判断除实验操作/现象外，还依赖 supporting theory: textbook_prose_00391_2e025ffdda, textbook_prose_00392_f9643d7706, textbook_prose_00393_2db98879c2, textbook_prose_00394_04911a6294, textbook_prose_00395_7ea078c59f。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00229_23988fd5d4",
+            "expchunk_00230_5e24188739"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00391_2e025ffdda",
+            "textbook_prose_00392_f9643d7706",
+            "textbook_prose_00393_2db98879c2",
+            "textbook_prose_00394_04911a6294",
+            "textbook_prose_00395_7ea078c59f"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00391_2e025ffdda",
+            "textbook_prose_00392_f9643d7706",
+            "textbook_prose_00393_2db98879c2",
+            "textbook_prose_00394_04911a6294",
+            "textbook_prose_00395_7ea078c59f"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "generic_or_answer_shell_explanation",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-3-04 性质》实验中，Na₂S₂O₃ 的酸分解常伴随生成有刺激性气味的____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "SO₂",
+                "二氧化硫"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "硫代硫酸盐酸化可生成 SO₂。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00230_5e24188739",
+              "expchunk_00229_23988fd5d4"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-3-04 性质》实验中，Na₂S₂O₃ 的酸分解常伴随生成有刺激性气味的____。下列哪一项最适合填入空白处？",
+            "options": [
+              {
+                "label": "A",
+                "text": "氧化性"
+              },
+              {
+                "label": "B",
+                "text": "SO₂"
+              },
+              {
+                "label": "C",
+                "text": "还原性"
+              },
+              {
+                "label": "D",
+                "text": "配位性"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "空白处应填“SO₂”。本轮将原手机端高风险填空改为单选，避免上下标、别名或复杂化学式输入导致机器判分不稳定。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_3_04_SEMANTIC_FINAL_030",
+        "source_review_id": "EXP_19_3_04_SEMANTIC_FINAL_030",
+        "source_question_index": 30,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《19-3-04 性质》实验中，本实验中的 Na₂S₂O₃ 与碘水反应不宜在强____性介质中长期进行。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "酸",
+            "酸性"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "硫代硫酸盐在酸性条件下不稳定。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-122909e7",
+          "candidate-2-982bdc6e"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "19_3_04_point_1",
+          "19_3_04_point_2"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00229_23988fd5d4",
+            "expchunk_00230_5e24188739"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00391_2e025ffdda",
+            "textbook_prose_00392_f9643d7706",
+            "textbook_prose_00393_2db98879c2",
+            "textbook_prose_00394_04911a6294",
+            "textbook_prose_00395_7ea078c59f"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "终审保留：题干、答案和解析与教材实验点位语义一致。；polished final 补充 supporting theory 引用：textbook_prose_00391_2e025ffdda, textbook_prose_00392_f9643d7706, textbook_prose_00393_2db98879c2, textbook_prose_00394_04911a6294, textbook_prose_00395_7ea078c59f。",
+          "supporting_theory_note": "该判断依赖教材理论 chunk：textbook_prose_00391_2e025ffdda, textbook_prose_00392_f9643d7706, textbook_prose_00393_2db98879c2, textbook_prose_00394_04911a6294, textbook_prose_00395_7ea078c59f。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00229_23988fd5d4",
+            "expchunk_00230_5e24188739"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00391_2e025ffdda",
+            "textbook_prose_00392_f9643d7706",
+            "textbook_prose_00393_2db98879c2",
+            "textbook_prose_00394_04911a6294",
+            "textbook_prose_00395_7ea078c59f"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00391_2e025ffdda",
+            "textbook_prose_00392_f9643d7706",
+            "textbook_prose_00393_2db98879c2",
+            "textbook_prose_00394_04911a6294",
+            "textbook_prose_00395_7ea078c59f"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-3-04 性质》实验中，本实验中的 Na₂S₂O₃ 与碘水反应不宜在强____性介质中长期进行。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "酸",
+                "酸性"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "硫代硫酸盐在酸性条件下不稳定。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00230_5e24188739",
+              "expchunk_00229_23988fd5d4"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "requires_supporting_theory"
+          ]
+        }
+      }
+    ]
+  }
+}

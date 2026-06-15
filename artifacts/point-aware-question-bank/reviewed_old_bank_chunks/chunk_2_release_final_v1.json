@@ -631,7 +631,10 @@
           "review_reasons": [],
           "quality_flags": [
             "semantic_final_reviewed",
-            "requires_supporting_theory"
+            "requires_supporting_theory",
+            "current_release_audit_conditional_rechecked",
+            "low_depth_retained_with_reason",
+            "mobile_safe_short_answer"
           ],
           "primary_point_keys": [
             "candidate-2-795f5a0b"
@@ -681,7 +684,7 @@
               "textbook_prose_00363_d345af4100"
             ],
             "evidence_sufficient": true,
-            "reviewer_note": "终审保留：题干、答案和解析与教材实验点位语义一致。；polished final 补充 supporting theory 引用：textbook_prose_00340_77f9d61c94, textbook_prose_00363_d345af4100。",
+            "reviewer_note": "current-release audit 条件复核：题干问 SO₂ 使酸性 KMnO₄ 溶液紫色褪去，canonical SO₂ 性质实验支持“酸化 KMnO₄ 后通入 SO₂ 并观察现象”；答案“紫”为短中文输入，手机端可机器确定性判分。该题保留为低深度颜色观察锚点，不作为强推理题；SO₂ 还原性和高锰酸根紫色判断依赖 supporting theory：textbook_prose_00340_77f9d61c94, textbook_prose_00363_d345af4100。",
             "supporting_theory_note": "该判断依赖教材理论 chunk：textbook_prose_00340_77f9d61c94, textbook_prose_00363_d345af4100。"
           },
           "reviewed_v1_proposed_question_review": "not_present",
@@ -693,13 +696,13 @@
               "canonical experiment chunks",
               "supporting theory chunks when needed"
             ],
-            "notes": "终稿打磨确认：有效题保持机器确定性判分，点位和证据字段已同步。"
+            "notes": "current-release audit 条件复核：有效题保持 original_question；低深度颜色填空保留的理由是答案为“紫”这一短中文观察词，可支撑酸性 KMnO₄ 褪色观察，手机端输入稳定；理论依赖已在 source_audit 中说明。"
           },
           "release_final_review": {
             "version": "chunk-2-release-final-v1",
             "semantic_reviewed": true,
             "student_facing_text_status": "unchanged_after_review",
-            "low_depth_status": "not_flagged_or_already_acceptable",
+            "low_depth_status": "conditionally_retained_as_short_color_observation_anchor",
             "publish_status": "publishable"
           }
         },
@@ -3744,7 +3747,10 @@
           "review_reasons": [],
           "quality_flags": [
             "semantic_final_reviewed",
-            "requires_supporting_theory"
+            "requires_supporting_theory",
+            "current_release_audit_conditional_rechecked",
+            "low_depth_retained_with_reason",
+            "mobile_safe_short_answer"
           ],
           "primary_point_keys": [
             "candidate-2-795f5a0b"
@@ -3765,7 +3771,7 @@
               "textbook_prose_00363_d345af4100"
             ],
             "evidence_sufficient": true,
-            "reviewer_note": "终审保留：题干、答案和解析与教材实验点位语义一致。；polished final 补充 supporting theory 引用：textbook_prose_00340_77f9d61c94, textbook_prose_00363_d345af4100。",
+            "reviewer_note": "current-release audit 条件复核：题干问 SO₂ 使酸性 KMnO₄ 溶液紫色褪去，canonical SO₂ 性质实验支持“酸化 KMnO₄ 后通入 SO₂ 并观察现象”；答案“紫”为短中文输入，手机端可机器确定性判分。该题保留为低深度颜色观察锚点，不作为强推理题；SO₂ 还原性和高锰酸根紫色判断依赖 supporting theory：textbook_prose_00340_77f9d61c94, textbook_prose_00363_d345af4100。",
             "supporting_theory_note": "该判断依赖教材理论 chunk：textbook_prose_00340_77f9d61c94, textbook_prose_00363_d345af4100。"
           },
           "reviewed_v1_proposed_question_review": "not_present",
@@ -3777,13 +3783,13 @@
               "canonical experiment chunks",
               "supporting theory chunks when needed"
             ],
-            "notes": "终稿打磨确认：有效题保持机器确定性判分，点位和证据字段已同步。"
+            "notes": "current-release audit 条件复核：有效题保持 original_question；低深度颜色填空保留的理由是答案为“紫”这一短中文观察词，可支撑酸性 KMnO₄ 褪色观察，手机端输入稳定；理论依赖已在 source_audit 中说明。"
           },
           "release_final_review": {
             "version": "chunk-2-release-final-v1",
             "semantic_reviewed": true,
             "student_facing_text_status": "unchanged_after_review",
-            "low_depth_status": "not_flagged_or_already_acceptable",
+            "low_depth_status": "conditionally_retained_as_short_color_observation_anchor",
             "publish_status": "publishable"
           }
         },
@@ -9637,7 +9643,7 @@
             "answer": {
               "value": true
             },
-            "explanation": "该判断与实验原文的操作、现象或结论一致。",
+            "explanation": "酸性条件下 K₂S₂O₈ 能把 Mn²⁺氧化，高锰酸根的生成体现过二硫酸盐的氧化性。",
             "difficulty": "basic",
             "related_chapter_ids": [
               "CH14"
@@ -9654,7 +9660,8 @@
           "review_decision": "keep",
           "review_reasons": [],
           "quality_flags": [
-            "semantic_final_reviewed"
+            "semantic_final_reviewed",
+            "evidence_first_generic_explanation_repaired"
           ],
           "primary_point_keys": [
             "candidate-1-86f30b4d"
@@ -9688,7 +9695,7 @@
           "release_final_review": {
             "version": "chunk-2-release-final-v1",
             "semantic_reviewed": true,
-            "student_facing_text_status": "cleaned",
+            "student_facing_text_status": "generic_explanation_repaired_evidence_first",
             "low_depth_status": "reviewed_and_retained",
             "publish_status": "publishable"
           }
@@ -9716,7 +9723,7 @@
             "answer": {
               "value": true
             },
-            "explanation": "该判断与实验原文的操作、现象或结论一致。",
+            "explanation": "实验设置了加入 AgNO₃ 与不加 AgNO₃ 的对照，现象差异用于判断 Ag⁺对反应的催化作用。",
             "difficulty": "basic",
             "related_chapter_ids": [
               "CH14"
@@ -9733,7 +9740,8 @@
           "review_decision": "keep",
           "review_reasons": [],
           "quality_flags": [
-            "semantic_final_reviewed"
+            "semantic_final_reviewed",
+            "evidence_first_generic_explanation_repaired"
           ],
           "primary_point_keys": [
             "candidate-1-86f30b4d",
@@ -9769,7 +9777,7 @@
           "release_final_review": {
             "version": "chunk-2-release-final-v1",
             "semantic_reviewed": true,
-            "student_facing_text_status": "cleaned",
+            "student_facing_text_status": "generic_explanation_repaired_evidence_first",
             "low_depth_status": "not_flagged_or_already_acceptable",
             "publish_status": "publishable"
           }
@@ -9797,7 +9805,7 @@
             "answer": {
               "value": true
             },
-            "explanation": "该判断与实验原文的操作、现象或结论一致。",
+            "explanation": "酸性 KI 体系中 I⁻被 K₂S₂O₈ 氧化生成 I₂，因此可用碘的颜色或萃取现象判断反应发生。",
             "difficulty": "basic",
             "related_chapter_ids": [
               "CH14"
@@ -9814,7 +9822,8 @@
           "review_decision": "keep",
           "review_reasons": [],
           "quality_flags": [
-            "semantic_final_reviewed"
+            "semantic_final_reviewed",
+            "evidence_first_generic_explanation_repaired"
           ],
           "primary_point_keys": [
             "candidate-3-6348ebe3"
@@ -9848,7 +9857,7 @@
           "release_final_review": {
             "version": "chunk-2-release-final-v1",
             "semantic_reviewed": true,
-            "student_facing_text_status": "cleaned",
+            "student_facing_text_status": "generic_explanation_repaired_evidence_first",
             "low_depth_status": "not_flagged_or_already_acceptable",
             "publish_status": "publishable"
           }
@@ -9876,7 +9885,7 @@
             "answer": {
               "value": true
             },
-            "explanation": "该判断与实验原文的操作、现象或结论一致。",
+            "explanation": "过二硫酸根接受电子后转化为硫酸根，说明该判断依赖过二硫酸盐氧化性的理论结论。",
             "difficulty": "basic",
             "related_chapter_ids": [
               "CH14"
@@ -9894,7 +9903,8 @@
           "review_reasons": [],
           "quality_flags": [
             "semantic_final_reviewed",
-            "requires_supporting_theory"
+            "requires_supporting_theory",
+            "evidence_first_generic_explanation_repaired"
           ],
           "primary_point_keys": [
             "candidate-1-86f30b4d",
@@ -9934,7 +9944,7 @@
           "release_final_review": {
             "version": "chunk-2-release-final-v1",
             "semantic_reviewed": true,
-            "student_facing_text_status": "cleaned",
+            "student_facing_text_status": "generic_explanation_repaired_evidence_first",
             "low_depth_status": "not_flagged_or_already_acceptable",
             "publish_status": "publishable"
           }
@@ -9962,7 +9972,7 @@
             "answer": {
               "value": true
             },
-            "explanation": "该判断与实验原文的操作、现象或结论一致。",
+            "explanation": "水浴加热提高反应速率，有助于观察 K₂S₂O₈ 氧化 Mn²⁺体系的现象变化。",
             "difficulty": "basic",
             "related_chapter_ids": [
               "CH14"
@@ -9979,7 +9989,8 @@
           "review_decision": "keep",
           "review_reasons": [],
           "quality_flags": [
-            "semantic_final_reviewed"
+            "semantic_final_reviewed",
+            "evidence_first_generic_explanation_repaired"
           ],
           "primary_point_keys": [
             "candidate-1-86f30b4d"
@@ -10013,7 +10024,7 @@
           "release_final_review": {
             "version": "chunk-2-release-final-v1",
             "semantic_reviewed": true,
-            "student_facing_text_status": "cleaned",
+            "student_facing_text_status": "generic_explanation_repaired_evidence_first",
             "low_depth_status": "not_flagged_or_already_acceptable",
             "publish_status": "publishable"
           }
@@ -10041,7 +10052,7 @@
             "answer": {
               "value": false
             },
-            "explanation": "该判断与实验原文的操作、现象或结论不一致。",
+            "explanation": "K₂S₂O₈ 在该体系中氧化 I⁻生成 I₂，不是把 I₂ 还原回 I⁻，所以该说法错误。",
             "difficulty": "basic",
             "related_chapter_ids": [
               "CH14"
@@ -10059,7 +10070,8 @@
           "review_reasons": [],
           "quality_flags": [
             "semantic_final_reviewed",
-            "requires_supporting_theory"
+            "requires_supporting_theory",
+            "evidence_first_generic_explanation_repaired"
           ],
           "primary_point_keys": [
             "candidate-3-6348ebe3"
@@ -10097,7 +10109,7 @@
           "release_final_review": {
             "version": "chunk-2-release-final-v1",
             "semantic_reviewed": true,
-            "student_facing_text_status": "cleaned",
+            "student_facing_text_status": "generic_explanation_repaired_evidence_first",
             "low_depth_status": "not_flagged_or_already_acceptable",
             "publish_status": "publishable"
           }
@@ -10125,7 +10137,7 @@
             "answer": {
               "value": false
             },
-            "explanation": "该判断与实验原文的操作、现象或结论不一致。",
+            "explanation": "不加 AgNO₃ 的试管正是催化作用对照组，用来和加入 AgNO₃ 的体系比较反应现象。",
             "difficulty": "basic",
             "related_chapter_ids": [
               "CH14"
@@ -10142,7 +10154,8 @@
           "review_decision": "keep",
           "review_reasons": [],
           "quality_flags": [
-            "semantic_final_reviewed"
+            "semantic_final_reviewed",
+            "evidence_first_generic_explanation_repaired"
           ],
           "primary_point_keys": [
             "candidate-1-86f30b4d",
@@ -10178,7 +10191,7 @@
           "release_final_review": {
             "version": "chunk-2-release-final-v1",
             "semantic_reviewed": true,
-            "student_facing_text_status": "cleaned",
+            "student_facing_text_status": "generic_explanation_repaired_evidence_first",
             "low_depth_status": "not_flagged_or_already_acceptable",
             "publish_status": "publishable"
           }
@@ -10321,7 +10334,7 @@
             "answer": {
               "value": false
             },
-            "explanation": "该判断与实验原文的操作、现象或结论不一致。",
+            "explanation": "Mn²⁺被过二硫酸盐氧化的实验需要酸性介质，题干说“完全不需要”与实验条件相反。",
             "difficulty": "basic",
             "related_chapter_ids": [
               "CH14"
@@ -10339,7 +10352,8 @@
           "review_reasons": [],
           "quality_flags": [
             "semantic_final_reviewed",
-            "requires_supporting_theory"
+            "requires_supporting_theory",
+            "evidence_first_generic_explanation_repaired"
           ],
           "primary_point_keys": [
             "candidate-1-86f30b4d"
@@ -10377,7 +10391,7 @@
           "release_final_review": {
             "version": "chunk-2-release-final-v1",
             "semantic_reviewed": true,
-            "student_facing_text_status": "cleaned",
+            "student_facing_text_status": "generic_explanation_repaired_evidence_first",
             "low_depth_status": "not_flagged_or_already_acceptable",
             "publish_status": "publishable"
           }
@@ -18052,7 +18066,8 @@
             "missing_or_empty_explanation"
           ],
           "quality_flags": [
-            "semantic_final_reviewed"
+            "semantic_final_reviewed",
+            "evidence_first_generic_explanation_repaired"
           ],
           "primary_point_keys": [
             "candidate-1-03b55150"
@@ -18092,7 +18107,7 @@
             "answer": {
               "value": false
             },
-            "explanation": "该判断与实验原文的操作、现象或结论不一致。",
+            "explanation": "HNO₂ 由冰水冷却的饱和 NaNO₂ 与 H₂SO₄ 作用生成，不是由 NaNO₂ 与 NaOH 反应生成。",
             "question_id": "EXP_19_4_01_SEMANTIC_FINAL_REWRITE_011",
             "review_decision": "keep",
             "quality_flags": [],
@@ -18127,7 +18142,7 @@
           "release_final_review": {
             "version": "chunk-2-release-final-v1",
             "semantic_reviewed": true,
-            "student_facing_text_status": "cleaned",
+            "student_facing_text_status": "generic_explanation_repaired_evidence_first",
             "low_depth_status": "not_flagged_or_already_acceptable",
             "publish_status": "publishable"
           }
@@ -18168,7 +18183,8 @@
             "missing_or_empty_explanation"
           ],
           "quality_flags": [
-            "semantic_final_reviewed"
+            "semantic_final_reviewed",
+            "evidence_first_generic_explanation_repaired"
           ],
           "primary_point_keys": [
             "candidate-2-0ee21807"
@@ -18208,7 +18224,7 @@
             "answer": {
               "value": false
             },
-            "explanation": "该判断与实验原文的操作、现象或结论不一致。",
+            "explanation": "实验观察的是 HNO₂ 生成后分解并产生 NO、NO₂ 等含氮氧化物，不是只生成无色 N₂ 和 O₂。",
             "question_id": "EXP_19_4_01_SEMANTIC_FINAL_REWRITE_012",
             "review_decision": "keep",
             "quality_flags": [],
@@ -18243,7 +18259,7 @@
           "release_final_review": {
             "version": "chunk-2-release-final-v1",
             "semantic_reviewed": true,
-            "student_facing_text_status": "cleaned",
+            "student_facing_text_status": "generic_explanation_repaired_evidence_first",
             "low_depth_status": "not_flagged_or_already_acceptable",
             "publish_status": "publishable"
           }
@@ -18284,7 +18300,8 @@
             "missing_or_empty_explanation"
           ],
           "quality_flags": [
-            "semantic_final_reviewed"
+            "semantic_final_reviewed",
+            "evidence_first_generic_explanation_repaired"
           ],
           "primary_point_keys": [
             "candidate-2-0ee21807"
@@ -18324,7 +18341,7 @@
             "answer": {
               "value": true
             },
-            "explanation": "该判断与实验原文的操作、现象或结论一致。",
+            "explanation": "教材实验把生成、分解过程中的蓝色中间物标注为 N₂O₃，因此该颜色判断与原文一致。",
             "question_id": "EXP_19_4_01_SEMANTIC_FINAL_REWRITE_013",
             "review_decision": "keep",
             "quality_flags": [],
@@ -18359,7 +18376,7 @@
           "release_final_review": {
             "version": "chunk-2-release-final-v1",
             "semantic_reviewed": true,
-            "student_facing_text_status": "cleaned",
+            "student_facing_text_status": "generic_explanation_repaired_evidence_first",
             "low_depth_status": "not_flagged_or_already_acceptable",
             "publish_status": "publishable"
           }
@@ -18400,7 +18417,8 @@
             "missing_or_empty_explanation"
           ],
           "quality_flags": [
-            "semantic_final_reviewed"
+            "semantic_final_reviewed",
+            "evidence_first_generic_explanation_repaired"
           ],
           "primary_point_keys": [
             "candidate-2-0ee21807"
@@ -18440,7 +18458,7 @@
             "answer": {
               "value": true
             },
-            "explanation": "该判断与实验原文的操作、现象或结论一致。",
+            "explanation": "NO₂ 是棕色气体，而 NO 通常为无色气体；该判断对应分解现象中的棕色气体。",
             "question_id": "EXP_19_4_01_SEMANTIC_FINAL_REWRITE_014",
             "review_decision": "keep",
             "quality_flags": [],
@@ -18475,7 +18493,7 @@
           "release_final_review": {
             "version": "chunk-2-release-final-v1",
             "semantic_reviewed": true,
-            "student_facing_text_status": "cleaned",
+            "student_facing_text_status": "generic_explanation_repaired_evidence_first",
             "low_depth_status": "not_flagged_or_already_acceptable",
             "publish_status": "publishable"
           }
@@ -18516,7 +18534,8 @@
             "missing_or_empty_explanation"
           ],
           "quality_flags": [
-            "semantic_final_reviewed"
+            "semantic_final_reviewed",
+            "evidence_first_generic_explanation_repaired"
           ],
           "primary_point_keys": [
             "candidate-1-03b55150"
@@ -18556,7 +18575,7 @@
             "answer": {
               "value": false
             },
-            "explanation": "该判断与实验原文的操作、现象或结论不一致。",
+            "explanation": "生成 HNO₂ 的原料是 NaNO₂ 和 H₂SO₄，Na₂O₂ 与水不属于本实验的反应组合。",
             "question_id": "EXP_19_4_01_SEMANTIC_FINAL_REWRITE_015",
             "review_decision": "keep",
             "quality_flags": [],
@@ -18591,7 +18610,7 @@
           "release_final_review": {
             "version": "chunk-2-release-final-v1",
             "semantic_reviewed": true,
-            "student_facing_text_status": "cleaned",
+            "student_facing_text_status": "generic_explanation_repaired_evidence_first",
             "low_depth_status": "not_flagged_or_already_acceptable",
             "publish_status": "publishable"
           }
@@ -18632,7 +18651,8 @@
             "missing_or_empty_explanation"
           ],
           "quality_flags": [
-            "semantic_final_reviewed"
+            "semantic_final_reviewed",
+            "evidence_first_generic_explanation_repaired"
           ],
           "primary_point_keys": [
             "candidate-1-03b55150",
@@ -18674,7 +18694,7 @@
             "answer": {
               "value": true
             },
-            "explanation": "该判断与实验原文的操作、现象或结论一致。",
+            "explanation": "冰水冷却可减缓不稳定 HNO₂/N₂O₃ 的分解，便于观察生成到分解的变化。",
             "question_id": "EXP_19_4_01_SEMANTIC_FINAL_REWRITE_016",
             "review_decision": "keep",
             "quality_flags": [],
@@ -18711,7 +18731,7 @@
           "release_final_review": {
             "version": "chunk-2-release-final-v1",
             "semantic_reviewed": true,
-            "student_facing_text_status": "cleaned",
+            "student_facing_text_status": "generic_explanation_repaired_evidence_first",
             "low_depth_status": "not_flagged_or_already_acceptable",
             "publish_status": "publishable"
           }
@@ -18752,7 +18772,8 @@
             "missing_or_empty_explanation"
           ],
           "quality_flags": [
-            "semantic_final_reviewed"
+            "semantic_final_reviewed",
+            "evidence_first_generic_explanation_repaired"
           ],
           "primary_point_keys": [
             "candidate-2-0ee21807"
@@ -18792,7 +18813,7 @@
             "answer": {
               "value": false
             },
-            "explanation": "该判断与实验原文的操作、现象或结论不一致。",
+            "explanation": "HNO₂ 分解会产生 NO、NO₂ 等含氮气体，题干说只生成 Na₂SO₄ 与实验现象不符。",
             "question_id": "EXP_19_4_01_SEMANTIC_FINAL_REWRITE_017",
             "review_decision": "keep",
             "quality_flags": [],
@@ -18827,7 +18848,7 @@
           "release_final_review": {
             "version": "chunk-2-release-final-v1",
             "semantic_reviewed": true,
-            "student_facing_text_status": "cleaned",
+            "student_facing_text_status": "generic_explanation_repaired_evidence_first",
             "low_depth_status": "not_flagged_or_already_acceptable",
             "publish_status": "publishable"
           }
@@ -18868,7 +18889,8 @@
             "missing_or_empty_explanation"
           ],
           "quality_flags": [
-            "semantic_final_reviewed"
+            "semantic_final_reviewed",
+            "evidence_first_generic_explanation_repaired"
           ],
           "primary_point_keys": [
             "candidate-1-03b55150"
@@ -18908,7 +18930,7 @@
             "answer": {
               "value": true
             },
-            "explanation": "该判断与实验原文的操作、现象或结论一致。",
+            "explanation": "H₂SO₄ 提供酸性条件使 NaNO₂ 转化为 HNO₂，NaOH 不能承担这个酸化作用。",
             "question_id": "EXP_19_4_01_SEMANTIC_FINAL_REWRITE_018",
             "review_decision": "keep",
             "quality_flags": [],
@@ -18943,7 +18965,7 @@
           "release_final_review": {
             "version": "chunk-2-release-final-v1",
             "semantic_reviewed": true,
-            "student_facing_text_status": "cleaned",
+            "student_facing_text_status": "generic_explanation_repaired_evidence_first",
             "low_depth_status": "not_flagged_or_already_acceptable",
             "publish_status": "publishable"
           }
@@ -18984,7 +19006,8 @@
             "missing_or_empty_explanation"
           ],
           "quality_flags": [
-            "semantic_final_reviewed"
+            "semantic_final_reviewed",
+            "evidence_first_generic_explanation_repaired"
           ],
           "primary_point_keys": [
             "candidate-2-0ee21807"
@@ -19024,7 +19047,7 @@
             "answer": {
               "value": false
             },
-            "explanation": "该判断与实验原文的操作、现象或结论不一致。",
+            "explanation": "题干把 NO 和 NO₂ 的颜色说反了；NO₂ 为棕色气体，NO 不是棕色气体。",
             "question_id": "EXP_19_4_01_SEMANTIC_FINAL_REWRITE_019",
             "review_decision": "keep",
             "quality_flags": [],
@@ -19059,7 +19082,7 @@
           "release_final_review": {
             "version": "chunk-2-release-final-v1",
             "semantic_reviewed": true,
-            "student_facing_text_status": "cleaned",
+            "student_facing_text_status": "generic_explanation_repaired_evidence_first",
             "low_depth_status": "not_flagged_or_already_acceptable",
             "publish_status": "publishable"
           }
@@ -19100,7 +19123,8 @@
             "missing_or_empty_explanation"
           ],
           "quality_flags": [
-            "semantic_final_reviewed"
+            "semantic_final_reviewed",
+            "evidence_first_generic_explanation_repaired"
           ],
           "primary_point_keys": [
             "candidate-1-03b55150",
@@ -19142,7 +19166,7 @@
             "answer": {
               "value": true
             },
-            "explanation": "该判断与实验原文的操作、现象或结论一致。",
+            "explanation": "本实验点位围绕 NaNO₂ 酸化生成 HNO₂ 及其分解现象，不是硝酸盐受热分解实验。",
             "question_id": "EXP_19_4_01_SEMANTIC_FINAL_REWRITE_020",
             "review_decision": "keep",
             "quality_flags": [],
@@ -19179,7 +19203,7 @@
           "release_final_review": {
             "version": "chunk-2-release-final-v1",
             "semantic_reviewed": true,
-            "student_facing_text_status": "cleaned",
+            "student_facing_text_status": "generic_explanation_repaired_evidence_first",
             "low_depth_status": "not_flagged_or_already_acceptable",
             "publish_status": "publishable"
           }
@@ -30274,7 +30298,7 @@
             "answer": {
               "value": true
             },
-            "explanation": "该判断与实验原文的操作、现象或结论一致。",
+            "explanation": "点滴板法使用 NaNO₂、HAc、对氨基苯磺酸和萘胺进行显色，因此该试剂组合正确。",
             "difficulty": "basic",
             "related_chapter_ids": [
               "CH15"
@@ -30291,7 +30315,8 @@
           "review_decision": "keep",
           "review_reasons": [],
           "quality_flags": [
-            "semantic_final_reviewed"
+            "semantic_final_reviewed",
+            "evidence_first_generic_explanation_repaired"
           ],
           "primary_point_keys": [
             "candidate-1-724956e8"
@@ -30325,7 +30350,7 @@
           "release_final_review": {
             "version": "chunk-2-release-final-v1",
             "semantic_reviewed": true,
-            "student_facing_text_status": "cleaned",
+            "student_facing_text_status": "generic_explanation_repaired_evidence_first",
             "low_depth_status": "not_flagged_or_already_acceptable",
             "publish_status": "publishable"
           }
@@ -30353,7 +30378,7 @@
             "answer": {
               "value": true
             },
-            "explanation": "该判断与实验原文的操作、现象或结论一致。",
+            "explanation": "点滴板法阳性会出现红色显色，红色现象是判断 NO₂⁻ 的直接依据。",
             "difficulty": "basic",
             "related_chapter_ids": [
               "CH15"
@@ -30370,7 +30395,8 @@
           "review_decision": "keep",
           "review_reasons": [],
           "quality_flags": [
-            "semantic_final_reviewed"
+            "semantic_final_reviewed",
+            "evidence_first_generic_explanation_repaired"
           ],
           "primary_point_keys": [
             "candidate-1-724956e8"
@@ -30404,7 +30430,7 @@
           "release_final_review": {
             "version": "chunk-2-release-final-v1",
             "semantic_reviewed": true,
-            "student_facing_text_status": "cleaned",
+            "student_facing_text_status": "generic_explanation_repaired_evidence_first",
             "low_depth_status": "not_flagged_or_already_acceptable",
             "publish_status": "publishable"
           }
@@ -30432,7 +30458,7 @@
             "answer": {
               "value": true
             },
-            "explanation": "该判断与实验原文的操作、现象或结论一致。",
+            "explanation": "KI/CCl₄ 法中酸性 NO₂⁻氧化 I⁻生成 I₂，I₂ 进入 CCl₄ 层呈紫色。",
             "difficulty": "basic",
             "related_chapter_ids": [
               "CH15"
@@ -30449,7 +30475,8 @@
           "review_decision": "keep",
           "review_reasons": [],
           "quality_flags": [
-            "semantic_final_reviewed"
+            "semantic_final_reviewed",
+            "evidence_first_generic_explanation_repaired"
           ],
           "primary_point_keys": [
             "candidate-2-e03872e8"
@@ -30483,7 +30510,7 @@
           "release_final_review": {
             "version": "chunk-2-release-final-v1",
             "semantic_reviewed": true,
-            "student_facing_text_status": "cleaned",
+            "student_facing_text_status": "generic_explanation_repaired_evidence_first",
             "low_depth_status": "not_flagged_or_already_acceptable",
             "publish_status": "publishable"
           }
@@ -30622,7 +30649,7 @@
             "answer": {
               "value": true
             },
-            "explanation": "该判断与实验原文的操作、现象或结论一致。",
+            "explanation": "酸性 NaNO₂ 能氧化 I⁻生成 I₂，这一反应体现亚硝酸/亚硝酸根体系的氧化性。",
             "difficulty": "basic",
             "related_chapter_ids": [
               "CH15"
@@ -30640,7 +30667,8 @@
           "review_reasons": [],
           "quality_flags": [
             "semantic_final_reviewed",
-            "requires_supporting_theory"
+            "requires_supporting_theory",
+            "evidence_first_generic_explanation_repaired"
           ],
           "primary_point_keys": [
             "candidate-2-e03872e8"
@@ -30677,7 +30705,7 @@
           "release_final_review": {
             "version": "chunk-2-release-final-v1",
             "semantic_reviewed": true,
-            "student_facing_text_status": "cleaned",
+            "student_facing_text_status": "generic_explanation_repaired_evidence_first",
             "low_depth_status": "not_flagged_or_already_acceptable",
             "publish_status": "publishable"
           }
@@ -30705,7 +30733,7 @@
             "answer": {
               "value": false
             },
-            "explanation": "该判断与实验原文的操作、现象或结论不一致。",
+            "explanation": "点滴板法使用 HAc 提供酸性条件，不能用 NaOH 代替 HAc 来完成该显色检验。",
             "difficulty": "basic",
             "related_chapter_ids": [
               "CH15"
@@ -30722,7 +30750,8 @@
           "review_decision": "keep",
           "review_reasons": [],
           "quality_flags": [
-            "semantic_final_reviewed"
+            "semantic_final_reviewed",
+            "evidence_first_generic_explanation_repaired"
           ],
           "primary_point_keys": [
             "candidate-1-724956e8"
@@ -30756,7 +30785,7 @@
           "release_final_review": {
             "version": "chunk-2-release-final-v1",
             "semantic_reviewed": true,
-            "student_facing_text_status": "cleaned",
+            "student_facing_text_status": "generic_explanation_repaired_evidence_first",
             "low_depth_status": "reviewed_and_retained",
             "publish_status": "publishable"
           }
@@ -30784,7 +30813,7 @@
             "answer": {
               "value": false
             },
-            "explanation": "该判断与实验原文的操作、现象或结论不一致。",
+            "explanation": "CCl₄ 层紫色来自 I₂ 的萃取显色，AgCl 是白色沉淀且不属于该颜色来源。",
             "difficulty": "basic",
             "related_chapter_ids": [
               "CH15"
@@ -30802,7 +30831,8 @@
           "review_reasons": [],
           "quality_flags": [
             "semantic_final_reviewed",
-            "requires_supporting_theory"
+            "requires_supporting_theory",
+            "evidence_first_generic_explanation_repaired"
           ],
           "primary_point_keys": [
             "candidate-2-e03872e8"
@@ -30839,7 +30869,7 @@
           "release_final_review": {
             "version": "chunk-2-release-final-v1",
             "semantic_reviewed": true,
-            "student_facing_text_status": "cleaned",
+            "student_facing_text_status": "generic_explanation_repaired_evidence_first",
             "low_depth_status": "not_flagged_or_already_acceptable",
             "publish_status": "publishable"
           }
@@ -30867,7 +30897,7 @@
             "answer": {
               "value": false
             },
-            "explanation": "该判断与实验原文的操作、现象或结论不一致。",
+            "explanation": "点滴板法用 HAc，KI/CCl₄ 法也需酸化；说完全不需要酸性条件是错误的。",
             "difficulty": "basic",
             "related_chapter_ids": [
               "CH15"
@@ -30885,7 +30915,8 @@
           "review_reasons": [],
           "quality_flags": [
             "semantic_final_reviewed",
-            "requires_supporting_theory"
+            "requires_supporting_theory",
+            "evidence_first_generic_explanation_repaired"
           ],
           "primary_point_keys": [
             "candidate-1-724956e8",
@@ -30924,7 +30955,7 @@
           "release_final_review": {
             "version": "chunk-2-release-final-v1",
             "semantic_reviewed": true,
-            "student_facing_text_status": "cleaned",
+            "student_facing_text_status": "generic_explanation_repaired_evidence_first",
             "low_depth_status": "not_flagged_or_already_acceptable",
             "publish_status": "publishable"
           }
@@ -39292,7 +39323,8 @@
             "missing_or_empty_explanation"
           ],
           "quality_flags": [
-            "semantic_final_reviewed"
+            "semantic_final_reviewed",
+            "evidence_first_generic_explanation_repaired"
           ],
           "primary_point_keys": [
             "candidate-3-a4523875"
@@ -39332,7 +39364,7 @@
             "answer": {
               "value": false
             },
-            "explanation": "该判断与实验原文的操作、现象或结论不一致。",
+            "explanation": "浓硝酸与铜反应的典型棕色气体是 NO₂，不是 NH₃。",
             "question_id": "EXP_19_4_06_SEMANTIC_FINAL_REWRITE_011",
             "review_decision": "keep",
             "quality_flags": [],
@@ -39367,7 +39399,7 @@
           "release_final_review": {
             "version": "chunk-2-release-final-v1",
             "semantic_reviewed": true,
-            "student_facing_text_status": "cleaned",
+            "student_facing_text_status": "generic_explanation_repaired_evidence_first",
             "low_depth_status": "not_flagged_or_already_acceptable",
             "publish_status": "publishable"
           }
@@ -39408,7 +39440,8 @@
             "missing_or_empty_explanation"
           ],
           "quality_flags": [
-            "semantic_final_reviewed"
+            "semantic_final_reviewed",
+            "evidence_first_generic_explanation_repaired"
           ],
           "primary_point_keys": [
             "candidate-5-f5d1e095",
@@ -39450,7 +39483,7 @@
             "answer": {
               "value": false
             },
-            "explanation": "该判断与实验原文的操作、现象或结论不一致。",
+            "explanation": "稀硝酸与锌反应后的产物检验包含 NH₃/NH₄⁺，不能说无需考虑这些还原产物。",
             "question_id": "EXP_19_4_06_SEMANTIC_FINAL_REWRITE_012",
             "review_decision": "keep",
             "quality_flags": [],
@@ -39487,7 +39520,7 @@
           "release_final_review": {
             "version": "chunk-2-release-final-v1",
             "semantic_reviewed": true,
-            "student_facing_text_status": "cleaned",
+            "student_facing_text_status": "generic_explanation_repaired_evidence_first",
             "low_depth_status": "not_flagged_or_already_acceptable",
             "publish_status": "publishable"
           }
@@ -39529,7 +39562,8 @@
           ],
           "quality_flags": [
             "semantic_final_reviewed",
-            "requires_supporting_theory"
+            "requires_supporting_theory",
+            "evidence_first_generic_explanation_repaired"
           ],
           "primary_point_keys": [
             "candidate-4-b4a6a327"
@@ -39573,7 +39607,7 @@
             "answer": {
               "value": true
             },
-            "explanation": "该判断与实验原文的操作、现象或结论一致。 其中预期产物、颜色或氧化还原产物的判断依赖通用无机化学理论。",
+            "explanation": "稀硝酸与铜反应常先生成 NO，NO 接触空气后被氧化成棕色 NO₂；该颜色判断需结合硝酸氧化性理论。",
             "question_id": "EXP_19_4_06_SEMANTIC_FINAL_REWRITE_013",
             "review_decision": "keep",
             "quality_flags": [],
@@ -39612,7 +39646,7 @@
           "release_final_review": {
             "version": "chunk-2-release-final-v1",
             "semantic_reviewed": true,
-            "student_facing_text_status": "cleaned",
+            "student_facing_text_status": "generic_explanation_repaired_evidence_first",
             "low_depth_status": "not_flagged_or_already_acceptable",
             "publish_status": "publishable"
           }
@@ -39653,7 +39687,8 @@
             "missing_or_empty_explanation"
           ],
           "quality_flags": [
-            "semantic_final_reviewed"
+            "semantic_final_reviewed",
+            "evidence_first_generic_explanation_repaired"
           ],
           "primary_point_keys": [
             "candidate-5-f5d1e095",
@@ -39695,7 +39730,7 @@
             "answer": {
               "value": true
             },
-            "explanation": "该判断与实验原文的操作、现象或结论一致。",
+            "explanation": "稀硝酸与锌反应后需要通过后续操作验证 NH₃/NH₄⁺，该判断与实验点位一致。",
             "question_id": "EXP_19_4_06_SEMANTIC_FINAL_REWRITE_014",
             "review_decision": "keep",
             "quality_flags": [],
@@ -39732,7 +39767,7 @@
           "release_final_review": {
             "version": "chunk-2-release-final-v1",
             "semantic_reviewed": true,
-            "student_facing_text_status": "cleaned",
+            "student_facing_text_status": "generic_explanation_repaired_evidence_first",
             "low_depth_status": "not_flagged_or_already_acceptable",
             "publish_status": "publishable"
           }
@@ -39774,7 +39809,8 @@
           ],
           "quality_flags": [
             "semantic_final_reviewed",
-            "requires_supporting_theory"
+            "requires_supporting_theory",
+            "evidence_first_generic_explanation_repaired"
           ],
           "primary_point_keys": [
             "candidate-1-3326cc9a",
@@ -39828,7 +39864,7 @@
             "answer": {
               "value": false
             },
-            "explanation": "该判断与实验原文的操作、现象或结论不一致。 其中预期产物、颜色或氧化还原产物的判断依赖通用无机化学理论。",
+            "explanation": "浓、稀硝酸与硫、硫化物、铜、锌等还原物反应时体现氧化性，不能说只表现普通酸性。",
             "question_id": "EXP_19_4_06_SEMANTIC_FINAL_REWRITE_015",
             "review_decision": "keep",
             "quality_flags": [],
@@ -39877,7 +39913,7 @@
           "release_final_review": {
             "version": "chunk-2-release-final-v1",
             "semantic_reviewed": true,
-            "student_facing_text_status": "cleaned",
+            "student_facing_text_status": "generic_explanation_repaired_evidence_first",
             "low_depth_status": "not_flagged_or_already_acceptable",
             "publish_status": "publishable"
           }
@@ -39919,7 +39955,8 @@
           ],
           "quality_flags": [
             "semantic_final_reviewed",
-            "requires_supporting_theory"
+            "requires_supporting_theory",
+            "evidence_first_generic_explanation_repaired"
           ],
           "primary_point_keys": [
             "candidate-1-3326cc9a",
@@ -39965,7 +40002,7 @@
             "answer": {
               "value": true
             },
-            "explanation": "该判断与实验原文的操作、现象或结论一致。 其中预期产物、颜色或氧化还原产物的判断依赖通用无机化学理论。",
+            "explanation": "浓硝酸能氧化硫或硫化氢替代体系中的还原性物质，这是本实验氧化性检验的核心。",
             "question_id": "EXP_19_4_06_SEMANTIC_FINAL_REWRITE_016",
             "review_decision": "keep",
             "quality_flags": [],
@@ -40006,7 +40043,7 @@
           "release_final_review": {
             "version": "chunk-2-release-final-v1",
             "semantic_reviewed": true,
-            "student_facing_text_status": "cleaned",
+            "student_facing_text_status": "generic_explanation_repaired_evidence_first",
             "low_depth_status": "not_flagged_or_already_acceptable",
             "publish_status": "publishable"
           }
@@ -40047,7 +40084,8 @@
             "missing_or_empty_explanation"
           ],
           "quality_flags": [
-            "semantic_final_reviewed"
+            "semantic_final_reviewed",
+            "evidence_first_generic_explanation_repaired"
           ],
           "primary_point_keys": [
             "candidate-1-3326cc9a",
@@ -40097,7 +40135,7 @@
             "answer": {
               "value": false
             },
-            "explanation": "该判断与实验原文的操作、现象或结论不一致。",
+            "explanation": "本实验围绕硝酸与硫、硫化物、铜、锌等体系的氧化性，PbO₂ 与浓盐酸不是主要试剂组合。",
             "question_id": "EXP_19_4_06_SEMANTIC_FINAL_REWRITE_017",
             "review_decision": "keep",
             "quality_flags": [],
@@ -40142,7 +40180,7 @@
           "release_final_review": {
             "version": "chunk-2-release-final-v1",
             "semantic_reviewed": true,
-            "student_facing_text_status": "cleaned",
+            "student_facing_text_status": "generic_explanation_repaired_evidence_first",
             "low_depth_status": "not_flagged_or_already_acceptable",
             "publish_status": "publishable"
           }
@@ -40304,7 +40342,8 @@
           ],
           "quality_flags": [
             "semantic_final_reviewed",
-            "requires_supporting_theory"
+            "requires_supporting_theory",
+            "evidence_first_generic_explanation_repaired"
           ],
           "primary_point_keys": [
             "candidate-6-cabb1217"
@@ -40348,7 +40387,7 @@
             "answer": {
               "value": true
             },
-            "explanation": "该判断与实验原文的操作、现象或结论一致。 其中预期产物、颜色或氧化还原产物的判断依赖通用无机化学理论。",
+            "explanation": "Zn 与稀硝酸反应可能生成 NH₄⁺，碱化释放 NH₃ 的检验思路用于确认该还原产物。",
             "question_id": "EXP_19_4_06_SEMANTIC_FINAL_REWRITE_019",
             "review_decision": "keep",
             "quality_flags": [],
@@ -40387,7 +40426,7 @@
           "release_final_review": {
             "version": "chunk-2-release-final-v1",
             "semantic_reviewed": true,
-            "student_facing_text_status": "cleaned",
+            "student_facing_text_status": "generic_explanation_repaired_evidence_first",
             "low_depth_status": "not_flagged_or_already_acceptable",
             "publish_status": "publishable"
           }
@@ -40428,7 +40467,8 @@
             "missing_or_empty_explanation"
           ],
           "quality_flags": [
-            "semantic_final_reviewed"
+            "semantic_final_reviewed",
+            "evidence_first_generic_explanation_repaired"
           ],
           "primary_point_keys": [
             "candidate-1-3326cc9a",
@@ -40478,7 +40518,7 @@
             "answer": {
               "value": false
             },
-            "explanation": "该判断与实验原文的操作、现象或结论不一致。",
+            "explanation": "硝酸氧化性实验包含浓/稀硝酸与多种还原物的反应，和亚硝酸生成实验并不相同。",
             "question_id": "EXP_19_4_06_SEMANTIC_FINAL_REWRITE_020",
             "review_decision": "keep",
             "quality_flags": [],
@@ -40523,7 +40563,7 @@
           "release_final_review": {
             "version": "chunk-2-release-final-v1",
             "semantic_reviewed": true,
-            "student_facing_text_status": "cleaned",
+            "student_facing_text_status": "generic_explanation_repaired_evidence_first",
             "low_depth_status": "not_flagged_or_already_acceptable",
             "publish_status": "publishable"
           }
@@ -51867,7 +51907,7 @@
             "answer": {
               "value": true
             },
-            "explanation": "该判断与实验原文的操作、现象或结论一致。",
+            "explanation": "棕色环检验使用 FeSO₄·7H₂O、NaNO₃ 和浓 H₂SO₄，该试剂链与实验点位一致。",
             "difficulty": "basic",
             "related_chapter_ids": [
               "CH15"
@@ -51884,7 +51924,8 @@
           "review_decision": "keep",
           "review_reasons": [],
           "quality_flags": [
-            "semantic_final_reviewed"
+            "semantic_final_reviewed",
+            "evidence_first_generic_explanation_repaired"
           ],
           "primary_point_keys": [
             "candidate-1-520f0192"
@@ -51918,7 +51959,7 @@
           "release_final_review": {
             "version": "chunk-2-release-final-v1",
             "semantic_reviewed": true,
-            "student_facing_text_status": "cleaned",
+            "student_facing_text_status": "generic_explanation_repaired_evidence_first",
             "low_depth_status": "reviewed_and_retained",
             "publish_status": "publishable"
           }
@@ -51946,7 +51987,7 @@
             "answer": {
               "value": true
             },
-            "explanation": "该判断与实验原文的操作、现象或结论一致。",
+            "explanation": "棕色环来自 NO 与 Fe²⁺形成的棕色配合物，因此该机理判断需要并符合支持理论。",
             "difficulty": "basic",
             "related_chapter_ids": [
               "CH15"
@@ -51964,7 +52005,8 @@
           "review_reasons": [],
           "quality_flags": [
             "semantic_final_reviewed",
-            "requires_supporting_theory"
+            "requires_supporting_theory",
+            "evidence_first_generic_explanation_repaired"
           ],
           "primary_point_keys": [
             "candidate-2-a452c505"
@@ -52002,7 +52044,7 @@
           "release_final_review": {
             "version": "chunk-2-release-final-v1",
             "semantic_reviewed": true,
-            "student_facing_text_status": "cleaned",
+            "student_facing_text_status": "generic_explanation_repaired_evidence_first",
             "low_depth_status": "not_flagged_or_already_acceptable",
             "publish_status": "publishable"
           }
@@ -52030,7 +52072,7 @@
             "answer": {
               "value": true
             },
-            "explanation": "该判断与实验原文的操作、现象或结论一致。",
+            "explanation": "在强酸性硝酸根检验中，Fe²⁺参与还原硝酸根并可被氧化为 Fe³⁺。",
             "difficulty": "basic",
             "related_chapter_ids": [
               "CH15"
@@ -52048,7 +52090,8 @@
           "review_reasons": [],
           "quality_flags": [
             "semantic_final_reviewed",
-            "requires_supporting_theory"
+            "requires_supporting_theory",
+            "evidence_first_generic_explanation_repaired"
           ],
           "primary_point_keys": [
             "candidate-1-520f0192"
@@ -52086,7 +52129,7 @@
           "release_final_review": {
             "version": "chunk-2-release-final-v1",
             "semantic_reviewed": true,
-            "student_facing_text_status": "cleaned",
+            "student_facing_text_status": "generic_explanation_repaired_evidence_first",
             "low_depth_status": "not_flagged_or_already_acceptable",
             "publish_status": "publishable"
           }
@@ -52682,7 +52725,7 @@
             "answer": {
               "value": false
             },
-            "explanation": "该判断与实验原文的操作、现象或结论不一致。",
+            "explanation": "浓 H₂SO₄提供强酸和分层环境，浓氨水不能替代其完成棕色环检验。",
             "difficulty": "basic",
             "related_chapter_ids": [
               "CH15"
@@ -52700,7 +52743,8 @@
           "review_reasons": [],
           "quality_flags": [
             "semantic_final_reviewed",
-            "requires_supporting_theory"
+            "requires_supporting_theory",
+            "evidence_first_generic_explanation_repaired"
           ],
           "primary_point_keys": [
             "candidate-1-520f0192"
@@ -52738,7 +52782,7 @@
           "release_final_review": {
             "version": "chunk-2-release-final-v1",
             "semantic_reviewed": true,
-            "student_facing_text_status": "cleaned",
+            "student_facing_text_status": "generic_explanation_repaired_evidence_first",
             "low_depth_status": "reviewed_and_retained",
             "publish_status": "publishable"
           }
@@ -52953,7 +52997,7 @@
             "answer": {
               "value": false
             },
-            "explanation": "该判断与实验原文的操作、现象或结论不一致。",
+            "explanation": "棕色环属于硝酸根检验中的 NO-Fe²⁺配合现象，不是 Ni(dmg)₂ 沉淀。",
             "difficulty": "basic",
             "related_chapter_ids": [
               "CH15"
@@ -52971,7 +53015,8 @@
           "review_reasons": [],
           "quality_flags": [
             "semantic_final_reviewed",
-            "requires_supporting_theory"
+            "requires_supporting_theory",
+            "evidence_first_generic_explanation_repaired"
           ],
           "primary_point_keys": [
             "candidate-2-a452c505"
@@ -53009,7 +53054,7 @@
           "release_final_review": {
             "version": "chunk-2-release-final-v1",
             "semantic_reviewed": true,
-            "student_facing_text_status": "cleaned",
+            "student_facing_text_status": "generic_explanation_repaired_evidence_first",
             "low_depth_status": "reviewed_and_retained",
             "publish_status": "publishable"
           }
@@ -60918,7 +60963,8 @@
             "missing_or_empty_explanation"
           ],
           "quality_flags": [
-            "semantic_final_reviewed"
+            "semantic_final_reviewed",
+            "evidence_first_generic_explanation_repaired"
           ],
           "primary_point_keys": [
             "candidate-1-137976d3"
@@ -60958,7 +61004,7 @@
             "answer": {
               "value": false
             },
-            "explanation": "该判断与实验原文的操作、现象或结论不一致。",
+            "explanation": "钠燃烧开始后重点是观察燃烧并取得冷却产物，不应继续强烈加热到完全熔干。",
             "question_id": "EXP_19_6_01_SEMANTIC_FINAL_REWRITE_011",
             "review_decision": "keep",
             "quality_flags": [],
@@ -60993,7 +61039,7 @@
           "release_final_review": {
             "version": "chunk-2-release-final-v1",
             "semantic_reviewed": true,
-            "student_facing_text_status": "cleaned",
+            "student_facing_text_status": "generic_explanation_repaired_evidence_first",
             "low_depth_status": "not_flagged_or_already_acceptable",
             "publish_status": "publishable"
           }
@@ -61034,7 +61080,8 @@
             "missing_or_empty_explanation"
           ],
           "quality_flags": [
-            "semantic_final_reviewed"
+            "semantic_final_reviewed",
+            "evidence_first_generic_explanation_repaired"
           ],
           "primary_point_keys": [
             "candidate-4-4e7f7f6c"
@@ -61074,7 +61121,7 @@
             "answer": {
               "value": false
             },
-            "explanation": "该判断与实验原文的操作、现象或结论不一致。",
+            "explanation": "酸化后滴加 KMnO₄ 用于检验过氧化物/过氧化氢相关性质，不是检验 Cl⁻ 沉淀。",
             "question_id": "EXP_19_6_01_SEMANTIC_FINAL_REWRITE_012",
             "review_decision": "keep",
             "quality_flags": [],
@@ -61109,7 +61156,7 @@
           "release_final_review": {
             "version": "chunk-2-release-final-v1",
             "semantic_reviewed": true,
-            "student_facing_text_status": "cleaned",
+            "student_facing_text_status": "generic_explanation_repaired_evidence_first",
             "low_depth_status": "not_flagged_or_already_acceptable",
             "publish_status": "publishable"
           }
@@ -61151,7 +61198,8 @@
           ],
           "quality_flags": [
             "semantic_final_reviewed",
-            "requires_supporting_theory"
+            "requires_supporting_theory",
+            "evidence_first_generic_explanation_repaired"
           ],
           "primary_point_keys": [
             "candidate-1-137976d3"
@@ -61196,7 +61244,7 @@
             "answer": {
               "value": true
             },
-            "explanation": "该判断与实验原文的操作、现象或结论一致。 其中预期产物、颜色或氧化还原产物的判断依赖通用无机化学理论。",
+            "explanation": "钠在空气中燃烧通常生成过氧化钠 Na₂O₂，后续性质检验也围绕过氧化物展开。",
             "question_id": "EXP_19_6_01_SEMANTIC_FINAL_REWRITE_013",
             "review_decision": "keep",
             "quality_flags": [],
@@ -61236,7 +61284,7 @@
           "release_final_review": {
             "version": "chunk-2-release-final-v1",
             "semantic_reviewed": true,
-            "student_facing_text_status": "cleaned",
+            "student_facing_text_status": "generic_explanation_repaired_evidence_first",
             "low_depth_status": "not_flagged_or_already_acceptable",
             "publish_status": "publishable"
           }
@@ -61278,7 +61326,8 @@
           ],
           "quality_flags": [
             "semantic_final_reviewed",
-            "requires_supporting_theory"
+            "requires_supporting_theory",
+            "evidence_first_generic_explanation_repaired"
           ],
           "primary_point_keys": [
             "candidate-2-43d12c37",
@@ -61325,7 +61374,7 @@
             "answer": {
               "value": true
             },
-            "explanation": "该判断与实验原文的操作、现象或结论一致。 其中预期产物、颜色或氧化还原产物的判断依赖通用无机化学理论。",
+            "explanation": "燃烧产物加水生成碱性物质，随后 pH 检验用于确认溶液呈碱性而非酸性。",
             "question_id": "EXP_19_6_01_SEMANTIC_FINAL_REWRITE_014",
             "review_decision": "keep",
             "quality_flags": [],
@@ -61367,7 +61416,7 @@
           "release_final_review": {
             "version": "chunk-2-release-final-v1",
             "semantic_reviewed": true,
-            "student_facing_text_status": "cleaned",
+            "student_facing_text_status": "generic_explanation_repaired_evidence_first",
             "low_depth_status": "not_flagged_or_already_acceptable",
             "publish_status": "publishable"
           }
@@ -61409,7 +61458,8 @@
           ],
           "quality_flags": [
             "semantic_final_reviewed",
-            "requires_supporting_theory"
+            "requires_supporting_theory",
+            "evidence_first_generic_explanation_repaired"
           ],
           "primary_point_keys": [
             "candidate-4-4e7f7f6c"
@@ -61454,7 +61504,7 @@
             "answer": {
               "value": true
             },
-            "explanation": "该判断与实验原文的操作、现象或结论一致。 其中预期产物、颜色或氧化还原产物的判断依赖通用无机化学理论。",
+            "explanation": "酸化后加入 KMnO₄ 可观察过氧化物/过氧化氢相关还原性现象，因此该操作对应产物性质检验。",
             "question_id": "EXP_19_6_01_SEMANTIC_FINAL_REWRITE_015",
             "review_decision": "keep",
             "quality_flags": [],
@@ -61494,7 +61544,7 @@
           "release_final_review": {
             "version": "chunk-2-release-final-v1",
             "semantic_reviewed": true,
-            "student_facing_text_status": "cleaned",
+            "student_facing_text_status": "generic_explanation_repaired_evidence_first",
             "low_depth_status": "not_flagged_or_already_acceptable",
             "publish_status": "publishable"
           }
@@ -61639,7 +61689,8 @@
             "missing_or_empty_explanation"
           ],
           "quality_flags": [
-            "semantic_final_reviewed"
+            "semantic_final_reviewed",
+            "evidence_first_generic_explanation_repaired"
           ],
           "primary_point_keys": [
             "candidate-2-43d12c37"
@@ -61679,7 +61730,7 @@
             "answer": {
               "value": true
             },
-            "explanation": "该判断与实验原文的操作、现象或结论一致。",
+            "explanation": "燃烧产物冷却后捣碎再转入试管加水，能让后续溶解和性质检验更可控。",
             "question_id": "EXP_19_6_01_SEMANTIC_FINAL_REWRITE_017",
             "review_decision": "keep",
             "quality_flags": [],
@@ -61714,7 +61765,7 @@
           "release_final_review": {
             "version": "chunk-2-release-final-v1",
             "semantic_reviewed": true,
-            "student_facing_text_status": "cleaned",
+            "student_facing_text_status": "generic_explanation_repaired_evidence_first",
             "low_depth_status": "not_flagged_or_already_acceptable",
             "publish_status": "publishable"
           }
@@ -61755,7 +61806,8 @@
             "missing_or_empty_explanation"
           ],
           "quality_flags": [
-            "semantic_final_reviewed"
+            "semantic_final_reviewed",
+            "evidence_first_generic_explanation_repaired"
           ],
           "primary_point_keys": [
             "candidate-3-42b0372b"
@@ -61795,7 +61847,7 @@
             "answer": {
               "value": false
             },
-            "explanation": "该判断与实验原文的操作、现象或结论不一致。",
+            "explanation": "实验设有“检验溶液 pH”的点位，所以说完全不涉及 pH 检验是错误的。",
             "question_id": "EXP_19_6_01_SEMANTIC_FINAL_REWRITE_018",
             "review_decision": "keep",
             "quality_flags": [],
@@ -61830,7 +61882,7 @@
           "release_final_review": {
             "version": "chunk-2-release-final-v1",
             "semantic_reviewed": true,
-            "student_facing_text_status": "cleaned",
+            "student_facing_text_status": "generic_explanation_repaired_evidence_first",
             "low_depth_status": "not_flagged_or_already_acceptable",
             "publish_status": "publishable"
           }
@@ -61871,7 +61923,8 @@
             "missing_or_empty_explanation"
           ],
           "quality_flags": [
-            "semantic_final_reviewed"
+            "semantic_final_reviewed",
+            "evidence_first_generic_explanation_repaired"
           ],
           "primary_point_keys": [
             "candidate-4-4e7f7f6c"
@@ -61911,7 +61964,7 @@
             "answer": {
               "value": true
             },
-            "explanation": "该判断与实验原文的操作、现象或结论一致。",
+            "explanation": "过氧化物性质检验前使用 3 mol·L⁻¹ H₂SO₄ 酸化，再加入 KMnO₄ 观察反应。",
             "question_id": "EXP_19_6_01_SEMANTIC_FINAL_REWRITE_019",
             "review_decision": "keep",
             "quality_flags": [],
@@ -61946,7 +61999,7 @@
           "release_final_review": {
             "version": "chunk-2-release-final-v1",
             "semantic_reviewed": true,
-            "student_facing_text_status": "cleaned",
+            "student_facing_text_status": "generic_explanation_repaired_evidence_first",
             "low_depth_status": "not_flagged_or_already_acceptable",
             "publish_status": "publishable"
           }
@@ -61988,7 +62041,8 @@
           ],
           "quality_flags": [
             "semantic_final_reviewed",
-            "requires_supporting_theory"
+            "requires_supporting_theory",
+            "evidence_first_generic_explanation_repaired"
           ],
           "primary_point_keys": [
             "candidate-2-43d12c37",
@@ -62035,7 +62089,7 @@
             "answer": {
               "value": false
             },
-            "explanation": "该判断与实验原文的操作、现象或结论不一致。 其中预期产物、颜色或氧化还原产物的判断依赖通用无机化学理论。",
+            "explanation": "钠燃烧产物加水后应呈碱性并需要 pH 检验，题干说一定只生成强酸性溶液与实验和理论都相反。",
             "question_id": "EXP_19_6_01_SEMANTIC_FINAL_REWRITE_020",
             "review_decision": "keep",
             "quality_flags": [],
@@ -62077,7 +62131,7 @@
           "release_final_review": {
             "version": "chunk-2-release-final-v1",
             "semantic_reviewed": true,
-            "student_facing_text_status": "cleaned",
+            "student_facing_text_status": "generic_explanation_repaired_evidence_first",
             "low_depth_status": "not_flagged_or_already_acceptable",
             "publish_status": "publishable"
           }

@@ -1,0 +1,1431 @@
+{
+  "metadata": {
+    "schema_version": "rebuilt_experiment_question_package_v1",
+    "artifact_type": "manual_small_packet_semantic_rebuild",
+    "source_packet": "E:\\chemistry-admin\\artifacts\\point-aware-question-bank\\reviewed_old_bank_chunks\\slim_release_work_v1\\semantic_work_packets\\chunk_1\\19-2-01.json",
+    "experiment_code": "19-2-01",
+    "experiment_title": "臭氧的制备与性质",
+    "question_count": 30,
+    "rebuild_mode": "manual_question_by_question_semantic_reconstruction",
+    "release_json_edit_policy": "No chunk_X_release_final_v1.json file was modified.",
+    "rag_source_dir": "E:\\chemistry-rag\\data\\rag_ready"
+  },
+  "video_points": [
+    {
+      "point_key": "candidate-1-7d7dd3ef",
+      "point_title": "BaO₂·2H₂O + 浓 H₂SO₄ 制备臭氧"
+    },
+    {
+      "point_key": "candidate-2-dbd095b4",
+      "point_title": "用 KI-淀粉试纸检验逸出气体"
+    }
+  ],
+  "evidence_sources": {
+    "canonical_experiment_chunks": [
+      {
+        "chunk_id": "expchunk_00217_8449d94776",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+        "line_number": 230,
+        "evidence_role": "臭氧制备：BaO₂·2H₂O 固体加约 2 mL 浓硫酸，冰水冷却，用碘化钾-淀粉试纸检验逸出气体；方程式给出 H₂O₂、BaSO₄、O₃ 和水。"
+      },
+      {
+        "chunk_id": "expchunk_00162_1d49f603b8",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+        "line_number": 175,
+        "evidence_role": "KI-淀粉用于显示氧化生成的 I₂。"
+      }
+    ]
+  },
+  "questions": [
+    {
+      "question_id": "CHUNK1_19_2_01_Q001",
+      "source_question_index": 1,
+      "question_type": "single_choice",
+      "stem": "在《19-2-01 臭氧的制备与性质》实验中，制备臭氧时，小试管中首先加入的固体是下列哪一种？",
+      "options": [
+        {
+          "label": "A",
+          "text": "BaO₂·2H₂O"
+        },
+        {
+          "label": "B",
+          "text": "NaCl"
+        },
+        {
+          "label": "C",
+          "text": "CuSO₄"
+        },
+        {
+          "label": "D",
+          "text": "FeCl₃"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "教材要求取少量 BaO₂·2H₂O 固体于小试管中。",
+      "primary_point_keys": [
+        "candidate-1-7d7dd3ef"
+      ],
+      "secondary_point_keys": [],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-1-7d7dd3ef",
+          "role": "correct_evidence"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "distractor_unrelated_salt"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "distractor_unrelated_salt"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_unrelated_salt"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00217_8449d94776"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true
+      },
+      "reconstruction_decision": "keep",
+      "reconstruction_note": "Direct reagent identification supported by canonical text."
+    },
+    {
+      "question_id": "CHUNK1_19_2_01_Q002",
+      "source_question_index": 2,
+      "question_type": "single_choice",
+      "stem": "在《19-2-01 臭氧的制备与性质》实验中，向 BaO₂·2H₂O 固体中慢慢加入的液体是下列哪一种？",
+      "options": [
+        {
+          "label": "A",
+          "text": "浓氨水"
+        },
+        {
+          "label": "B",
+          "text": "浓硫酸"
+        },
+        {
+          "label": "C",
+          "text": "饱和 NaCl 溶液"
+        },
+        {
+          "label": "D",
+          "text": "稀醋酸"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "教材指定慢慢加入约 2 mL 浓硫酸。",
+      "primary_point_keys": [
+        "candidate-1-7d7dd3ef"
+      ],
+      "secondary_point_keys": [],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "distractor_base"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-1-7d7dd3ef",
+          "role": "correct_evidence"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "distractor_salt_solution"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_weak_acid"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00217_8449d94776"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true
+      },
+      "reconstruction_decision": "keep",
+      "reconstruction_note": "Direct reagent identification supported."
+    },
+    {
+      "question_id": "CHUNK1_19_2_01_Q003",
+      "source_question_index": 3,
+      "question_type": "single_choice",
+      "stem": "在《19-2-01 臭氧的制备与性质》实验中，反应物放在冰水中冷却的主要目的最合理的是哪一项？",
+      "options": [
+        {
+          "label": "A",
+          "text": "使 BaO₂·2H₂O 熔化"
+        },
+        {
+          "label": "B",
+          "text": "提高试管内火焰温度"
+        },
+        {
+          "label": "C",
+          "text": "控制反应并减少副反应或臭氧分解"
+        },
+        {
+          "label": "D",
+          "text": "使 KI-淀粉试纸脱水"
+        }
+      ],
+      "answer": {
+        "value": "C"
+      },
+      "explanation": "教材要求冰水冷却；结合臭氧和中间 H₂O₂ 易分解，低温有助于控制反应和保存逸出臭氧。",
+      "primary_point_keys": [
+        "candidate-1-7d7dd3ef"
+      ],
+      "secondary_point_keys": [],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "distractor_melting"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "distractor_heating"
+        },
+        {
+          "label": "C",
+          "point_key": "candidate-1-7d7dd3ef",
+          "role": "correct_evidence"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_test_paper"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00217_8449d94776"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true
+      },
+      "reconstruction_decision": "keep",
+      "reconstruction_note": "Supported procedural-purpose item."
+    },
+    {
+      "question_id": "CHUNK1_19_2_01_Q004",
+      "source_question_index": 4,
+      "question_type": "single_choice",
+      "stem": "在《19-2-01 臭氧的制备与性质》实验中，检验反应逸出气体时使用的试纸是哪一种？",
+      "options": [
+        {
+          "label": "A",
+          "text": "干燥酚酞试纸"
+        },
+        {
+          "label": "B",
+          "text": "醋酸铅试纸"
+        },
+        {
+          "label": "C",
+          "text": "红色钴玻璃纸"
+        },
+        {
+          "label": "D",
+          "text": "碘化钾-淀粉试纸"
+        }
+      ],
+      "answer": {
+        "value": "D"
+      },
+      "explanation": "教材指定用碘化钾-淀粉试纸检验逸出气体。",
+      "primary_point_keys": [
+        "candidate-2-dbd095b4"
+      ],
+      "secondary_point_keys": [],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "distractor_indicator"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "distractor_h2s_test"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "distractor_flame_filter"
+        },
+        {
+          "label": "D",
+          "point_key": "candidate-2-dbd095b4",
+          "role": "correct_evidence"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00217_8449d94776"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true
+      },
+      "reconstruction_decision": "keep",
+      "reconstruction_note": "Direct gas-test reagent item."
+    },
+    {
+      "question_id": "CHUNK1_19_2_01_Q005",
+      "source_question_index": 5,
+      "question_type": "single_choice",
+      "stem": "在《19-2-01 臭氧的制备与性质》实验中，臭氧使 KI-淀粉试纸显色，主要体现臭氧的哪种性质？",
+      "options": [
+        {
+          "label": "A",
+          "text": "强氧化性"
+        },
+        {
+          "label": "B",
+          "text": "强还原性"
+        },
+        {
+          "label": "C",
+          "text": "强碱性"
+        },
+        {
+          "label": "D",
+          "text": "难溶性"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "O₃ 能氧化 I⁻ 生成 I₂，I₂ 与淀粉显色，因此体现强氧化性。",
+      "primary_point_keys": [
+        "candidate-2-dbd095b4"
+      ],
+      "secondary_point_keys": [],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-2-dbd095b4",
+          "role": "correct_evidence"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "distractor_wrong_redox_role"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "distractor_acid_base"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_solubility"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00217_8449d94776",
+          "expchunk_00162_1d49f603b8"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true
+      },
+      "reconstruction_decision": "keep",
+      "reconstruction_note": "Supported by KI-starch gas test."
+    },
+    {
+      "question_id": "CHUNK1_19_2_01_Q006",
+      "source_question_index": 6,
+      "question_type": "single_choice",
+      "stem": "在《19-2-01 臭氧的制备与性质》实验中，BaO₂ 与浓硫酸作用时，首先可生成哪种过氧化物中间物？",
+      "options": [
+        {
+          "label": "A",
+          "text": "H₂S"
+        },
+        {
+          "label": "B",
+          "text": "H₂O₂"
+        },
+        {
+          "label": "C",
+          "text": "NH₃"
+        },
+        {
+          "label": "D",
+          "text": "CO₂"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "方程式给出 BaO₂ 与浓 H₂SO₄ 先生成 H₂O₂ 和 BaSO₄。",
+      "primary_point_keys": [
+        "candidate-1-7d7dd3ef"
+      ],
+      "secondary_point_keys": [],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "distractor_sulfide"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-1-7d7dd3ef",
+          "role": "correct_evidence"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "distractor_gas"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_gas"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00217_8449d94776"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true
+      },
+      "reconstruction_decision": "keep",
+      "reconstruction_note": "Reaction-intermediate item supported by equation."
+    },
+    {
+      "question_id": "CHUNK1_19_2_01_Q007",
+      "source_question_index": 7,
+      "question_type": "single_choice",
+      "stem": "BaO₂·2H₂O 与浓硫酸制备臭氧时，冰水冷却最主要服务于哪一目标？",
+      "options": [
+        {
+          "label": "A",
+          "text": "控制反应并减少副反应或臭氧分解"
+        },
+        {
+          "label": "B",
+          "text": "让 KI-淀粉试纸脱水"
+        },
+        {
+          "label": "C",
+          "text": "提高火焰温度"
+        },
+        {
+          "label": "D",
+          "text": "沉淀所有硫酸根"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "冷却用于控制 BaO₂·2H₂O 与浓硫酸反应并减少生成物分解。",
+      "primary_point_keys": [
+        "candidate-1-7d7dd3ef"
+      ],
+      "secondary_point_keys": [],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-1-7d7dd3ef",
+          "role": "correct_evidence"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "distractor_test_paper"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "distractor_heating"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_precipitation"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00217_8449d94776"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true
+      },
+      "reconstruction_decision": "keep",
+      "reconstruction_note": "Procedural-purpose item retained."
+    },
+    {
+      "question_id": "CHUNK1_19_2_01_Q008",
+      "source_question_index": 8,
+      "question_type": "single_choice",
+      "stem": "在《19-2-01 臭氧的制备与性质》实验中，BaO₂ 与浓硫酸反应还会形成的难溶盐是下列哪一种？",
+      "options": [
+        {
+          "label": "A",
+          "text": "BaCl₂"
+        },
+        {
+          "label": "B",
+          "text": "BaCO₃"
+        },
+        {
+          "label": "C",
+          "text": "Ba(NO₃)₂"
+        },
+        {
+          "label": "D",
+          "text": "BaSO₄"
+        }
+      ],
+      "answer": {
+        "value": "D"
+      },
+      "explanation": "方程式中 Ba²⁺ 与硫酸根形成 BaSO₄。",
+      "primary_point_keys": [
+        "candidate-1-7d7dd3ef"
+      ],
+      "secondary_point_keys": [],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "distractor_barium_salt"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "distractor_barium_salt"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "distractor_barium_salt"
+        },
+        {
+          "label": "D",
+          "point_key": "candidate-1-7d7dd3ef",
+          "role": "correct_evidence"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00217_8449d94776"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true
+      },
+      "reconstruction_decision": "keep",
+      "reconstruction_note": "Supported product item."
+    },
+    {
+      "question_id": "CHUNK1_19_2_01_Q009",
+      "source_question_index": 9,
+      "question_type": "single_choice",
+      "stem": "在《19-2-01 臭氧的制备与性质》实验中，加入浓硫酸的方式应是下列哪一种？",
+      "options": [
+        {
+          "label": "A",
+          "text": "慢慢加入"
+        },
+        {
+          "label": "B",
+          "text": "一次大量猛倒"
+        },
+        {
+          "label": "C",
+          "text": "先蒸干后加入"
+        },
+        {
+          "label": "D",
+          "text": "用喷灯直接喷入"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "实验步骤要求慢慢加入约 2 mL 浓硫酸。",
+      "primary_point_keys": [
+        "candidate-1-7d7dd3ef"
+      ],
+      "secondary_point_keys": [],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-1-7d7dd3ef",
+          "role": "correct_evidence"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "distractor_unsafe_addition"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "distractor_wrong_sequence"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_impossible_method"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00217_8449d94776"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true
+      },
+      "reconstruction_decision": "keep",
+      "reconstruction_note": "Supported operation-safety item."
+    },
+    {
+      "question_id": "CHUNK1_19_2_01_Q010",
+      "source_question_index": 10,
+      "question_type": "single_choice",
+      "stem": "在《19-2-01 臭氧的制备与性质》实验中，下列哪一项最能概括该实验的核心观察？",
+      "options": [
+        {
+          "label": "A",
+          "text": "BaO₂·2H₂O 与水反应生成大量 NH₃"
+        },
+        {
+          "label": "B",
+          "text": "制得的 O₃ 能氧化 KI 使淀粉试纸显色"
+        },
+        {
+          "label": "C",
+          "text": "KI-淀粉试纸用于吸收 BaSO₄"
+        },
+        {
+          "label": "D",
+          "text": "浓硫酸被臭氧还原为硫化氢"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "该实验用 KI-淀粉试纸检验逸出臭氧，显色说明其氧化性。",
+      "primary_point_keys": [
+        "candidate-2-dbd095b4"
+      ],
+      "secondary_point_keys": [],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "distractor_wrong_product"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-2-dbd095b4",
+          "role": "correct_evidence"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "distractor_wrong_test_paper_role"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_wrong_redox"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00217_8449d94776",
+          "expchunk_00162_1d49f603b8"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true
+      },
+      "reconstruction_decision": "keep",
+      "reconstruction_note": "Core-observation item retained."
+    },
+    {
+      "question_id": "CHUNK1_19_2_01_Q011",
+      "source_question_index": 11,
+      "question_type": "true_false",
+      "stem": "在《19-2-01 臭氧的制备与性质》实验中，该实验用 BaO₂·2H₂O 和浓硫酸制备臭氧。",
+      "answer": {
+        "value": true
+      },
+      "explanation": "该判断正确。教材直接给出该制备方法。",
+      "primary_point_keys": [
+        "candidate-1-7d7dd3ef"
+      ],
+      "secondary_point_keys": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00217_8449d94776"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true
+      },
+      "reconstruction_decision": "keep",
+      "reconstruction_note": "Directly supported true/false item."
+    },
+    {
+      "question_id": "CHUNK1_19_2_01_Q012",
+      "source_question_index": 12,
+      "question_type": "true_false",
+      "stem": "在《19-2-01 臭氧的制备与性质》实验中，反应装置需要放在冰水中冷却。",
+      "answer": {
+        "value": true
+      },
+      "explanation": "该判断正确。步骤明确要求冰水冷却。",
+      "primary_point_keys": [
+        "candidate-1-7d7dd3ef"
+      ],
+      "secondary_point_keys": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00217_8449d94776"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true
+      },
+      "reconstruction_decision": "keep",
+      "reconstruction_note": "Directly supported true/false item."
+    },
+    {
+      "question_id": "CHUNK1_19_2_01_Q013",
+      "source_question_index": 13,
+      "question_type": "true_false",
+      "stem": "在《19-2-01 臭氧的制备与性质》实验中，KI-淀粉试纸显色说明臭氧具有氧化性。",
+      "answer": {
+        "value": true
+      },
+      "explanation": "该判断正确。臭氧氧化 I⁻ 生成 I₂，I₂ 与淀粉显色。",
+      "primary_point_keys": [
+        "candidate-2-dbd095b4"
+      ],
+      "secondary_point_keys": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00217_8449d94776",
+          "expchunk_00162_1d49f603b8"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true
+      },
+      "reconstruction_decision": "keep",
+      "reconstruction_note": "Supported gas-test true/false item."
+    },
+    {
+      "question_id": "CHUNK1_19_2_01_Q014",
+      "source_question_index": 14,
+      "question_type": "true_false",
+      "stem": "在《19-2-01 臭氧的制备与性质》实验中，BaSO₄ 是 BaO₂ 与浓硫酸反应中的可能产物之一。",
+      "answer": {
+        "value": true
+      },
+      "explanation": "该判断正确。方程式给出 BaSO₄ 产物。",
+      "primary_point_keys": [
+        "candidate-1-7d7dd3ef"
+      ],
+      "secondary_point_keys": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00217_8449d94776"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true
+      },
+      "reconstruction_decision": "keep",
+      "reconstruction_note": "Supported equation-product item."
+    },
+    {
+      "question_id": "CHUNK1_19_2_01_Q015",
+      "source_question_index": 15,
+      "question_type": "true_false",
+      "stem": "在《19-2-01 臭氧的制备与性质》实验中，该实验用浓氨水代替浓硫酸来产生臭氧。",
+      "answer": {
+        "value": false
+      },
+      "explanation": "该判断错误。使用的是浓硫酸，不是浓氨水。",
+      "primary_point_keys": [
+        "candidate-1-7d7dd3ef"
+      ],
+      "secondary_point_keys": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00217_8449d94776"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true
+      },
+      "reconstruction_decision": "keep",
+      "reconstruction_note": "Supported reagent misconception item."
+    },
+    {
+      "question_id": "CHUNK1_19_2_01_Q016",
+      "source_question_index": 16,
+      "question_type": "true_false",
+      "stem": "在《19-2-01 臭氧的制备与性质》实验中，臭氧在该实验中被视为还原剂去还原淀粉。",
+      "answer": {
+        "value": false
+      },
+      "explanation": "该判断错误。臭氧表现为氧化剂，氧化 I⁻ 而不是还原淀粉。",
+      "primary_point_keys": [
+        "candidate-2-dbd095b4"
+      ],
+      "secondary_point_keys": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00217_8449d94776",
+          "expchunk_00162_1d49f603b8"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true
+      },
+      "reconstruction_decision": "keep",
+      "reconstruction_note": "Supported redox-role misconception item."
+    },
+    {
+      "question_id": "CHUNK1_19_2_01_Q017",
+      "source_question_index": 17,
+      "question_type": "true_false",
+      "stem": "在《19-2-01 臭氧的制备与性质》实验中，加入浓硫酸时应慢慢操作。",
+      "answer": {
+        "value": true
+      },
+      "explanation": "该判断正确。步骤要求慢慢加入约 2 mL 浓硫酸。",
+      "primary_point_keys": [
+        "candidate-1-7d7dd3ef"
+      ],
+      "secondary_point_keys": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00217_8449d94776"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true
+      },
+      "reconstruction_decision": "keep",
+      "reconstruction_note": "Supported operation item."
+    },
+    {
+      "question_id": "CHUNK1_19_2_01_Q018",
+      "source_question_index": 18,
+      "question_type": "true_false",
+      "stem": "在《19-2-01 臭氧的制备与性质》实验中，生成的 H₂O₂ 可进一步在浓硫酸条件下产生 O₃。",
+      "answer": {
+        "value": true
+      },
+      "explanation": "该判断正确。方程式给出 3H₂O₂ 在浓硫酸条件下生成 O₃ 和水。",
+      "primary_point_keys": [
+        "candidate-1-7d7dd3ef"
+      ],
+      "secondary_point_keys": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00217_8449d94776"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true
+      },
+      "reconstruction_decision": "keep",
+      "reconstruction_note": "Supported sequence-equation item."
+    },
+    {
+      "question_id": "CHUNK1_19_2_01_Q019",
+      "source_question_index": 19,
+      "question_type": "true_false",
+      "stem": "在《19-2-01 臭氧的制备与性质》实验中，该实验的检验气体步骤不需要任何试纸。",
+      "answer": {
+        "value": false
+      },
+      "explanation": "该判断错误。教材指定用 KI-淀粉试纸检验逸出气体。",
+      "primary_point_keys": [
+        "candidate-2-dbd095b4"
+      ],
+      "secondary_point_keys": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00217_8449d94776"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true
+      },
+      "reconstruction_decision": "keep",
+      "reconstruction_note": "Supported gas-test item."
+    },
+    {
+      "question_id": "CHUNK1_19_2_01_Q020",
+      "source_question_index": 20,
+      "question_type": "true_false",
+      "stem": "在《19-2-01 臭氧的制备与性质》实验中，若 KI-淀粉试纸变蓝，可作为臭氧氧化性的证据之一。",
+      "answer": {
+        "value": true
+      },
+      "explanation": "该判断正确。变蓝说明逸出气体可氧化 I⁻ 生成 I₂。",
+      "primary_point_keys": [
+        "candidate-2-dbd095b4"
+      ],
+      "secondary_point_keys": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00217_8449d94776",
+          "expchunk_00162_1d49f603b8"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true
+      },
+      "reconstruction_decision": "keep",
+      "reconstruction_note": "Supported observation-evidence item."
+    },
+    {
+      "question_id": "CHUNK1_19_2_01_Q021",
+      "source_question_index": 21,
+      "question_type": "single_choice",
+      "stem": "在《19-2-01 臭氧的制备与性质》实验中，制备臭氧时加入的小试管固体是哪一项？",
+      "options": [
+        {
+          "label": "A",
+          "text": "BaO₂·2H₂O"
+        },
+        {
+          "label": "B",
+          "text": "BaSO₄"
+        },
+        {
+          "label": "C",
+          "text": "Na₂O₂"
+        },
+        {
+          "label": "D",
+          "text": "MnO₂"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "制备步骤明确要求小试管中先取少量 BaO₂·2H₂O 固体。",
+      "primary_point_keys": [
+        "candidate-1-7d7dd3ef"
+      ],
+      "secondary_point_keys": [],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-1-7d7dd3ef",
+          "role": "correct_evidence"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "distractor_product"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "distractor_neighbor_h2o2_experiment"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_oxygen_experiment"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00217_8449d94776"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true
+      },
+      "reconstruction_decision": "keep",
+      "reconstruction_note": "Second reagent-identification item retained with better distractor notes."
+    },
+    {
+      "question_id": "CHUNK1_19_2_01_Q022",
+      "source_question_index": 22,
+      "question_type": "fill_blank",
+      "stem": "在《19-2-01 臭氧的制备与性质》实验中，与 BaO₂·2H₂O 慢慢反应的强酸是____。",
+      "answer": {
+        "accepted_answers": [
+          "浓硫酸"
+        ],
+        "match": "normalized_exact"
+      },
+      "explanation": "步骤写明向 BaO₂·2H₂O 中慢慢加入约 2 mL 浓硫酸。",
+      "primary_point_keys": [
+        "candidate-1-7d7dd3ef"
+      ],
+      "secondary_point_keys": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00217_8449d94776"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true
+      },
+      "reconstruction_decision": "keep",
+      "reconstruction_note": "Stable Chinese fill blank."
+    },
+    {
+      "question_id": "CHUNK1_19_2_01_Q023",
+      "source_question_index": 23,
+      "question_type": "fill_blank",
+      "stem": "在《19-2-01 臭氧的制备与性质》实验中，反应物需要放在____中冷却。",
+      "answer": {
+        "accepted_answers": [
+          "冰水",
+          "冰水浴"
+        ],
+        "match": "normalized_exact"
+      },
+      "explanation": "源文要求将反应物放在冰水中冷却。",
+      "primary_point_keys": [
+        "candidate-1-7d7dd3ef"
+      ],
+      "secondary_point_keys": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00217_8449d94776"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true
+      },
+      "reconstruction_decision": "keep",
+      "reconstruction_note": "Stable Chinese fill blank."
+    },
+    {
+      "question_id": "CHUNK1_19_2_01_Q024",
+      "source_question_index": 24,
+      "question_type": "single_choice",
+      "stem": "在《19-2-01 臭氧的制备与性质》实验中，用于检验逸出气体的试纸是哪一种？",
+      "options": [
+        {
+          "label": "A",
+          "text": "KI-淀粉试纸"
+        },
+        {
+          "label": "B",
+          "text": "湿醋酸铅试纸"
+        },
+        {
+          "label": "C",
+          "text": "红色石蕊试纸"
+        },
+        {
+          "label": "D",
+          "text": "钴玻璃纸"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "源文指定用碘化钾-淀粉试纸检验逸出气体。",
+      "primary_point_keys": [
+        "candidate-2-dbd095b4"
+      ],
+      "secondary_point_keys": [],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-2-dbd095b4",
+          "role": "correct_evidence"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "distractor_h2s_test"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "distractor_acid_base_test"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_flame_filter"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00217_8449d94776"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true
+      },
+      "reconstruction_decision": "rewrite",
+      "reconstruction_note": "Converted formula-like fill blank to single choice."
+    },
+    {
+      "question_id": "CHUNK1_19_2_01_Q025",
+      "source_question_index": 25,
+      "question_type": "fill_blank",
+      "stem": "在《19-2-01 臭氧的制备与性质》实验中，臭氧使 KI-淀粉试纸显色，说明臭氧具有____。",
+      "answer": {
+        "accepted_answers": [
+          "氧化性",
+          "强氧化性"
+        ],
+        "match": "normalized_exact"
+      },
+      "explanation": "臭氧氧化 I⁻ 生成 I₂，I₂ 与淀粉显色，因此体现氧化性。",
+      "primary_point_keys": [
+        "candidate-2-dbd095b4"
+      ],
+      "secondary_point_keys": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00217_8449d94776",
+          "expchunk_00162_1d49f603b8"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true
+      },
+      "reconstruction_decision": "keep",
+      "reconstruction_note": "Stable Chinese concept fill blank."
+    },
+    {
+      "question_id": "CHUNK1_19_2_01_Q026",
+      "source_question_index": 26,
+      "question_type": "single_choice",
+      "stem": "在《19-2-01 臭氧的制备与性质》实验中，BaO₂ 与浓硫酸作用可先生成哪一项？",
+      "options": [
+        {
+          "label": "A",
+          "text": "H₂O₂"
+        },
+        {
+          "label": "B",
+          "text": "H₂O"
+        },
+        {
+          "label": "C",
+          "text": "O₂"
+        },
+        {
+          "label": "D",
+          "text": "Na₂O₂"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "反应式给出 BaO₂ 与浓硫酸先生成 H₂O₂。",
+      "primary_point_keys": [
+        "candidate-1-7d7dd3ef"
+      ],
+      "secondary_point_keys": [],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-1-7d7dd3ef",
+          "role": "correct_evidence"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "distractor_common_product"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "distractor_oxygen"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_peroxide_reagent"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00217_8449d94776"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true
+      },
+      "reconstruction_decision": "keep",
+      "reconstruction_note": "Supported reaction step."
+    },
+    {
+      "question_id": "CHUNK1_19_2_01_Q027",
+      "source_question_index": 27,
+      "question_type": "single_choice",
+      "stem": "在《19-2-01 臭氧的制备与性质》实验中，制备臭氧反应式中出现的难溶钡盐是哪一项？",
+      "options": [
+        {
+          "label": "A",
+          "text": "BaSO₄"
+        },
+        {
+          "label": "B",
+          "text": "BaO₂"
+        },
+        {
+          "label": "C",
+          "text": "BaCl₂"
+        },
+        {
+          "label": "D",
+          "text": "Ba(OH)₂"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "Ba²⁺ 与硫酸根结合生成难溶 BaSO₄，是臭氧制备反应式中的产物。",
+      "primary_point_keys": [
+        "candidate-1-7d7dd3ef"
+      ],
+      "secondary_point_keys": [],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-1-7d7dd3ef",
+          "role": "correct_evidence"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "distractor_reagent"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "distractor_barium_salt"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_barium_salt"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00217_8449d94776"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true
+      },
+      "reconstruction_decision": "keep",
+      "reconstruction_note": "Supported product item."
+    },
+    {
+      "question_id": "CHUNK1_19_2_01_Q028",
+      "source_question_index": 28,
+      "question_type": "single_choice",
+      "stem": "在《19-2-01 臭氧的制备与性质》实验中，3H₂O₂ 在浓硫酸条件下可生成 O₃ 和哪一项？",
+      "options": [
+        {
+          "label": "A",
+          "text": "H₂O"
+        },
+        {
+          "label": "B",
+          "text": "O₂"
+        },
+        {
+          "label": "C",
+          "text": "H₂SO₄"
+        },
+        {
+          "label": "D",
+          "text": "BaSO₄"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "源文方程式给出 3H₂O₂ 在浓硫酸条件下生成 O₃ 和 H₂O。",
+      "primary_point_keys": [
+        "candidate-1-7d7dd3ef"
+      ],
+      "secondary_point_keys": [],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-1-7d7dd3ef",
+          "role": "correct_evidence"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "distractor_oxygen"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "distractor_reagent"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_previous_product"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00217_8449d94776"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true
+      },
+      "reconstruction_decision": "keep",
+      "reconstruction_note": "Supported equation-product item."
+    },
+    {
+      "question_id": "CHUNK1_19_2_01_Q029",
+      "source_question_index": 29,
+      "question_type": "single_choice",
+      "stem": "在《19-2-01 臭氧的制备与性质》实验中，为什么不能把 KI-淀粉试纸当作制备臭氧的反应物？",
+      "options": [
+        {
+          "label": "A",
+          "text": "KI-淀粉试纸只用于检验逸出气体"
+        },
+        {
+          "label": "B",
+          "text": "它要与 BaO₂·2H₂O 一起放入小试管"
+        },
+        {
+          "label": "C",
+          "text": "它负责提供浓硫酸"
+        },
+        {
+          "label": "D",
+          "text": "它会沉淀所有硫酸根"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "制备反应物是 BaO₂·2H₂O 和浓硫酸；KI-淀粉试纸用于检验逸出臭氧。",
+      "primary_point_keys": [
+        "candidate-2-dbd095b4"
+      ],
+      "secondary_point_keys": [
+        "candidate-1-7d7dd3ef"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-2-dbd095b4",
+          "role": "correct_evidence"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "distractor_wrong_stage"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "distractor_acid_source"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_precipitation"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00217_8449d94776"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true
+      },
+      "reconstruction_decision": "rewrite",
+      "reconstruction_note": "Clarified test paper role and avoided formula-only fill blank."
+    },
+    {
+      "question_id": "CHUNK1_19_2_01_Q030",
+      "source_question_index": 30,
+      "question_type": "single_choice",
+      "stem": "在《19-2-01 臭氧的制备与性质》实验中，KI-淀粉试纸中的 I⁻ 被氧化后生成能使淀粉显色的哪一项？",
+      "options": [
+        {
+          "label": "A",
+          "text": "I₂"
+        },
+        {
+          "label": "B",
+          "text": "Br₂"
+        },
+        {
+          "label": "C",
+          "text": "Cl₂"
+        },
+        {
+          "label": "D",
+          "text": "K⁺"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "逸出臭氧氧化 KI-淀粉试纸中的 I⁻ 生成 I₂，I₂ 与淀粉显蓝。",
+      "primary_point_keys": [
+        "candidate-2-dbd095b4"
+      ],
+      "secondary_point_keys": [],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-2-dbd095b4",
+          "role": "correct_evidence"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "distractor_halogen"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "distractor_halogen"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_spectator_ion"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00217_8449d94776",
+          "expchunk_00162_1d49f603b8"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true
+      },
+      "reconstruction_decision": "keep",
+      "reconstruction_note": "Supported KI-starch mechanism item."
+    }
+  ]
+}

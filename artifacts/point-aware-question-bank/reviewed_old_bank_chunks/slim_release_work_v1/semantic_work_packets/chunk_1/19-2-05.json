@@ -1,0 +1,4447 @@
+{
+  "metadata": {
+    "version": "chunk-1-release-slim-v1",
+    "artifact_type": "slim_question_bank_work_file",
+    "generated_at": "2026-06-15T03:27:58.553194+00:00",
+    "source_file": "E:\\chemistry-admin\\artifacts\\point-aware-question-bank\\reviewed_old_bank_chunks\\chunk_1_release_final_v1.json",
+    "normalization_rule": "effective question plus minimal lineage, evidence IDs, point bindings, option links, evidence locators, and mechanical risk flags",
+    "evidence_policy": "RAG source text is not embedded; packets carry locators and reviewers must read E:/chemistry-rag/data/rag_ready directly",
+    "chunk_id_policy": "inherited chunk ids are untrusted locator candidates until manually compared with RAG text",
+    "semantic_status": "not_semantically_repaired_by_this_script",
+    "packet_type": "single_experiment_semantic_repair_work_packet",
+    "chunk": 1,
+    "experiment_code": "19-2-05",
+    "question_count": 30
+  },
+  "experiment": {
+    "experiment_id": "EXP_19_2_05",
+    "experiment_code": "19-2-05",
+    "experiment_title": "过氧化氢的氧化还原性",
+    "chapter_bindings": [
+      {
+        "chapter_id": "CH14",
+        "coverage_type": "primary",
+        "sort_order": 1
+      },
+      {
+        "chapter_id": "CH22",
+        "coverage_type": "partial",
+        "sort_order": 2
+      }
+    ],
+    "video_points": [
+      {
+        "point_key": "candidate-1-266194d0",
+        "point_title": "氧化性：Pb(Ac)₂ 试纸 + H₂S 生成 PbS，再滴加 H₂O₂",
+        "source": null,
+        "candidate_index": null,
+        "resource_count": null,
+        "published_count": null,
+        "resource_titles": []
+      },
+      {
+        "point_key": "candidate-2-75a263a3",
+        "point_title": "还原性：酸性 H₂O₂ + KMnO₄",
+        "source": null,
+        "candidate_index": null,
+        "resource_count": null,
+        "published_count": null,
+        "resource_titles": []
+      }
+    ],
+    "canonical_chunk_ids": [
+      "expchunk_00218_1a6196cddf",
+      "expchunk_00219_5cb548b963"
+    ],
+    "evidence_lookup": {
+      "policy": "locator_only; canonical RAG text is not embedded in this packet",
+      "chunk_id_policy": "metadata chunk ids are inherited claims, not trusted evidence; reviewers must compare the RAG text against the question stem/options/answer/explanation and replace or remove wrong ids",
+      "primary_source_dir": "E:\\chemistry-rag\\data\\rag_ready",
+      "source_files": {
+        "experiment_chunks": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+        "supporting_theory_chunks": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl"
+      },
+      "search_hints": {
+        "experiment_code": "19-2-05",
+        "parent_experiment_code": "19-2",
+        "experiment_title": "过氧化氢的氧化还原性",
+        "video_point_titles": [
+          "氧化性：Pb(Ac)₂ 试纸 + H₂S 生成 PbS，再滴加 H₂O₂",
+          "还原性：酸性 H₂O₂ + KMnO₄"
+        ],
+        "canonical_chunk_ids_from_metadata": [
+          "expchunk_00218_1a6196cddf",
+          "expchunk_00219_5cb548b963"
+        ],
+        "supporting_theory_chunk_ids_from_metadata": [
+          "textbook_prose_00291_440e726030"
+        ],
+        "suggested_search_patterns": [
+          "19-2-05",
+          "19-2",
+          "过氧化氢的氧化还原性",
+          "氧化性：Pb(Ac)₂ 试纸 + H₂S 生成 PbS，再滴加 H₂O₂",
+          "还原性：酸性 H₂O₂ + KMnO₄",
+          "expchunk_00218_1a6196cddf",
+          "expchunk_00219_5cb548b963",
+          "textbook_prose_00291_440e726030"
+        ]
+      },
+      "rag_exact_id_presence": {
+        "meaning": "id presence only; this does not validate semantic relevance",
+        "found_ids": [
+          "expchunk_00218_1a6196cddf",
+          "expchunk_00219_5cb548b963",
+          "textbook_prose_00291_440e726030"
+        ],
+        "missing_ids": [],
+        "found_locator_summaries": [
+          {
+            "chunk_id": "expchunk_00218_1a6196cddf",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+            "line_number": 231,
+            "source_collection": "textbook_experiment_clean_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学实验（第四版）",
+            "page_start": 143,
+            "page_end": 143,
+            "section_path": [
+              "第7章 元素性质实验",
+              "实验 19-2 氢、氧、过氧化氢",
+              "（四）实验内容",
+              "4. 过氧化氢的制备与性质"
+            ],
+            "content_type": "property_test",
+            "knowledge_unit": "property_test",
+            "parent_id": "expchunk_protocol_61b1d39c8665",
+            "prev_chunk_id": "expchunk_00217_8449d94776",
+            "next_chunk_id": "expchunk_00219_5cb548b963",
+            "relations": {
+              "section_id": "expsec_54cfb2085f1ba9a6",
+              "experiment_id": "experiment:实验_19-2_氢_氧_过氧化氢",
+              "page_anchor": "page_143",
+              "parent": "expchunk_protocol_61b1d39c8665"
+            }
+          },
+          {
+            "chunk_id": "expchunk_00219_5cb548b963",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+            "line_number": 232,
+            "source_collection": "textbook_experiment_clean_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学实验（第四版）",
+            "page_start": 144,
+            "page_end": 144,
+            "section_path": [
+              "第7章 元素性质实验",
+              "实验 19-2 氢、氧、过氧化氢",
+              "（四）实验内容",
+              "4. 过氧化氢的制备与性质"
+            ],
+            "content_type": "property_test",
+            "knowledge_unit": "property_test",
+            "parent_id": "expchunk_protocol_61b1d39c8665",
+            "prev_chunk_id": "expchunk_00218_1a6196cddf",
+            "next_chunk_id": "expchunk_00220_42e84103ab",
+            "relations": {
+              "section_id": "expsec_2686e892e217de13",
+              "experiment_id": "experiment:实验_19-2_氢_氧_过氧化氢",
+              "page_anchor": "page_144",
+              "parent": "expchunk_protocol_61b1d39c8665"
+            }
+          },
+          {
+            "chunk_id": "textbook_prose_00291_440e726030",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+            "line_number": 520,
+            "source_collection": "textbook_inorganic_lower_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学（下册）（第二版）",
+            "page_start": 59,
+            "page_end": 59,
+            "section_path": [
+              "第 14 章 氧族元素",
+              "14.3 氧化物、水与过氧化氢",
+              "14.3.3 过氧化氢",
+              "3) 氧化还原性"
+            ],
+            "content_type": "formula_math",
+            "knowledge_unit": "formula_math",
+            "parent_id": "section:f4d22e246496",
+            "prev_chunk_id": "textbook_figure_figure_p059_01",
+            "next_chunk_id": "textbook_prose_00292_940c386244",
+            "relations": {
+              "parent": "section:f4d22e246496",
+              "source_route": "clean_pages",
+              "prev": "textbook_figure_figure_p059_01",
+              "next": "textbook_prose_00292_940c386244"
+            }
+          }
+        ]
+      },
+      "legacy_locator_summaries": [
+        {
+          "chunk_id": "expchunk_00218_1a6196cddf",
+          "source_file": "无机化学实验（第四版）",
+          "book_title": "无机化学实验（第四版）",
+          "document_id": "DOC_CANONICAL_EXPERIMENT_V1",
+          "source_collection": "textbook_experiment_clean_v1",
+          "source_role": "canonical_textbook",
+          "content_type": "property_test",
+          "chapter_id": null,
+          "page_number": 143,
+          "section_title": "实验 19-2 氢、氧、过氧化氢 / （四）实验内容 / 4. 过氧化氢的制备与性质",
+          "section_path": [
+            "第7章 元素性质实验",
+            "实验 19-2 氢、氧、过氧化氢",
+            "（四）实验内容",
+            "4. 过氧化氢的制备与性质"
+          ]
+        },
+        {
+          "chunk_id": "expchunk_00219_5cb548b963",
+          "source_file": "无机化学实验（第四版）",
+          "book_title": "无机化学实验（第四版）",
+          "document_id": "DOC_CANONICAL_EXPERIMENT_V1",
+          "source_collection": "textbook_experiment_clean_v1",
+          "source_role": "canonical_textbook",
+          "content_type": "property_test",
+          "chapter_id": null,
+          "page_number": 144,
+          "section_title": "实验 19-2 氢、氧、过氧化氢 / （四）实验内容 / 4. 过氧化氢的制备与性质",
+          "section_path": [
+            "第7章 元素性质实验",
+            "实验 19-2 氢、氧、过氧化氢",
+            "（四）实验内容",
+            "4. 过氧化氢的制备与性质"
+          ]
+        }
+      ],
+      "legacy_missing_ids": [
+        "textbook_prose_00291_440e726030"
+      ]
+    },
+    "questions": [
+      {
+        "question_id": "CHUNK1_19_2_05_Q001",
+        "source_review_id": "CHUNK1_19_2_05_Q001",
+        "source_question_index": 1,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-2-05 过氧化氢的氧化还原性》实验中，H₂O₂ 中氧元素的化合价使其具有什么典型特征？",
+        "options": [
+          {
+            "label": "A",
+            "text": "既有氧化性又有还原性"
+          },
+          {
+            "label": "B",
+            "text": "只能作酸"
+          },
+          {
+            "label": "C",
+            "text": "只能作沉淀剂"
+          },
+          {
+            "label": "D",
+            "text": "完全没有氧化还原性"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "H₂O₂ 中氧为 -1 中间价态；结合 PbS 氧化和酸性 KMnO₄ 褪色两个点位，可判断它既有氧化性又有还原性。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-266194d0",
+          "candidate-2-75a263a3"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_1_266194d0",
+          "point_candidate_2_75a263a3",
+          "oxidation_property",
+          "reduction_property"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "既有氧化性又有还原性",
+            "point_key": "candidate-1-266194d0",
+            "role": "correct_evidence",
+            "diagnostic_note": "H₂O₂ 中氧为 -1 中间价态；结合 PbS 氧化和酸性 KMnO₄ 褪色两个点位，可判断它既有氧化性又有还原性。 源文只安排两个红氧点位：Pb(Ac)₂ 试纸经 H₂S 生成 PbS 后滴加 H₂O₂，以及酸性 H₂O₂ 中滴加 KMnO₄，用以比较 H₂O₂ 的氧化性和还原性。"
+          },
+          {
+            "label": "B",
+            "text": "只能作酸",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该项不能成立：源文只安排两个红氧点位：Pb(Ac)₂ 试纸经 H₂S 生成 PbS 后滴加 H₂O₂，以及酸性 H₂O₂ 中滴加 KMnO₄，用以比较 H₂O₂ 的氧化性和还原性。 题中选项“只能作酸”不符合该证据链。"
+          },
+          {
+            "label": "C",
+            "text": "只能作沉淀剂",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该项不能成立：源文只安排两个红氧点位：Pb(Ac)₂ 试纸经 H₂S 生成 PbS 后滴加 H₂O₂，以及酸性 H₂O₂ 中滴加 KMnO₄，用以比较 H₂O₂ 的氧化性和还原性。 题中选项“只能作沉淀剂”不符合该证据链。"
+          },
+          {
+            "label": "D",
+            "text": "完全没有氧化还原性",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该项不能成立：源文只安排两个红氧点位：Pb(Ac)₂ 试纸经 H₂S 生成 PbS 后滴加 H₂O₂，以及酸性 H₂O₂ 中滴加 KMnO₄，用以比较 H₂O₂ 的氧化性和还原性。 题中选项“完全没有氧化还原性”不符合该证据链。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "evidence-first chunk 1 repair：最终有效题按题干、答案/选项、解析、point binding 与 canonical 实验文本复核；必要时仅用基础氧化还原/安全常识作 supporting theory。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-2-05 过氧化氢的氧化还原性》实验中，H₂O₂ 中氧元素的化合价使其具有什么典型特征？",
+            "options": [
+              {
+                "label": "A",
+                "text": "既有氧化性又有还原性"
+              },
+              {
+                "label": "B",
+                "text": "只能作酸"
+              },
+              {
+                "label": "C",
+                "text": "只能作沉淀剂"
+              },
+              {
+                "label": "D",
+                "text": "完全没有氧化还原性"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "H₂O₂ 中氧为 -1 中间价态；结合 PbS 氧化和酸性 KMnO₄ 褪色两个点位，可判断它既有氧化性又有还原性。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00218_1a6196cddf",
+              "expchunk_00219_5cb548b963",
+              "textbook_prose_00291_440e726030"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound",
+            "evidence_first_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_2_05_Q002",
+        "source_review_id": "CHUNK1_19_2_05_Q002",
+        "source_question_index": 2,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-2-05 过氧化氢的氧化还原性》实验中，酸性 H₂O₂ 与 KMnO₄ 反应褪色时，H₂O₂ 主要作什么？",
+        "options": [
+          {
+            "label": "A",
+            "text": "还原剂"
+          },
+          {
+            "label": "B",
+            "text": "沉淀剂"
+          },
+          {
+            "label": "C",
+            "text": "萃取剂"
+          },
+          {
+            "label": "D",
+            "text": "酸碱指示剂"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "酸性 KMnO₄ 是强氧化剂，被 H₂O₂ 还原而褪色；H₂O₂ 自身表现还原性。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-75a263a3"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "h2o2_reduces_permanganate"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "还原剂",
+            "point_key": "candidate-2-75a263a3",
+            "role": "correct_evidence",
+            "diagnostic_note": "与题干要求和绑定点位的实验证据一致。"
+          },
+          {
+            "label": "B",
+            "text": "沉淀剂",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "与当前实验点位的观察对象或结论不符。"
+          },
+          {
+            "label": "C",
+            "text": "萃取剂",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "与当前实验点位的观察对象或结论不符。"
+          },
+          {
+            "label": "D",
+            "text": "酸碱指示剂",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "与当前实验点位的观察对象或结论不符。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "替换题针对终审原因：酸性 H₂O₂ + KI 属于相邻性质内容，不属于当前两个氧化还原视频点位。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-2-05 过氧化氢的氧化还原性》实验中，酸化 H₂O₂ 后滴加 KI 溶液，主要体现 H₂O₂ 的哪种性质？",
+            "options": [
+              {
+                "label": "A",
+                "text": "挥发性"
+              },
+              {
+                "label": "B",
+                "text": "氧化性"
+              },
+              {
+                "label": "C",
+                "text": "配位性"
+              },
+              {
+                "label": "D",
+                "text": "吸水性"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "答案为：氧化性。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00218_1a6196cddf",
+              "expchunk_00219_5cb548b963",
+              "textbook_prose_00291_440e726030"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-2-05 过氧化氢的氧化还原性》实验中，酸性 H₂O₂ 与 KMnO₄ 反应褪色时，H₂O₂ 主要作什么？",
+            "options": [
+              {
+                "label": "A",
+                "text": "还原剂"
+              },
+              {
+                "label": "B",
+                "text": "沉淀剂"
+              },
+              {
+                "label": "C",
+                "text": "萃取剂"
+              },
+              {
+                "label": "D",
+                "text": "酸碱指示剂"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "酸性 KMnO₄ 是强氧化剂，被 H₂O₂ 还原而褪色；H₂O₂ 自身表现还原性。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final",
+            "off_point_ki_oxidation_for_redox_split",
+            "evidence_first_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_2_05_Q003",
+        "source_review_id": "CHUNK1_19_2_05_Q003",
+        "source_question_index": 3,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-2-05 过氧化氢的氧化还原性》实验中，酸性 KMnO₄ 溶液中加入 H₂O₂，H₂O₂ 主要表现为什么性质？",
+        "options": [
+          {
+            "label": "A",
+            "text": "强碱性"
+          },
+          {
+            "label": "B",
+            "text": "沉淀性"
+          },
+          {
+            "label": "C",
+            "text": "还原性"
+          },
+          {
+            "label": "D",
+            "text": "感光性"
+          }
+        ],
+        "answer": {
+          "value": "C"
+        },
+        "explanation": "酸性 KMnO₄ 被 H₂O₂ 还原而紫色褪去，所以 H₂O₂ 在该点位表现还原性。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-75a263a3"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_2_75a263a3",
+          "permanganate",
+          "reduction_property"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "强碱性",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该项不能成立：源文只安排两个红氧点位：Pb(Ac)₂ 试纸经 H₂S 生成 PbS 后滴加 H₂O₂，以及酸性 H₂O₂ 中滴加 KMnO₄，用以比较 H₂O₂ 的氧化性和还原性。 题中选项“强碱性”不符合该证据链。"
+          },
+          {
+            "label": "B",
+            "text": "沉淀性",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该项不能成立：源文只安排两个红氧点位：Pb(Ac)₂ 试纸经 H₂S 生成 PbS 后滴加 H₂O₂，以及酸性 H₂O₂ 中滴加 KMnO₄，用以比较 H₂O₂ 的氧化性和还原性。 题中选项“沉淀性”不符合该证据链。"
+          },
+          {
+            "label": "C",
+            "text": "还原性",
+            "point_key": "candidate-2-75a263a3",
+            "role": "correct_evidence",
+            "diagnostic_note": "酸性 KMnO₄ 被 H₂O₂ 还原而紫色褪去，所以 H₂O₂ 在该点位表现还原性。 源文只安排两个红氧点位：Pb(Ac)₂ 试纸经 H₂S 生成 PbS 后滴加 H₂O₂，以及酸性 H₂O₂ 中滴加 KMnO₄，用以比较 H₂O₂ 的氧化性和还原性。"
+          },
+          {
+            "label": "D",
+            "text": "感光性",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该项不能成立：源文只安排两个红氧点位：Pb(Ac)₂ 试纸经 H₂S 生成 PbS 后滴加 H₂O₂，以及酸性 H₂O₂ 中滴加 KMnO₄，用以比较 H₂O₂ 的氧化性和还原性。 题中选项“感光性”不符合该证据链。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "evidence-first chunk 1 repair：最终有效题按题干、答案/选项、解析、point binding 与 canonical 实验文本复核；必要时仅用基础氧化还原/安全常识作 supporting theory。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-2-05 过氧化氢的氧化还原性》实验中，酸性 KMnO₄ 溶液中加入 H₂O₂，H₂O₂ 主要表现为什么性质？",
+            "options": [
+              {
+                "label": "A",
+                "text": "强碱性"
+              },
+              {
+                "label": "B",
+                "text": "沉淀性"
+              },
+              {
+                "label": "C",
+                "text": "还原性"
+              },
+              {
+                "label": "D",
+                "text": "感光性"
+              }
+            ],
+            "answer": {
+              "value": "C"
+            },
+            "explanation": "酸性 KMnO₄ 被 H₂O₂ 还原而紫色褪去，所以 H₂O₂ 在该点位表现还原性。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00218_1a6196cddf",
+              "expchunk_00219_5cb548b963",
+              "textbook_prose_00291_440e726030"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound",
+            "evidence_first_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_2_05_Q004",
+        "source_review_id": "CHUNK1_19_2_05_Q004",
+        "source_question_index": 4,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-2-05 过氧化氢的氧化还原性》实验中，Pb²⁺ 与硫化氢生成 PbS 后加入 H₂O₂，合理的作用是哪一项？",
+        "options": [
+          {
+            "label": "A",
+            "text": "生成氨合物"
+          },
+          {
+            "label": "B",
+            "text": "萃取碘单质"
+          },
+          {
+            "label": "C",
+            "text": "使钠离子沉淀"
+          },
+          {
+            "label": "D",
+            "text": "氧化硫化物"
+          }
+        ],
+        "answer": {
+          "value": "D"
+        },
+        "explanation": "PbS 中硫化物被 H₂O₂ 氧化，黑色 PbS 可转为白色硫酸盐，体现 H₂O₂ 的氧化作用。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-266194d0",
+          "candidate-2-75a263a3"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_1_266194d0",
+          "point_candidate_2_75a263a3",
+          "pbs_oxidation",
+          "reduction_property"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "生成氨合物",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该项不能成立：源文只安排两个红氧点位：Pb(Ac)₂ 试纸经 H₂S 生成 PbS 后滴加 H₂O₂，以及酸性 H₂O₂ 中滴加 KMnO₄，用以比较 H₂O₂ 的氧化性和还原性。 题中选项“生成氨合物”不符合该证据链。"
+          },
+          {
+            "label": "B",
+            "text": "萃取碘单质",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该项不能成立：源文只安排两个红氧点位：Pb(Ac)₂ 试纸经 H₂S 生成 PbS 后滴加 H₂O₂，以及酸性 H₂O₂ 中滴加 KMnO₄，用以比较 H₂O₂ 的氧化性和还原性。 题中选项“萃取碘单质”不符合该证据链。"
+          },
+          {
+            "label": "C",
+            "text": "使钠离子沉淀",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该项不能成立：源文只安排两个红氧点位：Pb(Ac)₂ 试纸经 H₂S 生成 PbS 后滴加 H₂O₂，以及酸性 H₂O₂ 中滴加 KMnO₄，用以比较 H₂O₂ 的氧化性和还原性。 题中选项“使钠离子沉淀”不符合该证据链。"
+          },
+          {
+            "label": "D",
+            "text": "氧化硫化物",
+            "point_key": "candidate-1-266194d0",
+            "role": "correct_evidence",
+            "diagnostic_note": "PbS 中硫化物被 H₂O₂ 氧化，黑色 PbS 可转为白色硫酸盐，体现 H₂O₂ 的氧化作用。 源文只安排两个红氧点位：Pb(Ac)₂ 试纸经 H₂S 生成 PbS 后滴加 H₂O₂，以及酸性 H₂O₂ 中滴加 KMnO₄，用以比较 H₂O₂ 的氧化性和还原性。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "evidence-first chunk 1 repair：最终有效题按题干、答案/选项、解析、point binding 与 canonical 实验文本复核；必要时仅用基础氧化还原/安全常识作 supporting theory。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-2-05 过氧化氢的氧化还原性》实验中，Pb²⁺ 与硫化氢生成 PbS 后加入 H₂O₂，合理的作用是哪一项？",
+            "options": [
+              {
+                "label": "A",
+                "text": "生成氨合物"
+              },
+              {
+                "label": "B",
+                "text": "萃取碘单质"
+              },
+              {
+                "label": "C",
+                "text": "使钠离子沉淀"
+              },
+              {
+                "label": "D",
+                "text": "氧化硫化物"
+              }
+            ],
+            "answer": {
+              "value": "D"
+            },
+            "explanation": "PbS 中硫化物被 H₂O₂ 氧化，黑色 PbS 可转为白色硫酸盐，体现 H₂O₂ 的氧化作用。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00218_1a6196cddf",
+              "expchunk_00219_5cb548b963",
+              "textbook_prose_00291_440e726030"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound",
+            "evidence_first_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_2_05_Q005",
+        "source_review_id": "CHUNK1_19_2_05_Q005",
+        "source_question_index": 5,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-2-05 过氧化氢的氧化还原性》实验中，酸性 KMnO₄ 与 H₂O₂ 反应时常伴随生成哪种气体？",
+        "options": [
+          {
+            "label": "A",
+            "text": "O₂"
+          },
+          {
+            "label": "B",
+            "text": "SO₂"
+          },
+          {
+            "label": "C",
+            "text": "NH₃"
+          },
+          {
+            "label": "D",
+            "text": "H₂S"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "酸性 KMnO₄ 氧化 H₂O₂ 时，H₂O₂ 被氧化为 O₂，紫色同时褪去。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-75a263a3"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "h2o2_reduces_permanganate"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "还原剂",
+            "point_key": "candidate-2-75a263a3",
+            "role": "correct_evidence",
+            "diagnostic_note": "与题干要求和绑定点位的实验证据一致。"
+          },
+          {
+            "label": "B",
+            "text": "沉淀剂",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "与当前实验点位的观察对象或结论不符。"
+          },
+          {
+            "label": "C",
+            "text": "萃取剂",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "与当前实验点位的观察对象或结论不符。"
+          },
+          {
+            "label": "D",
+            "text": "酸碱指示剂",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "与当前实验点位的观察对象或结论不符。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "替换题针对终审原因：题目偏向 H₂O₂ 鉴定，不属于当前氧化还原点位。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-2-05 过氧化氢的氧化还原性》实验中，H₂O₂ 鉴定中加入乙醚、酸和 K₂CrO₄ 后，常用于观察的是哪一层颜色变化？",
+            "options": [
+              {
+                "label": "A",
+                "text": "乙醚层"
+              },
+              {
+                "label": "B",
+                "text": "汞层"
+              },
+              {
+                "label": "C",
+                "text": "固体铜层"
+              },
+              {
+                "label": "D",
+                "text": "空气层"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "答案为：乙醚层。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00218_1a6196cddf",
+              "expchunk_00219_5cb548b963",
+              "textbook_prose_00291_440e726030"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-2-05 过氧化氢的氧化还原性》实验中，酸性 KMnO₄ 与 H₂O₂ 反应时常伴随生成哪种气体？",
+            "options": [
+              {
+                "label": "A",
+                "text": "O₂"
+              },
+              {
+                "label": "B",
+                "text": "SO₂"
+              },
+              {
+                "label": "C",
+                "text": "NH₃"
+              },
+              {
+                "label": "D",
+                "text": "H₂S"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "酸性 KMnO₄ 氧化 H₂O₂ 时，H₂O₂ 被氧化为 O₂，紫色同时褪去。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final",
+            "off_point_identification_for_redox_split",
+            "evidence_first_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_2_05_Q006",
+        "source_review_id": "CHUNK1_19_2_05_Q006",
+        "source_question_index": 6,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-2-05 过氧化氢的氧化还原性》实验中，同时安排 PbS 和酸性 KMnO₄ 两个点位，核心目的是什么？",
+        "options": [
+          {
+            "label": "A",
+            "text": "比较 H₂O₂ 既可作氧化剂也可作还原剂"
+          },
+          {
+            "label": "B",
+            "text": "证明 H₂O₂ 只能作强酸"
+          },
+          {
+            "label": "C",
+            "text": "证明 H₂O₂ 只具有感光性"
+          },
+          {
+            "label": "D",
+            "text": "证明 H₂O₂ 只能作沉淀剂"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "PbS 点位体现 H₂O₂ 氧化硫化物，酸性 KMnO₄ 点位体现 H₂O₂ 还原高锰酸根。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-266194d0",
+          "candidate-2-75a263a3"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "dual_redox_role"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "既可作氧化剂，也可作还原剂",
+            "point_key": "candidate-1-266194d0",
+            "role": "correct_evidence",
+            "diagnostic_note": "与题干要求和绑定点位的实验证据一致。"
+          },
+          {
+            "label": "B",
+            "text": "只能作强酸",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "绝对化表述不符合该实验的证据链。"
+          },
+          {
+            "label": "C",
+            "text": "只具有感光性",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "与当前实验点位的观察对象或结论不符。"
+          },
+          {
+            "label": "D",
+            "text": "只能作沉淀剂",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "绝对化表述不符合该实验的证据链。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "替换题针对终审原因：题目偏向 H₂O₂ 制备，不属于当前氧化还原点位。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-2-05 过氧化氢的氧化还原性》实验中，用 Na₂O₂ 制备 H₂O₂ 时，步骤中把溶液放在冰水中冷却的主要目的是什么？",
+            "options": [
+              {
+                "label": "A",
+                "text": "蒸干全部水分"
+              },
+              {
+                "label": "B",
+                "text": "减少 H₂O₂ 分解"
+              },
+              {
+                "label": "C",
+                "text": "生成卤化银"
+              },
+              {
+                "label": "D",
+                "text": "增强钠离子焰色"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "答案为：减少 H₂O₂ 分解。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00218_1a6196cddf",
+              "expchunk_00219_5cb548b963",
+              "textbook_prose_00291_440e726030"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-2-05 过氧化氢的氧化还原性》实验中，同时安排 PbS 和酸性 KMnO₄ 两个点位，核心目的是什么？",
+            "options": [
+              {
+                "label": "A",
+                "text": "比较 H₂O₂ 既可作氧化剂也可作还原剂"
+              },
+              {
+                "label": "B",
+                "text": "证明 H₂O₂ 只能作强酸"
+              },
+              {
+                "label": "C",
+                "text": "证明 H₂O₂ 只具有感光性"
+              },
+              {
+                "label": "D",
+                "text": "证明 H₂O₂ 只能作沉淀剂"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "PbS 点位体现 H₂O₂ 氧化硫化物，酸性 KMnO₄ 点位体现 H₂O₂ 还原高锰酸根。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final",
+            "off_point_preparation_for_redox_split",
+            "evidence_first_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_2_05_Q007",
+        "source_review_id": "CHUNK1_19_2_05_Q007",
+        "source_question_index": 7,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-2-05 过氧化氢的氧化还原性》实验中，Pb(Ac)₂ 试纸先与 H₂S 生成 PbS 后，再滴加 H₂O₂ 的观察重点是什么？",
+        "options": [
+          {
+            "label": "A",
+            "text": "黑色 PbS 是否转为白色硫酸盐"
+          },
+          {
+            "label": "B",
+            "text": "乙醚层是否显蓝"
+          },
+          {
+            "label": "C",
+            "text": "Na₂O₂ 是否溶于水"
+          },
+          {
+            "label": "D",
+            "text": "AgCl 是否感光变暗"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "该点位用黑色 PbS 被 H₂O₂ 氧化变白来体现 H₂O₂ 的氧化性。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-266194d0"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "h2o2_oxidizes_pbs"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "黑色 PbS 是否被氧化转为白色硫酸盐",
+            "point_key": "candidate-1-266194d0",
+            "role": "correct_evidence",
+            "diagnostic_note": "与题干要求和绑定点位的实验证据一致。"
+          },
+          {
+            "label": "B",
+            "text": "乙醚层是否显蓝",
+            "point_key": null,
+            "role": "adjacent_point",
+            "diagnostic_note": "来自相邻实验或相邻点位，容易造成范围混淆。"
+          },
+          {
+            "label": "C",
+            "text": "Na₂O₂ 是否溶于水",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "与当前实验点位的观察对象或结论不符。"
+          },
+          {
+            "label": "D",
+            "text": "AgCl 是否感光变暗",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "与当前实验点位的观察对象或结论不符。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "替换题针对终审原因：题目偏向 H₂O₂ 分解/催化，不属于当前氧化还原点位。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-2-05 过氧化氢的氧化还原性》实验中，加热或加入 MnO₂ 固体时，H₂O₂ 最常见的变化是哪一项？",
+            "options": [
+              {
+                "label": "A",
+                "text": "生成 AgCl"
+              },
+              {
+                "label": "B",
+                "text": "转化为 KI"
+              },
+              {
+                "label": "C",
+                "text": "分解放出 O₂"
+              },
+              {
+                "label": "D",
+                "text": "形成 PbI₂"
+              }
+            ],
+            "answer": {
+              "value": "C"
+            },
+            "explanation": "答案为：分解放出 O₂。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00218_1a6196cddf",
+              "expchunk_00219_5cb548b963",
+              "textbook_prose_00291_440e726030"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-2-05 过氧化氢的氧化还原性》实验中，Pb(Ac)₂ 试纸先与 H₂S 生成 PbS 后，再滴加 H₂O₂ 的观察重点是什么？",
+            "options": [
+              {
+                "label": "A",
+                "text": "黑色 PbS 是否转为白色硫酸盐"
+              },
+              {
+                "label": "B",
+                "text": "乙醚层是否显蓝"
+              },
+              {
+                "label": "C",
+                "text": "Na₂O₂ 是否溶于水"
+              },
+              {
+                "label": "D",
+                "text": "AgCl 是否感光变暗"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "该点位用黑色 PbS 被 H₂O₂ 氧化变白来体现 H₂O₂ 的氧化性。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final",
+            "off_point_decomposition_for_redox_split",
+            "evidence_first_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_2_05_Q008",
+        "source_review_id": "CHUNK1_19_2_05_Q008",
+        "source_question_index": 8,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-2-05 过氧化氢的氧化还原性》实验中，H₂O₂ 与酸性 KMnO₄ 反应时，KMnO₄ 溶液最典型的观察现象是什么？",
+        "options": [
+          {
+            "label": "A",
+            "text": "生成白色 AgCl"
+          },
+          {
+            "label": "B",
+            "text": "有机层显紫色"
+          },
+          {
+            "label": "C",
+            "text": "出现钥匙轮廓"
+          },
+          {
+            "label": "D",
+            "text": "紫色褪去"
+          }
+        ],
+        "answer": {
+          "value": "D"
+        },
+        "explanation": "酸性 KMnO₄ 被 H₂O₂ 还原时紫色褪去，这是还原性点位的典型现象。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-75a263a3"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_2_75a263a3",
+          "permanganate",
+          "reduction_property"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "生成白色 AgCl",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该项不能成立：源文只安排两个红氧点位：Pb(Ac)₂ 试纸经 H₂S 生成 PbS 后滴加 H₂O₂，以及酸性 H₂O₂ 中滴加 KMnO₄，用以比较 H₂O₂ 的氧化性和还原性。 题中选项“生成白色 AgCl”不符合该证据链。"
+          },
+          {
+            "label": "B",
+            "text": "有机层显紫色",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该项不能成立：源文只安排两个红氧点位：Pb(Ac)₂ 试纸经 H₂S 生成 PbS 后滴加 H₂O₂，以及酸性 H₂O₂ 中滴加 KMnO₄，用以比较 H₂O₂ 的氧化性和还原性。 题中选项“有机层显紫色”不符合该证据链。"
+          },
+          {
+            "label": "C",
+            "text": "出现钥匙轮廓",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该项不能成立：源文只安排两个红氧点位：Pb(Ac)₂ 试纸经 H₂S 生成 PbS 后滴加 H₂O₂，以及酸性 H₂O₂ 中滴加 KMnO₄，用以比较 H₂O₂ 的氧化性和还原性。 题中选项“出现钥匙轮廓”不符合该证据链。"
+          },
+          {
+            "label": "D",
+            "text": "紫色褪去",
+            "point_key": "candidate-2-75a263a3",
+            "role": "correct_evidence",
+            "diagnostic_note": "酸性 KMnO₄ 被 H₂O₂ 还原时紫色褪去，这是还原性点位的典型现象。 源文只安排两个红氧点位：Pb(Ac)₂ 试纸经 H₂S 生成 PbS 后滴加 H₂O₂，以及酸性 H₂O₂ 中滴加 KMnO₄，用以比较 H₂O₂ 的氧化性和还原性。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "evidence-first chunk 1 repair：最终有效题按题干、答案/选项、解析、point binding 与 canonical 实验文本复核；必要时仅用基础氧化还原/安全常识作 supporting theory。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-2-05 过氧化氢的氧化还原性》实验中，H₂O₂ 与酸性 KMnO₄ 反应时，KMnO₄ 溶液最典型的观察现象是什么？",
+            "options": [
+              {
+                "label": "A",
+                "text": "生成白色 AgCl"
+              },
+              {
+                "label": "B",
+                "text": "有机层显紫色"
+              },
+              {
+                "label": "C",
+                "text": "出现钥匙轮廓"
+              },
+              {
+                "label": "D",
+                "text": "紫色褪去"
+              }
+            ],
+            "answer": {
+              "value": "D"
+            },
+            "explanation": "酸性 KMnO₄ 被 H₂O₂ 还原时紫色褪去，这是还原性点位的典型现象。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00218_1a6196cddf",
+              "expchunk_00219_5cb548b963",
+              "textbook_prose_00291_440e726030"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound",
+            "evidence_first_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_2_05_Q009",
+        "source_review_id": "CHUNK1_19_2_05_Q009",
+        "source_question_index": 9,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-2-05 过氧化氢的氧化还原性》实验中，哪一个点位主要体现 H₂O₂ 的氧化性？",
+        "options": [
+          {
+            "label": "A",
+            "text": "Pb(Ac)₂ 试纸经 H₂S 生成 PbS 后滴加 H₂O₂"
+          },
+          {
+            "label": "B",
+            "text": "酸性 H₂O₂ 中滴加 KMnO₄"
+          },
+          {
+            "label": "C",
+            "text": "乙醚层显蓝"
+          },
+          {
+            "label": "D",
+            "text": "钥匙遮光形成轮廓"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "PbS 被 H₂O₂ 氧化为白色硫酸盐，说明 H₂O₂ 在该点位作氧化剂。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-266194d0"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-75a263a3"
+        ],
+        "coverage_tags": [
+          "dual_redox_role"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "既可作氧化剂，也可作还原剂",
+            "point_key": "candidate-1-266194d0",
+            "role": "correct_evidence",
+            "diagnostic_note": "与题干要求和绑定点位的实验证据一致。"
+          },
+          {
+            "label": "B",
+            "text": "只能作强酸",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "绝对化表述不符合该实验的证据链。"
+          },
+          {
+            "label": "C",
+            "text": "只具有感光性",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "与当前实验点位的观察对象或结论不符。"
+          },
+          {
+            "label": "D",
+            "text": "只能作沉淀剂",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "绝对化表述不符合该实验的证据链。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "替换题针对终审原因：题目偏向 H₂O₂ 保存知识，不属于当前氧化还原点位。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-2-05 过氧化氢的氧化还原性》实验中，实验室保存 H₂O₂ 时应避免接触哪类物质或条件？",
+            "options": [
+              {
+                "label": "A",
+                "text": "强光和催化分解杂质"
+              },
+              {
+                "label": "B",
+                "text": "干净棕色瓶"
+              },
+              {
+                "label": "C",
+                "text": "低温条件"
+              },
+              {
+                "label": "D",
+                "text": "稀溶液避光"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "答案为：强光和催化分解杂质。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00218_1a6196cddf",
+              "expchunk_00219_5cb548b963",
+              "textbook_prose_00291_440e726030"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-2-05 过氧化氢的氧化还原性》实验中，哪一个点位主要体现 H₂O₂ 的氧化性？",
+            "options": [
+              {
+                "label": "A",
+                "text": "Pb(Ac)₂ 试纸经 H₂S 生成 PbS 后滴加 H₂O₂"
+              },
+              {
+                "label": "B",
+                "text": "酸性 H₂O₂ 中滴加 KMnO₄"
+              },
+              {
+                "label": "C",
+                "text": "乙醚层显蓝"
+              },
+              {
+                "label": "D",
+                "text": "钥匙遮光形成轮廓"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "PbS 被 H₂O₂ 氧化为白色硫酸盐，说明 H₂O₂ 在该点位作氧化剂。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final",
+            "off_point_storage_for_redox_split",
+            "evidence_first_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_2_05_Q010",
+        "source_review_id": "CHUNK1_19_2_05_Q010",
+        "source_question_index": 10,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-2-05 过氧化氢的氧化还原性》实验中，为什么先让 Pb(Ac)₂ 试纸接触 H₂S？",
+        "options": [
+          {
+            "label": "A",
+            "text": "先生成黑色 PbS 作为被 H₂O₂ 氧化的对象"
+          },
+          {
+            "label": "B",
+            "text": "先生成乙醚层蓝色"
+          },
+          {
+            "label": "C",
+            "text": "先制得臭氧"
+          },
+          {
+            "label": "D",
+            "text": "先沉淀所有 KMnO₄"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "源文先用 H₂S 使 Pb(Ac)₂ 试纸生成黑色 PbS，再观察 H₂O₂ 对 PbS 的氧化。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-266194d0"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "h2o2_oxidizes_pbs"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "黑色 PbS 是否被氧化转为白色硫酸盐",
+            "point_key": "candidate-1-266194d0",
+            "role": "correct_evidence",
+            "diagnostic_note": "与题干要求和绑定点位的实验证据一致。"
+          },
+          {
+            "label": "B",
+            "text": "乙醚层是否显蓝",
+            "point_key": null,
+            "role": "adjacent_point",
+            "diagnostic_note": "来自相邻实验或相邻点位，容易造成范围混淆。"
+          },
+          {
+            "label": "C",
+            "text": "Na₂O₂ 是否溶于水",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "与当前实验点位的观察对象或结论不符。"
+          },
+          {
+            "label": "D",
+            "text": "AgCl 是否感光变暗",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "与当前实验点位的观察对象或结论不符。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "替换题针对终审原因：泛化产物记忆，无法清晰绑定当前视频点位。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-2-05 过氧化氢的氧化还原性》实验中，H₂O₂ 作为氧化剂时，其常见优点是还原产物比较干净，主要为哪种物质？",
+            "options": [
+              {
+                "label": "A",
+                "text": "PbO₂"
+              },
+              {
+                "label": "B",
+                "text": "H₂O"
+              },
+              {
+                "label": "C",
+                "text": "AgI"
+              },
+              {
+                "label": "D",
+                "text": "NaCl"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "答案为：H₂O。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00218_1a6196cddf",
+              "expchunk_00219_5cb548b963",
+              "textbook_prose_00291_440e726030"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-2-05 过氧化氢的氧化还原性》实验中，为什么先让 Pb(Ac)₂ 试纸接触 H₂S？",
+            "options": [
+              {
+                "label": "A",
+                "text": "先生成黑色 PbS 作为被 H₂O₂ 氧化的对象"
+              },
+              {
+                "label": "B",
+                "text": "先生成乙醚层蓝色"
+              },
+              {
+                "label": "C",
+                "text": "先制得臭氧"
+              },
+              {
+                "label": "D",
+                "text": "先沉淀所有 KMnO₄"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "源文先用 H₂S 使 Pb(Ac)₂ 试纸生成黑色 PbS，再观察 H₂O₂ 对 PbS 的氧化。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final",
+            "generic_product_recall_not_video_point",
+            "evidence_first_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_2_05_Q011",
+        "source_review_id": "CHUNK1_19_2_05_Q011",
+        "source_question_index": 11,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-2-05 过氧化氢的氧化还原性》实验中，H₂O₂ 中氧处于 -1 中间价态，因此可表现氧化性和还原性。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "H₂O₂ 中氧为 -1 价，处于中间价态；本小节两个点位分别展示氧化性和还原性。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-266194d0",
+          "candidate-2-75a263a3"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_1_266194d0",
+          "point_candidate_2_75a263a3",
+          "oxidation_property",
+          "reduction_property"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "evidence-first chunk 1 repair：最终有效题按题干、答案/选项、解析、point binding 与 canonical 实验文本复核；必要时仅用基础氧化还原/安全常识作 supporting theory。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-2-05 过氧化氢的氧化还原性》实验中，H₂O₂ 中氧处于 -1 中间价态，因此可表现氧化性和还原性。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "H₂O₂ 中氧为 -1 价，处于中间价态；本小节两个点位分别展示氧化性和还原性。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00218_1a6196cddf",
+              "expchunk_00219_5cb548b963",
+              "textbook_prose_00291_440e726030"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound",
+            "evidence_first_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_2_05_Q012",
+        "source_review_id": "CHUNK1_19_2_05_Q012",
+        "source_question_index": 12,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-2-05 过氧化氢的氧化还原性》实验中，哪一个点位主要体现 H₂O₂ 的还原性？",
+        "options": [
+          {
+            "label": "A",
+            "text": "酸性 H₂O₂ 中滴加 KMnO₄ 后紫色褪去"
+          },
+          {
+            "label": "B",
+            "text": "Pb(Ac)₂ 试纸先变黑"
+          },
+          {
+            "label": "C",
+            "text": "乙醚层萃取蓝色物质"
+          },
+          {
+            "label": "D",
+            "text": "AgCl 见光分解"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "H₂O₂ 还原酸性 KMnO₄，使紫色褪去，自身被氧化为 O₂。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-75a263a3"
+        ],
+        "secondary_point_keys": [
+          "candidate-1-266194d0"
+        ],
+        "coverage_tags": [
+          "dual_redox_role"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "既可作氧化剂，也可作还原剂",
+            "point_key": "candidate-1-266194d0",
+            "role": "correct_evidence",
+            "diagnostic_note": "与题干要求和绑定点位的实验证据一致。"
+          },
+          {
+            "label": "B",
+            "text": "只能作强酸",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "绝对化表述不符合该实验的证据链。"
+          },
+          {
+            "label": "C",
+            "text": "只具有感光性",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "与当前实验点位的观察对象或结论不符。"
+          },
+          {
+            "label": "D",
+            "text": "只能作沉淀剂",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "绝对化表述不符合该实验的证据链。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "替换题针对终审原因：酸性 H₂O₂ + KI 属于相邻性质内容，不属于当前两个氧化还原视频点位。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-2-05 过氧化氢的氧化还原性》实验中，酸性 H₂O₂ 能氧化 I⁻ 生成 I₂。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "该判断题答案为“正确”。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00218_1a6196cddf",
+              "expchunk_00219_5cb548b963",
+              "textbook_prose_00291_440e726030"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-2-05 过氧化氢的氧化还原性》实验中，哪一个点位主要体现 H₂O₂ 的还原性？",
+            "options": [
+              {
+                "label": "A",
+                "text": "酸性 H₂O₂ 中滴加 KMnO₄ 后紫色褪去"
+              },
+              {
+                "label": "B",
+                "text": "Pb(Ac)₂ 试纸先变黑"
+              },
+              {
+                "label": "C",
+                "text": "乙醚层萃取蓝色物质"
+              },
+              {
+                "label": "D",
+                "text": "AgCl 见光分解"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "H₂O₂ 还原酸性 KMnO₄，使紫色褪去，自身被氧化为 O₂。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final",
+            "off_point_ki_oxidation_for_redox_split",
+            "evidence_first_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_2_05_Q013",
+        "source_review_id": "CHUNK1_19_2_05_Q013",
+        "source_question_index": 13,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-2-05 过氧化氢的氧化还原性》实验中，酸性 KMnO₄ 被 H₂O₂ 还原时，紫色可褪去。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "酸性 KMnO₄ 被 H₂O₂ 还原时紫色可褪去，因此该判断正确。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-75a263a3"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_2_75a263a3",
+          "permanganate",
+          "reduction_property"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "evidence-first chunk 1 repair：最终有效题按题干、答案/选项、解析、point binding 与 canonical 实验文本复核；必要时仅用基础氧化还原/安全常识作 supporting theory。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-2-05 过氧化氢的氧化还原性》实验中，酸性 KMnO₄ 被 H₂O₂ 还原时，紫色可褪去。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "酸性 KMnO₄ 被 H₂O₂ 还原时紫色可褪去，因此该判断正确。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00218_1a6196cddf",
+              "expchunk_00219_5cb548b963",
+              "textbook_prose_00291_440e726030"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound",
+            "evidence_first_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_2_05_Q014",
+        "source_review_id": "CHUNK1_19_2_05_Q014",
+        "source_question_index": 14,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-2-05 过氧化氢的氧化还原性》实验中，进行 KMnO₄ 还原性点位前，用于酸化 H₂O₂ 的酸是哪一项？",
+        "options": [
+          {
+            "label": "A",
+            "text": "H₂SO₄"
+          },
+          {
+            "label": "B",
+            "text": "浓氨水"
+          },
+          {
+            "label": "C",
+            "text": "乙醚"
+          },
+          {
+            "label": "D",
+            "text": "CCl₄"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "源文写明取少量 3% H₂O₂ 溶液，用 H₂SO₄ 酸化后再滴加 KMnO₄。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-75a263a3"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "h2o2_reduces_permanganate"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "还原剂",
+            "point_key": "candidate-2-75a263a3",
+            "role": "correct_evidence",
+            "diagnostic_note": "与题干要求和绑定点位的实验证据一致。"
+          },
+          {
+            "label": "B",
+            "text": "沉淀剂",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "与当前实验点位的观察对象或结论不符。"
+          },
+          {
+            "label": "C",
+            "text": "萃取剂",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "与当前实验点位的观察对象或结论不符。"
+          },
+          {
+            "label": "D",
+            "text": "酸碱指示剂",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "与当前实验点位的观察对象或结论不符。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "替换题针对终审原因：题目偏向 H₂O₂ 分解/催化，不属于当前氧化还原点位。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-2-05 过氧化氢的氧化还原性》实验中，MnO₂ 可促进 H₂O₂ 分解放出氧气。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "该判断题答案为“正确”。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00218_1a6196cddf",
+              "expchunk_00219_5cb548b963",
+              "textbook_prose_00291_440e726030"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-2-05 过氧化氢的氧化还原性》实验中，进行 KMnO₄ 还原性点位前，用于酸化 H₂O₂ 的酸是哪一项？",
+            "options": [
+              {
+                "label": "A",
+                "text": "H₂SO₄"
+              },
+              {
+                "label": "B",
+                "text": "浓氨水"
+              },
+              {
+                "label": "C",
+                "text": "乙醚"
+              },
+              {
+                "label": "D",
+                "text": "CCl₄"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "源文写明取少量 3% H₂O₂ 溶液，用 H₂SO₄ 酸化后再滴加 KMnO₄。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final",
+            "off_point_decomposition_for_redox_split",
+            "evidence_first_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_2_05_Q015",
+        "source_review_id": "CHUNK1_19_2_05_Q015",
+        "source_question_index": 15,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-2-05 过氧化氢的氧化还原性》实验中，下列哪组观察共同支撑 H₂O₂ 的双重氧化还原性？",
+        "options": [
+          {
+            "label": "A",
+            "text": "PbS 转白与酸性 KMnO₄ 褪色"
+          },
+          {
+            "label": "B",
+            "text": "乙醚层显蓝与钥匙轮廓"
+          },
+          {
+            "label": "C",
+            "text": "CCl₄ 紫红色与 AgCl 感光"
+          },
+          {
+            "label": "D",
+            "text": "NaCl 溶解与酚酞变红"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "PbS 转白体现氧化性，酸性 KMnO₄ 褪色体现还原性，二者共同支撑双重性。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-266194d0",
+          "candidate-2-75a263a3"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "dual_redox_role"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "既可作氧化剂，也可作还原剂",
+            "point_key": "candidate-1-266194d0",
+            "role": "correct_evidence",
+            "diagnostic_note": "与题干要求和绑定点位的实验证据一致。"
+          },
+          {
+            "label": "B",
+            "text": "只能作强酸",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "绝对化表述不符合该实验的证据链。"
+          },
+          {
+            "label": "C",
+            "text": "只具有感光性",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "与当前实验点位的观察对象或结论不符。"
+          },
+          {
+            "label": "D",
+            "text": "只能作沉淀剂",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "绝对化表述不符合该实验的证据链。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "替换题针对终审原因：题目偏向 H₂O₂ 制备，不属于当前氧化还原点位。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-2-05 过氧化氢的氧化还原性》实验中，制备 H₂O₂ 时冷却有助于减少分解。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "该判断题答案为“正确”。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00218_1a6196cddf",
+              "expchunk_00219_5cb548b963",
+              "textbook_prose_00291_440e726030"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-2-05 过氧化氢的氧化还原性》实验中，下列哪组观察共同支撑 H₂O₂ 的双重氧化还原性？",
+            "options": [
+              {
+                "label": "A",
+                "text": "PbS 转白与酸性 KMnO₄ 褪色"
+              },
+              {
+                "label": "B",
+                "text": "乙醚层显蓝与钥匙轮廓"
+              },
+              {
+                "label": "C",
+                "text": "CCl₄ 紫红色与 AgCl 感光"
+              },
+              {
+                "label": "D",
+                "text": "NaCl 溶解与酚酞变红"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "PbS 转白体现氧化性，酸性 KMnO₄ 褪色体现还原性，二者共同支撑双重性。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final",
+            "off_point_preparation_for_redox_split",
+            "evidence_first_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_2_05_Q016",
+        "source_review_id": "CHUNK1_19_2_05_Q016",
+        "source_question_index": 16,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-2-05 过氧化氢的氧化还原性》实验中，H₂O₂ 在任何反应中都只能作氧化剂，不能作还原剂。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": false
+        },
+        "explanation": "酸性 KMnO₄ 点位明确显示 H₂O₂ 可作还原剂，因此“任何反应中只能作氧化剂”错误。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-75a263a3"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_2_75a263a3",
+          "reduction_property"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "evidence-first chunk 1 repair：最终有效题按题干、答案/选项、解析、point binding 与 canonical 实验文本复核；必要时仅用基础氧化还原/安全常识作 supporting theory。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-2-05 过氧化氢的氧化还原性》实验中，H₂O₂ 在任何反应中都只能作氧化剂，不能作还原剂。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "酸性 KMnO₄ 点位明确显示 H₂O₂ 可作还原剂，因此“任何反应中只能作氧化剂”错误。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00218_1a6196cddf",
+              "expchunk_00219_5cb548b963",
+              "textbook_prose_00291_440e726030"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound",
+            "evidence_first_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_2_05_Q017",
+        "source_review_id": "CHUNK1_19_2_05_Q017",
+        "source_question_index": 17,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-2-05 过氧化氢的氧化还原性》实验中，向酸性 H₂O₂ 中滴加 KMnO₄ 后，最关键的颜色变化是什么？",
+        "options": [
+          {
+            "label": "A",
+            "text": "紫色褪去"
+          },
+          {
+            "label": "B",
+            "text": "乙醚层显蓝"
+          },
+          {
+            "label": "C",
+            "text": "黑色沉淀生成"
+          },
+          {
+            "label": "D",
+            "text": "滤纸变暗"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "还原性点位的核心现象是酸性 KMnO₄ 紫色褪去。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-75a263a3"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "h2o2_reduces_permanganate"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "还原剂",
+            "point_key": "candidate-2-75a263a3",
+            "role": "correct_evidence",
+            "diagnostic_note": "与题干要求和绑定点位的实验证据一致。"
+          },
+          {
+            "label": "B",
+            "text": "沉淀剂",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "与当前实验点位的观察对象或结论不符。"
+          },
+          {
+            "label": "C",
+            "text": "萃取剂",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "与当前实验点位的观察对象或结论不符。"
+          },
+          {
+            "label": "D",
+            "text": "酸碱指示剂",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "与当前实验点位的观察对象或结论不符。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "替换题针对终审原因：酸性 H₂O₂ + KI 属于相邻性质内容，不属于当前两个氧化还原视频点位。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-2-05 过氧化氢的氧化还原性》实验中，酸化 KI 后加入 H₂O₂ 的实验完全不涉及氧化还原。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "该判断题答案为“错误”。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00218_1a6196cddf",
+              "expchunk_00219_5cb548b963",
+              "textbook_prose_00291_440e726030"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-2-05 过氧化氢的氧化还原性》实验中，向酸性 H₂O₂ 中滴加 KMnO₄ 后，最关键的颜色变化是什么？",
+            "options": [
+              {
+                "label": "A",
+                "text": "紫色褪去"
+              },
+              {
+                "label": "B",
+                "text": "乙醚层显蓝"
+              },
+              {
+                "label": "C",
+                "text": "黑色沉淀生成"
+              },
+              {
+                "label": "D",
+                "text": "滤纸变暗"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "还原性点位的核心现象是酸性 KMnO₄ 紫色褪去。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final",
+            "off_point_ki_oxidation_for_redox_split",
+            "evidence_first_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_2_05_Q018",
+        "source_review_id": "CHUNK1_19_2_05_Q018",
+        "source_question_index": 18,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "true_false",
+        "stem": "在《19-2-05 过氧化氢的氧化还原性》实验中，本小节的直接证据不包括乙醚层蓝色鉴定现象。",
+        "options": [],
+        "answer": {
+          "value": true
+        },
+        "explanation": "本小节只安排 PbS 氧化和酸性 KMnO₄ 褪色两个红氧点位；乙醚层蓝色属于 H₂O₂ 鉴定实验。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-266194d0",
+          "candidate-2-75a263a3"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "double_negative_removed",
+          "semantic_clarity"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00291_440e726030"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "原题化学判断可用，但双重否定会干扰学生理解；终审改为直接判断。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00291_440e726030"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00291_440e726030"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-2-05 过氧化氢的氧化还原性》实验中，认为：H₂O₂ 鉴定中加入乙醚是为了观察有机层颜色变化，这一判断是不正确的。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "这一判断本身是正确的。该判断题答案为“错误”。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00218_1a6196cddf",
+              "expchunk_00219_5cb548b963",
+              "textbook_prose_00291_440e726030"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "true_false",
+            "stem": "在《19-2-05 过氧化氢的氧化还原性》实验中，本小节的直接证据不包括乙醚层蓝色鉴定现象。",
+            "options": [],
+            "answer": {
+              "value": true
+            },
+            "explanation": "本小节只安排 PbS 氧化和酸性 KMnO₄ 褪色两个红氧点位；乙醚层蓝色属于 H₂O₂ 鉴定实验。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final",
+            "double_negative_true_false",
+            "evidence_first_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_2_05_Q019",
+        "source_review_id": "CHUNK1_19_2_05_Q019",
+        "source_question_index": 19,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-2-05 过氧化氢的氧化还原性》实验中，H₂O₂ 使 PbS 变白时主要承担什么角色？",
+        "options": [
+          {
+            "label": "A",
+            "text": "氧化剂"
+          },
+          {
+            "label": "B",
+            "text": "萃取剂"
+          },
+          {
+            "label": "C",
+            "text": "酸碱指示剂"
+          },
+          {
+            "label": "D",
+            "text": "感光剂"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "H₂O₂ 将硫化物氧化为硫酸盐，因此在 PbS 点位中作氧化剂。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-266194d0"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "h2o2_oxidizes_pbs"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "黑色 PbS 是否被氧化转为白色硫酸盐",
+            "point_key": "candidate-1-266194d0",
+            "role": "correct_evidence",
+            "diagnostic_note": "与题干要求和绑定点位的实验证据一致。"
+          },
+          {
+            "label": "B",
+            "text": "乙醚层是否显蓝",
+            "point_key": null,
+            "role": "adjacent_point",
+            "diagnostic_note": "来自相邻实验或相邻点位，容易造成范围混淆。"
+          },
+          {
+            "label": "C",
+            "text": "Na₂O₂ 是否溶于水",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "与当前实验点位的观察对象或结论不符。"
+          },
+          {
+            "label": "D",
+            "text": "AgCl 是否感光变暗",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "与当前实验点位的观察对象或结论不符。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "替换题针对终审原因：题目偏向 H₂O₂ 保存知识，不属于当前氧化还原点位。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-2-05 过氧化氢的氧化还原性》实验中，保存 H₂O₂ 时应尽量加入铁粉促进分解。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "该判断题答案为“错误”。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00218_1a6196cddf",
+              "expchunk_00219_5cb548b963",
+              "textbook_prose_00291_440e726030"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-2-05 过氧化氢的氧化还原性》实验中，H₂O₂ 使 PbS 变白时主要承担什么角色？",
+            "options": [
+              {
+                "label": "A",
+                "text": "氧化剂"
+              },
+              {
+                "label": "B",
+                "text": "萃取剂"
+              },
+              {
+                "label": "C",
+                "text": "酸碱指示剂"
+              },
+              {
+                "label": "D",
+                "text": "感光剂"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "H₂O₂ 将硫化物氧化为硫酸盐，因此在 PbS 点位中作氧化剂。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final",
+            "off_point_storage_for_redox_split",
+            "evidence_first_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_2_05_Q020",
+        "source_review_id": "CHUNK1_19_2_05_Q020",
+        "source_question_index": 20,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "true_false",
+        "stem": "在《19-2-05 过氧化氢的氧化还原性》实验中，H₂O₂ 与 PbS 相关实验可体现其氧化硫化物的能力。",
+        "options": [],
+        "answer": {
+          "value": true
+        },
+        "explanation": "PbS 相关点位中，H₂O₂ 将黑色硫化物氧化为白色硫酸盐，因此该判断正确。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-266194d0",
+          "candidate-2-75a263a3"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "double_negative_removed",
+          "semantic_clarity"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00291_440e726030"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "原题化学判断可用，但双重否定会干扰学生理解；终审改为直接判断。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00291_440e726030"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00291_440e726030"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-2-05 过氧化氢的氧化还原性》实验中，认为：H₂O₂ 与 PbS 相关实验可体现其氧化硫化物的能力，这一判断是不正确的。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "这一判断本身是正确的。该判断题答案为“错误”。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00218_1a6196cddf",
+              "expchunk_00219_5cb548b963",
+              "textbook_prose_00291_440e726030"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "true_false",
+            "stem": "在《19-2-05 过氧化氢的氧化还原性》实验中，H₂O₂ 与 PbS 相关实验可体现其氧化硫化物的能力。",
+            "options": [],
+            "answer": {
+              "value": true
+            },
+            "explanation": "PbS 相关点位中，H₂O₂ 将黑色硫化物氧化为白色硫酸盐，因此该判断正确。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final",
+            "double_negative_true_false",
+            "evidence_first_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_2_05_Q021",
+        "source_review_id": "CHUNK1_19_2_05_Q021",
+        "source_question_index": 21,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《19-2-05 过氧化氢的氧化还原性》实验中，H₂O₂ 可表现出氧化性和____。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "还原性"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "PbS 点位显示氧化性，酸性 KMnO₄ 点位显示还原性，因此 H₂O₂ 可表现出氧化性和还原性。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-266194d0",
+          "candidate-2-75a263a3"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_1_266194d0",
+          "point_candidate_2_75a263a3",
+          "oxidation_property",
+          "reduction_property"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "evidence-first chunk 1 repair：最终有效题按题干、答案/选项、解析、point binding 与 canonical 实验文本复核；必要时仅用基础氧化还原/安全常识作 supporting theory。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-2-05 过氧化氢的氧化还原性》实验中，H₂O₂ 可表现出氧化性和____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "还原性"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "PbS 点位显示氧化性，酸性 KMnO₄ 点位显示还原性，因此 H₂O₂ 可表现出氧化性和还原性。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00218_1a6196cddf",
+              "expchunk_00219_5cb548b963",
+              "textbook_prose_00291_440e726030"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound",
+            "evidence_first_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_2_05_Q022",
+        "source_review_id": "CHUNK1_19_2_05_Q022",
+        "source_question_index": 22,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-2-05 过氧化氢的氧化还原性》实验中，黑色 PbS 变白通常说明生成了哪一类铅盐？",
+        "options": [
+          {
+            "label": "A",
+            "text": "硫酸盐"
+          },
+          {
+            "label": "B",
+            "text": "氯化物"
+          },
+          {
+            "label": "C",
+            "text": "碘化物"
+          },
+          {
+            "label": "D",
+            "text": "碳酸盐"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "H₂O₂ 氧化硫化物生成硫酸根，Pb²⁺ 与硫酸根形成白色硫酸盐。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-266194d0"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "h2o2_oxidizes_pbs"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "黑色 PbS 是否被氧化转为白色硫酸盐",
+            "point_key": "candidate-1-266194d0",
+            "role": "correct_evidence",
+            "diagnostic_note": "与题干要求和绑定点位的实验证据一致。"
+          },
+          {
+            "label": "B",
+            "text": "乙醚层是否显蓝",
+            "point_key": null,
+            "role": "adjacent_point",
+            "diagnostic_note": "来自相邻实验或相邻点位，容易造成范围混淆。"
+          },
+          {
+            "label": "C",
+            "text": "Na₂O₂ 是否溶于水",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "与当前实验点位的观察对象或结论不符。"
+          },
+          {
+            "label": "D",
+            "text": "AgCl 是否感光变暗",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "与当前实验点位的观察对象或结论不符。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "替换题针对终审原因：酸性 H₂O₂ + KI 属于相邻性质内容，不属于当前两个氧化还原视频点位。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-2-05 过氧化氢的氧化还原性》实验中，酸化 H₂O₂ 氧化 KI 中 I⁻，主要体现其____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "氧化性"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "参考答案：氧化性。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00218_1a6196cddf",
+              "expchunk_00219_5cb548b963",
+              "textbook_prose_00291_440e726030"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-2-05 过氧化氢的氧化还原性》实验中，黑色 PbS 变白通常说明生成了哪一类铅盐？",
+            "options": [
+              {
+                "label": "A",
+                "text": "硫酸盐"
+              },
+              {
+                "label": "B",
+                "text": "氯化物"
+              },
+              {
+                "label": "C",
+                "text": "碘化物"
+              },
+              {
+                "label": "D",
+                "text": "碳酸盐"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "H₂O₂ 氧化硫化物生成硫酸根，Pb²⁺ 与硫酸根形成白色硫酸盐。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final",
+            "off_point_ki_oxidation_for_redox_split",
+            "evidence_first_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_2_05_Q023",
+        "source_review_id": "CHUNK1_19_2_05_Q023",
+        "source_question_index": 23,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《19-2-05 过氧化氢的氧化还原性》实验中，酸性 KMnO₄ 与 H₂O₂ 反应时，H₂O₂ 主要表现____。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "还原性"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "酸性 KMnO₄ 点位中 H₂O₂ 被氧化为 O₂，因此它主要表现还原性。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-75a263a3"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_2_75a263a3",
+          "permanganate",
+          "reduction_property"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "evidence-first chunk 1 repair：最终有效题按题干、答案/选项、解析、point binding 与 canonical 实验文本复核；必要时仅用基础氧化还原/安全常识作 supporting theory。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-2-05 过氧化氢的氧化还原性》实验中，酸性 KMnO₄ 与 H₂O₂ 反应时，H₂O₂ 主要表现____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "还原性"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "酸性 KMnO₄ 点位中 H₂O₂ 被氧化为 O₂，因此它主要表现还原性。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00218_1a6196cddf",
+              "expchunk_00219_5cb548b963",
+              "textbook_prose_00291_440e726030"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound",
+            "evidence_first_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_2_05_Q024",
+        "source_review_id": "CHUNK1_19_2_05_Q024",
+        "source_question_index": 24,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-2-05 过氧化氢的氧化还原性》实验中，PbS 遇 H₂O₂ 时，被氧化的主要对象是哪一项？",
+        "options": [
+          {
+            "label": "A",
+            "text": "硫化物中的硫"
+          },
+          {
+            "label": "B",
+            "text": "乙醚层"
+          },
+          {
+            "label": "C",
+            "text": "旁观 Na⁺"
+          },
+          {
+            "label": "D",
+            "text": "钥匙金属"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "黑色 PbS 中的硫化物被 H₂O₂ 氧化为硫酸盐，颜色由黑转白。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-266194d0"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-75a263a3"
+        ],
+        "coverage_tags": [
+          "point_candidate_1_266194d0",
+          "point_candidate_2_75a263a3",
+          "pbs_oxidation",
+          "reduction_property"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "硫化物中的硫",
+            "point_key": "candidate-1-266194d0",
+            "role": "correct_evidence",
+            "diagnostic_note": "黑色 PbS 中的硫化物被 H₂O₂ 氧化为硫酸盐，颜色由黑转白。 源文只安排两个红氧点位：Pb(Ac)₂ 试纸经 H₂S 生成 PbS 后滴加 H₂O₂，以及酸性 H₂O₂ 中滴加 KMnO₄，用以比较 H₂O₂ 的氧化性和还原性。"
+          },
+          {
+            "label": "B",
+            "text": "乙醚层",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该项不能成立：源文只安排两个红氧点位：Pb(Ac)₂ 试纸经 H₂S 生成 PbS 后滴加 H₂O₂，以及酸性 H₂O₂ 中滴加 KMnO₄，用以比较 H₂O₂ 的氧化性和还原性。 题中选项“乙醚层”不符合该证据链。"
+          },
+          {
+            "label": "C",
+            "text": "旁观 Na⁺",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该项不能成立：源文只安排两个红氧点位：Pb(Ac)₂ 试纸经 H₂S 生成 PbS 后滴加 H₂O₂，以及酸性 H₂O₂ 中滴加 KMnO₄，用以比较 H₂O₂ 的氧化性和还原性。 题中选项“旁观 Na⁺”不符合该证据链。"
+          },
+          {
+            "label": "D",
+            "text": "钥匙金属",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该项不能成立：源文只安排两个红氧点位：Pb(Ac)₂ 试纸经 H₂S 生成 PbS 后滴加 H₂O₂，以及酸性 H₂O₂ 中滴加 KMnO₄，用以比较 H₂O₂ 的氧化性和还原性。 题中选项“钥匙金属”不符合该证据链。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "evidence-first chunk 1 repair：最终有效题按题干、答案/选项、解析、point binding 与 canonical 实验文本复核；必要时仅用基础氧化还原/安全常识作 supporting theory。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-2-05 过氧化氢的氧化还原性》实验中，PbS 遇 H₂O₂ 时，H₂O₂ 可氧化其中的____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "硫化物",
+                "S²⁻"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "参考答案：硫化物。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00218_1a6196cddf",
+              "expchunk_00219_5cb548b963",
+              "textbook_prose_00291_440e726030"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-2-05 过氧化氢的氧化还原性》实验中，PbS 遇 H₂O₂ 时，被氧化的主要对象是哪一项？",
+            "options": [
+              {
+                "label": "A",
+                "text": "硫化物中的硫"
+              },
+              {
+                "label": "B",
+                "text": "乙醚层"
+              },
+              {
+                "label": "C",
+                "text": "旁观 Na⁺"
+              },
+              {
+                "label": "D",
+                "text": "钥匙金属"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "黑色 PbS 中的硫化物被 H₂O₂ 氧化为硫酸盐，颜色由黑转白。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00218_1a6196cddf",
+              "expchunk_00219_5cb548b963",
+              "textbook_prose_00291_440e726030"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound",
+            "evidence_first_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_2_05_Q025",
+        "source_review_id": "CHUNK1_19_2_05_Q025",
+        "source_question_index": 25,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-2-05 过氧化氢的氧化还原性》实验中，下列哪项不属于本小节两个直接证据点？",
+        "options": [
+          {
+            "label": "A",
+            "text": "乙醚层显蓝鉴定 H₂O₂"
+          },
+          {
+            "label": "B",
+            "text": "PbS 被 H₂O₂ 氧化转白"
+          },
+          {
+            "label": "C",
+            "text": "酸性 KMnO₄ 被 H₂O₂ 还原褪色"
+          },
+          {
+            "label": "D",
+            "text": "Pb(Ac)₂ 试纸先与 H₂S 生成 PbS"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "乙醚层蓝色属于 H₂O₂ 鉴定实验；本小节的直接证据是 PbS 转白和酸性 KMnO₄ 褪色。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-266194d0",
+          "candidate-2-75a263a3"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "h2o2_oxidizes_pbs"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "黑色 PbS 是否被氧化转为白色硫酸盐",
+            "point_key": "candidate-1-266194d0",
+            "role": "correct_evidence",
+            "diagnostic_note": "与题干要求和绑定点位的实验证据一致。"
+          },
+          {
+            "label": "B",
+            "text": "乙醚层是否显蓝",
+            "point_key": null,
+            "role": "adjacent_point",
+            "diagnostic_note": "来自相邻实验或相邻点位，容易造成范围混淆。"
+          },
+          {
+            "label": "C",
+            "text": "Na₂O₂ 是否溶于水",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "与当前实验点位的观察对象或结论不符。"
+          },
+          {
+            "label": "D",
+            "text": "AgCl 是否感光变暗",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "与当前实验点位的观察对象或结论不符。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "替换题针对终审原因：题目偏向 H₂O₂ 鉴定，不属于当前氧化还原点位。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-2-05 过氧化氢的氧化还原性》实验中，H₂O₂ 鉴定中常观察____层的颜色变化。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "乙醚",
+                "乙醚层"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "参考答案：乙醚。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00218_1a6196cddf",
+              "expchunk_00219_5cb548b963",
+              "textbook_prose_00291_440e726030"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-2-05 过氧化氢的氧化还原性》实验中，下列哪项不属于本小节两个直接证据点？",
+            "options": [
+              {
+                "label": "A",
+                "text": "乙醚层显蓝鉴定 H₂O₂"
+              },
+              {
+                "label": "B",
+                "text": "PbS 被 H₂O₂ 氧化转白"
+              },
+              {
+                "label": "C",
+                "text": "酸性 KMnO₄ 被 H₂O₂ 还原褪色"
+              },
+              {
+                "label": "D",
+                "text": "Pb(Ac)₂ 试纸先与 H₂S 生成 PbS"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "乙醚层蓝色属于 H₂O₂ 鉴定实验；本小节的直接证据是 PbS 转白和酸性 KMnO₄ 褪色。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final",
+            "off_point_identification_for_redox_split",
+            "evidence_first_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_2_05_Q026",
+        "source_review_id": "CHUNK1_19_2_05_Q026",
+        "source_question_index": 26,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-2-05 过氧化氢的氧化还原性》实验中，酸性 KMnO₄ 褪色时 H₂O₂ 自身主要被转化为什么？",
+        "options": [
+          {
+            "label": "A",
+            "text": "O₂"
+          },
+          {
+            "label": "B",
+            "text": "SO₂"
+          },
+          {
+            "label": "C",
+            "text": "PbS"
+          },
+          {
+            "label": "D",
+            "text": "乙醚"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "在酸性 KMnO₄ 点位中，H₂O₂ 作还原剂，自身被氧化生成 O₂。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-75a263a3"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "h2o2_reduces_permanganate"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "还原剂",
+            "point_key": "candidate-2-75a263a3",
+            "role": "correct_evidence",
+            "diagnostic_note": "与题干要求和绑定点位的实验证据一致。"
+          },
+          {
+            "label": "B",
+            "text": "沉淀剂",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "与当前实验点位的观察对象或结论不符。"
+          },
+          {
+            "label": "C",
+            "text": "萃取剂",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "与当前实验点位的观察对象或结论不符。"
+          },
+          {
+            "label": "D",
+            "text": "酸碱指示剂",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "与当前实验点位的观察对象或结论不符。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "替换题针对终审原因：题目偏向 H₂O₂ 制备，不属于当前氧化还原点位。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-2-05 过氧化氢的氧化还原性》实验中，制备 H₂O₂ 时冰水冷却有助于减少 H₂O₂ 的____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "分解"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "参考答案：分解。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00218_1a6196cddf",
+              "expchunk_00219_5cb548b963",
+              "textbook_prose_00291_440e726030"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-2-05 过氧化氢的氧化还原性》实验中，酸性 KMnO₄ 褪色时 H₂O₂ 自身主要被转化为什么？",
+            "options": [
+              {
+                "label": "A",
+                "text": "O₂"
+              },
+              {
+                "label": "B",
+                "text": "SO₂"
+              },
+              {
+                "label": "C",
+                "text": "PbS"
+              },
+              {
+                "label": "D",
+                "text": "乙醚"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "在酸性 KMnO₄ 点位中，H₂O₂ 作还原剂，自身被氧化生成 O₂。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final",
+            "off_point_preparation_for_redox_split",
+            "evidence_first_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_2_05_Q027",
+        "source_review_id": "CHUNK1_19_2_05_Q027",
+        "source_question_index": 27,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-2-05 过氧化氢的氧化还原性》实验中，从化合价角度看，H₂O₂ 能表现双重性的原因是哪一项？",
+        "options": [
+          {
+            "label": "A",
+            "text": "氧元素处于 -1 中间价态"
+          },
+          {
+            "label": "B",
+            "text": "氢元素为 +7 价"
+          },
+          {
+            "label": "C",
+            "text": "分子中含有金属铅"
+          },
+          {
+            "label": "D",
+            "text": "它只在乙醚中存在"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "H₂O₂ 中氧为 -1 价，可被氧化也可被还原；两个实验点位分别展示这两种方向。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-266194d0",
+          "candidate-2-75a263a3"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "dual_redox_role"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "既可作氧化剂，也可作还原剂",
+            "point_key": "candidate-1-266194d0",
+            "role": "correct_evidence",
+            "diagnostic_note": "与题干要求和绑定点位的实验证据一致。"
+          },
+          {
+            "label": "B",
+            "text": "只能作强酸",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "绝对化表述不符合该实验的证据链。"
+          },
+          {
+            "label": "C",
+            "text": "只具有感光性",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "与当前实验点位的观察对象或结论不符。"
+          },
+          {
+            "label": "D",
+            "text": "只能作沉淀剂",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "绝对化表述不符合该实验的证据链。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "替换题针对终审原因：题目偏向 H₂O₂ 分解/催化，不属于当前氧化还原点位。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-2-05 过氧化氢的氧化还原性》实验中，H₂O₂ 受热或遇 MnO₂ 可分解放出____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "O₂",
+                "氧气"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "参考答案：O₂。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00218_1a6196cddf",
+              "expchunk_00219_5cb548b963",
+              "textbook_prose_00291_440e726030"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-2-05 过氧化氢的氧化还原性》实验中，从化合价角度看，H₂O₂ 能表现双重性的原因是哪一项？",
+            "options": [
+              {
+                "label": "A",
+                "text": "氧元素处于 -1 中间价态"
+              },
+              {
+                "label": "B",
+                "text": "氢元素为 +7 价"
+              },
+              {
+                "label": "C",
+                "text": "分子中含有金属铅"
+              },
+              {
+                "label": "D",
+                "text": "它只在乙醚中存在"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "H₂O₂ 中氧为 -1 价，可被氧化也可被还原；两个实验点位分别展示这两种方向。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final",
+            "off_point_decomposition_for_redox_split",
+            "evidence_first_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_2_05_Q028",
+        "source_review_id": "CHUNK1_19_2_05_Q028",
+        "source_question_index": 28,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《19-2-05 过氧化氢的氧化还原性》实验中，H₂O₂ 还原酸性 KMnO₄ 时，紫色通常会____。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "褪去",
+            "褪色"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "酸性 KMnO₄ 被 H₂O₂ 还原时紫色褪去或褪色，答案短且可确定判分。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-75a263a3"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_2_75a263a3",
+          "permanganate",
+          "reduction_property"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "evidence-first chunk 1 repair：最终有效题按题干、答案/选项、解析、point binding 与 canonical 实验文本复核；必要时仅用基础氧化还原/安全常识作 supporting theory。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-2-05 过氧化氢的氧化还原性》实验中，H₂O₂ 还原酸性 KMnO₄ 时，紫色通常会____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "褪去",
+                "褪色"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "酸性 KMnO₄ 被 H₂O₂ 还原时紫色褪去或褪色，答案短且可确定判分。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00218_1a6196cddf",
+              "expchunk_00219_5cb548b963",
+              "textbook_prose_00291_440e726030"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound",
+            "evidence_first_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_2_05_Q029",
+        "source_review_id": "CHUNK1_19_2_05_Q029",
+        "source_question_index": 29,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-2-05 过氧化氢的氧化还原性》实验中，酸化 H₂O₂ 后再滴加 KMnO₄ 的目的最接近哪一项？",
+        "options": [
+          {
+            "label": "A",
+            "text": "在酸性介质中观察 H₂O₂ 的还原性"
+          },
+          {
+            "label": "B",
+            "text": "让 KMnO₄ 变成沉淀剂"
+          },
+          {
+            "label": "C",
+            "text": "产生乙醚层蓝色"
+          },
+          {
+            "label": "D",
+            "text": "制备 SO₂"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "源文明确要求 H₂SO₄ 酸化后滴加 KMnO₄，用 KMnO₄ 褪色观察 H₂O₂ 的还原性。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-75a263a3"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "h2o2_reduces_permanganate"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "还原剂",
+            "point_key": "candidate-2-75a263a3",
+            "role": "correct_evidence",
+            "diagnostic_note": "与题干要求和绑定点位的实验证据一致。"
+          },
+          {
+            "label": "B",
+            "text": "沉淀剂",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "与当前实验点位的观察对象或结论不符。"
+          },
+          {
+            "label": "C",
+            "text": "萃取剂",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "与当前实验点位的观察对象或结论不符。"
+          },
+          {
+            "label": "D",
+            "text": "酸碱指示剂",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "与当前实验点位的观察对象或结论不符。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "替换题针对终审原因：题目偏向 H₂O₂ 保存知识，不属于当前氧化还原点位。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-2-05 过氧化氢的氧化还原性》实验中，保存 H₂O₂ 应避免强光和能催化分解的____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "杂质",
+                "催化杂质"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "参考答案：杂质。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00218_1a6196cddf",
+              "expchunk_00219_5cb548b963",
+              "textbook_prose_00291_440e726030"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-2-05 过氧化氢的氧化还原性》实验中，酸化 H₂O₂ 后再滴加 KMnO₄ 的目的最接近哪一项？",
+            "options": [
+              {
+                "label": "A",
+                "text": "在酸性介质中观察 H₂O₂ 的还原性"
+              },
+              {
+                "label": "B",
+                "text": "让 KMnO₄ 变成沉淀剂"
+              },
+              {
+                "label": "C",
+                "text": "产生乙醚层蓝色"
+              },
+              {
+                "label": "D",
+                "text": "制备 SO₂"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "源文明确要求 H₂SO₄ 酸化后滴加 KMnO₄，用 KMnO₄ 褪色观察 H₂O₂ 的还原性。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final",
+            "off_point_storage_for_redox_split",
+            "evidence_first_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_2_05_Q030",
+        "source_review_id": "CHUNK1_19_2_05_Q030",
+        "source_question_index": 30,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-2-05 过氧化氢的氧化还原性》实验中，哪项结论最符合两个点位合在一起的证据？",
+        "options": [
+          {
+            "label": "A",
+            "text": "H₂O₂ 在不同对象前可分别作氧化剂和还原剂"
+          },
+          {
+            "label": "B",
+            "text": "H₂O₂ 只会作沉淀剂"
+          },
+          {
+            "label": "C",
+            "text": "H₂O₂ 的证据只来自乙醚层蓝色"
+          },
+          {
+            "label": "D",
+            "text": "H₂O₂ 只用于制备 SO₂"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "PbS 点位证明 H₂O₂ 可作氧化剂，酸性 KMnO₄ 点位证明 H₂O₂ 可作还原剂。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-266194d0",
+          "candidate-2-75a263a3"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "dual_redox_role"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "既可作氧化剂，也可作还原剂",
+            "point_key": "candidate-1-266194d0",
+            "role": "correct_evidence",
+            "diagnostic_note": "与题干要求和绑定点位的实验证据一致。"
+          },
+          {
+            "label": "B",
+            "text": "只能作强酸",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "绝对化表述不符合该实验的证据链。"
+          },
+          {
+            "label": "C",
+            "text": "只具有感光性",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "与当前实验点位的观察对象或结论不符。"
+          },
+          {
+            "label": "D",
+            "text": "只能作沉淀剂",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "绝对化表述不符合该实验的证据链。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "替换题针对终审原因：泛化产物记忆，无法清晰绑定当前视频点位。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-2-05 过氧化氢的氧化还原性》实验中，H₂O₂ 作氧化剂时常见还原产物为____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "H₂O",
+                "水"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "参考答案：H₂O。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00218_1a6196cddf",
+              "expchunk_00219_5cb548b963",
+              "textbook_prose_00291_440e726030"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-2-05 过氧化氢的氧化还原性》实验中，哪项结论最符合两个点位合在一起的证据？",
+            "options": [
+              {
+                "label": "A",
+                "text": "H₂O₂ 在不同对象前可分别作氧化剂和还原剂"
+              },
+              {
+                "label": "B",
+                "text": "H₂O₂ 只会作沉淀剂"
+              },
+              {
+                "label": "C",
+                "text": "H₂O₂ 的证据只来自乙醚层蓝色"
+              },
+              {
+                "label": "D",
+                "text": "H₂O₂ 只用于制备 SO₂"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "PbS 点位证明 H₂O₂ 可作氧化剂，酸性 KMnO₄ 点位证明 H₂O₂ 可作还原剂。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final",
+            "generic_product_recall_not_video_point",
+            "evidence_first_reviewed"
+          ]
+        }
+      }
+    ]
+  }
+}

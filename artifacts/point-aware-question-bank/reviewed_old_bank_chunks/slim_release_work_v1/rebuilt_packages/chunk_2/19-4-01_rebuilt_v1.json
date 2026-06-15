@@ -1,0 +1,876 @@
+{
+  "metadata": {
+    "schema_version": "small_packet_rebuilt_v1",
+    "artifact_type": "manual_semantic_rebuilt_question_package",
+    "chunk": "chunk_2",
+    "source_packet": "E:\\chemistry-admin\\artifacts\\point-aware-question-bank\\reviewed_old_bank_chunks\\slim_release_work_v1\\semantic_work_packets\\chunk_2\\19-4-01.json",
+    "experiment_code": "19-4-01",
+    "experiment_title": "亚硝酸的生成与分解",
+    "question_count": 30,
+    "evidence_policy": [
+      "Each question was manually compared against the source packet, video points, canonical experiment evidence, and supporting theory where required.",
+      "RAG source text is not embedded in full; only locators and concise source summaries are stored.",
+      "Inherited chunk ids are not treated as proof.",
+      "Formula or symbolic fill blanks are avoided; retained fill blanks use short ordinary Chinese answers."
+    ],
+    "rag_source_dir": "E:\\chemistry-rag\\data\\rag_ready",
+    "release_json_policy": "Do not modify chunk_X_release_final_v1.json directly; this package is a merge input only."
+  },
+  "video_points": [
+    {
+      "point_key": "candidate-1-03b55150",
+      "point_title": "冰水冷却的饱和 NaNO₂ + H₂SO₄"
+    },
+    {
+      "point_key": "candidate-2-0ee21807",
+      "point_title": "观察 HNO₂ 生成、分解及 NO / NO₂ 气体产生"
+    }
+  ],
+  "evidence_sources": {
+    "canonical_experiment_chunks": [
+      {
+        "chunk_id": "expchunk_00242_2da7ff3435",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+        "line_number": 255,
+        "evidence_role": "Canonical experiment: ice-cooled saturated sodium nitrite solution is mixed with sulfuric acid; nitrous acid forms, decomposes to a blue intermediate, and then gives NO and brown NO₂."
+      }
+    ],
+    "supporting_theory_chunks": []
+  },
+  "questions": [
+    {
+      "question_id": "REBUILT_CH2_19_4_01_Q001",
+      "question_type": "single_choice",
+      "stem": "本实验开始时，哪组试剂组合最符合生成步骤？",
+      "options": [
+        {"label": "A", "text": "冰水冷却过的饱和 NaNO₂ 溶液和 H₂SO₄ 溶液"},
+        {"label": "B", "text": "NaOH 溶液和铵盐溶液"},
+        {"label": "C", "text": "KI 溶液和淀粉溶液"},
+        {"label": "D", "text": "硝酸盐固体和木炭粉"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "教材实验的起始操作是把冷却过的饱和 NaNO₂ 溶液与 H₂SO₄ 溶液混合，随后观察生成物的变化。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-1-03b55150"],
+      "secondary_point_keys": ["candidate-2-0ee21807"],
+      "coverage_tags": ["starting_operation", "reagent_pair", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-1-03b55150", "role": "correct_evidence", "diagnostic_note": "直接对应冷却 NaNO₂ 与 H₂SO₄ 的点位。"},
+        {"label": "B", "point_key": null, "role": "distractor_other_experiment", "diagnostic_note": "这是铵盐/碱性体系，不是亚硝酸生成。"},
+        {"label": "C", "point_key": null, "role": "distractor_adjacent_scope", "diagnostic_note": "KI 可出现在同一教材段的后续性质实验，但不属于本实验的两个观察项。"},
+        {"label": "D", "point_key": null, "role": "distractor_other_topic", "diagnostic_note": "硝酸盐热分解不是本实验起始操作。"}
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00242_2da7ff3435"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "由点位 1 和教材操作直接支撑。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_01_Q002",
+      "question_type": "single_choice",
+      "stem": "关于两种起始溶液的用量，哪一项与教材实验一致？",
+      "options": [
+        {"label": "A", "text": "两者各取 1 mL"},
+        {"label": "B", "text": "亚硝酸钠溶液 10 mL，硫酸溶液 1 mL"},
+        {"label": "C", "text": "只取固体，不取溶液"},
+        {"label": "D", "text": "硫酸溶液过量到半支试管"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "规范操作写明两种溶液各取 1 mL，这一判断只涉及起始生成步骤的定量细节。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-1-03b55150"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["volume_detail", "starting_operation"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-1-03b55150", "role": "correct_evidence", "diagnostic_note": "与教材记录的两个 1 mL 一致。"},
+        {"label": "B", "point_key": null, "role": "distractor_wrong_quantity", "diagnostic_note": "改变了亚硝酸钠溶液用量。"},
+        {"label": "C", "point_key": null, "role": "distractor_wrong_state", "diagnostic_note": "本实验使用溶液。"},
+        {"label": "D", "point_key": null, "role": "distractor_unsupported", "diagnostic_note": "教材没有半支试管的说法。"}
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00242_2da7ff3435"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "用量来自教材实验 chunk。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_01_Q003",
+      "question_type": "single_choice",
+      "stem": "为什么 NaNO₂ 溶液在与 H₂SO₄ 混合前要先经过冰水冷却？",
+      "options": [
+        {"label": "A", "text": "便于观察不稳定产物的生成和随后分解"},
+        {"label": "B", "text": "使溶液保持强碱性"},
+        {"label": "C", "text": "阻止所有气体生成"},
+        {"label": "D", "text": "让亚硝酸盐直接变成硝酸盐沉淀"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "本实验关注 HNO₂ 的生成与放置后的分解，冷却处理有利于观察短暂变化，而不是改变为强碱或沉淀实验。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-1-03b55150"],
+      "secondary_point_keys": ["candidate-2-0ee21807"],
+      "coverage_tags": ["temperature_control", "instability", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-1-03b55150", "role": "correct_evidence", "diagnostic_note": "冷却与后续观察不稳定变化相配套。"},
+        {"label": "B", "point_key": null, "role": "distractor_wrong_medium", "diagnostic_note": "加入的是硫酸，不是保持强碱性。"},
+        {"label": "C", "point_key": null, "role": "distractor_overstatement", "diagnostic_note": "实验恰恰要观察后续气体产生。"},
+        {"label": "D", "point_key": null, "role": "distractor_wrong_product", "diagnostic_note": "没有硝酸盐沉淀结论。"}
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00242_2da7ff3435"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "冷却操作和观察分解变化均在同一实验 chunk 中出现。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_01_Q004",
+      "question_type": "single_choice",
+      "stem": "混合冷却的 NaNO₂ 溶液和 H₂SO₄ 溶液后，本实验首先要关注哪类物质的生成？",
+      "options": [
+        {"label": "A", "text": "亚硝酸"},
+        {"label": "B", "text": "氨气"},
+        {"label": "C", "text": "硅酸凝胶"},
+        {"label": "D", "text": "高锰酸根"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "该观察项和教材内容都指向亚硝酸的生成，后面才继续观察它的分解。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-1-03b55150"],
+      "secondary_point_keys": ["candidate-2-0ee21807"],
+      "coverage_tags": ["target_product", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-1-03b55150", "role": "correct_evidence", "diagnostic_note": "直接对应亚硝酸生成。"},
+        {"label": "B", "point_key": null, "role": "distractor_other_subsection", "diagnostic_note": "氨气属于氨和铵盐性质。"},
+        {"label": "C", "point_key": null, "role": "distractor_other_experiment", "diagnostic_note": "硅酸凝胶不在本实验范围内。"},
+        {"label": "D", "point_key": null, "role": "distractor_adjacent_chemistry", "diagnostic_note": "高锰酸根可能出现在亚硝酸还原性实验，不是本点位目标产物。"}
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00242_2da7ff3435"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "由标题和生成步骤支撑。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_01_Q005",
+      "question_type": "single_choice",
+      "stem": "教材给出的分解路径中，亚硝酸先形成的有色中间物应怎样描述？",
+      "options": [
+        {"label": "A", "text": "蓝色的 N₂O₃"},
+        {"label": "B", "text": "白色的 Na₂SO₄ 沉淀"},
+        {"label": "C", "text": "无色的 N₂"},
+        {"label": "D", "text": "紫色的 I₂ 溶液"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "教材把亚硝酸分解的第一步写成生成蓝色 N₂O₃，所以颜色和物种需要同时对应。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-2-0ee21807"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["blue_intermediate", "decomposition"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-2-0ee21807", "role": "correct_evidence", "diagnostic_note": "对应蓝色中间物。"},
+        {"label": "B", "point_key": null, "role": "distractor_side_product", "diagnostic_note": "Na₂SO₄ 是生成反应的盐，不是蓝色中间物。"},
+        {"label": "C", "point_key": null, "role": "distractor_wrong_gas", "diagnostic_note": "N₂ 不是教材给出的中间物。"},
+        {"label": "D", "point_key": null, "role": "distractor_adjacent_scope", "diagnostic_note": "I₂ 关联同段后续检验或氧化性内容，不是本实验的分解观察。"}
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00242_2da7ff3435"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "蓝色中间物来自教材反应序列。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_01_Q006",
+      "question_type": "single_choice",
+      "stem": "蓝色中间物进一步分解时，哪一组含氮气体与教材记录相符？",
+      "options": [
+        {"label": "A", "text": "NO 和 NO₂"},
+        {"label": "B", "text": "NH₃ 和 N₂"},
+        {"label": "C", "text": "O₂ 和 H₂"},
+        {"label": "D", "text": "Cl₂ 和 HCl"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "教材分解序列的末步给出 NO 与棕色 NO₂；其他选项不属于本分解路径。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-2-0ee21807"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["gas_products", "decomposition"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-2-0ee21807", "role": "correct_evidence", "diagnostic_note": "对应点位 2 的气体产生。"},
+        {"label": "B", "point_key": null, "role": "distractor_wrong_nitrogen_species", "diagnostic_note": "不是该分解序列的产物。"},
+        {"label": "C", "point_key": null, "role": "distractor_wrong_gas_pair", "diagnostic_note": "水电解式气体组合不相关。"},
+        {"label": "D", "point_key": null, "role": "distractor_other_element", "diagnostic_note": "氯气和氯化氢不在该实验。"}
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00242_2da7ff3435"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "直接依据教材分解方程式。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_01_Q007",
+      "question_type": "single_choice",
+      "stem": "观察到棕色气体时，最应把它与下列哪种物质联系起来？",
+      "options": [
+        {"label": "A", "text": "NO₂"},
+        {"label": "B", "text": "NO"},
+        {"label": "C", "text": "N₂"},
+        {"label": "D", "text": "CO₂"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "教材在末步中特别标明 NO₂ 为棕色，NO 不能替代这个颜色判断。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-2-0ee21807"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["brown_gas", "observation"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-2-0ee21807", "role": "correct_evidence", "diagnostic_note": "棕色气体对应 NO₂。"},
+        {"label": "B", "point_key": "candidate-2-0ee21807", "role": "near_miss", "diagnostic_note": "NO 同时生成，但教材未把它标为棕色。"},
+        {"label": "C", "point_key": null, "role": "distractor_wrong_product", "diagnostic_note": "N₂ 不在该分解序列。"},
+        {"label": "D", "point_key": null, "role": "distractor_wrong_element", "diagnostic_note": "CO₂ 与氮的实验无关。"}
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00242_2da7ff3435"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "颜色判断由教材括注支撑。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_01_Q008",
+      "question_type": "single_choice",
+      "stem": "如果要按本实验的两个观察步骤组织观察记录，哪条顺序最合理？",
+      "options": [
+        {"label": "A", "text": "先混合冷却试剂，再观察生成物放置后的分解和气体"},
+        {"label": "B", "text": "先加入四氯化碳振荡，再记录紫色有机层"},
+        {"label": "C", "text": "先滴加高锰酸钾，再判断褪色"},
+        {"label": "D", "text": "先做铵盐检验，再加奈斯勒试剂"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "先进行生成操作，再随后观察生成、分解与气体产生；其余都是同章或同段的其他实验。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-1-03b55150", "candidate-2-0ee21807"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["operation_sequence", "packet_scope", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-1-03b55150", "role": "correct_sequence_start", "diagnostic_note": "先对应点位 1，再对应点位 2。"},
+        {"label": "B", "point_key": null, "role": "distractor_same_chunk_other_subpart", "diagnostic_note": "这是亚硝酸根检验相关，不属于本实验范围。"},
+        {"label": "C", "point_key": null, "role": "distractor_same_chunk_other_subpart", "diagnostic_note": "这是亚硝酸还原性实验。"},
+        {"label": "D", "point_key": null, "role": "distractor_previous_subsection", "diagnostic_note": "这是氨和铵盐性质。"}
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00242_2da7ff3435"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "根据两个 video point 的顺序和教材同一小节判断。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_01_Q009",
+      "question_type": "single_choice",
+      "stem": "下列哪项最容易把本实验与同一教材段的其他实验混淆？",
+      "options": [
+        {"label": "A", "text": "把 KI 酸化后再加入 NaNO₂"},
+        {"label": "B", "text": "用冰水冷却 NaNO₂ 溶液"},
+        {"label": "C", "text": "观察蓝色中间物"},
+        {"label": "D", "text": "观察棕色气体"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "KI 酸化属于同一教材段中亚硝酸氧化性的另一个实验，不是本实验的生成与分解观察。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-1-03b55150", "candidate-2-0ee21807"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["packet_scope", "adjacent_distractor", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": null, "role": "correct_scope_exclusion", "diagnostic_note": "同一教材段中出现，但不属于本实验。"},
+        {"label": "B", "point_key": "candidate-1-03b55150", "role": "packet_point", "diagnostic_note": "这是本实验起始操作。"},
+        {"label": "C", "point_key": "candidate-2-0ee21807", "role": "packet_point", "diagnostic_note": "这是本实验分解观察。"},
+        {"label": "D", "point_key": "candidate-2-0ee21807", "role": "packet_point", "diagnostic_note": "这是本实验气体观察。"}
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00242_2da7ff3435"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "人工区分 canonical chunk 的范围和本 packet 的视频点位。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_01_Q010",
+      "question_type": "single_choice",
+      "stem": "对“放置一段时间后又有什么变化”的理解，哪一项最贴近本实验？",
+      "options": [
+        {"label": "A", "text": "亚硝酸继续分解，出现蓝色中间物并产生含氮气体"},
+        {"label": "B", "text": "体系完全没有后续变化"},
+        {"label": "C", "text": "溶液只生成白色沉淀"},
+        {"label": "D", "text": "体系转为强碱性并释放氨气"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "教材要求观察混合后以及放置后的变化，并给出从亚硝酸到蓝色中间物再到 NO、NO₂ 的分解路径。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-2-0ee21807"],
+      "secondary_point_keys": ["candidate-1-03b55150"],
+      "coverage_tags": ["standing_change", "decomposition", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-2-0ee21807", "role": "correct_evidence", "diagnostic_note": "对应放置后分解和气体观察。"},
+        {"label": "B", "point_key": null, "role": "distractor_contradicts_observation", "diagnostic_note": "教材明确要求观察后续变化。"},
+        {"label": "C", "point_key": null, "role": "distractor_wrong_observation", "diagnostic_note": "没有白色沉淀作为核心现象。"},
+        {"label": "D", "point_key": null, "role": "distractor_wrong_medium", "diagnostic_note": "本实验是硫酸酸性体系。"}
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00242_2da7ff3435"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "放置后变化和反应序列均在实验 chunk 中。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_01_Q011",
+      "question_type": "true_false",
+      "stem": "本实验中生成亚硝酸的酸性试剂是 H₂SO₄，而不是 NaOH。",
+      "answer": {"value": true},
+      "explanation": "教材操作明确使用 H₂SO₄ 溶液与冷却的 NaNO₂ 溶液混合。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-1-03b55150"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["reagent_role", "true_false"],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00242_2da7ff3435"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "酸性试剂来自教材操作。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_01_Q012",
+      "question_type": "true_false",
+      "stem": "本实验后续观察的重点是亚硝酸生成后的分解，而不是只验证 Na₂SO₄ 的存在。",
+      "answer": {"value": true},
+      "explanation": "生成反应会形成盐，但实验观察和教材追问的重点是亚硝酸的后续分解变化。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-2-0ee21807"],
+      "secondary_point_keys": ["candidate-1-03b55150"],
+      "coverage_tags": ["decomposition_focus", "true_false", "multi_point"],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00242_2da7ff3435"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "重点由标题和分解反应序列共同支撑。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_01_Q013",
+      "question_type": "true_false",
+      "stem": "教材把 N₂O₃ 标为蓝色物质。",
+      "answer": {"value": true},
+      "explanation": "分解序列中，亚硝酸先生成标注为蓝色的 N₂O₃。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-2-0ee21807"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["blue_intermediate", "true_false"],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00242_2da7ff3435"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "颜色标注来自教材分解式。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_01_Q014",
+      "question_type": "true_false",
+      "stem": "在本实验的分解路径中，NO₂ 与棕色现象相联系。",
+      "answer": {"value": true},
+      "explanation": "教材末步把 NO₂ 标注为棕色，因此可用棕色现象识别它。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-2-0ee21807"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["brown_gas", "true_false"],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00242_2da7ff3435"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "NO₂ 的颜色由教材括注支撑。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_01_Q015",
+      "question_type": "true_false",
+      "stem": "把 KI 酸化后再加入 NaNO₂，是本实验两个观察步骤之一。",
+      "answer": {"value": false},
+      "explanation": "该操作出现在同一教材段的亚硝酸氧化性实验中，但本实验只覆盖生成与分解两个观察项。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-1-03b55150", "candidate-2-0ee21807"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["packet_scope", "adjacent_distractor", "true_false", "multi_point"],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00242_2da7ff3435"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "人工审查时将同一 canonical chunk 的其他小项排除。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_01_Q016",
+      "question_type": "true_false",
+      "stem": "亚硝酸在本实验中表现出不稳定性，放置后会继续发生变化。",
+      "answer": {"value": true},
+      "explanation": "教材要求观察混合后放置一段时间的变化，并给出分解产物。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-2-0ee21807"],
+      "secondary_point_keys": ["candidate-1-03b55150"],
+      "coverage_tags": ["instability", "standing_change", "true_false", "multi_point"],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00242_2da7ff3435"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "由放置观察要求和分解序列支撑。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_01_Q017",
+      "question_type": "true_false",
+      "stem": "本实验的核心观察可以概括为“先生成亚硝酸，再观察它的分解”。",
+      "answer": {"value": true},
+      "explanation": "这正好对应两个观察步骤：一个强调冷却试剂混合，另一个强调生成、分解和气体。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-1-03b55150", "candidate-2-0ee21807"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["learning_goal", "true_false", "multi_point"],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00242_2da7ff3435"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "直接概括 packet 的两个视频点位。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_01_Q018",
+      "question_type": "true_false",
+      "stem": "N₂O₃ 在本实验中进一步分解时，只生成 N₂ 和 O₂。",
+      "answer": {"value": false},
+      "explanation": "教材给出的进一步分解产物是 NO 和 NO₂，不是氮气和氧气。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-2-0ee21807"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["gas_products", "true_false"],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00242_2da7ff3435"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "分解产物由教材反应序列支撑。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_01_Q019",
+      "question_type": "single_choice",
+      "stem": "哪一项最适合作为本实验报告的现象关键词组合？",
+      "options": [
+        {"label": "A", "text": "冷却、亚硝酸、蓝色、棕色气体"},
+        {"label": "B", "text": "沉淀、过滤、称量、灼烧"},
+        {"label": "C", "text": "紫色有机层、淀粉变蓝、碘单质"},
+        {"label": "D", "text": "红棕色沉淀、奈斯勒试剂、氨"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "本实验的观察链条围绕冷却生成亚硝酸、出现蓝色中间物和棕色气体。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-1-03b55150", "candidate-2-0ee21807"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["observation_summary", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-1-03b55150", "role": "correct_summary_start", "diagnostic_note": "关键词覆盖两个点位。"},
+        {"label": "B", "point_key": null, "role": "distractor_generic_lab", "diagnostic_note": "不是该实验现象。"},
+        {"label": "C", "point_key": null, "role": "distractor_adjacent_scope", "diagnostic_note": "偏向亚硝酸根检验或碘相关实验。"},
+        {"label": "D", "point_key": null, "role": "distractor_previous_subsection", "diagnostic_note": "属于铵盐检验。"}
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00242_2da7ff3435"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "关键词均来自本 packet 两个点位及教材序列。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_01_Q020",
+      "question_type": "single_choice",
+      "stem": "若把本实验结论概括成“只生成稳定的亚硝酸”，最关键的遗漏是什么？",
+      "options": [
+        {"label": "A", "text": "遗漏了亚硝酸会继续分解并产生气体"},
+        {"label": "B", "text": "遗漏了强碱性条件"},
+        {"label": "C", "text": "遗漏了必须用银离子催化"},
+        {"label": "D", "text": "遗漏了四氯化碳萃取"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "本实验关注生成与分解，教材还要求观察放置后的变化，不能只停留在生成一步。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-2-0ee21807"],
+      "secondary_point_keys": ["candidate-1-03b55150"],
+      "coverage_tags": ["conceptual_error", "decomposition", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-2-0ee21807", "role": "correct_evidence", "diagnostic_note": "点位 2 正是后续分解观察。"},
+        {"label": "B", "point_key": null, "role": "distractor_wrong_medium", "diagnostic_note": "本实验是酸性体系。"},
+        {"label": "C", "point_key": null, "role": "distractor_other_packet", "diagnostic_note": "银离子催化不属于此实验。"},
+        {"label": "D", "point_key": null, "role": "distractor_adjacent_scope", "diagnostic_note": "四氯化碳萃取属于后续检验内容。"}
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00242_2da7ff3435"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "题目基于生成和分解两点的完整链条。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_01_Q021",
+      "question_type": "single_choice",
+      "stem": "哪一项是对 H₂SO₄ 在起始步骤中作用的稳妥表述？",
+      "options": [
+        {"label": "A", "text": "提供酸性条件，使亚硝酸盐转化为亚硝酸"},
+        {"label": "B", "text": "作为蓝色中间物本身"},
+        {"label": "C", "text": "作为棕色气体来源"},
+        {"label": "D", "text": "作为有机萃取剂"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "教材操作是用硫酸与亚硝酸钠溶液混合生成亚硝酸；蓝色中间物和棕色气体属于后续分解。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-1-03b55150"],
+      "secondary_point_keys": ["candidate-2-0ee21807"],
+      "coverage_tags": ["reagent_role", "acid_medium", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-1-03b55150", "role": "correct_evidence", "diagnostic_note": "对应硫酸参与生成亚硝酸。"},
+        {"label": "B", "point_key": "candidate-2-0ee21807", "role": "near_miss_wrong_role", "diagnostic_note": "蓝色中间物来自亚硝酸分解，不是硫酸。"},
+        {"label": "C", "point_key": "candidate-2-0ee21807", "role": "near_miss_wrong_role", "diagnostic_note": "棕色气体来自后续含氮物分解。"},
+        {"label": "D", "point_key": null, "role": "distractor_wrong_reagent_class", "diagnostic_note": "硫酸不是有机萃取剂。"}
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00242_2da7ff3435"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "硫酸作用可由教材生成反应和操作判断。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_01_Q022",
+      "question_type": "fill_blank",
+      "stem": "本实验中，NaNO₂ 溶液在混合前需要用____冷却。",
+      "answer": {"accepted_answers": ["冰水", "冰水冷却", "冰水冷冻"], "match": "normalized_exact"},
+      "explanation": "教材操作强调使用冰水处理过的饱和 NaNO₂ 溶液。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-1-03b55150"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["temperature_control", "mobile_safe_fill_blank"],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00242_2da7ff3435"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "答案为普通中文操作词，不要求公式输入。"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": "normalized_exact",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_01_Q023",
+      "question_type": "fill_blank",
+      "stem": "亚硝酸分解过程中，教材标出的 N₂O₃ 颜色是____色。",
+      "answer": {"accepted_answers": ["蓝", "蓝色"], "match": "normalized_exact"},
+      "explanation": "教材把 N₂O₃ 明确标注为蓝色。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-2-0ee21807"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["blue_intermediate", "mobile_safe_fill_blank"],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00242_2da7ff3435"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "答案为颜色词，移动端风险低。"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": "normalized_exact",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_01_Q024",
+      "question_type": "fill_blank",
+      "stem": "教材把 NO₂ 标注为____色气体。",
+      "answer": {"accepted_answers": ["棕", "棕色", "红棕", "红棕色"], "match": "normalized_exact"},
+      "explanation": "分解序列中，NO₂ 被标注为棕色，允许红棕色作为等价观察表述。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-2-0ee21807"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["brown_gas", "mobile_safe_fill_blank"],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00242_2da7ff3435"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "答案为颜色词，非公式填空。"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": "normalized_exact",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_01_Q025",
+      "question_type": "fill_blank",
+      "stem": "混合 NaNO₂ 与 H₂SO₄ 后继续观察 HNO₂ 变化，本实验除生成 HNO₂ 外还关注其____。",
+      "answer": {"accepted_answers": ["分解"], "match": "normalized_exact"},
+      "explanation": "两个观察步骤共同服务于“亚硝酸的生成与分解”这一主题。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-1-03b55150", "candidate-2-0ee21807"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["learning_goal", "mobile_safe_fill_blank", "multi_point"],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00242_2da7ff3435"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "答案来自实验标题和视频点位组合。"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": "normalized_exact",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_01_Q026",
+      "question_type": "single_choice",
+      "stem": "哪一项最好说明为什么不能只凭教材段落编号把后续 KI 操作纳入本实验？",
+      "options": [
+        {"label": "A", "text": "本实验只列出冷却混合和生成分解观察"},
+        {"label": "B", "text": "KI 操作完全不在教材中出现"},
+        {"label": "C", "text": "KI 操作属于有机化学实验"},
+        {"label": "D", "text": "KI 操作和亚硝酸没有任何关系"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "同一教材段包含多个小实验；本实验只涉及前两个观察步骤，不能把同段后续操作自动并入。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-1-03b55150", "candidate-2-0ee21807"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["evidence_discipline", "packet_scope", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-1-03b55150", "role": "correct_scope_reason", "diagnostic_note": "该选项准确限定了本实验的观察范围。"},
+        {"label": "B", "point_key": null, "role": "distractor_false_claim", "diagnostic_note": "KI 操作确实在同一教材段中出现。"},
+        {"label": "C", "point_key": null, "role": "distractor_wrong_domain", "diagnostic_note": "KI 操作仍是无机实验内容。"},
+        {"label": "D", "point_key": null, "role": "distractor_overstatement", "diagnostic_note": "KI 操作与亚硝酸性质有关，只是不属于本实验。"}
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00242_2da7ff3435"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "该题体现人工逐题限定 packet 视频点位。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_01_Q027",
+      "question_type": "single_choice",
+      "stem": "哪一项最适合作为本实验的安全、简洁结论？",
+      "options": [
+        {"label": "A", "text": "酸化亚硝酸盐可生成亚硝酸，亚硝酸不稳定并发生分解"},
+        {"label": "B", "text": "亚硝酸盐遇酸只生成稳定无色溶液"},
+        {"label": "C", "text": "本实验主要证明氨气能使试纸变蓝"},
+        {"label": "D", "text": "本实验主要证明硝酸盐受热放出氧气"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "该表述同时覆盖生成和分解两个核心实验环节，并且没有扩展到其他实验。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-1-03b55150", "candidate-2-0ee21807"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["learning_goal", "conclusion", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-1-03b55150", "role": "correct_start", "diagnostic_note": "覆盖酸化生成。"},
+        {"label": "B", "point_key": "candidate-2-0ee21807", "role": "distractor_contradicts_decomposition", "diagnostic_note": "忽略后续分解。"},
+        {"label": "C", "point_key": null, "role": "distractor_previous_subsection", "diagnostic_note": "属于氨和铵盐性质。"},
+        {"label": "D", "point_key": null, "role": "distractor_other_topic", "diagnostic_note": "属于硝酸盐热分解主题。"}
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00242_2da7ff3435"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "结论由教材操作与分解序列共同支撑。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_01_Q028",
+      "question_type": "true_false",
+      "stem": "“NO₂ 是棕色气体”这一判断可直接由教材分解式旁的颜色标注支持。",
+      "answer": {"value": true},
+      "explanation": "这一颜色信息不需要额外推断，直接来自教材实验段。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-2-0ee21807"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["evidence_directness", "brown_gas", "true_false"],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00242_2da7ff3435"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "颜色证据直接、充足。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_01_Q029",
+      "question_type": "single_choice",
+      "stem": "本实验中最能代表“结果观察”的步骤是哪一项？",
+      "options": [
+        {"label": "A", "text": "观察 HNO₂ 生成、分解及 NO / NO₂ 气体产生"},
+        {"label": "B", "text": "冰水冷却的饱和 NaNO₂ 与 H₂SO₄ 混合"},
+        {"label": "C", "text": "加入萘胺后显红色"},
+        {"label": "D", "text": "酸化高锰酸钾后滴加亚硝酸钠"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "前一环节偏操作准备，后一环节才直接概括生成、分解和气体观察。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-2-0ee21807"],
+      "secondary_point_keys": ["candidate-1-03b55150"],
+      "coverage_tags": ["point_binding", "observation_point", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-2-0ee21807", "role": "correct_evidence", "diagnostic_note": "直接对应结果观察点。"},
+        {"label": "B", "point_key": "candidate-1-03b55150", "role": "adjacent_packet_point", "diagnostic_note": "这是起始操作点，不是结果观察点。"},
+        {"label": "C", "point_key": null, "role": "distractor_same_chunk_other_subpart", "diagnostic_note": "属于亚硝酸根检验。"},
+        {"label": "D", "point_key": null, "role": "distractor_same_chunk_other_subpart", "diagnostic_note": "属于亚硝酸还原性。"}
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00242_2da7ff3435"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "用于校准两个 video point 的角色。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_01_Q030",
+      "question_type": "single_choice",
+      "stem": "只依据 HNO₂ 的生成与分解两个观察步骤，哪种说法最符合本实验内容？",
+      "options": [
+        {"label": "A", "text": "包括冷却混合、亚硝酸生成、蓝色中间物和棕色气体"},
+        {"label": "B", "text": "可直接并入同一教材段中所有亚硝酸盐检验步骤"},
+        {"label": "C", "text": "只涉及化学方程式配平，不能联系现象"},
+        {"label": "D", "text": "应改考氨和铵盐性质，因为它在前一小节"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "这四个要点都由两个观察步骤和教材生成分解段直接支撑；其他选项越过了本实验内容或误解了观察重点。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-1-03b55150", "candidate-2-0ee21807"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["evidence_boundary", "learning_goal", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-1-03b55150", "role": "correct_boundary_start", "diagnostic_note": "覆盖点位 1 与点位 2。"},
+        {"label": "B", "point_key": null, "role": "distractor_overbroad_chunk", "diagnostic_note": "把同一教材段后续小项误并入本实验。"},
+        {"label": "C", "point_key": null, "role": "distractor_too_narrow", "diagnostic_note": "教材本身要求观察现象。"},
+        {"label": "D", "point_key": null, "role": "distractor_wrong_subsection", "diagnostic_note": "前一小节不是本实验。"}
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00242_2da7ff3435"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "该题用于最终确认 evidence boundary。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    }
+  ]
+}

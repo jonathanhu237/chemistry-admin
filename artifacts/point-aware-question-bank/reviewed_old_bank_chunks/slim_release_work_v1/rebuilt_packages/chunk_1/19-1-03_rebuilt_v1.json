@@ -1,0 +1,1838 @@
+{
+  "metadata": {
+    "schema_version": "rebuilt_experiment_question_package_v1",
+    "artifact_type": "manual_small_packet_semantic_rebuild",
+    "source_packet": "E:\\chemistry-admin\\artifacts\\point-aware-question-bank\\reviewed_old_bank_chunks\\slim_release_work_v1\\semantic_work_packets\\chunk_1\\19-1-03.json",
+    "experiment_code": "19-1-03",
+    "experiment_title": "氯水对溴离子、碘离子混合溶液的氧化顺序",
+    "question_count": 30,
+    "evidence_policy": "RAG source text is not embedded; every question cites canonical and, when needed, supporting theory chunk ids after manual semantic review.",
+    "rebuild_mode": "manual_question_by_question_semantic_reconstruction",
+    "release_json_edit_policy": "No chunk_X_release_final_v1.json file was modified.",
+    "rag_source_dir": "E:\\chemistry-rag\\data\\rag_ready"
+  },
+  "video_points": [
+    {
+      "point_key": "candidate-1-f52542f6",
+      "point_title": "KBr、KI、CCl₄ 混合体系中逐滴加入氯水"
+    },
+    {
+      "point_key": "candidate-2-fd1f659e",
+      "point_title": "观察 CCl₄ 层颜色变化，判断 I⁻、Br⁻ 被氧化的先后顺序"
+    }
+  ],
+  "evidence_sources": {
+    "canonical_experiment_chunks": [
+      {
+        "chunk_id": "expchunk_00193_497eb97bd6",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+        "line_number": 206,
+        "evidence_role": "实验目的：掌握卤素氧化性和卤素离子还原性。"
+      },
+      {
+        "chunk_id": "expchunk_00198_1c405139fa",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+        "line_number": 211,
+        "evidence_role": "卤素单质在四氯化碳中的溶解性观察，为 CCl₄ 显色判断提供实验背景。"
+      },
+      {
+        "chunk_id": "expchunk_00199_8240477bff",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+        "line_number": 212,
+        "evidence_role": "本步骤：KBr、KI、CCl₄ 混合体系中逐滴加入氯水，仔细观察四氯化碳液层颜色变化，说明卤素氧化性递变顺序。"
+      }
+    ],
+    "supporting_theory_chunks": [
+      {
+        "chunk_id": "textbook_prose_00023_a92d0d217e",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+        "line_number": 117,
+        "evidence_role": "卤素单质物理颜色：溴为红棕色液体，碘为紫黑色固体；用于颜色识别的辅助背景。"
+      },
+      {
+        "chunk_id": "textbook_prose_00028_a4c7b7c9ae",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+        "line_number": 123,
+        "evidence_role": "碘在四氯化碳中溶液呈紫色；用于判断 I₂ 生成。"
+      },
+      {
+        "chunk_id": "textbook_prose_00030_522edfaa72",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+        "line_number": 124,
+        "evidence_role": "同浓度下卤素单质氧化性 Cl₂ > Br₂ > I₂，卤离子还原性 Cl⁻ < Br⁻ < I⁻；用于氧化先后和结论判断。"
+      }
+    ]
+  },
+  "questions": [
+    {
+      "question_id": "CHUNK1_19_1_03_Q001",
+      "reconstruction_decision": "keep",
+      "question_type": "single_choice",
+      "stem": "在《19-1-03 氯水对溴离子、碘离子混合溶液的氧化顺序》中，逐滴加入氯水时，通常最先被氧化的卤素离子是哪一种？",
+      "options": [
+        {
+          "label": "A",
+          "text": "I⁻"
+        },
+        {
+          "label": "B",
+          "text": "Br⁻"
+        },
+        {
+          "label": "C",
+          "text": "Cl⁻"
+        },
+        {
+          "label": "D",
+          "text": "K⁺"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "I⁻ 的还原性强于 Br⁻，在氯水逐滴加入时更容易先被氧化成 I₂；CCl₄ 层颜色变化用于识别这一先后顺序。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-f52542f6",
+        "candidate-2-fd1f659e"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "oxidation_sequence",
+        "iodide_first"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-2-fd1f659e",
+          "role": "correct_evidence",
+          "diagnostic_note": "颜色变化点位用于判断 I⁻ 先被氧化。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-2-fd1f659e",
+          "role": "distractor_misconception",
+          "diagnostic_note": "Br⁻ 也可被氯水氧化，但通常在 I⁻ 之后。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "distractor_misconception",
+          "diagnostic_note": "Cl⁻ 已是氯的低价卤离子，不是被氯水氧化的对象。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_misconception",
+          "diagnostic_note": "K⁺ 是旁观离子。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00199_8240477bff"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00030_522edfaa72"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留；先后顺序需要卤离子还原性理论支撑。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic"
+    },
+    {
+      "question_id": "CHUNK1_19_1_03_Q002",
+      "reconstruction_decision": "keep",
+      "question_type": "single_choice",
+      "stem": "该实验中，用于帮助观察卤素单质颜色变化的有机层是哪一种试剂？",
+      "options": [
+        {
+          "label": "A",
+          "text": "NaOH 溶液"
+        },
+        {
+          "label": "B",
+          "text": "CCl₄"
+        },
+        {
+          "label": "C",
+          "text": "浓硫酸"
+        },
+        {
+          "label": "D",
+          "text": "氨水"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "教材步骤明确加入四氯化碳，并要求观察四氯化碳液层颜色变化。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-2-fd1f659e"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "CCl4_layer",
+        "reagent_identification"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "distractor_misconception",
+          "diagnostic_note": "NaOH 不是该有机观察层。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-2-fd1f659e",
+          "role": "correct_evidence",
+          "diagnostic_note": "CCl₄ 层颜色变化是本点位核心。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "distractor_misconception",
+          "diagnostic_note": "浓硫酸不用于本步骤显色观察。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_misconception",
+          "diagnostic_note": "氨水不是本步骤的有机层。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00199_8240477bff"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00028_a4c7b7c9ae"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留；教材直接给 CCl₄，显色作用由理论块辅助。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic"
+    },
+    {
+      "question_id": "CHUNK1_19_1_03_Q003",
+      "reconstruction_decision": "keep",
+      "question_type": "single_choice",
+      "stem": "实验开始时，在试管内加入的是哪一组卤化物溶液？",
+      "options": [
+        {
+          "label": "A",
+          "text": "KCl 溶液和 NaF 溶液"
+        },
+        {
+          "label": "B",
+          "text": "NaCl 溶液和 AgNO₃ 溶液"
+        },
+        {
+          "label": "C",
+          "text": "KBr 溶液和 KI 溶液"
+        },
+        {
+          "label": "D",
+          "text": "KMnO₄ 溶液和 H₂SO₄ 溶液"
+        }
+      ],
+      "answer": {
+        "value": "C"
+      },
+      "explanation": "教材步骤是在试管内加入 KBr 溶液和 KI 溶液，再加入 CCl₄，随后逐滴加入氯水。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-f52542f6"
+      ],
+      "secondary_point_keys": [
+        "candidate-2-fd1f659e"
+      ],
+      "coverage_tags": [
+        "initial_mixture",
+        "reagent_identification"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "distractor_misconception",
+          "diagnostic_note": "本步骤不加入 NaF。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "distractor_misconception",
+          "diagnostic_note": "AgNO₃ 属银盐检验，不是该混合体系。"
+        },
+        {
+          "label": "C",
+          "point_key": "candidate-1-f52542f6",
+          "role": "correct_evidence",
+          "diagnostic_note": "KBr、KI、CCl₄ 混合体系对应本实验的起始混合操作。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_misconception",
+          "diagnostic_note": "高锰酸钾和硫酸不是本实验起始混合物。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00199_8240477bff"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "保留，直接对应教材步骤。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic"
+    },
+    {
+      "question_id": "CHUNK1_19_1_03_Q004",
+      "reconstruction_decision": "keep",
+      "question_type": "single_choice",
+      "stem": "向 KBr、KI、CCl₄ 混合体系中加入氯水时，正确操作方式是什么？",
+      "options": [
+        {
+          "label": "A",
+          "text": "一次加入大量浓盐酸"
+        },
+        {
+          "label": "B",
+          "text": "先加热至沸腾再过滤"
+        },
+        {
+          "label": "C",
+          "text": "只观察试管外壁温度"
+        },
+        {
+          "label": "D",
+          "text": "逐滴加入并观察 CCl₄ 层颜色"
+        }
+      ],
+      "answer": {
+        "value": "D"
+      },
+      "explanation": "教材要求逐滴加入氯水，并仔细观察四氯化碳液层颜色变化，才能分辨氧化先后。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-f52542f6",
+        "candidate-2-fd1f659e"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "dropwise_chlorine_water",
+        "CCl4_layer"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "distractor_misconception",
+          "diagnostic_note": "浓盐酸不是本步骤氧化剂。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "distractor_misconception",
+          "diagnostic_note": "本步骤不以加热过滤为核心。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "distractor_misconception",
+          "diagnostic_note": "试管外壁温度不能判断 I⁻、Br⁻ 氧化顺序。"
+        },
+        {
+          "label": "D",
+          "point_key": "candidate-1-f52542f6",
+          "role": "correct_evidence",
+          "diagnostic_note": "逐滴加入和观察 CCl₄ 层颜色分别对应两个点位。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00199_8240477bff"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00028_a4c7b7c9ae"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留；操作由 canonical 直接支撑，CCl₄ 显色由理论背景支撑。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic"
+    },
+    {
+      "question_id": "CHUNK1_19_1_03_Q005",
+      "reconstruction_decision": "keep",
+      "question_type": "single_choice",
+      "stem": "I₂ 被 CCl₄ 萃取后，有机层常呈现哪种颜色？",
+      "options": [
+        {
+          "label": "A",
+          "text": "紫色"
+        },
+        {
+          "label": "B",
+          "text": "无色"
+        },
+        {
+          "label": "C",
+          "text": "乳白色"
+        },
+        {
+          "label": "D",
+          "text": "亮绿色"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "理论文本明确指出碘在四氯化碳中的溶液呈紫色，该颜色可作为 I₂ 生成的证据。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-2-fd1f659e"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "iodine_color",
+        "CCl4_layer"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-2-fd1f659e",
+          "role": "correct_evidence",
+          "diagnostic_note": "CCl₄ 层紫色用于识别 I₂。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "distractor_misconception",
+          "diagnostic_note": "I₂ 在 CCl₄ 中不是无色。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "distractor_misconception",
+          "diagnostic_note": "乳白色不是碘的 CCl₄ 层特征色。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_misconception",
+          "diagnostic_note": "亮绿色不对应 I₂ 的 CCl₄ 层。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00199_8240477bff"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00028_a4c7b7c9ae"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留，I₂ 在 CCl₄ 中紫色证据充分。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic"
+    },
+    {
+      "question_id": "CHUNK1_19_1_03_Q006",
+      "reconstruction_decision": "keep",
+      "question_type": "single_choice",
+      "stem": "Br₂ 被 CCl₄ 萃取后，有机层通常接近哪类颜色？",
+      "options": [
+        {
+          "label": "A",
+          "text": "纯白色"
+        },
+        {
+          "label": "B",
+          "text": "橙色或红棕色"
+        },
+        {
+          "label": "C",
+          "text": "蓝黑色沉淀"
+        },
+        {
+          "label": "D",
+          "text": "银灰色镜面"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "溴单质本身呈红棕色；在 CCl₄ 层中出现橙色或红棕色调，可作为 Br₂ 生成的经验性观察依据。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-2-fd1f659e"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "bromine_color",
+        "CCl4_layer"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "distractor_misconception",
+          "diagnostic_note": "Br₂ 不呈纯白色。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-2-fd1f659e",
+          "role": "correct_evidence",
+          "diagnostic_note": "CCl₄ 层颜色变化可用于识别 Br₂。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "distractor_misconception",
+          "diagnostic_note": "蓝黑色更接近淀粉-碘体系，不符合该混合卤离子置换观察。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_misconception",
+          "diagnostic_note": "银镜反应与本实验无关。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00198_1c405139fa",
+          "expchunk_00199_8240477bff"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00023_a92d0d217e"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留但为边界题：RAG 直接支持溴单质红棕色和 CCl₄ 观察背景，未像 I₂ 那样直接给出 CCl₄ 溶液精确颜色。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic"
+    },
+    {
+      "question_id": "CHUNK1_19_1_03_Q007",
+      "reconstruction_decision": "keep",
+      "question_type": "single_choice",
+      "stem": "由该实验可保守推出的卤素单质氧化性顺序是哪一项？",
+      "options": [
+        {
+          "label": "A",
+          "text": "I₂ > Br₂ > Cl₂"
+        },
+        {
+          "label": "B",
+          "text": "Br₂ > Cl₂ > I₂"
+        },
+        {
+          "label": "C",
+          "text": "Cl₂ > Br₂ > I₂"
+        },
+        {
+          "label": "D",
+          "text": "Cl₂ > I₂ > Br₂"
+        }
+      ],
+      "answer": {
+        "value": "C"
+      },
+      "explanation": "氯水能氧化 I⁻ 和 Br⁻，且 I⁻ 先于 Br⁻ 被氧化；结合卤素氧化性顺序，可得 Cl₂ > Br₂ > I₂。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-2-fd1f659e"
+      ],
+      "secondary_point_keys": [
+        "candidate-1-f52542f6"
+      ],
+      "coverage_tags": [
+        "oxidizing_order",
+        "experiment_conclusion"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "distractor_misconception",
+          "diagnostic_note": "把 I₂ 放在最强位置。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "distractor_misconception",
+          "diagnostic_note": "颠倒 Cl₂ 与 Br₂。"
+        },
+        {
+          "label": "C",
+          "point_key": "candidate-2-fd1f659e",
+          "role": "correct_evidence",
+          "diagnostic_note": "颜色变化点位服务于氧化性递变结论。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_misconception",
+          "diagnostic_note": "I₂ 不应强于 Br₂。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00199_8240477bff"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00030_522edfaa72"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留，结论需理论顺序支撑。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic"
+    },
+    {
+      "question_id": "CHUNK1_19_1_03_Q008",
+      "reconstruction_decision": "rewrite",
+      "question_type": "single_choice",
+      "stem": "CCl₄ 层颜色先从紫色特征转向溴的橙红/红棕特征时，最适合说明什么？",
+      "options": [
+        {
+          "label": "A",
+          "text": "I⁻ 先被氧化，继续加氯水后 Br⁻ 也被氧化"
+        },
+        {
+          "label": "B",
+          "text": "KBr 与 KI 的溶解度正在被直接测定"
+        },
+        {
+          "label": "C",
+          "text": "CCl₄ 是本实验的还原剂"
+        },
+        {
+          "label": "D",
+          "text": "K⁺ 被还原为金属钾"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "紫色特征对应 I₂ 的生成，后续溴的颜色特征说明 Br₂ 也生成；这正是判断 I⁻、Br⁻ 被氧化先后的证据。",
+      "difficulty": "intermediate",
+      "primary_point_keys": [
+        "candidate-2-fd1f659e"
+      ],
+      "secondary_point_keys": [
+        "candidate-1-f52542f6"
+      ],
+      "coverage_tags": [
+        "color_sequence",
+        "oxidation_sequence"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-2-fd1f659e",
+          "role": "correct_evidence",
+          "diagnostic_note": "CCl₄ 层颜色先后变化用于判断两种卤离子的氧化顺序。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "distractor_misconception",
+          "diagnostic_note": "本步骤不是溶解度测定。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "distractor_misconception",
+          "diagnostic_note": "CCl₄ 是萃取观察层，不是还原剂。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_misconception",
+          "diagnostic_note": "K⁺ 是旁观离子。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00198_1c405139fa",
+          "expchunk_00199_8240477bff"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00023_a92d0d217e",
+          "textbook_prose_00028_a4c7b7c9ae",
+          "textbook_prose_00030_522edfaa72"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "重写：原题只问颜色变化用途，新版要求把颜色先后与氧化先后相连。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic"
+    },
+    {
+      "question_id": "CHUNK1_19_1_03_Q009",
+      "reconstruction_decision": "keep",
+      "question_type": "single_choice",
+      "stem": "I⁻ 通常先被氧化，主要体现 I⁻ 与 Br⁻ 相比具有什么特点？",
+      "options": [
+        {
+          "label": "A",
+          "text": "还原性较强"
+        },
+        {
+          "label": "B",
+          "text": "氧化性较强"
+        },
+        {
+          "label": "C",
+          "text": "完全不反应"
+        },
+        {
+          "label": "D",
+          "text": "只作旁观离子"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "I⁻ 更先被氯水氧化，说明 I⁻ 更容易失电子，因而还原性强于 Br⁻。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-2-fd1f659e"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "halide_reducing_power",
+        "iodide_first"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-2-fd1f659e",
+          "role": "correct_evidence",
+          "diagnostic_note": "先被氧化说明还原性更强。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "distractor_misconception",
+          "diagnostic_note": "卤离子此处表现为还原剂，不是氧化剂。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "distractor_misconception",
+          "diagnostic_note": "I⁻ 会被氯水氧化。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_misconception",
+          "diagnostic_note": "I⁻ 是核心反应离子。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00199_8240477bff"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00030_522edfaa72"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留，理论块支持卤离子还原性顺序。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic"
+    },
+    {
+      "question_id": "CHUNK1_19_1_03_Q010",
+      "reconstruction_decision": "keep",
+      "question_type": "single_choice",
+      "stem": "下列哪种离子不是本实验比较氧化顺序的核心对象？",
+      "options": [
+        {
+          "label": "A",
+          "text": "I⁻"
+        },
+        {
+          "label": "B",
+          "text": "K⁺"
+        },
+        {
+          "label": "C",
+          "text": "Br⁻"
+        },
+        {
+          "label": "D",
+          "text": "氯水中的 Cl₂"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "K⁺ 来自 KBr 和 KI，主要作旁观离子；本实验关注 I⁻、Br⁻ 被氯水氧化的先后。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-2-fd1f659e"
+      ],
+      "secondary_point_keys": [
+        "candidate-1-f52542f6"
+      ],
+      "coverage_tags": [
+        "spectator_ion",
+        "experiment_objects"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-2-fd1f659e",
+          "role": "distractor_true_but_not_answer",
+          "diagnostic_note": "I⁻ 是核心比较对象。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "correct_evidence",
+          "diagnostic_note": "K⁺ 不是氧化先后判断对象。"
+        },
+        {
+          "label": "C",
+          "point_key": "candidate-2-fd1f659e",
+          "role": "distractor_true_but_not_answer",
+          "diagnostic_note": "Br⁻ 是核心比较对象。"
+        },
+        {
+          "label": "D",
+          "point_key": "candidate-1-f52542f6",
+          "role": "distractor_true_but_not_answer",
+          "diagnostic_note": "氯水提供氧化剂，不是旁观离子。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00199_8240477bff"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "保留，实验对象边界清楚。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic"
+    },
+    {
+      "question_id": "CHUNK1_19_1_03_Q011",
+      "reconstruction_decision": "keep",
+      "question_type": "true_false",
+      "stem": "逐滴加入氯水并观察 CCl₄ 层颜色变化，是判断 I⁻、Br⁻ 被氧化先后顺序的关键。",
+      "options": [],
+      "answer": {
+        "value": true
+      },
+      "explanation": "教材步骤明确要求逐滴加入氯水并仔细观察四氯化碳液层颜色变化。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-f52542f6",
+        "candidate-2-fd1f659e"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "true_false",
+        "procedure"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00199_8240477bff"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00028_a4c7b7c9ae"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留，操作和观察点位均明确。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic"
+    },
+    {
+      "question_id": "CHUNK1_19_1_03_Q012",
+      "reconstruction_decision": "keep",
+      "question_type": "true_false",
+      "stem": "CCl₄ 的主要作用是萃取生成的卤素单质、便于观察颜色。",
+      "options": [],
+      "answer": {
+        "value": true
+      },
+      "explanation": "CCl₄ 作为有机层帮助富集卤素单质，使 I₂、Br₂ 的颜色变化更容易观察。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-2-fd1f659e"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "true_false",
+        "CCl4_role"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00198_1c405139fa",
+          "expchunk_00199_8240477bff"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00028_a4c7b7c9ae"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留，CCl₄ 显色观察有 canonical 和理论支撑。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic"
+    },
+    {
+      "question_id": "CHUNK1_19_1_03_Q013",
+      "reconstruction_decision": "keep",
+      "question_type": "true_false",
+      "stem": "I⁻ 通常比 Br⁻ 更先被氯水氧化。",
+      "options": [],
+      "answer": {
+        "value": true
+      },
+      "explanation": "I⁻ 的还原性强于 Br⁻，因此在逐滴加入氯水时通常先被氧化。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-2-fd1f659e"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "true_false",
+        "oxidation_sequence"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00199_8240477bff"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00030_522edfaa72"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留，理论块支撑。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic"
+    },
+    {
+      "question_id": "CHUNK1_19_1_03_Q014",
+      "reconstruction_decision": "keep",
+      "question_type": "true_false",
+      "stem": "氯水对混合溶液的作用可用于说明卤素氧化性递变。",
+      "options": [],
+      "answer": {
+        "value": true
+      },
+      "explanation": "教材在该步骤后要求通过实验说明卤素氧化性的递变顺序。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-2-fd1f659e"
+      ],
+      "secondary_point_keys": [
+        "candidate-1-f52542f6"
+      ],
+      "coverage_tags": [
+        "true_false",
+        "experiment_conclusion"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00199_8240477bff"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00030_522edfaa72"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留，结论需理论顺序支撑。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic"
+    },
+    {
+      "question_id": "CHUNK1_19_1_03_Q015",
+      "reconstruction_decision": "keep",
+      "question_type": "true_false",
+      "stem": "该实验可把 K⁺ 作为判断卤素氧化顺序的核心反应离子。",
+      "options": [],
+      "answer": {
+        "value": false
+      },
+      "explanation": "K⁺ 是旁观离子；核心判断对象是 I⁻ 与 Br⁻ 被氯水氧化的先后。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-2-fd1f659e"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "true_false",
+        "spectator_ion"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00199_8240477bff"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "保留，旁观离子判断清楚。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic"
+    },
+    {
+      "question_id": "CHUNK1_19_1_03_Q016",
+      "reconstruction_decision": "keep",
+      "question_type": "true_false",
+      "stem": "CCl₄ 在本实验中是氧化 Br⁻ 和 I⁻ 的主要氧化剂。",
+      "options": [],
+      "answer": {
+        "value": false
+      },
+      "explanation": "主要氧化剂来自氯水中的 Cl₂；CCl₄ 只是帮助萃取和观察颜色的有机层。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-2-fd1f659e"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "true_false",
+        "CCl4_role"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00199_8240477bff"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00028_a4c7b7c9ae",
+          "textbook_prose_00030_522edfaa72"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留，纠正常见角色混淆。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic"
+    },
+    {
+      "question_id": "CHUNK1_19_1_03_Q017",
+      "reconstruction_decision": "keep",
+      "question_type": "true_false",
+      "stem": "只加入 KBr 和 KI，不加入氯水，也能判断二者被氧化的先后顺序。",
+      "options": [],
+      "answer": {
+        "value": false
+      },
+      "explanation": "没有氯水就缺少氧化剂，无法通过 CCl₄ 层颜色变化判断 I⁻、Br⁻ 被氧化顺序。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-f52542f6",
+        "candidate-2-fd1f659e"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "true_false",
+        "control_logic"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00199_8240477bff"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "保留，操作逻辑明确。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic"
+    },
+    {
+      "question_id": "CHUNK1_19_1_03_Q018",
+      "reconstruction_decision": "keep",
+      "question_type": "true_false",
+      "stem": "I₂ 在 CCl₄ 中常表现为紫色，有助于识别碘的生成。",
+      "options": [],
+      "answer": {
+        "value": true
+      },
+      "explanation": "理论文本明确指出碘在四氯化碳中的溶液呈紫色。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-2-fd1f659e"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "true_false",
+        "iodine_color"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00198_1c405139fa",
+          "expchunk_00199_8240477bff"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00028_a4c7b7c9ae"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留，颜色证据充分。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic"
+    },
+    {
+      "question_id": "CHUNK1_19_1_03_Q019",
+      "reconstruction_decision": "rewrite",
+      "question_type": "true_false",
+      "stem": "判断 I⁻ 先于 Br⁻ 被氧化，主要依据是加入 KI 的滴数比 KBr 多。",
+      "options": [],
+      "answer": {
+        "value": false
+      },
+      "explanation": "教材步骤中 KI 的滴数反而少于 KBr；I⁻ 先被氧化的根本原因是 I⁻ 还原性强于 Br⁻，不是因为 KI 加得更多。",
+      "difficulty": "intermediate",
+      "primary_point_keys": [
+        "candidate-1-f52542f6",
+        "candidate-2-fd1f659e"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "true_false",
+        "concentration_control"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00199_8240477bff"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00030_522edfaa72"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "重写：旧题只纠正滴数，语义偏窄；新版把滴数事实与还原性原因区分开。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic"
+    },
+    {
+      "question_id": "CHUNK1_19_1_03_Q020",
+      "reconstruction_decision": "keep",
+      "question_type": "true_false",
+      "stem": "若继续滴加足量氯水，Br⁻ 也可能被氧化生成 Br₂。",
+      "options": [],
+      "answer": {
+        "value": true
+      },
+      "explanation": "I⁻ 较易先被氧化；继续滴加氯水后，Br⁻ 也可被氧化生成 Br₂，CCl₄ 层颜色变化可用于观察该过程。",
+      "difficulty": "intermediate",
+      "primary_point_keys": [
+        "candidate-2-fd1f659e"
+      ],
+      "secondary_point_keys": [
+        "candidate-1-f52542f6"
+      ],
+      "coverage_tags": [
+        "true_false",
+        "bromide_oxidation"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00199_8240477bff"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00030_522edfaa72"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留，氯水氧化 Br⁻ 由卤素氧化性顺序支持。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic"
+    },
+    {
+      "question_id": "CHUNK1_19_1_03_Q021",
+      "reconstruction_decision": "rewrite",
+      "question_type": "single_choice",
+      "stem": "若 CCl₄ 层先出现碘的紫色特征，这说明哪一步最先发生？",
+      "options": [
+        {
+          "label": "A",
+          "text": "I⁻ 被氯水氧化生成 I₂"
+        },
+        {
+          "label": "B",
+          "text": "K⁺ 被氧化生成钾单质"
+        },
+        {
+          "label": "C",
+          "text": "CCl₄ 被氧化成氯水"
+        },
+        {
+          "label": "D",
+          "text": "Br₂ 被还原成 Br⁻"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "碘在 CCl₄ 中呈紫色；先出现紫色特征说明 I⁻ 先被氯水氧化为 I₂。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-2-fd1f659e"
+      ],
+      "secondary_point_keys": [
+        "candidate-1-f52542f6"
+      ],
+      "coverage_tags": [
+        "iodine_color",
+        "oxidation_sequence"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-2-fd1f659e",
+          "role": "correct_evidence",
+          "diagnostic_note": "紫色 CCl₄ 层指向 I₂。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "distractor_misconception",
+          "diagnostic_note": "K⁺ 不是被氧化对象。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "distractor_misconception",
+          "diagnostic_note": "CCl₄ 不被氧化成氯水。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_misconception",
+          "diagnostic_note": "题干描述的是生成 I₂，而非 Br₂ 被还原。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00199_8240477bff"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00028_a4c7b7c9ae",
+          "textbook_prose_00030_522edfaa72"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "重写：避免与 Q001 完全重复，改为颜色到反应步骤的判读。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic"
+    },
+    {
+      "question_id": "CHUNK1_19_1_03_Q022",
+      "reconstruction_decision": "rewrite",
+      "question_type": "single_choice",
+      "stem": "为什么本实验不只观察水层，而要重点观察 CCl₄ 层？",
+      "options": [
+        {
+          "label": "A",
+          "text": "CCl₄ 可富集卤素单质，使颜色差异更清楚"
+        },
+        {
+          "label": "B",
+          "text": "CCl₄ 可把 K⁺ 还原成金属钾"
+        },
+        {
+          "label": "C",
+          "text": "CCl₄ 是强碱，可中和所有酸"
+        },
+        {
+          "label": "D",
+          "text": "CCl₄ 能沉淀所有卤离子"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "四氯化碳作为有机层可萃取生成的卤素单质，颜色变化更明显，便于判断氧化先后。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-2-fd1f659e"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "CCl4_role",
+        "observation_design"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-2-fd1f659e",
+          "role": "correct_evidence",
+          "diagnostic_note": "观察 CCl₄ 层颜色变化是本点位核心。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "distractor_misconception",
+          "diagnostic_note": "K⁺ 不被还原为金属钾。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "distractor_misconception",
+          "diagnostic_note": "CCl₄ 不是强碱。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_misconception",
+          "diagnostic_note": "CCl₄ 不以沉淀卤离子为作用。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00198_1c405139fa",
+          "expchunk_00199_8240477bff"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00028_a4c7b7c9ae"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "重写：由单纯识别 CCl₄ 改为解释观察层作用。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic"
+    },
+    {
+      "question_id": "CHUNK1_19_1_03_Q023",
+      "reconstruction_decision": "rewrite",
+      "question_type": "single_choice",
+      "stem": "教材中 KBr 用量多于 KI，但仍可观察 I⁻ 先被氧化，这一设计最能说明什么？",
+      "options": [
+        {
+          "label": "A",
+          "text": "I⁻ 先被氧化主要来自还原性更强，而不是 KI 加得更多"
+        },
+        {
+          "label": "B",
+          "text": "KBr 用量多就一定先生成 I₂"
+        },
+        {
+          "label": "C",
+          "text": "KI 不参加任何反应"
+        },
+        {
+          "label": "D",
+          "text": "CCl₄ 会把 Br⁻ 直接氧化"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "步骤中 KBr 为 10 滴、KI 为 2 滴；若仍先观察到 I₂ 特征，说明先后顺序与 I⁻ 更强还原性有关。",
+      "difficulty": "intermediate",
+      "primary_point_keys": [
+        "candidate-1-f52542f6",
+        "candidate-2-fd1f659e"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "concentration_control",
+        "halide_reducing_power"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-1-f52542f6",
+          "role": "correct_evidence",
+          "diagnostic_note": "滴数设置和先后观察共同支持该判断。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "distractor_misconception",
+          "diagnostic_note": "KBr 用量多不导致生成 I₂。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "distractor_misconception",
+          "diagnostic_note": "KI 提供 I⁻，是核心反应对象。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_misconception",
+          "diagnostic_note": "CCl₄ 不是氧化剂。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00199_8240477bff"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00030_522edfaa72"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "重写：原填空 KI 存在符号输入风险，改为单选并提高语义深度。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic"
+    },
+    {
+      "question_id": "CHUNK1_19_1_03_Q024",
+      "reconstruction_decision": "keep",
+      "question_type": "fill_blank",
+      "stem": "本实验中，氯水应____加入，并仔细观察 CCl₄ 层颜色变化。",
+      "options": [],
+      "answer": {
+        "accepted_answers": [
+          "逐滴",
+          "逐滴地"
+        ],
+        "match": "normalized_exact"
+      },
+      "explanation": "教材步骤明确要求逐滴加入氯水。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-f52542f6",
+        "candidate-2-fd1f659e"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "fill_blank",
+        "dropwise_chlorine_water"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00199_8240477bff"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "保留，中文短答案，输入风险低。"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": "normalized_exact_with_aliases"
+    },
+    {
+      "question_id": "CHUNK1_19_1_03_Q025",
+      "reconstruction_decision": "keep",
+      "question_type": "fill_blank",
+      "stem": "I₂ 被 CCl₄ 萃取后，有机层常呈____。",
+      "options": [],
+      "answer": {
+        "accepted_answers": [
+          "紫色"
+        ],
+        "match": "normalized_exact"
+      },
+      "explanation": "碘在四氯化碳中的溶液呈紫色。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-2-fd1f659e"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "fill_blank",
+        "iodine_color"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00198_1c405139fa",
+          "expchunk_00199_8240477bff"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00028_a4c7b7c9ae"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留，答案为中文颜色词。"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": "normalized_exact"
+    },
+    {
+      "question_id": "CHUNK1_19_1_03_Q026",
+      "reconstruction_decision": "keep",
+      "question_type": "single_choice",
+      "stem": "Br₂ 被 CCl₄ 萃取后，有机层常呈哪种颜色？",
+      "options": [
+        {
+          "label": "A",
+          "text": "橙色或红棕色"
+        },
+        {
+          "label": "B",
+          "text": "紫色"
+        },
+        {
+          "label": "C",
+          "text": "无色"
+        },
+        {
+          "label": "D",
+          "text": "白色"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "溴单质本身为红棕色，在 CCl₄ 层中通常呈橙色或红棕色调；该颜色可辅助判断 Br₂ 生成。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-2-fd1f659e"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "bromine_color",
+        "CCl4_layer"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-2-fd1f659e",
+          "role": "correct_evidence",
+          "diagnostic_note": "CCl₄ 层颜色用于识别 Br₂。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-2-fd1f659e",
+          "role": "distractor_misconception",
+          "diagnostic_note": "紫色更对应 I₂ 的 CCl₄ 层。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "distractor_misconception",
+          "diagnostic_note": "生成 Br₂ 后不应仍按无色判断。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_misconception",
+          "diagnostic_note": "白色不是 Br₂ 的特征色。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00198_1c405139fa",
+          "expchunk_00199_8240477bff"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00023_a92d0d217e"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留但为边界题：RAG 支撑溴单质红棕色和 CCl₄ 观察背景，未直接给出 Br₂-CCl₄ 精确色表。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic"
+    },
+    {
+      "question_id": "CHUNK1_19_1_03_Q027",
+      "reconstruction_decision": "keep",
+      "question_type": "single_choice",
+      "stem": "该实验支持的卤素单质氧化性顺序为哪一项？",
+      "options": [
+        {
+          "label": "A",
+          "text": "Cl₂ > Br₂ > I₂"
+        },
+        {
+          "label": "B",
+          "text": "Br₂ > Cl₂ > I₂"
+        },
+        {
+          "label": "C",
+          "text": "I₂ > Br₂ > Cl₂"
+        },
+        {
+          "label": "D",
+          "text": "Cl⁻ > Br⁻ > I⁻"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "氯水能逐步氧化 I⁻、Br⁻；结合卤素单质氧化性顺序，可得 Cl₂ > Br₂ > I₂。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-f52542f6",
+        "candidate-2-fd1f659e"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "oxidizing_order",
+        "experiment_conclusion"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-2-fd1f659e",
+          "role": "correct_evidence",
+          "diagnostic_note": "CCl₄ 层颜色先后变化服务于该顺序。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "distractor_misconception",
+          "diagnostic_note": "颠倒了 Cl₂ 与 Br₂。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "distractor_misconception",
+          "diagnostic_note": "I₂ 不是最强氧化剂。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_misconception",
+          "diagnostic_note": "这是卤离子还原性方向的错误表达，不是卤素单质氧化性顺序。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00193_497eb97bd6",
+          "expchunk_00199_8240477bff"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00030_522edfaa72"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留，结论题。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic"
+    },
+    {
+      "question_id": "CHUNK1_19_1_03_Q028",
+      "reconstruction_decision": "rewrite",
+      "question_type": "single_choice",
+      "stem": "若学生只记录“加了几滴氯水”，却没有记录 CCl₄ 层颜色变化，主要缺少哪类证据？",
+      "options": [
+        {
+          "label": "A",
+          "text": "I₂ 与 Br₂ 生成先后的可观察证据"
+        },
+        {
+          "label": "B",
+          "text": "K⁺ 是否存在的证据"
+        },
+        {
+          "label": "C",
+          "text": "CCl₄ 是否为强酸的证据"
+        },
+        {
+          "label": "D",
+          "text": "AgCl 是否溶于氨水的证据"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "滴数本身不能直接说明氧化先后；CCl₄ 层颜色变化才是判断 I₂、Br₂ 生成顺序的关键观察。",
+      "difficulty": "intermediate",
+      "primary_point_keys": [
+        "candidate-2-fd1f659e"
+      ],
+      "secondary_point_keys": [
+        "candidate-1-f52542f6"
+      ],
+      "coverage_tags": [
+        "observation_design",
+        "evidence_reasoning"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-2-fd1f659e",
+          "role": "correct_evidence",
+          "diagnostic_note": "颜色变化是判断先后的核心证据。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "distractor_misconception",
+          "diagnostic_note": "K⁺ 存在不是本判断重点。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "distractor_misconception",
+          "diagnostic_note": "CCl₄ 不是强酸。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_misconception",
+          "diagnostic_note": "银盐氨溶性与本实验无关。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00199_8240477bff"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00028_a4c7b7c9ae",
+          "textbook_prose_00030_522edfaa72"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "重写：针对旧题只考滴数/数量细节的问题，改为证据缺失判断。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic"
+    },
+    {
+      "question_id": "CHUNK1_19_1_03_Q029",
+      "reconstruction_decision": "keep",
+      "question_type": "fill_blank",
+      "stem": "I⁻ 先被氧化说明它相对 Br⁻ 的____较强。",
+      "options": [],
+      "answer": {
+        "accepted_answers": [
+          "还原性"
+        ],
+        "match": "normalized_exact"
+      },
+      "explanation": "I⁻ 较 Br⁻ 更先被氯水氧化，说明 I⁻ 更容易失电子，表现出较强还原性。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-2-fd1f659e"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "fill_blank",
+        "halide_reducing_power"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00199_8240477bff"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00030_522edfaa72"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留，中文短答案。"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": "normalized_exact"
+    },
+    {
+      "question_id": "CHUNK1_19_1_03_Q030",
+      "reconstruction_decision": "keep",
+      "question_type": "single_choice",
+      "stem": "KBr 和 KI 中的哪一项主要是旁观离子？",
+      "options": [
+        {
+          "label": "A",
+          "text": "钾离子"
+        },
+        {
+          "label": "B",
+          "text": "碘离子"
+        },
+        {
+          "label": "C",
+          "text": "溴离子"
+        },
+        {
+          "label": "D",
+          "text": "氯水中的氯分子"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "K⁺ 随 KBr 和 KI 进入体系，主要作为旁观离子；反应判断关注 I⁻、Br⁻ 与氯水。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-f52542f6",
+        "candidate-2-fd1f659e"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "spectator_ion",
+        "experiment_objects"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "correct_evidence",
+          "diagnostic_note": "K⁺ 不是被氧化的核心离子。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-2-fd1f659e",
+          "role": "distractor_true_but_not_answer",
+          "diagnostic_note": "I⁻ 是核心反应离子。"
+        },
+        {
+          "label": "C",
+          "point_key": "candidate-2-fd1f659e",
+          "role": "distractor_true_but_not_answer",
+          "diagnostic_note": "Br⁻ 是核心反应离子。"
+        },
+        {
+          "label": "D",
+          "point_key": "candidate-1-f52542f6",
+          "role": "distractor_true_but_not_answer",
+          "diagnostic_note": "Cl₂ 是氧化剂来源，不是旁观离子。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00199_8240477bff"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "保留，旁观离子边界题。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic"
+    }
+  ]
+}

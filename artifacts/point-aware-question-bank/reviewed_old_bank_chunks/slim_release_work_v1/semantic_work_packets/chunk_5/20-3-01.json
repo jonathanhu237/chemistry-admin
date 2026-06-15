@@ -1,0 +1,4531 @@
+{
+  "metadata": {
+    "version": "chunk-5-release-slim-v1",
+    "artifact_type": "slim_question_bank_work_file",
+    "generated_at": "2026-06-15T03:27:59.225537+00:00",
+    "source_file": "E:\\chemistry-admin\\artifacts\\point-aware-question-bank\\reviewed_old_bank_chunks\\chunk_5_release_final_v1.json",
+    "normalization_rule": "effective question plus minimal lineage, evidence IDs, point bindings, option links, evidence locators, and mechanical risk flags",
+    "evidence_policy": "RAG source text is not embedded; packets carry locators and reviewers must read E:/chemistry-rag/data/rag_ready directly",
+    "chunk_id_policy": "inherited chunk ids are untrusted locator candidates until manually compared with RAG text",
+    "semantic_status": "not_semantically_repaired_by_this_script",
+    "packet_type": "single_experiment_semantic_repair_work_packet",
+    "chunk": 5,
+    "experiment_code": "20-3-01",
+    "question_count": 30
+  },
+  "experiment": {
+    "experiment_id": "EXP_20_3_01",
+    "experiment_code": "20-3-01",
+    "experiment_title": "水合阳离子颜色",
+    "chapter_bindings": [
+      {
+        "chapter_id": "CH20",
+        "coverage_type": "primary",
+        "sort_order": 1
+      }
+    ],
+    "video_points": [
+      {
+        "point_key": "candidate-1-e0d18274",
+        "point_title": "`[Ti(H₂O)₆]³⁺`",
+        "source": null,
+        "candidate_index": null,
+        "resource_count": null,
+        "published_count": null,
+        "resource_titles": []
+      },
+      {
+        "point_key": "candidate-2-1d49d35b",
+        "point_title": "`[Cr(H₂O)₆]³⁺`",
+        "source": null,
+        "candidate_index": null,
+        "resource_count": null,
+        "published_count": null,
+        "resource_titles": []
+      },
+      {
+        "point_key": "candidate-3-99dd6b35",
+        "point_title": "`[Mn(H₂O)₆]²⁺`",
+        "source": null,
+        "candidate_index": null,
+        "resource_count": null,
+        "published_count": null,
+        "resource_titles": []
+      },
+      {
+        "point_key": "candidate-4-3926ad6c",
+        "point_title": "`[Fe(H₂O)₆]²⁺`",
+        "source": null,
+        "candidate_index": null,
+        "resource_count": null,
+        "published_count": null,
+        "resource_titles": []
+      },
+      {
+        "point_key": "candidate-5-a4376972",
+        "point_title": "`[Co(H₂O)₆]²⁺`",
+        "source": null,
+        "candidate_index": null,
+        "resource_count": null,
+        "published_count": null,
+        "resource_titles": []
+      },
+      {
+        "point_key": "candidate-6-c0cbece1",
+        "point_title": "`[Ni(H₂O)₆]²⁺`",
+        "source": null,
+        "candidate_index": null,
+        "resource_count": null,
+        "published_count": null,
+        "resource_titles": []
+      }
+    ],
+    "canonical_chunk_ids": [
+      "expchunk_00327_e59c162b54",
+      "expchunk_00330_3a60414cf4"
+    ],
+    "evidence_lookup": {
+      "policy": "locator_only; canonical RAG text is not embedded in this packet",
+      "chunk_id_policy": "metadata chunk ids are inherited claims, not trusted evidence; reviewers must compare the RAG text against the question stem/options/answer/explanation and replace or remove wrong ids",
+      "primary_source_dir": "E:\\chemistry-rag\\data\\rag_ready",
+      "source_files": {
+        "experiment_chunks": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+        "supporting_theory_chunks": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl"
+      },
+      "search_hints": {
+        "experiment_code": "20-3-01",
+        "parent_experiment_code": "20-3",
+        "experiment_title": "水合阳离子颜色",
+        "video_point_titles": [
+          "`[Ti(H₂O)₆]³⁺`",
+          "`[Cr(H₂O)₆]³⁺`",
+          "`[Mn(H₂O)₆]²⁺`",
+          "`[Fe(H₂O)₆]²⁺`",
+          "`[Co(H₂O)₆]²⁺`",
+          "`[Ni(H₂O)₆]²⁺`"
+        ],
+        "canonical_chunk_ids_from_metadata": [
+          "expchunk_00327_e59c162b54",
+          "expchunk_00330_3a60414cf4"
+        ],
+        "supporting_theory_chunk_ids_from_metadata": [
+          "textbook_prose_01118_9e2eabedd8",
+          "textbook_prose_01119_8478df1f7f",
+          "textbook_prose_01305_dd5a94da50",
+          "textbook_table_record_table_p224_t01_r051"
+        ],
+        "suggested_search_patterns": [
+          "20-3-01",
+          "20-3",
+          "水合阳离子颜色",
+          "`[Ti(H₂O)₆]³⁺`",
+          "`[Cr(H₂O)₆]³⁺`",
+          "`[Mn(H₂O)₆]²⁺`",
+          "`[Fe(H₂O)₆]²⁺`",
+          "`[Co(H₂O)₆]²⁺`",
+          "`[Ni(H₂O)₆]²⁺`",
+          "expchunk_00327_e59c162b54",
+          "expchunk_00330_3a60414cf4",
+          "textbook_prose_01118_9e2eabedd8",
+          "textbook_prose_01119_8478df1f7f",
+          "textbook_prose_01305_dd5a94da50",
+          "textbook_table_record_table_p224_t01_r051"
+        ]
+      },
+      "rag_exact_id_presence": {
+        "meaning": "id presence only; this does not validate semantic relevance",
+        "found_ids": [
+          "expchunk_00327_e59c162b54",
+          "expchunk_00330_3a60414cf4",
+          "textbook_prose_01118_9e2eabedd8",
+          "textbook_prose_01119_8478df1f7f",
+          "textbook_prose_01305_dd5a94da50",
+          "textbook_table_record_table_p224_t01_r051"
+        ],
+        "missing_ids": [],
+        "found_locator_summaries": [
+          {
+            "chunk_id": "expchunk_00327_e59c162b54",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+            "line_number": 340,
+            "source_collection": "textbook_experiment_clean_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学实验（第四版）",
+            "page_start": 166,
+            "page_end": 166,
+            "section_path": [
+              "第7章 元素性质实验",
+              "实验 20-3 d 区元素化合物的性质（二）",
+              "（一）实验目的"
+            ],
+            "content_type": "property_test",
+            "knowledge_unit": "property_test",
+            "parent_id": "expchunk_protocol_4faa721af035",
+            "prev_chunk_id": "expchunk_00326_9c4670254d",
+            "next_chunk_id": "expchunk_00328_77271f8e36",
+            "relations": {
+              "section_id": "expsec_046f0d51cde14eb6",
+              "experiment_id": "experiment:实验_20-3_d_区元素化合物的性质_二",
+              "page_anchor": "page_166",
+              "parent": "expchunk_protocol_4faa721af035"
+            }
+          },
+          {
+            "chunk_id": "expchunk_00330_3a60414cf4",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+            "line_number": 343,
+            "source_collection": "textbook_experiment_clean_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学实验（第四版）",
+            "page_start": 166,
+            "page_end": 166,
+            "section_path": [
+              "第7章 元素性质实验",
+              "实验 20-3 d 区元素化合物的性质（二）",
+              "（三）实验内容",
+              "1. 观察并熟悉过渡金属离子的颜色"
+            ],
+            "content_type": "property_test",
+            "knowledge_unit": "property_test",
+            "parent_id": "expchunk_protocol_4faa721af035",
+            "prev_chunk_id": "expchunk_00329_73c653fa02",
+            "next_chunk_id": "expchunk_00331_3f7cc41ff9",
+            "relations": {
+              "section_id": "expsec_6cdc713d5495da94",
+              "experiment_id": "experiment:实验_20-3_d_区元素化合物的性质_二",
+              "page_anchor": "page_166",
+              "parent": "expchunk_protocol_4faa721af035"
+            }
+          },
+          {
+            "chunk_id": "textbook_prose_01118_9e2eabedd8",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+            "line_number": 1745,
+            "source_collection": "textbook_inorganic_lower_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学（下册）（第二版）",
+            "page_start": 195,
+            "page_end": 195,
+            "section_path": [
+              "第 20 章 d 区过渡金属元素",
+              "20.1 d 区过渡金属元素通性",
+              "20.1.6 离子的颜色"
+            ],
+            "content_type": "comparison",
+            "knowledge_unit": "comparison",
+            "parent_id": "section:4f48c22b76df",
+            "prev_chunk_id": null,
+            "next_chunk_id": "textbook_prose_01119_8478df1f7f",
+            "relations": {
+              "parent": "section:4f48c22b76df",
+              "source_route": "clean_pages",
+              "prev": null,
+              "next": "textbook_prose_01119_8478df1f7f"
+            }
+          },
+          {
+            "chunk_id": "textbook_prose_01119_8478df1f7f",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+            "line_number": 1747,
+            "source_collection": "textbook_inorganic_lower_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学（下册）（第二版）",
+            "page_start": 196,
+            "page_end": 196,
+            "section_path": [
+              "第 20 章 d 区过渡金属元素",
+              "20.1 d 区过渡金属元素通性",
+              "20.1.6 离子的颜色"
+            ],
+            "content_type": "reaction",
+            "knowledge_unit": "reaction",
+            "parent_id": "section:4f48c22b76df",
+            "prev_chunk_id": "textbook_prose_01118_9e2eabedd8",
+            "next_chunk_id": "textbook_prose_01120_0b0f49ae16",
+            "relations": {
+              "parent": "section:4f48c22b76df",
+              "source_route": "clean_pages",
+              "prev": "textbook_prose_01118_9e2eabedd8",
+              "next": "textbook_prose_01120_0b0f49ae16"
+            }
+          },
+          {
+            "chunk_id": "textbook_prose_01305_dd5a94da50",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+            "line_number": 1991,
+            "source_collection": "textbook_inorganic_lower_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学（下册）（第二版）",
+            "page_start": 226,
+            "page_end": 226,
+            "section_path": [
+              "第 20 章 d 区过渡金属元素",
+              "20.2 第一过渡系列金属元素及其常见化合物",
+              "20.2.6 铁、钴、镍",
+              "iv)其他重要的配合物"
+            ],
+            "content_type": "reaction",
+            "knowledge_unit": "reaction",
+            "parent_id": "section:e8abe116f1a1",
+            "prev_chunk_id": "textbook_prose_01304_9920c29f9d",
+            "next_chunk_id": "textbook_prose_01306_0a0d67a34e",
+            "relations": {
+              "parent": "section:e8abe116f1a1",
+              "source_route": "clean_pages",
+              "prev": "textbook_prose_01304_9920c29f9d",
+              "next": "textbook_prose_01306_0a0d67a34e"
+            }
+          },
+          {
+            "chunk_id": "textbook_table_record_table_p224_t01_r051",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+            "line_number": 1975,
+            "source_collection": "textbook_inorganic_lower_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学（下册）（第二版）",
+            "page_start": 224,
+            "page_end": 224,
+            "section_path": [
+              "第 20 章 d 区过渡金属元素",
+              "20.2 第一过渡系列金属元素及其常见化合物",
+              "20.2.6 铁、钴、镍",
+              "ii)氰配合物"
+            ],
+            "content_type": "table_record",
+            "knowledge_unit": "table_record",
+            "parent_id": "textbook_table_context_p224_0e08e79e44",
+            "prev_chunk_id": "textbook_table_record_table_p224_t01_r041",
+            "next_chunk_id": "textbook_table_record_table_p224_t01_r061",
+            "relations": {
+              "parent": "textbook_table_context_p224_0e08e79e44",
+              "table_context": "textbook_table_context_p224_0e08e79e44",
+              "prev": "textbook_table_record_table_p224_t01_r041",
+              "next": "textbook_table_record_table_p224_t01_r061"
+            }
+          }
+        ]
+      },
+      "legacy_locator_summaries": [
+        {
+          "chunk_id": "expchunk_00327_e59c162b54",
+          "source_file": "无机化学实验（第四版）",
+          "book_title": "无机化学实验（第四版）",
+          "document_id": "DOC_CANONICAL_EXPERIMENT_V1",
+          "source_collection": "textbook_experiment_clean_v1",
+          "source_role": "canonical_textbook",
+          "content_type": "property_test",
+          "chapter_id": null,
+          "page_number": 166,
+          "section_title": "第7章 元素性质实验 / 实验 20-3 d 区元素化合物的性质（二） / （一）实验目的",
+          "section_path": [
+            "第7章 元素性质实验",
+            "实验 20-3 d 区元素化合物的性质（二）",
+            "（一）实验目的"
+          ]
+        },
+        {
+          "chunk_id": "expchunk_00330_3a60414cf4",
+          "source_file": "无机化学实验（第四版）",
+          "book_title": "无机化学实验（第四版）",
+          "document_id": "DOC_CANONICAL_EXPERIMENT_V1",
+          "source_collection": "textbook_experiment_clean_v1",
+          "source_role": "canonical_textbook",
+          "content_type": "property_test",
+          "chapter_id": null,
+          "page_number": 166,
+          "section_title": "实验 20-3 d 区元素化合物的性质（二） / （三）实验内容 / 1. 观察并熟悉过渡金属离子的颜色",
+          "section_path": [
+            "第7章 元素性质实验",
+            "实验 20-3 d 区元素化合物的性质（二）",
+            "（三）实验内容",
+            "1. 观察并熟悉过渡金属离子的颜色"
+          ]
+        }
+      ],
+      "legacy_missing_ids": [
+        "textbook_prose_01118_9e2eabedd8",
+        "textbook_prose_01119_8478df1f7f",
+        "textbook_prose_01305_dd5a94da50",
+        "textbook_table_record_table_p224_t01_r051"
+      ]
+    },
+    "questions": [
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_01_001",
+        "source_review_id": "CHK5_SEM_EXP_20_3_01_001",
+        "source_question_index": 1,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-3-01 水合阳离子颜色》实验中，下列哪一个属于该实验列出的水合阳离子？",
+        "options": [
+          {
+            "label": "A",
+            "text": "CrO₄²⁻"
+          },
+          {
+            "label": "B",
+            "text": "MnO₄⁻"
+          },
+          {
+            "label": "C",
+            "text": "[Co(H₂O)₆]²⁺"
+          },
+          {
+            "label": "D",
+            "text": "VO₃⁻"
+          }
+        ],
+        "answer": {
+          "value": "C"
+        },
+        "explanation": "实验列出 [Co(H₂O)₆]²⁺。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-5-a4376972"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "single_choice"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "CrO₄²⁻",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“过渡金属水合阳离子颜色记录”点位：CrO₄²⁻。"
+          },
+          {
+            "label": "B",
+            "text": "MnO₄⁻",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“过渡金属水合阳离子颜色记录”点位：MnO₄⁻。"
+          },
+          {
+            "label": "C",
+            "text": "[Co(H₂O)₆]²⁺",
+            "point_key": "candidate-5-a4376972",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“过渡金属水合阳离子颜色记录”点位：[Co(H₂O)₆]²⁺。"
+          },
+          {
+            "label": "D",
+            "text": "VO₃⁻",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“过渡金属水合阳离子颜色记录”点位：VO₃⁻。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00327_e59c162b54",
+            "expchunk_00330_3a60414cf4"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "current-release audit 修复：原题可由 canonical 支撑，但属于低深度列表分类题，且正确选项 CrO₄²⁻ 的 point_key 错绑到 Ti 水合阳离子点位。最终有效题改为实验记录分组题，要求将水合阳离子颜色观察对象与 CrO₄²⁻ 等阴离子分开记录；题干、答案和解析由 canonical 中水合阳离子列表和阴离子列表直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00327_e59c162b54",
+            "expchunk_00330_3a60414cf4"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-01 水合阳离子颜色》实验中，下列哪一个属于该实验列出的水合阳离子？",
+            "options": [
+              {
+                "label": "A",
+                "text": "CrO₄²⁻"
+              },
+              {
+                "label": "B",
+                "text": "MnO₄⁻"
+              },
+              {
+                "label": "C",
+                "text": "[Co(H₂O)₆]²⁺"
+              },
+              {
+                "label": "D",
+                "text": "VO₃⁻"
+              }
+            ],
+            "answer": {
+              "value": "C"
+            },
+            "explanation": "实验列出 [Co(H₂O)₆]²⁺。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00330_3a60414cf4",
+              "expchunk_00327_e59c162b54"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_01_002",
+        "source_review_id": "CHK5_SEM_EXP_20_3_01_002",
+        "source_question_index": 2,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《20-3-01 水合阳离子颜色》实验记录中，哪种做法最能避免把水合阳离子颜色与阴离子颜色混记？",
+        "options": [
+          {
+            "label": "A",
+            "text": "把 [Ti(H₂O)₆]³⁺、[Cr(H₂O)₆]³⁺ 等水合阳离子作为一组记录，并把 CrO₄²⁻ 等阴离子另列一组"
+          },
+          {
+            "label": "B",
+            "text": "把 CrO₄²⁻ 当作水合阳离子，与 [Ti(H₂O)₆]³⁺ 放在同一观察组"
+          },
+          {
+            "label": "C",
+            "text": "只记录 CrO₄²⁻、Cr₂O₇²⁻ 等阴离子，省略水合阳离子"
+          },
+          {
+            "label": "D",
+            "text": "用 KSCN 血红色反应替代水合阳离子颜色观察"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "教材将 [Ti(H₂O)₆]³⁺、[Cr(H₂O)₆]³⁺、[Mn(H₂O)₆]²⁺、[Fe(H₂O)₆]²⁺、[Co(H₂O)₆]²⁺、[Ni(H₂O)₆]²⁺列为水合阳离子观察对象，并另列 CrO₄²⁻ 等阴离子。分组记录能避免把两类颜色观察对象混淆。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-e0d18274",
+          "candidate-2-1d49d35b",
+          "candidate-3-99dd6b35",
+          "candidate-4-3926ad6c",
+          "candidate-5-a4376972",
+          "candidate-6-c0cbece1"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "single_choice",
+          "current_release_audit_rewrite",
+          "watered_cation_record_grouping"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "把 [Ti(H₂O)₆]³⁺、[Cr(H₂O)₆]³⁺ 等水合阳离子作为一组记录，并把 CrO₄²⁻ 等阴离子另列一组",
+            "point_key": "candidate-1-e0d18274",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项把教材列出的水合阳离子作为同一组记录，并将 CrO₄²⁻ 等阴离子另列，能避免把两类颜色观察对象混淆。"
+          },
+          {
+            "label": "B",
+            "text": "把 CrO₄²⁻ 当作水合阳离子，与 [Ti(H₂O)₆]³⁺ 放在同一观察组",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "CrO₄²⁻ 在教材中属于阴离子观察对象，把它放入水合阳离子组会造成分类混淆。"
+          },
+          {
+            "label": "C",
+            "text": "只记录 CrO₄²⁻、Cr₂O₇²⁻ 等阴离子，省略水合阳离子",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "只记录阴离子会漏掉本题所在点位的水合阳离子颜色观察任务。"
+          },
+          {
+            "label": "D",
+            "text": "用 KSCN 血红色反应替代水合阳离子颜色观察",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "KSCN 血红色反应属于其他离子鉴定情境，不能替代本实验按水合阳离子和阴离子分组观察颜色。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00327_e59c162b54",
+            "expchunk_00330_3a60414cf4"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "current-release audit 修复：原题可由 canonical 支撑，但属于低深度列表分类题，且正确选项 CrO₄²⁻ 的 point_key 错绑到 Ti 水合阳离子点位。最终有效题改为实验记录分组题，要求将水合阳离子颜色观察对象与 CrO₄²⁻ 等阴离子分开记录；题干、答案和解析由 canonical 中水合阳离子列表和阴离子列表直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00327_e59c162b54",
+            "expchunk_00330_3a60414cf4"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-01 水合阳离子颜色》实验中，下列哪一个不是该实验中“水合阳离子”观察对象，而是阴离子？",
+            "options": [
+              {
+                "label": "A",
+                "text": "[Ni(H₂O)₆]²⁺"
+              },
+              {
+                "label": "B",
+                "text": "[Fe(H₂O)₆]²⁺"
+              },
+              {
+                "label": "C",
+                "text": "[Ti(H₂O)₆]³⁺"
+              },
+              {
+                "label": "D",
+                "text": "CrO₄²⁻"
+              }
+            ],
+            "answer": {
+              "value": "D"
+            },
+            "explanation": "CrO₄²⁻ 属于阴离子。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00330_3a60414cf4",
+              "expchunk_00327_e59c162b54"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-01 水合阳离子颜色》实验记录中，哪种做法最能避免把水合阳离子颜色与阴离子颜色混记？",
+            "options": [
+              {
+                "label": "A",
+                "text": "把 [Ti(H₂O)₆]³⁺、[Cr(H₂O)₆]³⁺ 等水合阳离子作为一组记录，并把 CrO₄²⁻ 等阴离子另列一组"
+              },
+              {
+                "label": "B",
+                "text": "把 CrO₄²⁻ 当作水合阳离子，与 [Ti(H₂O)₆]³⁺ 放在同一观察组"
+              },
+              {
+                "label": "C",
+                "text": "只记录 CrO₄²⁻、Cr₂O₇²⁻ 等阴离子，省略水合阳离子"
+              },
+              {
+                "label": "D",
+                "text": "用 KSCN 血红色反应替代水合阳离子颜色观察"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "教材将 [Ti(H₂O)₆]³⁺、[Cr(H₂O)₆]³⁺、[Mn(H₂O)₆]²⁺、[Fe(H₂O)₆]²⁺、[Co(H₂O)₆]²⁺、[Ni(H₂O)₆]²⁺列为水合阳离子观察对象，并另列 CrO₄²⁻ 等阴离子。分组记录能避免把两类颜色观察对象混淆。",
+            "difficulty": null,
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "current_release_audit_seed_repaired",
+            "point_key_corrected",
+            "low_depth_rewritten"
+          ]
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_01_003",
+        "source_review_id": "CHK5_SEM_EXP_20_3_01_003",
+        "source_question_index": 3,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-3-01 水合阳离子颜色》实验中，[Co(H₂O)₆]²⁺ 的常见颜色最接近下列哪一项？",
+        "options": [
+          {
+            "label": "A",
+            "text": "粉红色"
+          },
+          {
+            "label": "B",
+            "text": "无色"
+          },
+          {
+            "label": "C",
+            "text": "深黑色"
+          },
+          {
+            "label": "D",
+            "text": "亮黄色"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "Co(II) 水合离子常呈粉红色。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-5-a4376972"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "single_choice"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "粉红色",
+            "point_key": "candidate-5-a4376972",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“过渡金属水合阳离子颜色记录”点位：粉红色。"
+          },
+          {
+            "label": "B",
+            "text": "无色",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“过渡金属水合阳离子颜色记录”点位：无色。"
+          },
+          {
+            "label": "C",
+            "text": "深黑色",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“过渡金属水合阳离子颜色记录”点位：深黑色。"
+          },
+          {
+            "label": "D",
+            "text": "亮黄色",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“过渡金属水合阳离子颜色记录”点位：亮黄色。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00327_e59c162b54",
+            "expchunk_00330_3a60414cf4"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01118_9e2eabedd8",
+            "textbook_prose_01119_8478df1f7f",
+            "textbook_table_record_table_p224_t01_r051"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical。有效题由实验原文支撑；其中颜色、配位、氧化还原或鉴定依据需最小引用 supporting theory：textbook_prose_01118_9e2eabedd8, textbook_prose_01119_8478df1f7f, textbook_table_record_table_p224_t01_r051。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00327_e59c162b54",
+            "expchunk_00330_3a60414cf4"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01118_9e2eabedd8",
+            "textbook_prose_01119_8478df1f7f",
+            "textbook_table_record_table_p224_t01_r051"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01118_9e2eabedd8",
+            "textbook_prose_01119_8478df1f7f",
+            "textbook_table_record_table_p224_t01_r051"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-01 水合阳离子颜色》实验中，[Co(H₂O)₆]²⁺ 的常见颜色最接近下列哪一项？",
+            "options": [
+              {
+                "label": "A",
+                "text": "粉红色"
+              },
+              {
+                "label": "B",
+                "text": "无色"
+              },
+              {
+                "label": "C",
+                "text": "深黑色"
+              },
+              {
+                "label": "D",
+                "text": "亮黄色"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "Co(II) 水合离子常呈粉红色。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00330_3a60414cf4",
+              "expchunk_00327_e59c162b54"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_01_004",
+        "source_review_id": "CHK5_SEM_EXP_20_3_01_004",
+        "source_question_index": 4,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-3-01 水合阳离子颜色》实验中，[Ni(H₂O)₆]²⁺ 的常见颜色最接近下列哪一项？",
+        "options": [
+          {
+            "label": "A",
+            "text": "无色"
+          },
+          {
+            "label": "B",
+            "text": "绿色"
+          },
+          {
+            "label": "C",
+            "text": "深蓝色"
+          },
+          {
+            "label": "D",
+            "text": "棕黑色"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "Ni(II) 水合离子常呈绿色。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-6-c0cbece1"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "single_choice"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "无色",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“过渡金属水合阳离子颜色记录”点位：无色。"
+          },
+          {
+            "label": "B",
+            "text": "绿色",
+            "point_key": "candidate-6-c0cbece1",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“过渡金属水合阳离子颜色记录”点位：绿色。"
+          },
+          {
+            "label": "C",
+            "text": "深蓝色",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“过渡金属水合阳离子颜色记录”点位：深蓝色。"
+          },
+          {
+            "label": "D",
+            "text": "棕黑色",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“过渡金属水合阳离子颜色记录”点位：棕黑色。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00327_e59c162b54",
+            "expchunk_00330_3a60414cf4"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01118_9e2eabedd8",
+            "textbook_prose_01119_8478df1f7f",
+            "textbook_prose_01305_dd5a94da50"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical。有效题由实验原文支撑；其中颜色、配位、氧化还原或鉴定依据需最小引用 supporting theory：textbook_prose_01118_9e2eabedd8, textbook_prose_01119_8478df1f7f, textbook_prose_01305_dd5a94da50。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00327_e59c162b54",
+            "expchunk_00330_3a60414cf4"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01118_9e2eabedd8",
+            "textbook_prose_01119_8478df1f7f",
+            "textbook_prose_01305_dd5a94da50"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01118_9e2eabedd8",
+            "textbook_prose_01119_8478df1f7f",
+            "textbook_prose_01305_dd5a94da50"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-01 水合阳离子颜色》实验中，[Ni(H₂O)₆]²⁺ 的常见颜色最接近下列哪一项？",
+            "options": [
+              {
+                "label": "A",
+                "text": "无色"
+              },
+              {
+                "label": "B",
+                "text": "绿色"
+              },
+              {
+                "label": "C",
+                "text": "深蓝色"
+              },
+              {
+                "label": "D",
+                "text": "棕黑色"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "Ni(II) 水合离子常呈绿色。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00330_3a60414cf4",
+              "expchunk_00327_e59c162b54"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_01_005",
+        "source_review_id": "CHK5_SEM_EXP_20_3_01_005",
+        "source_question_index": 5,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-3-01 水合阳离子颜色》实验中，[Fe(H₂O)₆]²⁺ 的常见颜色最接近下列哪一项？",
+        "options": [
+          {
+            "label": "A",
+            "text": "紫红色"
+          },
+          {
+            "label": "B",
+            "text": "橙红色"
+          },
+          {
+            "label": "C",
+            "text": "浅绿色"
+          },
+          {
+            "label": "D",
+            "text": "纯白色"
+          }
+        ],
+        "answer": {
+          "value": "C"
+        },
+        "explanation": "Fe(II) 水合离子常呈浅绿色。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-4-3926ad6c"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "single_choice"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "紫红色",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“过渡金属水合阳离子颜色记录”点位：紫红色。"
+          },
+          {
+            "label": "B",
+            "text": "橙红色",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“过渡金属水合阳离子颜色记录”点位：橙红色。"
+          },
+          {
+            "label": "C",
+            "text": "浅绿色",
+            "point_key": "candidate-4-3926ad6c",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“过渡金属水合阳离子颜色记录”点位：浅绿色。"
+          },
+          {
+            "label": "D",
+            "text": "纯白色",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“过渡金属水合阳离子颜色记录”点位：纯白色。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00327_e59c162b54",
+            "expchunk_00330_3a60414cf4"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01118_9e2eabedd8",
+            "textbook_prose_01119_8478df1f7f"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical。有效题由实验原文支撑；其中颜色、配位、氧化还原或鉴定依据需最小引用 supporting theory：textbook_prose_01118_9e2eabedd8, textbook_prose_01119_8478df1f7f。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00327_e59c162b54",
+            "expchunk_00330_3a60414cf4"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01118_9e2eabedd8",
+            "textbook_prose_01119_8478df1f7f"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01118_9e2eabedd8",
+            "textbook_prose_01119_8478df1f7f"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-01 水合阳离子颜色》实验中，[Fe(H₂O)₆]²⁺ 的常见颜色最接近下列哪一项？",
+            "options": [
+              {
+                "label": "A",
+                "text": "紫红色"
+              },
+              {
+                "label": "B",
+                "text": "橙红色"
+              },
+              {
+                "label": "C",
+                "text": "浅绿色"
+              },
+              {
+                "label": "D",
+                "text": "纯白色"
+              }
+            ],
+            "answer": {
+              "value": "C"
+            },
+            "explanation": "Fe(II) 水合离子常呈浅绿色。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00330_3a60414cf4",
+              "expchunk_00327_e59c162b54"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_01_006",
+        "source_review_id": "CHK5_SEM_EXP_20_3_01_006",
+        "source_question_index": 6,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-3-01 水合阳离子颜色》实验中，[Mn(H₂O)₆]²⁺ 的常见颜色最接近下列哪一项？",
+        "options": [
+          {
+            "label": "A",
+            "text": "深蓝色"
+          },
+          {
+            "label": "B",
+            "text": "黑色"
+          },
+          {
+            "label": "C",
+            "text": "亮橙色"
+          },
+          {
+            "label": "D",
+            "text": "很浅的粉红色"
+          }
+        ],
+        "answer": {
+          "value": "D"
+        },
+        "explanation": "Mn(II) 水合离子颜色很浅，常记作浅粉红。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-99dd6b35"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "single_choice"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "深蓝色",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“过渡金属水合阳离子颜色记录”点位：深蓝色。"
+          },
+          {
+            "label": "B",
+            "text": "黑色",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“过渡金属水合阳离子颜色记录”点位：黑色。"
+          },
+          {
+            "label": "C",
+            "text": "亮橙色",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“过渡金属水合阳离子颜色记录”点位：亮橙色。"
+          },
+          {
+            "label": "D",
+            "text": "很浅的粉红色",
+            "point_key": "candidate-3-99dd6b35",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“过渡金属水合阳离子颜色记录”点位：很浅的粉红色。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00327_e59c162b54",
+            "expchunk_00330_3a60414cf4"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01118_9e2eabedd8",
+            "textbook_prose_01119_8478df1f7f"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical。有效题由实验原文支撑；其中颜色、配位、氧化还原或鉴定依据需最小引用 supporting theory：textbook_prose_01118_9e2eabedd8, textbook_prose_01119_8478df1f7f。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00327_e59c162b54",
+            "expchunk_00330_3a60414cf4"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01118_9e2eabedd8",
+            "textbook_prose_01119_8478df1f7f"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01118_9e2eabedd8",
+            "textbook_prose_01119_8478df1f7f"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-01 水合阳离子颜色》实验中，[Mn(H₂O)₆]²⁺ 的常见颜色最接近下列哪一项？",
+            "options": [
+              {
+                "label": "A",
+                "text": "深蓝色"
+              },
+              {
+                "label": "B",
+                "text": "黑色"
+              },
+              {
+                "label": "C",
+                "text": "亮橙色"
+              },
+              {
+                "label": "D",
+                "text": "很浅的粉红色"
+              }
+            ],
+            "answer": {
+              "value": "D"
+            },
+            "explanation": "Mn(II) 水合离子颜色很浅，常记作浅粉红。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00330_3a60414cf4",
+              "expchunk_00327_e59c162b54"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_01_007",
+        "source_review_id": "CHK5_SEM_EXP_20_3_01_007",
+        "source_question_index": 7,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-3-01 水合阳离子颜色》实验中，[Cr(H₂O)₆]³⁺ 的常见颜色最接近下列哪一项？",
+        "options": [
+          {
+            "label": "A",
+            "text": "紫色"
+          },
+          {
+            "label": "B",
+            "text": "无色"
+          },
+          {
+            "label": "C",
+            "text": "金黄色"
+          },
+          {
+            "label": "D",
+            "text": "黑色"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "Cr(III) 水合离子常呈紫色。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-1d49d35b"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "single_choice"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "紫色",
+            "point_key": "candidate-2-1d49d35b",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“过渡金属水合阳离子颜色记录”点位：紫色。"
+          },
+          {
+            "label": "B",
+            "text": "无色",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“过渡金属水合阳离子颜色记录”点位：无色。"
+          },
+          {
+            "label": "C",
+            "text": "金黄色",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“过渡金属水合阳离子颜色记录”点位：金黄色。"
+          },
+          {
+            "label": "D",
+            "text": "黑色",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“过渡金属水合阳离子颜色记录”点位：黑色。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00327_e59c162b54",
+            "expchunk_00330_3a60414cf4"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01118_9e2eabedd8",
+            "textbook_prose_01119_8478df1f7f"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical。有效题由实验原文支撑；其中颜色、配位、氧化还原或鉴定依据需最小引用 supporting theory：textbook_prose_01118_9e2eabedd8, textbook_prose_01119_8478df1f7f。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00327_e59c162b54",
+            "expchunk_00330_3a60414cf4"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01118_9e2eabedd8",
+            "textbook_prose_01119_8478df1f7f"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01118_9e2eabedd8",
+            "textbook_prose_01119_8478df1f7f"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-01 水合阳离子颜色》实验中，[Cr(H₂O)₆]³⁺ 的常见颜色最接近下列哪一项？",
+            "options": [
+              {
+                "label": "A",
+                "text": "紫色"
+              },
+              {
+                "label": "B",
+                "text": "无色"
+              },
+              {
+                "label": "C",
+                "text": "金黄色"
+              },
+              {
+                "label": "D",
+                "text": "黑色"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "Cr(III) 水合离子常呈紫色。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00330_3a60414cf4",
+              "expchunk_00327_e59c162b54"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_01_008",
+        "source_review_id": "CHK5_SEM_EXP_20_3_01_008",
+        "source_question_index": 8,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-3-01 水合阳离子颜色》实验中，[Ti(H₂O)₆]³⁺ 的常见颜色最接近下列哪一项？",
+        "options": [
+          {
+            "label": "A",
+            "text": "无色"
+          },
+          {
+            "label": "B",
+            "text": "紫色"
+          },
+          {
+            "label": "C",
+            "text": "绿色"
+          },
+          {
+            "label": "D",
+            "text": "棕色"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "Ti(III) 水合离子常呈紫色。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-e0d18274"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "single_choice"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "无色",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“过渡金属水合阳离子颜色记录”点位：无色。"
+          },
+          {
+            "label": "B",
+            "text": "紫色",
+            "point_key": "candidate-1-e0d18274",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“过渡金属水合阳离子颜色记录”点位：紫色。"
+          },
+          {
+            "label": "C",
+            "text": "绿色",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“过渡金属水合阳离子颜色记录”点位：绿色。"
+          },
+          {
+            "label": "D",
+            "text": "棕色",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“过渡金属水合阳离子颜色记录”点位：棕色。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00327_e59c162b54",
+            "expchunk_00330_3a60414cf4"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01118_9e2eabedd8",
+            "textbook_prose_01119_8478df1f7f"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical。有效题由实验原文支撑；其中颜色、配位、氧化还原或鉴定依据需最小引用 supporting theory：textbook_prose_01118_9e2eabedd8, textbook_prose_01119_8478df1f7f。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00327_e59c162b54",
+            "expchunk_00330_3a60414cf4"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01118_9e2eabedd8",
+            "textbook_prose_01119_8478df1f7f"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01118_9e2eabedd8",
+            "textbook_prose_01119_8478df1f7f"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-01 水合阳离子颜色》实验中，[Ti(H₂O)₆]³⁺ 的常见颜色最接近下列哪一项？",
+            "options": [
+              {
+                "label": "A",
+                "text": "无色"
+              },
+              {
+                "label": "B",
+                "text": "紫色"
+              },
+              {
+                "label": "C",
+                "text": "绿色"
+              },
+              {
+                "label": "D",
+                "text": "棕色"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "Ti(III) 水合离子常呈紫色。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00330_3a60414cf4",
+              "expchunk_00327_e59c162b54"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_01_009",
+        "source_review_id": "CHK5_SEM_EXP_20_3_01_009",
+        "source_question_index": 9,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-3-01 水合阳离子颜色》实验中，该实验观察水合阳离子颜色的主要目的是什么？",
+        "options": [
+          {
+            "label": "A",
+            "text": "制备难溶硅酸盐"
+          },
+          {
+            "label": "B",
+            "text": "比较卤素置换次序"
+          },
+          {
+            "label": "C",
+            "text": "熟悉 d 区某些金属离子的特征颜色"
+          },
+          {
+            "label": "D",
+            "text": "测定臭氧密度"
+          }
+        ],
+        "answer": {
+          "value": "C"
+        },
+        "explanation": "实验目的要求观察并掌握 d 区水合离子颜色。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-e0d18274"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-1d49d35b",
+          "candidate-3-99dd6b35",
+          "candidate-4-3926ad6c",
+          "candidate-5-a4376972",
+          "candidate-6-c0cbece1"
+        ],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "single_choice"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "制备难溶硅酸盐",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“过渡金属水合阳离子颜色记录”点位：制备难溶硅酸盐。"
+          },
+          {
+            "label": "B",
+            "text": "比较卤素置换次序",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“过渡金属水合阳离子颜色记录”点位：比较卤素置换次序。"
+          },
+          {
+            "label": "C",
+            "text": "熟悉 d 区某些金属离子的特征颜色",
+            "point_key": "candidate-1-e0d18274",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“过渡金属水合阳离子颜色记录”点位：熟悉 d 区某些金属离子的特征颜色。"
+          },
+          {
+            "label": "D",
+            "text": "测定臭氧密度",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“过渡金属水合阳离子颜色记录”点位：测定臭氧密度。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00327_e59c162b54",
+            "expchunk_00330_3a60414cf4"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00327_e59c162b54",
+            "expchunk_00330_3a60414cf4"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-01 水合阳离子颜色》实验中，该实验观察水合阳离子颜色的主要目的是什么？",
+            "options": [
+              {
+                "label": "A",
+                "text": "制备难溶硅酸盐"
+              },
+              {
+                "label": "B",
+                "text": "比较卤素置换次序"
+              },
+              {
+                "label": "C",
+                "text": "熟悉 d 区某些金属离子的特征颜色"
+              },
+              {
+                "label": "D",
+                "text": "测定臭氧密度"
+              }
+            ],
+            "answer": {
+              "value": "C"
+            },
+            "explanation": "实验目的要求观察并掌握 d 区水合离子颜色。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00330_3a60414cf4",
+              "expchunk_00327_e59c162b54"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_01_010",
+        "source_review_id": "CHK5_SEM_EXP_20_3_01_010",
+        "source_question_index": 10,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-3-01 水合阳离子颜色》实验中，下列哪一组全部属于列出的水合阳离子？",
+        "options": [
+          {
+            "label": "A",
+            "text": "CrO₄²⁻、MnO₄⁻、VO₃⁻"
+          },
+          {
+            "label": "B",
+            "text": "Na⁺、K⁺、Cl⁻"
+          },
+          {
+            "label": "C",
+            "text": "SO₄²⁻、NO₃⁻、CO₃²⁻"
+          },
+          {
+            "label": "D",
+            "text": "[Ti(H₂O)₆]³⁺、[Cr(H₂O)₆]³⁺、[Ni(H₂O)₆]²⁺"
+          }
+        ],
+        "answer": {
+          "value": "D"
+        },
+        "explanation": "这些均为列出的水合阳离子。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-e0d18274"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-1d49d35b",
+          "candidate-6-c0cbece1"
+        ],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "single_choice"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "CrO₄²⁻、MnO₄⁻、VO₃⁻",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“过渡金属水合阳离子颜色记录”点位：CrO₄²⁻、MnO₄⁻、VO₃⁻。"
+          },
+          {
+            "label": "B",
+            "text": "Na⁺、K⁺、Cl⁻",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“过渡金属水合阳离子颜色记录”点位：Na⁺、K⁺、Cl⁻。"
+          },
+          {
+            "label": "C",
+            "text": "SO₄²⁻、NO₃⁻、CO₃²⁻",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“过渡金属水合阳离子颜色记录”点位：SO₄²⁻、NO₃⁻、CO₃²⁻。"
+          },
+          {
+            "label": "D",
+            "text": "[Ti(H₂O)₆]³⁺、[Cr(H₂O)₆]³⁺、[Ni(H₂O)₆]²⁺",
+            "point_key": "candidate-1-e0d18274",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“过渡金属水合阳离子颜色记录”点位：[Ti(H₂O)₆]³⁺、[Cr(H₂O)₆]³⁺、[Ni(H₂O)₆]²⁺。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00327_e59c162b54",
+            "expchunk_00330_3a60414cf4"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00327_e59c162b54",
+            "expchunk_00330_3a60414cf4"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-01 水合阳离子颜色》实验中，下列哪一组全部属于列出的水合阳离子？",
+            "options": [
+              {
+                "label": "A",
+                "text": "CrO₄²⁻、MnO₄⁻、VO₃⁻"
+              },
+              {
+                "label": "B",
+                "text": "Na⁺、K⁺、Cl⁻"
+              },
+              {
+                "label": "C",
+                "text": "SO₄²⁻、NO₃⁻、CO₃²⁻"
+              },
+              {
+                "label": "D",
+                "text": "[Ti(H₂O)₆]³⁺、[Cr(H₂O)₆]³⁺、[Ni(H₂O)₆]²⁺"
+              }
+            ],
+            "answer": {
+              "value": "D"
+            },
+            "explanation": "这些均为列出的水合阳离子。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00330_3a60414cf4",
+              "expchunk_00327_e59c162b54"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_01_011",
+        "source_review_id": "CHK5_SEM_EXP_20_3_01_011",
+        "source_question_index": 11,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《20-3-01 水合阳离子颜色》实验中，该实验列出 [Ti(H₂O)₆]³⁺、[Cr(H₂O)₆]³⁺ 等水合阳离子作为观察对象。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "实验资料直接列出。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-e0d18274"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-1d49d35b",
+          "candidate-3-99dd6b35",
+          "candidate-4-3926ad6c",
+          "candidate-5-a4376972",
+          "candidate-6-c0cbece1"
+        ],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "true_false"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00327_e59c162b54",
+            "expchunk_00330_3a60414cf4"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00327_e59c162b54",
+            "expchunk_00330_3a60414cf4"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-3-01 水合阳离子颜色》实验中，该实验列出 [Ti(H₂O)₆]³⁺、[Cr(H₂O)₆]³⁺ 等水合阳离子作为观察对象。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "实验资料直接列出。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00330_3a60414cf4",
+              "expchunk_00327_e59c162b54"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_01_012",
+        "source_review_id": "CHK5_SEM_EXP_20_3_01_012",
+        "source_question_index": 12,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《20-3-01 水合阳离子颜色》实验中，CrO₄²⁻ 是水合阳离子观察对象之一。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": false
+        },
+        "explanation": "CrO₄²⁻ 是阴离子。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-e0d18274"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-1d49d35b",
+          "candidate-3-99dd6b35",
+          "candidate-4-3926ad6c",
+          "candidate-5-a4376972",
+          "candidate-6-c0cbece1"
+        ],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "true_false"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00327_e59c162b54",
+            "expchunk_00330_3a60414cf4"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00327_e59c162b54",
+            "expchunk_00330_3a60414cf4"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-3-01 水合阳离子颜色》实验中，CrO₄²⁻ 是水合阳离子观察对象之一。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "CrO₄²⁻ 是阴离子。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00330_3a60414cf4",
+              "expchunk_00327_e59c162b54"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_01_013",
+        "source_review_id": "CHK5_SEM_EXP_20_3_01_013",
+        "source_question_index": 13,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《20-3-01 水合阳离子颜色》实验中，[Co(H₂O)₆]²⁺ 常见颜色为粉红色。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "这是 Co(II) 水合离子常见颜色。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-5-a4376972"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "true_false"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00327_e59c162b54",
+            "expchunk_00330_3a60414cf4"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01118_9e2eabedd8",
+            "textbook_prose_01119_8478df1f7f",
+            "textbook_table_record_table_p224_t01_r051"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical。有效题由实验原文支撑；其中颜色、配位、氧化还原或鉴定依据需最小引用 supporting theory：textbook_prose_01118_9e2eabedd8, textbook_prose_01119_8478df1f7f, textbook_table_record_table_p224_t01_r051。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00327_e59c162b54",
+            "expchunk_00330_3a60414cf4"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01118_9e2eabedd8",
+            "textbook_prose_01119_8478df1f7f",
+            "textbook_table_record_table_p224_t01_r051"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01118_9e2eabedd8",
+            "textbook_prose_01119_8478df1f7f",
+            "textbook_table_record_table_p224_t01_r051"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-3-01 水合阳离子颜色》实验中，[Co(H₂O)₆]²⁺ 常见颜色为粉红色。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "这是 Co(II) 水合离子常见颜色。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00330_3a60414cf4",
+              "expchunk_00327_e59c162b54"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_01_014",
+        "source_review_id": "CHK5_SEM_EXP_20_3_01_014",
+        "source_question_index": 14,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《20-3-01 水合阳离子颜色》实验中，[Ni(H₂O)₆]²⁺ 常见颜色为绿色。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "Ni(II) 水合离子常呈绿色。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-6-c0cbece1"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "true_false"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00327_e59c162b54",
+            "expchunk_00330_3a60414cf4"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01118_9e2eabedd8",
+            "textbook_prose_01119_8478df1f7f",
+            "textbook_prose_01305_dd5a94da50"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical。有效题由实验原文支撑；其中颜色、配位、氧化还原或鉴定依据需最小引用 supporting theory：textbook_prose_01118_9e2eabedd8, textbook_prose_01119_8478df1f7f, textbook_prose_01305_dd5a94da50。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00327_e59c162b54",
+            "expchunk_00330_3a60414cf4"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01118_9e2eabedd8",
+            "textbook_prose_01119_8478df1f7f",
+            "textbook_prose_01305_dd5a94da50"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01118_9e2eabedd8",
+            "textbook_prose_01119_8478df1f7f",
+            "textbook_prose_01305_dd5a94da50"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-3-01 水合阳离子颜色》实验中，[Ni(H₂O)₆]²⁺ 常见颜色为绿色。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "Ni(II) 水合离子常呈绿色。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00330_3a60414cf4",
+              "expchunk_00327_e59c162b54"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_01_015",
+        "source_review_id": "CHK5_SEM_EXP_20_3_01_015",
+        "source_question_index": 15,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《20-3-01 水合阳离子颜色》实验中，[Fe(H₂O)₆]²⁺ 常见颜色可记为浅绿色。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "Fe(II) 水合离子常为浅绿。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-4-3926ad6c"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "true_false"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00327_e59c162b54",
+            "expchunk_00330_3a60414cf4"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01118_9e2eabedd8",
+            "textbook_prose_01119_8478df1f7f"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical。有效题由实验原文支撑；其中颜色、配位、氧化还原或鉴定依据需最小引用 supporting theory：textbook_prose_01118_9e2eabedd8, textbook_prose_01119_8478df1f7f。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00327_e59c162b54",
+            "expchunk_00330_3a60414cf4"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01118_9e2eabedd8",
+            "textbook_prose_01119_8478df1f7f"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01118_9e2eabedd8",
+            "textbook_prose_01119_8478df1f7f"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-3-01 水合阳离子颜色》实验中，[Fe(H₂O)₆]²⁺ 常见颜色可记为浅绿色。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "Fe(II) 水合离子常为浅绿。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00330_3a60414cf4",
+              "expchunk_00327_e59c162b54"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_01_016",
+        "source_review_id": "CHK5_SEM_EXP_20_3_01_016",
+        "source_question_index": 16,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《20-3-01 水合阳离子颜色》实验中，[Mn(H₂O)₆]²⁺ 的颜色通常很深黑。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": false
+        },
+        "explanation": "Mn(II) 水合离子颜色很浅。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-99dd6b35"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "true_false"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00327_e59c162b54",
+            "expchunk_00330_3a60414cf4"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01118_9e2eabedd8",
+            "textbook_prose_01119_8478df1f7f"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical。有效题由实验原文支撑；其中颜色、配位、氧化还原或鉴定依据需最小引用 supporting theory：textbook_prose_01118_9e2eabedd8, textbook_prose_01119_8478df1f7f。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00327_e59c162b54",
+            "expchunk_00330_3a60414cf4"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01118_9e2eabedd8",
+            "textbook_prose_01119_8478df1f7f"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01118_9e2eabedd8",
+            "textbook_prose_01119_8478df1f7f"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-3-01 水合阳离子颜色》实验中，[Mn(H₂O)₆]²⁺ 的颜色通常很深黑。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "Mn(II) 水合离子颜色很浅。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00330_3a60414cf4",
+              "expchunk_00327_e59c162b54"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_01_017",
+        "source_review_id": "CHK5_SEM_EXP_20_3_01_017",
+        "source_question_index": 17,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《20-3-01 水合阳离子颜色》实验中，观察水合阳离子颜色有助于熟悉 d 区金属离子的特征。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "实验目的直接说明。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-e0d18274"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-1d49d35b",
+          "candidate-3-99dd6b35",
+          "candidate-4-3926ad6c",
+          "candidate-5-a4376972",
+          "candidate-6-c0cbece1"
+        ],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "true_false"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00327_e59c162b54",
+            "expchunk_00330_3a60414cf4"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00327_e59c162b54",
+            "expchunk_00330_3a60414cf4"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-3-01 水合阳离子颜色》实验中，观察水合阳离子颜色有助于熟悉 d 区金属离子的特征。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "实验目的直接说明。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00330_3a60414cf4",
+              "expchunk_00327_e59c162b54"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_01_018",
+        "source_review_id": "CHK5_SEM_EXP_20_3_01_018",
+        "source_question_index": 18,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "true_false",
+        "stem": "在《20-3-01 水合阳离子颜色》中，判断：[Ti(H₂O)₆]³⁺ 和 [Cr(H₂O)₆]³⁺ 都是三价水合阳离子。",
+        "options": [],
+        "answer": {
+          "value": true
+        },
+        "explanation": "该判断与实验原文的操作、现象或结论一致。",
+        "difficulty": "basic",
+        "status": "reviewed_polished",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-e0d18274"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-1d49d35b"
+        ],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "true_false"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00327_e59c162b54",
+            "expchunk_00330_3a60414cf4"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01118_9e2eabedd8",
+            "textbook_prose_01119_8478df1f7f"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical。有效题由实验原文支撑；其中颜色、配位、氧化还原或鉴定依据需最小引用 supporting theory：textbook_prose_01118_9e2eabedd8, textbook_prose_01119_8478df1f7f。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00327_e59c162b54",
+            "expchunk_00330_3a60414cf4"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01118_9e2eabedd8",
+            "textbook_prose_01119_8478df1f7f"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01118_9e2eabedd8",
+            "textbook_prose_01119_8478df1f7f"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-3-01 水合阳离子颜色》实验中，认为：[Ti(H₂O)₆]³⁺ 和 [Cr(H₂O)₆]³⁺ 都是三价水合阳离子，这一判断是不正确的。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "这一判断本身是正确的。二者电荷均为 3+。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00330_3a60414cf4",
+              "expchunk_00327_e59c162b54"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "true_false",
+            "stem": "在《20-3-01 水合阳离子颜色》中，判断：[Ti(H₂O)₆]³⁺ 和 [Cr(H₂O)₆]³⁺ 都是三价水合阳离子。",
+            "options": [],
+            "answer": {
+              "value": true
+            },
+            "explanation": "该判断与实验原文的操作、现象或结论一致。",
+            "difficulty": "basic",
+            "status": "reviewed_polished",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00330_3a60414cf4",
+              "expchunk_00327_e59c162b54"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_01_019",
+        "source_review_id": "CHK5_SEM_EXP_20_3_01_019",
+        "source_question_index": 19,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《20-3-01 水合阳离子颜色》实验中，该实验只观察卤素单质在 CCl₄ 中的颜色。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": false
+        },
+        "explanation": "本实验观察 d 区水合阳离子。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-e0d18274"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-1d49d35b",
+          "candidate-3-99dd6b35",
+          "candidate-4-3926ad6c",
+          "candidate-5-a4376972",
+          "candidate-6-c0cbece1"
+        ],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "true_false"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00327_e59c162b54",
+            "expchunk_00330_3a60414cf4"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00327_e59c162b54",
+            "expchunk_00330_3a60414cf4"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-3-01 水合阳离子颜色》实验中，该实验只观察卤素单质在 CCl₄ 中的颜色。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "本实验观察 d 区水合阳离子。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00330_3a60414cf4",
+              "expchunk_00327_e59c162b54"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_01_020",
+        "source_review_id": "CHK5_SEM_EXP_20_3_01_020",
+        "source_question_index": 20,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "true_false",
+        "stem": "在《20-3-01 水合阳离子颜色》中，判断：[Ni(H₂O)₆]²⁺、[Co(H₂O)₆]²⁺ 都属于二价水合阳离子。",
+        "options": [],
+        "answer": {
+          "value": true
+        },
+        "explanation": "该判断与实验原文的操作、现象或结论一致。",
+        "difficulty": "basic",
+        "status": "reviewed_polished",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-5-a4376972"
+        ],
+        "secondary_point_keys": [
+          "candidate-6-c0cbece1"
+        ],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "true_false"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00327_e59c162b54",
+            "expchunk_00330_3a60414cf4"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01118_9e2eabedd8",
+            "textbook_prose_01119_8478df1f7f"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical。有效题由实验原文支撑；其中颜色、配位、氧化还原或鉴定依据需最小引用 supporting theory：textbook_prose_01118_9e2eabedd8, textbook_prose_01119_8478df1f7f。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00327_e59c162b54",
+            "expchunk_00330_3a60414cf4"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01118_9e2eabedd8",
+            "textbook_prose_01119_8478df1f7f"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01118_9e2eabedd8",
+            "textbook_prose_01119_8478df1f7f"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-3-01 水合阳离子颜色》实验中，认为：[Ni(H₂O)₆]²⁺、[Co(H₂O)₆]²⁺ 都属于二价水合阳离子，这一判断是不正确的。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "这一判断本身是正确的。二者电荷均为 2+。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00330_3a60414cf4",
+              "expchunk_00327_e59c162b54"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "true_false",
+            "stem": "在《20-3-01 水合阳离子颜色》中，判断：[Ni(H₂O)₆]²⁺、[Co(H₂O)₆]²⁺ 都属于二价水合阳离子。",
+            "options": [],
+            "answer": {
+              "value": true
+            },
+            "explanation": "该判断与实验原文的操作、现象或结论一致。",
+            "difficulty": "basic",
+            "status": "reviewed_polished",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00330_3a60414cf4",
+              "expchunk_00327_e59c162b54"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_01_021",
+        "source_review_id": "CHK5_SEM_EXP_20_3_01_021",
+        "source_question_index": 21,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《20-3-01 水合阳离子颜色》中，关于 过渡金属水合阳离子颜色记录，哪项表述正确？",
+        "options": [
+          {
+            "label": "A",
+            "text": "用 NH₃·H₂O 沉淀实验替代水合阳离子颜色对比"
+          },
+          {
+            "label": "B",
+            "text": "Co(II) 的水合阳离子 [Co(H₂O)₆]²⁺ 常呈粉红色"
+          },
+          {
+            "label": "C",
+            "text": "只按金属元素名称猜颜色，不对应水合离子式"
+          },
+          {
+            "label": "D",
+            "text": "把 Fe(III)-SCN 血红色反应作为所有阳离子的颜色"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "本实验比较多种水合过渡金属阳离子的颜色，[Co(H₂O)₆]²⁺ 常呈粉红色，符合该观察目标。",
+        "difficulty": "basic",
+        "status": "reviewed_polished",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-5-a4376972"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "fill_blank"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "用 NH₃·H₂O 沉淀实验替代水合阳离子颜色对比",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“过渡金属水合阳离子颜色记录”点位的关键对象或条件：用 NH₃·H₂O 沉淀实验替代水合阳离子颜色对比。"
+          },
+          {
+            "label": "B",
+            "text": "Co(II) 的水合阳离子 [Co(H₂O)₆]²⁺ 常呈粉红色",
+            "point_key": "candidate-5-a4376972",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“过渡金属水合阳离子颜色记录”点位：Co(II) 的水合阳离子 [Co(H₂O)₆]²⁺ 常呈粉红色。"
+          },
+          {
+            "label": "C",
+            "text": "只按金属元素名称猜颜色，不对应水合离子式",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“过渡金属水合阳离子颜色记录”点位：只按金属元素名称猜颜色，不对应水合离子式。"
+          },
+          {
+            "label": "D",
+            "text": "把 Fe(III)-SCN 血红色反应作为所有阳离子的颜色",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“过渡金属水合阳离子颜色记录”点位：把 Fe(III)-SCN 血红色反应作为所有阳离子的颜色。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00327_e59c162b54",
+            "expchunk_00330_3a60414cf4"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01118_9e2eabedd8",
+            "textbook_prose_01119_8478df1f7f",
+            "textbook_table_record_table_p224_t01_r051"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical。有效题由实验原文支撑；其中颜色、配位、氧化还原或鉴定依据需最小引用 supporting theory：textbook_prose_01118_9e2eabedd8, textbook_prose_01119_8478df1f7f, textbook_table_record_table_p224_t01_r051。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00327_e59c162b54",
+            "expchunk_00330_3a60414cf4"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01118_9e2eabedd8",
+            "textbook_prose_01119_8478df1f7f",
+            "textbook_table_record_table_p224_t01_r051"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01118_9e2eabedd8",
+            "textbook_prose_01119_8478df1f7f",
+            "textbook_table_record_table_p224_t01_r051"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-3-01 水合阳离子颜色》实验中，Co(II) 的水合阳离子 [Co(H₂O)₆]²⁺ 常呈____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "粉红色"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00330_3a60414cf4",
+              "expchunk_00327_e59c162b54"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-01 水合阳离子颜色》中，关于 过渡金属水合阳离子颜色记录，哪项表述正确？",
+            "options": [
+              {
+                "label": "A",
+                "text": "用 NH₃·H₂O 沉淀实验替代水合阳离子颜色对比"
+              },
+              {
+                "label": "B",
+                "text": "Co(II) 的水合阳离子 [Co(H₂O)₆]²⁺ 常呈粉红色"
+              },
+              {
+                "label": "C",
+                "text": "只按金属元素名称猜颜色，不对应水合离子式"
+              },
+              {
+                "label": "D",
+                "text": "把 Fe(III)-SCN 血红色反应作为所有阳离子的颜色"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "本实验比较多种水合过渡金属阳离子的颜色，[Co(H₂O)₆]²⁺ 常呈粉红色，符合该观察目标。",
+            "difficulty": "basic",
+            "status": "reviewed_polished",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00330_3a60414cf4",
+              "expchunk_00327_e59c162b54"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "requires_supporting_theory",
+            "generic_shell_rewritten"
+          ]
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_01_022",
+        "source_review_id": "CHK5_SEM_EXP_20_3_01_022",
+        "source_question_index": 22,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《20-3-01 水合阳离子颜色》中，关于 过渡金属水合阳离子颜色记录，哪项表述正确？",
+        "options": [
+          {
+            "label": "A",
+            "text": "只按金属元素名称猜颜色，不对应水合离子式"
+          },
+          {
+            "label": "B",
+            "text": "Ni(II) 的水合阳离子 [Ni(H₂O)₆]²⁺ 常呈绿色"
+          },
+          {
+            "label": "C",
+            "text": "把 Fe(III)-SCN 血红色反应作为所有阳离子的颜色"
+          },
+          {
+            "label": "D",
+            "text": "把 CrO₄²⁻、MnO₄⁻ 等阴离子颜色当作水合阳离子颜色"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "本实验比较多种水合过渡金属阳离子的颜色，[Ni(H₂O)₆]²⁺ 常呈绿色，符合该观察目标。",
+        "difficulty": "basic",
+        "status": "reviewed_polished",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-6-c0cbece1"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "fill_blank"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "只按金属元素名称猜颜色，不对应水合离子式",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“过渡金属水合阳离子颜色记录”点位：只按金属元素名称猜颜色，不对应水合离子式。"
+          },
+          {
+            "label": "B",
+            "text": "Ni(II) 的水合阳离子 [Ni(H₂O)₆]²⁺ 常呈绿色",
+            "point_key": "candidate-6-c0cbece1",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“过渡金属水合阳离子颜色记录”点位：Ni(II) 的水合阳离子 [Ni(H₂O)₆]²⁺ 常呈绿色。"
+          },
+          {
+            "label": "C",
+            "text": "把 Fe(III)-SCN 血红色反应作为所有阳离子的颜色",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“过渡金属水合阳离子颜色记录”点位：把 Fe(III)-SCN 血红色反应作为所有阳离子的颜色。"
+          },
+          {
+            "label": "D",
+            "text": "把 CrO₄²⁻、MnO₄⁻ 等阴离子颜色当作水合阳离子颜色",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“过渡金属水合阳离子颜色记录”点位：把 CrO₄²⁻、MnO₄⁻ 等阴离子颜色当作水合阳离子颜色。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00327_e59c162b54",
+            "expchunk_00330_3a60414cf4"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01118_9e2eabedd8",
+            "textbook_prose_01119_8478df1f7f",
+            "textbook_prose_01305_dd5a94da50"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical。有效题由实验原文支撑；其中颜色、配位、氧化还原或鉴定依据需最小引用 supporting theory：textbook_prose_01118_9e2eabedd8, textbook_prose_01119_8478df1f7f, textbook_prose_01305_dd5a94da50。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00327_e59c162b54",
+            "expchunk_00330_3a60414cf4"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01118_9e2eabedd8",
+            "textbook_prose_01119_8478df1f7f",
+            "textbook_prose_01305_dd5a94da50"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01118_9e2eabedd8",
+            "textbook_prose_01119_8478df1f7f",
+            "textbook_prose_01305_dd5a94da50"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-3-01 水合阳离子颜色》实验中，Ni(II) 的水合阳离子 [Ni(H₂O)₆]²⁺ 常呈____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "绿色"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00330_3a60414cf4",
+              "expchunk_00327_e59c162b54"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-01 水合阳离子颜色》中，关于 过渡金属水合阳离子颜色记录，哪项表述正确？",
+            "options": [
+              {
+                "label": "A",
+                "text": "只按金属元素名称猜颜色，不对应水合离子式"
+              },
+              {
+                "label": "B",
+                "text": "Ni(II) 的水合阳离子 [Ni(H₂O)₆]²⁺ 常呈绿色"
+              },
+              {
+                "label": "C",
+                "text": "把 Fe(III)-SCN 血红色反应作为所有阳离子的颜色"
+              },
+              {
+                "label": "D",
+                "text": "把 CrO₄²⁻、MnO₄⁻ 等阴离子颜色当作水合阳离子颜色"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "本实验比较多种水合过渡金属阳离子的颜色，[Ni(H₂O)₆]²⁺ 常呈绿色，符合该观察目标。",
+            "difficulty": "basic",
+            "status": "reviewed_polished",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00330_3a60414cf4",
+              "expchunk_00327_e59c162b54"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "requires_supporting_theory",
+            "generic_shell_rewritten"
+          ]
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_01_023",
+        "source_review_id": "CHK5_SEM_EXP_20_3_01_023",
+        "source_question_index": 23,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《20-3-01 水合阳离子颜色》中，关于 过渡金属水合阳离子颜色记录，哪项表述正确？",
+        "options": [
+          {
+            "label": "A",
+            "text": "把 Fe(III)-SCN 血红色反应作为所有阳离子的颜色"
+          },
+          {
+            "label": "B",
+            "text": "Fe(II) 的水合阳离子 [Fe(H₂O)₆]²⁺ 常呈浅绿色"
+          },
+          {
+            "label": "C",
+            "text": "把 CrO₄²⁻、MnO₄⁻ 等阴离子颜色当作水合阳离子颜色"
+          },
+          {
+            "label": "D",
+            "text": "用 NH₃·H₂O 沉淀实验替代水合阳离子颜色对比"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "本实验比较多种水合过渡金属阳离子的颜色，[Fe(H₂O)₆]²⁺ 常呈浅绿色，符合该观察目标。",
+        "difficulty": "basic",
+        "status": "reviewed_polished",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-4-3926ad6c"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "fill_blank"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "把 Fe(III)-SCN 血红色反应作为所有阳离子的颜色",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“过渡金属水合阳离子颜色记录”点位：把 Fe(III)-SCN 血红色反应作为所有阳离子的颜色。"
+          },
+          {
+            "label": "B",
+            "text": "Fe(II) 的水合阳离子 [Fe(H₂O)₆]²⁺ 常呈浅绿色",
+            "point_key": "candidate-4-3926ad6c",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“过渡金属水合阳离子颜色记录”点位：Fe(II) 的水合阳离子 [Fe(H₂O)₆]²⁺ 常呈浅绿色。"
+          },
+          {
+            "label": "C",
+            "text": "把 CrO₄²⁻、MnO₄⁻ 等阴离子颜色当作水合阳离子颜色",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“过渡金属水合阳离子颜色记录”点位：把 CrO₄²⁻、MnO₄⁻ 等阴离子颜色当作水合阳离子颜色。"
+          },
+          {
+            "label": "D",
+            "text": "用 NH₃·H₂O 沉淀实验替代水合阳离子颜色对比",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“过渡金属水合阳离子颜色记录”点位的关键对象或条件：用 NH₃·H₂O 沉淀实验替代水合阳离子颜色对比。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00327_e59c162b54",
+            "expchunk_00330_3a60414cf4"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01118_9e2eabedd8",
+            "textbook_prose_01119_8478df1f7f"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical。有效题由实验原文支撑；其中颜色、配位、氧化还原或鉴定依据需最小引用 supporting theory：textbook_prose_01118_9e2eabedd8, textbook_prose_01119_8478df1f7f。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00327_e59c162b54",
+            "expchunk_00330_3a60414cf4"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01118_9e2eabedd8",
+            "textbook_prose_01119_8478df1f7f"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01118_9e2eabedd8",
+            "textbook_prose_01119_8478df1f7f"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-3-01 水合阳离子颜色》实验中，Fe(II) 的水合阳离子 [Fe(H₂O)₆]²⁺ 常呈____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "浅绿色"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00330_3a60414cf4",
+              "expchunk_00327_e59c162b54"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-01 水合阳离子颜色》中，关于 过渡金属水合阳离子颜色记录，哪项表述正确？",
+            "options": [
+              {
+                "label": "A",
+                "text": "把 Fe(III)-SCN 血红色反应作为所有阳离子的颜色"
+              },
+              {
+                "label": "B",
+                "text": "Fe(II) 的水合阳离子 [Fe(H₂O)₆]²⁺ 常呈浅绿色"
+              },
+              {
+                "label": "C",
+                "text": "把 CrO₄²⁻、MnO₄⁻ 等阴离子颜色当作水合阳离子颜色"
+              },
+              {
+                "label": "D",
+                "text": "用 NH₃·H₂O 沉淀实验替代水合阳离子颜色对比"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "本实验比较多种水合过渡金属阳离子的颜色，[Fe(H₂O)₆]²⁺ 常呈浅绿色，符合该观察目标。",
+            "difficulty": "basic",
+            "status": "reviewed_polished",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00330_3a60414cf4",
+              "expchunk_00327_e59c162b54"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "requires_supporting_theory",
+            "generic_shell_rewritten"
+          ]
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_01_024",
+        "source_review_id": "CHK5_SEM_EXP_20_3_01_024",
+        "source_question_index": 24,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《20-3-01 水合阳离子颜色》中，关于 过渡金属水合阳离子颜色记录，哪项表述正确？",
+        "options": [
+          {
+            "label": "A",
+            "text": "把 CrO₄²⁻、MnO₄⁻ 等阴离子颜色当作水合阳离子颜色"
+          },
+          {
+            "label": "B",
+            "text": "Mn(II) 的水合阳离子 [Mn(H₂O)₆]²⁺ 颜色通常很浅，可记为浅粉红色"
+          },
+          {
+            "label": "C",
+            "text": "用 NH₃·H₂O 沉淀实验替代水合阳离子颜色对比"
+          },
+          {
+            "label": "D",
+            "text": "只按金属元素名称猜颜色，不对应水合离子式"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "本实验比较水合过渡金属阳离子颜色，[Mn(H₂O)₆]²⁺ 的颜色较浅，可作为 Mn(II) 水合阳离子颜色判断。",
+        "difficulty": "basic",
+        "status": "reviewed_polished",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-99dd6b35"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "fill_blank"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "把 CrO₄²⁻、MnO₄⁻ 等阴离子颜色当作水合阳离子颜色",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“过渡金属水合阳离子颜色记录”点位：把 CrO₄²⁻、MnO₄⁻ 等阴离子颜色当作水合阳离子颜色。"
+          },
+          {
+            "label": "B",
+            "text": "Mn(II) 的水合阳离子 [Mn(H₂O)₆]²⁺ 颜色通常很浅，可记为浅粉红色",
+            "point_key": "candidate-3-99dd6b35",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“过渡金属水合阳离子颜色记录”点位：Mn(II) 的水合阳离子 [Mn(H₂O)₆]²⁺ 颜色通常很浅，可记为浅粉红色。"
+          },
+          {
+            "label": "C",
+            "text": "用 NH₃·H₂O 沉淀实验替代水合阳离子颜色对比",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“过渡金属水合阳离子颜色记录”点位的关键对象或条件：用 NH₃·H₂O 沉淀实验替代水合阳离子颜色对比。"
+          },
+          {
+            "label": "D",
+            "text": "只按金属元素名称猜颜色，不对应水合离子式",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“过渡金属水合阳离子颜色记录”点位：只按金属元素名称猜颜色，不对应水合离子式。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00327_e59c162b54",
+            "expchunk_00330_3a60414cf4"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01118_9e2eabedd8",
+            "textbook_prose_01119_8478df1f7f"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical。有效题由实验原文支撑；其中颜色、配位、氧化还原或鉴定依据需最小引用 supporting theory：textbook_prose_01118_9e2eabedd8, textbook_prose_01119_8478df1f7f。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00327_e59c162b54",
+            "expchunk_00330_3a60414cf4"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01118_9e2eabedd8",
+            "textbook_prose_01119_8478df1f7f"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01118_9e2eabedd8",
+            "textbook_prose_01119_8478df1f7f"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-3-01 水合阳离子颜色》实验中，Mn(II) 的水合阳离子 [Mn(H₂O)₆]²⁺ 颜色通常很浅，可记为____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "浅粉红色"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00330_3a60414cf4",
+              "expchunk_00327_e59c162b54"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-01 水合阳离子颜色》中，关于 过渡金属水合阳离子颜色记录，哪项表述正确？",
+            "options": [
+              {
+                "label": "A",
+                "text": "把 CrO₄²⁻、MnO₄⁻ 等阴离子颜色当作水合阳离子颜色"
+              },
+              {
+                "label": "B",
+                "text": "Mn(II) 的水合阳离子 [Mn(H₂O)₆]²⁺ 颜色通常很浅，可记为浅粉红色"
+              },
+              {
+                "label": "C",
+                "text": "用 NH₃·H₂O 沉淀实验替代水合阳离子颜色对比"
+              },
+              {
+                "label": "D",
+                "text": "只按金属元素名称猜颜色，不对应水合离子式"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "本实验比较水合过渡金属阳离子颜色，[Mn(H₂O)₆]²⁺ 的颜色较浅，可作为 Mn(II) 水合阳离子颜色判断。",
+            "difficulty": "basic",
+            "status": "reviewed_polished",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00330_3a60414cf4",
+              "expchunk_00327_e59c162b54"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "requires_supporting_theory",
+            "generic_shell_rewritten"
+          ]
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_01_025",
+        "source_review_id": "CHK5_SEM_EXP_20_3_01_025",
+        "source_question_index": 25,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《20-3-01 水合阳离子颜色》中，关于 过渡金属水合阳离子颜色记录，哪项表述正确？",
+        "options": [
+          {
+            "label": "A",
+            "text": "用 NH₃·H₂O 沉淀实验替代水合阳离子颜色对比"
+          },
+          {
+            "label": "B",
+            "text": "Cr(III) 的水合阳离子 [Cr(H₂O)₆]³⁺ 常呈紫色"
+          },
+          {
+            "label": "C",
+            "text": "只按金属元素名称猜颜色，不对应水合离子式"
+          },
+          {
+            "label": "D",
+            "text": "把 Fe(III)-SCN 血红色反应作为所有阳离子的颜色"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "本实验比较多种水合过渡金属阳离子的颜色，[Cr(H₂O)₆]³⁺ 常呈紫色，符合该观察目标。",
+        "difficulty": "basic",
+        "status": "reviewed_polished",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-1d49d35b"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "fill_blank"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "用 NH₃·H₂O 沉淀实验替代水合阳离子颜色对比",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“过渡金属水合阳离子颜色记录”点位的关键对象或条件：用 NH₃·H₂O 沉淀实验替代水合阳离子颜色对比。"
+          },
+          {
+            "label": "B",
+            "text": "Cr(III) 的水合阳离子 [Cr(H₂O)₆]³⁺ 常呈紫色",
+            "point_key": "candidate-2-1d49d35b",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“过渡金属水合阳离子颜色记录”点位：Cr(III) 的水合阳离子 [Cr(H₂O)₆]³⁺ 常呈紫色。"
+          },
+          {
+            "label": "C",
+            "text": "只按金属元素名称猜颜色，不对应水合离子式",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“过渡金属水合阳离子颜色记录”点位：只按金属元素名称猜颜色，不对应水合离子式。"
+          },
+          {
+            "label": "D",
+            "text": "把 Fe(III)-SCN 血红色反应作为所有阳离子的颜色",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“过渡金属水合阳离子颜色记录”点位：把 Fe(III)-SCN 血红色反应作为所有阳离子的颜色。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00327_e59c162b54",
+            "expchunk_00330_3a60414cf4"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01118_9e2eabedd8",
+            "textbook_prose_01119_8478df1f7f"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical。有效题由实验原文支撑；其中颜色、配位、氧化还原或鉴定依据需最小引用 supporting theory：textbook_prose_01118_9e2eabedd8, textbook_prose_01119_8478df1f7f。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00327_e59c162b54",
+            "expchunk_00330_3a60414cf4"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01118_9e2eabedd8",
+            "textbook_prose_01119_8478df1f7f"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01118_9e2eabedd8",
+            "textbook_prose_01119_8478df1f7f"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-3-01 水合阳离子颜色》实验中，Cr(III) 的水合阳离子 [Cr(H₂O)₆]³⁺ 常呈____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "紫色"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00330_3a60414cf4",
+              "expchunk_00327_e59c162b54"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-01 水合阳离子颜色》中，关于 过渡金属水合阳离子颜色记录，哪项表述正确？",
+            "options": [
+              {
+                "label": "A",
+                "text": "用 NH₃·H₂O 沉淀实验替代水合阳离子颜色对比"
+              },
+              {
+                "label": "B",
+                "text": "Cr(III) 的水合阳离子 [Cr(H₂O)₆]³⁺ 常呈紫色"
+              },
+              {
+                "label": "C",
+                "text": "只按金属元素名称猜颜色，不对应水合离子式"
+              },
+              {
+                "label": "D",
+                "text": "把 Fe(III)-SCN 血红色反应作为所有阳离子的颜色"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "本实验比较多种水合过渡金属阳离子的颜色，[Cr(H₂O)₆]³⁺ 常呈紫色，符合该观察目标。",
+            "difficulty": "basic",
+            "status": "reviewed_polished",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00330_3a60414cf4",
+              "expchunk_00327_e59c162b54"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "requires_supporting_theory",
+            "generic_shell_rewritten"
+          ]
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_01_026",
+        "source_review_id": "CHK5_SEM_EXP_20_3_01_026",
+        "source_question_index": 26,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《20-3-01 水合阳离子颜色》中，关于 过渡金属水合阳离子颜色记录，哪项表述正确？",
+        "options": [
+          {
+            "label": "A",
+            "text": "只按金属元素名称猜颜色，不对应水合离子式"
+          },
+          {
+            "label": "B",
+            "text": "Ti(III) 的水合阳离子 [Ti(H₂O)₆]³⁺ 常呈紫色"
+          },
+          {
+            "label": "C",
+            "text": "把 Fe(III)-SCN 血红色反应作为所有阳离子的颜色"
+          },
+          {
+            "label": "D",
+            "text": "把 CrO₄²⁻、MnO₄⁻ 等阴离子颜色当作水合阳离子颜色"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "本实验比较多种水合过渡金属阳离子的颜色，[Ti(H₂O)₆]³⁺ 常呈紫色，符合该观察目标。",
+        "difficulty": "basic",
+        "status": "reviewed_polished",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-e0d18274"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "fill_blank"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "只按金属元素名称猜颜色，不对应水合离子式",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“过渡金属水合阳离子颜色记录”点位：只按金属元素名称猜颜色，不对应水合离子式。"
+          },
+          {
+            "label": "B",
+            "text": "Ti(III) 的水合阳离子 [Ti(H₂O)₆]³⁺ 常呈紫色",
+            "point_key": "candidate-1-e0d18274",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“过渡金属水合阳离子颜色记录”点位：Ti(III) 的水合阳离子 [Ti(H₂O)₆]³⁺ 常呈紫色。"
+          },
+          {
+            "label": "C",
+            "text": "把 Fe(III)-SCN 血红色反应作为所有阳离子的颜色",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“过渡金属水合阳离子颜色记录”点位：把 Fe(III)-SCN 血红色反应作为所有阳离子的颜色。"
+          },
+          {
+            "label": "D",
+            "text": "把 CrO₄²⁻、MnO₄⁻ 等阴离子颜色当作水合阳离子颜色",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“过渡金属水合阳离子颜色记录”点位：把 CrO₄²⁻、MnO₄⁻ 等阴离子颜色当作水合阳离子颜色。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00327_e59c162b54",
+            "expchunk_00330_3a60414cf4"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01118_9e2eabedd8",
+            "textbook_prose_01119_8478df1f7f"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical。有效题由实验原文支撑；其中颜色、配位、氧化还原或鉴定依据需最小引用 supporting theory：textbook_prose_01118_9e2eabedd8, textbook_prose_01119_8478df1f7f。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00327_e59c162b54",
+            "expchunk_00330_3a60414cf4"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01118_9e2eabedd8",
+            "textbook_prose_01119_8478df1f7f"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01118_9e2eabedd8",
+            "textbook_prose_01119_8478df1f7f"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-3-01 水合阳离子颜色》实验中，Ti(III) 的水合阳离子 [Ti(H₂O)₆]³⁺ 常呈____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "紫色"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00330_3a60414cf4",
+              "expchunk_00327_e59c162b54"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-01 水合阳离子颜色》中，关于 过渡金属水合阳离子颜色记录，哪项表述正确？",
+            "options": [
+              {
+                "label": "A",
+                "text": "只按金属元素名称猜颜色，不对应水合离子式"
+              },
+              {
+                "label": "B",
+                "text": "Ti(III) 的水合阳离子 [Ti(H₂O)₆]³⁺ 常呈紫色"
+              },
+              {
+                "label": "C",
+                "text": "把 Fe(III)-SCN 血红色反应作为所有阳离子的颜色"
+              },
+              {
+                "label": "D",
+                "text": "把 CrO₄²⁻、MnO₄⁻ 等阴离子颜色当作水合阳离子颜色"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "本实验比较多种水合过渡金属阳离子的颜色，[Ti(H₂O)₆]³⁺ 常呈紫色，符合该观察目标。",
+            "difficulty": "basic",
+            "status": "reviewed_polished",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00330_3a60414cf4",
+              "expchunk_00327_e59c162b54"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "requires_supporting_theory",
+            "generic_shell_rewritten"
+          ]
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_01_027",
+        "source_review_id": "CHK5_SEM_EXP_20_3_01_027",
+        "source_question_index": 27,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《20-3-01 水合阳离子颜色》中，关于 过渡金属水合阳离子颜色记录，哪项表述正确？",
+        "options": [
+          {
+            "label": "A",
+            "text": "把 Fe(III)-SCN 血红色反应作为所有阳离子的颜色"
+          },
+          {
+            "label": "B",
+            "text": "该实验观察并熟悉过渡金属水合阳离子的颜色"
+          },
+          {
+            "label": "C",
+            "text": "把 CrO₄²⁻、MnO₄⁻ 等阴离子颜色当作水合阳离子颜色"
+          },
+          {
+            "label": "D",
+            "text": "用 NH₃·H₂O 沉淀实验替代水合阳离子颜色对比"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "本实验的核心任务是比较多种水合过渡金属阳离子的颜色，选项 B 概括了该观察目标。",
+        "difficulty": "basic",
+        "status": "reviewed_polished",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-e0d18274"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-1d49d35b",
+          "candidate-3-99dd6b35",
+          "candidate-4-3926ad6c",
+          "candidate-5-a4376972",
+          "candidate-6-c0cbece1"
+        ],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "fill_blank"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "把 Fe(III)-SCN 血红色反应作为所有阳离子的颜色",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“过渡金属水合阳离子颜色记录”点位：把 Fe(III)-SCN 血红色反应作为所有阳离子的颜色。"
+          },
+          {
+            "label": "B",
+            "text": "该实验观察并熟悉过渡金属水合阳离子的颜色",
+            "point_key": "candidate-1-e0d18274",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“过渡金属水合阳离子颜色记录”点位：该实验观察并熟悉过渡金属水合阳离子的颜色。"
+          },
+          {
+            "label": "C",
+            "text": "把 CrO₄²⁻、MnO₄⁻ 等阴离子颜色当作水合阳离子颜色",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“过渡金属水合阳离子颜色记录”点位：把 CrO₄²⁻、MnO₄⁻ 等阴离子颜色当作水合阳离子颜色。"
+          },
+          {
+            "label": "D",
+            "text": "用 NH₃·H₂O 沉淀实验替代水合阳离子颜色对比",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“过渡金属水合阳离子颜色记录”点位的关键对象或条件：用 NH₃·H₂O 沉淀实验替代水合阳离子颜色对比。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00327_e59c162b54",
+            "expchunk_00330_3a60414cf4"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00327_e59c162b54",
+            "expchunk_00330_3a60414cf4"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-3-01 水合阳离子颜色》实验中，该实验观察并熟悉过渡金属____的颜色。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "水合阳离子"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00330_3a60414cf4",
+              "expchunk_00327_e59c162b54"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-01 水合阳离子颜色》中，关于 过渡金属水合阳离子颜色记录，哪项表述正确？",
+            "options": [
+              {
+                "label": "A",
+                "text": "把 Fe(III)-SCN 血红色反应作为所有阳离子的颜色"
+              },
+              {
+                "label": "B",
+                "text": "该实验观察并熟悉过渡金属水合阳离子的颜色"
+              },
+              {
+                "label": "C",
+                "text": "把 CrO₄²⁻、MnO₄⁻ 等阴离子颜色当作水合阳离子颜色"
+              },
+              {
+                "label": "D",
+                "text": "用 NH₃·H₂O 沉淀实验替代水合阳离子颜色对比"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "本实验的核心任务是比较多种水合过渡金属阳离子的颜色，选项 B 概括了该观察目标。",
+            "difficulty": "basic",
+            "status": "reviewed_polished",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00330_3a60414cf4",
+              "expchunk_00327_e59c162b54"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "generic_shell_rewritten"
+          ]
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_01_028",
+        "source_review_id": "CHK5_SEM_EXP_20_3_01_028",
+        "source_question_index": 28,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《20-3-01 水合阳离子颜色》中，关于 过渡金属水合阳离子颜色记录，哪项表述正确？",
+        "options": [
+          {
+            "label": "A",
+            "text": "把 CrO₄²⁻、MnO₄⁻ 等阴离子颜色当作水合阳离子颜色"
+          },
+          {
+            "label": "B",
+            "text": "水合阳离子颜色判断需要把离子式与对应颜色配对"
+          },
+          {
+            "label": "C",
+            "text": "用 NH₃·H₂O 沉淀实验替代水合阳离子颜色对比"
+          },
+          {
+            "label": "D",
+            "text": "只按金属元素名称猜颜色，不对应水合离子式"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "比较水合阳离子颜色时，需要把具体离子式与对应颜色配对，不能只记元素名称。",
+        "difficulty": "basic",
+        "status": "reviewed_polished",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-e0d18274"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-1d49d35b",
+          "candidate-3-99dd6b35",
+          "candidate-4-3926ad6c",
+          "candidate-5-a4376972",
+          "candidate-6-c0cbece1"
+        ],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "fill_blank"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "把 CrO₄²⁻、MnO₄⁻ 等阴离子颜色当作水合阳离子颜色",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“过渡金属水合阳离子颜色记录”点位：把 CrO₄²⁻、MnO₄⁻ 等阴离子颜色当作水合阳离子颜色。"
+          },
+          {
+            "label": "B",
+            "text": "水合阳离子颜色判断需要把离子式与对应颜色配对",
+            "point_key": "candidate-1-e0d18274",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“过渡金属水合阳离子颜色记录”点位：水合阳离子颜色判断需要把离子式与对应颜色配对。"
+          },
+          {
+            "label": "C",
+            "text": "用 NH₃·H₂O 沉淀实验替代水合阳离子颜色对比",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“过渡金属水合阳离子颜色记录”点位的关键对象或条件：用 NH₃·H₂O 沉淀实验替代水合阳离子颜色对比。"
+          },
+          {
+            "label": "D",
+            "text": "只按金属元素名称猜颜色，不对应水合离子式",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“过渡金属水合阳离子颜色记录”点位：只按金属元素名称猜颜色，不对应水合离子式。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00327_e59c162b54",
+            "expchunk_00330_3a60414cf4"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00327_e59c162b54",
+            "expchunk_00330_3a60414cf4"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-3-01 水合阳离子颜色》实验中，CrO₄²⁻、Cr₂O₇²⁻、MnO₄⁻ 在该实验中归为____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "阴离子"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00330_3a60414cf4",
+              "expchunk_00327_e59c162b54"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-01 水合阳离子颜色》中，关于 过渡金属水合阳离子颜色记录，哪项表述正确？",
+            "options": [
+              {
+                "label": "A",
+                "text": "把 CrO₄²⁻、MnO₄⁻ 等阴离子颜色当作水合阳离子颜色"
+              },
+              {
+                "label": "B",
+                "text": "水合阳离子颜色判断需要把离子式与对应颜色配对"
+              },
+              {
+                "label": "C",
+                "text": "用 NH₃·H₂O 沉淀实验替代水合阳离子颜色对比"
+              },
+              {
+                "label": "D",
+                "text": "只按金属元素名称猜颜色，不对应水合离子式"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "比较水合阳离子颜色时，需要把具体离子式与对应颜色配对，不能只记元素名称。",
+            "difficulty": "basic",
+            "status": "reviewed_polished",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00330_3a60414cf4",
+              "expchunk_00327_e59c162b54"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "generic_shell_rewritten"
+          ]
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_01_029",
+        "source_review_id": "CHK5_SEM_EXP_20_3_01_029",
+        "source_question_index": 29,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《20-3-01 水合阳离子颜色》中，关于 过渡金属水合阳离子颜色记录，哪项表述正确？",
+        "options": [
+          {
+            "label": "A",
+            "text": "用 NH₃·H₂O 沉淀实验替代水合阳离子颜色对比"
+          },
+          {
+            "label": "B",
+            "text": "[Fe(H₂O)₆]²⁺ 中中心金属元素是 Fe"
+          },
+          {
+            "label": "C",
+            "text": "只按金属元素名称猜颜色，不对应水合离子式"
+          },
+          {
+            "label": "D",
+            "text": "把 Fe(III)-SCN 血红色反应作为所有阳离子的颜色"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "[Fe(H₂O)₆]²⁺ 是本实验比较的水合阳离子之一，其中心金属元素为 Fe。",
+        "difficulty": "basic",
+        "status": "reviewed_polished",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-4-3926ad6c"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "fill_blank"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "用 NH₃·H₂O 沉淀实验替代水合阳离子颜色对比",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“过渡金属水合阳离子颜色记录”点位的关键对象或条件：用 NH₃·H₂O 沉淀实验替代水合阳离子颜色对比。"
+          },
+          {
+            "label": "B",
+            "text": "[Fe(H₂O)₆]²⁺ 中中心金属元素是 Fe",
+            "point_key": "candidate-4-3926ad6c",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“过渡金属水合阳离子颜色记录”点位：[Fe(H₂O)₆]²⁺ 中中心金属元素是 Fe。"
+          },
+          {
+            "label": "C",
+            "text": "只按金属元素名称猜颜色，不对应水合离子式",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“过渡金属水合阳离子颜色记录”点位：只按金属元素名称猜颜色，不对应水合离子式。"
+          },
+          {
+            "label": "D",
+            "text": "把 Fe(III)-SCN 血红色反应作为所有阳离子的颜色",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“过渡金属水合阳离子颜色记录”点位：把 Fe(III)-SCN 血红色反应作为所有阳离子的颜色。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00327_e59c162b54",
+            "expchunk_00330_3a60414cf4"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01118_9e2eabedd8",
+            "textbook_prose_01119_8478df1f7f"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical。有效题由实验原文支撑；其中颜色、配位、氧化还原或鉴定依据需最小引用 supporting theory：textbook_prose_01118_9e2eabedd8, textbook_prose_01119_8478df1f7f。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00327_e59c162b54",
+            "expchunk_00330_3a60414cf4"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01118_9e2eabedd8",
+            "textbook_prose_01119_8478df1f7f"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01118_9e2eabedd8",
+            "textbook_prose_01119_8478df1f7f"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-3-01 水合阳离子颜色》实验中，[Fe(H₂O)₆]²⁺ 中中心金属元素是____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "Fe",
+                "铁"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00330_3a60414cf4",
+              "expchunk_00327_e59c162b54"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-01 水合阳离子颜色》中，关于 过渡金属水合阳离子颜色记录，哪项表述正确？",
+            "options": [
+              {
+                "label": "A",
+                "text": "用 NH₃·H₂O 沉淀实验替代水合阳离子颜色对比"
+              },
+              {
+                "label": "B",
+                "text": "[Fe(H₂O)₆]²⁺ 中中心金属元素是 Fe"
+              },
+              {
+                "label": "C",
+                "text": "只按金属元素名称猜颜色，不对应水合离子式"
+              },
+              {
+                "label": "D",
+                "text": "把 Fe(III)-SCN 血红色反应作为所有阳离子的颜色"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "[Fe(H₂O)₆]²⁺ 是本实验比较的水合阳离子之一，其中心金属元素为 Fe。",
+            "difficulty": "basic",
+            "status": "reviewed_polished",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00330_3a60414cf4",
+              "expchunk_00327_e59c162b54"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "requires_supporting_theory",
+            "generic_shell_rewritten"
+          ]
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_01_030",
+        "source_review_id": "CHK5_SEM_EXP_20_3_01_030",
+        "source_question_index": 30,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《20-3-01 水合阳离子颜色》中，关于 过渡金属水合阳离子颜色记录，哪项表述正确？",
+        "options": [
+          {
+            "label": "A",
+            "text": "只按金属元素名称猜颜色，不对应水合离子式"
+          },
+          {
+            "label": "B",
+            "text": "[Ni(H₂O)₆]²⁺ 中配位水分子数为 6"
+          },
+          {
+            "label": "C",
+            "text": "把 Fe(III)-SCN 血红色反应作为所有阳离子的颜色"
+          },
+          {
+            "label": "D",
+            "text": "把 CrO₄²⁻、MnO₄⁻ 等阴离子颜色当作水合阳离子颜色"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "[Ni(H₂O)₆]²⁺ 是本实验比较的水合阳离子之一，式中配位水分子数为 6。",
+        "difficulty": "basic",
+        "status": "reviewed_polished",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-6-c0cbece1"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "fill_blank"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "只按金属元素名称猜颜色，不对应水合离子式",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“过渡金属水合阳离子颜色记录”点位：只按金属元素名称猜颜色，不对应水合离子式。"
+          },
+          {
+            "label": "B",
+            "text": "[Ni(H₂O)₆]²⁺ 中配位水分子数为 6",
+            "point_key": "candidate-6-c0cbece1",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“过渡金属水合阳离子颜色记录”点位：[Ni(H₂O)₆]²⁺ 中配位水分子数为 6。"
+          },
+          {
+            "label": "C",
+            "text": "把 Fe(III)-SCN 血红色反应作为所有阳离子的颜色",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“过渡金属水合阳离子颜色记录”点位：把 Fe(III)-SCN 血红色反应作为所有阳离子的颜色。"
+          },
+          {
+            "label": "D",
+            "text": "把 CrO₄²⁻、MnO₄⁻ 等阴离子颜色当作水合阳离子颜色",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“过渡金属水合阳离子颜色记录”点位：把 CrO₄²⁻、MnO₄⁻ 等阴离子颜色当作水合阳离子颜色。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00327_e59c162b54",
+            "expchunk_00330_3a60414cf4"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01118_9e2eabedd8",
+            "textbook_prose_01119_8478df1f7f"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical。有效题由实验原文支撑；其中颜色、配位、氧化还原或鉴定依据需最小引用 supporting theory：textbook_prose_01118_9e2eabedd8, textbook_prose_01119_8478df1f7f。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00327_e59c162b54",
+            "expchunk_00330_3a60414cf4"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01118_9e2eabedd8",
+            "textbook_prose_01119_8478df1f7f"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01118_9e2eabedd8",
+            "textbook_prose_01119_8478df1f7f"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-3-01 水合阳离子颜色》实验中，[Ni(H₂O)₆]²⁺ 中配位水分子数为____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "6",
+                "六"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00330_3a60414cf4",
+              "expchunk_00327_e59c162b54"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-01 水合阳离子颜色》中，关于 过渡金属水合阳离子颜色记录，哪项表述正确？",
+            "options": [
+              {
+                "label": "A",
+                "text": "只按金属元素名称猜颜色，不对应水合离子式"
+              },
+              {
+                "label": "B",
+                "text": "[Ni(H₂O)₆]²⁺ 中配位水分子数为 6"
+              },
+              {
+                "label": "C",
+                "text": "把 Fe(III)-SCN 血红色反应作为所有阳离子的颜色"
+              },
+              {
+                "label": "D",
+                "text": "把 CrO₄²⁻、MnO₄⁻ 等阴离子颜色当作水合阳离子颜色"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "[Ni(H₂O)₆]²⁺ 是本实验比较的水合阳离子之一，式中配位水分子数为 6。",
+            "difficulty": "basic",
+            "status": "reviewed_polished",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00330_3a60414cf4",
+              "expchunk_00327_e59c162b54"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "requires_supporting_theory",
+            "generic_shell_rewritten"
+          ]
+        }
+      }
+    ]
+  }
+}

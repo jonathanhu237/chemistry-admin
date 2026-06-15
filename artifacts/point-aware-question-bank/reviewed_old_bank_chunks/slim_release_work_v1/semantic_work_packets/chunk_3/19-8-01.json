@@ -1,0 +1,3458 @@
+{
+  "metadata": {
+    "version": "chunk-3-release-slim-v1",
+    "artifact_type": "slim_question_bank_work_file",
+    "generated_at": "2026-06-15T03:27:58.895975+00:00",
+    "source_file": "E:\\chemistry-admin\\artifacts\\point-aware-question-bank\\reviewed_old_bank_chunks\\chunk_3_release_final_v1.json",
+    "normalization_rule": "effective question plus minimal lineage, evidence IDs, point bindings, option links, evidence locators, and mechanical risk flags",
+    "evidence_policy": "RAG source text is not embedded; packets carry locators and reviewers must read E:/chemistry-rag/data/rag_ready directly",
+    "chunk_id_policy": "inherited chunk ids are untrusted locator candidates until manually compared with RAG text",
+    "semantic_status": "not_semantically_repaired_by_this_script",
+    "packet_type": "single_experiment_semantic_repair_work_packet",
+    "chunk": 3,
+    "experiment_code": "19-8-01",
+    "question_count": 30
+  },
+  "experiment": {
+    "experiment_id": "EXP_19_8_01",
+    "experiment_code": "19-8-01",
+    "experiment_title": "Pb(OH)₂ 的生成与性质",
+    "chapter_bindings": [
+      {
+        "chapter_id": "CH16",
+        "coverage_type": "partial",
+        "sort_order": 1
+      },
+      {
+        "chapter_id": "CH15",
+        "coverage_type": "partial",
+        "sort_order": 2
+      }
+    ],
+    "video_points": [
+      {
+        "point_key": "candidate-1-356d797d",
+        "point_title": "Pb(NO₃)₂ + NaOH",
+        "source": null,
+        "candidate_index": null,
+        "resource_count": null,
+        "published_count": null,
+        "resource_titles": []
+      },
+      {
+        "point_key": "candidate-2-38e31e57",
+        "point_title": "Pb(OH)₂ + HNO₃",
+        "source": null,
+        "candidate_index": null,
+        "resource_count": null,
+        "published_count": null,
+        "resource_titles": []
+      },
+      {
+        "point_key": "candidate-3-2d7041d5",
+        "point_title": "Pb(OH)₂ + NaOH",
+        "source": null,
+        "candidate_index": null,
+        "resource_count": null,
+        "published_count": null,
+        "resource_titles": []
+      }
+    ],
+    "canonical_chunk_ids": [
+      "expchunk_00295_b30319fd2c"
+    ],
+    "evidence_lookup": {
+      "policy": "locator_only; canonical RAG text is not embedded in this packet",
+      "chunk_id_policy": "metadata chunk ids are inherited claims, not trusted evidence; reviewers must compare the RAG text against the question stem/options/answer/explanation and replace or remove wrong ids",
+      "primary_source_dir": "E:\\chemistry-rag\\data\\rag_ready",
+      "source_files": {
+        "experiment_chunks": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+        "supporting_theory_chunks": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl"
+      },
+      "search_hints": {
+        "experiment_code": "19-8-01",
+        "parent_experiment_code": "19-8",
+        "experiment_title": "Pb(OH)₂ 的生成与性质",
+        "video_point_titles": [
+          "Pb(NO₃)₂ + NaOH",
+          "Pb(OH)₂ + HNO₃",
+          "Pb(OH)₂ + NaOH"
+        ],
+        "canonical_chunk_ids_from_metadata": [
+          "expchunk_00295_b30319fd2c"
+        ],
+        "supporting_theory_chunk_ids_from_metadata": [],
+        "suggested_search_patterns": [
+          "19-8-01",
+          "19-8",
+          "Pb(OH)₂ 的生成与性质",
+          "Pb(NO₃)₂ + NaOH",
+          "Pb(OH)₂ + HNO₃",
+          "Pb(OH)₂ + NaOH",
+          "expchunk_00295_b30319fd2c"
+        ]
+      },
+      "rag_exact_id_presence": {
+        "meaning": "id presence only; this does not validate semantic relevance",
+        "found_ids": [
+          "expchunk_00295_b30319fd2c"
+        ],
+        "missing_ids": [],
+        "found_locator_summaries": [
+          {
+            "chunk_id": "expchunk_00295_b30319fd2c",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+            "line_number": 308,
+            "source_collection": "textbook_experiment_clean_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学实验（第四版）",
+            "page_start": 159,
+            "page_end": 159,
+            "section_path": [
+              "第7章 元素性质实验",
+              "实验 19-8 锡、铅、砷、锑、铋",
+              "（四）实验内容",
+              "1. 氢氧化物的性质"
+            ],
+            "content_type": "property_test",
+            "knowledge_unit": "property_test",
+            "parent_id": "expchunk_protocol_ccb6245e7635",
+            "prev_chunk_id": "expchunk_00294_7dad070b73",
+            "next_chunk_id": "expchunk_00296_a4c00bb9d1",
+            "relations": {
+              "section_id": "expsec_d0f3705edaae1a5e",
+              "experiment_id": "experiment:实验_19-8_锡_铅_砷_锑_铋",
+              "page_anchor": "page_159",
+              "parent": "expchunk_protocol_ccb6245e7635"
+            }
+          }
+        ]
+      },
+      "legacy_locator_summaries": [
+        {
+          "chunk_id": "expchunk_00295_b30319fd2c",
+          "source_file": "无机化学实验（第四版）",
+          "book_title": "无机化学实验（第四版）",
+          "document_id": "DOC_CANONICAL_EXPERIMENT_V1",
+          "source_collection": "textbook_experiment_clean_v1",
+          "source_role": "canonical_textbook",
+          "content_type": "property_test",
+          "chapter_id": null,
+          "page_number": 159,
+          "section_title": "实验 19-8 锡、铅、砷、锑、铋 / （四）实验内容 / 1. 氢氧化物的性质",
+          "section_path": [
+            "第7章 元素性质实验",
+            "实验 19-8 锡、铅、砷、锑、铋",
+            "（四）实验内容",
+            "1. 氢氧化物的性质"
+          ]
+        }
+      ],
+      "legacy_missing_ids": []
+    },
+    "questions": [
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_01_Q001",
+        "source_review_id": null,
+        "source_question_index": 1,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-8-01 Pb(OH)₂ 的生成与性质》实验中，生成 Pb(OH)₂ 时，向 Pb(NO₃)₂ 溶液中滴加的是哪种溶液？",
+        "options": [
+          {
+            "label": "A",
+            "text": "KI"
+          },
+          {
+            "label": "B",
+            "text": "CCl₄"
+          },
+          {
+            "label": "C",
+            "text": "NaOH"
+          },
+          {
+            "label": "D",
+            "text": "KSCN"
+          }
+        ],
+        "answer": {
+          "value": "C"
+        },
+        "explanation": "步骤指定滴加 2 mol·L⁻¹ NaOH。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-356d797d"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_01",
+          "single_choice",
+          "point_1",
+          "polished_final_v1"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "KI",
+            "point_key": "candidate-1-356d797d",
+            "role": "adjacent_experiment",
+            "diagnostic_note": "“KI”借用了KI/CCl₄ 氧化性实验的线索，和本题绑定点位不一致。"
+          },
+          {
+            "label": "B",
+            "text": "CCl₄",
+            "point_key": "candidate-1-356d797d",
+            "role": "adjacent_experiment",
+            "diagnostic_note": "“CCl₄”借用了KI/CCl₄ 萃取碘的线索，和本题绑定点位不一致。"
+          },
+          {
+            "label": "C",
+            "text": "NaOH",
+            "point_key": "candidate-1-356d797d",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接对应本题考查的实验操作、现象或结论。"
+          },
+          {
+            "label": "D",
+            "text": "KSCN",
+            "point_key": "candidate-1-356d797d",
+            "role": "adjacent_experiment",
+            "diagnostic_note": "“KSCN”借用了Fe³⁺/KSCN 血红色检验的线索，和本题绑定点位不一致。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题答案可由 canonical 实验原文的对象、步骤或观察任务直接支撑，未额外引用 theory。 绑定点位：Pb(NO₃)₂ + NaOH。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "template_option_link_diagnostic"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-8-01 Pb(OH)₂ 的生成与性质》实验中，生成 Pb(OH)₂ 时，向 Pb(NO₃)₂ 溶液中滴加的是哪种溶液？",
+            "options": [
+              {
+                "label": "A",
+                "text": "KI"
+              },
+              {
+                "label": "B",
+                "text": "CCl₄"
+              },
+              {
+                "label": "C",
+                "text": "NaOH"
+              },
+              {
+                "label": "D",
+                "text": "KSCN"
+              }
+            ],
+            "answer": {
+              "value": "C"
+            },
+            "explanation": "步骤指定滴加 2 mol·L⁻¹ NaOH。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00295_b30319fd2c"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_01_Q002_R1",
+        "source_review_id": null,
+        "source_question_index": 2,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-8-01 Pb(OH)₂ 的生成与性质》实验中，将 Pb(OH)₂ 沉淀分别与 HNO₃ 和过量 NaOH 作用，最主要是为了判断什么？",
+        "options": [
+          {
+            "label": "A",
+            "text": "Pb(OH)₂ 是否具有两性氢氧化物特征"
+          },
+          {
+            "label": "B",
+            "text": "Pb(NO₃)₂ 溶液的精确配制浓度"
+          },
+          {
+            "label": "C",
+            "text": "CCl₄ 是否能萃取 Pb²⁺"
+          },
+          {
+            "label": "D",
+            "text": "KSCN 是否能检验 Pb(IV)"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "该实验的关键不是背浓度，而是通过酸、碱两种条件观察 Pb(OH)₂ 的溶解/反应，判断其两性。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-38e31e57",
+          "candidate-3-2d7041d5"
+        ],
+        "secondary_point_keys": [
+          "candidate-3-2d7041d5"
+        ],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_01",
+          "single_choice",
+          "point_2",
+          "point_3",
+          "rewritten_replacement",
+          "polished_final_v1"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "Pb(OH)₂ 是否具有两性氢氧化物特征",
+            "point_key": "candidate-3-2d7041d5",
+            "role": "correct_evidence",
+            "diagnostic_note": "“Pb(OH)₂ 是否具有两性氢氧化物特征”对应本题正确判断；教材步骤/点位支撑“在《19-8-01 Pb(OH)₂ 的生成与性质》实验中，将 P”中的关键操作或结论。"
+          },
+          {
+            "label": "B",
+            "text": "Pb(NO₃)₂ 溶液的精确配制浓度",
+            "point_key": "candidate-1-356d797d",
+            "role": "adjacent_point",
+            "diagnostic_note": "“Pb(NO₃)₂ 溶液的精确配制浓度”属于同一实验的“Pb(NO₃)₂ + NaOH”点位，但本题考查的是“Pb(OH)₂ + HNO₃; Pb(OH)₂ + NaOH”。"
+          },
+          {
+            "label": "C",
+            "text": "CCl₄ 是否能萃取 Pb²⁺",
+            "point_key": "candidate-2-38e31e57",
+            "role": "adjacent_experiment",
+            "diagnostic_note": "“CCl₄ 是否能萃取 Pb²⁺”借用了KI/CCl₄ 萃取碘的线索，和本题绑定点位不一致。"
+          },
+          {
+            "label": "D",
+            "text": "KSCN 是否能检验 Pb(IV)",
+            "point_key": "candidate-2-38e31e57",
+            "role": "adjacent_experiment",
+            "diagnostic_note": "“KSCN 是否能检验 Pb(IV)”借用了Fe³⁺/KSCN 血红色检验的线索，和本题绑定点位不一致。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题答案可由 canonical 实验原文的对象、步骤或观察任务直接支撑，未额外引用 theory。 绑定点位：Pb(OH)₂ + HNO₃；Pb(OH)₂ + NaOH。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-8-01 Pb(OH)₂ 的生成与性质》实验中，实验中 Pb(NO₃)₂ 溶液的浓度为下列哪一项？",
+            "options": [
+              {
+                "label": "A",
+                "text": "6 mol·L⁻¹"
+              },
+              {
+                "label": "B",
+                "text": "40%"
+              },
+              {
+                "label": "C",
+                "text": "饱和但未注明"
+              },
+              {
+                "label": "D",
+                "text": "0.1 mol·L⁻¹"
+              }
+            ],
+            "answer": {
+              "value": "D"
+            },
+            "explanation": "实验资料给出 0.1 mol·L⁻¹ Pb(NO₃)₂。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00295_b30319fd2c"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-8-01 Pb(OH)₂ 的生成与性质》实验中，将 Pb(OH)₂ 沉淀分别与 HNO₃ 和过量 NaOH 作用，最主要是为了判断什么？",
+            "options": [
+              {
+                "label": "A",
+                "text": "Pb(OH)₂ 是否具有两性氢氧化物特征"
+              },
+              {
+                "label": "B",
+                "text": "Pb(NO₃)₂ 溶液的精确配制浓度"
+              },
+              {
+                "label": "C",
+                "text": "CCl₄ 是否能萃取 Pb²⁺"
+              },
+              {
+                "label": "D",
+                "text": "KSCN 是否能检验 Pb(IV)"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "该实验的关键不是背浓度，而是通过酸、碱两种条件观察 Pb(OH)₂ 的溶解/反应，判断其两性。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [
+              "expchunk_00295_b30319fd2c"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_01_Q003",
+        "source_review_id": null,
+        "source_question_index": 3,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-8-01 Pb(OH)₂ 的生成与性质》实验中，生成的 Pb(OH)₂ 沉淀分别要与哪两种 2 mol·L⁻¹ 溶液作用？",
+        "options": [
+          {
+            "label": "A",
+            "text": "HNO₃ 和 NaOH"
+          },
+          {
+            "label": "B",
+            "text": "KI 和 CCl₄"
+          },
+          {
+            "label": "C",
+            "text": "KSCN 和 FeCl₃"
+          },
+          {
+            "label": "D",
+            "text": "BaCl₂ 和 H₂SO₄"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "步骤要求试验其与 HNO₃ 和 NaOH 的反应。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-356d797d",
+          "candidate-2-38e31e57",
+          "candidate-3-2d7041d5"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-38e31e57",
+          "candidate-3-2d7041d5"
+        ],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_01",
+          "single_choice",
+          "point_1",
+          "point_2",
+          "point_3",
+          "polished_final_v1"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "HNO₃ 和 NaOH",
+            "point_key": "candidate-1-356d797d",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接对应本题考查的实验操作、现象或结论。"
+          },
+          {
+            "label": "B",
+            "text": "KI 和 CCl₄",
+            "point_key": "candidate-1-356d797d",
+            "role": "adjacent_experiment",
+            "diagnostic_note": "“KI 和 CCl₄”借用了KI/CCl₄ 萃取碘的线索，和本题绑定点位不一致。"
+          },
+          {
+            "label": "C",
+            "text": "KSCN 和 FeCl₃",
+            "point_key": "candidate-1-356d797d",
+            "role": "adjacent_experiment",
+            "diagnostic_note": "“KSCN 和 FeCl₃”借用了Fe³⁺/KSCN 血红色检验的线索，和本题绑定点位不一致。"
+          },
+          {
+            "label": "D",
+            "text": "BaCl₂ 和 H₂SO₄",
+            "point_key": "candidate-1-356d797d",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“BaCl₂ 和 H₂SO₄”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题答案可由 canonical 实验原文的对象、步骤或观察任务直接支撑，未额外引用 theory。 绑定点位：Pb(NO₃)₂ + NaOH；Pb(OH)₂ + HNO₃；Pb(OH)₂ + NaOH。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "template_option_link_diagnostic"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-8-01 Pb(OH)₂ 的生成与性质》实验中，生成的 Pb(OH)₂ 沉淀分别要与哪两种 2 mol·L⁻¹ 溶液作用？",
+            "options": [
+              {
+                "label": "A",
+                "text": "HNO₃ 和 NaOH"
+              },
+              {
+                "label": "B",
+                "text": "KI 和 CCl₄"
+              },
+              {
+                "label": "C",
+                "text": "KSCN 和 FeCl₃"
+              },
+              {
+                "label": "D",
+                "text": "BaCl₂ 和 H₂SO₄"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "步骤要求试验其与 HNO₃ 和 NaOH 的反应。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00295_b30319fd2c"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_01_Q004",
+        "source_review_id": null,
+        "source_question_index": 4,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-8-01 Pb(OH)₂ 的生成与性质》实验中，Pb(OH)₂ 既能溶于酸又能溶于强碱，说明其主要性质是下列哪一种？",
+        "options": [
+          {
+            "label": "A",
+            "text": "强氧化性"
+          },
+          {
+            "label": "B",
+            "text": "两性"
+          },
+          {
+            "label": "C",
+            "text": "强还原性"
+          },
+          {
+            "label": "D",
+            "text": "挥发性"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "氢氧化铅表现两性。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-38e31e57",
+          "candidate-3-2d7041d5"
+        ],
+        "secondary_point_keys": [
+          "candidate-3-2d7041d5"
+        ],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_01",
+          "single_choice",
+          "point_2",
+          "point_3",
+          "polished_final_v1"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "强氧化性",
+            "point_key": "candidate-2-38e31e57",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“强氧化性”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "B",
+            "text": "两性",
+            "point_key": "candidate-3-2d7041d5",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接对应本题考查的实验操作、现象或结论。"
+          },
+          {
+            "label": "C",
+            "text": "强还原性",
+            "point_key": "candidate-2-38e31e57",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“强还原性”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "D",
+            "text": "挥发性",
+            "point_key": "candidate-2-38e31e57",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“挥发性”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题答案可由 canonical 实验原文的对象、步骤或观察任务直接支撑，未额外引用 theory。 绑定点位：Pb(OH)₂ + HNO₃；Pb(OH)₂ + NaOH。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "template_option_link_diagnostic"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-8-01 Pb(OH)₂ 的生成与性质》实验中，Pb(OH)₂ 既能溶于酸又能溶于强碱，说明其主要性质是下列哪一种？",
+            "options": [
+              {
+                "label": "A",
+                "text": "强氧化性"
+              },
+              {
+                "label": "B",
+                "text": "两性"
+              },
+              {
+                "label": "C",
+                "text": "强还原性"
+              },
+              {
+                "label": "D",
+                "text": "挥发性"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "氢氧化铅表现两性。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00295_b30319fd2c"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_01_Q005",
+        "source_review_id": null,
+        "source_question_index": 5,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-8-01 Pb(OH)₂ 的生成与性质》实验中，Pb(OH)₂ 与 HNO₃ 作用时，最合理的现象判断是沉淀怎样变化？",
+        "options": [
+          {
+            "label": "A",
+            "text": "升华"
+          },
+          {
+            "label": "B",
+            "text": "变成金属铅镜"
+          },
+          {
+            "label": "C",
+            "text": "溶解"
+          },
+          {
+            "label": "D",
+            "text": "产生臭氧"
+          }
+        ],
+        "answer": {
+          "value": "C"
+        },
+        "explanation": "酸可溶解两性氢氧化物。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-38e31e57"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_01",
+          "single_choice",
+          "point_2",
+          "polished_final_v1"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "升华",
+            "point_key": "candidate-2-38e31e57",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“升华”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "B",
+            "text": "变成金属铅镜",
+            "point_key": "candidate-2-38e31e57",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“变成金属铅镜”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "C",
+            "text": "溶解",
+            "point_key": "candidate-2-38e31e57",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接对应本题考查的实验操作、现象或结论。"
+          },
+          {
+            "label": "D",
+            "text": "产生臭氧",
+            "point_key": "candidate-2-38e31e57",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“产生臭氧”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题答案可由 canonical 实验原文的对象、步骤或观察任务直接支撑，未额外引用 theory。 绑定点位：Pb(OH)₂ + HNO₃。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "template_option_link_diagnostic"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-8-01 Pb(OH)₂ 的生成与性质》实验中，Pb(OH)₂ 与 HNO₃ 作用时，最合理的现象判断是沉淀怎样变化？",
+            "options": [
+              {
+                "label": "A",
+                "text": "升华"
+              },
+              {
+                "label": "B",
+                "text": "变成金属铅镜"
+              },
+              {
+                "label": "C",
+                "text": "溶解"
+              },
+              {
+                "label": "D",
+                "text": "产生臭氧"
+              }
+            ],
+            "answer": {
+              "value": "C"
+            },
+            "explanation": "酸可溶解两性氢氧化物。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00295_b30319fd2c"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_01_Q006",
+        "source_review_id": null,
+        "source_question_index": 6,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-8-01 Pb(OH)₂ 的生成与性质》实验中，Pb(OH)₂ 与过量 NaOH 作用时，主要说明 Pb(OH)₂ 具有哪一面性质？",
+        "options": [
+          {
+            "label": "A",
+            "text": "惰性气体性质"
+          },
+          {
+            "label": "B",
+            "text": "单质金属性"
+          },
+          {
+            "label": "C",
+            "text": "卤素氧化性"
+          },
+          {
+            "label": "D",
+            "text": "酸性氢氧化物的一面"
+          }
+        ],
+        "answer": {
+          "value": "D"
+        },
+        "explanation": "能溶于强碱体现酸性一面。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-2d7041d5"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_01",
+          "single_choice",
+          "point_3",
+          "polished_final_v1"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "惰性气体性质",
+            "point_key": "candidate-3-2d7041d5",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“惰性气体性质”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "B",
+            "text": "单质金属性",
+            "point_key": "candidate-3-2d7041d5",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“单质金属性”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "C",
+            "text": "卤素氧化性",
+            "point_key": "candidate-3-2d7041d5",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“卤素氧化性”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "D",
+            "text": "酸性氢氧化物的一面",
+            "point_key": "candidate-3-2d7041d5",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接对应本题考查的实验操作、现象或结论。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题答案可由 canonical 实验原文的对象、步骤或观察任务直接支撑，未额外引用 theory。 绑定点位：Pb(OH)₂ + NaOH。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "template_option_link_diagnostic"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-8-01 Pb(OH)₂ 的生成与性质》实验中，Pb(OH)₂ 与过量 NaOH 作用时，主要说明 Pb(OH)₂ 具有哪一面性质？",
+            "options": [
+              {
+                "label": "A",
+                "text": "惰性气体性质"
+              },
+              {
+                "label": "B",
+                "text": "单质金属性"
+              },
+              {
+                "label": "C",
+                "text": "卤素氧化性"
+              },
+              {
+                "label": "D",
+                "text": "酸性氢氧化物的一面"
+              }
+            ],
+            "answer": {
+              "value": "D"
+            },
+            "explanation": "能溶于强碱体现酸性一面。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00295_b30319fd2c"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_01_Q007",
+        "source_review_id": null,
+        "source_question_index": 7,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-8-01 Pb(OH)₂ 的生成与性质》实验中，下列哪一个离子是 Pb(NO₃)₂ 溶液提供的中心金属离子？",
+        "options": [
+          {
+            "label": "A",
+            "text": "Pb²⁺"
+          },
+          {
+            "label": "B",
+            "text": "NO₂⁻"
+          },
+          {
+            "label": "C",
+            "text": "Na⁺"
+          },
+          {
+            "label": "D",
+            "text": "H⁺"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "Pb(NO₃)₂ 提供 Pb²⁺。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-356d797d"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_01",
+          "single_choice",
+          "point_1",
+          "polished_final_v1"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "Pb²⁺",
+            "point_key": "candidate-1-356d797d",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接对应本题考查的实验操作、现象或结论。"
+          },
+          {
+            "label": "B",
+            "text": "NO₂⁻",
+            "point_key": "candidate-1-356d797d",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“NO₂⁻”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "C",
+            "text": "Na⁺",
+            "point_key": "candidate-1-356d797d",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“Na⁺”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "D",
+            "text": "H⁺",
+            "point_key": "candidate-1-356d797d",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“H⁺”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题答案可由 canonical 实验原文的对象、步骤或观察任务直接支撑，未额外引用 theory。 绑定点位：Pb(NO₃)₂ + NaOH。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "template_option_link_diagnostic"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-8-01 Pb(OH)₂ 的生成与性质》实验中，下列哪一个离子是 Pb(NO₃)₂ 溶液提供的中心金属离子？",
+            "options": [
+              {
+                "label": "A",
+                "text": "Pb²⁺"
+              },
+              {
+                "label": "B",
+                "text": "NO₂⁻"
+              },
+              {
+                "label": "C",
+                "text": "Na⁺"
+              },
+              {
+                "label": "D",
+                "text": "H⁺"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "Pb(NO₃)₂ 提供 Pb²⁺。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00295_b30319fd2c"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_01_Q008",
+        "source_review_id": null,
+        "source_question_index": 8,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-8-01 Pb(OH)₂ 的生成与性质》实验中，下列哪项最符合该实验的目的？",
+        "options": [
+          {
+            "label": "A",
+            "text": "比较氯、溴、碘置换次序"
+          },
+          {
+            "label": "B",
+            "text": "观察 Pb(OH)₂ 的生成及酸碱反应性质"
+          },
+          {
+            "label": "C",
+            "text": "制备臭氧"
+          },
+          {
+            "label": "D",
+            "text": "鉴定 Cr(III)"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "标题即为 Pb(OH)₂ 的生成与性质。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-356d797d",
+          "candidate-2-38e31e57",
+          "candidate-3-2d7041d5"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-38e31e57",
+          "candidate-3-2d7041d5"
+        ],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_01",
+          "single_choice",
+          "point_1",
+          "point_2",
+          "point_3",
+          "polished_final_v1"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "比较氯、溴、碘置换次序",
+            "point_key": "candidate-1-356d797d",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“比较氯、溴、碘置换次序”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "B",
+            "text": "观察 Pb(OH)₂ 的生成及酸碱反应性质",
+            "point_key": "candidate-1-356d797d",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接对应本题考查的实验操作、现象或结论。"
+          },
+          {
+            "label": "C",
+            "text": "制备臭氧",
+            "point_key": "candidate-1-356d797d",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“制备臭氧”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "D",
+            "text": "鉴定 Cr(III)",
+            "point_key": "candidate-1-356d797d",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“鉴定 Cr(III)”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题答案可由 canonical 实验原文的对象、步骤或观察任务直接支撑，未额外引用 theory。 绑定点位：Pb(NO₃)₂ + NaOH；Pb(OH)₂ + HNO₃；Pb(OH)₂ + NaOH。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "template_option_link_diagnostic"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-8-01 Pb(OH)₂ 的生成与性质》实验中，下列哪项最符合该实验的目的？",
+            "options": [
+              {
+                "label": "A",
+                "text": "比较氯、溴、碘置换次序"
+              },
+              {
+                "label": "B",
+                "text": "观察 Pb(OH)₂ 的生成及酸碱反应性质"
+              },
+              {
+                "label": "C",
+                "text": "制备臭氧"
+              },
+              {
+                "label": "D",
+                "text": "鉴定 Cr(III)"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "标题即为 Pb(OH)₂ 的生成与性质。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00295_b30319fd2c"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_01_Q009",
+        "source_review_id": null,
+        "source_question_index": 9,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-8-01 Pb(OH)₂ 的生成与性质》实验中，滴加 NaOH 初期产生 Pb(OH)₂，属于哪类反应现象？",
+        "options": [
+          {
+            "label": "A",
+            "text": "气体燃烧"
+          },
+          {
+            "label": "B",
+            "text": "萃取分层"
+          },
+          {
+            "label": "C",
+            "text": "沉淀生成"
+          },
+          {
+            "label": "D",
+            "text": "升华"
+          }
+        ],
+        "answer": {
+          "value": "C"
+        },
+        "explanation": "Pb²⁺ 与 OH⁻ 形成难溶氢氧化物。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-356d797d"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_01",
+          "single_choice",
+          "point_1",
+          "polished_final_v1"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "气体燃烧",
+            "point_key": "candidate-1-356d797d",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“气体燃烧”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "B",
+            "text": "萃取分层",
+            "point_key": "candidate-1-356d797d",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“萃取分层”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "C",
+            "text": "沉淀生成",
+            "point_key": "candidate-1-356d797d",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接对应本题考查的实验操作、现象或结论。"
+          },
+          {
+            "label": "D",
+            "text": "升华",
+            "point_key": "candidate-1-356d797d",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“升华”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题答案可由 canonical 实验原文的对象、步骤或观察任务直接支撑，未额外引用 theory。 绑定点位：Pb(NO₃)₂ + NaOH。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "template_option_link_diagnostic"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-8-01 Pb(OH)₂ 的生成与性质》实验中，滴加 NaOH 初期产生 Pb(OH)₂，属于哪类反应现象？",
+            "options": [
+              {
+                "label": "A",
+                "text": "气体燃烧"
+              },
+              {
+                "label": "B",
+                "text": "萃取分层"
+              },
+              {
+                "label": "C",
+                "text": "沉淀生成"
+              },
+              {
+                "label": "D",
+                "text": "升华"
+              }
+            ],
+            "answer": {
+              "value": "C"
+            },
+            "explanation": "Pb²⁺ 与 OH⁻ 形成难溶氢氧化物。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00295_b30319fd2c"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_01_Q010",
+        "source_review_id": null,
+        "source_question_index": 10,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-8-01 Pb(OH)₂ 的生成与性质》实验中，实验中用于溶解 Pb(OH)₂ 的酸是下列哪一种？",
+        "options": [
+          {
+            "label": "A",
+            "text": "HClO₄"
+          },
+          {
+            "label": "B",
+            "text": "HAc 饱和溶液"
+          },
+          {
+            "label": "C",
+            "text": "H₂CO₃"
+          },
+          {
+            "label": "D",
+            "text": "HNO₃"
+          }
+        ],
+        "answer": {
+          "value": "D"
+        },
+        "explanation": "步骤指定 2 mol·L⁻¹ HNO₃。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-38e31e57"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_01",
+          "single_choice",
+          "point_2",
+          "polished_final_v1"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "HClO₄",
+            "point_key": "candidate-2-38e31e57",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“HClO₄”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "B",
+            "text": "HAc 饱和溶液",
+            "point_key": "candidate-2-38e31e57",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“HAc 饱和溶液”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "C",
+            "text": "H₂CO₃",
+            "point_key": "candidate-2-38e31e57",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“H₂CO₃”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "D",
+            "text": "HNO₃",
+            "point_key": "candidate-2-38e31e57",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接对应本题考查的实验操作、现象或结论。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题答案可由 canonical 实验原文的对象、步骤或观察任务直接支撑，未额外引用 theory。 绑定点位：Pb(OH)₂ + HNO₃。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "template_option_link_diagnostic"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-8-01 Pb(OH)₂ 的生成与性质》实验中，实验中用于溶解 Pb(OH)₂ 的酸是下列哪一种？",
+            "options": [
+              {
+                "label": "A",
+                "text": "HClO₄"
+              },
+              {
+                "label": "B",
+                "text": "HAc 饱和溶液"
+              },
+              {
+                "label": "C",
+                "text": "H₂CO₃"
+              },
+              {
+                "label": "D",
+                "text": "HNO₃"
+              }
+            ],
+            "answer": {
+              "value": "D"
+            },
+            "explanation": "步骤指定 2 mol·L⁻¹ HNO₃。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00295_b30319fd2c"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_01_Q011",
+        "source_review_id": null,
+        "source_question_index": 11,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-8-01 Pb(OH)₂ 的生成与性质》实验中，Pb(OH)₂ 由 Pb(NO₃)₂ 溶液与 NaOH 溶液反应生成。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "步骤直接给出。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-356d797d"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_01",
+          "true_false",
+          "point_1",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题答案可由 canonical 实验原文的对象、步骤或观察任务直接支撑，未额外引用 theory。 绑定点位：Pb(NO₃)₂ + NaOH。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-8-01 Pb(OH)₂ 的生成与性质》实验中，Pb(OH)₂ 由 Pb(NO₃)₂ 溶液与 NaOH 溶液反应生成。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "步骤直接给出。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00295_b30319fd2c"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_01_Q012",
+        "source_review_id": null,
+        "source_question_index": 12,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-8-01 Pb(OH)₂ 的生成与性质》实验中，Pb(OH)₂ 沉淀要分别试验与 HNO₃ 和 NaOH 的反应。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "这是实验内容。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-356d797d",
+          "candidate-2-38e31e57",
+          "candidate-3-2d7041d5"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-38e31e57",
+          "candidate-3-2d7041d5"
+        ],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_01",
+          "true_false",
+          "point_1",
+          "point_2",
+          "point_3",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题答案可由 canonical 实验原文的对象、步骤或观察任务直接支撑，未额外引用 theory。 绑定点位：Pb(NO₃)₂ + NaOH；Pb(OH)₂ + HNO₃；Pb(OH)₂ + NaOH。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-8-01 Pb(OH)₂ 的生成与性质》实验中，Pb(OH)₂ 沉淀要分别试验与 HNO₃ 和 NaOH 的反应。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "这是实验内容。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00295_b30319fd2c"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_01_Q013",
+        "source_review_id": null,
+        "source_question_index": 13,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-8-01 Pb(OH)₂ 的生成与性质》实验中，Pb(OH)₂ 能溶于酸和强碱，体现两性。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "这是两性氢氧化物的特征。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-38e31e57",
+          "candidate-3-2d7041d5"
+        ],
+        "secondary_point_keys": [
+          "candidate-3-2d7041d5"
+        ],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_01",
+          "true_false",
+          "point_2",
+          "point_3",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题答案可由 canonical 实验原文的对象、步骤或观察任务直接支撑，未额外引用 theory。 绑定点位：Pb(OH)₂ + HNO₃；Pb(OH)₂ + NaOH。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-8-01 Pb(OH)₂ 的生成与性质》实验中，Pb(OH)₂ 能溶于酸和强碱，体现两性。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "这是两性氢氧化物的特征。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00295_b30319fd2c"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_01_Q014_SF1",
+        "source_review_id": null,
+        "source_question_index": 14,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "true_false",
+        "stem": "在《19-8-01 Pb(OH)₂ 的生成与性质》实验中，比较 Pb(OH)₂ 与 HNO₃、过量 NaOH 的作用，主要是为了判断 Pb(OH)₂ 是否具有两性。",
+        "options": [],
+        "answer": {
+          "value": true
+        },
+        "explanation": "教材原文要求把生成的 Pb(OH)₂ 分别与 HNO₃ 和 NaOH 作用；该判断考查实验目的而不是背 Pb(NO₃)₂ 的浓度。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-38e31e57",
+          "candidate-3-2d7041d5"
+        ],
+        "secondary_point_keys": [
+          "candidate-3-2d7041d5"
+        ],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_01",
+          "true_false",
+          "point_2",
+          "point_3",
+          "semantic_final_replacement",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题答案可由 canonical 实验原文的对象、步骤或观察任务直接支撑，未额外引用 theory。 绑定点位：Pb(OH)₂ + HNO₃；Pb(OH)₂ + NaOH。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-8-01 Pb(OH)₂ 的生成与性质》实验中，该实验中 Pb(NO₃)₂ 的浓度为 0.1 mol·L⁻¹。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "实验资料给出该浓度。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00295_b30319fd2c"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "true_false",
+            "stem": "在《19-8-01 Pb(OH)₂ 的生成与性质》实验中，比较 Pb(OH)₂ 与 HNO₃、过量 NaOH 的作用，主要是为了判断 Pb(OH)₂ 是否具有两性。",
+            "options": [],
+            "answer": {
+              "value": true
+            },
+            "explanation": "教材原文要求把生成的 Pb(OH)₂ 分别与 HNO₃ 和 NaOH 作用；该判断考查实验目的而不是背 Pb(NO₃)₂ 的浓度。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [
+              "expchunk_00295_b30319fd2c"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_01_Q015",
+        "source_review_id": null,
+        "source_question_index": 15,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-8-01 Pb(OH)₂ 的生成与性质》实验中，生成 Pb(OH)₂ 时不需要加入任何碱。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": false
+        },
+        "explanation": "需要滴加 NaOH。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-356d797d"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_01",
+          "true_false",
+          "point_1",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题答案可由 canonical 实验原文的对象、步骤或观察任务直接支撑，未额外引用 theory。 绑定点位：Pb(NO₃)₂ + NaOH。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-8-01 Pb(OH)₂ 的生成与性质》实验中，生成 Pb(OH)₂ 时不需要加入任何碱。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "需要滴加 NaOH。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00295_b30319fd2c"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_01_Q016",
+        "source_review_id": null,
+        "source_question_index": 16,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-8-01 Pb(OH)₂ 的生成与性质》实验中，NaOH 只能用于生成沉淀，不能用于测试 Pb(OH)₂ 的两性。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": false
+        },
+        "explanation": "过量 NaOH 可测试其溶解。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-356d797d",
+          "candidate-3-2d7041d5"
+        ],
+        "secondary_point_keys": [
+          "candidate-3-2d7041d5"
+        ],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_01",
+          "true_false",
+          "point_1",
+          "point_3",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题答案可由 canonical 实验原文的对象、步骤或观察任务直接支撑，未额外引用 theory。 绑定点位：Pb(NO₃)₂ + NaOH；Pb(OH)₂ + NaOH。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-8-01 Pb(OH)₂ 的生成与性质》实验中，NaOH 只能用于生成沉淀，不能用于测试 Pb(OH)₂ 的两性。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "过量 NaOH 可测试其溶解。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00295_b30319fd2c"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_01_Q017",
+        "source_review_id": null,
+        "source_question_index": 17,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-8-01 Pb(OH)₂ 的生成与性质》实验中，HNO₃ 溶解 Pb(OH)₂ 体现其碱性一面。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "与酸反应体现碱性。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-38e31e57"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_01",
+          "true_false",
+          "point_2",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题答案可由 canonical 实验原文的对象、步骤或观察任务直接支撑，未额外引用 theory。 绑定点位：Pb(OH)₂ + HNO₃。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-8-01 Pb(OH)₂ 的生成与性质》实验中，HNO₃ 溶解 Pb(OH)₂ 体现其碱性一面。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "与酸反应体现碱性。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00295_b30319fd2c"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_01_Q018",
+        "source_review_id": null,
+        "source_question_index": 18,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-8-01 Pb(OH)₂ 的生成与性质》实验中，Pb(OH)₂ 是臭氧制备实验的主要产物。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": false
+        },
+        "explanation": "臭氧实验产物是 O₃。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-356d797d"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_01",
+          "true_false",
+          "point_1",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题答案可由 canonical 实验原文的对象、步骤或观察任务直接支撑，未额外引用 theory。 绑定点位：Pb(NO₃)₂ + NaOH。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-8-01 Pb(OH)₂ 的生成与性质》实验中，Pb(OH)₂ 是臭氧制备实验的主要产物。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "臭氧实验产物是 O₃。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00295_b30319fd2c"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_01_Q019_R1",
+        "source_review_id": null,
+        "source_question_index": 19,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "true_false",
+        "stem": "在《19-8-01 Pb(OH)₂ 的生成与性质》实验中，Pb²⁺ 与 OH⁻ 结合可生成 Pb(OH)₂ 沉淀。",
+        "options": [],
+        "answer": {
+          "value": true
+        },
+        "explanation": "改写为正向判断，避免“这一判断不正确”的双重否定；该判断由实验步骤或对应性质证据支持。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-356d797d"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_01",
+          "true_false",
+          "point_1",
+          "rewritten_replacement",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题答案可由 canonical 实验原文的对象、步骤或观察任务直接支撑，未额外引用 theory。 绑定点位：Pb(NO₃)₂ + NaOH。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-8-01 Pb(OH)₂ 的生成与性质》实验中，认为：Pb²⁺ 与 OH⁻ 结合可生成 Pb(OH)₂ 沉淀，这一判断是不正确的。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "这一判断本身是正确的。这是沉淀生成的基础。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00295_b30319fd2c"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "true_false",
+            "stem": "在《19-8-01 Pb(OH)₂ 的生成与性质》实验中，Pb²⁺ 与 OH⁻ 结合可生成 Pb(OH)₂ 沉淀。",
+            "options": [],
+            "answer": {
+              "value": true
+            },
+            "explanation": "改写为正向判断，避免“这一判断不正确”的双重否定；该判断由实验步骤或对应性质证据支持。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [
+              "expchunk_00295_b30319fd2c"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_01_Q020",
+        "source_review_id": null,
+        "source_question_index": 20,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-8-01 Pb(OH)₂ 的生成与性质》实验中，该实验不应把 Pb(OH)₂ 的酸碱性与两性联系起来。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": false
+        },
+        "explanation": "实验正是检验其酸碱性质。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-38e31e57",
+          "candidate-3-2d7041d5"
+        ],
+        "secondary_point_keys": [
+          "candidate-3-2d7041d5"
+        ],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_01",
+          "true_false",
+          "point_2",
+          "point_3",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题答案可由 canonical 实验原文的对象、步骤或观察任务直接支撑，未额外引用 theory。 绑定点位：Pb(OH)₂ + HNO₃；Pb(OH)₂ + NaOH。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-8-01 Pb(OH)₂ 的生成与性质》实验中，该实验不应把 Pb(OH)₂ 的酸碱性与两性联系起来。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "实验正是检验其酸碱性质。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00295_b30319fd2c"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_01_Q021",
+        "source_review_id": null,
+        "source_question_index": 21,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《19-8-01 Pb(OH)₂ 的生成与性质》实验中，Pb(NO₃)₂ 溶液中滴加 NaOH 生成的沉淀是____。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "Pb(OH)₂",
+            "氢氧化铅"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "对应的实验操作或现象内容是“Pb(OH)₂”。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-356d797d"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_01",
+          "fill_blank",
+          "point_1",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题答案可由 canonical 实验原文的对象、步骤或观察任务直接支撑，未额外引用 theory。 绑定点位：Pb(NO₃)₂ + NaOH。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "formula_or_symbolic_fill_blank_answer",
+          "generic_or_answer_shell_explanation",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-8-01 Pb(OH)₂ 的生成与性质》实验中，Pb(NO₃)₂ 溶液中滴加 NaOH 生成的沉淀是____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "Pb(OH)₂",
+                "氢氧化铅"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "对应的实验操作或现象内容是“Pb(OH)₂”。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00295_b30319fd2c"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_01_Q022",
+        "source_review_id": null,
+        "source_question_index": 22,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《19-8-01 Pb(OH)₂ 的生成与性质》实验中，生成 Pb(OH)₂ 时使用的铅盐是____。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "Pb(NO₃)₂",
+            "硝酸铅"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "对应的实验操作或现象内容是“Pb(NO₃)₂”。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-356d797d"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_01",
+          "fill_blank",
+          "point_1",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题答案可由 canonical 实验原文的对象、步骤或观察任务直接支撑，未额外引用 theory。 绑定点位：Pb(NO₃)₂ + NaOH。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "formula_or_symbolic_fill_blank_answer",
+          "generic_or_answer_shell_explanation",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-8-01 Pb(OH)₂ 的生成与性质》实验中，生成 Pb(OH)₂ 时使用的铅盐是____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "Pb(NO₃)₂",
+                "硝酸铅"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "对应的实验操作或现象内容是“Pb(NO₃)₂”。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00295_b30319fd2c"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_01_Q023",
+        "source_review_id": null,
+        "source_question_index": 23,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《19-8-01 Pb(OH)₂ 的生成与性质》实验中，Pb(OH)₂ 与 HNO₃ 和 NaOH 都能反应，说明它具有____。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "两性"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "对应的实验操作或现象内容是“两性”。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-38e31e57",
+          "candidate-3-2d7041d5"
+        ],
+        "secondary_point_keys": [
+          "candidate-3-2d7041d5"
+        ],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_01",
+          "fill_blank",
+          "point_2",
+          "point_3",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题答案可由 canonical 实验原文的对象、步骤或观察任务直接支撑，未额外引用 theory。 绑定点位：Pb(OH)₂ + HNO₃；Pb(OH)₂ + NaOH。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "generic_or_answer_shell_explanation",
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-8-01 Pb(OH)₂ 的生成与性质》实验中，Pb(OH)₂ 与 HNO₃ 和 NaOH 都能反应，说明它具有____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "两性"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "对应的实验操作或现象内容是“两性”。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00295_b30319fd2c"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_01_Q024",
+        "source_review_id": null,
+        "source_question_index": 24,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《19-8-01 Pb(OH)₂ 的生成与性质》实验中，实验中用于生成沉淀和测试碱中溶解性的碱是____。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "NaOH",
+            "氢氧化钠"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "对应的实验操作或现象内容是“NaOH”。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-356d797d",
+          "candidate-3-2d7041d5"
+        ],
+        "secondary_point_keys": [
+          "candidate-3-2d7041d5"
+        ],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_01",
+          "fill_blank",
+          "point_1",
+          "point_3",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题答案可由 canonical 实验原文的对象、步骤或观察任务直接支撑，未额外引用 theory。 绑定点位：Pb(NO₃)₂ + NaOH；Pb(OH)₂ + NaOH。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "formula_or_symbolic_fill_blank_answer",
+          "generic_or_answer_shell_explanation",
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-8-01 Pb(OH)₂ 的生成与性质》实验中，实验中用于生成沉淀和测试碱中溶解性的碱是____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "NaOH",
+                "氢氧化钠"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "对应的实验操作或现象内容是“NaOH”。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00295_b30319fd2c"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_01_Q025",
+        "source_review_id": null,
+        "source_question_index": 25,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《19-8-01 Pb(OH)₂ 的生成与性质》实验中，试验 Pb(OH)₂ 与酸反应时使用的酸是____。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "HNO₃",
+            "硝酸"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "对应的实验操作或现象内容是“HNO₃”。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-38e31e57"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_01",
+          "fill_blank",
+          "point_2",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题答案可由 canonical 实验原文的对象、步骤或观察任务直接支撑，未额外引用 theory。 绑定点位：Pb(OH)₂ + HNO₃。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "formula_or_symbolic_fill_blank_answer",
+          "generic_or_answer_shell_explanation",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-8-01 Pb(OH)₂ 的生成与性质》实验中，试验 Pb(OH)₂ 与酸反应时使用的酸是____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "HNO₃",
+                "硝酸"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "对应的实验操作或现象内容是“HNO₃”。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00295_b30319fd2c"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_01_Q026",
+        "source_review_id": null,
+        "source_question_index": 26,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《19-8-01 Pb(OH)₂ 的生成与性质》实验中，Pb(NO₃)₂ 提供的金属离子是____。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "Pb²⁺",
+            "铅离子"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "对应的实验操作或现象内容是“Pb²⁺”。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-356d797d"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_01",
+          "fill_blank",
+          "point_1",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题答案可由 canonical 实验原文的对象、步骤或观察任务直接支撑，未额外引用 theory。 绑定点位：Pb(NO₃)₂ + NaOH。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "formula_or_symbolic_fill_blank_answer",
+          "generic_or_answer_shell_explanation",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-8-01 Pb(OH)₂ 的生成与性质》实验中，Pb(NO₃)₂ 提供的金属离子是____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "Pb²⁺",
+                "铅离子"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "对应的实验操作或现象内容是“Pb²⁺”。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00295_b30319fd2c"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_01_Q027",
+        "source_review_id": null,
+        "source_question_index": 27,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《19-8-01 Pb(OH)₂ 的生成与性质》实验中，Pb(OH)₂ 与酸反应体现其____一面。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "碱性"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "对应的实验操作或现象内容是“碱性”。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-38e31e57"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_01",
+          "fill_blank",
+          "point_2",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题答案可由 canonical 实验原文的对象、步骤或观察任务直接支撑，未额外引用 theory。 绑定点位：Pb(OH)₂ + HNO₃。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "generic_or_answer_shell_explanation",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-8-01 Pb(OH)₂ 的生成与性质》实验中，Pb(OH)₂ 与酸反应体现其____一面。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "碱性"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "对应的实验操作或现象内容是“碱性”。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00295_b30319fd2c"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_01_Q028",
+        "source_review_id": null,
+        "source_question_index": 28,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《19-8-01 Pb(OH)₂ 的生成与性质》实验中，Pb(OH)₂ 溶于过量 NaOH 体现其____一面。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "酸性"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "对应的实验操作或现象内容是“酸性”。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-2d7041d5"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_01",
+          "fill_blank",
+          "point_3",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题答案可由 canonical 实验原文的对象、步骤或观察任务直接支撑，未额外引用 theory。 绑定点位：Pb(OH)₂ + NaOH。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "generic_or_answer_shell_explanation",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-8-01 Pb(OH)₂ 的生成与性质》实验中，Pb(OH)₂ 溶于过量 NaOH 体现其____一面。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "酸性"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "对应的实验操作或现象内容是“酸性”。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00295_b30319fd2c"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_01_Q029",
+        "source_review_id": null,
+        "source_question_index": 29,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《19-8-01 Pb(OH)₂ 的生成与性质》实验中，Pb(OH)₂ 的生成属于____反应现象。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "沉淀",
+            "沉淀生成"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "对应的实验操作或现象内容是“沉淀”。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-356d797d"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_01",
+          "fill_blank",
+          "point_1",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题答案可由 canonical 实验原文的对象、步骤或观察任务直接支撑，未额外引用 theory。 绑定点位：Pb(NO₃)₂ + NaOH。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "generic_or_answer_shell_explanation",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-8-01 Pb(OH)₂ 的生成与性质》实验中，Pb(OH)₂ 的生成属于____反应现象。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "沉淀",
+                "沉淀生成"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "对应的实验操作或现象内容是“沉淀”。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00295_b30319fd2c"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_01_Q030_R1_PF1",
+        "source_review_id": null,
+        "source_question_index": 30,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "true_false",
+        "stem": "在《19-8-01 Pb(OH)₂ 的生成与性质》实验中，只让 Pb(OH)₂ 沉淀与 HNO₃ 作用，而不再比较其与过量 NaOH 的作用，不能充分体现两性氢氧化物的判断。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "Pb(OH)₂ 性质判断需要分别观察其与酸和过量碱的作用；本题与同组 proposed 的单选题错开，考查实验设计完整性。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-38e31e57",
+          "candidate-3-2d7041d5"
+        ],
+        "secondary_point_keys": [
+          "candidate-3-2d7041d5"
+        ],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_01",
+          "single_choice",
+          "rewritten_replacement",
+          "polished_final_v1",
+          "point_2",
+          "point_3"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题答案可由 canonical 实验原文的对象、步骤或观察任务直接支撑，未额外引用 theory。 绑定点位：Pb(OH)₂ + HNO₃；Pb(OH)₂ + NaOH。 本轮 polish 已改写为可机器确定性判分的有效题，避免重复题干或手机端化学式输入风险。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-8-01 Pb(OH)₂ 的生成与性质》实验中，实验中 Pb(NO₃)₂ 溶液浓度为____ mol·L⁻¹。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "0.1"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00295_b30319fd2c"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "true_false",
+            "stem": "在《19-8-01 Pb(OH)₂ 的生成与性质》实验中，只让 Pb(OH)₂ 沉淀与 HNO₃ 作用，而不再比较其与过量 NaOH 的作用，不能充分体现两性氢氧化物的判断。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "Pb(OH)₂ 性质判断需要分别观察其与酸和过量碱的作用；本题与同组 proposed 的单选题错开，考查实验设计完整性。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00295_b30319fd2c"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      }
+    ]
+  }
+}

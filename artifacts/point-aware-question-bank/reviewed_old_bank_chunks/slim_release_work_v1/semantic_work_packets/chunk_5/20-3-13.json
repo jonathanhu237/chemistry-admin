@@ -1,0 +1,3885 @@
+{
+  "metadata": {
+    "version": "chunk-5-release-slim-v1",
+    "artifact_type": "slim_question_bank_work_file",
+    "generated_at": "2026-06-15T03:27:59.225537+00:00",
+    "source_file": "E:\\chemistry-admin\\artifacts\\point-aware-question-bank\\reviewed_old_bank_chunks\\chunk_5_release_final_v1.json",
+    "normalization_rule": "effective question plus minimal lineage, evidence IDs, point bindings, option links, evidence locators, and mechanical risk flags",
+    "evidence_policy": "RAG source text is not embedded; packets carry locators and reviewers must read E:/chemistry-rag/data/rag_ready directly",
+    "chunk_id_policy": "inherited chunk ids are untrusted locator candidates until manually compared with RAG text",
+    "semantic_status": "not_semantically_repaired_by_this_script",
+    "packet_type": "single_experiment_semantic_repair_work_packet",
+    "chunk": 5,
+    "experiment_code": "20-3-13",
+    "question_count": 30
+  },
+  "experiment": {
+    "experiment_id": "EXP_20_3_13",
+    "experiment_code": "20-3-13",
+    "experiment_title": "钒(V)的鉴定",
+    "chapter_bindings": [
+      {
+        "chapter_id": "CH20",
+        "coverage_type": "primary",
+        "sort_order": 1
+      }
+    ],
+    "video_points": [
+      {
+        "point_key": "candidate-1-9b93a689",
+        "point_title": "NH₄VO₃ + H₂SO₄ 酸化",
+        "source": null,
+        "candidate_index": null,
+        "resource_count": null,
+        "published_count": null,
+        "resource_titles": []
+      },
+      {
+        "point_key": "candidate-2-4b1d96d3",
+        "point_title": "加入 H₂O₂",
+        "source": null,
+        "candidate_index": null,
+        "resource_count": null,
+        "published_count": null,
+        "resource_titles": []
+      },
+      {
+        "point_key": "candidate-3-de4dbb09",
+        "point_title": "H₂O₂ 不足与过量时颜色变化比较",
+        "source": null,
+        "candidate_index": null,
+        "resource_count": null,
+        "published_count": null,
+        "resource_titles": []
+      }
+    ],
+    "canonical_chunk_ids": [
+      "expchunk_protocol_4faa721af035",
+      "expchunk_00334_8229cac865"
+    ],
+    "evidence_lookup": {
+      "policy": "locator_only; canonical RAG text is not embedded in this packet",
+      "chunk_id_policy": "metadata chunk ids are inherited claims, not trusted evidence; reviewers must compare the RAG text against the question stem/options/answer/explanation and replace or remove wrong ids",
+      "primary_source_dir": "E:\\chemistry-rag\\data\\rag_ready",
+      "source_files": {
+        "experiment_chunks": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+        "supporting_theory_chunks": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl"
+      },
+      "search_hints": {
+        "experiment_code": "20-3-13",
+        "parent_experiment_code": "20-3",
+        "experiment_title": "钒(V)的鉴定",
+        "video_point_titles": [
+          "NH₄VO₃ + H₂SO₄ 酸化",
+          "加入 H₂O₂",
+          "H₂O₂ 不足与过量时颜色变化比较"
+        ],
+        "canonical_chunk_ids_from_metadata": [
+          "expchunk_00334_8229cac865",
+          "expchunk_protocol_4faa721af035"
+        ],
+        "supporting_theory_chunk_ids_from_metadata": [],
+        "suggested_search_patterns": [
+          "20-3-13",
+          "20-3",
+          "钒(V)的鉴定",
+          "NH₄VO₃ + H₂SO₄ 酸化",
+          "加入 H₂O₂",
+          "H₂O₂ 不足与过量时颜色变化比较",
+          "expchunk_00334_8229cac865",
+          "expchunk_protocol_4faa721af035"
+        ]
+      },
+      "rag_exact_id_presence": {
+        "meaning": "id presence only; this does not validate semantic relevance",
+        "found_ids": [
+          "expchunk_00334_8229cac865",
+          "expchunk_protocol_4faa721af035"
+        ],
+        "missing_ids": [],
+        "found_locator_summaries": [
+          {
+            "chunk_id": "expchunk_00334_8229cac865",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+            "line_number": 347,
+            "source_collection": "textbook_experiment_clean_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学实验（第四版）",
+            "page_start": 167,
+            "page_end": 167,
+            "section_path": [
+              "第7章 元素性质实验",
+              "实验 20-3 d 区元素化合物的性质（二）",
+              "（三）实验内容",
+              "4. 配合物应用——金属离子的鉴定"
+            ],
+            "content_type": "reaction",
+            "knowledge_unit": "reaction",
+            "parent_id": "expchunk_protocol_4faa721af035",
+            "prev_chunk_id": "expchunk_00333_d08e49be44",
+            "next_chunk_id": "expchunk_00335_1df34eedec",
+            "relations": {
+              "section_id": "expsec_269f9734072225be",
+              "experiment_id": "experiment:实验_20-3_d_区元素化合物的性质_二",
+              "page_anchor": "page_167",
+              "parent": "expchunk_protocol_4faa721af035"
+            }
+          },
+          {
+            "chunk_id": "expchunk_protocol_4faa721af035",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+            "line_number": 13,
+            "source_collection": "textbook_experiment_clean_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学实验（第四版）",
+            "page_start": 166,
+            "page_end": 168,
+            "section_path": [
+              "第7章",
+              "实验 20-3 d 区元素化合物的性质（二）"
+            ],
+            "content_type": "experiment_protocol",
+            "knowledge_unit": "experiment_protocol",
+            "parent_id": null,
+            "prev_chunk_id": "expchunk_protocol_721ef1f8d319",
+            "next_chunk_id": "expchunk_00001_5bbbf409d4",
+            "relations": {
+              "protocol_id": "experiment:实验_20-3_d_区元素化合物的性质_二",
+              "children": [
+                "expsec_3f275559bf77e0d1",
+                "expsec_046f0d51cde14eb6",
+                "expsec_b801e9192187f120",
+                "expsec_e3c2c8b9d23f7f73",
+                "expsec_6cdc713d5495da94",
+                "expsec_cf45ceaf4c46c88c",
+                "expsec_45a51870395ff8dd",
+                "expsec_aa6882611823c3bd",
+                "expsec_269f9734072225be",
+                "expsec_6d78bbfd0a5a924b",
+                "expsec_c88494496fe0a91d",
+                "expsec_11d70d295d8d7937"
+              ],
+              "parent": null
+            }
+          }
+        ]
+      },
+      "legacy_locator_summaries": [
+        {
+          "chunk_id": "expchunk_00334_8229cac865",
+          "source_file": "无机化学实验（第四版）",
+          "book_title": "无机化学实验（第四版）",
+          "document_id": "DOC_CANONICAL_EXPERIMENT_V1",
+          "source_collection": "textbook_experiment_clean_v1",
+          "source_role": "canonical_textbook",
+          "content_type": "reaction",
+          "chapter_id": null,
+          "page_number": 167,
+          "section_title": "实验 20-3 d 区元素化合物的性质（二） / （三）实验内容 / 4. 配合物应用——金属离子的鉴定",
+          "section_path": [
+            "第7章 元素性质实验",
+            "实验 20-3 d 区元素化合物的性质（二）",
+            "（三）实验内容",
+            "4. 配合物应用——金属离子的鉴定"
+          ]
+        },
+        {
+          "chunk_id": "expchunk_protocol_4faa721af035",
+          "source_file": "无机化学实验（第四版）",
+          "book_title": "无机化学实验（第四版）",
+          "document_id": "DOC_CANONICAL_EXPERIMENT_V1",
+          "source_collection": "textbook_experiment_clean_v1",
+          "source_role": "canonical_textbook",
+          "content_type": "experiment_protocol",
+          "chapter_id": null,
+          "page_number": 166,
+          "section_title": "第7章 / 实验 20-3 d 区元素化合物的性质（二）",
+          "section_path": [
+            "第7章",
+            "实验 20-3 d 区元素化合物的性质（二）"
+          ]
+        }
+      ],
+      "legacy_missing_ids": []
+    },
+    "questions": [
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_13_001",
+        "source_review_id": "CHK5_SEM_EXP_20_3_13_001",
+        "source_question_index": 1,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-3-13 钒(V)的鉴定》实验中，NH₄VO₃ 经 H₂SO₄ 酸化后加入 H₂O₂，主要用于鉴定哪一价态的钒？",
+        "options": [
+          {
+            "label": "A",
+            "text": "V(II)"
+          },
+          {
+            "label": "B",
+            "text": "V(III)"
+          },
+          {
+            "label": "C",
+            "text": "V(V)"
+          },
+          {
+            "label": "D",
+            "text": "V(0)"
+          }
+        ],
+        "answer": {
+          "value": "C"
+        },
+        "explanation": "教材操作以 NH₄VO₃ 为钒(V)来源，经 H₂SO₄ 酸化并加入 H₂O₂ 后进行鉴定，选项 C 与该实验对象一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-9b93a689"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-4b1d96d3",
+          "candidate-3-de4dbb09"
+        ],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "single_choice"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "V(II)",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“钒(V) 与 H₂O₂ 的过氧钒鉴定”点位：V(II)。"
+          },
+          {
+            "label": "B",
+            "text": "V(III)",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“钒(V) 与 H₂O₂ 的过氧钒鉴定”点位：V(III)。"
+          },
+          {
+            "label": "C",
+            "text": "V(V)",
+            "point_key": "candidate-1-9b93a689",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“钒(V) 与 H₂O₂ 的过氧钒鉴定”点位：V(V)。"
+          },
+          {
+            "label": "D",
+            "text": "V(0)",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“钒(V) 与 H₂O₂ 的过氧钒鉴定”点位：V(0)。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00334_8229cac865",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00334_8229cac865",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-13 钒(V)的鉴定》实验中，NH₄VO₃ 经 H₂SO₄ 酸化后加入 H₂O₂，主要用于鉴定哪一价态的钒？",
+            "options": [
+              {
+                "label": "A",
+                "text": "V(II)"
+              },
+              {
+                "label": "B",
+                "text": "V(III)"
+              },
+              {
+                "label": "C",
+                "text": "V(V)"
+              },
+              {
+                "label": "D",
+                "text": "V(0)"
+              }
+            ],
+            "answer": {
+              "value": "C"
+            },
+            "explanation": "教材操作以 NH₄VO₃ 为钒(V)来源，经 H₂SO₄ 酸化并加入 H₂O₂ 后进行鉴定，选项 C 与该实验对象一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00334_8229cac865",
+              "expchunk_protocol_4faa721af035"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_13_002",
+        "source_review_id": "CHK5_SEM_EXP_20_3_13_002",
+        "source_question_index": 2,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-3-13 钒(V)的鉴定》实验中，用于钒(V)鉴定的钒酸盐溶液是哪一种？",
+        "options": [
+          {
+            "label": "A",
+            "text": "NaCl"
+          },
+          {
+            "label": "B",
+            "text": "KSCN"
+          },
+          {
+            "label": "C",
+            "text": "CuSO₄"
+          },
+          {
+            "label": "D",
+            "text": "NH₄VO₃"
+          }
+        ],
+        "answer": {
+          "value": "D"
+        },
+        "explanation": "实验资料列出 0.01 mol·L⁻¹ NH₄VO₃。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-9b93a689"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "single_choice"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "NaCl",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“钒(V) 与 H₂O₂ 的过氧钒鉴定”点位：NaCl。"
+          },
+          {
+            "label": "B",
+            "text": "KSCN",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“钒(V) 与 H₂O₂ 的过氧钒鉴定”点位：KSCN。"
+          },
+          {
+            "label": "C",
+            "text": "CuSO₄",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“钒(V) 与 H₂O₂ 的过氧钒鉴定”点位：CuSO₄。"
+          },
+          {
+            "label": "D",
+            "text": "NH₄VO₃",
+            "point_key": "candidate-1-9b93a689",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“钒(V) 与 H₂O₂ 的过氧钒鉴定”点位：NH₄VO₃。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00334_8229cac865",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00334_8229cac865",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-13 钒(V)的鉴定》实验中，用于钒(V)鉴定的钒酸盐溶液是哪一种？",
+            "options": [
+              {
+                "label": "A",
+                "text": "NaCl"
+              },
+              {
+                "label": "B",
+                "text": "KSCN"
+              },
+              {
+                "label": "C",
+                "text": "CuSO₄"
+              },
+              {
+                "label": "D",
+                "text": "NH₄VO₃"
+              }
+            ],
+            "answer": {
+              "value": "D"
+            },
+            "explanation": "实验资料列出 0.01 mol·L⁻¹ NH₄VO₃。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00334_8229cac865",
+              "expchunk_protocol_4faa721af035"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_13_003",
+        "source_review_id": "CHK5_SEM_EXP_20_3_13_003",
+        "source_question_index": 3,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-3-13 钒(V)的鉴定》实验中，NH₄VO₃ 鉴定中用于提供酸性介质的酸是哪一种？",
+        "options": [
+          {
+            "label": "A",
+            "text": "H₂SO₄"
+          },
+          {
+            "label": "B",
+            "text": "HCl"
+          },
+          {
+            "label": "C",
+            "text": "HNO₃"
+          },
+          {
+            "label": "D",
+            "text": "HAc"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "实验资料反应式含 H₂SO₄，实验资料也列出 H₂SO₄ 酸化。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-9b93a689"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "single_choice"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "H₂SO₄",
+            "point_key": "candidate-1-9b93a689",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“钒(V) 与 H₂O₂ 的过氧钒鉴定”点位：H₂SO₄。"
+          },
+          {
+            "label": "B",
+            "text": "HCl",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“钒(V) 与 H₂O₂ 的过氧钒鉴定”点位：HCl。"
+          },
+          {
+            "label": "C",
+            "text": "HNO₃",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“钒(V) 与 H₂O₂ 的过氧钒鉴定”点位：HNO₃。"
+          },
+          {
+            "label": "D",
+            "text": "HAc",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“钒(V) 与 H₂O₂ 的过氧钒鉴定”点位：HAc。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00334_8229cac865",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00334_8229cac865",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-13 钒(V)的鉴定》实验中，NH₄VO₃ 鉴定中用于提供酸性介质的酸是哪一种？",
+            "options": [
+              {
+                "label": "A",
+                "text": "H₂SO₄"
+              },
+              {
+                "label": "B",
+                "text": "HCl"
+              },
+              {
+                "label": "C",
+                "text": "HNO₃"
+              },
+              {
+                "label": "D",
+                "text": "HAc"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "实验资料反应式含 H₂SO₄，实验资料也列出 H₂SO₄ 酸化。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00334_8229cac865",
+              "expchunk_protocol_4faa721af035"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_13_004",
+        "source_review_id": "CHK5_SEM_EXP_20_3_13_004",
+        "source_question_index": 4,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-3-13 钒(V)的鉴定》实验中，酸化后用于形成过氧钒配合物的试剂是哪一种？",
+        "options": [
+          {
+            "label": "A",
+            "text": "NaCl"
+          },
+          {
+            "label": "B",
+            "text": "H₂O₂"
+          },
+          {
+            "label": "C",
+            "text": "CCl₄"
+          },
+          {
+            "label": "D",
+            "text": "AgNO₃"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "实验资料列出加入 H₂O₂。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-4b1d96d3"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "single_choice"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "NaCl",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“钒(V) 与 H₂O₂ 的过氧钒鉴定”点位：NaCl。"
+          },
+          {
+            "label": "B",
+            "text": "H₂O₂",
+            "point_key": "candidate-2-4b1d96d3",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“钒(V) 与 H₂O₂ 的过氧钒鉴定”点位：H₂O₂。"
+          },
+          {
+            "label": "C",
+            "text": "CCl₄",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“钒(V) 与 H₂O₂ 的过氧钒鉴定”点位：CCl₄。"
+          },
+          {
+            "label": "D",
+            "text": "AgNO₃",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“钒(V) 与 H₂O₂ 的过氧钒鉴定”点位：AgNO₃。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00334_8229cac865",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00334_8229cac865",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-13 钒(V)的鉴定》实验中，酸化后用于形成过氧钒配合物的试剂是哪一种？",
+            "options": [
+              {
+                "label": "A",
+                "text": "NaCl"
+              },
+              {
+                "label": "B",
+                "text": "H₂O₂"
+              },
+              {
+                "label": "C",
+                "text": "CCl₄"
+              },
+              {
+                "label": "D",
+                "text": "AgNO₃"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "实验资料列出加入 H₂O₂。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00334_8229cac865",
+              "expchunk_protocol_4faa721af035"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_13_005",
+        "source_review_id": "CHK5_SEM_EXP_20_3_13_005",
+        "source_question_index": 5,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-3-13 钒(V)的鉴定》实验中，该鉴定反应中形成的特征物种属于哪一类？",
+        "options": [
+          {
+            "label": "A",
+            "text": "银氨配合物"
+          },
+          {
+            "label": "B",
+            "text": "铜氨配合物"
+          },
+          {
+            "label": "C",
+            "text": "过氧钒配合物"
+          },
+          {
+            "label": "D",
+            "text": "氯化亚汞沉淀"
+          }
+        ],
+        "answer": {
+          "value": "C"
+        },
+        "explanation": "反应式中出现含 V(O₂) 的过氧钒物种。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-4b1d96d3"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "single_choice"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "银氨配合物",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“钒(V) 与 H₂O₂ 的过氧钒鉴定”点位：银氨配合物。"
+          },
+          {
+            "label": "B",
+            "text": "铜氨配合物",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“钒(V) 与 H₂O₂ 的过氧钒鉴定”点位：铜氨配合物。"
+          },
+          {
+            "label": "C",
+            "text": "过氧钒配合物",
+            "point_key": "candidate-2-4b1d96d3",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“钒(V) 与 H₂O₂ 的过氧钒鉴定”点位：过氧钒配合物。"
+          },
+          {
+            "label": "D",
+            "text": "氯化亚汞沉淀",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“钒(V) 与 H₂O₂ 的过氧钒鉴定”点位：氯化亚汞沉淀。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00334_8229cac865",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00334_8229cac865",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-13 钒(V)的鉴定》实验中，该鉴定反应中形成的特征物种属于哪一类？",
+            "options": [
+              {
+                "label": "A",
+                "text": "银氨配合物"
+              },
+              {
+                "label": "B",
+                "text": "铜氨配合物"
+              },
+              {
+                "label": "C",
+                "text": "过氧钒配合物"
+              },
+              {
+                "label": "D",
+                "text": "氯化亚汞沉淀"
+              }
+            ],
+            "answer": {
+              "value": "C"
+            },
+            "explanation": "反应式中出现含 V(O₂) 的过氧钒物种。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00334_8229cac865",
+              "expchunk_protocol_4faa721af035"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_13_006",
+        "source_review_id": "CHK5_SEM_EXP_20_3_13_006",
+        "source_question_index": 6,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《20-3-13 钒(V)的鉴定》中，关于 钒(V) 与 H₂O₂ 的过氧钒鉴定，哪项表述正确？",
+        "options": [
+          {
+            "label": "A",
+            "text": "在教材未直接给出时强行指定一个具体色名"
+          },
+          {
+            "label": "B",
+            "text": "酸化 NH₄VO₃ 后加入 H₂O₂，观察有色过氧钒物种及颜色变化。"
+          },
+          {
+            "label": "C",
+            "text": "用 Fe(III)-SCN 血红色反应替代过氧钒反应"
+          },
+          {
+            "label": "D",
+            "text": "把 Ti(IV)-H₂O₂ 橙红色配合物当作 V(V)鉴定"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "钒(V)鉴定通过酸化 NH₄VO₃ 后加入 H₂O₂，观察有色过氧钒物种及颜色变化。",
+        "difficulty": "basic",
+        "status": "reviewed_polished",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-4b1d96d3"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "single_choice"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "在教材未直接给出时强行指定一个具体色名",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“钒(V) 与 H₂O₂ 的过氧钒鉴定”点位的关键对象或条件：在教材未直接给出时强行指定一个具体色名。"
+          },
+          {
+            "label": "B",
+            "text": "酸化 NH₄VO₃ 后加入 H₂O₂，观察有色过氧钒物种及颜色变化。",
+            "point_key": "candidate-2-4b1d96d3",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“钒(V) 与 H₂O₂ 的过氧钒鉴定”点位：酸化 NH₄VO₃ 后加入 H₂O₂，观察有色过氧钒物种及颜色变化。"
+          },
+          {
+            "label": "C",
+            "text": "用 Fe(III)-SCN 血红色反应替代过氧钒反应",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“钒(V) 与 H₂O₂ 的过氧钒鉴定”点位的关键对象或条件：用 Fe(III)-SCN 血红色反应替代过氧钒反应。"
+          },
+          {
+            "label": "D",
+            "text": "把 Ti(IV)-H₂O₂ 橙红色配合物当作 V(V)鉴定",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“钒(V) 与 H₂O₂ 的过氧钒鉴定”点位：把 Ti(IV)-H₂O₂ 橙红色配合物当作 V(V)鉴定。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00334_8229cac865",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00334_8229cac865",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-13 钒(V)的鉴定》实验中，NH₄VO₃ 酸化后加 H₂O₂ 的阳性现象通常是哪一类变化？",
+            "options": [
+              {
+                "label": "A",
+                "text": "无色且无变化"
+              },
+              {
+                "label": "B",
+                "text": "产生白色 MgO"
+              },
+              {
+                "label": "C",
+                "text": "出现血红色 [Fe(SCN)]²⁺"
+              },
+              {
+                "label": "D",
+                "text": "出现橙红或红棕色"
+              }
+            ],
+            "answer": {
+              "value": "D"
+            },
+            "explanation": "过氧钒配合物具有明显橙红/红棕颜色。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00334_8229cac865",
+              "expchunk_protocol_4faa721af035"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-13 钒(V)的鉴定》中，关于 钒(V) 与 H₂O₂ 的过氧钒鉴定，哪项表述正确？",
+            "options": [
+              {
+                "label": "A",
+                "text": "在教材未直接给出时强行指定一个具体色名"
+              },
+              {
+                "label": "B",
+                "text": "酸化 NH₄VO₃ 后加入 H₂O₂，观察有色过氧钒物种及颜色变化。"
+              },
+              {
+                "label": "C",
+                "text": "用 Fe(III)-SCN 血红色反应替代过氧钒反应"
+              },
+              {
+                "label": "D",
+                "text": "把 Ti(IV)-H₂O₂ 橙红色配合物当作 V(V)鉴定"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "钒(V)鉴定通过酸化 NH₄VO₃ 后加入 H₂O₂，观察有色过氧钒物种及颜色变化。",
+            "difficulty": "basic",
+            "status": "reviewed_polished",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00334_8229cac865",
+              "expchunk_protocol_4faa721af035"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "generic_shell_rewritten"
+          ]
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_13_007",
+        "source_review_id": "CHK5_SEM_EXP_20_3_13_007",
+        "source_question_index": 7,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-3-13 钒(V)的鉴定》实验中，比较 H₂O₂ 不足与过量时颜色变化，主要说明什么会影响鉴定现象？",
+        "options": [
+          {
+            "label": "A",
+            "text": "H₂O₂ 用量"
+          },
+          {
+            "label": "B",
+            "text": "试管长度"
+          },
+          {
+            "label": "C",
+            "text": "滤纸颜色"
+          },
+          {
+            "label": "D",
+            "text": "火柴余烬大小"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "实验资料明确比较 H₂O₂ 不足与过量。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-de4dbb09"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "single_choice"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "H₂O₂ 用量",
+            "point_key": "candidate-3-de4dbb09",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“钒(V) 与 H₂O₂ 的过氧钒鉴定”点位：H₂O₂ 用量。"
+          },
+          {
+            "label": "B",
+            "text": "试管长度",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“钒(V) 与 H₂O₂ 的过氧钒鉴定”点位：试管长度。"
+          },
+          {
+            "label": "C",
+            "text": "滤纸颜色",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“钒(V) 与 H₂O₂ 的过氧钒鉴定”点位：滤纸颜色。"
+          },
+          {
+            "label": "D",
+            "text": "火柴余烬大小",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“钒(V) 与 H₂O₂ 的过氧钒鉴定”点位：火柴余烬大小。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00334_8229cac865",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00334_8229cac865",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-13 钒(V)的鉴定》实验中，比较 H₂O₂ 不足与过量时颜色变化，主要说明什么会影响鉴定现象？",
+            "options": [
+              {
+                "label": "A",
+                "text": "H₂O₂ 用量"
+              },
+              {
+                "label": "B",
+                "text": "试管长度"
+              },
+              {
+                "label": "C",
+                "text": "滤纸颜色"
+              },
+              {
+                "label": "D",
+                "text": "火柴余烬大小"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "实验资料明确比较 H₂O₂ 不足与过量。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00334_8229cac865",
+              "expchunk_protocol_4faa721af035"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_13_008",
+        "source_review_id": "CHK5_SEM_EXP_20_3_13_008",
+        "source_question_index": 8,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-3-13 钒(V)的鉴定》实验中，实验资料反应式中，与 NH₄VO₃、H₂O₂、H₂SO₄ 反应生成的含钒配合物可写作哪一种？",
+        "options": [
+          {
+            "label": "A",
+            "text": "Ni(dmg)₂"
+          },
+          {
+            "label": "B",
+            "text": "[V(O₂)]₂(SO₄)₃"
+          },
+          {
+            "label": "C",
+            "text": "[Ag(NH₃)₂]⁺"
+          },
+          {
+            "label": "D",
+            "text": "Hg₂Cl₂"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "实验资料列出 [V(O₂)]₂(SO₄)₃。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-4b1d96d3"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "single_choice"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "Ni(dmg)₂",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“钒(V) 与 H₂O₂ 的过氧钒鉴定”点位：Ni(dmg)₂。"
+          },
+          {
+            "label": "B",
+            "text": "[V(O₂)]₂(SO₄)₃",
+            "point_key": "candidate-2-4b1d96d3",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“钒(V) 与 H₂O₂ 的过氧钒鉴定”点位：[V(O₂)]₂(SO₄)₃。"
+          },
+          {
+            "label": "C",
+            "text": "[Ag(NH₃)₂]⁺",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“钒(V) 与 H₂O₂ 的过氧钒鉴定”点位：[Ag(NH₃)₂]⁺。"
+          },
+          {
+            "label": "D",
+            "text": "Hg₂Cl₂",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“钒(V) 与 H₂O₂ 的过氧钒鉴定”点位：Hg₂Cl₂。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00334_8229cac865",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00334_8229cac865",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-13 钒(V)的鉴定》实验中，实验资料反应式中，与 NH₄VO₃、H₂O₂、H₂SO₄ 反应生成的含钒配合物可写作哪一种？",
+            "options": [
+              {
+                "label": "A",
+                "text": "Ni(dmg)₂"
+              },
+              {
+                "label": "B",
+                "text": "[V(O₂)]₂(SO₄)₃"
+              },
+              {
+                "label": "C",
+                "text": "[Ag(NH₃)₂]⁺"
+              },
+              {
+                "label": "D",
+                "text": "Hg₂Cl₂"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "实验资料列出 [V(O₂)]₂(SO₄)₃。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00334_8229cac865",
+              "expchunk_protocol_4faa721af035"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_13_009",
+        "source_review_id": "CHK5_SEM_EXP_20_3_13_009",
+        "source_question_index": 9,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-3-13 钒(V)的鉴定》实验中，该鉴定的合理顺序是哪一项？",
+        "options": [
+          {
+            "label": "A",
+            "text": "先加入金属汞再加 NaCl"
+          },
+          {
+            "label": "B",
+            "text": "先加 CCl₄ 再加 KI"
+          },
+          {
+            "label": "C",
+            "text": "NH₄VO₃ 溶液先酸化，再加入 H₂O₂"
+          },
+          {
+            "label": "D",
+            "text": "先热分解 AgNO₃"
+          }
+        ],
+        "answer": {
+          "value": "C"
+        },
+        "explanation": "酸性条件下 H₂O₂ 与钒(V)形成过氧配合物。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-9b93a689"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-4b1d96d3"
+        ],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "single_choice"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "先加入金属汞再加 NaCl",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“钒(V) 与 H₂O₂ 的过氧钒鉴定”点位：先加入金属汞再加 NaCl。"
+          },
+          {
+            "label": "B",
+            "text": "先加 CCl₄ 再加 KI",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“钒(V) 与 H₂O₂ 的过氧钒鉴定”点位：先加 CCl₄ 再加 KI。"
+          },
+          {
+            "label": "C",
+            "text": "NH₄VO₃ 溶液先酸化，再加入 H₂O₂",
+            "point_key": "candidate-1-9b93a689",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“钒(V) 与 H₂O₂ 的过氧钒鉴定”点位：NH₄VO₃ 溶液先酸化，再加入 H₂O₂。"
+          },
+          {
+            "label": "D",
+            "text": "先热分解 AgNO₃",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“钒(V) 与 H₂O₂ 的过氧钒鉴定”点位：先热分解 AgNO₃。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00334_8229cac865",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00334_8229cac865",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-13 钒(V)的鉴定》实验中，该鉴定的合理顺序是哪一项？",
+            "options": [
+              {
+                "label": "A",
+                "text": "先加入金属汞再加 NaCl"
+              },
+              {
+                "label": "B",
+                "text": "先加 CCl₄ 再加 KI"
+              },
+              {
+                "label": "C",
+                "text": "NH₄VO₃ 溶液先酸化，再加入 H₂O₂"
+              },
+              {
+                "label": "D",
+                "text": "先热分解 AgNO₃"
+              }
+            ],
+            "answer": {
+              "value": "C"
+            },
+            "explanation": "酸性条件下 H₂O₂ 与钒(V)形成过氧配合物。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00334_8229cac865",
+              "expchunk_protocol_4faa721af035"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_13_010",
+        "source_review_id": "CHK5_SEM_EXP_20_3_13_010",
+        "source_question_index": 10,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-3-13 钒(V)的鉴定》实验中，该实验最核心的判断依据是什么？",
+        "options": [
+          {
+            "label": "A",
+            "text": "余烬复燃证明 O₂"
+          },
+          {
+            "label": "B",
+            "text": "KSCN 生成血红色铁配合物"
+          },
+          {
+            "label": "C",
+            "text": "NaCl 生成 Hg₂Cl₂"
+          },
+          {
+            "label": "D",
+            "text": "酸性 H₂O₂ 中形成有色过氧钒物种"
+          }
+        ],
+        "answer": {
+          "value": "D"
+        },
+        "explanation": "钒(V)鉴定依赖过氧钒有色物种生成。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-4b1d96d3"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "single_choice"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "余烬复燃证明 O₂",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“钒(V) 与 H₂O₂ 的过氧钒鉴定”点位：余烬复燃证明 O₂。"
+          },
+          {
+            "label": "B",
+            "text": "KSCN 生成血红色铁配合物",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“钒(V) 与 H₂O₂ 的过氧钒鉴定”点位：KSCN 生成血红色铁配合物。"
+          },
+          {
+            "label": "C",
+            "text": "NaCl 生成 Hg₂Cl₂",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“钒(V) 与 H₂O₂ 的过氧钒鉴定”点位：NaCl 生成 Hg₂Cl₂。"
+          },
+          {
+            "label": "D",
+            "text": "酸性 H₂O₂ 中形成有色过氧钒物种",
+            "point_key": "candidate-2-4b1d96d3",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“钒(V) 与 H₂O₂ 的过氧钒鉴定”点位：酸性 H₂O₂ 中形成有色过氧钒物种。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00334_8229cac865",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00334_8229cac865",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-13 钒(V)的鉴定》实验中，该实验最核心的判断依据是什么？",
+            "options": [
+              {
+                "label": "A",
+                "text": "余烬复燃证明 O₂"
+              },
+              {
+                "label": "B",
+                "text": "KSCN 生成血红色铁配合物"
+              },
+              {
+                "label": "C",
+                "text": "NaCl 生成 Hg₂Cl₂"
+              },
+              {
+                "label": "D",
+                "text": "酸性 H₂O₂ 中形成有色过氧钒物种"
+              }
+            ],
+            "answer": {
+              "value": "D"
+            },
+            "explanation": "钒(V)鉴定依赖过氧钒有色物种生成。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00334_8229cac865",
+              "expchunk_protocol_4faa721af035"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_13_011",
+        "source_review_id": "CHK5_SEM_EXP_20_3_13_011",
+        "source_question_index": 11,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《20-3-13 钒(V)的鉴定》实验中，判断：NH₄VO₃ 经 H₂SO₄ 酸化后加入 H₂O₂，可用于鉴定 V(V)。",
+        "options": [],
+        "answer": {
+          "value": true
+        },
+        "explanation": "该判断正确。NH₄VO₃ 提供 V(V)，酸化后加入 H₂O₂ 是本实验的鉴定操作链。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-9b93a689"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-4b1d96d3",
+          "candidate-3-de4dbb09"
+        ],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "true_false"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00334_8229cac865",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00334_8229cac865",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-3-13 钒(V)的鉴定》实验中，判断：NH₄VO₃ 经 H₂SO₄ 酸化后加入 H₂O₂，可用于鉴定 V(V)。",
+            "options": [],
+            "answer": {
+              "value": true
+            },
+            "explanation": "该判断正确。NH₄VO₃ 提供 V(V)，酸化后加入 H₂O₂ 是本实验的鉴定操作链。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00334_8229cac865",
+              "expchunk_protocol_4faa721af035"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_13_012",
+        "source_review_id": "CHK5_SEM_EXP_20_3_13_012",
+        "source_question_index": 12,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《20-3-13 钒(V)的鉴定》实验中，判断：钒源为“NaCl”。",
+        "options": [],
+        "answer": {
+          "value": false
+        },
+        "explanation": "该说法与本实验事实不符；实验资料列出 0.01 mol·L⁻¹ NH₄VO₃。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-9b93a689"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "true_false"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00334_8229cac865",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00334_8229cac865",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-3-13 钒(V)的鉴定》实验中，判断：钒源为“NaCl”。",
+            "options": [],
+            "answer": {
+              "value": false
+            },
+            "explanation": "该说法与本实验事实不符；实验资料列出 0.01 mol·L⁻¹ NH₄VO₃。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00334_8229cac865",
+              "expchunk_protocol_4faa721af035"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_13_013",
+        "source_review_id": "CHK5_SEM_EXP_20_3_13_013",
+        "source_question_index": 13,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《20-3-13 钒(V)的鉴定》实验中，判断：酸化试剂为“H₂SO₄”。",
+        "options": [],
+        "answer": {
+          "value": true
+        },
+        "explanation": "实验资料反应式含 H₂SO₄，实验资料也列出 H₂SO₄ 酸化。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-9b93a689"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "true_false"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00334_8229cac865",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00334_8229cac865",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-3-13 钒(V)的鉴定》实验中，判断：酸化试剂为“H₂SO₄”。",
+            "options": [],
+            "answer": {
+              "value": true
+            },
+            "explanation": "实验资料反应式含 H₂SO₄，实验资料也列出 H₂SO₄ 酸化。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00334_8229cac865",
+              "expchunk_protocol_4faa721af035"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_13_014",
+        "source_review_id": "CHK5_SEM_EXP_20_3_13_014",
+        "source_question_index": 14,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《20-3-13 钒(V)的鉴定》实验中，判断：显色试剂为“NaCl”。",
+        "options": [],
+        "answer": {
+          "value": false
+        },
+        "explanation": "该说法与本实验事实不符；实验资料列出加入 H₂O₂。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-4b1d96d3"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "true_false"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00334_8229cac865",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00334_8229cac865",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-3-13 钒(V)的鉴定》实验中，判断：显色试剂为“NaCl”。",
+            "options": [],
+            "answer": {
+              "value": false
+            },
+            "explanation": "该说法与本实验事实不符；实验资料列出加入 H₂O₂。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00334_8229cac865",
+              "expchunk_protocol_4faa721af035"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_13_015",
+        "source_review_id": "CHK5_SEM_EXP_20_3_13_015",
+        "source_question_index": 15,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《20-3-13 钒(V)的鉴定》实验中，判断：关键产物为“过氧钒配合物”。",
+        "options": [],
+        "answer": {
+          "value": true
+        },
+        "explanation": "反应式中出现含 V(O₂) 的过氧钒物种。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-4b1d96d3"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "true_false"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00334_8229cac865",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00334_8229cac865",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-3-13 钒(V)的鉴定》实验中，判断：关键产物为“过氧钒配合物”。",
+            "options": [],
+            "answer": {
+              "value": true
+            },
+            "explanation": "反应式中出现含 V(O₂) 的过氧钒物种。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00334_8229cac865",
+              "expchunk_protocol_4faa721af035"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_13_016",
+        "source_review_id": "CHK5_SEM_EXP_20_3_13_016",
+        "source_question_index": 16,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《20-3-13 钒(V)的鉴定》中，关于 钒(V) 与 H₂O₂ 的过氧钒鉴定，哪项表述正确？",
+        "options": [
+          {
+            "label": "A",
+            "text": "把 Ti(IV)-H₂O₂ 橙红色配合物当作 V(V)鉴定"
+          },
+          {
+            "label": "B",
+            "text": "颜色判据不是无色且无变化，而是出现过氧钒相关的有色变化。"
+          },
+          {
+            "label": "C",
+            "text": "不酸化 NH₄VO₃ 就直接加入 H₂O₂"
+          },
+          {
+            "label": "D",
+            "text": "在教材未直接给出时强行指定一个具体色名"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "本实验观察 H₂O₂ 与 V(V) 形成过氧钒物种后的颜色变化，不能把无色无变化作为阳性判据。",
+        "difficulty": "basic",
+        "status": "reviewed_polished",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-4b1d96d3"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "true_false"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "把 Ti(IV)-H₂O₂ 橙红色配合物当作 V(V)鉴定",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“钒(V) 与 H₂O₂ 的过氧钒鉴定”点位：把 Ti(IV)-H₂O₂ 橙红色配合物当作 V(V)鉴定。"
+          },
+          {
+            "label": "B",
+            "text": "颜色判据不是无色且无变化，而是出现过氧钒相关的有色变化。",
+            "point_key": "candidate-2-4b1d96d3",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“钒(V) 与 H₂O₂ 的过氧钒鉴定”点位：颜色判据不是无色且无变化，而是出现过氧钒相关的有色变化。"
+          },
+          {
+            "label": "C",
+            "text": "不酸化 NH₄VO₃ 就直接加入 H₂O₂",
+            "point_key": "candidate-1-9b93a689",
+            "role": "adjacent_point",
+            "diagnostic_note": "该选项属于同一实验或相近点位，但不是本题所问内容。"
+          },
+          {
+            "label": "D",
+            "text": "在教材未直接给出时强行指定一个具体色名",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“钒(V) 与 H₂O₂ 的过氧钒鉴定”点位的关键对象或条件：在教材未直接给出时强行指定一个具体色名。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00334_8229cac865",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00334_8229cac865",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-3-13 钒(V)的鉴定》实验中，判断：颜色判据为“无色且无变化”。",
+            "options": [],
+            "answer": {
+              "value": false
+            },
+            "explanation": "该说法与本实验事实不符；过氧钒配合物具有明显橙红/红棕颜色。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00334_8229cac865",
+              "expchunk_protocol_4faa721af035"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-13 钒(V)的鉴定》中，关于 钒(V) 与 H₂O₂ 的过氧钒鉴定，哪项表述正确？",
+            "options": [
+              {
+                "label": "A",
+                "text": "把 Ti(IV)-H₂O₂ 橙红色配合物当作 V(V)鉴定"
+              },
+              {
+                "label": "B",
+                "text": "颜色判据不是无色且无变化，而是出现过氧钒相关的有色变化。"
+              },
+              {
+                "label": "C",
+                "text": "不酸化 NH₄VO₃ 就直接加入 H₂O₂"
+              },
+              {
+                "label": "D",
+                "text": "在教材未直接给出时强行指定一个具体色名"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "本实验观察 H₂O₂ 与 V(V) 形成过氧钒物种后的颜色变化，不能把无色无变化作为阳性判据。",
+            "difficulty": "basic",
+            "status": "reviewed_polished",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00334_8229cac865",
+              "expchunk_protocol_4faa721af035"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "generic_shell_rewritten"
+          ]
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_13_017",
+        "source_review_id": "CHK5_SEM_EXP_20_3_13_017",
+        "source_question_index": 17,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《20-3-13 钒(V)的鉴定》实验中，判断：过氧化氢用量为“H₂O₂ 用量”。",
+        "options": [],
+        "answer": {
+          "value": true
+        },
+        "explanation": "实验资料明确比较 H₂O₂ 不足与过量。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-de4dbb09"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "true_false"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00334_8229cac865",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00334_8229cac865",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-3-13 钒(V)的鉴定》实验中，判断：过氧化氢用量为“H₂O₂ 用量”。",
+            "options": [],
+            "answer": {
+              "value": true
+            },
+            "explanation": "实验资料明确比较 H₂O₂ 不足与过量。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00334_8229cac865",
+              "expchunk_protocol_4faa721af035"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_13_018",
+        "source_review_id": "CHK5_SEM_EXP_20_3_13_018",
+        "source_question_index": 18,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《20-3-13 钒(V)的鉴定》实验中，判断：反应式信息为“Ni(dmg)₂”。",
+        "options": [],
+        "answer": {
+          "value": false
+        },
+        "explanation": "该说法与本实验事实不符；实验资料列出 [V(O₂)]₂(SO₄)₃。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-4b1d96d3"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "true_false"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00334_8229cac865",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00334_8229cac865",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-3-13 钒(V)的鉴定》实验中，判断：反应式信息为“Ni(dmg)₂”。",
+            "options": [],
+            "answer": {
+              "value": false
+            },
+            "explanation": "该说法与本实验事实不符；实验资料列出 [V(O₂)]₂(SO₄)₃。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00334_8229cac865",
+              "expchunk_protocol_4faa721af035"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_13_019",
+        "source_review_id": "CHK5_SEM_EXP_20_3_13_019",
+        "source_question_index": 19,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《20-3-13 钒(V)的鉴定》实验中，判断：操作顺序为“NH₄VO₃ 溶液先酸化，再加入 H₂O₂”。",
+        "options": [],
+        "answer": {
+          "value": true
+        },
+        "explanation": "酸性条件下 H₂O₂ 与钒(V)形成过氧配合物。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-9b93a689"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-4b1d96d3"
+        ],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "true_false"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00334_8229cac865",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00334_8229cac865",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-3-13 钒(V)的鉴定》实验中，判断：操作顺序为“NH₄VO₃ 溶液先酸化，再加入 H₂O₂”。",
+            "options": [],
+            "answer": {
+              "value": true
+            },
+            "explanation": "酸性条件下 H₂O₂ 与钒(V)形成过氧配合物。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00334_8229cac865",
+              "expchunk_protocol_4faa721af035"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_13_020",
+        "source_review_id": "CHK5_SEM_EXP_20_3_13_020",
+        "source_question_index": 20,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《20-3-13 钒(V)的鉴定》实验中，判断：实验目的为“余烬复燃证明 O₂”。",
+        "options": [],
+        "answer": {
+          "value": false
+        },
+        "explanation": "该说法与本实验事实不符；钒(V)鉴定依赖过氧钒有色物种生成。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-4b1d96d3"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "true_false"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00334_8229cac865",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00334_8229cac865",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-3-13 钒(V)的鉴定》实验中，判断：实验目的为“余烬复燃证明 O₂”。",
+            "options": [],
+            "answer": {
+              "value": false
+            },
+            "explanation": "该说法与本实验事实不符；钒(V)鉴定依赖过氧钒有色物种生成。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00334_8229cac865",
+              "expchunk_protocol_4faa721af035"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_13_021",
+        "source_review_id": "CHK5_SEM_EXP_20_3_13_021",
+        "source_question_index": 21,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《20-3-13 钒(V)的鉴定》中，关于 钒(V) 与 H₂O₂ 的过氧钒鉴定，哪项表述正确？",
+        "options": [
+          {
+            "label": "A",
+            "text": "不酸化 NH₄VO₃ 就直接加入 H₂O₂"
+          },
+          {
+            "label": "B",
+            "text": "NH₄VO₃ 经 H₂SO₄ 酸化后加入 H₂O₂，用于鉴定 V(V) 并比较 H₂O₂ 用量影响"
+          },
+          {
+            "label": "C",
+            "text": "在教材未直接给出时强行指定一个具体色名"
+          },
+          {
+            "label": "D",
+            "text": "用 Fe(III)-SCN 血红色反应替代过氧钒反应"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "该选项把 NH₄VO₃ 酸化、加入 H₂O₂ 以及 H₂O₂ 用量比较联系起来，符合 V(V) 鉴定实验的操作链。",
+        "difficulty": "basic",
+        "status": "reviewed_polished",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-9b93a689"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-4b1d96d3",
+          "candidate-3-de4dbb09"
+        ],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "fill_blank"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "不酸化 NH₄VO₃ 就直接加入 H₂O₂",
+            "point_key": "candidate-1-9b93a689",
+            "role": "adjacent_point",
+            "diagnostic_note": "该选项属于同一实验或相近点位，但不是本题所问内容。"
+          },
+          {
+            "label": "B",
+            "text": "NH₄VO₃ 经 H₂SO₄ 酸化后加入 H₂O₂，用于鉴定 V(V) 并比较 H₂O₂ 用量影响",
+            "point_key": "candidate-1-9b93a689",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“钒(V) 与 H₂O₂ 的过氧钒鉴定”点位：NH₄VO₃ 经 H₂SO₄ 酸化后加入 H₂O₂，用于鉴定 V(V) 并比较 H₂O₂ 用量影响。"
+          },
+          {
+            "label": "C",
+            "text": "在教材未直接给出时强行指定一个具体色名",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“钒(V) 与 H₂O₂ 的过氧钒鉴定”点位的关键对象或条件：在教材未直接给出时强行指定一个具体色名。"
+          },
+          {
+            "label": "D",
+            "text": "用 Fe(III)-SCN 血红色反应替代过氧钒反应",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“钒(V) 与 H₂O₂ 的过氧钒鉴定”点位的关键对象或条件：用 Fe(III)-SCN 血红色反应替代过氧钒反应。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00334_8229cac865",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00334_8229cac865",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-3-13 钒(V)的鉴定》实验中，该实验鉴定的钒氧化态是____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "V(V)"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "NH₄VO₃ 提供 V(V)，经 H₂SO₄ 酸化并加入 H₂O₂ 后进行鉴定，空格可填“V(V)”。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00334_8229cac865",
+              "expchunk_protocol_4faa721af035"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-13 钒(V)的鉴定》中，关于 钒(V) 与 H₂O₂ 的过氧钒鉴定，哪项表述正确？",
+            "options": [
+              {
+                "label": "A",
+                "text": "不酸化 NH₄VO₃ 就直接加入 H₂O₂"
+              },
+              {
+                "label": "B",
+                "text": "NH₄VO₃ 经 H₂SO₄ 酸化后加入 H₂O₂，用于鉴定 V(V) 并比较 H₂O₂ 用量影响"
+              },
+              {
+                "label": "C",
+                "text": "在教材未直接给出时强行指定一个具体色名"
+              },
+              {
+                "label": "D",
+                "text": "用 Fe(III)-SCN 血红色反应替代过氧钒反应"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "该选项把 NH₄VO₃ 酸化、加入 H₂O₂ 以及 H₂O₂ 用量比较联系起来，符合 V(V) 鉴定实验的操作链。",
+            "difficulty": "basic",
+            "status": "reviewed_polished",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00334_8229cac865",
+              "expchunk_protocol_4faa721af035"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "generic_shell_rewritten"
+          ]
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_13_022",
+        "source_review_id": "CHK5_SEM_EXP_20_3_13_022",
+        "source_question_index": 22,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《20-3-13 钒(V)的鉴定》中，关于 钒(V) 与 H₂O₂ 的过氧钒鉴定，哪项表述正确？",
+        "options": [
+          {
+            "label": "A",
+            "text": "在教材未直接给出时强行指定一个具体色名"
+          },
+          {
+            "label": "B",
+            "text": "钒(V)鉴定可取少量 NH₄VO₃ 溶液。"
+          },
+          {
+            "label": "C",
+            "text": "用 Fe(III)-SCN 血红色反应替代过氧钒反应"
+          },
+          {
+            "label": "D",
+            "text": "把 Ti(IV)-H₂O₂ 橙红色配合物当作 V(V)鉴定"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "NH₄VO₃ 提供 V(V)，是该鉴定实验的钒源。",
+        "difficulty": "basic",
+        "status": "reviewed_polished",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-9b93a689"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "fill_blank"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "在教材未直接给出时强行指定一个具体色名",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“钒(V) 与 H₂O₂ 的过氧钒鉴定”点位的关键对象或条件：在教材未直接给出时强行指定一个具体色名。"
+          },
+          {
+            "label": "B",
+            "text": "钒(V)鉴定可取少量 NH₄VO₃ 溶液。",
+            "point_key": "candidate-1-9b93a689",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“钒(V) 与 H₂O₂ 的过氧钒鉴定”点位：钒(V)鉴定可取少量 NH₄VO₃ 溶液。"
+          },
+          {
+            "label": "C",
+            "text": "用 Fe(III)-SCN 血红色反应替代过氧钒反应",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“钒(V) 与 H₂O₂ 的过氧钒鉴定”点位的关键对象或条件：用 Fe(III)-SCN 血红色反应替代过氧钒反应。"
+          },
+          {
+            "label": "D",
+            "text": "把 Ti(IV)-H₂O₂ 橙红色配合物当作 V(V)鉴定",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“钒(V) 与 H₂O₂ 的过氧钒鉴定”点位：把 Ti(IV)-H₂O₂ 橙红色配合物当作 V(V)鉴定。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00334_8229cac865",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00334_8229cac865",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-3-13 钒(V)的鉴定》实验中，钒(V)鉴定可取少量____溶液。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "NH₄VO₃"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "实验资料列出 0.01 mol·L⁻¹ NH₄VO₃。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00334_8229cac865",
+              "expchunk_protocol_4faa721af035"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-13 钒(V)的鉴定》中，关于 钒(V) 与 H₂O₂ 的过氧钒鉴定，哪项表述正确？",
+            "options": [
+              {
+                "label": "A",
+                "text": "在教材未直接给出时强行指定一个具体色名"
+              },
+              {
+                "label": "B",
+                "text": "钒(V)鉴定可取少量 NH₄VO₃ 溶液。"
+              },
+              {
+                "label": "C",
+                "text": "用 Fe(III)-SCN 血红色反应替代过氧钒反应"
+              },
+              {
+                "label": "D",
+                "text": "把 Ti(IV)-H₂O₂ 橙红色配合物当作 V(V)鉴定"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "NH₄VO₃ 提供 V(V)，是该鉴定实验的钒源。",
+            "difficulty": "basic",
+            "status": "reviewed_polished",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00334_8229cac865",
+              "expchunk_protocol_4faa721af035"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "generic_shell_rewritten"
+          ]
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_13_023",
+        "source_review_id": "CHK5_SEM_EXP_20_3_13_023",
+        "source_question_index": 23,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《20-3-13 钒(V)的鉴定》中，关于 钒(V) 与 H₂O₂ 的过氧钒鉴定，哪项表述正确？",
+        "options": [
+          {
+            "label": "A",
+            "text": "用 Fe(III)-SCN 血红色反应替代过氧钒反应"
+          },
+          {
+            "label": "B",
+            "text": "NH₄VO₃ 鉴定中加入 H₂SO₄ 提供酸性介质。"
+          },
+          {
+            "label": "C",
+            "text": "把 Ti(IV)-H₂O₂ 橙红色配合物当作 V(V)鉴定"
+          },
+          {
+            "label": "D",
+            "text": "不酸化 NH₄VO₃ 就直接加入 H₂O₂"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "H₂SO₄ 酸化 NH₄VO₃ 后，体系再与 H₂O₂ 形成过氧钒显色。",
+        "difficulty": "basic",
+        "status": "reviewed_polished",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-9b93a689"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "fill_blank"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "用 Fe(III)-SCN 血红色反应替代过氧钒反应",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“钒(V) 与 H₂O₂ 的过氧钒鉴定”点位的关键对象或条件：用 Fe(III)-SCN 血红色反应替代过氧钒反应。"
+          },
+          {
+            "label": "B",
+            "text": "NH₄VO₃ 鉴定中加入 H₂SO₄ 提供酸性介质。",
+            "point_key": "candidate-1-9b93a689",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“钒(V) 与 H₂O₂ 的过氧钒鉴定”点位：NH₄VO₃ 鉴定中加入 H₂SO₄ 提供酸性介质。"
+          },
+          {
+            "label": "C",
+            "text": "把 Ti(IV)-H₂O₂ 橙红色配合物当作 V(V)鉴定",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“钒(V) 与 H₂O₂ 的过氧钒鉴定”点位：把 Ti(IV)-H₂O₂ 橙红色配合物当作 V(V)鉴定。"
+          },
+          {
+            "label": "D",
+            "text": "不酸化 NH₄VO₃ 就直接加入 H₂O₂",
+            "point_key": "candidate-1-9b93a689",
+            "role": "adjacent_point",
+            "diagnostic_note": "该选项属于同一实验或相近点位，但不是本题所问内容。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00334_8229cac865",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00334_8229cac865",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-3-13 钒(V)的鉴定》实验中，NH₄VO₃ 鉴定中加入____提供酸性介质。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "H₂SO₄"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "实验资料反应式含 H₂SO₄，实验资料也列出 H₂SO₄ 酸化。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00334_8229cac865",
+              "expchunk_protocol_4faa721af035"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-13 钒(V)的鉴定》中，关于 钒(V) 与 H₂O₂ 的过氧钒鉴定，哪项表述正确？",
+            "options": [
+              {
+                "label": "A",
+                "text": "用 Fe(III)-SCN 血红色反应替代过氧钒反应"
+              },
+              {
+                "label": "B",
+                "text": "NH₄VO₃ 鉴定中加入 H₂SO₄ 提供酸性介质。"
+              },
+              {
+                "label": "C",
+                "text": "把 Ti(IV)-H₂O₂ 橙红色配合物当作 V(V)鉴定"
+              },
+              {
+                "label": "D",
+                "text": "不酸化 NH₄VO₃ 就直接加入 H₂O₂"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "H₂SO₄ 酸化 NH₄VO₃ 后，体系再与 H₂O₂ 形成过氧钒显色。",
+            "difficulty": "basic",
+            "status": "reviewed_polished",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00334_8229cac865",
+              "expchunk_protocol_4faa721af035"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "generic_shell_rewritten"
+          ]
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_13_024",
+        "source_review_id": "CHK5_SEM_EXP_20_3_13_024",
+        "source_question_index": 24,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《20-3-13 钒(V)的鉴定》中，关于 钒(V) 与 H₂O₂ 的过氧钒鉴定，哪项表述正确？",
+        "options": [
+          {
+            "label": "A",
+            "text": "把 Ti(IV)-H₂O₂ 橙红色配合物当作 V(V)鉴定"
+          },
+          {
+            "label": "B",
+            "text": "酸化后加入 H₂O₂ 形成过氧钒配合物。"
+          },
+          {
+            "label": "C",
+            "text": "不酸化 NH₄VO₃ 就直接加入 H₂O₂"
+          },
+          {
+            "label": "D",
+            "text": "在教材未直接给出时强行指定一个具体色名"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "H₂O₂ 在酸性条件下与 V(V) 形成有色过氧钒物种。",
+        "difficulty": "basic",
+        "status": "reviewed_polished",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-4b1d96d3"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "fill_blank"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "把 Ti(IV)-H₂O₂ 橙红色配合物当作 V(V)鉴定",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“钒(V) 与 H₂O₂ 的过氧钒鉴定”点位：把 Ti(IV)-H₂O₂ 橙红色配合物当作 V(V)鉴定。"
+          },
+          {
+            "label": "B",
+            "text": "酸化后加入 H₂O₂ 形成过氧钒配合物。",
+            "point_key": "candidate-2-4b1d96d3",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“钒(V) 与 H₂O₂ 的过氧钒鉴定”点位：酸化后加入 H₂O₂ 形成过氧钒配合物。"
+          },
+          {
+            "label": "C",
+            "text": "不酸化 NH₄VO₃ 就直接加入 H₂O₂",
+            "point_key": "candidate-1-9b93a689",
+            "role": "adjacent_point",
+            "diagnostic_note": "该选项属于同一实验或相近点位，但不是本题所问内容。"
+          },
+          {
+            "label": "D",
+            "text": "在教材未直接给出时强行指定一个具体色名",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“钒(V) 与 H₂O₂ 的过氧钒鉴定”点位的关键对象或条件：在教材未直接给出时强行指定一个具体色名。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00334_8229cac865",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00334_8229cac865",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-3-13 钒(V)的鉴定》实验中，酸化后加入____形成过氧钒配合物。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "H₂O₂"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "实验资料列出加入 H₂O₂。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00334_8229cac865",
+              "expchunk_protocol_4faa721af035"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-13 钒(V)的鉴定》中，关于 钒(V) 与 H₂O₂ 的过氧钒鉴定，哪项表述正确？",
+            "options": [
+              {
+                "label": "A",
+                "text": "把 Ti(IV)-H₂O₂ 橙红色配合物当作 V(V)鉴定"
+              },
+              {
+                "label": "B",
+                "text": "酸化后加入 H₂O₂ 形成过氧钒配合物。"
+              },
+              {
+                "label": "C",
+                "text": "不酸化 NH₄VO₃ 就直接加入 H₂O₂"
+              },
+              {
+                "label": "D",
+                "text": "在教材未直接给出时强行指定一个具体色名"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "H₂O₂ 在酸性条件下与 V(V) 形成有色过氧钒物种。",
+            "difficulty": "basic",
+            "status": "reviewed_polished",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00334_8229cac865",
+              "expchunk_protocol_4faa721af035"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "generic_shell_rewritten"
+          ]
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_13_025",
+        "source_review_id": "CHK5_SEM_EXP_20_3_13_025",
+        "source_question_index": 25,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《20-3-13 钒(V)的鉴定》实验中，阳性反应生成____配合物。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "过氧钒"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "反应式中出现含 V(O₂) 的过氧钒物种。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-4b1d96d3"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "fill_blank"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00334_8229cac865",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00334_8229cac865",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-3-13 钒(V)的鉴定》实验中，阳性反应生成____配合物。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "过氧钒"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "反应式中出现含 V(O₂) 的过氧钒物种。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00334_8229cac865",
+              "expchunk_protocol_4faa721af035"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_13_026",
+        "source_review_id": "CHK5_SEM_EXP_20_3_13_026",
+        "source_question_index": 26,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《20-3-13 钒(V)的鉴定》中，关于 钒(V) 与 H₂O₂ 的过氧钒鉴定，哪项表述正确？",
+        "options": [
+          {
+            "label": "A",
+            "text": "在教材未直接给出时强行指定一个具体色名"
+          },
+          {
+            "label": "B",
+            "text": "比较 H₂O₂ 不足和过量时过氧钒体系的颜色变化。"
+          },
+          {
+            "label": "C",
+            "text": "用 Fe(III)-SCN 血红色反应替代过氧钒反应"
+          },
+          {
+            "label": "D",
+            "text": "把 Ti(IV)-H₂O₂ 橙红色配合物当作 V(V)鉴定"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "H₂O₂ 用量不同会影响过氧钒体系颜色，是本实验的比较观察点。",
+        "difficulty": "basic",
+        "status": "reviewed_polished",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-4b1d96d3"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "fill_blank"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "在教材未直接给出时强行指定一个具体色名",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“钒(V) 与 H₂O₂ 的过氧钒鉴定”点位的关键对象或条件：在教材未直接给出时强行指定一个具体色名。"
+          },
+          {
+            "label": "B",
+            "text": "比较 H₂O₂ 不足和过量时过氧钒体系的颜色变化。",
+            "point_key": "candidate-2-4b1d96d3",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“钒(V) 与 H₂O₂ 的过氧钒鉴定”点位：比较 H₂O₂ 不足和过量时过氧钒体系的颜色变化。"
+          },
+          {
+            "label": "C",
+            "text": "用 Fe(III)-SCN 血红色反应替代过氧钒反应",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“钒(V) 与 H₂O₂ 的过氧钒鉴定”点位的关键对象或条件：用 Fe(III)-SCN 血红色反应替代过氧钒反应。"
+          },
+          {
+            "label": "D",
+            "text": "把 Ti(IV)-H₂O₂ 橙红色配合物当作 V(V)鉴定",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“钒(V) 与 H₂O₂ 的过氧钒鉴定”点位：把 Ti(IV)-H₂O₂ 橙红色配合物当作 V(V)鉴定。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00334_8229cac865",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00334_8229cac865",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-3-13 钒(V)的鉴定》实验中，钒(V)过氧配合物常呈____或红棕色。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "橙红色",
+                "橙红"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "过氧钒配合物具有明显橙红/红棕颜色。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00334_8229cac865",
+              "expchunk_protocol_4faa721af035"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-13 钒(V)的鉴定》中，关于 钒(V) 与 H₂O₂ 的过氧钒鉴定，哪项表述正确？",
+            "options": [
+              {
+                "label": "A",
+                "text": "在教材未直接给出时强行指定一个具体色名"
+              },
+              {
+                "label": "B",
+                "text": "比较 H₂O₂ 不足和过量时过氧钒体系的颜色变化。"
+              },
+              {
+                "label": "C",
+                "text": "用 Fe(III)-SCN 血红色反应替代过氧钒反应"
+              },
+              {
+                "label": "D",
+                "text": "把 Ti(IV)-H₂O₂ 橙红色配合物当作 V(V)鉴定"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "H₂O₂ 用量不同会影响过氧钒体系颜色，是本实验的比较观察点。",
+            "difficulty": "basic",
+            "status": "reviewed_polished",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00334_8229cac865",
+              "expchunk_protocol_4faa721af035"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "generic_shell_rewritten"
+          ]
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_13_027",
+        "source_review_id": "CHK5_SEM_EXP_20_3_13_027",
+        "source_question_index": 27,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《20-3-13 钒(V)的鉴定》中，关于 钒(V) 与 H₂O₂ 的过氧钒鉴定，哪项表述正确？",
+        "options": [
+          {
+            "label": "A",
+            "text": "用 Fe(III)-SCN 血红色反应替代过氧钒反应"
+          },
+          {
+            "label": "B",
+            "text": "本实验比较 H₂O₂ 不足与过量时的颜色变化。"
+          },
+          {
+            "label": "C",
+            "text": "把 Ti(IV)-H₂O₂ 橙红色配合物当作 V(V)鉴定"
+          },
+          {
+            "label": "D",
+            "text": "不酸化 NH₄VO₃ 就直接加入 H₂O₂"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "比较 H₂O₂ 不足与过量时的颜色变化，有助于确认过氧钒物种的形成和变化。",
+        "difficulty": "basic",
+        "status": "reviewed_polished",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-de4dbb09"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "fill_blank"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "用 Fe(III)-SCN 血红色反应替代过氧钒反应",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“钒(V) 与 H₂O₂ 的过氧钒鉴定”点位的关键对象或条件：用 Fe(III)-SCN 血红色反应替代过氧钒反应。"
+          },
+          {
+            "label": "B",
+            "text": "本实验比较 H₂O₂ 不足与过量时的颜色变化。",
+            "point_key": "candidate-3-de4dbb09",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“钒(V) 与 H₂O₂ 的过氧钒鉴定”点位：本实验比较 H₂O₂ 不足与过量时的颜色变化。"
+          },
+          {
+            "label": "C",
+            "text": "把 Ti(IV)-H₂O₂ 橙红色配合物当作 V(V)鉴定",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“钒(V) 与 H₂O₂ 的过氧钒鉴定”点位：把 Ti(IV)-H₂O₂ 橙红色配合物当作 V(V)鉴定。"
+          },
+          {
+            "label": "D",
+            "text": "不酸化 NH₄VO₃ 就直接加入 H₂O₂",
+            "point_key": "candidate-1-9b93a689",
+            "role": "adjacent_point",
+            "diagnostic_note": "该选项属于同一实验或相近点位，但不是本题所问内容。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00334_8229cac865",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00334_8229cac865",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-3-13 钒(V)的鉴定》实验中，本实验比较____不足与过量时的颜色变化。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "H₂O₂"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "实验资料明确比较 H₂O₂ 不足与过量。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00334_8229cac865",
+              "expchunk_protocol_4faa721af035"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-13 钒(V)的鉴定》中，关于 钒(V) 与 H₂O₂ 的过氧钒鉴定，哪项表述正确？",
+            "options": [
+              {
+                "label": "A",
+                "text": "用 Fe(III)-SCN 血红色反应替代过氧钒反应"
+              },
+              {
+                "label": "B",
+                "text": "本实验比较 H₂O₂ 不足与过量时的颜色变化。"
+              },
+              {
+                "label": "C",
+                "text": "把 Ti(IV)-H₂O₂ 橙红色配合物当作 V(V)鉴定"
+              },
+              {
+                "label": "D",
+                "text": "不酸化 NH₄VO₃ 就直接加入 H₂O₂"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "比较 H₂O₂ 不足与过量时的颜色变化，有助于确认过氧钒物种的形成和变化。",
+            "difficulty": "basic",
+            "status": "reviewed_polished",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00334_8229cac865",
+              "expchunk_protocol_4faa721af035"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "generic_shell_rewritten"
+          ]
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_13_028",
+        "source_review_id": "CHK5_SEM_EXP_20_3_13_028",
+        "source_question_index": 28,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《20-3-13 钒(V)的鉴定》中，关于 钒(V) 与 H₂O₂ 的过氧钒鉴定，哪项表述正确？",
+        "options": [
+          {
+            "label": "A",
+            "text": "把 Ti(IV)-H₂O₂ 橙红色配合物当作 V(V)鉴定"
+          },
+          {
+            "label": "B",
+            "text": "反应式中含钒过氧配合物可写作 [V(O₂)]₂(SO₄)₃。"
+          },
+          {
+            "label": "C",
+            "text": "不酸化 NH₄VO₃ 就直接加入 H₂O₂"
+          },
+          {
+            "label": "D",
+            "text": "在教材未直接给出时强行指定一个具体色名"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "[V(O₂)]₂(SO₄)₃ 可表示酸性条件下形成的含钒过氧配合物。",
+        "difficulty": "basic",
+        "status": "reviewed_polished",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-4b1d96d3"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "fill_blank"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "把 Ti(IV)-H₂O₂ 橙红色配合物当作 V(V)鉴定",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“钒(V) 与 H₂O₂ 的过氧钒鉴定”点位：把 Ti(IV)-H₂O₂ 橙红色配合物当作 V(V)鉴定。"
+          },
+          {
+            "label": "B",
+            "text": "反应式中含钒过氧配合物可写作 [V(O₂)]₂(SO₄)₃。",
+            "point_key": "candidate-2-4b1d96d3",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“钒(V) 与 H₂O₂ 的过氧钒鉴定”点位：反应式中含钒过氧配合物可写作 [V(O₂)]₂(SO₄)₃。"
+          },
+          {
+            "label": "C",
+            "text": "不酸化 NH₄VO₃ 就直接加入 H₂O₂",
+            "point_key": "candidate-1-9b93a689",
+            "role": "adjacent_point",
+            "diagnostic_note": "该选项属于同一实验或相近点位，但不是本题所问内容。"
+          },
+          {
+            "label": "D",
+            "text": "在教材未直接给出时强行指定一个具体色名",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“钒(V) 与 H₂O₂ 的过氧钒鉴定”点位的关键对象或条件：在教材未直接给出时强行指定一个具体色名。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00334_8229cac865",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00334_8229cac865",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-3-13 钒(V)的鉴定》实验中，反应式中含钒过氧配合物可写作____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "[V(O₂)]₂(SO₄)₃"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "实验资料列出 [V(O₂)]₂(SO₄)₃。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00334_8229cac865",
+              "expchunk_protocol_4faa721af035"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-13 钒(V)的鉴定》中，关于 钒(V) 与 H₂O₂ 的过氧钒鉴定，哪项表述正确？",
+            "options": [
+              {
+                "label": "A",
+                "text": "把 Ti(IV)-H₂O₂ 橙红色配合物当作 V(V)鉴定"
+              },
+              {
+                "label": "B",
+                "text": "反应式中含钒过氧配合物可写作 [V(O₂)]₂(SO₄)₃。"
+              },
+              {
+                "label": "C",
+                "text": "不酸化 NH₄VO₃ 就直接加入 H₂O₂"
+              },
+              {
+                "label": "D",
+                "text": "在教材未直接给出时强行指定一个具体色名"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "[V(O₂)]₂(SO₄)₃ 可表示酸性条件下形成的含钒过氧配合物。",
+            "difficulty": "basic",
+            "status": "reviewed_polished",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00334_8229cac865",
+              "expchunk_protocol_4faa721af035"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "generic_shell_rewritten"
+          ]
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_13_029",
+        "source_review_id": "CHK5_SEM_EXP_20_3_13_029",
+        "source_question_index": 29,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《20-3-13 钒(V)的鉴定》中，关于 钒(V) 与 H₂O₂ 的过氧钒鉴定，哪项表述正确？",
+        "options": [
+          {
+            "label": "A",
+            "text": "不酸化 NH₄VO₃ 就直接加入 H₂O₂"
+          },
+          {
+            "label": "B",
+            "text": "合理顺序是 NH₄VO₃ 先酸化，再加入 H₂O₂。"
+          },
+          {
+            "label": "C",
+            "text": "在教材未直接给出时强行指定一个具体色名"
+          },
+          {
+            "label": "D",
+            "text": "用 Fe(III)-SCN 血红色反应替代过氧钒反应"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "先用 H₂SO₄ 酸化 NH₄VO₃，再加入 H₂O₂，是形成过氧钒显色体系的合理顺序。",
+        "difficulty": "basic",
+        "status": "reviewed_polished",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-4b1d96d3"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "fill_blank"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "不酸化 NH₄VO₃ 就直接加入 H₂O₂",
+            "point_key": "candidate-1-9b93a689",
+            "role": "adjacent_point",
+            "diagnostic_note": "该选项属于同一实验或相近点位，但不是本题所问内容。"
+          },
+          {
+            "label": "B",
+            "text": "合理顺序是 NH₄VO₃ 先酸化，再加入 H₂O₂。",
+            "point_key": "candidate-2-4b1d96d3",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“钒(V) 与 H₂O₂ 的过氧钒鉴定”点位：合理顺序是 NH₄VO₃ 先酸化，再加入 H₂O₂。"
+          },
+          {
+            "label": "C",
+            "text": "在教材未直接给出时强行指定一个具体色名",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“钒(V) 与 H₂O₂ 的过氧钒鉴定”点位的关键对象或条件：在教材未直接给出时强行指定一个具体色名。"
+          },
+          {
+            "label": "D",
+            "text": "用 Fe(III)-SCN 血红色反应替代过氧钒反应",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“钒(V) 与 H₂O₂ 的过氧钒鉴定”点位的关键对象或条件：用 Fe(III)-SCN 血红色反应替代过氧钒反应。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00334_8229cac865",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00334_8229cac865",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-3-13 钒(V)的鉴定》实验中，合理顺序是 NH₄VO₃ 先酸化，再加入____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "H₂O₂"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "酸性条件下 H₂O₂ 与钒(V)形成过氧配合物。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00334_8229cac865",
+              "expchunk_protocol_4faa721af035"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-13 钒(V)的鉴定》中，关于 钒(V) 与 H₂O₂ 的过氧钒鉴定，哪项表述正确？",
+            "options": [
+              {
+                "label": "A",
+                "text": "不酸化 NH₄VO₃ 就直接加入 H₂O₂"
+              },
+              {
+                "label": "B",
+                "text": "合理顺序是 NH₄VO₃ 先酸化，再加入 H₂O₂。"
+              },
+              {
+                "label": "C",
+                "text": "在教材未直接给出时强行指定一个具体色名"
+              },
+              {
+                "label": "D",
+                "text": "用 Fe(III)-SCN 血红色反应替代过氧钒反应"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "先用 H₂SO₄ 酸化 NH₄VO₃，再加入 H₂O₂，是形成过氧钒显色体系的合理顺序。",
+            "difficulty": "basic",
+            "status": "reviewed_polished",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00334_8229cac865",
+              "expchunk_protocol_4faa721af035"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "generic_shell_rewritten"
+          ]
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_13_030",
+        "source_review_id": "CHK5_SEM_EXP_20_3_13_030",
+        "source_question_index": 30,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《20-3-13 钒(V)的鉴定》中，关于 钒(V) 与 H₂O₂ 的过氧钒鉴定，哪项表述正确？",
+        "options": [
+          {
+            "label": "A",
+            "text": "在教材未直接给出时强行指定一个具体色名"
+          },
+          {
+            "label": "B",
+            "text": "核心判据是在酸性 H₂O₂ 中形成有色过氧钒物种。"
+          },
+          {
+            "label": "C",
+            "text": "用 Fe(III)-SCN 血红色反应替代过氧钒反应"
+          },
+          {
+            "label": "D",
+            "text": "把 Ti(IV)-H₂O₂ 橙红色配合物当作 V(V)鉴定"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "钒(V)鉴定的核心阳性依据是在酸性 H₂O₂ 中形成有色过氧钒物种。",
+        "difficulty": "basic",
+        "status": "reviewed_polished",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-4b1d96d3"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "fill_blank"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "在教材未直接给出时强行指定一个具体色名",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“钒(V) 与 H₂O₂ 的过氧钒鉴定”点位的关键对象或条件：在教材未直接给出时强行指定一个具体色名。"
+          },
+          {
+            "label": "B",
+            "text": "核心判据是在酸性 H₂O₂ 中形成有色过氧钒物种。",
+            "point_key": "candidate-2-4b1d96d3",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“钒(V) 与 H₂O₂ 的过氧钒鉴定”点位：核心判据是在酸性 H₂O₂ 中形成有色过氧钒物种。"
+          },
+          {
+            "label": "C",
+            "text": "用 Fe(III)-SCN 血红色反应替代过氧钒反应",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“钒(V) 与 H₂O₂ 的过氧钒鉴定”点位的关键对象或条件：用 Fe(III)-SCN 血红色反应替代过氧钒反应。"
+          },
+          {
+            "label": "D",
+            "text": "把 Ti(IV)-H₂O₂ 橙红色配合物当作 V(V)鉴定",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“钒(V) 与 H₂O₂ 的过氧钒鉴定”点位：把 Ti(IV)-H₂O₂ 橙红色配合物当作 V(V)鉴定。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00334_8229cac865",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00334_8229cac865",
+            "expchunk_protocol_4faa721af035"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-3-13 钒(V)的鉴定》实验中，核心判据是在酸性 H₂O₂ 中形成有色____物种。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "过氧钒"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "钒(V)鉴定依赖过氧钒有色物种生成。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00334_8229cac865",
+              "expchunk_protocol_4faa721af035"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-13 钒(V)的鉴定》中，关于 钒(V) 与 H₂O₂ 的过氧钒鉴定，哪项表述正确？",
+            "options": [
+              {
+                "label": "A",
+                "text": "在教材未直接给出时强行指定一个具体色名"
+              },
+              {
+                "label": "B",
+                "text": "核心判据是在酸性 H₂O₂ 中形成有色过氧钒物种。"
+              },
+              {
+                "label": "C",
+                "text": "用 Fe(III)-SCN 血红色反应替代过氧钒反应"
+              },
+              {
+                "label": "D",
+                "text": "把 Ti(IV)-H₂O₂ 橙红色配合物当作 V(V)鉴定"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "钒(V)鉴定的核心阳性依据是在酸性 H₂O₂ 中形成有色过氧钒物种。",
+            "difficulty": "basic",
+            "status": "reviewed_polished",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00334_8229cac865",
+              "expchunk_protocol_4faa721af035"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "generic_shell_rewritten"
+          ]
+        }
+      }
+    ]
+  }
+}

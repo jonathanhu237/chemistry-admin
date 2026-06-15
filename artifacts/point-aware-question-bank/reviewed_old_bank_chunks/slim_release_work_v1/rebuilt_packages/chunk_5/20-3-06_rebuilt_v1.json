@@ -1,0 +1,1892 @@
+{
+  "metadata": {
+    "schema_version": "rebuilt_experiment_question_package_v1",
+    "artifact_type": "manual_small_packet_semantic_reconstruction",
+    "source_packet": "E:\\chemistry-admin\\artifacts\\point-aware-question-bank\\reviewed_old_bank_chunks\\slim_release_work_v1\\semantic_work_packets\\chunk_5\\20-3-06.json",
+    "experiment_code": "20-3-06",
+    "experiment_title": "配合物的形成对氧化还原性的影响",
+    "question_count": 30,
+    "chunk": "chunk_5",
+    "reconstruction_status": "manual_question_by_question_semantic_rebuild",
+    "evidence_policy": "RAG text was read for every cited id. JSON stores ids, source file, line number, and concise evidence role only; no release JSON was edited.",
+    "rag_source_dir": "E:\\chemistry-rag\\data\\rag_ready",
+    "release_json_direct_edit": false
+  },
+  "video_points": [
+    {
+      "point_key": "candidate-1-81b774c1",
+      "point_title": "KI + CCl₄ + FeCl₃"
+    },
+    {
+      "point_key": "candidate-2-a5f9b5b1",
+      "point_title": "KI + CCl₄ + NaF + FeCl₃，对比 NaF 配位 Fe³⁺ 后反应差异"
+    },
+    {
+      "point_key": "candidate-3-01fbe9ee",
+      "point_title": "Fe(Ⅱ) 溶液 + AgNO₃"
+    },
+    {
+      "point_key": "candidate-4-2650ce4f",
+      "point_title": "Fe(Ⅱ) 溶液 + EDTA + AgNO₃"
+    }
+  ],
+  "evidence_sources": {
+    "canonical_experiment_chunks": [
+      {
+        "chunk_id": "expchunk_00332_42b6908ee0",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+        "line_number": 345,
+        "evidence_role": "Primary canonical procedure: KI/CCl4 plus FeCl3, NaF-before-FeCl3 comparison, and Fe(II) ammonium iron sulfate with or without EDTA reacting with AgNO3."
+      },
+      {
+        "chunk_id": "expchunk_00336_68bde523f4",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+        "line_number": 349,
+        "evidence_role": "Textbook thinking questions: Fe3+ interferes with KI determination of Cu2+ and can be masked by complexation; Fe2+ can recover silver from silver salt solution using complex chemistry."
+      }
+    ],
+    "supporting_theory_chunks": [
+      {
+        "chunk_id": "textbook_prose_00037_a7dbd4c099",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+        "line_number": 134,
+        "evidence_role": "States Fe3+ can oxidize iodide to iodine."
+      },
+      {
+        "chunk_id": "textbook_prose_00039_cb1a979cf8",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+        "line_number": 137,
+        "evidence_role": "Explains the iodine/Fe3+ redox relation through electrode potentials."
+      },
+      {
+        "chunk_id": "textbook_table_record_table_p224_t01_r071",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+        "line_number": 1977,
+        "evidence_role": "Table 20.10 records Fe3+ fluoro complex formation with F-; used only for Fe3+ complexation by fluoride."
+      }
+    ]
+  },
+  "questions": [
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_06_001",
+      "question_type": "single_choice",
+      "stem": "在 KI 和 CCl₄ 混合溶液中加入 FeCl₃，主要观察哪种单质生成并进入有机层？",
+      "options": [
+        {
+          "label": "A",
+          "text": "I₂"
+        },
+        {
+          "label": "B",
+          "text": "Br₂"
+        },
+        {
+          "label": "C",
+          "text": "Cl₂"
+        },
+        {
+          "label": "D",
+          "text": "O₃"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "教材资料给出 KI、CCl₄ 和 FeCl₃ 的对照体系；相关化学原理明确 Fe³⁺ 能把 I⁻ 氧化为 I₂，CCl₄ 层用于观察碘。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-81b774c1"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "iodide_oxidation",
+        "organic_layer_observation"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-1-81b774c1",
+          "role": "correct_product"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "wrong_halogen"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "wrong_halogen"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "wrong_oxidant_context"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00332_42b6908ee0"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00037_a7dbd4c099",
+          "textbook_prose_00039_cb1a979cf8"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留：实验体系和 Fe³⁺ 氧化 I⁻ 均有证据。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_06_002",
+      "question_type": "single_choice",
+      "stem": "在加入 FeCl₃ 前先加入少量 NaF，主要是为了让 F⁻ 与哪种离子形成配合物？",
+      "options": [
+        {
+          "label": "A",
+          "text": "I⁻"
+        },
+        {
+          "label": "B",
+          "text": "Fe³⁺"
+        },
+        {
+          "label": "C",
+          "text": "K⁺"
+        },
+        {
+          "label": "D",
+          "text": "Ag⁺"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "教材步骤要求比较先加 NaF 再加 FeCl₃ 的现象；常见配合物关系显示 F⁻ 可与 Fe³⁺ 形成配合物。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-2-a5f9b5b1"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "fluoride_complexation",
+        "masking_fe3"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "wrong_ion"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-2-a5f9b5b1",
+          "role": "correct_center_ion"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "spectator_ion"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "different_subexperiment"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00332_42b6908ee0"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_table_record_table_p224_t01_r071"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留：NaF 对照来自 canonical，F⁻-Fe³⁺ 配位由 table 支撑。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_06_003",
+      "question_type": "single_choice",
+      "stem": "NaF 对 Fe³⁺ 配位后，Fe³⁺ 氧化 I⁻ 的能力通常会怎样？",
+      "options": [
+        {
+          "label": "A",
+          "text": "显著增强到爆炸"
+        },
+        {
+          "label": "B",
+          "text": "完全不变且无任何影响"
+        },
+        {
+          "label": "C",
+          "text": "减弱"
+        },
+        {
+          "label": "D",
+          "text": "变成还原剂 Na"
+        }
+      ],
+      "answer": {
+        "value": "C"
+      },
+      "explanation": "F⁻ 配合 Fe³⁺ 会降低游离 Fe³⁺ 的氧化干扰；教材步骤要求比较先加 NaF 时现象的不同。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-2-a5f9b5b1"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "redox_power_change",
+        "fluoride_masking"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "exaggerated_wrong"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "ignores_complexation"
+        },
+        {
+          "label": "C",
+          "point_key": "candidate-2-a5f9b5b1",
+          "role": "correct_effect"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "category_error"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00332_42b6908ee0",
+          "expchunk_00336_68bde523f4"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_table_record_table_p224_t01_r071",
+          "textbook_prose_00037_a7dbd4c099"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留：由 NaF 对照和 Fe³⁺ 干扰排除思考题共同支撑。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_06_004",
+      "question_type": "single_choice",
+      "stem": "KI + CCl₄ + FeCl₃ 体系中，CCl₄ 的主要作用是哪一项？",
+      "options": [
+        {
+          "label": "A",
+          "text": "还原 Fe³⁺"
+        },
+        {
+          "label": "B",
+          "text": "提供 F⁻"
+        },
+        {
+          "label": "C",
+          "text": "沉淀 Ag⁺"
+        },
+        {
+          "label": "D",
+          "text": "萃取 I₂ 便于观察颜色"
+        }
+      ],
+      "answer": {
+        "value": "D"
+      },
+      "explanation": "教材资料把 KI 与 CCl₄ 混合后再加 FeCl₃；结合 Fe³⁺ 氧化 I⁻ 生成 I₂，可知 CCl₄ 用于有机层显色观察。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-81b774c1"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "ccl4_role",
+        "iodine_extraction"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "wrong_redox_role"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "wrong_reagent_role"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "different_subexperiment"
+        },
+        {
+          "label": "D",
+          "point_key": "candidate-1-81b774c1",
+          "role": "correct_observation_role"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00332_42b6908ee0"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00037_a7dbd4c099"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留：有机层观察与 I₂ 生成共同支撑。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_06_005",
+      "question_type": "single_choice",
+      "stem": "室温下比较 Fe(Ⅱ) 溶液与 AgNO₃ 反应时，加入 EDTA 的目的最接近哪一项？",
+      "options": [
+        {
+          "label": "A",
+          "text": "配合生成的 Fe³⁺，改变 Fe³⁺/Fe²⁺ 电对电势"
+        },
+        {
+          "label": "B",
+          "text": "提供银离子"
+        },
+        {
+          "label": "C",
+          "text": "氧化 I⁻"
+        },
+        {
+          "label": "D",
+          "text": "生成水玻璃"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "教材步骤要求比较有 EDTA 与无 EDTA 时 Fe(Ⅱ) 溶液和 AgNO₃ 的反应；思考题把该比较指向利用配合物性质回收银。",
+      "difficulty": "intermediate",
+      "primary_point_keys": [
+        "candidate-3-01fbe9ee"
+      ],
+      "secondary_point_keys": [
+        "candidate-4-2650ce4f"
+      ],
+      "coverage_tags": [
+        "edta_effect",
+        "fe_ag_redox"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-4-2650ce4f",
+          "role": "correct_complexation_effect"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-3-01fbe9ee",
+          "role": "reagent_source_not_edta"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "different_subexperiment"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "unrelated_context"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00332_42b6908ee0",
+          "expchunk_00336_68bde523f4"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "保留：EDTA 对照和银回收思考题足以支撑。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_06_006",
+      "question_type": "single_choice",
+      "stem": "Fe(Ⅱ) 与 Ag⁺ 在 EDTA 存在时更容易发生的变化是哪一项？",
+      "options": [
+        {
+          "label": "A",
+          "text": "Ag⁺ 被氧化为 Ag³⁺"
+        },
+        {
+          "label": "B",
+          "text": "Ag⁺ 被还原为 Ag"
+        },
+        {
+          "label": "C",
+          "text": "Fe²⁺ 被还原为 Fe"
+        },
+        {
+          "label": "D",
+          "text": "EDTA 变成臭氧"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "思考题说明可应用配合物性质使 Fe²⁺ 用于回收银盐溶液中的银；对应 Ag⁺ 被还原为金属 Ag。",
+      "difficulty": "intermediate",
+      "primary_point_keys": [
+        "candidate-4-2650ce4f"
+      ],
+      "secondary_point_keys": [
+        "candidate-3-01fbe9ee"
+      ],
+      "coverage_tags": [
+        "silver_recovery",
+        "edta_redox_shift"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "wrong_redox_direction"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-4-2650ce4f",
+          "role": "correct_silver_product"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "wrong_fe_change"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "nonsense_distractor"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00332_42b6908ee0",
+          "expchunk_00336_68bde523f4"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "保留：AgNO₃ 对照和银回收思考题直接支撑。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_06_007",
+      "question_type": "single_choice",
+      "stem": "该实验最核心的化学思想是哪一项？",
+      "options": [
+        {
+          "label": "A",
+          "text": "所有配体都完全惰性"
+        },
+        {
+          "label": "B",
+          "text": "CCl₄ 是强氧化剂"
+        },
+        {
+          "label": "C",
+          "text": "配合物形成可改变氧化还原反应方向或程度"
+        },
+        {
+          "label": "D",
+          "text": "NaF 只能作酸碱指示剂"
+        }
+      ],
+      "answer": {
+        "value": "C"
+      },
+      "explanation": "教材小节标题即为“配合物的形成对氧化还原性的影响”，两个对比体系都服务于该结论。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-81b774c1"
+      ],
+      "secondary_point_keys": [
+        "candidate-2-a5f9b5b1",
+        "candidate-3-01fbe9ee",
+        "candidate-4-2650ce4f"
+      ],
+      "coverage_tags": [
+        "core_concept",
+        "complexation_redox"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "contradicts_experiment"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "wrong_reagent_role"
+        },
+        {
+          "label": "C",
+          "point_key": "candidate-1-81b774c1",
+          "role": "correct_generalization"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "wrong_reagent_role"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00332_42b6908ee0"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "保留：实验标题和两组对照均支撑。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_06_008",
+      "question_type": "single_choice",
+      "stem": "下列哪一组属于该实验的两个对比体系？",
+      "options": [
+        {
+          "label": "A",
+          "text": "BaO₂ 制臭氧与 Na₂SO₃ 制 SO₂"
+        },
+        {
+          "label": "B",
+          "text": "水玻璃与 CaCl₂、CuSO₄"
+        },
+        {
+          "label": "C",
+          "text": "氢氧化铅溶于酸和碱"
+        },
+        {
+          "label": "D",
+          "text": "FeCl₃ 氧化 I⁻ 与 Fe(Ⅱ) 还原 Ag⁺"
+        }
+      ],
+      "answer": {
+        "value": "D"
+      },
+      "explanation": "教材资料依次安排 KI/CCl₄/FeCl₃ 与 Fe(Ⅱ)/AgNO₃/EDTA 两组对比。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-81b774c1"
+      ],
+      "secondary_point_keys": [
+        "candidate-2-a5f9b5b1",
+        "candidate-3-01fbe9ee",
+        "candidate-4-2650ce4f"
+      ],
+      "coverage_tags": [
+        "compare_systems",
+        "procedure_scope"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "wrong_experiment"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "wrong_experiment"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "wrong_experiment"
+        },
+        {
+          "label": "D",
+          "point_key": "candidate-1-81b774c1",
+          "role": "correct_pair"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00332_42b6908ee0"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "保留：直接来自 canonical 两个子步骤。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_06_009",
+      "question_type": "single_choice",
+      "stem": "如果 FeCl₃ 已被 F⁻ 配合，KI/CCl₄ 层中碘的颜色通常会怎样变化？",
+      "options": [
+        {
+          "label": "A",
+          "text": "减弱或不明显"
+        },
+        {
+          "label": "B",
+          "text": "必定更深且无上限"
+        },
+        {
+          "label": "C",
+          "text": "立即变成绿色 Ni²⁺"
+        },
+        {
+          "label": "D",
+          "text": "生成黄色 PbI₂ 固体为唯一现象"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "F⁻ 配合 Fe³⁺ 后减少游离 Fe³⁺，因而 Fe³⁺ 氧化 I⁻ 生成 I₂ 的现象会减弱或不明显。",
+      "difficulty": "intermediate",
+      "primary_point_keys": [
+        "candidate-2-a5f9b5b1"
+      ],
+      "secondary_point_keys": [
+        "candidate-1-81b774c1"
+      ],
+      "coverage_tags": [
+        "fluoride_masking",
+        "iodine_color"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-2-a5f9b5b1",
+          "role": "correct_observation"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "wrong_direction"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "wrong_metal_context"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "wrong_precipitate_context"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00332_42b6908ee0",
+          "expchunk_00336_68bde523f4"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_table_record_table_p224_t01_r071",
+          "textbook_prose_00037_a7dbd4c099"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留：由 NaF 前处理对照和 Fe³⁺ 氧化 I⁻ 证据共同支持。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_06_010",
+      "question_type": "single_choice",
+      "stem": "利用 KI 定量测定 Cu²⁺ 时 Fe³⁺ 会干扰，加入能配合 Fe³⁺ 的试剂可用于什么目的？",
+      "options": [
+        {
+          "label": "A",
+          "text": "增加 I⁻ 被 Fe³⁺ 氧化"
+        },
+        {
+          "label": "B",
+          "text": "排除 Fe³⁺ 氧化 I⁻ 的干扰"
+        },
+        {
+          "label": "C",
+          "text": "沉淀所有 K⁺"
+        },
+        {
+          "label": "D",
+          "text": "制备 CuCl"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "思考题明确指出 Fe³⁺ 会干扰 KI 测定 Cu²⁺，本实验用配合 Fe³⁺ 的方式降低其氧化干扰。",
+      "difficulty": "intermediate",
+      "primary_point_keys": [
+        "candidate-2-a5f9b5b1"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "ki_titration_interference",
+        "masking_fe3"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "opposite_effect"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-2-a5f9b5b1",
+          "role": "correct_purpose"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "spectator_ion_error"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "unrelated_product"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00336_68bde523f4"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00037_a7dbd4c099",
+          "textbook_table_record_table_p224_t01_r071"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留：思考题和 F⁻-Fe³⁺ 配位证据支撑。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_06_011",
+      "question_type": "true_false",
+      "stem": "FeCl₃ 可在 KI 和 CCl₄ 混合体系中氧化 I⁻ 生成 I₂。",
+      "options": [
+        {
+          "label": "T",
+          "text": "正确"
+        },
+        {
+          "label": "F",
+          "text": "错误"
+        }
+      ],
+      "answer": {
+        "value": true
+      },
+      "explanation": "教材资料给出该体系；相关化学原理说明 Fe³⁺ 可氧化 I⁻ 为 I₂。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-81b774c1"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "iodide_oxidation",
+        "true_false"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00332_42b6908ee0"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00037_a7dbd4c099"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_06_012",
+      "question_type": "true_false",
+      "stem": "加入 NaF 后，F⁻ 与 Fe³⁺ 配合会影响 Fe³⁺ 的氧化能力。",
+      "options": [
+        {
+          "label": "T",
+          "text": "正确"
+        },
+        {
+          "label": "F",
+          "text": "错误"
+        }
+      ],
+      "answer": {
+        "value": true
+      },
+      "explanation": "教材步骤要求比较先加 NaF 的差异；常见配合物关系显示 F⁻ 可与 Fe³⁺ 配合。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-2-a5f9b5b1"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "fluoride_complexation",
+        "true_false"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00332_42b6908ee0"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_table_record_table_p224_t01_r071"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_06_013",
+      "question_type": "true_false",
+      "stem": "CCl₄ 在 KI/FeCl₃ 体系中主要用于萃取碘并便于观察。",
+      "options": [
+        {
+          "label": "T",
+          "text": "正确"
+        },
+        {
+          "label": "F",
+          "text": "错误"
+        }
+      ],
+      "answer": {
+        "value": true
+      },
+      "explanation": "CCl₄ 与 KI 一起作为观察体系；Fe³⁺ 氧化 I⁻ 后生成的 I₂ 进入有机层更便于辨认。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-81b774c1"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "ccl4_role",
+        "true_false"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00332_42b6908ee0"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00037_a7dbd4c099"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_06_014",
+      "question_type": "true_false",
+      "stem": "EDTA 存在时，Fe(Ⅱ) 与 AgNO₃ 的反应可因配合生成的 Fe³⁺ 而改变。",
+      "options": [
+        {
+          "label": "T",
+          "text": "正确"
+        },
+        {
+          "label": "F",
+          "text": "错误"
+        }
+      ],
+      "answer": {
+        "value": true
+      },
+      "explanation": "教材步骤要求比较有无 EDTA 下 Fe(Ⅱ) 与 AgNO₃ 的反应；思考题将该现象联系到用配合物性质回收银。",
+      "difficulty": "intermediate",
+      "primary_point_keys": [
+        "candidate-3-01fbe9ee"
+      ],
+      "secondary_point_keys": [
+        "candidate-4-2650ce4f"
+      ],
+      "coverage_tags": [
+        "edta_effect",
+        "true_false"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00332_42b6908ee0",
+          "expchunk_00336_68bde523f4"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "保留。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_06_015",
+      "question_type": "true_false",
+      "stem": "配合物形成永远不会影响氧化还原性。",
+      "options": [
+        {
+          "label": "T",
+          "text": "正确"
+        },
+        {
+          "label": "F",
+          "text": "错误"
+        }
+      ],
+      "answer": {
+        "value": false
+      },
+      "explanation": "本小节标题和两组对照都说明配合物形成会影响氧化还原性。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-81b774c1"
+      ],
+      "secondary_point_keys": [
+        "candidate-2-a5f9b5b1",
+        "candidate-3-01fbe9ee",
+        "candidate-4-2650ce4f"
+      ],
+      "coverage_tags": [
+        "core_concept",
+        "true_false"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00332_42b6908ee0"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "保留，原句为反向判断。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_06_016",
+      "question_type": "true_false",
+      "stem": "NaF 的加入是为了向体系提供 Ag⁺。",
+      "options": [
+        {
+          "label": "T",
+          "text": "正确"
+        },
+        {
+          "label": "F",
+          "text": "错误"
+        }
+      ],
+      "answer": {
+        "value": false
+      },
+      "explanation": "NaF 用于提供 F⁻ 以配合 Fe³⁺；Ag⁺ 来源于另一对照中的 AgNO₃。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-2-a5f9b5b1"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "reagent_role",
+        "true_false"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00332_42b6908ee0"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_table_record_table_p224_t01_r071"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留，错误陈述可由 canonical 区分。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_06_017",
+      "question_type": "true_false",
+      "stem": "Fe(Ⅱ) 还原 Ag⁺ 的对比实验中，AgNO₃ 是银离子来源。",
+      "options": [
+        {
+          "label": "T",
+          "text": "正确"
+        },
+        {
+          "label": "F",
+          "text": "错误"
+        }
+      ],
+      "answer": {
+        "value": true
+      },
+      "explanation": "教材资料明确 Fe(Ⅱ) 溶液与 AgNO₃ 溶液反应，AgNO₃ 提供 Ag⁺。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-3-01fbe9ee"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "silver_source",
+        "true_false"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00332_42b6908ee0"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "保留。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_06_018",
+      "question_type": "true_false",
+      "stem": "KI + CCl₄ + FeCl₃ 的颜色变化可用于判断 I₂ 是否生成。",
+      "options": [
+        {
+          "label": "T",
+          "text": "正确"
+        },
+        {
+          "label": "F",
+          "text": "错误"
+        }
+      ],
+      "answer": {
+        "value": true
+      },
+      "explanation": "Fe³⁺ 氧化 I⁻ 生成 I₂，CCl₄ 有机层让碘的颜色变化更明显。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-81b774c1"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "iodine_observation",
+        "true_false"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00332_42b6908ee0"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00037_a7dbd4c099"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "重写：去掉模板化开头，保留核心判断。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_06_019",
+      "question_type": "true_false",
+      "stem": "F⁻ 配合 Fe³⁺ 后通常会减少游离 Fe³⁺ 对 I⁻ 的氧化干扰。",
+      "options": [
+        {
+          "label": "T",
+          "text": "正确"
+        },
+        {
+          "label": "F",
+          "text": "错误"
+        }
+      ],
+      "answer": {
+        "value": true
+      },
+      "explanation": "F⁻ 与 Fe³⁺ 配合后降低游离 Fe³⁺，对应 KI 测定中排除 Fe³⁺ 干扰的思路。",
+      "difficulty": "intermediate",
+      "primary_point_keys": [
+        "candidate-2-a5f9b5b1"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "fluoride_masking",
+        "true_false"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00332_42b6908ee0",
+          "expchunk_00336_68bde523f4"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_table_record_table_p224_t01_r071"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "重写：保留原判断，明确“游离 Fe³⁺”。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_06_020",
+      "question_type": "true_false",
+      "stem": "本实验属于研究配合物形成影响氧化还原性的实验。",
+      "options": [
+        {
+          "label": "T",
+          "text": "正确"
+        },
+        {
+          "label": "F",
+          "text": "错误"
+        }
+      ],
+      "answer": {
+        "value": true
+      },
+      "explanation": "教材小节标题和两组对照均指向该主题。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-81b774c1"
+      ],
+      "secondary_point_keys": [
+        "candidate-2-a5f9b5b1",
+        "candidate-3-01fbe9ee",
+        "candidate-4-2650ce4f"
+      ],
+      "coverage_tags": [
+        "core_concept",
+        "true_false"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00332_42b6908ee0"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "重写：将模板句压缩为可判定表述。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_06_021",
+      "question_type": "single_choice",
+      "stem": "关于 FeCl₃ 加入 KI/CCl₄ 体系的作用，哪项正确？",
+      "options": [
+        {
+          "label": "A",
+          "text": "只记录试剂名称，不涉及氧化还原变化"
+        },
+        {
+          "label": "B",
+          "text": "FeCl₃ 可氧化 I⁻ 生成 I₂"
+        },
+        {
+          "label": "C",
+          "text": "本步骤目的是做铁(Ⅲ)-硫氰血红色鉴定"
+        },
+        {
+          "label": "D",
+          "text": "CCl₄ 层与现象判断无关"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "相关化学原理明确 Fe³⁺ 可以氧化 I⁻ 生成 I₂；教材资料用 CCl₄ 层观察该变化。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-81b774c1"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "iodide_oxidation",
+        "rewrite"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "ignores_redox"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-1-81b774c1",
+          "role": "correct_statement"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "wrong_experiment"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "ignores_observation_layer"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00332_42b6908ee0"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00037_a7dbd4c099"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "重写：去除泛化模板，改为具体子实验判断。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_06_022",
+      "question_type": "single_choice",
+      "stem": "关于先加 NaF 再加 FeCl₃ 的对照，哪项正确？",
+      "options": [
+        {
+          "label": "A",
+          "text": "NaF 的目的只是改变溶液体积"
+        },
+        {
+          "label": "B",
+          "text": "加入少量 NaF 是为了让 F⁻ 与 Fe³⁺ 配位"
+        },
+        {
+          "label": "C",
+          "text": "NaF 会提供 Ag⁺"
+        },
+        {
+          "label": "D",
+          "text": "加入 NaF 后无需再比较现象"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "教材步骤要求先加少量 NaF 后再加 FeCl₃ 并比较现象；常见配合物关系显示 F⁻ 可配合 Fe³⁺。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-2-a5f9b5b1"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "fluoride_complexation",
+        "rewrite"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "wrong_purpose"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-2-a5f9b5b1",
+          "role": "correct_statement"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "wrong_ion_source"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "ignores_comparison"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00332_42b6908ee0"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_table_record_table_p224_t01_r071"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "重写：明确 NaF 的配位对象。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_06_023",
+      "question_type": "single_choice",
+      "stem": "KI/CCl₄ 体系中用于萃取碘、便于观察有机层颜色的是哪种物质？",
+      "options": [
+        {
+          "label": "A",
+          "text": "NaF"
+        },
+        {
+          "label": "B",
+          "text": "CCl₄"
+        },
+        {
+          "label": "C",
+          "text": "EDTA"
+        },
+        {
+          "label": "D",
+          "text": "AgNO₃"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "教材资料把 CCl₄ 放在 KI/FeCl₃ 观察体系中；其作用是有机层萃取碘，方便比较颜色。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-81b774c1"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "ccl4_role",
+        "rewrite"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-2-a5f9b5b1",
+          "role": "different_role"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-1-81b774c1",
+          "role": "correct_solvent"
+        },
+        {
+          "label": "C",
+          "point_key": "candidate-4-2650ce4f",
+          "role": "different_role"
+        },
+        {
+          "label": "D",
+          "point_key": "candidate-3-01fbe9ee",
+          "role": "different_subexperiment"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00332_42b6908ee0"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00037_a7dbd4c099"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "重写：改为具体试剂角色选择题。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_06_024",
+      "question_type": "single_choice",
+      "stem": "Fe(Ⅱ) 与 AgNO₃ 的对比实验中，银离子来源是哪种试剂？",
+      "options": [
+        {
+          "label": "A",
+          "text": "KI"
+        },
+        {
+          "label": "B",
+          "text": "AgNO₃"
+        },
+        {
+          "label": "C",
+          "text": "NaF"
+        },
+        {
+          "label": "D",
+          "text": "CCl₄"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "教材资料明确比较 Fe(Ⅱ) 溶液在有无 EDTA 下与 AgNO₃ 溶液的反应。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-3-01fbe9ee"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "silver_source",
+        "rewrite"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-1-81b774c1",
+          "role": "different_subexperiment"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-3-01fbe9ee",
+          "role": "correct_source"
+        },
+        {
+          "label": "C",
+          "point_key": "candidate-2-a5f9b5b1",
+          "role": "different_subexperiment"
+        },
+        {
+          "label": "D",
+          "point_key": "candidate-1-81b774c1",
+          "role": "different_role"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00332_42b6908ee0"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "重写：保留原题有效信息，去除模板。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_06_025",
+      "question_type": "fill_blank",
+      "stem": "EDTA 可配合 Fe³⁺，从而改变 Fe³⁺/Fe²⁺ 电对的____。",
+      "options": [],
+      "answer": {
+        "accepted_answers": [
+          "电势",
+          "电极电势"
+        ],
+        "hidden_grading_aliases": [
+          "氧化还原电势"
+        ],
+        "match": "normalized_exact"
+      },
+      "accepted_answers": [
+        "电势",
+        "电极电势"
+      ],
+      "hidden_grading_aliases": [
+        "氧化还原电势"
+      ],
+      "explanation": "思考题以电对电极电势为出发点，要求利用配合物性质使 Fe²⁺ 回收银盐溶液中的银。",
+      "difficulty": "intermediate",
+      "primary_point_keys": [
+        "candidate-4-2650ce4f"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "electrode_potential",
+        "fill_blank"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00336_68bde523f4"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "保留：短答案，手机输入风险低。"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": "normalized_exact",
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_06_026",
+      "question_type": "single_choice",
+      "stem": "关于 EDTA 存在下 Fe(Ⅱ) 与 Ag⁺ 的反应，哪项正确？",
+      "options": [
+        {
+          "label": "A",
+          "text": "该体系用于铁(Ⅲ)-硫氰血红色鉴定"
+        },
+        {
+          "label": "B",
+          "text": "Fe(Ⅱ) 在合适配合条件下可将 Ag⁺ 还原为金属 Ag"
+        },
+        {
+          "label": "C",
+          "text": "CCl₄ 是银离子的来源"
+        },
+        {
+          "label": "D",
+          "text": "EDTA 的加入与配合物性质无关"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "思考题说明常温下 Fe²⁺ 难以还原 Ag⁺，但可应用配合物性质用 Fe²⁺ 回收银盐溶液中的银。",
+      "difficulty": "intermediate",
+      "primary_point_keys": [
+        "candidate-4-2650ce4f"
+      ],
+      "secondary_point_keys": [
+        "candidate-3-01fbe9ee"
+      ],
+      "coverage_tags": [
+        "silver_recovery",
+        "rewrite"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "wrong_experiment"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-4-2650ce4f",
+          "role": "correct_statement"
+        },
+        {
+          "label": "C",
+          "point_key": "candidate-1-81b774c1",
+          "role": "wrong_reagent_role"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "contradicts_experiment"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00332_42b6908ee0",
+          "expchunk_00336_68bde523f4"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "重写：聚焦银回收思考题，避免泛化模板。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_06_027",
+      "question_type": "fill_blank",
+      "stem": "NaF 配合 Fe³⁺ 后，Fe³⁺ 氧化 I⁻ 的能力通常____。",
+      "options": [],
+      "answer": {
+        "accepted_answers": [
+          "减弱",
+          "降低"
+        ],
+        "hidden_grading_aliases": [
+          "下降",
+          "变弱"
+        ],
+        "match": "normalized_exact"
+      },
+      "accepted_answers": [
+        "减弱",
+        "降低"
+      ],
+      "hidden_grading_aliases": [
+        "下降",
+        "变弱"
+      ],
+      "explanation": "F⁻ 配合 Fe³⁺ 后减少游离 Fe³⁺，因此其氧化 I⁻ 的能力降低。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-2-a5f9b5b1"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "fluoride_masking",
+        "fill_blank"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00332_42b6908ee0",
+          "expchunk_00336_68bde523f4"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_table_record_table_p224_t01_r071"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留：短中文答案，证据充分。"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": "normalized_exact",
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_06_028",
+      "question_type": "fill_blank",
+      "stem": "该实验说明配合物形成会影响____。",
+      "options": [],
+      "answer": {
+        "accepted_answers": [
+          "氧化还原反应",
+          "氧化还原性"
+        ],
+        "hidden_grading_aliases": [
+          "氧化还原过程"
+        ],
+        "match": "normalized_exact"
+      },
+      "accepted_answers": [
+        "氧化还原反应",
+        "氧化还原性"
+      ],
+      "hidden_grading_aliases": [
+        "氧化还原过程"
+      ],
+      "explanation": "教材小节标题即“配合物的形成对氧化还原性的影响”。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-81b774c1"
+      ],
+      "secondary_point_keys": [
+        "candidate-2-a5f9b5b1",
+        "candidate-3-01fbe9ee",
+        "candidate-4-2650ce4f"
+      ],
+      "coverage_tags": [
+        "core_concept",
+        "fill_blank"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00332_42b6908ee0"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "保留：短答案且直接对应标题。"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": "normalized_exact",
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_06_029",
+      "question_type": "single_choice",
+      "stem": "Fe³⁺ 氧化 I⁻ 生成 I₂ 时，Fe³⁺ 自身发生什么变化？",
+      "options": [
+        {
+          "label": "A",
+          "text": "被氧化为更高价铁"
+        },
+        {
+          "label": "B",
+          "text": "被还原为 Fe²⁺"
+        },
+        {
+          "label": "C",
+          "text": "转化为 NaF"
+        },
+        {
+          "label": "D",
+          "text": "沉入 CCl₄ 层成为单质铁"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "Fe³⁺ 作氧化剂把 I⁻ 氧化为 I₂，自身接受电子，被还原为 Fe²⁺。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-81b774c1"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "redox_half_change",
+        "rewrite"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "wrong_direction"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-1-81b774c1",
+          "role": "correct_fe_change"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "nonsense_distractor"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "wrong_phase_product"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00332_42b6908ee0"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00037_a7dbd4c099",
+          "textbook_prose_00039_cb1a979cf8"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "重写：把原填空转成单选，避免公式输入。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_06_030",
+      "question_type": "single_choice",
+      "stem": "为排除 Fe³⁺ 对 KI 测定 Cu²⁺ 的干扰，最合理的思路是哪一项？",
+      "options": [
+        {
+          "label": "A",
+          "text": "用铁(Ⅲ)-硫氰血红色鉴定替代该测定"
+        },
+        {
+          "label": "B",
+          "text": "加入能配合 Fe³⁺ 的配体，降低其氧化 I⁻ 的干扰"
+        },
+        {
+          "label": "C",
+          "text": "省略 CCl₄ 层和所有现象比较"
+        },
+        {
+          "label": "D",
+          "text": "忽略 NaF 或 EDTA 配位前后的差异"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "思考题明确问如何排除 Fe³⁺ 对 KI 测定 Cu²⁺ 的干扰；本实验用配合 Fe³⁺ 降低其氧化性来说明该思路。",
+      "difficulty": "intermediate",
+      "primary_point_keys": [
+        "candidate-2-a5f9b5b1"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "ki_titration_interference",
+        "rewrite"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "wrong_experiment"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-2-a5f9b5b1",
+          "role": "correct_strategy"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "ignores_evidence"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "ignores_comparison"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00332_42b6908ee0",
+          "expchunk_00336_68bde523f4"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_table_record_table_p224_t01_r071",
+          "textbook_prose_00037_a7dbd4c099"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "重写：以思考题为主线，避免原模板重复。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "rewrite"
+    }
+  ]
+}

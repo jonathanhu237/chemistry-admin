@@ -1,0 +1,2122 @@
+{
+  "metadata": {
+    "schema_version": "rebuilt_experiment_question_package_v1",
+    "artifact_type": "manual_small_packet_semantic_reconstruction",
+    "source_packet": "E:\\chemistry-admin\\artifacts\\point-aware-question-bank\\reviewed_old_bank_chunks\\slim_release_work_v1\\semantic_work_packets\\chunk_5\\20-3-02.json",
+    "experiment_code": "20-3-02",
+    "experiment_title": "阴离子颜色",
+    "question_count": 30,
+    "chunk": "chunk_5",
+    "reconstruction_status": "manual_question_by_question_semantic_rebuild",
+    "evidence_policy": "RAG text was read for every cited id. JSON stores ids, source file, line number, and concise evidence role only; no release JSON was edited.",
+    "rag_source_dir": "E:\\chemistry-rag\\data\\rag_ready",
+    "release_json_direct_edit": false
+  },
+  "video_points": [
+    {
+      "point_key": "candidate-1-6c3245f9",
+      "point_title": "CrO₄²⁻"
+    },
+    {
+      "point_key": "candidate-2-5db23da9",
+      "point_title": "Cr₂O₇²⁻"
+    },
+    {
+      "point_key": "candidate-3-f81ca373",
+      "point_title": "MnO₄⁻"
+    },
+    {
+      "point_key": "candidate-4-095a2458",
+      "point_title": "MnO₄²⁻"
+    },
+    {
+      "point_key": "candidate-5-ca04bf5e",
+      "point_title": "MoO₄²⁻"
+    },
+    {
+      "point_key": "candidate-6-d074e740",
+      "point_title": "WO₄²⁻"
+    },
+    {
+      "point_key": "candidate-7-b5d923bb",
+      "point_title": "VO₃⁻"
+    }
+  ],
+  "evidence_sources": {
+    "canonical_experiment_chunks": [
+      {
+        "chunk_id": "expchunk_00330_3a60414cf4",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+        "line_number": 343,
+        "evidence_role": "Experiment content lists the anion observation objects: CrO₄²⁻, Cr₂O₇²⁻, MnO₄²⁻, MnO₄⁻, MoO₄²⁻, WO₄²⁻, and VO₃⁻, separately from water hydrated cations."
+      }
+    ],
+    "supporting_theory_chunks": [
+      {
+        "chunk_id": "textbook_prose_01118_9e2eabedd8",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+        "line_number": 1745,
+        "evidence_role": "Transition-metal ion color theory; introduces colored high-oxidation oxyanion contrast after discussing d-d transitions."
+      },
+      {
+        "chunk_id": "textbook_prose_01119_8478df1f7f",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+        "line_number": 1747,
+        "evidence_role": "High-oxidation oxyanion color evidence: CrO₄²⁻ is yellow, MnO₄⁻ is purple, and the color is attributed to ligand-to-metal charge-transfer transition."
+      },
+      {
+        "chunk_id": "textbook_prose_00789_e61f8704bd",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+        "line_number": 1256,
+        "evidence_role": "Chromate/dichromate relationship support: CrO₄²⁻ and Cr₂O₇²⁻ can interconvert with pH, so they should be distinguished as related but different chromium oxyanions."
+      }
+    ]
+  },
+  "questions": [
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_02_001",
+      "question_type": "single_choice",
+      "stem": "在《20-3-02 阴离子颜色》实验中，下列哪一种阴离子被列入本实验观察对象？",
+      "options": [
+        {
+          "label": "A",
+          "text": "CrO₄²⁻"
+        },
+        {
+          "label": "B",
+          "text": "[Co(H₂O)₆]²⁺"
+        },
+        {
+          "label": "C",
+          "text": "Cl⁻"
+        },
+        {
+          "label": "D",
+          "text": "NO₃⁻"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "教材阴离子列表中包括 CrO₄²⁻；[Co(H₂O)₆]²⁺ 属于水合阳离子，Cl⁻ 和 NO₃⁻ 不在该阴离子列表中。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-6c3245f9"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "anion_scope",
+        "chromate"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-1-6c3245f9",
+          "role": "correct_canonical_target",
+          "diagnostic_note": "A 是教材步骤明列阴离子。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "hydrated_cation_distractor",
+          "diagnostic_note": "B 属于水合阳离子，不是本实验阴离子。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "unlisted_simple_anion",
+          "diagnostic_note": "C 不是教材步骤目标阴离子。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "unlisted_simple_anion",
+          "diagnostic_note": "D 不是教材步骤目标阴离子。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00330_3a60414cf4"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "人工逐题判断：源题直接命中 canonical 阴离子列表，保留。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_02_002",
+      "question_type": "single_choice",
+      "stem": "CrO₄²⁻ 的典型颜色是哪一项？",
+      "options": [
+        {
+          "label": "A",
+          "text": "紫色"
+        },
+        {
+          "label": "B",
+          "text": "黄色"
+        },
+        {
+          "label": "C",
+          "text": "粉红色"
+        },
+        {
+          "label": "D",
+          "text": "无色"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "相关化学原理明确说明 CrO₄²⁻ 呈黄色；粉红色属于 Co²⁺ 水合离子语境，紫色容易与 MnO₄⁻ 混淆。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-6c3245f9"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "chromate_color",
+        "charge_transfer_color"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "permanganate_color_distractor",
+          "diagnostic_note": "A 更容易对应 MnO₄⁻。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-1-6c3245f9",
+          "role": "correct_color",
+          "diagnostic_note": "B 是相关化学原理明确给出的 CrO₄²⁻ 颜色。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "hydrated_cation_color_distractor",
+          "diagnostic_note": "C 属于水合阳离子颜色语境。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "contradicted_color_distractor",
+          "diagnostic_note": "D 与 CrO₄²⁻ 呈黄色不符。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00330_3a60414cf4"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01119_8478df1f7f"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "人工逐题判断：源题颜色有明确 theory 支撑，保留。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_02_003",
+      "question_type": "single_choice",
+      "stem": "MnO₄⁻ 的典型颜色是哪一项？",
+      "options": [
+        {
+          "label": "A",
+          "text": "黄色"
+        },
+        {
+          "label": "B",
+          "text": "绿色"
+        },
+        {
+          "label": "C",
+          "text": "紫色"
+        },
+        {
+          "label": "D",
+          "text": "浅蓝色"
+        }
+      ],
+      "answer": {
+        "value": "C"
+      },
+      "explanation": "相关化学原理明确说明 MnO₄⁻ 呈紫色；黄色更容易对应 CrO₄²⁻。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-3-f81ca373"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "permanganate_color",
+        "charge_transfer_color"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "chromate_color_distractor",
+          "diagnostic_note": "A 更容易对应 CrO₄²⁻。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "unsupported_color_distractor",
+          "diagnostic_note": "B 不是相关化学原理给出的 MnO₄⁻ 颜色。"
+        },
+        {
+          "label": "C",
+          "point_key": "candidate-3-f81ca373",
+          "role": "correct_color",
+          "diagnostic_note": "C 是相关化学原理明确给出的 MnO₄⁻ 颜色。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "hydrated_cation_color_distractor",
+          "diagnostic_note": "D 属于水合阳离子颜色语境。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00330_3a60414cf4"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01119_8478df1f7f"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "人工逐题判断：源题颜色有明确 theory 支撑，保留。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_02_004",
+      "question_type": "single_choice",
+      "stem": "关于 CrO₄²⁻ 与 Cr₂O₇²⁻，哪项表述最准确？",
+      "options": [
+        {
+          "label": "A",
+          "text": "二者都是水合阳离子"
+        },
+        {
+          "label": "B",
+          "text": "二者都是实验列出的含铬含氧阴离子，但式量和电荷组成不同"
+        },
+        {
+          "label": "C",
+          "text": "二者都不含氧元素"
+        },
+        {
+          "label": "D",
+          "text": "二者都属于简单卤离子"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "教材阴离子列表同时列出 CrO₄²⁻ 和 Cr₂O₇²⁻；相关化学原理还说明二者可随条件相互转化，因此应区分为相关但不同的含铬含氧阴离子。",
+      "difficulty": "intermediate",
+      "primary_point_keys": [
+        "candidate-1-6c3245f9"
+      ],
+      "secondary_point_keys": [
+        "candidate-2-5db23da9"
+      ],
+      "coverage_tags": [
+        "chromate_dichromate_discrimination",
+        "anion_scope"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "wrong_category_distractor",
+          "diagnostic_note": "A 把阴离子误归为水合阳离子。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-1-6c3245f9",
+          "role": "correct_relationship",
+          "diagnostic_note": "B 同时保留二者的列表归属和差异。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "contradicted_by_formula",
+          "diagnostic_note": "C 与二者含氧的式子不符。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "wrong_class_distractor",
+          "diagnostic_note": "D 把含氧阴离子错作简单卤离子。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00330_3a60414cf4"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00789_e61f8704bd"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "人工逐题判断：旧泛化题重写为 CrO₄²⁻ / Cr₂O₇²⁻ 关系辨析，证据闭合。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_02_005",
+      "question_type": "single_choice",
+      "stem": "关于 MnO₄²⁻ 与 MnO₄⁻，哪项表述正确？",
+      "options": [
+        {
+          "label": "A",
+          "text": "二者都不在本实验阴离子列表中"
+        },
+        {
+          "label": "B",
+          "text": "二者都被列为阴离子观察对象，但电荷不同"
+        },
+        {
+          "label": "C",
+          "text": "二者都是水合阳离子"
+        },
+        {
+          "label": "D",
+          "text": "二者是同一个离子的两种无差别写法"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "教材阴离子列表同时列出 MnO₄²⁻ 与 MnO₄⁻；二者均为阴离子，但电荷不同，不能混写。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-4-095a2458"
+      ],
+      "secondary_point_keys": [
+        "candidate-3-f81ca373"
+      ],
+      "coverage_tags": [
+        "manganate_permanganate_discrimination",
+        "anion_scope"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "contradicted_by_canonical",
+          "diagnostic_note": "A 与教材步骤同时列出二者相反。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-4-095a2458",
+          "role": "correct_charge_discrimination",
+          "diagnostic_note": "B 符合二者均在列表中且电荷不同。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "wrong_category_distractor",
+          "diagnostic_note": "C 把阴离子误作水合阳离子。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "formula_confusion_distractor",
+          "diagnostic_note": "D 忽略电荷差异。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00330_3a60414cf4"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "人工逐题判断：旧泛化题重写为 MnO₄²⁻ / MnO₄⁻ 公式和电荷辨析。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_02_006",
+      "question_type": "single_choice",
+      "stem": "下列哪组都是本实验列出的含氧阴离子？",
+      "options": [
+        {
+          "label": "A",
+          "text": "[Fe(H₂O)₆]²⁺、[Co(H₂O)₆]²⁺、[Ni(H₂O)₆]²⁺"
+        },
+        {
+          "label": "B",
+          "text": "CrO₄²⁻、MnO₄⁻、VO₃⁻"
+        },
+        {
+          "label": "C",
+          "text": "Cl⁻、Br⁻、I⁻"
+        },
+        {
+          "label": "D",
+          "text": "Na⁺、K⁺、NH₄⁺"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "CrO₄²⁻、MnO₄⁻、VO₃⁻ 均在教材阴离子列表中；A 是水合阳离子，C 和 D 不属于本实验阴离子颜色列表。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-6c3245f9"
+      ],
+      "secondary_point_keys": [
+        "candidate-3-f81ca373",
+        "candidate-7-b5d923bb"
+      ],
+      "coverage_tags": [
+        "anion_scope",
+        "group_discrimination"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "hydrated_cation_group",
+          "diagnostic_note": "A 是水合阳离子组。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-1-6c3245f9",
+          "role": "correct_canonical_group",
+          "diagnostic_note": "B 三项均为教材列出的阴离子。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "unlisted_simple_anion_group",
+          "diagnostic_note": "C 不是本实验列出的过渡金属含氧阴离子组。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "cation_group_distractor",
+          "diagnostic_note": "D 是阳离子组。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00330_3a60414cf4"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "人工逐题判断：源题直接考查 canonical 列表，保留。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_02_007",
+      "question_type": "single_choice",
+      "stem": "这些高氧化态含氧阴离子显色的重要原因可归结为哪类跃迁？",
+      "options": [
+        {
+          "label": "A",
+          "text": "核裂变跃迁"
+        },
+        {
+          "label": "B",
+          "text": "分子整体平移"
+        },
+        {
+          "label": "C",
+          "text": "从氧向金属中心的荷移跃迁"
+        },
+        {
+          "label": "D",
+          "text": "水分子沸腾"
+        }
+      ],
+      "answer": {
+        "value": "C"
+      },
+      "explanation": "相关化学原理指出一些高氧化态过渡金属含氧酸根阴离子虽然无 d 电子也能显色，原因是 O²⁻ 到金属中心的荷移跃迁。",
+      "difficulty": "intermediate",
+      "primary_point_keys": [
+        "candidate-1-6c3245f9"
+      ],
+      "secondary_point_keys": [
+        "candidate-3-f81ca373"
+      ],
+      "coverage_tags": [
+        "charge_transfer_transition",
+        "color_theory"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "irrelevant_process_distractor",
+          "diagnostic_note": "A 与溶液颜色无关。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "irrelevant_motion_distractor",
+          "diagnostic_note": "B 不是显色的电子跃迁机制。"
+        },
+        {
+          "label": "C",
+          "point_key": "candidate-1-6c3245f9",
+          "role": "correct_theory_mechanism",
+          "diagnostic_note": "C 对应相关化学原理的荷移跃迁。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "wrong_physical_process",
+          "diagnostic_note": "D 与阴离子显色机制无关。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00330_3a60414cf4"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01118_9e2eabedd8",
+          "textbook_prose_01119_8478df1f7f"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "人工逐题判断：源题 theory 点明确，保留并精炼为荷移跃迁。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_02_008",
+      "question_type": "single_choice",
+      "stem": "本实验同时列出的 Mo 和 W 含氧阴离子分别是哪一组？",
+      "options": [
+        {
+          "label": "A",
+          "text": "MoO₄²⁻ 与 VO₃⁻"
+        },
+        {
+          "label": "B",
+          "text": "CrO₄²⁻ 与 WO₄²⁻"
+        },
+        {
+          "label": "C",
+          "text": "MnO₄⁻ 与 MoO₄²⁻"
+        },
+        {
+          "label": "D",
+          "text": "MoO₄²⁻ 与 WO₄²⁻"
+        }
+      ],
+      "answer": {
+        "value": "D"
+      },
+      "explanation": "教材阴离子列表中同时列出 MoO₄²⁻ 和 WO₄²⁻。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-5-ca04bf5e"
+      ],
+      "secondary_point_keys": [
+        "candidate-6-d074e740"
+      ],
+      "coverage_tags": [
+        "molybdate_tungstate_scope",
+        "anion_scope"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "partial_mismatch_distractor",
+          "diagnostic_note": "A 把 W 项换成了 V 项。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "partial_mismatch_distractor",
+          "diagnostic_note": "B 把 Mo 项换成了 Cr 项。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "partial_mismatch_distractor",
+          "diagnostic_note": "C 把 W 项换成了 Mn 项。"
+        },
+        {
+          "label": "D",
+          "point_key": "candidate-5-ca04bf5e",
+          "role": "correct_canonical_pair",
+          "diagnostic_note": "D 正确对应 Mo 和 W 的含氧阴离子。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00330_3a60414cf4"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "人工逐题判断：源题直接命中 canonical Mo/W 项，保留。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_02_009",
+      "question_type": "single_choice",
+      "stem": "VO₃⁻ 在本实验中属于哪类观察对象？",
+      "options": [
+        {
+          "label": "A",
+          "text": "含氧阴离子"
+        },
+        {
+          "label": "B",
+          "text": "水合阳离子"
+        },
+        {
+          "label": "C",
+          "text": "单质气体"
+        },
+        {
+          "label": "D",
+          "text": "惰性电极"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "教材阴离子列表中列出 VO₃⁻，因此它属于含氧阴离子观察对象。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-7-b5d923bb"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "vanadate_scope",
+        "anion_category"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-7-b5d923bb",
+          "role": "correct_category",
+          "diagnostic_note": "A 符合教材列出的阴离子列表。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "wrong_category_distractor",
+          "diagnostic_note": "B 把阴离子误判为水合阳离子。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "wrong_state_distractor",
+          "diagnostic_note": "C 与离子观察对象不符。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "wrong_lab_object_distractor",
+          "diagnostic_note": "D 与本实验对象无关。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00330_3a60414cf4"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "人工逐题判断：源题直接命中 canonical VO₃⁻ 项，保留。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_02_010",
+      "question_type": "single_choice",
+      "stem": "下列哪项不属于本实验“阴离子颜色”的重点？",
+      "options": [
+        {
+          "label": "A",
+          "text": "CrO₄²⁻ 的颜色记录"
+        },
+        {
+          "label": "B",
+          "text": "[Ni(H₂O)₆]²⁺ 的水合阳离子颜色"
+        },
+        {
+          "label": "C",
+          "text": "MnO₄⁻ 的颜色记录"
+        },
+        {
+          "label": "D",
+          "text": "VO₃⁻ 的阴离子归属"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "[Ni(H₂O)₆]²⁺ 属于上一组水合阳离子颜色对象，不属于本实验的阴离子颜色重点。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-6c3245f9"
+      ],
+      "secondary_point_keys": [
+        "candidate-3-f81ca373",
+        "candidate-7-b5d923bb"
+      ],
+      "coverage_tags": [
+        "anion_scope",
+        "hydrated_cation_contrast"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-1-6c3245f9",
+          "role": "in_scope_record",
+          "diagnostic_note": "A 属于本实验范围。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "correct_answer_out_of_scope",
+          "diagnostic_note": "B 属于水合阳离子颜色，不是本实验阴离子。"
+        },
+        {
+          "label": "C",
+          "point_key": "candidate-3-f81ca373",
+          "role": "in_scope_record",
+          "diagnostic_note": "C 属于本实验范围。"
+        },
+        {
+          "label": "D",
+          "point_key": "candidate-7-b5d923bb",
+          "role": "in_scope_category",
+          "diagnostic_note": "D 属于本实验范围。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00330_3a60414cf4"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "人工逐题判断：源题可作为范围排除题，保留并强化阴离子/水合阳离子边界。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_02_011",
+      "question_type": "true_false",
+      "stem": "CrO₄²⁻ 通常呈紫色，MnO₄⁻ 通常呈黄色。",
+      "options": [
+        {
+          "label": "T",
+          "text": "正确"
+        },
+        {
+          "label": "F",
+          "text": "错误"
+        }
+      ],
+      "answer": {
+        "value": false
+      },
+      "explanation": "相关化学原理给出的对应关系相反：CrO₄²⁻ 为黄色，MnO₄⁻ 为紫色。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-6c3245f9"
+      ],
+      "secondary_point_keys": [
+        "candidate-3-f81ca373"
+      ],
+      "coverage_tags": [
+        "true_false",
+        "chromate_permanganate_color"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00330_3a60414cf4"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01119_8478df1f7f"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "人工逐题判断：源题为颜色错配辨析，保留。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_02_012",
+      "question_type": "true_false",
+      "stem": "本实验列出的阴离子全部都是无色的简单卤离子。",
+      "options": [
+        {
+          "label": "T",
+          "text": "正确"
+        },
+        {
+          "label": "F",
+          "text": "错误"
+        }
+      ],
+      "answer": {
+        "value": false
+      },
+      "explanation": "教材内容列出的是 Cr、Mn、Mo、W、V 的含氧阴离子；相关化学原理还明确 CrO₄²⁻ 与 MnO₄⁻ 是有色的。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-6c3245f9"
+      ],
+      "secondary_point_keys": [
+        "candidate-3-f81ca373",
+        "candidate-5-ca04bf5e",
+        "candidate-6-d074e740",
+        "candidate-7-b5d923bb"
+      ],
+      "coverage_tags": [
+        "true_false",
+        "anion_scope",
+        "halide_contrast"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00330_3a60414cf4"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01119_8478df1f7f"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "人工逐题判断：源题能排除卤离子误判，保留。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_02_013",
+      "question_type": "true_false",
+      "stem": "MoO₄²⁻ 和 WO₄²⁻ 不属于过渡金属含氧阴离子观察对象。",
+      "options": [
+        {
+          "label": "T",
+          "text": "正确"
+        },
+        {
+          "label": "F",
+          "text": "错误"
+        }
+      ],
+      "answer": {
+        "value": false
+      },
+      "explanation": "教材阴离子列表中明确列出 MoO₄²⁻ 和 WO₄²⁻，因此该说法错误。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-5-ca04bf5e"
+      ],
+      "secondary_point_keys": [
+        "candidate-6-d074e740"
+      ],
+      "coverage_tags": [
+        "true_false",
+        "molybdate_tungstate_scope"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00330_3a60414cf4"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "人工逐题判断：源题可由 canonical 直接判定，保留。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_02_014",
+      "question_type": "single_choice",
+      "stem": "记录阴离子颜色时，哪种写法最规范？",
+      "options": [
+        {
+          "label": "A",
+          "text": "只写“铬离子”，不区分 CrO₄²⁻ 与 Cr₂O₇²⁻"
+        },
+        {
+          "label": "B",
+          "text": "写清具体阴离子式，并把观察到的颜色与该式配对"
+        },
+        {
+          "label": "C",
+          "text": "把所有颜色都记到水合阳离子栏"
+        },
+        {
+          "label": "D",
+          "text": "只写元素符号，不写电荷"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "本实验的核心是区分 CrO₄²⁻、Cr₂O₇²⁻、MnO₄²⁻、MnO₄⁻ 等具体阴离子；记录时应把具体离子式和颜色配对。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-6c3245f9"
+      ],
+      "secondary_point_keys": [
+        "candidate-2-5db23da9",
+        "candidate-3-f81ca373",
+        "candidate-4-095a2458"
+      ],
+      "coverage_tags": [
+        "recording_method",
+        "formula_precision"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "low_precision_distractor",
+          "diagnostic_note": "A 混淆不同铬含氧阴离子。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-1-6c3245f9",
+          "role": "correct_recording_strategy",
+          "diagnostic_note": "B 保留具体式子和颜色配对。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "category_confusion_distractor",
+          "diagnostic_note": "C 混淆阴离子和水合阳离子。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "low_precision_distractor",
+          "diagnostic_note": "D 不能区分具体阴离子。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00330_3a60414cf4"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "人工逐题判断：旧重复模板重写为记录规范题。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_02_015",
+      "question_type": "single_choice",
+      "stem": "下列哪一项颜色对应关系可以由相关化学原理直接支撑？",
+      "options": [
+        {
+          "label": "A",
+          "text": "CrO₄²⁻：紫色；MnO₄⁻：黄色"
+        },
+        {
+          "label": "B",
+          "text": "CrO₄²⁻：黄色；MnO₄⁻：紫色"
+        },
+        {
+          "label": "C",
+          "text": "CrO₄²⁻：粉红色；MnO₄⁻：浅蓝色"
+        },
+        {
+          "label": "D",
+          "text": "CrO₄²⁻：无色；MnO₄⁻：无色"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "相关化学原理原文直接给出 CrO₄²⁻ 呈黄色、MnO₄⁻ 呈紫色，并把显色解释为荷移跃迁。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-6c3245f9"
+      ],
+      "secondary_point_keys": [
+        "candidate-3-f81ca373"
+      ],
+      "coverage_tags": [
+        "color_pairing",
+        "charge_transfer_color"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "swapped_pairing",
+          "diagnostic_note": "A 把两者颜色互换。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-1-6c3245f9",
+          "role": "correct_color_pairing",
+          "diagnostic_note": "B 是相关化学原理直接支撑的对应关系。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "hydrated_cation_color_distractor",
+          "diagnostic_note": "C 混入水合阳离子颜色。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "contradicted_pairing",
+          "diagnostic_note": "D 与二者均有颜色的相关化学内容不符。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00330_3a60414cf4"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01119_8478df1f7f"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "人工逐题判断：旧重复模板重写为直接证据颜色配对题。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_02_016",
+      "question_type": "true_false",
+      "stem": "MoO₄²⁻ 和 WO₄²⁻ 也列入本实验观察对象。",
+      "options": [
+        {
+          "label": "T",
+          "text": "正确"
+        },
+        {
+          "label": "F",
+          "text": "错误"
+        }
+      ],
+      "answer": {
+        "value": true
+      },
+      "explanation": "教材阴离子列表中同时列出 MoO₄²⁻ 和 WO₄²⁻。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-5-ca04bf5e"
+      ],
+      "secondary_point_keys": [
+        "candidate-6-d074e740"
+      ],
+      "coverage_tags": [
+        "true_false",
+        "molybdate_tungstate_scope"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00330_3a60414cf4"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "人工逐题判断：源题可由 canonical 直接支撑，保留。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_02_017",
+      "question_type": "true_false",
+      "stem": "本实验只观察水合阳离子，完全不观察阴离子。",
+      "options": [
+        {
+          "label": "T",
+          "text": "正确"
+        },
+        {
+          "label": "F",
+          "text": "错误"
+        }
+      ],
+      "answer": {
+        "value": false
+      },
+      "explanation": "教材资料在水合阳离子之后另列了阴离子观察对象，本实验正是阴离子颜色。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-6c3245f9"
+      ],
+      "secondary_point_keys": [
+        "candidate-2-5db23da9",
+        "candidate-3-f81ca373",
+        "candidate-4-095a2458",
+        "candidate-5-ca04bf5e",
+        "candidate-6-d074e740",
+        "candidate-7-b5d923bb"
+      ],
+      "coverage_tags": [
+        "true_false",
+        "anion_scope",
+        "hydrated_cation_contrast"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00330_3a60414cf4"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "人工逐题判断：源题能纠正只看水合阳离子的误解，保留。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_02_018",
+      "question_type": "true_false",
+      "stem": "过渡金属含氧阴离子的颜色可与荷移跃迁有关。",
+      "options": [
+        {
+          "label": "T",
+          "text": "正确"
+        },
+        {
+          "label": "F",
+          "text": "错误"
+        }
+      ],
+      "answer": {
+        "value": true
+      },
+      "explanation": "相关化学原理明确把 CrO₄²⁻、MnO₄⁻ 等含氧阴离子的颜色解释为 O²⁻ 到金属中心的荷移跃迁。",
+      "difficulty": "intermediate",
+      "primary_point_keys": [
+        "candidate-1-6c3245f9"
+      ],
+      "secondary_point_keys": [
+        "candidate-3-f81ca373"
+      ],
+      "coverage_tags": [
+        "true_false",
+        "charge_transfer_transition"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00330_3a60414cf4"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01118_9e2eabedd8",
+          "textbook_prose_01119_8478df1f7f"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "人工逐题判断：源题 theory 判断正确，保留。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_02_019",
+      "question_type": "true_false",
+      "stem": "Cl⁻ 是本实验列出的主要有色过渡金属含氧阴离子。",
+      "options": [
+        {
+          "label": "T",
+          "text": "正确"
+        },
+        {
+          "label": "F",
+          "text": "错误"
+        }
+      ],
+      "answer": {
+        "value": false
+      },
+      "explanation": "教材阴离子列表没有 Cl⁻；本实验关注 Cr、Mn、Mo、W、V 的含氧阴离子。",
+      "difficulty": "basic",
+      "primary_point_keys": [],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "true_false",
+        "halide_contrast",
+        "anion_scope"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00330_3a60414cf4"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "人工逐题判断：源题可由 canonical 直接否定，保留。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_02_020",
+      "question_type": "true_false",
+      "stem": "VO₃⁻ 属于本实验列出的阴离子之一。",
+      "options": [
+        {
+          "label": "T",
+          "text": "正确"
+        },
+        {
+          "label": "F",
+          "text": "错误"
+        }
+      ],
+      "answer": {
+        "value": true
+      },
+      "explanation": "教材阴离子列表末项列出 VO₃⁻。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-7-b5d923bb"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "true_false",
+        "vanadate_scope"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00330_3a60414cf4"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "人工逐题判断：源题可由 canonical 直接支撑，保留。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_02_021",
+      "question_type": "single_choice",
+      "stem": "若要判断 MoO₄²⁻、WO₄²⁻、VO₃⁻ 的具体颜色，最稳妥的做法是什么？",
+      "options": [
+        {
+          "label": "A",
+          "text": "直接套用 MnO₄⁻ 的紫色，不再观察"
+        },
+        {
+          "label": "B",
+          "text": "先确认它们在教材资料列表中，再依据实际观察或更精确颜色证据记录"
+        },
+        {
+          "label": "C",
+          "text": "把它们改写成水合阳离子"
+        },
+        {
+          "label": "D",
+          "text": "只看元素名称，不看离子式和电荷"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "教材内容能证明这些离子属于观察对象，但本轮直接相关化学原理颜色证据只明确给出 CrO₄²⁻ 黄色和 MnO₄⁻ 紫色；其他阴离子的具体颜色不能随意套用。",
+      "difficulty": "intermediate",
+      "primary_point_keys": [
+        "candidate-5-ca04bf5e"
+      ],
+      "secondary_point_keys": [
+        "candidate-6-d074e740",
+        "candidate-7-b5d923bb"
+      ],
+      "coverage_tags": [
+        "evidence_boundary",
+        "recording_method"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "unsupported_color_generalization",
+          "diagnostic_note": "A 把 MnO₄⁻ 颜色泛化给其他阴离子。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-5-ca04bf5e",
+          "role": "correct_evidence_boundary",
+          "diagnostic_note": "B 区分教材步骤归属和颜色证据。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "wrong_category_distractor",
+          "diagnostic_note": "C 混淆阴离子与水合阳离子。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "low_precision_distractor",
+          "diagnostic_note": "D 无法区分具体阴离子。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00330_3a60414cf4"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01119_8478df1f7f"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "人工逐题判断：旧重复模板重写为颜色证据边界题，避免未证实颜色泛化。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_02_022",
+      "question_type": "single_choice",
+      "stem": "若把“所有含氧阴离子都按紫色记录”，哪项判断正确？",
+      "options": [
+        {
+          "label": "A",
+          "text": "正确，因为所有含氧阴离子颜色都相同"
+        },
+        {
+          "label": "B",
+          "text": "错误；相关化学原理只明确 MnO₄⁻ 为紫色，CrO₄²⁻ 为黄色，不能一概而论"
+        },
+        {
+          "label": "C",
+          "text": "正确，因为 CrO₄²⁻ 是紫色"
+        },
+        {
+          "label": "D",
+          "text": "无法判断，因为教材资料没有列任何阴离子"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "相关化学原理明确 CrO₄²⁻ 黄色、MnO₄⁻ 紫色；因此不能把所有含氧阴离子统一记为紫色。",
+      "difficulty": "intermediate",
+      "primary_point_keys": [
+        "candidate-3-f81ca373"
+      ],
+      "secondary_point_keys": [
+        "candidate-1-6c3245f9"
+      ],
+      "coverage_tags": [
+        "misconception_feedback",
+        "color_generalization"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "overgeneralization_distractor",
+          "diagnostic_note": "A 与颜色差异的相关化学内容不符。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-3-f81ca373",
+          "role": "correct_correction",
+          "diagnostic_note": "B 准确指出紫色不能泛化。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "contradicted_color_distractor",
+          "diagnostic_note": "C 与 CrO₄²⁻ 黄色相反。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "contradicted_by_canonical",
+          "diagnostic_note": "D 与教材步骤已列阴离子相反。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00330_3a60414cf4"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01119_8478df1f7f"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "人工逐题判断：旧重复模板重写为颜色泛化纠错题。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_02_023",
+      "question_type": "single_choice",
+      "stem": "下列哪一项是本实验列出的阴离子，而不是水合阳离子？",
+      "options": [
+        {
+          "label": "A",
+          "text": "[Cr(H₂O)₆]³⁺"
+        },
+        {
+          "label": "B",
+          "text": "Cr₂O₇²⁻"
+        },
+        {
+          "label": "C",
+          "text": "[Ni(H₂O)₆]²⁺"
+        },
+        {
+          "label": "D",
+          "text": "[Mn(H₂O)₆]²⁺"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "Cr₂O₇²⁻ 位于教材阴离子列表；其余选项都是水合阳离子。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-2-5db23da9"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "anion_hydrated_cation_contrast",
+        "dichromate_scope"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "hydrated_cation_distractor",
+          "diagnostic_note": "A 是水合阳离子。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-2-5db23da9",
+          "role": "correct_anion",
+          "diagnostic_note": "B 是教材列出的阴离子。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "hydrated_cation_distractor",
+          "diagnostic_note": "C 是水合阳离子。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "hydrated_cation_distractor",
+          "diagnostic_note": "D 是水合阳离子。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00330_3a60414cf4"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "人工逐题判断：旧重复模板重写为阴离子/水合阳离子边界题。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_02_024",
+      "question_type": "single_choice",
+      "stem": "关于 CrO₄²⁻ 的黄色和 MnO₄⁻ 的紫色，哪项解释最贴近相关化学原理？",
+      "options": [
+        {
+          "label": "A",
+          "text": "二者都是因为简单卤离子的沉淀反应"
+        },
+        {
+          "label": "B",
+          "text": "二者属于高氧化态过渡金属含氧阴离子颜色，可与荷移跃迁有关"
+        },
+        {
+          "label": "C",
+          "text": "二者都是因为水合阳离子失水"
+        },
+        {
+          "label": "D",
+          "text": "二者颜色与电子跃迁完全无关"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "相关化学原理把 CrO₄²⁻ 和 MnO₄⁻ 这类含氧阴离子的颜色归因于 O²⁻ 到金属中心的荷移跃迁。",
+      "difficulty": "intermediate",
+      "primary_point_keys": [
+        "candidate-1-6c3245f9"
+      ],
+      "secondary_point_keys": [
+        "candidate-3-f81ca373"
+      ],
+      "coverage_tags": [
+        "charge_transfer_transition",
+        "color_theory"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "wrong_mechanism_distractor",
+          "diagnostic_note": "A 与含氧阴离子显色机制无关。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-1-6c3245f9",
+          "role": "correct_theory_explanation",
+          "diagnostic_note": "B 对应相关化学原理的荷移跃迁解释。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "wrong_category_distractor",
+          "diagnostic_note": "C 把阴离子颜色说成水合阳离子失水。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "contradicted_by_theory",
+          "diagnostic_note": "D 与相关化学原理明确的电子跃迁解释相反。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00330_3a60414cf4"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01118_9e2eabedd8",
+          "textbook_prose_01119_8478df1f7f"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "人工逐题判断：旧重复模板重写为 theory 解释题。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_02_025",
+      "question_type": "single_choice",
+      "stem": "哪项最能体现本实验阴离子记录的“对象完整性”？",
+      "options": [
+        {
+          "label": "A",
+          "text": "只写 CrO₄²⁻，删去其他阴离子"
+        },
+        {
+          "label": "B",
+          "text": "把 Cr、Mn、Mo、W、V 的列出阴离子分别记录，不用一种离子代替全部"
+        },
+        {
+          "label": "C",
+          "text": "只记录水合阳离子，不记录阴离子"
+        },
+        {
+          "label": "D",
+          "text": "只写“过渡金属很多”，不列具体式子"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "教材阴离子列表包含 Cr、Mn、Mo、W、V 的多个含氧阴离子；完整记录应逐项区分，而不是只写一个代表。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-6c3245f9"
+      ],
+      "secondary_point_keys": [
+        "candidate-2-5db23da9",
+        "candidate-3-f81ca373",
+        "candidate-4-095a2458",
+        "candidate-5-ca04bf5e",
+        "candidate-6-d074e740",
+        "candidate-7-b5d923bb"
+      ],
+      "coverage_tags": [
+        "recording_completeness",
+        "anion_scope"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "incomplete_record_distractor",
+          "diagnostic_note": "A 漏掉其他教材列出的阴离子。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-1-6c3245f9",
+          "role": "correct_complete_record",
+          "diagnostic_note": "B 符合逐项记录要求。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "wrong_packet_scope",
+          "diagnostic_note": "C 漏掉本实验阴离子。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "low_precision_distractor",
+          "diagnostic_note": "D 无法用于具体颜色记录。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00330_3a60414cf4"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "人工逐题判断：旧重复模板重写为对象完整性题。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_02_026",
+      "question_type": "single_choice",
+      "stem": "下列哪项把水合阳离子颜色错误地替代了阴离子颜色？",
+      "options": [
+        {
+          "label": "A",
+          "text": "CrO₄²⁻ 记为黄色"
+        },
+        {
+          "label": "B",
+          "text": "把 [Co(H₂O)₆]²⁺ 的粉红色直接当作所有阴离子的颜色"
+        },
+        {
+          "label": "C",
+          "text": "MnO₄⁻ 记为紫色"
+        },
+        {
+          "label": "D",
+          "text": "把 VO₃⁻ 放在阴离子栏中"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "[Co(H₂O)₆]²⁺ 是水合阳离子，不属于本实验阴离子列表；不能用它的颜色替代含氧阴离子的颜色。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-6c3245f9"
+      ],
+      "secondary_point_keys": [
+        "candidate-3-f81ca373",
+        "candidate-7-b5d923bb"
+      ],
+      "coverage_tags": [
+        "hydrated_cation_contrast",
+        "misconception_feedback"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-1-6c3245f9",
+          "role": "valid_anion_color",
+          "diagnostic_note": "A 有相关化学原理支撑。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "correct_answer_category_error",
+          "diagnostic_note": "B 混用了水合阳离子颜色。"
+        },
+        {
+          "label": "C",
+          "point_key": "candidate-3-f81ca373",
+          "role": "valid_anion_color",
+          "diagnostic_note": "C 有相关化学原理支撑。"
+        },
+        {
+          "label": "D",
+          "point_key": "candidate-7-b5d923bb",
+          "role": "valid_category_record",
+          "diagnostic_note": "D 符合教材列出的阴离子列表。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00330_3a60414cf4"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01119_8478df1f7f"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "人工逐题判断：旧重复模板重写为水合阳离子/阴离子颜色混用纠错。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_02_027",
+      "question_type": "single_choice",
+      "stem": "关于 Cr₂O₇²⁻ 的记录，哪项说法最稳妥？",
+      "options": [
+        {
+          "label": "A",
+          "text": "它不在本实验阴离子列表中"
+        },
+        {
+          "label": "B",
+          "text": "它是本实验列出的含铬含氧阴离子，应与 CrO₄²⁻ 分开记录"
+        },
+        {
+          "label": "C",
+          "text": "它是 [Cr(H₂O)₆]³⁺ 的同义写法"
+        },
+        {
+          "label": "D",
+          "text": "它是无电荷的金属单质"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "教材阴离子列表列出 Cr₂O₇²⁻；它与 CrO₄²⁻ 相关但式子和电荷组成不同，应分开记录。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-2-5db23da9"
+      ],
+      "secondary_point_keys": [
+        "candidate-1-6c3245f9"
+      ],
+      "coverage_tags": [
+        "dichromate_scope",
+        "formula_precision"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "contradicted_by_canonical",
+          "diagnostic_note": "A 与教材列表相反。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-2-5db23da9",
+          "role": "correct_record",
+          "diagnostic_note": "B 准确描述 Cr₂O₇²⁻ 的范围和记录边界。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "wrong_species_distractor",
+          "diagnostic_note": "C 混淆含氧阴离子和水合阳离子。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "wrong_species_distractor",
+          "diagnostic_note": "D 与离子式和电荷不符。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00330_3a60414cf4"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00789_e61f8704bd"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "人工逐题判断：旧重复模板重写为 Cr₂O₇²⁻ 记录边界题。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_02_028",
+      "question_type": "single_choice",
+      "stem": "关于 VO₃⁻，哪项说法最能被本实验原文直接支撑？",
+      "options": [
+        {
+          "label": "A",
+          "text": "它不属于本实验对象"
+        },
+        {
+          "label": "B",
+          "text": "它是本实验列出的阴离子之一"
+        },
+        {
+          "label": "C",
+          "text": "它是水合阳离子"
+        },
+        {
+          "label": "D",
+          "text": "它是 MnO₄⁻ 的同义写法"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "教材阴离子列表直接列出 VO₃⁻；这里可直接判断原文对象归属，不强行外推具体颜色。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-7-b5d923bb"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "vanadate_scope",
+        "evidence_boundary"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "contradicted_by_canonical",
+          "diagnostic_note": "A 与教材步骤相反。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-7-b5d923bb",
+          "role": "correct_canonical_target",
+          "diagnostic_note": "B 由教材步骤直接支撑。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "wrong_category_distractor",
+          "diagnostic_note": "C 把阴离子误作水合阳离子。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "wrong_species_distractor",
+          "diagnostic_note": "D 混淆 V 和 Mn 含氧阴离子。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00330_3a60414cf4"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "人工逐题判断：旧重复模板重写为 VO₃⁻ 归属题，避免未证实颜色外推。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_02_029",
+      "question_type": "single_choice",
+      "stem": "WO₄²⁻ 中的中心元素是哪一种？",
+      "options": [
+        {
+          "label": "A",
+          "text": "钼"
+        },
+        {
+          "label": "B",
+          "text": "钨"
+        },
+        {
+          "label": "C",
+          "text": "钒"
+        },
+        {
+          "label": "D",
+          "text": "铬"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "WO₄²⁻ 是本实验列出的含氧阴离子，式中的 W 对应钨元素。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-6-d074e740"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "formula_reading",
+        "tungstate_scope"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "wrong_center_element",
+          "diagnostic_note": "A 对应 Mo。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-6-d074e740",
+          "role": "correct_center_element",
+          "diagnostic_note": "B 是 W 的中文元素名。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "wrong_center_element",
+          "diagnostic_note": "C 对应 V。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "wrong_center_element",
+          "diagnostic_note": "D 对应 Cr。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00330_3a60414cf4"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "人工逐题判断：旧重复模板重写为公式读取单选，避免手机端元素符号输入。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_02_030",
+      "question_type": "single_choice",
+      "stem": "Cr₂O₇²⁻ 的电荷应读作哪一项？",
+      "options": [
+        {
+          "label": "A",
+          "text": "一正"
+        },
+        {
+          "label": "B",
+          "text": "二负"
+        },
+        {
+          "label": "C",
+          "text": "二正"
+        },
+        {
+          "label": "D",
+          "text": "不带电"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "Cr₂O₇²⁻ 是教材内容列出的阴离子，右上角 ²⁻ 表示二负电荷。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-2-5db23da9"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "formula_reading",
+        "dichromate_charge"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "wrong_charge",
+          "diagnostic_note": "A 与 ²⁻ 不符。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-2-5db23da9",
+          "role": "correct_charge",
+          "diagnostic_note": "B 正确读取 ²⁻。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "wrong_charge",
+          "diagnostic_note": "C 把负电荷误读为正电荷。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "wrong_charge",
+          "diagnostic_note": "D 忽略了离子电荷。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00330_3a60414cf4"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "人工逐题判断：旧重复模板重写为公式电荷读取单选，机器判分确定。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "rewrite"
+    }
+  ]
+}

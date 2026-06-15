@@ -1,0 +1,1913 @@
+{
+  "metadata": {
+    "schema_version": "rebuilt_experiment_question_package_v1",
+    "artifact_type": "manual_semantic_reconstruction_v1",
+    "source_packet": "E:\\chemistry-admin\\artifacts\\point-aware-question-bank\\reviewed_old_bank_chunks\\slim_release_work_v1\\semantic_work_packets\\chunk_3\\19-8-11.json",
+    "experiment_code": "19-8-11",
+    "experiment_title": "小设计实验：分析铅丹组成",
+    "chunk": "chunk_3",
+    "question_count": 30,
+    "reconstruction_mode": "manual_per_question_semantic_rebuild",
+    "release_json_modified": false,
+    "evidence_policy": [
+      "canonical RAG 直接支持小设计实验目标：设计分析铅丹组成的方法。",
+      "HNO3 微热、吸取清液、稀 H2SO4 检查 Pb2+ 来自 source packet/video point 线索，并由 supporting theory 核验。",
+      "铅丹组成解释依据 Pb3O4 为铅(IV)酸铅(II)盐，硝酸可使 PbO 进入硝酸铅溶液，稀硫酸可用硫酸铅难溶性检查 Pb(II)。",
+      "未把 canonical 未列出的操作细节写成 textbook 直接原文，只标为设计方案和 theory-supported 解释。"
+    ],
+    "rag_source_dir": "E:\\chemistry-rag\\data\\rag_ready"
+  },
+  "video_points": [
+    {
+      "point_key": "candidate-1-bca363dc",
+      "point_title": "设计分析铅丹 Pb3O4 组成的实验方法"
+    },
+    {
+      "point_key": "candidate-2-4f3744ff",
+      "point_title": "Pb3O4 加硝酸微热"
+    },
+    {
+      "point_key": "candidate-3-bbffc85e",
+      "point_title": "吸取清液，用稀硫酸检查 Pb2+"
+    }
+  ],
+  "evidence_sources": {
+    "canonical_experiment_chunks": [
+      {
+        "chunk_id": "expchunk_protocol_ccb6245e7635",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+        "line_number": 9,
+        "source_summary": "实验 19-8 的总 protocol，确认本 packet 属于锡、铅、砷、锑、铋实验。"
+      },
+      {
+        "chunk_id": "expchunk_00301_dee65904aa",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+        "line_number": 314,
+        "source_summary": "小设计实验要求设计分析铅丹 Pb3O4 组成的实验方法，并另有 SbCl3 与 Bi(NO3)3 分离鉴定设计题。"
+      }
+    ],
+    "supporting_theory_chunks": [
+      {
+        "chunk_id": "textbook_prose_00756_b42e11e0c6",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+        "line_number": 1188,
+        "source_summary": "Pb3O4 俗称红丹或铅丹，结构上是铅(IV)酸铅(II)盐 Pb2[PbO4]。"
+      },
+      {
+        "chunk_id": "textbook_prose_00757_85fc20341a",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+        "line_number": 1189,
+        "source_summary": "PbO2、Pb2O3 和 Pb3O4 都有强氧化性；Pb3O4 为红色。"
+      },
+      {
+        "chunk_id": "textbook_prose_00788_cfbfaab4bc",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+        "line_number": 1229,
+        "source_summary": "PbO 可与 HNO3 作用生成 Pb(NO3)2；硫酸铅为重要难溶 Pb(II) 盐。"
+      },
+      {
+        "chunk_id": "textbook_prose_00379_033ea5b92b",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+        "line_number": 598,
+        "source_summary": "硫酸的正盐中硫酸铅难溶，可用于解释 Pb(II) 清液遇硫酸根形成沉淀。"
+      }
+    ]
+  },
+  "questions": [
+    {
+      "question_id": "REBUILT_CH3_19_8_11_Q001",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_11_Q001"
+      ],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "single_choice",
+      "stem": "本小设计实验的核心任务是：",
+      "options": [
+        {
+          "label": "A",
+          "text": "测定氯水浓度"
+        },
+        {
+          "label": "B",
+          "text": "分离钠盐和钾盐"
+        },
+        {
+          "label": "C",
+          "text": "设计分析铅丹组成的方法"
+        },
+        {
+          "label": "D",
+          "text": "制备纯铅单质"
+        }
+      ],
+      "answer": {
+        "value": "C"
+      },
+      "explanation": "教材明确写出小设计实验之一是设计分析铅丹 Pb₃O₄ 组成的实验方法。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-bca363dc"
+      ],
+      "secondary_point_keys": [
+        "candidate-2-4f3744ff",
+        "candidate-3-bbffc85e"
+      ],
+      "coverage_tags": [
+        "design_goal",
+        "lead_red"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "distractor_wrong_task",
+          "diagnostic_note": "不属于本小设计实验。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "distractor_wrong_task",
+          "diagnostic_note": "不是本实验任务。"
+        },
+        {
+          "label": "C",
+          "point_key": "candidate-1-bca363dc",
+          "role": "correct_evidence",
+          "diagnostic_note": "直接对应教材材料设计目标。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_overclaim",
+          "diagnostic_note": "本设计不是制备纯铅。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00301_dee65904aa"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00756_b42e11e0c6"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留设计目标题。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_label"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_11_Q002",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_11_Q002",
+        "OLD_CHUNK3_EXP_19_8_11_Q021"
+      ],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "single_choice",
+      "stem": "Pb₃O₄ 的常用中文名称是：",
+      "options": [
+        {
+          "label": "A",
+          "text": "密陀僧"
+        },
+        {
+          "label": "B",
+          "text": "蓝矾"
+        },
+        {
+          "label": "C",
+          "text": "绿矾"
+        },
+        {
+          "label": "D",
+          "text": "铅丹"
+        }
+      ],
+      "answer": {
+        "value": "D"
+      },
+      "explanation": "教材相关内容说明 Pb₃O₄ 俗称红丹或铅丹。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-bca363dc"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "lead_red",
+        "naming"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "distractor_lead_oxide",
+          "diagnostic_note": "密陀僧是 PbO 的俗称。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "distractor_sulfate",
+          "diagnostic_note": "蓝矾是铜盐俗称。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "distractor_sulfate",
+          "diagnostic_note": "绿矾是铁盐俗称。"
+        },
+        {
+          "label": "D",
+          "point_key": "candidate-1-bca363dc",
+          "role": "correct_evidence",
+          "diagnostic_note": "Pb₃O₄ 即红丹或铅丹。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00301_dee65904aa"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00756_b42e11e0c6"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留名称题并中文化。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_label"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_11_Q003",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_11_Q003"
+      ],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "single_choice",
+      "stem": "根据相关理论，铅丹的结构可理解为：",
+      "options": [
+        {
+          "label": "A",
+          "text": "铅(Ⅳ)酸铅(Ⅱ)盐"
+        },
+        {
+          "label": "B",
+          "text": "单一的铅(0)单质"
+        },
+        {
+          "label": "C",
+          "text": "只含铅(Ⅳ)的氧化物"
+        },
+        {
+          "label": "D",
+          "text": "不含铅的硫酸盐"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "教材相关内容说明 Pb₃O₄ 根据结构是铅(Ⅳ)酸铅(Ⅱ)盐 Pb₂[PbO₄]，因此含有 Pb(Ⅱ) 与 Pb(Ⅳ) 组分。",
+      "difficulty": "intermediate",
+      "primary_point_keys": [
+        "candidate-1-bca363dc"
+      ],
+      "secondary_point_keys": [
+        "candidate-2-4f3744ff",
+        "candidate-3-bbffc85e"
+      ],
+      "coverage_tags": [
+        "composition",
+        "supporting_theory"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-1-bca363dc",
+          "role": "correct_evidence",
+          "diagnostic_note": "对应教材结构解释。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "distractor_wrong_oxidation_state",
+          "diagnostic_note": "铅丹不是金属铅单质。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "distractor_partial_composition",
+          "diagnostic_note": "忽略 Pb(Ⅱ) 组分。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_wrong_composition",
+          "diagnostic_note": "铅丹含铅，不是硫酸盐。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00301_dee65904aa"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00756_b42e11e0c6"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留组成解释题。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_label"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_11_Q004",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_11_Q004",
+        "OLD_CHUNK3_EXP_19_8_11_Q022"
+      ],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "single_choice",
+      "stem": "设计方案中用硝酸微热处理铅丹，最主要是为了让哪类铅组分进入清液？",
+      "options": [
+        {
+          "label": "A",
+          "text": "金属铅"
+        },
+        {
+          "label": "B",
+          "text": "铅(Ⅱ)组分"
+        },
+        {
+          "label": "C",
+          "text": "硫酸根"
+        },
+        {
+          "label": "D",
+          "text": "四氯化碳层"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "教材相关内容说明 PbO 可与 HNO₃ 作用生成易溶的硝酸铅；因此硝酸微热可使铅丹中的 Pb(Ⅱ) 组分进入清液，便于后续检验。",
+      "difficulty": "intermediate",
+      "primary_point_keys": [
+        "candidate-2-4f3744ff"
+      ],
+      "secondary_point_keys": [
+        "candidate-3-bbffc85e"
+      ],
+      "coverage_tags": [
+        "nitric_acid_step",
+        "composition"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "distractor_wrong_species",
+          "diagnostic_note": "该设计不是先制备金属铅。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-2-4f3744ff",
+          "role": "correct_evidence",
+          "diagnostic_note": "Pb(Ⅱ) 可转入硝酸铅清液。"
+        },
+        {
+          "label": "C",
+          "point_key": "candidate-3-bbffc85e",
+          "role": "adjacent_reagent",
+          "diagnostic_note": "硫酸根来自后续硫酸检验。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_irrelevant",
+          "diagnostic_note": "四氯化碳不属于本设计。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00301_dee65904aa"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00756_b42e11e0c6",
+          "textbook_prose_00788_cfbfaab4bc"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留硝酸微热设计题。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_label"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_11_Q005",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_11_Q005"
+      ],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "single_choice",
+      "stem": "硝酸微热处理后，后续“吸取清液”主要是为了：",
+      "options": [
+        {
+          "label": "A",
+          "text": "直接检验进入溶液的铅(Ⅱ)"
+        },
+        {
+          "label": "B",
+        "text": "只关注未反应固体并忽略溶液"
+        },
+        {
+          "label": "C",
+          "text": "把铅丹完全转化为硫酸"
+        },
+        {
+          "label": "D",
+          "text": "分离出四氯化碳层"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "实验环节指向吸取清液并用稀硫酸检查 Pb²⁺；相关理论支持 Pb(Ⅱ) 可转入硝酸铅清液，再用难溶硫酸铅沉淀检验。",
+      "difficulty": "intermediate",
+      "primary_point_keys": [
+        "candidate-3-bbffc85e"
+      ],
+      "secondary_point_keys": [
+        "candidate-2-4f3744ff"
+      ],
+      "coverage_tags": [
+        "clear_solution",
+        "lead_ii_check"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-3-bbffc85e",
+          "role": "correct_evidence",
+          "diagnostic_note": "清液承载 Pb(Ⅱ) 检验对象。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "distractor_wrong_fraction",
+          "diagnostic_note": "后续检验对象是清液。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "distractor_impossible_goal",
+          "diagnostic_note": "不是把铅丹转化为硫酸。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_other_experiment",
+          "diagnostic_note": "本设计不涉及四氯化碳。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00301_dee65904aa"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00788_cfbfaab4bc",
+          "textbook_prose_00379_033ea5b92b"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留清液检验设计题。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_label"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_11_Q006",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_11_Q006_R1",
+        "OLD_CHUNK3_EXP_19_8_11_Q023",
+        "OLD_CHUNK3_EXP_19_8_11_Q024"
+      ],
+      "rewrite_action": "rewrite",
+      "question_type": "single_choice",
+      "stem": "吸取清液后加入稀硫酸，若产生白色沉淀，最合理的检验结论是：",
+      "options": [
+        {
+          "label": "A",
+          "text": "清液中含有铅(Ⅱ)，生成难溶硫酸铅"
+        },
+        {
+          "label": "B",
+          "text": "清液中一定含有四价铅离子"
+        },
+        {
+          "label": "C",
+          "text": "硝酸被还原为氮气"
+        },
+        {
+          "label": "D",
+          "text": "铅丹已经完全变成金属铅"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "教材材料和相关理论都支持硫酸铅难溶；清液中 Pb(Ⅱ) 遇硫酸根形成白色硫酸铅沉淀。",
+      "difficulty": "intermediate",
+      "primary_point_keys": [
+        "candidate-3-bbffc85e"
+      ],
+      "secondary_point_keys": [
+        "candidate-2-4f3744ff"
+      ],
+      "coverage_tags": [
+        "lead_ii_check",
+        "sulfate_precipitation",
+        "supporting_theory"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-3-bbffc85e",
+          "role": "correct_evidence",
+          "diagnostic_note": "对应 PbSO₄ 难溶沉淀。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "distractor_wrong_valence",
+          "diagnostic_note": "该清液检验指向 Pb(Ⅱ)。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "distractor_wrong_reaction",
+          "diagnostic_note": "不是硝酸还原检验。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_overclaim",
+          "diagnostic_note": "没有金属铅生成材料。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00301_dee65904aa"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00788_cfbfaab4bc",
+          "textbook_prose_00379_033ea5b92b"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "将硫酸/硫酸铅公式填空改写为判据单选。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_label"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_11_Q007",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_11_Q007_R1_PF1",
+        "OLD_CHUNK3_EXP_19_8_11_Q025"
+      ],
+      "rewrite_action": "rewrite",
+      "question_type": "single_choice",
+      "stem": "硝酸处理后若仍有不溶的氧化性铅组分，结合铅丹结构最合理对应的是：",
+      "options": [
+        {
+          "label": "A",
+          "text": "四价铅组分"
+        },
+        {
+          "label": "B",
+          "text": "硫酸根组分"
+        },
+        {
+          "label": "C",
+          "text": "氯离子组分"
+        },
+        {
+          "label": "D",
+          "text": "钠离子组分"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "教材相关内容将铅丹解释为含 Pb(Ⅱ) 与 Pb(Ⅳ) 的铅(Ⅳ)酸铅(Ⅱ)盐；硝酸清液检出 Pb(Ⅱ) 后，剩余强氧化性铅组分可对应四价铅方向。",
+      "difficulty": "advanced",
+      "primary_point_keys": [
+        "candidate-1-bca363dc",
+        "candidate-2-4f3744ff"
+      ],
+      "secondary_point_keys": [
+        "candidate-3-bbffc85e"
+      ],
+      "coverage_tags": [
+        "composition",
+        "lead_iv",
+        "supporting_theory"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-1-bca363dc",
+          "role": "correct_evidence",
+          "diagnostic_note": "对应铅丹中的 Pb(Ⅳ) 组分。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-3-bbffc85e",
+          "role": "distractor_reagent_ion",
+          "diagnostic_note": "硫酸根来自检验试剂，不是铅丹组成。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "distractor_wrong_ion",
+          "diagnostic_note": "本设计没有氯离子组成材料。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_wrong_ion",
+          "diagnostic_note": "铅丹不含钠离子。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00301_dee65904aa"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00756_b42e11e0c6",
+          "textbook_prose_00757_85fc20341a"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "将四价铅公式填空改为组成解释题。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_label"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_11_Q008",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_11_Q008"
+      ],
+      "rewrite_action": "rewrite",
+      "question_type": "single_choice",
+      "stem": "该设计中“稀硫酸检查 Pb(Ⅱ)”依赖的关键性质是：",
+      "options": [
+        {
+          "label": "A",
+          "text": "硫酸铅极易溶于水"
+        },
+        {
+          "label": "B",
+          "text": "硫酸铅难溶"
+        },
+        {
+          "label": "C",
+          "text": "硝酸铅不含铅"
+        },
+        {
+          "label": "D",
+          "text": "铅丹不含氧"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "教材材料和相关理论都说明硫酸铅是难溶 Pb(Ⅱ) 盐，因此稀硫酸可用于清液中 Pb(Ⅱ) 的沉淀检验。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-3-bbffc85e"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "sulfate_precipitation",
+        "lead_ii_check"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "distractor_reversed_solubility",
+          "diagnostic_note": "方向与教材相反。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-3-bbffc85e",
+          "role": "correct_evidence",
+          "diagnostic_note": "PbSO₄ 难溶是检验基础。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "distractor_false_statement",
+          "diagnostic_note": "硝酸铅含铅。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_false_statement",
+          "diagnostic_note": "铅丹是铅氧化物。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00301_dee65904aa"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00788_cfbfaab4bc",
+          "textbook_prose_00379_033ea5b92b"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "改写为溶解性依据题。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_label"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_11_Q009",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_11_Q009"
+      ],
+      "rewrite_action": "rewrite",
+      "question_type": "single_choice",
+      "stem": "若要把本设计写成简洁流程，最合理的顺序是：",
+      "options": [
+        {
+          "label": "A",
+          "text": "先加稀硫酸，再加四氯化碳，最后加氯水"
+        },
+        {
+          "label": "B",
+          "text": "铅丹加硝酸微热，取清液，再加稀硫酸检验"
+        },
+        {
+          "label": "C",
+          "text": "铅丹直接与硫氰酸钾混合"
+        },
+        {
+          "label": "D",
+          "text": "铅丹先溶于氨水，再用碘水萃取"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "实验环节给出的方案线索为 Pb₃O₄ 加 HNO₃ 微热，吸取清液，用稀 H₂SO₄ 检查 Pb²⁺；该流程能分析铅丹组成。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-bca363dc",
+        "candidate-2-4f3744ff",
+        "candidate-3-bbffc85e"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "procedure_sequence",
+        "multi_point"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "distractor_wrong_sequence",
+          "diagnostic_note": "混入其他实验试剂。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-1-bca363dc",
+          "role": "correct_evidence",
+          "diagnostic_note": "对应三条实验环节线索。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "distractor_fe_test",
+          "diagnostic_note": "硫氰酸钾不属于铅丹组成设计。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_wrong_reagents",
+          "diagnostic_note": "氨水和碘水不属于该设计。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00301_dee65904aa"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00756_b42e11e0c6",
+          "textbook_prose_00788_cfbfaab4bc",
+          "textbook_prose_00379_033ea5b92b"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "改写成流程题，明确 video point 线索来源。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_label"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_11_Q010",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_11_Q010_SF1"
+      ],
+      "rewrite_action": "rewrite",
+      "question_type": "single_choice",
+      "stem": "关于铅丹组成分析设计，最稳妥的说法是：",
+      "options": [
+        {
+          "label": "A",
+        "text": "教材材料提出设计任务，具体硝酸微热和稀硫酸检验流程需结合实验步骤与相关理论说明"
+        },
+        {
+          "label": "B",
+          "text": "教材材料已逐字给出硝酸微热和硫酸检验的全部操作"
+        },
+        {
+          "label": "C",
+        "text": "只要涉及铅丹，就不能引用相关理论"
+        },
+        {
+          "label": "D",
+          "text": "硫酸铅难溶性与本设计无关"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "教材材料直接提出设计分析铅丹组成的方法；硝酸微热、吸取清液、稀硫酸检验的细节需结合实验步骤，并由相关理论支撑。",
+      "difficulty": "advanced",
+      "primary_point_keys": [
+        "candidate-1-bca363dc",
+        "candidate-2-4f3744ff",
+        "candidate-3-bbffc85e"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "evidence_boundary",
+        "multi_point"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-1-bca363dc",
+          "role": "correct_evidence_boundary",
+          "diagnostic_note": "准确区分设计任务、具体流程和相关理论。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "distractor_overclaim",
+          "diagnostic_note": "教材未逐字列出全部流程。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "distractor_bad_policy",
+          "diagnostic_note": "小设计题需要相关理论支撑。"
+        },
+        {
+          "label": "D",
+          "point_key": "candidate-3-bbffc85e",
+          "role": "distractor_false_statement",
+          "diagnostic_note": "硫酸铅难溶性正是 Pb(Ⅱ) 检验基础。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00301_dee65904aa"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00756_b42e11e0c6",
+          "textbook_prose_00788_cfbfaab4bc",
+          "textbook_prose_00379_033ea5b92b"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "改写证据边界题。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_label"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_11_Q011",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_11_Q026_R1_PF1"
+      ],
+      "rewrite_action": "rewrite",
+      "question_type": "single_choice",
+      "stem": "如果只想证明清液中有 Pb(Ⅱ)，下列操作最直接的是：",
+      "options": [
+        {
+          "label": "A",
+          "text": "向清液中加入稀硫酸，观察是否生成硫酸铅沉淀"
+        },
+        {
+          "label": "B",
+          "text": "向清液中加入四氯化碳并振荡"
+        },
+        {
+          "label": "C",
+          "text": "把清液蒸干后点燃"
+        },
+        {
+          "label": "D",
+          "text": "向清液中加入硫氰酸钾检查铁离子"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "实验环节明确“吸取清液，用稀 H₂SO₄ 检查 Pb²⁺”；相关理论支持 PbSO₄ 难溶，因此稀硫酸沉淀法最直接。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-3-bbffc85e"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "lead_ii_check",
+        "procedure"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-3-bbffc85e",
+          "role": "correct_evidence",
+          "diagnostic_note": "直接对应清液检验。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "distractor_other_experiment",
+          "diagnostic_note": "四氯化碳不属于该设计。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "distractor_bad_method",
+          "diagnostic_note": "不能直接证明 Pb(Ⅱ)。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_fe_test",
+          "diagnostic_note": "硫氰酸钾检验 Fe(Ⅲ)，不是 Pb(Ⅱ)。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00301_dee65904aa"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00788_cfbfaab4bc",
+          "textbook_prose_00379_033ea5b92b"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "将 Pb(II) 检验细化为操作单选。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_label"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_11_Q012",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_11_Q027_R1_PF1"
+      ],
+      "rewrite_action": "rewrite",
+      "question_type": "single_choice",
+      "stem": "若学生把“清液中加稀硫酸出现白色沉淀”解释为硫酸根检出，问题在哪里？",
+      "options": [
+        {
+          "label": "A",
+          "text": "本操作是向样品清液引入硫酸根来检验 Pb(Ⅱ)，不是检测样品中原有硫酸根"
+        },
+        {
+          "label": "B",
+          "text": "硫酸根不存在于任何溶液中"
+        },
+        {
+          "label": "C",
+          "text": "硫酸铅一定是蓝色沉淀"
+        },
+        {
+          "label": "D",
+          "text": "硝酸不能溶解任何铅(Ⅱ)化合物"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "在本设计中稀硫酸是外加检验试剂，利用 PbSO₄ 难溶来检出清液中的 Pb(Ⅱ)；不是证明铅丹原样含硫酸根。",
+      "difficulty": "advanced",
+      "primary_point_keys": [
+        "candidate-3-bbffc85e"
+      ],
+      "secondary_point_keys": [
+        "candidate-1-bca363dc"
+      ],
+      "coverage_tags": [
+        "misconception_cleanup",
+        "lead_ii_check",
+        "sulfate_reagent"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-3-bbffc85e",
+          "role": "correct_evidence",
+          "diagnostic_note": "准确区分检验试剂和被检离子。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "distractor_false_statement",
+          "diagnostic_note": "明显错误。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "distractor_wrong_color",
+          "diagnostic_note": "硫酸铅为白色。"
+        },
+        {
+          "label": "D",
+          "point_key": "candidate-2-4f3744ff",
+          "role": "distractor_wrong_solubility",
+          "diagnostic_note": "PbO 与硝酸生成硝酸铅有相关理论支撑。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00301_dee65904aa"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00788_cfbfaab4bc",
+          "textbook_prose_00379_033ea5b92b"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "将硫酸根填空误区改为概念辨析题。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_label"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_11_Q013",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_11_Q028_R1_PF1"
+      ],
+      "rewrite_action": "rewrite",
+      "question_type": "single_choice",
+      "stem": "铅丹组成分析中，硝酸微热和稀硫酸检验两步的关系最准确的是：",
+      "options": [
+        {
+          "label": "A",
+          "text": "前者使 Pb(Ⅱ) 进入清液，后者用难溶硫酸铅确认清液中的 Pb(Ⅱ)"
+        },
+        {
+          "label": "B",
+          "text": "前者检验硫酸根，后者检验硝酸根"
+        },
+        {
+          "label": "C",
+          "text": "两步都只用来改变颜色，与组成无关"
+        },
+        {
+          "label": "D",
+          "text": "两步都用于生成金属铅"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "硝酸处理可使 Pb(Ⅱ) 进入清液，稀硫酸利用 PbSO₄ 难溶性检出清液中的 Pb(Ⅱ)，从而支撑铅丹含 Pb(Ⅱ) 组分的分析。",
+      "difficulty": "advanced",
+      "primary_point_keys": [
+        "candidate-2-4f3744ff",
+        "candidate-3-bbffc85e"
+      ],
+      "secondary_point_keys": [
+        "candidate-1-bca363dc"
+      ],
+      "coverage_tags": [
+        "procedure_logic",
+        "multi_point",
+        "composition"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-2-4f3744ff",
+          "role": "correct_evidence",
+          "diagnostic_note": "准确串联两步设计逻辑。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "distractor_wrong_analytes",
+          "diagnostic_note": "被检对象不是硝酸根或原样硫酸根。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "distractor_too_shallow",
+          "diagnostic_note": "设计与组成分析有关。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_overclaim",
+          "diagnostic_note": "没有生成金属铅的目标。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00301_dee65904aa"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00756_b42e11e0c6",
+          "textbook_prose_00788_cfbfaab4bc",
+          "textbook_prose_00379_033ea5b92b"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "改写两步逻辑题。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_label"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_11_Q014",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_11_Q006_R1",
+        "OLD_CHUNK3_EXP_19_8_11_Q019_R1_PF1"
+      ],
+      "rewrite_action": "rewrite",
+      "question_type": "single_choice",
+      "stem": "判断“铅丹含两种价态的铅”时，最可靠的依据组合是：",
+      "options": [
+        {
+          "label": "A",
+          "text": "铅丹结构为铅(Ⅳ)酸铅(Ⅱ)盐，且清液中可检出 Pb(Ⅱ)"
+        },
+        {
+          "label": "B",
+          "text": "铅丹能溶于四氯化碳"
+        },
+        {
+          "label": "C",
+          "text": "铅丹只含硫酸根"
+        },
+        {
+          "label": "D",
+          "text": "铅丹与硫氰酸钾必然生成血红色"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "教材相关内容给出铅丹结构为铅(Ⅳ)酸铅(Ⅱ)盐；硝酸清液和稀硫酸检验的设计能体现 Pb(Ⅱ) 进入清液。",
+      "difficulty": "advanced",
+      "primary_point_keys": [
+        "candidate-1-bca363dc",
+        "candidate-2-4f3744ff",
+        "candidate-3-bbffc85e"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "composition",
+        "multi_point",
+        "evidence_synthesis"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-1-bca363dc",
+          "role": "correct_evidence",
+          "diagnostic_note": "同时包含结构理论和实验检验。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "distractor_wrong_solvent",
+          "diagnostic_note": "四氯化碳不属于本设计。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "distractor_wrong_composition",
+          "diagnostic_note": "铅丹不是硫酸盐。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_fe_test",
+          "diagnostic_note": "硫氰酸钾用于 Fe(Ⅲ) 检验，不属于铅丹组成。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00301_dee65904aa"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00756_b42e11e0c6",
+          "textbook_prose_00788_cfbfaab4bc",
+          "textbook_prose_00379_033ea5b92b"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "改写为证据综合题。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_label"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_11_Q015",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_11_Q020_R1_PF1"
+      ],
+      "rewrite_action": "rewrite",
+      "question_type": "single_choice",
+      "stem": "下列哪项最不符合铅丹组成分析的实验逻辑？",
+      "options": [
+        {
+          "label": "A",
+          "text": "把外加稀硫酸中的硫酸根当作铅丹原样成分"
+        },
+        {
+          "label": "B",
+          "text": "用硝酸微热处理铅丹"
+        },
+        {
+          "label": "C",
+          "text": "用稀硫酸检验清液中的铅(Ⅱ)"
+        },
+        {
+          "label": "D",
+          "text": "白色硫酸铅沉淀可作为清液铅(Ⅱ)的依据"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "稀硫酸是外加检验试剂，不能据此说铅丹原样中已有硫酸根；其他选项都符合硝酸处理和清液检验的设计逻辑。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-bca363dc",
+        "candidate-2-4f3744ff",
+        "candidate-3-bbffc85e"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "mobile_safe",
+        "formula_input_risk",
+        "multi_point"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-1-bca363dc",
+          "role": "correct_risk",
+          "diagnostic_note": "该项混淆了外加检验离子和原样成分。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-1-bca363dc",
+          "role": "supporting_step",
+          "diagnostic_note": "硝酸微热处理是设计的一部分。"
+        },
+        {
+          "label": "C",
+          "point_key": "candidate-3-bbffc85e",
+          "role": "supporting_step",
+          "diagnostic_note": "稀硫酸用于检查清液中的铅(Ⅱ)。"
+        },
+        {
+          "label": "D",
+          "point_key": "candidate-2-4f3744ff",
+          "role": "supporting_step",
+          "diagnostic_note": "白色硫酸铅沉淀可支持清液铅(Ⅱ)检验。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00301_dee65904aa"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00756_b42e11e0c6",
+          "textbook_prose_00788_cfbfaab4bc",
+          "textbook_prose_00379_033ea5b92b"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "将旧公式输入风险显式修复。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_label"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_11_Q016",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_11_Q011"
+      ],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "true_false",
+      "stem": "教材材料教材明确要求设计分析铅丹组成的实验方法。",
+      "options": [],
+      "answer": {
+        "value": true
+      },
+      "explanation": "教材材料的小设计实验直接写明“设计分析铅丹（Pb₃O₄）组成的实验方法”。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-bca363dc"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "true_false",
+        "design_goal"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00301_dee65904aa"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "保留 canonical 目标判断。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_bool"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_11_Q017",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_11_Q012"
+      ],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "true_false",
+      "stem": "铅丹可理解为同时含 Pb(Ⅱ) 与 Pb(Ⅳ) 组分的铅(Ⅳ)酸铅(Ⅱ)盐。",
+      "options": [],
+      "answer": {
+        "value": true
+      },
+      "explanation": "教材相关内容明确说明 Pb₃O₄ 是铅(Ⅳ)酸铅(Ⅱ)盐。",
+      "difficulty": "intermediate",
+      "primary_point_keys": [
+        "candidate-1-bca363dc"
+      ],
+      "secondary_point_keys": [
+        "candidate-2-4f3744ff",
+        "candidate-3-bbffc85e"
+      ],
+      "coverage_tags": [
+        "true_false",
+        "composition",
+        "supporting_theory"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00301_dee65904aa"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00756_b42e11e0c6"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留组成判断。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_bool"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_11_Q018",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_11_Q013"
+      ],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "true_false",
+      "stem": "硝酸微热处理铅丹的设计，可服务于使 Pb(Ⅱ) 组分进入清液。",
+      "options": [],
+      "answer": {
+        "value": true
+      },
+      "explanation": "教材相关内容支持 PbO 与 HNO₃ 作用生成 Pb(NO₃)₂；这解释了用硝酸处理后检验清液中 Pb(Ⅱ) 的设计逻辑。",
+      "difficulty": "intermediate",
+      "primary_point_keys": [
+        "candidate-2-4f3744ff"
+      ],
+      "secondary_point_keys": [
+        "candidate-3-bbffc85e"
+      ],
+      "coverage_tags": [
+        "true_false",
+        "nitric_acid_step"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00301_dee65904aa"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00788_cfbfaab4bc",
+          "textbook_prose_00756_b42e11e0c6"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留硝酸处理逻辑判断。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_bool"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_11_Q019",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_11_Q014"
+      ],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "true_false",
+      "stem": "清液中加入稀硫酸生成白色硫酸铅沉淀，可作为 Pb(Ⅱ) 的检验依据。",
+      "options": [],
+      "answer": {
+        "value": true
+      },
+      "explanation": "教材材料和相关理论均支持硫酸铅难溶，因此该沉淀可作为清液中 Pb(Ⅱ) 的检验依据。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-3-bbffc85e"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "true_false",
+        "lead_ii_check",
+        "sulfate_precipitation"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00301_dee65904aa"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00788_cfbfaab4bc",
+          "textbook_prose_00379_033ea5b92b"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留硫酸铅沉淀判断。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_bool"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_11_Q020",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_11_Q015_R1"
+      ],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "true_false",
+      "stem": "吸取清液后再检验，有助于把可溶的 Pb(Ⅱ) 组分与不溶残渣分开讨论。",
+      "options": [],
+      "answer": {
+        "value": true
+      },
+      "explanation": "材料点明确要求吸取清液，用稀硫酸检查 Pb²⁺；这使 Pb(Ⅱ) 清液检验与不溶残渣分析分开。",
+      "difficulty": "intermediate",
+      "primary_point_keys": [
+        "candidate-3-bbffc85e"
+      ],
+      "secondary_point_keys": [
+        "candidate-2-4f3744ff"
+      ],
+      "coverage_tags": [
+        "true_false",
+        "clear_solution",
+        "procedure_logic"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00301_dee65904aa"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00788_cfbfaab4bc",
+          "textbook_prose_00379_033ea5b92b"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留清液分离判断。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_bool"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_11_Q021",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_11_Q016"
+      ],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "true_false",
+      "stem": "铅丹组成分析设计的目标是证明铅丹只含硫酸根。",
+      "options": [],
+      "answer": {
+        "value": false
+      },
+      "explanation": "铅丹是铅氧化物，设计目标是分析其铅的价态组成；硫酸根是后续检验试剂提供的离子，不是铅丹组成目标。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-bca363dc",
+        "candidate-3-bbffc85e"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "true_false",
+        "misconception_cleanup",
+        "composition"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00301_dee65904aa"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00756_b42e11e0c6",
+          "textbook_prose_00379_033ea5b92b"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留错误目标判断。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_bool"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_11_Q022",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_11_Q017_R1"
+      ],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "true_false",
+      "stem": "硫酸根在本设计中主要来自外加稀硫酸，用于沉淀检验清液中的 Pb(Ⅱ)。",
+      "options": [],
+      "answer": {
+        "value": true
+      },
+      "explanation": "材料点是用稀 H₂SO₄ 检查 Pb²⁺；硫酸根作为外加检验离子，与 Pb(Ⅱ) 形成难溶硫酸铅。",
+      "difficulty": "intermediate",
+      "primary_point_keys": [
+        "candidate-3-bbffc85e"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "true_false",
+        "sulfate_reagent",
+        "lead_ii_check"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00301_dee65904aa"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00788_cfbfaab4bc",
+          "textbook_prose_00379_033ea5b92b"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留硫酸根角色判断。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_bool"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_11_Q023",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_11_Q018"
+      ],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "true_false",
+      "stem": "稀硫酸检验清液 Pb(Ⅱ) 的依据是硫酸铅易溶于水。",
+      "options": [],
+      "answer": {
+        "value": false
+      },
+      "explanation": "依据恰好相反：硫酸铅难溶，产生白色沉淀才可用于检验 Pb(Ⅱ)。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-3-bbffc85e"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "true_false",
+        "sulfate_precipitation",
+        "misconception_cleanup"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00301_dee65904aa"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00788_cfbfaab4bc",
+          "textbook_prose_00379_033ea5b92b"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留反向溶解性判断。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_bool"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_11_Q024",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_11_Q021"
+      ],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "fill_blank",
+      "stem": "Pb₃O₄ 的常用中文名称之一是____。",
+      "options": [],
+      "answer": {
+        "value": "铅丹",
+        "match": "normalized_exact"
+      },
+      "explanation": "教材相关内容说明 Pb₃O₄ 俗称红丹或铅丹；填空使用中文名称，避免公式输入。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-bca363dc"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "fill_blank",
+        "mobile_safe",
+        "naming"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00301_dee65904aa"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00756_b42e11e0c6"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "将 Pb3O4 公式填空改为中文名称。"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": "deterministic_normalized_exact"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_11_Q025",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_11_Q022"
+      ],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "fill_blank",
+      "stem": "设计线索中，微热处理铅丹所用的酸是____。",
+      "options": [],
+      "answer": {
+        "value": "硝酸",
+        "match": "normalized_exact"
+      },
+      "explanation": "材料点指向 Pb₃O₄ 加 HNO₃ 微热，且由 PbO 与硝酸生成硝酸铅的相关理论支撑。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-2-4f3744ff"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "fill_blank",
+        "mobile_safe",
+        "nitric_acid_step"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00301_dee65904aa"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00788_cfbfaab4bc"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留 HNO3 填空意图，答案中文化。"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": "deterministic_normalized_exact"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_11_Q026",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_11_Q023"
+      ],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "fill_blank",
+      "stem": "检查清液中 Pb(Ⅱ) 时加入的稀酸是____。",
+      "options": [],
+      "answer": {
+        "value": "硫酸",
+        "match": "normalized_exact"
+      },
+      "explanation": "材料点指向用稀 H₂SO₄ 检查 Pb²⁺。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-3-bbffc85e"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "fill_blank",
+        "mobile_safe",
+        "lead_ii_check"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00301_dee65904aa"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00379_033ea5b92b"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留 H2SO4 填空意图，答案中文化。"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": "deterministic_normalized_exact"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_11_Q027",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_11_Q024"
+      ],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "fill_blank",
+      "stem": "Pb(Ⅱ) 清液遇稀硫酸形成的白色难溶沉淀是____。",
+      "options": [],
+      "answer": {
+        "value": "硫酸铅",
+        "match": "normalized_exact"
+      },
+      "explanation": "教材材料和相关理论支持硫酸铅难溶。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-3-bbffc85e"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "fill_blank",
+        "mobile_safe",
+        "sulfate_precipitation"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00301_dee65904aa"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00788_cfbfaab4bc",
+          "textbook_prose_00379_033ea5b92b"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留 PbSO4 填空意图，答案中文化。"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": "deterministic_normalized_exact"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_11_Q028",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_11_Q025"
+      ],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "fill_blank",
+      "stem": "铅丹结构中的高价铅组分可概括为____。",
+      "options": [],
+      "answer": {
+        "value": "四价铅",
+        "match": "normalized_exact"
+      },
+      "explanation": "教材相关内容将 Pb₃O₄ 解释为铅(Ⅳ)酸铅(Ⅱ)盐。",
+      "difficulty": "intermediate",
+      "primary_point_keys": [
+        "candidate-1-bca363dc"
+      ],
+      "secondary_point_keys": [
+        "candidate-2-4f3744ff"
+      ],
+      "coverage_tags": [
+        "fill_blank",
+        "mobile_safe",
+        "lead_iv"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00301_dee65904aa"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00756_b42e11e0c6",
+          "textbook_prose_00757_85fc20341a"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留 Pb(IV) 填空意图，答案中文化。"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": "deterministic_normalized_exact"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_11_Q029",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_11_Q029"
+      ],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "fill_blank",
+      "stem": "小设计实验中，清液加稀硫酸的目的可概括为对 Pb(Ⅱ) 进行____。",
+      "options": [],
+      "answer": {
+        "value": "鉴定",
+        "match": "normalized_exact"
+      },
+      "explanation": "材料点明确是用稀硫酸检查 Pb²⁺，即对清液中的 Pb(Ⅱ) 进行鉴定。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-3-bbffc85e"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "fill_blank",
+        "mobile_safe",
+        "purpose"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00301_dee65904aa"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00788_cfbfaab4bc",
+          "textbook_prose_00379_033ea5b92b"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留鉴定填空。"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": "deterministic_normalized_exact"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_11_Q030",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_11_Q030"
+      ],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "fill_blank",
+      "stem": "稀硫酸提供的、用于沉淀 Pb(Ⅱ) 的阴离子可称为____。",
+      "options": [],
+      "answer": {
+        "value": "硫酸根",
+        "match": "normalized_exact"
+      },
+      "explanation": "稀硫酸提供硫酸根，与 Pb(Ⅱ) 形成难溶硫酸铅。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-3-bbffc85e"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "fill_blank",
+        "mobile_safe",
+        "sulfate_reagent"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00301_dee65904aa"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00379_033ea5b92b",
+          "textbook_prose_00788_cfbfaab4bc"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留 SO4 填空意图，答案中文化并限定为试剂阴离子。"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": "deterministic_normalized_exact"
+    }
+  ]
+}

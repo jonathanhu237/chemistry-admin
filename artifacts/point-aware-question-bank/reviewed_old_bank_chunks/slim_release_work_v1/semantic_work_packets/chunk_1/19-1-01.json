@@ -1,0 +1,4144 @@
+{
+  "metadata": {
+    "version": "chunk-1-release-slim-v1",
+    "artifact_type": "slim_question_bank_work_file",
+    "generated_at": "2026-06-15T03:27:58.553194+00:00",
+    "source_file": "E:\\chemistry-admin\\artifacts\\point-aware-question-bank\\reviewed_old_bank_chunks\\chunk_1_release_final_v1.json",
+    "normalization_rule": "effective question plus minimal lineage, evidence IDs, point bindings, option links, evidence locators, and mechanical risk flags",
+    "evidence_policy": "RAG source text is not embedded; packets carry locators and reviewers must read E:/chemistry-rag/data/rag_ready directly",
+    "chunk_id_policy": "inherited chunk ids are untrusted locator candidates until manually compared with RAG text",
+    "semantic_status": "not_semantically_repaired_by_this_script",
+    "packet_type": "single_experiment_semantic_repair_work_packet",
+    "chunk": 1,
+    "experiment_code": "19-1-01",
+    "question_count": 30
+  },
+  "experiment": {
+    "experiment_id": "EXP_19_1_01",
+    "experiment_code": "19-1-01",
+    "experiment_title": "氯、溴、碘的置换次序",
+    "chapter_bindings": [
+      {
+        "chapter_id": "CH13",
+        "coverage_type": "primary",
+        "sort_order": 1
+      }
+    ],
+    "video_points": [
+      {
+        "point_key": "candidate-1-034a8366",
+        "point_title": "氯水 + KBr 溶液 + CCl₄",
+        "source": null,
+        "candidate_index": null,
+        "resource_count": null,
+        "published_count": null,
+        "resource_titles": []
+      },
+      {
+        "point_key": "candidate-2-1e180c68",
+        "point_title": "氯水 + KI 溶液 + CCl₄",
+        "source": null,
+        "candidate_index": null,
+        "resource_count": null,
+        "published_count": null,
+        "resource_titles": []
+      },
+      {
+        "point_key": "candidate-3-9b8be606",
+        "point_title": "溴水 + KI 溶液 + CCl₄",
+        "source": null,
+        "candidate_index": null,
+        "resource_count": null,
+        "published_count": null,
+        "resource_titles": []
+      }
+    ],
+    "canonical_chunk_ids": [
+      "expchunk_00193_497eb97bd6",
+      "expchunk_00199_8240477bff"
+    ],
+    "evidence_lookup": {
+      "policy": "locator_only; canonical RAG text is not embedded in this packet",
+      "chunk_id_policy": "metadata chunk ids are inherited claims, not trusted evidence; reviewers must compare the RAG text against the question stem/options/answer/explanation and replace or remove wrong ids",
+      "primary_source_dir": "E:\\chemistry-rag\\data\\rag_ready",
+      "source_files": {
+        "experiment_chunks": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+        "supporting_theory_chunks": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl"
+      },
+      "search_hints": {
+        "experiment_code": "19-1-01",
+        "parent_experiment_code": "19-1",
+        "experiment_title": "氯、溴、碘的置换次序",
+        "video_point_titles": [
+          "氯水 + KBr 溶液 + CCl₄",
+          "氯水 + KI 溶液 + CCl₄",
+          "溴水 + KI 溶液 + CCl₄"
+        ],
+        "canonical_chunk_ids_from_metadata": [
+          "expchunk_00193_497eb97bd6",
+          "expchunk_00199_8240477bff"
+        ],
+        "supporting_theory_chunk_ids_from_metadata": [
+          "textbook_prose_00028_a4c7b7c9ae"
+        ],
+        "suggested_search_patterns": [
+          "19-1-01",
+          "19-1",
+          "氯、溴、碘的置换次序",
+          "氯水 + KBr 溶液 + CCl₄",
+          "氯水 + KI 溶液 + CCl₄",
+          "溴水 + KI 溶液 + CCl₄",
+          "expchunk_00193_497eb97bd6",
+          "expchunk_00199_8240477bff",
+          "textbook_prose_00028_a4c7b7c9ae"
+        ]
+      },
+      "rag_exact_id_presence": {
+        "meaning": "id presence only; this does not validate semantic relevance",
+        "found_ids": [
+          "expchunk_00193_497eb97bd6",
+          "expchunk_00199_8240477bff",
+          "textbook_prose_00028_a4c7b7c9ae"
+        ],
+        "missing_ids": [],
+        "found_locator_summaries": [
+          {
+            "chunk_id": "expchunk_00193_497eb97bd6",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+            "line_number": 206,
+            "source_collection": "textbook_experiment_clean_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学实验（第四版）",
+            "page_start": 138,
+            "page_end": 138,
+            "section_path": [
+              "第7章 元素性质实验",
+              "实验 19-1 卤素",
+              "（一）实验目的"
+            ],
+            "content_type": "property_test",
+            "knowledge_unit": "property_test",
+            "parent_id": "expchunk_protocol_e40aae9c8054",
+            "prev_chunk_id": "expchunk_00192_2a58acdcce",
+            "next_chunk_id": "expchunk_00194_a182f03662",
+            "relations": {
+              "section_id": "expsec_3584f6a6f7a12cd7",
+              "experiment_id": "experiment:实验_19-1_卤素",
+              "page_anchor": "page_138",
+              "parent": "expchunk_protocol_e40aae9c8054"
+            }
+          },
+          {
+            "chunk_id": "expchunk_00199_8240477bff",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+            "line_number": 212,
+            "source_collection": "textbook_experiment_clean_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学实验（第四版）",
+            "page_start": 139,
+            "page_end": 139,
+            "section_path": [
+              "第7章 元素性质实验",
+              "实验 19-1 卤素",
+              "（四）实验内容",
+              "2. 卤素的氧化性"
+            ],
+            "content_type": "property_test",
+            "knowledge_unit": "property_test",
+            "parent_id": "expchunk_protocol_e40aae9c8054",
+            "prev_chunk_id": "expchunk_00198_1c405139fa",
+            "next_chunk_id": "expchunk_00200_b534720bf8",
+            "relations": {
+              "section_id": "expsec_003fedfbed3e3c38",
+              "experiment_id": "experiment:实验_19-1_卤素",
+              "page_anchor": "page_139",
+              "parent": "expchunk_protocol_e40aae9c8054"
+            }
+          },
+          {
+            "chunk_id": "textbook_prose_00028_a4c7b7c9ae",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+            "line_number": 123,
+            "source_collection": "textbook_inorganic_lower_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学（下册）（第二版）",
+            "page_start": 22,
+            "page_end": 22,
+            "section_path": [
+              "第 13 章 卤族元素",
+              "13.2 卤素单质",
+              "13.2.1 物理性质",
+              "物质为什么会显示不同的颜色？\\*"
+            ],
+            "content_type": "reaction",
+            "knowledge_unit": "reaction",
+            "parent_id": "section:c73237c487b0",
+            "prev_chunk_id": "textbook_prose_00027_29d13c3805",
+            "next_chunk_id": null,
+            "relations": {
+              "parent": "section:c73237c487b0",
+              "source_route": "clean_pages",
+              "prev": "textbook_prose_00027_29d13c3805",
+              "next": null
+            }
+          }
+        ]
+      },
+      "legacy_locator_summaries": [
+        {
+          "chunk_id": "expchunk_00193_497eb97bd6",
+          "source_file": "无机化学实验（第四版）",
+          "book_title": "无机化学实验（第四版）",
+          "document_id": "DOC_CANONICAL_EXPERIMENT_V1",
+          "source_collection": "textbook_experiment_clean_v1",
+          "source_role": "canonical_textbook",
+          "content_type": "property_test",
+          "chapter_id": null,
+          "page_number": 138,
+          "section_title": "第7章 元素性质实验 / 实验 19-1 卤素 / （一）实验目的",
+          "section_path": [
+            "第7章 元素性质实验",
+            "实验 19-1 卤素",
+            "（一）实验目的"
+          ]
+        },
+        {
+          "chunk_id": "expchunk_00199_8240477bff",
+          "source_file": "无机化学实验（第四版）",
+          "book_title": "无机化学实验（第四版）",
+          "document_id": "DOC_CANONICAL_EXPERIMENT_V1",
+          "source_collection": "textbook_experiment_clean_v1",
+          "source_role": "canonical_textbook",
+          "content_type": "property_test",
+          "chapter_id": null,
+          "page_number": 139,
+          "section_title": "实验 19-1 卤素 / （四）实验内容 / 2. 卤素的氧化性",
+          "section_path": [
+            "第7章 元素性质实验",
+            "实验 19-1 卤素",
+            "（四）实验内容",
+            "2. 卤素的氧化性"
+          ]
+        }
+      ],
+      "legacy_missing_ids": [
+        "textbook_prose_00028_a4c7b7c9ae"
+      ]
+    },
+    "questions": [
+      {
+        "question_id": "CHUNK1_19_1_01_Q001",
+        "source_review_id": "CHUNK1_19_1_01_Q001",
+        "source_question_index": 1,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-1-01 氯、溴、碘的置换次序》实验中，最能说明氯的氧化性强于溴的是哪一项？",
+        "options": [
+          {
+            "label": "A",
+            "text": "向 KBr 溶液中加入氯水后，Br⁻ 被氧化为 Br₂"
+          },
+          {
+            "label": "B",
+            "text": "向 KCl 溶液中加入溴水后，Cl⁻ 被氧化为 Cl₂"
+          },
+          {
+            "label": "C",
+            "text": "向 KI 溶液中加入碘水后，I⁻ 被氧化为 I₂"
+          },
+          {
+            "label": "D",
+            "text": "向 KBr 溶液中加入碘水后，Br⁻ 被氧化为 Br₂"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "氯水中的 Cl₂ 可氧化 Br⁻ 生成 Br₂，说明 Cl₂ 的氧化性强于 Br₂。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-034a8366"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_1_034a8366",
+          "oxidation_property"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "向 KBr 溶液中加入氯水后，Br⁻ 被氧化为 Br₂",
+            "point_key": "candidate-1-034a8366",
+            "role": "correct_evidence",
+            "diagnostic_note": "氯水中的 Cl₂ 将 KBr 溶液中的 Br⁻ 氧化为 Br₂，CCl₄ 层出现溴的颜色，可说明氯强于溴。"
+          },
+          {
+            "label": "B",
+            "text": "向 KCl 溶液中加入溴水后，Cl⁻ 被氧化为 Cl₂",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "溴水不能把 Cl⁻ 氧化为 Cl₂，该说法把氯和溴的氧化性强弱倒置。"
+          },
+          {
+            "label": "C",
+            "text": "向 KI 溶液中加入碘水后，I⁻ 被氧化为 I₂",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "碘水与 KI 同属碘体系，不能作为氯置换溴并证明 Cl₂ 强于 Br₂ 的证据。"
+          },
+          {
+            "label": "D",
+            "text": "向 KBr 溶液中加入碘水后，Br⁻ 被氧化为 Br₂",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "I₂ 的氧化性弱于 Br₂，不能把 KBr 中的 Br⁻ 氧化成 Br₂。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00199_8240477bff"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "spec-phase repair：最终题不再停留在识别 KClO₃ 名称，而是要求学生把 KClO₃ 与浓盐酸生成 Cl₂、酸化 KClO₃/KI/CCl₄ 体系生成并萃取 I₂ 两条证据链合并判断；题干、答案和解析由 canonical 实验步骤及对应 video points 支撑。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00199_8240477bff"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-1-01 氯、溴、碘的置换次序》实验中，最能说明氯的氧化性强于溴的是哪一项？",
+            "options": [
+              {
+                "label": "A",
+                "text": "向 KBr 溶液中加入氯水后，Br⁻ 被氧化为 Br₂"
+              },
+              {
+                "label": "B",
+                "text": "向 KCl 溶液中加入溴水后，Cl⁻ 被氧化为 Cl₂"
+              },
+              {
+                "label": "C",
+                "text": "向 KI 溶液中加入碘水后，I⁻ 被氧化为 I₂"
+              },
+              {
+                "label": "D",
+                "text": "向 KBr 溶液中加入碘水后，Br⁻ 被氧化为 Br₂"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "氯水中的 Cl₂ 可氧化 Br⁻ 生成 Br₂，说明 Cl₂ 的氧化性强于 Br₂。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00199_8240477bff",
+              "textbook_prose_00043_871f62b3d9"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_1_01_Q002",
+        "source_review_id": "CHUNK1_19_1_01_Q002",
+        "source_question_index": 2,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-1-01 氯、溴、碘的置换次序》实验中，CCl₄ 的主要作用最接近下列哪一项？",
+        "options": [
+          {
+            "label": "A",
+            "text": "作为氧化剂直接氧化 Br⁻ 和 I⁻"
+          },
+          {
+            "label": "B",
+            "text": "萃取生成的卤素单质，便于观察颜色变化"
+          },
+          {
+            "label": "C",
+            "text": "作为还原剂还原氯水"
+          },
+          {
+            "label": "D",
+            "text": "调节溶液酸碱性"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "实验资料列出“氯水 + KBr/KI 溶液 + CCl₄”等体系；CCl₄ 常用于萃取 Br₂、I₂ 等卤素单质，便于观察有机层颜色。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-034a8366",
+          "candidate-2-1e180c68"
+        ],
+        "secondary_point_keys": [
+          "candidate-3-9b8be606"
+        ],
+        "coverage_tags": [
+          "point_candidate_1_034a8366",
+          "point_candidate_2_1e180c68",
+          "point_candidate_3_9b8be606",
+          "ccl4_observation",
+          "observation"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "作为氧化剂直接氧化 Br⁻ 和 I⁻",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "CCl₄ 是有机萃取层，不是把 Br⁻、I⁻ 氧化为卤素单质的氧化剂。"
+          },
+          {
+            "label": "B",
+            "text": "萃取生成的卤素单质，便于观察颜色变化",
+            "point_key": "candidate-1-034a8366",
+            "role": "correct_evidence",
+            "diagnostic_note": "CCl₄ 萃取生成的 Br₂ 或 I₂，使有机层颜色更清楚，便于判断是否发生置换。"
+          },
+          {
+            "label": "C",
+            "text": "作为还原剂还原氯水",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "本实验中 CCl₄ 不负责还原氯水；发生氧化还原的是卤素单质和卤素离子。"
+          },
+          {
+            "label": "D",
+            "text": "调节溶液酸碱性",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "CCl₄ 的作用是萃取显色，不是调节水层酸碱性。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00199_8240477bff"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00028_a4c7b7c9ae"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polish 终审：最终有效题为 original_question，题干、答案和解析可由本实验 canonical 文本/点位支撑；部分判断依赖 supporting theory：textbook_prose_00028_a4c7b7c9ae。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00199_8240477bff"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00028_a4c7b7c9ae"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00028_a4c7b7c9ae"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-1-01 氯、溴、碘的置换次序》实验中，CCl₄ 的主要作用最接近下列哪一项？",
+            "options": [
+              {
+                "label": "A",
+                "text": "作为氧化剂直接氧化 Br⁻ 和 I⁻"
+              },
+              {
+                "label": "B",
+                "text": "萃取生成的卤素单质，便于观察颜色变化"
+              },
+              {
+                "label": "C",
+                "text": "作为还原剂还原氯水"
+              },
+              {
+                "label": "D",
+                "text": "调节溶液酸碱性"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "实验资料列出“氯水 + KBr/KI 溶液 + CCl₄”等体系；CCl₄ 常用于萃取 Br₂、I₂ 等卤素单质，便于观察有机层颜色。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00199_8240477bff",
+              "textbook_prose_00028_a4c7b7c9ae"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_1_01_Q003",
+        "source_review_id": "CHUNK1_19_1_01_Q003",
+        "source_question_index": 3,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-1-01 氯、溴、碘的置换次序》实验中，用氯水、KI 溶液和 CCl₄ 进行实验时，被氧化的主要离子是哪一个？",
+        "options": [
+          {
+            "label": "A",
+            "text": "Cl⁻"
+          },
+          {
+            "label": "B",
+            "text": "K⁺"
+          },
+          {
+            "label": "C",
+            "text": "I⁻"
+          },
+          {
+            "label": "D",
+            "text": "CCl₄"
+          }
+        ],
+        "answer": {
+          "value": "C"
+        },
+        "explanation": "氯水中的 Cl₂ 氧化性强，可将 I⁻ 氧化为 I₂。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-1e180c68"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_2_1e180c68",
+          "ccl4_observation",
+          "oxidation_property"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "Cl⁻",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "在氯水 + KI 体系中，Cl₂ 是氧化剂，Cl⁻ 是还原产物，不是被氧化的离子。"
+          },
+          {
+            "label": "B",
+            "text": "K⁺",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "K⁺ 只作为旁观离子存在，不参与卤素置换的氧化还原判断。"
+          },
+          {
+            "label": "C",
+            "text": "I⁻",
+            "point_key": "candidate-2-1e180c68",
+            "role": "correct_evidence",
+            "diagnostic_note": "氯水中的 Cl₂ 将 KI 中的 I⁻ 氧化为 I₂，因此被氧化的离子是 I⁻。"
+          },
+          {
+            "label": "D",
+            "text": "CCl₄",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "CCl₄ 是萃取观察层，不是被氧化的卤素离子。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00199_8240477bff"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00028_a4c7b7c9ae"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polish 终审：最终有效题为 original_question，题干、答案和解析可由本实验 canonical 文本/点位支撑；部分判断依赖 supporting theory：textbook_prose_00028_a4c7b7c9ae。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00199_8240477bff"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00028_a4c7b7c9ae"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00028_a4c7b7c9ae"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-1-01 氯、溴、碘的置换次序》实验中，用氯水、KI 溶液和 CCl₄ 进行实验时，被氧化的主要离子是哪一个？",
+            "options": [
+              {
+                "label": "A",
+                "text": "Cl⁻"
+              },
+              {
+                "label": "B",
+                "text": "K⁺"
+              },
+              {
+                "label": "C",
+                "text": "I⁻"
+              },
+              {
+                "label": "D",
+                "text": "CCl₄"
+              }
+            ],
+            "answer": {
+              "value": "C"
+            },
+            "explanation": "氯水中的 Cl₂ 氧化性强，可将 I⁻ 氧化为 I₂。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00199_8240477bff"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_1_01_Q004",
+        "source_review_id": "CHUNK1_19_1_01_Q004",
+        "source_question_index": 4,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-1-01 氯、溴、碘的置换次序》实验中，用溴水、KI 溶液和 CCl₄ 进行实验时，能直接说明的是哪一项？",
+        "options": [
+          {
+            "label": "A",
+            "text": "I₂ 的氧化性强于 Br₂"
+          },
+          {
+            "label": "B",
+            "text": "K⁺ 的氧化性强于 Br₂"
+          },
+          {
+            "label": "C",
+            "text": "CCl₄ 的氧化性强于 I₂"
+          },
+          {
+            "label": "D",
+            "text": "Br₂ 的氧化性强于 I₂"
+          }
+        ],
+        "answer": {
+          "value": "D"
+        },
+        "explanation": "溴水能把 I⁻ 氧化为 I₂，说明 Br₂ 的氧化性强于 I₂。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-9b8be606"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_3_9b8be606",
+          "ccl4_observation",
+          "oxidation_property"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "I₂ 的氧化性强于 Br₂",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "溴水能把 I⁻ 氧化为 I₂，结论应是 Br₂ 的氧化性强于 I₂，而不是相反。"
+          },
+          {
+            "label": "B",
+            "text": "K⁺ 的氧化性强于 Br₂",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "K⁺ 是旁观离子，不是比较溴、碘氧化性的对象。"
+          },
+          {
+            "label": "C",
+            "text": "CCl₄ 的氧化性强于 I₂",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "CCl₄ 用于萃取显色，不作为氧化剂与 I⁻ 比较。"
+          },
+          {
+            "label": "D",
+            "text": "Br₂ 的氧化性强于 I₂",
+            "point_key": "candidate-3-9b8be606",
+            "role": "correct_evidence",
+            "diagnostic_note": "溴水将 KI 中的 I⁻ 氧化为 I₂，说明 Br₂ 的氧化性强于 I₂。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00199_8240477bff"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00028_a4c7b7c9ae"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polish 终审：最终有效题为 original_question，题干、答案和解析可由本实验 canonical 文本/点位支撑；部分判断依赖 supporting theory：textbook_prose_00028_a4c7b7c9ae。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00199_8240477bff"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00028_a4c7b7c9ae"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00028_a4c7b7c9ae"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-1-01 氯、溴、碘的置换次序》实验中，用溴水、KI 溶液和 CCl₄ 进行实验时，能直接说明的是哪一项？",
+            "options": [
+              {
+                "label": "A",
+                "text": "I₂ 的氧化性强于 Br₂"
+              },
+              {
+                "label": "B",
+                "text": "K⁺ 的氧化性强于 Br₂"
+              },
+              {
+                "label": "C",
+                "text": "CCl₄ 的氧化性强于 I₂"
+              },
+              {
+                "label": "D",
+                "text": "Br₂ 的氧化性强于 I₂"
+              }
+            ],
+            "answer": {
+              "value": "D"
+            },
+            "explanation": "溴水能把 I⁻ 氧化为 I₂，说明 Br₂ 的氧化性强于 I₂。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00199_8240477bff"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_1_01_Q005",
+        "source_review_id": "CHUNK1_19_1_01_Q005",
+        "source_question_index": 5,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-1-01 氯、溴、碘的置换次序》实验中，下列氧化性顺序最合理的是哪一项？",
+        "options": [
+          {
+            "label": "A",
+            "text": "Cl₂ > Br₂ > I₂"
+          },
+          {
+            "label": "B",
+            "text": "I₂ > Br₂ > Cl₂"
+          },
+          {
+            "label": "C",
+            "text": "Br₂ > I₂ > Cl₂"
+          },
+          {
+            "label": "D",
+            "text": "Cl₂ > I₂ > Br₂"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "氯可置换溴、碘，溴可置换碘，故氧化性顺序为 Cl₂ > Br₂ > I₂。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-034a8366",
+          "candidate-2-1e180c68",
+          "candidate-3-9b8be606"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_3_9b8be606",
+          "oxidation_property"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "Cl₂ > Br₂ > I₂",
+            "point_key": "candidate-3-9b8be606",
+            "role": "correct_evidence",
+            "diagnostic_note": "氯水可置换 Br₂ 和 I₂，溴水可置换 I₂，三组点位共同支持 Cl₂ > Br₂ > I₂。"
+          },
+          {
+            "label": "B",
+            "text": "I₂ > Br₂ > Cl₂",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "碘不能置换溴或氯，I₂ > Br₂ > Cl₂ 与置换现象相反。"
+          },
+          {
+            "label": "C",
+            "text": "Br₂ > I₂ > Cl₂",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该顺序把 Cl₂ 放在最弱，但氯水能氧化 Br⁻ 和 I⁻，与实验现象相反。"
+          },
+          {
+            "label": "D",
+            "text": "Cl₂ > I₂ > Br₂",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "溴水能氧化 I⁻，说明 Br₂ 强于 I₂，不能排成 I₂ > Br₂。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00199_8240477bff"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polish 终审：最终有效题为 original_question，题干、答案和解析可由本实验 canonical 文本/点位支撑；最终有效题只需 canonical 实验步骤、点位和题干选项证据即可支撑。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00199_8240477bff"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-1-01 氯、溴、碘的置换次序》实验中，下列氧化性顺序最合理的是哪一项？",
+            "options": [
+              {
+                "label": "A",
+                "text": "Cl₂ > Br₂ > I₂"
+              },
+              {
+                "label": "B",
+                "text": "I₂ > Br₂ > Cl₂"
+              },
+              {
+                "label": "C",
+                "text": "Br₂ > I₂ > Cl₂"
+              },
+              {
+                "label": "D",
+                "text": "Cl₂ > I₂ > Br₂"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "氯可置换溴、碘，溴可置换碘，故氧化性顺序为 Cl₂ > Br₂ > I₂。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00199_8240477bff"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_1_01_Q006",
+        "source_review_id": "CHUNK1_19_1_01_Q006",
+        "source_question_index": 6,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-1-01 氯、溴、碘的置换次序》实验中，下列哪组试剂属于实验资料列出的实验体系？",
+        "options": [
+          {
+            "label": "A",
+            "text": "NaCl 溶液 + 稀硫酸 + 酚酞"
+          },
+          {
+            "label": "B",
+            "text": "氯水 + KBr 溶液 + CCl₄"
+          },
+          {
+            "label": "C",
+            "text": "AgNO₃ 溶液 + NaOH 溶液 + 氨水"
+          },
+          {
+            "label": "D",
+            "text": "KMnO₄ 溶液 + 草酸 + 硫酸"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "实验资料中列有“氯水 + KBr 溶液 + CCl₄”这一实验体系。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-034a8366"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_1_034a8366",
+          "ccl4_observation"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "NaCl 溶液 + 稀硫酸 + 酚酞",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "NaCl、稀硫酸和酚酞不能形成卤素置换与 CCl₄ 萃取显色体系。"
+          },
+          {
+            "label": "B",
+            "text": "氯水 + KBr 溶液 + CCl₄",
+            "point_key": "candidate-1-034a8366",
+            "role": "correct_evidence",
+            "diagnostic_note": "教材列明氯水 + KBr 溶液 + CCl₄，用于观察 Cl₂ 氧化 Br⁻ 后生成 Br₂ 的有机层颜色。"
+          },
+          {
+            "label": "C",
+            "text": "AgNO₃ 溶液 + NaOH 溶液 + 氨水",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "AgNO₃、NaOH 和氨水属于银盐沉淀/配合物情境，不用于比较氯、溴、碘置换次序。"
+          },
+          {
+            "label": "D",
+            "text": "KMnO₄ 溶液 + 草酸 + 硫酸",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "KMnO₄、草酸和硫酸属于另一类氧化还原体系，不是卤素置换和 CCl₄ 萃取体系。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00199_8240477bff"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00028_a4c7b7c9ae"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polish 终审：最终有效题为 original_question，题干、答案和解析可由本实验 canonical 文本/点位支撑；部分判断依赖 supporting theory：textbook_prose_00028_a4c7b7c9ae。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00199_8240477bff"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00028_a4c7b7c9ae"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00028_a4c7b7c9ae"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-1-01 氯、溴、碘的置换次序》实验中，下列哪组试剂属于实验资料列出的实验体系？",
+            "options": [
+              {
+                "label": "A",
+                "text": "NaCl 溶液 + 稀硫酸 + 酚酞"
+              },
+              {
+                "label": "B",
+                "text": "氯水 + KBr 溶液 + CCl₄"
+              },
+              {
+                "label": "C",
+                "text": "AgNO₃ 溶液 + NaOH 溶液 + 氨水"
+              },
+              {
+                "label": "D",
+                "text": "KMnO₄ 溶液 + 草酸 + 硫酸"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "实验资料中列有“氯水 + KBr 溶液 + CCl₄”这一实验体系。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00199_8240477bff"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_1_01_Q007",
+        "source_review_id": "CHUNK1_19_1_01_Q007",
+        "source_question_index": 7,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-1-01 氯、溴、碘的置换次序》实验中，下列关于现象观察的说法哪一项最合理？",
+        "options": [
+          {
+            "label": "A",
+            "text": "只需要观察试管外壁温度变化即可判断置换次序"
+          },
+          {
+            "label": "B",
+            "text": "只要加入 CCl₄ 就一定能说明氯、溴、碘氧化性相同"
+          },
+          {
+            "label": "C",
+            "text": "应重点观察有机层颜色变化来判断是否生成 Br₂ 或 I₂"
+          },
+          {
+            "label": "D",
+            "text": "不需要加入卤化物溶液也能完成置换比较"
+          }
+        ],
+        "answer": {
+          "value": "C"
+        },
+        "explanation": "CCl₄ 可萃取卤素单质，观察有机层颜色有助于判断 Br₂ 或 I₂ 的生成。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-034a8366",
+          "candidate-2-1e180c68",
+          "candidate-3-9b8be606"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_1_034a8366",
+          "point_candidate_2_1e180c68",
+          "point_candidate_3_9b8be606",
+          "ccl4_observation",
+          "observation"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "只需要观察试管外壁温度变化即可判断置换次序",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "置换次序依据卤素单质生成和 CCl₄ 层颜色，不靠试管外壁温度判断。"
+          },
+          {
+            "label": "B",
+            "text": "只要加入 CCl₄ 就一定能说明氯、溴、碘氧化性相同",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "CCl₄ 只是萃取观察层，加入 CCl₄ 本身不能说明三种卤素氧化性相同。"
+          },
+          {
+            "label": "C",
+            "text": "应重点观察有机层颜色变化来判断是否生成 Br₂ 或 I₂",
+            "point_key": "candidate-1-034a8366",
+            "role": "correct_evidence",
+            "diagnostic_note": "氯水置换 KBr、KI 以及溴水置换 KI 后，生成的 Br₂ 或 I₂ 可进入 CCl₄ 层并呈现特征颜色，因此有机层颜色是三组置换观察的共同证据。"
+          },
+          {
+            "label": "D",
+            "text": "不需要加入卤化物溶液也能完成置换比较",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "没有 KBr 或 KI 等卤化物离子，就缺少被氧化对象，无法比较置换次序。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00199_8240477bff"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00028_a4c7b7c9ae"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "current-release audit 复核：最终有效题仍为 original_question；题干问 CCl₄ 有机层颜色观察，语义覆盖氯水 + KBr、氯水 + KI、溴水 + KI 三组置换实验。教材 canonical 支持使用 KBr、KI、CCl₄、氯水、溴水设计试管实验并观察 CCl₄ 层颜色；CCl₄ 萃取卤素单质及颜色判断依赖 supporting theory：textbook_prose_00028_a4c7b7c9ae。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00199_8240477bff"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00028_a4c7b7c9ae"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00028_a4c7b7c9ae"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-1-01 氯、溴、碘的置换次序》实验中，下列关于现象观察的说法哪一项最合理？",
+            "options": [
+              {
+                "label": "A",
+                "text": "只需要观察试管外壁温度变化即可判断置换次序"
+              },
+              {
+                "label": "B",
+                "text": "只要加入 CCl₄ 就一定能说明氯、溴、碘氧化性相同"
+              },
+              {
+                "label": "C",
+                "text": "应重点观察有机层颜色变化来判断是否生成 Br₂ 或 I₂"
+              },
+              {
+                "label": "D",
+                "text": "不需要加入卤化物溶液也能完成置换比较"
+              }
+            ],
+            "answer": {
+              "value": "C"
+            },
+            "explanation": "CCl₄ 可萃取卤素单质，观察有机层颜色有助于判断 Br₂ 或 I₂ 的生成。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00199_8240477bff",
+              "textbook_prose_00028_a4c7b7c9ae"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_1_01_Q008",
+        "source_review_id": "CHUNK1_19_1_01_Q008",
+        "source_question_index": 8,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-1-01 氯、溴、碘的置换次序》实验中，下列哪一项不是比较置换次序的合理依据？",
+        "options": [
+          {
+            "label": "A",
+            "text": "卤素单质氧化性强弱"
+          },
+          {
+            "label": "B",
+            "text": "较强氧化性的卤素能氧化较弱卤素的离子"
+          },
+          {
+            "label": "C",
+            "text": "CCl₄ 有助于观察卤素单质颜色"
+          },
+          {
+            "label": "D",
+            "text": "K⁺ 在实验中被氧化成金属钾"
+          }
+        ],
+        "answer": {
+          "value": "D"
+        },
+        "explanation": "该实验比较的是卤素单质与卤素离子间的氧化还原关系，K⁺ 不会在该实验中被氧化成金属钾。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-034a8366",
+          "candidate-2-1e180c68"
+        ],
+        "secondary_point_keys": [
+          "candidate-3-9b8be606"
+        ],
+        "coverage_tags": [
+          "point_candidate_1_034a8366",
+          "point_candidate_2_1e180c68",
+          "point_candidate_3_9b8be606"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "卤素单质氧化性强弱",
+            "point_key": null,
+            "role": "distractor_valid_basis",
+            "diagnostic_note": "卤素单质氧化性强弱正是置换次序实验要比较的内容，因此它不是本题所问的“不合理依据”。"
+          },
+          {
+            "label": "B",
+            "text": "较强氧化性的卤素能氧化较弱卤素的离子",
+            "point_key": null,
+            "role": "distractor_valid_basis",
+            "diagnostic_note": "较强卤素氧化较弱卤素离子是置换反应的核心规律，因此不是“不合理依据”。"
+          },
+          {
+            "label": "C",
+            "text": "CCl₄ 有助于观察卤素单质颜色",
+            "point_key": null,
+            "role": "distractor_valid_basis",
+            "diagnostic_note": "CCl₄ 萃取卤素单质并显示颜色，是实验观察依据之一，因此不是“不合理依据”。"
+          },
+          {
+            "label": "D",
+            "text": "K⁺ 在实验中被氧化成金属钾",
+            "point_key": null,
+            "role": "correct_by_exclusion",
+            "diagnostic_note": "K⁺ 是旁观离子，不会在该水溶液置换实验中被氧化成金属钾，所以它才是“不合理依据”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00199_8240477bff"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polish 终审：最终有效题为 original_question，题干、答案和解析可由本实验 canonical 文本/点位支撑；最终有效题只需 canonical 实验步骤、点位和题干选项证据即可支撑。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00199_8240477bff"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-1-01 氯、溴、碘的置换次序》实验中，下列哪一项不是比较置换次序的合理依据？",
+            "options": [
+              {
+                "label": "A",
+                "text": "卤素单质氧化性强弱"
+              },
+              {
+                "label": "B",
+                "text": "较强氧化性的卤素能氧化较弱卤素的离子"
+              },
+              {
+                "label": "C",
+                "text": "CCl₄ 有助于观察卤素单质颜色"
+              },
+              {
+                "label": "D",
+                "text": "K⁺ 在实验中被氧化成金属钾"
+              }
+            ],
+            "answer": {
+              "value": "D"
+            },
+            "explanation": "该实验比较的是卤素单质与卤素离子间的氧化还原关系，K⁺ 不会在该实验中被氧化成金属钾。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00199_8240477bff"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_1_01_Q009",
+        "source_review_id": "CHUNK1_19_1_01_Q009",
+        "source_question_index": 9,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-1-01 氯、溴、碘的置换次序》实验中，若分别用氯水处理 KBr 溶液和 KI 溶液，并用 CCl₄ 帮助观察，最合理的结论是哪一项？",
+        "options": [
+          {
+            "label": "A",
+            "text": "Cl₂ 的氧化性强于 Br₂ 和 I₂"
+          },
+          {
+            "label": "B",
+            "text": "Br₂ 的氧化性强于 Cl₂"
+          },
+          {
+            "label": "C",
+            "text": "I₂ 的氧化性强于 Cl₂"
+          },
+          {
+            "label": "D",
+            "text": "CCl₄ 的氧化性强于 Cl₂"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "氯水能氧化 Br⁻ 和 I⁻，说明 Cl₂ 的氧化性强于 Br₂ 和 I₂。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-034a8366",
+          "candidate-2-1e180c68"
+        ],
+        "secondary_point_keys": [
+          "candidate-3-9b8be606"
+        ],
+        "coverage_tags": [
+          "point_candidate_1_034a8366",
+          "point_candidate_2_1e180c68",
+          "point_candidate_3_9b8be606",
+          "ccl4_observation",
+          "oxidation_property"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "Cl₂ 的氧化性强于 Br₂ 和 I₂",
+            "point_key": "candidate-1-034a8366",
+            "role": "correct_evidence",
+            "diagnostic_note": "氯水分别氧化 Br⁻ 和 I⁻，CCl₄ 层显示生成 Br₂ 或 I₂，因此可推出 Cl₂ 强于 Br₂ 和 I₂。"
+          },
+          {
+            "label": "B",
+            "text": "Br₂ 的氧化性强于 Cl₂",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "实验显示 Cl₂ 能氧化 Br⁻，所以不能得出 Br₂ 强于 Cl₂。"
+          },
+          {
+            "label": "C",
+            "text": "I₂ 的氧化性强于 Cl₂",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "氯水能氧化 I⁻ 生成 I₂，说明 I₂ 不强于 Cl₂。"
+          },
+          {
+            "label": "D",
+            "text": "CCl₄ 的氧化性强于 Cl₂",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "CCl₄ 是萃取剂，不参与卤素氧化性强弱比较。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00199_8240477bff"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00028_a4c7b7c9ae"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polish 终审：最终有效题为 original_question，题干、答案和解析可由本实验 canonical 文本/点位支撑；部分判断依赖 supporting theory：textbook_prose_00028_a4c7b7c9ae。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00199_8240477bff"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00028_a4c7b7c9ae"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00028_a4c7b7c9ae"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-1-01 氯、溴、碘的置换次序》实验中，若分别用氯水处理 KBr 溶液和 KI 溶液，并用 CCl₄ 帮助观察，最合理的结论是哪一项？",
+            "options": [
+              {
+                "label": "A",
+                "text": "Cl₂ 的氧化性强于 Br₂ 和 I₂"
+              },
+              {
+                "label": "B",
+                "text": "Br₂ 的氧化性强于 Cl₂"
+              },
+              {
+                "label": "C",
+                "text": "I₂ 的氧化性强于 Cl₂"
+              },
+              {
+                "label": "D",
+                "text": "CCl₄ 的氧化性强于 Cl₂"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "氯水能氧化 Br⁻ 和 I⁻，说明 Cl₂ 的氧化性强于 Br₂ 和 I₂。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00199_8240477bff"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_1_01_Q010",
+        "source_review_id": "CHUNK1_19_1_01_Q010",
+        "source_question_index": 10,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "要用本实验点位证明 Cl₂ 的氧化性强于 Br₂，下列哪组体系最合适？",
+        "options": [
+          {
+            "label": "A",
+            "text": "氯水 + KBr 溶液 + CCl₄"
+          },
+          {
+            "label": "B",
+            "text": "溴水 + KI 溶液 + CCl₄"
+          },
+          {
+            "label": "C",
+            "text": "碘水 + KBr 溶液 + CCl₄"
+          },
+          {
+            "label": "D",
+            "text": "NaCl 溶液 + CCl₄"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "氯水与 KBr 溶液反应后可在 CCl₄ 层观察到溴的颜色变化，用该点位可证明 Cl₂ 能氧化 Br⁻，从而说明 Cl₂ 的氧化性强于 Br₂。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-034a8366"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_discrimination",
+          "oxidation_order"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "氯水 + KBr 溶液 + CCl₄",
+            "point_key": "candidate-1-034a8366",
+            "role": "correct_evidence",
+            "diagnostic_note": "氯水加入 KBr 溶液后，CCl₄ 层呈溴的橙红色，说明 Cl₂ 氧化 Br⁻ 生成 Br₂。"
+          },
+          {
+            "label": "B",
+            "text": "溴水 + KI 溶液 + CCl₄",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "溴水 + KI 溶液 + CCl₄ 对应 Br₂ 氧化 I⁻ 的相邻点位，不能直接证明 Cl₂ 氧化性强于 Br₂。"
+          },
+          {
+            "label": "C",
+            "text": "碘水 + KBr 溶液 + CCl₄",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "碘水 + KBr 溶液不能体现 I₂ 氧化 Br⁻，与证明 Cl₂ 强于 Br₂ 的实验点位不符。"
+          },
+          {
+            "label": "D",
+            "text": "NaCl 溶液 + CCl₄",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "NaCl 溶液 + CCl₄ 缺少能氧化 Br⁻ 的氯水，不能形成本题所需的溴萃取观察。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00193_497eb97bd6",
+            "expchunk_00199_8240477bff"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "替换题针对终审原因：只考方程式或反应式选择，未直接考查实验点位观察/判断。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00193_497eb97bd6",
+            "expchunk_00199_8240477bff"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-1-01 氯、溴、碘的置换次序》实验中，下列哪一个离子方程式最能表示溴水氧化碘离子的过程？",
+            "options": [
+              {
+                "label": "A",
+                "text": "I₂ + 2Br⁻ = 2I⁻ + Br₂"
+              },
+              {
+                "label": "B",
+                "text": "Br₂ + 2I⁻ = 2Br⁻ + I₂"
+              },
+              {
+                "label": "C",
+                "text": "Cl⁻ + Br₂ = Cl₂ + Br⁻"
+              },
+              {
+                "label": "D",
+                "text": "K⁺ + I⁻ = KI"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "溴单质氧化 I⁻ 生成 I₂，自身被还原为 Br⁻。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00199_8240477bff"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "要用本实验点位证明 Cl₂ 的氧化性强于 Br₂，下列哪组体系最合适？",
+            "options": [
+              {
+                "label": "A",
+                "text": "氯水 + KBr 溶液 + CCl₄"
+              },
+              {
+                "label": "B",
+                "text": "溴水 + KI 溶液 + CCl₄"
+              },
+              {
+                "label": "C",
+                "text": "碘水 + KBr 溶液 + CCl₄"
+              },
+              {
+                "label": "D",
+                "text": "NaCl 溶液 + CCl₄"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "氯水与 KBr 溶液反应后可在 CCl₄ 层观察到溴的颜色变化，用该点位可证明 Cl₂ 能氧化 Br⁻，从而说明 Cl₂ 的氧化性强于 Br₂。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final",
+            "equation_recall_not_point_observation"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_1_01_Q011",
+        "source_review_id": "CHUNK1_19_1_01_Q011",
+        "source_question_index": 11,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-1-01 氯、溴、碘的置换次序》实验中，氯水能氧化 KBr 溶液中的 Br⁻，这是判断氯氧化性强于溴的依据之一。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "氯水中的 Cl₂ 可将 Br⁻ 氧化为 Br₂，说明 Cl₂ 氧化性强于 Br₂。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-034a8366"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_1_034a8366",
+          "oxidation_property"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00199_8240477bff"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polish 终审：最终有效题为 original_question，题干、答案和解析可由本实验 canonical 文本/点位支撑；最终有效题只需 canonical 实验步骤、点位和题干选项证据即可支撑。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00199_8240477bff"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-1-01 氯、溴、碘的置换次序》实验中，氯水能氧化 KBr 溶液中的 Br⁻，这是判断氯氧化性强于溴的依据之一。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "氯水中的 Cl₂ 可将 Br⁻ 氧化为 Br₂，说明 Cl₂ 氧化性强于 Br₂。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00199_8240477bff"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_1_01_Q012",
+        "source_review_id": "CHUNK1_19_1_01_Q012",
+        "source_question_index": 12,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-1-01 氯、溴、碘的置换次序》实验中，溴水能把 KI 溶液中的 I⁻ 氧化为 I₂，因此可以用于比较溴和碘的氧化性。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "溴水与 KI 溶液的反应可说明 Br₂ 的氧化性强于 I₂。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-9b8be606"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_3_9b8be606",
+          "oxidation_property"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00199_8240477bff"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polish 终审：最终有效题为 original_question，题干、答案和解析可由本实验 canonical 文本/点位支撑；最终有效题只需 canonical 实验步骤、点位和题干选项证据即可支撑。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00199_8240477bff"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-1-01 氯、溴、碘的置换次序》实验中，溴水能把 KI 溶液中的 I⁻ 氧化为 I₂，因此可以用于比较溴和碘的氧化性。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "溴水与 KI 溶液的反应可说明 Br₂ 的氧化性强于 I₂。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00199_8240477bff"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_1_01_Q013",
+        "source_review_id": "CHUNK1_19_1_01_Q013",
+        "source_question_index": 13,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-1-01 氯、溴、碘的置换次序》实验中，CCl₄ 本身是主要氧化剂。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": false
+        },
+        "explanation": "主要氧化剂是氯水或溴水中的卤素单质；CCl₄ 主要用于萃取和观察颜色。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-9b8be606"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_3_9b8be606",
+          "ccl4_observation",
+          "observation"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00199_8240477bff"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00028_a4c7b7c9ae"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polish 终审：最终有效题为 original_question，题干、答案和解析可由本实验 canonical 文本/点位支撑；部分判断依赖 supporting theory：textbook_prose_00028_a4c7b7c9ae。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00199_8240477bff"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00028_a4c7b7c9ae"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00028_a4c7b7c9ae"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-1-01 氯、溴、碘的置换次序》实验中，CCl₄ 本身是主要氧化剂。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "主要氧化剂是氯水或溴水中的卤素单质；CCl₄ 主要用于萃取和观察颜色。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00199_8240477bff"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_1_01_Q014",
+        "source_review_id": "CHUNK1_19_1_01_Q014",
+        "source_question_index": 14,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-1-01 氯、溴、碘的置换次序》实验中，如果一种卤素单质能从另一种卤化物溶液中置换出卤素单质，通常说明前者氧化性较强。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "卤素置换反应可用于比较卤素单质氧化性的相对强弱。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-034a8366",
+          "candidate-2-1e180c68"
+        ],
+        "secondary_point_keys": [
+          "candidate-3-9b8be606"
+        ],
+        "coverage_tags": [
+          "point_candidate_1_034a8366",
+          "point_candidate_2_1e180c68",
+          "point_candidate_3_9b8be606",
+          "oxidation_property"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00199_8240477bff"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polish 终审：最终有效题为 original_question，题干、答案和解析可由本实验 canonical 文本/点位支撑；最终有效题只需 canonical 实验步骤、点位和题干选项证据即可支撑。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00199_8240477bff"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-1-01 氯、溴、碘的置换次序》实验中，如果一种卤素单质能从另一种卤化物溶液中置换出卤素单质，通常说明前者氧化性较强。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "卤素置换反应可用于比较卤素单质氧化性的相对强弱。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00199_8240477bff"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_1_01_Q015",
+        "source_review_id": "CHUNK1_19_1_01_Q015",
+        "source_question_index": 15,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-1-01 氯、溴、碘的置换次序》实验中，碘水能置换 KBr 溶液中的溴，说明碘的氧化性强于溴。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": false
+        },
+        "explanation": "在氯、溴、碘中，碘的氧化性弱于溴，不能据此认为碘可置换溴。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-034a8366",
+          "candidate-2-1e180c68"
+        ],
+        "secondary_point_keys": [
+          "candidate-3-9b8be606"
+        ],
+        "coverage_tags": [
+          "point_candidate_1_034a8366",
+          "point_candidate_2_1e180c68",
+          "point_candidate_3_9b8be606",
+          "oxidation_property"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00199_8240477bff"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polish 终审：最终有效题为 original_question，题干、答案和解析可由本实验 canonical 文本/点位支撑；最终有效题只需 canonical 实验步骤、点位和题干选项证据即可支撑。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00199_8240477bff"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-1-01 氯、溴、碘的置换次序》实验中，碘水能置换 KBr 溶液中的溴，说明碘的氧化性强于溴。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "在氯、溴、碘中，碘的氧化性弱于溴，不能据此认为碘可置换溴。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00199_8240477bff"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_1_01_Q016",
+        "source_review_id": "CHUNK1_19_1_01_Q016",
+        "source_question_index": 16,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-1-01 氯、溴、碘的置换次序》实验中，核心目的之一是说明氯、溴、碘氧化性的递变顺序。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "实验内容明确要求设计试管实验说明氯、溴、碘的置换次序，并据此说明卤素氧化性的递变顺序。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-034a8366",
+          "candidate-2-1e180c68"
+        ],
+        "secondary_point_keys": [
+          "candidate-3-9b8be606"
+        ],
+        "coverage_tags": [
+          "point_candidate_1_034a8366",
+          "point_candidate_2_1e180c68",
+          "point_candidate_3_9b8be606",
+          "oxidation_property"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00199_8240477bff"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polish 终审：最终有效题为 original_question，题干、答案和解析可由本实验 canonical 文本/点位支撑；最终有效题只需 canonical 实验步骤、点位和题干选项证据即可支撑。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00199_8240477bff"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-1-01 氯、溴、碘的置换次序》实验中，核心目的之一是说明氯、溴、碘氧化性的递变顺序。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "实验内容明确要求设计试管实验说明氯、溴、碘的置换次序，并据此说明卤素氧化性的递变顺序。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00199_8240477bff"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_1_01_Q017",
+        "source_review_id": "CHUNK1_19_1_01_Q017",
+        "source_question_index": 17,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-1-01 氯、溴、碘的置换次序》实验中，该实验属于围绕卤素单质氧化性设计的性质实验。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "实验资料中该实验位于“卤素的氧化性”主题下。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-034a8366",
+          "candidate-2-1e180c68"
+        ],
+        "secondary_point_keys": [
+          "candidate-3-9b8be606"
+        ],
+        "coverage_tags": [
+          "point_candidate_1_034a8366",
+          "point_candidate_2_1e180c68",
+          "point_candidate_3_9b8be606",
+          "oxidation_property"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00199_8240477bff",
+            "expchunk_00193_497eb97bd6"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polish 终审：最终有效题为 original_question，题干、答案和解析可由本实验 canonical 文本/点位支撑；最终有效题只需 canonical 实验步骤、点位和题干选项证据即可支撑。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00199_8240477bff",
+            "expchunk_00193_497eb97bd6"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-1-01 氯、溴、碘的置换次序》实验中，该实验属于围绕卤素单质氧化性设计的性质实验。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "实验资料中该实验位于“卤素的氧化性”主题下。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00199_8240477bff",
+              "expchunk_00193_497eb97bd6"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_1_01_Q018",
+        "source_review_id": "CHUNK1_19_1_01_Q018",
+        "source_question_index": 18,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "true_false",
+        "stem": "在《19-1-01 氯、溴、碘的置换次序》实验中，氯水与 KI 溶液反应可用于说明 Cl₂ 的氧化性强于 I₂。",
+        "options": [],
+        "answer": {
+          "value": true
+        },
+        "explanation": "这一判断本身是正确的。氯水可将 I⁻ 氧化为 I₂，因此可说明 Cl₂ 的氧化性强于 I₂。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-1e180c68"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "double_negative_removed",
+          "semantic_clarity"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00199_8240477bff"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "原题化学判断可用，但双重否定会干扰学生理解；终审改为直接判断。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00199_8240477bff"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-1-01 氯、溴、碘的置换次序》实验中，认为：氯水与 KI 溶液反应可用于说明 Cl₂ 的氧化性强于 I₂，这一判断是不正确的。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "这一判断本身是正确的。氯水可将 I⁻ 氧化为 I₂，因此可说明 Cl₂ 的氧化性强于 I₂。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00199_8240477bff"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "true_false",
+            "stem": "在《19-1-01 氯、溴、碘的置换次序》实验中，氯水与 KI 溶液反应可用于说明 Cl₂ 的氧化性强于 I₂。",
+            "options": [],
+            "answer": {
+              "value": true
+            },
+            "explanation": "这一判断本身是正确的。氯水可将 I⁻ 氧化为 I₂，因此可说明 Cl₂ 的氧化性强于 I₂。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound",
+            "low_depth_title_rewritten"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_1_01_Q019",
+        "source_review_id": "CHUNK1_19_1_01_Q019",
+        "source_question_index": 19,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-1-01 氯、溴、碘的置换次序》实验中，只加入 CCl₄ 而不加入卤素单质或卤化物溶液，也能比较氯、溴、碘的置换次序。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": false
+        },
+        "explanation": "CCl₄ 主要用于萃取观察，比较置换次序还需要卤素单质和卤化物溶液参与。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-034a8366",
+          "candidate-2-1e180c68"
+        ],
+        "secondary_point_keys": [
+          "candidate-3-9b8be606"
+        ],
+        "coverage_tags": [
+          "point_candidate_1_034a8366",
+          "point_candidate_2_1e180c68",
+          "point_candidate_3_9b8be606",
+          "ccl4_observation"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00199_8240477bff"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00028_a4c7b7c9ae"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polish 终审：最终有效题为 original_question，题干、答案和解析可由本实验 canonical 文本/点位支撑；部分判断依赖 supporting theory：textbook_prose_00028_a4c7b7c9ae。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00199_8240477bff"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00028_a4c7b7c9ae"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00028_a4c7b7c9ae"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-1-01 氯、溴、碘的置换次序》实验中，只加入 CCl₄ 而不加入卤素单质或卤化物溶液，也能比较氯、溴、碘的置换次序。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "CCl₄ 主要用于萃取观察，比较置换次序还需要卤素单质和卤化物溶液参与。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00199_8240477bff"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_1_01_Q020",
+        "source_review_id": "CHUNK1_19_1_01_Q020",
+        "source_question_index": 20,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "true_false",
+        "stem": "在《19-1-01 氯、溴、碘的置换次序》实验中，K⁺ 主要作为旁观离子，不是比较卤素氧化性强弱的核心对象。",
+        "options": [],
+        "answer": {
+          "value": true
+        },
+        "explanation": "这一判断本身是正确的。该实验比较的是卤素单质与卤素离子之间的氧化还原关系。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-034a8366",
+          "candidate-2-1e180c68",
+          "candidate-3-9b8be606"
+        ],
+        "secondary_point_keys": [
+          "candidate-3-9b8be606"
+        ],
+        "coverage_tags": [
+          "double_negative_removed",
+          "semantic_clarity"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00199_8240477bff"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "原题化学判断可用，但双重否定会干扰学生理解；终审改为直接判断。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00199_8240477bff"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-1-01 氯、溴、碘的置换次序》实验中，认为：K⁺ 主要作为旁观离子，不是比较卤素氧化性强弱的核心对象，这一判断是不正确的。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "这一判断本身是正确的。该实验比较的是卤素单质与卤素离子之间的氧化还原关系。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00199_8240477bff"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "true_false",
+            "stem": "在《19-1-01 氯、溴、碘的置换次序》实验中，K⁺ 主要作为旁观离子，不是比较卤素氧化性强弱的核心对象。",
+            "options": [],
+            "answer": {
+              "value": true
+            },
+            "explanation": "这一判断本身是正确的。该实验比较的是卤素单质与卤素离子之间的氧化还原关系。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final",
+            "double_negative_true_false"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_1_01_Q021",
+        "source_review_id": "CHUNK1_19_1_01_Q021",
+        "source_question_index": 21,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-1-01 氯、溴、碘的置换次序》实验中，氯水 + KBr 溶液 + CCl₄的体系里，被氧化的卤素离子是哪一项？",
+        "options": [
+          {
+            "label": "A",
+            "text": "Br⁻"
+          },
+          {
+            "label": "B",
+            "text": "I⁻（碘离子）"
+          },
+          {
+            "label": "C",
+            "text": "Cl⁻（氯离子）"
+          },
+          {
+            "label": "D",
+            "text": "K⁺（钾离子）"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "氯水可将 KBr 溶液中的 Br⁻ 氧化为 Br₂。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-034a8366"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_1_034a8366",
+          "ccl4_observation"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "Br⁻",
+            "point_key": "candidate-1-034a8366",
+            "role": "correct_evidence",
+            "diagnostic_note": "在氯水 + KBr 体系中，Cl₂ 氧化 Br⁻ 生成 Br₂，因此被氧化的是 Br⁻。"
+          },
+          {
+            "label": "B",
+            "text": "I⁻（碘离子）",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "I⁻ 属于氯水 + KI 或溴水 + KI 体系的被氧化对象，不属于本题的 KBr 体系。"
+          },
+          {
+            "label": "C",
+            "text": "Cl⁻（氯离子）",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "Cl⁻ 是 Cl₂ 被还原后的产物，不是 KBr 体系中被氧化的离子。"
+          },
+          {
+            "label": "D",
+            "text": "K⁺（钾离子）",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "K⁺ 是旁观离子，不承担卤素置换中的氧化还原变化。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00199_8240477bff"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00028_a4c7b7c9ae"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polish 终审：最终有效题为 proposed_question，题干、答案和解析可由本实验 canonical 文本/点位支撑；部分判断依赖 supporting theory：textbook_prose_00028_a4c7b7c9ae。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00199_8240477bff"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00028_a4c7b7c9ae"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00028_a4c7b7c9ae"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-1-01 氯、溴、碘的置换次序》实验中，“氯水 + KBr 溶液 + CCl₄”的体系里，被氧化的卤素离子是____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "Br⁻",
+                "溴离子"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "氯水可将 KBr 溶液中的 Br⁻ 氧化为 Br₂。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00199_8240477bff"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-1-01 氯、溴、碘的置换次序》实验中，氯水 + KBr 溶液 + CCl₄的体系里，被氧化的卤素离子是哪一项？",
+            "options": [
+              {
+                "label": "A",
+                "text": "Br⁻"
+              },
+              {
+                "label": "B",
+                "text": "I⁻（碘离子）"
+              },
+              {
+                "label": "C",
+                "text": "Cl⁻（氯离子）"
+              },
+              {
+                "label": "D",
+                "text": "K⁺（钾离子）"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "氯水可将 KBr 溶液中的 Br⁻ 氧化为 Br₂。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00199_8240477bff"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_1_01_Q022",
+        "source_review_id": "CHUNK1_19_1_01_Q022",
+        "source_question_index": 22,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-1-01 氯、溴、碘的置换次序》实验中，溴水 + KI 溶液 + CCl₄的体系里，生成的卤素单质主要是哪一项？",
+        "options": [
+          {
+            "label": "A",
+            "text": "I₂"
+          },
+          {
+            "label": "B",
+            "text": "Br₂（溴）"
+          },
+          {
+            "label": "C",
+            "text": "Cl₂（氯）"
+          },
+          {
+            "label": "D",
+            "text": "K⁺"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "溴水可将 I⁻ 氧化为 I₂。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-9b8be606"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_3_9b8be606",
+          "ccl4_observation"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "I₂",
+            "point_key": "candidate-3-9b8be606",
+            "role": "correct_evidence",
+            "diagnostic_note": "本题按 19-1-01「氯、溴、碘的置换次序」的 溴水 + KI 溶液 + CCl₄ 证据复核。 选项“I₂”与题干答案和解析一致。 溴水可将 I⁻ 氧化为 I₂。"
+          },
+          {
+            "label": "B",
+            "text": "Br₂（溴）",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "本题按 19-1-01「氯、溴、碘的置换次序」的 溴水 + KI 溶液 + CCl₄ 证据复核。 选项“Br₂（溴）”不能作为本题答案；它没有对应题干要求的操作、现象或结论。"
+          },
+          {
+            "label": "C",
+            "text": "Cl₂（氯）",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "本题按 19-1-01「氯、溴、碘的置换次序」的 溴水 + KI 溶液 + CCl₄ 证据复核。 选项“Cl₂（氯）”不能作为本题答案；它没有对应题干要求的操作、现象或结论。"
+          },
+          {
+            "label": "D",
+            "text": "K⁺",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "本题按 19-1-01「氯、溴、碘的置换次序」的 溴水 + KI 溶液 + CCl₄ 证据复核。 选项“K⁺”不能作为本题答案；它没有对应题干要求的操作、现象或结论。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00199_8240477bff"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00028_a4c7b7c9ae"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polish 终审：最终有效题为 proposed_question，题干、答案和解析可由本实验 canonical 文本/点位支撑；部分判断依赖 supporting theory：textbook_prose_00028_a4c7b7c9ae。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00199_8240477bff"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00028_a4c7b7c9ae"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00028_a4c7b7c9ae"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-1-01 氯、溴、碘的置换次序》实验中，“溴水 + KI 溶液 + CCl₄”的体系里，生成的卤素单质主要是____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "I₂",
+                "碘"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "溴水可将 I⁻ 氧化为 I₂。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00199_8240477bff"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-1-01 氯、溴、碘的置换次序》实验中，溴水 + KI 溶液 + CCl₄的体系里，生成的卤素单质主要是哪一项？",
+            "options": [
+              {
+                "label": "A",
+                "text": "I₂"
+              },
+              {
+                "label": "B",
+                "text": "Br₂（溴）"
+              },
+              {
+                "label": "C",
+                "text": "Cl₂（氯）"
+              },
+              {
+                "label": "D",
+                "text": "K⁺"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "溴水可将 I⁻ 氧化为 I₂。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00199_8240477bff"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound",
+            "evidence_first_option_links_reauthored"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_1_01_Q023",
+        "source_review_id": "CHUNK1_19_1_01_Q023",
+        "source_question_index": 23,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-1-01 氯、溴、碘的置换次序》实验中，用于萃取卤素单质、帮助观察颜色的有机溶剂是哪一项？",
+        "options": [
+          {
+            "label": "A",
+            "text": "CCl₄"
+          },
+          {
+            "label": "B",
+            "text": "水"
+          },
+          {
+            "label": "C",
+            "text": "乙醚"
+          },
+          {
+            "label": "D",
+            "text": "Na₂S₂O₃ 溶液"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "实验资料列出的实验体系均包含 CCl₄。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-034a8366",
+          "candidate-2-1e180c68"
+        ],
+        "secondary_point_keys": [
+          "candidate-3-9b8be606"
+        ],
+        "coverage_tags": [
+          "point_candidate_1_034a8366",
+          "point_candidate_2_1e180c68",
+          "point_candidate_3_9b8be606",
+          "ccl4_observation",
+          "observation"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "CCl₄",
+            "point_key": "candidate-1-034a8366",
+            "role": "correct_evidence",
+            "diagnostic_note": "三组置换实验均用 CCl₄ 萃取生成的 Br₂ 或 I₂，借有机层颜色观察置换结果。"
+          },
+          {
+            "label": "B",
+            "text": "水",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "水层本身不具备 CCl₄ 萃取卤素单质后显色清楚的作用。"
+          },
+          {
+            "label": "C",
+            "text": "乙醚",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "教材点位列出的有机萃取剂是 CCl₄，不是乙醚。"
+          },
+          {
+            "label": "D",
+            "text": "Na₂S₂O₃ 溶液",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "Na₂S₂O₃ 可还原卤素，不是本置换次序实验用于萃取观察颜色的有机溶剂。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00199_8240477bff"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00028_a4c7b7c9ae"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polish 终审：最终有效题为 proposed_question，题干、答案和解析可由本实验 canonical 文本/点位支撑；部分判断依赖 supporting theory：textbook_prose_00028_a4c7b7c9ae。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00199_8240477bff"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00028_a4c7b7c9ae"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00028_a4c7b7c9ae"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-1-01 氯、溴、碘的置换次序》实验中，用于萃取卤素单质、帮助观察颜色的有机溶剂是____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "CCl₄",
+                "四氯化碳"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "实验资料列出的实验体系均包含 CCl₄。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00199_8240477bff"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-1-01 氯、溴、碘的置换次序》实验中，用于萃取卤素单质、帮助观察颜色的有机溶剂是哪一项？",
+            "options": [
+              {
+                "label": "A",
+                "text": "CCl₄"
+              },
+              {
+                "label": "B",
+                "text": "水"
+              },
+              {
+                "label": "C",
+                "text": "乙醚"
+              },
+              {
+                "label": "D",
+                "text": "Na₂S₂O₃ 溶液"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "实验资料列出的实验体系均包含 CCl₄。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00199_8240477bff"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_1_01_Q024",
+        "source_review_id": "CHUNK1_19_1_01_Q024",
+        "source_question_index": 24,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-1-01 氯、溴、碘的置换次序》实验中，根据置换实验，氯、溴、碘单质氧化性由强到弱可写为哪一项？",
+        "options": [
+          {
+            "label": "A",
+            "text": "Cl₂ > Br₂ > I₂"
+          },
+          {
+            "label": "B",
+            "text": "Br₂ > Cl₂ > I₂"
+          },
+          {
+            "label": "C",
+            "text": "I₂ > Br₂ > Cl₂"
+          },
+          {
+            "label": "D",
+            "text": "Cl⁻ > Br⁻ > I⁻"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "氯能置换溴和碘，溴能置换碘，故氧化性由强到弱为 Cl₂ > Br₂ > I₂。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-034a8366",
+          "candidate-2-1e180c68",
+          "candidate-3-9b8be606"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_1_034a8366",
+          "oxidation_property",
+          "phone_unfriendly_order_fill"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "Cl₂ > Br₂ > I₂",
+            "point_key": "candidate-1-034a8366",
+            "role": "correct_evidence",
+            "diagnostic_note": "氯水能氧化 Br⁻ 和 I⁻，溴水能氧化 I⁻，共同推出 Cl₂ > Br₂ > I₂。"
+          },
+          {
+            "label": "B",
+            "text": "Br₂ > Cl₂ > I₂",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "氯水能把 Br⁻ 氧化为 Br₂，说明 Br₂ 不能排在 Cl₂ 前。"
+          },
+          {
+            "label": "C",
+            "text": "I₂ > Br₂ > Cl₂",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "I₂ 不能置换 Br⁻ 或 Cl⁻，把 I₂ 排在最强与置换现象相反。"
+          },
+          {
+            "label": "D",
+            "text": "Cl⁻ > Br⁻ > I⁻",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "题目比较的是卤素单质氧化性，不是卤素离子的还原性顺序。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00199_8240477bff"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polish 终审：最终有效题为 proposed_question，题干、答案和解析可由本实验 canonical 文本/点位支撑；最终有效题只需 canonical 实验步骤、点位和题干选项证据即可支撑。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00199_8240477bff"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-1-01 氯、溴、碘的置换次序》实验中，根据置换实验，氯、溴、碘单质氧化性由强到弱可写为____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "Cl₂ > Br₂ > I₂",
+                "氯 > 溴 > 碘"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "氯能置换溴和碘，溴能置换碘，故氧化性由强到弱为 Cl₂ > Br₂ > I₂。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00199_8240477bff"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-1-01 氯、溴、碘的置换次序》实验中，根据置换实验，氯、溴、碘单质氧化性由强到弱可写为哪一项？",
+            "options": [
+              {
+                "label": "A",
+                "text": "Cl₂ > Br₂ > I₂"
+              },
+              {
+                "label": "B",
+                "text": "Br₂ > Cl₂ > I₂"
+              },
+              {
+                "label": "C",
+                "text": "I₂ > Br₂ > Cl₂"
+              },
+              {
+                "label": "D",
+                "text": "Cl⁻ > Br⁻ > I⁻"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "氯能置换溴和碘，溴能置换碘，故氧化性由强到弱为 Cl₂ > Br₂ > I₂。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00199_8240477bff"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_1_01_Q025",
+        "source_review_id": "CHUNK1_19_1_01_Q025",
+        "source_question_index": 25,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "要用《19-1-01 氯、溴、碘的置换次序》实验说明 Cl₂、Br₂、I₂ 的氧化性顺序，哪组操作和观察证据最关键？",
+        "options": [
+          {
+            "label": "A",
+            "text": "氯水分别与 KBr、KI 溶液反应并用 CCl₄ 观察有机层颜色，溴水与 KI 溶液反应后也用 CCl₄ 观察有机层颜色"
+          },
+          {
+            "label": "B",
+            "text": "只向 KBr 和 KI 溶液中加入 CCl₄，不加入氯水或溴水"
+          },
+          {
+            "label": "C",
+            "text": "只观察试管外壁温度变化，不观察 CCl₄ 层颜色"
+          },
+          {
+            "label": "D",
+            "text": "改用 NaOH 溶液分别与 KBr、KI 反应来判断卤素置换次序"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "教材要求用 KBr、KI、CCl₄、氯水、溴水等设计试管实验说明氯、溴、碘的置换次序。A 同时覆盖氯水置换 Br⁻、I⁻ 以及溴水置换 I⁻，再通过 CCl₄ 层颜色判断 Br₂ 或 I₂ 的生成，因此能支撑 Cl₂、Br₂、I₂ 的氧化性顺序。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-034a8366",
+          "candidate-2-1e180c68",
+          "candidate-3-9b8be606"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_1_034a8366",
+          "point_candidate_2_1e180c68",
+          "point_candidate_3_9b8be606",
+          "oxidation_property",
+          "ccl4_observation",
+          "displacement_order",
+          "current_release_audit_rewrite"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "氯水分别与 KBr、KI 溶液反应并用 CCl₄ 观察有机层颜色，溴水与 KI 溶液反应后也用 CCl₄ 观察有机层颜色",
+            "point_key": "candidate-1-034a8366",
+            "role": "correct_evidence",
+            "diagnostic_note": "该组操作对应氯水置换 Br⁻、氯水置换 I⁻、溴水置换 I⁻ 三个点位，并都通过 CCl₄ 层颜色判断 Br₂ 或 I₂ 的生成，能形成置换次序证据链。"
+          },
+          {
+            "label": "B",
+            "text": "只向 KBr 和 KI 溶液中加入 CCl₄，不加入氯水或溴水",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "CCl₄ 只提供有机层观察，缺少氯水或溴水时没有氧化剂参与，不能产生卤素置换证据。"
+          },
+          {
+            "label": "C",
+            "text": "只观察试管外壁温度变化，不观察 CCl₄ 层颜色",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "本实验判断置换是否发生依赖 CCl₄ 层中 Br₂ 或 I₂ 的颜色变化，试管外壁温度不是教材要求的关键观察证据。"
+          },
+          {
+            "label": "D",
+            "text": "改用 NaOH 溶液分别与 KBr、KI 反应来判断卤素置换次序",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "NaOH 与 KBr、KI 的组合不属于教材给出的氯水、溴水置换卤离子设计，不能回答氯、溴、碘置换次序。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00199_8240477bff",
+            "expchunk_00193_497eb97bd6"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "current-release audit 修复：原填空题只要求回忆“卤素的氧化性”主题词，低深度且点位绑定泛化；最终有效题改为 single_choice，要求识别氯水 + KBr、氯水 + KI、溴水 + KI 三组 CCl₄ 层颜色观察如何共同支撑置换次序。教材 canonical 明确列出 KBr、KI、CCl₄、氯水、溴水并要求设计试管实验说明氯、溴、碘置换次序，证据充分。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00199_8240477bff",
+            "expchunk_00193_497eb97bd6"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-1-01 氯、溴、碘的置换次序》实验中，该实验所属的主题是卤素的____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "氧化性"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "实验资料将该实验归入“卤素的氧化性”。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00199_8240477bff",
+              "expchunk_00193_497eb97bd6"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "要用《19-1-01 氯、溴、碘的置换次序》实验说明 Cl₂、Br₂、I₂ 的氧化性顺序，哪组操作和观察证据最关键？",
+            "options": [
+              {
+                "label": "A",
+                "text": "氯水分别与 KBr、KI 溶液反应并用 CCl₄ 观察有机层颜色，溴水与 KI 溶液反应后也用 CCl₄ 观察有机层颜色"
+              },
+              {
+                "label": "B",
+                "text": "只向 KBr 和 KI 溶液中加入 CCl₄，不加入氯水或溴水"
+              },
+              {
+                "label": "C",
+                "text": "只观察试管外壁温度变化，不观察 CCl₄ 层颜色"
+              },
+              {
+                "label": "D",
+                "text": "改用 NaOH 溶液分别与 KBr、KI 反应来判断卤素置换次序"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "教材要求用 KBr、KI、CCl₄、氯水、溴水等设计试管实验说明氯、溴、碘的置换次序。A 同时覆盖氯水置换 Br⁻、I⁻ 以及溴水置换 I⁻，再通过 CCl₄ 层颜色判断 Br₂ 或 I₂ 的生成，因此能支撑 Cl₂、Br₂、I₂ 的氧化性顺序。",
+            "difficulty": null,
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound",
+            "current_release_audit_seed_repaired",
+            "low_depth_rewritten"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_1_01_Q026",
+        "source_review_id": "CHUNK1_19_1_01_Q026",
+        "source_question_index": 26,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-1-01 氯、溴、碘的置换次序》实验中，氯水和 KI 溶液反应生成的卤素单质是哪一项？",
+        "options": [
+          {
+            "label": "A",
+            "text": "I₂"
+          },
+          {
+            "label": "B",
+            "text": "Br₂（溴）"
+          },
+          {
+            "label": "C",
+            "text": "Cl₂（氯）"
+          },
+          {
+            "label": "D",
+            "text": "CCl₄（四氯化碳）"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "Cl₂ 可将 I⁻ 氧化为 I₂。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-1e180c68"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_2_1e180c68"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "I₂",
+            "point_key": "candidate-2-1e180c68",
+            "role": "correct_evidence",
+            "diagnostic_note": "Cl₂ 将 KI 中的 I⁻ 氧化为 I₂，CCl₄ 层用于观察生成的碘。"
+          },
+          {
+            "label": "B",
+            "text": "Br₂（溴）",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "Br₂ 由氯水 + KBr 体系生成，不是氯水 + KI 体系的主要生成物。"
+          },
+          {
+            "label": "C",
+            "text": "Cl₂（氯）",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "Cl₂ 是氯水中的氧化剂，反应后不是被置换出的卤素单质。"
+          },
+          {
+            "label": "D",
+            "text": "CCl₄（四氯化碳）",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "CCl₄ 是萃取层，不是氯水氧化 I⁻ 后生成的卤素单质。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00199_8240477bff"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polish 终审：最终有效题为 proposed_question，题干、答案和解析可由本实验 canonical 文本/点位支撑；最终有效题只需 canonical 实验步骤、点位和题干选项证据即可支撑。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00199_8240477bff"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-1-01 氯、溴、碘的置换次序》实验中，氯水和 KI 溶液反应生成的卤素单质是____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "I₂",
+                "碘"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "Cl₂ 可将 I⁻ 氧化为 I₂。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00199_8240477bff"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-1-01 氯、溴、碘的置换次序》实验中，氯水和 KI 溶液反应生成的卤素单质是哪一项？",
+            "options": [
+              {
+                "label": "A",
+                "text": "I₂"
+              },
+              {
+                "label": "B",
+                "text": "Br₂（溴）"
+              },
+              {
+                "label": "C",
+                "text": "Cl₂（氯）"
+              },
+              {
+                "label": "D",
+                "text": "CCl₄（四氯化碳）"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "Cl₂ 可将 I⁻ 氧化为 I₂。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00199_8240477bff"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_1_01_Q027",
+        "source_review_id": "CHUNK1_19_1_01_Q027",
+        "source_question_index": 27,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-1-01 氯、溴、碘的置换次序》实验中，溴水能把 KI 溶液中的哪一项氧化成 I₂？",
+        "options": [
+          {
+            "label": "A",
+            "text": "碘离子"
+          },
+          {
+            "label": "B",
+            "text": "Br⁻（溴离子）"
+          },
+          {
+            "label": "C",
+            "text": "Cl⁻（氯离子）"
+          },
+          {
+            "label": "D",
+            "text": "K⁺（钾离子）"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "溴水中的 Br₂ 可氧化碘离子。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-9b8be606"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_3_9b8be606"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "碘离子",
+            "point_key": "candidate-3-9b8be606",
+            "role": "correct_evidence",
+            "diagnostic_note": "溴水中的 Br₂ 氧化 KI 中的 I⁻，因此被氧化的是碘离子。"
+          },
+          {
+            "label": "B",
+            "text": "Br⁻（溴离子）",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "Br⁻ 是 Br₂ 被还原后的产物方向，不是溴水氧化 KI 时被氧化的离子。"
+          },
+          {
+            "label": "C",
+            "text": "Cl⁻（氯离子）",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该体系没有氯水或氯离子参与置换比较，Cl⁻ 不是被氧化对象。"
+          },
+          {
+            "label": "D",
+            "text": "K⁺（钾离子）",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "K⁺ 是旁观离子，不承担溴水氧化碘离子的反应变化。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00199_8240477bff"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polish 终审：最终有效题为 proposed_question，题干、答案和解析可由本实验 canonical 文本/点位支撑；最终有效题只需 canonical 实验步骤、点位和题干选项证据即可支撑。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00199_8240477bff"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-1-01 氯、溴、碘的置换次序》实验中，溴水能把 KI 溶液中的____氧化成 I₂。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "I⁻",
+                "碘离子"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "溴水中的 Br₂ 可氧化碘离子。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00199_8240477bff"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-1-01 氯、溴、碘的置换次序》实验中，溴水能把 KI 溶液中的哪一项氧化成 I₂？",
+            "options": [
+              {
+                "label": "A",
+                "text": "碘离子"
+              },
+              {
+                "label": "B",
+                "text": "Br⁻（溴离子）"
+              },
+              {
+                "label": "C",
+                "text": "Cl⁻（氯离子）"
+              },
+              {
+                "label": "D",
+                "text": "K⁺（钾离子）"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "溴水中的 Br₂ 可氧化碘离子。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00199_8240477bff"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_1_01_Q028",
+        "source_review_id": "CHUNK1_19_1_01_Q028",
+        "source_question_index": 28,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-1-01 氯、溴、碘的置换次序》实验中，说明 Cl₂ 氧化性强于 Br₂ 的一种试剂组合是哪一项？",
+        "options": [
+          {
+            "label": "A",
+            "text": "氯水 + KBr 溶液 + CCl₄"
+          },
+          {
+            "label": "B",
+            "text": "水"
+          },
+          {
+            "label": "C",
+            "text": "乙醚"
+          },
+          {
+            "label": "D",
+            "text": "Na₂S₂O₃ 溶液"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "氯水可将 KBr 溶液中的 Br⁻ 氧化为 Br₂。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-034a8366"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_1_034a8366",
+          "ccl4_observation",
+          "oxidation_property",
+          "phone_unfriendly_reagent_combo_fill"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "氯水 + KBr 溶液 + CCl₄",
+            "point_key": "candidate-1-034a8366",
+            "role": "correct_evidence",
+            "diagnostic_note": "氯水 + KBr 溶液 + CCl₄ 可观察 Br₂ 进入有机层，从而证明 Cl₂ 强于 Br₂。"
+          },
+          {
+            "label": "B",
+            "text": "水",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "单独用水不能提供氯水、Br⁻ 和 CCl₄ 萃取观察这一完整证据链。"
+          },
+          {
+            "label": "C",
+            "text": "乙醚",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "教材点位指定 CCl₄ 作萃取观察层，不是乙醚。"
+          },
+          {
+            "label": "D",
+            "text": "Na₂S₂O₃ 溶液",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "Na₂S₂O₃ 是还原性试剂，不是证明 Cl₂ 氧化 Br⁻ 的试剂组合。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00199_8240477bff"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00028_a4c7b7c9ae"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polish 终审：最终有效题为 proposed_question，题干、答案和解析可由本实验 canonical 文本/点位支撑；部分判断依赖 supporting theory：textbook_prose_00028_a4c7b7c9ae。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00199_8240477bff"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00028_a4c7b7c9ae"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00028_a4c7b7c9ae"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-1-01 氯、溴、碘的置换次序》实验中，说明 Cl₂ 氧化性强于 Br₂ 的一种试剂组合是____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "氯水 + KBr 溶液 + CCl₄",
+                "氯水、KBr 溶液和 CCl₄"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "氯水可将 KBr 溶液中的 Br⁻ 氧化为 Br₂。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00199_8240477bff"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-1-01 氯、溴、碘的置换次序》实验中，说明 Cl₂ 氧化性强于 Br₂ 的一种试剂组合是哪一项？",
+            "options": [
+              {
+                "label": "A",
+                "text": "氯水 + KBr 溶液 + CCl₄"
+              },
+              {
+                "label": "B",
+                "text": "水"
+              },
+              {
+                "label": "C",
+                "text": "乙醚"
+              },
+              {
+                "label": "D",
+                "text": "Na₂S₂O₃ 溶液"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "氯水可将 KBr 溶液中的 Br⁻ 氧化为 Br₂。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00199_8240477bff"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_1_01_Q029",
+        "source_review_id": "CHUNK1_19_1_01_Q029",
+        "source_question_index": 29,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-1-01 氯、溴、碘的置换次序》实验中，若以置换能力判断，氯、溴、碘三种单质中氧化性最弱的是哪一项？",
+        "options": [
+          {
+            "label": "A",
+            "text": "I₂"
+          },
+          {
+            "label": "B",
+            "text": "Br₂（溴）"
+          },
+          {
+            "label": "C",
+            "text": "Cl₂（氯）"
+          },
+          {
+            "label": "D",
+            "text": "CCl₄（四氯化碳）"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "置换实验可推出氧化性 Cl₂ > Br₂ > I₂。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-034a8366",
+          "candidate-2-1e180c68",
+          "candidate-3-9b8be606"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_3_9b8be606",
+          "oxidation_property"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "I₂",
+            "point_key": "candidate-3-9b8be606",
+            "role": "correct_evidence",
+            "diagnostic_note": "氯能置换溴和碘，溴能置换碘，因此 I₂ 是三者中氧化性最弱的单质。"
+          },
+          {
+            "label": "B",
+            "text": "Br₂（溴）",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "Br₂ 能氧化 I⁻，所以 Br₂ 的氧化性强于 I₂，不是最弱。"
+          },
+          {
+            "label": "C",
+            "text": "Cl₂（氯）",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "Cl₂ 能氧化 Br⁻ 和 I⁻，在本组卤素中氧化性最强。"
+          },
+          {
+            "label": "D",
+            "text": "CCl₄（四氯化碳）",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "CCl₄ 是萃取剂，不是被比较氧化性强弱的卤素单质。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00199_8240477bff"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polish 终审：最终有效题为 proposed_question，题干、答案和解析可由本实验 canonical 文本/点位支撑；最终有效题只需 canonical 实验步骤、点位和题干选项证据即可支撑。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00199_8240477bff"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-1-01 氯、溴、碘的置换次序》实验中，若以置换能力判断，氯、溴、碘三种单质中氧化性最弱的是____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "I₂",
+                "碘"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "置换实验可推出氧化性 Cl₂ > Br₂ > I₂。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00199_8240477bff"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-1-01 氯、溴、碘的置换次序》实验中，若以置换能力判断，氯、溴、碘三种单质中氧化性最弱的是哪一项？",
+            "options": [
+              {
+                "label": "A",
+                "text": "I₂"
+              },
+              {
+                "label": "B",
+                "text": "Br₂（溴）"
+              },
+              {
+                "label": "C",
+                "text": "Cl₂（氯）"
+              },
+              {
+                "label": "D",
+                "text": "CCl₄（四氯化碳）"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "置换实验可推出氧化性 Cl₂ > Br₂ > I₂。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00199_8240477bff"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_1_01_Q030",
+        "source_review_id": "CHUNK1_19_1_01_Q030",
+        "source_question_index": 30,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《19-1-01 氯、溴、碘的置换次序》实验中，用 CCl₄ 萃取生成的卤素单质，主要是为了更清楚观察有机层的____。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "颜色",
+            "颜色变化"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "CCl₄ 可萃取卤素单质，颜色变化有助于判断产物。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-034a8366",
+          "candidate-2-1e180c68"
+        ],
+        "secondary_point_keys": [
+          "candidate-3-9b8be606"
+        ],
+        "coverage_tags": [
+          "point_candidate_1_034a8366",
+          "point_candidate_2_1e180c68",
+          "point_candidate_3_9b8be606",
+          "ccl4_observation",
+          "observation"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00199_8240477bff"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00028_a4c7b7c9ae"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polish 终审：最终有效题为 original_question，题干、答案和解析可由本实验 canonical 文本/点位支撑；部分判断依赖 supporting theory：textbook_prose_00028_a4c7b7c9ae。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00199_8240477bff"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00028_a4c7b7c9ae"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00028_a4c7b7c9ae"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-1-01 氯、溴、碘的置换次序》实验中，用 CCl₄ 萃取生成的卤素单质，主要是为了更清楚观察有机层的____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "颜色",
+                "颜色变化"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "CCl₄ 可萃取卤素单质，颜色变化有助于判断产物。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00199_8240477bff",
+              "textbook_prose_00028_a4c7b7c9ae"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound"
+          ]
+        }
+      }
+    ]
+  }
+}

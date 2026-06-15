@@ -1,0 +1,715 @@
+{
+  "metadata": {
+    "schema_version": "small_packet_rebuilt_v1",
+    "artifact_type": "manual_semantic_rebuilt_question_package",
+    "chunk": "chunk_2",
+    "source_packet": "E:\\chemistry-admin\\artifacts\\point-aware-question-bank\\reviewed_old_bank_chunks\\slim_release_work_v1\\semantic_work_packets\\chunk_2\\19-4-03.json",
+    "experiment_code": "19-4-03",
+    "experiment_title": "亚硝酸的还原性",
+    "question_count": 30,
+    "evidence_policy": [
+      "Each question was manually compared against the source packet, video points, canonical experiment evidence, and supporting theory where required.",
+      "RAG source text is not embedded in full; only locators and concise source summaries are stored.",
+      "Inherited chunk ids are not treated as proof.",
+      "Formula or symbolic fill blanks are avoided; retained fill blanks use short ordinary Chinese answers."
+    ],
+    "rag_source_dir": "E:\\chemistry-rag\\data\\rag_ready",
+    "release_json_policy": "Do not modify chunk_X_release_final_v1.json directly; this package is a merge input only."
+  },
+  "video_points": [
+    {"point_key": "candidate-1-80f91837", "point_title": "NaNO₂ + KMnO₄"},
+    {"point_key": "candidate-2-72cbedf8", "point_title": "再加入 H₂SO₄ 酸化，观察 KMnO₄ 褪色"}
+  ],
+  "evidence_sources": {
+    "canonical_experiment_chunks": [
+      {
+        "chunk_id": "expchunk_00242_2da7ff3435",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+        "line_number": 255,
+        "evidence_role": "Canonical experiment: a small amount of potassium permanganate solution is acidified with sulfuric acid, then sodium nitrite solution is added and the phenomenon is observed."
+      }
+    ],
+    "supporting_theory_chunks": [
+      {
+        "chunk_id": "textbook_prose_00548_e41b91cedc",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+        "line_number": 858,
+        "evidence_role": "Theory: in acidic solution nitrous acid has weak reducing behavior and shows reduction only toward strong oxidants such as permanganate."
+      },
+      {
+        "chunk_id": "textbook_prose_00549_1931138c9a",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+        "line_number": 859,
+        "evidence_role": "Theory: nitrous acid reduces permanganate in acid, being oxidized to nitrate while manganese is reduced to Mn²⁺."
+      }
+    ]
+  },
+  "questions": [
+    {
+      "question_id": "REBUILT_CH2_19_4_03_Q001",
+      "question_type": "single_choice",
+      "stem": "按教材规范操作，本实验应围绕哪一组反应体系观察？",
+      "options": [
+        {"label": "A", "text": "硫酸酸化的 KMnO₄ 与 NaNO₂"},
+        {"label": "B", "text": "酸性 KI 与 NaNO₂"},
+        {"label": "C", "text": "冷却 NaNO₂ 与 H₂SO₄"},
+        {"label": "D", "text": "NaNO₂ 与萘胺显色试剂"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "教材的还原性实验是酸化 KMnO₄ 后滴加 NaNO₂ 并观察现象，其他选项属于相邻小实验。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-1-80f91837", "candidate-2-72cbedf8"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["starting_system", "packet_scope", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-1-80f91837", "role": "correct_evidence", "diagnostic_note": "覆盖 NaNO₂ 与 KMnO₄，且需要酸性环境。"},
+        {"label": "B", "point_key": null, "role": "distractor_previous_packet", "diagnostic_note": "属于亚硝酸氧化性。"},
+        {"label": "C", "point_key": null, "role": "distractor_previous_packet", "diagnostic_note": "属于亚硝酸生成与分解。"},
+        {"label": "D", "point_key": null, "role": "distractor_same_chunk_other_subpart", "diagnostic_note": "属于亚硝酸根检验。"}
+      ],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00242_2da7ff3435"], "supporting_theory_chunk_ids": [], "evidence_sufficient": true, "supporting_theory_required": false, "reviewer_note": "操作体系来自 canonical 实验 chunk。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_03_Q002",
+      "question_type": "single_choice",
+      "stem": "酸性 KMnO₄ 遇 NaNO₂ 后紫色变浅或褪去，最能说明 NaNO₂ 表现什么性质？",
+      "options": [
+        {"label": "A", "text": "还原性"},
+        {"label": "B", "text": "强碱性"},
+        {"label": "C", "text": "配位性"},
+        {"label": "D", "text": "挥发性"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "酸性 KMnO₄ 是强氧化剂，NaNO₂ 使其褪色，说明亚硝酸盐在该体系中起还原作用。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-2-72cbedf8"],
+      "secondary_point_keys": ["candidate-1-80f91837"],
+      "coverage_tags": ["reducing_property", "phenomenon", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-2-72cbedf8", "role": "correct_evidence", "diagnostic_note": "褪色是还原性观察依据。"},
+        {"label": "B", "point_key": null, "role": "distractor_wrong_property", "diagnostic_note": "体系为酸性。"},
+        {"label": "C", "point_key": null, "role": "distractor_wrong_property", "diagnostic_note": "无配位证据。"},
+        {"label": "D", "point_key": null, "role": "distractor_wrong_property", "diagnostic_note": "不是挥发性实验。"}
+      ],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00242_2da7ff3435"], "supporting_theory_chunk_ids": ["textbook_prose_00548_e41b91cedc", "textbook_prose_00549_1931138c9a"], "evidence_sufficient": true, "supporting_theory_required": true, "reviewer_note": "性质判断需理论支撑。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_03_Q003",
+      "question_type": "single_choice",
+      "stem": "在该反应中，亚硝酸或亚硝酸盐中的氮最终被氧化到哪类含氮离子？",
+      "options": [
+        {"label": "A", "text": "NO₃⁻"},
+        {"label": "B", "text": "NH₄⁺"},
+        {"label": "C", "text": "N₂"},
+        {"label": "D", "text": "NO"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "理论反应显示 HNO₂ 在酸性高锰酸钾体系中被氧化为硝酸根。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-1-80f91837", "candidate-2-72cbedf8"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["nitrogen_product", "redox_reasoning", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-1-80f91837", "role": "correct_evidence", "diagnostic_note": "对应理论反应产物。"},
+        {"label": "B", "point_key": null, "role": "distractor_wrong_product", "diagnostic_note": "不是该反应的氮产物。"},
+        {"label": "C", "point_key": null, "role": "distractor_wrong_product", "diagnostic_note": "不是该体系的主结论。"},
+        {"label": "D", "point_key": null, "role": "distractor_oxidation_packet", "diagnostic_note": "NO 更常见于亚硝酸作氧化剂时的还原产物。"}
+      ],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00242_2da7ff3435"], "supporting_theory_chunk_ids": ["textbook_prose_00549_1931138c9a"], "evidence_sufficient": true, "supporting_theory_required": true, "reviewer_note": "产物由理论反应直接给出。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_03_Q004",
+      "question_type": "single_choice",
+      "stem": "酸性 KMnO₄ 被 NaNO₂ 还原后，锰元素的常见低价产物是哪一种？",
+      "options": [
+        {"label": "A", "text": "Mn²⁺"},
+        {"label": "B", "text": "MnO₄⁻"},
+        {"label": "C", "text": "MnO₄²⁻"},
+        {"label": "D", "text": "金属锰"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "理论反应给出酸性条件下高锰酸根被还原为 Mn²⁺，这也解释了紫色褪去。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-2-72cbedf8"],
+      "secondary_point_keys": ["candidate-1-80f91837"],
+      "coverage_tags": ["manganese_product", "phenomenon", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-2-72cbedf8", "role": "correct_evidence", "diagnostic_note": "对应酸性高锰酸根还原产物。"},
+        {"label": "B", "point_key": "candidate-1-80f91837", "role": "near_miss_reactant", "diagnostic_note": "这是反应前的高锰酸根。"},
+        {"label": "C", "point_key": null, "role": "distractor_wrong_medium", "diagnostic_note": "不是该酸性体系的主要结论。"},
+        {"label": "D", "point_key": null, "role": "distractor_overreduction", "diagnostic_note": "教材没有生成金属锰。"}
+      ],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00242_2da7ff3435"], "supporting_theory_chunk_ids": ["textbook_prose_00549_1931138c9a"], "evidence_sufficient": true, "supporting_theory_required": true, "reviewer_note": "锰产物来自理论反应。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_03_Q005",
+      "question_type": "single_choice",
+      "stem": "本实验最直接、最适合视频观察的阳性现象是哪一项？",
+      "options": [
+        {"label": "A", "text": "KMnO₄ 的紫色变浅或褪去"},
+        {"label": "B", "text": "出现蓝色 N₂O₃"},
+        {"label": "C", "text": "四氯化碳层显紫色"},
+        {"label": "D", "text": "生成红棕色沉淀"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "该实验观察明确强调酸化后观察 KMnO₄ 褪色。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-2-72cbedf8"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["direct_observation", "decolorization"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-2-72cbedf8", "role": "correct_evidence", "diagnostic_note": "直接对应褪色点位。"},
+        {"label": "B", "point_key": null, "role": "distractor_previous_packet", "diagnostic_note": "属于亚硝酸生成与分解。"},
+        {"label": "C", "point_key": null, "role": "distractor_same_chunk_other_subpart", "diagnostic_note": "属于亚硝酸根检验。"},
+        {"label": "D", "point_key": null, "role": "distractor_other_subsection", "diagnostic_note": "可能来自铵盐检验，不是本实验。"}
+      ],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00242_2da7ff3435"], "supporting_theory_chunk_ids": [], "evidence_sufficient": true, "supporting_theory_required": false, "reviewer_note": "现象来自视频点位与 canonical 操作。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_03_Q006",
+      "question_type": "single_choice",
+      "stem": "在本实验中，哪种物质可视为主要氧化剂？",
+      "options": [
+        {"label": "A", "text": "酸性 KMnO₄"},
+        {"label": "B", "text": "NaNO₂"},
+        {"label": "C", "text": "Na⁺"},
+        {"label": "D", "text": "硫酸根"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "KMnO₄ 在酸性条件下接受电子并被还原，因而是该体系的氧化剂。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-1-80f91837", "candidate-2-72cbedf8"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["oxidant_role", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-1-80f91837", "role": "correct_evidence", "diagnostic_note": "KMnO₄ 是强氧化剂。"},
+        {"label": "B", "point_key": "candidate-1-80f91837", "role": "near_miss_opposite_role", "diagnostic_note": "NaNO₂ 在此作还原剂。"},
+        {"label": "C", "point_key": null, "role": "distractor_spectator_ion", "diagnostic_note": "钠离子不提供主要氧化性。"},
+        {"label": "D", "point_key": null, "role": "distractor_acid_counterion", "diagnostic_note": "硫酸根不是主要氧化剂。"}
+      ],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00242_2da7ff3435"], "supporting_theory_chunk_ids": ["textbook_prose_00548_e41b91cedc", "textbook_prose_00549_1931138c9a"], "evidence_sufficient": true, "supporting_theory_required": true, "reviewer_note": "氧化剂角色由褪色和理论反应支撑。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_03_Q007",
+      "question_type": "single_choice",
+      "stem": "哪一项是对 NaNO₂ 在本实验中角色的稳妥表述？",
+      "options": [
+        {"label": "A", "text": "还原剂，被氧化为硝酸根"},
+        {"label": "B", "text": "氧化剂，把 Mn²⁺ 氧化为高锰酸根"},
+        {"label": "C", "text": "旁观盐，不参与氧化还原"},
+        {"label": "D", "text": "沉淀剂，使锰形成白色沉淀"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "理论反应说明 HNO₂ 被高锰酸根氧化为硝酸根，因此 NaNO₂ 对应还原剂角色。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-1-80f91837", "candidate-2-72cbedf8"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["reductant_role", "nitrogen_product", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-1-80f91837", "role": "correct_evidence", "diagnostic_note": "还原剂和产物均匹配。"},
+        {"label": "B", "point_key": null, "role": "distractor_opposite_role", "diagnostic_note": "颠倒了角色。"},
+        {"label": "C", "point_key": null, "role": "distractor_understatement", "diagnostic_note": "NaNO₂ 参与反应。"},
+        {"label": "D", "point_key": null, "role": "distractor_wrong_observation", "diagnostic_note": "无白色沉淀依据。"}
+      ],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00242_2da7ff3435"], "supporting_theory_chunk_ids": ["textbook_prose_00549_1931138c9a"], "evidence_sufficient": true, "supporting_theory_required": true, "reviewer_note": "还原剂角色来自理论反应。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_03_Q008",
+      "question_type": "single_choice",
+      "stem": "哪种酸化试剂与教材操作一致？",
+      "options": [
+        {"label": "A", "text": "H₂SO₄"},
+        {"label": "B", "text": "HCl"},
+        {"label": "C", "text": "HNO₃"},
+        {"label": "D", "text": "NaOH"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "教材实验写明 KMnO₄ 溶液用硫酸酸化后再滴加 NaNO₂。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-2-72cbedf8"],
+      "secondary_point_keys": ["candidate-1-80f91837"],
+      "coverage_tags": ["acid_medium", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-2-72cbedf8", "role": "correct_evidence", "diagnostic_note": "符合硫酸酸化。"},
+        {"label": "B", "point_key": null, "role": "distractor_wrong_acid", "diagnostic_note": "教材实验未用盐酸。"},
+        {"label": "C", "point_key": null, "role": "distractor_wrong_acid", "diagnostic_note": "教材实验未用硝酸。"},
+        {"label": "D", "point_key": null, "role": "distractor_wrong_medium", "diagnostic_note": "NaOH 是碱。"}
+      ],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00242_2da7ff3435"], "supporting_theory_chunk_ids": [], "evidence_sufficient": true, "supporting_theory_required": false, "reviewer_note": "酸化介质直接来自实验操作。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_03_Q009",
+      "question_type": "single_choice",
+      "stem": "关于操作顺序，哪一项最符合教材文本？",
+      "options": [
+        {"label": "A", "text": "先酸化 KMnO₄，再滴加 NaNO₂"},
+        {"label": "B", "text": "先蒸干 NaNO₂，再加入 KMnO₄ 固体"},
+        {"label": "C", "text": "先加入 KI，再用四氯化碳萃取"},
+        {"label": "D", "text": "先生成蓝色中间物，再加入 KMnO₄"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "虽然观察步骤有拆分，教材文本的规范步骤是酸化 KMnO₄ 后滴加 NaNO₂。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-1-80f91837", "candidate-2-72cbedf8"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["operation_order", "canonical_priority", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-2-72cbedf8", "role": "correct_evidence", "diagnostic_note": "按教材文本判断。"},
+        {"label": "B", "point_key": null, "role": "distractor_wrong_operation", "diagnostic_note": "没有蒸干。"},
+        {"label": "C", "point_key": null, "role": "distractor_same_chunk_other_subpart", "diagnostic_note": "属于检验方法。"},
+        {"label": "D", "point_key": null, "role": "distractor_previous_packet", "diagnostic_note": "属于生成与分解。"}
+      ],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00242_2da7ff3435"], "supporting_theory_chunk_ids": [], "evidence_sufficient": true, "supporting_theory_required": false, "reviewer_note": "用于处理视频点位标题与 canonical 文本之间的顺序差异。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_03_Q010",
+      "question_type": "single_choice",
+      "stem": "NaNO₂ 使酸性 KMnO₄ 紫色褪去时，本实验最应形成哪一项目标判断？",
+      "options": [
+        {"label": "A", "text": "用酸性 KMnO₄ 褪色证明亚硝酸盐的还原性"},
+        {"label": "B", "text": "用 KI 证明亚硝酸的氧化性"},
+        {"label": "C", "text": "用冷却操作观察亚硝酸分解"},
+        {"label": "D", "text": "用显色试剂检验亚硝酸根"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "本实验观察内容和理论均指向亚硝酸盐还原酸性 KMnO₄ 的现象。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-1-80f91837", "candidate-2-72cbedf8"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["learning_goal", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-2-72cbedf8", "role": "correct_evidence", "diagnostic_note": "覆盖两个点位。"},
+        {"label": "B", "point_key": null, "role": "distractor_previous_packet", "diagnostic_note": "属于酸性 KI 生成碘实验。"},
+        {"label": "C", "point_key": null, "role": "distractor_previous_packet", "diagnostic_note": "属于 HNO₂ 生成与分解实验。"},
+        {"label": "D", "point_key": null, "role": "distractor_same_chunk_other_subpart", "diagnostic_note": "属于检验方法。"}
+      ],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00242_2da7ff3435"], "supporting_theory_chunk_ids": ["textbook_prose_00548_e41b91cedc", "textbook_prose_00549_1931138c9a"], "evidence_sufficient": true, "supporting_theory_required": true, "reviewer_note": "学习目标由实验和理论共同支撑。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_03_Q011",
+      "question_type": "true_false",
+      "stem": "酸性 KMnO₄ 褪色可以作为 NaNO₂ 表现还原性的观察依据。",
+      "answer": {"value": true},
+      "explanation": "KMnO₄ 的紫色来自高锰酸根，被 NaNO₂ 还原后紫色变浅或褪去。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-2-72cbedf8"],
+      "secondary_point_keys": ["candidate-1-80f91837"],
+      "coverage_tags": ["decolorization", "true_false", "multi_point"],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00242_2da7ff3435"], "supporting_theory_chunk_ids": ["textbook_prose_00549_1931138c9a"], "evidence_sufficient": true, "supporting_theory_required": true, "reviewer_note": "现象和理论一致。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_03_Q012",
+      "question_type": "true_false",
+      "stem": "本实验中 NaNO₂ 是主要氧化剂，KMnO₄ 是主要还原剂。",
+      "answer": {"value": false},
+      "explanation": "角色相反：酸性 KMnO₄ 是氧化剂，NaNO₂ 表现还原性。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-1-80f91837", "candidate-2-72cbedf8"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["role_reversal", "true_false", "multi_point"],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00242_2da7ff3435"], "supporting_theory_chunk_ids": ["textbook_prose_00548_e41b91cedc", "textbook_prose_00549_1931138c9a"], "evidence_sufficient": true, "supporting_theory_required": true, "reviewer_note": "用于防止氧化剂/还原剂颠倒。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_03_Q013",
+      "question_type": "true_false",
+      "stem": "教材文本要求 KMnO₄ 溶液用硫酸酸化。",
+      "answer": {"value": true},
+      "explanation": "实验内容明确写到先用硫酸酸化 KMnO₄ 溶液，再滴加 NaNO₂。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-2-72cbedf8"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["acid_medium", "true_false"],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00242_2da7ff3435"], "supporting_theory_chunk_ids": [], "evidence_sufficient": true, "supporting_theory_required": false, "reviewer_note": "直接来自 canonical 文本。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_03_Q014",
+      "question_type": "true_false",
+      "stem": "在酸性 KMnO₄ 体系中，亚硝酸被氧化为 NO₃⁻。",
+      "answer": {"value": true},
+      "explanation": "理论说明给出的反应中，HNO₂ 的氧化产物是 NO₃⁻。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-1-80f91837", "candidate-2-72cbedf8"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["nitrogen_product", "true_false", "multi_point"],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00242_2da7ff3435"], "supporting_theory_chunk_ids": ["textbook_prose_00549_1931138c9a"], "evidence_sufficient": true, "supporting_theory_required": true, "reviewer_note": "产物判断需要理论反应。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_03_Q015",
+      "question_type": "true_false",
+      "stem": "本实验的核心现象不是碘的生成，而是高锰酸钾紫色变化。",
+      "answer": {"value": true},
+      "explanation": "碘生成属于酸性 KI 氧化性实验；本实验观察 KMnO₄ 的褪色。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-1-80f91837", "candidate-2-72cbedf8"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["packet_scope", "true_false", "multi_point"],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00242_2da7ff3435"], "supporting_theory_chunk_ids": [], "evidence_sufficient": true, "supporting_theory_required": false, "reviewer_note": "区分相邻 packet。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_03_Q016",
+      "question_type": "true_false",
+      "stem": "NaNO₂ 在本实验中主要表现为强氧化剂，把 Mn²⁺ 氧化成 KMnO₄。",
+      "answer": {"value": false},
+      "explanation": "本实验方向相反，NaNO₂ 还原酸性 KMnO₄，而不是生成 KMnO₄。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-1-80f91837", "candidate-2-72cbedf8"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["redox_direction", "true_false", "multi_point"],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00242_2da7ff3435"], "supporting_theory_chunk_ids": ["textbook_prose_00549_1931138c9a"], "evidence_sufficient": true, "supporting_theory_required": true, "reviewer_note": "防止反应方向颠倒。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_03_Q017",
+      "question_type": "true_false",
+      "stem": "本实验可以直接等同于硝酸根棕色环实验。",
+      "answer": {"value": false},
+      "explanation": "本实验是 NaNO₂ 与酸性 KMnO₄ 的氧化还原观察，不是硝酸根棕色环检验。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-1-80f91837", "candidate-2-72cbedf8"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["scope_boundary", "true_false", "multi_point"],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00242_2da7ff3435"], "supporting_theory_chunk_ids": [], "evidence_sufficient": true, "supporting_theory_required": false, "reviewer_note": "排除无关检验。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_03_Q018",
+      "question_type": "true_false",
+      "stem": "亚硝酸的还原性通常需要强氧化剂参与才容易体现，KMnO₄ 正是这类氧化剂。",
+      "answer": {"value": true},
+      "explanation": "理论段说明亚硝酸还原性不突出，遇到很强的氧化剂如 KMnO₄ 时才起还原作用。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-1-80f91837", "candidate-2-72cbedf8"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["theory_boundary", "true_false", "multi_point"],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00242_2da7ff3435"], "supporting_theory_chunk_ids": ["textbook_prose_00548_e41b91cedc"], "evidence_sufficient": true, "supporting_theory_required": true, "reviewer_note": "直接由 supporting theory 支撑。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_03_Q019",
+      "question_type": "single_choice",
+      "stem": "哪一项最适合作为实验报告中的关键现象描述？",
+      "options": [
+        {"label": "A", "text": "酸性 KMnO₄ 的紫色逐渐变浅或褪去"},
+        {"label": "B", "text": "出现碘的颜色变化"},
+        {"label": "C", "text": "出现蓝色 N₂O₃"},
+        {"label": "D", "text": "萘胺体系变红"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "该描述正对应本实验的观察内容；其他选项分别属于相邻的氧化性、生成分解或检验实验。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-2-72cbedf8"],
+      "secondary_point_keys": ["candidate-1-80f91837"],
+      "coverage_tags": ["observation_summary", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-2-72cbedf8", "role": "correct_evidence", "diagnostic_note": "对应褪色观察。"},
+        {"label": "B", "point_key": null, "role": "distractor_previous_packet", "diagnostic_note": "属于氧化性实验。"},
+        {"label": "C", "point_key": null, "role": "distractor_previous_packet", "diagnostic_note": "属于生成与分解。"},
+        {"label": "D", "point_key": null, "role": "distractor_same_chunk_other_subpart", "diagnostic_note": "属于检验方法。"}
+      ],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00242_2da7ff3435"], "supporting_theory_chunk_ids": [], "evidence_sufficient": true, "supporting_theory_required": false, "reviewer_note": "现象题无需额外理论。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_03_Q020",
+      "question_type": "single_choice",
+      "stem": "若要避免把酸性 KMnO₄ 褪色实验与酸性 KI 生成碘实验混淆，最该抓住哪一差异？",
+      "options": [
+        {"label": "A", "text": "酸性 KMnO₄ 体系观察褪色，酸性 KI 体系观察碘生成"},
+        {"label": "B", "text": "两者都只观察蓝色中间物"},
+        {"label": "C", "text": "酸性 KMnO₄ 体系不需要酸性条件"},
+        {"label": "D", "text": "酸性 KI 体系使用 KMnO₄ 作氧化剂"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "本实验的核心体系是酸性 KMnO₄，相邻氧化性实验的核心体系是酸性 KI。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-1-80f91837", "candidate-2-72cbedf8"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["packet_contrast", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-2-72cbedf8", "role": "correct_evidence", "diagnostic_note": "准确区分相邻实验。"},
+        {"label": "B", "point_key": null, "role": "distractor_previous_packet", "diagnostic_note": "蓝色中间物属于 HNO₂ 生成与分解实验。"},
+        {"label": "C", "point_key": null, "role": "distractor_false", "diagnostic_note": "本实验需要酸性环境。"},
+        {"label": "D", "point_key": null, "role": "distractor_reversed", "diagnostic_note": "相邻氧化性实验使用 KI 体系。"}
+      ],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00242_2da7ff3435"], "supporting_theory_chunk_ids": ["textbook_prose_00548_e41b91cedc"], "evidence_sufficient": true, "supporting_theory_required": true, "reviewer_note": "用于避免相邻 packet 混淆。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_03_Q021",
+      "question_type": "fill_blank",
+      "stem": "NaNO₂ 使酸性 KMnO₄ 褪色，主要表现____性。",
+      "answer": {"accepted_answers": ["还原", "还原性"], "match": "normalized_exact"},
+      "explanation": "该填空只要求普通性质词，不要求输入反应式或离子符号。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-1-80f91837", "candidate-2-72cbedf8"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["reducing_property", "mobile_safe_fill_blank", "multi_point"],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00242_2da7ff3435"], "supporting_theory_chunk_ids": ["textbook_prose_00548_e41b91cedc", "textbook_prose_00549_1931138c9a"], "evidence_sufficient": true, "supporting_theory_required": true, "reviewer_note": "非公式填空。"},
+      "mobile_input_risk": "low",
+      "machine_grading": "normalized_exact",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_03_Q022",
+      "question_type": "fill_blank",
+      "stem": "本实验观察的关键现象是 KMnO₄ 的紫色____。",
+      "answer": {"accepted_answers": ["褪去", "褪色", "变浅", "消失"], "match": "normalized_exact"},
+      "explanation": "实验观察和教材都把颜色变化作为观察重点。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-2-72cbedf8"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["decolorization", "mobile_safe_fill_blank"],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00242_2da7ff3435"], "supporting_theory_chunk_ids": [], "evidence_sufficient": true, "supporting_theory_required": false, "reviewer_note": "普通现象词，移动端风险低。"},
+      "mobile_input_risk": "low",
+      "machine_grading": "normalized_exact",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_03_Q023",
+      "question_type": "fill_blank",
+      "stem": "教材中，KMnO₄ 溶液用____酸化。",
+      "answer": {"accepted_answers": ["硫酸", "H₂SO₄"], "match": "normalized_exact"},
+      "explanation": "教材文本明确使用硫酸酸化；答案接受中文名和常见符号写法。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-2-72cbedf8"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["acid_medium", "mobile_safe_fill_blank"],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00242_2da7ff3435"], "supporting_theory_chunk_ids": [], "evidence_sufficient": true, "supporting_theory_required": false, "reviewer_note": "符号答案使用 Unicode 下标，不是 ASCII 公式。"},
+      "mobile_input_risk": "low",
+      "machine_grading": "normalized_exact",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_03_Q024",
+      "question_type": "fill_blank",
+      "stem": "在本实验中，NaNO₂ 应向酸化后的 KMnO₄ 中____加入。",
+      "answer": {"accepted_answers": ["滴加", "逐滴", "缓慢滴加"], "match": "normalized_exact"},
+      "explanation": "教材文本使用“滴加”表述，答案限定为普通操作词。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-1-80f91837", "candidate-2-72cbedf8"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["addition_method", "mobile_safe_fill_blank", "multi_point"],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00242_2da7ff3435"], "supporting_theory_chunk_ids": [], "evidence_sufficient": true, "supporting_theory_required": false, "reviewer_note": "普通操作词，非公式填空。"},
+      "mobile_input_risk": "low",
+      "machine_grading": "normalized_exact",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_03_Q025",
+      "question_type": "single_choice",
+      "stem": "哪一项最适合作为本实验的红氧角色总结？",
+      "options": [
+        {"label": "A", "text": "KMnO₄ 被还原，NaNO₂ 被氧化"},
+        {"label": "B", "text": "KMnO₄ 被氧化，NaNO₂ 被还原"},
+        {"label": "C", "text": "二者都只是旁观离子"},
+        {"label": "D", "text": "二者只发生沉淀反应"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "酸性高锰酸根被还原为低价锰，亚硝酸被氧化为硝酸根。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-1-80f91837", "candidate-2-72cbedf8"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["redox_roles", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-2-72cbedf8", "role": "correct_evidence", "diagnostic_note": "角色总结正确。"},
+        {"label": "B", "point_key": null, "role": "distractor_reversed_roles", "diagnostic_note": "角色颠倒。"},
+        {"label": "C", "point_key": null, "role": "distractor_understatement", "diagnostic_note": "反应物参与氧化还原。"},
+        {"label": "D", "point_key": null, "role": "distractor_wrong_reaction_type", "diagnostic_note": "不是沉淀反应。"}
+      ],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00242_2da7ff3435"], "supporting_theory_chunk_ids": ["textbook_prose_00549_1931138c9a"], "evidence_sufficient": true, "supporting_theory_required": true, "reviewer_note": "综合产物与现象。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_03_Q026",
+      "question_type": "single_choice",
+      "stem": "哪一项说明“褪色”不是孤立现象，而是氧化还原结果？",
+      "options": [
+        {"label": "A", "text": "MnO₄⁻ 被还原，HNO₂ 被氧化"},
+        {"label": "B", "text": "Na⁺ 被还原成金属钠"},
+        {"label": "C", "text": "硫酸根被氧化成硫单质"},
+        {"label": "D", "text": "水被分解为氢气和氧气"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "理论说明给出 MnO₄⁻ 与 HNO₂ 的氧化还原关系，能解释紫色变化。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-1-80f91837", "candidate-2-72cbedf8"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["phenomenon_reasoning", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-2-72cbedf8", "role": "correct_evidence", "diagnostic_note": "对应理论反应。"},
+        {"label": "B", "point_key": null, "role": "distractor_unreasonable_redox", "diagnostic_note": "Na⁺ 不是还原产物。"},
+        {"label": "C", "point_key": null, "role": "distractor_wrong_species", "diagnostic_note": "硫酸根不是主要对象。"},
+        {"label": "D", "point_key": null, "role": "distractor_unrelated", "diagnostic_note": "不是水分解实验。"}
+      ],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00242_2da7ff3435"], "supporting_theory_chunk_ids": ["textbook_prose_00549_1931138c9a"], "evidence_sufficient": true, "supporting_theory_required": true, "reviewer_note": "连接现象与理论。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_03_Q027",
+      "question_type": "single_choice",
+      "stem": "下列哪个说法最容易把本实验与亚硝酸的氧化性实验混淆？",
+      "options": [
+        {"label": "A", "text": "用酸性 KI 观察碘生成"},
+        {"label": "B", "text": "用酸性 KMnO₄ 观察褪色"},
+        {"label": "C", "text": "用硫酸提供酸性环境"},
+        {"label": "D", "text": "用 NaNO₂ 参与反应"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "酸性 KI 与碘生成属于相邻氧化性实验；本实验是酸性 KMnO₄ 被还原褪色。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-1-80f91837", "candidate-2-72cbedf8"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["adjacent_packet_distractor", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": null, "role": "correct_scope_exclusion", "diagnostic_note": "属于相邻实验。"},
+        {"label": "B", "point_key": "candidate-2-72cbedf8", "role": "packet_point", "diagnostic_note": "属于本实验。"},
+        {"label": "C", "point_key": "candidate-2-72cbedf8", "role": "packet_point", "diagnostic_note": "属于本实验。"},
+        {"label": "D", "point_key": "candidate-1-80f91837", "role": "packet_point", "diagnostic_note": "属于本实验。"}
+      ],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00242_2da7ff3435"], "supporting_theory_chunk_ids": [], "evidence_sufficient": true, "supporting_theory_required": false, "reviewer_note": "区分 packet 边界。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_03_Q028",
+      "question_type": "single_choice",
+      "stem": "哪一项最能说明本实验为什么要在酸性条件下讨论？",
+      "options": [
+        {"label": "A", "text": "理论证据和教材操作都把 KMnO₄ 还原放在酸性体系中"},
+        {"label": "B", "text": "酸性条件会让 KMnO₄ 变成强碱"},
+        {"label": "C", "text": "酸性条件会消除所有氧化还原反应"},
+        {"label": "D", "text": "酸性条件只用于生成氨气"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "教材操作要求硫酸酸化，理论说明也给出酸性高锰酸根反应。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-1-80f91837", "candidate-2-72cbedf8"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["acid_medium", "theory_alignment", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-2-72cbedf8", "role": "correct_evidence", "diagnostic_note": "操作和理论一致。"},
+        {"label": "B", "point_key": null, "role": "distractor_wrong_chemistry", "diagnostic_note": "酸性不会变强碱。"},
+        {"label": "C", "point_key": null, "role": "distractor_contradiction", "diagnostic_note": "本实验正是氧化还原。"},
+        {"label": "D", "point_key": null, "role": "distractor_other_subsection", "diagnostic_note": "氨气不在本实验。"}
+      ],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00242_2da7ff3435"], "supporting_theory_chunk_ids": ["textbook_prose_00548_e41b91cedc", "textbook_prose_00549_1931138c9a"], "evidence_sufficient": true, "supporting_theory_required": true, "reviewer_note": "酸性条件由实验和理论共同支撑。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_03_Q029",
+      "question_type": "single_choice",
+      "stem": "只依据 NaNO₂ 滴加到酸性 KMnO₄ 中并观察紫色褪去，哪些内容最符合该实验？",
+      "options": [
+        {"label": "A", "text": "NaNO₂、酸性 KMnO₄、紫色褪去、还原性判断"},
+        {"label": "B", "text": "KI、碘生成、微热和颜色变化"},
+        {"label": "C", "text": "HNO₂ 生成蓝色中间物并放出棕色气体"},
+        {"label": "D", "text": "萘胺显色和四氯化碳萃取"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "选项 A 覆盖本实验的两个观察步骤和理论说明，其他选项属于相邻实验。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-1-80f91837", "candidate-2-72cbedf8"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["evidence_boundary", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-1-80f91837", "role": "correct_boundary", "diagnostic_note": "边界准确。"},
+        {"label": "B", "point_key": null, "role": "distractor_previous_packet", "diagnostic_note": "属于酸性 KI 生成碘实验。"},
+        {"label": "C", "point_key": null, "role": "distractor_previous_packet", "diagnostic_note": "属于 HNO₂ 生成与分解实验。"},
+        {"label": "D", "point_key": null, "role": "distractor_same_chunk_other_subpart", "diagnostic_note": "属于检验方法。"}
+      ],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00242_2da7ff3435"], "supporting_theory_chunk_ids": ["textbook_prose_00548_e41b91cedc", "textbook_prose_00549_1931138c9a"], "evidence_sufficient": true, "supporting_theory_required": true, "reviewer_note": "最终边界题。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_03_Q030",
+      "question_type": "single_choice",
+      "stem": "本实验最简洁的化学结论是哪一项？",
+      "options": [
+        {"label": "A", "text": "亚硝酸盐在酸性 KMnO₄ 体系中表现还原性"},
+        {"label": "B", "text": "亚硝酸盐只能表现氧化性"},
+        {"label": "C", "text": "KMnO₄ 在本实验中表现还原性"},
+        {"label": "D", "text": "NaNO₂ 与 KMnO₄ 只发生沉淀反应"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "这一结论同时符合实验现象、酸性条件和理论说明中 HNO₂ 被高锰酸根氧化的反应。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-1-80f91837", "candidate-2-72cbedf8"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["learning_goal", "conclusion", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-2-72cbedf8", "role": "correct_evidence", "diagnostic_note": "完整结论。"},
+        {"label": "B", "point_key": null, "role": "distractor_overgeneralization", "diagnostic_note": "亚硝酸盐可有两性，此处考还原性。"},
+        {"label": "C", "point_key": null, "role": "distractor_opposite_role", "diagnostic_note": "KMnO₄ 是氧化剂。"},
+        {"label": "D", "point_key": null, "role": "distractor_wrong_reaction_type", "diagnostic_note": "不是沉淀反应。"}
+      ],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00242_2da7ff3435"], "supporting_theory_chunk_ids": ["textbook_prose_00548_e41b91cedc", "textbook_prose_00549_1931138c9a"], "evidence_sufficient": true, "supporting_theory_required": true, "reviewer_note": "综合结论。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    }
+  ]
+}

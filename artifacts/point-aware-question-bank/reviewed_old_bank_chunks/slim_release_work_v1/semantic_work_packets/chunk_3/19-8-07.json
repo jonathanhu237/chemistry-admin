@@ -1,0 +1,3937 @@
+{
+  "metadata": {
+    "version": "chunk-3-release-slim-v1",
+    "artifact_type": "slim_question_bank_work_file",
+    "generated_at": "2026-06-15T03:27:58.895975+00:00",
+    "source_file": "E:\\chemistry-admin\\artifacts\\point-aware-question-bank\\reviewed_old_bank_chunks\\chunk_3_release_final_v1.json",
+    "normalization_rule": "effective question plus minimal lineage, evidence IDs, point bindings, option links, evidence locators, and mechanical risk flags",
+    "evidence_policy": "RAG source text is not embedded; packets carry locators and reviewers must read E:/chemistry-rag/data/rag_ready directly",
+    "chunk_id_policy": "inherited chunk ids are untrusted locator candidates until manually compared with RAG text",
+    "semantic_status": "not_semantically_repaired_by_this_script",
+    "packet_type": "single_experiment_semantic_repair_work_packet",
+    "chunk": 3,
+    "experiment_code": "19-8-07",
+    "question_count": 30
+  },
+  "experiment": {
+    "experiment_id": "EXP_19_8_07",
+    "experiment_code": "19-8-07",
+    "experiment_title": "Pb(IV) 的氧化性",
+    "chapter_bindings": [
+      {
+        "chapter_id": "CH16",
+        "coverage_type": "partial",
+        "sort_order": 1
+      },
+      {
+        "chapter_id": "CH15",
+        "coverage_type": "partial",
+        "sort_order": 2
+      }
+    ],
+    "video_points": [
+      {
+        "point_key": "candidate-1-c469b1aa",
+        "point_title": "PbO₂ + 浓 HCl",
+        "source": null,
+        "candidate_index": null,
+        "resource_count": null,
+        "published_count": null,
+        "resource_titles": []
+      },
+      {
+        "point_key": "candidate-2-e9c3de06",
+        "point_title": "PbO₂ + H₂SO₄ + MnSO₄，水浴加热",
+        "source": null,
+        "candidate_index": null,
+        "resource_count": null,
+        "published_count": null,
+        "resource_titles": []
+      },
+      {
+        "point_key": "candidate-3-b2358047",
+        "point_title": "比较 Pb(IV) 与 Cl₂、Pb(IV) 与 MnO₄⁻ 的氧化性",
+        "source": null,
+        "candidate_index": null,
+        "resource_count": null,
+        "published_count": null,
+        "resource_titles": []
+      }
+    ],
+    "canonical_chunk_ids": [
+      "expchunk_00297_c03527ab79"
+    ],
+    "evidence_lookup": {
+      "policy": "locator_only; canonical RAG text is not embedded in this packet",
+      "chunk_id_policy": "metadata chunk ids are inherited claims, not trusted evidence; reviewers must compare the RAG text against the question stem/options/answer/explanation and replace or remove wrong ids",
+      "primary_source_dir": "E:\\chemistry-rag\\data\\rag_ready",
+      "source_files": {
+        "experiment_chunks": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+        "supporting_theory_chunks": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl"
+      },
+      "search_hints": {
+        "experiment_code": "19-8-07",
+        "parent_experiment_code": "19-8",
+        "experiment_title": "Pb(IV) 的氧化性",
+        "video_point_titles": [
+          "PbO₂ + 浓 HCl",
+          "PbO₂ + H₂SO₄ + MnSO₄，水浴加热",
+          "比较 Pb(IV) 与 Cl₂、Pb(IV) 与 MnO₄⁻ 的氧化性"
+        ],
+        "canonical_chunk_ids_from_metadata": [
+          "expchunk_00297_c03527ab79"
+        ],
+        "supporting_theory_chunk_ids_from_metadata": [
+          "textbook_prose_00757_85fc20341a",
+          "textbook_prose_00758_5f5fd037a3",
+          "textbook_prose_00784_dec216b401",
+          "textbook_prose_01241_99049758ad"
+        ],
+        "suggested_search_patterns": [
+          "19-8-07",
+          "19-8",
+          "Pb(IV) 的氧化性",
+          "PbO₂ + 浓 HCl",
+          "PbO₂ + H₂SO₄ + MnSO₄，水浴加热",
+          "比较 Pb(IV) 与 Cl₂、Pb(IV) 与 MnO₄⁻ 的氧化性",
+          "expchunk_00297_c03527ab79",
+          "textbook_prose_00757_85fc20341a",
+          "textbook_prose_00758_5f5fd037a3",
+          "textbook_prose_00784_dec216b401",
+          "textbook_prose_01241_99049758ad"
+        ]
+      },
+      "rag_exact_id_presence": {
+        "meaning": "id presence only; this does not validate semantic relevance",
+        "found_ids": [
+          "expchunk_00297_c03527ab79",
+          "textbook_prose_00757_85fc20341a",
+          "textbook_prose_00758_5f5fd037a3",
+          "textbook_prose_00784_dec216b401",
+          "textbook_prose_01241_99049758ad"
+        ],
+        "missing_ids": [],
+        "found_locator_summaries": [
+          {
+            "chunk_id": "expchunk_00297_c03527ab79",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+            "line_number": 310,
+            "source_collection": "textbook_experiment_clean_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学实验（第四版）",
+            "page_start": 160,
+            "page_end": 160,
+            "section_path": [
+              "第7章 元素性质实验",
+              "实验 19-8 锡、铅、砷、锑、铋",
+              "（四）实验内容",
+              "2. 氧化还原性"
+            ],
+            "content_type": "property_test",
+            "knowledge_unit": "property_test",
+            "parent_id": "expchunk_protocol_ccb6245e7635",
+            "prev_chunk_id": "expchunk_00296_a4c00bb9d1",
+            "next_chunk_id": "expchunk_00298_68f5de393c",
+            "relations": {
+              "section_id": "expsec_ef94d63812ecada0",
+              "experiment_id": "experiment:实验_19-8_锡_铅_砷_锑_铋",
+              "page_anchor": "page_160",
+              "parent": "expchunk_protocol_ccb6245e7635"
+            }
+          },
+          {
+            "chunk_id": "textbook_prose_00757_85fc20341a",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+            "line_number": 1214,
+            "source_collection": "textbook_inorganic_lower_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学（下册）（第二版）",
+            "page_start": 126,
+            "page_end": 126,
+            "section_path": [
+              "第 16 章 碳族元素",
+              "16.5 锗、锡、铅的化合物",
+              "16.5.1 氧化物"
+            ],
+            "content_type": "reaction",
+            "knowledge_unit": "reaction",
+            "parent_id": "section:b6aa3b41db66",
+            "prev_chunk_id": "textbook_prose_00756_b42e11e0c6",
+            "next_chunk_id": "textbook_prose_00758_5f5fd037a3",
+            "relations": {
+              "parent": "section:b6aa3b41db66",
+              "source_route": "clean_pages",
+              "prev": "textbook_prose_00756_b42e11e0c6",
+              "next": "textbook_prose_00758_5f5fd037a3"
+            }
+          },
+          {
+            "chunk_id": "textbook_prose_00758_5f5fd037a3",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+            "line_number": 1215,
+            "source_collection": "textbook_inorganic_lower_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学（下册）（第二版）",
+            "page_start": 126,
+            "page_end": 126,
+            "section_path": [
+              "第 16 章 碳族元素",
+              "16.5 锗、锡、铅的化合物",
+              "16.5.1 氧化物"
+            ],
+            "content_type": "reaction",
+            "knowledge_unit": "reaction",
+            "parent_id": "section:b6aa3b41db66",
+            "prev_chunk_id": "textbook_prose_00757_85fc20341a",
+            "next_chunk_id": null,
+            "relations": {
+              "parent": "section:b6aa3b41db66",
+              "source_route": "clean_pages",
+              "prev": "textbook_prose_00757_85fc20341a",
+              "next": null
+            }
+          },
+          {
+            "chunk_id": "textbook_prose_00784_dec216b401",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+            "line_number": 1244,
+            "source_collection": "textbook_inorganic_lower_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学（下册）（第二版）",
+            "page_start": 128,
+            "page_end": 128,
+            "section_path": [
+              "第 16 章 碳族元素",
+              "16.5 锗、锡、铅的化合物",
+              "16.5.3 卤化物",
+              "3. $\\mathrm{PbCl}_{2}$ 和 $\\mathrm{PbCl}_{4}$"
+            ],
+            "content_type": "reaction",
+            "knowledge_unit": "reaction",
+            "parent_id": "section:c7bc4feb891a",
+            "prev_chunk_id": "textbook_prose_00783_ea2d22c869",
+            "next_chunk_id": "textbook_prose_00785_1607b6b66c",
+            "relations": {
+              "parent": "section:c7bc4feb891a",
+              "source_route": "clean_pages",
+              "prev": "textbook_prose_00783_ea2d22c869",
+              "next": "textbook_prose_00785_1607b6b66c"
+            }
+          },
+          {
+            "chunk_id": "textbook_prose_01241_99049758ad",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+            "line_number": 1898,
+            "source_collection": "textbook_inorganic_lower_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学（下册）（第二版）",
+            "page_start": 216,
+            "page_end": 216,
+            "section_path": [
+              "第 20 章 d 区过渡金属元素",
+              "20.2 第一过渡系列金属元素及其常见化合物",
+              "20.2.5 锰",
+              "1)锰(Ⅱ)的化合物"
+            ],
+            "content_type": "reaction",
+            "knowledge_unit": "reaction",
+            "parent_id": "section:6b19cabaad6b",
+            "prev_chunk_id": "textbook_prose_01240_f358ee9f2c",
+            "next_chunk_id": null,
+            "relations": {
+              "parent": "section:6b19cabaad6b",
+              "source_route": "clean_pages",
+              "prev": "textbook_prose_01240_f358ee9f2c",
+              "next": null
+            }
+          }
+        ]
+      },
+      "legacy_locator_summaries": [
+        {
+          "chunk_id": "expchunk_00297_c03527ab79",
+          "source_file": "无机化学实验（第四版）",
+          "book_title": "无机化学实验（第四版）",
+          "document_id": "DOC_CANONICAL_EXPERIMENT_V1",
+          "source_collection": "textbook_experiment_clean_v1",
+          "source_role": "canonical_textbook",
+          "content_type": "property_test",
+          "chapter_id": null,
+          "page_number": 160,
+          "section_title": "实验 19-8 锡、铅、砷、锑、铋 / （四）实验内容 / 2. 氧化还原性",
+          "section_path": [
+            "第7章 元素性质实验",
+            "实验 19-8 锡、铅、砷、锑、铋",
+            "（四）实验内容",
+            "2. 氧化还原性"
+          ]
+        }
+      ],
+      "legacy_missing_ids": [
+        "textbook_prose_00757_85fc20341a",
+        "textbook_prose_00758_5f5fd037a3",
+        "textbook_prose_00784_dec216b401",
+        "textbook_prose_01241_99049758ad"
+      ]
+    },
+    "questions": [
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_07_Q001",
+        "source_review_id": null,
+        "source_question_index": 1,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-8-07 Pb(IV) 的氧化性》实验中，本实验考察 Pb(IV) 氧化性时使用的固体试剂是哪一种？",
+        "options": [
+          {
+            "label": "A",
+            "text": "PbCl₂"
+          },
+          {
+            "label": "B",
+            "text": "PbSO₄"
+          },
+          {
+            "label": "C",
+            "text": "PbO₂"
+          },
+          {
+            "label": "D",
+            "text": "Pb(NO₃)₂"
+          }
+        ],
+        "answer": {
+          "value": "C"
+        },
+        "explanation": "“PbO₂”与实验操作、观察目标或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-c469b1aa",
+          "candidate-3-b2358047"
+        ],
+        "secondary_point_keys": [
+          "candidate-3-b2358047"
+        ],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_07",
+          "single_choice",
+          "point_1",
+          "point_3",
+          "polished_final_v1"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "PbCl₂",
+            "point_key": "candidate-1-c469b1aa",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“PbCl₂”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "B",
+            "text": "PbSO₄",
+            "point_key": "candidate-1-c469b1aa",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“PbSO₄”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "C",
+            "text": "PbO₂",
+            "point_key": "candidate-1-c469b1aa",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接对应本题考查的实验操作、现象或结论。"
+          },
+          {
+            "label": "D",
+            "text": "Pb(NO₃)₂",
+            "point_key": "candidate-1-c469b1aa",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“Pb(NO₃)₂”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00757_85fc20341a"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00757_85fc20341a（PbO₂/Pb₃O₄ 的强氧化性和颜色）。 绑定点位：PbO₂ + 浓 HCl；比较 Pb(IV) 与 Cl₂、Pb(IV) 与 MnO₄⁻ 的氧化性。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00757_85fc20341a"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00757_85fc20341a"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "template_option_link_diagnostic",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-8-07 Pb(IV) 的氧化性》实验中，本实验考察 Pb(IV) 氧化性时使用的固体试剂是哪一种？",
+            "options": [
+              {
+                "label": "A",
+                "text": "PbCl₂"
+              },
+              {
+                "label": "B",
+                "text": "PbSO₄"
+              },
+              {
+                "label": "C",
+                "text": "PbO₂"
+              },
+              {
+                "label": "D",
+                "text": "Pb(NO₃)₂"
+              }
+            ],
+            "answer": {
+              "value": "C"
+            },
+            "explanation": "“PbO₂”与实验操作、观察目标或结论一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00297_c03527ab79"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_07_Q002",
+        "source_review_id": null,
+        "source_question_index": 2,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-8-07 Pb(IV) 的氧化性》实验中，PbO₂ 与浓 HCl 反应时，主要用于比较 Pb(IV) 与哪种氧化剂的强弱？",
+        "options": [
+          {
+            "label": "A",
+            "text": "I₂"
+          },
+          {
+            "label": "B",
+            "text": "H₂O₂"
+          },
+          {
+            "label": "C",
+            "text": "Cu₂O"
+          },
+          {
+            "label": "D",
+            "text": "Cl₂"
+          }
+        ],
+        "answer": {
+          "value": "D"
+        },
+        "explanation": "“Cl₂”与实验操作、观察目标或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-c469b1aa",
+          "candidate-3-b2358047"
+        ],
+        "secondary_point_keys": [
+          "candidate-3-b2358047"
+        ],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_07",
+          "single_choice",
+          "point_1",
+          "point_3",
+          "polished_final_v1"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "I₂",
+            "point_key": "candidate-1-c469b1aa",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“I₂”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "B",
+            "text": "H₂O₂",
+            "point_key": "candidate-1-c469b1aa",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“H₂O₂”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "C",
+            "text": "Cu₂O",
+            "point_key": "candidate-1-c469b1aa",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“Cu₂O”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "D",
+            "text": "Cl₂",
+            "point_key": "candidate-1-c469b1aa",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接对应本题考查的实验操作、现象或结论。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00758_5f5fd037a3",
+            "textbook_prose_00784_dec216b401",
+            "textbook_prose_00757_85fc20341a"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00758_5f5fd037a3（PbO₂ 氧化 Cl⁻ 和 Mn²⁺）；textbook_prose_00784_dec216b401（PbO₂ 与 HCl 生成 Cl₂）；textbook_prose_00757_85fc20341a（PbO₂/Pb₃O₄ 的强氧化性和颜色）。 绑定点位：PbO₂ + 浓 HCl；比较 Pb(IV) 与 Cl₂、Pb(IV) 与 MnO₄⁻ 的氧化性。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00758_5f5fd037a3",
+            "textbook_prose_00784_dec216b401",
+            "textbook_prose_00757_85fc20341a"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00758_5f5fd037a3",
+            "textbook_prose_00784_dec216b401",
+            "textbook_prose_00757_85fc20341a"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "template_option_link_diagnostic",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-8-07 Pb(IV) 的氧化性》实验中，PbO₂ 与浓 HCl 反应时，主要用于比较 Pb(IV) 与哪种氧化剂的强弱？",
+            "options": [
+              {
+                "label": "A",
+                "text": "I₂"
+              },
+              {
+                "label": "B",
+                "text": "H₂O₂"
+              },
+              {
+                "label": "C",
+                "text": "Cu₂O"
+              },
+              {
+                "label": "D",
+                "text": "Cl₂"
+              }
+            ],
+            "answer": {
+              "value": "D"
+            },
+            "explanation": "“Cl₂”与实验操作、观察目标或结论一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00297_c03527ab79"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_07_Q003",
+        "source_review_id": null,
+        "source_question_index": 3,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-8-07 Pb(IV) 的氧化性》实验中，PbO₂、H₂SO₄ 和 MnSO₄ 水浴加热，主要用于观察哪种离子被氧化？",
+        "options": [
+          {
+            "label": "A",
+            "text": "Mn²⁺"
+          },
+          {
+            "label": "B",
+            "text": "SO₄²⁻"
+          },
+          {
+            "label": "C",
+            "text": "Pb²⁺"
+          },
+          {
+            "label": "D",
+            "text": "H⁺"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "“Mn²⁺”与实验操作、观察目标或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-e9c3de06",
+          "candidate-3-b2358047"
+        ],
+        "secondary_point_keys": [
+          "candidate-3-b2358047"
+        ],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_07",
+          "single_choice",
+          "point_2",
+          "point_3",
+          "polished_final_v1"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "Mn²⁺",
+            "point_key": "candidate-2-e9c3de06",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接对应本题考查的实验操作、现象或结论。"
+          },
+          {
+            "label": "B",
+            "text": "SO₄²⁻",
+            "point_key": "candidate-2-e9c3de06",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“SO₄²⁻”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "C",
+            "text": "Pb²⁺",
+            "point_key": "candidate-2-e9c3de06",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“Pb²⁺”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "D",
+            "text": "H⁺",
+            "point_key": "candidate-2-e9c3de06",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“H⁺”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00758_5f5fd037a3",
+            "textbook_prose_01241_99049758ad",
+            "textbook_prose_00757_85fc20341a"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00758_5f5fd037a3（PbO₂ 氧化 Cl⁻ 和 Mn²⁺）；textbook_prose_01241_99049758ad（Mn²⁺ 被强氧化剂氧化成紫色 MnO₄⁻）；textbook_prose_00757_85fc20341a（PbO₂/Pb₃O₄ 的强氧化性和颜色）。 绑定点位：PbO₂ + H₂SO₄ + MnSO₄，水浴加热；比较 Pb(IV) 与 Cl₂、Pb(IV) 与 MnO₄⁻ 的氧化性。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00758_5f5fd037a3",
+            "textbook_prose_01241_99049758ad",
+            "textbook_prose_00757_85fc20341a"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00758_5f5fd037a3",
+            "textbook_prose_01241_99049758ad",
+            "textbook_prose_00757_85fc20341a"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "template_option_link_diagnostic",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-8-07 Pb(IV) 的氧化性》实验中，PbO₂、H₂SO₄ 和 MnSO₄ 水浴加热，主要用于观察哪种离子被氧化？",
+            "options": [
+              {
+                "label": "A",
+                "text": "Mn²⁺"
+              },
+              {
+                "label": "B",
+                "text": "SO₄²⁻"
+              },
+              {
+                "label": "C",
+                "text": "Pb²⁺"
+              },
+              {
+                "label": "D",
+                "text": "H⁺"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "“Mn²⁺”与实验操作、观察目标或结论一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00297_c03527ab79"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_07_Q004",
+        "source_review_id": null,
+        "source_question_index": 4,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-8-07 Pb(IV) 的氧化性》实验中，酸性条件下 Mn²⁺ 被 PbO₂ 氧化后，可能出现的紫色物种是哪一种？",
+        "options": [
+          {
+            "label": "A",
+            "text": "MnO₂"
+          },
+          {
+            "label": "B",
+            "text": "MnO₄⁻"
+          },
+          {
+            "label": "C",
+            "text": "MnO₄²⁻"
+          },
+          {
+            "label": "D",
+            "text": "Mn(OH)₂"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "“MnO₄⁻”与实验操作、观察目标或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-e9c3de06",
+          "candidate-3-b2358047"
+        ],
+        "secondary_point_keys": [
+          "candidate-3-b2358047"
+        ],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_07",
+          "single_choice",
+          "point_2",
+          "point_3",
+          "polished_final_v1"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "MnO₂",
+            "point_key": "candidate-2-e9c3de06",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“MnO₂”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "B",
+            "text": "MnO₄⁻",
+            "point_key": "candidate-2-e9c3de06",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接对应本题考查的实验操作、现象或结论。"
+          },
+          {
+            "label": "C",
+            "text": "MnO₄²⁻",
+            "point_key": "candidate-2-e9c3de06",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“MnO₄²⁻”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "D",
+            "text": "Mn(OH)₂",
+            "point_key": "candidate-2-e9c3de06",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“Mn(OH)₂”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00758_5f5fd037a3",
+            "textbook_prose_01241_99049758ad",
+            "textbook_prose_00757_85fc20341a"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00758_5f5fd037a3（PbO₂ 氧化 Cl⁻ 和 Mn²⁺）；textbook_prose_01241_99049758ad（Mn²⁺ 被强氧化剂氧化成紫色 MnO₄⁻）；textbook_prose_00757_85fc20341a（PbO₂/Pb₃O₄ 的强氧化性和颜色）。 绑定点位：PbO₂ + H₂SO₄ + MnSO₄，水浴加热；比较 Pb(IV) 与 Cl₂、Pb(IV) 与 MnO₄⁻ 的氧化性。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00758_5f5fd037a3",
+            "textbook_prose_01241_99049758ad",
+            "textbook_prose_00757_85fc20341a"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00758_5f5fd037a3",
+            "textbook_prose_01241_99049758ad",
+            "textbook_prose_00757_85fc20341a"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "template_option_link_diagnostic",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-8-07 Pb(IV) 的氧化性》实验中，酸性条件下 Mn²⁺ 被 PbO₂ 氧化后，可能出现的紫色物种是哪一种？",
+            "options": [
+              {
+                "label": "A",
+                "text": "MnO₂"
+              },
+              {
+                "label": "B",
+                "text": "MnO₄⁻"
+              },
+              {
+                "label": "C",
+                "text": "MnO₄²⁻"
+              },
+              {
+                "label": "D",
+                "text": "Mn(OH)₂"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "“MnO₄⁻”与实验操作、观察目标或结论一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00297_c03527ab79"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_07_Q005",
+        "source_review_id": null,
+        "source_question_index": 5,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-8-07 Pb(IV) 的氧化性》实验中，PbO₂ 与浓盐酸反应中，HCl 的主要还原性成分是哪一种？",
+        "options": [
+          {
+            "label": "A",
+            "text": "H⁺"
+          },
+          {
+            "label": "B",
+            "text": "Pb⁴⁺"
+          },
+          {
+            "label": "C",
+            "text": "Cl⁻"
+          },
+          {
+            "label": "D",
+            "text": "O²⁻"
+          }
+        ],
+        "answer": {
+          "value": "C"
+        },
+        "explanation": "“Cl⁻”与实验操作、观察目标或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-c469b1aa",
+          "candidate-3-b2358047"
+        ],
+        "secondary_point_keys": [
+          "candidate-3-b2358047"
+        ],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_07",
+          "single_choice",
+          "point_1",
+          "point_3",
+          "polished_final_v1"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "H⁺",
+            "point_key": "candidate-1-c469b1aa",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“H⁺”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "B",
+            "text": "Pb⁴⁺",
+            "point_key": "candidate-1-c469b1aa",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“Pb⁴⁺”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "C",
+            "text": "Cl⁻",
+            "point_key": "candidate-1-c469b1aa",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接对应本题考查的实验操作、现象或结论。"
+          },
+          {
+            "label": "D",
+            "text": "O²⁻",
+            "point_key": "candidate-1-c469b1aa",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“O²⁻”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00758_5f5fd037a3",
+            "textbook_prose_00784_dec216b401",
+            "textbook_prose_00757_85fc20341a"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00758_5f5fd037a3（PbO₂ 氧化 Cl⁻ 和 Mn²⁺）；textbook_prose_00784_dec216b401（PbO₂ 与 HCl 生成 Cl₂）；textbook_prose_00757_85fc20341a（PbO₂/Pb₃O₄ 的强氧化性和颜色）。 绑定点位：PbO₂ + 浓 HCl；比较 Pb(IV) 与 Cl₂、Pb(IV) 与 MnO₄⁻ 的氧化性。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00758_5f5fd037a3",
+            "textbook_prose_00784_dec216b401",
+            "textbook_prose_00757_85fc20341a"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00758_5f5fd037a3",
+            "textbook_prose_00784_dec216b401",
+            "textbook_prose_00757_85fc20341a"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "template_option_link_diagnostic",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-8-07 Pb(IV) 的氧化性》实验中，PbO₂ 与浓盐酸反应中，HCl 的主要还原性成分是哪一种？",
+            "options": [
+              {
+                "label": "A",
+                "text": "H⁺"
+              },
+              {
+                "label": "B",
+                "text": "Pb⁴⁺"
+              },
+              {
+                "label": "C",
+                "text": "Cl⁻"
+              },
+              {
+                "label": "D",
+                "text": "O²⁻"
+              }
+            ],
+            "answer": {
+              "value": "C"
+            },
+            "explanation": "“Cl⁻”与实验操作、观察目标或结论一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00297_c03527ab79"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_07_Q006",
+        "source_review_id": null,
+        "source_question_index": 6,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-8-07 Pb(IV) 的氧化性》实验中，第二个试管实验中加入 H₂SO₄ 的主要作用是什么？",
+        "options": [
+          {
+            "label": "A",
+            "text": "提供配体乙二胺"
+          },
+          {
+            "label": "B",
+            "text": "生成淀粉蓝色"
+          },
+          {
+            "label": "C",
+            "text": "还原 PbO₂ 为金属铅"
+          },
+          {
+            "label": "D",
+            "text": "提供酸性介质"
+          }
+        ],
+        "answer": {
+          "value": "D"
+        },
+        "explanation": "“提供酸性介质”与实验操作、观察目标或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-e9c3de06"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_07",
+          "single_choice",
+          "point_2",
+          "polished_final_v1"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "提供配体乙二胺",
+            "point_key": "candidate-2-e9c3de06",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“提供配体乙二胺”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "B",
+            "text": "生成淀粉蓝色",
+            "point_key": "candidate-2-e9c3de06",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“生成淀粉蓝色”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "C",
+            "text": "还原 PbO₂ 为金属铅",
+            "point_key": "candidate-2-e9c3de06",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“还原 PbO₂ 为金属铅”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "D",
+            "text": "提供酸性介质",
+            "point_key": "candidate-2-e9c3de06",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接对应本题考查的实验操作、现象或结论。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00757_85fc20341a"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00757_85fc20341a（PbO₂/Pb₃O₄ 的强氧化性和颜色）。 绑定点位：PbO₂ + H₂SO₄ + MnSO₄，水浴加热。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00757_85fc20341a"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00757_85fc20341a"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "template_option_link_diagnostic",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-8-07 Pb(IV) 的氧化性》实验中，第二个试管实验中加入 H₂SO₄ 的主要作用是什么？",
+            "options": [
+              {
+                "label": "A",
+                "text": "提供配体乙二胺"
+              },
+              {
+                "label": "B",
+                "text": "生成淀粉蓝色"
+              },
+              {
+                "label": "C",
+                "text": "还原 PbO₂ 为金属铅"
+              },
+              {
+                "label": "D",
+                "text": "提供酸性介质"
+              }
+            ],
+            "answer": {
+              "value": "D"
+            },
+            "explanation": "“提供酸性介质”与实验操作、观察目标或结论一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00297_c03527ab79"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_07_Q007",
+        "source_review_id": null,
+        "source_question_index": 7,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-8-07 Pb(IV) 的氧化性》实验中，下列哪项属于本实验的正确操作组合？",
+        "options": [
+          {
+            "label": "A",
+            "text": "PbO₂ + H₂SO₄ + MnSO₄，水浴加热"
+          },
+          {
+            "label": "B",
+            "text": "Na₂O₂ + 水，冰浴酸化"
+          },
+          {
+            "label": "C",
+            "text": "FeCl₃ + KSCN，再加草酸盐"
+          },
+          {
+            "label": "D",
+            "text": "NaClO + 品红"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "“PbO₂ + H₂SO₄ + MnSO₄，水浴加热”与实验操作、观察目标或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-e9c3de06"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_07",
+          "single_choice",
+          "point_2",
+          "polished_final_v1"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "PbO₂ + H₂SO₄ + MnSO₄，水浴加热",
+            "point_key": "candidate-2-e9c3de06",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接对应本题考查的实验操作、现象或结论。"
+          },
+          {
+            "label": "B",
+            "text": "Na₂O₂ + 水，冰浴酸化",
+            "point_key": "candidate-2-e9c3de06",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“Na₂O₂ + 水，冰浴酸化”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "C",
+            "text": "FeCl₃ + KSCN，再加草酸盐",
+            "point_key": "candidate-2-e9c3de06",
+            "role": "adjacent_experiment",
+            "diagnostic_note": "“FeCl₃ + KSCN，再加草酸盐”借用了Fe³⁺/KSCN 血红色检验的线索，和本题绑定点位不一致。"
+          },
+          {
+            "label": "D",
+            "text": "NaClO + 品红",
+            "point_key": "candidate-2-e9c3de06",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“NaClO + 品红”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00758_5f5fd037a3",
+            "textbook_prose_01241_99049758ad",
+            "textbook_prose_00757_85fc20341a"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00758_5f5fd037a3（PbO₂ 氧化 Cl⁻ 和 Mn²⁺）；textbook_prose_01241_99049758ad（Mn²⁺ 被强氧化剂氧化成紫色 MnO₄⁻）；textbook_prose_00757_85fc20341a（PbO₂/Pb₃O₄ 的强氧化性和颜色）。 绑定点位：PbO₂ + H₂SO₄ + MnSO₄，水浴加热。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00758_5f5fd037a3",
+            "textbook_prose_01241_99049758ad",
+            "textbook_prose_00757_85fc20341a"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00758_5f5fd037a3",
+            "textbook_prose_01241_99049758ad",
+            "textbook_prose_00757_85fc20341a"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "template_option_link_diagnostic",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-8-07 Pb(IV) 的氧化性》实验中，下列哪项属于本实验的正确操作组合？",
+            "options": [
+              {
+                "label": "A",
+                "text": "PbO₂ + H₂SO₄ + MnSO₄，水浴加热"
+              },
+              {
+                "label": "B",
+                "text": "Na₂O₂ + 水，冰浴酸化"
+              },
+              {
+                "label": "C",
+                "text": "FeCl₃ + KSCN，再加草酸盐"
+              },
+              {
+                "label": "D",
+                "text": "NaClO + 品红"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "“PbO₂ + H₂SO₄ + MnSO₄，水浴加热”与实验操作、观察目标或结论一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00297_c03527ab79"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_07_Q008",
+        "source_review_id": null,
+        "source_question_index": 8,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-8-07 Pb(IV) 的氧化性》实验中，PbO₂ 在这些反应中的角色最接近哪一项？",
+        "options": [
+          {
+            "label": "A",
+            "text": "酸碱指示剂"
+          },
+          {
+            "label": "B",
+            "text": "氧化剂"
+          },
+          {
+            "label": "C",
+            "text": "配体"
+          },
+          {
+            "label": "D",
+            "text": "萃取剂"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "“氧化剂”与实验操作、观察目标或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-b2358047"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_07",
+          "single_choice",
+          "point_3",
+          "polished_final_v1"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "酸碱指示剂",
+            "point_key": "candidate-3-b2358047",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“酸碱指示剂”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "B",
+            "text": "氧化剂",
+            "point_key": "candidate-3-b2358047",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接对应本题考查的实验操作、现象或结论。"
+          },
+          {
+            "label": "C",
+            "text": "配体",
+            "point_key": "candidate-3-b2358047",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“配体”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "D",
+            "text": "萃取剂",
+            "point_key": "candidate-3-b2358047",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“萃取剂”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00757_85fc20341a"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00757_85fc20341a（PbO₂/Pb₃O₄ 的强氧化性和颜色）。 绑定点位：比较 Pb(IV) 与 Cl₂、Pb(IV) 与 MnO₄⁻ 的氧化性。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00757_85fc20341a"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00757_85fc20341a"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "template_option_link_diagnostic",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-8-07 Pb(IV) 的氧化性》实验中，PbO₂ 在这些反应中的角色最接近哪一项？",
+            "options": [
+              {
+                "label": "A",
+                "text": "酸碱指示剂"
+              },
+              {
+                "label": "B",
+                "text": "氧化剂"
+              },
+              {
+                "label": "C",
+                "text": "配体"
+              },
+              {
+                "label": "D",
+                "text": "萃取剂"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "“氧化剂”与实验操作、观察目标或结论一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00297_c03527ab79"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_07_Q009",
+        "source_review_id": null,
+        "source_question_index": 9,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-8-07 Pb(IV) 的氧化性》实验中，若观察到氯气生成，说明 Pb(IV) 能把哪种离子氧化？",
+        "options": [
+          {
+            "label": "A",
+            "text": "NO₃⁻"
+          },
+          {
+            "label": "B",
+            "text": "SO₄²⁻"
+          },
+          {
+            "label": "C",
+            "text": "Cl⁻"
+          },
+          {
+            "label": "D",
+            "text": "Na⁺"
+          }
+        ],
+        "answer": {
+          "value": "C"
+        },
+        "explanation": "“Cl⁻”与实验操作、观察目标或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-c469b1aa",
+          "candidate-3-b2358047"
+        ],
+        "secondary_point_keys": [
+          "candidate-3-b2358047"
+        ],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_07",
+          "single_choice",
+          "point_1",
+          "point_3",
+          "polished_final_v1"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "NO₃⁻",
+            "point_key": "candidate-1-c469b1aa",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“NO₃⁻”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "B",
+            "text": "SO₄²⁻",
+            "point_key": "candidate-1-c469b1aa",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“SO₄²⁻”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "C",
+            "text": "Cl⁻",
+            "point_key": "candidate-1-c469b1aa",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接对应本题考查的实验操作、现象或结论。"
+          },
+          {
+            "label": "D",
+            "text": "Na⁺",
+            "point_key": "candidate-1-c469b1aa",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“Na⁺”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00758_5f5fd037a3",
+            "textbook_prose_00784_dec216b401",
+            "textbook_prose_00757_85fc20341a"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00758_5f5fd037a3（PbO₂ 氧化 Cl⁻ 和 Mn²⁺）；textbook_prose_00784_dec216b401（PbO₂ 与 HCl 生成 Cl₂）；textbook_prose_00757_85fc20341a（PbO₂/Pb₃O₄ 的强氧化性和颜色）。 绑定点位：PbO₂ + 浓 HCl；比较 Pb(IV) 与 Cl₂、Pb(IV) 与 MnO₄⁻ 的氧化性。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00758_5f5fd037a3",
+            "textbook_prose_00784_dec216b401",
+            "textbook_prose_00757_85fc20341a"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00758_5f5fd037a3",
+            "textbook_prose_00784_dec216b401",
+            "textbook_prose_00757_85fc20341a"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "template_option_link_diagnostic",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-8-07 Pb(IV) 的氧化性》实验中，若观察到氯气生成，说明 Pb(IV) 能把哪种离子氧化？",
+            "options": [
+              {
+                "label": "A",
+                "text": "NO₃⁻"
+              },
+              {
+                "label": "B",
+                "text": "SO₄²⁻"
+              },
+              {
+                "label": "C",
+                "text": "Cl⁻"
+              },
+              {
+                "label": "D",
+                "text": "Na⁺"
+              }
+            ],
+            "answer": {
+              "value": "C"
+            },
+            "explanation": "“Cl⁻”与实验操作、观察目标或结论一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00297_c03527ab79"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_07_Q010",
+        "source_review_id": null,
+        "source_question_index": 10,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-8-07 Pb(IV) 的氧化性》实验中，本实验最主要的结论方向是哪一项？",
+        "options": [
+          {
+            "label": "A",
+            "text": "比较卤素置换次序"
+          },
+          {
+            "label": "B",
+            "text": "观察水合阳离子颜色"
+          },
+          {
+            "label": "C",
+            "text": "制备银镜"
+          },
+          {
+            "label": "D",
+            "text": "比较 Pb(IV) 与 Cl₂、MnO₄⁻ 的氧化性"
+          }
+        ],
+        "answer": {
+          "value": "D"
+        },
+        "explanation": "“比较 Pb(IV) 与 Cl₂、MnO₄⁻ 的氧化性”与实验操作、观察目标或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-c469b1aa",
+          "candidate-2-e9c3de06",
+          "candidate-3-b2358047"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-e9c3de06",
+          "candidate-3-b2358047"
+        ],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_07",
+          "single_choice",
+          "point_1",
+          "point_2",
+          "point_3",
+          "polished_final_v1"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "比较卤素置换次序",
+            "point_key": "candidate-1-c469b1aa",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“比较卤素置换次序”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "B",
+            "text": "观察水合阳离子颜色",
+            "point_key": "candidate-1-c469b1aa",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“观察水合阳离子颜色”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "C",
+            "text": "制备银镜",
+            "point_key": "candidate-1-c469b1aa",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“制备银镜”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "D",
+            "text": "比较 Pb(IV) 与 Cl₂、MnO₄⁻ 的氧化性",
+            "point_key": "candidate-1-c469b1aa",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接对应本题考查的实验操作、现象或结论。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00758_5f5fd037a3",
+            "textbook_prose_00784_dec216b401",
+            "textbook_prose_01241_99049758ad",
+            "textbook_prose_00757_85fc20341a"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00758_5f5fd037a3（PbO₂ 氧化 Cl⁻ 和 Mn²⁺）；textbook_prose_00784_dec216b401（PbO₂ 与 HCl 生成 Cl₂）；textbook_prose_01241_99049758ad（Mn²⁺ 被强氧化剂氧化成紫色 MnO₄⁻）；textbook_prose_00757_85fc20341a（PbO₂/Pb₃O₄ 的强氧化性和颜色）。 绑定点位：PbO₂ + 浓 HCl；PbO₂ + H₂SO₄ + MnSO₄，水浴加热；比较 Pb(IV) 与 Cl₂、Pb(IV) 与 MnO₄⁻ 的氧化性。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00758_5f5fd037a3",
+            "textbook_prose_00784_dec216b401",
+            "textbook_prose_01241_99049758ad",
+            "textbook_prose_00757_85fc20341a"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00758_5f5fd037a3",
+            "textbook_prose_00784_dec216b401",
+            "textbook_prose_01241_99049758ad",
+            "textbook_prose_00757_85fc20341a"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "template_option_link_diagnostic",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-8-07 Pb(IV) 的氧化性》实验中，本实验最主要的结论方向是哪一项？",
+            "options": [
+              {
+                "label": "A",
+                "text": "比较卤素置换次序"
+              },
+              {
+                "label": "B",
+                "text": "观察水合阳离子颜色"
+              },
+              {
+                "label": "C",
+                "text": "制备银镜"
+              },
+              {
+                "label": "D",
+                "text": "比较 Pb(IV) 与 Cl₂、MnO₄⁻ 的氧化性"
+              }
+            ],
+            "answer": {
+              "value": "D"
+            },
+            "explanation": "“比较 Pb(IV) 与 Cl₂、MnO₄⁻ 的氧化性”与实验操作、观察目标或结论一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00297_c03527ab79"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_07_Q011",
+        "source_review_id": null,
+        "source_question_index": 11,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-8-07 Pb(IV) 的氧化性》实验中，PbO₂ 与浓 HCl 反应时，Cl⁻ 只被还原而不会被氧化。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": false
+        },
+        "explanation": "该判断与实验原文的操作、现象或结论不一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-c469b1aa",
+          "candidate-3-b2358047"
+        ],
+        "secondary_point_keys": [
+          "candidate-3-b2358047"
+        ],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_07",
+          "true_false",
+          "point_1",
+          "point_3",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00758_5f5fd037a3",
+            "textbook_prose_00784_dec216b401",
+            "textbook_prose_00757_85fc20341a"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00758_5f5fd037a3（PbO₂ 氧化 Cl⁻ 和 Mn²⁺）；textbook_prose_00784_dec216b401（PbO₂ 与 HCl 生成 Cl₂）；textbook_prose_00757_85fc20341a（PbO₂/Pb₃O₄ 的强氧化性和颜色）。 绑定点位：PbO₂ + 浓 HCl；比较 Pb(IV) 与 Cl₂、Pb(IV) 与 MnO₄⁻ 的氧化性。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00758_5f5fd037a3",
+            "textbook_prose_00784_dec216b401",
+            "textbook_prose_00757_85fc20341a"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00758_5f5fd037a3",
+            "textbook_prose_00784_dec216b401",
+            "textbook_prose_00757_85fc20341a"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-8-07 Pb(IV) 的氧化性》实验中，PbO₂ 与浓 HCl 反应时，Cl⁻ 只被还原而不会被氧化。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "该判断与实验原文的操作、现象或结论不一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00297_c03527ab79"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_07_Q012",
+        "source_review_id": null,
+        "source_question_index": 12,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-8-07 Pb(IV) 的氧化性》实验中，PbO₂、H₂SO₄、MnSO₄ 实验中水浴加热不是操作步骤。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": false
+        },
+        "explanation": "该判断与实验原文的操作、现象或结论不一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-e9c3de06"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_07",
+          "true_false",
+          "point_2",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00758_5f5fd037a3",
+            "textbook_prose_01241_99049758ad",
+            "textbook_prose_00757_85fc20341a"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00758_5f5fd037a3（PbO₂ 氧化 Cl⁻ 和 Mn²⁺）；textbook_prose_01241_99049758ad（Mn²⁺ 被强氧化剂氧化成紫色 MnO₄⁻）；textbook_prose_00757_85fc20341a（PbO₂/Pb₃O₄ 的强氧化性和颜色）。 绑定点位：PbO₂ + H₂SO₄ + MnSO₄，水浴加热。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00758_5f5fd037a3",
+            "textbook_prose_01241_99049758ad",
+            "textbook_prose_00757_85fc20341a"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00758_5f5fd037a3",
+            "textbook_prose_01241_99049758ad",
+            "textbook_prose_00757_85fc20341a"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-8-07 Pb(IV) 的氧化性》实验中，PbO₂、H₂SO₄、MnSO₄ 实验中水浴加热不是操作步骤。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "该判断与实验原文的操作、现象或结论不一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00297_c03527ab79"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_07_Q013",
+        "source_review_id": null,
+        "source_question_index": 13,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-8-07 Pb(IV) 的氧化性》实验中，PbO₂ 在酸性 MnSO₄ 体系中可把 Mn²⁺ 氧化为更高价态。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "该判断与实验原文的操作、现象或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-e9c3de06",
+          "candidate-3-b2358047"
+        ],
+        "secondary_point_keys": [
+          "candidate-3-b2358047"
+        ],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_07",
+          "true_false",
+          "point_2",
+          "point_3",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00758_5f5fd037a3",
+            "textbook_prose_01241_99049758ad",
+            "textbook_prose_00757_85fc20341a"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00758_5f5fd037a3（PbO₂ 氧化 Cl⁻ 和 Mn²⁺）；textbook_prose_01241_99049758ad（Mn²⁺ 被强氧化剂氧化成紫色 MnO₄⁻）；textbook_prose_00757_85fc20341a（PbO₂/Pb₃O₄ 的强氧化性和颜色）。 绑定点位：PbO₂ + H₂SO₄ + MnSO₄，水浴加热；比较 Pb(IV) 与 Cl₂、Pb(IV) 与 MnO₄⁻ 的氧化性。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00758_5f5fd037a3",
+            "textbook_prose_01241_99049758ad",
+            "textbook_prose_00757_85fc20341a"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00758_5f5fd037a3",
+            "textbook_prose_01241_99049758ad",
+            "textbook_prose_00757_85fc20341a"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-8-07 Pb(IV) 的氧化性》实验中，PbO₂ 在酸性 MnSO₄ 体系中可把 Mn²⁺ 氧化为更高价态。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "该判断与实验原文的操作、现象或结论一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00297_c03527ab79"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_07_Q014",
+        "source_review_id": null,
+        "source_question_index": 14,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-8-07 Pb(IV) 的氧化性》实验中，水浴加热是 PbO₂、H₂SO₄、MnSO₄ 实验步骤的一部分。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "该判断与实验原文的操作、现象或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-e9c3de06"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_07",
+          "true_false",
+          "point_2",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00758_5f5fd037a3",
+            "textbook_prose_01241_99049758ad",
+            "textbook_prose_00757_85fc20341a"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00758_5f5fd037a3（PbO₂ 氧化 Cl⁻ 和 Mn²⁺）；textbook_prose_01241_99049758ad（Mn²⁺ 被强氧化剂氧化成紫色 MnO₄⁻）；textbook_prose_00757_85fc20341a（PbO₂/Pb₃O₄ 的强氧化性和颜色）。 绑定点位：PbO₂ + H₂SO₄ + MnSO₄，水浴加热。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00758_5f5fd037a3",
+            "textbook_prose_01241_99049758ad",
+            "textbook_prose_00757_85fc20341a"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00758_5f5fd037a3",
+            "textbook_prose_01241_99049758ad",
+            "textbook_prose_00757_85fc20341a"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-8-07 Pb(IV) 的氧化性》实验中，水浴加热是 PbO₂、H₂SO₄、MnSO₄ 实验步骤的一部分。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "该判断与实验原文的操作、现象或结论一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00297_c03527ab79"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_07_Q015",
+        "source_review_id": null,
+        "source_question_index": 15,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-8-07 Pb(IV) 的氧化性》实验中，PbO₂ 在本实验中主要作为还原剂。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": false
+        },
+        "explanation": "该判断与实验原文的操作、现象或结论不一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-b2358047"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_07",
+          "true_false",
+          "point_3",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00757_85fc20341a"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00757_85fc20341a（PbO₂/Pb₃O₄ 的强氧化性和颜色）。 绑定点位：比较 Pb(IV) 与 Cl₂、Pb(IV) 与 MnO₄⁻ 的氧化性。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00757_85fc20341a"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00757_85fc20341a"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-8-07 Pb(IV) 的氧化性》实验中，PbO₂ 在本实验中主要作为还原剂。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "该判断与实验原文的操作、现象或结论不一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00297_c03527ab79"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_07_Q016",
+        "source_review_id": null,
+        "source_question_index": 16,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-8-07 Pb(IV) 的氧化性》实验中，浓盐酸中的 Cl⁻ 可被 Pb(IV) 氧化为 Cl₂。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "该判断与实验原文的操作、现象或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-c469b1aa",
+          "candidate-3-b2358047"
+        ],
+        "secondary_point_keys": [
+          "candidate-3-b2358047"
+        ],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_07",
+          "true_false",
+          "point_1",
+          "point_3",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00758_5f5fd037a3",
+            "textbook_prose_00784_dec216b401",
+            "textbook_prose_00757_85fc20341a"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00758_5f5fd037a3（PbO₂ 氧化 Cl⁻ 和 Mn²⁺）；textbook_prose_00784_dec216b401（PbO₂ 与 HCl 生成 Cl₂）；textbook_prose_00757_85fc20341a（PbO₂/Pb₃O₄ 的强氧化性和颜色）。 绑定点位：PbO₂ + 浓 HCl；比较 Pb(IV) 与 Cl₂、Pb(IV) 与 MnO₄⁻ 的氧化性。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00758_5f5fd037a3",
+            "textbook_prose_00784_dec216b401",
+            "textbook_prose_00757_85fc20341a"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00758_5f5fd037a3",
+            "textbook_prose_00784_dec216b401",
+            "textbook_prose_00757_85fc20341a"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-8-07 Pb(IV) 的氧化性》实验中，浓盐酸中的 Cl⁻ 可被 Pb(IV) 氧化为 Cl₂。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "该判断与实验原文的操作、现象或结论一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00297_c03527ab79"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_07_Q017",
+        "source_review_id": null,
+        "source_question_index": 17,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-8-07 Pb(IV) 的氧化性》实验中，本实验不涉及任何酸性介质。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": false
+        },
+        "explanation": "该判断与实验原文的操作、现象或结论不一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-c469b1aa",
+          "candidate-2-e9c3de06"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-e9c3de06"
+        ],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_07",
+          "true_false",
+          "point_1",
+          "point_2",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00757_85fc20341a"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00757_85fc20341a（PbO₂/Pb₃O₄ 的强氧化性和颜色）。 绑定点位：PbO₂ + 浓 HCl；PbO₂ + H₂SO₄ + MnSO₄，水浴加热。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00757_85fc20341a"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00757_85fc20341a"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-8-07 Pb(IV) 的氧化性》实验中，本实验不涉及任何酸性介质。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "该判断与实验原文的操作、现象或结论不一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00297_c03527ab79"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_07_Q018",
+        "source_review_id": null,
+        "source_question_index": 18,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-8-07 Pb(IV) 的氧化性》实验中，观察 MnO₄⁻ 的生成有助于比较 Pb(IV) 与 MnO₄⁻ 的氧化性。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "该判断与实验原文的操作、现象或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-e9c3de06",
+          "candidate-3-b2358047"
+        ],
+        "secondary_point_keys": [
+          "candidate-3-b2358047"
+        ],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_07",
+          "true_false",
+          "point_2",
+          "point_3",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00758_5f5fd037a3",
+            "textbook_prose_01241_99049758ad",
+            "textbook_prose_00757_85fc20341a"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00758_5f5fd037a3（PbO₂ 氧化 Cl⁻ 和 Mn²⁺）；textbook_prose_01241_99049758ad（Mn²⁺ 被强氧化剂氧化成紫色 MnO₄⁻）；textbook_prose_00757_85fc20341a（PbO₂/Pb₃O₄ 的强氧化性和颜色）。 绑定点位：PbO₂ + H₂SO₄ + MnSO₄，水浴加热；比较 Pb(IV) 与 Cl₂、Pb(IV) 与 MnO₄⁻ 的氧化性。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00758_5f5fd037a3",
+            "textbook_prose_01241_99049758ad",
+            "textbook_prose_00757_85fc20341a"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00758_5f5fd037a3",
+            "textbook_prose_01241_99049758ad",
+            "textbook_prose_00757_85fc20341a"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-8-07 Pb(IV) 的氧化性》实验中，观察 MnO₄⁻ 的生成有助于比较 Pb(IV) 与 MnO₄⁻ 的氧化性。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "该判断与实验原文的操作、现象或结论一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00297_c03527ab79"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_07_Q019",
+        "source_review_id": null,
+        "source_question_index": 19,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-8-07 Pb(IV) 的氧化性》实验中，Pb(IV) 氧化性实验与 Sn(OH)₂ 两性实验的试剂完全相同。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": false
+        },
+        "explanation": "该判断与实验原文的操作、现象或结论不一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-b2358047"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_07",
+          "true_false",
+          "point_3",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00757_85fc20341a"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00757_85fc20341a（PbO₂/Pb₃O₄ 的强氧化性和颜色）。 绑定点位：比较 Pb(IV) 与 Cl₂、Pb(IV) 与 MnO₄⁻ 的氧化性。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00757_85fc20341a"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00757_85fc20341a"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-8-07 Pb(IV) 的氧化性》实验中，Pb(IV) 氧化性实验与 Sn(OH)₂ 两性实验的试剂完全相同。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "该判断与实验原文的操作、现象或结论不一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00297_c03527ab79"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_07_Q020",
+        "source_review_id": null,
+        "source_question_index": 20,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-8-07 Pb(IV) 的氧化性》实验中，实验中的 PbO₂ 不应与普通 Pb(II) 沉淀性质混为一谈。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "该判断与实验原文的操作、现象或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-b2358047"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_07",
+          "true_false",
+          "point_3",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00757_85fc20341a"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00757_85fc20341a（PbO₂/Pb₃O₄ 的强氧化性和颜色）。 绑定点位：比较 Pb(IV) 与 Cl₂、Pb(IV) 与 MnO₄⁻ 的氧化性。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00757_85fc20341a"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00757_85fc20341a"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-8-07 Pb(IV) 的氧化性》实验中，实验中的 PbO₂ 不应与普通 Pb(II) 沉淀性质混为一谈。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "该判断与实验原文的操作、现象或结论一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00297_c03527ab79"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_07_Q021",
+        "source_review_id": null,
+        "source_question_index": 21,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《19-8-07 Pb(IV) 的氧化性》实验中，Pb(IV) 氧化性实验使用的铅(IV)氧化物是____。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "PbO₂",
+            "二氧化铅"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "对应的实验操作或现象内容是“PbO₂”。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-c469b1aa",
+          "candidate-3-b2358047"
+        ],
+        "secondary_point_keys": [
+          "candidate-3-b2358047"
+        ],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_07",
+          "fill_blank",
+          "point_1",
+          "point_3",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00757_85fc20341a"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00757_85fc20341a（PbO₂/Pb₃O₄ 的强氧化性和颜色）。 绑定点位：PbO₂ + 浓 HCl；比较 Pb(IV) 与 Cl₂、Pb(IV) 与 MnO₄⁻ 的氧化性。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00757_85fc20341a"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00757_85fc20341a"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "formula_or_symbolic_fill_blank_answer",
+          "generic_or_answer_shell_explanation",
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-8-07 Pb(IV) 的氧化性》实验中，Pb(IV) 氧化性实验使用的铅(IV)氧化物是____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "PbO₂",
+                "二氧化铅"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "对应的实验操作或现象内容是“PbO₂”。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00297_c03527ab79"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_07_Q022",
+        "source_review_id": null,
+        "source_question_index": 22,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《19-8-07 Pb(IV) 的氧化性》实验中，PbO₂ 与浓 HCl 反应可生成____气。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "Cl₂",
+            "氯气"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "对应的实验操作或现象内容是“Cl₂”。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-c469b1aa",
+          "candidate-3-b2358047"
+        ],
+        "secondary_point_keys": [
+          "candidate-3-b2358047"
+        ],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_07",
+          "fill_blank",
+          "point_1",
+          "point_3",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00758_5f5fd037a3",
+            "textbook_prose_00784_dec216b401",
+            "textbook_prose_00757_85fc20341a"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00758_5f5fd037a3（PbO₂ 氧化 Cl⁻ 和 Mn²⁺）；textbook_prose_00784_dec216b401（PbO₂ 与 HCl 生成 Cl₂）；textbook_prose_00757_85fc20341a（PbO₂/Pb₃O₄ 的强氧化性和颜色）。 绑定点位：PbO₂ + 浓 HCl；比较 Pb(IV) 与 Cl₂、Pb(IV) 与 MnO₄⁻ 的氧化性。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00758_5f5fd037a3",
+            "textbook_prose_00784_dec216b401",
+            "textbook_prose_00757_85fc20341a"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00758_5f5fd037a3",
+            "textbook_prose_00784_dec216b401",
+            "textbook_prose_00757_85fc20341a"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "formula_or_symbolic_fill_blank_answer",
+          "generic_or_answer_shell_explanation",
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-8-07 Pb(IV) 的氧化性》实验中，PbO₂ 与浓 HCl 反应可生成____气。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "Cl₂",
+                "氯气"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "对应的实验操作或现象内容是“Cl₂”。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00297_c03527ab79"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_07_Q023",
+        "source_review_id": null,
+        "source_question_index": 23,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《19-8-07 Pb(IV) 的氧化性》实验中，酸性 MnSO₄ 体系中被氧化的锰离子是____。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "Mn²⁺",
+            "锰(II)离子"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "对应的实验操作或现象内容是“Mn²⁺”。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-e9c3de06",
+          "candidate-3-b2358047"
+        ],
+        "secondary_point_keys": [
+          "candidate-3-b2358047"
+        ],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_07",
+          "fill_blank",
+          "point_2",
+          "point_3",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00758_5f5fd037a3",
+            "textbook_prose_01241_99049758ad",
+            "textbook_prose_00757_85fc20341a"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00758_5f5fd037a3（PbO₂ 氧化 Cl⁻ 和 Mn²⁺）；textbook_prose_01241_99049758ad（Mn²⁺ 被强氧化剂氧化成紫色 MnO₄⁻）；textbook_prose_00757_85fc20341a（PbO₂/Pb₃O₄ 的强氧化性和颜色）。 绑定点位：PbO₂ + H₂SO₄ + MnSO₄，水浴加热；比较 Pb(IV) 与 Cl₂、Pb(IV) 与 MnO₄⁻ 的氧化性。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00758_5f5fd037a3",
+            "textbook_prose_01241_99049758ad",
+            "textbook_prose_00757_85fc20341a"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00758_5f5fd037a3",
+            "textbook_prose_01241_99049758ad",
+            "textbook_prose_00757_85fc20341a"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "formula_or_symbolic_fill_blank_answer",
+          "generic_or_answer_shell_explanation",
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-8-07 Pb(IV) 的氧化性》实验中，酸性 MnSO₄ 体系中被氧化的锰离子是____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "Mn²⁺",
+                "锰(II)离子"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "对应的实验操作或现象内容是“Mn²⁺”。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00297_c03527ab79"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_07_Q024_PF1",
+        "source_review_id": null,
+        "source_question_index": 24,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-8-07 Pb(IV) 的氧化性》实验中，PbO₂、H₂SO₄ 和 MnSO₄ 水浴加热后若出现紫色，最直接说明哪一判断？",
+        "options": [
+          {
+            "label": "A",
+            "text": "Pb(IV) 将 Mn²⁺ 氧化成 MnO₄⁻"
+          },
+          {
+            "label": "B",
+            "text": "Cl⁻ 被 KSCN 络合成血红色"
+          },
+          {
+            "label": "C",
+            "text": "Pb(OH)₂ 只表现碱性"
+          },
+          {
+            "label": "D",
+            "text": "Na⁺ 焰色必须透过钴玻璃观察"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "该点位通过酸性 MnSO₄ 体系观察 Pb(IV) 的氧化性；改写为颜色-氧化还原方向判断，避免 MnO₄⁻ 填写风险。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-e9c3de06",
+          "candidate-3-b2358047"
+        ],
+        "secondary_point_keys": [
+          "candidate-3-b2358047"
+        ],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_07",
+          "fill_blank",
+          "polished_final_v1",
+          "point_2",
+          "point_3"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "Pb(IV) 将 Mn²⁺ 氧化成 MnO₄⁻",
+            "point_key": "candidate-2-e9c3de06",
+            "role": "correct_evidence",
+            "diagnostic_note": "“Pb(IV) 将 Mn²⁺ 氧化成 MnO₄⁻”对应本题正确判断；教材步骤/点位支撑“在《19-8-07 Pb(IV) 的氧化性》实验中，PbO₂、H”中的关键操作或结论。"
+          },
+          {
+            "label": "B",
+            "text": "Cl⁻ 被 KSCN 络合成血红色",
+            "point_key": "candidate-2-e9c3de06",
+            "role": "adjacent_experiment",
+            "diagnostic_note": "“Cl⁻ 被 KSCN 络合成血红色”借用了Fe³⁺/KSCN 血红色检验的线索，和本题绑定点位不一致。"
+          },
+          {
+            "label": "C",
+            "text": "Pb(OH)₂ 只表现碱性",
+            "point_key": "candidate-2-e9c3de06",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“Pb(OH)₂ 只表现碱性”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "D",
+            "text": "Na⁺ 焰色必须透过钴玻璃观察",
+            "point_key": "candidate-2-e9c3de06",
+            "role": "adjacent_experiment",
+            "diagnostic_note": "“Na⁺ 焰色必须透过钴玻璃观察”借用了焰色反应的线索，和本题绑定点位不一致。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00758_5f5fd037a3",
+            "textbook_prose_01241_99049758ad",
+            "textbook_prose_00757_85fc20341a"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00758_5f5fd037a3（PbO₂ 氧化 Cl⁻ 和 Mn²⁺）；textbook_prose_01241_99049758ad（Mn²⁺ 被强氧化剂氧化成紫色 MnO₄⁻）；textbook_prose_00757_85fc20341a（PbO₂/Pb₃O₄ 的强氧化性和颜色）。 绑定点位：PbO₂ + H₂SO₄ + MnSO₄，水浴加热；比较 Pb(IV) 与 Cl₂、Pb(IV) 与 MnO₄⁻ 的氧化性。 本轮 polish 已改写为可机器确定性判分的有效题，避免重复题干或手机端化学式输入风险。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00758_5f5fd037a3",
+            "textbook_prose_01241_99049758ad",
+            "textbook_prose_00757_85fc20341a"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00758_5f5fd037a3",
+            "textbook_prose_01241_99049758ad",
+            "textbook_prose_00757_85fc20341a"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-8-07 Pb(IV) 的氧化性》实验中，Mn²⁺ 被强氧化后可形成紫色的____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "MnO₄⁻",
+                "高锰酸根"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": null,
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00297_c03527ab79"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-8-07 Pb(IV) 的氧化性》实验中，PbO₂、H₂SO₄ 和 MnSO₄ 水浴加热后若出现紫色，最直接说明哪一判断？",
+            "options": [
+              {
+                "label": "A",
+                "text": "Pb(IV) 将 Mn²⁺ 氧化成 MnO₄⁻"
+              },
+              {
+                "label": "B",
+                "text": "Cl⁻ 被 KSCN 络合成血红色"
+              },
+              {
+                "label": "C",
+                "text": "Pb(OH)₂ 只表现碱性"
+              },
+              {
+                "label": "D",
+                "text": "Na⁺ 焰色必须透过钴玻璃观察"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "该点位通过酸性 MnSO₄ 体系观察 Pb(IV) 的氧化性；改写为颜色-氧化还原方向判断，避免 MnO₄⁻ 填写风险。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00297_c03527ab79"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_07_Q025",
+        "source_review_id": null,
+        "source_question_index": 25,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《19-8-07 Pb(IV) 的氧化性》实验中，第二个实验中酸化所用酸为____。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "H₂SO₄",
+            "硫酸"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "对应的实验操作或现象内容是“H₂SO₄”。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-e9c3de06"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_07",
+          "fill_blank",
+          "point_2",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00757_85fc20341a"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00757_85fc20341a（PbO₂/Pb₃O₄ 的强氧化性和颜色）。 绑定点位：PbO₂ + H₂SO₄ + MnSO₄，水浴加热。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00757_85fc20341a"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00757_85fc20341a"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "formula_or_symbolic_fill_blank_answer",
+          "generic_or_answer_shell_explanation",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-8-07 Pb(IV) 的氧化性》实验中，第二个实验中酸化所用酸为____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "H₂SO₄",
+                "硫酸"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "对应的实验操作或现象内容是“H₂SO₄”。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00297_c03527ab79"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_07_Q026",
+        "source_review_id": null,
+        "source_question_index": 26,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《19-8-07 Pb(IV) 的氧化性》实验中，PbO₂、H₂SO₄、MnSO₄ 的混合体系需要____加热。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "水浴"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "对应的实验操作或现象内容是“水浴”。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-e9c3de06"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_07",
+          "fill_blank",
+          "point_2",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00758_5f5fd037a3",
+            "textbook_prose_01241_99049758ad",
+            "textbook_prose_00757_85fc20341a"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00758_5f5fd037a3（PbO₂ 氧化 Cl⁻ 和 Mn²⁺）；textbook_prose_01241_99049758ad（Mn²⁺ 被强氧化剂氧化成紫色 MnO₄⁻）；textbook_prose_00757_85fc20341a（PbO₂/Pb₃O₄ 的强氧化性和颜色）。 绑定点位：PbO₂ + H₂SO₄ + MnSO₄，水浴加热。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00758_5f5fd037a3",
+            "textbook_prose_01241_99049758ad",
+            "textbook_prose_00757_85fc20341a"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00758_5f5fd037a3",
+            "textbook_prose_01241_99049758ad",
+            "textbook_prose_00757_85fc20341a"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "generic_or_answer_shell_explanation",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-8-07 Pb(IV) 的氧化性》实验中，PbO₂、H₂SO₄、MnSO₄ 的混合体系需要____加热。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "水浴"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "对应的实验操作或现象内容是“水浴”。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00297_c03527ab79"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_07_Q027",
+        "source_review_id": null,
+        "source_question_index": 27,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《19-8-07 Pb(IV) 的氧化性》实验中，PbO₂ 在本实验中作____剂。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "氧化",
+            "氧化剂"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "对应的实验操作或现象内容是“氧化”。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-b2358047"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_07",
+          "fill_blank",
+          "point_3",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00757_85fc20341a"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00757_85fc20341a（PbO₂/Pb₃O₄ 的强氧化性和颜色）。 绑定点位：比较 Pb(IV) 与 Cl₂、Pb(IV) 与 MnO₄⁻ 的氧化性。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00757_85fc20341a"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00757_85fc20341a"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "generic_or_answer_shell_explanation",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-8-07 Pb(IV) 的氧化性》实验中，PbO₂ 在本实验中作____剂。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "氧化",
+                "氧化剂"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "对应的实验操作或现象内容是“氧化”。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00297_c03527ab79"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_07_Q028",
+        "source_review_id": null,
+        "source_question_index": 28,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《19-8-07 Pb(IV) 的氧化性》实验中，Pb(IV) 与 Cl₂ 的氧化性比较通过氧化____离子实现。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "Cl⁻",
+            "氯离子"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "对应的实验操作或现象内容是“Cl⁻”。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-c469b1aa",
+          "candidate-3-b2358047"
+        ],
+        "secondary_point_keys": [
+          "candidate-3-b2358047"
+        ],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_07",
+          "fill_blank",
+          "point_1",
+          "point_3",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00758_5f5fd037a3",
+            "textbook_prose_00784_dec216b401",
+            "textbook_prose_00757_85fc20341a"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00758_5f5fd037a3（PbO₂ 氧化 Cl⁻ 和 Mn²⁺）；textbook_prose_00784_dec216b401（PbO₂ 与 HCl 生成 Cl₂）；textbook_prose_00757_85fc20341a（PbO₂/Pb₃O₄ 的强氧化性和颜色）。 绑定点位：PbO₂ + 浓 HCl；比较 Pb(IV) 与 Cl₂、Pb(IV) 与 MnO₄⁻ 的氧化性。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00758_5f5fd037a3",
+            "textbook_prose_00784_dec216b401",
+            "textbook_prose_00757_85fc20341a"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00758_5f5fd037a3",
+            "textbook_prose_00784_dec216b401",
+            "textbook_prose_00757_85fc20341a"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "formula_or_symbolic_fill_blank_answer",
+          "generic_or_answer_shell_explanation",
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-8-07 Pb(IV) 的氧化性》实验中，Pb(IV) 与 Cl₂ 的氧化性比较通过氧化____离子实现。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "Cl⁻",
+                "氯离子"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "对应的实验操作或现象内容是“Cl⁻”。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00297_c03527ab79"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_07_Q029",
+        "source_review_id": null,
+        "source_question_index": 29,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《19-8-07 Pb(IV) 的氧化性》实验中，MnSO₄ 提供被氧化的____元素。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "锰",
+            "Mn"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "对应的实验操作或现象内容是“锰”。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-e9c3de06"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_07",
+          "fill_blank",
+          "point_2",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00758_5f5fd037a3",
+            "textbook_prose_01241_99049758ad",
+            "textbook_prose_00757_85fc20341a"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00758_5f5fd037a3（PbO₂ 氧化 Cl⁻ 和 Mn²⁺）；textbook_prose_01241_99049758ad（Mn²⁺ 被强氧化剂氧化成紫色 MnO₄⁻）；textbook_prose_00757_85fc20341a（PbO₂/Pb₃O₄ 的强氧化性和颜色）。 绑定点位：PbO₂ + H₂SO₄ + MnSO₄，水浴加热。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00758_5f5fd037a3",
+            "textbook_prose_01241_99049758ad",
+            "textbook_prose_00757_85fc20341a"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00758_5f5fd037a3",
+            "textbook_prose_01241_99049758ad",
+            "textbook_prose_00757_85fc20341a"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "formula_or_symbolic_fill_blank_answer",
+          "generic_or_answer_shell_explanation",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-8-07 Pb(IV) 的氧化性》实验中，MnSO₄ 提供被氧化的____元素。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "锰",
+                "Mn"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "对应的实验操作或现象内容是“锰”。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00297_c03527ab79"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_07_Q030",
+        "source_review_id": null,
+        "source_question_index": 30,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《19-8-07 Pb(IV) 的氧化性》实验中，本实验主题是 Pb(IV) 的____性。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "氧化",
+            "氧化性"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "对应的实验操作或现象内容是“氧化”。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-b2358047"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_07",
+          "fill_blank",
+          "point_3",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00757_85fc20341a"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00757_85fc20341a（PbO₂/Pb₃O₄ 的强氧化性和颜色）。 绑定点位：比较 Pb(IV) 与 Cl₂、Pb(IV) 与 MnO₄⁻ 的氧化性。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00757_85fc20341a"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00757_85fc20341a"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "generic_or_answer_shell_explanation",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-8-07 Pb(IV) 的氧化性》实验中，本实验主题是 Pb(IV) 的____性。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "氧化",
+                "氧化性"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "对应的实验操作或现象内容是“氧化”。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00297_c03527ab79"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      }
+    ]
+  }
+}

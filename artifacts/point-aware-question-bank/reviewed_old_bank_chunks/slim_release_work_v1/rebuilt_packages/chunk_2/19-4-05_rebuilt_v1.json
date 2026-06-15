@@ -1,0 +1,733 @@
+{
+  "metadata": {
+    "schema_version": "small_packet_rebuilt_v1",
+    "artifact_type": "manual_semantic_rebuilt_question_package",
+    "chunk": "chunk_2",
+    "source_packet": "E:\\chemistry-admin\\artifacts\\point-aware-question-bank\\reviewed_old_bank_chunks\\slim_release_work_v1\\semantic_work_packets\\chunk_2\\19-4-05.json",
+    "experiment_code": "19-4-05",
+    "experiment_title": "亚硝酸的氧化还原性",
+    "question_count": 30,
+    "evidence_policy": [
+      "Each question was manually compared against the source packet, video points, canonical experiment evidence, and supporting theory where required.",
+      "RAG source text is not embedded in full; only locators and concise source summaries are stored.",
+      "Inherited chunk ids are not treated as proof.",
+      "Formula or symbolic fill blanks are avoided; retained fill blanks use short ordinary Chinese answers."
+    ],
+    "rag_source_dir": "E:\\chemistry-rag\\data\\rag_ready",
+    "release_json_policy": "Do not modify chunk_X_release_final_v1.json directly; this package is a merge input only."
+  },
+  "video_points": [
+    {"point_key": "candidate-1-23649f43", "point_title": "HNO₂ 氧化性：酸性 NaNO₂ + KI"},
+    {"point_key": "candidate-2-98dd8f1e", "point_title": "HNO₂ 还原性：NaNO₂ + KMnO₄ + H₂SO₄"}
+  ],
+  "evidence_sources": {
+    "canonical_experiment_chunks": [
+      {
+        "chunk_id": "expchunk_00242_2da7ff3435",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+        "line_number": 255,
+        "evidence_role": "Canonical experiment: the same experiment section contains acidified KI plus sodium nitrite to show oxidizing behavior, and acidified permanganate plus sodium nitrite to show reducing behavior."
+      }
+    ],
+    "supporting_theory_chunks": [
+      {
+        "chunk_id": "textbook_prose_00547_2a1f998120",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+        "line_number": 857,
+        "evidence_role": "Theory: nitrous acid and nitrite have both oxidizing and reducing behavior."
+      },
+      {
+        "chunk_id": "textbook_prose_00548_e41b91cedc",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+        "line_number": 858,
+        "evidence_role": "Theory: nitrous acid oxidizes iodide in acid and shows reducing behavior only toward strong oxidants such as permanganate."
+      },
+      {
+        "chunk_id": "textbook_prose_00549_1931138c9a",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+        "line_number": 859,
+        "evidence_role": "Theory: in acidic permanganate, nitrous acid is oxidized to nitrate while permanganate is reduced to Mn²⁺."
+      }
+    ]
+  },
+  "questions": [
+    {
+      "question_id": "REBUILT_CH2_19_4_05_Q001",
+      "question_type": "single_choice",
+      "stem": "哪两类反应体系共同支撑“亚硝酸既可表现氧化性又可表现还原性”？",
+      "options": [
+        {"label": "A", "text": "酸性 KI 体系和酸性 KMnO₄ 体系"},
+        {"label": "B", "text": "点滴板红色法和 CCl₄ 紫色层法"},
+        {"label": "C", "text": "亚硝酸生成点和蓝色中间物点"},
+        {"label": "D", "text": "铵盐检验点和氨气逸出点"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "酸性 KI 体系体现 HNO₂ 氧化 I⁻，酸性 KMnO₄ 体系体现 HNO₂ 被强氧化剂氧化。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-1-23649f43", "candidate-2-98dd8f1e"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["two_sided_redox", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-1-23649f43", "role": "correct_evidence", "diagnostic_note": "覆盖两个 redox 点位。"},
+        {"label": "B", "point_key": null, "role": "distractor_detection_packet", "diagnostic_note": "属于检验方法，不是本综合点。"},
+        {"label": "C", "point_key": null, "role": "distractor_previous_packet", "diagnostic_note": "属于生成与分解。"},
+        {"label": "D", "point_key": null, "role": "distractor_previous_subsection", "diagnostic_note": "属于氨和铵盐。"}
+      ],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00242_2da7ff3435"], "supporting_theory_chunk_ids": ["textbook_prose_00547_2a1f998120", "textbook_prose_00548_e41b91cedc", "textbook_prose_00549_1931138c9a"], "evidence_sufficient": true, "supporting_theory_required": true, "reviewer_note": "综合两点位和两面性理论。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_05_Q002",
+      "question_type": "single_choice",
+      "stem": "酸性 KI 体系中，HNO₂ 的直接作用是什么？",
+      "options": [
+        {"label": "A", "text": "氧化 I⁻ 生成碘"},
+        {"label": "B", "text": "还原碘为 I⁻"},
+        {"label": "C", "text": "沉淀 K⁺"},
+        {"label": "D", "text": "使 KMnO₄ 褪色"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "酸性 KI 体系体现的是 HNO₂ 的氧化性：它把 I⁻ 氧化为碘。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-1-23649f43"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["oxidizing_point", "iodide_oxidation"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-1-23649f43", "role": "correct_evidence", "diagnostic_note": "对应 KI 点位。"},
+        {"label": "B", "point_key": null, "role": "distractor_opposite_redox", "diagnostic_note": "方向颠倒。"},
+        {"label": "C", "point_key": null, "role": "distractor_wrong_reaction", "diagnostic_note": "不沉淀 K⁺。"},
+        {"label": "D", "point_key": "candidate-2-98dd8f1e", "role": "adjacent_point", "diagnostic_note": "属于还原性点位。"}
+      ],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00242_2da7ff3435"], "supporting_theory_chunk_ids": ["textbook_prose_00547_2a1f998120", "textbook_prose_00548_e41b91cedc"], "evidence_sufficient": true, "supporting_theory_required": true, "reviewer_note": "氧化性点位。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_05_Q003",
+      "question_type": "single_choice",
+      "stem": "酸性 KMnO₄ 体系中，NaNO₂ 使紫色变浅或褪去，主要说明什么？",
+      "options": [
+        {"label": "A", "text": "HNO₂ 或 NO₂⁻ 表现还原性"},
+        {"label": "B", "text": "HNO₂ 只能表现氧化性"},
+        {"label": "C", "text": "KI 被氧化为碘"},
+        {"label": "D", "text": "亚硝酸根已经被点滴板检出"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "酸性 KMnO₄ 是强氧化剂，被 NaNO₂ 还原而褪色，说明亚硝酸体系表现还原性。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-2-98dd8f1e"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["reducing_point", "decolorization"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-2-98dd8f1e", "role": "correct_evidence", "diagnostic_note": "对应 KMnO₄ 点位。"},
+        {"label": "B", "point_key": null, "role": "distractor_overgeneralization", "diagnostic_note": "与两面性相反。"},
+        {"label": "C", "point_key": "candidate-1-23649f43", "role": "adjacent_point", "diagnostic_note": "属于 KI 点位。"},
+        {"label": "D", "point_key": null, "role": "distractor_detection_packet", "diagnostic_note": "属于检验方法。"}
+      ],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00242_2da7ff3435"], "supporting_theory_chunk_ids": ["textbook_prose_00548_e41b91cedc", "textbook_prose_00549_1931138c9a"], "evidence_sufficient": true, "supporting_theory_required": true, "reviewer_note": "还原性点位。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_05_Q004",
+      "question_type": "single_choice",
+      "stem": "若要用最少语言概括本实验，应选哪一项？",
+      "options": [
+        {"label": "A", "text": "同一亚硝酸体系在不同反应对象前可显氧化性或还原性"},
+        {"label": "B", "text": "亚硝酸只能使 KI 变成碘"},
+        {"label": "C", "text": "亚硝酸只能使 KMnO₄ 褪色"},
+        {"label": "D", "text": "亚硝酸只用于显色检验"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "本实验是综合比较：对 I⁻ 表现氧化性，对酸性 KMnO₄ 表现还原性。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-1-23649f43", "candidate-2-98dd8f1e"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["two_sided_redox", "summary", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-1-23649f43", "role": "correct_summary", "diagnostic_note": "覆盖两个点位。"},
+        {"label": "B", "point_key": "candidate-1-23649f43", "role": "too_narrow", "diagnostic_note": "只覆盖氧化性。"},
+        {"label": "C", "point_key": "candidate-2-98dd8f1e", "role": "too_narrow", "diagnostic_note": "只覆盖还原性。"},
+        {"label": "D", "point_key": null, "role": "distractor_detection_packet", "diagnostic_note": "检验方法不是本综合主题。"}
+      ],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00242_2da7ff3435"], "supporting_theory_chunk_ids": ["textbook_prose_00547_2a1f998120", "textbook_prose_00548_e41b91cedc", "textbook_prose_00549_1931138c9a"], "evidence_sufficient": true, "supporting_theory_required": true, "reviewer_note": "总括题。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_05_Q005",
+      "question_type": "single_choice",
+      "stem": "在酸性 KI 体系中，能作为 HNO₂ 氧化性的产物证据是哪一种？",
+      "options": [
+        {"label": "A", "text": "碘单质"},
+        {"label": "B", "text": "Mn²⁺"},
+        {"label": "C", "text": "NO₃⁻"},
+        {"label": "D", "text": "NH₃"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "I⁻ 被氧化后生成碘单质，说明 HNO₂ 在该体系中起氧化剂作用。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-1-23649f43"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["iodine_product", "oxidizing_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-1-23649f43", "role": "correct_evidence", "diagnostic_note": "氧化性产物。"},
+        {"label": "B", "point_key": "candidate-2-98dd8f1e", "role": "adjacent_point", "diagnostic_note": "属于 KMnO₄ 点位。"},
+        {"label": "C", "point_key": "candidate-2-98dd8f1e", "role": "adjacent_point", "diagnostic_note": "属于还原性点位中氮的氧化产物。"},
+        {"label": "D", "point_key": null, "role": "distractor_previous_subsection", "diagnostic_note": "不属于本实验。"}
+      ],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00242_2da7ff3435"], "supporting_theory_chunk_ids": ["textbook_prose_00547_2a1f998120", "textbook_prose_00548_e41b91cedc"], "evidence_sufficient": true, "supporting_theory_required": true, "reviewer_note": "产物证据题。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_05_Q006",
+      "question_type": "single_choice",
+      "stem": "在酸性 KMnO₄ 体系中，HNO₂ 或 NO₂⁻ 被氧化后的含氮产物是哪一种？",
+      "options": [
+        {"label": "A", "text": "NO₃⁻"},
+        {"label": "B", "text": "I₂"},
+        {"label": "C", "text": "NH₄⁺"},
+        {"label": "D", "text": "N₂"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "理论说明给出酸性高锰酸根体系中 HNO₂ 被氧化为 NO₃⁻。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-2-98dd8f1e"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["nitrate_product", "reducing_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-2-98dd8f1e", "role": "correct_evidence", "diagnostic_note": "还原性点位的氮产物。"},
+        {"label": "B", "point_key": "candidate-1-23649f43", "role": "adjacent_point", "diagnostic_note": "碘属于 KI 点位。"},
+        {"label": "C", "point_key": null, "role": "distractor_wrong_product", "diagnostic_note": "不是该反应产物。"},
+        {"label": "D", "point_key": null, "role": "distractor_wrong_product", "diagnostic_note": "不是该反应产物。"}
+      ],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00242_2da7ff3435"], "supporting_theory_chunk_ids": ["textbook_prose_00549_1931138c9a"], "evidence_sufficient": true, "supporting_theory_required": true, "reviewer_note": "产物来自理论反应。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_05_Q007",
+      "question_type": "single_choice",
+      "stem": "酸性 KMnO₄ 体系中，被还原的紫色氧化剂是哪一种？",
+      "options": [
+        {"label": "A", "text": "KMnO₄"},
+        {"label": "B", "text": "KI"},
+        {"label": "C", "text": "NaNO₂"},
+        {"label": "D", "text": "HAc"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "紫色来自 KMnO₄ 中的高锰酸根，它被 NaNO₂ 对应的亚硝酸体系还原。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-2-98dd8f1e"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["permanganate", "reducing_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-2-98dd8f1e", "role": "correct_evidence", "diagnostic_note": "紫色氧化剂。"},
+        {"label": "B", "point_key": "candidate-1-23649f43", "role": "adjacent_point", "diagnostic_note": "属于氧化性点位。"},
+        {"label": "C", "point_key": "candidate-2-98dd8f1e", "role": "near_miss_reductant", "diagnostic_note": "NaNO₂ 是还原剂来源。"},
+        {"label": "D", "point_key": null, "role": "distractor_detection_packet", "diagnostic_note": "属于检验方法。"}
+      ],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00242_2da7ff3435"], "supporting_theory_chunk_ids": ["textbook_prose_00549_1931138c9a"], "evidence_sufficient": true, "supporting_theory_required": true, "reviewer_note": "氧化剂识别题。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_05_Q008",
+      "question_type": "single_choice",
+      "stem": "本实验中“中间价态”这一解释最合理地说明什么？",
+      "options": [
+        {"label": "A", "text": "亚硝酸体系既可能被还原，也可能被氧化"},
+        {"label": "B", "text": "亚硝酸体系完全不发生氧化还原"},
+        {"label": "C", "text": "亚硝酸体系只能检验铵根"},
+        {"label": "D", "text": "亚硝酸体系只能生成沉淀"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "理论说明明确说亚硝酸及其盐既有氧化性又有还原性，本实验正是两面性的实验组合。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-1-23649f43", "candidate-2-98dd8f1e"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["intermediate_valence", "two_sided_redox", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-1-23649f43", "role": "correct_evidence", "diagnostic_note": "解释两面性。"},
+        {"label": "B", "point_key": null, "role": "distractor_contradiction", "diagnostic_note": "与实验相反。"},
+        {"label": "C", "point_key": null, "role": "distractor_other_subsection", "diagnostic_note": "铵根无关。"},
+        {"label": "D", "point_key": null, "role": "distractor_wrong_reaction_type", "diagnostic_note": "不是沉淀实验。"}
+      ],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00242_2da7ff3435"], "supporting_theory_chunk_ids": ["textbook_prose_00547_2a1f998120"], "evidence_sufficient": true, "supporting_theory_required": true, "reviewer_note": "中间价态解释来自 theory 的两性结论。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_05_Q009",
+      "question_type": "single_choice",
+      "stem": "哪一项最容易把本综合包错误缩窄成单一性质？",
+      "options": [
+        {"label": "A", "text": "只说它体现 HNO₂ 的氧化性，忽略 KMnO₄ 体系"},
+        {"label": "B", "text": "同时比较 KI 和 KMnO₄ 两个体系"},
+        {"label": "C", "text": "说明 KI 体系对应氧化性"},
+        {"label": "D", "text": "说明 KMnO₄ 体系对应还原性"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "本实验要同时覆盖氧化性和还原性；只谈 KI 步骤会漏掉 KMnO₄ 步骤。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-1-23649f43", "candidate-2-98dd8f1e"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["coverage_error", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-1-23649f43", "role": "correct_miscoverage", "diagnostic_note": "只覆盖一个点位。"},
+        {"label": "B", "point_key": "candidate-1-23649f43", "role": "supported_statement", "diagnostic_note": "这是正确覆盖方式。"},
+        {"label": "C", "point_key": "candidate-1-23649f43", "role": "supported_statement", "diagnostic_note": "但需配合还原性点位。"},
+        {"label": "D", "point_key": "candidate-2-98dd8f1e", "role": "supported_statement", "diagnostic_note": "但需配合氧化性点位。"}
+      ],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00242_2da7ff3435"], "supporting_theory_chunk_ids": ["textbook_prose_00547_2a1f998120", "textbook_prose_00548_e41b91cedc", "textbook_prose_00549_1931138c9a"], "evidence_sufficient": true, "supporting_theory_required": true, "reviewer_note": "覆盖错误诊断。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_05_Q010",
+      "question_type": "single_choice",
+      "stem": "酸性 KI 和酸性 KMnO₄ 两个体系中，判断 HNO₂ 两面性的观察判据分别是什么？",
+      "options": [
+        {"label": "A", "text": "KI 体系看碘生成，KMnO₄ 体系看紫色褪去"},
+        {"label": "B", "text": "两个体系都只看红色显色"},
+        {"label": "C", "text": "两个体系都只看蓝色中间物"},
+        {"label": "D", "text": "KI 体系看 KMnO₄ 褪色，KMnO₄ 体系看碘生成"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "两个体系的判断现象不同，正好对应氧化性和还原性两条证据。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-1-23649f43", "candidate-2-98dd8f1e"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["observation_contrast", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-1-23649f43", "role": "correct_evidence", "diagnostic_note": "现象对应准确。"},
+        {"label": "B", "point_key": null, "role": "distractor_detection_packet", "diagnostic_note": "红色显色属于检验方法。"},
+        {"label": "C", "point_key": null, "role": "distractor_previous_packet", "diagnostic_note": "蓝色中间物属于生成分解。"},
+        {"label": "D", "point_key": null, "role": "distractor_reversed_points", "diagnostic_note": "两个现象对调了。"}
+      ],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00242_2da7ff3435"], "supporting_theory_chunk_ids": ["textbook_prose_00548_e41b91cedc", "textbook_prose_00549_1931138c9a"], "evidence_sufficient": true, "supporting_theory_required": true, "reviewer_note": "观察判据对照题。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_05_Q011",
+      "question_type": "true_false",
+      "stem": "酸性 KI 体系体现氧化性，酸性 KMnO₄ 体系体现还原性。",
+      "answer": {"value": true},
+      "explanation": "前者是 HNO₂ 氧化 I⁻，后者是 HNO₂ 被 KMnO₄ 氧化而使紫色褪去。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-1-23649f43", "candidate-2-98dd8f1e"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["two_sided_redox", "true_false", "multi_point"],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00242_2da7ff3435"], "supporting_theory_chunk_ids": ["textbook_prose_00547_2a1f998120", "textbook_prose_00548_e41b91cedc", "textbook_prose_00549_1931138c9a"], "evidence_sufficient": true, "supporting_theory_required": true, "reviewer_note": "核心判断。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_05_Q012",
+      "question_type": "true_false",
+      "stem": "酸性 KI 与 NaNO₂ 体系可体现亚硝酸的氧化性。",
+      "answer": {"value": true},
+      "explanation": "该体系中 I⁻ 被氧化为碘，因此 HNO₂ 表现氧化性。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-1-23649f43"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["oxidizing_point", "true_false"],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00242_2da7ff3435"], "supporting_theory_chunk_ids": ["textbook_prose_00547_2a1f998120", "textbook_prose_00548_e41b91cedc"], "evidence_sufficient": true, "supporting_theory_required": true, "reviewer_note": "氧化性单点判断。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_05_Q013",
+      "question_type": "true_false",
+      "stem": "酸性 KMnO₄ 与 NaNO₂ 体系可体现亚硝酸的还原性。",
+      "answer": {"value": true},
+      "explanation": "该体系中 HNO₂ 被强氧化剂 KMnO₄ 氧化，因此 HNO₂ 表现还原性。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-2-98dd8f1e"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["reducing_point", "true_false"],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00242_2da7ff3435"], "supporting_theory_chunk_ids": ["textbook_prose_00548_e41b91cedc", "textbook_prose_00549_1931138c9a"], "evidence_sufficient": true, "supporting_theory_required": true, "reviewer_note": "还原性单点判断。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_05_Q014",
+      "question_type": "true_false",
+      "stem": "HNO₂ 中氮处于中间价态，所以本实验只允许考氧化性，不允许考还原性。",
+      "answer": {"value": false},
+      "explanation": "正因为处于中间价态，亚硝酸及其盐可表现氧化性和还原性两方面。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-1-23649f43", "candidate-2-98dd8f1e"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["intermediate_valence", "true_false", "multi_point"],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00242_2da7ff3435"], "supporting_theory_chunk_ids": ["textbook_prose_00547_2a1f998120"], "evidence_sufficient": true, "supporting_theory_required": true, "reviewer_note": "两面性理论判断。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_05_Q015",
+      "question_type": "true_false",
+      "stem": "若只考酸性 KI 步骤，就无法完整覆盖本实验的“氧化还原性”。",
+      "answer": {"value": true},
+      "explanation": "酸性 KI 只覆盖氧化性，还需要酸性 KMnO₄ 体系来覆盖还原性。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-1-23649f43", "candidate-2-98dd8f1e"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["coverage_boundary", "true_false", "multi_point"],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00242_2da7ff3435"], "supporting_theory_chunk_ids": ["textbook_prose_00547_2a1f998120", "textbook_prose_00548_e41b91cedc", "textbook_prose_00549_1931138c9a"], "evidence_sufficient": true, "supporting_theory_required": true, "reviewer_note": "覆盖完整性判断。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_05_Q016",
+      "question_type": "true_false",
+      "stem": "酸性 KMnO₄ 褪色与本实验的还原性步骤有关。",
+      "answer": {"value": true},
+      "explanation": "酸性 KMnO₄ 褪色是 NaNO₂ 表现还原性的直接观察点。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-2-98dd8f1e"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["decolorization", "true_false"],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00242_2da7ff3435"], "supporting_theory_chunk_ids": ["textbook_prose_00549_1931138c9a"], "evidence_sufficient": true, "supporting_theory_required": true, "reviewer_note": "褪色现象判断。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_05_Q017",
+      "question_type": "true_false",
+      "stem": "本实验与亚硝酸根检验方法完全相同，只需要记住点滴板显红色。",
+      "answer": {"value": false},
+      "explanation": "本实验是氧化性与还原性的综合比较，点滴板显红色属于亚硝酸根检验方法。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-1-23649f43", "candidate-2-98dd8f1e"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["scope_boundary", "true_false", "multi_point"],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00242_2da7ff3435"], "supporting_theory_chunk_ids": [], "evidence_sufficient": true, "supporting_theory_required": false, "reviewer_note": "排除检验方法 packet。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_05_Q018",
+      "question_type": "single_choice",
+      "stem": "哪一项最能解释为什么酸性 KMnO₄ 体系能体现还原性？",
+      "options": [
+        {"label": "A", "text": "HNO₂ 被强氧化剂氧化，KMnO₄ 被还原"},
+        {"label": "B", "text": "HNO₂ 把 I⁻ 氧化为碘"},
+        {"label": "C", "text": "HNO₂ 只发生分解"},
+        {"label": "D", "text": "HNO₂ 与萘胺直接显红色"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "还原性判断的核心是 HNO₂ 或 NO₂⁻ 作为还原剂，使酸性 KMnO₄ 被还原。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-2-98dd8f1e"],
+      "secondary_point_keys": ["candidate-1-23649f43"],
+      "coverage_tags": ["reducing_point_reasoning", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-2-98dd8f1e", "role": "correct_evidence", "diagnostic_note": "解释 KMnO₄ 点位。"},
+        {"label": "B", "point_key": "candidate-1-23649f43", "role": "adjacent_point", "diagnostic_note": "解释 KI 点位。"},
+        {"label": "C", "point_key": null, "role": "distractor_previous_packet", "diagnostic_note": "属于生成与分解。"},
+        {"label": "D", "point_key": null, "role": "distractor_detection_packet", "diagnostic_note": "属于检验方法。"}
+      ],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00242_2da7ff3435"], "supporting_theory_chunk_ids": ["textbook_prose_00548_e41b91cedc", "textbook_prose_00549_1931138c9a"], "evidence_sufficient": true, "supporting_theory_required": true, "reviewer_note": "还原性解释题。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_05_Q019",
+      "question_type": "single_choice",
+      "stem": "哪一项最能解释为什么酸性 KI 体系能体现氧化性？",
+      "options": [
+        {"label": "A", "text": "HNO₂ 使 I⁻ 生成碘"},
+        {"label": "B", "text": "HNO₂ 使 KMnO₄ 褪色"},
+        {"label": "C", "text": "HNO₂ 只产生蓝色中间物"},
+        {"label": "D", "text": "HNO₂ 让 CCl₄ 层必然无色"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "氧化性判断的核心是 HNO₂ 作为氧化剂，使 I⁻ 转化为碘。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-1-23649f43"],
+      "secondary_point_keys": ["candidate-2-98dd8f1e"],
+      "coverage_tags": ["oxidizing_point_reasoning", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-1-23649f43", "role": "correct_evidence", "diagnostic_note": "解释 KI 点位。"},
+        {"label": "B", "point_key": "candidate-2-98dd8f1e", "role": "adjacent_point", "diagnostic_note": "解释还原性点位。"},
+        {"label": "C", "point_key": null, "role": "distractor_previous_packet", "diagnostic_note": "属于生成与分解。"},
+        {"label": "D", "point_key": null, "role": "distractor_detection_packet", "diagnostic_note": "与检验方法混淆。"}
+      ],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00242_2da7ff3435"], "supporting_theory_chunk_ids": ["textbook_prose_00547_2a1f998120", "textbook_prose_00548_e41b91cedc"], "evidence_sufficient": true, "supporting_theory_required": true, "reviewer_note": "氧化性解释题。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_05_Q020",
+      "question_type": "single_choice",
+      "stem": "只依据酸性 KI 氧化性观察和酸性 KMnO₄ 还原性观察，哪一项边界判断正确？",
+      "options": [
+        {"label": "A", "text": "只覆盖酸性 KI 氧化性点和酸性 KMnO₄ 还原性点"},
+        {"label": "B", "text": "覆盖同一教材段中所有亚硝酸根检验方法"},
+        {"label": "C", "text": "覆盖氨和铵盐性质"},
+        {"label": "D", "text": "覆盖硝酸盐热分解和制氮气思考题"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "本实验是两面性比较，不直接涉及检验方法、铵盐性质或思考题内容。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-1-23649f43", "candidate-2-98dd8f1e"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["evidence_boundary", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-1-23649f43", "role": "correct_boundary", "diagnostic_note": "准确边界。"},
+        {"label": "B", "point_key": null, "role": "distractor_detection_packet", "diagnostic_note": "属于亚硝酸根检验方法。"},
+        {"label": "C", "point_key": null, "role": "distractor_previous_subsection", "diagnostic_note": "不属于本实验。"},
+        {"label": "D", "point_key": null, "role": "distractor_thinking_question", "diagnostic_note": "不属于本实验观察内容。"}
+      ],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00242_2da7ff3435"], "supporting_theory_chunk_ids": ["textbook_prose_00547_2a1f998120", "textbook_prose_00548_e41b91cedc", "textbook_prose_00549_1931138c9a"], "evidence_sufficient": true, "supporting_theory_required": true, "reviewer_note": "边界题。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_05_Q021",
+      "question_type": "fill_blank",
+      "stem": "酸性 KMnO₄ 体系中，NaNO₂ 主要表现____性。",
+      "answer": {"accepted_answers": ["还原", "还原性"], "match": "normalized_exact"},
+      "explanation": "该填空使用普通性质词，不要求输入反应式。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-2-98dd8f1e"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["reducing_point", "mobile_safe_fill_blank"],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00242_2da7ff3435"], "supporting_theory_chunk_ids": ["textbook_prose_00548_e41b91cedc", "textbook_prose_00549_1931138c9a"], "evidence_sufficient": true, "supporting_theory_required": true, "reviewer_note": "移动端友好填空。"},
+      "mobile_input_risk": "low",
+      "machine_grading": "normalized_exact",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_05_Q022",
+      "question_type": "fill_blank",
+      "stem": "酸性 KI 体系体现 HNO₂ 的____性。",
+      "answer": {"accepted_answers": ["氧化", "氧化性"], "match": "normalized_exact"},
+      "explanation": "HNO₂ 氧化 I⁻，因此该体系体现氧化性。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-1-23649f43"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["oxidizing_point", "mobile_safe_fill_blank"],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00242_2da7ff3435"], "supporting_theory_chunk_ids": ["textbook_prose_00547_2a1f998120", "textbook_prose_00548_e41b91cedc"], "evidence_sufficient": true, "supporting_theory_required": true, "reviewer_note": "移动端友好填空。"},
+      "mobile_input_risk": "low",
+      "machine_grading": "normalized_exact",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_05_Q023",
+      "question_type": "fill_blank",
+      "stem": "酸性 KI 体系中，I⁻ 被氧化后生成____单质。",
+      "answer": {"accepted_answers": ["碘", "碘单质"], "match": "normalized_exact"},
+      "explanation": "用中文名替代必须输入 I₂ 的公式型答案。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-1-23649f43"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["iodine_product", "mobile_safe_fill_blank"],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00242_2da7ff3435"], "supporting_theory_chunk_ids": ["textbook_prose_00547_2a1f998120", "textbook_prose_00548_e41b91cedc"], "evidence_sufficient": true, "supporting_theory_required": true, "reviewer_note": "替代符号型填空。"},
+      "mobile_input_risk": "low",
+      "machine_grading": "normalized_exact",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_05_Q024",
+      "question_type": "fill_blank",
+      "stem": "酸性 KMnO₄ 体系的关键现象是紫色____。",
+      "answer": {"accepted_answers": ["褪去", "褪色", "变浅", "消失"], "match": "normalized_exact"},
+      "explanation": "紫色变浅或褪去是还原性判断的直观判据。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-2-98dd8f1e"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["decolorization", "mobile_safe_fill_blank"],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00242_2da7ff3435"], "supporting_theory_chunk_ids": ["textbook_prose_00549_1931138c9a"], "evidence_sufficient": true, "supporting_theory_required": true, "reviewer_note": "颜色变化填空。"},
+      "mobile_input_risk": "low",
+      "machine_grading": "normalized_exact",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_05_Q025",
+      "question_type": "single_choice",
+      "stem": "若要同时说明 HNO₂ 的氧化性和还原性，最合适的实验比较是哪一项？",
+      "options": [
+        {"label": "A", "text": "比较 HNO₂ 在酸性 KI 与酸性 KMnO₄ 中分别表现的性质"},
+        {"label": "B", "text": "只问酸性 KI 中生成了什么"},
+        {"label": "C", "text": "只问 KMnO₄ 的颜色是否变浅"},
+        {"label": "D", "text": "只问点滴板法是否显红色"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "完整判断应比较两个体系；只看某一个现象会漏掉另一类氧化还原角色。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-1-23649f43", "candidate-2-98dd8f1e"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["question_design", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-1-23649f43", "role": "correct_design", "diagnostic_note": "强制比较两个点位。"},
+        {"label": "B", "point_key": "candidate-1-23649f43", "role": "too_narrow", "diagnostic_note": "只覆盖 KI 点位。"},
+        {"label": "C", "point_key": "candidate-2-98dd8f1e", "role": "too_narrow", "diagnostic_note": "只覆盖 KMnO₄ 点位。"},
+        {"label": "D", "point_key": null, "role": "distractor_detection_packet", "diagnostic_note": "属于检验方法。"}
+      ],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00242_2da7ff3435"], "supporting_theory_chunk_ids": ["textbook_prose_00547_2a1f998120", "textbook_prose_00548_e41b91cedc", "textbook_prose_00549_1931138c9a"], "evidence_sufficient": true, "supporting_theory_required": true, "reviewer_note": "面向多点题设计。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_05_Q026",
+      "question_type": "single_choice",
+      "stem": "哪一项最能说明“亚硝酸既可氧化又可还原”不是同一现象的重复？",
+      "options": [
+        {"label": "A", "text": "两个体系的反应对象和观察判据不同"},
+        {"label": "B", "text": "两个体系都只观察红色"},
+        {"label": "C", "text": "两个体系都不需要酸性条件"},
+        {"label": "D", "text": "两个体系都不发生电子转移"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "KI 体系看碘生成，KMnO₄ 体系看紫色褪去，反应角色也不同。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-1-23649f43", "candidate-2-98dd8f1e"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["non_duplicate_reasoning", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-1-23649f43", "role": "correct_evidence", "diagnostic_note": "两个点位不是重复现象。"},
+        {"label": "B", "point_key": null, "role": "distractor_detection_packet", "diagnostic_note": "红色显色不是本实验的核心内容。"},
+        {"label": "C", "point_key": null, "role": "distractor_false", "diagnostic_note": "两者都在酸性条件下讨论。"},
+        {"label": "D", "point_key": null, "role": "distractor_false", "diagnostic_note": "二者均为氧化还原。"}
+      ],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00242_2da7ff3435"], "supporting_theory_chunk_ids": ["textbook_prose_00547_2a1f998120", "textbook_prose_00548_e41b91cedc", "textbook_prose_00549_1931138c9a"], "evidence_sufficient": true, "supporting_theory_required": true, "reviewer_note": "避免重复题。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_05_Q027",
+      "question_type": "single_choice",
+      "stem": "在酸性 KI 体系中，哪一种说法把酸性 KMnO₄ 体系的现象错套了进来？",
+      "options": [
+        {"label": "A", "text": "HNO₂ 在该体系中还原 KMnO₄"},
+        {"label": "B", "text": "HNO₂ 在该体系中氧化 I⁻"},
+        {"label": "C", "text": "I⁻ 生成碘"},
+        {"label": "D", "text": "酸性条件参与反应判断"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "还原 KMnO₄ 属于酸性 KMnO₄ 体系，放在 KI 体系会混淆两类证据。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-1-23649f43", "candidate-2-98dd8f1e"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["distractor_design", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-2-98dd8f1e", "role": "correct_distractor", "diagnostic_note": "来自相邻点位的干扰。"},
+        {"label": "B", "point_key": "candidate-1-23649f43", "role": "supported_statement", "diagnostic_note": "这是 KI 点位正确说法。"},
+        {"label": "C", "point_key": "candidate-1-23649f43", "role": "supported_statement", "diagnostic_note": "这是 KI 点位正确产物。"},
+        {"label": "D", "point_key": "candidate-1-23649f43", "role": "supported_statement", "diagnostic_note": "酸性条件相关。"}
+      ],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00242_2da7ff3435"], "supporting_theory_chunk_ids": ["textbook_prose_00547_2a1f998120", "textbook_prose_00548_e41b91cedc", "textbook_prose_00549_1931138c9a"], "evidence_sufficient": true, "supporting_theory_required": true, "reviewer_note": "干扰项设计题。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_05_Q028",
+      "question_type": "single_choice",
+      "stem": "在酸性 KMnO₄ 体系中，哪一种说法把酸性 KI 体系的现象错套了进来？",
+      "options": [
+        {"label": "A", "text": "HNO₂ 在该体系中氧化 I⁻ 生成碘"},
+        {"label": "B", "text": "HNO₂ 在该体系中表现还原性"},
+        {"label": "C", "text": "KMnO₄ 紫色可变浅或褪去"},
+        {"label": "D", "text": "强氧化剂参与才容易体现还原性"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "生成碘属于酸性 KI 体系，不是酸性 KMnO₄ 体系的直接观察。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-1-23649f43", "candidate-2-98dd8f1e"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["distractor_design", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-1-23649f43", "role": "correct_distractor", "diagnostic_note": "来自相邻点位的干扰。"},
+        {"label": "B", "point_key": "candidate-2-98dd8f1e", "role": "supported_statement", "diagnostic_note": "这是 KMnO₄ 点位正确说法。"},
+        {"label": "C", "point_key": "candidate-2-98dd8f1e", "role": "supported_statement", "diagnostic_note": "这是 KMnO₄ 点位现象。"},
+        {"label": "D", "point_key": "candidate-2-98dd8f1e", "role": "supported_statement", "diagnostic_note": "来自理论说明。"}
+      ],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00242_2da7ff3435"], "supporting_theory_chunk_ids": ["textbook_prose_00547_2a1f998120", "textbook_prose_00548_e41b91cedc", "textbook_prose_00549_1931138c9a"], "evidence_sufficient": true, "supporting_theory_required": true, "reviewer_note": "干扰项设计题。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_05_Q029",
+      "question_type": "single_choice",
+      "stem": "比较 HNO₂ 在两个体系中的氧化还原角色时，哪一项判断最符合实验现象？",
+      "options": [
+        {"label": "A", "text": "分别判断 HNO₂ 在两个体系中的角色"},
+        {"label": "B", "text": "只要求背诵一个方程式"},
+        {"label": "C", "text": "把检验方法全部并入同一题"},
+        {"label": "D", "text": "只问氮的固定氧化数，不联系实验现象"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "本实验的价值在比较：同一亚硝酸体系遇不同反应对象时角色不同。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-1-23649f43", "candidate-2-98dd8f1e"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["assessment_design", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-1-23649f43", "role": "correct_evidence", "diagnostic_note": "最符合本实验目标。"},
+        {"label": "B", "point_key": null, "role": "distractor_formula_heavy", "diagnostic_note": "不符合移动端和语义重建目标。"},
+        {"label": "C", "point_key": null, "role": "distractor_overbroad", "diagnostic_note": "混入亚硝酸根检验方法。"},
+        {"label": "D", "point_key": null, "role": "distractor_too_abstract", "diagnostic_note": "脱离实验观察现象。"}
+      ],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00242_2da7ff3435"], "supporting_theory_chunk_ids": ["textbook_prose_00547_2a1f998120", "textbook_prose_00548_e41b91cedc", "textbook_prose_00549_1931138c9a"], "evidence_sufficient": true, "supporting_theory_required": true, "reviewer_note": "考查方式题。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_05_Q030",
+      "question_type": "single_choice",
+      "stem": "酸性 KI 与酸性 KMnO₄ 两个体系共同说明 HNO₂/NO₂⁻ 具有哪种两面性？",
+      "options": [
+        {"label": "A", "text": "亚硝酸体系可在酸性 KI 中表现氧化性，在酸性 KMnO₄ 中表现还原性"},
+        {"label": "B", "text": "亚硝酸体系只表现氧化性"},
+        {"label": "C", "text": "亚硝酸体系只表现还原性"},
+        {"label": "D", "text": "亚硝酸体系只用于显色检验"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "该结论完整覆盖两个观察步骤和理论说明中的两面性判断。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-1-23649f43", "candidate-2-98dd8f1e"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["learning_goal", "conclusion", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-1-23649f43", "role": "correct_evidence", "diagnostic_note": "完整结论。"},
+        {"label": "B", "point_key": "candidate-1-23649f43", "role": "too_narrow", "diagnostic_note": "漏掉还原性。"},
+        {"label": "C", "point_key": "candidate-2-98dd8f1e", "role": "too_narrow", "diagnostic_note": "漏掉氧化性。"},
+        {"label": "D", "point_key": null, "role": "distractor_detection_packet", "diagnostic_note": "混入检验方法。"}
+      ],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00242_2da7ff3435"], "supporting_theory_chunk_ids": ["textbook_prose_00547_2a1f998120", "textbook_prose_00548_e41b91cedc", "textbook_prose_00549_1931138c9a"], "evidence_sufficient": true, "supporting_theory_required": true, "reviewer_note": "最终综合结论。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    }
+  ]
+}

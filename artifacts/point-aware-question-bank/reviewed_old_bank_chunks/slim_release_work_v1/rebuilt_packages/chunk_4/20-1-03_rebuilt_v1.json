@@ -1,0 +1,2074 @@
+{
+  "metadata": {
+    "schema_version": "rebuilt_experiment_question_package_v1",
+    "artifact_type": "manual_semantic_rebuild",
+    "chunk": "chunk_4",
+    "source_packet": "E:\\chemistry-admin\\artifacts\\point-aware-question-bank\\reviewed_old_bank_chunks\\slim_release_work_v1\\semantic_work_packets\\chunk_4\\20-1-03.json",
+    "experiment_code": "20-1-03",
+    "experiment_title": "其他配体的配合物",
+    "question_count": 30,
+    "type_counts": {
+      "single_choice": 20,
+      "true_false": 6,
+      "fill_blank": 4
+    },
+    "merge_status": "not_merged_do_not_modify_release_json_directly",
+    "rebuild_policy": [
+      "逐题读取 source question、选项、答案、解释、point keys、video points 与 RAG 证据后重构。",
+      "保留能被证据直接支持且语义稳定的设问，低质量填空、错绑点位、泛化多点绑定题改写为可发布题。",
+      "输出 JSON 只保留 evidence locator 与简短 role summary，不嵌入 RAG 原文长段。"
+    ],
+    "manual_rebuild_statement": "本 packet 已逐题语义重构，不是脚本批量生成。"
+  },
+  "video_points": [
+    {
+      "point_key": "candidate-1-458ac459",
+      "point_title": "AgCl、AgBr、AgI 与 NH₃·H₂O 的反应"
+    },
+    {
+      "point_key": "candidate-2-4e969351",
+      "point_title": "AgCl、AgBr、AgI 与 Na₂S₂O₃ 的反应"
+    },
+    {
+      "point_key": "candidate-3-06cca40c",
+      "point_title": "比较 AgCl、AgBr、AgI 溶解度"
+    },
+    {
+      "point_key": "candidate-4-989cff7f",
+      "point_title": "比较 Ag⁺ 与 NH₃、S₂O₃²⁻ 形成配合物的稳定性"
+    },
+    {
+      "point_key": "candidate-5-1629fe79",
+      "point_title": "银镜的制作"
+    },
+    {
+      "point_key": "candidate-6-775503b6",
+      "point_title": "Hg(NO₃)₂ + KI，观察沉淀生成与过量 KI 中溶解"
+    },
+    {
+      "point_key": "candidate-7-2fb9614f",
+      "point_title": "汞碘配合物 + NaOH + 铵盐"
+    },
+    {
+      "point_key": "candidate-8-2db27325",
+      "point_title": "Hg(NO₃)₂ + KSCN，观察沉淀生成与溶解"
+    },
+    {
+      "point_key": "candidate-9-b53d33a2",
+      "point_title": "汞硫氰配合物体系中加入锌盐，生成 Zn[Hg(SCN)₄]"
+    },
+    {
+      "point_key": "candidate-10-441a164c",
+      "point_title": "汞硫氰配合物体系中加入钴盐，生成 Co[Hg(SCN)₄]"
+    },
+    {
+      "point_key": "candidate-11-97537db4",
+      "point_title": "CuCl₂ + 浓盐酸，温热溶解"
+    },
+    {
+      "point_key": "candidate-12-645b7d94",
+      "point_title": "铜氯配合物加水后的颜色变化"
+    },
+    {
+      "point_key": "candidate-13-151f07d0",
+      "point_title": "向上述体系加入溴化钾，观察配体变化引起的现象"
+    }
+  ],
+  "evidence_sources": {
+    "canonical_experiment_chunks": [
+      {
+        "chunk_id": "expchunk_00309_5610e5bc6f",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+        "line_number": 322,
+        "evidence_role": "覆盖其他配体配合物中的银配合物、银镜、汞碘配合物与汞硫氰配合物操作。"
+      },
+      {
+        "chunk_id": "expchunk_00310_822a1490b4",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+        "line_number": 323,
+        "evidence_role": "覆盖锌盐/钴盐生成汞硫氰配合物沉淀，以及 CuCl₂ 加浓盐酸、加水、加溴化钾的铜配合物操作。"
+      }
+    ],
+    "supporting_theory_chunks": [
+      {
+        "chunk_id": "textbook_prose_01058_15764ebcec",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+        "line_number": 1642,
+        "evidence_role": "支持 AgCl、AgBr、AgI 溶解度由氯化物到碘化物减小，以及硫代硫酸盐定影思路。"
+      },
+      {
+        "chunk_id": "textbook_prose_01062_628733419b",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+        "line_number": 1644,
+        "evidence_role": "支持银氨配离子与银硫代硫酸根配离子的稳定性比较。"
+      },
+      {
+        "chunk_id": "textbook_prose_01063_0b7c13db34",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+        "line_number": 1648,
+        "evidence_role": "支持银镜反应的还原本质和银氨配离子被还原生成金属银。"
+      },
+      {
+        "chunk_id": "textbook_prose_01090_56461596a1",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+        "line_number": 1678,
+        "evidence_role": "支持 Hg(NO₃)₂ 与 KI 先生成 HgI₂ 沉淀、过量 KI 中形成 [HgI₄]²⁻ 而溶解。"
+      },
+      {
+        "chunk_id": "textbook_prose_01091_6b9e310a9d",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+        "line_number": 1679,
+        "evidence_role": "支持 Hg²⁺ 与 SCN⁻ 先生成 Hg(SCN)₂，再与过量 SCN⁻ 形成 [Hg(SCN)₄]²⁻。"
+      },
+      {
+        "chunk_id": "textbook_prose_01093_4e1caaa871",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+        "line_number": 1677,
+        "evidence_role": "支持 Hg(Ⅱ) 与 I⁻、SCN⁻ 等形成稳定配离子，以及奈斯勒试剂检验铵盐的红棕色沉淀现象。"
+      },
+      {
+        "chunk_id": "textbook_prose_00226_74aebd351e",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+        "line_number": 403,
+        "evidence_role": "支持 SCN⁻ 可以作为配体与金属离子配位，例子包括 [Hg(SCN)₄]²⁻。"
+      },
+      {
+        "chunk_id": "textbook_prose_00394_04911a6294",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+        "line_number": 657,
+        "evidence_role": "支持硫代硫酸根可与银形成稳定配离子，以及定影液利用该配位反应。"
+      }
+    ]
+  },
+  "questions": [
+    {
+      "question_id": "REV_CH4_EXP_20_1_03_Q001",
+      "question_type": "single_choice",
+      "stem": "设计 AgCl、AgBr、AgI 分别与 NH₃·H₂O 反应的试管组，最直接要比较的现象是哪一项？",
+      "options": [
+        {
+          "label": "A",
+          "text": "三种卤化银沉淀在氨水中的溶解难易"
+        },
+        {
+          "label": "B",
+          "text": "铜盐溶液加水后的颜色变化"
+        },
+        {
+          "label": "C",
+          "text": "汞硫氰配合物与锌盐生成的沉淀"
+        },
+        {
+          "label": "D",
+          "text": "银镜反应中试管壁是否洁净"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "该组实验把 AgCl、AgBr、AgI 放在同一 NH₃·H₂O 条件下比较，核心是看沉淀能否溶解以及溶解难易，从而联系卤化银溶解度和银氨配合物稳定性。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-458ac459"
+      ],
+      "secondary_point_keys": [
+        "candidate-3-06cca40c",
+        "candidate-4-989cff7f"
+      ],
+      "coverage_tags": [
+        "silver_halide_ammonia",
+        "solubility_comparison"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-1-458ac459",
+          "role": "correct_evidence",
+          "diagnostic_note": "对应 AgCl、AgBr、AgI 与 NH₃·H₂O 的并列比较。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-12-645b7d94",
+          "role": "distractor_adjacent_experiment",
+          "diagnostic_note": "这是铜氯配合物加水后的观察，不属于银卤化物与氨水组。"
+        },
+        {
+          "label": "C",
+          "point_key": "candidate-9-b53d33a2",
+          "role": "distractor_adjacent_experiment",
+          "diagnostic_note": "这是汞硫氰配合物体系的后续鉴定。"
+        },
+        {
+          "label": "D",
+          "point_key": "candidate-5-1629fe79",
+          "role": "distractor_adjacent_experiment",
+          "diagnostic_note": "洁净试管是银镜操作要求，不是本组比较目的。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00309_5610e5bc6f"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01058_15764ebcec",
+          "textbook_prose_01062_628733419b"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留源题银卤化物比较意图，但删去泛化点位并聚焦 NH₃·H₂O 试管组。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "kept_after_manual_tightening"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_03_Q002",
+      "question_type": "single_choice",
+      "stem": "在 AgCl、AgBr、AgI 的溶解度比较中，按常见规律最难溶的是哪一种？",
+      "options": [
+        {
+          "label": "A",
+          "text": "AgCl"
+        },
+        {
+          "label": "B",
+          "text": "AgBr"
+        },
+        {
+          "label": "C",
+          "text": "AgI"
+        },
+        {
+          "label": "D",
+          "text": "三者溶解度相同"
+        }
+      ],
+      "answer": {
+        "value": "C"
+      },
+      "explanation": "银卤化物从 AgCl 到 AgI 溶解度逐渐减小，因此 AgI 最难溶，也最不容易被一般配体条件转化为溶液。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-3-06cca40c"
+      ],
+      "secondary_point_keys": [
+        "candidate-1-458ac459",
+        "candidate-2-4e969351"
+      ],
+      "coverage_tags": [
+        "silver_halide_solubility_order"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-3-06cca40c",
+          "role": "distractor_misconception",
+          "diagnostic_note": "AgCl 在三者中相对更易溶。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-3-06cca40c",
+          "role": "distractor_misconception",
+          "diagnostic_note": "AgBr 介于 AgCl 与 AgI 之间。"
+        },
+        {
+          "label": "C",
+          "point_key": "candidate-3-06cca40c",
+          "role": "correct_evidence",
+          "diagnostic_note": "AgI 是三种银卤化物中最难溶者。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_misconception",
+          "diagnostic_note": "三者溶解度并不相同。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00309_5610e5bc6f"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01058_15764ebcec"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "重写为明确的溶解度顺序判断，点位只绑定银卤化物比较。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "rewrite"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_03_Q003",
+      "question_type": "single_choice",
+      "stem": "同样考察 AgCl、AgBr、AgI 时，加入 Na₂S₂O₃ 的主要判据是什么？",
+      "options": [
+        {
+          "label": "A",
+          "text": "沉淀是否因形成银硫代硫酸根配合物而溶解"
+        },
+        {
+          "label": "B",
+          "text": "溶液是否变为铜氯配合物的颜色"
+        },
+        {
+          "label": "C",
+          "text": "是否产生奈斯勒试剂的红棕色沉淀"
+        },
+        {
+          "label": "D",
+          "text": "是否生成钴的蓝色汞硫氰沉淀"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "Na₂S₂O₃ 可与 Ag⁺ 形成较稳定的硫代硫酸根配合物，所以观察卤化银沉淀是否溶解能反映配合物稳定性和卤化银转化能力。",
+      "difficulty": "medium",
+      "primary_point_keys": [
+        "candidate-2-4e969351"
+      ],
+      "secondary_point_keys": [
+        "candidate-4-989cff7f"
+      ],
+      "coverage_tags": [
+        "silver_thiosulfate_complex",
+        "complex_stability"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-2-4e969351",
+          "role": "correct_evidence",
+          "diagnostic_note": "Na₂S₂O₃ 组正是观察卤化银沉淀被硫代硫酸根配位溶解的能力。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-12-645b7d94",
+          "role": "distractor_adjacent_experiment",
+          "diagnostic_note": "铜氯配合物颜色变化属于铜（Ⅱ）配合物部分。"
+        },
+        {
+          "label": "C",
+          "point_key": "candidate-7-2fb9614f",
+          "role": "distractor_adjacent_experiment",
+          "diagnostic_note": "奈斯勒反应属于汞碘配合物与铵盐部分。"
+        },
+        {
+          "label": "D",
+          "point_key": "candidate-10-441a164c",
+          "role": "distractor_adjacent_experiment",
+          "diagnostic_note": "Co[Hg(SCN)₄] 生成属于汞硫氰体系。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00309_5610e5bc6f"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00394_04911a6294",
+          "textbook_prose_01062_628733419b"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "源包对硫代硫酸根题常泛绑银全部点位，此题改为 Na₂S₂O₃ 专题并补充稳定性理论。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "rewrite"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_03_Q004",
+      "question_type": "single_choice",
+      "stem": "比较 NH₃·H₂O 与 Na₂S₂O₃ 对卤化银沉淀的作用，哪项表述最符合实验目的？",
+      "options": [
+        {
+          "label": "A",
+          "text": "借沉淀溶解差异比较 Ag⁺ 与不同配体形成配合物的稳定性"
+        },
+        {
+          "label": "B",
+          "text": "证明三种卤化银都不能发生任何配位转化"
+        },
+        {
+          "label": "C",
+          "text": "比较铜（Ⅱ）配合物受水稀释后的颜色"
+        },
+        {
+          "label": "D",
+          "text": "只判断试管是否已被银镜镀亮"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "实验文本明确要求比较 AgCl、AgBr、AgI 的溶解度，以及 Ag⁺ 与 NH₃、S₂O₃²⁻ 形成配合物的稳定性；沉淀溶解差异就是可观察判据。",
+      "difficulty": "medium",
+      "primary_point_keys": [
+        "candidate-1-458ac459",
+        "candidate-2-4e969351",
+        "candidate-4-989cff7f"
+      ],
+      "secondary_point_keys": [
+        "candidate-3-06cca40c"
+      ],
+      "coverage_tags": [
+        "silver_ligand_comparison",
+        "multi_point"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-4-989cff7f",
+          "role": "correct_evidence",
+          "diagnostic_note": "跨 NH₃·H₂O 与 Na₂S₂O₃ 两组，正好对应稳定性比较。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "distractor_misconception",
+          "diagnostic_note": "卤化银能因不同配体形成配合物而发生不同程度溶解。"
+        },
+        {
+          "label": "C",
+          "point_key": "candidate-12-645b7d94",
+          "role": "distractor_adjacent_experiment",
+          "diagnostic_note": "这是铜配合物操作，不是银配体比较。"
+        },
+        {
+          "label": "D",
+          "point_key": "candidate-5-1629fe79",
+          "role": "distractor_adjacent_experiment",
+          "diagnostic_note": "银镜制作是银氨配合物的另一应用，不是卤化银比较本身。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00309_5610e5bc6f"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01058_15764ebcec",
+          "textbook_prose_01062_628733419b"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留源题跨银配体比较的高价值意图，重写选项并收窄为银相关点位。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "kept_after_manual_tightening"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_03_Q005",
+      "question_type": "single_choice",
+      "stem": "制作银镜时，向 AgNO₃ 溶液滴加 NH₃·H₂O 应控制到什么程度？",
+      "options": [
+        {
+          "label": "A",
+          "text": "生成的沉淀刚好溶解为止"
+        },
+        {
+          "label": "B",
+          "text": "加入后立即过滤掉沉淀"
+        },
+        {
+          "label": "C",
+          "text": "一直加到溶液明显酸化"
+        },
+        {
+          "label": "D",
+          "text": "先加入溴化钾至不再溶解"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "银镜操作先用 NH₃·H₂O 使生成的沉淀刚好溶解，得到银氨配合物溶液，再加入葡萄糖并水浴加热观察银镜。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-5-1629fe79"
+      ],
+      "secondary_point_keys": [
+        "candidate-4-989cff7f"
+      ],
+      "coverage_tags": [
+        "silver_mirror_procedure",
+        "ammonia_endpoint"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-5-1629fe79",
+          "role": "correct_evidence",
+          "diagnostic_note": "对应银镜制作中氨水滴加终点。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "distractor_misconception",
+          "diagnostic_note": "银镜需要沉淀刚好溶解后的银氨溶液。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "distractor_misconception",
+          "diagnostic_note": "银镜操作不是酸化条件。"
+        },
+        {
+          "label": "D",
+          "point_key": "candidate-13-151f07d0",
+          "role": "distractor_adjacent_experiment",
+          "diagnostic_note": "溴化钾至不再溶解属于铜配合物后续操作。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00309_5610e5bc6f"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01063_0b7c13db34"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "源包有银镜流程题，保留流程核心但改成可判定的操作终点。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "rewrite"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_03_Q006",
+      "question_type": "single_choice",
+      "stem": "银镜制作中加入葡萄糖并水浴加热，主要是利用葡萄糖的哪类作用？",
+      "options": [
+        {
+          "label": "A",
+          "text": "把银氨配合物中的银还原为金属银"
+        },
+        {
+          "label": "B",
+          "text": "把 AgI 氧化为碘单质"
+        },
+        {
+          "label": "C",
+          "text": "把 CuCl₂ 转化为铜氯配合物"
+        },
+        {
+          "label": "D",
+          "text": "把汞硫氰配合物沉淀全部溶解"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "银镜反应的本质是还原剂使银氨配合物中的银离子还原为金属银并附着在洁净试管壁上；本实验用葡萄糖作为还原剂。",
+      "difficulty": "medium",
+      "primary_point_keys": [
+        "candidate-5-1629fe79"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "silver_mirror_redox",
+        "glucose_role"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-5-1629fe79",
+          "role": "correct_evidence",
+          "diagnostic_note": "对应银镜反应的还原本质。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-3-06cca40c",
+          "role": "distractor_misconception",
+          "diagnostic_note": "AgI 溶解度比较不是银镜反应的本质。"
+        },
+        {
+          "label": "C",
+          "point_key": "candidate-11-97537db4",
+          "role": "distractor_adjacent_experiment",
+          "diagnostic_note": "铜氯配合物属于铜（Ⅱ）部分。"
+        },
+        {
+          "label": "D",
+          "point_key": "candidate-8-2db27325",
+          "role": "distractor_adjacent_experiment",
+          "diagnostic_note": "汞硫氰体系不属于银镜反应。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00309_5610e5bc6f"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01063_0b7c13db34"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "把源包中的浓度/试剂名填空改为银镜反应本质判断，避免移动端公式填空。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "rewrite"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_03_Q007",
+      "question_type": "single_choice",
+      "stem": "向 Hg(NO₃)₂ 溶液逐滴加入 KI 后继续加入过量 KI，观察到沉淀生成又溶解，合理解释是哪项？",
+      "options": [
+        {
+          "label": "A",
+          "text": "先生成 HgI₂ 沉淀，过量 I⁻ 配位形成 [HgI₄]²⁻"
+        },
+        {
+          "label": "B",
+          "text": "先生成 AgCl 沉淀，过量氨水使其溶解"
+        },
+        {
+          "label": "C",
+          "text": "先生成 Zn[Hg(SCN)₄]，摩擦后变蓝"
+        },
+        {
+          "label": "D",
+          "text": "先生成铜氯配合物，加水后沉淀"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "Hg²⁺ 与 I⁻ 先形成 HgI₂ 沉淀，继续有过量 I⁻ 时可形成四碘合汞(Ⅱ)配离子而使沉淀溶解。",
+      "difficulty": "medium",
+      "primary_point_keys": [
+        "candidate-6-775503b6"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "mercury_iodide_complex",
+        "precipitate_dissolution"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-6-775503b6",
+          "role": "correct_evidence",
+          "diagnostic_note": "对应 Hg(NO₃)₂ 与 KI 的沉淀生成和过量 KI 中溶解。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-1-458ac459",
+          "role": "distractor_adjacent_experiment",
+          "diagnostic_note": "这是银卤化物与氨水体系。"
+        },
+        {
+          "label": "C",
+          "point_key": "candidate-9-b53d33a2",
+          "role": "distractor_misconception",
+          "diagnostic_note": "锌盐生成白色 Zn[Hg(SCN)₄]，且属于硫氰体系。"
+        },
+        {
+          "label": "D",
+          "point_key": "candidate-12-645b7d94",
+          "role": "distractor_adjacent_experiment",
+          "diagnostic_note": "铜氯配合物加水观察颜色，不是 HgI₂ 的溶解。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00309_5610e5bc6f"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01090_56461596a1",
+          "textbook_prose_01093_4e1caaa871"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "重写汞碘题，点位只绑定 KI 体系并补充四碘合汞理论。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "rewrite"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_03_Q008",
+      "question_type": "single_choice",
+      "stem": "汞碘配合物溶液经 NaOH 调成碱性后再加入铵盐，实验主要考察哪种应用？",
+      "options": [
+        {
+          "label": "A",
+          "text": "利用奈斯勒试剂现象检验铵盐"
+        },
+        {
+          "label": "B",
+          "text": "用硫代硫酸盐定影卤化银"
+        },
+        {
+          "label": "C",
+          "text": "用浓盐酸溶解 CuCl₂"
+        },
+        {
+          "label": "D",
+          "text": "用葡萄糖还原银氨配合物"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "HgI₄²⁻ 体系在强碱条件下与铵盐给出奈斯勒试剂相关的特征现象，可用于铵盐鉴定；这不是银或铜体系的操作。",
+      "difficulty": "medium",
+      "primary_point_keys": [
+        "candidate-7-2fb9614f"
+      ],
+      "secondary_point_keys": [
+        "candidate-6-775503b6"
+      ],
+      "coverage_tags": [
+        "nessler_reagent",
+        "ammonium_detection"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-7-2fb9614f",
+          "role": "correct_evidence",
+          "diagnostic_note": "对应汞碘配合物加 NaOH 后再加铵盐的应用。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-2-4e969351",
+          "role": "distractor_adjacent_experiment",
+          "diagnostic_note": "硫代硫酸盐定影属于银卤化物转化。"
+        },
+        {
+          "label": "C",
+          "point_key": "candidate-11-97537db4",
+          "role": "distractor_adjacent_experiment",
+          "diagnostic_note": "浓盐酸溶解 CuCl₂ 属于铜（Ⅱ）配合物。"
+        },
+        {
+          "label": "D",
+          "point_key": "candidate-5-1629fe79",
+          "role": "distractor_adjacent_experiment",
+          "diagnostic_note": "葡萄糖还原银氨配合物属于银镜反应。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00309_5610e5bc6f"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01093_4e1caaa871"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "修正源包中汞碘题曾错绑到铜配合物点位的问题。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "rewrite"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_03_Q009",
+      "question_type": "single_choice",
+      "stem": "向 Hg(NO₃)₂ 溶液逐滴加入 KSCN，先见沉淀后又溶解，最合理的配位解释是哪项？",
+      "options": [
+        {
+          "label": "A",
+          "text": "过量 SCN⁻ 使 Hg(SCN)₂ 转为 [Hg(SCN)₄]²⁻"
+        },
+        {
+          "label": "B",
+          "text": "过量 I⁻ 使 HgI₂ 转为 [HgI₄]²⁻"
+        },
+        {
+          "label": "C",
+          "text": "NH₃·H₂O 使 AgCl 转为银氨配合物"
+        },
+        {
+          "label": "D",
+          "text": "水稀释使铜氯配合物改变颜色"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "KSCN 体系对应汞硫氰配合物：先生成 Hg(SCN)₂ 沉淀，过量 SCN⁻ 配位后形成可溶的 [Hg(SCN)₄]²⁻。",
+      "difficulty": "medium",
+      "primary_point_keys": [
+        "candidate-8-2db27325"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "mercury_thiocyanate_complex",
+        "precipitate_dissolution"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-8-2db27325",
+          "role": "correct_evidence",
+          "diagnostic_note": "对应 Hg(NO₃)₂ 与 KSCN 的沉淀生成与溶解。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-6-775503b6",
+          "role": "distractor_adjacent_experiment",
+          "diagnostic_note": "这是汞碘体系，不是 KSCN 体系。"
+        },
+        {
+          "label": "C",
+          "point_key": "candidate-1-458ac459",
+          "role": "distractor_adjacent_experiment",
+          "diagnostic_note": "这是银卤化物与氨水体系。"
+        },
+        {
+          "label": "D",
+          "point_key": "candidate-12-645b7d94",
+          "role": "distractor_adjacent_experiment",
+          "diagnostic_note": "这是铜氯配合物加水。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00309_5610e5bc6f"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01091_6b9e310a9d",
+          "textbook_prose_00226_74aebd351e"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "将 KSCN 题从公式填空改为沉淀-溶解机理选择，避免裸公式填空。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "rewrite"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_03_Q010",
+      "question_type": "single_choice",
+      "stem": "把汞硫氰配合物溶液分份后加入锌盐并摩擦管壁，预期生成的沉淀是哪项？",
+      "options": [
+        {
+          "label": "A",
+          "text": "白色 Zn[Hg(SCN)₄]"
+        },
+        {
+          "label": "B",
+          "text": "蓝色 Co[Hg(SCN)₄]"
+        },
+        {
+          "label": "C",
+          "text": "橘红色 HgI₂"
+        },
+        {
+          "label": "D",
+          "text": "金属银镜"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "实验文本将汞硫氰配合物溶液分成两份，加入锌盐的一份在摩擦管壁后生成白色 Zn[Hg(SCN)₄] 沉淀。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-9-b53d33a2"
+      ],
+      "secondary_point_keys": [
+        "candidate-8-2db27325"
+      ],
+      "coverage_tags": [
+        "zinc_mercury_thiocyanate",
+        "product_observation"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-9-b53d33a2",
+          "role": "correct_evidence",
+          "diagnostic_note": "锌盐对应白色 Zn[Hg(SCN)₄] 沉淀。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-10-441a164c",
+          "role": "distractor_adjacent_point",
+          "diagnostic_note": "蓝色 Co[Hg(SCN)₄] 属于钴盐分份。"
+        },
+        {
+          "label": "C",
+          "point_key": "candidate-6-775503b6",
+          "role": "distractor_adjacent_experiment",
+          "diagnostic_note": "HgI₂ 属于汞碘体系。"
+        },
+        {
+          "label": "D",
+          "point_key": "candidate-5-1629fe79",
+          "role": "distractor_adjacent_experiment",
+          "diagnostic_note": "金属银镜属于银镜反应。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00309_5610e5bc6f",
+          "expchunk_00310_822a1490b4"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "源包锌盐题答案可用但填空公式风险高，改为选择题并绑定锌盐点。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "rewrite"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_03_Q011",
+      "question_type": "single_choice",
+      "stem": "汞硫氰配合物溶液中加入钴盐并摩擦管壁，预期观察最匹配的是哪项？",
+      "options": [
+        {
+          "label": "A",
+          "text": "生成蓝色 Co[Hg(SCN)₄] 沉淀"
+        },
+        {
+          "label": "B",
+          "text": "生成白色 Zn[Hg(SCN)₄] 沉淀"
+        },
+        {
+          "label": "C",
+          "text": "生成 AgCl 白色沉淀"
+        },
+        {
+          "label": "D",
+          "text": "生成红棕色奈斯勒沉淀"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "同一汞硫氰配合物体系中，钴盐分份生成蓝色 Co[Hg(SCN)₄] 沉淀；锌盐分份才对应白色沉淀。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-10-441a164c"
+      ],
+      "secondary_point_keys": [
+        "candidate-8-2db27325"
+      ],
+      "coverage_tags": [
+        "cobalt_mercury_thiocyanate",
+        "product_observation"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-10-441a164c",
+          "role": "correct_evidence",
+          "diagnostic_note": "钴盐对应蓝色 Co[Hg(SCN)₄]。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-9-b53d33a2",
+          "role": "distractor_adjacent_point",
+          "diagnostic_note": "白色 Zn[Hg(SCN)₄] 属于锌盐分份。"
+        },
+        {
+          "label": "C",
+          "point_key": "candidate-1-458ac459",
+          "role": "distractor_unrelated_product",
+          "diagnostic_note": "AgCl 属于银卤化物体系。"
+        },
+        {
+          "label": "D",
+          "point_key": "candidate-7-2fb9614f",
+          "role": "distractor_adjacent_experiment",
+          "diagnostic_note": "红棕色奈斯勒沉淀属于汞碘配合物加铵盐。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00309_5610e5bc6f",
+          "expchunk_00310_822a1490b4"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "修正源包中钴盐题曾出现错误 coverage tag 的问题。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "rewrite"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_03_Q012",
+      "question_type": "single_choice",
+      "stem": "铜（Ⅱ）配合物实验开始时，处理少量 CuCl₂ 固体的正确操作是哪项？",
+      "options": [
+        {
+          "label": "A",
+          "text": "加入浓盐酸并温热使其溶解"
+        },
+        {
+          "label": "B",
+          "text": "加入葡萄糖并水浴加热"
+        },
+        {
+          "label": "C",
+          "text": "加入 KI 后再加 NaOH 和铵盐"
+        },
+        {
+          "label": "D",
+          "text": "加入锌盐并摩擦试管内壁"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "铜（Ⅱ）配合物部分要求取少量 CuCl₂ 固体，加入浓盐酸，温热使固体溶解；后续才加水和溴化钾观察配体环境变化。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-11-97537db4"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "copper_chloro_complex",
+        "initial_operation"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-11-97537db4",
+          "role": "correct_evidence",
+          "diagnostic_note": "对应 CuCl₂ 加浓盐酸并温热溶解。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-5-1629fe79",
+          "role": "distractor_adjacent_experiment",
+          "diagnostic_note": "这是银镜操作。"
+        },
+        {
+          "label": "C",
+          "point_key": "candidate-7-2fb9614f",
+          "role": "distractor_adjacent_experiment",
+          "diagnostic_note": "这是汞碘配合物后续应用。"
+        },
+        {
+          "label": "D",
+          "point_key": "candidate-9-b53d33a2",
+          "role": "distractor_adjacent_experiment",
+          "diagnostic_note": "这是汞硫氰配合物锌盐分份。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00310_822a1490b4"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "保留源题铜配合物初始操作意图，修正旧包把答案点错绑到溴化钾的问题。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "kept_after_manual_tightening"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_03_Q013",
+      "question_type": "single_choice",
+      "stem": "CuCl₂ 在浓盐酸中温热溶解后加入少量蒸馏水，本步最应关注什么？",
+      "options": [
+        {
+          "label": "A",
+          "text": "溶液颜色随配位环境改变而变化"
+        },
+        {
+          "label": "B",
+          "text": "是否生成银镜"
+        },
+        {
+          "label": "C",
+          "text": "是否生成 HgI₂ 沉淀"
+        },
+        {
+          "label": "D",
+          "text": "是否得到白色 Zn[Hg(SCN)₄]"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "铜（Ⅱ）氯配合物加水后，实验要求观察溶液颜色；该现象用于反映水稀释后铜（Ⅱ）配位环境的变化。",
+      "difficulty": "medium",
+      "primary_point_keys": [
+        "candidate-12-645b7d94"
+      ],
+      "secondary_point_keys": [
+        "candidate-11-97537db4"
+      ],
+      "coverage_tags": [
+        "copper_chloro_complex_water_color_change"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-12-645b7d94",
+          "role": "correct_evidence",
+          "diagnostic_note": "对应铜氯配合物加水后的颜色变化。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-5-1629fe79",
+          "role": "distractor_adjacent_experiment",
+          "diagnostic_note": "银镜属于银氨配合物。"
+        },
+        {
+          "label": "C",
+          "point_key": "candidate-6-775503b6",
+          "role": "distractor_adjacent_experiment",
+          "diagnostic_note": "HgI₂ 属于汞碘体系。"
+        },
+        {
+          "label": "D",
+          "point_key": "candidate-9-b53d33a2",
+          "role": "distractor_adjacent_experiment",
+          "diagnostic_note": "Zn[Hg(SCN)₄] 属于汞硫氰体系。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00310_822a1490b4"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "源题关于铜配体颜色变化可保留，但只绑定加水后观察点。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "kept_after_manual_tightening"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_03_Q014",
+      "question_type": "single_choice",
+      "stem": "在上述铜配合物溶液中慢慢加入固体溴化钾至振荡后不再溶解，实验目的最接近哪项？",
+      "options": [
+        {
+          "label": "A",
+          "text": "观察 Br⁻ 进入配位环境后引起的现象变化"
+        },
+        {
+          "label": "B",
+          "text": "比较 AgCl、AgBr、AgI 的溶解度"
+        },
+        {
+          "label": "C",
+          "text": "制备奈斯勒试剂检验铵盐"
+        },
+        {
+          "label": "D",
+          "text": "让葡萄糖还原银氨配合物"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "溴化钾被加入的是已经形成的铜（Ⅱ）配合物体系，观察点是溴离子参与后配体环境变化所带来的现象，而不是银卤化物或汞体系。",
+      "difficulty": "medium",
+      "primary_point_keys": [
+        "candidate-13-151f07d0"
+      ],
+      "secondary_point_keys": [
+        "candidate-11-97537db4",
+        "candidate-12-645b7d94"
+      ],
+      "coverage_tags": [
+        "copper_bromo_ligand_substitution",
+        "ligand_change"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-13-151f07d0",
+          "role": "correct_evidence",
+          "diagnostic_note": "对应向上述铜配合物体系加入溴化钾的观察目的。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-3-06cca40c",
+          "role": "distractor_adjacent_experiment",
+          "diagnostic_note": "这是银卤化物比较，不是铜配合物加入溴化钾的后续操作。"
+        },
+        {
+          "label": "C",
+          "point_key": "candidate-7-2fb9614f",
+          "role": "distractor_adjacent_experiment",
+          "diagnostic_note": "这是汞碘配合物应用。"
+        },
+        {
+          "label": "D",
+          "point_key": "candidate-5-1629fe79",
+          "role": "distractor_adjacent_experiment",
+          "diagnostic_note": "这是银镜反应。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00310_822a1490b4"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "修复源包溴化钾填空过度绑定几乎全部点位的问题。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "rewrite"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_03_Q015",
+      "question_type": "single_choice",
+      "stem": "以下哪项不属于本实验“其他配体的配合物”的直接实验对象？",
+      "options": [
+        {
+          "label": "A",
+          "text": "AgCl、AgBr、AgI 与 NH₃·H₂O 或 Na₂S₂O₃ 的比较"
+        },
+        {
+          "label": "B",
+          "text": "汞碘配合物和汞硫氰配合物的生成及应用"
+        },
+        {
+          "label": "C",
+          "text": "CuCl₂ 在浓盐酸、水和溴化钾条件下的配位变化"
+        },
+        {
+          "label": "D",
+          "text": "丁二酮肟检验镍离子的沉淀反应"
+        }
+      ],
+      "answer": {
+        "value": "D"
+      },
+      "explanation": "本实验覆盖银、汞和铜的其他配体配合物；丁二酮肟检验镍离子不在本实验的操作和观察范围内。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-458ac459",
+        "candidate-6-775503b6",
+        "candidate-11-97537db4"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "packet_scope_boundary",
+        "multi_point"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-1-458ac459",
+          "role": "in_scope_distractor",
+          "diagnostic_note": "银卤化物与两类配体比较属于本实验内容。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-6-775503b6",
+          "role": "in_scope_distractor",
+          "diagnostic_note": "汞碘和汞硫氰体系属于本实验内容。"
+        },
+        {
+          "label": "C",
+          "point_key": "candidate-11-97537db4",
+          "role": "in_scope_distractor",
+          "diagnostic_note": "铜(Ⅱ)配合物属于本实验内容。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "correct_out_of_scope",
+          "diagnostic_note": "镍离子丁二酮肟反应属于相邻外的其他检验体系。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00309_5610e5bc6f",
+          "expchunk_00310_822a1490b4"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "新增范围边界题，防止把其他章节或其他金属检验混入。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "rewrite"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_03_Q016",
+      "question_type": "single_choice",
+      "stem": "要解释“碘化银为什么比氯化银更难在配体作用下消失”，最需要补充哪类证据？",
+      "options": [
+        {
+          "label": "A",
+          "text": "银卤化物溶解度顺序和银配合物稳定性的理论证据"
+        },
+        {
+          "label": "B",
+          "text": "铜氯配合物加水后的颜色记录"
+        },
+        {
+          "label": "C",
+          "text": "锌盐生成白色汞硫氰沉淀的操作记录"
+        },
+        {
+          "label": "D",
+          "text": "溴化钾加入铜体系直到不再溶解的步骤"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "实验文本只要求比较，具体解释碘化银与氯化银的差异需要银卤化物溶解度和银配合物稳定性理论来支撑。",
+      "difficulty": "hard",
+      "primary_point_keys": [
+        "candidate-3-06cca40c",
+        "candidate-4-989cff7f"
+      ],
+      "secondary_point_keys": [
+        "candidate-1-458ac459",
+        "candidate-2-4e969351"
+      ],
+      "coverage_tags": [
+        "evidence_boundary",
+        "supporting_theory_required",
+        "multi_point"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-3-06cca40c",
+          "role": "correct_evidence",
+          "diagnostic_note": "解释性问题需要银卤化物溶解度和配合物稳定性理论。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-12-645b7d94",
+          "role": "distractor_adjacent_experiment",
+          "diagnostic_note": "铜颜色证据不能解释 AgI 与 AgCl。"
+        },
+        {
+          "label": "C",
+          "point_key": "candidate-9-b53d33a2",
+          "role": "distractor_adjacent_experiment",
+          "diagnostic_note": "汞硫氰锌盐证据不能解释银卤化物。"
+        },
+        {
+          "label": "D",
+          "point_key": "candidate-13-151f07d0",
+          "role": "distractor_adjacent_experiment",
+          "diagnostic_note": "铜配合物加入溴化钾的操作不能解释银卤化物。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00309_5610e5bc6f"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01058_15764ebcec",
+          "textbook_prose_01062_628733419b"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "新增证据边界题，用于区分 canonical 操作证据和解释性理论证据。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "rewrite"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_03_Q017",
+      "question_type": "single_choice",
+      "stem": "要把汞硫氰体系用于 Zn²⁺ 和 Co²⁺ 的定性区分，最关键的实验处理是哪项？",
+      "options": [
+        {
+          "label": "A",
+          "text": "将形成的汞硫氰配合物溶液分成两份，分别加入锌盐和钴盐"
+        },
+        {
+          "label": "B",
+          "text": "把 AgNO₃ 溶液直接与葡萄糖混合"
+        },
+        {
+          "label": "C",
+          "text": "只把 CuCl₂ 固体溶于浓盐酸，不做后续处理"
+        },
+        {
+          "label": "D",
+          "text": "只比较 AgCl、AgBr、AgI 的颜色"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "汞硫氰配合物体系的应用是在分份后分别加入锌盐、钴盐并摩擦管壁，观察白色和蓝色沉淀，从而服务于 Zn²⁺ 与 Co²⁺ 的定性区分。",
+      "difficulty": "medium",
+      "primary_point_keys": [
+        "candidate-8-2db27325",
+        "candidate-9-b53d33a2",
+        "candidate-10-441a164c"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "mercury_thiocyanate_application",
+        "multi_point"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-8-2db27325",
+          "role": "correct_evidence",
+          "diagnostic_note": "先形成汞硫氰配合物，再分份加入锌盐和钴盐。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-5-1629fe79",
+          "role": "distractor_adjacent_experiment",
+          "diagnostic_note": "银镜不是锌钴定性区分。"
+        },
+        {
+          "label": "C",
+          "point_key": "candidate-11-97537db4",
+          "role": "distractor_adjacent_experiment",
+          "diagnostic_note": "铜氯配合物不是 Zn²⁺/Co²⁺ 的汞硫氰区分。"
+        },
+        {
+          "label": "D",
+          "point_key": "candidate-3-06cca40c",
+          "role": "distractor_misconception",
+          "diagnostic_note": "银卤化物颜色比较不构成汞硫氰体系应用。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00309_5610e5bc6f",
+          "expchunk_00310_822a1490b4"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01091_6b9e310a9d"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "把锌盐/钴盐两个孤立产品题整合成应用流程题，但点位确实跨同一体系。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "rewrite"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_03_Q018",
+      "question_type": "single_choice",
+      "stem": "下列哪组“试剂—观察目的”的配对最准确？",
+      "options": [
+        {
+          "label": "A",
+          "text": "Na₂S₂O₃—观察卤化银沉淀因配位而溶解"
+        },
+        {
+          "label": "B",
+          "text": "葡萄糖—观察铜氯配合物加水后的颜色"
+        },
+        {
+          "label": "C",
+          "text": "浓盐酸—检验铵盐的奈斯勒现象"
+        },
+        {
+          "label": "D",
+          "text": "溴化钾—生成白色 Zn[Hg(SCN)₄] 沉淀"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "Na₂S₂O₃ 用于银卤化物转化和银配合物稳定性比较；葡萄糖用于银镜，浓盐酸用于铜氯配合物起始溶解，溴化钾用于铜配体变化而不是汞硫氰锌盐沉淀。",
+      "difficulty": "medium",
+      "primary_point_keys": [
+        "candidate-2-4e969351"
+      ],
+      "secondary_point_keys": [
+        "candidate-5-1629fe79",
+        "candidate-11-97537db4",
+        "candidate-13-151f07d0"
+      ],
+      "coverage_tags": [
+        "reagent_purpose_discrimination",
+        "multi_point"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-2-4e969351",
+          "role": "correct_evidence",
+          "diagnostic_note": "Na₂S₂O₃ 与银卤化物沉淀溶解直接对应。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-5-1629fe79",
+          "role": "distractor_mismatched_purpose",
+          "diagnostic_note": "葡萄糖用于银镜反应，不用于铜氯配合物加水颜色。"
+        },
+        {
+          "label": "C",
+          "point_key": "candidate-11-97537db4",
+          "role": "distractor_mismatched_purpose",
+          "diagnostic_note": "浓盐酸用于 CuCl₂ 溶解，不用于奈斯勒现象。"
+        },
+        {
+          "label": "D",
+          "point_key": "candidate-13-151f07d0",
+          "role": "distractor_mismatched_purpose",
+          "diagnostic_note": "溴化钾属于铜体系配体变化，不生成锌汞硫氰沉淀。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00309_5610e5bc6f",
+          "expchunk_00310_822a1490b4"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01062_628733419b"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "重写为跨子实验的试剂用途辨析，所有干扰项来自本 packet 但目的故意错配。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "rewrite"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_03_Q019",
+      "question_type": "single_choice",
+      "stem": "关于本实验中“沉淀先生成后溶解”的现象，下列哪项对应关系正确？",
+      "options": [
+        {
+          "label": "A",
+          "text": "Hg(NO₃)₂ + KI：过量 I⁻ 形成可溶配离子"
+        },
+        {
+          "label": "B",
+          "text": "CuCl₂ + 浓盐酸：过量葡萄糖形成可溶配离子"
+        },
+        {
+          "label": "C",
+          "text": "AgNO₃ + 葡萄糖：过量 SCN⁻ 形成可溶配离子"
+        },
+        {
+          "label": "D",
+          "text": "溴化钾 + 铜配合物：过量 I⁻ 形成汞碘配离子"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "Hg(NO₃)₂ 与 KI 的体系中，先生成 HgI₂ 沉淀，过量 I⁻ 形成 [HgI₄]²⁻ 后溶解；其他选项把不同体系的试剂和解释混在一起。",
+      "difficulty": "medium",
+      "primary_point_keys": [
+        "candidate-6-775503b6"
+      ],
+      "secondary_point_keys": [
+        "candidate-8-2db27325"
+      ],
+      "coverage_tags": [
+        "precipitate_then_dissolve",
+        "system_matching"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-6-775503b6",
+          "role": "correct_evidence",
+          "diagnostic_note": "汞碘体系沉淀后溶解由过量 I⁻ 配位解释。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-11-97537db4",
+          "role": "distractor_mismatched_purpose",
+          "diagnostic_note": "CuCl₂ 与浓盐酸体系不使用葡萄糖。"
+        },
+        {
+          "label": "C",
+          "point_key": "candidate-5-1629fe79",
+          "role": "distractor_mismatched_purpose",
+          "diagnostic_note": "银镜不由过量 SCN⁻ 解释。"
+        },
+        {
+          "label": "D",
+          "point_key": "candidate-13-151f07d0",
+          "role": "distractor_mismatched_purpose",
+          "diagnostic_note": "铜配合物加溴化钾的体系不是汞碘配离子。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00309_5610e5bc6f"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01090_56461596a1"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "新增跨体系匹配题，避免源包用公式填空机械考记忆。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "rewrite"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_03_Q020",
+      "question_type": "single_choice",
+      "stem": "如果只依据实验文本判断是否做过某一步操作，下列哪项不需要理论补充即可判断？",
+      "options": [
+        {
+          "label": "A",
+          "text": "CuCl₂ 固体是否用浓盐酸温热溶解"
+        },
+        {
+          "label": "B",
+          "text": "AgI 的溶解度为什么低于 AgCl"
+        },
+        {
+          "label": "C",
+          "text": "银氨配合物为什么能被葡萄糖还原"
+        },
+        {
+          "label": "D",
+          "text": "SCN⁻ 为什么能通过 S 或 N 原子配位"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "CuCl₂ 加浓盐酸并温热溶解是实验步骤本身；其余三项都属于解释性问题，需要银或硫氰配体的相关化学原理支撑。",
+      "difficulty": "hard",
+      "primary_point_keys": [
+        "candidate-11-97537db4"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "evidence_boundary",
+        "canonical_vs_theory"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-11-97537db4",
+          "role": "correct_evidence",
+          "diagnostic_note": "该操作直接属于实验步骤。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-3-06cca40c",
+          "role": "distractor_requires_theory",
+          "diagnostic_note": "溶解度原因需要理论证据。"
+        },
+        {
+          "label": "C",
+          "point_key": "candidate-5-1629fe79",
+          "role": "distractor_requires_theory",
+          "diagnostic_note": "还原本质需要银镜反应理论。"
+        },
+        {
+          "label": "D",
+          "point_key": "candidate-8-2db27325",
+          "role": "distractor_requires_theory",
+          "diagnostic_note": "SCN⁻ 配位原子解释需要硫氰根理论。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00310_822a1490b4"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "新增 evidence boundary 题，明确直接操作题和理论解释题的证据差别。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "rewrite"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_03_Q021",
+      "question_type": "true_false",
+      "stem": "AgCl、AgBr、AgI 与 NH₃·H₂O 的比较，应主要围绕银卤化物和银氨配合物，不应混入铜配合物加入溴化钾的后续操作。",
+      "options": [],
+      "answer": {
+        "value": true
+      },
+      "explanation": "该判断用于区分实验对象是否混淆：银卤化物与氨水比较属于银体系，铜配合物加入溴化钾的后续操作属于铜(Ⅱ)配合物部分。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-458ac459",
+        "candidate-4-989cff7f"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "point_binding_boundary",
+        "true_false"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00309_5610e5bc6f",
+          "expchunk_00310_822a1490b4"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01062_628733419b"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "新增点位边界判断，针对源包银题与铜题错绑风险。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "rewrite"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_03_Q022",
+      "question_type": "true_false",
+      "stem": "银镜制作中，NH₃·H₂O 的滴加终点是使生成的沉淀刚好溶解，而不是越多越好。",
+      "options": [],
+      "answer": {
+        "value": true
+      },
+      "explanation": "实验文本明确要求滴加 NH₃·H₂O 至生成的沉淀刚好溶解为止，再加入葡萄糖并水浴加热。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-5-1629fe79"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "silver_mirror_procedure",
+        "true_false"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00309_5610e5bc6f"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "替换源包中低质量试剂名填空为操作终点判断。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "rewrite"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_03_Q023",
+      "question_type": "true_false",
+      "stem": "Hg(NO₃)₂ 与 KI 的实验中，沉淀在过量 KI 中溶解，可用 [HgI₄]²⁻ 的形成解释。",
+      "options": [],
+      "answer": {
+        "value": true
+      },
+      "explanation": "汞碘体系先形成 HgI₂ 沉淀，过量 I⁻ 与汞(Ⅱ)配位形成 [HgI₄]²⁻，所以沉淀可继续溶解。",
+      "difficulty": "medium",
+      "primary_point_keys": [
+        "candidate-6-775503b6"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "mercury_iodide_complex",
+        "true_false"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00309_5610e5bc6f"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01090_56461596a1",
+          "textbook_prose_01093_4e1caaa871"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留汞碘沉淀-溶解判断，但补足理论证据并避免错绑。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "rewrite"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_03_Q024",
+      "question_type": "true_false",
+      "stem": "在 Hg(NO₃)₂ 与 KSCN 的体系中，加入锌盐和加入钴盐应期待同一种颜色的沉淀。",
+      "options": [],
+      "answer": {
+        "value": false
+      },
+      "explanation": "实验文本区分两份溶液：锌盐生成白色 Zn[Hg(SCN)₄]，钴盐生成蓝色 Co[Hg(SCN)₄]，颜色和金属离子对应不同。",
+      "difficulty": "medium",
+      "primary_point_keys": [
+        "candidate-9-b53d33a2",
+        "candidate-10-441a164c"
+      ],
+      "secondary_point_keys": [
+        "candidate-8-2db27325"
+      ],
+      "coverage_tags": [
+        "zinc_cobalt_discrimination",
+        "true_false",
+        "multi_point"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00309_5610e5bc6f",
+          "expchunk_00310_822a1490b4"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "将原本两道产品公式题改写为颜色对应关系判断。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "rewrite"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_03_Q025",
+      "question_type": "true_false",
+      "stem": "CuCl₂ 的铜（Ⅱ）配合物实验中，加入溴化钾的步骤发生在浓盐酸温热溶解和加水观察之后。",
+      "options": [],
+      "answer": {
+        "value": true
+      },
+      "explanation": "实验文本先写 CuCl₂ 加浓盐酸并温热溶解，再加少量蒸馏水观察颜色，随后慢慢加入固体溴化钾观察现象。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-11-97537db4",
+        "candidate-12-645b7d94",
+        "candidate-13-151f07d0"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "copper_complex_sequence",
+        "true_false",
+        "multi_point"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00310_822a1490b4"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "新增铜配合物顺序判断，修复源包溴化钾点位泛绑问题。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "rewrite"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_03_Q026",
+      "question_type": "true_false",
+      "stem": "把银镜反应的葡萄糖作用解释为“生成 Zn[Hg(SCN)₄] 白色沉淀”是正确的。",
+      "options": [],
+      "answer": {
+        "value": false
+      },
+      "explanation": "葡萄糖在银镜反应中作为还原剂，使银氨配合物中的银转化为金属银；Zn[Hg(SCN)₄] 属于汞硫氰配合物与锌盐的体系。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-5-1629fe79"
+      ],
+      "secondary_point_keys": [
+        "candidate-9-b53d33a2"
+      ],
+      "coverage_tags": [
+        "system_discrimination",
+        "true_false"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00309_5610e5bc6f",
+          "expchunk_00310_822a1490b4"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01063_0b7c13db34"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "新增跨体系防混淆判断，针对源包中多个公式答案机械并列的问题。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "rewrite"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_03_Q027",
+      "question_type": "fill_blank",
+      "stem": "银镜制作中，加入 NH₃·H₂O 至沉淀刚好溶解后，再加入少量____溶液并水浴加热。",
+      "options": [],
+      "answer": {
+        "accepted_answers": [
+          "葡萄糖"
+        ],
+        "match": "normalized_exact",
+        "visible_input_policy": "short_ordinary_chinese_only"
+      },
+      "explanation": "实验步骤写明沉淀刚好溶解后加入少量葡萄糖溶液，随后水浴加热观察银镜现象。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-5-1629fe79"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "silver_mirror_procedure",
+        "mobile_safe_fill"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00309_5610e5bc6f"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "把源包带浓度的葡萄糖填空改为短中文答案，不要求输入百分数。"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": {
+        "mode": "normalized_exact",
+        "deterministic": true
+      },
+      "rebuilt_action": "rewrite"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_03_Q028",
+      "question_type": "fill_blank",
+      "stem": "Hg(NO₃)₂ 与 KI 的体系中，沉淀在过量 KI 中溶解，本质上体现了汞(Ⅱ)与碘离子的____作用。",
+      "options": [],
+      "answer": {
+        "accepted_answers": [
+          "配位",
+          "络合"
+        ],
+        "match": "normalized_exact",
+        "visible_input_policy": "short_ordinary_chinese_only"
+      },
+      "explanation": "过量碘离子与 Hg(Ⅱ)形成配离子，使原先的 HgI₂ 沉淀溶解；填空只要求普通中文概念词。",
+      "difficulty": "medium",
+      "primary_point_keys": [
+        "candidate-6-775503b6"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "mercury_iodide_complex",
+        "mobile_safe_fill"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00309_5610e5bc6f"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01090_56461596a1",
+          "textbook_prose_01093_4e1caaa871"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留源包中‘配位/络合’概念填空的安全形式，并绑定汞碘体系。"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": {
+        "mode": "normalized_exact",
+        "deterministic": true
+      },
+      "rebuilt_action": "kept_after_manual_tightening"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_03_Q029",
+      "question_type": "fill_blank",
+      "stem": "铜（Ⅱ）配合物实验中，少量 CuCl₂ 固体先加入浓____并温热，使固体溶解。",
+      "options": [],
+      "answer": {
+        "accepted_answers": [
+          "盐酸"
+        ],
+        "match": "normalized_exact",
+        "visible_input_policy": "short_ordinary_chinese_only"
+      },
+      "explanation": "实验文本直接给出 CuCl₂ 固体先加入浓盐酸，温热使其溶解；填空使用中文试剂名，避免盐酸的公式填空。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-11-97537db4"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "copper_chloro_complex",
+        "mobile_safe_fill"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00310_822a1490b4"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "保留源包铜初始试剂填空意图，但改为中文答案并修正点位。"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": {
+        "mode": "normalized_exact",
+        "deterministic": true
+      },
+      "rebuilt_action": "kept_after_manual_tightening"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_03_Q030",
+      "question_type": "fill_blank",
+      "stem": "铜氯配合物加水观察后，再慢慢加入固体____，用于观察配体变化引起的现象。",
+      "options": [],
+      "answer": {
+        "accepted_answers": [
+          "溴化钾"
+        ],
+        "match": "normalized_exact",
+        "visible_input_policy": "short_ordinary_chinese_only"
+      },
+      "explanation": "实验步骤写明向上述溶液慢慢加入固体溴化钾，因此空格应填“溴化钾”。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-13-151f07d0"
+      ],
+      "secondary_point_keys": [
+        "candidate-12-645b7d94"
+      ],
+      "coverage_tags": [
+        "copper_bromo_ligand_substitution",
+        "mobile_safe_fill"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00310_822a1490b4"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "保留源包溴化钾填空意图，但改为中文短答案，并移除原先过度绑定的银/汞点位。"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": {
+        "mode": "normalized_exact",
+        "deterministic": true
+      },
+      "rebuilt_action": "kept_after_manual_tightening"
+    }
+  ]
+}

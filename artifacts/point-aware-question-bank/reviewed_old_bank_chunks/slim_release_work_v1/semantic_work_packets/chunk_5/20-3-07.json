@@ -1,0 +1,4089 @@
+{
+  "metadata": {
+    "version": "chunk-5-release-slim-v1",
+    "artifact_type": "slim_question_bank_work_file",
+    "generated_at": "2026-06-15T03:27:59.225537+00:00",
+    "source_file": "E:\\chemistry-admin\\artifacts\\point-aware-question-bank\\reviewed_old_bank_chunks\\chunk_5_release_final_v1.json",
+    "normalization_rule": "effective question plus minimal lineage, evidence IDs, point bindings, option links, evidence locators, and mechanical risk flags",
+    "evidence_policy": "RAG source text is not embedded; packets carry locators and reviewers must read E:/chemistry-rag/data/rag_ready directly",
+    "chunk_id_policy": "inherited chunk ids are untrusted locator candidates until manually compared with RAG text",
+    "semantic_status": "not_semantically_repaired_by_this_script",
+    "packet_type": "single_experiment_semantic_repair_work_packet",
+    "chunk": 5,
+    "experiment_code": "20-3-07",
+    "question_count": 30
+  },
+  "experiment": {
+    "experiment_id": "EXP_20_3_07",
+    "experiment_code": "20-3-07",
+    "experiment_title": "配合物稳定性与配体的关系",
+    "chapter_bindings": [
+      {
+        "chapter_id": "CH20",
+        "coverage_type": "primary",
+        "sort_order": 1
+      }
+    ],
+    "video_points": [
+      {
+        "point_key": "candidate-1-d78b3d70",
+        "point_title": "Cr₂(SO₄)₃ + Na₂C₂O₄，再加入 NaOH",
+        "source": null,
+        "candidate_index": null,
+        "resource_count": null,
+        "published_count": null,
+        "resource_titles": []
+      },
+      {
+        "point_key": "candidate-2-627e8ed0",
+        "point_title": "FeCl₃ + KSCN，再加入 Na₂C₂O₄",
+        "source": null,
+        "candidate_index": null,
+        "resource_count": null,
+        "published_count": null,
+        "resource_titles": []
+      },
+      {
+        "point_key": "candidate-3-7d9492a7",
+        "point_title": "NiSO₄ + 过量 NH₃·H₂O，再加入乙二胺",
+        "source": null,
+        "candidate_index": null,
+        "resource_count": null,
+        "published_count": null,
+        "resource_titles": []
+      }
+    ],
+    "canonical_chunk_ids": [
+      "expchunk_00332_42b6908ee0",
+      "expchunk_00333_d08e49be44"
+    ],
+    "evidence_lookup": {
+      "policy": "locator_only; canonical RAG text is not embedded in this packet",
+      "chunk_id_policy": "metadata chunk ids are inherited claims, not trusted evidence; reviewers must compare the RAG text against the question stem/options/answer/explanation and replace or remove wrong ids",
+      "primary_source_dir": "E:\\chemistry-rag\\data\\rag_ready",
+      "source_files": {
+        "experiment_chunks": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+        "supporting_theory_chunks": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl"
+      },
+      "search_hints": {
+        "experiment_code": "20-3-07",
+        "parent_experiment_code": "20-3",
+        "experiment_title": "配合物稳定性与配体的关系",
+        "video_point_titles": [
+          "Cr₂(SO₄)₃ + Na₂C₂O₄，再加入 NaOH",
+          "FeCl₃ + KSCN，再加入 Na₂C₂O₄",
+          "NiSO₄ + 过量 NH₃·H₂O，再加入乙二胺"
+        ],
+        "canonical_chunk_ids_from_metadata": [
+          "expchunk_00332_42b6908ee0",
+          "expchunk_00333_d08e49be44"
+        ],
+        "supporting_theory_chunk_ids_from_metadata": [
+          "textbook_prose_01305_dd5a94da50",
+          "textbook_table_record_table_p224_t01_r051",
+          "textbook_table_record_table_p224_t01_r071"
+        ],
+        "suggested_search_patterns": [
+          "20-3-07",
+          "20-3",
+          "配合物稳定性与配体的关系",
+          "Cr₂(SO₄)₃ + Na₂C₂O₄，再加入 NaOH",
+          "FeCl₃ + KSCN，再加入 Na₂C₂O₄",
+          "NiSO₄ + 过量 NH₃·H₂O，再加入乙二胺",
+          "expchunk_00332_42b6908ee0",
+          "expchunk_00333_d08e49be44",
+          "textbook_prose_01305_dd5a94da50",
+          "textbook_table_record_table_p224_t01_r051",
+          "textbook_table_record_table_p224_t01_r071"
+        ]
+      },
+      "rag_exact_id_presence": {
+        "meaning": "id presence only; this does not validate semantic relevance",
+        "found_ids": [
+          "expchunk_00332_42b6908ee0",
+          "expchunk_00333_d08e49be44",
+          "textbook_prose_01305_dd5a94da50",
+          "textbook_table_record_table_p224_t01_r051",
+          "textbook_table_record_table_p224_t01_r071"
+        ],
+        "missing_ids": [],
+        "found_locator_summaries": [
+          {
+            "chunk_id": "expchunk_00332_42b6908ee0",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+            "line_number": 345,
+            "source_collection": "textbook_experiment_clean_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学实验（第四版）",
+            "page_start": 166,
+            "page_end": 166,
+            "section_path": [
+              "第7章 元素性质实验",
+              "实验 20-3 d 区元素化合物的性质（二）",
+              "（三）实验内容",
+              "3. 某些金属离子配合物"
+            ],
+            "content_type": "property_test",
+            "knowledge_unit": "property_test",
+            "parent_id": "expchunk_protocol_4faa721af035",
+            "prev_chunk_id": "expchunk_00331_3f7cc41ff9",
+            "next_chunk_id": "expchunk_00333_d08e49be44",
+            "relations": {
+              "section_id": "expsec_45a51870395ff8dd",
+              "experiment_id": "experiment:实验_20-3_d_区元素化合物的性质_二",
+              "page_anchor": "page_166",
+              "parent": "expchunk_protocol_4faa721af035"
+            }
+          },
+          {
+            "chunk_id": "expchunk_00333_d08e49be44",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+            "line_number": 346,
+            "source_collection": "textbook_experiment_clean_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学实验（第四版）",
+            "page_start": 167,
+            "page_end": 167,
+            "section_path": [
+              "第7章 元素性质实验",
+              "实验 20-3 d 区元素化合物的性质（二）",
+              "（三）实验内容",
+              "3. 某些金属离子配合物"
+            ],
+            "content_type": "property_test",
+            "knowledge_unit": "property_test",
+            "parent_id": "expchunk_protocol_4faa721af035",
+            "prev_chunk_id": "expchunk_00332_42b6908ee0",
+            "next_chunk_id": "expchunk_00334_8229cac865",
+            "relations": {
+              "section_id": "expsec_aa6882611823c3bd",
+              "experiment_id": "experiment:实验_20-3_d_区元素化合物的性质_二",
+              "page_anchor": "page_167",
+              "parent": "expchunk_protocol_4faa721af035"
+            }
+          },
+          {
+            "chunk_id": "textbook_prose_01305_dd5a94da50",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+            "line_number": 1991,
+            "source_collection": "textbook_inorganic_lower_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学（下册）（第二版）",
+            "page_start": 226,
+            "page_end": 226,
+            "section_path": [
+              "第 20 章 d 区过渡金属元素",
+              "20.2 第一过渡系列金属元素及其常见化合物",
+              "20.2.6 铁、钴、镍",
+              "iv)其他重要的配合物"
+            ],
+            "content_type": "reaction",
+            "knowledge_unit": "reaction",
+            "parent_id": "section:e8abe116f1a1",
+            "prev_chunk_id": "textbook_prose_01304_9920c29f9d",
+            "next_chunk_id": "textbook_prose_01306_0a0d67a34e",
+            "relations": {
+              "parent": "section:e8abe116f1a1",
+              "source_route": "clean_pages",
+              "prev": "textbook_prose_01304_9920c29f9d",
+              "next": "textbook_prose_01306_0a0d67a34e"
+            }
+          },
+          {
+            "chunk_id": "textbook_table_record_table_p224_t01_r051",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+            "line_number": 1975,
+            "source_collection": "textbook_inorganic_lower_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学（下册）（第二版）",
+            "page_start": 224,
+            "page_end": 224,
+            "section_path": [
+              "第 20 章 d 区过渡金属元素",
+              "20.2 第一过渡系列金属元素及其常见化合物",
+              "20.2.6 铁、钴、镍",
+              "ii)氰配合物"
+            ],
+            "content_type": "table_record",
+            "knowledge_unit": "table_record",
+            "parent_id": "textbook_table_context_p224_0e08e79e44",
+            "prev_chunk_id": "textbook_table_record_table_p224_t01_r041",
+            "next_chunk_id": "textbook_table_record_table_p224_t01_r061",
+            "relations": {
+              "parent": "textbook_table_context_p224_0e08e79e44",
+              "table_context": "textbook_table_context_p224_0e08e79e44",
+              "prev": "textbook_table_record_table_p224_t01_r041",
+              "next": "textbook_table_record_table_p224_t01_r061"
+            }
+          },
+          {
+            "chunk_id": "textbook_table_record_table_p224_t01_r071",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+            "line_number": 1977,
+            "source_collection": "textbook_inorganic_lower_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学（下册）（第二版）",
+            "page_start": 224,
+            "page_end": 224,
+            "section_path": [
+              "第 20 章 d 区过渡金属元素",
+              "20.2 第一过渡系列金属元素及其常见化合物",
+              "20.2.6 铁、钴、镍",
+              "ii)氰配合物"
+            ],
+            "content_type": "table_record",
+            "knowledge_unit": "table_record",
+            "parent_id": "textbook_table_context_p224_0e08e79e44",
+            "prev_chunk_id": "textbook_table_record_table_p224_t01_r061",
+            "next_chunk_id": "textbook_table_record_table_p224_t01_r081",
+            "relations": {
+              "parent": "textbook_table_context_p224_0e08e79e44",
+              "table_context": "textbook_table_context_p224_0e08e79e44",
+              "prev": "textbook_table_record_table_p224_t01_r061",
+              "next": "textbook_table_record_table_p224_t01_r081"
+            }
+          }
+        ]
+      },
+      "legacy_locator_summaries": [
+        {
+          "chunk_id": "expchunk_00332_42b6908ee0",
+          "source_file": "无机化学实验（第四版）",
+          "book_title": "无机化学实验（第四版）",
+          "document_id": "DOC_CANONICAL_EXPERIMENT_V1",
+          "source_collection": "textbook_experiment_clean_v1",
+          "source_role": "canonical_textbook",
+          "content_type": "property_test",
+          "chapter_id": null,
+          "page_number": 166,
+          "section_title": "实验 20-3 d 区元素化合物的性质（二） / （三）实验内容 / 3. 某些金属离子配合物",
+          "section_path": [
+            "第7章 元素性质实验",
+            "实验 20-3 d 区元素化合物的性质（二）",
+            "（三）实验内容",
+            "3. 某些金属离子配合物"
+          ]
+        },
+        {
+          "chunk_id": "expchunk_00333_d08e49be44",
+          "source_file": "无机化学实验（第四版）",
+          "book_title": "无机化学实验（第四版）",
+          "document_id": "DOC_CANONICAL_EXPERIMENT_V1",
+          "source_collection": "textbook_experiment_clean_v1",
+          "source_role": "canonical_textbook",
+          "content_type": "property_test",
+          "chapter_id": null,
+          "page_number": 167,
+          "section_title": "实验 20-3 d 区元素化合物的性质（二） / （三）实验内容 / 3. 某些金属离子配合物",
+          "section_path": [
+            "第7章 元素性质实验",
+            "实验 20-3 d 区元素化合物的性质（二）",
+            "（三）实验内容",
+            "3. 某些金属离子配合物"
+          ]
+        }
+      ],
+      "legacy_missing_ids": [
+        "textbook_prose_01305_dd5a94da50",
+        "textbook_table_record_table_p224_t01_r051",
+        "textbook_table_record_table_p224_t01_r071"
+      ]
+    },
+    "questions": [
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_07_001",
+        "source_review_id": "CHK5_SEM_EXP_20_3_07_001",
+        "source_question_index": 1,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-3-07 配合物稳定性与配体的关系》实验中，在 Cr₂(SO₄)₃ 溶液中先加入少量哪种固体以考察配体影响？",
+        "options": [
+          {
+            "label": "A",
+            "text": "NaCl"
+          },
+          {
+            "label": "B",
+            "text": "NaNO₂"
+          },
+          {
+            "label": "C",
+            "text": "Na₂C₂O₄"
+          },
+          {
+            "label": "D",
+            "text": "Na₂O₂"
+          }
+        ],
+        "answer": {
+          "value": "C"
+        },
+        "explanation": "“Na₂C₂O₄”与实验操作、观察目标或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-d78b3d70"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "single_choice"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "NaCl",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“不同配体对配合物稳定性的影响”点位：NaCl。"
+          },
+          {
+            "label": "B",
+            "text": "NaNO₂",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“不同配体对配合物稳定性的影响”点位：NaNO₂。"
+          },
+          {
+            "label": "C",
+            "text": "Na₂C₂O₄",
+            "point_key": "candidate-1-d78b3d70",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“不同配体对配合物稳定性的影响”点位：Na₂C₂O₄。"
+          },
+          {
+            "label": "D",
+            "text": "Na₂O₂",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“不同配体对配合物稳定性的影响”点位：Na₂O₂。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00332_42b6908ee0",
+            "expchunk_00333_d08e49be44"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00332_42b6908ee0",
+            "expchunk_00333_d08e49be44"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-07 配合物稳定性与配体的关系》实验中，在 Cr₂(SO₄)₃ 溶液中先加入少量哪种固体以考察配体影响？",
+            "options": [
+              {
+                "label": "A",
+                "text": "NaCl"
+              },
+              {
+                "label": "B",
+                "text": "NaNO₂"
+              },
+              {
+                "label": "C",
+                "text": "Na₂C₂O₄"
+              },
+              {
+                "label": "D",
+                "text": "Na₂O₂"
+              }
+            ],
+            "answer": {
+              "value": "C"
+            },
+            "explanation": "“Na₂C₂O₄”与实验操作、观察目标或结论一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00332_42b6908ee0",
+              "expchunk_00333_d08e49be44"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_07_002",
+        "source_review_id": "CHK5_SEM_EXP_20_3_07_002",
+        "source_question_index": 2,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-3-07 配合物稳定性与配体的关系》实验中，Cr(III) 与草酸根体系中随后逐滴加入哪种试剂观察有无沉淀？",
+        "options": [
+          {
+            "label": "A",
+            "text": "浓硝酸"
+          },
+          {
+            "label": "B",
+            "text": "溴水"
+          },
+          {
+            "label": "C",
+            "text": "CCl₄"
+          },
+          {
+            "label": "D",
+            "text": "2 mol·L⁻¹ NaOH 溶液"
+          }
+        ],
+        "answer": {
+          "value": "D"
+        },
+        "explanation": "“2 mol·L⁻¹ NaOH 溶液”与实验操作、观察目标或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-d78b3d70"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "single_choice"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "浓硝酸",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“不同配体对配合物稳定性的影响”点位：浓硝酸。"
+          },
+          {
+            "label": "B",
+            "text": "溴水",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“不同配体对配合物稳定性的影响”点位：溴水。"
+          },
+          {
+            "label": "C",
+            "text": "CCl₄",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“不同配体对配合物稳定性的影响”点位：CCl₄。"
+          },
+          {
+            "label": "D",
+            "text": "2 mol·L⁻¹ NaOH 溶液",
+            "point_key": "candidate-1-d78b3d70",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“不同配体对配合物稳定性的影响”点位：2 mol·L⁻¹ NaOH 溶液。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00332_42b6908ee0",
+            "expchunk_00333_d08e49be44"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00332_42b6908ee0",
+            "expchunk_00333_d08e49be44"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-07 配合物稳定性与配体的关系》实验中，Cr(III) 与草酸根体系中随后逐滴加入哪种试剂观察有无沉淀？",
+            "options": [
+              {
+                "label": "A",
+                "text": "浓硝酸"
+              },
+              {
+                "label": "B",
+                "text": "溴水"
+              },
+              {
+                "label": "C",
+                "text": "CCl₄"
+              },
+              {
+                "label": "D",
+                "text": "2 mol·L⁻¹ NaOH 溶液"
+              }
+            ],
+            "answer": {
+              "value": "D"
+            },
+            "explanation": "“2 mol·L⁻¹ NaOH 溶液”与实验操作、观察目标或结论一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00332_42b6908ee0",
+              "expchunk_00333_d08e49be44"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_07_003",
+        "source_review_id": "CHK5_SEM_EXP_20_3_07_003",
+        "source_question_index": 3,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-3-07 配合物稳定性与配体的关系》实验中，FeCl₃ 溶液中先加入 KSCN 后，通常观察到哪类颜色？",
+        "options": [
+          {
+            "label": "A",
+            "text": "血红色"
+          },
+          {
+            "label": "B",
+            "text": "无色气体"
+          },
+          {
+            "label": "C",
+            "text": "黄色沉淀"
+          },
+          {
+            "label": "D",
+            "text": "紫黑色火焰"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "“血红色”与实验操作、观察目标或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-627e8ed0"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "single_choice"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "血红色",
+            "point_key": "candidate-2-627e8ed0",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“不同配体对配合物稳定性的影响”点位：血红色。"
+          },
+          {
+            "label": "B",
+            "text": "无色气体",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“不同配体对配合物稳定性的影响”点位：无色气体。"
+          },
+          {
+            "label": "C",
+            "text": "黄色沉淀",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“不同配体对配合物稳定性的影响”点位：黄色沉淀。"
+          },
+          {
+            "label": "D",
+            "text": "紫黑色火焰",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“不同配体对配合物稳定性的影响”点位：紫黑色火焰。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00332_42b6908ee0",
+            "expchunk_00333_d08e49be44"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_table_record_table_p224_t01_r071",
+            "textbook_table_record_table_p224_t01_r051"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical。有效题由实验原文支撑；其中颜色、配位、氧化还原或鉴定依据需最小引用 supporting theory：textbook_table_record_table_p224_t01_r071, textbook_table_record_table_p224_t01_r051。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00332_42b6908ee0",
+            "expchunk_00333_d08e49be44"
+          ],
+          "supporting_theory_ids": [
+            "textbook_table_record_table_p224_t01_r071",
+            "textbook_table_record_table_p224_t01_r051"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_table_record_table_p224_t01_r071",
+            "textbook_table_record_table_p224_t01_r051"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-07 配合物稳定性与配体的关系》实验中，FeCl₃ 溶液中先加入 KSCN 后，通常观察到哪类颜色？",
+            "options": [
+              {
+                "label": "A",
+                "text": "血红色"
+              },
+              {
+                "label": "B",
+                "text": "无色气体"
+              },
+              {
+                "label": "C",
+                "text": "黄色沉淀"
+              },
+              {
+                "label": "D",
+                "text": "紫黑色火焰"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "“血红色”与实验操作、观察目标或结论一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00332_42b6908ee0",
+              "expchunk_00333_d08e49be44"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_07_004",
+        "source_review_id": "CHK5_SEM_EXP_20_3_07_004",
+        "source_question_index": 4,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-3-07 配合物稳定性与配体的关系》实验中，FeCl₃ 与 KSCN 显色后加入 Na₂C₂O₄，主要用于观察什么？",
+        "options": [
+          {
+            "label": "A",
+            "text": "Na₂O₂ 制备 H₂O₂"
+          },
+          {
+            "label": "B",
+            "text": "草酸根配体对 Fe(III) 配合物稳定性的影响"
+          },
+          {
+            "label": "C",
+            "text": "PbO₂ 氧化 Cl⁻"
+          },
+          {
+            "label": "D",
+            "text": "CrO₄²⁻ 的黄色"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "“草酸根配体对 Fe(III) 配合物稳定性的影响”与实验操作、观察目标或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-627e8ed0"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "single_choice"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "Na₂O₂ 制备 H₂O₂",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“不同配体对配合物稳定性的影响”点位：Na₂O₂ 制备 H₂O₂。"
+          },
+          {
+            "label": "B",
+            "text": "草酸根配体对 Fe(III) 配合物稳定性的影响",
+            "point_key": "candidate-2-627e8ed0",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“不同配体对配合物稳定性的影响”点位：草酸根配体对 Fe(III) 配合物稳定性的影响。"
+          },
+          {
+            "label": "C",
+            "text": "PbO₂ 氧化 Cl⁻",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“不同配体对配合物稳定性的影响”点位：PbO₂ 氧化 Cl⁻。"
+          },
+          {
+            "label": "D",
+            "text": "CrO₄²⁻ 的黄色",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“不同配体对配合物稳定性的影响”点位：CrO₄²⁻ 的黄色。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00332_42b6908ee0",
+            "expchunk_00333_d08e49be44"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_table_record_table_p224_t01_r071",
+            "textbook_table_record_table_p224_t01_r051"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical。有效题由实验原文支撑；其中颜色、配位、氧化还原或鉴定依据需最小引用 supporting theory：textbook_table_record_table_p224_t01_r071, textbook_table_record_table_p224_t01_r051。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00332_42b6908ee0",
+            "expchunk_00333_d08e49be44"
+          ],
+          "supporting_theory_ids": [
+            "textbook_table_record_table_p224_t01_r071",
+            "textbook_table_record_table_p224_t01_r051"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_table_record_table_p224_t01_r071",
+            "textbook_table_record_table_p224_t01_r051"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-07 配合物稳定性与配体的关系》实验中，FeCl₃ 与 KSCN 显色后加入 Na₂C₂O₄，主要用于观察什么？",
+            "options": [
+              {
+                "label": "A",
+                "text": "Na₂O₂ 制备 H₂O₂"
+              },
+              {
+                "label": "B",
+                "text": "草酸根配体对 Fe(III) 配合物稳定性的影响"
+              },
+              {
+                "label": "C",
+                "text": "PbO₂ 氧化 Cl⁻"
+              },
+              {
+                "label": "D",
+                "text": "CrO₄²⁻ 的黄色"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "“草酸根配体对 Fe(III) 配合物稳定性的影响”与实验操作、观察目标或结论一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00332_42b6908ee0",
+              "expchunk_00333_d08e49be44"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_07_005",
+        "source_review_id": "CHK5_SEM_EXP_20_3_07_005",
+        "source_question_index": 5,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-3-07 配合物稳定性与配体的关系》实验中，NiSO₄ 溶液中加入过量 NH₃·H₂O 后，再滴加哪种配体溶液？",
+        "options": [
+          {
+            "label": "A",
+            "text": "品红"
+          },
+          {
+            "label": "B",
+            "text": "KI-淀粉"
+          },
+          {
+            "label": "C",
+            "text": "乙二胺"
+          },
+          {
+            "label": "D",
+            "text": "浓盐酸"
+          }
+        ],
+        "answer": {
+          "value": "C"
+        },
+        "explanation": "“乙二胺”与实验操作、观察目标或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-7d9492a7"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "single_choice"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "品红",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“不同配体对配合物稳定性的影响”点位：品红。"
+          },
+          {
+            "label": "B",
+            "text": "KI-淀粉",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“不同配体对配合物稳定性的影响”点位：KI-淀粉。"
+          },
+          {
+            "label": "C",
+            "text": "乙二胺",
+            "point_key": "candidate-3-7d9492a7",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“不同配体对配合物稳定性的影响”点位：乙二胺。"
+          },
+          {
+            "label": "D",
+            "text": "浓盐酸",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“不同配体对配合物稳定性的影响”点位：浓盐酸。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00332_42b6908ee0",
+            "expchunk_00333_d08e49be44"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00332_42b6908ee0",
+            "expchunk_00333_d08e49be44"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-07 配合物稳定性与配体的关系》实验中，NiSO₄ 溶液中加入过量 NH₃·H₂O 后，再滴加哪种配体溶液？",
+            "options": [
+              {
+                "label": "A",
+                "text": "品红"
+              },
+              {
+                "label": "B",
+                "text": "KI-淀粉"
+              },
+              {
+                "label": "C",
+                "text": "乙二胺"
+              },
+              {
+                "label": "D",
+                "text": "浓盐酸"
+              }
+            ],
+            "answer": {
+              "value": "C"
+            },
+            "explanation": "“乙二胺”与实验操作、观察目标或结论一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00332_42b6908ee0",
+              "expchunk_00333_d08e49be44"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_07_006",
+        "source_review_id": "CHK5_SEM_EXP_20_3_07_006",
+        "source_question_index": 6,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-3-07 配合物稳定性与配体的关系》实验中，乙二胺通常能增强配合物稳定性，主要因为它属于哪类配体？",
+        "options": [
+          {
+            "label": "A",
+            "text": "单原子惰性气体"
+          },
+          {
+            "label": "B",
+            "text": "沉淀洗涤剂"
+          },
+          {
+            "label": "C",
+            "text": "氧化剂"
+          },
+          {
+            "label": "D",
+            "text": "螯合配体"
+          }
+        ],
+        "answer": {
+          "value": "D"
+        },
+        "explanation": "“螯合配体”与实验操作、观察目标或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-7d9492a7"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "single_choice"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "单原子惰性气体",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“不同配体对配合物稳定性的影响”点位：单原子惰性气体。"
+          },
+          {
+            "label": "B",
+            "text": "沉淀洗涤剂",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“不同配体对配合物稳定性的影响”点位：沉淀洗涤剂。"
+          },
+          {
+            "label": "C",
+            "text": "氧化剂",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“不同配体对配合物稳定性的影响”点位：氧化剂。"
+          },
+          {
+            "label": "D",
+            "text": "螯合配体",
+            "point_key": "candidate-3-7d9492a7",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“不同配体对配合物稳定性的影响”点位：螯合配体。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00332_42b6908ee0",
+            "expchunk_00333_d08e49be44"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00332_42b6908ee0",
+            "expchunk_00333_d08e49be44"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-07 配合物稳定性与配体的关系》实验中，乙二胺通常能增强配合物稳定性，主要因为它属于哪类配体？",
+            "options": [
+              {
+                "label": "A",
+                "text": "单原子惰性气体"
+              },
+              {
+                "label": "B",
+                "text": "沉淀洗涤剂"
+              },
+              {
+                "label": "C",
+                "text": "氧化剂"
+              },
+              {
+                "label": "D",
+                "text": "螯合配体"
+              }
+            ],
+            "answer": {
+              "value": "D"
+            },
+            "explanation": "“螯合配体”与实验操作、观察目标或结论一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00332_42b6908ee0",
+              "expchunk_00333_d08e49be44"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_07_007",
+        "source_review_id": "CHK5_SEM_EXP_20_3_07_007",
+        "source_question_index": 7,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-3-07 配合物稳定性与配体的关系》实验中，本实验最核心的变量是哪一项？",
+        "options": [
+          {
+            "label": "A",
+            "text": "配体种类"
+          },
+          {
+            "label": "B",
+            "text": "试管长度"
+          },
+          {
+            "label": "C",
+            "text": "水浴温度固定为 1000°C"
+          },
+          {
+            "label": "D",
+            "text": "滤纸颜色"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "“配体种类”与实验操作、观察目标或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-d78b3d70"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-627e8ed0",
+          "candidate-3-7d9492a7"
+        ],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "single_choice"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "配体种类",
+            "point_key": "candidate-1-d78b3d70",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“不同配体对配合物稳定性的影响”点位：配体种类。"
+          },
+          {
+            "label": "B",
+            "text": "试管长度",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“不同配体对配合物稳定性的影响”点位：试管长度。"
+          },
+          {
+            "label": "C",
+            "text": "水浴温度固定为 1000°C",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“不同配体对配合物稳定性的影响”点位：水浴温度固定为 1000°C。"
+          },
+          {
+            "label": "D",
+            "text": "滤纸颜色",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“不同配体对配合物稳定性的影响”点位：滤纸颜色。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00332_42b6908ee0",
+            "expchunk_00333_d08e49be44"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00332_42b6908ee0",
+            "expchunk_00333_d08e49be44"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-07 配合物稳定性与配体的关系》实验中，本实验最核心的变量是哪一项？",
+            "options": [
+              {
+                "label": "A",
+                "text": "配体种类"
+              },
+              {
+                "label": "B",
+                "text": "试管长度"
+              },
+              {
+                "label": "C",
+                "text": "水浴温度固定为 1000°C"
+              },
+              {
+                "label": "D",
+                "text": "滤纸颜色"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "“配体种类”与实验操作、观察目标或结论一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00332_42b6908ee0",
+              "expchunk_00333_d08e49be44"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_07_008",
+        "source_review_id": "CHK5_SEM_EXP_20_3_07_008",
+        "source_question_index": 8,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-3-07 配合物稳定性与配体的关系》实验中，KSCN 在 FeCl₃ 实验中的作用是什么？",
+        "options": [
+          {
+            "label": "A",
+            "text": "还原 Fe³⁺ 为金属铁"
+          },
+          {
+            "label": "B",
+            "text": "与 Fe³⁺ 形成显色配合物"
+          },
+          {
+            "label": "C",
+            "text": "氧化草酸根为 CO₂"
+          },
+          {
+            "label": "D",
+            "text": "萃取碘单质"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "“与 Fe³⁺ 形成显色配合物”与实验操作、观察目标或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-627e8ed0"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "single_choice"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "还原 Fe³⁺ 为金属铁",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“不同配体对配合物稳定性的影响”点位：还原 Fe³⁺ 为金属铁。"
+          },
+          {
+            "label": "B",
+            "text": "与 Fe³⁺ 形成显色配合物",
+            "point_key": "candidate-2-627e8ed0",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“不同配体对配合物稳定性的影响”点位：与 Fe³⁺ 形成显色配合物。"
+          },
+          {
+            "label": "C",
+            "text": "氧化草酸根为 CO₂",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“不同配体对配合物稳定性的影响”点位：氧化草酸根为 CO₂。"
+          },
+          {
+            "label": "D",
+            "text": "萃取碘单质",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“不同配体对配合物稳定性的影响”点位：萃取碘单质。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00332_42b6908ee0",
+            "expchunk_00333_d08e49be44"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_table_record_table_p224_t01_r071",
+            "textbook_table_record_table_p224_t01_r051"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical。有效题由实验原文支撑；其中颜色、配位、氧化还原或鉴定依据需最小引用 supporting theory：textbook_table_record_table_p224_t01_r071, textbook_table_record_table_p224_t01_r051。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00332_42b6908ee0",
+            "expchunk_00333_d08e49be44"
+          ],
+          "supporting_theory_ids": [
+            "textbook_table_record_table_p224_t01_r071",
+            "textbook_table_record_table_p224_t01_r051"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_table_record_table_p224_t01_r071",
+            "textbook_table_record_table_p224_t01_r051"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-07 配合物稳定性与配体的关系》实验中，KSCN 在 FeCl₃ 实验中的作用是什么？",
+            "options": [
+              {
+                "label": "A",
+                "text": "还原 Fe³⁺ 为金属铁"
+              },
+              {
+                "label": "B",
+                "text": "与 Fe³⁺ 形成显色配合物"
+              },
+              {
+                "label": "C",
+                "text": "氧化草酸根为 CO₂"
+              },
+              {
+                "label": "D",
+                "text": "萃取碘单质"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "“与 Fe³⁺ 形成显色配合物”与实验操作、观察目标或结论一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00332_42b6908ee0",
+              "expchunk_00333_d08e49be44"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_07_009",
+        "source_review_id": "CHK5_SEM_EXP_20_3_07_009",
+        "source_question_index": 9,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-3-07 配合物稳定性与配体的关系》实验中，Na₂C₂O₄ 提供的配体是下列哪一种？",
+        "options": [
+          {
+            "label": "A",
+            "text": "SCN⁻"
+          },
+          {
+            "label": "B",
+            "text": "NH₃"
+          },
+          {
+            "label": "C",
+            "text": "C₂O₄²⁻"
+          },
+          {
+            "label": "D",
+            "text": "en"
+          }
+        ],
+        "answer": {
+          "value": "C"
+        },
+        "explanation": "“C₂O₄²⁻”与实验操作、观察目标或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-d78b3d70"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-627e8ed0"
+        ],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "single_choice"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "SCN⁻",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“不同配体对配合物稳定性的影响”点位：SCN⁻。"
+          },
+          {
+            "label": "B",
+            "text": "NH₃",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“不同配体对配合物稳定性的影响”点位：NH₃。"
+          },
+          {
+            "label": "C",
+            "text": "C₂O₄²⁻",
+            "point_key": "candidate-1-d78b3d70",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“不同配体对配合物稳定性的影响”点位：C₂O₄²⁻。"
+          },
+          {
+            "label": "D",
+            "text": "en",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“不同配体对配合物稳定性的影响”点位：en。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00332_42b6908ee0",
+            "expchunk_00333_d08e49be44"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00332_42b6908ee0",
+            "expchunk_00333_d08e49be44"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-07 配合物稳定性与配体的关系》实验中，Na₂C₂O₄ 提供的配体是下列哪一种？",
+            "options": [
+              {
+                "label": "A",
+                "text": "SCN⁻"
+              },
+              {
+                "label": "B",
+                "text": "NH₃"
+              },
+              {
+                "label": "C",
+                "text": "C₂O₄²⁻"
+              },
+              {
+                "label": "D",
+                "text": "en"
+              }
+            ],
+            "answer": {
+              "value": "C"
+            },
+            "explanation": "“C₂O₄²⁻”与实验操作、观察目标或结论一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00332_42b6908ee0",
+              "expchunk_00333_d08e49be44"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_07_010",
+        "source_review_id": "CHK5_SEM_EXP_20_3_07_010",
+        "source_question_index": 10,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-3-07 配合物稳定性与配体的关系》实验中，下列哪项不是本实验的合理内容？",
+        "options": [
+          {
+            "label": "A",
+            "text": "FeCl₃ + KSCN 后加入 Na₂C₂O₄"
+          },
+          {
+            "label": "B",
+            "text": "NiSO₄ + 过量 NH₃·H₂O 后加入乙二胺"
+          },
+          {
+            "label": "C",
+            "text": "Cr₂(SO₄)₃ + Na₂C₂O₄ 后加入 NaOH"
+          },
+          {
+            "label": "D",
+            "text": "TiOSO₄ 与 H₂O₂ 生成橙红色配合物"
+          }
+        ],
+        "answer": {
+          "value": "D"
+        },
+        "explanation": "“TiOSO₄ 与 H₂O₂ 生成橙红色配合物”与实验操作、观察目标或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-d78b3d70"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-627e8ed0",
+          "candidate-3-7d9492a7"
+        ],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "single_choice"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "FeCl₃ + KSCN 后加入 Na₂C₂O₄",
+            "point_key": "candidate-2-627e8ed0",
+            "role": "adjacent_point",
+            "diagnostic_note": "该选项属于同一实验或相近点位，但不是本题所问内容。"
+          },
+          {
+            "label": "B",
+            "text": "NiSO₄ + 过量 NH₃·H₂O 后加入乙二胺",
+            "point_key": "candidate-3-7d9492a7",
+            "role": "adjacent_point",
+            "diagnostic_note": "该选项属于同一实验或相近点位，但不是本题所问内容。"
+          },
+          {
+            "label": "C",
+            "text": "Cr₂(SO₄)₃ + Na₂C₂O₄ 后加入 NaOH",
+            "point_key": "candidate-1-d78b3d70",
+            "role": "adjacent_point",
+            "diagnostic_note": "该选项属于同一实验或相近点位，但不是本题所问内容。"
+          },
+          {
+            "label": "D",
+            "text": "TiOSO₄ 与 H₂O₂ 生成橙红色配合物",
+            "point_key": "candidate-1-d78b3d70",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“不同配体对配合物稳定性的影响”点位：TiOSO₄ 与 H₂O₂ 生成橙红色配合物。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00332_42b6908ee0",
+            "expchunk_00333_d08e49be44"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00332_42b6908ee0",
+            "expchunk_00333_d08e49be44"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-07 配合物稳定性与配体的关系》实验中，下列哪项不是本实验的合理内容？",
+            "options": [
+              {
+                "label": "A",
+                "text": "FeCl₃ + KSCN 后加入 Na₂C₂O₄"
+              },
+              {
+                "label": "B",
+                "text": "NiSO₄ + 过量 NH₃·H₂O 后加入乙二胺"
+              },
+              {
+                "label": "C",
+                "text": "Cr₂(SO₄)₃ + Na₂C₂O₄ 后加入 NaOH"
+              },
+              {
+                "label": "D",
+                "text": "TiOSO₄ 与 H₂O₂ 生成橙红色配合物"
+              }
+            ],
+            "answer": {
+              "value": "D"
+            },
+            "explanation": "“TiOSO₄ 与 H₂O₂ 生成橙红色配合物”与实验操作、观察目标或结论一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00332_42b6908ee0",
+              "expchunk_00333_d08e49be44"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_07_011",
+        "source_review_id": "CHK5_SEM_EXP_20_3_07_011",
+        "source_question_index": 11,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《20-3-07 配合物稳定性与配体的关系》实验中，乙二胺不是配体，不能与 Ni(II) 配合。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": false
+        },
+        "explanation": "该判断与实验原文的操作、现象或结论不一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-7d9492a7"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "true_false"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00332_42b6908ee0",
+            "expchunk_00333_d08e49be44"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00332_42b6908ee0",
+            "expchunk_00333_d08e49be44"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-3-07 配合物稳定性与配体的关系》实验中，乙二胺不是配体，不能与 Ni(II) 配合。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "该判断与实验原文的操作、现象或结论不一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00332_42b6908ee0",
+              "expchunk_00333_d08e49be44"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_07_012",
+        "source_review_id": "CHK5_SEM_EXP_20_3_07_012",
+        "source_question_index": 12,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《20-3-07 配合物稳定性与配体的关系》实验中，Na₂C₂O₄ 在本实验中提供的是氯离子配体。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": false
+        },
+        "explanation": "该判断与实验原文的操作、现象或结论不一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-d78b3d70"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "true_false"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00332_42b6908ee0",
+            "expchunk_00333_d08e49be44"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00332_42b6908ee0",
+            "expchunk_00333_d08e49be44"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-3-07 配合物稳定性与配体的关系》实验中，Na₂C₂O₄ 在本实验中提供的是氯离子配体。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "该判断与实验原文的操作、现象或结论不一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00332_42b6908ee0",
+              "expchunk_00333_d08e49be44"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_07_013",
+        "source_review_id": "CHK5_SEM_EXP_20_3_07_013",
+        "source_question_index": 13,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《20-3-07 配合物稳定性与配体的关系》实验中，FeCl₃ 与 KSCN 的血红色变化与配合物形成无关。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": false
+        },
+        "explanation": "该判断与实验原文的操作、现象或结论不一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-627e8ed0"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "true_false"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00332_42b6908ee0",
+            "expchunk_00333_d08e49be44"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_table_record_table_p224_t01_r071",
+            "textbook_table_record_table_p224_t01_r051"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical。有效题由实验原文支撑；其中颜色、配位、氧化还原或鉴定依据需最小引用 supporting theory：textbook_table_record_table_p224_t01_r071, textbook_table_record_table_p224_t01_r051。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00332_42b6908ee0",
+            "expchunk_00333_d08e49be44"
+          ],
+          "supporting_theory_ids": [
+            "textbook_table_record_table_p224_t01_r071",
+            "textbook_table_record_table_p224_t01_r051"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_table_record_table_p224_t01_r071",
+            "textbook_table_record_table_p224_t01_r051"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-3-07 配合物稳定性与配体的关系》实验中，FeCl₃ 与 KSCN 的血红色变化与配合物形成无关。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "该判断与实验原文的操作、现象或结论不一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00332_42b6908ee0",
+              "expchunk_00333_d08e49be44"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_07_014",
+        "source_review_id": "CHK5_SEM_EXP_20_3_07_014",
+        "source_question_index": 14,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《20-3-07 配合物稳定性与配体的关系》实验中，在 FeCl₃ + KSCN 体系中加入 Na₂C₂O₄，可观察配体竞争导致的颜色变化。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "该判断与实验原文的操作、现象或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-627e8ed0"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "true_false"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00332_42b6908ee0",
+            "expchunk_00333_d08e49be44"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_table_record_table_p224_t01_r071",
+            "textbook_table_record_table_p224_t01_r051"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical。有效题由实验原文支撑；其中颜色、配位、氧化还原或鉴定依据需最小引用 supporting theory：textbook_table_record_table_p224_t01_r071, textbook_table_record_table_p224_t01_r051。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00332_42b6908ee0",
+            "expchunk_00333_d08e49be44"
+          ],
+          "supporting_theory_ids": [
+            "textbook_table_record_table_p224_t01_r071",
+            "textbook_table_record_table_p224_t01_r051"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_table_record_table_p224_t01_r071",
+            "textbook_table_record_table_p224_t01_r051"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-3-07 配合物稳定性与配体的关系》实验中，在 FeCl₃ + KSCN 体系中加入 Na₂C₂O₄，可观察配体竞争导致的颜色变化。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "该判断与实验原文的操作、现象或结论一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00332_42b6908ee0",
+              "expchunk_00333_d08e49be44"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_07_015",
+        "source_review_id": "CHK5_SEM_EXP_20_3_07_015",
+        "source_question_index": 15,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《20-3-07 配合物稳定性与配体的关系》实验中，NiSO₄ 加过量 NH₃·H₂O 后，再加入乙二胺观察变化。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "该判断与实验原文的操作、现象或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-7d9492a7"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "true_false"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00332_42b6908ee0",
+            "expchunk_00333_d08e49be44"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00332_42b6908ee0",
+            "expchunk_00333_d08e49be44"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-3-07 配合物稳定性与配体的关系》实验中，NiSO₄ 加过量 NH₃·H₂O 后，再加入乙二胺观察变化。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "该判断与实验原文的操作、现象或结论一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00332_42b6908ee0",
+              "expchunk_00333_d08e49be44"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_07_016",
+        "source_review_id": "CHK5_SEM_EXP_20_3_07_016",
+        "source_question_index": 16,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《20-3-07 配合物稳定性与配体的关系》实验中，乙二胺是典型螯合配体。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "该判断与实验原文的操作、现象或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-7d9492a7"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "true_false"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00332_42b6908ee0",
+            "expchunk_00333_d08e49be44"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00332_42b6908ee0",
+            "expchunk_00333_d08e49be44"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-3-07 配合物稳定性与配体的关系》实验中，乙二胺是典型螯合配体。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "该判断与实验原文的操作、现象或结论一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00332_42b6908ee0",
+              "expchunk_00333_d08e49be44"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_07_017",
+        "source_review_id": "CHK5_SEM_EXP_20_3_07_017",
+        "source_question_index": 17,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《20-3-07 配合物稳定性与配体的关系》中，关于 不同配体对配合物稳定性的影响，哪项表述正确？",
+        "options": [
+          {
+            "label": "A",
+            "text": "把三组配体稳定性对比合并成一个无差别操作"
+          },
+          {
+            "label": "B",
+            "text": "本实验通过更换草酸根、硫氰酸根、氨和乙二胺等配体，比较配合物稳定性差异。"
+          },
+          {
+            "label": "C",
+            "text": "用 Co(II)-KSCN 鉴定替代配合物稳定性实验"
+          },
+          {
+            "label": "D",
+            "text": "忽略后加 NaOH、草酸根或乙二胺后的变化"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "本实验正是通过不同配体条件比较配合物稳定性，不能说完全不涉及配体种类变化。",
+        "difficulty": "basic",
+        "status": "reviewed_polished",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-d78b3d70"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-627e8ed0",
+          "candidate-3-7d9492a7"
+        ],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "true_false"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "把三组配体稳定性对比合并成一个无差别操作",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“不同配体对配合物稳定性的影响”点位：把三组配体稳定性对比合并成一个无差别操作。"
+          },
+          {
+            "label": "B",
+            "text": "本实验通过更换草酸根、硫氰酸根、氨和乙二胺等配体，比较配合物稳定性差异。",
+            "point_key": "candidate-1-d78b3d70",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“不同配体对配合物稳定性的影响”点位：本实验通过更换草酸根、硫氰酸根、氨和乙二胺等配体，比较配合物稳定性差异。"
+          },
+          {
+            "label": "C",
+            "text": "用 Co(II)-KSCN 鉴定替代配合物稳定性实验",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“不同配体对配合物稳定性的影响”点位的关键对象或条件：用 Co(II)-KSCN 鉴定替代配合物稳定性实验。"
+          },
+          {
+            "label": "D",
+            "text": "忽略后加 NaOH、草酸根或乙二胺后的变化",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“不同配体对配合物稳定性的影响”点位的关键对象或条件：忽略后加 NaOH、草酸根或乙二胺后的变化。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00332_42b6908ee0",
+            "expchunk_00333_d08e49be44"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00332_42b6908ee0",
+            "expchunk_00333_d08e49be44"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-3-07 配合物稳定性与配体的关系》实验中，本实验完全不涉及配体种类变化。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": null,
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00332_42b6908ee0",
+              "expchunk_00333_d08e49be44"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-07 配合物稳定性与配体的关系》中，关于 不同配体对配合物稳定性的影响，哪项表述正确？",
+            "options": [
+              {
+                "label": "A",
+                "text": "把三组配体稳定性对比合并成一个无差别操作"
+              },
+              {
+                "label": "B",
+                "text": "本实验通过更换草酸根、硫氰酸根、氨和乙二胺等配体，比较配合物稳定性差异。"
+              },
+              {
+                "label": "C",
+                "text": "用 Co(II)-KSCN 鉴定替代配合物稳定性实验"
+              },
+              {
+                "label": "D",
+                "text": "忽略后加 NaOH、草酸根或乙二胺后的变化"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "本实验正是通过不同配体条件比较配合物稳定性，不能说完全不涉及配体种类变化。",
+            "difficulty": "basic",
+            "status": "reviewed_polished",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00332_42b6908ee0",
+              "expchunk_00333_d08e49be44"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "generic_shell_rewritten"
+          ]
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_07_018",
+        "source_review_id": "CHK5_SEM_EXP_20_3_07_018",
+        "source_question_index": 18,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《20-3-07 配合物稳定性与配体的关系》实验中，Na₂C₂O₄ 提供的是草酸根配体。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "该判断与实验原文的操作、现象或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-d78b3d70"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "true_false"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00332_42b6908ee0",
+            "expchunk_00333_d08e49be44"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00332_42b6908ee0",
+            "expchunk_00333_d08e49be44"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-3-07 配合物稳定性与配体的关系》实验中，Na₂C₂O₄ 提供的是草酸根配体。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "该判断与实验原文的操作、现象或结论一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00332_42b6908ee0",
+              "expchunk_00333_d08e49be44"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_07_019",
+        "source_review_id": "CHK5_SEM_EXP_20_3_07_019",
+        "source_question_index": 19,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《20-3-07 配合物稳定性与配体的关系》实验中，KSCN 与 Fe³⁺ 的显色反应和配合物稳定性无关，不能作为观察对象。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": false
+        },
+        "explanation": "该判断与实验原文的操作、现象或结论不一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-627e8ed0"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "true_false"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00332_42b6908ee0",
+            "expchunk_00333_d08e49be44"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_table_record_table_p224_t01_r071",
+            "textbook_table_record_table_p224_t01_r051"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical。有效题由实验原文支撑；其中颜色、配位、氧化还原或鉴定依据需最小引用 supporting theory：textbook_table_record_table_p224_t01_r071, textbook_table_record_table_p224_t01_r051。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00332_42b6908ee0",
+            "expchunk_00333_d08e49be44"
+          ],
+          "supporting_theory_ids": [
+            "textbook_table_record_table_p224_t01_r071",
+            "textbook_table_record_table_p224_t01_r051"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_table_record_table_p224_t01_r071",
+            "textbook_table_record_table_p224_t01_r051"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-3-07 配合物稳定性与配体的关系》实验中，KSCN 与 Fe³⁺ 的显色反应和配合物稳定性无关，不能作为观察对象。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "该判断与实验原文的操作、现象或结论不一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00332_42b6908ee0",
+              "expchunk_00333_d08e49be44"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_07_020",
+        "source_review_id": "CHK5_SEM_EXP_20_3_07_020",
+        "source_question_index": 20,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《20-3-07 配合物稳定性与配体的关系》实验中，本实验的主要内容不是 Fe(III) 盐水解。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "该判断与实验原文的操作、现象或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-d78b3d70"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-627e8ed0",
+          "candidate-3-7d9492a7"
+        ],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "true_false"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00332_42b6908ee0",
+            "expchunk_00333_d08e49be44"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00332_42b6908ee0",
+            "expchunk_00333_d08e49be44"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-3-07 配合物稳定性与配体的关系》实验中，本实验的主要内容不是 Fe(III) 盐水解。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "该判断与实验原文的操作、现象或结论一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00332_42b6908ee0",
+              "expchunk_00333_d08e49be44"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_07_021",
+        "source_review_id": "CHK5_SEM_EXP_20_3_07_021",
+        "source_question_index": 21,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《20-3-07 配合物稳定性与配体的关系》中，关于 不同配体对配合物稳定性的影响，哪项表述正确？",
+        "options": [
+          {
+            "label": "A",
+            "text": "把三组配体稳定性对比合并成一个无差别操作"
+          },
+          {
+            "label": "B",
+            "text": "Na₂C₂O₄ 提供的配体是 C₂O₄²⁻。"
+          },
+          {
+            "label": "C",
+            "text": "用 Co(II)-KSCN 鉴定替代配合物稳定性实验"
+          },
+          {
+            "label": "D",
+            "text": "忽略后加 NaOH、草酸根或乙二胺后的变化"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "Na₂C₂O₄ 在实验中提供草酸根配体 C₂O₄²⁻。",
+        "difficulty": "basic",
+        "status": "reviewed_polished",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-d78b3d70"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "fill_blank"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "把三组配体稳定性对比合并成一个无差别操作",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“不同配体对配合物稳定性的影响”点位：把三组配体稳定性对比合并成一个无差别操作。"
+          },
+          {
+            "label": "B",
+            "text": "Na₂C₂O₄ 提供的配体是 C₂O₄²⁻。",
+            "point_key": "candidate-1-d78b3d70",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“不同配体对配合物稳定性的影响”点位：Na₂C₂O₄ 提供的配体是 C₂O₄²⁻。"
+          },
+          {
+            "label": "C",
+            "text": "用 Co(II)-KSCN 鉴定替代配合物稳定性实验",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“不同配体对配合物稳定性的影响”点位的关键对象或条件：用 Co(II)-KSCN 鉴定替代配合物稳定性实验。"
+          },
+          {
+            "label": "D",
+            "text": "忽略后加 NaOH、草酸根或乙二胺后的变化",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“不同配体对配合物稳定性的影响”点位的关键对象或条件：忽略后加 NaOH、草酸根或乙二胺后的变化。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00332_42b6908ee0",
+            "expchunk_00333_d08e49be44"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00332_42b6908ee0",
+            "expchunk_00333_d08e49be44"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-3-07 配合物稳定性与配体的关系》实验中，Na₂C₂O₄ 提供的配体是____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "C₂O₄²⁻",
+                "草酸根"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": null,
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00332_42b6908ee0",
+              "expchunk_00333_d08e49be44"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-07 配合物稳定性与配体的关系》中，关于 不同配体对配合物稳定性的影响，哪项表述正确？",
+            "options": [
+              {
+                "label": "A",
+                "text": "把三组配体稳定性对比合并成一个无差别操作"
+              },
+              {
+                "label": "B",
+                "text": "Na₂C₂O₄ 提供的配体是 C₂O₄²⁻。"
+              },
+              {
+                "label": "C",
+                "text": "用 Co(II)-KSCN 鉴定替代配合物稳定性实验"
+              },
+              {
+                "label": "D",
+                "text": "忽略后加 NaOH、草酸根或乙二胺后的变化"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "Na₂C₂O₄ 在实验中提供草酸根配体 C₂O₄²⁻。",
+            "difficulty": "basic",
+            "status": "reviewed_polished",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00332_42b6908ee0",
+              "expchunk_00333_d08e49be44"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "generic_shell_rewritten"
+          ]
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_07_022",
+        "source_review_id": "CHK5_SEM_EXP_20_3_07_022",
+        "source_question_index": 22,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《20-3-07 配合物稳定性与配体的关系》中，关于 不同配体对配合物稳定性的影响，哪项表述正确？",
+        "options": [
+          {
+            "label": "A",
+            "text": "用 Co(II)-KSCN 鉴定替代配合物稳定性实验"
+          },
+          {
+            "label": "B",
+            "text": "FeCl₃ 与 KSCN 形成的配合物常呈血红色。"
+          },
+          {
+            "label": "C",
+            "text": "忽略后加 NaOH、草酸根或乙二胺后的变化"
+          },
+          {
+            "label": "D",
+            "text": "只背草酸根、硫氰酸根或乙二胺名称，不看配体替换现象"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "Fe³⁺ 与 SCN⁻ 形成血红色配合物，可用于比较配体作用下的稳定性变化。",
+        "difficulty": "basic",
+        "status": "reviewed_polished",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-627e8ed0"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "fill_blank"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "用 Co(II)-KSCN 鉴定替代配合物稳定性实验",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“不同配体对配合物稳定性的影响”点位的关键对象或条件：用 Co(II)-KSCN 鉴定替代配合物稳定性实验。"
+          },
+          {
+            "label": "B",
+            "text": "FeCl₃ 与 KSCN 形成的配合物常呈血红色。",
+            "point_key": "candidate-2-627e8ed0",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“不同配体对配合物稳定性的影响”点位：FeCl₃ 与 KSCN 形成的配合物常呈血红色。"
+          },
+          {
+            "label": "C",
+            "text": "忽略后加 NaOH、草酸根或乙二胺后的变化",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“不同配体对配合物稳定性的影响”点位的关键对象或条件：忽略后加 NaOH、草酸根或乙二胺后的变化。"
+          },
+          {
+            "label": "D",
+            "text": "只背草酸根、硫氰酸根或乙二胺名称，不看配体替换现象",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“不同配体对配合物稳定性的影响”点位的关键对象或条件：只背草酸根、硫氰酸根或乙二胺名称，不看配体替换现象。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00332_42b6908ee0",
+            "expchunk_00333_d08e49be44"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_table_record_table_p224_t01_r071",
+            "textbook_table_record_table_p224_t01_r051"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical。有效题由实验原文支撑；其中颜色、配位、氧化还原或鉴定依据需最小引用 supporting theory：textbook_table_record_table_p224_t01_r071, textbook_table_record_table_p224_t01_r051。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00332_42b6908ee0",
+            "expchunk_00333_d08e49be44"
+          ],
+          "supporting_theory_ids": [
+            "textbook_table_record_table_p224_t01_r071",
+            "textbook_table_record_table_p224_t01_r051"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_table_record_table_p224_t01_r071",
+            "textbook_table_record_table_p224_t01_r051"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-3-07 配合物稳定性与配体的关系》实验中，FeCl₃ 与 KSCN 形成的配合物常呈____色。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "血红",
+                "血红色",
+                "红色"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": null,
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00332_42b6908ee0",
+              "expchunk_00333_d08e49be44"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-07 配合物稳定性与配体的关系》中，关于 不同配体对配合物稳定性的影响，哪项表述正确？",
+            "options": [
+              {
+                "label": "A",
+                "text": "用 Co(II)-KSCN 鉴定替代配合物稳定性实验"
+              },
+              {
+                "label": "B",
+                "text": "FeCl₃ 与 KSCN 形成的配合物常呈血红色。"
+              },
+              {
+                "label": "C",
+                "text": "忽略后加 NaOH、草酸根或乙二胺后的变化"
+              },
+              {
+                "label": "D",
+                "text": "只背草酸根、硫氰酸根或乙二胺名称，不看配体替换现象"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "Fe³⁺ 与 SCN⁻ 形成血红色配合物，可用于比较配体作用下的稳定性变化。",
+            "difficulty": "basic",
+            "status": "reviewed_polished",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00332_42b6908ee0",
+              "expchunk_00333_d08e49be44"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "requires_supporting_theory",
+            "generic_shell_rewritten"
+          ]
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_07_023",
+        "source_review_id": "CHK5_SEM_EXP_20_3_07_023",
+        "source_question_index": 23,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《20-3-07 配合物稳定性与配体的关系》中，关于 不同配体对配合物稳定性的影响，哪项表述正确？",
+        "options": [
+          {
+            "label": "A",
+            "text": "忽略后加 NaOH、草酸根或乙二胺后的变化"
+          },
+          {
+            "label": "B",
+            "text": "NiSO₄ 加过量 NH₃·H₂O 后再加入的螯合配体是乙二胺。"
+          },
+          {
+            "label": "C",
+            "text": "只背草酸根、硫氰酸根或乙二胺名称，不看配体替换现象"
+          },
+          {
+            "label": "D",
+            "text": "把三组配体稳定性对比合并成一个无差别操作"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "乙二胺是该步骤加入的螯合配体，用于比较配合物稳定性。",
+        "difficulty": "basic",
+        "status": "reviewed_polished",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-7d9492a7"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "fill_blank"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "忽略后加 NaOH、草酸根或乙二胺后的变化",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“不同配体对配合物稳定性的影响”点位的关键对象或条件：忽略后加 NaOH、草酸根或乙二胺后的变化。"
+          },
+          {
+            "label": "B",
+            "text": "NiSO₄ 加过量 NH₃·H₂O 后再加入的螯合配体是乙二胺。",
+            "point_key": "candidate-3-7d9492a7",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“不同配体对配合物稳定性的影响”点位：NiSO₄ 加过量 NH₃·H₂O 后再加入的螯合配体是乙二胺。"
+          },
+          {
+            "label": "C",
+            "text": "只背草酸根、硫氰酸根或乙二胺名称，不看配体替换现象",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“不同配体对配合物稳定性的影响”点位的关键对象或条件：只背草酸根、硫氰酸根或乙二胺名称，不看配体替换现象。"
+          },
+          {
+            "label": "D",
+            "text": "把三组配体稳定性对比合并成一个无差别操作",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“不同配体对配合物稳定性的影响”点位：把三组配体稳定性对比合并成一个无差别操作。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00332_42b6908ee0",
+            "expchunk_00333_d08e49be44"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00332_42b6908ee0",
+            "expchunk_00333_d08e49be44"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-3-07 配合物稳定性与配体的关系》实验中，NiSO₄ 加过量 NH₃·H₂O 后再加入的螯合配体是____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "乙二胺",
+                "en"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": null,
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00332_42b6908ee0",
+              "expchunk_00333_d08e49be44"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-07 配合物稳定性与配体的关系》中，关于 不同配体对配合物稳定性的影响，哪项表述正确？",
+            "options": [
+              {
+                "label": "A",
+                "text": "忽略后加 NaOH、草酸根或乙二胺后的变化"
+              },
+              {
+                "label": "B",
+                "text": "NiSO₄ 加过量 NH₃·H₂O 后再加入的螯合配体是乙二胺。"
+              },
+              {
+                "label": "C",
+                "text": "只背草酸根、硫氰酸根或乙二胺名称，不看配体替换现象"
+              },
+              {
+                "label": "D",
+                "text": "把三组配体稳定性对比合并成一个无差别操作"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "乙二胺是该步骤加入的螯合配体，用于比较配合物稳定性。",
+            "difficulty": "basic",
+            "status": "reviewed_polished",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00332_42b6908ee0",
+              "expchunk_00333_d08e49be44"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "generic_shell_rewritten"
+          ]
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_07_024",
+        "source_review_id": "CHK5_SEM_EXP_20_3_07_024",
+        "source_question_index": 24,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《20-3-07 配合物稳定性与配体的关系》中，关于 不同配体对配合物稳定性的影响，哪项表述正确？",
+        "options": [
+          {
+            "label": "A",
+            "text": "只背草酸根、硫氰酸根或乙二胺名称，不看配体替换现象"
+          },
+          {
+            "label": "B",
+            "text": "Cr₂(SO₄)₃ 加 Na₂C₂O₄ 后，可用 NaOH 检验是否仍易生成氢氧化物沉淀。"
+          },
+          {
+            "label": "C",
+            "text": "把三组配体稳定性对比合并成一个无差别操作"
+          },
+          {
+            "label": "D",
+            "text": "用 Co(II)-KSCN 鉴定替代配合物稳定性实验"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "加入草酸根后再用 NaOH 检验沉淀生成情况，可反映 Cr(III) 配合物稳定性变化。",
+        "difficulty": "basic",
+        "status": "reviewed_polished",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-d78b3d70"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "fill_blank"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "只背草酸根、硫氰酸根或乙二胺名称，不看配体替换现象",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“不同配体对配合物稳定性的影响”点位的关键对象或条件：只背草酸根、硫氰酸根或乙二胺名称，不看配体替换现象。"
+          },
+          {
+            "label": "B",
+            "text": "Cr₂(SO₄)₃ 加 Na₂C₂O₄ 后，可用 NaOH 检验是否仍易生成氢氧化物沉淀。",
+            "point_key": "candidate-1-d78b3d70",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“不同配体对配合物稳定性的影响”点位：Cr₂(SO₄)₃ 加 Na₂C₂O₄ 后，可用 NaOH 检验是否仍易生成氢氧化物沉淀。"
+          },
+          {
+            "label": "C",
+            "text": "把三组配体稳定性对比合并成一个无差别操作",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“不同配体对配合物稳定性的影响”点位：把三组配体稳定性对比合并成一个无差别操作。"
+          },
+          {
+            "label": "D",
+            "text": "用 Co(II)-KSCN 鉴定替代配合物稳定性实验",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“不同配体对配合物稳定性的影响”点位的关键对象或条件：用 Co(II)-KSCN 鉴定替代配合物稳定性实验。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00332_42b6908ee0",
+            "expchunk_00333_d08e49be44"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00332_42b6908ee0",
+            "expchunk_00333_d08e49be44"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-3-07 配合物稳定性与配体的关系》实验中，Cr₂(SO₄)₃ 加 Na₂C₂O₄ 后用____检验是否易生成氢氧化物沉淀。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "NaOH",
+                "氢氧化钠"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": null,
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00332_42b6908ee0",
+              "expchunk_00333_d08e49be44"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-07 配合物稳定性与配体的关系》中，关于 不同配体对配合物稳定性的影响，哪项表述正确？",
+            "options": [
+              {
+                "label": "A",
+                "text": "只背草酸根、硫氰酸根或乙二胺名称，不看配体替换现象"
+              },
+              {
+                "label": "B",
+                "text": "Cr₂(SO₄)₃ 加 Na₂C₂O₄ 后，可用 NaOH 检验是否仍易生成氢氧化物沉淀。"
+              },
+              {
+                "label": "C",
+                "text": "把三组配体稳定性对比合并成一个无差别操作"
+              },
+              {
+                "label": "D",
+                "text": "用 Co(II)-KSCN 鉴定替代配合物稳定性实验"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "加入草酸根后再用 NaOH 检验沉淀生成情况，可反映 Cr(III) 配合物稳定性变化。",
+            "difficulty": "basic",
+            "status": "reviewed_polished",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00332_42b6908ee0",
+              "expchunk_00333_d08e49be44"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "generic_shell_rewritten"
+          ]
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_07_025",
+        "source_review_id": "CHK5_SEM_EXP_20_3_07_025",
+        "source_question_index": 25,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《20-3-07 配合物稳定性与配体的关系》中，关于 不同配体对配合物稳定性的影响，哪项表述正确？",
+        "options": [
+          {
+            "label": "A",
+            "text": "把三组配体稳定性对比合并成一个无差别操作"
+          },
+          {
+            "label": "B",
+            "text": "KSCN 提供的配体是 SCN⁻。"
+          },
+          {
+            "label": "C",
+            "text": "用 Co(II)-KSCN 鉴定替代配合物稳定性实验"
+          },
+          {
+            "label": "D",
+            "text": "忽略后加 NaOH、草酸根或乙二胺后的变化"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "KSCN 提供 SCN⁻ 配体，可与金属离子形成配合物并用于稳定性比较。",
+        "difficulty": "basic",
+        "status": "reviewed_polished",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-627e8ed0"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "fill_blank"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "把三组配体稳定性对比合并成一个无差别操作",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“不同配体对配合物稳定性的影响”点位：把三组配体稳定性对比合并成一个无差别操作。"
+          },
+          {
+            "label": "B",
+            "text": "KSCN 提供的配体是 SCN⁻。",
+            "point_key": "candidate-2-627e8ed0",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“不同配体对配合物稳定性的影响”点位：KSCN 提供的配体是 SCN⁻。"
+          },
+          {
+            "label": "C",
+            "text": "用 Co(II)-KSCN 鉴定替代配合物稳定性实验",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“不同配体对配合物稳定性的影响”点位的关键对象或条件：用 Co(II)-KSCN 鉴定替代配合物稳定性实验。"
+          },
+          {
+            "label": "D",
+            "text": "忽略后加 NaOH、草酸根或乙二胺后的变化",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“不同配体对配合物稳定性的影响”点位的关键对象或条件：忽略后加 NaOH、草酸根或乙二胺后的变化。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00332_42b6908ee0",
+            "expchunk_00333_d08e49be44"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_table_record_table_p224_t01_r071",
+            "textbook_table_record_table_p224_t01_r051"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical。有效题由实验原文支撑；其中颜色、配位、氧化还原或鉴定依据需最小引用 supporting theory：textbook_table_record_table_p224_t01_r071, textbook_table_record_table_p224_t01_r051。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00332_42b6908ee0",
+            "expchunk_00333_d08e49be44"
+          ],
+          "supporting_theory_ids": [
+            "textbook_table_record_table_p224_t01_r071",
+            "textbook_table_record_table_p224_t01_r051"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_table_record_table_p224_t01_r071",
+            "textbook_table_record_table_p224_t01_r051"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-3-07 配合物稳定性与配体的关系》实验中，KSCN 提供的配体是____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "SCN⁻",
+                "硫氰根"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": null,
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00332_42b6908ee0",
+              "expchunk_00333_d08e49be44"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-07 配合物稳定性与配体的关系》中，关于 不同配体对配合物稳定性的影响，哪项表述正确？",
+            "options": [
+              {
+                "label": "A",
+                "text": "把三组配体稳定性对比合并成一个无差别操作"
+              },
+              {
+                "label": "B",
+                "text": "KSCN 提供的配体是 SCN⁻。"
+              },
+              {
+                "label": "C",
+                "text": "用 Co(II)-KSCN 鉴定替代配合物稳定性实验"
+              },
+              {
+                "label": "D",
+                "text": "忽略后加 NaOH、草酸根或乙二胺后的变化"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "KSCN 提供 SCN⁻ 配体，可与金属离子形成配合物并用于稳定性比较。",
+            "difficulty": "basic",
+            "status": "reviewed_polished",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00332_42b6908ee0",
+              "expchunk_00333_d08e49be44"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "requires_supporting_theory",
+            "generic_shell_rewritten"
+          ]
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_07_026",
+        "source_review_id": "CHK5_SEM_EXP_20_3_07_026",
+        "source_question_index": 26,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《20-3-07 配合物稳定性与配体的关系》实验中，本实验比较配合物稳定性与____的关系。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "配体"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "对应的实验操作或现象内容是“配体”。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-d78b3d70"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-627e8ed0",
+          "candidate-3-7d9492a7"
+        ],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "fill_blank"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00332_42b6908ee0",
+            "expchunk_00333_d08e49be44"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00332_42b6908ee0",
+            "expchunk_00333_d08e49be44"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "generic_or_answer_shell_explanation",
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-3-07 配合物稳定性与配体的关系》实验中，本实验比较配合物稳定性与____的关系。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "配体"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "对应的实验操作或现象内容是“配体”。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00332_42b6908ee0",
+              "expchunk_00333_d08e49be44"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_07_027",
+        "source_review_id": "CHK5_SEM_EXP_20_3_07_027",
+        "source_question_index": 27,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《20-3-07 配合物稳定性与配体的关系》实验中，乙二胺因能形成螯环，常产生____效应。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "螯合"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "对应的实验操作或现象内容是“螯合”。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-7d9492a7"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "fill_blank"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00332_42b6908ee0",
+            "expchunk_00333_d08e49be44"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00332_42b6908ee0",
+            "expchunk_00333_d08e49be44"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "generic_or_answer_shell_explanation",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-3-07 配合物稳定性与配体的关系》实验中，乙二胺因能形成螯环，常产生____效应。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "螯合"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "对应的实验操作或现象内容是“螯合”。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00332_42b6908ee0",
+              "expchunk_00333_d08e49be44"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_07_028",
+        "source_review_id": "CHK5_SEM_EXP_20_3_07_028",
+        "source_question_index": 28,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《20-3-07 配合物稳定性与配体的关系》中，关于 不同配体对配合物稳定性的影响，哪项表述正确？",
+        "options": [
+          {
+            "label": "A",
+            "text": "只背草酸根、硫氰酸根或乙二胺名称，不看配体替换现象"
+          },
+          {
+            "label": "B",
+            "text": "FeCl₃ 提供的中心离子是 Fe³⁺。"
+          },
+          {
+            "label": "C",
+            "text": "把三组配体稳定性对比合并成一个无差别操作"
+          },
+          {
+            "label": "D",
+            "text": "用 Co(II)-KSCN 鉴定替代配合物稳定性实验"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "FeCl₃ 在该配合物实验中提供中心离子 Fe³⁺。",
+        "difficulty": "basic",
+        "status": "reviewed_polished",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-627e8ed0"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "fill_blank"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "只背草酸根、硫氰酸根或乙二胺名称，不看配体替换现象",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“不同配体对配合物稳定性的影响”点位的关键对象或条件：只背草酸根、硫氰酸根或乙二胺名称，不看配体替换现象。"
+          },
+          {
+            "label": "B",
+            "text": "FeCl₃ 提供的中心离子是 Fe³⁺。",
+            "point_key": "candidate-2-627e8ed0",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“不同配体对配合物稳定性的影响”点位：FeCl₃ 提供的中心离子是 Fe³⁺。"
+          },
+          {
+            "label": "C",
+            "text": "把三组配体稳定性对比合并成一个无差别操作",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“不同配体对配合物稳定性的影响”点位：把三组配体稳定性对比合并成一个无差别操作。"
+          },
+          {
+            "label": "D",
+            "text": "用 Co(II)-KSCN 鉴定替代配合物稳定性实验",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“不同配体对配合物稳定性的影响”点位的关键对象或条件：用 Co(II)-KSCN 鉴定替代配合物稳定性实验。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00332_42b6908ee0",
+            "expchunk_00333_d08e49be44"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_table_record_table_p224_t01_r071"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical。有效题由实验原文支撑；其中颜色、配位、氧化还原或鉴定依据需最小引用 supporting theory：textbook_table_record_table_p224_t01_r071。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00332_42b6908ee0",
+            "expchunk_00333_d08e49be44"
+          ],
+          "supporting_theory_ids": [
+            "textbook_table_record_table_p224_t01_r071"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_table_record_table_p224_t01_r071"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-3-07 配合物稳定性与配体的关系》实验中，FeCl₃ 提供的中心离子是____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "Fe³⁺",
+                "Fe(III)",
+                "铁(III)"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": null,
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00332_42b6908ee0",
+              "expchunk_00333_d08e49be44"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-07 配合物稳定性与配体的关系》中，关于 不同配体对配合物稳定性的影响，哪项表述正确？",
+            "options": [
+              {
+                "label": "A",
+                "text": "只背草酸根、硫氰酸根或乙二胺名称，不看配体替换现象"
+              },
+              {
+                "label": "B",
+                "text": "FeCl₃ 提供的中心离子是 Fe³⁺。"
+              },
+              {
+                "label": "C",
+                "text": "把三组配体稳定性对比合并成一个无差别操作"
+              },
+              {
+                "label": "D",
+                "text": "用 Co(II)-KSCN 鉴定替代配合物稳定性实验"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "FeCl₃ 在该配合物实验中提供中心离子 Fe³⁺。",
+            "difficulty": "basic",
+            "status": "reviewed_polished",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00332_42b6908ee0",
+              "expchunk_00333_d08e49be44"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "requires_supporting_theory",
+            "generic_shell_rewritten"
+          ]
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_07_029",
+        "source_review_id": "CHK5_SEM_EXP_20_3_07_029",
+        "source_question_index": 29,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《20-3-07 配合物稳定性与配体的关系》中，关于 不同配体对配合物稳定性的影响，哪项表述正确？",
+        "options": [
+          {
+            "label": "A",
+            "text": "把三组配体稳定性对比合并成一个无差别操作"
+          },
+          {
+            "label": "B",
+            "text": "NiSO₄ 提供的中心离子是 Ni²⁺。"
+          },
+          {
+            "label": "C",
+            "text": "用 Co(II)-KSCN 鉴定替代配合物稳定性实验"
+          },
+          {
+            "label": "D",
+            "text": "忽略后加 NaOH、草酸根或乙二胺后的变化"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "NiSO₄ 在该实验中提供中心离子 Ni²⁺，用于比较不同配体形成配合物的稳定性。",
+        "difficulty": "basic",
+        "status": "reviewed_polished",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-7d9492a7"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "fill_blank"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "把三组配体稳定性对比合并成一个无差别操作",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“不同配体对配合物稳定性的影响”点位：把三组配体稳定性对比合并成一个无差别操作。"
+          },
+          {
+            "label": "B",
+            "text": "NiSO₄ 提供的中心离子是 Ni²⁺。",
+            "point_key": "candidate-3-7d9492a7",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“不同配体对配合物稳定性的影响”点位：NiSO₄ 提供的中心离子是 Ni²⁺。"
+          },
+          {
+            "label": "C",
+            "text": "用 Co(II)-KSCN 鉴定替代配合物稳定性实验",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“不同配体对配合物稳定性的影响”点位的关键对象或条件：用 Co(II)-KSCN 鉴定替代配合物稳定性实验。"
+          },
+          {
+            "label": "D",
+            "text": "忽略后加 NaOH、草酸根或乙二胺后的变化",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“不同配体对配合物稳定性的影响”点位的关键对象或条件：忽略后加 NaOH、草酸根或乙二胺后的变化。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00332_42b6908ee0",
+            "expchunk_00333_d08e49be44"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01305_dd5a94da50"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical。有效题由实验原文支撑；其中颜色、配位、氧化还原或鉴定依据需最小引用 supporting theory：textbook_prose_01305_dd5a94da50。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00332_42b6908ee0",
+            "expchunk_00333_d08e49be44"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01305_dd5a94da50"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01305_dd5a94da50"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-3-07 配合物稳定性与配体的关系》实验中，NiSO₄ 提供的中心离子是____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "Ni²⁺",
+                "Ni(II)",
+                "镍(II)"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": null,
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00332_42b6908ee0",
+              "expchunk_00333_d08e49be44"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-3-07 配合物稳定性与配体的关系》中，关于 不同配体对配合物稳定性的影响，哪项表述正确？",
+            "options": [
+              {
+                "label": "A",
+                "text": "把三组配体稳定性对比合并成一个无差别操作"
+              },
+              {
+                "label": "B",
+                "text": "NiSO₄ 提供的中心离子是 Ni²⁺。"
+              },
+              {
+                "label": "C",
+                "text": "用 Co(II)-KSCN 鉴定替代配合物稳定性实验"
+              },
+              {
+                "label": "D",
+                "text": "忽略后加 NaOH、草酸根或乙二胺后的变化"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "NiSO₄ 在该实验中提供中心离子 Ni²⁺，用于比较不同配体形成配合物的稳定性。",
+            "difficulty": "basic",
+            "status": "reviewed_polished",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00332_42b6908ee0",
+              "expchunk_00333_d08e49be44"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "requires_supporting_theory",
+            "generic_shell_rewritten"
+          ]
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_3_07_030",
+        "source_review_id": "CHK5_SEM_EXP_20_3_07_030",
+        "source_question_index": 30,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《20-3-07 配合物稳定性与配体的关系》实验中，Na₂C₂O₄ 加入 FeCl₃ + KSCN 体系后，观察重点是溶液____变化。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "颜色",
+            "颜色变化"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "对应的实验操作或现象内容是“颜色”。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-627e8ed0"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "fill_blank"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00332_42b6908ee0",
+            "expchunk_00333_d08e49be44"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_table_record_table_p224_t01_r071",
+            "textbook_table_record_table_p224_t01_r051"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical。有效题由实验原文支撑；其中颜色、配位、氧化还原或鉴定依据需最小引用 supporting theory：textbook_table_record_table_p224_t01_r071, textbook_table_record_table_p224_t01_r051。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00332_42b6908ee0",
+            "expchunk_00333_d08e49be44"
+          ],
+          "supporting_theory_ids": [
+            "textbook_table_record_table_p224_t01_r071",
+            "textbook_table_record_table_p224_t01_r051"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_table_record_table_p224_t01_r071",
+            "textbook_table_record_table_p224_t01_r051"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "generic_or_answer_shell_explanation",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-3-07 配合物稳定性与配体的关系》实验中，Na₂C₂O₄ 加入 FeCl₃ + KSCN 体系后，观察重点是溶液____变化。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "颜色",
+                "颜色变化"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "对应的实验操作或现象内容是“颜色”。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00332_42b6908ee0",
+              "expchunk_00333_d08e49be44"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "requires_supporting_theory"
+          ]
+        }
+      }
+    ]
+  }
+}

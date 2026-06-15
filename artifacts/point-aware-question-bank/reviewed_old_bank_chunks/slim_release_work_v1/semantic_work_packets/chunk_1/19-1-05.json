@@ -1,0 +1,3738 @@
+{
+  "metadata": {
+    "version": "chunk-1-release-slim-v1",
+    "artifact_type": "slim_question_bank_work_file",
+    "generated_at": "2026-06-15T03:27:58.553194+00:00",
+    "source_file": "E:\\chemistry-admin\\artifacts\\point-aware-question-bank\\reviewed_old_bank_chunks\\chunk_1_release_final_v1.json",
+    "normalization_rule": "effective question plus minimal lineage, evidence IDs, point bindings, option links, evidence locators, and mechanical risk flags",
+    "evidence_policy": "RAG source text is not embedded; packets carry locators and reviewers must read E:/chemistry-rag/data/rag_ready directly",
+    "chunk_id_policy": "inherited chunk ids are untrusted locator candidates until manually compared with RAG text",
+    "semantic_status": "not_semantically_repaired_by_this_script",
+    "packet_type": "single_experiment_semantic_repair_work_packet",
+    "chunk": 1,
+    "experiment_code": "19-1-05",
+    "question_count": 30
+  },
+  "experiment": {
+    "experiment_id": "EXP_19_1_05",
+    "experiment_code": "19-1-05",
+    "experiment_title": "次氯酸盐的氧化性",
+    "chapter_bindings": [
+      {
+        "chapter_id": "CH13",
+        "coverage_type": "primary",
+        "sort_order": 1
+      }
+    ],
+    "video_points": [
+      {
+        "point_key": "candidate-1-8fec9a44",
+        "point_title": "NaClO + MnSO₄",
+        "source": null,
+        "candidate_index": null,
+        "resource_count": null,
+        "published_count": null,
+        "resource_titles": []
+      },
+      {
+        "point_key": "candidate-2-2cae7f3d",
+        "point_title": "NaClO + 品红溶液",
+        "source": null,
+        "candidate_index": null,
+        "resource_count": null,
+        "published_count": null,
+        "resource_titles": []
+      },
+      {
+        "point_key": "candidate-3-84a67852",
+        "point_title": "NaClO + 酸性 KI-淀粉溶液",
+        "source": null,
+        "candidate_index": null,
+        "resource_count": null,
+        "published_count": null,
+        "resource_titles": []
+      }
+    ],
+    "canonical_chunk_ids": [
+      "expchunk_00202_c686014843"
+    ],
+    "evidence_lookup": {
+      "policy": "locator_only; canonical RAG text is not embedded in this packet",
+      "chunk_id_policy": "metadata chunk ids are inherited claims, not trusted evidence; reviewers must compare the RAG text against the question stem/options/answer/explanation and replace or remove wrong ids",
+      "primary_source_dir": "E:\\chemistry-rag\\data\\rag_ready",
+      "source_files": {
+        "experiment_chunks": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+        "supporting_theory_chunks": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl"
+      },
+      "search_hints": {
+        "experiment_code": "19-1-05",
+        "parent_experiment_code": "19-1",
+        "experiment_title": "次氯酸盐的氧化性",
+        "video_point_titles": [
+          "NaClO + MnSO₄",
+          "NaClO + 品红溶液",
+          "NaClO + 酸性 KI-淀粉溶液"
+        ],
+        "canonical_chunk_ids_from_metadata": [
+          "expchunk_00202_c686014843"
+        ],
+        "supporting_theory_chunk_ids_from_metadata": [],
+        "suggested_search_patterns": [
+          "19-1-05",
+          "19-1",
+          "次氯酸盐的氧化性",
+          "NaClO + MnSO₄",
+          "NaClO + 品红溶液",
+          "NaClO + 酸性 KI-淀粉溶液",
+          "expchunk_00202_c686014843"
+        ]
+      },
+      "rag_exact_id_presence": {
+        "meaning": "id presence only; this does not validate semantic relevance",
+        "found_ids": [
+          "expchunk_00202_c686014843"
+        ],
+        "missing_ids": [],
+        "found_locator_summaries": [
+          {
+            "chunk_id": "expchunk_00202_c686014843",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+            "line_number": 215,
+            "source_collection": "textbook_experiment_clean_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学实验（第四版）",
+            "page_start": 139,
+            "page_end": 139,
+            "section_path": [
+              "第7章 元素性质实验",
+              "实验 19-1 卤素",
+              "（四）实验内容",
+              "5. 次卤酸盐及卤酸盐的氧化性"
+            ],
+            "content_type": "property_test",
+            "knowledge_unit": "property_test",
+            "parent_id": "expchunk_protocol_e40aae9c8054",
+            "prev_chunk_id": "expchunk_00201_9092b8b522",
+            "next_chunk_id": "expchunk_00203_99d2352238",
+            "relations": {
+              "section_id": "expsec_644471c9f979d8fc",
+              "experiment_id": "experiment:实验_19-1_卤素",
+              "page_anchor": "page_139",
+              "parent": "expchunk_protocol_e40aae9c8054"
+            }
+          }
+        ]
+      },
+      "legacy_locator_summaries": [
+        {
+          "chunk_id": "expchunk_00202_c686014843",
+          "source_file": "无机化学实验（第四版）",
+          "book_title": "无机化学实验（第四版）",
+          "document_id": "DOC_CANONICAL_EXPERIMENT_V1",
+          "source_collection": "textbook_experiment_clean_v1",
+          "source_role": "canonical_textbook",
+          "content_type": "property_test",
+          "chapter_id": null,
+          "page_number": 139,
+          "section_title": "实验 19-1 卤素 / （四）实验内容 / 5. 次卤酸盐及卤酸盐的氧化性",
+          "section_path": [
+            "第7章 元素性质实验",
+            "实验 19-1 卤素",
+            "（四）实验内容",
+            "5. 次卤酸盐及卤酸盐的氧化性"
+          ]
+        }
+      ],
+      "legacy_missing_ids": []
+    },
+    "questions": [
+      {
+        "question_id": "CHUNK1_19_1_05_Q001",
+        "source_review_id": "CHUNK1_19_1_05_Q001",
+        "source_question_index": 1,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-1-05 次氯酸盐的氧化性》实验中，取 3 份 NaClO 溶液后，哪组试剂属于本实验分别加入并观察的对象？",
+        "options": [
+          {
+            "label": "A",
+            "text": "MnSO₄ 溶液、品红溶液、酸性 KI-淀粉溶液"
+          },
+          {
+            "label": "B",
+            "text": "KBr 溶液、CCl₄、溴水"
+          },
+          {
+            "label": "C",
+            "text": "FeCl₃ 溶液、KSCN 溶液、Na₂C₂O₄"
+          },
+          {
+            "label": "D",
+            "text": "CuSO₄ 溶液、葡萄糖、H₂SO₄"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "教材要求取 3 份 NaClO 溶液，分别与 MnSO₄ 溶液、品红溶液及酸性 KI-淀粉溶液反应并观察现象。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-8fec9a44",
+          "candidate-2-2cae7f3d"
+        ],
+        "secondary_point_keys": [
+          "candidate-3-84a67852"
+        ],
+        "coverage_tags": [
+          "point_candidate_1_8fec9a44",
+          "point_candidate_2_2cae7f3d",
+          "point_candidate_3_84a67852",
+          "ki_starch",
+          "fuchsin",
+          "oxidation_property"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "MnSO₄ 溶液、品红溶液、酸性 KI-淀粉溶液",
+            "point_key": "candidate-1-8fec9a44",
+            "role": "correct_evidence",
+            "diagnostic_note": "本题按 19-1-05「次氯酸盐的氧化性」的 NaClO + MnSO₄；NaClO + 品红溶液；NaClO + 酸性 KI-淀粉溶液 证据复核。 选项“MnSO₄ 溶液、品红溶液、酸性 KI-淀粉溶液”与题干答案和解析一致。 教材要求取 3 份 NaClO 溶液，分别与 MnSO₄ 溶液、品红溶液及酸性 KI-淀粉溶液反应并观察现象。"
+          },
+          {
+            "label": "B",
+            "text": "KBr 溶液、CCl₄、溴水",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "本题按 19-1-05「次氯酸盐的氧化性」的 NaClO + MnSO₄；NaClO + 品红溶液；NaClO + 酸性 KI-淀粉溶液 证据复核。 选项“KBr 溶液、CCl₄、溴水”不能作为本题答案；它没有对应题干要求的操作、现象或结论。"
+          },
+          {
+            "label": "C",
+            "text": "FeCl₃ 溶液、KSCN 溶液、Na₂C₂O₄",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "本题按 19-1-05「次氯酸盐的氧化性」的 NaClO + MnSO₄；NaClO + 品红溶液；NaClO + 酸性 KI-淀粉溶液 证据复核。 选项“FeCl₃ 溶液、KSCN 溶液、Na₂C₂O₄”不能作为本题答案；它没有对应题干要求的操作、现象或结论。"
+          },
+          {
+            "label": "D",
+            "text": "CuSO₄ 溶液、葡萄糖、H₂SO₄",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "本题按 19-1-05「次氯酸盐的氧化性」的 NaClO + MnSO₄；NaClO + 品红溶液；NaClO + 酸性 KI-淀粉溶液 证据复核。 选项“CuSO₄ 溶液、葡萄糖、H₂SO₄”不能作为本题答案；它没有对应题干要求的操作、现象或结论。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00202_c686014843"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polish 终审：最终有效题为 original_question，题干、答案和解析可由本实验 canonical 文本/点位支撑；最终有效题只需 canonical 实验步骤、点位和题干选项证据即可支撑。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00202_c686014843"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-1-05 次氯酸盐的氧化性》实验中，取 3 份 NaClO 溶液后，哪组试剂属于本实验分别加入并观察的对象？",
+            "options": [
+              {
+                "label": "A",
+                "text": "MnSO₄ 溶液、品红溶液、酸性 KI-淀粉溶液"
+              },
+              {
+                "label": "B",
+                "text": "KBr 溶液、CCl₄、溴水"
+              },
+              {
+                "label": "C",
+                "text": "FeCl₃ 溶液、KSCN 溶液、Na₂C₂O₄"
+              },
+              {
+                "label": "D",
+                "text": "CuSO₄ 溶液、葡萄糖、H₂SO₄"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "教材要求取 3 份 NaClO 溶液，分别与 MnSO₄ 溶液、品红溶液及酸性 KI-淀粉溶液反应并观察现象。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00202_c686014843",
+              "textbook_table_record_table_p042_t01_r051"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound",
+            "evidence_first_option_links_reauthored"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_1_05_Q002",
+        "source_review_id": "CHUNK1_19_1_05_Q002",
+        "source_question_index": 2,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-1-05 次氯酸盐的氧化性》实验中，NaClO 与酸性 KI-淀粉溶液反应时，最能说明其氧化性的是哪一项？",
+        "options": [
+          {
+            "label": "A",
+            "text": "Na⁺ 被还原为金属钠"
+          },
+          {
+            "label": "B",
+            "text": "I⁻ 被氧化并使淀粉显蓝色"
+          },
+          {
+            "label": "C",
+            "text": "淀粉被还原为葡萄糖"
+          },
+          {
+            "label": "D",
+            "text": "Cl⁻ 被氧化为 ClO₃⁻"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "酸性条件下 NaClO 氧化 I⁻ 生成 I₂，I₂ 与淀粉显蓝色，因此蓝色现象能说明 NaClO 的氧化性。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-84a67852"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_3_84a67852",
+          "ki_starch",
+          "oxidation_property"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "Na⁺ 被还原为金属钠",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "本题按 19-1-05「次氯酸盐的氧化性」的 NaClO + 酸性 KI-淀粉溶液 证据复核。 选项“Na⁺ 被还原为金属钠”不能作为本题答案；它没有对应题干要求的操作、现象或结论。"
+          },
+          {
+            "label": "B",
+            "text": "I⁻ 被氧化并使淀粉显蓝色",
+            "point_key": "candidate-3-84a67852",
+            "role": "correct_evidence",
+            "diagnostic_note": "本题按 19-1-05「次氯酸盐的氧化性」的 NaClO + 酸性 KI-淀粉溶液 证据复核。 选项“I⁻ 被氧化并使淀粉显蓝色”与题干答案和解析一致。 酸性条件下 NaClO 氧化 I⁻ 生成 I₂，I₂ 与淀粉显蓝色，因此蓝色现象能说明 NaClO 的氧化性。"
+          },
+          {
+            "label": "C",
+            "text": "淀粉被还原为葡萄糖",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "本题按 19-1-05「次氯酸盐的氧化性」的 NaClO + 酸性 KI-淀粉溶液 证据复核。 选项“淀粉被还原为葡萄糖”不能作为本题答案；它没有对应题干要求的操作、现象或结论。"
+          },
+          {
+            "label": "D",
+            "text": "Cl⁻ 被氧化为 ClO₃⁻",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "本题按 19-1-05「次氯酸盐的氧化性」的 NaClO + 酸性 KI-淀粉溶液 证据复核。 选项“Cl⁻ 被氧化为 ClO₃⁻”不能作为本题答案；它没有对应题干要求的操作、现象或结论。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00202_c686014843"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polish 终审：最终有效题为 original_question，题干、答案和解析可由本实验 canonical 文本/点位支撑；最终有效题只需 canonical 实验步骤、点位和题干选项证据即可支撑。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00202_c686014843"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-1-05 次氯酸盐的氧化性》实验中，NaClO 与酸性 KI-淀粉溶液反应时，最能说明其氧化性的是哪一项？",
+            "options": [
+              {
+                "label": "A",
+                "text": "Na⁺ 被还原为金属钠"
+              },
+              {
+                "label": "B",
+                "text": "I⁻ 被氧化并使淀粉显蓝色"
+              },
+              {
+                "label": "C",
+                "text": "淀粉被还原为葡萄糖"
+              },
+              {
+                "label": "D",
+                "text": "Cl⁻ 被氧化为 ClO₃⁻"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "酸性条件下 NaClO 氧化 I⁻ 生成 I₂，I₂ 与淀粉显蓝色，因此蓝色现象能说明 NaClO 的氧化性。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00202_c686014843",
+              "textbook_table_record_table_p042_t01_r051"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound",
+            "evidence_first_option_links_reauthored"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_1_05_Q003",
+        "source_review_id": "CHUNK1_19_1_05_Q003",
+        "source_question_index": 3,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-1-05 次氯酸盐的氧化性》实验中，NaClO 与 MnSO₄ 溶液反应时，常用来判断氧化性的关键对象是哪一种离子？",
+        "options": [
+          {
+            "label": "A",
+            "text": "SO₄²⁻"
+          },
+          {
+            "label": "B",
+            "text": "Na⁺"
+          },
+          {
+            "label": "C",
+            "text": "Mn²⁺"
+          },
+          {
+            "label": "D",
+            "text": "Cl⁻"
+          }
+        ],
+        "answer": {
+          "value": "C"
+        },
+        "explanation": "该步骤观察 MnSO₄ 中的 Mn²⁺ 被 ClO⁻ 氧化并生成棕黑色 MnO₂ 沉淀，因此关键对象是 Mn²⁺。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-8fec9a44"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_1_8fec9a44",
+          "oxidation_property"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "SO₄²⁻",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "本题按 19-1-05「次氯酸盐的氧化性」的 NaClO + MnSO₄ 证据复核。 选项“SO₄²⁻”不能作为本题答案；它没有对应题干要求的操作、现象或结论。"
+          },
+          {
+            "label": "B",
+            "text": "Na⁺",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "本题按 19-1-05「次氯酸盐的氧化性」的 NaClO + MnSO₄ 证据复核。 选项“Na⁺”不能作为本题答案；它没有对应题干要求的操作、现象或结论。"
+          },
+          {
+            "label": "C",
+            "text": "Mn²⁺",
+            "point_key": "candidate-1-8fec9a44",
+            "role": "correct_evidence",
+            "diagnostic_note": "本题按 19-1-05「次氯酸盐的氧化性」的 NaClO + MnSO₄ 证据复核。 选项“Mn²⁺”与题干答案和解析一致。 该步骤观察 MnSO₄ 中的 Mn²⁺ 被 ClO⁻ 氧化并生成棕黑色 MnO₂ 沉淀，因此关键对象是 Mn²⁺。"
+          },
+          {
+            "label": "D",
+            "text": "Cl⁻",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "本题按 19-1-05「次氯酸盐的氧化性」的 NaClO + MnSO₄ 证据复核。 选项“Cl⁻”不能作为本题答案；它没有对应题干要求的操作、现象或结论。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00202_c686014843"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polish 终审：最终有效题为 original_question，题干、答案和解析可由本实验 canonical 文本/点位支撑；最终有效题只需 canonical 实验步骤、点位和题干选项证据即可支撑。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00202_c686014843"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-1-05 次氯酸盐的氧化性》实验中，NaClO 与 MnSO₄ 溶液反应时，常用来判断氧化性的关键对象是哪一种离子？",
+            "options": [
+              {
+                "label": "A",
+                "text": "SO₄²⁻"
+              },
+              {
+                "label": "B",
+                "text": "Na⁺"
+              },
+              {
+                "label": "C",
+                "text": "Mn²⁺"
+              },
+              {
+                "label": "D",
+                "text": "Cl⁻"
+              }
+            ],
+            "answer": {
+              "value": "C"
+            },
+            "explanation": "该步骤观察 MnSO₄ 中的 Mn²⁺ 被 ClO⁻ 氧化并生成棕黑色 MnO₂ 沉淀，因此关键对象是 Mn²⁺。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00202_c686014843",
+              "textbook_table_record_table_p042_t01_r051"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound",
+            "evidence_first_option_links_reauthored"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_1_05_Q004",
+        "source_review_id": "CHUNK1_19_1_05_Q004",
+        "source_question_index": 4,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-1-05 次氯酸盐的氧化性》实验中，NaClO 使品红溶液褪色，最合理的解释是哪一项？",
+        "options": [
+          {
+            "label": "A",
+            "text": "NaClO 是强还原剂"
+          },
+          {
+            "label": "B",
+            "text": "品红只发生简单稀释"
+          },
+          {
+            "label": "C",
+            "text": "NaClO 只提供沉淀剂"
+          },
+          {
+            "label": "D",
+            "text": "NaClO 具有氧化性和漂白作用"
+          }
+        ],
+        "answer": {
+          "value": "D"
+        },
+        "explanation": "教材现象为品红溶液滴加 NaClO 后红色褪去，说明 NaClO 的氧化漂白作用破坏了品红的显色结构。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-2cae7f3d"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_2_2cae7f3d",
+          "fuchsin",
+          "oxidation_property"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "NaClO 是强还原剂",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "本题按 19-1-05「次氯酸盐的氧化性」的 NaClO + 品红溶液 证据复核。 选项“NaClO 是强还原剂”不能作为本题答案；它没有对应题干要求的操作、现象或结论。"
+          },
+          {
+            "label": "B",
+            "text": "品红只发生简单稀释",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "本题按 19-1-05「次氯酸盐的氧化性」的 NaClO + 品红溶液 证据复核。 选项“品红只发生简单稀释”不能作为本题答案；它没有对应题干要求的操作、现象或结论。"
+          },
+          {
+            "label": "C",
+            "text": "NaClO 只提供沉淀剂",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "本题按 19-1-05「次氯酸盐的氧化性」的 NaClO + 品红溶液 证据复核。 选项“NaClO 只提供沉淀剂”不能作为本题答案；它没有对应题干要求的操作、现象或结论。"
+          },
+          {
+            "label": "D",
+            "text": "NaClO 具有氧化性和漂白作用",
+            "point_key": "candidate-2-2cae7f3d",
+            "role": "correct_evidence",
+            "diagnostic_note": "本题按 19-1-05「次氯酸盐的氧化性」的 NaClO + 品红溶液 证据复核。 选项“NaClO 具有氧化性和漂白作用”与题干答案和解析一致。 教材现象为品红溶液滴加 NaClO 后红色褪去，说明 NaClO 的氧化漂白作用破坏了品红的显色结构。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00202_c686014843"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polish 终审：最终有效题为 original_question，题干、答案和解析可由本实验 canonical 文本/点位支撑；最终有效题只需 canonical 实验步骤、点位和题干选项证据即可支撑。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00202_c686014843"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-1-05 次氯酸盐的氧化性》实验中，NaClO 使品红溶液褪色，最合理的解释是哪一项？",
+            "options": [
+              {
+                "label": "A",
+                "text": "NaClO 是强还原剂"
+              },
+              {
+                "label": "B",
+                "text": "品红只发生简单稀释"
+              },
+              {
+                "label": "C",
+                "text": "NaClO 只提供沉淀剂"
+              },
+              {
+                "label": "D",
+                "text": "NaClO 具有氧化性和漂白作用"
+              }
+            ],
+            "answer": {
+              "value": "D"
+            },
+            "explanation": "教材现象为品红溶液滴加 NaClO 后红色褪去，说明 NaClO 的氧化漂白作用破坏了品红的显色结构。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00202_c686014843",
+              "textbook_table_record_table_p042_t01_r051"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound",
+            "evidence_first_option_links_reauthored"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_1_05_Q005",
+        "source_review_id": "CHUNK1_19_1_05_Q005",
+        "source_question_index": 5,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-1-05 次氯酸盐的氧化性》实验中，本实验中 NaClO 溶液分成三份的主要目的是什么？",
+        "options": [
+          {
+            "label": "A",
+            "text": "分别考察与不同试剂反应时的氧化性表现"
+          },
+          {
+            "label": "B",
+            "text": "同时测定 NaClO 的摩尔质量"
+          },
+          {
+            "label": "C",
+            "text": "避免任何颜色变化出现"
+          },
+          {
+            "label": "D",
+            "text": "制备氯酸钾晶体"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "三份 NaClO 分别与 MnSO₄、品红和酸性 KI-淀粉体系反应，目的是从不同现象考察次氯酸盐的氧化性。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-8fec9a44",
+          "candidate-2-2cae7f3d"
+        ],
+        "secondary_point_keys": [
+          "candidate-3-84a67852"
+        ],
+        "coverage_tags": [
+          "point_candidate_1_8fec9a44",
+          "point_candidate_2_2cae7f3d",
+          "point_candidate_3_84a67852",
+          "oxidation_property"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "分别考察与不同试剂反应时的氧化性表现",
+            "point_key": "candidate-1-8fec9a44",
+            "role": "correct_evidence",
+            "diagnostic_note": "本题按 19-1-05「次氯酸盐的氧化性」的 NaClO + MnSO₄；NaClO + 品红溶液；NaClO + 酸性 KI-淀粉溶液 证据复核。 选项“分别考察与不同试剂反应时的氧化性表现”与题干答案和解析一致。 三份 NaClO 分别与 MnSO₄、品红和酸性 KI-淀粉体系反应，目的是从不同现象考察次氯酸盐的氧化性。"
+          },
+          {
+            "label": "B",
+            "text": "同时测定 NaClO 的摩尔质量",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "本题按 19-1-05「次氯酸盐的氧化性」的 NaClO + MnSO₄；NaClO + 品红溶液；NaClO + 酸性 KI-淀粉溶液 证据复核。 选项“同时测定 NaClO 的摩尔质量”不能作为本题答案；它没有对应题干要求的操作、现象或结论。"
+          },
+          {
+            "label": "C",
+            "text": "避免任何颜色变化出现",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "本题按 19-1-05「次氯酸盐的氧化性」的 NaClO + MnSO₄；NaClO + 品红溶液；NaClO + 酸性 KI-淀粉溶液 证据复核。 选项“避免任何颜色变化出现”不能作为本题答案；它没有对应题干要求的操作、现象或结论。"
+          },
+          {
+            "label": "D",
+            "text": "制备氯酸钾晶体",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "本题按 19-1-05「次氯酸盐的氧化性」的 NaClO + MnSO₄；NaClO + 品红溶液；NaClO + 酸性 KI-淀粉溶液 证据复核。 选项“制备氯酸钾晶体”不能作为本题答案；它没有对应题干要求的操作、现象或结论。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00202_c686014843"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polish 终审：最终有效题为 original_question，题干、答案和解析可由本实验 canonical 文本/点位支撑；最终有效题只需 canonical 实验步骤、点位和题干选项证据即可支撑。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00202_c686014843"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-1-05 次氯酸盐的氧化性》实验中，本实验中 NaClO 溶液分成三份的主要目的是什么？",
+            "options": [
+              {
+                "label": "A",
+                "text": "分别考察与不同试剂反应时的氧化性表现"
+              },
+              {
+                "label": "B",
+                "text": "同时测定 NaClO 的摩尔质量"
+              },
+              {
+                "label": "C",
+                "text": "避免任何颜色变化出现"
+              },
+              {
+                "label": "D",
+                "text": "制备氯酸钾晶体"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "三份 NaClO 分别与 MnSO₄、品红和酸性 KI-淀粉体系反应，目的是从不同现象考察次氯酸盐的氧化性。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00202_c686014843",
+              "textbook_table_record_table_p042_t01_r051"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound",
+            "evidence_first_option_links_reauthored"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_1_05_Q006",
+        "source_review_id": "CHUNK1_19_1_05_Q006",
+        "source_question_index": 6,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-1-05 次氯酸盐的氧化性》实验中，下列哪组试剂属于本实验的主要反应对象？",
+        "options": [
+          {
+            "label": "A",
+            "text": "NaClO 溶液、MnSO₄ 溶液、品红溶液、酸性 KI-淀粉溶液"
+          },
+          {
+            "label": "B",
+            "text": "KSCN 溶液、FeCl₃ 溶液、CCl₄"
+          },
+          {
+            "label": "C",
+            "text": "AgNO₃ 溶液、BaCl₂ 溶液、酚酞"
+          },
+          {
+            "label": "D",
+            "text": "KClO₃ 晶体、浓盐酸、湿 KI-淀粉试纸"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "教材列明取 NaClO 溶液分别与 MnSO₄ 溶液、品红溶液及酸性 KI-淀粉溶液反应并观察现象，因此 A 概括了本实验的主要反应对象。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-8fec9a44",
+          "candidate-2-2cae7f3d"
+        ],
+        "secondary_point_keys": [
+          "candidate-3-84a67852"
+        ],
+        "coverage_tags": [
+          "point_candidate_1_8fec9a44",
+          "point_candidate_2_2cae7f3d",
+          "point_candidate_3_84a67852",
+          "oxidation_property"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "NaClO 溶液、MnSO₄ 溶液、品红溶液、酸性 KI-淀粉溶液",
+            "point_key": "candidate-1-8fec9a44",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项概括了 NaClO 分别与 MnSO₄、品红和酸性 KI-淀粉溶液反应的实验范围；point_key 指向首个直接证据点。"
+          },
+          {
+            "label": "B",
+            "text": "KSCN 溶液、FeCl₃ 溶液、CCl₄",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "这些试剂属于其他离子检验、萃取或配合物情境，不是次氯酸盐氧化性实验列出的主要反应对象。"
+          },
+          {
+            "label": "C",
+            "text": "AgNO₃ 溶液、BaCl₂ 溶液、酚酞",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "这些试剂不对应本实验的三条 NaClO 反应观察线。"
+          },
+          {
+            "label": "D",
+            "text": "KClO₃ 晶体、浓盐酸、湿 KI-淀粉试纸",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "这些试剂属于相邻的氯酸盐氧化性实验，不是本题的次氯酸盐实验范围。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00202_c686014843"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polish 终审：最终有效题为 original_question，题干、答案和解析可由本实验 canonical 文本/点位支撑；最终有效题只需 canonical 实验步骤、点位和题干选项证据即可支撑。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00202_c686014843"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-1-05 次氯酸盐的氧化性》实验中，下列哪组试剂属于本实验的主要反应对象？",
+            "options": [
+              {
+                "label": "A",
+                "text": "NaClO 溶液、MnSO₄ 溶液、品红溶液、酸性 KI-淀粉溶液"
+              },
+              {
+                "label": "B",
+                "text": "KSCN 溶液、FeCl₃ 溶液、CCl₄"
+              },
+              {
+                "label": "C",
+                "text": "AgNO₃ 溶液、BaCl₂ 溶液、酚酞"
+              },
+              {
+                "label": "D",
+                "text": "KClO₃ 晶体、浓盐酸、湿 KI-淀粉试纸"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "教材列明取 NaClO 溶液分别与 MnSO₄ 溶液、品红溶液及酸性 KI-淀粉溶液反应并观察现象，因此 A 概括了本实验的主要反应对象。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00202_c686014843",
+              "textbook_table_record_table_p042_t01_r051"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_1_05_Q007",
+        "source_review_id": "CHUNK1_19_1_05_Q007",
+        "source_question_index": 7,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-1-05 次氯酸盐的氧化性》实验中，酸性 KI-淀粉溶液中若出现蓝色，主要说明生成了哪种物质？",
+        "options": [
+          {
+            "label": "A",
+            "text": "Na₂SO₄"
+          },
+          {
+            "label": "B",
+            "text": "MnSO₄"
+          },
+          {
+            "label": "C",
+            "text": "I₂"
+          },
+          {
+            "label": "D",
+            "text": "KClO₃"
+          }
+        ],
+        "answer": {
+          "value": "C"
+        },
+        "explanation": "教材说明 ClO⁻ 在酸性条件下氧化 I⁻ 生成 I₂，I₂ 遇淀粉显蓝色。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-84a67852"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_3_84a67852",
+          "ki_starch",
+          "oxidation_property"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "Na₂SO₄",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "本题按 19-1-05「次氯酸盐的氧化性」的 NaClO + 酸性 KI-淀粉溶液 证据复核。 选项“Na₂SO₄”不能作为本题答案；它没有对应题干要求的操作、现象或结论。"
+          },
+          {
+            "label": "B",
+            "text": "MnSO₄",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "本题按 19-1-05「次氯酸盐的氧化性」的 NaClO + 酸性 KI-淀粉溶液 证据复核。 选项“MnSO₄”不能作为本题答案；它没有对应题干要求的操作、现象或结论。"
+          },
+          {
+            "label": "C",
+            "text": "I₂",
+            "point_key": "candidate-3-84a67852",
+            "role": "correct_evidence",
+            "diagnostic_note": "本题按 19-1-05「次氯酸盐的氧化性」的 NaClO + 酸性 KI-淀粉溶液 证据复核。 选项“I₂”与题干答案和解析一致。 教材说明 ClO⁻ 在酸性条件下氧化 I⁻ 生成 I₂，I₂ 遇淀粉显蓝色。"
+          },
+          {
+            "label": "D",
+            "text": "KClO₃",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "本题按 19-1-05「次氯酸盐的氧化性」的 NaClO + 酸性 KI-淀粉溶液 证据复核。 选项“KClO₃”不能作为本题答案；它没有对应题干要求的操作、现象或结论。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00202_c686014843"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polish 终审：最终有效题为 original_question，题干、答案和解析可由本实验 canonical 文本/点位支撑；最终有效题只需 canonical 实验步骤、点位和题干选项证据即可支撑。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00202_c686014843"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-1-05 次氯酸盐的氧化性》实验中，酸性 KI-淀粉溶液中若出现蓝色，主要说明生成了哪种物质？",
+            "options": [
+              {
+                "label": "A",
+                "text": "Na₂SO₄"
+              },
+              {
+                "label": "B",
+                "text": "MnSO₄"
+              },
+              {
+                "label": "C",
+                "text": "I₂"
+              },
+              {
+                "label": "D",
+                "text": "KClO₃"
+              }
+            ],
+            "answer": {
+              "value": "C"
+            },
+            "explanation": "教材说明 ClO⁻ 在酸性条件下氧化 I⁻ 生成 I₂，I₂ 遇淀粉显蓝色。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00202_c686014843",
+              "textbook_table_record_table_p042_t01_r051"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound",
+            "evidence_first_option_links_reauthored"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_1_05_Q008",
+        "source_review_id": "CHUNK1_19_1_05_Q008",
+        "source_question_index": 8,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-1-05 次氯酸盐的氧化性》实验中，NaClO 与酸性 KI-淀粉体系出现蓝色，说明 NaClO 主要表现哪种性质？",
+        "options": [
+          {
+            "label": "A",
+            "text": "氧化性"
+          },
+          {
+            "label": "B",
+            "text": "还原性"
+          },
+          {
+            "label": "C",
+            "text": "酸碱指示性"
+          },
+          {
+            "label": "D",
+            "text": "沉淀性"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "酸性 KI-淀粉体系显蓝来自 I⁻ 被 NaClO 氧化生成 I₂，I₂ 与淀粉显色，因此 NaClO 在该体系中表现氧化性。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-84a67852"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "ki_starch_oxidation"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "氧化性",
+            "point_key": "candidate-3-84a67852",
+            "role": "correct_evidence",
+            "diagnostic_note": "与酸性 KI-淀粉体系显蓝所体现的 NaClO 氧化性一致。"
+          },
+          {
+            "label": "B",
+            "text": "还原性",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "与当前实验点位的观察对象或结论不符。"
+          },
+          {
+            "label": "C",
+            "text": "酸碱指示性",
+            "point_key": null,
+            "role": "adjacent_point",
+            "diagnostic_note": "来自相邻实验或相邻点位，容易造成范围混淆。"
+          },
+          {
+            "label": "D",
+            "text": "沉淀性",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "与当前实验点位的观察对象或结论不符。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00202_c686014843"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "替换题针对终审原因：只考氧化态记忆，不考实验操作、现象或证据链。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00202_c686014843"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-1-05 次氯酸盐的氧化性》实验中，NaClO 中氯元素通常处于哪一氧化态？",
+            "options": [
+              {
+                "label": "A",
+                "text": "-1"
+              },
+              {
+                "label": "B",
+                "text": "0"
+              },
+              {
+                "label": "C",
+                "text": "+5"
+              },
+              {
+                "label": "D",
+                "text": "+1"
+              }
+            ],
+            "answer": {
+              "value": "D"
+            },
+            "explanation": "教材要求将 SO₂ 通入酸性 KMnO₄ 溶液并观察现象；酸性 KMnO₄ 褪色说明 SO₂ 在该反应中作还原剂，表现还原性。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00202_c686014843",
+              "textbook_table_record_table_p042_t01_r051"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-1-05 次氯酸盐的氧化性》实验中，NaClO 与酸性 KI-淀粉体系出现蓝色，说明 NaClO 主要表现哪种性质？",
+            "options": [
+              {
+                "label": "A",
+                "text": "氧化性"
+              },
+              {
+                "label": "B",
+                "text": "还原性"
+              },
+              {
+                "label": "C",
+                "text": "酸碱指示性"
+              },
+              {
+                "label": "D",
+                "text": "沉淀性"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "酸性 KI-淀粉体系显蓝来自 I⁻ 被 NaClO 氧化生成 I₂，I₂ 与淀粉显色，因此 NaClO 在该体系中表现氧化性。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final",
+            "oxidation_state_recall_not_experiment_observation"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_1_05_Q009",
+        "source_review_id": "CHUNK1_19_1_05_Q009",
+        "source_question_index": 9,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-1-05 次氯酸盐的氧化性》实验中，下列哪项最符合本实验的取样与观察方式？",
+        "options": [
+          {
+            "label": "A",
+            "text": "取少量 NaClO 分别与三类试剂反应并观察现象"
+          },
+          {
+            "label": "B",
+            "text": "将 NaClO 与任意有机物大量混合"
+          },
+          {
+            "label": "C",
+            "text": "不看颜色或沉淀，只记录试剂名称"
+          },
+          {
+            "label": "D",
+            "text": "只做一次反应就判断全部现象"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "教材操作是取少量 NaClO 溶液分成三份，分别与 MnSO₄、品红和酸性 KI-淀粉体系反应，并依据沉淀或颜色变化判断。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-8fec9a44",
+          "candidate-2-2cae7f3d"
+        ],
+        "secondary_point_keys": [
+          "candidate-3-84a67852"
+        ],
+        "coverage_tags": [
+          "point_candidate_1_8fec9a44",
+          "point_candidate_2_2cae7f3d",
+          "point_candidate_3_84a67852",
+          "oxidation_property"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "取少量 NaClO 分别与三类试剂反应并观察现象",
+            "point_key": "candidate-1-8fec9a44",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项对应教材中取少量 NaClO 分别与 MnSO₄、品红和酸性 KI-淀粉体系反应并观察现象的操作安排。"
+          },
+          {
+            "label": "B",
+            "text": "将 NaClO 与任意有机物大量混合",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项把少量分组观察误说成任意大量混合，不能由教材操作支持。"
+          },
+          {
+            "label": "C",
+            "text": "不看颜色或沉淀，只记录试剂名称",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项忽略 MnO₂ 沉淀、品红褪色和淀粉显蓝等现象，不符合本实验观察任务。"
+          },
+          {
+            "label": "D",
+            "text": "只做一次反应就判断全部现象",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项与教材分三份 NaClO 分别观察不同反应现象的安排不符。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00202_c686014843"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polish 终审：最终有效题为 original_question，题干、答案和解析可由本实验 canonical 文本/点位支撑；最终有效题只需 canonical 实验步骤、点位和题干选项证据即可支撑。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00202_c686014843"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-1-05 次氯酸盐的氧化性》实验中，下列哪项最符合本实验的取样与观察方式？",
+            "options": [
+              {
+                "label": "A",
+                "text": "取少量 NaClO 分别与三类试剂反应并观察现象"
+              },
+              {
+                "label": "B",
+                "text": "将 NaClO 与任意有机物大量混合"
+              },
+              {
+                "label": "C",
+                "text": "不看颜色或沉淀，只记录试剂名称"
+              },
+              {
+                "label": "D",
+                "text": "只做一次反应就判断全部现象"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "教材操作是取少量 NaClO 溶液分成三份，分别与 MnSO₄、品红和酸性 KI-淀粉体系反应，并依据沉淀或颜色变化判断。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00202_c686014843",
+              "textbook_table_record_table_p042_t01_r051"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_1_05_Q010",
+        "source_review_id": "CHUNK1_19_1_05_Q010",
+        "source_question_index": 10,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-1-05 次氯酸盐的氧化性》实验中，本实验最核心的能力目标是哪一项？",
+        "options": [
+          {
+            "label": "A",
+            "text": "测定 CCl₄ 的密度"
+          },
+          {
+            "label": "B",
+            "text": "认识次氯酸盐可表现出氧化性"
+          },
+          {
+            "label": "C",
+            "text": "比较 Fe、Co、Ni 的还原性"
+          },
+          {
+            "label": "D",
+            "text": "鉴定 Ti(IV)"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "三个分支实验都围绕 NaClO 与不同试剂反应时的氧化表现，因此核心目标是认识次氯酸盐的氧化性。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-8fec9a44",
+          "candidate-2-2cae7f3d"
+        ],
+        "secondary_point_keys": [
+          "candidate-3-84a67852"
+        ],
+        "coverage_tags": [
+          "point_candidate_1_8fec9a44",
+          "point_candidate_2_2cae7f3d",
+          "point_candidate_3_84a67852",
+          "oxidation_property"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "测定 CCl₄ 的密度",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "本题按 19-1-05「次氯酸盐的氧化性」的 NaClO + MnSO₄；NaClO + 品红溶液；NaClO + 酸性 KI-淀粉溶液 证据复核。 选项“测定 CCl₄ 的密度”不能作为本题答案；它没有对应题干要求的操作、现象或结论。"
+          },
+          {
+            "label": "B",
+            "text": "认识次氯酸盐可表现出氧化性",
+            "point_key": "candidate-1-8fec9a44",
+            "role": "correct_evidence",
+            "diagnostic_note": "本题按 19-1-05「次氯酸盐的氧化性」的 NaClO + MnSO₄；NaClO + 品红溶液；NaClO + 酸性 KI-淀粉溶液 证据复核。 选项“认识次氯酸盐可表现出氧化性”与题干答案和解析一致。 三个分支实验都围绕 NaClO 与不同试剂反应时的氧化表现，因此核心目标是认识次氯酸盐的氧化性。"
+          },
+          {
+            "label": "C",
+            "text": "比较 Fe、Co、Ni 的还原性",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "本题按 19-1-05「次氯酸盐的氧化性」的 NaClO + MnSO₄；NaClO + 品红溶液；NaClO + 酸性 KI-淀粉溶液 证据复核。 选项“比较 Fe、Co、Ni 的还原性”不能作为本题答案；它没有对应题干要求的操作、现象或结论。"
+          },
+          {
+            "label": "D",
+            "text": "鉴定 Ti(IV)",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "本题按 19-1-05「次氯酸盐的氧化性」的 NaClO + MnSO₄；NaClO + 品红溶液；NaClO + 酸性 KI-淀粉溶液 证据复核。 选项“鉴定 Ti(IV)”不能作为本题答案；它没有对应题干要求的操作、现象或结论。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00202_c686014843"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polish 终审：最终有效题为 original_question，题干、答案和解析可由本实验 canonical 文本/点位支撑；最终有效题只需 canonical 实验步骤、点位和题干选项证据即可支撑。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00202_c686014843"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-1-05 次氯酸盐的氧化性》实验中，本实验最核心的能力目标是哪一项？",
+            "options": [
+              {
+                "label": "A",
+                "text": "测定 CCl₄ 的密度"
+              },
+              {
+                "label": "B",
+                "text": "认识次氯酸盐可表现出氧化性"
+              },
+              {
+                "label": "C",
+                "text": "比较 Fe、Co、Ni 的还原性"
+              },
+              {
+                "label": "D",
+                "text": "鉴定 Ti(IV)"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "三个分支实验都围绕 NaClO 与不同试剂反应时的氧化表现，因此核心目标是认识次氯酸盐的氧化性。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00202_c686014843",
+              "textbook_table_record_table_p042_t01_r051"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound",
+            "evidence_first_option_links_reauthored"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_1_05_Q011",
+        "source_review_id": "CHUNK1_19_1_05_Q011",
+        "source_question_index": 11,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-1-05 次氯酸盐的氧化性》实验中，NaClO 与酸性 KI-淀粉溶液反应时，I⁻ 主要被还原生成 I₂。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": false
+        },
+        "explanation": "该判断错误。实验中 I⁻ 被 NaClO 氧化生成 I₂，I₂ 再与淀粉显蓝色，不是 I⁻ 被还原。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-84a67852"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_3_84a67852",
+          "ki_starch",
+          "oxidation_property"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00202_c686014843"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polish 终审：最终有效题为 original_question，题干、答案和解析可由本实验 canonical 文本/点位支撑；最终有效题只需 canonical 实验步骤、点位和题干选项证据即可支撑。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00202_c686014843"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-1-05 次氯酸盐的氧化性》实验中，NaClO 与酸性 KI-淀粉溶液反应时，I⁻ 主要被还原生成 I₂。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "该判断错误。实验中 I⁻ 被 NaClO 氧化生成 I₂，I₂ 再与淀粉显蓝色，不是 I⁻ 被还原。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00202_c686014843",
+              "textbook_table_record_table_p042_t01_r051"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_1_05_Q012",
+        "source_review_id": "CHUNK1_19_1_05_Q012",
+        "source_question_index": 12,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-1-05 次氯酸盐的氧化性》实验中，NaClO 使品红褪色说明品红只被水稀释，与氧化作用无关。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": false
+        },
+        "explanation": "该判断错误。教材把品红褪色解释为 NaClO 的氧化漂白作用，而不是简单稀释。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-2cae7f3d"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_2_2cae7f3d",
+          "fuchsin",
+          "oxidation_property"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00202_c686014843"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polish 终审：最终有效题为 original_question，题干、答案和解析可由本实验 canonical 文本/点位支撑；最终有效题只需 canonical 实验步骤、点位和题干选项证据即可支撑。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00202_c686014843"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-1-05 次氯酸盐的氧化性》实验中，NaClO 使品红褪色说明品红只被水稀释，与氧化作用无关。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "该判断错误。教材把品红褪色解释为 NaClO 的氧化漂白作用，而不是简单稀释。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00202_c686014843",
+              "textbook_table_record_table_p042_t01_r051"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_1_05_Q013",
+        "source_review_id": "CHUNK1_19_1_05_Q013",
+        "source_question_index": 13,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-1-05 次氯酸盐的氧化性》实验中，在本实验中，NaClO 的主要角色是还原剂。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": false
+        },
+        "explanation": "该判断错误。NaClO 在 MnSO₄、品红和酸性 KI-淀粉体系中体现的是氧化性。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-8fec9a44",
+          "candidate-2-2cae7f3d"
+        ],
+        "secondary_point_keys": [
+          "candidate-3-84a67852"
+        ],
+        "coverage_tags": [
+          "point_candidate_1_8fec9a44",
+          "point_candidate_2_2cae7f3d",
+          "point_candidate_3_84a67852",
+          "oxidation_property"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00202_c686014843"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polish 终审：最终有效题为 original_question，题干、答案和解析可由本实验 canonical 文本/点位支撑；最终有效题只需 canonical 实验步骤、点位和题干选项证据即可支撑。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00202_c686014843"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-1-05 次氯酸盐的氧化性》实验中，在本实验中，NaClO 的主要角色是还原剂。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "该判断错误。NaClO 在 MnSO₄、品红和酸性 KI-淀粉体系中体现的是氧化性。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00202_c686014843",
+              "textbook_table_record_table_p042_t01_r051"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_1_05_Q014",
+        "source_review_id": "CHUNK1_19_1_05_Q014",
+        "source_question_index": 14,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-1-05 次氯酸盐的氧化性》实验中，品红褪色可以作为次氯酸盐氧化漂白作用的现象之一。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "该判断正确。教材现象为品红溶液红色立即褪去，用来体现 NaClO 的氧化漂白作用。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-2cae7f3d"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_2_2cae7f3d",
+          "fuchsin",
+          "oxidation_property"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00202_c686014843"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polish 终审：最终有效题为 original_question，题干、答案和解析可由本实验 canonical 文本/点位支撑；最终有效题只需 canonical 实验步骤、点位和题干选项证据即可支撑。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00202_c686014843"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-1-05 次氯酸盐的氧化性》实验中，品红褪色可以作为次氯酸盐氧化漂白作用的现象之一。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "该判断正确。教材现象为品红溶液红色立即褪去，用来体现 NaClO 的氧化漂白作用。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00202_c686014843",
+              "textbook_table_record_table_p042_t01_r051"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_1_05_Q015",
+        "source_review_id": "CHUNK1_19_1_05_Q015",
+        "source_question_index": 15,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-1-05 次氯酸盐的氧化性》实验中，MnSO₄ 溶液中的 Mn²⁺ 可用于观察被 NaClO 氧化后的变化。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "该判断正确。教材说明 Mn²⁺ 可被 ClO⁻ 氧化为 MnO₂，并观察到棕黑色沉淀。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-8fec9a44"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_1_8fec9a44",
+          "oxidation_property"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00202_c686014843"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polish 终审：最终有效题为 original_question，题干、答案和解析可由本实验 canonical 文本/点位支撑；最终有效题只需 canonical 实验步骤、点位和题干选项证据即可支撑。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00202_c686014843"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-1-05 次氯酸盐的氧化性》实验中，MnSO₄ 溶液中的 Mn²⁺ 可用于观察被 NaClO 氧化后的变化。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "该判断正确。教材说明 Mn²⁺ 可被 ClO⁻ 氧化为 MnO₂，并观察到棕黑色沉淀。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00202_c686014843",
+              "textbook_table_record_table_p042_t01_r051"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_1_05_Q016",
+        "source_review_id": "CHUNK1_19_1_05_Q016",
+        "source_question_index": 16,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-1-05 次氯酸盐的氧化性》实验中，本实验要求使用 KClO₃ 晶体与浓盐酸反应作为唯一内容。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": false
+        },
+        "explanation": "该判断错误。本实验对象是 NaClO 与 MnSO₄、品红、酸性 KI-淀粉体系的反应；KClO₃ 与浓盐酸属于相邻的氯酸盐实验内容。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-8fec9a44",
+          "candidate-2-2cae7f3d"
+        ],
+        "secondary_point_keys": [
+          "candidate-3-84a67852"
+        ],
+        "coverage_tags": [
+          "point_candidate_1_8fec9a44",
+          "point_candidate_2_2cae7f3d",
+          "point_candidate_3_84a67852",
+          "oxidation_property"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00202_c686014843"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polish 终审：最终有效题为 original_question，题干、答案和解析可由本实验 canonical 文本/点位支撑；最终有效题只需 canonical 实验步骤、点位和题干选项证据即可支撑。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00202_c686014843"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-1-05 次氯酸盐的氧化性》实验中，本实验要求使用 KClO₃ 晶体与浓盐酸反应作为唯一内容。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "该判断错误。本实验对象是 NaClO 与 MnSO₄、品红、酸性 KI-淀粉体系的反应；KClO₃ 与浓盐酸属于相邻的氯酸盐实验内容。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00202_c686014843",
+              "textbook_table_record_table_p042_t01_r051"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_1_05_Q017",
+        "source_review_id": "CHUNK1_19_1_05_Q017",
+        "source_question_index": 17,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-1-05 次氯酸盐的氧化性》实验中，次氯酸盐中的 Cl(+1) 具有进一步被还原的趋势，因此可表现氧化性。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "该判断正确。实验中 ClO⁻ 能氧化 Mn²⁺、I⁻ 并使品红褪色，说明次氯酸盐在这些体系中表现氧化性。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-8fec9a44",
+          "candidate-2-2cae7f3d"
+        ],
+        "secondary_point_keys": [
+          "candidate-3-84a67852"
+        ],
+        "coverage_tags": [
+          "point_candidate_1_8fec9a44",
+          "point_candidate_2_2cae7f3d",
+          "point_candidate_3_84a67852",
+          "oxidation_property"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00202_c686014843"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polish 终审：最终有效题为 original_question，题干、答案和解析可由本实验 canonical 文本/点位支撑；最终有效题只需 canonical 实验步骤、点位和题干选项证据即可支撑。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00202_c686014843"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-1-05 次氯酸盐的氧化性》实验中，次氯酸盐中的 Cl(+1) 具有进一步被还原的趋势，因此可表现氧化性。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "该判断正确。实验中 ClO⁻ 能氧化 Mn²⁺、I⁻ 并使品红褪色，说明次氯酸盐在这些体系中表现氧化性。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00202_c686014843",
+              "textbook_table_record_table_p042_t01_r051"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_1_05_Q018",
+        "source_review_id": "CHUNK1_19_1_05_Q018",
+        "source_question_index": 18,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-1-05 次氯酸盐的氧化性》实验中，只加入淀粉而不提供 I⁻，也足以证明 NaClO 氧化了碘离子。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": false
+        },
+        "explanation": "该判断错误。酸性 KI-淀粉体系中 KI 提供 I⁻，淀粉只用于显示生成的 I₂；缺少 I⁻ 不能证明碘离子被氧化。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-84a67852"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_3_84a67852",
+          "oxidation_property"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00202_c686014843"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polish 终审：最终有效题为 original_question，题干、答案和解析可由本实验 canonical 文本/点位支撑；最终有效题只需 canonical 实验步骤、点位和题干选项证据即可支撑。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00202_c686014843"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-1-05 次氯酸盐的氧化性》实验中，只加入淀粉而不提供 I⁻，也足以证明 NaClO 氧化了碘离子。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "该判断错误。酸性 KI-淀粉体系中 KI 提供 I⁻，淀粉只用于显示生成的 I₂；缺少 I⁻ 不能证明碘离子被氧化。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00202_c686014843",
+              "textbook_table_record_table_p042_t01_r051"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_1_05_Q019",
+        "source_review_id": "CHUNK1_19_1_05_Q019",
+        "source_question_index": 19,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-1-05 次氯酸盐的氧化性》实验中，本实验通过 NaClO 分别与 MnSO₄、品红、酸性 KI-淀粉溶液反应来观察氧化性。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "该判断正确。教材明确将 NaClO 分成三份，分别与 MnSO₄、品红和酸性 KI-淀粉体系反应并观察现象。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-8fec9a44",
+          "candidate-2-2cae7f3d"
+        ],
+        "secondary_point_keys": [
+          "candidate-3-84a67852"
+        ],
+        "coverage_tags": [
+          "point_candidate_1_8fec9a44",
+          "point_candidate_2_2cae7f3d",
+          "point_candidate_3_84a67852",
+          "oxidation_property"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00202_c686014843"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polish 终审：最终有效题为 original_question，题干、答案和解析可由本实验 canonical 文本/点位支撑；最终有效题只需 canonical 实验步骤、点位和题干选项证据即可支撑。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00202_c686014843"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-1-05 次氯酸盐的氧化性》实验中，本实验通过 NaClO 分别与 MnSO₄、品红、酸性 KI-淀粉溶液反应来观察氧化性。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "该判断正确。教材明确将 NaClO 分成三份，分别与 MnSO₄、品红和酸性 KI-淀粉体系反应并观察现象。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00202_c686014843",
+              "textbook_table_record_table_p042_t01_r051"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_1_05_Q020",
+        "source_review_id": "CHUNK1_19_1_05_Q020",
+        "source_question_index": 20,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-1-05 次氯酸盐的氧化性》实验中，NaClO 与酸性 KI-淀粉溶液反应时，观察颜色变化比只记录试剂体积更能支持结论。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "该判断正确。酸性 KI-淀粉体系的关键证据是 I₂ 与淀粉显蓝色，以及过量 NaClO 时蓝色可能褪去。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-84a67852"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_3_84a67852",
+          "ki_starch",
+          "observation",
+          "oxidation_property"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00202_c686014843"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polish 终审：最终有效题为 original_question，题干、答案和解析可由本实验 canonical 文本/点位支撑；最终有效题只需 canonical 实验步骤、点位和题干选项证据即可支撑。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00202_c686014843"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-1-05 次氯酸盐的氧化性》实验中，NaClO 与酸性 KI-淀粉溶液反应时，观察颜色变化比只记录试剂体积更能支持结论。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "该判断正确。酸性 KI-淀粉体系的关键证据是 I₂ 与淀粉显蓝色，以及过量 NaClO 时蓝色可能褪去。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00202_c686014843",
+              "textbook_table_record_table_p042_t01_r051"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_1_05_Q021",
+        "source_review_id": "CHUNK1_19_1_05_Q021",
+        "source_question_index": 21,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《19-1-05 次氯酸盐的氧化性》实验中，用于提供次氯酸盐的主要试剂是____溶液。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "NaClO",
+            "次氯酸钠"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "教材以 NaClO 溶液作为次氯酸盐来源，并把它分别加入三类反应体系观察氧化性。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-8fec9a44",
+          "candidate-2-2cae7f3d"
+        ],
+        "secondary_point_keys": [
+          "candidate-3-84a67852"
+        ],
+        "coverage_tags": [
+          "point_candidate_1_8fec9a44",
+          "point_candidate_2_2cae7f3d",
+          "point_candidate_3_84a67852",
+          "oxidation_property"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00202_c686014843"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polish 终审：最终有效题为 original_question，题干、答案和解析可由本实验 canonical 文本/点位支撑；最终有效题只需 canonical 实验步骤、点位和题干选项证据即可支撑。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00202_c686014843"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "formula_or_symbolic_fill_blank_answer",
+          "multi_point_binding"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-1-05 次氯酸盐的氧化性》实验中，用于提供次氯酸盐的主要试剂是____溶液。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "NaClO",
+                "次氯酸钠"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "教材以 NaClO 溶液作为次氯酸盐来源，并把它分别加入三类反应体系观察氧化性。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00202_c686014843",
+              "textbook_table_record_table_p042_t01_r051"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_1_05_Q022",
+        "source_review_id": "CHUNK1_19_1_05_Q022",
+        "source_question_index": 22,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-1-05 次氯酸盐的氧化性》实验中，酸性 KI-淀粉溶液中被氧化的阴离子是哪一项？",
+        "options": [
+          {
+            "label": "A",
+            "text": "碘离子"
+          },
+          {
+            "label": "B",
+            "text": "Br⁻（溴离子）"
+          },
+          {
+            "label": "C",
+            "text": "Cl⁻（氯离子）"
+          },
+          {
+            "label": "D",
+            "text": "K⁺（钾离子）"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "酸性 KI-淀粉体系中，NaClO 氧化的是 KI 提供的 I⁻，随后生成的 I₂ 与淀粉显蓝色。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-84a67852"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_3_84a67852",
+          "ki_starch",
+          "oxidation_property"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "碘离子",
+            "point_key": "candidate-3-84a67852",
+            "role": "correct_evidence",
+            "diagnostic_note": "本题按 19-1-05「次氯酸盐的氧化性」的 NaClO + 酸性 KI-淀粉溶液 证据复核。 选项“碘离子”与题干答案和解析一致。 酸性 KI-淀粉体系中，NaClO 氧化的是 KI 提供的 I⁻，随后生成的 I₂ 与淀粉显蓝色。"
+          },
+          {
+            "label": "B",
+            "text": "Br⁻（溴离子）",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "本题按 19-1-05「次氯酸盐的氧化性」的 NaClO + 酸性 KI-淀粉溶液 证据复核。 选项“Br⁻（溴离子）”不能作为本题答案；它没有对应题干要求的操作、现象或结论。"
+          },
+          {
+            "label": "C",
+            "text": "Cl⁻（氯离子）",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "本题按 19-1-05「次氯酸盐的氧化性」的 NaClO + 酸性 KI-淀粉溶液 证据复核。 选项“Cl⁻（氯离子）”不能作为本题答案；它没有对应题干要求的操作、现象或结论。"
+          },
+          {
+            "label": "D",
+            "text": "K⁺（钾离子）",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "本题按 19-1-05「次氯酸盐的氧化性」的 NaClO + 酸性 KI-淀粉溶液 证据复核。 选项“K⁺（钾离子）”不能作为本题答案；它没有对应题干要求的操作、现象或结论。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00202_c686014843"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polish 终审：最终有效题为 proposed_question，题干、答案和解析可由本实验 canonical 文本/点位支撑；最终有效题只需 canonical 实验步骤、点位和题干选项证据即可支撑。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00202_c686014843"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-1-05 次氯酸盐的氧化性》实验中，酸性 KI-淀粉溶液中被氧化的阴离子是____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "I⁻",
+                "碘离子"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": null,
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00202_c686014843",
+              "textbook_table_record_table_p042_t01_r051"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-1-05 次氯酸盐的氧化性》实验中，酸性 KI-淀粉溶液中被氧化的阴离子是哪一项？",
+            "options": [
+              {
+                "label": "A",
+                "text": "碘离子"
+              },
+              {
+                "label": "B",
+                "text": "Br⁻（溴离子）"
+              },
+              {
+                "label": "C",
+                "text": "Cl⁻（氯离子）"
+              },
+              {
+                "label": "D",
+                "text": "K⁺（钾离子）"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "酸性 KI-淀粉体系中，NaClO 氧化的是 KI 提供的 I⁻，随后生成的 I₂ 与淀粉显蓝色。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00202_c686014843",
+              "textbook_table_record_table_p042_t01_r051"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound",
+            "evidence_first_option_links_reauthored"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_1_05_Q023",
+        "source_review_id": "CHUNK1_19_1_05_Q023",
+        "source_question_index": 23,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-1-05 次氯酸盐的氧化性》实验中，酸性 KI-淀粉溶液显蓝色通常说明生成了哪一项？",
+        "options": [
+          {
+            "label": "A",
+            "text": "I₂"
+          },
+          {
+            "label": "B",
+            "text": "Br₂（溴）"
+          },
+          {
+            "label": "C",
+            "text": "Cl₂（氯）"
+          },
+          {
+            "label": "D",
+            "text": "CCl₄（四氯化碳）"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "教材说明 ClO⁻ 在酸性条件下氧化 I⁻ 生成 I₂，I₂ 遇淀粉显蓝色，因此显蓝通常说明生成 I₂。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-84a67852"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_3_84a67852",
+          "ki_starch",
+          "oxidation_property"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "I₂",
+            "point_key": "candidate-3-84a67852",
+            "role": "correct_evidence",
+            "diagnostic_note": "本题按 19-1-05「次氯酸盐的氧化性」的 NaClO + 酸性 KI-淀粉溶液 证据复核。 选项“I₂”与题干答案和解析一致。 教材说明 ClO⁻ 在酸性条件下氧化 I⁻ 生成 I₂，I₂ 遇淀粉显蓝色，因此显蓝通常说明生成 I₂。"
+          },
+          {
+            "label": "B",
+            "text": "Br₂（溴）",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "本题按 19-1-05「次氯酸盐的氧化性」的 NaClO + 酸性 KI-淀粉溶液 证据复核。 选项“Br₂（溴）”不能作为本题答案；它没有对应题干要求的操作、现象或结论。"
+          },
+          {
+            "label": "C",
+            "text": "Cl₂（氯）",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "本题按 19-1-05「次氯酸盐的氧化性」的 NaClO + 酸性 KI-淀粉溶液 证据复核。 选项“Cl₂（氯）”不能作为本题答案；它没有对应题干要求的操作、现象或结论。"
+          },
+          {
+            "label": "D",
+            "text": "CCl₄（四氯化碳）",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "本题按 19-1-05「次氯酸盐的氧化性」的 NaClO + 酸性 KI-淀粉溶液 证据复核。 选项“CCl₄（四氯化碳）”不能作为本题答案；它没有对应题干要求的操作、现象或结论。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00202_c686014843"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polish 终审：最终有效题为 proposed_question，题干、答案和解析可由本实验 canonical 文本/点位支撑；最终有效题只需 canonical 实验步骤、点位和题干选项证据即可支撑。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00202_c686014843"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-1-05 次氯酸盐的氧化性》实验中，酸性 KI-淀粉溶液显蓝色通常说明生成了____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "I₂",
+                "碘"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": null,
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00202_c686014843",
+              "textbook_table_record_table_p042_t01_r051"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-1-05 次氯酸盐的氧化性》实验中，酸性 KI-淀粉溶液显蓝色通常说明生成了哪一项？",
+            "options": [
+              {
+                "label": "A",
+                "text": "I₂"
+              },
+              {
+                "label": "B",
+                "text": "Br₂（溴）"
+              },
+              {
+                "label": "C",
+                "text": "Cl₂（氯）"
+              },
+              {
+                "label": "D",
+                "text": "CCl₄（四氯化碳）"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "教材说明 ClO⁻ 在酸性条件下氧化 I⁻ 生成 I₂，I₂ 遇淀粉显蓝色，因此显蓝通常说明生成 I₂。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00202_c686014843",
+              "textbook_table_record_table_p042_t01_r051"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound",
+            "evidence_first_option_links_reauthored"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_1_05_Q024",
+        "source_review_id": "CHUNK1_19_1_05_Q024",
+        "source_question_index": 24,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《19-1-05 次氯酸盐的氧化性》实验中，NaClO 使品红褪色体现了其氧化性和____作用。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "漂白",
+            "漂白作用"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "品红红色立即褪去是 NaClO 氧化破坏显色结构的结果，体现其漂白作用。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-2cae7f3d"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_2_2cae7f3d",
+          "fuchsin",
+          "oxidation_property"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00202_c686014843"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polish 终审：最终有效题为 original_question，题干、答案和解析可由本实验 canonical 文本/点位支撑；最终有效题只需 canonical 实验步骤、点位和题干选项证据即可支撑。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00202_c686014843"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-1-05 次氯酸盐的氧化性》实验中，NaClO 使品红褪色体现了其氧化性和____作用。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "漂白",
+                "漂白作用"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "品红红色立即褪去是 NaClO 氧化破坏显色结构的结果，体现其漂白作用。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00202_c686014843",
+              "textbook_table_record_table_p042_t01_r051"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_1_05_Q025",
+        "source_review_id": "CHUNK1_19_1_05_Q025",
+        "source_question_index": 25,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-1-05 次氯酸盐的氧化性》实验中，与 NaClO 反应、可用于观察锰元素价态变化的试剂是哪一种溶液？",
+        "options": [
+          {
+            "label": "A",
+            "text": "MnSO₄"
+          },
+          {
+            "label": "B",
+            "text": "KMnO₄"
+          },
+          {
+            "label": "C",
+            "text": "MnO₂"
+          },
+          {
+            "label": "D",
+            "text": "AgNO₃"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "教材步骤中 MnSO₄ 溶液与 NaClO 反应，Mn²⁺ 被氧化并出现棕黑色 MnO₂ 沉淀，因此对应试剂是 MnSO₄。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-8fec9a44"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_1_8fec9a44",
+          "oxidation_property"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "MnSO₄",
+            "point_key": "candidate-1-8fec9a44",
+            "role": "correct_evidence",
+            "diagnostic_note": "本题按 19-1-05「次氯酸盐的氧化性」的 NaClO + MnSO₄ 证据复核。 选项“MnSO₄”与题干答案和解析一致。 教材步骤中 MnSO₄ 溶液与 NaClO 反应，Mn²⁺ 被氧化并出现棕黑色 MnO₂ 沉淀，因此对应试剂是 MnSO₄。"
+          },
+          {
+            "label": "B",
+            "text": "KMnO₄",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "本题按 19-1-05「次氯酸盐的氧化性」的 NaClO + MnSO₄ 证据复核。 选项“KMnO₄”不能作为本题答案；它没有对应题干要求的操作、现象或结论。"
+          },
+          {
+            "label": "C",
+            "text": "MnO₂",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "本题按 19-1-05「次氯酸盐的氧化性」的 NaClO + MnSO₄ 证据复核。 选项“MnO₂”不能作为本题答案；它没有对应题干要求的操作、现象或结论。"
+          },
+          {
+            "label": "D",
+            "text": "AgNO₃",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "本题按 19-1-05「次氯酸盐的氧化性」的 NaClO + MnSO₄ 证据复核。 选项“AgNO₃”不能作为本题答案；它没有对应题干要求的操作、现象或结论。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00202_c686014843"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polish 终审：最终有效题为 proposed_question，题干、答案和解析可由本实验 canonical 文本/点位支撑；最终有效题只需 canonical 实验步骤、点位和题干选项证据即可支撑。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00202_c686014843"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-1-05 次氯酸盐的氧化性》实验中，与 NaClO 反应、可用于观察锰元素价态变化的试剂是____溶液。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "MnSO₄",
+                "硫酸锰"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": null,
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00202_c686014843",
+              "textbook_table_record_table_p042_t01_r051"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-1-05 次氯酸盐的氧化性》实验中，与 NaClO 反应、可用于观察锰元素价态变化的试剂是哪一种溶液？",
+            "options": [
+              {
+                "label": "A",
+                "text": "MnSO₄"
+              },
+              {
+                "label": "B",
+                "text": "KMnO₄"
+              },
+              {
+                "label": "C",
+                "text": "MnO₂"
+              },
+              {
+                "label": "D",
+                "text": "AgNO₃"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "教材步骤中 MnSO₄ 溶液与 NaClO 反应，Mn²⁺ 被氧化并出现棕黑色 MnO₂ 沉淀，因此对应试剂是 MnSO₄。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00202_c686014843",
+              "textbook_table_record_table_p042_t01_r051"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound",
+            "evidence_first_option_links_reauthored"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_1_05_Q026",
+        "source_review_id": "CHUNK1_19_1_05_Q026",
+        "source_question_index": 26,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-1-05 次氯酸盐的氧化性》实验中，NaClO 与酸性 KI-淀粉体系显蓝时，正确证据链是哪一项？",
+        "options": [
+          {
+            "label": "A",
+            "text": "NaClO 氧化 I⁻ 生成 I₂，I₂ 与淀粉显色"
+          },
+          {
+            "label": "B",
+            "text": "淀粉还原 Na⁺ 为钠"
+          },
+          {
+            "label": "C",
+            "text": "KI 直接漂白品红"
+          },
+          {
+            "label": "D",
+            "text": "MnSO₄ 生成 AgCl"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "酸性 KI-淀粉体系显蓝的证据链是 NaClO 氧化 I⁻ 生成 I₂，I₂ 再与淀粉显色。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-84a67852"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "ki_starch_oxidation"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "NaClO 氧化 I⁻ 生成 I₂，I₂ 与淀粉显色",
+            "point_key": "candidate-3-84a67852",
+            "role": "correct_evidence",
+            "diagnostic_note": "与题干要求和绑定点位的实验证据一致。"
+          },
+          {
+            "label": "B",
+            "text": "淀粉还原 Na⁺ 为钠",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "与当前实验点位的观察对象或结论不符。"
+          },
+          {
+            "label": "C",
+            "text": "KI 直接漂白品红",
+            "point_key": null,
+            "role": "adjacent_point",
+            "diagnostic_note": "来自相邻实验或相邻点位，容易造成范围混淆。"
+          },
+          {
+            "label": "D",
+            "text": "MnSO₄ 生成 AgCl",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "与当前实验点位的观察对象或结论不符。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00202_c686014843"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "替换题针对终审原因：填空只填氧化态，非实验点位观察。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00202_c686014843"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-1-05 次氯酸盐的氧化性》实验中，NaClO 中氯元素的常见氧化态是____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "+1",
+                "正一价"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": null,
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00202_c686014843",
+              "textbook_table_record_table_p042_t01_r051"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-1-05 次氯酸盐的氧化性》实验中，NaClO 与酸性 KI-淀粉体系显蓝时，正确证据链是哪一项？",
+            "options": [
+              {
+                "label": "A",
+                "text": "NaClO 氧化 I⁻ 生成 I₂，I₂ 与淀粉显色"
+              },
+              {
+                "label": "B",
+                "text": "淀粉还原 Na⁺ 为钠"
+              },
+              {
+                "label": "C",
+                "text": "KI 直接漂白品红"
+              },
+              {
+                "label": "D",
+                "text": "MnSO₄ 生成 AgCl"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "酸性 KI-淀粉体系显蓝的证据链是 NaClO 氧化 I⁻ 生成 I₂，I₂ 再与淀粉显色。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final",
+            "oxidation_state_fill_not_experiment_observation",
+            "evidence_first_option_links_reauthored"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_1_05_Q027",
+        "source_review_id": "CHUNK1_19_1_05_Q027",
+        "source_question_index": 27,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《19-1-05 次氯酸盐的氧化性》实验中，本实验考察的核心性质是次氯酸盐的____。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "氧化性"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "NaClO 与 MnSO₄、品红、酸性 KI-淀粉体系的现象都指向次氯酸盐的氧化性。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-8fec9a44",
+          "candidate-2-2cae7f3d"
+        ],
+        "secondary_point_keys": [
+          "candidate-3-84a67852"
+        ],
+        "coverage_tags": [
+          "point_candidate_1_8fec9a44",
+          "point_candidate_2_2cae7f3d",
+          "point_candidate_3_84a67852",
+          "oxidation_property"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00202_c686014843"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polish 终审：最终有效题为 original_question，题干、答案和解析可由本实验 canonical 文本/点位支撑；最终有效题只需 canonical 实验步骤、点位和题干选项证据即可支撑。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00202_c686014843"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-1-05 次氯酸盐的氧化性》实验中，本实验考察的核心性质是次氯酸盐的____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "氧化性"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "NaClO 与 MnSO₄、品红、酸性 KI-淀粉体系的现象都指向次氯酸盐的氧化性。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00202_c686014843",
+              "textbook_table_record_table_p042_t01_r051"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_1_05_Q028",
+        "source_review_id": "CHUNK1_19_1_05_Q028",
+        "source_question_index": 28,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-1-05 次氯酸盐的氧化性》实验中，酸性 KI-淀粉体系先显蓝、继续滴加 NaClO 后蓝色可能褪去，最合理的解释是哪一项？",
+        "options": [
+          {
+            "label": "A",
+            "text": "生成的 I₂ 被过量 NaClO 进一步氧化为 IO₃⁻"
+          },
+          {
+            "label": "B",
+            "text": "淀粉把 Na⁺ 还原为金属钠"
+          },
+          {
+            "label": "C",
+            "text": "KI 直接漂白品红溶液"
+          },
+          {
+            "label": "D",
+            "text": "MnSO₄ 与 AgNO₃ 生成 AgCl"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "教材说明继续滴加 NaClO 时蓝色可能褪去，因为已生成的 I₂ 可被过量 NaClO 进一步氧化为无色的 IO₃⁻。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-84a67852"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "ki_starch_oxidation"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "生成的 I₂ 被过量 NaClO 进一步氧化为 IO₃⁻",
+            "point_key": "candidate-3-84a67852",
+            "role": "correct_evidence",
+            "diagnostic_note": "与酸性 KI-淀粉体系继续滴加 NaClO 后蓝色可能褪去的教材证据一致。"
+          },
+          {
+            "label": "B",
+            "text": "淀粉把 Na⁺ 还原为金属钠",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "与当前实验点位的观察对象或结论不符。"
+          },
+          {
+            "label": "C",
+            "text": "KI 直接漂白品红溶液",
+            "point_key": null,
+            "role": "adjacent_point",
+            "diagnostic_note": "来自相邻实验或相邻点位，容易造成范围混淆。"
+          },
+          {
+            "label": "D",
+            "text": "MnSO₄ 与 AgNO₃ 生成 AgCl",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "与当前实验点位的观察对象或结论不符。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00202_c686014843"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "替换题针对终审原因：只考份数等机械步骤，未形成实验判断。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00202_c686014843"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-1-05 次氯酸盐的氧化性》实验中，实验中 NaClO 溶液应分成____份分别试验。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "3",
+                "三"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": null,
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00202_c686014843",
+              "textbook_table_record_table_p042_t01_r051"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-1-05 次氯酸盐的氧化性》实验中，酸性 KI-淀粉体系先显蓝、继续滴加 NaClO 后蓝色可能褪去，最合理的解释是哪一项？",
+            "options": [
+              {
+                "label": "A",
+                "text": "生成的 I₂ 被过量 NaClO 进一步氧化为 IO₃⁻"
+              },
+              {
+                "label": "B",
+                "text": "淀粉把 Na⁺ 还原为金属钠"
+              },
+              {
+                "label": "C",
+                "text": "KI 直接漂白品红溶液"
+              },
+              {
+                "label": "D",
+                "text": "MnSO₄ 与 AgNO₃ 生成 AgCl"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "教材说明继续滴加 NaClO 时蓝色可能褪去，因为已生成的 I₂ 可被过量 NaClO 进一步氧化为无色的 IO₃⁻。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final",
+            "mechanical_count_recall"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_1_05_Q029",
+        "source_review_id": "CHUNK1_19_1_05_Q029",
+        "source_question_index": 29,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《19-1-05 次氯酸盐的氧化性》实验中，KI-淀粉试液用于把生成的碘通过____变化表现出来。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "颜色",
+            "显色"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "I⁻ 被 NaClO 氧化生成 I₂ 后，I₂ 与淀粉显蓝色，因此生成的碘通过颜色或显色变化表现出来。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-84a67852"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_3_84a67852",
+          "ki_starch",
+          "observation",
+          "oxidation_property"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00202_c686014843"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polish 终审：最终有效题为 original_question，题干、答案和解析可由本实验 canonical 文本/点位支撑；最终有效题只需 canonical 实验步骤、点位和题干选项证据即可支撑。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00202_c686014843"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-1-05 次氯酸盐的氧化性》实验中，KI-淀粉试液用于把生成的碘通过____变化表现出来。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "颜色",
+                "显色"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "I⁻ 被 NaClO 氧化生成 I₂ 后，I₂ 与淀粉显蓝色，因此生成的碘通过颜色或显色变化表现出来。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00202_c686014843",
+              "textbook_table_record_table_p042_t01_r051"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_1_05_Q030",
+        "source_review_id": "CHUNK1_19_1_05_Q030",
+        "source_question_index": 30,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-1-05 次氯酸盐的氧化性》实验中，酸性 KI-淀粉体系中淀粉的作用是哪一项？",
+        "options": [
+          {
+            "label": "A",
+            "text": "与生成的 I₂ 显蓝，帮助观察 I⁻ 被氧化"
+          },
+          {
+            "label": "B",
+            "text": "提供被氧化的 I⁻"
+          },
+          {
+            "label": "C",
+            "text": "直接漂白品红溶液"
+          },
+          {
+            "label": "D",
+            "text": "生成棕黑色 MnO₂ 沉淀"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "酸性 KI-淀粉体系中 KI 提供 I⁻，NaClO 氧化 I⁻ 生成 I₂；淀粉与 I₂ 显蓝，用于把这一氧化结果表现为颜色变化。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-84a67852"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "ki_starch_oxidation"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "与生成的 I₂ 显蓝，帮助观察 I⁻ 被氧化",
+            "point_key": "candidate-3-84a67852",
+            "role": "correct_evidence",
+            "diagnostic_note": "与酸性 KI-淀粉体系中 I₂ 遇淀粉显蓝的观察证据一致。"
+          },
+          {
+            "label": "B",
+            "text": "提供被氧化的 I⁻",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "与当前实验点位的观察对象或结论不符。"
+          },
+          {
+            "label": "C",
+            "text": "直接漂白品红溶液",
+            "point_key": null,
+            "role": "adjacent_point",
+            "diagnostic_note": "来自相邻实验或相邻点位，容易造成范围混淆。"
+          },
+          {
+            "label": "D",
+            "text": "生成棕黑色 MnO₂ 沉淀",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "与当前实验点位的观察对象或结论不符。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00202_c686014843"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "替换题针对终审原因：填空答案指向相邻氯酸盐实验范围，当前题干语义不清。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00202_c686014843"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-1-05 次氯酸盐的氧化性》实验中，本实验中不应把内容扩展为氯酸盐 KClO₃ 的____实验。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "氧化性",
+                "氯酸盐氧化性"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": null,
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00202_c686014843",
+              "textbook_table_record_table_p042_t01_r051"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-1-05 次氯酸盐的氧化性》实验中，酸性 KI-淀粉体系中淀粉的作用是哪一项？",
+            "options": [
+              {
+                "label": "A",
+                "text": "与生成的 I₂ 显蓝，帮助观察 I⁻ 被氧化"
+              },
+              {
+                "label": "B",
+                "text": "提供被氧化的 I⁻"
+              },
+              {
+                "label": "C",
+                "text": "直接漂白品红溶液"
+              },
+              {
+                "label": "D",
+                "text": "生成棕黑色 MnO₂ 沉淀"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "酸性 KI-淀粉体系中 KI 提供 I⁻，NaClO 氧化 I⁻ 生成 I₂；淀粉与 I₂ 显蓝，用于把这一氧化结果表现为颜色变化。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final",
+            "adjacent_chlorate_scope_in_fill"
+          ]
+        }
+      }
+    ]
+  }
+}

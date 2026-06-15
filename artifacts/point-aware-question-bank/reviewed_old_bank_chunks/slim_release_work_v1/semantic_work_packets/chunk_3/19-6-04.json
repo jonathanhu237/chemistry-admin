@@ -1,0 +1,3997 @@
+{
+  "metadata": {
+    "version": "chunk-3-release-slim-v1",
+    "artifact_type": "slim_question_bank_work_file",
+    "generated_at": "2026-06-15T03:27:58.895975+00:00",
+    "source_file": "E:\\chemistry-admin\\artifacts\\point-aware-question-bank\\reviewed_old_bank_chunks\\chunk_3_release_final_v1.json",
+    "normalization_rule": "effective question plus minimal lineage, evidence IDs, point bindings, option links, evidence locators, and mechanical risk flags",
+    "evidence_policy": "RAG source text is not embedded; packets carry locators and reviewers must read E:/chemistry-rag/data/rag_ready directly",
+    "chunk_id_policy": "inherited chunk ids are untrusted locator candidates until manually compared with RAG text",
+    "semantic_status": "not_semantically_repaired_by_this_script",
+    "packet_type": "single_experiment_semantic_repair_work_packet",
+    "chunk": 3,
+    "experiment_code": "19-6-04",
+    "question_count": 30
+  },
+  "experiment": {
+    "experiment_id": "EXP_19_6_04",
+    "experiment_code": "19-6-04",
+    "experiment_title": "焰色反应",
+    "chapter_bindings": [
+      {
+        "chapter_id": "CH18",
+        "coverage_type": "primary",
+        "sort_order": 1
+      }
+    ],
+    "video_points": [
+      {
+        "point_key": "candidate-1-05288973",
+        "point_title": "Li⁺ 焰色反应",
+        "source": null,
+        "candidate_index": null,
+        "resource_count": null,
+        "published_count": null,
+        "resource_titles": []
+      },
+      {
+        "point_key": "candidate-2-553d9cdf",
+        "point_title": "Na⁺ 焰色反应",
+        "source": null,
+        "candidate_index": null,
+        "resource_count": null,
+        "published_count": null,
+        "resource_titles": []
+      },
+      {
+        "point_key": "candidate-3-f31dc033",
+        "point_title": "K⁺ 焰色反应，需透过钴玻璃观察",
+        "source": null,
+        "candidate_index": null,
+        "resource_count": null,
+        "published_count": null,
+        "resource_titles": []
+      },
+      {
+        "point_key": "candidate-4-b85c7d4d",
+        "point_title": "Ca²⁺ 焰色反应",
+        "source": null,
+        "candidate_index": null,
+        "resource_count": null,
+        "published_count": null,
+        "resource_titles": []
+      },
+      {
+        "point_key": "candidate-5-f3382995",
+        "point_title": "Sr²⁺ 焰色反应",
+        "source": null,
+        "candidate_index": null,
+        "resource_count": null,
+        "published_count": null,
+        "resource_titles": []
+      },
+      {
+        "point_key": "candidate-6-f1960fac",
+        "point_title": "Ba²⁺ 焰色反应",
+        "source": null,
+        "candidate_index": null,
+        "resource_count": null,
+        "published_count": null,
+        "resource_titles": []
+      },
+      {
+        "point_key": "candidate-7-1ca24ae3",
+        "point_title": "PDF 备注",
+        "source": null,
+        "candidate_index": null,
+        "resource_count": null,
+        "published_count": null,
+        "resource_titles": []
+      }
+    ],
+    "canonical_chunk_ids": [
+      "expchunk_00271_54351c5c05"
+    ],
+    "evidence_lookup": {
+      "policy": "locator_only; canonical RAG text is not embedded in this packet",
+      "chunk_id_policy": "metadata chunk ids are inherited claims, not trusted evidence; reviewers must compare the RAG text against the question stem/options/answer/explanation and replace or remove wrong ids",
+      "primary_source_dir": "E:\\chemistry-rag\\data\\rag_ready",
+      "source_files": {
+        "experiment_chunks": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+        "supporting_theory_chunks": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl"
+      },
+      "search_hints": {
+        "experiment_code": "19-6-04",
+        "parent_experiment_code": "19-6",
+        "experiment_title": "焰色反应",
+        "video_point_titles": [
+          "Li⁺ 焰色反应",
+          "Na⁺ 焰色反应",
+          "K⁺ 焰色反应，需透过钴玻璃观察",
+          "Ca²⁺ 焰色反应",
+          "Sr²⁺ 焰色反应",
+          "Ba²⁺ 焰色反应",
+          "PDF 备注"
+        ],
+        "canonical_chunk_ids_from_metadata": [
+          "expchunk_00271_54351c5c05"
+        ],
+        "supporting_theory_chunk_ids_from_metadata": [
+          "textbook_prose_00982_e84c060b23",
+          "textbook_table_record_table_p163_t01_r011"
+        ],
+        "suggested_search_patterns": [
+          "19-6-04",
+          "19-6",
+          "焰色反应",
+          "Li⁺ 焰色反应",
+          "Na⁺ 焰色反应",
+          "K⁺ 焰色反应，需透过钴玻璃观察",
+          "Ca²⁺ 焰色反应",
+          "Sr²⁺ 焰色反应",
+          "Ba²⁺ 焰色反应",
+          "PDF 备注",
+          "expchunk_00271_54351c5c05",
+          "textbook_prose_00982_e84c060b23",
+          "textbook_table_record_table_p163_t01_r011"
+        ]
+      },
+      "rag_exact_id_presence": {
+        "meaning": "id presence only; this does not validate semantic relevance",
+        "found_ids": [
+          "expchunk_00271_54351c5c05",
+          "textbook_prose_00982_e84c060b23",
+          "textbook_table_record_table_p163_t01_r011"
+        ],
+        "missing_ids": [],
+        "found_locator_summaries": [
+          {
+            "chunk_id": "expchunk_00271_54351c5c05",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+            "line_number": 284,
+            "source_collection": "textbook_experiment_clean_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学实验（第四版）",
+            "page_start": 155,
+            "page_end": 155,
+            "section_path": [
+              "第7章 元素性质实验",
+              "实验 19-6 碱金属和碱土金属",
+              "（四）实验内容",
+              "5. 焰色反应"
+            ],
+            "content_type": "property_test",
+            "knowledge_unit": "property_test",
+            "parent_id": "expchunk_protocol_8d70481ad785",
+            "prev_chunk_id": "expchunk_00270_7aca0d49fb",
+            "next_chunk_id": "expchunk_00272_a6562ee478",
+            "relations": {
+              "section_id": "expsec_a40dd1c0ef3b58c3",
+              "experiment_id": "experiment:实验_19-6_碱金属和碱土金属",
+              "page_anchor": "page_155",
+              "parent": "expchunk_protocol_8d70481ad785"
+            }
+          },
+          {
+            "chunk_id": "textbook_prose_00982_e84c060b23",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+            "line_number": 1549,
+            "source_collection": "textbook_inorganic_lower_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学（下册）（第二版）",
+            "page_start": 163,
+            "page_end": 163,
+            "section_path": [
+              "第 18 章 碱金属和碱土金属",
+              "18.6 盐类",
+              "18.6.4 焰色反应"
+            ],
+            "content_type": "comparison",
+            "knowledge_unit": "comparison",
+            "parent_id": "section:d45d50b174f0",
+            "prev_chunk_id": null,
+            "next_chunk_id": null,
+            "relations": {
+              "parent": "section:d45d50b174f0",
+              "source_route": "clean_pages",
+              "prev": null,
+              "next": null
+            }
+          },
+          {
+            "chunk_id": "textbook_table_record_table_p163_t01_r011",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+            "line_number": 1553,
+            "source_collection": "textbook_inorganic_lower_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学（下册）（第二版）",
+            "page_start": 163,
+            "page_end": 163,
+            "section_path": [
+              "第 18 章 碱金属和碱土金属",
+              "18.6 盐类",
+              "18.6.5 重要的盐",
+              "1. 氯化物"
+            ],
+            "content_type": "table_record",
+            "knowledge_unit": "table_record",
+            "parent_id": "textbook_table_context_p163_639c656c64",
+            "prev_chunk_id": null,
+            "next_chunk_id": null,
+            "relations": {
+              "parent": "textbook_table_context_p163_639c656c64",
+              "table_context": "textbook_table_context_p163_639c656c64",
+              "prev": null,
+              "next": null
+            }
+          }
+        ]
+      },
+      "legacy_locator_summaries": [
+        {
+          "chunk_id": "expchunk_00271_54351c5c05",
+          "source_file": "无机化学实验（第四版）",
+          "book_title": "无机化学实验（第四版）",
+          "document_id": "DOC_CANONICAL_EXPERIMENT_V1",
+          "source_collection": "textbook_experiment_clean_v1",
+          "source_role": "canonical_textbook",
+          "content_type": "property_test",
+          "chapter_id": null,
+          "page_number": 155,
+          "section_title": "实验 19-6 碱金属和碱土金属 / （四）实验内容 / 5. 焰色反应",
+          "section_path": [
+            "第7章 元素性质实验",
+            "实验 19-6 碱金属和碱土金属",
+            "（四）实验内容",
+            "5. 焰色反应"
+          ]
+        }
+      ],
+      "legacy_missing_ids": [
+        "textbook_prose_00982_e84c060b23",
+        "textbook_table_record_table_p163_t01_r011"
+      ]
+    },
+    "questions": [
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_6_04_Q001",
+        "source_review_id": "EXP_19_6_04_single_choice_01",
+        "source_question_index": 1,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-6-04 焰色反应》实验中，焰色反应操作中反复蘸取浓盐酸并灼烧的是哪种金属丝？",
+        "options": [
+          {
+            "label": "A",
+            "text": "镍丝"
+          },
+          {
+            "label": "B",
+            "text": "铜片"
+          },
+          {
+            "label": "C",
+            "text": "银镜"
+          },
+          {
+            "label": "D",
+            "text": "铝屑"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "“镍丝”与实验操作、观察目标或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-05288973",
+          "candidate-2-553d9cdf",
+          "candidate-3-f31dc033",
+          "candidate-4-b85c7d4d",
+          "candidate-5-f3382995",
+          "candidate-6-f1960fac"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-553d9cdf",
+          "candidate-3-f31dc033",
+          "candidate-4-b85c7d4d",
+          "candidate-5-f3382995",
+          "candidate-6-f1960fac"
+        ],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_6_04",
+          "single_choice",
+          "point_1",
+          "point_2",
+          "point_3",
+          "point_4",
+          "point_5",
+          "point_6",
+          "polished_final_v1"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "镍丝",
+            "point_key": "candidate-1-05288973",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接对应本题考查的实验操作、现象或结论。"
+          },
+          {
+            "label": "B",
+            "text": "铜片",
+            "point_key": "candidate-1-05288973",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“铜片”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "C",
+            "text": "银镜",
+            "point_key": "candidate-1-05288973",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“银镜”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "D",
+            "text": "铝屑",
+            "point_key": "candidate-1-05288973",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“铝屑”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00271_54351c5c05"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00982_e84c060b23",
+            "textbook_table_record_table_p163_t01_r011"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00982_e84c060b23（焰色反应原理）；textbook_table_record_table_p163_t01_r011（Li/Na/K/Ca/Sr/Ba 焰色颜色）。 绑定点位：Li⁺ 焰色反应；Na⁺ 焰色反应；K⁺ 焰色反应，需透过钴玻璃观察；Ca²⁺ 焰色反应；Sr²⁺ 焰色反应；Ba²⁺ 焰色反应。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00271_54351c5c05"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00982_e84c060b23",
+            "textbook_table_record_table_p163_t01_r011"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00982_e84c060b23",
+            "textbook_table_record_table_p163_t01_r011"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "template_option_link_diagnostic",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-6-04 焰色反应》实验中，焰色反应操作中反复蘸取浓盐酸并灼烧的是哪种金属丝？",
+            "options": [
+              {
+                "label": "A",
+                "text": "镍丝"
+              },
+              {
+                "label": "B",
+                "text": "铜片"
+              },
+              {
+                "label": "C",
+                "text": "银镜"
+              },
+              {
+                "label": "D",
+                "text": "铝屑"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "“镍丝”与实验操作、观察目标或结论一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00271_54351c5c05",
+              "textbook_prose_00982_e84c060b23",
+              "textbook_table_context_p163_639c656c64"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_6_04_Q002",
+        "source_review_id": "EXP_19_6_04_single_choice_02",
+        "source_question_index": 2,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-6-04 焰色反应》实验中，镍丝需在氧化焰中烧到何种状态后再蘸取待测液？",
+        "options": [
+          {
+            "label": "A",
+            "text": "呈黑色沉淀"
+          },
+          {
+            "label": "B",
+            "text": "近于无色"
+          },
+          {
+            "label": "C",
+            "text": "形成银镜"
+          },
+          {
+            "label": "D",
+            "text": "出现棕色环"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "“近于无色”与实验操作、观察目标或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-05288973",
+          "candidate-2-553d9cdf",
+          "candidate-3-f31dc033",
+          "candidate-4-b85c7d4d",
+          "candidate-5-f3382995",
+          "candidate-6-f1960fac"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-553d9cdf",
+          "candidate-3-f31dc033",
+          "candidate-4-b85c7d4d",
+          "candidate-5-f3382995",
+          "candidate-6-f1960fac"
+        ],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_6_04",
+          "single_choice",
+          "point_1",
+          "point_2",
+          "point_3",
+          "point_4",
+          "point_5",
+          "point_6",
+          "polished_final_v1"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "呈黑色沉淀",
+            "point_key": "candidate-1-05288973",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“呈黑色沉淀”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "B",
+            "text": "近于无色",
+            "point_key": "candidate-1-05288973",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接对应本题考查的实验操作、现象或结论。"
+          },
+          {
+            "label": "C",
+            "text": "形成银镜",
+            "point_key": "candidate-1-05288973",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“形成银镜”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "D",
+            "text": "出现棕色环",
+            "point_key": "candidate-1-05288973",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“出现棕色环”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00271_54351c5c05"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00982_e84c060b23",
+            "textbook_table_record_table_p163_t01_r011"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00982_e84c060b23（焰色反应原理）；textbook_table_record_table_p163_t01_r011（Li/Na/K/Ca/Sr/Ba 焰色颜色）。 绑定点位：Li⁺ 焰色反应；Na⁺ 焰色反应；K⁺ 焰色反应，需透过钴玻璃观察；Ca²⁺ 焰色反应；Sr²⁺ 焰色反应；Ba²⁺ 焰色反应。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00271_54351c5c05"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00982_e84c060b23",
+            "textbook_table_record_table_p163_t01_r011"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00982_e84c060b23",
+            "textbook_table_record_table_p163_t01_r011"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "template_option_link_diagnostic",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-6-04 焰色反应》实验中，镍丝需在氧化焰中烧到何种状态后再蘸取待测液？",
+            "options": [
+              {
+                "label": "A",
+                "text": "呈黑色沉淀"
+              },
+              {
+                "label": "B",
+                "text": "近于无色"
+              },
+              {
+                "label": "C",
+                "text": "形成银镜"
+              },
+              {
+                "label": "D",
+                "text": "出现棕色环"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "“近于无色”与实验操作、观察目标或结论一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00271_54351c5c05",
+              "textbook_prose_00982_e84c060b23",
+              "textbook_table_context_p163_639c656c64"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_6_04_Q003",
+        "source_review_id": "EXP_19_6_04_single_choice_03",
+        "source_question_index": 3,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-6-04 焰色反应》实验中，K⁺ 焰色常需透过哪种材料观察以减弱钠黄光干扰？",
+        "options": [
+          {
+            "label": "A",
+            "text": "滤纸"
+          },
+          {
+            "label": "B",
+            "text": "CCl₄"
+          },
+          {
+            "label": "C",
+            "text": "钴玻璃"
+          },
+          {
+            "label": "D",
+            "text": "钥匙"
+          }
+        ],
+        "answer": {
+          "value": "C"
+        },
+        "explanation": "“钴玻璃”与实验操作、观察目标或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-f31dc033"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_6_04",
+          "single_choice",
+          "point_3",
+          "polished_final_v1"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "滤纸",
+            "point_key": "candidate-3-f31dc033",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“滤纸”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "B",
+            "text": "CCl₄",
+            "point_key": "candidate-3-f31dc033",
+            "role": "adjacent_experiment",
+            "diagnostic_note": "“CCl₄”借用了KI/CCl₄ 萃取碘的线索，和本题绑定点位不一致。"
+          },
+          {
+            "label": "C",
+            "text": "钴玻璃",
+            "point_key": "candidate-3-f31dc033",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接对应本题考查的实验操作、现象或结论。"
+          },
+          {
+            "label": "D",
+            "text": "钥匙",
+            "point_key": "candidate-3-f31dc033",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“钥匙”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00271_54351c5c05"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00982_e84c060b23",
+            "textbook_table_record_table_p163_t01_r011"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00982_e84c060b23（焰色反应原理）；textbook_table_record_table_p163_t01_r011（Li/Na/K/Ca/Sr/Ba 焰色颜色）。 绑定点位：K⁺ 焰色反应，需透过钴玻璃观察。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00271_54351c5c05"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00982_e84c060b23",
+            "textbook_table_record_table_p163_t01_r011"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00982_e84c060b23",
+            "textbook_table_record_table_p163_t01_r011"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language",
+          "template_option_link_diagnostic",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-6-04 焰色反应》实验中，K⁺ 焰色常需透过哪种材料观察以减弱钠黄光干扰？",
+            "options": [
+              {
+                "label": "A",
+                "text": "滤纸"
+              },
+              {
+                "label": "B",
+                "text": "CCl₄"
+              },
+              {
+                "label": "C",
+                "text": "钴玻璃"
+              },
+              {
+                "label": "D",
+                "text": "钥匙"
+              }
+            ],
+            "answer": {
+              "value": "C"
+            },
+            "explanation": "“钴玻璃”与实验操作、观察目标或结论一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00271_54351c5c05",
+              "textbook_prose_00982_e84c060b23",
+              "textbook_table_context_p163_639c656c64"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_6_04_Q004",
+        "source_review_id": "EXP_19_6_04_single_choice_04",
+        "source_question_index": 4,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-6-04 焰色反应》实验中，Na⁺ 的典型焰色是什么？",
+        "options": [
+          {
+            "label": "A",
+            "text": "紫色"
+          },
+          {
+            "label": "B",
+            "text": "砖红色"
+          },
+          {
+            "label": "C",
+            "text": "黄绿色"
+          },
+          {
+            "label": "D",
+            "text": "黄色"
+          }
+        ],
+        "answer": {
+          "value": "D"
+        },
+        "explanation": "“黄色”与实验操作、观察目标或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-553d9cdf"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_6_04",
+          "single_choice",
+          "point_2",
+          "polished_final_v1"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "紫色",
+            "point_key": "candidate-3-f31dc033",
+            "role": "adjacent_point",
+            "diagnostic_note": "“紫色”属于同一实验的“K⁺ 焰色反应，需透过钴玻璃观察”点位，但本题考查的是“Na⁺ 焰色反应”。"
+          },
+          {
+            "label": "B",
+            "text": "砖红色",
+            "point_key": "candidate-4-b85c7d4d",
+            "role": "adjacent_point",
+            "diagnostic_note": "“砖红色”属于同一实验的“Ca²⁺ 焰色反应”点位，但本题考查的是“Na⁺ 焰色反应”。"
+          },
+          {
+            "label": "C",
+            "text": "黄绿色",
+            "point_key": "candidate-6-f1960fac",
+            "role": "adjacent_point",
+            "diagnostic_note": "“黄绿色”属于同一实验的“Ba²⁺ 焰色反应”点位，但本题考查的是“Na⁺ 焰色反应”。"
+          },
+          {
+            "label": "D",
+            "text": "黄色",
+            "point_key": "candidate-2-553d9cdf",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接对应本题考查的实验操作、现象或结论。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00271_54351c5c05"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00982_e84c060b23",
+            "textbook_table_record_table_p163_t01_r011"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00982_e84c060b23（焰色反应原理）；textbook_table_record_table_p163_t01_r011（Li/Na/K/Ca/Sr/Ba 焰色颜色）。 绑定点位：Na⁺ 焰色反应。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00271_54351c5c05"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00982_e84c060b23",
+            "textbook_table_record_table_p163_t01_r011"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00982_e84c060b23",
+            "textbook_table_record_table_p163_t01_r011"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language",
+          "template_option_link_diagnostic",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-6-04 焰色反应》实验中，Na⁺ 的典型焰色是什么？",
+            "options": [
+              {
+                "label": "A",
+                "text": "紫色"
+              },
+              {
+                "label": "B",
+                "text": "砖红色"
+              },
+              {
+                "label": "C",
+                "text": "黄绿色"
+              },
+              {
+                "label": "D",
+                "text": "黄色"
+              }
+            ],
+            "answer": {
+              "value": "D"
+            },
+            "explanation": "“黄色”与实验操作、观察目标或结论一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00271_54351c5c05",
+              "textbook_prose_00982_e84c060b23",
+              "textbook_table_context_p163_639c656c64"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_6_04_Q005",
+        "source_review_id": "EXP_19_6_04_single_choice_05",
+        "source_question_index": 5,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-6-04 焰色反应》实验中，Li⁺ 的典型焰色最接近哪一种？",
+        "options": [
+          {
+            "label": "A",
+            "text": "洋红色或胭脂红"
+          },
+          {
+            "label": "B",
+            "text": "纯白色"
+          },
+          {
+            "label": "C",
+            "text": "蓝黑色"
+          },
+          {
+            "label": "D",
+            "text": "无色"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "“洋红色或胭脂红”与实验操作、观察目标或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-05288973"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_6_04",
+          "single_choice",
+          "point_1",
+          "polished_final_v1"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "洋红色或胭脂红",
+            "point_key": "candidate-1-05288973",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接对应本题考查的实验操作、现象或结论。"
+          },
+          {
+            "label": "B",
+            "text": "纯白色",
+            "point_key": "candidate-1-05288973",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“纯白色”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "C",
+            "text": "蓝黑色",
+            "point_key": "candidate-1-05288973",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“蓝黑色”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "D",
+            "text": "无色",
+            "point_key": "candidate-1-05288973",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“无色”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00271_54351c5c05"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00982_e84c060b23",
+            "textbook_table_record_table_p163_t01_r011"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00982_e84c060b23（焰色反应原理）；textbook_table_record_table_p163_t01_r011（Li/Na/K/Ca/Sr/Ba 焰色颜色）。 绑定点位：Li⁺ 焰色反应。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00271_54351c5c05"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00982_e84c060b23",
+            "textbook_table_record_table_p163_t01_r011"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00982_e84c060b23",
+            "textbook_table_record_table_p163_t01_r011"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language",
+          "template_option_link_diagnostic",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-6-04 焰色反应》实验中，Li⁺ 的典型焰色最接近哪一种？",
+            "options": [
+              {
+                "label": "A",
+                "text": "洋红色或胭脂红"
+              },
+              {
+                "label": "B",
+                "text": "纯白色"
+              },
+              {
+                "label": "C",
+                "text": "蓝黑色"
+              },
+              {
+                "label": "D",
+                "text": "无色"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "“洋红色或胭脂红”与实验操作、观察目标或结论一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00271_54351c5c05",
+              "textbook_prose_00982_e84c060b23",
+              "textbook_table_context_p163_639c656c64"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_6_04_Q006",
+        "source_review_id": "EXP_19_6_04_single_choice_06",
+        "source_question_index": 6,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-6-04 焰色反应》实验中，Ca²⁺ 的焰色通常可描述为哪一种？",
+        "options": [
+          {
+            "label": "A",
+            "text": "钠黄"
+          },
+          {
+            "label": "B",
+            "text": "砖红色"
+          },
+          {
+            "label": "C",
+            "text": "紫色"
+          },
+          {
+            "label": "D",
+            "text": "银白色"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "“砖红色”与实验操作、观察目标或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-4-b85c7d4d"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_6_04",
+          "single_choice",
+          "point_4",
+          "polished_final_v1"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "钠黄",
+            "point_key": "candidate-2-553d9cdf",
+            "role": "adjacent_point",
+            "diagnostic_note": "“钠黄”属于同一实验的“Na⁺ 焰色反应”点位，但本题考查的是“Ca²⁺ 焰色反应”。"
+          },
+          {
+            "label": "B",
+            "text": "砖红色",
+            "point_key": "candidate-4-b85c7d4d",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接对应本题考查的实验操作、现象或结论。"
+          },
+          {
+            "label": "C",
+            "text": "紫色",
+            "point_key": "candidate-3-f31dc033",
+            "role": "adjacent_point",
+            "diagnostic_note": "“紫色”属于同一实验的“K⁺ 焰色反应，需透过钴玻璃观察”点位，但本题考查的是“Ca²⁺ 焰色反应”。"
+          },
+          {
+            "label": "D",
+            "text": "银白色",
+            "point_key": "candidate-4-b85c7d4d",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“银白色”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00271_54351c5c05"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00982_e84c060b23",
+            "textbook_table_record_table_p163_t01_r011"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00982_e84c060b23（焰色反应原理）；textbook_table_record_table_p163_t01_r011（Li/Na/K/Ca/Sr/Ba 焰色颜色）。 绑定点位：Ca²⁺ 焰色反应。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00271_54351c5c05"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00982_e84c060b23",
+            "textbook_table_record_table_p163_t01_r011"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00982_e84c060b23",
+            "textbook_table_record_table_p163_t01_r011"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language",
+          "template_option_link_diagnostic",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-6-04 焰色反应》实验中，Ca²⁺ 的焰色通常可描述为哪一种？",
+            "options": [
+              {
+                "label": "A",
+                "text": "钠黄"
+              },
+              {
+                "label": "B",
+                "text": "砖红色"
+              },
+              {
+                "label": "C",
+                "text": "紫色"
+              },
+              {
+                "label": "D",
+                "text": "银白色"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "“砖红色”与实验操作、观察目标或结论一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00271_54351c5c05",
+              "textbook_prose_00982_e84c060b23",
+              "textbook_table_context_p163_639c656c64"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_6_04_Q007",
+        "source_review_id": "EXP_19_6_04_single_choice_07",
+        "source_question_index": 7,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-6-04 焰色反应》实验中，Sr²⁺ 的焰色通常可描述为哪一种？",
+        "options": [
+          {
+            "label": "A",
+            "text": "黄绿色"
+          },
+          {
+            "label": "B",
+            "text": "无色"
+          },
+          {
+            "label": "C",
+            "text": "红色"
+          },
+          {
+            "label": "D",
+            "text": "蓝黑色"
+          }
+        ],
+        "answer": {
+          "value": "C"
+        },
+        "explanation": "“红色”与实验操作、观察目标或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-5-f3382995"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_6_04",
+          "single_choice",
+          "point_5",
+          "polished_final_v1"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "黄绿色",
+            "point_key": "candidate-6-f1960fac",
+            "role": "adjacent_point",
+            "diagnostic_note": "“黄绿色”属于同一实验的“Ba²⁺ 焰色反应”点位，但本题考查的是“Sr²⁺ 焰色反应”。"
+          },
+          {
+            "label": "B",
+            "text": "无色",
+            "point_key": "candidate-5-f3382995",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“无色”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "C",
+            "text": "红色",
+            "point_key": "candidate-5-f3382995",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接对应本题考查的实验操作、现象或结论。"
+          },
+          {
+            "label": "D",
+            "text": "蓝黑色",
+            "point_key": "candidate-5-f3382995",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“蓝黑色”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00271_54351c5c05"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00982_e84c060b23",
+            "textbook_table_record_table_p163_t01_r011"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00982_e84c060b23（焰色反应原理）；textbook_table_record_table_p163_t01_r011（Li/Na/K/Ca/Sr/Ba 焰色颜色）。 绑定点位：Sr²⁺ 焰色反应。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00271_54351c5c05"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00982_e84c060b23",
+            "textbook_table_record_table_p163_t01_r011"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00982_e84c060b23",
+            "textbook_table_record_table_p163_t01_r011"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language",
+          "template_option_link_diagnostic",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-6-04 焰色反应》实验中，Sr²⁺ 的焰色通常可描述为哪一种？",
+            "options": [
+              {
+                "label": "A",
+                "text": "黄绿色"
+              },
+              {
+                "label": "B",
+                "text": "无色"
+              },
+              {
+                "label": "C",
+                "text": "红色"
+              },
+              {
+                "label": "D",
+                "text": "蓝黑色"
+              }
+            ],
+            "answer": {
+              "value": "C"
+            },
+            "explanation": "“红色”与实验操作、观察目标或结论一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00271_54351c5c05",
+              "textbook_prose_00982_e84c060b23",
+              "textbook_table_context_p163_639c656c64"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_6_04_Q008",
+        "source_review_id": "EXP_19_6_04_single_choice_08",
+        "source_question_index": 8,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-6-04 焰色反应》实验中，Ba²⁺ 的焰色通常可描述为哪一种？",
+        "options": [
+          {
+            "label": "A",
+            "text": "钠黄色"
+          },
+          {
+            "label": "B",
+            "text": "碘紫色"
+          },
+          {
+            "label": "C",
+            "text": "银灰色"
+          },
+          {
+            "label": "D",
+            "text": "黄绿色"
+          }
+        ],
+        "answer": {
+          "value": "D"
+        },
+        "explanation": "“黄绿色”与实验操作、观察目标或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-6-f1960fac"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_6_04",
+          "single_choice",
+          "point_6",
+          "polished_final_v1"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "钠黄色",
+            "point_key": "candidate-2-553d9cdf",
+            "role": "adjacent_point",
+            "diagnostic_note": "“钠黄色”属于同一实验的“Na⁺ 焰色反应”点位，但本题考查的是“Ba²⁺ 焰色反应”。"
+          },
+          {
+            "label": "B",
+            "text": "碘紫色",
+            "point_key": "candidate-3-f31dc033",
+            "role": "adjacent_point",
+            "diagnostic_note": "“碘紫色”属于同一实验的“K⁺ 焰色反应，需透过钴玻璃观察”点位，但本题考查的是“Ba²⁺ 焰色反应”。"
+          },
+          {
+            "label": "C",
+            "text": "银灰色",
+            "point_key": "candidate-6-f1960fac",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“银灰色”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "D",
+            "text": "黄绿色",
+            "point_key": "candidate-6-f1960fac",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接对应本题考查的实验操作、现象或结论。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00271_54351c5c05"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00982_e84c060b23",
+            "textbook_table_record_table_p163_t01_r011"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00982_e84c060b23（焰色反应原理）；textbook_table_record_table_p163_t01_r011（Li/Na/K/Ca/Sr/Ba 焰色颜色）。 绑定点位：Ba²⁺ 焰色反应。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00271_54351c5c05"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00982_e84c060b23",
+            "textbook_table_record_table_p163_t01_r011"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00982_e84c060b23",
+            "textbook_table_record_table_p163_t01_r011"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language",
+          "template_option_link_diagnostic",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-6-04 焰色反应》实验中，Ba²⁺ 的焰色通常可描述为哪一种？",
+            "options": [
+              {
+                "label": "A",
+                "text": "钠黄色"
+              },
+              {
+                "label": "B",
+                "text": "碘紫色"
+              },
+              {
+                "label": "C",
+                "text": "银灰色"
+              },
+              {
+                "label": "D",
+                "text": "黄绿色"
+              }
+            ],
+            "answer": {
+              "value": "D"
+            },
+            "explanation": "“黄绿色”与实验操作、观察目标或结论一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00271_54351c5c05",
+              "textbook_prose_00982_e84c060b23",
+              "textbook_table_context_p163_639c656c64"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_6_04_Q009",
+        "source_review_id": "EXP_19_6_04_single_choice_09",
+        "source_question_index": 9,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-6-04 焰色反应》实验中，焰色反应的微观原因最接近下列哪一项？",
+        "options": [
+          {
+            "label": "A",
+            "text": "电子受激发后跃迁发光"
+          },
+          {
+            "label": "B",
+            "text": "离子全部沉淀"
+          },
+          {
+            "label": "C",
+            "text": "水层被萃取"
+          },
+          {
+            "label": "D",
+            "text": "生成棕色环"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "“电子受激发后跃迁发光”与实验操作、观察目标或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-05288973",
+          "candidate-2-553d9cdf",
+          "candidate-3-f31dc033",
+          "candidate-4-b85c7d4d",
+          "candidate-5-f3382995",
+          "candidate-6-f1960fac"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-553d9cdf",
+          "candidate-3-f31dc033",
+          "candidate-4-b85c7d4d",
+          "candidate-5-f3382995",
+          "candidate-6-f1960fac"
+        ],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_6_04",
+          "single_choice",
+          "point_1",
+          "point_2",
+          "point_3",
+          "point_4",
+          "point_5",
+          "point_6",
+          "polished_final_v1"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "电子受激发后跃迁发光",
+            "point_key": "candidate-1-05288973",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接对应本题考查的实验操作、现象或结论。"
+          },
+          {
+            "label": "B",
+            "text": "离子全部沉淀",
+            "point_key": "candidate-1-05288973",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“离子全部沉淀”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "C",
+            "text": "水层被萃取",
+            "point_key": "candidate-1-05288973",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“水层被萃取”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "D",
+            "text": "生成棕色环",
+            "point_key": "candidate-1-05288973",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“生成棕色环”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00271_54351c5c05"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00982_e84c060b23",
+            "textbook_table_record_table_p163_t01_r011"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00982_e84c060b23（焰色反应原理）；textbook_table_record_table_p163_t01_r011（Li/Na/K/Ca/Sr/Ba 焰色颜色）。 绑定点位：Li⁺ 焰色反应；Na⁺ 焰色反应；K⁺ 焰色反应，需透过钴玻璃观察；Ca²⁺ 焰色反应；Sr²⁺ 焰色反应；Ba²⁺ 焰色反应。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00271_54351c5c05"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00982_e84c060b23",
+            "textbook_table_record_table_p163_t01_r011"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00982_e84c060b23",
+            "textbook_table_record_table_p163_t01_r011"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "template_option_link_diagnostic",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-6-04 焰色反应》实验中，焰色反应的微观原因最接近下列哪一项？",
+            "options": [
+              {
+                "label": "A",
+                "text": "电子受激发后跃迁发光"
+              },
+              {
+                "label": "B",
+                "text": "离子全部沉淀"
+              },
+              {
+                "label": "C",
+                "text": "水层被萃取"
+              },
+              {
+                "label": "D",
+                "text": "生成棕色环"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "“电子受激发后跃迁发光”与实验操作、观察目标或结论一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00271_54351c5c05",
+              "textbook_prose_00982_e84c060b23",
+              "textbook_table_context_p163_639c656c64"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_6_04_Q010",
+        "source_review_id": "EXP_19_6_04_single_choice_10",
+        "source_question_index": 10,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-6-04 焰色反应》实验中，本实验在点滴板上分别滴入的盐溶液多为哪类盐？",
+        "options": [
+          {
+            "label": "A",
+            "text": "硝酸根棕色环试剂"
+          },
+          {
+            "label": "B",
+            "text": "氯化物溶液"
+          },
+          {
+            "label": "C",
+            "text": "丁二酮肟溶液"
+          },
+          {
+            "label": "D",
+            "text": "废定影液"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "“氯化物溶液”与实验操作、观察目标或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-05288973",
+          "candidate-2-553d9cdf",
+          "candidate-3-f31dc033",
+          "candidate-4-b85c7d4d",
+          "candidate-5-f3382995",
+          "candidate-6-f1960fac"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-553d9cdf",
+          "candidate-3-f31dc033",
+          "candidate-4-b85c7d4d",
+          "candidate-5-f3382995",
+          "candidate-6-f1960fac"
+        ],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_6_04",
+          "single_choice",
+          "point_1",
+          "point_2",
+          "point_3",
+          "point_4",
+          "point_5",
+          "point_6",
+          "polished_final_v1"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "硝酸根棕色环试剂",
+            "point_key": "candidate-1-05288973",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“硝酸根棕色环试剂”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "B",
+            "text": "氯化物溶液",
+            "point_key": "candidate-1-05288973",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接对应本题考查的实验操作、现象或结论。"
+          },
+          {
+            "label": "C",
+            "text": "丁二酮肟溶液",
+            "point_key": "candidate-1-05288973",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“丁二酮肟溶液”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "D",
+            "text": "废定影液",
+            "point_key": "candidate-1-05288973",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“废定影液”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00271_54351c5c05"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00982_e84c060b23",
+            "textbook_table_record_table_p163_t01_r011"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00982_e84c060b23（焰色反应原理）；textbook_table_record_table_p163_t01_r011（Li/Na/K/Ca/Sr/Ba 焰色颜色）。 绑定点位：Li⁺ 焰色反应；Na⁺ 焰色反应；K⁺ 焰色反应，需透过钴玻璃观察；Ca²⁺ 焰色反应；Sr²⁺ 焰色反应；Ba²⁺ 焰色反应。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00271_54351c5c05"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00982_e84c060b23",
+            "textbook_table_record_table_p163_t01_r011"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00982_e84c060b23",
+            "textbook_table_record_table_p163_t01_r011"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "template_option_link_diagnostic",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-6-04 焰色反应》实验中，本实验在点滴板上分别滴入的盐溶液多为哪类盐？",
+            "options": [
+              {
+                "label": "A",
+                "text": "硝酸根棕色环试剂"
+              },
+              {
+                "label": "B",
+                "text": "氯化物溶液"
+              },
+              {
+                "label": "C",
+                "text": "丁二酮肟溶液"
+              },
+              {
+                "label": "D",
+                "text": "废定影液"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "“氯化物溶液”与实验操作、观察目标或结论一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00271_54351c5c05",
+              "textbook_prose_00982_e84c060b23",
+              "textbook_table_context_p163_639c656c64"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_6_04_Q011",
+        "source_review_id": "EXP_19_6_04_true_false_01",
+        "source_question_index": 11,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-6-04 焰色反应》实验中，焰色反应前应把镍丝蘸浓盐酸并在氧化焰中烧至近于无色。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "该判断与实验原文的操作、现象或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-05288973",
+          "candidate-2-553d9cdf",
+          "candidate-3-f31dc033",
+          "candidate-4-b85c7d4d",
+          "candidate-5-f3382995",
+          "candidate-6-f1960fac"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-553d9cdf",
+          "candidate-3-f31dc033",
+          "candidate-4-b85c7d4d",
+          "candidate-5-f3382995",
+          "candidate-6-f1960fac"
+        ],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_6_04",
+          "true_false",
+          "point_1",
+          "point_2",
+          "point_3",
+          "point_4",
+          "point_5",
+          "point_6",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00271_54351c5c05"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00982_e84c060b23",
+            "textbook_table_record_table_p163_t01_r011"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00982_e84c060b23（焰色反应原理）；textbook_table_record_table_p163_t01_r011（Li/Na/K/Ca/Sr/Ba 焰色颜色）。 绑定点位：Li⁺ 焰色反应；Na⁺ 焰色反应；K⁺ 焰色反应，需透过钴玻璃观察；Ca²⁺ 焰色反应；Sr²⁺ 焰色反应；Ba²⁺ 焰色反应。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00271_54351c5c05"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00982_e84c060b23",
+            "textbook_table_record_table_p163_t01_r011"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00982_e84c060b23",
+            "textbook_table_record_table_p163_t01_r011"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-6-04 焰色反应》实验中，焰色反应前应把镍丝蘸浓盐酸并在氧化焰中烧至近于无色。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "该判断与实验原文的操作、现象或结论一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00271_54351c5c05",
+              "textbook_prose_00982_e84c060b23",
+              "textbook_table_context_p163_639c656c64"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_6_04_Q012",
+        "source_review_id": "EXP_19_6_04_true_false_02",
+        "source_question_index": 12,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-6-04 焰色反应》实验中，K⁺ 焰色观察常透过钴玻璃以减弱钠黄光干扰。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "该判断与实验原文的操作、现象或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-f31dc033"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_6_04",
+          "true_false",
+          "point_3",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00271_54351c5c05"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00982_e84c060b23",
+            "textbook_table_record_table_p163_t01_r011"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00982_e84c060b23（焰色反应原理）；textbook_table_record_table_p163_t01_r011（Li/Na/K/Ca/Sr/Ba 焰色颜色）。 绑定点位：K⁺ 焰色反应，需透过钴玻璃观察。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00271_54351c5c05"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00982_e84c060b23",
+            "textbook_table_record_table_p163_t01_r011"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00982_e84c060b23",
+            "textbook_table_record_table_p163_t01_r011"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-6-04 焰色反应》实验中，K⁺ 焰色观察常透过钴玻璃以减弱钠黄光干扰。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "该判断与实验原文的操作、现象或结论一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00271_54351c5c05",
+              "textbook_prose_00982_e84c060b23",
+              "textbook_table_context_p163_639c656c64"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_6_04_Q013",
+        "source_review_id": "EXP_19_6_04_true_false_03",
+        "source_question_index": 13,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-6-04 焰色反应》实验中，Na⁺ 的焰色非常灵敏，常呈黄色。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "该判断与实验原文的操作、现象或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-553d9cdf"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_6_04",
+          "true_false",
+          "point_2",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00271_54351c5c05"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00982_e84c060b23",
+            "textbook_table_record_table_p163_t01_r011"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00982_e84c060b23（焰色反应原理）；textbook_table_record_table_p163_t01_r011（Li/Na/K/Ca/Sr/Ba 焰色颜色）。 绑定点位：Na⁺ 焰色反应。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00271_54351c5c05"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00982_e84c060b23",
+            "textbook_table_record_table_p163_t01_r011"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00982_e84c060b23",
+            "textbook_table_record_table_p163_t01_r011"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-6-04 焰色反应》实验中，Na⁺ 的焰色非常灵敏，常呈黄色。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "该判断与实验原文的操作、现象或结论一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00271_54351c5c05",
+              "textbook_prose_00982_e84c060b23",
+              "textbook_table_context_p163_639c656c64"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_6_04_Q014",
+        "source_review_id": "EXP_19_6_04_true_false_04",
+        "source_question_index": 14,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-6-04 焰色反应》实验中，Ba²⁺ 的焰色常可描述为黄绿色。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "该判断与实验原文的操作、现象或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-6-f1960fac"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_6_04",
+          "true_false",
+          "point_6",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00271_54351c5c05"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00982_e84c060b23",
+            "textbook_table_record_table_p163_t01_r011"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00982_e84c060b23（焰色反应原理）；textbook_table_record_table_p163_t01_r011（Li/Na/K/Ca/Sr/Ba 焰色颜色）。 绑定点位：Ba²⁺ 焰色反应。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00271_54351c5c05"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00982_e84c060b23",
+            "textbook_table_record_table_p163_t01_r011"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00982_e84c060b23",
+            "textbook_table_record_table_p163_t01_r011"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-6-04 焰色反应》实验中，Ba²⁺ 的焰色常可描述为黄绿色。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "该判断与实验原文的操作、现象或结论一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00271_54351c5c05",
+              "textbook_prose_00982_e84c060b23",
+              "textbook_table_context_p163_639c656c64"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_6_04_Q015",
+        "source_review_id": "EXP_19_6_04_true_false_05",
+        "source_question_index": 15,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-6-04 焰色反应》实验中，焰色反应与金属原子电子受激发和跃迁发光有关。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "该判断与实验原文的操作、现象或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-05288973",
+          "candidate-2-553d9cdf",
+          "candidate-3-f31dc033",
+          "candidate-4-b85c7d4d",
+          "candidate-5-f3382995",
+          "candidate-6-f1960fac"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-553d9cdf",
+          "candidate-3-f31dc033",
+          "candidate-4-b85c7d4d",
+          "candidate-5-f3382995",
+          "candidate-6-f1960fac"
+        ],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_6_04",
+          "true_false",
+          "point_1",
+          "point_2",
+          "point_3",
+          "point_4",
+          "point_5",
+          "point_6",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00271_54351c5c05"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00982_e84c060b23",
+            "textbook_table_record_table_p163_t01_r011"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00982_e84c060b23（焰色反应原理）；textbook_table_record_table_p163_t01_r011（Li/Na/K/Ca/Sr/Ba 焰色颜色）。 绑定点位：Li⁺ 焰色反应；Na⁺ 焰色反应；K⁺ 焰色反应，需透过钴玻璃观察；Ca²⁺ 焰色反应；Sr²⁺ 焰色反应；Ba²⁺ 焰色反应。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00271_54351c5c05"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00982_e84c060b23",
+            "textbook_table_record_table_p163_t01_r011"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00982_e84c060b23",
+            "textbook_table_record_table_p163_t01_r011"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-6-04 焰色反应》实验中，焰色反应与金属原子电子受激发和跃迁发光有关。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "该判断与实验原文的操作、现象或结论一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00271_54351c5c05",
+              "textbook_prose_00982_e84c060b23",
+              "textbook_table_context_p163_639c656c64"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_6_04_Q016",
+        "source_review_id": "EXP_19_6_04_true_false_06",
+        "source_question_index": 16,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-6-04 焰色反应》实验中，焰色反应主要用 CCl₄ 萃取卤素单质来判断。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": false
+        },
+        "explanation": "该判断与实验原文的操作、现象或结论不一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-05288973",
+          "candidate-2-553d9cdf",
+          "candidate-3-f31dc033",
+          "candidate-4-b85c7d4d",
+          "candidate-5-f3382995",
+          "candidate-6-f1960fac"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-553d9cdf",
+          "candidate-3-f31dc033",
+          "candidate-4-b85c7d4d",
+          "candidate-5-f3382995",
+          "candidate-6-f1960fac"
+        ],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_6_04",
+          "true_false",
+          "point_1",
+          "point_2",
+          "point_3",
+          "point_4",
+          "point_5",
+          "point_6",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00271_54351c5c05"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00982_e84c060b23",
+            "textbook_table_record_table_p163_t01_r011"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00982_e84c060b23（焰色反应原理）；textbook_table_record_table_p163_t01_r011（Li/Na/K/Ca/Sr/Ba 焰色颜色）。 绑定点位：Li⁺ 焰色反应；Na⁺ 焰色反应；K⁺ 焰色反应，需透过钴玻璃观察；Ca²⁺ 焰色反应；Sr²⁺ 焰色反应；Ba²⁺ 焰色反应。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00271_54351c5c05"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00982_e84c060b23",
+            "textbook_table_record_table_p163_t01_r011"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00982_e84c060b23",
+            "textbook_table_record_table_p163_t01_r011"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-6-04 焰色反应》实验中，焰色反应主要用 CCl₄ 萃取卤素单质来判断。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "该判断与实验原文的操作、现象或结论不一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00271_54351c5c05",
+              "textbook_prose_00982_e84c060b23",
+              "textbook_table_context_p163_639c656c64"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_6_04_Q017",
+        "source_review_id": "EXP_19_6_04_true_false_07",
+        "source_question_index": 17,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-6-04 焰色反应》实验中，镍丝无需清洁，残留钠盐不会影响观察。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": false
+        },
+        "explanation": "该判断与实验原文的操作、现象或结论不一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-05288973",
+          "candidate-2-553d9cdf",
+          "candidate-3-f31dc033",
+          "candidate-4-b85c7d4d",
+          "candidate-5-f3382995",
+          "candidate-6-f1960fac"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-553d9cdf",
+          "candidate-3-f31dc033",
+          "candidate-4-b85c7d4d",
+          "candidate-5-f3382995",
+          "candidate-6-f1960fac"
+        ],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_6_04",
+          "true_false",
+          "point_1",
+          "point_2",
+          "point_3",
+          "point_4",
+          "point_5",
+          "point_6",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00271_54351c5c05"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00982_e84c060b23",
+            "textbook_table_record_table_p163_t01_r011"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00982_e84c060b23（焰色反应原理）；textbook_table_record_table_p163_t01_r011（Li/Na/K/Ca/Sr/Ba 焰色颜色）。 绑定点位：Li⁺ 焰色反应；Na⁺ 焰色反应；K⁺ 焰色反应，需透过钴玻璃观察；Ca²⁺ 焰色反应；Sr²⁺ 焰色反应；Ba²⁺ 焰色反应。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00271_54351c5c05"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00982_e84c060b23",
+            "textbook_table_record_table_p163_t01_r011"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00982_e84c060b23",
+            "textbook_table_record_table_p163_t01_r011"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-6-04 焰色反应》实验中，镍丝无需清洁，残留钠盐不会影响观察。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "该判断与实验原文的操作、现象或结论不一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00271_54351c5c05",
+              "textbook_prose_00982_e84c060b23",
+              "textbook_table_context_p163_639c656c64"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_6_04_Q018_R1",
+        "source_review_id": null,
+        "source_question_index": 18,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "true_false",
+        "stem": "在《19-6-04 焰色反应》实验中，Li⁺、Na⁺、K⁺、Ca²⁺、Sr²⁺、Ba²⁺ 都可作为本实验观察对象。",
+        "options": [],
+        "answer": {
+          "value": true
+        },
+        "explanation": "改写为正向判断，避免“这一判断不正确”的双重否定；该判断由实验步骤或对应性质证据支持。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-05288973",
+          "candidate-2-553d9cdf",
+          "candidate-3-f31dc033",
+          "candidate-4-b85c7d4d",
+          "candidate-5-f3382995",
+          "candidate-6-f1960fac"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-553d9cdf",
+          "candidate-3-f31dc033",
+          "candidate-4-b85c7d4d",
+          "candidate-5-f3382995",
+          "candidate-6-f1960fac"
+        ],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_6_04",
+          "true_false",
+          "point_1",
+          "point_2",
+          "point_3",
+          "point_4",
+          "point_5",
+          "point_6",
+          "rewritten_replacement",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00271_54351c5c05"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00982_e84c060b23",
+            "textbook_table_record_table_p163_t01_r011"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00982_e84c060b23（焰色反应原理）；textbook_table_record_table_p163_t01_r011（Li/Na/K/Ca/Sr/Ba 焰色颜色）。 绑定点位：Li⁺ 焰色反应；Na⁺ 焰色反应；K⁺ 焰色反应，需透过钴玻璃观察；Ca²⁺ 焰色反应；Sr²⁺ 焰色反应；Ba²⁺ 焰色反应。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00271_54351c5c05"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00982_e84c060b23",
+            "textbook_table_record_table_p163_t01_r011"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00982_e84c060b23",
+            "textbook_table_record_table_p163_t01_r011"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-6-04 焰色反应》实验中，认为：Li⁺、Na⁺、K⁺、Ca²⁺、Sr²⁺、Ba²⁺ 都可作为本实验观察对象，这一判断是不正确的。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "这一判断本身是正确的。该判断题答案为“错误”。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00271_54351c5c05",
+              "textbook_prose_00982_e84c060b23",
+              "textbook_table_context_p163_639c656c64"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "true_false",
+            "stem": "在《19-6-04 焰色反应》实验中，Li⁺、Na⁺、K⁺、Ca²⁺、Sr²⁺、Ba²⁺ 都可作为本实验观察对象。",
+            "options": [],
+            "answer": {
+              "value": true
+            },
+            "explanation": "改写为正向判断，避免“这一判断不正确”的双重否定；该判断由实验步骤或对应性质证据支持。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [
+              "expchunk_00271_54351c5c05"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_6_04_Q019",
+        "source_review_id": "EXP_19_6_04_true_false_09",
+        "source_question_index": 19,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-6-04 焰色反应》实验中，观察 K⁺ 焰色时钴玻璃的作用是生成 KI 沉淀。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": false
+        },
+        "explanation": "该判断与实验原文的操作、现象或结论不一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-f31dc033"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_6_04",
+          "true_false",
+          "point_3",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00271_54351c5c05"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00982_e84c060b23",
+            "textbook_table_record_table_p163_t01_r011"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00982_e84c060b23（焰色反应原理）；textbook_table_record_table_p163_t01_r011（Li/Na/K/Ca/Sr/Ba 焰色颜色）。 绑定点位：K⁺ 焰色反应，需透过钴玻璃观察。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00271_54351c5c05"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00982_e84c060b23",
+            "textbook_table_record_table_p163_t01_r011"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00982_e84c060b23",
+            "textbook_table_record_table_p163_t01_r011"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-6-04 焰色反应》实验中，观察 K⁺ 焰色时钴玻璃的作用是生成 KI 沉淀。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "该判断与实验原文的操作、现象或结论不一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00271_54351c5c05",
+              "textbook_prose_00982_e84c060b23",
+              "textbook_table_context_p163_639c656c64"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_6_04_Q020_R1",
+        "source_review_id": null,
+        "source_question_index": 20,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "true_false",
+        "stem": "在《19-6-04 焰色反应》实验中，本实验要求记录各离子的火焰颜色。",
+        "options": [],
+        "answer": {
+          "value": true
+        },
+        "explanation": "改写为正向判断，避免“这一判断不正确”的双重否定；该判断由实验步骤或对应性质证据支持。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-05288973",
+          "candidate-2-553d9cdf",
+          "candidate-3-f31dc033",
+          "candidate-4-b85c7d4d",
+          "candidate-5-f3382995",
+          "candidate-6-f1960fac"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-553d9cdf",
+          "candidate-3-f31dc033",
+          "candidate-4-b85c7d4d",
+          "candidate-5-f3382995",
+          "candidate-6-f1960fac"
+        ],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_6_04",
+          "true_false",
+          "point_1",
+          "point_2",
+          "point_3",
+          "point_4",
+          "point_5",
+          "point_6",
+          "rewritten_replacement",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00271_54351c5c05"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00982_e84c060b23",
+            "textbook_table_record_table_p163_t01_r011"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00982_e84c060b23（焰色反应原理）；textbook_table_record_table_p163_t01_r011（Li/Na/K/Ca/Sr/Ba 焰色颜色）。 绑定点位：Li⁺ 焰色反应；Na⁺ 焰色反应；K⁺ 焰色反应，需透过钴玻璃观察；Ca²⁺ 焰色反应；Sr²⁺ 焰色反应；Ba²⁺ 焰色反应。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00271_54351c5c05"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00982_e84c060b23",
+            "textbook_table_record_table_p163_t01_r011"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00982_e84c060b23",
+            "textbook_table_record_table_p163_t01_r011"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-6-04 焰色反应》实验中，认为：本实验要求记录各离子的火焰颜色，这一判断是不正确的。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "这一判断本身是正确的。该判断题答案为“错误”。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00271_54351c5c05",
+              "textbook_prose_00982_e84c060b23",
+              "textbook_table_context_p163_639c656c64"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "true_false",
+            "stem": "在《19-6-04 焰色反应》实验中，本实验要求记录各离子的火焰颜色。",
+            "options": [],
+            "answer": {
+              "value": true
+            },
+            "explanation": "改写为正向判断，避免“这一判断不正确”的双重否定；该判断由实验步骤或对应性质证据支持。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [
+              "expchunk_00271_54351c5c05"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_6_04_Q021",
+        "source_review_id": "EXP_19_6_04_fill_blank_01",
+        "source_question_index": 21,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《19-6-04 焰色反应》实验中，焰色反应用____蘸取试液。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "镍丝"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "参考答案：镍丝。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-05288973",
+          "candidate-2-553d9cdf",
+          "candidate-3-f31dc033",
+          "candidate-4-b85c7d4d",
+          "candidate-5-f3382995",
+          "candidate-6-f1960fac"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-553d9cdf",
+          "candidate-3-f31dc033",
+          "candidate-4-b85c7d4d",
+          "candidate-5-f3382995",
+          "candidate-6-f1960fac"
+        ],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_6_04",
+          "fill_blank",
+          "point_1",
+          "point_2",
+          "point_3",
+          "point_4",
+          "point_5",
+          "point_6",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00271_54351c5c05"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00982_e84c060b23",
+            "textbook_table_record_table_p163_t01_r011"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00982_e84c060b23（焰色反应原理）；textbook_table_record_table_p163_t01_r011（Li/Na/K/Ca/Sr/Ba 焰色颜色）。 绑定点位：Li⁺ 焰色反应；Na⁺ 焰色反应；K⁺ 焰色反应，需透过钴玻璃观察；Ca²⁺ 焰色反应；Sr²⁺ 焰色反应；Ba²⁺ 焰色反应。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00271_54351c5c05"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00982_e84c060b23",
+            "textbook_table_record_table_p163_t01_r011"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00982_e84c060b23",
+            "textbook_table_record_table_p163_t01_r011"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "generic_or_answer_shell_explanation",
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-6-04 焰色反应》实验中，焰色反应用____蘸取试液。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "镍丝"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "参考答案：镍丝。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00271_54351c5c05",
+              "textbook_prose_00982_e84c060b23",
+              "textbook_table_context_p163_639c656c64"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_6_04_Q022",
+        "source_review_id": "EXP_19_6_04_fill_blank_02",
+        "source_question_index": 22,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《19-6-04 焰色反应》实验中，镍丝应烧至近于____。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "无色"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "参考答案：无色。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-05288973",
+          "candidate-2-553d9cdf",
+          "candidate-3-f31dc033",
+          "candidate-4-b85c7d4d",
+          "candidate-5-f3382995",
+          "candidate-6-f1960fac"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-553d9cdf",
+          "candidate-3-f31dc033",
+          "candidate-4-b85c7d4d",
+          "candidate-5-f3382995",
+          "candidate-6-f1960fac"
+        ],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_6_04",
+          "fill_blank",
+          "point_1",
+          "point_2",
+          "point_3",
+          "point_4",
+          "point_5",
+          "point_6",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00271_54351c5c05"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00982_e84c060b23",
+            "textbook_table_record_table_p163_t01_r011"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00982_e84c060b23（焰色反应原理）；textbook_table_record_table_p163_t01_r011（Li/Na/K/Ca/Sr/Ba 焰色颜色）。 绑定点位：Li⁺ 焰色反应；Na⁺ 焰色反应；K⁺ 焰色反应，需透过钴玻璃观察；Ca²⁺ 焰色反应；Sr²⁺ 焰色反应；Ba²⁺ 焰色反应。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00271_54351c5c05"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00982_e84c060b23",
+            "textbook_table_record_table_p163_t01_r011"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00982_e84c060b23",
+            "textbook_table_record_table_p163_t01_r011"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "generic_or_answer_shell_explanation",
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-6-04 焰色反应》实验中，镍丝应烧至近于____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "无色"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "参考答案：无色。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00271_54351c5c05",
+              "textbook_prose_00982_e84c060b23",
+              "textbook_table_context_p163_639c656c64"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_6_04_Q023",
+        "source_review_id": "EXP_19_6_04_fill_blank_03",
+        "source_question_index": 23,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《19-6-04 焰色反应》实验中，观察 K⁺ 焰色常透过____。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "钴玻璃"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "参考答案：钴玻璃。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-f31dc033"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_6_04",
+          "fill_blank",
+          "point_3",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00271_54351c5c05"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00982_e84c060b23",
+            "textbook_table_record_table_p163_t01_r011"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00982_e84c060b23（焰色反应原理）；textbook_table_record_table_p163_t01_r011（Li/Na/K/Ca/Sr/Ba 焰色颜色）。 绑定点位：K⁺ 焰色反应，需透过钴玻璃观察。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00271_54351c5c05"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00982_e84c060b23",
+            "textbook_table_record_table_p163_t01_r011"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00982_e84c060b23",
+            "textbook_table_record_table_p163_t01_r011"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "generic_or_answer_shell_explanation",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-6-04 焰色反应》实验中，观察 K⁺ 焰色常透过____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "钴玻璃"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "参考答案：钴玻璃。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00271_54351c5c05",
+              "textbook_prose_00982_e84c060b23",
+              "textbook_table_context_p163_639c656c64"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_6_04_Q024",
+        "source_review_id": "EXP_19_6_04_fill_blank_04",
+        "source_question_index": 24,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《19-6-04 焰色反应》实验中，Na⁺ 的典型焰色为____。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "黄色"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "参考答案：黄色。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-553d9cdf"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_6_04",
+          "fill_blank",
+          "point_2",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00271_54351c5c05"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00982_e84c060b23",
+            "textbook_table_record_table_p163_t01_r011"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00982_e84c060b23（焰色反应原理）；textbook_table_record_table_p163_t01_r011（Li/Na/K/Ca/Sr/Ba 焰色颜色）。 绑定点位：Na⁺ 焰色反应。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00271_54351c5c05"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00982_e84c060b23",
+            "textbook_table_record_table_p163_t01_r011"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00982_e84c060b23",
+            "textbook_table_record_table_p163_t01_r011"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "generic_or_answer_shell_explanation",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-6-04 焰色反应》实验中，Na⁺ 的典型焰色为____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "黄色"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "参考答案：黄色。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00271_54351c5c05",
+              "textbook_prose_00982_e84c060b23",
+              "textbook_table_context_p163_639c656c64"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_6_04_Q025",
+        "source_review_id": "EXP_19_6_04_fill_blank_05",
+        "source_question_index": 25,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《19-6-04 焰色反应》实验中，Li⁺ 的焰色常为____。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "洋红色",
+            "胭脂红",
+            "红色"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "参考答案：洋红色。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-05288973"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_6_04",
+          "fill_blank",
+          "point_1",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00271_54351c5c05"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00982_e84c060b23",
+            "textbook_table_record_table_p163_t01_r011"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00982_e84c060b23（焰色反应原理）；textbook_table_record_table_p163_t01_r011（Li/Na/K/Ca/Sr/Ba 焰色颜色）。 绑定点位：Li⁺ 焰色反应。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00271_54351c5c05"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00982_e84c060b23",
+            "textbook_table_record_table_p163_t01_r011"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00982_e84c060b23",
+            "textbook_table_record_table_p163_t01_r011"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "generic_or_answer_shell_explanation",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-6-04 焰色反应》实验中，Li⁺ 的焰色常为____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "洋红色",
+                "胭脂红",
+                "红色"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "参考答案：洋红色。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00271_54351c5c05",
+              "textbook_prose_00982_e84c060b23",
+              "textbook_table_context_p163_639c656c64"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_6_04_Q026",
+        "source_review_id": "EXP_19_6_04_fill_blank_06",
+        "source_question_index": 26,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《19-6-04 焰色反应》实验中，Ca²⁺ 的焰色常为____。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "砖红色",
+            "橙红色"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "参考答案：砖红色。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-4-b85c7d4d"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_6_04",
+          "fill_blank",
+          "point_4",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00271_54351c5c05"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00982_e84c060b23",
+            "textbook_table_record_table_p163_t01_r011"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00982_e84c060b23（焰色反应原理）；textbook_table_record_table_p163_t01_r011（Li/Na/K/Ca/Sr/Ba 焰色颜色）。 绑定点位：Ca²⁺ 焰色反应。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00271_54351c5c05"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00982_e84c060b23",
+            "textbook_table_record_table_p163_t01_r011"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00982_e84c060b23",
+            "textbook_table_record_table_p163_t01_r011"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "generic_or_answer_shell_explanation",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-6-04 焰色反应》实验中，Ca²⁺ 的焰色常为____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "砖红色",
+                "橙红色"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "参考答案：砖红色。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00271_54351c5c05",
+              "textbook_prose_00982_e84c060b23",
+              "textbook_table_context_p163_639c656c64"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_6_04_Q027",
+        "source_review_id": "EXP_19_6_04_fill_blank_07",
+        "source_question_index": 27,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《19-6-04 焰色反应》实验中，Sr²⁺ 的焰色常为____。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "红色",
+            "猩红色"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "参考答案：红色。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-5-f3382995"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_6_04",
+          "fill_blank",
+          "point_5",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00271_54351c5c05"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00982_e84c060b23",
+            "textbook_table_record_table_p163_t01_r011"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00982_e84c060b23（焰色反应原理）；textbook_table_record_table_p163_t01_r011（Li/Na/K/Ca/Sr/Ba 焰色颜色）。 绑定点位：Sr²⁺ 焰色反应。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00271_54351c5c05"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00982_e84c060b23",
+            "textbook_table_record_table_p163_t01_r011"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00982_e84c060b23",
+            "textbook_table_record_table_p163_t01_r011"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "generic_or_answer_shell_explanation",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-6-04 焰色反应》实验中，Sr²⁺ 的焰色常为____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "红色",
+                "猩红色"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "参考答案：红色。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00271_54351c5c05",
+              "textbook_prose_00982_e84c060b23",
+              "textbook_table_context_p163_639c656c64"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_6_04_Q028",
+        "source_review_id": "EXP_19_6_04_fill_blank_08",
+        "source_question_index": 28,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《19-6-04 焰色反应》实验中，Ba²⁺ 的焰色常为____。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "黄绿色",
+            "苹果绿色"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "参考答案：黄绿色。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-6-f1960fac"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_6_04",
+          "fill_blank",
+          "point_6",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00271_54351c5c05"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00982_e84c060b23",
+            "textbook_table_record_table_p163_t01_r011"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00982_e84c060b23（焰色反应原理）；textbook_table_record_table_p163_t01_r011（Li/Na/K/Ca/Sr/Ba 焰色颜色）。 绑定点位：Ba²⁺ 焰色反应。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00271_54351c5c05"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00982_e84c060b23",
+            "textbook_table_record_table_p163_t01_r011"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00982_e84c060b23",
+            "textbook_table_record_table_p163_t01_r011"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "generic_or_answer_shell_explanation",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-6-04 焰色反应》实验中，Ba²⁺ 的焰色常为____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "黄绿色",
+                "苹果绿色"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "参考答案：黄绿色。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00271_54351c5c05",
+              "textbook_prose_00982_e84c060b23",
+              "textbook_table_context_p163_639c656c64"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_6_04_Q029",
+        "source_review_id": "EXP_19_6_04_fill_blank_09",
+        "source_question_index": 29,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《19-6-04 焰色反应》实验中，焰色反应源于电子受激发后跃迁____。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "发光",
+            "释放光"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "参考答案：发光。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-05288973",
+          "candidate-2-553d9cdf",
+          "candidate-3-f31dc033",
+          "candidate-4-b85c7d4d",
+          "candidate-5-f3382995",
+          "candidate-6-f1960fac"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-553d9cdf",
+          "candidate-3-f31dc033",
+          "candidate-4-b85c7d4d",
+          "candidate-5-f3382995",
+          "candidate-6-f1960fac"
+        ],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_6_04",
+          "fill_blank",
+          "point_1",
+          "point_2",
+          "point_3",
+          "point_4",
+          "point_5",
+          "point_6",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00271_54351c5c05"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00982_e84c060b23",
+            "textbook_table_record_table_p163_t01_r011"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00982_e84c060b23（焰色反应原理）；textbook_table_record_table_p163_t01_r011（Li/Na/K/Ca/Sr/Ba 焰色颜色）。 绑定点位：Li⁺ 焰色反应；Na⁺ 焰色反应；K⁺ 焰色反应，需透过钴玻璃观察；Ca²⁺ 焰色反应；Sr²⁺ 焰色反应；Ba²⁺ 焰色反应。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00271_54351c5c05"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00982_e84c060b23",
+            "textbook_table_record_table_p163_t01_r011"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00982_e84c060b23",
+            "textbook_table_record_table_p163_t01_r011"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "generic_or_answer_shell_explanation",
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-6-04 焰色反应》实验中，焰色反应源于电子受激发后跃迁____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "发光",
+                "释放光"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "参考答案：发光。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00271_54351c5c05",
+              "textbook_prose_00982_e84c060b23",
+              "textbook_table_context_p163_639c656c64"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_6_04_Q030",
+        "source_review_id": "EXP_19_6_04_fill_blank_10",
+        "source_question_index": 30,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《19-6-04 焰色反应》实验中，本实验常用 LiCl、NaCl、KCl 等____溶液。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "氯化物",
+            "氯化物盐"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "参考答案：氯化物。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-05288973",
+          "candidate-2-553d9cdf",
+          "candidate-3-f31dc033",
+          "candidate-4-b85c7d4d",
+          "candidate-5-f3382995",
+          "candidate-6-f1960fac"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-553d9cdf",
+          "candidate-3-f31dc033",
+          "candidate-4-b85c7d4d",
+          "candidate-5-f3382995",
+          "candidate-6-f1960fac"
+        ],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_6_04",
+          "fill_blank",
+          "point_1",
+          "point_2",
+          "point_3",
+          "point_4",
+          "point_5",
+          "point_6",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00271_54351c5c05"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00982_e84c060b23",
+            "textbook_table_record_table_p163_t01_r011"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00982_e84c060b23（焰色反应原理）；textbook_table_record_table_p163_t01_r011（Li/Na/K/Ca/Sr/Ba 焰色颜色）。 绑定点位：Li⁺ 焰色反应；Na⁺ 焰色反应；K⁺ 焰色反应，需透过钴玻璃观察；Ca²⁺ 焰色反应；Sr²⁺ 焰色反应；Ba²⁺ 焰色反应。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00271_54351c5c05"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00982_e84c060b23",
+            "textbook_table_record_table_p163_t01_r011"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00982_e84c060b23",
+            "textbook_table_record_table_p163_t01_r011"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "generic_or_answer_shell_explanation",
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-6-04 焰色反应》实验中，本实验常用 LiCl、NaCl、KCl 等____溶液。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "氯化物",
+                "氯化物盐"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "参考答案：氯化物。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00271_54351c5c05",
+              "textbook_prose_00982_e84c060b23",
+              "textbook_table_context_p163_639c656c64"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      }
+    ]
+  }
+}

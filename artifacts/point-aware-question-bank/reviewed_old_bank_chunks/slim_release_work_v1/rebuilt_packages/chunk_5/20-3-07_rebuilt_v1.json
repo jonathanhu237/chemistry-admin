@@ -1,0 +1,1828 @@
+{
+  "metadata": {
+    "schema_version": "rebuilt_experiment_question_package_v1",
+    "artifact_type": "manual_small_packet_semantic_reconstruction",
+    "source_packet": "E:\\chemistry-admin\\artifacts\\point-aware-question-bank\\reviewed_old_bank_chunks\\slim_release_work_v1\\semantic_work_packets\\chunk_5\\20-3-07.json",
+    "experiment_code": "20-3-07",
+    "experiment_title": "配合物稳定性与配体的关系",
+    "question_count": 30,
+    "chunk": "chunk_5",
+    "reconstruction_status": "manual_question_by_question_semantic_rebuild",
+    "evidence_policy": "RAG text was read for every cited id. JSON stores ids, source file, line number, and concise evidence role only; no release JSON was edited.",
+    "rag_source_dir": "E:\\chemistry-rag\\data\\rag_ready",
+    "release_json_direct_edit": false
+  },
+  "video_points": [
+    {
+      "point_key": "candidate-1-d78b3d70",
+      "point_title": "Cr₂(SO₄)₃ + Na₂C₂O₄，再加入 NaOH"
+    },
+    {
+      "point_key": "candidate-2-627e8ed0",
+      "point_title": "FeCl₃ + KSCN，再加入 Na₂C₂O₄"
+    },
+    {
+      "point_key": "candidate-3-7d9492a7",
+      "point_title": "NiSO₄ + 过量 NH₃·H₂O，再加入乙二胺"
+    }
+  ],
+  "evidence_sources": {
+    "canonical_experiment_chunks": [
+      {
+        "chunk_id": "expchunk_00332_42b6908ee0",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+        "line_number": 345,
+        "evidence_role": "Primary canonical start of stability-vs-ligand procedure: Cr2(SO4)3 plus Na2C2O4, then NaOH."
+      },
+      {
+        "chunk_id": "expchunk_00333_d08e49be44",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+        "line_number": 346,
+        "evidence_role": "Primary canonical continuation: FeCl3 plus KSCN then Na2C2O4; NiSO4 plus excess ammonia water then 1% ethylenediamine."
+      }
+    ],
+    "supporting_theory_chunks": [
+      {
+        "chunk_id": "textbook_prose_01304_9920c29f9d",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+        "line_number": 1990,
+        "evidence_role": "Fe3+ and thiocyanate form a blood-red complex; also supports ligand competition/masking logic."
+      },
+      {
+        "chunk_id": "textbook_table_record_table_p224_t01_r061",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+        "line_number": 1976,
+        "evidence_role": "Ni2+ with ammonia water forms a blue nickel ammine complex."
+      },
+      {
+        "chunk_id": "textbook_table_record_table_p224_t01_r071",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+        "line_number": 1977,
+        "evidence_role": "Fe3+ with NCS- forms blood-red complex; used for FeCl3/KSCN color support."
+      },
+      {
+        "chunk_id": "textbook_table_record_table_p286_t01_r201",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+        "line_number": 2784,
+        "evidence_role": "Appendix stability-constant table lists ethylenediamine among ligands/ions."
+      },
+      {
+        "chunk_id": "textbook_table_record_table_p286_t01_r231",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+        "line_number": 2787,
+        "evidence_role": "Appendix stability-constant table lists oxalate among ligands/ions."
+      }
+    ]
+  },
+  "questions": [
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_07_001",
+      "question_type": "single_choice",
+      "stem": "在 Cr₂(SO₄)₃ 溶液中先加入少量哪种固体以考察配体影响？",
+      "options": [
+        {
+          "label": "A",
+          "text": "NaCl"
+        },
+        {
+          "label": "B",
+          "text": "NaNO₂"
+        },
+        {
+          "label": "C",
+          "text": "Na₂C₂O₄"
+        },
+        {
+          "label": "D",
+          "text": "Na₂O₂"
+        }
+      ],
+      "answer": {
+        "value": "C"
+      },
+      "explanation": "教材资料明确在 Cr₂(SO₄)₃ 溶液中加入少量 Na₂C₂O₄ 固体。",
+      "primary_point_keys": [
+        "candidate-1-d78b3d70"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "chromium_oxalate",
+        "reagent_identification"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "wrong_salt"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "wrong_salt"
+        },
+        {
+          "label": "C",
+          "point_key": "candidate-1-d78b3d70",
+          "role": "correct_reagent"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "wrong_salt"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00332_42b6908ee0"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "保留。"
+      },
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_07_002",
+      "question_type": "single_choice",
+      "stem": "Cr(Ⅲ)-草酸根体系中随后逐滴加入哪种试剂观察有无沉淀？",
+      "options": [
+        {
+          "label": "A",
+          "text": "浓硝酸"
+        },
+        {
+          "label": "B",
+          "text": "溴水"
+        },
+        {
+          "label": "C",
+          "text": "CCl₄"
+        },
+        {
+          "label": "D",
+          "text": "2 mol·L⁻¹ NaOH 溶液"
+        }
+      ],
+      "answer": {
+        "value": "D"
+      },
+      "explanation": "教材步骤要求在加入 Na₂C₂O₄ 后逐滴加入 2 mol·L⁻¹ NaOH，观察有无沉淀生成。",
+      "primary_point_keys": [
+        "candidate-1-d78b3d70"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "chromium_oxalate",
+        "naoh_probe"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "wrong_reagent"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "wrong_reagent"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "wrong_solvent"
+        },
+        {
+          "label": "D",
+          "point_key": "candidate-1-d78b3d70",
+          "role": "correct_probe"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00333_d08e49be44"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "保留。"
+      },
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_07_003",
+      "question_type": "single_choice",
+      "stem": "FeCl₃ 溶液中先加入 KSCN 后，通常观察到哪类颜色？",
+      "options": [
+        {
+          "label": "A",
+          "text": "血红色"
+        },
+        {
+          "label": "B",
+          "text": "无色气体"
+        },
+        {
+          "label": "C",
+          "text": "黄色沉淀"
+        },
+        {
+          "label": "D",
+          "text": "紫黑色火焰"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "相关化学原理与表格均说明 Fe³⁺ 与硫氰根形成血红色配合物。",
+      "primary_point_keys": [
+        "candidate-2-627e8ed0"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "fe_scn_color",
+        "complex_color"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-2-627e8ed0",
+          "role": "correct_color"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "wrong_observation"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "wrong_observation"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "wrong_observation"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00333_d08e49be44"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01304_9920c29f9d",
+          "textbook_table_record_table_p224_t01_r071"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留。"
+      },
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_07_004",
+      "question_type": "single_choice",
+      "stem": "FeCl₃ 与 KSCN 显色后加入 Na₂C₂O₄，主要用于观察什么？",
+      "options": [
+        {
+          "label": "A",
+          "text": "Na₂O₂ 制备 H₂O₂"
+        },
+        {
+          "label": "B",
+          "text": "草酸根配体对 Fe(Ⅲ) 配合物稳定性的影响"
+        },
+        {
+          "label": "C",
+          "text": "PbO₂ 氧化 Cl⁻"
+        },
+        {
+          "label": "D",
+          "text": "CrO₄²⁻ 的黄色"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "教材资料把 FeCl₃ + KSCN 显色后再加 Na₂C₂O₄ 放在“配合物稳定性与配体的关系”小节中。",
+      "primary_point_keys": [
+        "candidate-2-627e8ed0"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "ligand_competition",
+        "fe_scn_oxalate"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "wrong_experiment"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-2-627e8ed0",
+          "role": "correct_purpose"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "wrong_experiment"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "wrong_experiment"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00333_d08e49be44"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01304_9920c29f9d",
+          "textbook_table_record_table_p286_t01_r231"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留：不强行断言颜色终点，只考实验目的。"
+      },
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_07_005",
+      "question_type": "single_choice",
+      "stem": "NiSO₄ 溶液中加入过量 NH₃·H₂O 后，再滴加哪种配体溶液？",
+      "options": [
+        {
+          "label": "A",
+          "text": "品红"
+        },
+        {
+          "label": "B",
+          "text": "KI-淀粉"
+        },
+        {
+          "label": "C",
+          "text": "乙二胺"
+        },
+        {
+          "label": "D",
+          "text": "浓盐酸"
+        }
+      ],
+      "answer": {
+        "value": "C"
+      },
+      "explanation": "教材资料明确 NiSO₄ 加过量 NH₃·H₂O 后逐滴加入 1% 乙二胺溶液。",
+      "primary_point_keys": [
+        "candidate-3-7d9492a7"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "nickel_ammine",
+        "ethylenediamine"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "wrong_reagent"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "wrong_reagent"
+        },
+        {
+          "label": "C",
+          "point_key": "candidate-3-7d9492a7",
+          "role": "correct_ligand"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "wrong_reagent"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00333_d08e49be44"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_table_record_table_p286_t01_r201"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留。"
+      },
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_07_006",
+      "question_type": "single_choice",
+      "stem": "在镍氨体系中逐滴加入乙二胺，最直接考察的是哪一类因素对配合物稳定性的影响？",
+      "options": [
+        {
+          "label": "A",
+          "text": "配体种类"
+        },
+        {
+          "label": "B",
+          "text": "滤纸颜色"
+        },
+        {
+          "label": "C",
+          "text": "玻璃棒长度"
+        },
+        {
+          "label": "D",
+          "text": "火焰温度"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "教材资料所在小节比较配合物稳定性与配体的关系；乙二胺是该步骤后加入的配体。",
+      "primary_point_keys": [
+        "candidate-3-7d9492a7"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "ethylenediamine",
+        "ligand_variable"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-3-7d9492a7",
+          "role": "correct_variable"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "irrelevant"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "irrelevant"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "irrelevant"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00333_d08e49be44"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_table_record_table_p286_t01_r201"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "重写：原题考“螯合配体”证据不足，改为 canonical 支撑的配体变量。"
+      },
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_07_007",
+      "question_type": "single_choice",
+      "stem": "本实验最核心的变量是哪一项？",
+      "options": [
+        {
+          "label": "A",
+          "text": "配体种类"
+        },
+        {
+          "label": "B",
+          "text": "试管长度"
+        },
+        {
+          "label": "C",
+          "text": "水浴温度固定为 1000 °C"
+        },
+        {
+          "label": "D",
+          "text": "滤纸颜色"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "三组操作分别比较草酸根、硫氰根、氨、乙二胺等配体条件下的配合物稳定性。",
+      "primary_point_keys": [
+        "candidate-1-d78b3d70"
+      ],
+      "secondary_point_keys": [
+        "candidate-2-627e8ed0",
+        "candidate-3-7d9492a7"
+      ],
+      "coverage_tags": [
+        "core_variable",
+        "ligand_type"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-1-d78b3d70",
+          "role": "correct_variable"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "irrelevant"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "irrelevant"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "irrelevant"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00332_42b6908ee0",
+          "expchunk_00333_d08e49be44"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "保留。"
+      },
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_07_008",
+      "question_type": "single_choice",
+      "stem": "KSCN 在 FeCl₃ 实验中的作用是什么？",
+      "options": [
+        {
+          "label": "A",
+          "text": "还原 Fe³⁺ 为金属铁"
+        },
+        {
+          "label": "B",
+          "text": "与 Fe³⁺ 形成显色配合物"
+        },
+        {
+          "label": "C",
+          "text": "氧化草酸根为 CO₂"
+        },
+        {
+          "label": "D",
+          "text": "萃取碘单质"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "相关化学原理说明硫氰根与 Fe³⁺ 可形成血红色配合物。",
+      "primary_point_keys": [
+        "candidate-2-627e8ed0"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "kscn_role",
+        "fe_scn_color"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "wrong_redox"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-2-627e8ed0",
+          "role": "correct_role"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "wrong_reaction"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "wrong_experiment"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00333_d08e49be44"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01304_9920c29f9d",
+          "textbook_table_record_table_p224_t01_r071"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留。"
+      },
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_07_009",
+      "question_type": "single_choice",
+      "stem": "Na₂C₂O₄ 提供的配体是下列哪一种？",
+      "options": [
+        {
+          "label": "A",
+          "text": "SCN⁻"
+        },
+        {
+          "label": "B",
+          "text": "NH₃"
+        },
+        {
+          "label": "C",
+          "text": "C₂O₄²⁻"
+        },
+        {
+          "label": "D",
+          "text": "en"
+        }
+      ],
+      "answer": {
+        "value": "C"
+      },
+      "explanation": "Na₂C₂O₄ 是草酸钠，提供草酸根配体；appendix 表也列出草酸根为配体/离子。",
+      "primary_point_keys": [
+        "candidate-1-d78b3d70"
+      ],
+      "secondary_point_keys": [
+        "candidate-2-627e8ed0"
+      ],
+      "coverage_tags": [
+        "oxalate_ligand",
+        "formula_recognition"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-2-627e8ed0",
+          "role": "different_ligand"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-3-7d9492a7",
+          "role": "different_ligand"
+        },
+        {
+          "label": "C",
+          "point_key": "candidate-1-d78b3d70",
+          "role": "correct_ligand"
+        },
+        {
+          "label": "D",
+          "point_key": "candidate-3-7d9492a7",
+          "role": "different_ligand"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00332_42b6908ee0",
+          "expchunk_00333_d08e49be44"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_table_record_table_p286_t01_r231"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留。"
+      },
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_07_010",
+      "question_type": "single_choice",
+      "stem": "下列哪项不是本实验的合理内容？",
+      "options": [
+        {
+          "label": "A",
+          "text": "FeCl₃ + KSCN 后加入 Na₂C₂O₄"
+        },
+        {
+          "label": "B",
+          "text": "NiSO₄ + 过量 NH₃·H₂O 后加入乙二胺"
+        },
+        {
+          "label": "C",
+          "text": "Cr₂(SO₄)₃ + Na₂C₂O₄ 后加入 NaOH"
+        },
+        {
+          "label": "D",
+          "text": "TiOSO₄ 与 H₂O₂ 生成橙红色配合物"
+        }
+      ],
+      "answer": {
+        "value": "D"
+      },
+      "explanation": "A、B、C 都属于教材资料的配体稳定性实验；D 是后续金属离子鉴定实验，不属于本实验。",
+      "primary_point_keys": [
+        "candidate-1-d78b3d70"
+      ],
+      "secondary_point_keys": [
+        "candidate-2-627e8ed0",
+        "candidate-3-7d9492a7"
+      ],
+      "coverage_tags": [
+        "scope_discrimination",
+        "experiment_content"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-2-627e8ed0",
+          "role": "included_content"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-3-7d9492a7",
+          "role": "included_content"
+        },
+        {
+          "label": "C",
+          "point_key": "candidate-1-d78b3d70",
+          "role": "included_content"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "correct_out_of_scope"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00332_42b6908ee0",
+          "expchunk_00333_d08e49be44"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "保留：作为范围辨析题，只需确认本实验内容。"
+      },
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_07_011",
+      "question_type": "true_false",
+      "stem": "乙二胺不是配体，不能用于 Ni(Ⅱ) 体系的后续观察。",
+      "options": [
+        {
+          "label": "T",
+          "text": "正确"
+        },
+        {
+          "label": "F",
+          "text": "错误"
+        }
+      ],
+      "answer": {
+        "value": false
+      },
+      "explanation": "教材资料明确在 NiSO₄ 加过量氨水后逐滴加入乙二胺溶液继续观察。",
+      "primary_point_keys": [
+        "candidate-3-7d9492a7"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "ethylenediamine",
+        "true_false"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00333_d08e49be44"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_table_record_table_p286_t01_r201"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留但修正文句，避免断言未证实的螯合效应。"
+      },
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_07_012",
+      "question_type": "true_false",
+      "stem": "Na₂C₂O₄ 在本实验中提供的是氯离子配体。",
+      "options": [
+        {
+          "label": "T",
+          "text": "正确"
+        },
+        {
+          "label": "F",
+          "text": "错误"
+        }
+      ],
+      "answer": {
+        "value": false
+      },
+      "explanation": "Na₂C₂O₄ 提供草酸根，不是氯离子。",
+      "primary_point_keys": [
+        "candidate-1-d78b3d70"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "oxalate_ligand",
+        "true_false"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00332_42b6908ee0"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_table_record_table_p286_t01_r231"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留。"
+      },
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_07_013",
+      "question_type": "true_false",
+      "stem": "FeCl₃ 与 KSCN 的血红色变化与配合物形成无关。",
+      "options": [
+        {
+          "label": "T",
+          "text": "正确"
+        },
+        {
+          "label": "F",
+          "text": "错误"
+        }
+      ],
+      "answer": {
+        "value": false
+      },
+      "explanation": "硫氰根与 Fe³⁺ 可生成血红色异硫氰配合物。",
+      "primary_point_keys": [
+        "candidate-2-627e8ed0"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "fe_scn_color",
+        "true_false"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00333_d08e49be44"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01304_9920c29f9d"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留。"
+      },
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_07_014",
+      "question_type": "true_false",
+      "stem": "在 FeCl₃ + KSCN 体系中加入 Na₂C₂O₄，可观察配体竞争或替换导致的颜色变化。",
+      "options": [
+        {
+          "label": "T",
+          "text": "正确"
+        },
+        {
+          "label": "F",
+          "text": "错误"
+        }
+      ],
+      "answer": {
+        "value": true
+      },
+      "explanation": "教材步骤要求 FeCl₃ 加 KSCN 后再加 Na₂C₂O₄ 并观察溶液颜色变化。",
+      "primary_point_keys": [
+        "candidate-2-627e8ed0"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "ligand_competition",
+        "true_false"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00333_d08e49be44"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01304_9920c29f9d",
+          "textbook_table_record_table_p286_t01_r231"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留。"
+      },
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_07_015",
+      "question_type": "true_false",
+      "stem": "NiSO₄ 加过量 NH₃·H₂O 后，再加入乙二胺观察变化。",
+      "options": [
+        {
+          "label": "T",
+          "text": "正确"
+        },
+        {
+          "label": "F",
+          "text": "错误"
+        }
+      ],
+      "answer": {
+        "value": true
+      },
+      "explanation": "教材资料明确该操作顺序。",
+      "primary_point_keys": [
+        "candidate-3-7d9492a7"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "nickel_ammine",
+        "true_false"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00333_d08e49be44"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_table_record_table_p224_t01_r061",
+          "textbook_table_record_table_p286_t01_r201"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留。"
+      },
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_07_016",
+      "question_type": "true_false",
+      "stem": "乙二胺是在 NiSO₄ 氨水体系后续加入、用于比较配体影响的试剂。",
+      "options": [
+        {
+          "label": "T",
+          "text": "正确"
+        },
+        {
+          "label": "F",
+          "text": "错误"
+        }
+      ],
+      "answer": {
+        "value": true
+      },
+      "explanation": "教材资料把乙二胺作为 NiSO₄ 过量氨水后的追加试剂，服务于“配合物稳定性与配体的关系”。",
+      "primary_point_keys": [
+        "candidate-3-7d9492a7"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "ethylenediamine",
+        "true_false"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00333_d08e49be44"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_table_record_table_p286_t01_r201"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "重写：原题考“典型螯合配体”，改为可由 RAG 支撑的操作与配体变量。"
+      },
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_07_017",
+      "question_type": "single_choice",
+      "stem": "关于本实验比较不同配体影响的设计，哪项表述正确？",
+      "options": [
+        {
+          "label": "A",
+          "text": "把三组配体稳定性对比合并成无差别操作"
+        },
+        {
+          "label": "B",
+          "text": "通过草酸根、硫氰根、氨和乙二胺等配体条件比较稳定性差异"
+        },
+        {
+          "label": "C",
+          "text": "用钴(Ⅱ)-KSCN 鉴定替代本实验"
+        },
+        {
+          "label": "D",
+          "text": "忽略后加 NaOH、草酸根或乙二胺后的变化"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "教材资料三个子步骤分别改变配体或后加试剂，并观察沉淀或颜色变化。",
+      "primary_point_keys": [
+        "candidate-1-d78b3d70"
+      ],
+      "secondary_point_keys": [
+        "candidate-2-627e8ed0",
+        "candidate-3-7d9492a7"
+      ],
+      "coverage_tags": [
+        "overall_design",
+        "rewrite"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "wrong_generalization"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-1-d78b3d70",
+          "role": "correct_design"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "wrong_experiment"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "ignores_observation"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00332_42b6908ee0",
+          "expchunk_00333_d08e49be44"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "重写：去模板化。"
+      },
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_07_018",
+      "question_type": "true_false",
+      "stem": "Na₂C₂O₄ 提供的是草酸根配体。",
+      "options": [
+        {
+          "label": "T",
+          "text": "正确"
+        },
+        {
+          "label": "F",
+          "text": "错误"
+        }
+      ],
+      "answer": {
+        "value": true
+      },
+      "explanation": "Na₂C₂O₄ 是草酸钠，appendix 表列出草酸根为配体/离子。",
+      "primary_point_keys": [
+        "candidate-1-d78b3d70"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "oxalate_ligand",
+        "true_false"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00332_42b6908ee0"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_table_record_table_p286_t01_r231"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留。"
+      },
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_07_019",
+      "question_type": "true_false",
+      "stem": "KSCN 与 Fe³⁺ 的显色反应和配合物稳定性无关，不能作为观察对象。",
+      "options": [
+        {
+          "label": "T",
+          "text": "正确"
+        },
+        {
+          "label": "F",
+          "text": "错误"
+        }
+      ],
+      "answer": {
+        "value": false
+      },
+      "explanation": "FeCl₃ + KSCN 后再加入 Na₂C₂O₄ 并观察颜色变化，正是本实验的观察对象之一。",
+      "primary_point_keys": [
+        "candidate-2-627e8ed0"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "fe_scn_color",
+        "true_false"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00333_d08e49be44"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01304_9920c29f9d"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留。"
+      },
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_07_020",
+      "question_type": "true_false",
+      "stem": "本实验的主要内容不是 Fe(Ⅲ) 盐水解。",
+      "options": [
+        {
+          "label": "T",
+          "text": "正确"
+        },
+        {
+          "label": "F",
+          "text": "错误"
+        }
+      ],
+      "answer": {
+        "value": true
+      },
+      "explanation": "教材中本实验的小节主题是配合物稳定性与配体的关系，而不是金属离子水解作用。",
+      "primary_point_keys": [
+        "candidate-1-d78b3d70"
+      ],
+      "secondary_point_keys": [
+        "candidate-2-627e8ed0",
+        "candidate-3-7d9492a7"
+      ],
+      "coverage_tags": [
+        "scope_discrimination",
+        "true_false"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00332_42b6908ee0",
+          "expchunk_00333_d08e49be44"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "保留。"
+      },
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_07_021",
+      "question_type": "single_choice",
+      "stem": "Na₂C₂O₄ 在本实验中提供的主要配体是哪一个？",
+      "options": [
+        {
+          "label": "A",
+          "text": "Cl⁻"
+        },
+        {
+          "label": "B",
+          "text": "C₂O₄²⁻"
+        },
+        {
+          "label": "C",
+          "text": "SCN⁻"
+        },
+        {
+          "label": "D",
+          "text": "NH₃"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "Na₂C₂O₄ 提供草酸根配体。",
+      "primary_point_keys": [
+        "candidate-1-d78b3d70"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "oxalate_ligand",
+        "rewrite"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "wrong_ligand"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-1-d78b3d70",
+          "role": "correct_ligand"
+        },
+        {
+          "label": "C",
+          "point_key": "candidate-2-627e8ed0",
+          "role": "different_ligand"
+        },
+        {
+          "label": "D",
+          "point_key": "candidate-3-7d9492a7",
+          "role": "different_ligand"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00332_42b6908ee0"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_table_record_table_p286_t01_r231"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "重写：去模板化。"
+      },
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_07_022",
+      "question_type": "single_choice",
+      "stem": "FeCl₃ 与 KSCN 形成的配合物通常呈什么颜色？",
+      "options": [
+        {
+          "label": "A",
+          "text": "无色"
+        },
+        {
+          "label": "B",
+          "text": "血红色"
+        },
+        {
+          "label": "C",
+          "text": "亮绿色"
+        },
+        {
+          "label": "D",
+          "text": "黑色"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "相关化学原理明确 Fe³⁺ 与硫氰根生成血红色配合物。",
+      "primary_point_keys": [
+        "candidate-2-627e8ed0"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "fe_scn_color",
+        "rewrite"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "wrong_color"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-2-627e8ed0",
+          "role": "correct_color"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "wrong_color"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "wrong_color"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00333_d08e49be44"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01304_9920c29f9d",
+          "textbook_table_record_table_p224_t01_r071"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "重写：去模板化。"
+      },
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_07_023",
+      "question_type": "single_choice",
+      "stem": "NiSO₄ 加过量 NH₃·H₂O 后再加入的配体溶液是什么？",
+      "options": [
+        {
+          "label": "A",
+          "text": "KSCN"
+        },
+        {
+          "label": "B",
+          "text": "乙二胺"
+        },
+        {
+          "label": "C",
+          "text": "Na₂C₂O₄"
+        },
+        {
+          "label": "D",
+          "text": "CCl₄"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "教材资料明确在 NiSO₄ 加过量 NH₃·H₂O 后逐滴加入 1% 乙二胺溶液。",
+      "primary_point_keys": [
+        "candidate-3-7d9492a7"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "ethylenediamine",
+        "rewrite"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-2-627e8ed0",
+          "role": "different_ligand"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-3-7d9492a7",
+          "role": "correct_ligand"
+        },
+        {
+          "label": "C",
+          "point_key": "candidate-1-d78b3d70",
+          "role": "different_ligand"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "wrong_solvent"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00333_d08e49be44"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_table_record_table_p286_t01_r201"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "重写：去模板化并删除 unsupported 螯合说法。"
+      },
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_07_024",
+      "question_type": "single_choice",
+      "stem": "Cr₂(SO₄)₃ 加 Na₂C₂O₄ 后，再加 NaOH 主要用于判断什么？",
+      "options": [
+        {
+          "label": "A",
+          "text": "是否仍易生成氢氧化物沉淀"
+        },
+        {
+          "label": "B",
+          "text": "是否产生氯气"
+        },
+        {
+          "label": "C",
+          "text": "是否萃取碘"
+        },
+        {
+          "label": "D",
+          "text": "是否形成钴蓝色有机层"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "教材资料明确该步骤是逐滴加入 NaOH，观察有无沉淀生成。",
+      "primary_point_keys": [
+        "candidate-1-d78b3d70"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "naoh_probe",
+        "rewrite"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-1-d78b3d70",
+          "role": "correct_observation"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "wrong_observation"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "wrong_observation"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "wrong_observation"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00332_42b6908ee0",
+          "expchunk_00333_d08e49be44"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "重写：把模板题改为具体观察目的。"
+      },
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_07_025",
+      "question_type": "single_choice",
+      "stem": "KSCN 在 FeCl₃ 显色实验中主要提供哪种配体？",
+      "options": [
+        {
+          "label": "A",
+          "text": "C₂O₄²⁻"
+        },
+        {
+          "label": "B",
+          "text": "SCN⁻"
+        },
+        {
+          "label": "C",
+          "text": "NH₃"
+        },
+        {
+          "label": "D",
+          "text": "OH⁻"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "KSCN 提供硫氰根，相关化学原理说明硫氰根可与 Fe³⁺ 形成血红色配合物。",
+      "primary_point_keys": [
+        "candidate-2-627e8ed0"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "kscn_role",
+        "rewrite"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-1-d78b3d70",
+          "role": "different_ligand"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-2-627e8ed0",
+          "role": "correct_ligand"
+        },
+        {
+          "label": "C",
+          "point_key": "candidate-3-7d9492a7",
+          "role": "different_ligand"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "wrong_ligand"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00333_d08e49be44"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01304_9920c29f9d"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "重写：去模板化。"
+      },
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_07_026",
+      "question_type": "fill_blank",
+      "stem": "本实验比较配合物稳定性与____的关系。",
+      "options": [],
+      "answer": {
+        "accepted_answers": [
+          "配体"
+        ],
+        "hidden_grading_aliases": [
+          "配体种类"
+        ],
+        "match": "normalized_exact"
+      },
+      "accepted_answers": [
+        "配体"
+      ],
+      "hidden_grading_aliases": [
+        "配体种类"
+      ],
+      "explanation": "实验标题和三组操作都指向配合物稳定性与配体的关系。",
+      "primary_point_keys": [
+        "candidate-1-d78b3d70"
+      ],
+      "secondary_point_keys": [
+        "candidate-2-627e8ed0",
+        "candidate-3-7d9492a7"
+      ],
+      "coverage_tags": [
+        "core_concept",
+        "fill_blank"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00332_42b6908ee0",
+          "expchunk_00333_d08e49be44"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "保留：短答案，手机输入风险低。"
+      },
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_07_027",
+      "question_type": "fill_blank",
+      "stem": "NiSO₄ 加过量氨水后，教材步骤要求再逐滴加入____溶液。",
+      "options": [],
+      "answer": {
+        "accepted_answers": [
+          "乙二胺"
+        ],
+        "hidden_grading_aliases": [
+          "1%乙二胺",
+          "乙二胺溶液"
+        ],
+        "match": "normalized_exact"
+      },
+      "accepted_answers": [
+        "乙二胺"
+      ],
+      "hidden_grading_aliases": [
+        "1%乙二胺",
+        "乙二胺溶液"
+      ],
+      "explanation": "教材资料明确后续逐滴加入 1% 乙二胺溶液，再观察现象。",
+      "primary_point_keys": [
+        "candidate-3-7d9492a7"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "ethylenediamine",
+        "fill_blank"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00333_d08e49be44"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_table_record_table_p286_t01_r201"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "重写：原答案“螯合”证据不足，改为 canonical 试剂。"
+      },
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_07_028",
+      "question_type": "single_choice",
+      "stem": "FeCl₃ 在 KSCN 显色步骤中提供的中心离子是哪一种？",
+      "options": [
+        {
+          "label": "A",
+          "text": "Ni²⁺"
+        },
+        {
+          "label": "B",
+          "text": "Fe³⁺"
+        },
+        {
+          "label": "C",
+          "text": "Cr³⁺"
+        },
+        {
+          "label": "D",
+          "text": "Co²⁺"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "FeCl₃ 对应 Fe³⁺，KSCN 与 Fe³⁺ 形成血红色配合物。",
+      "primary_point_keys": [
+        "candidate-2-627e8ed0"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "center_ion",
+        "rewrite"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-3-7d9492a7",
+          "role": "different_ion"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-2-627e8ed0",
+          "role": "correct_ion"
+        },
+        {
+          "label": "C",
+          "point_key": "candidate-1-d78b3d70",
+          "role": "different_ion"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "different_ion"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00333_d08e49be44"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01304_9920c29f9d"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "重写：去模板化。"
+      },
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_07_029",
+      "question_type": "single_choice",
+      "stem": "NiSO₄ 在乙二胺后续观察步骤中提供的中心离子是哪一种？",
+      "options": [
+        {
+          "label": "A",
+          "text": "Fe³⁺"
+        },
+        {
+          "label": "B",
+          "text": "Ni²⁺"
+        },
+        {
+          "label": "C",
+          "text": "Cr³⁺"
+        },
+        {
+          "label": "D",
+          "text": "Ag⁺"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "教材资料的镍体系从 NiSO₄ 溶液开始，NiSO₄ 提供 Ni²⁺。",
+      "primary_point_keys": [
+        "candidate-3-7d9492a7"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "center_ion",
+        "rewrite"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-2-627e8ed0",
+          "role": "different_ion"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-3-7d9492a7",
+          "role": "correct_ion"
+        },
+        {
+          "label": "C",
+          "point_key": "candidate-1-d78b3d70",
+          "role": "different_ion"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "different_ion"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00333_d08e49be44"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_table_record_table_p224_t01_r061"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "重写：去模板化。"
+      },
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_07_030",
+      "question_type": "fill_blank",
+      "stem": "Na₂C₂O₄ 加入 FeCl₃ + KSCN 体系后，观察重点是溶液____变化。",
+      "options": [],
+      "answer": {
+        "accepted_answers": [
+          "颜色",
+          "颜色变化"
+        ],
+        "hidden_grading_aliases": [
+          "显色变化"
+        ],
+        "match": "normalized_exact"
+      },
+      "accepted_answers": [
+        "颜色",
+        "颜色变化"
+      ],
+      "hidden_grading_aliases": [
+        "显色变化"
+      ],
+      "explanation": "教材资料明确加入少量 Na₂C₂O₄ 后观察溶液颜色变化。",
+      "primary_point_keys": [
+        "candidate-2-627e8ed0"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "color_change",
+        "fill_blank"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00333_d08e49be44"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01304_9920c29f9d"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留：短答案，手机输入风险低。"
+      },
+      "review_decision": "keep"
+    }
+  ]
+}

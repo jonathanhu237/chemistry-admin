@@ -1,0 +1,4501 @@
+{
+  "metadata": {
+    "version": "chunk-1-release-slim-v1",
+    "artifact_type": "slim_question_bank_work_file",
+    "generated_at": "2026-06-15T03:27:58.553194+00:00",
+    "source_file": "E:\\chemistry-admin\\artifacts\\point-aware-question-bank\\reviewed_old_bank_chunks\\chunk_1_release_final_v1.json",
+    "normalization_rule": "effective question plus minimal lineage, evidence IDs, point bindings, option links, evidence locators, and mechanical risk flags",
+    "evidence_policy": "RAG source text is not embedded; packets carry locators and reviewers must read E:/chemistry-rag/data/rag_ready directly",
+    "chunk_id_policy": "inherited chunk ids are untrusted locator candidates until manually compared with RAG text",
+    "semantic_status": "not_semantically_repaired_by_this_script",
+    "packet_type": "single_experiment_semantic_repair_work_packet",
+    "chunk": 1,
+    "experiment_code": "19-1-06",
+    "question_count": 30
+  },
+  "experiment": {
+    "experiment_id": "EXP_19_1_06",
+    "experiment_code": "19-1-06",
+    "experiment_title": "氯酸盐的氧化性",
+    "chapter_bindings": [
+      {
+        "chapter_id": "CH13",
+        "coverage_type": "primary",
+        "sort_order": 1
+      }
+    ],
+    "video_points": [
+      {
+        "point_key": "candidate-1-86b4f964",
+        "point_title": "KClO₃ + 浓盐酸，并用湿 KI-淀粉试纸检验 Cl₂",
+        "source": null,
+        "candidate_index": null,
+        "resource_count": null,
+        "published_count": null,
+        "resource_titles": []
+      },
+      {
+        "point_key": "candidate-2-f50a397f",
+        "point_title": "KClO₃ + Na₂SO₃：中性条件与酸性条件对比",
+        "source": null,
+        "candidate_index": null,
+        "resource_count": null,
+        "published_count": null,
+        "resource_titles": []
+      },
+      {
+        "point_key": "candidate-3-15b87f0f",
+        "point_title": "用 AgNO₃ 验证 KClO₃ 与 Na₂SO₃ 反应后的产物",
+        "source": null,
+        "candidate_index": null,
+        "resource_count": null,
+        "published_count": null,
+        "resource_titles": []
+      },
+      {
+        "point_key": "candidate-4-7bed40a2",
+        "point_title": "KClO₃ + KI + CCl₄，酸化前后比较",
+        "source": null,
+        "candidate_index": null,
+        "resource_count": null,
+        "published_count": null,
+        "resource_titles": []
+      },
+      {
+        "point_key": "candidate-5-9ebfbe89",
+        "point_title": "讨论酸化试剂选择：H₂SO₄、HNO₃、HCl",
+        "source": null,
+        "candidate_index": null,
+        "resource_count": null,
+        "published_count": null,
+        "resource_titles": []
+      }
+    ],
+    "canonical_chunk_ids": [
+      "expchunk_00202_c686014843",
+      "expchunk_00203_99d2352238",
+      "expchunk_00208_336ff95a98"
+    ],
+    "evidence_lookup": {
+      "policy": "locator_only; canonical RAG text is not embedded in this packet",
+      "chunk_id_policy": "metadata chunk ids are inherited claims, not trusted evidence; reviewers must compare the RAG text against the question stem/options/answer/explanation and replace or remove wrong ids",
+      "primary_source_dir": "E:\\chemistry-rag\\data\\rag_ready",
+      "source_files": {
+        "experiment_chunks": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+        "supporting_theory_chunks": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl"
+      },
+      "search_hints": {
+        "experiment_code": "19-1-06",
+        "parent_experiment_code": "19-1",
+        "experiment_title": "氯酸盐的氧化性",
+        "video_point_titles": [
+          "KClO₃ + 浓盐酸，并用湿 KI-淀粉试纸检验 Cl₂",
+          "KClO₃ + Na₂SO₃：中性条件与酸性条件对比",
+          "用 AgNO₃ 验证 KClO₃ 与 Na₂SO₃ 反应后的产物",
+          "KClO₃ + KI + CCl₄，酸化前后比较",
+          "讨论酸化试剂选择：H₂SO₄、HNO₃、HCl"
+        ],
+        "canonical_chunk_ids_from_metadata": [
+          "expchunk_00202_c686014843",
+          "expchunk_00203_99d2352238",
+          "expchunk_00208_336ff95a98"
+        ],
+        "supporting_theory_chunk_ids_from_metadata": [
+          "textbook_prose_00006_872b19158c",
+          "textbook_prose_00028_a4c7b7c9ae",
+          "textbook_prose_00114_be4a779fba"
+        ],
+        "suggested_search_patterns": [
+          "19-1-06",
+          "19-1",
+          "氯酸盐的氧化性",
+          "KClO₃ + 浓盐酸，并用湿 KI-淀粉试纸检验 Cl₂",
+          "KClO₃ + Na₂SO₃：中性条件与酸性条件对比",
+          "用 AgNO₃ 验证 KClO₃ 与 Na₂SO₃ 反应后的产物",
+          "KClO₃ + KI + CCl₄，酸化前后比较",
+          "讨论酸化试剂选择：H₂SO₄、HNO₃、HCl",
+          "expchunk_00202_c686014843",
+          "expchunk_00203_99d2352238",
+          "expchunk_00208_336ff95a98",
+          "textbook_prose_00006_872b19158c",
+          "textbook_prose_00028_a4c7b7c9ae",
+          "textbook_prose_00114_be4a779fba"
+        ]
+      },
+      "rag_exact_id_presence": {
+        "meaning": "id presence only; this does not validate semantic relevance",
+        "found_ids": [
+          "expchunk_00202_c686014843",
+          "expchunk_00203_99d2352238",
+          "expchunk_00208_336ff95a98",
+          "textbook_prose_00006_872b19158c",
+          "textbook_prose_00028_a4c7b7c9ae",
+          "textbook_prose_00114_be4a779fba"
+        ],
+        "missing_ids": [],
+        "found_locator_summaries": [
+          {
+            "chunk_id": "expchunk_00202_c686014843",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+            "line_number": 215,
+            "source_collection": "textbook_experiment_clean_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学实验（第四版）",
+            "page_start": 139,
+            "page_end": 139,
+            "section_path": [
+              "第7章 元素性质实验",
+              "实验 19-1 卤素",
+              "（四）实验内容",
+              "5. 次卤酸盐及卤酸盐的氧化性"
+            ],
+            "content_type": "property_test",
+            "knowledge_unit": "property_test",
+            "parent_id": "expchunk_protocol_e40aae9c8054",
+            "prev_chunk_id": "expchunk_00201_9092b8b522",
+            "next_chunk_id": "expchunk_00203_99d2352238",
+            "relations": {
+              "section_id": "expsec_644471c9f979d8fc",
+              "experiment_id": "experiment:实验_19-1_卤素",
+              "page_anchor": "page_139",
+              "parent": "expchunk_protocol_e40aae9c8054"
+            }
+          },
+          {
+            "chunk_id": "expchunk_00203_99d2352238",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+            "line_number": 216,
+            "source_collection": "textbook_experiment_clean_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学实验（第四版）",
+            "page_start": 140,
+            "page_end": 140,
+            "section_path": [
+              "第7章 元素性质实验",
+              "实验 19-1 卤素",
+              "（四）实验内容",
+              "5. 次卤酸盐及卤酸盐的氧化性"
+            ],
+            "content_type": "property_test",
+            "knowledge_unit": "property_test",
+            "parent_id": "expchunk_protocol_e40aae9c8054",
+            "prev_chunk_id": "expchunk_00202_c686014843",
+            "next_chunk_id": "expchunk_00204_b7238d0a31",
+            "relations": {
+              "section_id": "expsec_0de280229eccf46d",
+              "experiment_id": "experiment:实验_19-1_卤素",
+              "page_anchor": "page_140",
+              "parent": "expchunk_protocol_e40aae9c8054"
+            }
+          },
+          {
+            "chunk_id": "expchunk_00208_336ff95a98",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+            "line_number": 221,
+            "source_collection": "textbook_experiment_clean_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学实验（第四版）",
+            "page_start": 141,
+            "page_end": 141,
+            "section_path": [
+              "第7章 元素性质实验",
+              "实验 19-1 卤素",
+              "思考题"
+            ],
+            "content_type": "teaching_question_seed",
+            "knowledge_unit": "teaching_question_seed",
+            "parent_id": "expchunk_protocol_e40aae9c8054",
+            "prev_chunk_id": "expchunk_00207_f175cc0f1f",
+            "next_chunk_id": "expchunk_00209_bd85d9e3c2",
+            "relations": {
+              "section_id": "expsec_000bf24c4eb5fac1",
+              "experiment_id": "experiment:实验_19-1_卤素",
+              "page_anchor": "page_141",
+              "parent": "expchunk_protocol_e40aae9c8054"
+            }
+          },
+          {
+            "chunk_id": "textbook_prose_00006_872b19158c",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+            "line_number": 78,
+            "source_collection": "textbook_inorganic_lower_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学（下册）（第二版）",
+            "page_start": 18,
+            "page_end": 18,
+            "section_path": [
+              "第 13 章 卤族元素",
+              "本章学习要求"
+            ],
+            "content_type": "procedure",
+            "knowledge_unit": "procedure",
+            "parent_id": "section:d0cc7aefee11",
+            "prev_chunk_id": "textbook_prose_00005_0845ed6969",
+            "next_chunk_id": "textbook_prose_00007_0fa710381a",
+            "relations": {
+              "parent": "section:d0cc7aefee11",
+              "source_route": "clean_pages",
+              "prev": "textbook_prose_00005_0845ed6969",
+              "next": "textbook_prose_00007_0fa710381a"
+            }
+          },
+          {
+            "chunk_id": "textbook_prose_00028_a4c7b7c9ae",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+            "line_number": 123,
+            "source_collection": "textbook_inorganic_lower_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学（下册）（第二版）",
+            "page_start": 22,
+            "page_end": 22,
+            "section_path": [
+              "第 13 章 卤族元素",
+              "13.2 卤素单质",
+              "13.2.1 物理性质",
+              "物质为什么会显示不同的颜色？\\*"
+            ],
+            "content_type": "reaction",
+            "knowledge_unit": "reaction",
+            "parent_id": "section:c73237c487b0",
+            "prev_chunk_id": "textbook_prose_00027_29d13c3805",
+            "next_chunk_id": null,
+            "relations": {
+              "parent": "section:c73237c487b0",
+              "source_route": "clean_pages",
+              "prev": "textbook_prose_00027_29d13c3805",
+              "next": null
+            }
+          },
+          {
+            "chunk_id": "textbook_prose_00114_be4a779fba",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+            "line_number": 232,
+            "source_collection": "textbook_inorganic_lower_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学（下册）（第二版）",
+            "page_start": 32,
+            "page_end": 33,
+            "section_path": [
+              "第 13 章 卤族元素",
+              "13.4 卤化物、卤素互化物和多卤化物 (Halides, Interhalogens and Polyhalides)",
+              "13.4.1 卤化物",
+              "2) 在水中的溶解度"
+            ],
+            "content_type": "principle",
+            "knowledge_unit": "principle",
+            "parent_id": "section:706b2229e07e",
+            "prev_chunk_id": null,
+            "next_chunk_id": "textbook_prose_00115_139251f13c",
+            "relations": {
+              "parent": "section:706b2229e07e",
+              "source_route": "clean_pages",
+              "prev": null,
+              "next": "textbook_prose_00115_139251f13c"
+            }
+          }
+        ]
+      },
+      "legacy_locator_summaries": [
+        {
+          "chunk_id": "expchunk_00202_c686014843",
+          "source_file": "无机化学实验（第四版）",
+          "book_title": "无机化学实验（第四版）",
+          "document_id": "DOC_CANONICAL_EXPERIMENT_V1",
+          "source_collection": "textbook_experiment_clean_v1",
+          "source_role": "canonical_textbook",
+          "content_type": "property_test",
+          "chapter_id": null,
+          "page_number": 139,
+          "section_title": "实验 19-1 卤素 / （四）实验内容 / 5. 次卤酸盐及卤酸盐的氧化性",
+          "section_path": [
+            "第7章 元素性质实验",
+            "实验 19-1 卤素",
+            "（四）实验内容",
+            "5. 次卤酸盐及卤酸盐的氧化性"
+          ]
+        },
+        {
+          "chunk_id": "expchunk_00203_99d2352238",
+          "source_file": "无机化学实验（第四版）",
+          "book_title": "无机化学实验（第四版）",
+          "document_id": "DOC_CANONICAL_EXPERIMENT_V1",
+          "source_collection": "textbook_experiment_clean_v1",
+          "source_role": "canonical_textbook",
+          "content_type": "property_test",
+          "chapter_id": null,
+          "page_number": 140,
+          "section_title": "实验 19-1 卤素 / （四）实验内容 / 5. 次卤酸盐及卤酸盐的氧化性",
+          "section_path": [
+            "第7章 元素性质实验",
+            "实验 19-1 卤素",
+            "（四）实验内容",
+            "5. 次卤酸盐及卤酸盐的氧化性"
+          ]
+        },
+        {
+          "chunk_id": "expchunk_00208_336ff95a98",
+          "source_file": "无机化学实验（第四版）",
+          "book_title": "无机化学实验（第四版）",
+          "document_id": "DOC_CANONICAL_EXPERIMENT_V1",
+          "source_collection": "textbook_experiment_clean_v1",
+          "source_role": "canonical_textbook",
+          "content_type": "teaching_question_seed",
+          "chapter_id": null,
+          "page_number": 141,
+          "section_title": "第7章 元素性质实验 / 实验 19-1 卤素 / 思考题",
+          "section_path": [
+            "第7章 元素性质实验",
+            "实验 19-1 卤素",
+            "思考题"
+          ]
+        },
+        {
+          "chunk_id": "textbook_prose_00006_872b19158c",
+          "source_file": "无机化学（下册）（第二版）",
+          "book_title": "无机化学（下册）（第二版）",
+          "document_id": "DOC_CANONICAL_INORGANIC_LOWER_V1",
+          "source_collection": "textbook_inorganic_lower_v1",
+          "source_role": "canonical_textbook",
+          "content_type": "procedure",
+          "chapter_id": "CH13",
+          "page_number": 18,
+          "section_title": "第 13 章 卤族元素 / 本章学习要求",
+          "section_path": [
+            "第 13 章 卤族元素",
+            "本章学习要求"
+          ]
+        }
+      ],
+      "legacy_missing_ids": [
+        "textbook_prose_00028_a4c7b7c9ae",
+        "textbook_prose_00114_be4a779fba"
+      ]
+    },
+    "questions": [
+      {
+        "question_id": "CHUNK1_19_1_06_Q001",
+        "source_review_id": "CHUNK1_19_1_06_Q001",
+        "source_question_index": 1,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-1-06 氯酸盐的氧化性》实验中，哪组证据链最能共同体现 KClO₃ 的氧化性？",
+        "options": [
+          {
+            "label": "A",
+            "text": "NaCl 与 CCl₄ 混合后颜色不变"
+          },
+          {
+            "label": "B",
+            "text": "KBr 与 AgNO₃ 生成沉淀"
+          },
+          {
+            "label": "C",
+            "text": "KClO₃ 与浓盐酸逸出可检验的 Cl₂；酸化 KClO₃/KI/CCl₄ 体系后出现碘色"
+          },
+          {
+            "label": "D",
+            "text": "CCl₄ 单独使淀粉显蓝"
+          }
+        ],
+        "answer": {
+          "value": "C"
+        },
+        "explanation": "KClO₃ 与浓盐酸反应可逸出 Cl₂，说明氯酸盐能氧化 Cl⁻；KClO₃、KI、CCl₄ 体系酸化后出现碘色，说明 I⁻ 被氧化为 I₂。两条证据链共同指向 KClO₃ 的氧化性。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-86b4f964",
+          "candidate-4-7bed40a2"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_1_86b4f964",
+          "point_candidate_4_7bed40a2",
+          "oxidation_property"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "NaCl 与 CCl₄ 混合后颜色不变",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "NaCl 与 CCl₄ 混合不会提供氯酸盐氧化 I⁻ 或生成 Cl₂ 的证据，不能回答 KClO₃ 氧化性的实验链问题。"
+          },
+          {
+            "label": "B",
+            "text": "KBr 与 AgNO₃ 生成沉淀",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "KBr 与 AgNO₃ 的沉淀反应只能说明 Br⁻ 可被 Ag⁺ 沉淀，不是本题要求的 KClO₃ 氧化性证据链。"
+          },
+          {
+            "label": "C",
+            "text": "KClO₃ 与浓盐酸逸出可检验的 Cl₂；酸化 KClO₃/KI/CCl₄ 体系后出现碘色",
+            "point_key": "candidate-1-86b4f964",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项同时覆盖 KClO₃ 与浓盐酸产生 Cl₂ 的检验链，以及酸化 KClO₃/KI/CCl₄ 后生成 I₂ 并被 CCl₄ 显示的观察链。"
+          },
+          {
+            "label": "D",
+            "text": "CCl₄ 单独使淀粉显蓝",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "CCl₄ 只作为萃取有机相帮助观察 I₂，不能单独氧化 I⁻ 或使淀粉显蓝。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00202_c686014843",
+            "expchunk_00203_99d2352238",
+            "expchunk_00208_336ff95a98"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "release 复核：最终题要求合并两条 KClO₃ 氧化性证据链：浓盐酸体系逸出并检验 Cl₂，KI/CCl₄ 体系酸化后生成并萃取 I₂。题干、答案和解析由 canonical 实验步骤与 candidate-1、candidate-4 支撑。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00202_c686014843",
+            "expchunk_00203_99d2352238",
+            "expchunk_00208_336ff95a98"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-1-06 氯酸盐的氧化性》实验中，哪组证据链最能共同体现 KClO₃ 的氧化性？",
+            "options": [
+              {
+                "label": "A",
+                "text": "NaCl 与 CCl₄ 混合后颜色不变"
+              },
+              {
+                "label": "B",
+                "text": "KBr 与 AgNO₃ 生成沉淀"
+              },
+              {
+                "label": "C",
+                "text": "KClO₃ 与浓盐酸逸出可检验的 Cl₂；酸化 KClO₃/KI/CCl₄ 体系后出现碘色"
+              },
+              {
+                "label": "D",
+                "text": "CCl₄ 单独使淀粉显蓝"
+              }
+            ],
+            "answer": {
+              "value": "C"
+            },
+            "explanation": "KClO₃ 与浓盐酸反应可逸出 Cl₂，说明氯酸盐能氧化 Cl⁻；KClO₃、KI、CCl₄ 体系酸化后出现碘色，说明 I⁻ 被氧化为 I₂。两条证据链共同指向 KClO₃ 的氧化性。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00202_c686014843",
+              "expchunk_00203_99d2352238",
+              "expchunk_00208_336ff95a98"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_1_06_Q002",
+        "source_review_id": "CHUNK1_19_1_06_Q002",
+        "source_question_index": 2,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-1-06 氯酸盐的氧化性》实验中，KClO₃ 晶体中加入少许浓盐酸时，主要要注意并检验的气体是哪一种？",
+        "options": [
+          {
+            "label": "A",
+            "text": "H₂"
+          },
+          {
+            "label": "B",
+            "text": "NH₃"
+          },
+          {
+            "label": "C",
+            "text": "CO₂"
+          },
+          {
+            "label": "D",
+            "text": "Cl₂"
+          }
+        ],
+        "answer": {
+          "value": "D"
+        },
+        "explanation": "氯酸盐在浓盐酸中可生成氯气，需注意气味并检验气体。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-86b4f964"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_1_86b4f964",
+          "point_candidate_5_9ebfbe89",
+          "oxidation_property"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "H₂",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "教材要求注意并检验 KClO₃ 与浓盐酸反应逸出的气体；H₂ 不能解释湿 KI-淀粉试纸显蓝的检验。"
+          },
+          {
+            "label": "B",
+            "text": "NH₃",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "NH₃ 属于氨或铵盐相关情境，不是 KClO₃ 与浓盐酸反应逸出的氧化性气体。"
+          },
+          {
+            "label": "C",
+            "text": "CO₂",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "CO₂ 不会使湿 KI-淀粉试纸因 I₂ 生成而显蓝，不能对应本实验的气体检验。"
+          },
+          {
+            "label": "D",
+            "text": "Cl₂",
+            "point_key": "candidate-1-86b4f964",
+            "role": "correct_evidence",
+            "diagnostic_note": "KClO₃ 与浓盐酸反应逸出的气体可用湿 KI-淀粉试纸检验，显蓝依据是 Cl₂ 氧化 I⁻ 生成 I₂。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00202_c686014843",
+            "expchunk_00203_99d2352238",
+            "expchunk_00208_336ff95a98"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polish 终审：最终有效题为 original_question，题干、答案和解析可由本实验 canonical 文本/点位支撑；最终有效题只需 canonical 实验步骤、点位和题干选项证据即可支撑。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00202_c686014843",
+            "expchunk_00203_99d2352238",
+            "expchunk_00208_336ff95a98"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-1-06 氯酸盐的氧化性》实验中，KClO₃ 晶体中加入少许浓盐酸时，主要要注意并检验的气体是哪一种？",
+            "options": [
+              {
+                "label": "A",
+                "text": "H₂"
+              },
+              {
+                "label": "B",
+                "text": "NH₃"
+              },
+              {
+                "label": "C",
+                "text": "CO₂"
+              },
+              {
+                "label": "D",
+                "text": "Cl₂"
+              }
+            ],
+            "answer": {
+              "value": "D"
+            },
+            "explanation": "氯酸盐在浓盐酸中可生成氯气，需注意气味并检验气体。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00202_c686014843",
+              "expchunk_00203_99d2352238",
+              "expchunk_00208_336ff95a98"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_1_06_Q003",
+        "source_review_id": "CHUNK1_19_1_06_Q003",
+        "source_question_index": 3,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-1-06 氯酸盐的氧化性》实验中，检验 KClO₃ 与浓盐酸反应逸出 Cl₂ 的常用试纸是哪一种？",
+        "options": [
+          {
+            "label": "A",
+            "text": "湿 KI-淀粉试纸"
+          },
+          {
+            "label": "B",
+            "text": "干燥红色石蕊试纸"
+          },
+          {
+            "label": "C",
+            "text": "pH 试纸"
+          },
+          {
+            "label": "D",
+            "text": "醋酸铅试纸"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "氯气能氧化 I⁻，生成的碘使淀粉显蓝。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-86b4f964"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_1_86b4f964",
+          "ki_starch",
+          "oxidation_property"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "湿 KI-淀粉试纸",
+            "point_key": "candidate-1-86b4f964",
+            "role": "correct_evidence",
+            "diagnostic_note": "湿 KI-淀粉试纸对应本点位的 Cl₂ 检验：Cl₂ 氧化 I⁻ 生成 I₂，I₂ 使淀粉显蓝。"
+          },
+          {
+            "label": "B",
+            "text": "干燥红色石蕊试纸",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "干燥红色石蕊试纸不能体现 I⁻ 被 Cl₂ 氧化生成 I₂ 的检验依据，也不是教材指定的气体检验。"
+          },
+          {
+            "label": "C",
+            "text": "pH 试纸",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "pH 试纸只能粗略判断酸碱性，不能用于确认逸出气体具有氧化 I⁻ 的能力。"
+          },
+          {
+            "label": "D",
+            "text": "醋酸铅试纸",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "醋酸铅试纸用于硫化氢等情境，不是 KClO₃ 与浓盐酸产生 Cl₂ 的检验试纸。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00202_c686014843",
+            "expchunk_00203_99d2352238",
+            "expchunk_00208_336ff95a98"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "release 复核：本题只考查 KClO₃ 与浓盐酸逸出 Cl₂ 后用湿 KI-淀粉试纸检验的操作，绑定 candidate-1 即可；KI/CCl₄ 酸化和酸化试剂选择不直接回答本题。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00202_c686014843",
+            "expchunk_00203_99d2352238",
+            "expchunk_00208_336ff95a98"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-1-06 氯酸盐的氧化性》实验中，检验 KClO₃ 与浓盐酸反应逸出 Cl₂ 的常用试纸是哪一种？",
+            "options": [
+              {
+                "label": "A",
+                "text": "湿 KI-淀粉试纸"
+              },
+              {
+                "label": "B",
+                "text": "干燥红色石蕊试纸"
+              },
+              {
+                "label": "C",
+                "text": "pH 试纸"
+              },
+              {
+                "label": "D",
+                "text": "醋酸铅试纸"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "氯气能氧化 I⁻，生成的碘使淀粉显蓝。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00202_c686014843",
+              "expchunk_00203_99d2352238",
+              "expchunk_00208_336ff95a98"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_1_06_Q004",
+        "source_review_id": "CHUNK1_19_1_06_Q004",
+        "source_question_index": 4,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-1-06 氯酸盐的氧化性》实验中，KClO₃、KI 和 CCl₄ 体系需要酸化时，较合适的酸是哪一种？",
+        "options": [
+          {
+            "label": "A",
+            "text": "HNO₃"
+          },
+          {
+            "label": "B",
+            "text": "H₂SO₄"
+          },
+          {
+            "label": "C",
+            "text": "HCl"
+          },
+          {
+            "label": "D",
+            "text": "HAc"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "KClO₃、KI、CCl₄ 体系需要酸性介质来观察酸化前后的相色变化；H₂SO₄ 可提供酸性条件，且不像 HCl 可能被氯酸盐氧化产生 Cl₂，也不像 HNO₃ 本身具有氧化性而干扰 I⁻/I₂ 判断。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-4-7bed40a2",
+          "candidate-5-9ebfbe89"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_2_f50a397f",
+          "point_candidate_4_7bed40a2",
+          "point_candidate_5_9ebfbe89",
+          "ccl4_observation",
+          "acidification",
+          "medium_effect",
+          "oxidation_property"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "HNO₃",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "HNO₃ 虽能提供酸性，但自身有氧化性，可能直接氧化 I⁻，会干扰判断 KClO₃ 在酸性条件下的氧化作用。"
+          },
+          {
+            "label": "B",
+            "text": "H₂SO₄",
+            "point_key": "candidate-5-9ebfbe89",
+            "role": "correct_evidence",
+            "diagnostic_note": "H₂SO₄ 对应该体系的酸化选择：提供 H⁺ 同时尽量不额外引入能氧化 I⁻ 或生成 Cl₂ 的干扰。"
+          },
+          {
+            "label": "C",
+            "text": "HCl",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "HCl 可能与 KClO₃ 发生氧化还原生成 Cl₂；Cl₂ 也会氧化 I⁻，使碘色来源不清。"
+          },
+          {
+            "label": "D",
+            "text": "HAc",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "教材在该酸化观察中使用 H₂SO₄；HAc 不对应本实验指定的强酸酸化条件。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00202_c686014843",
+            "expchunk_00203_99d2352238",
+            "expchunk_00208_336ff95a98"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polish 终审：最终有效题为 original_question，题干、答案和解析可由本实验 canonical 文本/点位支撑；最终有效题只需 canonical 实验步骤、点位和题干选项证据即可支撑。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00202_c686014843",
+            "expchunk_00203_99d2352238",
+            "expchunk_00208_336ff95a98"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-1-06 氯酸盐的氧化性》实验中，KClO₃、KI 和 CCl₄ 体系需要酸化时，较合适的酸是哪一种？",
+            "options": [
+              {
+                "label": "A",
+                "text": "HNO₃"
+              },
+              {
+                "label": "B",
+                "text": "H₂SO₄"
+              },
+              {
+                "label": "C",
+                "text": "HCl"
+              },
+              {
+                "label": "D",
+                "text": "HAc"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "KClO₃、KI、CCl₄ 体系需要酸性介质来观察酸化前后的相色变化；H₂SO₄ 可提供酸性条件，且不像 HCl 可能被氯酸盐氧化产生 Cl₂，也不像 HNO₃ 本身具有氧化性而干扰 I⁻/I₂ 判断。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00202_c686014843",
+              "expchunk_00203_99d2352238",
+              "expchunk_00208_336ff95a98"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_1_06_Q005",
+        "source_review_id": "CHUNK1_19_1_06_Q005",
+        "source_question_index": 5,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-1-06 氯酸盐的氧化性》实验中，KClO₃ 与 KI 反应观察碘生成时，加入 CCl₄ 的主要作用是什么？",
+        "options": [
+          {
+            "label": "A",
+            "text": "提供酸性介质"
+          },
+          {
+            "label": "B",
+            "text": "还原 KClO₃"
+          },
+          {
+            "label": "C",
+            "text": "萃取 I₂ 以便观察有机相颜色"
+          },
+          {
+            "label": "D",
+            "text": "沉淀 Cl⁻"
+          }
+        ],
+        "answer": {
+          "value": "C"
+        },
+        "explanation": "教材要求在 KClO₃、KI 体系中加入少量 CCl₄ 并观察水相和有机相；CCl₄ 的作用是萃取生成的 I₂，使有机相颜色变化更清楚。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-4-7bed40a2"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_4_7bed40a2",
+          "ccl4_observation",
+          "observation",
+          "oxidation_property"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "提供酸性介质",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "酸性介质由后续加入的 H₂SO₄ 提供，CCl₄ 不提供 H⁺。"
+          },
+          {
+            "label": "B",
+            "text": "还原 KClO₃",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "CCl₄ 不是还原剂；该体系中发生的是酸性条件下 KClO₃ 氧化 I⁻ 生成 I₂。"
+          },
+          {
+            "label": "C",
+            "text": "萃取 I₂ 以便观察有机相颜色",
+            "point_key": "candidate-4-7bed40a2",
+            "role": "correct_evidence",
+            "diagnostic_note": "CCl₄ 作为有机相萃取 I₂，能把碘的颜色集中到有机层，便于观察酸化前后的变化。"
+          },
+          {
+            "label": "D",
+            "text": "沉淀 Cl⁻",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "沉淀 Cl⁻ 是 AgNO₃ 产物验证相关内容，不是 CCl₄ 在 KI 体系中的作用。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00202_c686014843",
+            "expchunk_00203_99d2352238",
+            "expchunk_00208_336ff95a98"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00028_a4c7b7c9ae"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polish 终审：最终有效题为 original_question，题干、答案和解析可由本实验 canonical 文本/点位支撑；部分判断依赖 supporting theory：textbook_prose_00028_a4c7b7c9ae。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00202_c686014843",
+            "expchunk_00203_99d2352238",
+            "expchunk_00208_336ff95a98"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00028_a4c7b7c9ae"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00028_a4c7b7c9ae"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-1-06 氯酸盐的氧化性》实验中，KClO₃ 与 KI 反应观察碘生成时，加入 CCl₄ 的主要作用是什么？",
+            "options": [
+              {
+                "label": "A",
+                "text": "提供酸性介质"
+              },
+              {
+                "label": "B",
+                "text": "还原 KClO₃"
+              },
+              {
+                "label": "C",
+                "text": "萃取 I₂ 以便观察有机相颜色"
+              },
+              {
+                "label": "D",
+                "text": "沉淀 Cl⁻"
+              }
+            ],
+            "answer": {
+              "value": "C"
+            },
+            "explanation": "教材要求在 KClO₃、KI 体系中加入少量 CCl₄ 并观察水相和有机相；CCl₄ 的作用是萃取生成的 I₂，使有机相颜色变化更清楚。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00202_c686014843",
+              "expchunk_00203_99d2352238",
+              "expchunk_00208_336ff95a98"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_1_06_Q006",
+        "source_review_id": "CHUNK1_19_1_06_Q006",
+        "source_question_index": 6,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-1-06 氯酸盐的氧化性》实验中，饱和 KClO₃ 溶液与 Na₂SO₃ 反应的中性和酸性对比主要说明什么？",
+        "options": [
+          {
+            "label": "A",
+            "text": "Na₂SO₃ 只作酸碱指示剂"
+          },
+          {
+            "label": "B",
+            "text": "AgNO₃ 是主要氧化剂"
+          },
+          {
+            "label": "C",
+            "text": "CCl₄ 会氧化 SO₃²⁻"
+          },
+          {
+            "label": "D",
+            "text": "KClO₃ 的氧化性受介质酸碱性影响"
+          }
+        ],
+        "answer": {
+          "value": "D"
+        },
+        "explanation": "教材要求分别试验饱和 KClO₃ 溶液与 Na₂SO₃ 溶液在中性和酸性条件下的反应，并据此说明 KClO₃ 的氧化性与介质酸碱性的关系。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-f50a397f"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_2_f50a397f",
+          "medium_effect",
+          "oxidation_property"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "Na₂SO₃ 只作酸碱指示剂",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "Na₂SO₃ 在该对比中是被 KClO₃ 氧化的还原性反应物，不是用颜色显示酸碱性的指示剂。"
+          },
+          {
+            "label": "B",
+            "text": "AgNO₃ 是主要氧化剂",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "AgNO₃ 用于后续验证含氯产物，不承担 KClO₃ 与 Na₂SO₃ 主反应中的氧化剂角色。"
+          },
+          {
+            "label": "C",
+            "text": "CCl₄ 会氧化 SO₃²⁻",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "CCl₄ 属于 KI 体系的萃取相，不会解释 Na₂SO₃ 在中性/酸性条件下与 KClO₃ 的反应差异。"
+          },
+          {
+            "label": "D",
+            "text": "KClO₃ 的氧化性受介质酸碱性影响",
+            "point_key": "candidate-2-f50a397f",
+            "role": "correct_evidence",
+            "diagnostic_note": "中性和酸性条件下反应差异正是用来判断介质酸碱性会影响 KClO₃ 的氧化表现。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00202_c686014843",
+            "expchunk_00203_99d2352238",
+            "expchunk_00208_336ff95a98"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polish 终审：最终有效题为 original_question，题干、答案和解析可由本实验 canonical 文本/点位支撑；最终有效题只需 canonical 实验步骤、点位和题干选项证据即可支撑。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00202_c686014843",
+            "expchunk_00203_99d2352238",
+            "expchunk_00208_336ff95a98"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-1-06 氯酸盐的氧化性》实验中，饱和 KClO₃ 溶液与 Na₂SO₃ 反应的中性和酸性对比主要说明什么？",
+            "options": [
+              {
+                "label": "A",
+                "text": "Na₂SO₃ 只作酸碱指示剂"
+              },
+              {
+                "label": "B",
+                "text": "AgNO₃ 是主要氧化剂"
+              },
+              {
+                "label": "C",
+                "text": "CCl₄ 会氧化 SO₃²⁻"
+              },
+              {
+                "label": "D",
+                "text": "KClO₃ 的氧化性受介质酸碱性影响"
+              }
+            ],
+            "answer": {
+              "value": "D"
+            },
+            "explanation": "教材要求分别试验饱和 KClO₃ 溶液与 Na₂SO₃ 溶液在中性和酸性条件下的反应，并据此说明 KClO₃ 的氧化性与介质酸碱性的关系。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00202_c686014843",
+              "expchunk_00203_99d2352238",
+              "expchunk_00208_336ff95a98"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_1_06_Q007",
+        "source_review_id": "CHUNK1_19_1_06_Q007",
+        "source_question_index": 7,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-1-06 氯酸盐的氧化性》实验中，验证 KClO₃ 与 Na₂SO₃ 反应后的含氯产物时使用的试剂是哪一种？",
+        "options": [
+          {
+            "label": "A",
+            "text": "AgNO₃"
+          },
+          {
+            "label": "B",
+            "text": "BaCl₂"
+          },
+          {
+            "label": "C",
+            "text": "KSCN"
+          },
+          {
+            "label": "D",
+            "text": "酚酞"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "教材要求用 AgNO₃ 验证 KClO₃ 与 Na₂SO₃ 反应后的产物；若产物中有 Cl⁻，Ag⁺ 会与 Cl⁻ 生成 AgCl 沉淀。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-f50a397f",
+          "candidate-3-15b87f0f"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_2_f50a397f",
+          "point_candidate_3_15b87f0f",
+          "oxidation_property"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "AgNO₃",
+            "point_key": "candidate-3-15b87f0f",
+            "role": "correct_evidence",
+            "diagnostic_note": "AgNO₃ 对应该实验的产物验证：Ag⁺ 与反应产物中的 Cl⁻ 生成 AgCl 沉淀。"
+          },
+          {
+            "label": "B",
+            "text": "BaCl₂",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "BaCl₂ 常用于硫酸根等沉淀检验，不能替代本实验用 Ag⁺ 检出 Cl⁻ 的产物验证。"
+          },
+          {
+            "label": "C",
+            "text": "KSCN",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "KSCN 属于铁离子显色等配合物检验情境，不是 KClO₃ 还原产物中 Cl⁻ 的检验试剂。"
+          },
+          {
+            "label": "D",
+            "text": "酚酞",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "酚酞只能指示酸碱性，不能证明反应产物中是否含 Cl⁻。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00202_c686014843",
+            "expchunk_00203_99d2352238",
+            "expchunk_00208_336ff95a98"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00114_be4a779fba"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polish 终审：最终有效题为 original_question，题干、答案和解析可由本实验 canonical 文本/点位支撑；部分判断依赖 supporting theory：textbook_prose_00114_be4a779fba。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00202_c686014843",
+            "expchunk_00203_99d2352238",
+            "expchunk_00208_336ff95a98"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00114_be4a779fba"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00114_be4a779fba"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-1-06 氯酸盐的氧化性》实验中，验证 KClO₃ 与 Na₂SO₃ 反应后的含氯产物时使用的试剂是哪一种？",
+            "options": [
+              {
+                "label": "A",
+                "text": "AgNO₃"
+              },
+              {
+                "label": "B",
+                "text": "BaCl₂"
+              },
+              {
+                "label": "C",
+                "text": "KSCN"
+              },
+              {
+                "label": "D",
+                "text": "酚酞"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "教材要求用 AgNO₃ 验证 KClO₃ 与 Na₂SO₃ 反应后的产物；若产物中有 Cl⁻，Ag⁺ 会与 Cl⁻ 生成 AgCl 沉淀。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00202_c686014843",
+              "expchunk_00203_99d2352238",
+              "expchunk_00208_336ff95a98"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_1_06_Q008",
+        "source_review_id": "CHUNK1_19_1_06_Q008",
+        "source_question_index": 8,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-1-06 氯酸盐的氧化性》实验中，KClO₃、KI、CCl₄ 体系再用 H₂SO₄ 酸化后，最能支持 I₂ 生成的现象是哪一项？",
+        "options": [
+          {
+            "label": "A",
+            "text": "溶液立即生成红色络合物"
+          },
+          {
+            "label": "B",
+            "text": "CCl₄ 层出现碘的颜色"
+          },
+          {
+            "label": "C",
+            "text": "产生白色 AgCl 沉淀"
+          },
+          {
+            "label": "D",
+            "text": "有大量 NH₃ 放出"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "教材要求 KClO₃ 溶于水后加入 KI 和 CCl₄，观察水相和有机相，再用 H₂SO₄ 酸化；若酸性 KClO₃ 氧化 I⁻ 生成 I₂，I₂ 会被 CCl₄ 萃取而使有机相出现碘色。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-4-7bed40a2",
+          "candidate-5-9ebfbe89"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_4_7bed40a2",
+          "point_candidate_5_9ebfbe89",
+          "ki_starch",
+          "acidification",
+          "oxidation_property"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "溶液立即生成红色络合物",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该体系观察的是 I₂ 在 CCl₄ 有机相中的颜色，不涉及红色配合物生成。"
+          },
+          {
+            "label": "B",
+            "text": "CCl₄ 层出现碘的颜色",
+            "point_key": "candidate-4-7bed40a2",
+            "role": "correct_evidence",
+            "diagnostic_note": "酸化后若 KClO₃ 氧化 I⁻ 生成 I₂，I₂ 被 CCl₄ 萃取，有机相出现碘色，正对应该点位的观察任务。"
+          },
+          {
+            "label": "C",
+            "text": "产生白色 AgCl 沉淀",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "白色 AgCl 沉淀属于 AgNO₃ 检出 Cl⁻ 的产物验证，不是 KI/CCl₄ 体系的相色观察。"
+          },
+          {
+            "label": "D",
+            "text": "有大量 NH₃ 放出",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该实验体系没有铵盐或氨合物反应来源，不能产生大量 NH₃ 来解释酸化后的有机相颜色。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00202_c686014843",
+            "expchunk_00203_99d2352238",
+            "expchunk_00208_336ff95a98"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polish 终审：最终有效题为 original_question，题干、答案和解析可由本实验 canonical 文本/点位支撑；最终有效题只需 canonical 实验步骤、点位和题干选项证据即可支撑。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00202_c686014843",
+            "expchunk_00203_99d2352238",
+            "expchunk_00208_336ff95a98"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-1-06 氯酸盐的氧化性》实验中，KClO₃、KI、CCl₄ 体系再用 H₂SO₄ 酸化后，最能支持 I₂ 生成的现象是哪一项？",
+            "options": [
+              {
+                "label": "A",
+                "text": "溶液立即生成红色络合物"
+              },
+              {
+                "label": "B",
+                "text": "CCl₄ 层出现碘的颜色"
+              },
+              {
+                "label": "C",
+                "text": "产生白色 AgCl 沉淀"
+              },
+              {
+                "label": "D",
+                "text": "有大量 NH₃ 放出"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "教材要求 KClO₃ 溶于水后加入 KI 和 CCl₄，观察水相和有机相，再用 H₂SO₄ 酸化；若酸性 KClO₃ 氧化 I⁻ 生成 I₂，I₂ 会被 CCl₄ 萃取而使有机相出现碘色。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00202_c686014843",
+              "expchunk_00203_99d2352238",
+              "expchunk_00208_336ff95a98"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_1_06_Q009",
+        "source_review_id": "CHUNK1_19_1_06_Q009",
+        "source_question_index": 9,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-1-06 氯酸盐的氧化性》实验中，KClO₃、KI、CCl₄ 体系中不宜用盐酸酸化的主要原因是什么？",
+        "options": [
+          {
+            "label": "A",
+            "text": "盐酸不能提供 H⁺"
+          },
+          {
+            "label": "B",
+            "text": "盐酸会沉淀 K⁺"
+          },
+          {
+            "label": "C",
+            "text": "盐酸会与氯酸盐反应并引入 Cl₂ 干扰"
+          },
+          {
+            "label": "D",
+            "text": "盐酸会溶解 CCl₄"
+          }
+        ],
+        "answer": {
+          "value": "C"
+        },
+        "explanation": "教材先安排 KClO₃ 与浓盐酸反应并检验 Cl₂，说明 HCl 会与氯酸盐发生氧化还原；若把盐酸用于 KClO₃、KI、CCl₄ 体系酸化，生成的 Cl₂ 也会氧化 I⁻，干扰对 KClO₃ 氧化性的判断。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-86b4f964",
+          "candidate-4-7bed40a2"
+        ],
+        "secondary_point_keys": [
+          "candidate-5-9ebfbe89"
+        ],
+        "coverage_tags": [
+          "point_candidate_1_86b4f964",
+          "point_candidate_4_7bed40a2",
+          "point_candidate_5_9ebfbe89",
+          "ccl4_observation",
+          "acidification",
+          "oxidation_property"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "盐酸不能提供 H⁺",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "盐酸能提供 H⁺；不选盐酸的关键不是酸性不足，而是 Cl⁻/HCl 会与氯酸盐发生副反应。"
+          },
+          {
+            "label": "B",
+            "text": "盐酸会沉淀 K⁺",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "K⁺ 是旁观离子；该酸化选择不是通过沉淀 K⁺ 来控制实验。"
+          },
+          {
+            "label": "C",
+            "text": "盐酸会与氯酸盐反应并引入 Cl₂ 干扰",
+            "point_key": "candidate-1-86b4f964",
+            "role": "correct_evidence",
+            "diagnostic_note": "KClO₃ 与浓盐酸能产生 Cl₂；Cl₂ 会氧化 I⁻，所以用盐酸酸化 KI/CCl₄ 体系会使碘色来源不清。"
+          },
+          {
+            "label": "D",
+            "text": "盐酸会溶解 CCl₄",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "CCl₄ 作为有机萃取相存在；不用盐酸不是因为它会溶解 CCl₄。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00202_c686014843",
+            "expchunk_00203_99d2352238",
+            "expchunk_00208_336ff95a98"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polish 终审：最终有效题为 original_question，题干、答案和解析可由本实验 canonical 文本/点位支撑；最终有效题只需 canonical 实验步骤、点位和题干选项证据即可支撑。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00202_c686014843",
+            "expchunk_00203_99d2352238",
+            "expchunk_00208_336ff95a98"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-1-06 氯酸盐的氧化性》实验中，KClO₃、KI、CCl₄ 体系中不宜用盐酸酸化的主要原因是什么？",
+            "options": [
+              {
+                "label": "A",
+                "text": "盐酸不能提供 H⁺"
+              },
+              {
+                "label": "B",
+                "text": "盐酸会沉淀 K⁺"
+              },
+              {
+                "label": "C",
+                "text": "盐酸会与氯酸盐反应并引入 Cl₂ 干扰"
+              },
+              {
+                "label": "D",
+                "text": "盐酸会溶解 CCl₄"
+              }
+            ],
+            "answer": {
+              "value": "C"
+            },
+            "explanation": "教材先安排 KClO₃ 与浓盐酸反应并检验 Cl₂，说明 HCl 会与氯酸盐发生氧化还原；若把盐酸用于 KClO₃、KI、CCl₄ 体系酸化，生成的 Cl₂ 也会氧化 I⁻，干扰对 KClO₃ 氧化性的判断。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00202_c686014843",
+              "expchunk_00203_99d2352238",
+              "expchunk_00208_336ff95a98"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_1_06_Q010",
+        "source_review_id": "CHUNK1_19_1_06_Q010",
+        "source_question_index": 10,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-1-06 氯酸盐的氧化性》实验中，KClO₃、KI、CCl₄ 体系酸化后出现碘色，直接反映 KClO₃ 具有什么性质？",
+        "options": [
+          {
+            "label": "A",
+            "text": "挥发性"
+          },
+          {
+            "label": "B",
+            "text": "络合性"
+          },
+          {
+            "label": "C",
+            "text": "还原性"
+          },
+          {
+            "label": "D",
+            "text": "氧化性"
+          }
+        ],
+        "answer": {
+          "value": "D"
+        },
+        "explanation": "酸化后 KClO₃ 将 I⁻ 氧化为 I₂，I₂ 被 CCl₄ 萃取后显出碘色，因此该现象直接体现 KClO₃ 的氧化性。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-4-7bed40a2"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_4_7bed40a2",
+          "ki_starch",
+          "oxidation_property"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "挥发性",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "有机相出现碘色来自 I⁻ 被氧化生成 I₂，不是 KClO₃ 挥发造成。"
+          },
+          {
+            "label": "B",
+            "text": "络合性",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该观察没有形成配合物的证据，不能解释为络合性。"
+          },
+          {
+            "label": "C",
+            "text": "还原性",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "若 KClO₃ 表现还原性，不能解释 I⁻ 被氧化为 I₂ 后在 CCl₄ 层显色。"
+          },
+          {
+            "label": "D",
+            "text": "氧化性",
+            "point_key": "candidate-4-7bed40a2",
+            "role": "correct_evidence",
+            "diagnostic_note": "酸化后 I⁻ 被 KClO₃ 氧化为 I₂，并在 CCl₄ 层显出碘色，说明 KClO₃ 表现氧化性。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00202_c686014843",
+            "expchunk_00203_99d2352238",
+            "expchunk_00208_336ff95a98"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polish 终审：最终有效题为 original_question，题干、答案和解析可由本实验 canonical 文本/点位支撑；最终有效题只需 canonical 实验步骤、点位和题干选项证据即可支撑。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00202_c686014843",
+            "expchunk_00203_99d2352238",
+            "expchunk_00208_336ff95a98"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-1-06 氯酸盐的氧化性》实验中，KClO₃、KI、CCl₄ 体系酸化后出现碘色，直接反映 KClO₃ 具有什么性质？",
+            "options": [
+              {
+                "label": "A",
+                "text": "挥发性"
+              },
+              {
+                "label": "B",
+                "text": "络合性"
+              },
+              {
+                "label": "C",
+                "text": "还原性"
+              },
+              {
+                "label": "D",
+                "text": "氧化性"
+              }
+            ],
+            "answer": {
+              "value": "D"
+            },
+            "explanation": "酸化后 KClO₃ 将 I⁻ 氧化为 I₂，I₂ 被 CCl₄ 萃取后显出碘色，因此该现象直接体现 KClO₃ 的氧化性。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00202_c686014843",
+              "expchunk_00203_99d2352238",
+              "expchunk_00208_336ff95a98"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_1_06_Q011",
+        "source_review_id": "CHUNK1_19_1_06_Q011",
+        "source_question_index": 11,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "KClO₃ 与 Na₂SO₃ 在中性和酸性条件下对比，主要说明什么？",
+        "options": [
+          {
+            "label": "A",
+            "text": "KClO₃ 氧化性受介质酸碱性影响"
+          },
+          {
+            "label": "B",
+            "text": "Na₂SO₃ 是酸碱指示剂"
+          },
+          {
+            "label": "C",
+            "text": "AgNO₃ 是氧化剂"
+          },
+          {
+            "label": "D",
+            "text": "CCl₄ 氧化亚硫酸根"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "KClO₃ 与 Na₂SO₃ 在中性、酸性条件下现象不同，说明 KClO₃ 的氧化性受介质酸碱性影响。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-f50a397f"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "medium_effect"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "KClO₃ 氧化性受介质酸碱性影响",
+            "point_key": "candidate-2-f50a397f",
+            "role": "correct_evidence",
+            "diagnostic_note": "中性和酸性条件下 KClO₃ 与 Na₂SO₃ 的反应差异，正是用来判断介质酸碱性会影响 KClO₃ 的氧化性。"
+          },
+          {
+            "label": "B",
+            "text": "Na₂SO₃ 是酸碱指示剂",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "Na₂SO₃ 在本实验中作为被氧化的还原性反应物，不是通过颜色变化指示酸碱性的试剂。"
+          },
+          {
+            "label": "C",
+            "text": "AgNO₃ 是氧化剂",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "AgNO₃ 用于后续检出 Cl⁻ 产物，不是 KClO₃ 与 Na₂SO₃ 反应中的氧化剂。"
+          },
+          {
+            "label": "D",
+            "text": "CCl₄ 氧化亚硫酸根",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "CCl₄ 是另一个 KI 观察体系中的萃取剂，不参与氧化 SO₃²⁻。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00202_c686014843",
+            "expchunk_00203_99d2352238",
+            "expchunk_00208_336ff95a98"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "替换题针对终审原因：判断题模板化，像键值配对，不像真实实验语义判断。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00202_c686014843",
+            "expchunk_00203_99d2352238",
+            "expchunk_00208_336ff95a98"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-1-06 氯酸盐的氧化性》实验中，判断：核心物质为“KClO₃”。",
+            "options": [],
+            "answer": {
+              "value": true
+            },
+            "explanation": "该实验以 KClO₃ 的氧化性为中心。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00202_c686014843",
+              "expchunk_00203_99d2352238",
+              "expchunk_00208_336ff95a98"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "KClO₃ 与 Na₂SO₃ 在中性和酸性条件下对比，主要说明什么？",
+            "options": [
+              {
+                "label": "A",
+                "text": "KClO₃ 氧化性受介质酸碱性影响"
+              },
+              {
+                "label": "B",
+                "text": "Na₂SO₃ 是酸碱指示剂"
+              },
+              {
+                "label": "C",
+                "text": "AgNO₃ 是氧化剂"
+              },
+              {
+                "label": "D",
+                "text": "CCl₄ 氧化亚硫酸根"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "KClO₃ 与 Na₂SO₃ 在中性、酸性条件下现象不同，说明 KClO₃ 的氧化性受介质酸碱性影响。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final",
+            "templated_true_false_low_semantic_value"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_1_06_Q012",
+        "source_review_id": "CHUNK1_19_1_06_Q012",
+        "source_question_index": 12,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "酸化 KClO₃、KI、CCl₄ 体系时，选择 H₂SO₄ 而不是 HCl 或 HNO₃，主要为了避免什么？",
+        "options": [
+          {
+            "label": "A",
+            "text": "引入额外氧化还原干扰"
+          },
+          {
+            "label": "B",
+            "text": "沉淀 K⁺"
+          },
+          {
+            "label": "C",
+            "text": "使 CCl₄ 溶于水"
+          },
+          {
+            "label": "D",
+            "text": "让淀粉不显色"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "KClO₃、KI、CCl₄ 体系酸化是为了观察酸性条件下 KClO₃ 氧化 I⁻ 生成 I₂；HCl 可能与氯酸盐反应产生 Cl₂，HNO₃ 本身也有氧化性，都会给碘生成判断带来额外干扰，因此选 H₂SO₄。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-4-7bed40a2",
+          "candidate-5-9ebfbe89"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "acid_choice",
+          "interference_control"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "引入额外氧化还原干扰",
+            "point_key": "candidate-5-9ebfbe89",
+            "role": "correct_evidence",
+            "diagnostic_note": "H₂SO₄ 可提供酸性介质，且不像 HCl 或 HNO₃ 那样引入会影响 I⁻ 被氧化判断的氧化还原副反应。"
+          },
+          {
+            "label": "B",
+            "text": "沉淀 K⁺",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该体系考查酸化后氯酸盐氧化 I⁻ 的现象，不是利用 K⁺ 生成沉淀。"
+          },
+          {
+            "label": "C",
+            "text": "使 CCl₄ 溶于水",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "CCl₄ 作为有机相用于萃取 I₂，酸化试剂的选择不以改变 CCl₄ 溶解性为目的。"
+          },
+          {
+            "label": "D",
+            "text": "让淀粉不显色",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "若酸化后生成 I₂，淀粉显蓝才是支持氧化性的现象；该选项与观察方向相反。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00202_c686014843",
+            "expchunk_00203_99d2352238",
+            "expchunk_00208_336ff95a98"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00006_872b19158c"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "教材要求 KClO₃-KI-CCl₄ 体系用 H₂SO₄ 酸化并观察酸化前后变化；HCl/HNO₃ 的干扰判断依赖卤素含氧酸盐氧化还原性质的 supporting theory。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00202_c686014843",
+            "expchunk_00203_99d2352238",
+            "expchunk_00208_336ff95a98"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00006_872b19158c"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-1-06 氯酸盐的氧化性》实验中，判断：浓盐酸作用为“H₂”。",
+            "options": [],
+            "answer": {
+              "value": false
+            },
+            "explanation": "该说法与本实验事实不符；氯酸盐在浓盐酸中可生成氯气，需注意气味并检验气体。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00202_c686014843",
+              "expchunk_00203_99d2352238",
+              "expchunk_00208_336ff95a98"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "酸化 KClO₃、KI、CCl₄ 体系时，选择 H₂SO₄ 而不是 HCl 或 HNO₃，主要为了避免什么？",
+            "options": [
+              {
+                "label": "A",
+                "text": "引入额外氧化还原干扰"
+              },
+              {
+                "label": "B",
+                "text": "沉淀 K⁺"
+              },
+              {
+                "label": "C",
+                "text": "使 CCl₄ 溶于水"
+              },
+              {
+                "label": "D",
+                "text": "让淀粉不显色"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "KClO₃、KI、CCl₄ 体系酸化是为了观察酸性条件下 KClO₃ 氧化 I⁻ 生成 I₂；HCl 可能与氯酸盐反应产生 Cl₂，HNO₃ 本身也有氧化性，都会给碘生成判断带来额外干扰，因此选 H₂SO₄。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final",
+            "templated_true_false_low_semantic_value"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_1_06_Q013",
+        "source_review_id": "CHUNK1_19_1_06_Q013",
+        "source_question_index": 13,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-1-06 氯酸盐的氧化性》实验中，KClO₃ 与浓盐酸反应逸出的 Cl₂ 可用湿 KI-淀粉试纸检验。",
+        "options": [],
+        "answer": {
+          "value": true
+        },
+        "explanation": "教材操作要求注意并检验 KClO₃ 与浓盐酸反应逸出的气体；Cl₂ 可氧化湿 KI-淀粉试纸中的 I⁻ 生成 I₂，I₂ 使淀粉显蓝，因此该判断为真。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-86b4f964"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_1_86b4f964",
+          "ki_starch",
+          "oxidation_property"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00202_c686014843",
+            "expchunk_00203_99d2352238",
+            "expchunk_00208_336ff95a98"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "release 复核：本判断题直接考查 KClO₃ 与浓盐酸逸出 Cl₂ 的检验方式，证据来自 candidate-1 和 canonical 气体检验操作；KI/CCl₄ 酸化点位不参与本题。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00202_c686014843",
+            "expchunk_00203_99d2352238",
+            "expchunk_00208_336ff95a98"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-1-06 氯酸盐的氧化性》实验中，KClO₃ 与浓盐酸反应逸出的 Cl₂ 可用湿 KI-淀粉试纸检验。",
+            "options": [],
+            "answer": {
+              "value": true
+            },
+            "explanation": "教材操作要求注意并检验 KClO₃ 与浓盐酸反应逸出的气体；Cl₂ 可氧化湿 KI-淀粉试纸中的 I⁻ 生成 I₂，I₂ 使淀粉显蓝，因此该判断为真。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00202_c686014843",
+              "expchunk_00203_99d2352238",
+              "expchunk_00208_336ff95a98"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_1_06_Q014",
+        "source_review_id": "CHUNK1_19_1_06_Q014",
+        "source_question_index": 14,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-1-06 氯酸盐的氧化性》实验中，KClO₃ 与 Na₂SO₃ 作中性/酸性对比时，Na₂SO₃ 主要扮演什么角色？",
+        "options": [
+          {
+            "label": "A",
+            "text": "被 KClO₃ 氧化的还原剂"
+          },
+          {
+            "label": "B",
+            "text": "显示酸碱变化的指示剂"
+          },
+          {
+            "label": "C",
+            "text": "验证 Cl⁻ 的银盐试剂"
+          },
+          {
+            "label": "D",
+            "text": "萃取 I₂ 的有机溶剂"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "教材要求比较 KClO₃ 与 Na₂SO₃ 在中性和酸性条件下的反应，Na₂SO₃ 是被 KClO₃ 氧化的还原性试剂；反应差异用于说明 KClO₃ 的氧化性受介质酸碱性影响。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-f50a397f"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "medium_effect"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "被 KClO₃ 氧化的还原剂",
+            "point_key": "candidate-2-f50a397f",
+            "role": "correct_evidence",
+            "diagnostic_note": "KClO₃ 与 Na₂SO₃ 的中性/酸性对比需要一个可被氧化的还原性反应对象，Na₂SO₃ 正承担这一角色。"
+          },
+          {
+            "label": "B",
+            "text": "显示酸碱变化的指示剂",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "Na₂SO₃ 不通过颜色显示酸碱性；实验比较的是它在不同介质中被 KClO₃ 氧化的差异。"
+          },
+          {
+            "label": "C",
+            "text": "验证 Cl⁻ 的银盐试剂",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "AgNO₃ 是后续验证产物中 Cl⁻ 的试剂，不是 Na₂SO₃ 在对比反应中的角色。"
+          },
+          {
+            "label": "D",
+            "text": "萃取 I₂ 的有机溶剂",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "CCl₄ 出现在 KClO₃-KI 体系中用于观察 I₂，有机萃取角色不能套到 Na₂SO₃ 对比实验。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00202_c686014843",
+            "expchunk_00203_99d2352238",
+            "expchunk_00208_336ff95a98"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "替换题针对终审原因：原 HNO₃ 判断题语义过窄；最终题改为考查 Na₂SO₃ 在中性/酸性对比中的还原剂角色，canonical 步骤直接给出 KClO₃ + Na₂SO₃ 的对比实验。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00202_c686014843",
+            "expchunk_00203_99d2352238",
+            "expchunk_00208_336ff95a98"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-1-06 氯酸盐的氧化性》实验中，判断：酸化试剂为“HNO₃”。",
+            "options": [],
+            "answer": {
+              "value": false
+            },
+            "explanation": "该说法与本实验事实不符；硫酸提供酸性介质且较少引入氧化还原干扰。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00202_c686014843",
+              "expchunk_00203_99d2352238",
+              "expchunk_00208_336ff95a98"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-1-06 氯酸盐的氧化性》实验中，KClO₃ 与 Na₂SO₃ 作中性/酸性对比时，Na₂SO₃ 主要扮演什么角色？",
+            "options": [
+              {
+                "label": "A",
+                "text": "被 KClO₃ 氧化的还原剂"
+              },
+              {
+                "label": "B",
+                "text": "显示酸碱变化的指示剂"
+              },
+              {
+                "label": "C",
+                "text": "验证 Cl⁻ 的银盐试剂"
+              },
+              {
+                "label": "D",
+                "text": "萃取 I₂ 的有机溶剂"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "教材要求比较 KClO₃ 与 Na₂SO₃ 在中性和酸性条件下的反应，Na₂SO₃ 是被 KClO₃ 氧化的还原性试剂；反应差异用于说明 KClO₃ 的氧化性受介质酸碱性影响。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final",
+            "acid_choice_needs_interference_reasoning"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_1_06_Q015",
+        "source_review_id": "CHUNK1_19_1_06_Q015",
+        "source_question_index": 15,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-1-06 氯酸盐的氧化性》实验中，KClO₃、KI、CCl₄ 体系中的 CCl₄ 主要用于萃取生成的 I₂，便于观察有机相颜色。",
+        "options": [],
+        "answer": {
+          "value": true
+        },
+        "explanation": "教材要求在 KClO₃、KI 体系中加入 CCl₄ 并观察水相和有机相；酸化后若生成 I₂，I₂ 被 CCl₄ 萃取，有机相颜色变化更明显，因此该判断为真。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-4-7bed40a2"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_4_7bed40a2",
+          "ccl4_observation",
+          "observation",
+          "oxidation_property"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00202_c686014843",
+            "expchunk_00203_99d2352238",
+            "expchunk_00208_336ff95a98"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00028_a4c7b7c9ae"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "release 复核：本题考查 CCl₄ 在 KClO₃/KI 酸化观察中的萃取显示作用；canonical 给出加入 CCl₄ 并观察两相，I₂ 被有机相萃取的解释依赖 supporting theory：textbook_prose_00028_a4c7b7c9ae。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00202_c686014843",
+            "expchunk_00203_99d2352238",
+            "expchunk_00208_336ff95a98"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00028_a4c7b7c9ae"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00028_a4c7b7c9ae"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-1-06 氯酸盐的氧化性》实验中，KClO₃、KI、CCl₄ 体系中的 CCl₄ 主要用于萃取生成的 I₂，便于观察有机相颜色。",
+            "options": [],
+            "answer": {
+              "value": true
+            },
+            "explanation": "教材要求在 KClO₃、KI 体系中加入 CCl₄ 并观察水相和有机相；酸化后若生成 I₂，I₂ 被 CCl₄ 萃取，有机相颜色变化更明显，因此该判断为真。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00202_c686014843",
+              "expchunk_00203_99d2352238",
+              "expchunk_00208_336ff95a98"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_1_06_Q016",
+        "source_review_id": "CHUNK1_19_1_06_Q016",
+        "source_question_index": 16,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "KClO₃ 与浓盐酸反应后，用湿 KI-淀粉试纸检验逸出气体；试纸显蓝主要说明什么？",
+        "options": [
+          {
+            "label": "A",
+            "text": "逸出气体可氧化 I⁻ 生成 I₂"
+          },
+          {
+            "label": "B",
+            "text": "逸出气体是 H₂，能还原淀粉"
+          },
+          {
+            "label": "C",
+            "text": "K⁺ 与淀粉生成沉淀"
+          },
+          {
+            "label": "D",
+            "text": "CCl₄ 萃取 I₂ 才使试纸显蓝"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "KClO₃ 与浓盐酸反应逸出的 Cl₂ 具有氧化性，可使湿 KI-淀粉试纸中的 I⁻ 被氧化为 I₂，I₂ 与淀粉作用显蓝，因此试纸显蓝用于判断 Cl₂ 等氧化性气体生成。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-86b4f964"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chlorine_detection"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "逸出气体可氧化 I⁻ 生成 I₂",
+            "point_key": "candidate-1-86b4f964",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项解释了湿 KI-淀粉试纸检验 Cl₂ 的阳性机制：Cl₂ 氧化 I⁻，生成的 I₂ 使淀粉显蓝。"
+          },
+          {
+            "label": "B",
+            "text": "逸出气体是 H₂，能还原淀粉",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "H₂ 不是该反应检验的目标气体，也不能通过还原淀粉造成 KI-淀粉试纸显蓝。"
+          },
+          {
+            "label": "C",
+            "text": "K⁺ 与淀粉生成沉淀",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "试纸显蓝是碘-淀粉显色，不是 K⁺ 与淀粉的沉淀反应。"
+          },
+          {
+            "label": "D",
+            "text": "CCl₄ 萃取 I₂ 才使试纸显蓝",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "CCl₄ 用于另一组液相萃取观察；试纸检验 Cl₂ 时不依赖 CCl₄ 萃取。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00202_c686014843",
+            "expchunk_00203_99d2352238",
+            "expchunk_00208_336ff95a98"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "替换题针对终审原因：原判断题模板化；最终题要求解释湿 KI-淀粉试纸显蓝的检验机制，canonical 步骤给出该检验操作，显蓝机制由卤素氧化还原常识支撑。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00202_c686014843",
+            "expchunk_00203_99d2352238",
+            "expchunk_00208_336ff95a98"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-1-06 氯酸盐的氧化性》实验中，判断：介质影响为“Na₂SO₃ 只作酸碱指示剂”。",
+            "options": [],
+            "answer": {
+              "value": false
+            },
+            "explanation": "该说法与本实验事实不符；实验要求比较中性和酸性条件下的反应。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00202_c686014843",
+              "expchunk_00203_99d2352238",
+              "expchunk_00208_336ff95a98"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "KClO₃ 与浓盐酸反应后，用湿 KI-淀粉试纸检验逸出气体；试纸显蓝主要说明什么？",
+            "options": [
+              {
+                "label": "A",
+                "text": "逸出气体可氧化 I⁻ 生成 I₂"
+              },
+              {
+                "label": "B",
+                "text": "逸出气体是 H₂，能还原淀粉"
+              },
+              {
+                "label": "C",
+                "text": "K⁺ 与淀粉生成沉淀"
+              },
+              {
+                "label": "D",
+                "text": "CCl₄ 萃取 I₂ 才使试纸显蓝"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "KClO₃ 与浓盐酸反应逸出的 Cl₂ 具有氧化性，可使湿 KI-淀粉试纸中的 I⁻ 被氧化为 I₂，I₂ 与淀粉作用显蓝，因此试纸显蓝用于判断 Cl₂ 等氧化性气体生成。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final",
+            "templated_true_false_low_semantic_value"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_1_06_Q017",
+        "source_review_id": "CHUNK1_19_1_06_Q017",
+        "source_question_index": 17,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-1-06 氯酸盐的氧化性》实验中，KClO₃ 与 Na₂SO₃ 反应后的含氯产物可用 AgNO₃ 检验。",
+        "options": [],
+        "answer": {
+          "value": true
+        },
+        "explanation": "教材要求用 AgNO₃ 验证 KClO₃ 与 Na₂SO₃ 反应后的产物；若产物中含 Cl⁻，Ag⁺ 与 Cl⁻ 生成 AgCl 沉淀，因此该判断为真。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-15b87f0f"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_3_15b87f0f",
+          "oxidation_property"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00202_c686014843",
+            "expchunk_00203_99d2352238",
+            "expchunk_00208_336ff95a98"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00114_be4a779fba"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "release 复核：本判断题直接考查 AgNO₃ 对 KClO₃ 与 Na₂SO₃ 反应后含氯产物的验证；Ag⁺/Cl⁻ 生成 AgCl 的沉淀依据依赖 supporting theory：textbook_prose_00114_be4a779fba。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00202_c686014843",
+            "expchunk_00203_99d2352238",
+            "expchunk_00208_336ff95a98"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00114_be4a779fba"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00114_be4a779fba"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-1-06 氯酸盐的氧化性》实验中，KClO₃ 与 Na₂SO₃ 反应后的含氯产物可用 AgNO₃ 检验。",
+            "options": [],
+            "answer": {
+              "value": true
+            },
+            "explanation": "教材要求用 AgNO₃ 验证 KClO₃ 与 Na₂SO₃ 反应后的产物；若产物中含 Cl⁻，Ag⁺ 与 Cl⁻ 生成 AgCl 沉淀，因此该判断为真。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00202_c686014843",
+              "expchunk_00203_99d2352238",
+              "expchunk_00208_336ff95a98"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_1_06_Q018",
+        "source_review_id": "CHUNK1_19_1_06_Q018",
+        "source_question_index": 18,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "若误用 HCl 酸化 KClO₃、KI、CCl₄ 体系，最直接的干扰是什么？",
+        "options": [
+          {
+            "label": "A",
+            "text": "HCl 可与 KClO₃ 反应产生 Cl₂"
+          },
+          {
+            "label": "B",
+            "text": "HCl 不能提供 H⁺"
+          },
+          {
+            "label": "C",
+            "text": "HCl 会沉淀 K⁺"
+          },
+          {
+            "label": "D",
+            "text": "HCl 会使 CCl₄ 溶于水"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "教材先安排 KClO₃ 与浓盐酸反应并检验 Cl₂，说明 HCl 可被氯酸盐氧化；若把 HCl 用作 KClO₃-KI-CCl₄ 体系的酸化试剂，生成的 Cl₂ 也会氧化 I⁻，使碘生成不能只归因于 KClO₃ 在酸性条件下的氧化性。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-86b4f964",
+          "candidate-4-7bed40a2",
+          "candidate-5-9ebfbe89"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "acid_choice",
+          "interference_control"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "HCl 可与 KClO₃ 反应产生 Cl₂",
+            "point_key": "candidate-1-86b4f964",
+            "role": "correct_evidence",
+            "diagnostic_note": "KClO₃ 与浓盐酸生成 Cl₂ 的实验点说明 HCl 不是惰性酸化剂，Cl₂ 会额外氧化 I⁻。"
+          },
+          {
+            "label": "B",
+            "text": "HCl 不能提供 H⁺",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "HCl 的酸性并非问题所在；干扰来自 Cl⁻/HCl 参与氧化还原生成 Cl₂。"
+          },
+          {
+            "label": "C",
+            "text": "HCl 会沉淀 K⁺",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "K⁺ 在该题中是旁观离子，不能解释酸化试剂的氧化还原干扰。"
+          },
+          {
+            "label": "D",
+            "text": "HCl 会使 CCl₄ 溶于水",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "CCl₄ 的萃取相不会因为 HCl 选择而成为水溶性；该选项偏离了 Cl₂ 干扰。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00202_c686014843",
+            "expchunk_00203_99d2352238",
+            "expchunk_00208_336ff95a98"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00006_872b19158c"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "替换题针对终审原因：原判断题模板化；最终题把 KClO₃ + 浓盐酸生成 Cl₂ 的 canonical 操作与酸化试剂选择联系起来，说明 HCl 的氧化还原干扰。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00202_c686014843",
+            "expchunk_00203_99d2352238",
+            "expchunk_00208_336ff95a98"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00006_872b19158c"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-1-06 氯酸盐的氧化性》实验中，判断：KI-淀粉现象为“溶液立即生成红色络合物”。",
+            "options": [],
+            "answer": {
+              "value": false
+            },
+            "explanation": "该说法与本实验事实不符；酸性氯酸盐可氧化 I⁻ 生成 I₂。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00202_c686014843",
+              "expchunk_00203_99d2352238",
+              "expchunk_00208_336ff95a98"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "若误用 HCl 酸化 KClO₃、KI、CCl₄ 体系，最直接的干扰是什么？",
+            "options": [
+              {
+                "label": "A",
+                "text": "HCl 可与 KClO₃ 反应产生 Cl₂"
+              },
+              {
+                "label": "B",
+                "text": "HCl 不能提供 H⁺"
+              },
+              {
+                "label": "C",
+                "text": "HCl 会沉淀 K⁺"
+              },
+              {
+                "label": "D",
+                "text": "HCl 会使 CCl₄ 溶于水"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "教材先安排 KClO₃ 与浓盐酸反应并检验 Cl₂，说明 HCl 可被氯酸盐氧化；若把 HCl 用作 KClO₃-KI-CCl₄ 体系的酸化试剂，生成的 Cl₂ 也会氧化 I⁻，使碘生成不能只归因于 KClO₃ 在酸性条件下的氧化性。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final",
+            "templated_true_false_low_semantic_value"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_1_06_Q019",
+        "source_review_id": "CHUNK1_19_1_06_Q019",
+        "source_question_index": 19,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-1-06 氯酸盐的氧化性》实验中，不宜用盐酸酸化 KClO₃、KI、CCl₄ 体系，因为盐酸可能与氯酸盐反应产生 Cl₂ 并干扰 I₂ 判断。",
+        "options": [],
+        "answer": {
+          "value": true
+        },
+        "explanation": "教材先安排 KClO₃ 与浓盐酸反应并检验逸出的 Cl₂；若用盐酸酸化 KClO₃、KI、CCl₄ 体系，生成的 Cl₂ 也能氧化 I⁻ 生成 I₂，导致碘色来源不清，因此该判断为真。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-86b4f964",
+          "candidate-4-7bed40a2",
+          "candidate-5-9ebfbe89"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_1_86b4f964",
+          "point_candidate_5_9ebfbe89",
+          "oxidation_property"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00202_c686014843",
+            "expchunk_00203_99d2352238",
+            "expchunk_00208_336ff95a98"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "release 复核：本题需要联合 KClO₃ + 浓盐酸产生 Cl₂ 的证据和酸化试剂选择讨论；HCl 干扰 I⁻/I₂ 判断的解释依赖氧化还原理论，但核心证据由 canonical 操作支持。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00202_c686014843",
+            "expchunk_00203_99d2352238",
+            "expchunk_00208_336ff95a98"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-1-06 氯酸盐的氧化性》实验中，不宜用盐酸酸化 KClO₃、KI、CCl₄ 体系，因为盐酸可能与氯酸盐反应产生 Cl₂ 并干扰 I₂ 判断。",
+            "options": [],
+            "answer": {
+              "value": true
+            },
+            "explanation": "教材先安排 KClO₃ 与浓盐酸反应并检验逸出的 Cl₂；若用盐酸酸化 KClO₃、KI、CCl₄ 体系，生成的 Cl₂ 也能氧化 I⁻ 生成 I₂，导致碘色来源不清，因此该判断为真。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00202_c686014843",
+              "expchunk_00203_99d2352238",
+              "expchunk_00208_336ff95a98"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_1_06_Q020",
+        "source_review_id": "CHUNK1_19_1_06_Q020",
+        "source_question_index": 20,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "KClO₃ 与 Na₂SO₃ 在酸性条件反应后加入 AgNO₃，若出现 AgCl 沉淀，主要说明什么？",
+        "options": [
+          {
+            "label": "A",
+            "text": "产物中有 Cl⁻，支持 KClO₃ 被还原"
+          },
+          {
+            "label": "B",
+            "text": "AgNO₃ 是该反应的主要氧化剂"
+          },
+          {
+            "label": "C",
+            "text": "CCl₄ 参加生成 AgCl 沉淀"
+          },
+          {
+            "label": "D",
+            "text": "Na₂SO₃ 是颜色指示剂"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "教材要求用 AgNO₃ 验证 KClO₃ 与 Na₂SO₃ 反应后的产物；Ag⁺ 与 Cl⁻ 生成 AgCl 沉淀，说明产物中有 Cl⁻，从而支持 KClO₃ 在反应中被还原。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-f50a397f",
+          "candidate-3-15b87f0f"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "product_verification"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "产物中有 Cl⁻，支持 KClO₃ 被还原",
+            "point_key": "candidate-3-15b87f0f",
+            "role": "correct_evidence",
+            "diagnostic_note": "AgNO₃ 的验证对象是反应后的含氯产物；AgCl 沉淀指向 Cl⁻，与 KClO₃ 被还原相一致。"
+          },
+          {
+            "label": "B",
+            "text": "AgNO₃ 是该反应的主要氧化剂",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "AgNO₃ 是检验试剂而不是 KClO₃-Na₂SO₃ 反应中的氧化剂。"
+          },
+          {
+            "label": "C",
+            "text": "CCl₄ 参加生成 AgCl 沉淀",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "AgCl 沉淀来自 Ag⁺ 与 Cl⁻，CCl₄ 不在该产物验证反应中起沉淀作用。"
+          },
+          {
+            "label": "D",
+            "text": "Na₂SO₃ 是颜色指示剂",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "Na₂SO₃ 是还原性反应物，不是靠自身颜色变化来验证 Cl⁻ 产物。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00202_c686014843",
+            "expchunk_00203_99d2352238",
+            "expchunk_00208_336ff95a98"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "替换题针对终审原因：原判断题模板化；最终题聚焦 AgNO₃ 对 KClO₃ + Na₂SO₃ 反应后含氯产物的验证。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00202_c686014843",
+            "expchunk_00203_99d2352238",
+            "expchunk_00208_336ff95a98"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-1-06 氯酸盐的氧化性》实验中，判断：实验结论为“挥发性”。",
+            "options": [],
+            "answer": {
+              "value": false
+            },
+            "explanation": "该说法与本实验事实不符；I⁻ 被氧化为 I₂，体现氯酸盐氧化性。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00202_c686014843",
+              "expchunk_00203_99d2352238",
+              "expchunk_00208_336ff95a98"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "KClO₃ 与 Na₂SO₃ 在酸性条件反应后加入 AgNO₃，若出现 AgCl 沉淀，主要说明什么？",
+            "options": [
+              {
+                "label": "A",
+                "text": "产物中有 Cl⁻，支持 KClO₃ 被还原"
+              },
+              {
+                "label": "B",
+                "text": "AgNO₃ 是该反应的主要氧化剂"
+              },
+              {
+                "label": "C",
+                "text": "CCl₄ 参加生成 AgCl 沉淀"
+              },
+              {
+                "label": "D",
+                "text": "Na₂SO₃ 是颜色指示剂"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "教材要求用 AgNO₃ 验证 KClO₃ 与 Na₂SO₃ 反应后的产物；Ag⁺ 与 Cl⁻ 生成 AgCl 沉淀，说明产物中有 Cl⁻，从而支持 KClO₃ 在反应中被还原。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final",
+            "templated_true_false_low_semantic_value"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_1_06_Q021",
+        "source_review_id": "CHUNK1_19_1_06_Q021",
+        "source_question_index": 21,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "为什么也不宜用 HNO₃ 酸化 KClO₃、KI、CCl₄ 体系？",
+        "options": [
+          {
+            "label": "A",
+            "text": "HNO₃ 本身有氧化性，可能氧化 I⁻"
+          },
+          {
+            "label": "B",
+            "text": "HNO₃ 不能提供 H⁺"
+          },
+          {
+            "label": "C",
+            "text": "HNO₃ 会沉淀 K⁺"
+          },
+          {
+            "label": "D",
+            "text": "HNO₃ 会让 CCl₄ 溶于水"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "KClO₃-KI-CCl₄ 体系要判断酸性条件下 KClO₃ 是否氧化 I⁻ 生成 I₂；HNO₃ 本身具有氧化性，可能直接氧化 I⁻，会使碘生成来源不清，因此不宜作酸化试剂。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-4-7bed40a2",
+          "candidate-5-9ebfbe89"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "acid_choice",
+          "interference_control"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "HNO₃ 本身有氧化性，可能氧化 I⁻",
+            "point_key": "candidate-5-9ebfbe89",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接解释了不用 HNO₃ 的原因：它会提供除 KClO₃ 外的氧化来源，干扰 I₂ 生成判断。"
+          },
+          {
+            "label": "B",
+            "text": "HNO₃ 不能提供 H⁺",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "HNO₃ 能酸化溶液；排除它不是因为酸性不足。"
+          },
+          {
+            "label": "C",
+            "text": "HNO₃ 会沉淀 K⁺",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "K⁺ 不是该体系观察的沉淀对象，HNO₃ 干扰来自氧化性。"
+          },
+          {
+            "label": "D",
+            "text": "HNO₃ 会让 CCl₄ 溶于水",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "CCl₄ 仍用于萃取 I₂，酸化试剂选择的核心不是 CCl₄ 溶解性。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00202_c686014843",
+            "expchunk_00203_99d2352238",
+            "expchunk_00208_336ff95a98"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00006_872b19158c"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "替换题针对终审原因：原核心固体填空低深度且不适合手机端公式输入；最终题考查 HNO₃ 氧化性对 KClO₃-KI-CCl₄ 酸化观察的干扰，酸选择来自 video point，氧化性判断依赖 supporting theory。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00202_c686014843",
+            "expchunk_00203_99d2352238",
+            "expchunk_00208_336ff95a98"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00006_872b19158c"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-1-06 氯酸盐的氧化性》实验中，用于考察氯酸盐氧化性的核心固体是____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "KClO₃"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "教材中 KClO₃ 与浓盐酸反应逸出可用湿 KI-淀粉试纸检验的 Cl₂，另在 KClO₃、KI、CCl₄ 体系中用 H₂SO₄ 酸化后观察到碘进入有机相；两条证据都指向 KClO₃ 在相应条件下表现氧化性。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00202_c686014843",
+              "expchunk_00203_99d2352238",
+              "expchunk_00208_336ff95a98"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "为什么也不宜用 HNO₃ 酸化 KClO₃、KI、CCl₄ 体系？",
+            "options": [
+              {
+                "label": "A",
+                "text": "HNO₃ 本身有氧化性，可能氧化 I⁻"
+              },
+              {
+                "label": "B",
+                "text": "HNO₃ 不能提供 H⁺"
+              },
+              {
+                "label": "C",
+                "text": "HNO₃ 会沉淀 K⁺"
+              },
+              {
+                "label": "D",
+                "text": "HNO₃ 会让 CCl₄ 溶于水"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "KClO₃-KI-CCl₄ 体系要判断酸性条件下 KClO₃ 是否氧化 I⁻ 生成 I₂；HNO₃ 本身具有氧化性，可能直接氧化 I⁻，会使碘生成来源不清，因此不宜作酸化试剂。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_1_06_Q022",
+        "source_review_id": "CHUNK1_19_1_06_Q022",
+        "source_question_index": 22,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "KClO₃ 与浓盐酸反应逸出的气体能使湿 KI-淀粉试纸显蓝，主要说明该气体具有什么性质？",
+        "options": [
+          {
+            "label": "A",
+            "text": "氧化性"
+          },
+          {
+            "label": "B",
+            "text": "还原性"
+          },
+          {
+            "label": "C",
+            "text": "碱性"
+          },
+          {
+            "label": "D",
+            "text": "萃取性"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "湿 KI-淀粉试纸显蓝的关键是逸出气体将 I⁻ 氧化为 I₂，I₂ 与淀粉显色；因此该检验说明逸出气体具有氧化性。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-86b4f964"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chlorine_detection"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "氧化性",
+            "point_key": "candidate-1-86b4f964",
+            "role": "correct_evidence",
+            "diagnostic_note": "Cl₂ 使湿 KI-淀粉试纸显蓝，正是因为它氧化 I⁻ 生成 I₂。"
+          },
+          {
+            "label": "B",
+            "text": "还原性",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "还原性不能解释 I⁻ 被氧化生成 I₂ 的蓝色淀粉反应。"
+          },
+          {
+            "label": "C",
+            "text": "碱性",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该试纸不是用来判断逸出气体碱性的。"
+          },
+          {
+            "label": "D",
+            "text": "萃取性",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "萃取性属于 CCl₄ 等溶剂的操作角色，不是 Cl₂ 的检验性质。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00202_c686014843",
+            "expchunk_00203_99d2352238",
+            "expchunk_00208_336ff95a98"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "替换题针对终审原因：原 Cl₂ 填空不适合手机端公式输入；最终题考查湿 KI-淀粉显蓝背后的氧化性判断。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00202_c686014843",
+            "expchunk_00203_99d2352238",
+            "expchunk_00208_336ff95a98"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-1-06 氯酸盐的氧化性》实验中，KClO₃ 与浓盐酸作用时应检验逸出的____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "Cl₂"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "氯酸盐在浓盐酸中可生成氯气，需注意气味并检验气体。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00202_c686014843",
+              "expchunk_00203_99d2352238",
+              "expchunk_00208_336ff95a98"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "KClO₃ 与浓盐酸反应逸出的气体能使湿 KI-淀粉试纸显蓝，主要说明该气体具有什么性质？",
+            "options": [
+              {
+                "label": "A",
+                "text": "氧化性"
+              },
+              {
+                "label": "B",
+                "text": "还原性"
+              },
+              {
+                "label": "C",
+                "text": "碱性"
+              },
+              {
+                "label": "D",
+                "text": "萃取性"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "湿 KI-淀粉试纸显蓝的关键是逸出气体将 I⁻ 氧化为 I₂，I₂ 与淀粉显色；因此该检验说明逸出气体具有氧化性。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_1_06_Q023",
+        "source_review_id": "CHUNK1_19_1_06_Q023",
+        "source_question_index": 23,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-1-06 氯酸盐的氧化性》实验中，检验 KClO₃ 与浓盐酸反应逸出的 Cl₂，宜使用哪种湿试纸？",
+        "options": [
+          {
+            "label": "A",
+            "text": "湿碘化钾-淀粉试纸"
+          },
+          {
+            "label": "B",
+            "text": "湿醋酸铅试纸"
+          },
+          {
+            "label": "C",
+            "text": "干燥 pH 试纸"
+          },
+          {
+            "label": "D",
+            "text": "酚酞试纸"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "Cl₂ 具有氧化性，可使湿碘化钾-淀粉试纸中的 I⁻ 被氧化为 I₂，I₂ 与淀粉作用显蓝，因此该湿试纸适合检验逸出的 Cl₂。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-86b4f964"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_1_86b4f964",
+          "point_candidate_4_7bed40a2",
+          "ki_starch",
+          "oxidation_property"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "湿碘化钾-淀粉试纸",
+            "point_key": "candidate-1-86b4f964",
+            "role": "correct_evidence",
+            "diagnostic_note": "湿碘化钾-淀粉试纸能通过 I⁻ 被 Cl₂ 氧化生成 I₂、淀粉显蓝来检验该气体。"
+          },
+          {
+            "label": "B",
+            "text": "湿醋酸铅试纸",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "湿醋酸铅试纸用于硫化氢等气体检验，不能解释 Cl₂ 氧化 I⁻ 的显蓝反应。"
+          },
+          {
+            "label": "C",
+            "text": "干燥 pH 试纸",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "pH 试纸只能判断酸碱性，不能作为 Cl₂ 氧化性气体的特征检验。"
+          },
+          {
+            "label": "D",
+            "text": "酚酞试纸",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "酚酞用于酸碱指示，不用于检验 KClO₃ 与浓盐酸反应逸出的 Cl₂。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00202_c686014843",
+            "expchunk_00203_99d2352238",
+            "expchunk_00208_336ff95a98"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polish 终审：最终有效题为 original_question，题干、答案和解析可由本实验 canonical 文本/点位支撑；最终有效题只需 canonical 实验步骤、点位和题干选项证据即可支撑。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00202_c686014843",
+            "expchunk_00203_99d2352238",
+            "expchunk_00208_336ff95a98"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-1-06 氯酸盐的氧化性》实验中，检验 KClO₃ 与浓盐酸反应逸出的 Cl₂，宜使用哪种湿试纸？",
+            "options": [
+              {
+                "label": "A",
+                "text": "湿碘化钾-淀粉试纸"
+              },
+              {
+                "label": "B",
+                "text": "湿醋酸铅试纸"
+              },
+              {
+                "label": "C",
+                "text": "干燥 pH 试纸"
+              },
+              {
+                "label": "D",
+                "text": "酚酞试纸"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "Cl₂ 具有氧化性，可使湿碘化钾-淀粉试纸中的 I⁻ 被氧化为 I₂，I₂ 与淀粉作用显蓝，因此该湿试纸适合检验逸出的 Cl₂。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00202_c686014843",
+              "expchunk_00203_99d2352238",
+              "expchunk_00208_336ff95a98"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_1_06_Q024",
+        "source_review_id": "CHUNK1_19_1_06_Q024",
+        "source_question_index": 24,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "KClO₃、KI、CCl₄ 体系用 H₂SO₄ 酸化后，CCl₄ 层出现碘的颜色，主要说明什么？",
+        "options": [
+          {
+            "label": "A",
+            "text": "酸性条件下 KClO₃ 氧化 I⁻ 生成 I₂"
+          },
+          {
+            "label": "B",
+            "text": "CCl₄ 氧化 KI 生成 I₂"
+          },
+          {
+            "label": "C",
+            "text": "H₂SO₄ 被淀粉还原"
+          },
+          {
+            "label": "D",
+            "text": "K⁺ 与 I⁻ 形成有色沉淀"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "教材要求 KClO₃ 溶于水后加入 KI 和 CCl₄，再用 H₂SO₄ 酸化并观察相的变化；CCl₄ 层出现碘的颜色，说明酸性条件下 KClO₃ 将 I⁻ 氧化为 I₂，I₂ 被 CCl₄ 萃取到有机相。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-4-7bed40a2",
+          "candidate-5-9ebfbe89"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "acid_choice",
+          "interference_control"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "酸性条件下 KClO₃ 氧化 I⁻ 生成 I₂",
+            "point_key": "candidate-4-7bed40a2",
+            "role": "correct_evidence",
+            "diagnostic_note": "酸化后 CCl₄ 层呈碘色需要同时解释酸性 KClO₃ 的氧化作用和 CCl₄ 对 I₂ 的萃取。"
+          },
+          {
+            "label": "B",
+            "text": "CCl₄ 氧化 KI 生成 I₂",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "CCl₄ 只帮助观察 I₂，不是把 I⁻ 氧化成 I₂ 的试剂。"
+          },
+          {
+            "label": "C",
+            "text": "H₂SO₄ 被淀粉还原",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "H₂SO₄ 在这里提供酸性介质；淀粉是显色指示，不还原 H₂SO₄。"
+          },
+          {
+            "label": "D",
+            "text": "K⁺ 与 I⁻ 形成有色沉淀",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "实验观察的是 I₂ 在 CCl₄ 有机相中的颜色，不是 K⁺/I⁻ 沉淀。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00202_c686014843",
+            "expchunk_00203_99d2352238",
+            "expchunk_00208_336ff95a98"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "替换题针对终审原因：原 H₂SO₄ 填空低深度；最终题考查 KClO₃-KI-CCl₄ 体系酸化后有机相显碘色的现象解释。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00202_c686014843",
+            "expchunk_00203_99d2352238",
+            "expchunk_00208_336ff95a98"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-1-06 氯酸盐的氧化性》实验中，酸化 KClO₃、KI 和 CCl₄ 体系时，宜使用____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "H₂SO₄"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "硫酸提供酸性介质且较少引入氧化还原干扰。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00202_c686014843",
+              "expchunk_00203_99d2352238",
+              "expchunk_00208_336ff95a98"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "KClO₃、KI、CCl₄ 体系用 H₂SO₄ 酸化后，CCl₄ 层出现碘的颜色，主要说明什么？",
+            "options": [
+              {
+                "label": "A",
+                "text": "酸性条件下 KClO₃ 氧化 I⁻ 生成 I₂"
+              },
+              {
+                "label": "B",
+                "text": "CCl₄ 氧化 KI 生成 I₂"
+              },
+              {
+                "label": "C",
+                "text": "H₂SO₄ 被淀粉还原"
+              },
+              {
+                "label": "D",
+                "text": "K⁺ 与 I⁻ 形成有色沉淀"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "教材要求 KClO₃ 溶于水后加入 KI 和 CCl₄，再用 H₂SO₄ 酸化并观察相的变化；CCl₄ 层出现碘的颜色，说明酸性条件下 KClO₃ 将 I⁻ 氧化为 I₂，I₂ 被 CCl₄ 萃取到有机相。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_1_06_Q025",
+        "source_review_id": "CHUNK1_19_1_06_Q025",
+        "source_question_index": 25,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在 KClO₃、KI、CCl₄ 体系中，为什么不能把 CCl₄ 层显碘色解释为 CCl₄ 氧化 I⁻？",
+        "options": [
+          {
+            "label": "A",
+            "text": "CCl₄ 只萃取 I₂，氧化剂是酸性 KClO₃"
+          },
+          {
+            "label": "B",
+            "text": "CCl₄ 是把 I⁻ 氧化成 I₂ 的氧化剂"
+          },
+          {
+            "label": "C",
+            "text": "CCl₄ 提供酸性介质"
+          },
+          {
+            "label": "D",
+            "text": "CCl₄ 与 K⁺ 生成沉淀"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "CCl₄ 在该实验中是有机萃取相，用来富集并显示生成的 I₂；I⁻ 被氧化为 I₂ 的原因是 H₂SO₄ 酸化后 KClO₃ 的氧化性增强，而不是 CCl₄ 参与氧化反应。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-4-7bed40a2"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "extraction_role"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "CCl₄ 只萃取 I₂，氧化剂是酸性 KClO₃",
+            "point_key": "candidate-4-7bed40a2",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项把相变观察和氧化还原来源区分开：CCl₄ 帮助观察 I₂，酸性 KClO₃ 才是氧化 I⁻ 的原因。"
+          },
+          {
+            "label": "B",
+            "text": "CCl₄ 是把 I⁻ 氧化成 I₂ 的氧化剂",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项把萃取剂误认为氧化剂，和实验现象解释相反。"
+          },
+          {
+            "label": "C",
+            "text": "CCl₄ 提供酸性介质",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "H₂SO₄ 才提供酸性条件，CCl₄ 只作为有机相。"
+          },
+          {
+            "label": "D",
+            "text": "CCl₄ 与 K⁺ 生成沉淀",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "实验没有利用 CCl₄ 与 K⁺ 反应；有机相颜色来自 I₂。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00202_c686014843",
+            "expchunk_00203_99d2352238",
+            "expchunk_00208_336ff95a98"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "替换题针对终审原因：原 CCl₄ 填空低深度；最终题考查 CCl₄ 的萃取角色与酸性 KClO₃ 氧化作用的区分。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00202_c686014843",
+            "expchunk_00203_99d2352238",
+            "expchunk_00208_336ff95a98"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-1-06 氯酸盐的氧化性》实验中，加入____可萃取生成的 I₂，便于观察颜色。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "CCl₄"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "CCl₄ 常用于萃取卤素单质。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00202_c686014843",
+              "expchunk_00203_99d2352238",
+              "expchunk_00208_336ff95a98"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在 KClO₃、KI、CCl₄ 体系中，为什么不能把 CCl₄ 层显碘色解释为 CCl₄ 氧化 I⁻？",
+            "options": [
+              {
+                "label": "A",
+                "text": "CCl₄ 只萃取 I₂，氧化剂是酸性 KClO₃"
+              },
+              {
+                "label": "B",
+                "text": "CCl₄ 是把 I⁻ 氧化成 I₂ 的氧化剂"
+              },
+              {
+                "label": "C",
+                "text": "CCl₄ 提供酸性介质"
+              },
+              {
+                "label": "D",
+                "text": "CCl₄ 与 K⁺ 生成沉淀"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "CCl₄ 在该实验中是有机萃取相，用来富集并显示生成的 I₂；I⁻ 被氧化为 I₂ 的原因是 H₂SO₄ 酸化后 KClO₃ 的氧化性增强，而不是 CCl₄ 参与氧化反应。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_1_06_Q026",
+        "source_review_id": "CHUNK1_19_1_06_Q026",
+        "source_question_index": 26,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《19-1-06 氯酸盐的氧化性》实验中，KClO₃ 与 Na₂SO₃ 的中性/酸性对比说明其氧化性受____影响。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "介质酸碱性"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "教材要求比较饱和 KClO₃ 与 Na₂SO₃ 在中性和酸性条件下的反应差异；这种对比直接用于判断 KClO₃ 的氧化性受介质酸碱性影响。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-f50a397f"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_2_f50a397f",
+          "medium_effect",
+          "oxidation_property"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00202_c686014843",
+            "expchunk_00203_99d2352238",
+            "expchunk_00208_336ff95a98"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polish 终审：最终有效题为 original_question，题干、答案和解析可由本实验 canonical 文本/点位支撑；最终有效题只需 canonical 实验步骤、点位和题干选项证据即可支撑。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00202_c686014843",
+            "expchunk_00203_99d2352238",
+            "expchunk_00208_336ff95a98"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-1-06 氯酸盐的氧化性》实验中，KClO₃ 与 Na₂SO₃ 的中性/酸性对比说明其氧化性受____影响。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "介质酸碱性"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "教材要求比较饱和 KClO₃ 与 Na₂SO₃ 在中性和酸性条件下的反应差异；这种对比直接用于判断 KClO₃ 的氧化性受介质酸碱性影响。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00202_c686014843",
+              "expchunk_00203_99d2352238",
+              "expchunk_00208_336ff95a98"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_1_06_Q027",
+        "source_review_id": "CHUNK1_19_1_06_Q027",
+        "source_question_index": 27,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "验证 KClO₃ 与 Na₂SO₃ 反应产物中 Cl⁻ 时，选择 AgNO₃ 的依据是什么？",
+        "options": [
+          {
+            "label": "A",
+            "text": "Ag⁺ 与 Cl⁻ 生成 AgCl 沉淀"
+          },
+          {
+            "label": "B",
+            "text": "AgNO₃ 提供酸性介质"
+          },
+          {
+            "label": "C",
+            "text": "Ag⁺ 与 K⁺ 生成沉淀"
+          },
+          {
+            "label": "D",
+            "text": "AgNO₃ 萃取 I₂ 到有机相"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "教材要求用 AgNO₃ 验证 KClO₃ 与 Na₂SO₃ 反应后的产物；若产物含 Cl⁻，Ag⁺ 会与 Cl⁻ 生成 AgCl 沉淀，因此 AgNO₃ 可作为氯离子产物的检验试剂。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-15b87f0f"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "product_verification"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "Ag⁺ 与 Cl⁻ 生成 AgCl 沉淀",
+            "point_key": "candidate-3-15b87f0f",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项准确说明 AgNO₃ 验证含氯产物的沉淀依据。"
+          },
+          {
+            "label": "B",
+            "text": "AgNO₃ 提供酸性介质",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "AgNO₃ 的核心作用不是酸化，而是通过 Ag⁺ 检出 Cl⁻。"
+          },
+          {
+            "label": "C",
+            "text": "Ag⁺ 与 K⁺ 生成沉淀",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项把产物验证对象错换为 K⁺；本实验用 AgNO₃ 看 Cl⁻。"
+          },
+          {
+            "label": "D",
+            "text": "AgNO₃ 萃取 I₂ 到有机相",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "萃取 I₂ 是 CCl₄ 的观察作用，和 AgNO₃ 检出 Cl⁻ 无关。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00202_c686014843",
+            "expchunk_00203_99d2352238",
+            "expchunk_00208_336ff95a98"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "替换题针对终审原因：原 AgNO₃ 填空低深度且不适合手机端公式输入；最终题考查 AgNO₃ 验证 Cl⁻ 产物的沉淀依据。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00202_c686014843",
+            "expchunk_00203_99d2352238",
+            "expchunk_00208_336ff95a98"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-1-06 氯酸盐的氧化性》实验中，验证反应产物中 Cl⁻ 时可加入____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "AgNO₃"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "AgNO₃ 可与 Cl⁻ 生成 AgCl 沉淀。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00202_c686014843",
+              "expchunk_00203_99d2352238",
+              "expchunk_00208_336ff95a98"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "验证 KClO₃ 与 Na₂SO₃ 反应产物中 Cl⁻ 时，选择 AgNO₃ 的依据是什么？",
+            "options": [
+              {
+                "label": "A",
+                "text": "Ag⁺ 与 Cl⁻ 生成 AgCl 沉淀"
+              },
+              {
+                "label": "B",
+                "text": "AgNO₃ 提供酸性介质"
+              },
+              {
+                "label": "C",
+                "text": "Ag⁺ 与 K⁺ 生成沉淀"
+              },
+              {
+                "label": "D",
+                "text": "AgNO₃ 萃取 I₂ 到有机相"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "教材要求用 AgNO₃ 验证 KClO₃ 与 Na₂SO₃ 反应后的产物；若产物含 Cl⁻，Ag⁺ 会与 Cl⁻ 生成 AgCl 沉淀，因此 AgNO₃ 可作为氯离子产物的检验试剂。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_1_06_Q028",
+        "source_review_id": "CHUNK1_19_1_06_Q028",
+        "source_question_index": 28,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-1-06 氯酸盐的氧化性》实验中，湿 KI-淀粉试纸检验 Cl₂ 与 KClO₃/KI/CCl₄ 酸化实验的显色依据，哪项区分正确？",
+        "options": [
+          {
+            "label": "A",
+            "text": "湿 KI-淀粉试纸显蓝来自 I₂-淀粉显色；CCl₄ 层显碘色来自 I₂ 被有机相萃取"
+          },
+          {
+            "label": "B",
+            "text": "两者都说明 CCl₄ 把 I⁻ 氧化为 I₂"
+          },
+          {
+            "label": "C",
+            "text": "湿 KI-淀粉试纸显蓝说明 K⁺ 被还原"
+          },
+          {
+            "label": "D",
+            "text": "CCl₄ 层显色说明 AgCl 沉淀生成"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "湿 KI-淀粉试纸用于检验 KClO₃ 与浓盐酸反应逸出的 Cl₂，显蓝来自 Cl₂ 氧化 I⁻ 生成 I₂ 后与淀粉显色；KClO₃/KI/CCl₄ 体系酸化后，有机相显碘色则来自生成的 I₂ 被 CCl₄ 萃取。两者都涉及 I₂，但显色载体和实验情境不同。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-86b4f964",
+          "candidate-4-7bed40a2"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_1_86b4f964",
+          "point_candidate_4_7bed40a2",
+          "ki_starch",
+          "ccl4_observation",
+          "oxidation_property"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "湿 KI-淀粉试纸显蓝来自 I₂-淀粉显色；CCl₄ 层显碘色来自 I₂ 被有机相萃取",
+            "point_key": "candidate-1-86b4f964",
+            "role": "correct_evidence",
+            "diagnostic_note": "该项同时区分了两条证据：湿 KI-淀粉试纸的蓝色来自 I₂ 与淀粉显色，CCl₄ 层碘色来自 I₂ 被有机相萃取。"
+          },
+          {
+            "label": "B",
+            "text": "两者都说明 CCl₄ 把 I⁻ 氧化为 I₂",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "CCl₄ 只帮助萃取并显示 I₂，不是把 I⁻ 氧化为 I₂ 的氧化剂。"
+          },
+          {
+            "label": "C",
+            "text": "湿 KI-淀粉试纸显蓝说明 K⁺ 被还原",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "湿 KI-淀粉试纸显蓝与 I⁻ 被氧化、I₂ 与淀粉显色有关，K⁺ 不是该检验的反应核心。"
+          },
+          {
+            "label": "D",
+            "text": "CCl₄ 层显色说明 AgCl 沉淀生成",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "AgCl 沉淀属于 AgNO₃ 验证含氯产物的证据，不是 KI/CCl₄ 酸化体系中有机相显色的原因。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00202_c686014843",
+            "expchunk_00203_99d2352238",
+            "expchunk_00208_336ff95a98"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "release 复核：原填空只问淀粉显蓝，低深度且与 CCl₄ 观察点混淆；最终题改为区分湿 KI-淀粉试纸显蓝和 CCl₄ 层显碘色两种证据，依赖 candidate-1 与 candidate-4。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00202_c686014843",
+            "expchunk_00203_99d2352238",
+            "expchunk_00208_336ff95a98"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-1-06 氯酸盐的氧化性》实验中，湿 KI-淀粉试纸检验 Cl₂ 与 KClO₃/KI/CCl₄ 酸化实验的显色依据，哪项区分正确？",
+            "options": [
+              {
+                "label": "A",
+                "text": "湿 KI-淀粉试纸显蓝来自 I₂-淀粉显色；CCl₄ 层显碘色来自 I₂ 被有机相萃取"
+              },
+              {
+                "label": "B",
+                "text": "两者都说明 CCl₄ 把 I⁻ 氧化为 I₂"
+              },
+              {
+                "label": "C",
+                "text": "湿 KI-淀粉试纸显蓝说明 K⁺ 被还原"
+              },
+              {
+                "label": "D",
+                "text": "CCl₄ 层显色说明 AgCl 沉淀生成"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "湿 KI-淀粉试纸用于检验 KClO₃ 与浓盐酸反应逸出的 Cl₂，显蓝来自 Cl₂ 氧化 I⁻ 生成 I₂ 后与淀粉显色；KClO₃/KI/CCl₄ 体系酸化后，有机相显碘色则来自生成的 I₂ 被 CCl₄ 萃取。两者都涉及 I₂，但显色载体和实验情境不同。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00202_c686014843",
+              "expchunk_00203_99d2352238",
+              "expchunk_00208_336ff95a98"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_1_06_Q029",
+        "source_review_id": "CHUNK1_19_1_06_Q029",
+        "source_question_index": 29,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-1-06 氯酸盐的氧化性》实验中，酸化 KClO₃、KI、CCl₄ 体系时，哪种酸不宜使用，因为它可能与氯酸盐反应产生 Cl₂ 干扰？",
+        "options": [
+          {
+            "label": "A",
+            "text": "硫酸"
+          },
+          {
+            "label": "B",
+            "text": "盐酸"
+          },
+          {
+            "label": "C",
+            "text": "稀醋酸"
+          },
+          {
+            "label": "D",
+            "text": "碳酸"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "盐酸中的 Cl⁻/HCl 可被 KClO₃ 氧化产生 Cl₂，而 Cl₂ 也能氧化 I⁻ 生成 I₂，会干扰对酸性 KClO₃ 氧化作用的判断；因此该体系应避免用盐酸酸化。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-86b4f964",
+          "candidate-4-7bed40a2",
+          "candidate-5-9ebfbe89"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_1_86b4f964",
+          "point_candidate_5_9ebfbe89",
+          "acidification",
+          "oxidation_property"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "硫酸",
+            "point_key": "candidate-5-9ebfbe89",
+            "role": "distractor_misconception",
+            "diagnostic_note": "H₂SO₄ 是该 KI/CCl₄ 体系适合采用的酸化试剂，不会像盐酸那样引入 Cl₂ 干扰。"
+          },
+          {
+            "label": "B",
+            "text": "盐酸",
+            "point_key": "candidate-1-86b4f964",
+            "role": "correct_evidence",
+            "diagnostic_note": "KClO₃ 与浓盐酸能产生 Cl₂；若用盐酸酸化 KI/CCl₄ 体系，Cl₂ 会额外氧化 I⁻，造成干扰。"
+          },
+          {
+            "label": "C",
+            "text": "稀醋酸",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "稀醋酸不是教材指定的酸化试剂，也不是本题所说能与氯酸盐生成 Cl₂ 的干扰来源。"
+          },
+          {
+            "label": "D",
+            "text": "碳酸",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "碳酸不对应教材中的酸化选择，也不能解释盐酸与氯酸盐产生 Cl₂ 的干扰。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00202_c686014843",
+            "expchunk_00203_99d2352238",
+            "expchunk_00208_336ff95a98"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polish 终审：最终有效题为 original_question，题干、答案和解析可由本实验 canonical 文本/点位支撑；最终有效题只需 canonical 实验步骤、点位和题干选项证据即可支撑。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00202_c686014843",
+            "expchunk_00203_99d2352238",
+            "expchunk_00208_336ff95a98"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-1-06 氯酸盐的氧化性》实验中，酸化 KClO₃、KI、CCl₄ 体系时，哪种酸不宜使用，因为它可能与氯酸盐反应产生 Cl₂ 干扰？",
+            "options": [
+              {
+                "label": "A",
+                "text": "硫酸"
+              },
+              {
+                "label": "B",
+                "text": "盐酸"
+              },
+              {
+                "label": "C",
+                "text": "稀醋酸"
+              },
+              {
+                "label": "D",
+                "text": "碳酸"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "盐酸中的 Cl⁻/HCl 可被 KClO₃ 氧化产生 Cl₂，而 Cl₂ 也能氧化 I⁻ 生成 I₂，会干扰对酸性 KClO₃ 氧化作用的判断；因此该体系应避免用盐酸酸化。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00202_c686014843",
+              "expchunk_00203_99d2352238",
+              "expchunk_00208_336ff95a98"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_1_06_Q030",
+        "source_review_id": "CHUNK1_19_1_06_Q030",
+        "source_question_index": 30,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-1-06 氯酸盐的氧化性》实验中，酸性 KClO₃ 使 I⁻ 生成 I₂ 并在 CCl₄ 层显碘色，这一证据应如何理解？",
+        "options": [
+          {
+            "label": "A",
+            "text": "KClO₃ 作氧化剂，使 I⁻ 被氧化为 I₂"
+          },
+          {
+            "label": "B",
+            "text": "CCl₄ 作氧化剂，使 I⁻ 被氧化为 I₂"
+          },
+          {
+            "label": "C",
+            "text": "K⁺ 被还原后进入 CCl₄ 层"
+          },
+          {
+            "label": "D",
+            "text": "AgNO₃ 使 I₂ 进入 CCl₄ 层"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "KClO₃、KI、CCl₄ 体系酸化后出现碘色，说明 I⁻ 被氧化为 I₂ 并被 CCl₄ 萃取；该氧化过程由酸性条件下的 KClO₃ 提供氧化作用，而 CCl₄ 只是显示 I₂ 的有机相。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-4-7bed40a2"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_4_7bed40a2",
+          "oxidation_property"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "KClO₃ 作氧化剂，使 I⁻ 被氧化为 I₂",
+            "point_key": "candidate-4-7bed40a2",
+            "role": "correct_evidence",
+            "diagnostic_note": "酸化后的 KClO₃/KI/CCl₄ 体系出现碘色，说明 I⁻ 被氧化为 I₂，KClO₃ 是提供氧化作用的物质。"
+          },
+          {
+            "label": "B",
+            "text": "CCl₄ 作氧化剂，使 I⁻ 被氧化为 I₂",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "CCl₄ 在该实验中是有机萃取相，帮助观察 I₂ 的颜色，不是氧化 I⁻ 的试剂。"
+          },
+          {
+            "label": "C",
+            "text": "K⁺ 被还原后进入 CCl₄ 层",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "K⁺ 是旁观离子，不是酸化后有机相显碘色的氧化还原主体。"
+          },
+          {
+            "label": "D",
+            "text": "AgNO₃ 使 I₂ 进入 CCl₄ 层",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "AgNO₃ 用于另一组含氯产物验证，不参与 KClO₃/KI/CCl₄ 酸化显碘色。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00202_c686014843",
+            "expchunk_00203_99d2352238",
+            "expchunk_00208_336ff95a98"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "release 复核：原填空只要求填写“氧化性”，低深度；最终题要求根据酸化 KClO₃/KI/CCl₄ 后 I₂ 进入有机相的证据判断 KClO₃ 作氧化剂，canonical 操作提供现象，氧化剂/还原剂表述依赖基础氧化还原理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00202_c686014843",
+            "expchunk_00203_99d2352238",
+            "expchunk_00208_336ff95a98"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-1-06 氯酸盐的氧化性》实验中，酸性 KClO₃ 使 I⁻ 生成 I₂ 并在 CCl₄ 层显碘色，这一证据应如何理解？",
+            "options": [
+              {
+                "label": "A",
+                "text": "KClO₃ 作氧化剂，使 I⁻ 被氧化为 I₂"
+              },
+              {
+                "label": "B",
+                "text": "CCl₄ 作氧化剂，使 I⁻ 被氧化为 I₂"
+              },
+              {
+                "label": "C",
+                "text": "K⁺ 被还原后进入 CCl₄ 层"
+              },
+              {
+                "label": "D",
+                "text": "AgNO₃ 使 I₂ 进入 CCl₄ 层"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "KClO₃、KI、CCl₄ 体系酸化后出现碘色，说明 I⁻ 被氧化为 I₂ 并被 CCl₄ 萃取；该氧化过程由酸性条件下的 KClO₃ 提供氧化作用，而 CCl₄ 只是显示 I₂ 的有机相。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00202_c686014843",
+              "expchunk_00203_99d2352238",
+              "expchunk_00208_336ff95a98"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound"
+          ]
+        }
+      }
+    ]
+  }
+}

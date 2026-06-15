@@ -1,0 +1,715 @@
+{
+  "metadata": {
+    "schema_version": "small_packet_rebuilt_v1",
+    "artifact_type": "manual_semantic_rebuilt_question_package",
+    "chunk": "chunk_2",
+    "source_packet": "E:\\chemistry-admin\\artifacts\\point-aware-question-bank\\reviewed_old_bank_chunks\\slim_release_work_v1\\semantic_work_packets\\chunk_2\\19-4-02.json",
+    "experiment_code": "19-4-02",
+    "experiment_title": "亚硝酸的氧化性",
+    "question_count": 30,
+    "evidence_policy": [
+      "Each question was manually compared against the source packet, video points, canonical experiment evidence, and supporting theory where required.",
+      "RAG source text is not embedded in full; only locators and concise source summaries are stored.",
+      "Inherited chunk ids are not treated as proof.",
+      "Formula or symbolic fill blanks are avoided; retained fill blanks use short ordinary Chinese answers."
+    ],
+    "rag_source_dir": "E:\\chemistry-rag\\data\\rag_ready",
+    "release_json_policy": "Do not modify chunk_X_release_final_v1.json directly; this package is a merge input only."
+  },
+  "video_points": [
+    {"point_key": "candidate-1-88b9b794", "point_title": "酸性 KI 溶液 + NaNO₂"},
+    {"point_key": "candidate-2-9aa26776", "point_title": "微热后观察 I₂ 生成及颜色变化"}
+  ],
+  "evidence_sources": {
+    "canonical_experiment_chunks": [
+      {
+        "chunk_id": "expchunk_00242_2da7ff3435",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+        "line_number": 255,
+        "evidence_role": "Canonical experiment: acidified KI solution is treated with sodium nitrite solution, then the tube is warmed gently to observe product color and state changes."
+      }
+    ],
+    "supporting_theory_chunks": [
+      {
+        "chunk_id": "textbook_prose_00547_2a1f998120",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+        "line_number": 857,
+        "evidence_role": "Theory: nitrous acid and nitrite can show oxidizing behavior in acidic solution, including oxidation of iodide to iodine."
+      },
+      {
+        "chunk_id": "textbook_prose_00548_e41b91cedc",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+        "line_number": 858,
+        "evidence_role": "Theory: gives the acidic iodide oxidation reaction and explains why nitrous acid oxidizes iodide, with NO as a common reduction product."
+      }
+    ]
+  },
+  "questions": [
+    {
+      "question_id": "REBUILT_CH2_19_4_02_Q001",
+      "question_type": "single_choice",
+      "stem": "本实验开始时，哪组体系最符合第一步操作？",
+      "options": [
+        {"label": "A", "text": "酸化后的 KI 溶液中加入 NaNO₂ 溶液"},
+        {"label": "B", "text": "冷却 NaNO₂ 溶液后加入 H₂SO₄，观察分解"},
+        {"label": "C", "text": "酸化 KMnO₄ 溶液后滴加 NaNO₂"},
+        {"label": "D", "text": "NaNO₂ 溶液中加入萘胺和对氨基苯磺酸"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "该操作是酸性 KI 溶液与 NaNO₂ 溶液反应，用来观察亚硝酸的氧化性。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-1-88b9b794"],
+      "secondary_point_keys": ["candidate-2-9aa26776"],
+      "coverage_tags": ["starting_operation", "packet_scope", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-1-88b9b794", "role": "correct_evidence", "diagnostic_note": "直接对应酸性 KI 加 NaNO₂。"},
+        {"label": "B", "point_key": null, "role": "distractor_previous_packet", "diagnostic_note": "这是亚硝酸生成与分解。"},
+        {"label": "C", "point_key": null, "role": "distractor_same_chunk_other_subpart", "diagnostic_note": "这是亚硝酸还原性实验。"},
+        {"label": "D", "point_key": null, "role": "distractor_same_chunk_other_subpart", "diagnostic_note": "这是亚硝酸根检验。"}
+      ],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00242_2da7ff3435"], "supporting_theory_chunk_ids": [], "evidence_sufficient": true, "supporting_theory_required": false, "reviewer_note": "操作由 canonical 实验 chunk 直接支撑。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_02_Q002",
+      "question_type": "single_choice",
+      "stem": "酸化 KI 溶液时，教材实验使用的酸性介质是哪一种？",
+      "options": [
+        {"label": "A", "text": "H₂SO₄ 溶液"},
+        {"label": "B", "text": "HCl 溶液"},
+        {"label": "C", "text": "NaOH 溶液"},
+        {"label": "D", "text": "氨水"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "教材实验明确写到 KI 溶液用 H₂SO₄ 溶液酸化，再加入 NaNO₂ 溶液。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-1-88b9b794"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["acid_medium", "operation_detail"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-1-88b9b794", "role": "correct_evidence", "diagnostic_note": "对应硫酸酸化。"},
+        {"label": "B", "point_key": null, "role": "distractor_wrong_acid", "diagnostic_note": "教材未用盐酸。"},
+        {"label": "C", "point_key": null, "role": "distractor_wrong_medium", "diagnostic_note": "NaOH 是碱，不是酸化介质。"},
+        {"label": "D", "point_key": null, "role": "distractor_wrong_medium", "diagnostic_note": "氨水不是本实验介质。"}
+      ],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00242_2da7ff3435"], "supporting_theory_chunk_ids": [], "evidence_sufficient": true, "supporting_theory_required": false, "reviewer_note": "酸化试剂来自实验操作。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_02_Q003",
+      "question_type": "single_choice",
+      "stem": "加入 NaNO₂ 溶液后，教材还要求做哪种温和操作来继续观察变化？",
+      "options": [
+        {"label": "A", "text": "微热试管"},
+        {"label": "B", "text": "强烈蒸干"},
+        {"label": "C", "text": "迅速过滤沉淀"},
+        {"label": "D", "text": "加入大量固体碱"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "第二步观察和教材都强调微热后继续观察颜色和状态变化。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-2-9aa26776"],
+      "secondary_point_keys": ["candidate-1-88b9b794"],
+      "coverage_tags": ["warming_step", "observation", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-2-9aa26776", "role": "correct_evidence", "diagnostic_note": "直接对应微热观察。"},
+        {"label": "B", "point_key": null, "role": "distractor_unsafe_operation", "diagnostic_note": "强烈蒸干不是教材要求。"},
+        {"label": "C", "point_key": null, "role": "distractor_wrong_operation", "diagnostic_note": "这里不是沉淀过滤。"},
+        {"label": "D", "point_key": null, "role": "distractor_wrong_medium", "diagnostic_note": "不要求加入大量碱。"}
+      ],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00242_2da7ff3435"], "supporting_theory_chunk_ids": [], "evidence_sufficient": true, "supporting_theory_required": false, "reviewer_note": "微热操作来自点位 2 和教材。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_02_Q004",
+      "question_type": "single_choice",
+      "stem": "在酸性 KI 体系中，亚硝酸表现氧化性的关键在于它使哪种离子发生氧化？",
+      "options": [
+        {"label": "A", "text": "I⁻"},
+        {"label": "B", "text": "K⁺"},
+        {"label": "C", "text": "SO₄²⁻"},
+        {"label": "D", "text": "Na⁺"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "理论证据说明酸性条件下 HNO₂ 能把 I⁻ 氧化为碘单质，这正是氧化性的判断依据。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-1-88b9b794"],
+      "secondary_point_keys": ["candidate-2-9aa26776"],
+      "coverage_tags": ["oxidized_species", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-1-88b9b794", "role": "correct_evidence", "diagnostic_note": "KI 提供 I⁻。"},
+        {"label": "B", "point_key": "candidate-1-88b9b794", "role": "near_miss_counterion", "diagnostic_note": "K⁺ 是旁观离子。"},
+        {"label": "C", "point_key": null, "role": "distractor_counterion", "diagnostic_note": "硫酸根不是被氧化对象。"},
+        {"label": "D", "point_key": null, "role": "distractor_counterion", "diagnostic_note": "Na⁺ 不是被氧化对象。"}
+      ],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00242_2da7ff3435"], "supporting_theory_chunk_ids": ["textbook_prose_00547_2a1f998120", "textbook_prose_00548_e41b91cedc"], "evidence_sufficient": true, "supporting_theory_required": true, "reviewer_note": "被氧化离子由理论 chunk 明确支撑。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_02_Q005",
+      "question_type": "single_choice",
+      "stem": "I⁻ 被氧化后的目标产物应怎样表述最合适？",
+      "options": [
+        {"label": "A", "text": "碘单质"},
+        {"label": "B", "text": "氨气"},
+        {"label": "C", "text": "硝酸根"},
+        {"label": "D", "text": "硫单质"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "酸性亚硝酸能把 I⁻ 氧化成碘单质；微热后的颜色变化正围绕这一产物展开。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-2-9aa26776"],
+      "secondary_point_keys": ["candidate-1-88b9b794"],
+      "coverage_tags": ["iodine_product", "observation", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-2-9aa26776", "role": "correct_evidence", "diagnostic_note": "对应碘生成和颜色变化。"},
+        {"label": "B", "point_key": null, "role": "distractor_other_subsection", "diagnostic_note": "氨气属于铵盐实验。"},
+        {"label": "C", "point_key": null, "role": "distractor_wrong_product", "diagnostic_note": "不是碘离子的氧化产物。"},
+        {"label": "D", "point_key": null, "role": "distractor_wrong_element", "diagnostic_note": "硫单质不在本实验证据中。"}
+      ],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00242_2da7ff3435"], "supporting_theory_chunk_ids": ["textbook_prose_00547_2a1f998120", "textbook_prose_00548_e41b91cedc"], "evidence_sufficient": true, "supporting_theory_required": true, "reviewer_note": "碘单质由理论和观察点共同支撑。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_02_Q006",
+      "question_type": "single_choice",
+      "stem": "本实验最直接体现 HNO₂ 的哪一种性质？",
+      "options": [
+        {"label": "A", "text": "氧化性"},
+        {"label": "B", "text": "强碱性"},
+        {"label": "C", "text": "配位性"},
+        {"label": "D", "text": "挥发性盐析"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "HNO₂ 在酸性体系中氧化 I⁻，因此该实验用于体现亚硝酸的氧化性。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-1-88b9b794", "candidate-2-9aa26776"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["property_judgment", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-1-88b9b794", "role": "correct_evidence", "diagnostic_note": "操作和现象共同支持氧化性。"},
+        {"label": "B", "point_key": null, "role": "distractor_wrong_property", "diagnostic_note": "体系是酸性。"},
+        {"label": "C", "point_key": null, "role": "distractor_wrong_property", "diagnostic_note": "没有配位证据。"},
+        {"label": "D", "point_key": null, "role": "distractor_wrong_property", "diagnostic_note": "不是盐析实验。"}
+      ],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00242_2da7ff3435"], "supporting_theory_chunk_ids": ["textbook_prose_00547_2a1f998120", "textbook_prose_00548_e41b91cedc"], "evidence_sufficient": true, "supporting_theory_required": true, "reviewer_note": "性质判断依赖理论说明。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_02_Q007",
+      "question_type": "single_choice",
+      "stem": "为什么本实验不用“检验 NO₃⁻”来概括？",
+      "options": [
+        {"label": "A", "text": "实验核心是 HNO₂ 氧化 I⁻ 生成碘"},
+        {"label": "B", "text": "实验核心是制备氮气"},
+        {"label": "C", "text": "实验核心是生成白色沉淀"},
+        {"label": "D", "text": "实验核心是测定溶液密度"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "本实验的观察步骤和理论证据都围绕亚硝酸在酸性 KI 体系中的氧化作用，不是硝酸根检验。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-1-88b9b794", "candidate-2-9aa26776"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["scope_boundary", "property_judgment", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-1-88b9b794", "role": "correct_scope", "diagnostic_note": "直接对应本实验目标。"},
+        {"label": "B", "point_key": null, "role": "distractor_other_thinking_question", "diagnostic_note": "制氮气属于思考题范围，不是本点位。"},
+        {"label": "C", "point_key": null, "role": "distractor_wrong_observation", "diagnostic_note": "没有白色沉淀核心现象。"},
+        {"label": "D", "point_key": null, "role": "distractor_unrelated", "diagnostic_note": "密度测定无关。"}
+      ],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00242_2da7ff3435"], "supporting_theory_chunk_ids": ["textbook_prose_00547_2a1f998120"], "evidence_sufficient": true, "supporting_theory_required": true, "reviewer_note": "用于排除错误题目范围。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_02_Q008",
+      "question_type": "single_choice",
+      "stem": "从氧化还原角度看，HNO₂ 在本实验中扮演什么角色？",
+      "options": [
+        {"label": "A", "text": "氧化剂"},
+        {"label": "B", "text": "还原剂"},
+        {"label": "C", "text": "惰性溶剂"},
+        {"label": "D", "text": "沉淀剂"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "它使 I⁻ 被氧化为碘单质，因此 HNO₂ 在该判断中是氧化剂。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-1-88b9b794", "candidate-2-9aa26776"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["redox_role", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-1-88b9b794", "role": "correct_evidence", "diagnostic_note": "由 I⁻ 被氧化判断。"},
+        {"label": "B", "point_key": null, "role": "distractor_opposite_role", "diagnostic_note": "本实验考氧化性，不是还原性点位。"},
+        {"label": "C", "point_key": null, "role": "distractor_wrong_role", "diagnostic_note": "HNO₂ 参与氧化还原。"},
+        {"label": "D", "point_key": null, "role": "distractor_wrong_role", "diagnostic_note": "没有沉淀反应作为依据。"}
+      ],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00242_2da7ff3435"], "supporting_theory_chunk_ids": ["textbook_prose_00547_2a1f998120", "textbook_prose_00548_e41b91cedc"], "evidence_sufficient": true, "supporting_theory_required": true, "reviewer_note": "氧化剂角色由理论支撑。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_02_Q009",
+      "question_type": "single_choice",
+      "stem": "下列哪项最能作为“亚硝酸有氧化性”的实验判据？",
+      "options": [
+        {"label": "A", "text": "酸性 KI 中出现与碘生成相关的颜色变化"},
+        {"label": "B", "text": "试管中完全没有变化"},
+        {"label": "C", "text": "K⁺ 被还原为金属钾"},
+        {"label": "D", "text": "硫酸根变成硫单质"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "酸性亚硝酸把 I⁻ 氧化为碘，观察碘生成相关的颜色变化就是直接判据。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-2-9aa26776"],
+      "secondary_point_keys": ["candidate-1-88b9b794"],
+      "coverage_tags": ["direct_evidence", "color_change", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-2-9aa26776", "role": "correct_evidence", "diagnostic_note": "与微热后观察颜色变化相符。"},
+        {"label": "B", "point_key": null, "role": "distractor_contradiction", "diagnostic_note": "实验要求观察反应和变化。"},
+        {"label": "C", "point_key": null, "role": "distractor_unreasonable_redox", "diagnostic_note": "K⁺ 不是被还原对象。"},
+        {"label": "D", "point_key": null, "role": "distractor_wrong_species", "diagnostic_note": "硫酸根不是该判据。"}
+      ],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00242_2da7ff3435"], "supporting_theory_chunk_ids": ["textbook_prose_00547_2a1f998120", "textbook_prose_00548_e41b91cedc"], "evidence_sufficient": true, "supporting_theory_required": true, "reviewer_note": "判据由实验观察与理论共同支撑。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_02_Q010",
+      "question_type": "single_choice",
+      "stem": "与本实验相比，哪一项属于同一教材段的相邻实验而不应混入？",
+      "options": [
+        {"label": "A", "text": "酸化 KMnO₄ 溶液后滴加 NaNO₂"},
+        {"label": "B", "text": "酸化 KI 后加入 NaNO₂"},
+        {"label": "C", "text": "微热试管观察变化"},
+        {"label": "D", "text": "判断碘单质生成"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "酸化 KMnO₄ 对应亚硝酸的还原性实验，不属于酸性 KI 氧化 I⁻ 的两个观察步骤。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-1-88b9b794", "candidate-2-9aa26776"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["packet_scope", "adjacent_distractor", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": null, "role": "correct_scope_exclusion", "diagnostic_note": "同一教材段相邻小项，非本实验。"},
+        {"label": "B", "point_key": "candidate-1-88b9b794", "role": "packet_point", "diagnostic_note": "这是本实验起始操作。"},
+        {"label": "C", "point_key": "candidate-2-9aa26776", "role": "packet_point", "diagnostic_note": "这是本实验后续操作。"},
+        {"label": "D", "point_key": "candidate-2-9aa26776", "role": "packet_point", "diagnostic_note": "这是本实验观察目标。"}
+      ],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00242_2da7ff3435"], "supporting_theory_chunk_ids": [], "evidence_sufficient": true, "supporting_theory_required": false, "reviewer_note": "人工限定视频点位，避免 chunk 过宽。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_02_Q011",
+      "question_type": "true_false",
+      "stem": "酸性 KI 中加入 NaNO₂ 可以体现 HNO₂ 对 I⁻ 的氧化作用。",
+      "answer": {"value": true},
+      "explanation": "酸性条件下 NaNO₂ 生成的 HNO₂ 可氧化 I⁻，生成碘单质。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-1-88b9b794", "candidate-2-9aa26776"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["oxidizing_property", "true_false", "multi_point"],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00242_2da7ff3435"], "supporting_theory_chunk_ids": ["textbook_prose_00547_2a1f998120", "textbook_prose_00548_e41b91cedc"], "evidence_sufficient": true, "supporting_theory_required": true, "reviewer_note": "实验与理论一致。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_02_Q012",
+      "question_type": "true_false",
+      "stem": "本实验中被氧化的主要对象是 K⁺。",
+      "answer": {"value": false},
+      "explanation": "KI 中参与氧化的是 I⁻，K⁺ 只是旁观离子。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-1-88b9b794"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["oxidized_species", "true_false"],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00242_2da7ff3435"], "supporting_theory_chunk_ids": ["textbook_prose_00547_2a1f998120", "textbook_prose_00548_e41b91cedc"], "evidence_sufficient": true, "supporting_theory_required": true, "reviewer_note": "被氧化离子由理论反应支撑。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_02_Q013",
+      "question_type": "true_false",
+      "stem": "微热观察属于本实验的第二个观察步骤。",
+      "answer": {"value": true},
+      "explanation": "第二个观察步骤明确是微热后观察碘生成及颜色变化。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-2-9aa26776"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["point_binding", "true_false"],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00242_2da7ff3435"], "supporting_theory_chunk_ids": [], "evidence_sufficient": true, "supporting_theory_required": false, "reviewer_note": "点位标题直接支撑。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_02_Q014",
+      "question_type": "true_false",
+      "stem": "判断亚硝酸氧化性时，观察到碘生成比观察 K⁺ 变化更有意义。",
+      "answer": {"value": true},
+      "explanation": "氧化还原变化发生在 I⁻ 到碘单质的转化上，K⁺ 不提供这个判据。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-1-88b9b794", "candidate-2-9aa26776"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["direct_evidence", "true_false", "multi_point"],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00242_2da7ff3435"], "supporting_theory_chunk_ids": ["textbook_prose_00547_2a1f998120", "textbook_prose_00548_e41b91cedc"], "evidence_sufficient": true, "supporting_theory_required": true, "reviewer_note": "该判断依赖理论和观察。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_02_Q015",
+      "question_type": "true_false",
+      "stem": "强烈蒸干是本实验观察碘生成的规范步骤。",
+      "answer": {"value": false},
+      "explanation": "教材要求的是微热试管继续观察变化，不是强烈蒸干。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-2-9aa26776"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["warming_step", "true_false"],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00242_2da7ff3435"], "supporting_theory_chunk_ids": [], "evidence_sufficient": true, "supporting_theory_required": false, "reviewer_note": "操作强度由教材直接限定。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_02_Q016",
+      "question_type": "true_false",
+      "stem": "本实验可以直接外延到四氯化碳萃取检验亚硝酸根。",
+      "answer": {"value": false},
+      "explanation": "四氯化碳萃取出现在同一教材段的亚硝酸根检验小项中，不是酸性 KI 氧化 I⁻ 的两个观察步骤。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-1-88b9b794", "candidate-2-9aa26776"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["packet_scope", "true_false", "multi_point"],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00242_2da7ff3435"], "supporting_theory_chunk_ids": [], "evidence_sufficient": true, "supporting_theory_required": false, "reviewer_note": "人工排除同 chunk 但非本 packet 的小项。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_02_Q017",
+      "question_type": "single_choice",
+      "stem": "下列哪项最适合作为本实验报告的核心观察记录？",
+      "options": [
+        {"label": "A", "text": "酸性 KI 与 NaNO₂ 反应后，微热观察碘生成相关变化"},
+        {"label": "B", "text": "冷却 NaNO₂ 后观察蓝色 N₂O₃"},
+        {"label": "C", "text": "酸化 KMnO₄ 后观察褪色"},
+        {"label": "D", "text": "加入萘胺后观察红色"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "选项 A 同时覆盖本实验的两个观察步骤；其余是同段相邻实验或上一组实验内容。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-1-88b9b794", "candidate-2-9aa26776"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["observation_summary", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-1-88b9b794", "role": "correct_summary_start", "diagnostic_note": "覆盖起始操作和微热观察。"},
+        {"label": "B", "point_key": null, "role": "distractor_previous_packet", "diagnostic_note": "属于亚硝酸生成与分解。"},
+        {"label": "C", "point_key": null, "role": "distractor_adjacent_subpart", "diagnostic_note": "属于还原性实验。"},
+        {"label": "D", "point_key": null, "role": "distractor_adjacent_subpart", "diagnostic_note": "属于亚硝酸根检验。"}
+      ],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00242_2da7ff3435"], "supporting_theory_chunk_ids": ["textbook_prose_00547_2a1f998120"], "evidence_sufficient": true, "supporting_theory_required": true, "reviewer_note": "综合题需理论支撑性质判断。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_02_Q018",
+      "question_type": "single_choice",
+      "stem": "下列哪个说法最容易造成氧化剂和还原剂角色颠倒？",
+      "options": [
+        {"label": "A", "text": "说 HNO₂ 把碘还原回 I⁻"},
+        {"label": "B", "text": "说 HNO₂ 使 I⁻ 生成碘"},
+        {"label": "C", "text": "说 KI 提供 I⁻"},
+        {"label": "D", "text": "说微热后继续观察变化"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "本实验中 I⁻ 是被氧化成碘，而不是碘被还原回 I⁻。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-1-88b9b794", "candidate-2-9aa26776"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["redox_misconception", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": null, "role": "correct_misconception", "diagnostic_note": "颠倒了氧化方向。"},
+        {"label": "B", "point_key": "candidate-2-9aa26776", "role": "supported_statement", "diagnostic_note": "这是正确方向。"},
+        {"label": "C", "point_key": "candidate-1-88b9b794", "role": "supported_statement", "diagnostic_note": "KI 提供 I⁻。"},
+        {"label": "D", "point_key": "candidate-2-9aa26776", "role": "supported_statement", "diagnostic_note": "微热是规范操作。"}
+      ],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00242_2da7ff3435"], "supporting_theory_chunk_ids": ["textbook_prose_00547_2a1f998120", "textbook_prose_00548_e41b91cedc"], "evidence_sufficient": true, "supporting_theory_required": true, "reviewer_note": "用于纠正氧化还原方向。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_02_Q019",
+      "question_type": "single_choice",
+      "stem": "若只从本实验选一个“观察变化”的步骤，应选哪一项？",
+      "options": [
+        {"label": "A", "text": "微热后观察 I₂ 生成及颜色变化"},
+        {"label": "B", "text": "酸性 KI 溶液中加入 NaNO₂"},
+        {"label": "C", "text": "加入四氯化碳振荡"},
+        {"label": "D", "text": "制备氮气"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "加入 NaNO₂ 偏向反应体系建立，微热后才明确观察产物和颜色变化。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-2-9aa26776"],
+      "secondary_point_keys": ["candidate-1-88b9b794"],
+      "coverage_tags": ["point_binding", "observation_point", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-2-9aa26776", "role": "correct_evidence", "diagnostic_note": "结果观察点。"},
+        {"label": "B", "point_key": "candidate-1-88b9b794", "role": "adjacent_packet_point", "diagnostic_note": "起始操作点。"},
+        {"label": "C", "point_key": null, "role": "distractor_same_chunk_other_subpart", "diagnostic_note": "非本实验。"},
+        {"label": "D", "point_key": null, "role": "distractor_thinking_question", "diagnostic_note": "不是本实验观察步骤。"}
+      ],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00242_2da7ff3435"], "supporting_theory_chunk_ids": [], "evidence_sufficient": true, "supporting_theory_required": false, "reviewer_note": "点位标题直接支撑。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_02_Q020",
+      "question_type": "true_false",
+      "stem": "HNO₃ 不能替代 HNO₂ 来说明“酸性条件下氧化 I⁻”这一教材结论。",
+      "answer": {"value": true},
+      "explanation": "理论段明确比较 HNO₃ 和 HNO₂：能氧化 I⁻ 的是 HNO₂，这是本实验性质判断的核心。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-1-88b9b794", "candidate-2-9aa26776"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["theory_boundary", "true_false", "multi_point"],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00242_2da7ff3435"], "supporting_theory_chunk_ids": ["textbook_prose_00548_e41b91cedc"], "evidence_sufficient": true, "supporting_theory_required": true, "reviewer_note": "该判断依赖 supporting theory。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_02_Q021",
+      "question_type": "fill_blank",
+      "stem": "本实验中，I⁻ 被氧化后生成____单质。",
+      "answer": {"accepted_answers": ["碘", "碘单质"], "match": "normalized_exact"},
+      "explanation": "答案接受中文“碘”或“碘单质”，不要求输入化学式。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-2-9aa26776"],
+      "secondary_point_keys": ["candidate-1-88b9b794"],
+      "coverage_tags": ["iodine_product", "mobile_safe_fill_blank", "multi_point"],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00242_2da7ff3435"], "supporting_theory_chunk_ids": ["textbook_prose_00547_2a1f998120", "textbook_prose_00548_e41b91cedc"], "evidence_sufficient": true, "supporting_theory_required": true, "reviewer_note": "填空答案改为中文名，避免 I2/I₂ 输入。"},
+      "mobile_input_risk": "low",
+      "machine_grading": "normalized_exact",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_02_Q022",
+      "question_type": "fill_blank",
+      "stem": "加入 NaNO₂ 后，教材要求____试管继续观察变化。",
+      "answer": {"accepted_answers": ["微热"], "match": "normalized_exact"},
+      "explanation": "该操作来自教材实验段和第二个观察步骤。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-2-9aa26776"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["warming_step", "mobile_safe_fill_blank"],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00242_2da7ff3435"], "supporting_theory_chunk_ids": [], "evidence_sufficient": true, "supporting_theory_required": false, "reviewer_note": "普通中文操作词，移动端风险低。"},
+      "mobile_input_risk": "low",
+      "machine_grading": "normalized_exact",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_02_Q023",
+      "question_type": "fill_blank",
+      "stem": "酸性 KI 中 NaNO₂/HNO₂ 氧化 I⁻ 生成 I₂，体现亚硝酸的____性。",
+      "answer": {"accepted_answers": ["氧化", "氧化性"], "match": "normalized_exact"},
+      "explanation": "实验通过酸性 KI 体系中碘单质的生成来体现亚硝酸的氧化性。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-1-88b9b794", "candidate-2-9aa26776"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["property_judgment", "mobile_safe_fill_blank", "multi_point"],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00242_2da7ff3435"], "supporting_theory_chunk_ids": ["textbook_prose_00547_2a1f998120"], "evidence_sufficient": true, "supporting_theory_required": true, "reviewer_note": "答案为普通性质词。"},
+      "mobile_input_risk": "low",
+      "machine_grading": "normalized_exact",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_02_Q024",
+      "question_type": "fill_blank",
+      "stem": "酸性 KI 中的 K⁺ 通常应视作____离子。",
+      "answer": {"accepted_answers": ["旁观", "旁观离子"], "match": "normalized_exact"},
+      "explanation": "这里用中文概念词区分 K⁺ 与真正被氧化的 I⁻。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-1-88b9b794"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["spectator_ion", "mobile_safe_fill_blank"],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00242_2da7ff3435"], "supporting_theory_chunk_ids": ["textbook_prose_00548_e41b91cedc"], "evidence_sufficient": true, "supporting_theory_required": true, "reviewer_note": "由 iodide oxidation theory 推断，非公式填空。"},
+      "mobile_input_risk": "low",
+      "machine_grading": "normalized_exact",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_02_Q025",
+      "question_type": "single_choice",
+      "stem": "哪一项最能解释“微热后继续观察”的意义？",
+      "options": [
+        {"label": "A", "text": "促进观察产物颜色和状态的变化"},
+        {"label": "B", "text": "把溶液蒸干以称量固体"},
+        {"label": "C", "text": "让 K⁺ 还原成金属钾"},
+        {"label": "D", "text": "证明硫酸根具有强氧化性"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "教材要求微热后观察反应及产物的颜色与状态变化，而不是做称量或改变旁观离子。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-2-9aa26776"],
+      "secondary_point_keys": ["candidate-1-88b9b794"],
+      "coverage_tags": ["warming_purpose", "observation", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-2-9aa26776", "role": "correct_evidence", "diagnostic_note": "对应微热后的观察目的。"},
+        {"label": "B", "point_key": null, "role": "distractor_wrong_operation", "diagnostic_note": "教材没有称量。"},
+        {"label": "C", "point_key": null, "role": "distractor_unreasonable_redox", "diagnostic_note": "K⁺ 不这样变化。"},
+        {"label": "D", "point_key": null, "role": "distractor_wrong_property", "diagnostic_note": "硫酸根不是氧化性判断对象。"}
+      ],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00242_2da7ff3435"], "supporting_theory_chunk_ids": ["textbook_prose_00547_2a1f998120"], "evidence_sufficient": true, "supporting_theory_required": true, "reviewer_note": "观察目的由 canonical chunk 支撑，产物意义由理论支撑。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_02_Q026",
+      "question_type": "single_choice",
+      "stem": "哪一项是本实验中 NaNO₂ 的合理作用路径？",
+      "options": [
+        {"label": "A", "text": "在酸性条件下形成 HNO₂，再表现氧化性"},
+        {"label": "B", "text": "直接生成金属钠"},
+        {"label": "C", "text": "只提供 K⁺"},
+        {"label": "D", "text": "把碘单质还原为 I⁻"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "酸化体系中 NaNO₂ 对应 HNO₂，随后由 HNO₂ 氧化 I⁻，这是本实验的性质链条。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-1-88b9b794", "candidate-2-9aa26776"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["reaction_path", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-1-88b9b794", "role": "correct_evidence", "diagnostic_note": "覆盖酸化和氧化性。"},
+        {"label": "B", "point_key": null, "role": "distractor_unreasonable_product", "diagnostic_note": "不会生成金属钠。"},
+        {"label": "C", "point_key": null, "role": "distractor_wrong_ion", "diagnostic_note": "K⁺ 来自 KI。"},
+        {"label": "D", "point_key": null, "role": "distractor_opposite_redox", "diagnostic_note": "颠倒氧化方向。"}
+      ],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00242_2da7ff3435"], "supporting_theory_chunk_ids": ["textbook_prose_00547_2a1f998120", "textbook_prose_00548_e41b91cedc"], "evidence_sufficient": true, "supporting_theory_required": true, "reviewer_note": "生成 HNO₂ 的推断来自酸化亚硝酸盐和理论说明。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_02_Q027",
+      "question_type": "true_false",
+      "stem": "在本实验中，I⁻ 到碘单质的变化说明 I⁻ 失去电子。",
+      "answer": {"value": true},
+      "explanation": "I⁻ 被氧化为碘单质，氧化过程对应失去电子。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-1-88b9b794", "candidate-2-9aa26776"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["redox_reasoning", "true_false", "multi_point"],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00242_2da7ff3435"], "supporting_theory_chunk_ids": ["textbook_prose_00547_2a1f998120", "textbook_prose_00548_e41b91cedc"], "evidence_sufficient": true, "supporting_theory_required": true, "reviewer_note": "基础氧化还原概念与理论反应一致。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_02_Q028",
+      "question_type": "single_choice",
+      "stem": "只依据酸性 KI 中加入 NaNO₂ 并微热观察碘生成，哪一项内容最符合该实验？",
+      "options": [
+        {"label": "A", "text": "酸性 KI、加入 NaNO₂、微热、观察碘生成相关变化"},
+        {"label": "B", "text": "本章所有含氮实验都可并入"},
+        {"label": "C", "text": "只涉及硝酸盐受热分解"},
+        {"label": "D", "text": "只涉及铵盐遇碱放氨"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "该范围完整覆盖两个观察步骤，也与理论支持的氧化性判断一致。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-1-88b9b794", "candidate-2-9aa26776"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["evidence_boundary", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-1-88b9b794", "role": "correct_boundary_start", "diagnostic_note": "覆盖点位 1 与点位 2。"},
+        {"label": "B", "point_key": null, "role": "distractor_overbroad", "diagnostic_note": "范围过宽。"},
+        {"label": "C", "point_key": null, "role": "distractor_other_topic", "diagnostic_note": "不是本实验。"},
+        {"label": "D", "point_key": null, "role": "distractor_previous_subsection", "diagnostic_note": "不是本实验。"}
+      ],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00242_2da7ff3435"], "supporting_theory_chunk_ids": ["textbook_prose_00547_2a1f998120", "textbook_prose_00548_e41b91cedc"], "evidence_sufficient": true, "supporting_theory_required": true, "reviewer_note": "最终边界题。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_02_Q029",
+      "question_type": "single_choice",
+      "stem": "若要把本实验和“亚硝酸的还原性”区分开，最关键的判断依据是什么？",
+      "options": [
+        {"label": "A", "text": "本实验让 I⁻ 被氧化为碘"},
+        {"label": "B", "text": "本实验让 KMnO₄ 被还原褪色"},
+        {"label": "C", "text": "本实验检验亚硝酸根"},
+        {"label": "D", "text": "本实验生成氨气"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "本实验核心是 HNO₂ 氧化 I⁻；KMnO₄ 褪色属于相邻的还原性实验。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-1-88b9b794", "candidate-2-9aa26776"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["contrast_reducing_property", "packet_scope", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-1-88b9b794", "role": "correct_evidence", "diagnostic_note": "对应氧化性。"},
+        {"label": "B", "point_key": null, "role": "distractor_adjacent_subpart", "diagnostic_note": "属于还原性。"},
+        {"label": "C", "point_key": null, "role": "distractor_adjacent_subpart", "diagnostic_note": "属于检验方法。"},
+        {"label": "D", "point_key": null, "role": "distractor_previous_subsection", "diagnostic_note": "属于铵盐性质。"}
+      ],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00242_2da7ff3435"], "supporting_theory_chunk_ids": ["textbook_prose_00547_2a1f998120", "textbook_prose_00548_e41b91cedc"], "evidence_sufficient": true, "supporting_theory_required": true, "reviewer_note": "用于防止相邻小实验混淆。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_02_Q030",
+      "question_type": "single_choice",
+      "stem": "酸性 KI 被 NaNO₂/HNO₂ 氧化后出现碘生成现象，最简洁的化学结论是哪一项？",
+      "options": [
+        {"label": "A", "text": "酸性条件下，亚硝酸可把碘离子氧化为碘单质"},
+        {"label": "B", "text": "亚硝酸只表现还原性，不表现氧化性"},
+        {"label": "C", "text": "钾离子是本实验的主要还原产物"},
+        {"label": "D", "text": "微热的目的是让溶剂完全蒸发"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "该结论同时覆盖酸性 KI、NaNO₂、微热观察和碘生成，且与教材理论完全一致。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-1-88b9b794", "candidate-2-9aa26776"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["learning_goal", "conclusion", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-1-88b9b794", "role": "correct_evidence", "diagnostic_note": "本实验的核心结论。"},
+        {"label": "B", "point_key": null, "role": "distractor_contradicts_title", "diagnostic_note": "与本实验核心结论和理论相反。"},
+        {"label": "C", "point_key": null, "role": "distractor_wrong_species", "diagnostic_note": "K⁺ 不是还原产物。"},
+        {"label": "D", "point_key": null, "role": "distractor_wrong_operation_purpose", "diagnostic_note": "微热是为了观察变化。"}
+      ],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00242_2da7ff3435"], "supporting_theory_chunk_ids": ["textbook_prose_00547_2a1f998120", "textbook_prose_00548_e41b91cedc"], "evidence_sufficient": true, "supporting_theory_required": true, "reviewer_note": "综合两个点位与 supporting theory。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    }
+  ]
+}

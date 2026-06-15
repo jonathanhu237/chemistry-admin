@@ -1,0 +1,3793 @@
+{
+  "metadata": {
+    "version": "chunk-4-release-slim-v1",
+    "artifact_type": "slim_question_bank_work_file",
+    "generated_at": "2026-06-15T03:27:59.050817+00:00",
+    "source_file": "E:\\chemistry-admin\\artifacts\\point-aware-question-bank\\reviewed_old_bank_chunks\\chunk_4_release_final_v1.json",
+    "normalization_rule": "effective question plus minimal lineage, evidence IDs, point bindings, option links, evidence locators, and mechanical risk flags",
+    "evidence_policy": "RAG source text is not embedded; packets carry locators and reviewers must read E:/chemistry-rag/data/rag_ready directly",
+    "chunk_id_policy": "inherited chunk ids are untrusted locator candidates until manually compared with RAG text",
+    "semantic_status": "not_semantically_repaired_by_this_script",
+    "packet_type": "single_experiment_semantic_repair_work_packet",
+    "chunk": 4,
+    "experiment_code": "20-1-07",
+    "question_count": 30
+  },
+  "experiment": {
+    "experiment_id": "EXP_20_1_07",
+    "experiment_code": "20-1-07",
+    "experiment_title": "Hg²⁺ 转化为 Hg₂²⁺",
+    "chapter_bindings": [
+      {
+        "chapter_id": "CH19",
+        "coverage_type": "primary",
+        "sort_order": 1
+      }
+    ],
+    "video_points": [
+      {
+        "point_key": "candidate-1-6484affe",
+        "point_title": "Hg(NO₃)₂ + NaCl",
+        "source": null,
+        "candidate_index": null,
+        "resource_count": null,
+        "published_count": null,
+        "resource_titles": []
+      },
+      {
+        "point_key": "candidate-2-10917a08",
+        "point_title": "Hg(NO₃)₂ + 金属汞，振荡",
+        "source": null,
+        "candidate_index": null,
+        "resource_count": null,
+        "published_count": null,
+        "resource_titles": []
+      },
+      {
+        "point_key": "candidate-3-51cd48b6",
+        "point_title": "反应后清液 + NaCl，与前一实验对比",
+        "source": null,
+        "candidate_index": null,
+        "resource_count": null,
+        "published_count": null,
+        "resource_titles": []
+      }
+    ],
+    "canonical_chunk_ids": [
+      "expchunk_protocol_174e0c432181",
+      "expchunk_00312_3907d19546"
+    ],
+    "evidence_lookup": {
+      "policy": "locator_only; canonical RAG text is not embedded in this packet",
+      "chunk_id_policy": "metadata chunk ids are inherited claims, not trusted evidence; reviewers must compare the RAG text against the question stem/options/answer/explanation and replace or remove wrong ids",
+      "primary_source_dir": "E:\\chemistry-rag\\data\\rag_ready",
+      "source_files": {
+        "experiment_chunks": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+        "supporting_theory_chunks": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl"
+      },
+      "search_hints": {
+        "experiment_code": "20-1-07",
+        "parent_experiment_code": "20-1",
+        "experiment_title": "Hg²⁺ 转化为 Hg₂²⁺",
+        "video_point_titles": [
+          "Hg(NO₃)₂ + NaCl",
+          "Hg(NO₃)₂ + 金属汞，振荡",
+          "反应后清液 + NaCl，与前一实验对比"
+        ],
+        "canonical_chunk_ids_from_metadata": [
+          "expchunk_00312_3907d19546",
+          "expchunk_protocol_174e0c432181"
+        ],
+        "supporting_theory_chunk_ids_from_metadata": [
+          "textbook_prose_01085_e7db666fe6",
+          "textbook_prose_01086_e3c112067c",
+          "textbook_prose_01095_3a661b6beb"
+        ],
+        "suggested_search_patterns": [
+          "20-1-07",
+          "20-1",
+          "Hg²⁺ 转化为 Hg₂²⁺",
+          "Hg(NO₃)₂ + NaCl",
+          "Hg(NO₃)₂ + 金属汞，振荡",
+          "反应后清液 + NaCl，与前一实验对比",
+          "expchunk_00312_3907d19546",
+          "expchunk_protocol_174e0c432181",
+          "textbook_prose_01085_e7db666fe6",
+          "textbook_prose_01086_e3c112067c",
+          "textbook_prose_01095_3a661b6beb"
+        ]
+      },
+      "rag_exact_id_presence": {
+        "meaning": "id presence only; this does not validate semantic relevance",
+        "found_ids": [
+          "expchunk_00312_3907d19546",
+          "expchunk_protocol_174e0c432181",
+          "textbook_prose_01085_e7db666fe6",
+          "textbook_prose_01086_e3c112067c",
+          "textbook_prose_01095_3a661b6beb"
+        ],
+        "missing_ids": [],
+        "found_locator_summaries": [
+          {
+            "chunk_id": "expchunk_00312_3907d19546",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+            "line_number": 325,
+            "source_collection": "textbook_experiment_clean_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学实验（第四版）",
+            "page_start": 163,
+            "page_end": 163,
+            "section_path": [
+              "第7章 元素性质实验",
+              "实验 20-1 ds 区元素化合物的性质",
+              "（三）实验内容",
+              "*4. 汞（Ⅱ）和汞（Ⅰ）相互转化"
+            ],
+            "content_type": "waste_disposal",
+            "knowledge_unit": "waste_disposal",
+            "parent_id": "expchunk_protocol_174e0c432181",
+            "prev_chunk_id": "expchunk_00311_c770d017e2",
+            "next_chunk_id": "expchunk_00313_fcfa9b46a0",
+            "relations": {
+              "section_id": "expsec_6d4d660ff3f31797",
+              "experiment_id": "experiment:实验_20-1_ds_区元素化合物的性质",
+              "page_anchor": "page_163",
+              "parent": "expchunk_protocol_174e0c432181"
+            }
+          },
+          {
+            "chunk_id": "expchunk_protocol_174e0c432181",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+            "line_number": 11,
+            "source_collection": "textbook_experiment_clean_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学实验（第四版）",
+            "page_start": 161,
+            "page_end": 163,
+            "section_path": [
+              "第7章",
+              "实验 20-1 ds 区元素化合物的性质"
+            ],
+            "content_type": "experiment_protocol",
+            "knowledge_unit": "experiment_protocol",
+            "parent_id": null,
+            "prev_chunk_id": "expchunk_protocol_b45d333c798a",
+            "next_chunk_id": "expchunk_protocol_721ef1f8d319",
+            "relations": {
+              "protocol_id": "experiment:实验_20-1_ds_区元素化合物的性质",
+              "children": [
+                "expsec_f5ef528601a12b17",
+                "expsec_c4aa4c09288f307a",
+                "expsec_3adcb2fef51e0e9f",
+                "expsec_7a18ba3281789c2b",
+                "expsec_a4261432eb238c84",
+                "expsec_1dd56ce073431e79",
+                "expsec_0f202cf7d1550509",
+                "expsec_be7132a657f79d09",
+                "expsec_6d4d660ff3f31797",
+                "expsec_4090042a7b01502e",
+                "expsec_423afcb6634d3011"
+              ],
+              "parent": null
+            }
+          },
+          {
+            "chunk_id": "textbook_prose_01085_e7db666fe6",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+            "line_number": 1672,
+            "source_collection": "textbook_inorganic_lower_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学（下册）（第二版）",
+            "page_start": 185,
+            "page_end": 185,
+            "section_path": [
+              "第 19 章 铜锌副族元素",
+              "19.3 锌副族",
+              "19.3.3 汞的化合物",
+              "1. 氧化数为 +1 的化合物"
+            ],
+            "content_type": "definition",
+            "knowledge_unit": "definition",
+            "parent_id": "section:99df8bec7120",
+            "prev_chunk_id": null,
+            "next_chunk_id": "textbook_prose_01086_e3c112067c",
+            "relations": {
+              "parent": "section:99df8bec7120",
+              "source_route": "clean_pages",
+              "prev": null,
+              "next": "textbook_prose_01086_e3c112067c"
+            }
+          },
+          {
+            "chunk_id": "textbook_prose_01086_e3c112067c",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+            "line_number": 1673,
+            "source_collection": "textbook_inorganic_lower_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学（下册）（第二版）",
+            "page_start": 185,
+            "page_end": 185,
+            "section_path": [
+              "第 19 章 铜锌副族元素",
+              "19.3 锌副族",
+              "19.3.3 汞的化合物",
+              "1. 氧化数为 +1 的化合物"
+            ],
+            "content_type": "reaction",
+            "knowledge_unit": "reaction",
+            "parent_id": "section:99df8bec7120",
+            "prev_chunk_id": "textbook_prose_01085_e7db666fe6",
+            "next_chunk_id": null,
+            "relations": {
+              "parent": "section:99df8bec7120",
+              "source_route": "clean_pages",
+              "prev": "textbook_prose_01085_e7db666fe6",
+              "next": null
+            }
+          },
+          {
+            "chunk_id": "textbook_prose_01095_3a661b6beb",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+            "line_number": 1682,
+            "source_collection": "textbook_inorganic_lower_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学（下册）（第二版）",
+            "page_start": 187,
+            "page_end": 187,
+            "section_path": [
+              "第 19 章 铜锌副族元素",
+              "19.3 锌副族",
+              "19.3.3 汞的化合物",
+              "3. Hg(Ⅰ)与 Hg(Ⅱ)之间的转化"
+            ],
+            "content_type": "procedure",
+            "knowledge_unit": "procedure",
+            "parent_id": "section:943d85595180",
+            "prev_chunk_id": "textbook_prose_01094_fd683aeeb3",
+            "next_chunk_id": null,
+            "relations": {
+              "parent": "section:943d85595180",
+              "source_route": "clean_pages",
+              "prev": "textbook_prose_01094_fd683aeeb3",
+              "next": null
+            }
+          }
+        ]
+      },
+      "legacy_locator_summaries": [
+        {
+          "chunk_id": "expchunk_00312_3907d19546",
+          "source_file": "无机化学实验（第四版）",
+          "book_title": "无机化学实验（第四版）",
+          "document_id": "DOC_CANONICAL_EXPERIMENT_V1",
+          "source_collection": "textbook_experiment_clean_v1",
+          "source_role": "canonical_textbook",
+          "content_type": "waste_disposal",
+          "chapter_id": null,
+          "page_number": 163,
+          "section_title": "实验 20-1 ds 区元素化合物的性质 / （三）实验内容 / *4. 汞（Ⅱ）和汞（Ⅰ）相互转化",
+          "section_path": [
+            "第7章 元素性质实验",
+            "实验 20-1 ds 区元素化合物的性质",
+            "（三）实验内容",
+            "*4. 汞（Ⅱ）和汞（Ⅰ）相互转化"
+          ]
+        },
+        {
+          "chunk_id": "expchunk_protocol_174e0c432181",
+          "source_file": "无机化学实验（第四版）",
+          "book_title": "无机化学实验（第四版）",
+          "document_id": "DOC_CANONICAL_EXPERIMENT_V1",
+          "source_collection": "textbook_experiment_clean_v1",
+          "source_role": "canonical_textbook",
+          "content_type": "experiment_protocol",
+          "chapter_id": null,
+          "page_number": 161,
+          "section_title": "第7章 / 实验 20-1 ds 区元素化合物的性质",
+          "section_path": [
+            "第7章",
+            "实验 20-1 ds 区元素化合物的性质"
+          ]
+        }
+      ],
+      "legacy_missing_ids": [
+        "textbook_prose_01085_e7db666fe6",
+        "textbook_prose_01086_e3c112067c",
+        "textbook_prose_01095_3a661b6beb"
+      ]
+    },
+    "questions": [
+      {
+        "question_id": "REV_CH4_EXP_20_1_07_Q001",
+        "source_review_id": "REV_CH4_EXP_20_1_07_Q001",
+        "source_question_index": 1,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-1-07 Hg²⁺ 转化为 Hg₂²⁺》实验中，研究 Hg²⁺ 转化为 Hg₂²⁺ 时使用的汞(II)盐是哪一种？",
+        "options": [
+          {
+            "label": "A",
+            "text": "Hg(NO₃)₂"
+          },
+          {
+            "label": "B",
+            "text": "Hg₂Cl₂"
+          },
+          {
+            "label": "C",
+            "text": "HgS"
+          },
+          {
+            "label": "D",
+            "text": "HgO"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "实验以 Hg(NO₃)₂ 提供 Hg²⁺，再通过与金属汞作用观察 Hg²⁺ 向 Hg₂²⁺ 的转化。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-10917a08"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "mercury_ii_starting_salt"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "Hg(NO₃)₂",
+            "point_key": "candidate-2-10917a08",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项为“Hg(NO₃)₂”，与题干所问和解析中的有效答案一致，并绑定到实验点位“Hg(NO₃)₂ + 金属汞，振荡”。"
+          },
+          {
+            "label": "B",
+            "text": "Hg₂Cl₂",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项为“Hg₂Cl₂”，会把本题锁定的实验对象、操作或现象转向错误判断；本题有效答案是“Hg(NO₃)₂”。"
+          },
+          {
+            "label": "C",
+            "text": "HgS",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项为“HgS”，会把本题锁定的实验对象、操作或现象转向错误判断；本题有效答案是“Hg(NO₃)₂”。"
+          },
+          {
+            "label": "D",
+            "text": "HgO",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项为“HgO”，会把本题锁定的实验对象、操作或现象转向错误判断；本题有效答案是“Hg(NO₃)₂”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_protocol_174e0c432181"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 保留 original_question；已核对题干、选项/答案/解析、点位和源文，最终有效题证据充分。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_protocol_174e0c432181"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-1-07 Hg²⁺ 转化为 Hg₂²⁺》实验中，研究 Hg²⁺ 转化为 Hg₂²⁺ 时使用的汞(II)盐是哪一种？",
+            "options": [
+              {
+                "label": "A",
+                "text": "Hg(NO₃)₂"
+              },
+              {
+                "label": "B",
+                "text": "Hg₂Cl₂"
+              },
+              {
+                "label": "C",
+                "text": "HgS"
+              },
+              {
+                "label": "D",
+                "text": "HgO"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "实验以 Hg(NO₃)₂ 提供 Hg²⁺，再通过与金属汞作用观察 Hg²⁺ 向 Hg₂²⁺ 的转化。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00312_3907d19546",
+              "expchunk_protocol_174e0c432181"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_07_Q002",
+        "source_review_id": "REV_CH4_EXP_20_1_07_Q002",
+        "source_question_index": 2,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-1-07 Hg²⁺ 转化为 Hg₂²⁺》实验中，促使 Hg²⁺ 转化为 Hg₂²⁺ 时加入并振荡的金属是哪一种？",
+        "options": [
+          {
+            "label": "A",
+            "text": "金属镁"
+          },
+          {
+            "label": "B",
+            "text": "金属汞"
+          },
+          {
+            "label": "C",
+            "text": "金属银"
+          },
+          {
+            "label": "D",
+            "text": "金属钠"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "Hg(II) 与金属 Hg 可发生归中生成 Hg(I)。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-10917a08"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "metallic_mercury_reductant"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "金属镁",
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "该选项为“金属镁”，与题干中的实验对象关联较弱；本题有效答案是“金属汞”。"
+          },
+          {
+            "label": "B",
+            "text": "金属汞",
+            "point_key": "candidate-2-10917a08",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项为“金属汞”，与题干所问和解析中的有效答案一致，并绑定到实验点位“Hg(NO₃)₂ + 金属汞，振荡”。"
+          },
+          {
+            "label": "C",
+            "text": "金属银",
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "该选项为“金属银”，与题干中的实验对象关联较弱；本题有效答案是“金属汞”。"
+          },
+          {
+            "label": "D",
+            "text": "金属钠",
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "该选项为“金属钠”，与题干中的实验对象关联较弱；本题有效答案是“金属汞”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_protocol_174e0c432181"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01085_e7db666fe6",
+            "textbook_prose_01086_e3c112067c",
+            "textbook_prose_01095_3a661b6beb"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 保留 original_question；已核对题干、选项/答案/解析、点位和源文，最终有效题证据充分。",
+          "supporting_theory_note": "依赖 Hg(I) 双聚离子、Hg²⁺/Hg₂²⁺ 归中与氯化亚汞沉淀证据的理论。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_protocol_174e0c432181"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01085_e7db666fe6",
+            "textbook_prose_01086_e3c112067c",
+            "textbook_prose_01095_3a661b6beb"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01085_e7db666fe6",
+            "textbook_prose_01086_e3c112067c",
+            "textbook_prose_01095_3a661b6beb"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-1-07 Hg²⁺ 转化为 Hg₂²⁺》实验中，促使 Hg²⁺ 转化为 Hg₂²⁺ 时加入并振荡的金属是哪一种？",
+            "options": [
+              {
+                "label": "A",
+                "text": "金属镁"
+              },
+              {
+                "label": "B",
+                "text": "金属汞"
+              },
+              {
+                "label": "C",
+                "text": "金属银"
+              },
+              {
+                "label": "D",
+                "text": "金属钠"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "Hg(II) 与金属 Hg 可发生归中生成 Hg(I)。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00312_3907d19546",
+              "expchunk_protocol_174e0c432181"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "source_requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_07_Q003",
+        "source_review_id": "REV_CH4_EXP_20_1_07_Q003",
+        "source_question_index": 3,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-1-07 Hg²⁺ 转化为 Hg₂²⁺》实验中，反应前后用于对比检验汞(I)生成的试剂是哪一种？",
+        "options": [
+          {
+            "label": "A",
+            "text": "KSCN"
+          },
+          {
+            "label": "B",
+            "text": "CCl₄"
+          },
+          {
+            "label": "C",
+            "text": "NaCl"
+          },
+          {
+            "label": "D",
+            "text": "乙醚"
+          }
+        ],
+        "answer": {
+          "value": "C"
+        },
+        "explanation": "实验资料列出反应后清液 + NaCl。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-51cd48b6"
+        ],
+        "secondary_point_keys": [
+          "candidate-1-6484affe"
+        ],
+        "coverage_tags": [
+          "nacl_comparison_after_reaction"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "KSCN",
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "该选项为“KSCN”，与题干中的实验对象关联较弱；本题有效答案是“NaCl”。"
+          },
+          {
+            "label": "B",
+            "text": "CCl₄",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项为“CCl₄”，属于其他试剂、现象或实验情境；本题有效答案是“NaCl”。"
+          },
+          {
+            "label": "C",
+            "text": "NaCl",
+            "point_key": "candidate-3-51cd48b6",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项为“NaCl”，与题干所问和解析中的有效答案一致，并绑定到实验点位“反应后清液 + NaCl，与前一实验对比”。"
+          },
+          {
+            "label": "D",
+            "text": "乙醚",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项为“乙醚”，属于其他试剂、现象或实验情境；本题有效答案是“NaCl”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_protocol_174e0c432181"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 保留 original_question；已核对题干、选项/答案/解析、点位和源文，最终有效题证据充分。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_protocol_174e0c432181"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-1-07 Hg²⁺ 转化为 Hg₂²⁺》实验中，反应前后用于对比检验汞(I)生成的试剂是哪一种？",
+            "options": [
+              {
+                "label": "A",
+                "text": "KSCN"
+              },
+              {
+                "label": "B",
+                "text": "CCl₄"
+              },
+              {
+                "label": "C",
+                "text": "NaCl"
+              },
+              {
+                "label": "D",
+                "text": "乙醚"
+              }
+            ],
+            "answer": {
+              "value": "C"
+            },
+            "explanation": "实验资料列出反应后清液 + NaCl。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00312_3907d19546",
+              "expchunk_protocol_174e0c432181"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "multi_point_binding"
+          ]
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_07_Q004",
+        "source_review_id": "REV_CH4_EXP_20_1_07_Q004",
+        "source_question_index": 4,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-1-07 Hg²⁺ 转化为 Hg₂²⁺》实验中，Hg₂²⁺ 遇 Cl⁻ 生成的白色沉淀通常是哪一种？",
+        "options": [
+          {
+            "label": "A",
+            "text": "HgCl₂"
+          },
+          {
+            "label": "B",
+            "text": "AgCl"
+          },
+          {
+            "label": "C",
+            "text": "NaNO₃"
+          },
+          {
+            "label": "D",
+            "text": "Hg₂Cl₂"
+          }
+        ],
+        "answer": {
+          "value": "D"
+        },
+        "explanation": "亚汞离子与氯离子生成氯化亚汞。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-51cd48b6"
+        ],
+        "secondary_point_keys": [
+          "candidate-1-6484affe"
+        ],
+        "coverage_tags": [
+          "mercury_i_chloride_evidence"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "HgCl₂",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项为“HgCl₂”，会把本题锁定的实验对象、操作或现象转向错误判断；本题有效答案是“Hg₂Cl₂”。"
+          },
+          {
+            "label": "B",
+            "text": "AgCl",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项为“AgCl”，会把本题锁定的实验对象、操作或现象转向错误判断；本题有效答案是“Hg₂Cl₂”。"
+          },
+          {
+            "label": "C",
+            "text": "NaNO₃",
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "该选项为“NaNO₃”，与题干中的实验对象关联较弱；本题有效答案是“Hg₂Cl₂”。"
+          },
+          {
+            "label": "D",
+            "text": "Hg₂Cl₂",
+            "point_key": "candidate-3-51cd48b6",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项为“Hg₂Cl₂”，与题干所问和解析中的有效答案一致，并绑定到实验点位“反应后清液 + NaCl，与前一实验对比”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_protocol_174e0c432181"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 保留 original_question；已核对题干、选项/答案/解析、点位和源文，最终有效题证据充分。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_protocol_174e0c432181"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-1-07 Hg²⁺ 转化为 Hg₂²⁺》实验中，Hg₂²⁺ 遇 Cl⁻ 生成的白色沉淀通常是哪一种？",
+            "options": [
+              {
+                "label": "A",
+                "text": "HgCl₂"
+              },
+              {
+                "label": "B",
+                "text": "AgCl"
+              },
+              {
+                "label": "C",
+                "text": "NaNO₃"
+              },
+              {
+                "label": "D",
+                "text": "Hg₂Cl₂"
+              }
+            ],
+            "answer": {
+              "value": "D"
+            },
+            "explanation": "亚汞离子与氯离子生成氯化亚汞。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00312_3907d19546",
+              "expchunk_protocol_174e0c432181"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "multi_point_binding"
+          ]
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_07_Q005",
+        "source_review_id": "REV_CH4_EXP_20_1_07_Q005",
+        "source_question_index": 5,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-1-07 Hg²⁺ 转化为 Hg₂²⁺》实验中，Hg²⁺ 与金属 Hg 生成 Hg₂²⁺ 的过程属于哪类氧化还原变化？",
+        "options": [
+          {
+            "label": "A",
+            "text": "归中反应"
+          },
+          {
+            "label": "B",
+            "text": "歧化反应"
+          },
+          {
+            "label": "C",
+            "text": "中和滴定"
+          },
+          {
+            "label": "D",
+            "text": "萃取平衡"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "高价汞与零价汞生成中间价态汞(I)。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-10917a08"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "comproportionation"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "归中反应",
+            "point_key": "candidate-2-10917a08",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项为“归中反应”，与题干所问和解析中的有效答案一致，并绑定到实验点位“Hg(NO₃)₂ + 金属汞，振荡”。"
+          },
+          {
+            "label": "B",
+            "text": "歧化反应",
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "该选项为“歧化反应”，与题干中的实验对象关联较弱；本题有效答案是“归中反应”。"
+          },
+          {
+            "label": "C",
+            "text": "中和滴定",
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "该选项为“中和滴定”，与题干中的实验对象关联较弱；本题有效答案是“归中反应”。"
+          },
+          {
+            "label": "D",
+            "text": "萃取平衡",
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "该选项为“萃取平衡”，与题干中的实验对象关联较弱；本题有效答案是“归中反应”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_protocol_174e0c432181"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01085_e7db666fe6",
+            "textbook_prose_01086_e3c112067c",
+            "textbook_prose_01095_3a661b6beb"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 保留 original_question；已核对题干、选项/答案/解析、点位和源文，最终有效题证据充分。",
+          "supporting_theory_note": "依赖 Hg(I) 双聚离子、Hg²⁺/Hg₂²⁺ 归中与氯化亚汞沉淀证据的理论。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_protocol_174e0c432181"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01085_e7db666fe6",
+            "textbook_prose_01086_e3c112067c",
+            "textbook_prose_01095_3a661b6beb"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01085_e7db666fe6",
+            "textbook_prose_01086_e3c112067c",
+            "textbook_prose_01095_3a661b6beb"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-1-07 Hg²⁺ 转化为 Hg₂²⁺》实验中，Hg²⁺ 与金属 Hg 生成 Hg₂²⁺ 的过程属于哪类氧化还原变化？",
+            "options": [
+              {
+                "label": "A",
+                "text": "归中反应"
+              },
+              {
+                "label": "B",
+                "text": "歧化反应"
+              },
+              {
+                "label": "C",
+                "text": "中和滴定"
+              },
+              {
+                "label": "D",
+                "text": "萃取平衡"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "高价汞与零价汞生成中间价态汞(I)。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00312_3907d19546",
+              "expchunk_protocol_174e0c432181"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "source_requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_07_Q006",
+        "source_review_id": "REV_CH4_EXP_20_1_07_Q006",
+        "source_question_index": 6,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-1-07 Hg²⁺ 转化为 Hg₂²⁺》实验中，该实验中 Hg²⁺ 被金属 Hg 转化后，汞的平均氧化态变为多少？",
+        "options": [
+          {
+            "label": "A",
+            "text": "0"
+          },
+          {
+            "label": "B",
+            "text": "+1"
+          },
+          {
+            "label": "C",
+            "text": "+3"
+          },
+          {
+            "label": "D",
+            "text": "-1"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "Hg₂²⁺ 中两个 Hg 总电荷为 +2，平均为 +1。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-10917a08"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "mercury_i_average_oxidation_state"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "0",
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "该选项为“0”，与题干中的实验对象关联较弱；本题有效答案是“+1”。"
+          },
+          {
+            "label": "B",
+            "text": "+1",
+            "point_key": "candidate-2-10917a08",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项为“+1”，与题干所问和解析中的有效答案一致，并绑定到实验点位“Hg(NO₃)₂ + 金属汞，振荡”。"
+          },
+          {
+            "label": "C",
+            "text": "+3",
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "该选项为“+3”，与题干中的实验对象关联较弱；本题有效答案是“+1”。"
+          },
+          {
+            "label": "D",
+            "text": "-1",
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "该选项为“-1”，与题干中的实验对象关联较弱；本题有效答案是“+1”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_protocol_174e0c432181"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01085_e7db666fe6",
+            "textbook_prose_01086_e3c112067c",
+            "textbook_prose_01095_3a661b6beb"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 保留 original_question；已核对题干、选项/答案/解析、点位和源文，最终有效题证据充分。",
+          "supporting_theory_note": "依赖 Hg(I) 双聚离子、Hg²⁺/Hg₂²⁺ 归中与氯化亚汞沉淀证据的理论。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_protocol_174e0c432181"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01085_e7db666fe6",
+            "textbook_prose_01086_e3c112067c",
+            "textbook_prose_01095_3a661b6beb"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01085_e7db666fe6",
+            "textbook_prose_01086_e3c112067c",
+            "textbook_prose_01095_3a661b6beb"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-1-07 Hg²⁺ 转化为 Hg₂²⁺》实验中，该实验中 Hg²⁺ 被金属 Hg 转化后，汞的平均氧化态变为多少？",
+            "options": [
+              {
+                "label": "A",
+                "text": "0"
+              },
+              {
+                "label": "B",
+                "text": "+1"
+              },
+              {
+                "label": "C",
+                "text": "+3"
+              },
+              {
+                "label": "D",
+                "text": "-1"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "Hg₂²⁺ 中两个 Hg 总电荷为 +2，平均为 +1。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00312_3907d19546",
+              "expchunk_protocol_174e0c432181"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "source_requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_07_Q007",
+        "source_review_id": "REV_CH4_EXP_20_1_07_Q007",
+        "source_question_index": 7,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-1-07 Hg²⁺ 转化为 Hg₂²⁺》实验中，先做 Hg(NO₃)₂ + NaCl，再做反应后清液 + NaCl 的目的是什么？",
+        "options": [
+          {
+            "label": "A",
+            "text": "测定乙醚密度"
+          },
+          {
+            "label": "B",
+            "text": "证明镁能燃烧"
+          },
+          {
+            "label": "C",
+            "text": "对比 Hg(II) 与 Hg(I) 遇 Cl⁻ 的现象差异"
+          },
+          {
+            "label": "D",
+            "text": "比较硝酸盐热分解"
+          }
+        ],
+        "answer": {
+          "value": "C"
+        },
+        "explanation": "对比沉淀现象可证明 Hg₂²⁺ 形成。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-51cd48b6"
+        ],
+        "secondary_point_keys": [
+          "candidate-1-6484affe"
+        ],
+        "coverage_tags": [
+          "compare_hg_ii_hg_i_chloride_behavior"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "测定乙醚密度",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项为“测定乙醚密度”，属于其他试剂、现象或实验情境；本题有效答案是“对比 Hg(II) 与 Hg(I) 遇 Cl⁻ 的现象差异”。"
+          },
+          {
+            "label": "B",
+            "text": "证明镁能燃烧",
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "该选项为“证明镁能燃烧”，与题干中的实验对象关联较弱；本题有效答案是“对比 Hg(II) 与 Hg(I) 遇 Cl⁻ 的现象差异”。"
+          },
+          {
+            "label": "C",
+            "text": "对比 Hg(II) 与 Hg(I) 遇 Cl⁻ 的现象差异",
+            "point_key": "candidate-3-51cd48b6",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项为“对比 Hg(II) 与 Hg(I) 遇 Cl⁻ 的现象差异”，与题干所问和解析中的有效答案一致，并绑定到实验点位“反应后清液 + NaCl，与前一实验对比”。"
+          },
+          {
+            "label": "D",
+            "text": "比较硝酸盐热分解",
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "该选项为“比较硝酸盐热分解”，与题干中的实验对象关联较弱；本题有效答案是“对比 Hg(II) 与 Hg(I) 遇 Cl⁻ 的现象差异”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_protocol_174e0c432181"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 保留 original_question；已核对题干、选项/答案/解析、点位和源文，最终有效题证据充分。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_protocol_174e0c432181"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-1-07 Hg²⁺ 转化为 Hg₂²⁺》实验中，先做 Hg(NO₃)₂ + NaCl，再做反应后清液 + NaCl 的目的是什么？",
+            "options": [
+              {
+                "label": "A",
+                "text": "测定乙醚密度"
+              },
+              {
+                "label": "B",
+                "text": "证明镁能燃烧"
+              },
+              {
+                "label": "C",
+                "text": "对比 Hg(II) 与 Hg(I) 遇 Cl⁻ 的现象差异"
+              },
+              {
+                "label": "D",
+                "text": "比较硝酸盐热分解"
+              }
+            ],
+            "answer": {
+              "value": "C"
+            },
+            "explanation": "对比沉淀现象可证明 Hg₂²⁺ 形成。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00312_3907d19546",
+              "expchunk_protocol_174e0c432181"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "multi_point_binding"
+          ]
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_07_Q008",
+        "source_review_id": "REV_CH4_EXP_20_1_07_Q008",
+        "source_question_index": 8,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-1-07 Hg²⁺ 转化为 Hg₂²⁺》实验中，金属汞振荡反应后，为什么取清液再加 NaCl？",
+        "options": [
+          {
+            "label": "A",
+            "text": "使 NaCl 先热分解"
+          },
+          {
+            "label": "B",
+            "text": "让 CCl₄ 萃取汞"
+          },
+          {
+            "label": "C",
+            "text": "让镁条点燃"
+          },
+          {
+            "label": "D",
+            "text": "避免未反应金属汞干扰观察沉淀"
+          }
+        ],
+        "answer": {
+          "value": "D"
+        },
+        "explanation": "清液更适合观察氯化亚汞沉淀。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-51cd48b6"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-10917a08"
+        ],
+        "coverage_tags": [
+          "transfer_clear_liquid_before_nacl"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "使 NaCl 先热分解",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项为“使 NaCl 先热分解”，会把本题锁定的实验对象、操作或现象转向错误判断；本题有效答案是“避免未反应金属汞干扰观察沉淀”。"
+          },
+          {
+            "label": "B",
+            "text": "让 CCl₄ 萃取汞",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项为“让 CCl₄ 萃取汞”，属于其他试剂、现象或实验情境；本题有效答案是“避免未反应金属汞干扰观察沉淀”。"
+          },
+          {
+            "label": "C",
+            "text": "让镁条点燃",
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "该选项为“让镁条点燃”，与题干中的实验对象关联较弱；本题有效答案是“避免未反应金属汞干扰观察沉淀”。"
+          },
+          {
+            "label": "D",
+            "text": "避免未反应金属汞干扰观察沉淀",
+            "point_key": "candidate-3-51cd48b6",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项为“避免未反应金属汞干扰观察沉淀”，与题干所问和解析中的有效答案一致，并绑定到实验点位“反应后清液 + NaCl，与前一实验对比”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_protocol_174e0c432181"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01085_e7db666fe6",
+            "textbook_prose_01086_e3c112067c",
+            "textbook_prose_01095_3a661b6beb"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 保留 original_question；已核对题干、选项/答案/解析、点位和源文，最终有效题证据充分。",
+          "supporting_theory_note": "依赖 Hg(I) 双聚离子、Hg²⁺/Hg₂²⁺ 归中与氯化亚汞沉淀证据的理论。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_protocol_174e0c432181"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01085_e7db666fe6",
+            "textbook_prose_01086_e3c112067c",
+            "textbook_prose_01095_3a661b6beb"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01085_e7db666fe6",
+            "textbook_prose_01086_e3c112067c",
+            "textbook_prose_01095_3a661b6beb"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-1-07 Hg²⁺ 转化为 Hg₂²⁺》实验中，金属汞振荡反应后，为什么取清液再加 NaCl？",
+            "options": [
+              {
+                "label": "A",
+                "text": "使 NaCl 先热分解"
+              },
+              {
+                "label": "B",
+                "text": "让 CCl₄ 萃取汞"
+              },
+              {
+                "label": "C",
+                "text": "让镁条点燃"
+              },
+              {
+                "label": "D",
+                "text": "避免未反应金属汞干扰观察沉淀"
+              }
+            ],
+            "answer": {
+              "value": "D"
+            },
+            "explanation": "清液更适合观察氯化亚汞沉淀。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00312_3907d19546",
+              "expchunk_protocol_174e0c432181"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "multi_point_binding",
+            "source_requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_07_Q009",
+        "source_review_id": "REV_CH4_EXP_20_1_07_Q009",
+        "source_question_index": 9,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-1-07 Hg²⁺ 转化为 Hg₂²⁺》实验中，汞(I)离子在该实验标题中写作哪一种形式？",
+        "options": [
+          {
+            "label": "A",
+            "text": "Hg₂²⁺"
+          },
+          {
+            "label": "B",
+            "text": "Hg⁺ 单核"
+          },
+          {
+            "label": "C",
+            "text": "Hg³⁺"
+          },
+          {
+            "label": "D",
+            "text": "HgO₂²⁻"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "汞(I)通常为 Hg₂²⁺。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-10917a08"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "mercury_i_dimer_symbol"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "Hg₂²⁺",
+            "point_key": "candidate-2-10917a08",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项为“Hg₂²⁺”，与题干所问和解析中的有效答案一致，并绑定到实验点位“Hg(NO₃)₂ + 金属汞，振荡”。"
+          },
+          {
+            "label": "B",
+            "text": "Hg⁺ 单核",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项为“Hg⁺ 单核”，会把本题锁定的实验对象、操作或现象转向错误判断；本题有效答案是“Hg₂²⁺”。"
+          },
+          {
+            "label": "C",
+            "text": "Hg³⁺",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项为“Hg³⁺”，会把本题锁定的实验对象、操作或现象转向错误判断；本题有效答案是“Hg₂²⁺”。"
+          },
+          {
+            "label": "D",
+            "text": "HgO₂²⁻",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项为“HgO₂²⁻”，会把本题锁定的实验对象、操作或现象转向错误判断；本题有效答案是“Hg₂²⁺”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_protocol_174e0c432181"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 保留 original_question；已核对题干、选项/答案/解析、点位和源文，最终有效题证据充分。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_protocol_174e0c432181"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-1-07 Hg²⁺ 转化为 Hg₂²⁺》实验中，汞(I)离子在该实验标题中写作哪一种形式？",
+            "options": [
+              {
+                "label": "A",
+                "text": "Hg₂²⁺"
+              },
+              {
+                "label": "B",
+                "text": "Hg⁺ 单核"
+              },
+              {
+                "label": "C",
+                "text": "Hg³⁺"
+              },
+              {
+                "label": "D",
+                "text": "HgO₂²⁻"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "汞(I)通常为 Hg₂²⁺。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00312_3907d19546",
+              "expchunk_protocol_174e0c432181"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_07_Q010",
+        "source_review_id": "REV_CH4_EXP_20_1_07_Q010",
+        "source_question_index": 10,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-1-07 Hg²⁺ 转化为 Hg₂²⁺》实验中，若反应后清液加 NaCl 生成 Hg₂Cl₂ 白色沉淀，说明发生了什么？",
+        "options": [
+          {
+            "label": "A",
+            "text": "Hg²⁺ 全部变成 NH₃"
+          },
+          {
+            "label": "B",
+            "text": "Hg²⁺ 已部分转化为 Hg₂²⁺"
+          },
+          {
+            "label": "C",
+            "text": "Cl⁻ 被氧化为 Cl₂"
+          },
+          {
+            "label": "D",
+            "text": "NO₃⁻ 变成 SO₄²⁻"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "Hg₂Cl₂ 是 Hg₂²⁺ 的特征氯化物沉淀。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-51cd48b6"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-10917a08"
+        ],
+        "coverage_tags": [
+          "hg_i_generation_evidence"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "Hg²⁺ 全部变成 NH₃",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项为“Hg²⁺ 全部变成 NH₃”，会把本题锁定的实验对象、操作或现象转向错误判断；本题有效答案是“Hg²⁺ 已部分转化为 Hg₂²⁺”。"
+          },
+          {
+            "label": "B",
+            "text": "Hg²⁺ 已部分转化为 Hg₂²⁺",
+            "point_key": "candidate-3-51cd48b6",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项为“Hg²⁺ 已部分转化为 Hg₂²⁺”，与题干所问和解析中的有效答案一致，并绑定到实验点位“反应后清液 + NaCl，与前一实验对比”。"
+          },
+          {
+            "label": "C",
+            "text": "Cl⁻ 被氧化为 Cl₂",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项为“Cl⁻ 被氧化为 Cl₂”，会把本题锁定的实验对象、操作或现象转向错误判断；本题有效答案是“Hg²⁺ 已部分转化为 Hg₂²⁺”。"
+          },
+          {
+            "label": "D",
+            "text": "NO₃⁻ 变成 SO₄²⁻",
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "该选项为“NO₃⁻ 变成 SO₄²⁻”，与题干中的实验对象关联较弱；本题有效答案是“Hg²⁺ 已部分转化为 Hg₂²⁺”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_protocol_174e0c432181"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01085_e7db666fe6",
+            "textbook_prose_01086_e3c112067c",
+            "textbook_prose_01095_3a661b6beb"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 保留 original_question；已核对题干、选项/答案/解析、点位和源文，最终有效题证据充分。",
+          "supporting_theory_note": "依赖 Hg(I) 双聚离子、Hg²⁺/Hg₂²⁺ 归中与氯化亚汞沉淀证据的理论。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_protocol_174e0c432181"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01085_e7db666fe6",
+            "textbook_prose_01086_e3c112067c",
+            "textbook_prose_01095_3a661b6beb"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01085_e7db666fe6",
+            "textbook_prose_01086_e3c112067c",
+            "textbook_prose_01095_3a661b6beb"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-1-07 Hg²⁺ 转化为 Hg₂²⁺》实验中，若反应后清液加 NaCl 生成 Hg₂Cl₂ 白色沉淀，说明发生了什么？",
+            "options": [
+              {
+                "label": "A",
+                "text": "Hg²⁺ 全部变成 NH₃"
+              },
+              {
+                "label": "B",
+                "text": "Hg²⁺ 已部分转化为 Hg₂²⁺"
+              },
+              {
+                "label": "C",
+                "text": "Cl⁻ 被氧化为 Cl₂"
+              },
+              {
+                "label": "D",
+                "text": "NO₃⁻ 变成 SO₄²⁻"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "Hg₂Cl₂ 是 Hg₂²⁺ 的特征氯化物沉淀。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00312_3907d19546",
+              "expchunk_protocol_174e0c432181"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "multi_point_binding",
+            "source_requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_07_Q011",
+        "source_review_id": "REV_CH4_EXP_20_1_07_Q011",
+        "source_question_index": 11,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《20-1-07 Hg²⁺ 转化为 Hg₂²⁺》实验中，判断：起始汞盐为“Hg(NO₃)₂”。",
+        "options": [],
+        "answer": {
+          "value": true
+        },
+        "explanation": "实验资料列出 Hg(NO₃)₂。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-10917a08"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "mercury_ii_starting_salt"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_protocol_174e0c432181"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 保留 original_question；已核对题干、选项/答案/解析、点位和源文，最终有效题证据充分。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_protocol_174e0c432181"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-1-07 Hg²⁺ 转化为 Hg₂²⁺》实验中，判断：起始汞盐为“Hg(NO₃)₂”。",
+            "options": [],
+            "answer": {
+              "value": true
+            },
+            "explanation": "实验资料列出 Hg(NO₃)₂。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00312_3907d19546",
+              "expchunk_protocol_174e0c432181"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_07_Q012",
+        "source_review_id": "REV_CH4_EXP_20_1_07_Q012",
+        "source_question_index": 12,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《20-1-07 Hg²⁺ 转化为 Hg₂²⁺》实验中，促成 Hg²⁺ 转化为 Hg₂²⁺ 时加入哪种金属？",
+        "options": [
+          {
+            "label": "A",
+            "text": "金属镁"
+          },
+          {
+            "label": "B",
+            "text": "金属汞"
+          },
+          {
+            "label": "C",
+            "text": "金属钠"
+          },
+          {
+            "label": "D",
+            "text": "金属银"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "教材原文写明向 Hg(NO₃)₂ 溶液中加入一滴汞并振荡。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-10917a08"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "metallic_mercury_reductant",
+          "semantic_final_rewrite"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": null,
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "“金属镁”不能作为“促成 Hg²⁺ 转化为 Hg₂²⁺ 时加入哪种金属？”的教材证据；它排除的是无关操作、条件或观察对象。"
+          },
+          {
+            "label": "B",
+            "text": null,
+            "point_key": "candidate-2-10917a08",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“金属汞”直接支撑“促成 Hg²⁺ 转化为 Hg₂²⁺ 时加入哪种金属？”；对应点位是“Hg(NO₃)₂ + 金属汞，振荡”。"
+          },
+          {
+            "label": "C",
+            "text": null,
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "“金属钠”不能作为“促成 Hg²⁺ 转化为 Hg₂²⁺ 时加入哪种金属？”的教材证据；它排除的是无关操作、条件或观察对象。"
+          },
+          {
+            "label": "D",
+            "text": null,
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "“金属银”不能作为“促成 Hg²⁺ 转化为 Hg₂²⁺ 时加入哪种金属？”的教材证据；它排除的是无关操作、条件或观察对象。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_protocol_174e0c432181"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final proposed_question 已核对 canonical 实验原文、点位和必要 theory；可机器确定性判分。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_protocol_174e0c432181"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-1-07 Hg²⁺ 转化为 Hg₂²⁺》实验中，判断：还原金属为“金属镁”。",
+            "options": [],
+            "answer": {
+              "value": false
+            },
+            "explanation": "该说法与本实验事实不符；Hg(II) 与金属 Hg 可发生归中生成 Hg(I)。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00312_3907d19546",
+              "expchunk_protocol_174e0c432181"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-1-07 Hg²⁺ 转化为 Hg₂²⁺》实验中，促成 Hg²⁺ 转化为 Hg₂²⁺ 时加入哪种金属？",
+            "options": [
+              {
+                "label": "A",
+                "text": "金属镁"
+              },
+              {
+                "label": "B",
+                "text": "金属汞"
+              },
+              {
+                "label": "C",
+                "text": "金属钠"
+              },
+              {
+                "label": "D",
+                "text": "金属银"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "教材原文写明向 Hg(NO₃)₂ 溶液中加入一滴汞并振荡。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_07_Q013",
+        "source_review_id": "REV_CH4_EXP_20_1_07_Q013",
+        "source_question_index": 13,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《20-1-07 Hg²⁺ 转化为 Hg₂²⁺》实验中，判断：对比试剂为“NaCl”。",
+        "options": [],
+        "answer": {
+          "value": true
+        },
+        "explanation": "实验资料列出反应后清液 + NaCl。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-51cd48b6"
+        ],
+        "secondary_point_keys": [
+          "candidate-1-6484affe"
+        ],
+        "coverage_tags": [
+          "nacl_comparison_after_reaction"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_protocol_174e0c432181"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 保留 original_question；已核对题干、选项/答案/解析、点位和源文，最终有效题证据充分。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_protocol_174e0c432181"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-1-07 Hg²⁺ 转化为 Hg₂²⁺》实验中，判断：对比试剂为“NaCl”。",
+            "options": [],
+            "answer": {
+              "value": true
+            },
+            "explanation": "实验资料列出反应后清液 + NaCl。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00312_3907d19546",
+              "expchunk_protocol_174e0c432181"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "multi_point_binding"
+          ]
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_07_Q014",
+        "source_review_id": "REV_CH4_EXP_20_1_07_Q014",
+        "source_question_index": 14,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《20-1-07 Hg²⁺ 转化为 Hg₂²⁺》实验中，判断：汞(I)沉淀为“HgCl₂”。",
+        "options": [],
+        "answer": {
+          "value": false
+        },
+        "explanation": "该说法与本实验事实不符；亚汞离子与氯离子生成氯化亚汞。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-51cd48b6"
+        ],
+        "secondary_point_keys": [
+          "candidate-1-6484affe"
+        ],
+        "coverage_tags": [
+          "mercury_i_chloride_evidence"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_protocol_174e0c432181"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 保留 original_question；已核对题干、选项/答案/解析、点位和源文，最终有效题证据充分。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_protocol_174e0c432181"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-1-07 Hg²⁺ 转化为 Hg₂²⁺》实验中，判断：汞(I)沉淀为“HgCl₂”。",
+            "options": [],
+            "answer": {
+              "value": false
+            },
+            "explanation": "该说法与本实验事实不符；亚汞离子与氯离子生成氯化亚汞。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00312_3907d19546",
+              "expchunk_protocol_174e0c432181"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "multi_point_binding"
+          ]
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_07_Q015",
+        "source_review_id": "REV_CH4_EXP_20_1_07_Q015",
+        "source_question_index": 15,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《20-1-07 Hg²⁺ 转化为 Hg₂²⁺》实验中，判断：转化类型为“归中反应”。",
+        "options": [],
+        "answer": {
+          "value": true
+        },
+        "explanation": "高价汞与零价汞生成中间价态汞(I)。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-10917a08"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "comproportionation"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_protocol_174e0c432181"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01085_e7db666fe6",
+            "textbook_prose_01086_e3c112067c",
+            "textbook_prose_01095_3a661b6beb"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 保留 original_question；已核对题干、选项/答案/解析、点位和源文，最终有效题证据充分。",
+          "supporting_theory_note": "依赖 Hg(I) 双聚离子、Hg²⁺/Hg₂²⁺ 归中与氯化亚汞沉淀证据的理论。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_protocol_174e0c432181"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01085_e7db666fe6",
+            "textbook_prose_01086_e3c112067c",
+            "textbook_prose_01095_3a661b6beb"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01085_e7db666fe6",
+            "textbook_prose_01086_e3c112067c",
+            "textbook_prose_01095_3a661b6beb"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-1-07 Hg²⁺ 转化为 Hg₂²⁺》实验中，判断：转化类型为“归中反应”。",
+            "options": [],
+            "answer": {
+              "value": true
+            },
+            "explanation": "高价汞与零价汞生成中间价态汞(I)。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00312_3907d19546",
+              "expchunk_protocol_174e0c432181"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "source_requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_07_Q016",
+        "source_review_id": "REV_CH4_EXP_20_1_07_Q016",
+        "source_question_index": 16,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《20-1-07 Hg²⁺ 转化为 Hg₂²⁺》实验中，判断：价态变化为“0”。",
+        "options": [],
+        "answer": {
+          "value": false
+        },
+        "explanation": "该说法与本实验事实不符；Hg₂²⁺ 中两个 Hg 总电荷为 +2，平均为 +1。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-10917a08"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "mercury_i_average_oxidation_state"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_protocol_174e0c432181"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01085_e7db666fe6",
+            "textbook_prose_01086_e3c112067c",
+            "textbook_prose_01095_3a661b6beb"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 保留 original_question；已核对题干、选项/答案/解析、点位和源文，最终有效题证据充分。",
+          "supporting_theory_note": "依赖 Hg(I) 双聚离子、Hg²⁺/Hg₂²⁺ 归中与氯化亚汞沉淀证据的理论。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_protocol_174e0c432181"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01085_e7db666fe6",
+            "textbook_prose_01086_e3c112067c",
+            "textbook_prose_01095_3a661b6beb"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01085_e7db666fe6",
+            "textbook_prose_01086_e3c112067c",
+            "textbook_prose_01095_3a661b6beb"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-1-07 Hg²⁺ 转化为 Hg₂²⁺》实验中，判断：价态变化为“0”。",
+            "options": [],
+            "answer": {
+              "value": false
+            },
+            "explanation": "该说法与本实验事实不符；Hg₂²⁺ 中两个 Hg 总电荷为 +2，平均为 +1。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00312_3907d19546",
+              "expchunk_protocol_174e0c432181"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "source_requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_07_Q017",
+        "source_review_id": "REV_CH4_EXP_20_1_07_Q017",
+        "source_question_index": 17,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《20-1-07 Hg²⁺ 转化为 Hg₂²⁺》实验中，判断：直接对比为“对比 Hg(II) 与 Hg(I) 遇 Cl⁻ 的现象差异”。",
+        "options": [],
+        "answer": {
+          "value": true
+        },
+        "explanation": "对比沉淀现象可证明 Hg₂²⁺ 形成。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-51cd48b6"
+        ],
+        "secondary_point_keys": [
+          "candidate-1-6484affe"
+        ],
+        "coverage_tags": [
+          "compare_hg_ii_hg_i_chloride_behavior"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_protocol_174e0c432181"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 保留 original_question；已核对题干、选项/答案/解析、点位和源文，最终有效题证据充分。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_protocol_174e0c432181"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-1-07 Hg²⁺ 转化为 Hg₂²⁺》实验中，判断：直接对比为“对比 Hg(II) 与 Hg(I) 遇 Cl⁻ 的现象差异”。",
+            "options": [],
+            "answer": {
+              "value": true
+            },
+            "explanation": "对比沉淀现象可证明 Hg₂²⁺ 形成。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00312_3907d19546",
+              "expchunk_protocol_174e0c432181"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "multi_point_binding"
+          ]
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_07_Q018",
+        "source_review_id": "REV_CH4_EXP_20_1_07_Q018",
+        "source_question_index": 18,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在 Hg 与 Hg(NO₃)₂ 振荡反应后，为什么取清液再加入 NaCl？",
+        "options": [
+          {
+            "label": "A",
+            "text": "避免未反应金属汞干扰沉淀观察"
+          },
+          {
+            "label": "B",
+            "text": "让 NaCl 先热分解"
+          },
+          {
+            "label": "C",
+            "text": "让 CCl₄ 萃取汞"
+          },
+          {
+            "label": "D",
+            "text": "让镁条燃烧"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "教材步骤要求转移清液并加 NaCl 观察，有利于对比汞(I)氯化物沉淀。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-51cd48b6"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-10917a08"
+        ],
+        "coverage_tags": [
+          "transfer_clear_liquid_before_nacl",
+          "semantic_final_rewrite"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": null,
+            "point_key": "candidate-3-51cd48b6",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“避免未反应金属汞干扰沉淀观察”直接支撑“在 Hg 与 Hg(NO₃)₂ 振荡反应后，为什么取清液再加入 NaCl？”；对应点位是“反应后清液 + NaCl，与前一实验对比”。"
+          },
+          {
+            "label": "B",
+            "text": null,
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "“让 NaCl 先热分解”与正确项“避免未反应金属汞干扰沉淀观察”同属相近化学概念，但在“在 Hg 与 Hg(NO₃)₂ 振荡反应后，为什么取清液再加入 NaCl？”中混淆了试剂、价态、产物或现象。"
+          },
+          {
+            "label": "C",
+            "text": null,
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项为“让 CCl₄ 萃取汞”，属于其他试剂、现象或实验情境；本题有效答案是“避免未反应金属汞干扰沉淀观察”。"
+          },
+          {
+            "label": "D",
+            "text": null,
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "“让镁条燃烧”不能作为“在 Hg 与 Hg(NO₃)₂ 振荡反应后，为什么取清液再加入 NaCl？”的教材证据；它排除的是无关操作、条件或观察对象。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_protocol_174e0c432181"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01085_e7db666fe6",
+            "textbook_prose_01086_e3c112067c",
+            "textbook_prose_01095_3a661b6beb"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final proposed_question 已核对 canonical 实验原文、点位和必要 theory；可机器确定性判分。",
+          "supporting_theory_note": "依赖 Hg(I) 双聚离子、Hg²⁺/Hg₂²⁺ 归中与氯化亚汞沉淀证据的理论。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_protocol_174e0c432181"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01085_e7db666fe6",
+            "textbook_prose_01086_e3c112067c",
+            "textbook_prose_01095_3a661b6beb"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01085_e7db666fe6",
+            "textbook_prose_01086_e3c112067c",
+            "textbook_prose_01095_3a661b6beb"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-1-07 Hg²⁺ 转化为 Hg₂²⁺》实验中，判断：清液处理为“使 NaCl 先热分解”。",
+            "options": [],
+            "answer": {
+              "value": false
+            },
+            "explanation": "该说法与本实验事实不符；清液更适合观察氯化亚汞沉淀。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00312_3907d19546",
+              "expchunk_protocol_174e0c432181"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在 Hg 与 Hg(NO₃)₂ 振荡反应后，为什么取清液再加入 NaCl？",
+            "options": [
+              {
+                "label": "A",
+                "text": "避免未反应金属汞干扰沉淀观察"
+              },
+              {
+                "label": "B",
+                "text": "让 NaCl 先热分解"
+              },
+              {
+                "label": "C",
+                "text": "让 CCl₄ 萃取汞"
+              },
+              {
+                "label": "D",
+                "text": "让镁条燃烧"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "教材步骤要求转移清液并加 NaCl 观察，有利于对比汞(I)氯化物沉淀。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "multi_point_binding",
+            "source_requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_07_Q019",
+        "source_review_id": "REV_CH4_EXP_20_1_07_Q019",
+        "source_question_index": 19,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《20-1-07 Hg²⁺ 转化为 Hg₂²⁺》实验中，判断：离子符号为“Hg₂²⁺”。",
+        "options": [],
+        "answer": {
+          "value": true
+        },
+        "explanation": "汞(I)通常为 Hg₂²⁺。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-10917a08"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "mercury_i_dimer_symbol"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_protocol_174e0c432181"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 保留 original_question；已核对题干、选项/答案/解析、点位和源文，最终有效题证据充分。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_protocol_174e0c432181"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-1-07 Hg²⁺ 转化为 Hg₂²⁺》实验中，判断：离子符号为“Hg₂²⁺”。",
+            "options": [],
+            "answer": {
+              "value": true
+            },
+            "explanation": "汞(I)通常为 Hg₂²⁺。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00312_3907d19546",
+              "expchunk_protocol_174e0c432181"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_07_Q020",
+        "source_review_id": "REV_CH4_EXP_20_1_07_Q020",
+        "source_question_index": 20,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在反应后清液中加入 NaCl 后若出现 Hg₂Cl₂ 白色沉淀，最能说明什么？",
+        "options": [
+          {
+            "label": "A",
+            "text": "生成了 Hg₂²⁺"
+          },
+          {
+            "label": "B",
+            "text": "Hg²⁺ 全部变成 NH₃"
+          },
+          {
+            "label": "C",
+            "text": "Cl⁻ 被氧化成 Cl₂"
+          },
+          {
+            "label": "D",
+            "text": "NO₃⁻ 变成 SO₄²⁻"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "Hg₂Cl₂ 是汞(I)遇 Cl⁻ 的特征沉淀证据。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-51cd48b6"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-10917a08"
+        ],
+        "coverage_tags": [
+          "hg_i_generation_evidence",
+          "semantic_final_rewrite"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": null,
+            "point_key": "candidate-3-51cd48b6",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“生成了 Hg₂²⁺”直接支撑“在反应后清液中加入 NaCl 后若出现 Hg₂Cl₂ 白色沉淀，最能说明什么？”；对应点位是“反应后清液 + NaCl，与前一实验对比”。"
+          },
+          {
+            "label": "B",
+            "text": null,
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "“Hg²⁺ 全部变成 NH₃”与正确项“生成了 Hg₂²⁺”同属相近化学概念，但在“在反应后清液中加入 NaCl 后若出现 Hg₂Cl₂ 白色沉淀，最能说明什么？”中混淆了试剂、价态、产物或现象。"
+          },
+          {
+            "label": "C",
+            "text": null,
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "“Cl⁻ 被氧化成 Cl₂”与正确项“生成了 Hg₂²⁺”同属相近化学概念，但在“在反应后清液中加入 NaCl 后若出现 Hg₂Cl₂ 白色沉淀，最能说明什么？”中混淆了试剂、价态、产物或现象。"
+          },
+          {
+            "label": "D",
+            "text": null,
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "“NO₃⁻ 变成 SO₄²⁻”不能作为“在反应后清液中加入 NaCl 后若出现 Hg₂Cl₂ 白色沉淀，最能说明什么？”的教材证据；它排除的是无关操作、条件或观察对象。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_protocol_174e0c432181"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01085_e7db666fe6",
+            "textbook_prose_01086_e3c112067c",
+            "textbook_prose_01095_3a661b6beb"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final proposed_question 已核对 canonical 实验原文、点位和必要 theory；可机器确定性判分。",
+          "supporting_theory_note": "依赖 Hg(I) 双聚离子、Hg²⁺/Hg₂²⁺ 归中与氯化亚汞沉淀证据的理论。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_protocol_174e0c432181"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01085_e7db666fe6",
+            "textbook_prose_01086_e3c112067c",
+            "textbook_prose_01095_3a661b6beb"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01085_e7db666fe6",
+            "textbook_prose_01086_e3c112067c",
+            "textbook_prose_01095_3a661b6beb"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-1-07 Hg²⁺ 转化为 Hg₂²⁺》实验中，判断：实验结论为“Hg²⁺ 全部变成 NH₃”。",
+            "options": [],
+            "answer": {
+              "value": false
+            },
+            "explanation": "该说法与本实验事实不符；Hg₂Cl₂ 是 Hg₂²⁺ 的特征氯化物沉淀。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00312_3907d19546",
+              "expchunk_protocol_174e0c432181"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在反应后清液中加入 NaCl 后若出现 Hg₂Cl₂ 白色沉淀，最能说明什么？",
+            "options": [
+              {
+                "label": "A",
+                "text": "生成了 Hg₂²⁺"
+              },
+              {
+                "label": "B",
+                "text": "Hg²⁺ 全部变成 NH₃"
+              },
+              {
+                "label": "C",
+                "text": "Cl⁻ 被氧化成 Cl₂"
+              },
+              {
+                "label": "D",
+                "text": "NO₃⁻ 变成 SO₄²⁻"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "Hg₂Cl₂ 是汞(I)遇 Cl⁻ 的特征沉淀证据。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "multi_point_binding",
+            "source_requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_07_Q021",
+        "source_review_id": "REV_CH4_EXP_20_1_07_Q021",
+        "source_question_index": 21,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "fill_blank",
+        "stem": "在《20-1-07 Hg²⁺ 转化为 Hg₂²⁺》实验中，该转化实验的起始汞(II)盐是____。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "硝酸汞",
+            "硝酸汞(II)",
+            "Hg(NO3)2",
+            "Hg(NO₃)₂"
+          ],
+          "match": "normalized_exact",
+          "grading_mode": "normalized_exact",
+          "machine_deterministic": true
+        },
+        "explanation": "对应的实验操作或现象内容是“硝酸汞”。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-10917a08"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "mercury_ii_starting_salt",
+          "mobile_friendly_exact_aliases"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_protocol_174e0c432181"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final proposed_question 已核对 canonical 实验原文、点位和必要 theory；可机器确定性判分。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_protocol_174e0c432181"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "formula_or_symbolic_fill_blank_answer",
+          "generic_or_answer_shell_explanation",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-1-07 Hg²⁺ 转化为 Hg₂²⁺》实验中，该转化实验的起始汞(II)盐是____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "Hg(NO₃)₂"
+              ],
+              "match": "normalized_exact",
+              "grading_mode": "normalized_exact",
+              "machine_deterministic": true
+            },
+            "explanation": "实验资料列出 Hg(NO₃)₂。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00312_3907d19546",
+              "expchunk_protocol_174e0c432181"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-1-07 Hg²⁺ 转化为 Hg₂²⁺》实验中，该转化实验的起始汞(II)盐是____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "硝酸汞",
+                "硝酸汞(II)",
+                "Hg(NO3)2",
+                "Hg(NO₃)₂"
+              ],
+              "match": "normalized_exact",
+              "grading_mode": "normalized_exact",
+              "machine_deterministic": true
+            },
+            "explanation": "对应的实验操作或现象内容是“硝酸汞”。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_07_Q022",
+        "source_review_id": "REV_CH4_EXP_20_1_07_Q022",
+        "source_question_index": 22,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《20-1-07 Hg²⁺ 转化为 Hg₂²⁺》实验中，Hg(NO₃)₂ 溶液中加入____并振荡可促成转化。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "金属汞"
+          ],
+          "match": "normalized_exact",
+          "grading_mode": "normalized_exact",
+          "machine_deterministic": true
+        },
+        "explanation": "Hg(II) 与金属 Hg 可发生归中生成 Hg(I)。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-10917a08"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "metallic_mercury_reductant"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_protocol_174e0c432181"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01085_e7db666fe6",
+            "textbook_prose_01086_e3c112067c",
+            "textbook_prose_01095_3a661b6beb"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 保留 original_question；已核对题干、选项/答案/解析、点位和源文，最终有效题证据充分。",
+          "supporting_theory_note": "依赖 Hg(I) 双聚离子、Hg²⁺/Hg₂²⁺ 归中与氯化亚汞沉淀证据的理论。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_protocol_174e0c432181"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01085_e7db666fe6",
+            "textbook_prose_01086_e3c112067c",
+            "textbook_prose_01095_3a661b6beb"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01085_e7db666fe6",
+            "textbook_prose_01086_e3c112067c",
+            "textbook_prose_01095_3a661b6beb"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-1-07 Hg²⁺ 转化为 Hg₂²⁺》实验中，Hg(NO₃)₂ 溶液中加入____并振荡可促成转化。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "金属汞"
+              ],
+              "match": "normalized_exact",
+              "grading_mode": "normalized_exact",
+              "machine_deterministic": true
+            },
+            "explanation": "Hg(II) 与金属 Hg 可发生归中生成 Hg(I)。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00312_3907d19546",
+              "expchunk_protocol_174e0c432181"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "source_requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_07_Q023",
+        "source_review_id": "REV_CH4_EXP_20_1_07_Q023",
+        "source_question_index": 23,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "fill_blank",
+        "stem": "在《20-1-07 Hg²⁺ 转化为 Hg₂²⁺》实验中，反应后清液加入____（填中文名称），与前一实验对比。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "氯化钠"
+          ],
+          "match": "normalized_exact",
+          "grading_mode": "normalized_exact",
+          "machine_deterministic": true
+        },
+        "explanation": "对应的实验操作或现象内容是“氯化钠”。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-51cd48b6"
+        ],
+        "secondary_point_keys": [
+          "candidate-1-6484affe"
+        ],
+        "coverage_tags": [
+          "nacl_comparison_after_reaction",
+          "polished_mobile_fill"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_protocol_174e0c432181"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final proposed_question 已核对 canonical 实验原文、点位和必要 theory；可机器确定性判分。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_protocol_174e0c432181"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "generic_or_answer_shell_explanation",
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-1-07 Hg²⁺ 转化为 Hg₂²⁺》实验中，反应后清液加入____，与前一实验对比。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "NaCl"
+              ],
+              "match": "normalized_exact",
+              "grading_mode": "normalized_exact",
+              "machine_deterministic": true
+            },
+            "explanation": "实验资料列出反应后清液 + NaCl。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00312_3907d19546",
+              "expchunk_protocol_174e0c432181"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-1-07 Hg²⁺ 转化为 Hg₂²⁺》实验中，反应后清液加入____（填中文名称），与前一实验对比。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "氯化钠"
+              ],
+              "match": "normalized_exact",
+              "grading_mode": "normalized_exact",
+              "machine_deterministic": true
+            },
+            "explanation": "对应的实验操作或现象内容是“氯化钠”。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "multi_point_binding"
+          ]
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_07_Q024",
+        "source_review_id": "REV_CH4_EXP_20_1_07_Q024",
+        "source_question_index": 24,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "fill_blank",
+        "stem": "在《20-1-07 Hg²⁺ 转化为 Hg₂²⁺》实验中，Hg₂²⁺ 与 Cl⁻ 生成____白色沉淀。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "氯化亚汞",
+            "Hg2Cl2",
+            "Hg₂Cl₂"
+          ],
+          "match": "normalized_exact",
+          "grading_mode": "normalized_exact",
+          "machine_deterministic": true
+        },
+        "explanation": "对应的实验操作或现象内容是“氯化亚汞”。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-51cd48b6"
+        ],
+        "secondary_point_keys": [
+          "candidate-1-6484affe"
+        ],
+        "coverage_tags": [
+          "mercury_i_chloride_evidence",
+          "mobile_friendly_exact_aliases"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_protocol_174e0c432181"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final proposed_question 已核对 canonical 实验原文、点位和必要 theory；可机器确定性判分。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_protocol_174e0c432181"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "formula_or_symbolic_fill_blank_answer",
+          "generic_or_answer_shell_explanation",
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-1-07 Hg²⁺ 转化为 Hg₂²⁺》实验中，Hg₂²⁺ 与 Cl⁻ 生成____白色沉淀。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "Hg₂Cl₂"
+              ],
+              "match": "normalized_exact",
+              "grading_mode": "normalized_exact",
+              "machine_deterministic": true
+            },
+            "explanation": "亚汞离子与氯离子生成氯化亚汞。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00312_3907d19546",
+              "expchunk_protocol_174e0c432181"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-1-07 Hg²⁺ 转化为 Hg₂²⁺》实验中，Hg₂²⁺ 与 Cl⁻ 生成____白色沉淀。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "氯化亚汞",
+                "Hg2Cl2",
+                "Hg₂Cl₂"
+              ],
+              "match": "normalized_exact",
+              "grading_mode": "normalized_exact",
+              "machine_deterministic": true
+            },
+            "explanation": "对应的实验操作或现象内容是“氯化亚汞”。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "multi_point_binding"
+          ]
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_07_Q025",
+        "source_review_id": "REV_CH4_EXP_20_1_07_Q025",
+        "source_question_index": 25,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《20-1-07 Hg²⁺ 转化为 Hg₂²⁺》实验中，Hg²⁺ 与 Hg 生成 Hg₂²⁺ 属于____反应。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "归中反应"
+          ],
+          "match": "normalized_exact",
+          "grading_mode": "normalized_exact",
+          "machine_deterministic": true
+        },
+        "explanation": "高价汞与零价汞生成中间价态汞(I)。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-10917a08"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "comproportionation"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_protocol_174e0c432181"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01085_e7db666fe6",
+            "textbook_prose_01086_e3c112067c",
+            "textbook_prose_01095_3a661b6beb"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 保留 original_question；已核对题干、选项/答案/解析、点位和源文，最终有效题证据充分。",
+          "supporting_theory_note": "依赖 Hg(I) 双聚离子、Hg²⁺/Hg₂²⁺ 归中与氯化亚汞沉淀证据的理论。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_protocol_174e0c432181"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01085_e7db666fe6",
+            "textbook_prose_01086_e3c112067c",
+            "textbook_prose_01095_3a661b6beb"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01085_e7db666fe6",
+            "textbook_prose_01086_e3c112067c",
+            "textbook_prose_01095_3a661b6beb"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-1-07 Hg²⁺ 转化为 Hg₂²⁺》实验中，Hg²⁺ 与 Hg 生成 Hg₂²⁺ 属于____反应。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "归中反应"
+              ],
+              "match": "normalized_exact",
+              "grading_mode": "normalized_exact",
+              "machine_deterministic": true
+            },
+            "explanation": "高价汞与零价汞生成中间价态汞(I)。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00312_3907d19546",
+              "expchunk_protocol_174e0c432181"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "source_requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_07_Q026",
+        "source_review_id": "REV_CH4_EXP_20_1_07_Q026",
+        "source_question_index": 26,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "fill_blank",
+        "stem": "在《20-1-07 Hg²⁺ 转化为 Hg₂²⁺》实验中，Hg₂²⁺ 中每个 Hg 的平均氧化态为____（填中文价态）。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "一价"
+          ],
+          "match": "normalized_exact",
+          "grading_mode": "normalized_exact",
+          "machine_deterministic": true
+        },
+        "explanation": "对应的实验操作或现象内容是“一价”。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-10917a08"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "mercury_i_average_oxidation_state",
+          "polished_mobile_fill"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_protocol_174e0c432181"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01085_e7db666fe6",
+            "textbook_prose_01086_e3c112067c",
+            "textbook_prose_01095_3a661b6beb"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final proposed_question 已核对 canonical 实验原文、点位和必要 theory；可机器确定性判分。",
+          "supporting_theory_note": "依赖 Hg(I) 双聚离子、Hg²⁺/Hg₂²⁺ 归中与氯化亚汞沉淀证据的理论。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_protocol_174e0c432181"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01085_e7db666fe6",
+            "textbook_prose_01086_e3c112067c",
+            "textbook_prose_01095_3a661b6beb"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01085_e7db666fe6",
+            "textbook_prose_01086_e3c112067c",
+            "textbook_prose_01095_3a661b6beb"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "generic_or_answer_shell_explanation",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-1-07 Hg²⁺ 转化为 Hg₂²⁺》实验中，Hg₂²⁺ 中每个 Hg 的平均氧化态为____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "+1",
+                "正一价",
+                "一价"
+              ],
+              "match": "normalized_exact",
+              "grading_mode": "normalized_exact",
+              "machine_deterministic": true
+            },
+            "explanation": "Hg₂²⁺ 中两个 Hg 总电荷为 +2，平均为 +1。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00312_3907d19546",
+              "expchunk_protocol_174e0c432181"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-1-07 Hg²⁺ 转化为 Hg₂²⁺》实验中，Hg₂²⁺ 中每个 Hg 的平均氧化态为____（填中文价态）。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "一价"
+              ],
+              "match": "normalized_exact",
+              "grading_mode": "normalized_exact",
+              "machine_deterministic": true
+            },
+            "explanation": "对应的实验操作或现象内容是“一价”。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "source_requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_07_Q027",
+        "source_review_id": "REV_CH4_EXP_20_1_07_Q027",
+        "source_question_index": 27,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《20-1-07 Hg²⁺ 转化为 Hg₂²⁺》实验中，前后加 NaCl 的目的在于对比 Hg(II) 与 Hg(I) 遇 Cl⁻ 的____差异。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "现象"
+          ],
+          "match": "normalized_exact",
+          "grading_mode": "normalized_exact",
+          "machine_deterministic": true
+        },
+        "explanation": "对比沉淀现象可证明 Hg₂²⁺ 形成。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-51cd48b6"
+        ],
+        "secondary_point_keys": [
+          "candidate-1-6484affe"
+        ],
+        "coverage_tags": [
+          "compare_hg_ii_hg_i_chloride_behavior"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_protocol_174e0c432181"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 保留 original_question；已核对题干、选项/答案/解析、点位和源文，最终有效题证据充分。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_protocol_174e0c432181"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-1-07 Hg²⁺ 转化为 Hg₂²⁺》实验中，前后加 NaCl 的目的在于对比 Hg(II) 与 Hg(I) 遇 Cl⁻ 的____差异。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "现象"
+              ],
+              "match": "normalized_exact",
+              "grading_mode": "normalized_exact",
+              "machine_deterministic": true
+            },
+            "explanation": "对比沉淀现象可证明 Hg₂²⁺ 形成。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00312_3907d19546",
+              "expchunk_protocol_174e0c432181"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "multi_point_binding"
+          ]
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_07_Q028",
+        "source_review_id": "REV_CH4_EXP_20_1_07_Q028",
+        "source_question_index": 28,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《20-1-07 Hg²⁺ 转化为 Hg₂²⁺》实验中，取清液可减少未反应____对观察的干扰。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "金属汞"
+          ],
+          "match": "normalized_exact",
+          "grading_mode": "normalized_exact",
+          "machine_deterministic": true
+        },
+        "explanation": "清液更适合观察氯化亚汞沉淀。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-51cd48b6"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-10917a08"
+        ],
+        "coverage_tags": [
+          "transfer_clear_liquid_before_nacl"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_protocol_174e0c432181"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 保留 original_question；已核对题干、选项/答案/解析、点位和源文，最终有效题证据充分。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_protocol_174e0c432181"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-1-07 Hg²⁺ 转化为 Hg₂²⁺》实验中，取清液可减少未反应____对观察的干扰。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "金属汞"
+              ],
+              "match": "normalized_exact",
+              "grading_mode": "normalized_exact",
+              "machine_deterministic": true
+            },
+            "explanation": "清液更适合观察氯化亚汞沉淀。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00312_3907d19546",
+              "expchunk_protocol_174e0c432181"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "multi_point_binding"
+          ]
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_07_Q029",
+        "source_review_id": "REV_CH4_EXP_20_1_07_Q029",
+        "source_question_index": 29,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "fill_blank",
+        "stem": "在《20-1-07 Hg²⁺ 转化为 Hg₂²⁺》实验中，汞(I)常以二聚离子____表示。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "亚汞离子",
+            "汞(I)离子",
+            "Hg2^2+",
+            "Hg₂²⁺"
+          ],
+          "match": "normalized_exact",
+          "grading_mode": "normalized_exact",
+          "machine_deterministic": true
+        },
+        "explanation": "对应的实验操作或现象内容是“亚汞离子”。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-10917a08"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "mercury_i_dimer_symbol",
+          "mobile_friendly_exact_aliases"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_protocol_174e0c432181"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final proposed_question 已核对 canonical 实验原文、点位和必要 theory；可机器确定性判分。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_protocol_174e0c432181"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "formula_or_symbolic_fill_blank_answer",
+          "generic_or_answer_shell_explanation",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-1-07 Hg²⁺ 转化为 Hg₂²⁺》实验中，汞(I)常以二聚离子____表示。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "Hg₂²⁺"
+              ],
+              "match": "normalized_exact",
+              "grading_mode": "normalized_exact",
+              "machine_deterministic": true
+            },
+            "explanation": "汞(I)通常为 Hg₂²⁺。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00312_3907d19546",
+              "expchunk_protocol_174e0c432181"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-1-07 Hg²⁺ 转化为 Hg₂²⁺》实验中，汞(I)常以二聚离子____表示。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "亚汞离子",
+                "汞(I)离子",
+                "Hg2^2+",
+                "Hg₂²⁺"
+              ],
+              "match": "normalized_exact",
+              "grading_mode": "normalized_exact",
+              "machine_deterministic": true
+            },
+            "explanation": "对应的实验操作或现象内容是“亚汞离子”。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_07_Q030",
+        "source_review_id": "REV_CH4_EXP_20_1_07_Q030",
+        "source_question_index": 30,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "fill_blank",
+        "stem": "在《20-1-07 Hg²⁺ 转化为 Hg₂²⁺》实验中，白色 Hg₂Cl₂ 的出现说明生成了____。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "亚汞离子",
+            "汞(I)离子",
+            "Hg2^2+",
+            "Hg₂²⁺"
+          ],
+          "match": "normalized_exact",
+          "grading_mode": "normalized_exact",
+          "machine_deterministic": true
+        },
+        "explanation": "对应的实验操作或现象内容是“亚汞离子”。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-51cd48b6"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-10917a08"
+        ],
+        "coverage_tags": [
+          "hg_i_generation_evidence",
+          "mobile_friendly_exact_aliases"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_protocol_174e0c432181"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01085_e7db666fe6",
+            "textbook_prose_01086_e3c112067c",
+            "textbook_prose_01095_3a661b6beb"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final proposed_question 已核对 canonical 实验原文、点位和必要 theory；可机器确定性判分。",
+          "supporting_theory_note": "依赖 Hg(I) 双聚离子、Hg²⁺/Hg₂²⁺ 归中与氯化亚汞沉淀证据的理论。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_protocol_174e0c432181"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01085_e7db666fe6",
+            "textbook_prose_01086_e3c112067c",
+            "textbook_prose_01095_3a661b6beb"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01085_e7db666fe6",
+            "textbook_prose_01086_e3c112067c",
+            "textbook_prose_01095_3a661b6beb"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "formula_or_symbolic_fill_blank_answer",
+          "generic_or_answer_shell_explanation",
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-1-07 Hg²⁺ 转化为 Hg₂²⁺》实验中，白色 Hg₂Cl₂ 的出现说明生成了____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "Hg₂²⁺"
+              ],
+              "match": "normalized_exact",
+              "grading_mode": "normalized_exact",
+              "machine_deterministic": true
+            },
+            "explanation": "Hg₂Cl₂ 是 Hg₂²⁺ 的特征氯化物沉淀。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00312_3907d19546",
+              "expchunk_protocol_174e0c432181"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-1-07 Hg²⁺ 转化为 Hg₂²⁺》实验中，白色 Hg₂Cl₂ 的出现说明生成了____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "亚汞离子",
+                "汞(I)离子",
+                "Hg2^2+",
+                "Hg₂²⁺"
+              ],
+              "match": "normalized_exact",
+              "grading_mode": "normalized_exact",
+              "machine_deterministic": true
+            },
+            "explanation": "对应的实验操作或现象内容是“亚汞离子”。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "multi_point_binding",
+            "source_requires_supporting_theory"
+          ]
+        }
+      }
+    ]
+  }
+}

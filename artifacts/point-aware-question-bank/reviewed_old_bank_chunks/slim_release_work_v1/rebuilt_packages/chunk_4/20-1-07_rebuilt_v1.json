@@ -1,0 +1,982 @@
+{
+  "metadata": {
+    "schema_version": "rebuilt_experiment_question_package_v1",
+    "artifact_type": "manual_semantic_rebuild",
+    "chunk": "chunk_4",
+    "source_packet": "E:\\chemistry-admin\\artifacts\\point-aware-question-bank\\reviewed_old_bank_chunks\\slim_release_work_v1\\semantic_work_packets\\chunk_4\\20-1-07.json",
+    "experiment_code": "20-1-07",
+    "experiment_title": "汞(Ⅱ)转化为汞(Ⅰ)",
+    "question_count": 30,
+    "type_counts": {
+      "single_choice": 20,
+      "true_false": 6,
+      "fill_blank": 4
+    },
+    "merge_status": "not_merged_do_not_modify_release_json_directly",
+    "manual_rebuild_statement": "本 packet 已逐题语义重构，不是脚本批量生成。"
+  },
+  "video_points": [
+    {
+      "point_key": "candidate-1-6484affe",
+      "point_title": "硝酸汞溶液先与氯化钠试液作用"
+    },
+    {
+      "point_key": "candidate-2-10917a08",
+      "point_title": "硝酸汞溶液中加入金属汞并振荡"
+    },
+    {
+      "point_key": "candidate-3-51cd48b6",
+      "point_title": "反应后清液加氯化钠并与前一实验对比"
+    }
+  ],
+  "evidence_sources": {
+    "canonical_experiment_chunks": [
+      {
+        "chunk_id": "expchunk_00312_3907d19546",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+        "line_number": 325,
+        "evidence_role": "直接支持汞(Ⅱ)转化为汞(Ⅰ)实验：先在硝酸汞溶液中加氯化钠观察，再向硝酸汞溶液中加入一滴汞并振荡，转移清液后加氯化钠观察并对比，余下汞要回收。"
+      }
+    ],
+    "supporting_theory_chunks": [
+      {
+        "chunk_id": "textbook_prose_01085_e7db666fe6",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+        "line_number": 1672,
+        "evidence_role": "支持亚汞化合物中汞为一价、总以双聚体形式出现，以及氯化亚汞为白色难溶固体。"
+      },
+      {
+        "chunk_id": "textbook_prose_01094_fd683aeeb3",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+        "line_number": 1681,
+        "evidence_role": "支持水溶液中汞(Ⅱ)与金属汞有生成亚汞离子的逆歧化/归中倾向。"
+      },
+      {
+        "chunk_id": "textbook_prose_01095_3a661b6beb",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+        "line_number": 1682,
+        "evidence_role": "支持亚汞离子与适量卤离子生成相应难溶亚汞卤化物的判断。"
+      }
+    ]
+  },
+  "questions": [
+    {
+      "question_id": "REV_CH4_EXP_20_1_07_Q001",
+      "question_type": "single_choice",
+      "stem": "研究汞(Ⅱ)转化为汞(Ⅰ)时，起始汞(Ⅱ)盐是哪一种？",
+      "options": [
+        { "label": "A", "text": "硝酸汞" },
+        { "label": "B", "text": "氯化亚汞" },
+        { "label": "C", "text": "硫化汞" },
+        { "label": "D", "text": "氧化汞" }
+      ],
+      "answer": { "value": "A" },
+      "explanation": "实验步骤使用硝酸汞溶液作为汞(Ⅱ)来源，再通过加入金属汞和氯化钠对比来判断转化。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-2-10917a08"],
+      "secondary_point_keys": ["candidate-1-6484affe"],
+      "coverage_tags": ["mercuric_nitrate_start", "reagent_identity"],
+      "option_links": [
+        { "label": "A", "point_key": "candidate-2-10917a08", "role": "correct_evidence", "diagnostic_note": "对应硝酸汞溶液中加入金属汞的起始汞盐。" },
+        { "label": "B", "point_key": "candidate-3-51cd48b6", "role": "distractor_product", "diagnostic_note": "氯化亚汞是亚汞氯化物沉淀，不是起始汞(Ⅱ)盐。" },
+        { "label": "C", "point_key": null, "role": "distractor_wrong_sulfide", "diagnostic_note": "硫化汞不在本实验操作链中。" },
+        { "label": "D", "point_key": null, "role": "distractor_wrong_oxide", "diagnostic_note": "氧化汞不是该转化实验起始盐。" }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00312_3907d19546"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "源题保留但改成中文物质名，避免公式选项。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "kept_after_manual_tightening"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_07_Q002",
+      "question_type": "single_choice",
+      "stem": "促使汞(Ⅱ)转化为汞(Ⅰ)时，加入并振荡的金属是哪一种？",
+      "options": [
+        { "label": "A", "text": "金属镁" },
+        { "label": "B", "text": "金属汞" },
+        { "label": "C", "text": "金属银" },
+        { "label": "D", "text": "金属钠" }
+      ],
+      "answer": { "value": "B" },
+      "explanation": "教材步骤要求向少量硝酸汞溶液中加入一滴汞并振荡。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-2-10917a08"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["metal_mercury_reagent", "comproportionation_setup"],
+      "option_links": [
+        { "label": "A", "point_key": null, "role": "distractor_wrong_metal", "diagnostic_note": "金属镁不是本实验还原/归中组分。" },
+        { "label": "B", "point_key": "candidate-2-10917a08", "role": "correct_evidence", "diagnostic_note": "对应加入一滴汞并振荡。" },
+        { "label": "C", "point_key": null, "role": "distractor_wrong_metal", "diagnostic_note": "金属银不参与该汞价态转化。" },
+        { "label": "D", "point_key": null, "role": "distractor_unsafe_wrong_metal", "diagnostic_note": "金属钠不在本实验操作中。" }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00312_3907d19546"],
+        "supporting_theory_chunk_ids": ["textbook_prose_01094_fd683aeeb3"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留核心操作题，解析加入归中证据。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "kept_after_manual_tightening"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_07_Q003",
+      "question_type": "single_choice",
+      "stem": "反应前后用于对比检验汞(Ⅰ)生成的试剂是哪一种？",
+      "options": [
+        { "label": "A", "text": "硫氰酸钾溶液" },
+        { "label": "B", "text": "四氯化碳" },
+        { "label": "C", "text": "氯化钠溶液" },
+        { "label": "D", "text": "乙醚" }
+      ],
+      "answer": { "value": "C" },
+      "explanation": "实验先让硝酸汞溶液与氯化钠作用，再让反应后清液与氯化钠作用，用现象差异对比。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-3-51cd48b6"],
+      "secondary_point_keys": ["candidate-1-6484affe"],
+      "coverage_tags": ["chloride_comparison", "reagent_identity"],
+      "option_links": [
+        { "label": "A", "point_key": null, "role": "distractor_wrong_ligand", "diagnostic_note": "硫氰酸钾不是本对比试剂。" },
+        { "label": "B", "point_key": null, "role": "distractor_extraction_solvent", "diagnostic_note": "四氯化碳不用于该沉淀对比。" },
+        { "label": "C", "point_key": "candidate-3-51cd48b6", "role": "correct_evidence", "diagnostic_note": "对应清液加氯化钠并与上一实验对比。" },
+        { "label": "D", "point_key": null, "role": "distractor_solvent", "diagnostic_note": "乙醚不在本实验操作中。" }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00312_3907d19546"],
+        "supporting_theory_chunk_ids": ["textbook_prose_01085_e7db666fe6", "textbook_prose_01095_3a661b6beb"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留对比试剂题，改成中文名称并明确前后对比。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "kept_after_manual_tightening"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_07_Q004",
+      "question_type": "single_choice",
+      "stem": "亚汞离子遇适量氯离子生成的白色难溶沉淀通常是哪一种？",
+      "options": [
+        { "label": "A", "text": "氯化汞" },
+        { "label": "B", "text": "氯化银" },
+        { "label": "C", "text": "硝酸钠" },
+        { "label": "D", "text": "氯化亚汞" }
+      ],
+      "answer": { "value": "D" },
+      "explanation": "亚汞化合物中可形成白色难溶的氯化亚汞，这一沉淀可作为生成汞(Ⅰ)的证据之一。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-3-51cd48b6"],
+      "secondary_point_keys": ["candidate-1-6484affe"],
+      "coverage_tags": ["mercurous_chloride_precipitate", "product_name"],
+      "option_links": [
+        { "label": "A", "point_key": null, "role": "distractor_mercuric_chloride", "diagnostic_note": "氯化汞对应汞(Ⅱ)，不是亚汞白色沉淀。" },
+        { "label": "B", "point_key": null, "role": "distractor_silver_halide", "diagnostic_note": "氯化银是银离子的沉淀。" },
+        { "label": "C", "point_key": null, "role": "distractor_soluble_salt", "diagnostic_note": "硝酸钠不是目标沉淀。" },
+        { "label": "D", "point_key": "candidate-3-51cd48b6", "role": "correct_evidence", "diagnostic_note": "对应反应后清液加氯化钠的白色沉淀判断。" }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00312_3907d19546"],
+        "supporting_theory_chunk_ids": ["textbook_prose_01085_e7db666fe6", "textbook_prose_01095_3a661b6beb"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "源题保留，但改成中文沉淀名称，避免化学式记忆。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "kept_after_manual_tightening"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_07_Q005",
+      "question_type": "single_choice",
+      "stem": "汞(Ⅱ)与金属汞生成汞(Ⅰ)的过程属于哪类氧化还原变化？",
+      "options": [
+        { "label": "A", "text": "归中反应" },
+        { "label": "B", "text": "歧化反应" },
+        { "label": "C", "text": "中和滴定" },
+        { "label": "D", "text": "萃取平衡" }
+      ],
+      "answer": { "value": "A" },
+      "explanation": "高价态汞(Ⅱ)与零价金属汞生成中间的一价亚汞物种，属于归中反应。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-2-10917a08"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["comproportionation", "redox_type"],
+      "option_links": [
+        { "label": "A", "point_key": "candidate-2-10917a08", "role": "correct_evidence", "diagnostic_note": "对应汞(Ⅱ)与金属汞生成汞(Ⅰ)。" },
+        { "label": "B", "point_key": null, "role": "distractor_reverse_redox_type", "diagnostic_note": "歧化是同一价态向高低价态分化，不是本步骤。" },
+        { "label": "C", "point_key": null, "role": "distractor_acid_base", "diagnostic_note": "该变化不是酸碱中和。" },
+        { "label": "D", "point_key": null, "role": "distractor_physical_process", "diagnostic_note": "该变化不是萃取平衡。" }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00312_3907d19546"],
+        "supporting_theory_chunk_ids": ["textbook_prose_01094_fd683aeeb3"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留反应类型题，改写为价态语义而非离子式识别。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "kept_after_manual_tightening"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_07_Q006",
+      "question_type": "single_choice",
+      "stem": "转化生成汞(Ⅰ)后，每个汞原子的平均氧化态是多少？",
+      "options": [
+        { "label": "A", "text": "零价" },
+        { "label": "B", "text": "一价" },
+        { "label": "C", "text": "三价" },
+        { "label": "D", "text": "负一价" }
+      ],
+      "answer": { "value": "B" },
+      "explanation": "亚汞化合物中汞的氧化数为一价；这也是汞(Ⅰ)名称中的价态含义。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-2-10917a08"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["mercurous_average_state", "valence"],
+      "option_links": [
+        { "label": "A", "point_key": null, "role": "distractor_metal_state", "diagnostic_note": "零价对应金属汞，不是生成的亚汞物种平均价态。" },
+        { "label": "B", "point_key": "candidate-2-10917a08", "role": "correct_evidence", "diagnostic_note": "汞(Ⅰ)表示汞平均为一价。" },
+        { "label": "C", "point_key": null, "role": "distractor_unrelated_state", "diagnostic_note": "三价不适用于本实验汞物种。" },
+        { "label": "D", "point_key": null, "role": "distractor_unrelated_state", "diagnostic_note": "负一价不适用于本实验汞物种。" }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00312_3907d19546"],
+        "supporting_theory_chunk_ids": ["textbook_prose_01085_e7db666fe6"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留价态题，中文化选项。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "kept_after_manual_tightening"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_07_Q007",
+      "question_type": "single_choice",
+      "stem": "先让硝酸汞溶液与氯化钠作用，再让反应后清液与氯化钠作用，主要目的是什么？",
+      "options": [
+        { "label": "A", "text": "测定乙醚密度" },
+        { "label": "B", "text": "证明镁能燃烧" },
+        { "label": "C", "text": "对比汞(Ⅱ)与汞(Ⅰ)遇氯离子的现象差异" },
+        { "label": "D", "text": "比较硝酸盐热分解" }
+      ],
+      "answer": { "value": "C" },
+      "explanation": "前一实验提供汞(Ⅱ)与氯化钠作用的参照，后续清液加氯化钠则检验是否生成汞(Ⅰ)。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-3-51cd48b6"],
+      "secondary_point_keys": ["candidate-1-6484affe"],
+      "coverage_tags": ["before_after_comparison", "chloride_test"],
+      "option_links": [
+        { "label": "A", "point_key": null, "role": "distractor_unrelated_measurement", "diagnostic_note": "乙醚密度与本实验无关。" },
+        { "label": "B", "point_key": null, "role": "distractor_wrong_metal", "diagnostic_note": "镁燃烧不属于汞价态转化。" },
+        { "label": "C", "point_key": "candidate-3-51cd48b6", "role": "correct_evidence", "diagnostic_note": "对应清液加氯化钠并与上一实验对比。" },
+        { "label": "D", "point_key": null, "role": "distractor_wrong_process", "diagnostic_note": "本实验不是硝酸盐热分解。" }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00312_3907d19546"],
+        "supporting_theory_chunk_ids": ["textbook_prose_01085_e7db666fe6", "textbook_prose_01095_3a661b6beb"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留对比目的题，消除公式符号负担。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "kept_after_manual_tightening"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_07_Q008",
+      "question_type": "single_choice",
+      "stem": "金属汞振荡反应后，为什么取清液再加入氯化钠？",
+      "options": [
+        { "label": "A", "text": "使氯化钠先热分解" },
+        { "label": "B", "text": "让四氯化碳萃取汞" },
+        { "label": "C", "text": "让镁条点燃" },
+        { "label": "D", "text": "避免未反应金属汞干扰沉淀观察" }
+      ],
+      "answer": { "value": "D" },
+      "explanation": "教材要求转移清液至另一试管再加氯化钠观察，同时余下的汞要回收。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-3-51cd48b6"],
+      "secondary_point_keys": ["candidate-2-10917a08"],
+      "coverage_tags": ["clear_solution_transfer", "observation_control"],
+      "option_links": [
+        { "label": "A", "point_key": null, "role": "distractor_wrong_thermal", "diagnostic_note": "氯化钠热分解不属于该步骤。" },
+        { "label": "B", "point_key": null, "role": "distractor_wrong_solvent", "diagnostic_note": "四氯化碳萃取不在本实验操作中。" },
+        { "label": "C", "point_key": null, "role": "distractor_wrong_metal", "diagnostic_note": "镁条不参与本实验。" },
+        { "label": "D", "point_key": "candidate-3-51cd48b6", "role": "correct_evidence", "diagnostic_note": "清液更利于观察氯化亚汞沉淀。" }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00312_3907d19546"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "保留清液原因题，补上回收汞的操作语义。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "kept_after_manual_tightening"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_07_Q009",
+      "question_type": "single_choice",
+      "stem": "汞(Ⅰ)在亚汞化合物中通常以哪种结构特征存在？",
+      "options": [
+        { "label": "A", "text": "双聚体形式" },
+        { "label": "B", "text": "单个汞离子独立存在" },
+        { "label": "C", "text": "硫酸根形式" },
+        { "label": "D", "text": "氨合铜形式" }
+      ],
+      "answer": { "value": "A" },
+      "explanation": "支持理论说明在亚汞化合物中，汞总是以双聚体形式出现。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-2-10917a08"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["mercurous_dimer", "structure_concept"],
+      "option_links": [
+        { "label": "A", "point_key": "candidate-2-10917a08", "role": "correct_evidence", "diagnostic_note": "对应汞(Ⅰ)双聚体事实。" },
+        { "label": "B", "point_key": null, "role": "distractor_common_misconception", "diagnostic_note": "把汞(Ⅰ)误写作单核离子。" },
+        { "label": "C", "point_key": null, "role": "distractor_wrong_ion", "diagnostic_note": "硫酸根不是汞(Ⅰ)结构。" },
+        { "label": "D", "point_key": null, "role": "distractor_wrong_metal_complex", "diagnostic_note": "氨合铜属于铜配合物语境。" }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00312_3907d19546"],
+        "supporting_theory_chunk_ids": ["textbook_prose_01085_e7db666fe6"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "源题问离子式，重写为结构特征，避免符号选择。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "rewrite"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_07_Q010",
+      "question_type": "single_choice",
+      "stem": "反应后清液加氯化钠生成白色氯化亚汞沉淀，最能说明什么？",
+      "options": [
+        { "label": "A", "text": "汞(Ⅱ)全部变成氨" },
+        { "label": "B", "text": "汞(Ⅱ)已转化出汞(Ⅰ)" },
+        { "label": "C", "text": "氯离子被氧化为氯气" },
+        { "label": "D", "text": "硝酸根变成硫酸根" }
+      ],
+      "answer": { "value": "B" },
+      "explanation": "白色氯化亚汞沉淀是亚汞离子与氯离子作用的证据，说明反应后清液中已出现汞(Ⅰ)。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-3-51cd48b6"],
+      "secondary_point_keys": ["candidate-2-10917a08"],
+      "coverage_tags": ["evidence_interpretation", "mercurous_confirmation"],
+      "option_links": [
+        { "label": "A", "point_key": null, "role": "distractor_nonsense_conversion", "diagnostic_note": "汞不会变成氨。" },
+        { "label": "B", "point_key": "candidate-3-51cd48b6", "role": "correct_evidence", "diagnostic_note": "白色氯化亚汞沉淀指向汞(Ⅰ)生成。" },
+        { "label": "C", "point_key": null, "role": "distractor_wrong_redox", "diagnostic_note": "实验结论不是氯离子被氧化。" },
+        { "label": "D", "point_key": null, "role": "distractor_wrong_anion", "diagnostic_note": "硝酸根转硫酸根不在本实验体系。" }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00312_3907d19546"],
+        "supporting_theory_chunk_ids": ["textbook_prose_01085_e7db666fe6", "textbook_prose_01095_3a661b6beb"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留沉淀结论题，改为中文名称和因果判断。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "kept_after_manual_tightening"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_07_Q011",
+      "question_type": "true_false",
+      "stem": "本转化实验的起始汞盐是硝酸汞。",
+      "options": [],
+      "answer": { "value": true },
+      "explanation": "实验步骤写明在硝酸汞溶液中先后进行氯化钠对比和金属汞振荡反应。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-2-10917a08"],
+      "secondary_point_keys": ["candidate-1-6484affe"],
+      "coverage_tags": ["starting_reagent", "true_false"],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00312_3907d19546"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "保留判断题，删除公式引用。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "kept_after_manual_tightening"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_07_Q012",
+      "question_type": "single_choice",
+      "stem": "向硝酸汞溶液中加入一滴汞并振荡后，余下的汞应怎样处理？",
+      "options": [
+        { "label": "A", "text": "直接倒入水槽" },
+        { "label": "B", "text": "按教材要求回收" },
+        { "label": "C", "text": "加入淀粉后丢弃" },
+        { "label": "D", "text": "用火焰灼烧" }
+      ],
+      "answer": { "value": "B" },
+      "explanation": "实验步骤特别注明余下的汞要回收，这是本实验中不可忽略的处理要求。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-2-10917a08"],
+      "secondary_point_keys": ["candidate-3-51cd48b6"],
+      "coverage_tags": ["mercury_recovery", "operation_safety"],
+      "option_links": [
+        { "label": "A", "point_key": null, "role": "distractor_unsafe_disposal", "diagnostic_note": "直接倒入水槽不符合汞处理要求。" },
+        { "label": "B", "point_key": "candidate-2-10917a08", "role": "correct_evidence", "diagnostic_note": "对应教材“余下的汞要回收”。" },
+        { "label": "C", "point_key": null, "role": "distractor_wrong_indicator", "diagnostic_note": "淀粉与本处理无关。" },
+        { "label": "D", "point_key": null, "role": "distractor_unsafe_heating", "diagnostic_note": "灼烧汞不符合安全操作。" }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00312_3907d19546"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "源 Q012 与 Q002 重复，重写为汞回收操作题。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "rewrite"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_07_Q013",
+      "question_type": "true_false",
+      "stem": "反应前后用于对比的试剂是氯化钠溶液。",
+      "options": [],
+      "answer": { "value": true },
+      "explanation": "前一实验和反应后清液检验都使用氯化钠溶液，从沉淀现象差异判断转化。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-3-51cd48b6"],
+      "secondary_point_keys": ["candidate-1-6484affe"],
+      "coverage_tags": ["chloride_test", "true_false"],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00312_3907d19546"],
+        "supporting_theory_chunk_ids": ["textbook_prose_01095_3a661b6beb"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留直接判断，改为中文试剂名。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "kept_after_manual_tightening"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_07_Q014",
+      "question_type": "true_false",
+      "stem": "汞(Ⅰ)与氯离子生成的白色沉淀应判断为氯化汞。",
+      "options": [],
+      "answer": { "value": false },
+      "explanation": "汞(Ⅰ)与适量氯离子生成的是氯化亚汞；氯化汞对应汞(Ⅱ)，不能混同。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-3-51cd48b6"],
+      "secondary_point_keys": ["candidate-1-6484affe"],
+      "coverage_tags": ["mercurous_vs_mercuric_chloride", "true_false"],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00312_3907d19546"],
+        "supporting_theory_chunk_ids": ["textbook_prose_01085_e7db666fe6", "textbook_prose_01095_3a661b6beb"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留真假判断，但将公式判断改为中文名称辨析。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "kept_after_manual_tightening"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_07_Q015",
+      "question_type": "true_false",
+      "stem": "汞(Ⅱ)与金属汞生成汞(Ⅰ)的价态变化可归为归中反应。",
+      "options": [],
+      "answer": { "value": true },
+      "explanation": "高价汞(Ⅱ)与零价汞生成一价亚汞物种，两个价态向中间价态靠拢。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-2-10917a08"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["comproportionation", "true_false"],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00312_3907d19546"],
+        "supporting_theory_chunk_ids": ["textbook_prose_01094_fd683aeeb3"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留反应类型判断并重写解析。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "kept_after_manual_tightening"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_07_Q016",
+      "question_type": "true_false",
+      "stem": "汞(Ⅰ)中的汞平均氧化态为零价。",
+      "options": [],
+      "answer": { "value": false },
+      "explanation": "汞(Ⅰ)中汞为一价；零价对应金属汞，是反应物之一而不是亚汞物种的平均价态。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-2-10917a08"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["valence_misconception", "true_false"],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00312_3907d19546"],
+        "supporting_theory_chunk_ids": ["textbook_prose_01085_e7db666fe6"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留 false 判断，删除公式式题干。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "kept_after_manual_tightening"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_07_Q017",
+      "question_type": "true_false",
+      "stem": "本实验的直接对比之一，是比较汞(Ⅱ)和汞(Ⅰ)遇氯离子时的现象差异。",
+      "options": [],
+      "answer": { "value": true },
+      "explanation": "反应前的汞(Ⅱ)溶液与反应后清液都用氯化钠检验，差异可支持汞(Ⅰ)生成。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-3-51cd48b6"],
+      "secondary_point_keys": ["candidate-1-6484affe"],
+      "coverage_tags": ["comparison_logic", "true_false"],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00312_3907d19546"],
+        "supporting_theory_chunk_ids": ["textbook_prose_01085_e7db666fe6", "textbook_prose_01095_3a661b6beb"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留对比逻辑判断并中文化。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "kept_after_manual_tightening"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_07_Q018",
+      "question_type": "single_choice",
+      "stem": "把反应后的清液分成两份时，其中一份的用途是什么？",
+      "options": [
+        { "label": "A", "text": "加入氯化钠观察，并与上一实验对比" },
+        { "label": "B", "text": "立即蒸干称量氯化钠" },
+        { "label": "C", "text": "加入淀粉检验碘" },
+        { "label": "D", "text": "加入硫酸铜制备氧化亚铜" }
+      ],
+      "answer": { "value": "A" },
+      "explanation": "实验步骤把清液分成两份，其中一份加入氯化钠并与上一实验对比，另一份供下一实验用。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-3-51cd48b6"],
+      "secondary_point_keys": ["candidate-2-10917a08"],
+      "coverage_tags": ["solution_split_purpose", "comparison_step"],
+      "option_links": [
+        { "label": "A", "point_key": "candidate-3-51cd48b6", "role": "correct_evidence", "diagnostic_note": "对应清液一份加氯化钠并对比。" },
+        { "label": "B", "point_key": null, "role": "distractor_wrong_processing", "diagnostic_note": "教材未要求蒸干称量。" },
+        { "label": "C", "point_key": null, "role": "distractor_iodine_test", "diagnostic_note": "淀粉检碘不属于本步骤。" },
+        { "label": "D", "point_key": null, "role": "distractor_adjacent_copper_experiment", "diagnostic_note": "氧化亚铜实验属于前一组铜化合物实验，不是本清液用途。" }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00312_3907d19546"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "源 Q018 与 Q008 重复，改成清液分份用途题。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "rewrite"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_07_Q019",
+      "question_type": "single_choice",
+      "stem": "为什么不宜把汞(Ⅰ)简单理解为“单个一价汞离子”？",
+      "options": [
+        { "label": "A", "text": "亚汞化合物中的汞总是以双聚体形式出现" },
+        { "label": "B", "text": "汞(Ⅰ)实际是钠离子" },
+        { "label": "C", "text": "汞(Ⅰ)只存在于气态氯气中" },
+        { "label": "D", "text": "汞(Ⅰ)一定是硫酸根" }
+      ],
+      "answer": { "value": "A" },
+      "explanation": "支持理论明确说明亚汞化合物中的汞总以双聚体形式出现，因此应从双聚体结构理解汞(Ⅰ)。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-2-10917a08"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["mercurous_not_monomer", "converted_true_false"],
+      "option_links": [
+        { "label": "A", "point_key": "candidate-2-10917a08", "role": "correct_evidence", "diagnostic_note": "解释汞(Ⅰ)双聚体形式。" },
+        { "label": "B", "point_key": null, "role": "distractor_wrong_element", "diagnostic_note": "汞物种不可能实际是钠离子。" },
+        { "label": "C", "point_key": null, "role": "distractor_wrong_phase", "diagnostic_note": "与实验水溶液体系不符。" },
+        { "label": "D", "point_key": null, "role": "distractor_wrong_anion", "diagnostic_note": "硫酸根不是汞(Ⅰ)结构特征。" }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00312_3907d19546"],
+        "supporting_theory_chunk_ids": ["textbook_prose_01085_e7db666fe6"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "将符号判断题改为单选概念题，以保持 6 道判断题并降低符号风险。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "rewrite"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_07_Q020",
+      "question_type": "single_choice",
+      "stem": "反应后清液加氯化钠出现白色沉淀时，下列哪项结论不应得出？",
+      "options": [
+        { "label": "A", "text": "清液中已有汞(Ⅰ)相关物种" },
+        { "label": "B", "text": "氯化亚汞沉淀可作为判断依据" },
+        { "label": "C", "text": "汞(Ⅱ)与金属汞发生了转化" },
+        { "label": "D", "text": "氯离子一定被氧化成氯气" }
+      ],
+      "answer": { "value": "D" },
+      "explanation": "白色沉淀支持汞(Ⅰ)与氯离子形成难溶亚汞氯化物，不能推出氯离子被氧化成氯气。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-3-51cd48b6"],
+      "secondary_point_keys": ["candidate-2-10917a08"],
+      "coverage_tags": ["unsupported_conclusion", "chloride_test"],
+      "option_links": [
+        { "label": "A", "point_key": "candidate-3-51cd48b6", "role": "supported_conclusion", "diagnostic_note": "白色氯化亚汞指向汞(Ⅰ)相关物种。" },
+        { "label": "B", "point_key": "candidate-3-51cd48b6", "role": "supported_conclusion", "diagnostic_note": "沉淀本身就是对比依据。" },
+        { "label": "C", "point_key": "candidate-2-10917a08", "role": "supported_conclusion", "diagnostic_note": "需结合金属汞振荡步骤判断转化。" },
+        { "label": "D", "point_key": null, "role": "correct_unsupported", "diagnostic_note": "实验没有氯气生成证据。" }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00312_3907d19546"],
+        "supporting_theory_chunk_ids": ["textbook_prose_01085_e7db666fe6", "textbook_prose_01095_3a661b6beb"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "源 Q020 与 Q010 重复，改为排除过度推断。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "rewrite"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_07_Q021",
+      "question_type": "fill_blank",
+      "stem": "本转化实验的起始汞(Ⅱ)盐是____。",
+      "options": [],
+      "answer": {
+        "accepted_answers": ["硝酸汞"],
+        "match": "normalized_exact",
+        "visible_input_policy": "short_ordinary_chinese_only"
+      },
+      "explanation": "实验步骤使用硝酸汞溶液，因此空格应填“硝酸汞”。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-2-10917a08"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["starting_mercury_salt", "mobile_safe_fill"],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00312_3907d19546"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "保留短中文填空，删除公式 alias。"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": {
+        "mode": "normalized_exact",
+        "deterministic": true
+      },
+      "rebuilt_action": "kept_after_manual_tightening"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_07_Q022",
+      "question_type": "fill_blank",
+      "stem": "硝酸汞溶液中加入____并振荡，可促成汞(Ⅱ)转化为汞(Ⅰ)。",
+      "options": [],
+      "answer": {
+        "accepted_answers": ["金属汞"],
+        "match": "normalized_exact",
+        "visible_input_policy": "short_ordinary_chinese_only"
+      },
+      "explanation": "教材步骤为加入一滴汞并振荡；答案用中文名称可直接对应实验步骤。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-2-10917a08"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["metal_mercury_fill", "mobile_safe_fill"],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00312_3907d19546"],
+        "supporting_theory_chunk_ids": ["textbook_prose_01094_fd683aeeb3"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留短中文填空。"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": {
+        "mode": "normalized_exact",
+        "deterministic": true
+      },
+      "rebuilt_action": "kept_after_manual_tightening"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_07_Q023",
+      "question_type": "fill_blank",
+      "stem": "反应后清液加入____溶液，与前一实验对比。",
+      "options": [],
+      "answer": {
+        "accepted_answers": ["氯化钠"],
+        "match": "normalized_exact",
+        "visible_input_policy": "short_ordinary_chinese_only"
+      },
+      "explanation": "对比试剂是氯化钠溶液，重点是比较前后遇氯离子的现象差异。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-3-51cd48b6"],
+      "secondary_point_keys": ["candidate-1-6484affe"],
+      "coverage_tags": ["sodium_chloride_fill", "mobile_safe_fill"],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00312_3907d19546"],
+        "supporting_theory_chunk_ids": ["textbook_prose_01095_3a661b6beb"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留中文试剂名填空。"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": {
+        "mode": "normalized_exact",
+        "deterministic": true
+      },
+      "rebuilt_action": "kept_after_manual_tightening"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_07_Q024",
+      "question_type": "single_choice",
+      "stem": "亚汞离子与氯离子作用时，白色沉淀的中文名称应选哪一项？",
+      "options": [
+        { "label": "A", "text": "氯化汞" },
+        { "label": "B", "text": "氯化亚汞" },
+        { "label": "C", "text": "硝酸汞" },
+        { "label": "D", "text": "硫化汞" }
+      ],
+      "answer": { "value": "B" },
+      "explanation": "亚汞离子与氯离子作用生成的白色难溶沉淀为氯化亚汞。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-3-51cd48b6"],
+      "secondary_point_keys": ["candidate-1-6484affe"],
+      "coverage_tags": ["mercurous_chloride_name", "converted_formula_fill"],
+      "option_links": [
+        { "label": "A", "point_key": null, "role": "distractor_mercuric_chloride", "diagnostic_note": "氯化汞对应汞(Ⅱ)。" },
+        { "label": "B", "point_key": "candidate-3-51cd48b6", "role": "correct_evidence", "diagnostic_note": "对应亚汞离子与氯离子的白色沉淀。" },
+        { "label": "C", "point_key": "candidate-2-10917a08", "role": "distractor_starting_reagent", "diagnostic_note": "硝酸汞是起始汞盐。" },
+        { "label": "D", "point_key": null, "role": "distractor_wrong_sulfide", "diagnostic_note": "硫化汞不是氯化钠检验产物。" }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00312_3907d19546"],
+        "supporting_theory_chunk_ids": ["textbook_prose_01085_e7db666fe6", "textbook_prose_01095_3a661b6beb"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "将公式填空改为中文名称单选。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "rewrite"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_07_Q025",
+      "question_type": "fill_blank",
+      "stem": "汞(Ⅱ)与金属汞生成汞(Ⅰ)，属于____反应。",
+      "options": [],
+      "answer": {
+        "accepted_answers": ["归中反应"],
+        "match": "normalized_exact",
+        "visible_input_policy": "short_ordinary_chinese_only"
+      },
+      "explanation": "高价汞和零价汞生成中间价态的汞(Ⅰ)，属于归中反应。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-2-10917a08"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["comproportionation_fill", "mobile_safe_fill"],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00312_3907d19546"],
+        "supporting_theory_chunk_ids": ["textbook_prose_01094_fd683aeeb3"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留短概念填空。"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": {
+        "mode": "normalized_exact",
+        "deterministic": true
+      },
+      "rebuilt_action": "kept_after_manual_tightening"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_07_Q026",
+      "question_type": "single_choice",
+      "stem": "“亚汞化合物”这一名称隐含的价态和结构信息，哪项正确？",
+      "options": [
+        { "label": "A", "text": "汞为一价，并以双聚体形式出现" },
+        { "label": "B", "text": "汞为零价，并只以金属滴形式出现" },
+        { "label": "C", "text": "汞为三价，并形成硫酸根" },
+        { "label": "D", "text": "汞为负一价，并形成氯气" }
+      ],
+      "answer": { "value": "A" },
+      "explanation": "支持理论说明亚汞化合物中汞的氧化数为一价，且汞总是以双聚体形式出现。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-2-10917a08"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["mercurous_valence_and_dimer", "converted_fill"],
+      "option_links": [
+        { "label": "A", "point_key": "candidate-2-10917a08", "role": "correct_evidence", "diagnostic_note": "同时覆盖一价和双聚体事实。" },
+        { "label": "B", "point_key": null, "role": "distractor_metal_state", "diagnostic_note": "零价是金属汞，不是亚汞化合物价态。" },
+        { "label": "C", "point_key": null, "role": "distractor_wrong_valence", "diagnostic_note": "三价和硫酸根都不是亚汞特征。" },
+        { "label": "D", "point_key": null, "role": "distractor_wrong_valence_gas", "diagnostic_note": "负一价和氯气无关。" }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00312_3907d19546"],
+        "supporting_theory_chunk_ids": ["textbook_prose_01085_e7db666fe6"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "将价态填空改为综合概念单选，避免重复 Q006。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "rewrite"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_07_Q027",
+      "question_type": "single_choice",
+      "stem": "前后两次加入氯化钠的比较，真正比较的是什么？",
+      "options": [
+        { "label": "A", "text": "汞(Ⅱ)溶液与反应后清液遇氯离子的现象差异" },
+        { "label": "B", "text": "氯化钠在空气中是否燃烧" },
+        { "label": "C", "text": "乙醚和水的密度差异" },
+        { "label": "D", "text": "淀粉与碘的显色差异" }
+      ],
+      "answer": { "value": "A" },
+      "explanation": "实验设计通过同一氯化钠试剂，比较转化前汞(Ⅱ)溶液和转化后清液的沉淀现象。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-3-51cd48b6"],
+      "secondary_point_keys": ["candidate-1-6484affe"],
+      "coverage_tags": ["comparison_target", "converted_fill"],
+      "option_links": [
+        { "label": "A", "point_key": "candidate-3-51cd48b6", "role": "correct_evidence", "diagnostic_note": "准确表达前后对比目标。" },
+        { "label": "B", "point_key": null, "role": "distractor_wrong_property", "diagnostic_note": "氯化钠燃烧不是实验目标。" },
+        { "label": "C", "point_key": null, "role": "distractor_wrong_solvent", "diagnostic_note": "乙醚不参与本实验。" },
+        { "label": "D", "point_key": null, "role": "distractor_iodine_test", "diagnostic_note": "淀粉显色不是本实验对比。" }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00312_3907d19546"],
+        "supporting_theory_chunk_ids": ["textbook_prose_01085_e7db666fe6", "textbook_prose_01095_3a661b6beb"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "将“现象”空泛填空改为具体比较对象。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "rewrite"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_07_Q028",
+      "question_type": "single_choice",
+      "stem": "下列哪一项同时符合“转移清液”和“余下汞要回收”的操作意图？",
+      "options": [
+        { "label": "A", "text": "减少金属汞对沉淀观察的干扰，并妥善处理剩余汞" },
+        { "label": "B", "text": "让金属汞全部蒸发到空气中" },
+        { "label": "C", "text": "让清液只用于测量密度" },
+        { "label": "D", "text": "把清液直接倒弃以避免观察" }
+      ],
+      "answer": { "value": "A" },
+      "explanation": "转移清液有利于观察后续氯化钠沉淀，余下汞回收则是教材明确的安全和废物处理要求。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-3-51cd48b6"],
+      "secondary_point_keys": ["candidate-2-10917a08"],
+      "coverage_tags": ["clear_solution_and_recovery", "converted_fill"],
+      "option_links": [
+        { "label": "A", "point_key": "candidate-3-51cd48b6", "role": "correct_evidence", "diagnostic_note": "同时体现观察控制和汞回收。" },
+        { "label": "B", "point_key": null, "role": "distractor_unsafe", "diagnostic_note": "让汞蒸发极不安全且不符合教材。" },
+        { "label": "C", "point_key": null, "role": "distractor_wrong_purpose", "diagnostic_note": "清液不是为了密度测量。" },
+        { "label": "D", "point_key": null, "role": "distractor_wrong_disposal", "diagnostic_note": "直接倒弃不符合操作要求。" }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00312_3907d19546"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "将“金属汞”填空改为操作意图题。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "rewrite"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_07_Q029",
+      "question_type": "single_choice",
+      "stem": "关于汞(Ⅰ)的表示和本质，下列哪项最可靠？",
+      "options": [
+        { "label": "A", "text": "用亚汞离子这一双聚体概念理解，比写成单个一价汞更可靠" },
+        { "label": "B", "text": "汞(Ⅰ)就是氯化钠" },
+        { "label": "C", "text": "汞(Ⅰ)只能表示为氧化汞" },
+        { "label": "D", "text": "汞(Ⅰ)是硝酸根的另一个名称" }
+      ],
+      "answer": { "value": "A" },
+      "explanation": "理论证据说明亚汞化合物中汞总以双聚体形式出现，所以应从亚汞离子概念理解汞(Ⅰ)。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-2-10917a08"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["mercurous_ion_concept", "converted_formula_fill"],
+      "option_links": [
+        { "label": "A", "point_key": "candidate-2-10917a08", "role": "correct_evidence", "diagnostic_note": "避免公式填空，保留亚汞双聚体概念。" },
+        { "label": "B", "point_key": "candidate-3-51cd48b6", "role": "distractor_reagent_confusion", "diagnostic_note": "氯化钠是检验试剂。" },
+        { "label": "C", "point_key": null, "role": "distractor_wrong_compound", "diagnostic_note": "氧化汞不是汞(Ⅰ)的可靠表达。" },
+        { "label": "D", "point_key": null, "role": "distractor_wrong_anion", "diagnostic_note": "硝酸根不是汞(Ⅰ)。" }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00312_3907d19546"],
+        "supporting_theory_chunk_ids": ["textbook_prose_01085_e7db666fe6"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "将亚汞离子符号填空改为概念判断。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "rewrite"
+    },
+    {
+      "question_id": "REV_CH4_EXP_20_1_07_Q030",
+      "question_type": "single_choice",
+      "stem": "白色氯化亚汞沉淀的出现，最直接说明清液中生成了什么？",
+      "options": [
+        { "label": "A", "text": "亚汞离子" },
+        { "label": "B", "text": "硫酸根离子" },
+        { "label": "C", "text": "铜氨配离子" },
+        { "label": "D", "text": "过氧化氢" }
+      ],
+      "answer": { "value": "A" },
+      "explanation": "清液加氯化钠出现氯化亚汞白色沉淀，最直接说明清液中有亚汞离子相关物种。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-3-51cd48b6"],
+      "secondary_point_keys": ["candidate-2-10917a08"],
+      "coverage_tags": ["mercurous_inference", "converted_formula_fill"],
+      "option_links": [
+        { "label": "A", "point_key": "candidate-3-51cd48b6", "role": "correct_evidence", "diagnostic_note": "对应白色氯化亚汞沉淀的推论。" },
+        { "label": "B", "point_key": null, "role": "distractor_wrong_anion", "diagnostic_note": "硫酸根不是该沉淀证据指向。" },
+        { "label": "C", "point_key": null, "role": "distractor_wrong_complex", "diagnostic_note": "铜氨配离子属于铜实验。" },
+        { "label": "D", "point_key": null, "role": "distractor_wrong_compound", "diagnostic_note": "过氧化氢不在本实验体系。" }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00312_3907d19546"],
+        "supporting_theory_chunk_ids": ["textbook_prose_01085_e7db666fe6", "textbook_prose_01095_3a661b6beb"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "将符号填空改为中文推论单选。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuilt_action": "rewrite"
+    }
+  ]
+}

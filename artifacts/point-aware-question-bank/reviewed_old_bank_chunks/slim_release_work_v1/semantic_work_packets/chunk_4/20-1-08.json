@@ -1,0 +1,3938 @@
+{
+  "metadata": {
+    "version": "chunk-4-release-slim-v1",
+    "artifact_type": "slim_question_bank_work_file",
+    "generated_at": "2026-06-15T03:27:59.050817+00:00",
+    "source_file": "E:\\chemistry-admin\\artifacts\\point-aware-question-bank\\reviewed_old_bank_chunks\\chunk_4_release_final_v1.json",
+    "normalization_rule": "effective question plus minimal lineage, evidence IDs, point bindings, option links, evidence locators, and mechanical risk flags",
+    "evidence_policy": "RAG source text is not embedded; packets carry locators and reviewers must read E:/chemistry-rag/data/rag_ready directly",
+    "chunk_id_policy": "inherited chunk ids are untrusted locator candidates until manually compared with RAG text",
+    "semantic_status": "not_semantically_repaired_by_this_script",
+    "packet_type": "single_experiment_semantic_repair_work_packet",
+    "chunk": 4,
+    "experiment_code": "20-1-08",
+    "question_count": 30
+  },
+  "experiment": {
+    "experiment_id": "EXP_20_1_08",
+    "experiment_code": "20-1-08",
+    "experiment_title": "汞(I)的歧化分解",
+    "chapter_bindings": [
+      {
+        "chapter_id": "CH19",
+        "coverage_type": "primary",
+        "sort_order": 1
+      }
+    ],
+    "video_points": [
+      {
+        "point_key": "candidate-1-43f08f31",
+        "point_title": "上一步制得的 Hg(I) 溶液 + KI",
+        "source": null,
+        "candidate_index": null,
+        "resource_count": null,
+        "published_count": null,
+        "resource_titles": []
+      }
+    ],
+    "canonical_chunk_ids": [
+      "expchunk_00312_3907d19546",
+      "expchunk_00314_c493a6ddc5"
+    ],
+    "evidence_lookup": {
+      "policy": "locator_only; canonical RAG text is not embedded in this packet",
+      "chunk_id_policy": "metadata chunk ids are inherited claims, not trusted evidence; reviewers must compare the RAG text against the question stem/options/answer/explanation and replace or remove wrong ids",
+      "primary_source_dir": "E:\\chemistry-rag\\data\\rag_ready",
+      "source_files": {
+        "experiment_chunks": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+        "supporting_theory_chunks": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl"
+      },
+      "search_hints": {
+        "experiment_code": "20-1-08",
+        "parent_experiment_code": "20-1",
+        "experiment_title": "汞(I)的歧化分解",
+        "video_point_titles": [
+          "上一步制得的 Hg(I) 溶液 + KI"
+        ],
+        "canonical_chunk_ids_from_metadata": [
+          "expchunk_00312_3907d19546",
+          "expchunk_00314_c493a6ddc5"
+        ],
+        "supporting_theory_chunk_ids_from_metadata": [
+          "textbook_prose_01086_e3c112067c",
+          "textbook_prose_01093_4e1caaa871",
+          "textbook_prose_01095_3a661b6beb"
+        ],
+        "suggested_search_patterns": [
+          "20-1-08",
+          "20-1",
+          "汞(I)的歧化分解",
+          "上一步制得的 Hg(I) 溶液 + KI",
+          "expchunk_00312_3907d19546",
+          "expchunk_00314_c493a6ddc5",
+          "textbook_prose_01086_e3c112067c",
+          "textbook_prose_01093_4e1caaa871",
+          "textbook_prose_01095_3a661b6beb"
+        ]
+      },
+      "rag_exact_id_presence": {
+        "meaning": "id presence only; this does not validate semantic relevance",
+        "found_ids": [
+          "expchunk_00312_3907d19546",
+          "expchunk_00314_c493a6ddc5",
+          "textbook_prose_01086_e3c112067c",
+          "textbook_prose_01093_4e1caaa871",
+          "textbook_prose_01095_3a661b6beb"
+        ],
+        "missing_ids": [],
+        "found_locator_summaries": [
+          {
+            "chunk_id": "expchunk_00312_3907d19546",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+            "line_number": 325,
+            "source_collection": "textbook_experiment_clean_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学实验（第四版）",
+            "page_start": 163,
+            "page_end": 163,
+            "section_path": [
+              "第7章 元素性质实验",
+              "实验 20-1 ds 区元素化合物的性质",
+              "（三）实验内容",
+              "*4. 汞（Ⅱ）和汞（Ⅰ）相互转化"
+            ],
+            "content_type": "waste_disposal",
+            "knowledge_unit": "waste_disposal",
+            "parent_id": "expchunk_protocol_174e0c432181",
+            "prev_chunk_id": "expchunk_00311_c770d017e2",
+            "next_chunk_id": "expchunk_00313_fcfa9b46a0",
+            "relations": {
+              "section_id": "expsec_6d4d660ff3f31797",
+              "experiment_id": "experiment:实验_20-1_ds_区元素化合物的性质",
+              "page_anchor": "page_163",
+              "parent": "expchunk_protocol_174e0c432181"
+            }
+          },
+          {
+            "chunk_id": "expchunk_00314_c493a6ddc5",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+            "line_number": 327,
+            "source_collection": "textbook_experiment_clean_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学实验（第四版）",
+            "page_start": 163,
+            "page_end": 163,
+            "section_path": [
+              "第7章 元素性质实验",
+              "实验 20-1 ds 区元素化合物的性质",
+              "思考题"
+            ],
+            "content_type": "teaching_question_seed",
+            "knowledge_unit": "teaching_question_seed",
+            "parent_id": "expchunk_protocol_174e0c432181",
+            "prev_chunk_id": "expchunk_00313_fcfa9b46a0",
+            "next_chunk_id": "expchunk_00315_e777fc5cf7",
+            "relations": {
+              "section_id": "expsec_423afcb6634d3011",
+              "experiment_id": "experiment:实验_20-1_ds_区元素化合物的性质",
+              "page_anchor": "page_163",
+              "parent": "expchunk_protocol_174e0c432181"
+            }
+          },
+          {
+            "chunk_id": "textbook_prose_01086_e3c112067c",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+            "line_number": 1673,
+            "source_collection": "textbook_inorganic_lower_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学（下册）（第二版）",
+            "page_start": 185,
+            "page_end": 185,
+            "section_path": [
+              "第 19 章 铜锌副族元素",
+              "19.3 锌副族",
+              "19.3.3 汞的化合物",
+              "1. 氧化数为 +1 的化合物"
+            ],
+            "content_type": "reaction",
+            "knowledge_unit": "reaction",
+            "parent_id": "section:99df8bec7120",
+            "prev_chunk_id": "textbook_prose_01085_e7db666fe6",
+            "next_chunk_id": null,
+            "relations": {
+              "parent": "section:99df8bec7120",
+              "source_route": "clean_pages",
+              "prev": "textbook_prose_01085_e7db666fe6",
+              "next": null
+            }
+          },
+          {
+            "chunk_id": "textbook_prose_01093_4e1caaa871",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+            "line_number": 1677,
+            "source_collection": "textbook_inorganic_lower_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学（下册）（第二版）",
+            "page_start": 186,
+            "page_end": 187,
+            "section_path": [
+              "第 19 章 铜锌副族元素",
+              "19.3 锌副族",
+              "19.3.3 汞的化合物",
+              "3) 配合物"
+            ],
+            "content_type": "definition",
+            "knowledge_unit": "definition",
+            "parent_id": "section:28949b45b1e2",
+            "prev_chunk_id": null,
+            "next_chunk_id": null,
+            "relations": {
+              "parent": "section:28949b45b1e2",
+              "source_route": "clean_pages",
+              "prev": null,
+              "next": null
+            }
+          },
+          {
+            "chunk_id": "textbook_prose_01095_3a661b6beb",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+            "line_number": 1682,
+            "source_collection": "textbook_inorganic_lower_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学（下册）（第二版）",
+            "page_start": 187,
+            "page_end": 187,
+            "section_path": [
+              "第 19 章 铜锌副族元素",
+              "19.3 锌副族",
+              "19.3.3 汞的化合物",
+              "3. Hg(Ⅰ)与 Hg(Ⅱ)之间的转化"
+            ],
+            "content_type": "procedure",
+            "knowledge_unit": "procedure",
+            "parent_id": "section:943d85595180",
+            "prev_chunk_id": "textbook_prose_01094_fd683aeeb3",
+            "next_chunk_id": null,
+            "relations": {
+              "parent": "section:943d85595180",
+              "source_route": "clean_pages",
+              "prev": "textbook_prose_01094_fd683aeeb3",
+              "next": null
+            }
+          }
+        ]
+      },
+      "legacy_locator_summaries": [
+        {
+          "chunk_id": "expchunk_00312_3907d19546",
+          "source_file": "无机化学实验（第四版）",
+          "book_title": "无机化学实验（第四版）",
+          "document_id": "DOC_CANONICAL_EXPERIMENT_V1",
+          "source_collection": "textbook_experiment_clean_v1",
+          "source_role": "canonical_textbook",
+          "content_type": "waste_disposal",
+          "chapter_id": null,
+          "page_number": 163,
+          "section_title": "实验 20-1 ds 区元素化合物的性质 / （三）实验内容 / *4. 汞（Ⅱ）和汞（Ⅰ）相互转化",
+          "section_path": [
+            "第7章 元素性质实验",
+            "实验 20-1 ds 区元素化合物的性质",
+            "（三）实验内容",
+            "*4. 汞（Ⅱ）和汞（Ⅰ）相互转化"
+          ]
+        },
+        {
+          "chunk_id": "expchunk_00314_c493a6ddc5",
+          "source_file": "无机化学实验（第四版）",
+          "book_title": "无机化学实验（第四版）",
+          "document_id": "DOC_CANONICAL_EXPERIMENT_V1",
+          "source_collection": "textbook_experiment_clean_v1",
+          "source_role": "canonical_textbook",
+          "content_type": "teaching_question_seed",
+          "chapter_id": null,
+          "page_number": 163,
+          "section_title": "第7章 元素性质实验 / 实验 20-1 ds 区元素化合物的性质 / 思考题",
+          "section_path": [
+            "第7章 元素性质实验",
+            "实验 20-1 ds 区元素化合物的性质",
+            "思考题"
+          ]
+        }
+      ],
+      "legacy_missing_ids": [
+        "textbook_prose_01086_e3c112067c",
+        "textbook_prose_01093_4e1caaa871",
+        "textbook_prose_01095_3a661b6beb"
+      ]
+    },
+    "questions": [
+      {
+        "question_id": "REV_CH4_EXP_20_1_08_Q001",
+        "source_review_id": "REV_CH4_EXP_20_1_08_Q001",
+        "source_question_index": 1,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-1-08 汞(I)的歧化分解》实验中，汞(I)歧化分解实验使用的汞(I)溶液来自哪一步？",
+        "options": [
+          {
+            "label": "A",
+            "text": "新配制的 NaCl 溶液"
+          },
+          {
+            "label": "B",
+            "text": "KSCN 饱和溶液"
+          },
+          {
+            "label": "C",
+            "text": "上一步制得的 Hg₂(NO₃)₂ 溶液"
+          },
+          {
+            "label": "D",
+            "text": "TiOSO₄ 稀释液"
+          }
+        ],
+        "answer": {
+          "value": "C"
+        },
+        "explanation": "实验资料写明在上一个实验制得的 Hg₂(NO₃)₂ 溶液中滴加 KI。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-43f08f31"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "hg_i_solution_from_previous_step"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "新配制的 NaCl 溶液",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项为“新配制的 NaCl 溶液”，会把本题锁定的实验对象、操作或现象转向错误判断；本题有效答案是“上一步制得的 Hg₂(NO₃)₂ 溶液”。"
+          },
+          {
+            "label": "B",
+            "text": "KSCN 饱和溶液",
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "该选项为“KSCN 饱和溶液”，与题干中的实验对象关联较弱；本题有效答案是“上一步制得的 Hg₂(NO₃)₂ 溶液”。"
+          },
+          {
+            "label": "C",
+            "text": "上一步制得的 Hg₂(NO₃)₂ 溶液",
+            "point_key": "candidate-1-43f08f31",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项为“上一步制得的 Hg₂(NO₃)₂ 溶液”，与题干所问和解析中的有效答案一致，并绑定到实验点位“上一步制得的 Hg(I) 溶液 + KI”。"
+          },
+          {
+            "label": "D",
+            "text": "TiOSO₄ 稀释液",
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "该选项为“TiOSO₄ 稀释液”，与题干中的实验对象关联较弱；本题有效答案是“上一步制得的 Hg₂(NO₃)₂ 溶液”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_00314_c493a6ddc5"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 保留 original_question；已核对题干、选项/答案/解析、点位和源文，最终有效题证据充分。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_00314_c493a6ddc5"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-1-08 汞(I)的歧化分解》实验中，汞(I)歧化分解实验使用的汞(I)溶液来自哪一步？",
+            "options": [
+              {
+                "label": "A",
+                "text": "新配制的 NaCl 溶液"
+              },
+              {
+                "label": "B",
+                "text": "KSCN 饱和溶液"
+              },
+              {
+                "label": "C",
+                "text": "上一步制得的 Hg₂(NO₃)₂ 溶液"
+              },
+              {
+                "label": "D",
+                "text": "TiOSO₄ 稀释液"
+              }
+            ],
+            "answer": {
+              "value": "C"
+            },
+            "explanation": "实验资料写明在上一个实验制得的 Hg₂(NO₃)₂ 溶液中滴加 KI。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00312_3907d19546",
+              "expchunk_00314_c493a6ddc5"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_08_Q002",
+        "source_review_id": "REV_CH4_EXP_20_1_08_Q002",
+        "source_question_index": 2,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-1-08 汞(I)的歧化分解》实验中，向 Hg₂(NO₃)₂ 溶液中滴加的试剂是哪一种？",
+        "options": [
+          {
+            "label": "A",
+            "text": "NaOH 溶液"
+          },
+          {
+            "label": "B",
+            "text": "葡萄糖溶液"
+          },
+          {
+            "label": "C",
+            "text": "H₂O₂ 溶液"
+          },
+          {
+            "label": "D",
+            "text": "2 mol·L⁻¹ KI 溶液"
+          }
+        ],
+        "answer": {
+          "value": "D"
+        },
+        "explanation": "教材步骤指定向 Hg₂(NO₃)₂ 溶液中滴加 2 mol·L⁻¹ KI，以观察 Hg(I) 在碘离子作用下的变化。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-43f08f31"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "ki_added_to_hg_i_solution"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "NaOH 溶液",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项为“NaOH 溶液”，会把本题锁定的实验对象、操作或现象转向错误判断；本题有效答案是“2 mol·L⁻¹ KI 溶液”。"
+          },
+          {
+            "label": "B",
+            "text": "葡萄糖溶液",
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "该选项为“葡萄糖溶液”，与题干中的实验对象关联较弱；本题有效答案是“2 mol·L⁻¹ KI 溶液”。"
+          },
+          {
+            "label": "C",
+            "text": "H₂O₂ 溶液",
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "该选项为“H₂O₂ 溶液”，与题干中的实验对象关联较弱；本题有效答案是“2 mol·L⁻¹ KI 溶液”。"
+          },
+          {
+            "label": "D",
+            "text": "2 mol·L⁻¹ KI 溶液",
+            "point_key": "candidate-1-43f08f31",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项为“2 mol·L⁻¹ KI 溶液”，与题干所问和解析中的有效答案一致，并绑定到实验点位“上一步制得的 Hg(I) 溶液 + KI”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_00314_c493a6ddc5"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 保留 original_question；已核对题干、选项/答案/解析、点位和源文，最终有效题证据充分。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_00314_c493a6ddc5"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-1-08 汞(I)的歧化分解》实验中，向 Hg₂(NO₃)₂ 溶液中滴加的试剂是哪一种？",
+            "options": [
+              {
+                "label": "A",
+                "text": "NaOH 溶液"
+              },
+              {
+                "label": "B",
+                "text": "葡萄糖溶液"
+              },
+              {
+                "label": "C",
+                "text": "H₂O₂ 溶液"
+              },
+              {
+                "label": "D",
+                "text": "2 mol·L⁻¹ KI 溶液"
+              }
+            ],
+            "answer": {
+              "value": "D"
+            },
+            "explanation": "教材步骤指定向 Hg₂(NO₃)₂ 溶液中滴加 2 mol·L⁻¹ KI，以观察 Hg(I) 在碘离子作用下的变化。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00312_3907d19546",
+              "expchunk_00314_c493a6ddc5"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_08_Q003",
+        "source_review_id": "REV_CH4_EXP_20_1_08_Q003",
+        "source_question_index": 3,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-1-08 汞(I)的歧化分解》实验中，Hg(I) 发生歧化时，同一元素汞发生了什么变化？",
+        "options": [
+          {
+            "label": "A",
+            "text": "一部分被氧化为 Hg(II)，一部分被还原为 Hg(0)"
+          },
+          {
+            "label": "B",
+            "text": "全部变为钠盐"
+          },
+          {
+            "label": "C",
+            "text": "全部变为氯气"
+          },
+          {
+            "label": "D",
+            "text": "全部变为硫酸根"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "歧化反应是同一价态同时升高和降低。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-43f08f31"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "hg_i_disproportionation_valence_change"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "一部分被氧化为 Hg(II)，一部分被还原为 Hg(0)",
+            "point_key": "candidate-1-43f08f31",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项为“一部分被氧化为 Hg(II)，一部分被还原为 Hg(0)”，与题干所问和解析中的有效答案一致，并绑定到实验点位“上一步制得的 Hg(I) 溶液 + KI”。"
+          },
+          {
+            "label": "B",
+            "text": "全部变为钠盐",
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "该选项为“全部变为钠盐”，与题干中的实验对象关联较弱；本题有效答案是“一部分被氧化为 Hg(II)，一部分被还原为 Hg(0)”。"
+          },
+          {
+            "label": "C",
+            "text": "全部变为氯气",
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "该选项为“全部变为氯气”，与题干中的实验对象关联较弱；本题有效答案是“一部分被氧化为 Hg(II)，一部分被还原为 Hg(0)”。"
+          },
+          {
+            "label": "D",
+            "text": "全部变为硫酸根",
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "该选项为“全部变为硫酸根”，与题干中的实验对象关联较弱；本题有效答案是“一部分被氧化为 Hg(II)，一部分被还原为 Hg(0)”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_00314_c493a6ddc5"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01086_e3c112067c",
+            "textbook_prose_01093_4e1caaa871",
+            "textbook_prose_01095_3a661b6beb"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 保留 original_question；已核对题干、选项/答案/解析、点位和源文，最终有效题证据充分。",
+          "supporting_theory_note": "依赖 Hg(I) 与 I⁻ 作用、Hg₂²⁺ 歧化和 Hg(II) 碘配合物稳定性的理论。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_00314_c493a6ddc5"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01086_e3c112067c",
+            "textbook_prose_01093_4e1caaa871",
+            "textbook_prose_01095_3a661b6beb"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01086_e3c112067c",
+            "textbook_prose_01093_4e1caaa871",
+            "textbook_prose_01095_3a661b6beb"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-1-08 汞(I)的歧化分解》实验中，Hg(I) 发生歧化时，同一元素汞发生了什么变化？",
+            "options": [
+              {
+                "label": "A",
+                "text": "一部分被氧化为 Hg(II)，一部分被还原为 Hg(0)"
+              },
+              {
+                "label": "B",
+                "text": "全部变为钠盐"
+              },
+              {
+                "label": "C",
+                "text": "全部变为氯气"
+              },
+              {
+                "label": "D",
+                "text": "全部变为硫酸根"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "歧化反应是同一价态同时升高和降低。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00312_3907d19546",
+              "expchunk_00314_c493a6ddc5"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "source_requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_08_Q004",
+        "source_review_id": "REV_CH4_EXP_20_1_08_Q004",
+        "source_question_index": 4,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-1-08 汞(I)的歧化分解》实验中，KI 促使 Hg(I) 歧化时，常见现象可涉及生成哪种汞(II)碘化物？",
+        "options": [
+          {
+            "label": "A",
+            "text": "HgCl₂"
+          },
+          {
+            "label": "B",
+            "text": "HgI₂"
+          },
+          {
+            "label": "C",
+            "text": "HgS"
+          },
+          {
+            "label": "D",
+            "text": "HgO"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "I⁻ 与 Hg(II) 可形成 HgI₂，并在过量 I⁻ 中进一步配位。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-43f08f31"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "hg_i_iodide_product_inference"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "HgCl₂",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项为“HgCl₂”，会把本题锁定的实验对象、操作或现象转向错误判断；本题有效答案是“HgI₂”。"
+          },
+          {
+            "label": "B",
+            "text": "HgI₂",
+            "point_key": "candidate-1-43f08f31",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项为“HgI₂”，与题干所问和解析中的有效答案一致，并绑定到实验点位“上一步制得的 Hg(I) 溶液 + KI”。"
+          },
+          {
+            "label": "C",
+            "text": "HgS",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项为“HgS”，会把本题锁定的实验对象、操作或现象转向错误判断；本题有效答案是“HgI₂”。"
+          },
+          {
+            "label": "D",
+            "text": "HgO",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项为“HgO”，会把本题锁定的实验对象、操作或现象转向错误判断；本题有效答案是“HgI₂”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_00314_c493a6ddc5"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01086_e3c112067c",
+            "textbook_prose_01093_4e1caaa871",
+            "textbook_prose_01095_3a661b6beb"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 保留 original_question；已核对题干、选项/答案/解析、点位和源文，最终有效题证据充分。",
+          "supporting_theory_note": "依赖 Hg(I) 与 I⁻ 作用、Hg₂²⁺ 歧化和 Hg(II) 碘配合物稳定性的理论。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_00314_c493a6ddc5"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01086_e3c112067c",
+            "textbook_prose_01093_4e1caaa871",
+            "textbook_prose_01095_3a661b6beb"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01086_e3c112067c",
+            "textbook_prose_01093_4e1caaa871",
+            "textbook_prose_01095_3a661b6beb"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-1-08 汞(I)的歧化分解》实验中，KI 促使 Hg(I) 歧化时，常见现象可涉及生成哪种汞(II)碘化物？",
+            "options": [
+              {
+                "label": "A",
+                "text": "HgCl₂"
+              },
+              {
+                "label": "B",
+                "text": "HgI₂"
+              },
+              {
+                "label": "C",
+                "text": "HgS"
+              },
+              {
+                "label": "D",
+                "text": "HgO"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "I⁻ 与 Hg(II) 可形成 HgI₂，并在过量 I⁻ 中进一步配位。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00312_3907d19546",
+              "expchunk_00314_c493a6ddc5"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "source_requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_08_Q005",
+        "source_review_id": "REV_CH4_EXP_20_1_08_Q005",
+        "source_question_index": 5,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-1-08 汞(I)的歧化分解》实验中，实验中剩余的金属汞为什么要回收？",
+        "options": [
+          {
+            "label": "A",
+            "text": "汞会变成氨气"
+          },
+          {
+            "label": "B",
+            "text": "汞是强酸"
+          },
+          {
+            "label": "C",
+            "text": "汞有毒且易造成污染"
+          },
+          {
+            "label": "D",
+            "text": "汞能溶解玻璃"
+          }
+        ],
+        "answer": {
+          "value": "C"
+        },
+        "explanation": "实验资料提到余下汞要回收，汞及其化合物有毒。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-43f08f31"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "mercury_recovery_safety"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "汞会变成氨气",
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "该选项为“汞会变成氨气”，与题干中的实验对象关联较弱；本题有效答案是“汞有毒且易造成污染”。"
+          },
+          {
+            "label": "B",
+            "text": "汞是强酸",
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "该选项为“汞是强酸”，与题干中的实验对象关联较弱；本题有效答案是“汞有毒且易造成污染”。"
+          },
+          {
+            "label": "C",
+            "text": "汞有毒且易造成污染",
+            "point_key": "candidate-1-43f08f31",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项为“汞有毒且易造成污染”，与题干所问和解析中的有效答案一致，并绑定到实验点位“上一步制得的 Hg(I) 溶液 + KI”。"
+          },
+          {
+            "label": "D",
+            "text": "汞能溶解玻璃",
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "该选项为“汞能溶解玻璃”，与题干中的实验对象关联较弱；本题有效答案是“汞有毒且易造成污染”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_00314_c493a6ddc5"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01086_e3c112067c",
+            "textbook_prose_01093_4e1caaa871",
+            "textbook_prose_01095_3a661b6beb"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 保留 original_question；已核对题干、选项/答案/解析、点位和源文，最终有效题证据充分。",
+          "supporting_theory_note": "依赖 Hg(I) 与 I⁻ 作用、Hg₂²⁺ 歧化和 Hg(II) 碘配合物稳定性的理论。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_00314_c493a6ddc5"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01086_e3c112067c",
+            "textbook_prose_01093_4e1caaa871",
+            "textbook_prose_01095_3a661b6beb"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01086_e3c112067c",
+            "textbook_prose_01093_4e1caaa871",
+            "textbook_prose_01095_3a661b6beb"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-1-08 汞(I)的歧化分解》实验中，实验中剩余的金属汞为什么要回收？",
+            "options": [
+              {
+                "label": "A",
+                "text": "汞会变成氨气"
+              },
+              {
+                "label": "B",
+                "text": "汞是强酸"
+              },
+              {
+                "label": "C",
+                "text": "汞有毒且易造成污染"
+              },
+              {
+                "label": "D",
+                "text": "汞能溶解玻璃"
+              }
+            ],
+            "answer": {
+              "value": "C"
+            },
+            "explanation": "实验资料提到余下汞要回收，汞及其化合物有毒。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00312_3907d19546",
+              "expchunk_00314_c493a6ddc5"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "source_requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_08_Q006",
+        "source_review_id": "REV_CH4_EXP_20_1_08_Q006",
+        "source_question_index": 6,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-1-08 汞(I)的歧化分解》实验中，Hg(II) 转化为 Hg(I) 的上一步中，向 Hg(NO₃)₂ 溶液加入了什么？",
+        "options": [
+          {
+            "label": "A",
+            "text": "一滴乙醚"
+          },
+          {
+            "label": "B",
+            "text": "少量丁二酮肟"
+          },
+          {
+            "label": "C",
+            "text": "少量铝屑"
+          },
+          {
+            "label": "D",
+            "text": "一滴汞"
+          }
+        ],
+        "answer": {
+          "value": "D"
+        },
+        "explanation": "实验资料写明向 Hg(NO₃)₂ 中加入 1 滴汞，振荡。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-43f08f31"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "previous_hg_ii_to_hg_i_step"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "一滴乙醚",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项为“一滴乙醚”，属于其他试剂、现象或实验情境；本题有效答案是“一滴汞”。"
+          },
+          {
+            "label": "B",
+            "text": "少量丁二酮肟",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "“少量丁二酮肟”是 Ni²⁺ 鉴定干扰项；若选它，是把镍检出反应误认为“Hg(II) 转化为 Hg(I) 的上一步中，向 Hg(NO₃)₂ 溶液加入了什么？”的证据。"
+          },
+          {
+            "label": "C",
+            "text": "少量铝屑",
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "该选项为“少量铝屑”，与题干中的实验对象关联较弱；本题有效答案是“一滴汞”。"
+          },
+          {
+            "label": "D",
+            "text": "一滴汞",
+            "point_key": "candidate-1-43f08f31",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项为“一滴汞”，与题干所问和解析中的有效答案一致，并绑定到实验点位“上一步制得的 Hg(I) 溶液 + KI”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_00314_c493a6ddc5"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 保留 original_question；已核对题干、选项/答案/解析、点位和源文，最终有效题证据充分。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_00314_c493a6ddc5"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-1-08 汞(I)的歧化分解》实验中，Hg(II) 转化为 Hg(I) 的上一步中，向 Hg(NO₃)₂ 溶液加入了什么？",
+            "options": [
+              {
+                "label": "A",
+                "text": "一滴乙醚"
+              },
+              {
+                "label": "B",
+                "text": "少量丁二酮肟"
+              },
+              {
+                "label": "C",
+                "text": "少量铝屑"
+              },
+              {
+                "label": "D",
+                "text": "一滴汞"
+              }
+            ],
+            "answer": {
+              "value": "D"
+            },
+            "explanation": "实验资料写明向 Hg(NO₃)₂ 中加入 1 滴汞，振荡。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00312_3907d19546",
+              "expchunk_00314_c493a6ddc5"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_08_Q007",
+        "source_review_id": "REV_CH4_EXP_20_1_08_Q007",
+        "source_question_index": 7,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-1-08 汞(I)的歧化分解》实验中，加入 NaCl 比较 Hg(II) 和 Hg(I) 时，主要观察什么？",
+        "options": [
+          {
+            "label": "A",
+            "text": "沉淀现象差异"
+          },
+          {
+            "label": "B",
+            "text": "钠与水反应"
+          },
+          {
+            "label": "C",
+            "text": "棕色环"
+          },
+          {
+            "label": "D",
+            "text": "镁条燃烧"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "实验资料要求加入 NaCl 观察并对比。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-43f08f31"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "hg_i_hg_ii_precipitation_comparison"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "沉淀现象差异",
+            "point_key": "candidate-1-43f08f31",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项为“沉淀现象差异”，与题干所问和解析中的有效答案一致，并绑定到实验点位“上一步制得的 Hg(I) 溶液 + KI”。"
+          },
+          {
+            "label": "B",
+            "text": "钠与水反应",
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "该选项为“钠与水反应”，与题干中的实验对象关联较弱；本题有效答案是“沉淀现象差异”。"
+          },
+          {
+            "label": "C",
+            "text": "棕色环",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "“棕色环”指向硝酸根检验；它不能解释本题“加入 NaCl 比较 Hg(II) 和 Hg(I) 时，主要观察什么？”中的点位操作或结论。"
+          },
+          {
+            "label": "D",
+            "text": "镁条燃烧",
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "该选项为“镁条燃烧”，与题干中的实验对象关联较弱；本题有效答案是“沉淀现象差异”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_00314_c493a6ddc5"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 保留 original_question；已核对题干、选项/答案/解析、点位和源文，最终有效题证据充分。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_00314_c493a6ddc5"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-1-08 汞(I)的歧化分解》实验中，加入 NaCl 比较 Hg(II) 和 Hg(I) 时，主要观察什么？",
+            "options": [
+              {
+                "label": "A",
+                "text": "沉淀现象差异"
+              },
+              {
+                "label": "B",
+                "text": "钠与水反应"
+              },
+              {
+                "label": "C",
+                "text": "棕色环"
+              },
+              {
+                "label": "D",
+                "text": "镁条燃烧"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "实验资料要求加入 NaCl 观察并对比。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00312_3907d19546",
+              "expchunk_00314_c493a6ddc5"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_08_Q008",
+        "source_review_id": "REV_CH4_EXP_20_1_08_Q008",
+        "source_question_index": 8,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-1-08 汞(I)的歧化分解》实验中，硝酸汞、硝酸亚汞与 KI 作用不同，主要反映哪种差异？",
+        "options": [
+          {
+            "label": "A",
+            "text": "K⁺ 颜色差异"
+          },
+          {
+            "label": "B",
+            "text": "Hg(II) 与 Hg(I) 的价态和稳定性差异"
+          },
+          {
+            "label": "C",
+            "text": "NO₃⁻ 挥发性"
+          },
+          {
+            "label": "D",
+            "text": "玻璃材质差异"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "思考题要求比较二者与 KI 的作用差异。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-43f08f31"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "hg_i_hg_ii_stability_difference"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "K⁺ 颜色差异",
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "该选项为“K⁺ 颜色差异”，与题干中的实验对象关联较弱；本题有效答案是“Hg(II) 与 Hg(I) 的价态和稳定性差异”。"
+          },
+          {
+            "label": "B",
+            "text": "Hg(II) 与 Hg(I) 的价态和稳定性差异",
+            "point_key": "candidate-1-43f08f31",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项为“Hg(II) 与 Hg(I) 的价态和稳定性差异”，与题干所问和解析中的有效答案一致，并绑定到实验点位“上一步制得的 Hg(I) 溶液 + KI”。"
+          },
+          {
+            "label": "C",
+            "text": "NO₃⁻ 挥发性",
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "该选项为“NO₃⁻ 挥发性”，与题干中的实验对象关联较弱；本题有效答案是“Hg(II) 与 Hg(I) 的价态和稳定性差异”。"
+          },
+          {
+            "label": "D",
+            "text": "玻璃材质差异",
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "该选项为“玻璃材质差异”，与题干中的实验对象关联较弱；本题有效答案是“Hg(II) 与 Hg(I) 的价态和稳定性差异”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_00314_c493a6ddc5"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01086_e3c112067c",
+            "textbook_prose_01093_4e1caaa871",
+            "textbook_prose_01095_3a661b6beb"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 保留 original_question；已核对题干、选项/答案/解析、点位和源文，最终有效题证据充分。",
+          "supporting_theory_note": "依赖 Hg(I) 与 I⁻ 作用、Hg₂²⁺ 歧化和 Hg(II) 碘配合物稳定性的理论。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_00314_c493a6ddc5"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01086_e3c112067c",
+            "textbook_prose_01093_4e1caaa871",
+            "textbook_prose_01095_3a661b6beb"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01086_e3c112067c",
+            "textbook_prose_01093_4e1caaa871",
+            "textbook_prose_01095_3a661b6beb"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-1-08 汞(I)的歧化分解》实验中，硝酸汞、硝酸亚汞与 KI 作用不同，主要反映哪种差异？",
+            "options": [
+              {
+                "label": "A",
+                "text": "K⁺ 颜色差异"
+              },
+              {
+                "label": "B",
+                "text": "Hg(II) 与 Hg(I) 的价态和稳定性差异"
+              },
+              {
+                "label": "C",
+                "text": "NO₃⁻ 挥发性"
+              },
+              {
+                "label": "D",
+                "text": "玻璃材质差异"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "思考题要求比较二者与 KI 的作用差异。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00312_3907d19546",
+              "expchunk_00314_c493a6ddc5"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "source_requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_08_Q009",
+        "source_review_id": "REV_CH4_EXP_20_1_08_Q009",
+        "source_question_index": 9,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-1-08 汞(I)的歧化分解》实验中，下列哪项是本实验的核心安全注意事项？",
+        "options": [
+          {
+            "label": "A",
+            "text": "强光下暴晒汞盐"
+          },
+          {
+            "label": "B",
+            "text": "用手直接压汞滴"
+          },
+          {
+            "label": "C",
+            "text": "汞和汞盐废液回收，避免接触和污染"
+          },
+          {
+            "label": "D",
+            "text": "把汞倒入水槽"
+          }
+        ],
+        "answer": {
+          "value": "C"
+        },
+        "explanation": "汞有毒，实验资料思考题提示汞及其化合物安全问题。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-43f08f31"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "mercury_safety"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "强光下暴晒汞盐",
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "该选项为“强光下暴晒汞盐”，与题干中的实验对象关联较弱；本题有效答案是“汞和汞盐废液回收，避免接触和污染”。"
+          },
+          {
+            "label": "B",
+            "text": "用手直接压汞滴",
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "该选项为“用手直接压汞滴”，与题干中的实验对象关联较弱；本题有效答案是“汞和汞盐废液回收，避免接触和污染”。"
+          },
+          {
+            "label": "C",
+            "text": "汞和汞盐废液回收，避免接触和污染",
+            "point_key": "candidate-1-43f08f31",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项为“汞和汞盐废液回收，避免接触和污染”，与题干所问和解析中的有效答案一致，并绑定到实验点位“上一步制得的 Hg(I) 溶液 + KI”。"
+          },
+          {
+            "label": "D",
+            "text": "把汞倒入水槽",
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "该选项为“把汞倒入水槽”，与题干中的实验对象关联较弱；本题有效答案是“汞和汞盐废液回收，避免接触和污染”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_00314_c493a6ddc5"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 保留 original_question；已核对题干、选项/答案/解析、点位和源文，最终有效题证据充分。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_00314_c493a6ddc5"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-1-08 汞(I)的歧化分解》实验中，下列哪项是本实验的核心安全注意事项？",
+            "options": [
+              {
+                "label": "A",
+                "text": "强光下暴晒汞盐"
+              },
+              {
+                "label": "B",
+                "text": "用手直接压汞滴"
+              },
+              {
+                "label": "C",
+                "text": "汞和汞盐废液回收，避免接触和污染"
+              },
+              {
+                "label": "D",
+                "text": "把汞倒入水槽"
+              }
+            ],
+            "answer": {
+              "value": "C"
+            },
+            "explanation": "汞有毒，实验资料思考题提示汞及其化合物安全问题。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00312_3907d19546",
+              "expchunk_00314_c493a6ddc5"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_08_Q010",
+        "source_review_id": "REV_CH4_EXP_20_1_08_Q010",
+        "source_question_index": 10,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《20-1-08 汞(I)的歧化分解》实验中，滴加 KI 后最应关注哪一类变化？",
+        "options": [
+          {
+            "label": "A",
+            "text": "Hg(I) 在碘离子作用下的歧化/配合现象"
+          },
+          {
+            "label": "B",
+            "text": "只背模块标题"
+          },
+          {
+            "label": "C",
+            "text": "钠的焰色"
+          },
+          {
+            "label": "D",
+            "text": "FeCl₃ 水解"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "“Hg(I) 在碘离子作用下的歧化/配合现象”与实验操作、观察目标或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-43f08f31"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "hg_ii_hg_i_conversion_module",
+          "polished_final_rewrite"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": null,
+            "point_key": "candidate-1-43f08f31",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“Hg(I) 在碘离子作用下的歧化/配合现象”直接支撑“滴加 KI 后最应关注哪一类变化？”；对应点位是“上一步制得的 Hg(I) 溶液 + KI”。"
+          },
+          {
+            "label": "B",
+            "text": null,
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "“只背模块标题”不能作为“滴加 KI 后最应关注哪一类变化？”的教材证据；它排除的是无关操作、条件或观察对象。"
+          },
+          {
+            "label": "C",
+            "text": null,
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "“钠的焰色”属于焰色反应识别线索；本题“滴加 KI 后最应关注哪一类变化？”考查的是本实验试剂/现象而非火焰颜色。"
+          },
+          {
+            "label": "D",
+            "text": null,
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "“FeCl₃ 水解”与正确项“Hg(I) 在碘离子作用下的歧化/配合现象”同属相近化学概念，但在“滴加 KI 后最应关注哪一类变化？”中混淆了试剂、价态、产物或现象。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_00314_c493a6ddc5"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01086_e3c112067c",
+            "textbook_prose_01093_4e1caaa871",
+            "textbook_prose_01095_3a661b6beb"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final proposed_question 已核对 canonical 实验原文、点位和必要 theory；可机器确定性判分。",
+          "supporting_theory_note": "依赖 Hg(I) 与 I⁻ 作用、Hg₂²⁺ 歧化和 Hg(II) 碘配合物稳定性的理论。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_00314_c493a6ddc5"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01086_e3c112067c",
+            "textbook_prose_01093_4e1caaa871",
+            "textbook_prose_01095_3a661b6beb"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01086_e3c112067c",
+            "textbook_prose_01093_4e1caaa871",
+            "textbook_prose_01095_3a661b6beb"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-1-08 汞(I)的歧化分解》实验中，本实验属于 20-1 中哪一模块？",
+            "options": [
+              {
+                "label": "A",
+                "text": "配合物稳定性与配体关系"
+              },
+              {
+                "label": "B",
+                "text": "钛盐水解"
+              },
+              {
+                "label": "C",
+                "text": "卤素氧化性"
+              },
+              {
+                "label": "D",
+                "text": "汞(II)和汞(I)相互转化"
+              }
+            ],
+            "answer": {
+              "value": "D"
+            },
+            "explanation": "实验资料中模块为汞(II)和汞(I)相互转化。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00312_3907d19546",
+              "expchunk_00314_c493a6ddc5"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-1-08 汞(I)的歧化分解》实验中，滴加 KI 后最应关注哪一类变化？",
+            "options": [
+              {
+                "label": "A",
+                "text": "Hg(I) 在碘离子作用下的歧化/配合现象"
+              },
+              {
+                "label": "B",
+                "text": "只背模块标题"
+              },
+              {
+                "label": "C",
+                "text": "钠的焰色"
+              },
+              {
+                "label": "D",
+                "text": "FeCl₃ 水解"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "“Hg(I) 在碘离子作用下的歧化/配合现象”与实验操作、观察目标或结论一致。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "source_requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_08_Q011",
+        "source_review_id": "REV_CH4_EXP_20_1_08_Q011",
+        "source_question_index": 11,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《20-1-08 汞(I)的歧化分解》实验中，汞(I)歧化分解实验是在 Hg₂(NO₃)₂ 溶液中滴加 KI。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "实验资料明确。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-43f08f31"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "hg_i_solution_from_previous_step"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_00314_c493a6ddc5"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 保留 original_question；已核对题干、选项/答案/解析、点位和源文，最终有效题证据充分。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_00314_c493a6ddc5"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-1-08 汞(I)的歧化分解》实验中，汞(I)歧化分解实验是在 Hg₂(NO₃)₂ 溶液中滴加 KI。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "实验资料明确。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00312_3907d19546",
+              "expchunk_00314_c493a6ddc5"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_08_Q012",
+        "source_review_id": "REV_CH4_EXP_20_1_08_Q012",
+        "source_question_index": 12,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《20-1-08 汞(I)的歧化分解》实验中，歧化反应中同一元素的化合价同时升高和降低。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "这是歧化定义。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-43f08f31"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "ki_added_to_hg_i_solution"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_00314_c493a6ddc5"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 保留 original_question；已核对题干、选项/答案/解析、点位和源文，最终有效题证据充分。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_00314_c493a6ddc5"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-1-08 汞(I)的歧化分解》实验中，歧化反应中同一元素的化合价同时升高和降低。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "这是歧化定义。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00312_3907d19546",
+              "expchunk_00314_c493a6ddc5"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_08_Q013",
+        "source_review_id": "REV_CH4_EXP_20_1_08_Q013",
+        "source_question_index": 13,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《20-1-08 汞(I)的歧化分解》实验中，Hg(I) 歧化可生成 Hg(II) 物种和金属汞。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "Hg(I) 可歧化为 Hg(II) 与 Hg(0)。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-43f08f31"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "hg_i_disproportionation_valence_change"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_00314_c493a6ddc5"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01086_e3c112067c",
+            "textbook_prose_01093_4e1caaa871",
+            "textbook_prose_01095_3a661b6beb"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 保留 original_question；已核对题干、选项/答案/解析、点位和源文，最终有效题证据充分。",
+          "supporting_theory_note": "依赖 Hg(I) 与 I⁻ 作用、Hg₂²⁺ 歧化和 Hg(II) 碘配合物稳定性的理论。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_00314_c493a6ddc5"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01086_e3c112067c",
+            "textbook_prose_01093_4e1caaa871",
+            "textbook_prose_01095_3a661b6beb"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01086_e3c112067c",
+            "textbook_prose_01093_4e1caaa871",
+            "textbook_prose_01095_3a661b6beb"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-1-08 汞(I)的歧化分解》实验中，Hg(I) 歧化可生成 Hg(II) 物种和金属汞。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "Hg(I) 可歧化为 Hg(II) 与 Hg(0)。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00312_3907d19546",
+              "expchunk_00314_c493a6ddc5"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "source_requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_08_Q014",
+        "source_review_id": "REV_CH4_EXP_20_1_08_Q014",
+        "source_question_index": 14,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "true_false",
+        "stem": "在《20-1-08 汞(I)的歧化分解》实验中，余下的汞必须回收处理。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "教材实验原文明确说明余下的汞要回收，汞及其化合物有毒。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-43f08f31"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "hg_i_iodide_product_inference",
+          "semantic_final_rewrite"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_00314_c493a6ddc5"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01086_e3c112067c",
+            "textbook_prose_01093_4e1caaa871",
+            "textbook_prose_01095_3a661b6beb"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final proposed_question 已核对 canonical 实验原文、点位和必要 theory；可机器确定性判分。",
+          "supporting_theory_note": "依赖 Hg(I) 与 I⁻ 作用、Hg₂²⁺ 歧化和 Hg(II) 碘配合物稳定性的理论。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_00314_c493a6ddc5"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01086_e3c112067c",
+            "textbook_prose_01093_4e1caaa871",
+            "textbook_prose_01095_3a661b6beb"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01086_e3c112067c",
+            "textbook_prose_01093_4e1caaa871",
+            "textbook_prose_01095_3a661b6beb"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-1-08 汞(I)的歧化分解》实验中，实验中余下的汞可以直接倒入水槽。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "实验资料写明余下汞要回收，汞有毒。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00312_3907d19546",
+              "expchunk_00314_c493a6ddc5"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "true_false",
+            "stem": "在《20-1-08 汞(I)的歧化分解》实验中，余下的汞必须回收处理。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "教材实验原文明确说明余下的汞要回收，汞及其化合物有毒。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "source_requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_08_Q015",
+        "source_review_id": "REV_CH4_EXP_20_1_08_Q015",
+        "source_question_index": 15,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《20-1-08 汞(I)的歧化分解》实验中，KI 是本实验中滴加到汞(I)溶液中的试剂。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "实验资料指定 2 mol·L⁻¹ KI。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-43f08f31"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "mercury_recovery_safety"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_00314_c493a6ddc5"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 保留 original_question；已核对题干、选项/答案/解析、点位和源文，最终有效题证据充分。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_00314_c493a6ddc5"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-1-08 汞(I)的歧化分解》实验中，KI 是本实验中滴加到汞(I)溶液中的试剂。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "实验资料指定 2 mol·L⁻¹ KI。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00312_3907d19546",
+              "expchunk_00314_c493a6ddc5"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_08_Q016",
+        "source_review_id": "REV_CH4_EXP_20_1_08_Q016",
+        "source_question_index": 16,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《20-1-08 汞(I)的歧化分解》实验中，上一步制备 Hg(I) 溶液时，需要向 Hg(NO₃)₂ 溶液中加入汞。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "实验资料写有加入 1 滴汞。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-43f08f31"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "previous_hg_ii_to_hg_i_step"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_00314_c493a6ddc5"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 保留 original_question；已核对题干、选项/答案/解析、点位和源文，最终有效题证据充分。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_00314_c493a6ddc5"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-1-08 汞(I)的歧化分解》实验中，上一步制备 Hg(I) 溶液时，需要向 Hg(NO₃)₂ 溶液中加入汞。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "实验资料写有加入 1 滴汞。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00312_3907d19546",
+              "expchunk_00314_c493a6ddc5"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_08_Q017",
+        "source_review_id": "REV_CH4_EXP_20_1_08_Q017",
+        "source_question_index": 17,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "比较 Hg(II) 与 Hg(I) 分别和 KI 作用的差异，主要用于判断哪一类差异？",
+        "options": [
+          {
+            "label": "A",
+            "text": "汞不同价态及稳定性差异"
+          },
+          {
+            "label": "B",
+            "text": "K⁺ 的焰色差异"
+          },
+          {
+            "label": "C",
+            "text": "玻璃材质差异"
+          },
+          {
+            "label": "D",
+            "text": "NO₃⁻ 挥发性"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "教材思考题要求比较硝酸汞、硝酸亚汞与 KI 的作用差异。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-43f08f31"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "hg_i_hg_ii_precipitation_comparison",
+          "semantic_final_rewrite"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": null,
+            "point_key": "candidate-1-43f08f31",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“汞不同价态及稳定性差异”直接支撑“比较 Hg(II) 与 Hg(I) 分别和 KI 作用的差异，主要用于判断哪一类差异？”；对应点位是“上一步制得的 Hg(I) 溶液 + KI”。"
+          },
+          {
+            "label": "B",
+            "text": null,
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "“K⁺ 的焰色差异”属于焰色反应识别线索；本题“比较 Hg(II) 与 Hg(I) 分别和 KI 作用的差异，主要用于判断哪一类差异？”考查的是本实验试剂/现象而非火焰颜色。"
+          },
+          {
+            "label": "C",
+            "text": null,
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "“玻璃材质差异”不能作为“比较 Hg(II) 与 Hg(I) 分别和 KI 作用的差异，主要用于判断哪一类差异？”的教材证据；它排除的是无关操作、条件或观察对象。"
+          },
+          {
+            "label": "D",
+            "text": null,
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "“NO₃⁻ 挥发性”不能作为“比较 Hg(II) 与 Hg(I) 分别和 KI 作用的差异，主要用于判断哪一类差异？”的教材证据；它排除的是无关操作、条件或观察对象。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_00314_c493a6ddc5"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01086_e3c112067c",
+            "textbook_prose_01093_4e1caaa871",
+            "textbook_prose_01095_3a661b6beb"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final proposed_question 已核对 canonical 实验原文、点位和必要 theory；可机器确定性判分。",
+          "supporting_theory_note": "依赖 Hg(I) 与 I⁻ 作用、Hg₂²⁺ 歧化和 Hg(II) 碘配合物稳定性的理论。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_00314_c493a6ddc5"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01086_e3c112067c",
+            "textbook_prose_01093_4e1caaa871",
+            "textbook_prose_01095_3a661b6beb"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01086_e3c112067c",
+            "textbook_prose_01093_4e1caaa871",
+            "textbook_prose_01095_3a661b6beb"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-1-08 汞(I)的歧化分解》实验中，Hg(I) 与 KI 的作用和 Hg(II) 与 KI 的作用完全没有差异。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "思考题专门要求比较硝酸汞和硝酸亚汞与 KI 的不同。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00312_3907d19546",
+              "expchunk_00314_c493a6ddc5"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "比较 Hg(II) 与 Hg(I) 分别和 KI 作用的差异，主要用于判断哪一类差异？",
+            "options": [
+              {
+                "label": "A",
+                "text": "汞不同价态及稳定性差异"
+              },
+              {
+                "label": "B",
+                "text": "K⁺ 的焰色差异"
+              },
+              {
+                "label": "C",
+                "text": "玻璃材质差异"
+              },
+              {
+                "label": "D",
+                "text": "NO₃⁻ 挥发性"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "教材思考题要求比较硝酸汞、硝酸亚汞与 KI 的作用差异。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "source_requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_08_Q018",
+        "source_review_id": "REV_CH4_EXP_20_1_08_Q018",
+        "source_question_index": 18,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《20-1-08 汞(I)的歧化分解》实验中，Hg(I) 与 KI 作用重点体现哪类变化？",
+        "options": [
+          {
+            "label": "A",
+            "text": "价态变化和歧化"
+          },
+          {
+            "label": "B",
+            "text": "完全无价态变化"
+          },
+          {
+            "label": "C",
+            "text": "只发生焰色反应"
+          },
+          {
+            "label": "D",
+            "text": "只生成氨气"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "汞(I)可歧化生成 Hg(II) 物种和金属汞。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-43f08f31"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "hg_i_hg_ii_stability_difference",
+          "semantic_final_rewrite"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": null,
+            "point_key": "candidate-1-43f08f31",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“价态变化和歧化”直接支撑“Hg(I) 与 KI 作用重点体现哪类变化？”；对应点位是“上一步制得的 Hg(I) 溶液 + KI”。"
+          },
+          {
+            "label": "B",
+            "text": null,
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "“完全无价态变化”与正确项“价态变化和歧化”同属相近化学概念，但在“Hg(I) 与 KI 作用重点体现哪类变化？”中混淆了试剂、价态、产物或现象。"
+          },
+          {
+            "label": "C",
+            "text": null,
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "“只发生焰色反应”属于焰色反应识别线索；本题“Hg(I) 与 KI 作用重点体现哪类变化？”考查的是本实验试剂/现象而非火焰颜色。"
+          },
+          {
+            "label": "D",
+            "text": null,
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "“只生成氨气”不能作为“Hg(I) 与 KI 作用重点体现哪类变化？”的教材证据；它排除的是无关操作、条件或观察对象。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_00314_c493a6ddc5"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01086_e3c112067c",
+            "textbook_prose_01093_4e1caaa871",
+            "textbook_prose_01095_3a661b6beb"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final proposed_question 已核对 canonical 实验原文、点位和必要 theory；可机器确定性判分。",
+          "supporting_theory_note": "依赖 Hg(I) 与 I⁻ 作用、Hg₂²⁺ 歧化和 Hg(II) 碘配合物稳定性的理论。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_00314_c493a6ddc5"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01086_e3c112067c",
+            "textbook_prose_01093_4e1caaa871",
+            "textbook_prose_01095_3a661b6beb"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01086_e3c112067c",
+            "textbook_prose_01093_4e1caaa871",
+            "textbook_prose_01095_3a661b6beb"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-1-08 汞(I)的歧化分解》实验中，本实验不涉及价态变化。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "汞(II)/汞(I)相互转化和歧化都涉及价态变化。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00312_3907d19546",
+              "expchunk_00314_c493a6ddc5"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-1-08 汞(I)的歧化分解》实验中，Hg(I) 与 KI 作用重点体现哪类变化？",
+            "options": [
+              {
+                "label": "A",
+                "text": "价态变化和歧化"
+              },
+              {
+                "label": "B",
+                "text": "完全无价态变化"
+              },
+              {
+                "label": "C",
+                "text": "只发生焰色反应"
+              },
+              {
+                "label": "D",
+                "text": "只生成氨气"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "汞(I)可歧化生成 Hg(II) 物种和金属汞。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "source_requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_08_Q019",
+        "source_review_id": "REV_CH4_EXP_20_1_08_Q019",
+        "source_question_index": 19,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "true_false",
+        "stem": "在《20-1-08 汞(I)的歧化分解》实验中，判断：NaCl 对比实验可辅助区分 Hg(II) 与 Hg(I) 体系的沉淀行为。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "该判断与实验原文的操作、现象或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-43f08f31"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "mercury_safety",
+          "semantic_final_rewrite"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_00314_c493a6ddc5"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final proposed_question 已核对 canonical 实验原文、点位和必要 theory；可机器确定性判分。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_00314_c493a6ddc5"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-1-08 汞(I)的歧化分解》实验中，认为：NaCl 对比实验可辅助区分 Hg(II) 与 Hg(I) 体系的沉淀行为，这一判断是不正确的。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "这一判断本身是正确的。实验资料中有 NaCl 对比观察。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00312_3907d19546",
+              "expchunk_00314_c493a6ddc5"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "true_false",
+            "stem": "在《20-1-08 汞(I)的歧化分解》实验中，判断：NaCl 对比实验可辅助区分 Hg(II) 与 Hg(I) 体系的沉淀行为。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "该判断与实验原文的操作、现象或结论一致。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_08_Q020",
+        "source_review_id": "REV_CH4_EXP_20_1_08_Q020",
+        "source_question_index": 20,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "true_false",
+        "stem": "在《20-1-08 汞(I)的歧化分解》实验中，判断：汞及其化合物实验要注意毒性风险。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "该判断与实验原文的操作、现象或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-43f08f31"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "hg_ii_hg_i_conversion_module",
+          "semantic_final_rewrite"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_00314_c493a6ddc5"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final proposed_question 已核对 canonical 实验原文、点位和必要 theory；可机器确定性判分。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_00314_c493a6ddc5"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-1-08 汞(I)的歧化分解》实验中，认为：汞及其化合物实验要注意毒性风险，这一判断是不正确的。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "这一判断本身是正确的。实验资料思考题提示安全问题。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00312_3907d19546",
+              "expchunk_00314_c493a6ddc5"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "true_false",
+            "stem": "在《20-1-08 汞(I)的歧化分解》实验中，判断：汞及其化合物实验要注意毒性风险。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "该判断与实验原文的操作、现象或结论一致。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_08_Q021",
+        "source_review_id": "REV_CH4_EXP_20_1_08_Q021",
+        "source_question_index": 21,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "fill_blank",
+        "stem": "在《20-1-08 汞(I)的歧化分解》实验中，汞(I)歧化分解实验中滴加的试剂是____（填中文名称）溶液。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "碘化钾"
+          ],
+          "match": "normalized_exact",
+          "grading_mode": "normalized_exact",
+          "machine_deterministic": true
+        },
+        "explanation": "对应的实验操作或现象内容是“碘化钾”。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-43f08f31"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "hg_i_solution_from_previous_step",
+          "polished_mobile_fill"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_00314_c493a6ddc5"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final proposed_question 已核对 canonical 实验原文、点位和必要 theory；可机器确定性判分。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_00314_c493a6ddc5"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "generic_or_answer_shell_explanation",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-1-08 汞(I)的歧化分解》实验中，汞(I)歧化分解实验中滴加的试剂是____溶液。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "KI",
+                "碘化钾"
+              ],
+              "match": "normalized_exact",
+              "grading_mode": "normalized_exact",
+              "machine_deterministic": true
+            },
+            "explanation": "实验资料指定 KI。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00312_3907d19546",
+              "expchunk_00314_c493a6ddc5"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-1-08 汞(I)的歧化分解》实验中，汞(I)歧化分解实验中滴加的试剂是____（填中文名称）溶液。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "碘化钾"
+              ],
+              "match": "normalized_exact",
+              "grading_mode": "normalized_exact",
+              "machine_deterministic": true
+            },
+            "explanation": "对应的实验操作或现象内容是“碘化钾”。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_08_Q022",
+        "source_review_id": "REV_CH4_EXP_20_1_08_Q022",
+        "source_question_index": 22,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "fill_blank",
+        "stem": "在《20-1-08 汞(I)的歧化分解》实验中，Hg(I) 的硝酸盐可写作____（填中文名称）。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "硝酸亚汞"
+          ],
+          "match": "normalized_exact",
+          "grading_mode": "normalized_exact",
+          "machine_deterministic": true
+        },
+        "explanation": "对应的实验操作或现象内容是“硝酸亚汞”。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-43f08f31"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "ki_added_to_hg_i_solution",
+          "polished_mobile_fill"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_00314_c493a6ddc5"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final proposed_question 已核对 canonical 实验原文、点位和必要 theory；可机器确定性判分。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_00314_c493a6ddc5"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "generic_or_answer_shell_explanation",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-1-08 汞(I)的歧化分解》实验中，Hg(I) 的硝酸盐可写作____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "Hg₂(NO₃)₂",
+                "硝酸亚汞"
+              ],
+              "match": "normalized_exact",
+              "grading_mode": "normalized_exact",
+              "machine_deterministic": true
+            },
+            "explanation": "实验资料中为 Hg₂(NO₃)₂。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00312_3907d19546",
+              "expchunk_00314_c493a6ddc5"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-1-08 汞(I)的歧化分解》实验中，Hg(I) 的硝酸盐可写作____（填中文名称）。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "硝酸亚汞"
+              ],
+              "match": "normalized_exact",
+              "grading_mode": "normalized_exact",
+              "machine_deterministic": true
+            },
+            "explanation": "对应的实验操作或现象内容是“硝酸亚汞”。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_08_Q023",
+        "source_review_id": "REV_CH4_EXP_20_1_08_Q023",
+        "source_question_index": 23,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《20-1-08 汞(I)的歧化分解》实验中，歧化反应中同一元素化合价既升高又____。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "降低",
+            "下降"
+          ],
+          "match": "normalized_exact",
+          "grading_mode": "normalized_exact",
+          "machine_deterministic": true
+        },
+        "explanation": "歧化定义。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-43f08f31"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "hg_i_disproportionation_valence_change"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_00314_c493a6ddc5"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01086_e3c112067c",
+            "textbook_prose_01093_4e1caaa871",
+            "textbook_prose_01095_3a661b6beb"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 保留 original_question；已核对题干、选项/答案/解析、点位和源文，最终有效题证据充分。",
+          "supporting_theory_note": "依赖 Hg(I) 与 I⁻ 作用、Hg₂²⁺ 歧化和 Hg(II) 碘配合物稳定性的理论。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_00314_c493a6ddc5"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01086_e3c112067c",
+            "textbook_prose_01093_4e1caaa871",
+            "textbook_prose_01095_3a661b6beb"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01086_e3c112067c",
+            "textbook_prose_01093_4e1caaa871",
+            "textbook_prose_01095_3a661b6beb"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-1-08 汞(I)的歧化分解》实验中，歧化反应中同一元素化合价既升高又____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "降低",
+                "下降"
+              ],
+              "match": "normalized_exact",
+              "grading_mode": "normalized_exact",
+              "machine_deterministic": true
+            },
+            "explanation": "歧化定义。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00312_3907d19546",
+              "expchunk_00314_c493a6ddc5"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "source_requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_08_Q024",
+        "source_review_id": "REV_CH4_EXP_20_1_08_Q024",
+        "source_question_index": 24,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "fill_blank",
+        "stem": "在《20-1-08 汞(I)的歧化分解》实验中，Hg(I) 歧化可生成 Hg(II) 和金属____（填中文名称）。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "汞"
+          ],
+          "match": "normalized_exact",
+          "grading_mode": "normalized_exact",
+          "machine_deterministic": true
+        },
+        "explanation": "对应的实验操作或现象内容是“汞”。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-43f08f31"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "hg_i_iodide_product_inference",
+          "polished_mobile_fill"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_00314_c493a6ddc5"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01086_e3c112067c",
+            "textbook_prose_01093_4e1caaa871",
+            "textbook_prose_01095_3a661b6beb"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final proposed_question 已核对 canonical 实验原文、点位和必要 theory；可机器确定性判分。",
+          "supporting_theory_note": "依赖 Hg(I) 与 I⁻ 作用、Hg₂²⁺ 歧化和 Hg(II) 碘配合物稳定性的理论。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_00314_c493a6ddc5"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01086_e3c112067c",
+            "textbook_prose_01093_4e1caaa871",
+            "textbook_prose_01095_3a661b6beb"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01086_e3c112067c",
+            "textbook_prose_01093_4e1caaa871",
+            "textbook_prose_01095_3a661b6beb"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "generic_or_answer_shell_explanation",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-1-08 汞(I)的歧化分解》实验中，Hg(I) 歧化可生成 Hg(II) 和金属____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "汞",
+                "Hg"
+              ],
+              "match": "normalized_exact",
+              "grading_mode": "normalized_exact",
+              "machine_deterministic": true
+            },
+            "explanation": "Hg(I) → Hg(II) + Hg(0)。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00312_3907d19546",
+              "expchunk_00314_c493a6ddc5"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-1-08 汞(I)的歧化分解》实验中，Hg(I) 歧化可生成 Hg(II) 和金属____（填中文名称）。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "汞"
+              ],
+              "match": "normalized_exact",
+              "grading_mode": "normalized_exact",
+              "machine_deterministic": true
+            },
+            "explanation": "对应的实验操作或现象内容是“汞”。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "source_requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_08_Q025",
+        "source_review_id": "REV_CH4_EXP_20_1_08_Q025",
+        "source_question_index": 25,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《20-1-08 汞(I)的歧化分解》实验中，上一步制备 Hg(I) 溶液时，向 Hg(NO₃)₂ 中加入一滴____。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "汞",
+            "Hg"
+          ],
+          "match": "normalized_exact",
+          "grading_mode": "normalized_exact",
+          "machine_deterministic": true
+        },
+        "explanation": "实验资料明确。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-43f08f31"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "mercury_recovery_safety"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_00314_c493a6ddc5"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 保留 original_question；已核对题干、选项/答案/解析、点位和源文，最终有效题证据充分。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_00314_c493a6ddc5"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "formula_or_symbolic_fill_blank_answer",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-1-08 汞(I)的歧化分解》实验中，上一步制备 Hg(I) 溶液时，向 Hg(NO₃)₂ 中加入一滴____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "汞",
+                "Hg"
+              ],
+              "match": "normalized_exact",
+              "grading_mode": "normalized_exact",
+              "machine_deterministic": true
+            },
+            "explanation": "实验资料明确。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00312_3907d19546",
+              "expchunk_00314_c493a6ddc5"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_08_Q026",
+        "source_review_id": "REV_CH4_EXP_20_1_08_Q026",
+        "source_question_index": 26,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《20-1-08 汞(I)的歧化分解》实验中，实验中余下的汞必须____。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "回收",
+            "回收处理"
+          ],
+          "match": "normalized_exact",
+          "grading_mode": "normalized_exact",
+          "machine_deterministic": true
+        },
+        "explanation": "实验资料写明余下汞要回收。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-43f08f31"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "previous_hg_ii_to_hg_i_step"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_00314_c493a6ddc5"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 保留 original_question；已核对题干、选项/答案/解析、点位和源文，最终有效题证据充分。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_00314_c493a6ddc5"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-1-08 汞(I)的歧化分解》实验中，实验中余下的汞必须____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "回收",
+                "回收处理"
+              ],
+              "match": "normalized_exact",
+              "grading_mode": "normalized_exact",
+              "machine_deterministic": true
+            },
+            "explanation": "实验资料写明余下汞要回收。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00312_3907d19546",
+              "expchunk_00314_c493a6ddc5"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_08_Q027",
+        "source_review_id": "REV_CH4_EXP_20_1_08_Q027",
+        "source_question_index": 27,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "fill_blank",
+        "stem": "在《20-1-08 汞(I)的歧化分解》实验中，KI 中促使汞形成碘化物或配合物的离子是____（填中文名称）。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "碘离子"
+          ],
+          "match": "normalized_exact",
+          "grading_mode": "normalized_exact",
+          "machine_deterministic": true
+        },
+        "explanation": "对应的实验操作或现象内容是“碘离子”。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-43f08f31"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "hg_i_hg_ii_precipitation_comparison",
+          "polished_mobile_fill"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_00314_c493a6ddc5"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01086_e3c112067c",
+            "textbook_prose_01093_4e1caaa871",
+            "textbook_prose_01095_3a661b6beb"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final proposed_question 已核对 canonical 实验原文、点位和必要 theory；可机器确定性判分。",
+          "supporting_theory_note": "依赖 Hg(I) 与 I⁻ 作用、Hg₂²⁺ 歧化和 Hg(II) 碘配合物稳定性的理论。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_00314_c493a6ddc5"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01086_e3c112067c",
+            "textbook_prose_01093_4e1caaa871",
+            "textbook_prose_01095_3a661b6beb"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01086_e3c112067c",
+            "textbook_prose_01093_4e1caaa871",
+            "textbook_prose_01095_3a661b6beb"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "generic_or_answer_shell_explanation",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-1-08 汞(I)的歧化分解》实验中，KI 中促使汞形成碘化物或配合物的离子是____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "I⁻",
+                "碘离子"
+              ],
+              "match": "normalized_exact",
+              "grading_mode": "normalized_exact",
+              "machine_deterministic": true
+            },
+            "explanation": "I⁻ 与汞离子作用。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00312_3907d19546",
+              "expchunk_00314_c493a6ddc5"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-1-08 汞(I)的歧化分解》实验中，KI 中促使汞形成碘化物或配合物的离子是____（填中文名称）。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "碘离子"
+              ],
+              "match": "normalized_exact",
+              "grading_mode": "normalized_exact",
+              "machine_deterministic": true
+            },
+            "explanation": "对应的实验操作或现象内容是“碘离子”。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "source_requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_08_Q028",
+        "source_review_id": "REV_CH4_EXP_20_1_08_Q028",
+        "source_question_index": 28,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "fill_blank",
+        "stem": "在《20-1-08 汞(I)的歧化分解》实验中，Hg(II) 与 I⁻ 形成的红色沉淀常为____（填中文名称）。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "碘化汞"
+          ],
+          "match": "normalized_exact",
+          "grading_mode": "normalized_exact",
+          "machine_deterministic": true
+        },
+        "explanation": "对应的实验操作或现象内容是“碘化汞”。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-43f08f31"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "hg_i_hg_ii_stability_difference",
+          "polished_mobile_fill"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_00314_c493a6ddc5"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01086_e3c112067c",
+            "textbook_prose_01093_4e1caaa871",
+            "textbook_prose_01095_3a661b6beb"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final proposed_question 已核对 canonical 实验原文、点位和必要 theory；可机器确定性判分。",
+          "supporting_theory_note": "依赖 Hg(I) 与 I⁻ 作用、Hg₂²⁺ 歧化和 Hg(II) 碘配合物稳定性的理论。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_00314_c493a6ddc5"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01086_e3c112067c",
+            "textbook_prose_01093_4e1caaa871",
+            "textbook_prose_01095_3a661b6beb"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01086_e3c112067c",
+            "textbook_prose_01093_4e1caaa871",
+            "textbook_prose_01095_3a661b6beb"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "generic_or_answer_shell_explanation",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-1-08 汞(I)的歧化分解》实验中，Hg(II) 与 I⁻ 形成的红色沉淀常为____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "HgI₂",
+                "碘化汞"
+              ],
+              "match": "normalized_exact",
+              "grading_mode": "normalized_exact",
+              "machine_deterministic": true
+            },
+            "explanation": "汞(II)碘化物为 HgI₂。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00312_3907d19546",
+              "expchunk_00314_c493a6ddc5"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-1-08 汞(I)的歧化分解》实验中，Hg(II) 与 I⁻ 形成的红色沉淀常为____（填中文名称）。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "碘化汞"
+              ],
+              "match": "normalized_exact",
+              "grading_mode": "normalized_exact",
+              "machine_deterministic": true
+            },
+            "explanation": "对应的实验操作或现象内容是“碘化汞”。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "source_requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_08_Q029",
+        "source_review_id": "REV_CH4_EXP_20_1_08_Q029",
+        "source_question_index": 29,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在汞(I)歧化分解实验与上一实验的衔接中，哪项关系最关键？",
+        "options": [
+          {
+            "label": "A",
+            "text": "上一实验制得的 Hg(I) 溶液继续与 KI 作用"
+          },
+          {
+            "label": "B",
+            "text": "只背“相互转化”四个字"
+          },
+          {
+            "label": "C",
+            "text": "先观察焰色再加钴玻璃"
+          },
+          {
+            "label": "D",
+            "text": "用 CCl₄ 萃取碘"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "“上一实验制得的 Hg(I) 溶液继续与 KI 作用”与实验操作、观察目标或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-43f08f31"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "mercury_safety",
+          "polished_final_rewrite"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": null,
+            "point_key": "candidate-1-43f08f31",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“上一实验制得的 Hg(I) 溶液继续与 KI 作用”直接支撑“在汞(I)歧化分解实验与上一实验的衔接中，哪项关系最关键？”；对应点位是“上一步制得的 Hg(I) 溶液 + KI”。"
+          },
+          {
+            "label": "B",
+            "text": null,
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "“只背“相互转化”四个字”不能作为“在汞(I)歧化分解实验与上一实验的衔接中，哪项关系最关键？”的教材证据；它排除的是无关操作、条件或观察对象。"
+          },
+          {
+            "label": "C",
+            "text": null,
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "“先观察焰色再加钴玻璃”属于焰色反应识别线索；本题“在汞(I)歧化分解实验与上一实验的衔接中，哪项关系最关键？”考查的是本实验试剂/现象而非火焰颜色。"
+          },
+          {
+            "label": "D",
+            "text": null,
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项为“用 CCl₄ 萃取碘”，属于其他试剂、现象或实验情境；本题有效答案是“上一实验制得的 Hg(I) 溶液继续与 KI 作用”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_00314_c493a6ddc5"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01086_e3c112067c",
+            "textbook_prose_01093_4e1caaa871",
+            "textbook_prose_01095_3a661b6beb"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final proposed_question 已核对 canonical 实验原文、点位和必要 theory；可机器确定性判分。",
+          "supporting_theory_note": "依赖 Hg(I) 与 I⁻ 作用、Hg₂²⁺ 歧化和 Hg(II) 碘配合物稳定性的理论。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_00314_c493a6ddc5"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01086_e3c112067c",
+            "textbook_prose_01093_4e1caaa871",
+            "textbook_prose_01095_3a661b6beb"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01086_e3c112067c",
+            "textbook_prose_01093_4e1caaa871",
+            "textbook_prose_01095_3a661b6beb"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-1-08 汞(I)的歧化分解》实验中，本实验模块名称包含汞(II)和汞(I)相互____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "转化"
+              ],
+              "match": "normalized_exact",
+              "grading_mode": "normalized_exact",
+              "machine_deterministic": true
+            },
+            "explanation": "实验资料模块为相互转化。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00312_3907d19546",
+              "expchunk_00314_c493a6ddc5"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在汞(I)歧化分解实验与上一实验的衔接中，哪项关系最关键？",
+            "options": [
+              {
+                "label": "A",
+                "text": "上一实验制得的 Hg(I) 溶液继续与 KI 作用"
+              },
+              {
+                "label": "B",
+                "text": "只背“相互转化”四个字"
+              },
+              {
+                "label": "C",
+                "text": "先观察焰色再加钴玻璃"
+              },
+              {
+                "label": "D",
+                "text": "用 CCl₄ 萃取碘"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "“上一实验制得的 Hg(I) 溶液继续与 KI 作用”与实验操作、观察目标或结论一致。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "source_requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_08_Q030",
+        "source_review_id": "REV_CH4_EXP_20_1_08_Q030",
+        "source_question_index": 30,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《20-1-08 汞(I)的歧化分解》实验中，试验汞及其化合物时，应特别注意其____性。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "毒",
+            "毒性"
+          ],
+          "match": "normalized_exact",
+          "grading_mode": "normalized_exact",
+          "machine_deterministic": true
+        },
+        "explanation": "汞有毒。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-43f08f31"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "hg_ii_hg_i_conversion_module"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_00314_c493a6ddc5"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 保留 original_question；已核对题干、选项/答案/解析、点位和源文，最终有效题证据充分。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00312_3907d19546",
+            "expchunk_00314_c493a6ddc5"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-1-08 汞(I)的歧化分解》实验中，试验汞及其化合物时，应特别注意其____性。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "毒",
+                "毒性"
+              ],
+              "match": "normalized_exact",
+              "grading_mode": "normalized_exact",
+              "machine_deterministic": true
+            },
+            "explanation": "汞有毒。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00312_3907d19546",
+              "expchunk_00314_c493a6ddc5"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      }
+    ]
+  }
+}

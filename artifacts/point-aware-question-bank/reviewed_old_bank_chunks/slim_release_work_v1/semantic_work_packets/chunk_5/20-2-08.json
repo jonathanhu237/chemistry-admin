@@ -1,0 +1,4331 @@
+{
+  "metadata": {
+    "version": "chunk-5-release-slim-v1",
+    "artifact_type": "slim_question_bank_work_file",
+    "generated_at": "2026-06-15T03:27:59.225537+00:00",
+    "source_file": "E:\\chemistry-admin\\artifacts\\point-aware-question-bank\\reviewed_old_bank_chunks\\chunk_5_release_final_v1.json",
+    "normalization_rule": "effective question plus minimal lineage, evidence IDs, point bindings, option links, evidence locators, and mechanical risk flags",
+    "evidence_policy": "RAG source text is not embedded; packets carry locators and reviewers must read E:/chemistry-rag/data/rag_ready directly",
+    "chunk_id_policy": "inherited chunk ids are untrusted locator candidates until manually compared with RAG text",
+    "semantic_status": "not_semantically_repaired_by_this_script",
+    "packet_type": "single_experiment_semantic_repair_work_packet",
+    "chunk": 5,
+    "experiment_code": "20-2-08",
+    "question_count": 30
+  },
+  "experiment": {
+    "experiment_id": "EXP_20_2_08",
+    "experiment_code": "20-2-08",
+    "experiment_title": "铬(III)盐的水解",
+    "chapter_bindings": [
+      {
+        "chapter_id": "CH20",
+        "coverage_type": "primary",
+        "sort_order": 1
+      }
+    ],
+    "video_points": [
+      {
+        "point_key": "candidate-1-376fa2cd",
+        "point_title": "Cr₂(SO₄)₃ + Na₂CO₃",
+        "source": null,
+        "candidate_index": null,
+        "resource_count": null,
+        "published_count": null,
+        "resource_titles": []
+      }
+    ],
+    "canonical_chunk_ids": [
+      "expchunk_00319_b995aa9123",
+      "expchunk_00322_6c10a1661c"
+    ],
+    "evidence_lookup": {
+      "policy": "locator_only; canonical RAG text is not embedded in this packet",
+      "chunk_id_policy": "metadata chunk ids are inherited claims, not trusted evidence; reviewers must compare the RAG text against the question stem/options/answer/explanation and replace or remove wrong ids",
+      "primary_source_dir": "E:\\chemistry-rag\\data\\rag_ready",
+      "source_files": {
+        "experiment_chunks": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+        "supporting_theory_chunks": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl"
+      },
+      "search_hints": {
+        "experiment_code": "20-2-08",
+        "parent_experiment_code": "20-2",
+        "experiment_title": "铬(III)盐的水解",
+        "video_point_titles": [
+          "Cr₂(SO₄)₃ + Na₂CO₃"
+        ],
+        "canonical_chunk_ids_from_metadata": [
+          "expchunk_00319_b995aa9123",
+          "expchunk_00322_6c10a1661c"
+        ],
+        "supporting_theory_chunk_ids_from_metadata": [
+          "textbook_prose_00293_6e62d1272e",
+          "textbook_prose_01118_9e2eabedd8",
+          "textbook_prose_01119_8478df1f7f"
+        ],
+        "suggested_search_patterns": [
+          "20-2-08",
+          "20-2",
+          "铬(III)盐的水解",
+          "Cr₂(SO₄)₃ + Na₂CO₃",
+          "expchunk_00319_b995aa9123",
+          "expchunk_00322_6c10a1661c",
+          "textbook_prose_00293_6e62d1272e",
+          "textbook_prose_01118_9e2eabedd8",
+          "textbook_prose_01119_8478df1f7f"
+        ]
+      },
+      "rag_exact_id_presence": {
+        "meaning": "id presence only; this does not validate semantic relevance",
+        "found_ids": [
+          "expchunk_00319_b995aa9123",
+          "expchunk_00322_6c10a1661c",
+          "textbook_prose_00293_6e62d1272e",
+          "textbook_prose_01118_9e2eabedd8",
+          "textbook_prose_01119_8478df1f7f"
+        ],
+        "missing_ids": [],
+        "found_locator_summaries": [
+          {
+            "chunk_id": "expchunk_00319_b995aa9123",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+            "line_number": 332,
+            "source_collection": "textbook_experiment_clean_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学实验（第四版）",
+            "page_start": 164,
+            "page_end": 164,
+            "section_path": [
+              "第7章 元素性质实验",
+              "实验 20-2 d 区元素化合物的性质（一）",
+              "（三）实验内容",
+              "1. 氢氧化物的酸碱性"
+            ],
+            "content_type": "property_test",
+            "knowledge_unit": "property_test",
+            "parent_id": "expchunk_protocol_721ef1f8d319",
+            "prev_chunk_id": "expchunk_00318_b905278432",
+            "next_chunk_id": "expchunk_00320_309c0516a8",
+            "relations": {
+              "section_id": "expsec_76afe2364e4e0f15",
+              "experiment_id": "experiment:实验_20-2_d_区元素化合物的性质_一",
+              "page_anchor": "page_164",
+              "parent": "expchunk_protocol_721ef1f8d319"
+            }
+          },
+          {
+            "chunk_id": "expchunk_00322_6c10a1661c",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+            "line_number": 335,
+            "source_collection": "textbook_experiment_clean_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学实验（第四版）",
+            "page_start": 165,
+            "page_end": 165,
+            "section_path": [
+              "第7章 元素性质实验",
+              "实验 20-2 d 区元素化合物的性质（一）",
+              "（三）实验内容",
+              "3. 金属离子的水解作用"
+            ],
+            "content_type": "property_test",
+            "knowledge_unit": "property_test",
+            "parent_id": "expchunk_protocol_721ef1f8d319",
+            "prev_chunk_id": "expchunk_00321_53b9414bde",
+            "next_chunk_id": "expchunk_00323_56549b57c0",
+            "relations": {
+              "section_id": "expsec_37415c680c26b78e",
+              "experiment_id": "experiment:实验_20-2_d_区元素化合物的性质_一",
+              "page_anchor": "page_165",
+              "parent": "expchunk_protocol_721ef1f8d319"
+            }
+          },
+          {
+            "chunk_id": "textbook_prose_00293_6e62d1272e",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+            "line_number": 517,
+            "source_collection": "textbook_inorganic_lower_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学（下册）（第二版）",
+            "page_start": 59,
+            "page_end": 59,
+            "section_path": [
+              "第 14 章 氧族元素",
+              "14.3 氧化物、水与过氧化氢",
+              "14.3.3 过氧化氢",
+              "3) 氧化还原性"
+            ],
+            "content_type": "reaction",
+            "knowledge_unit": "reaction",
+            "parent_id": "section:f4d22e246496",
+            "prev_chunk_id": "textbook_prose_00292_940c386244",
+            "next_chunk_id": "textbook_prose_00294_81753ec362",
+            "relations": {
+              "parent": "section:f4d22e246496",
+              "source_route": "clean_pages",
+              "prev": "textbook_prose_00292_940c386244",
+              "next": "textbook_prose_00294_81753ec362"
+            }
+          },
+          {
+            "chunk_id": "textbook_prose_01118_9e2eabedd8",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+            "line_number": 1745,
+            "source_collection": "textbook_inorganic_lower_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学（下册）（第二版）",
+            "page_start": 195,
+            "page_end": 195,
+            "section_path": [
+              "第 20 章 d 区过渡金属元素",
+              "20.1 d 区过渡金属元素通性",
+              "20.1.6 离子的颜色"
+            ],
+            "content_type": "comparison",
+            "knowledge_unit": "comparison",
+            "parent_id": "section:4f48c22b76df",
+            "prev_chunk_id": null,
+            "next_chunk_id": "textbook_prose_01119_8478df1f7f",
+            "relations": {
+              "parent": "section:4f48c22b76df",
+              "source_route": "clean_pages",
+              "prev": null,
+              "next": "textbook_prose_01119_8478df1f7f"
+            }
+          },
+          {
+            "chunk_id": "textbook_prose_01119_8478df1f7f",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+            "line_number": 1747,
+            "source_collection": "textbook_inorganic_lower_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学（下册）（第二版）",
+            "page_start": 196,
+            "page_end": 196,
+            "section_path": [
+              "第 20 章 d 区过渡金属元素",
+              "20.1 d 区过渡金属元素通性",
+              "20.1.6 离子的颜色"
+            ],
+            "content_type": "reaction",
+            "knowledge_unit": "reaction",
+            "parent_id": "section:4f48c22b76df",
+            "prev_chunk_id": "textbook_prose_01118_9e2eabedd8",
+            "next_chunk_id": "textbook_prose_01120_0b0f49ae16",
+            "relations": {
+              "parent": "section:4f48c22b76df",
+              "source_route": "clean_pages",
+              "prev": "textbook_prose_01118_9e2eabedd8",
+              "next": "textbook_prose_01120_0b0f49ae16"
+            }
+          }
+        ]
+      },
+      "legacy_locator_summaries": [
+        {
+          "chunk_id": "expchunk_00319_b995aa9123",
+          "source_file": "无机化学实验（第四版）",
+          "book_title": "无机化学实验（第四版）",
+          "document_id": "DOC_CANONICAL_EXPERIMENT_V1",
+          "source_collection": "textbook_experiment_clean_v1",
+          "source_role": "canonical_textbook",
+          "content_type": "property_test",
+          "chapter_id": null,
+          "page_number": 164,
+          "section_title": "实验 20-2 d 区元素化合物的性质（一） / （三）实验内容 / 1. 氢氧化物的酸碱性",
+          "section_path": [
+            "第7章 元素性质实验",
+            "实验 20-2 d 区元素化合物的性质（一）",
+            "（三）实验内容",
+            "1. 氢氧化物的酸碱性"
+          ]
+        },
+        {
+          "chunk_id": "expchunk_00322_6c10a1661c",
+          "source_file": "无机化学实验（第四版）",
+          "book_title": "无机化学实验（第四版）",
+          "document_id": "DOC_CANONICAL_EXPERIMENT_V1",
+          "source_collection": "textbook_experiment_clean_v1",
+          "source_role": "canonical_textbook",
+          "content_type": "property_test",
+          "chapter_id": null,
+          "page_number": 165,
+          "section_title": "实验 20-2 d 区元素化合物的性质（一） / （三）实验内容 / 3. 金属离子的水解作用",
+          "section_path": [
+            "第7章 元素性质实验",
+            "实验 20-2 d 区元素化合物的性质（一）",
+            "（三）实验内容",
+            "3. 金属离子的水解作用"
+          ]
+        }
+      ],
+      "legacy_missing_ids": [
+        "textbook_prose_00293_6e62d1272e",
+        "textbook_prose_01118_9e2eabedd8",
+        "textbook_prose_01119_8478df1f7f"
+      ]
+    },
+    "questions": [
+      {
+        "question_id": "CHK5_SEM_EXP_20_2_08_001",
+        "source_review_id": "CHK5_SEM_EXP_20_2_08_001",
+        "source_question_index": 1,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《20-2-08 铬(III)盐的水解》中，哪项操作最能直接对应教材中的铬(III)盐水解观察？",
+        "options": [
+          {
+            "label": "A",
+            "text": "向 Cr₂(SO₄)₃ 溶液中滴加 Na₂CO₃ 溶液并观察变化"
+          },
+          {
+            "label": "B",
+            "text": "把 TiOSO₄ 稀释并加热煮沸来回答铬(III)盐水解"
+          },
+          {
+            "label": "C",
+            "text": "省略 Na₂CO₃，只凭铬盐名称判断现象"
+          },
+          {
+            "label": "D",
+            "text": "改用 KSCN 血红色反应来回答铬(III)水解题"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "教材在“金属离子的水解作用”中明确写到：铬(III)盐的水解是向 Cr₂(SO₄)₃ 溶液中滴加 Na₂CO₃ 溶液并观察现象。TiOSO₄ 稀释煮沸属于钛(IV)盐水解，KSCN 血红色反应属于其他离子检验情境。",
+        "difficulty": "basic",
+        "status": "reviewed_polished",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-376fa2cd"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "single_choice"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "向 Cr₂(SO₄)₃ 溶液中滴加 Na₂CO₃ 溶液并观察变化",
+            "point_key": "candidate-1-376fa2cd",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项完整包含 Cr₂(SO₄)₃ 溶液、Na₂CO₃ 溶液和观察变化三个教材要素，直接对应铬(III)盐水解点位。"
+          },
+          {
+            "label": "B",
+            "text": "把 TiOSO₄ 稀释并加热煮沸来回答铬(III)盐水解",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "TiOSO₄ 稀释并加热煮沸是钛(IV)盐水解操作，不是铬(III)盐水解点位。"
+          },
+          {
+            "label": "C",
+            "text": "省略 Na₂CO₃，只凭铬盐名称判断现象",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "只记 Cr₂(SO₄)₃ 名称而省略 Na₂CO₃ 和观察过程，不能构成水解实验操作证据。"
+          },
+          {
+            "label": "D",
+            "text": "改用 KSCN 血红色反应来回答铬(III)水解题",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "KSCN 血红色反应不属于 Cr₂(SO₄)₃ 与 Na₂CO₃ 的铬(III)盐水解观察。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00322_6c10a1661c"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "current-release audit 修复：原有效题仍是“哪项判断与实验操作、现象或结论一致”的泛化壳，且答案偏铬盐名称识别。最终有效题改为识别 Cr₂(SO₄)₃ + Na₂CO₃ 并观察变化的教材操作；题干、答案和解析由 canonical 铬(III)盐水解步骤直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00322_6c10a1661c"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-2-08 铬(III)盐的水解》实验中，该实验考察水解作用的铬盐是哪一种？",
+            "options": [
+              {
+                "label": "A",
+                "text": "Cr₂(SO₄)₃"
+              },
+              {
+                "label": "B",
+                "text": "K₂CrO₄"
+              },
+              {
+                "label": "C",
+                "text": "CrO₃"
+              },
+              {
+                "label": "D",
+                "text": "CrCl₂"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "原文写明向 Cr₂(SO₄)₃ 溶液中滴加 Na₂CO₃。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00322_6c10a1661c",
+              "expchunk_00319_b995aa9123"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-2-08 铬(III)盐的水解》中，哪项操作最能直接对应教材中的铬(III)盐水解观察？",
+            "options": [
+              {
+                "label": "A",
+                "text": "向 Cr₂(SO₄)₃ 溶液中滴加 Na₂CO₃ 溶液并观察变化"
+              },
+              {
+                "label": "B",
+                "text": "把 TiOSO₄ 稀释并加热煮沸来回答铬(III)盐水解"
+              },
+              {
+                "label": "C",
+                "text": "省略 Na₂CO₃，只凭铬盐名称判断现象"
+              },
+              {
+                "label": "D",
+                "text": "改用 KSCN 血红色反应来回答铬(III)水解题"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "教材在“金属离子的水解作用”中明确写到：铬(III)盐的水解是向 Cr₂(SO₄)₃ 溶液中滴加 Na₂CO₃ 溶液并观察现象。TiOSO₄ 稀释煮沸属于钛(IV)盐水解，KSCN 血红色反应属于其他离子检验情境。",
+            "difficulty": "basic",
+            "status": "reviewed_polished",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00322_6c10a1661c",
+              "expchunk_00319_b995aa9123"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "current_release_audit_seed_repaired",
+            "generic_shell_rewritten"
+          ]
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_2_08_002",
+        "source_review_id": "CHK5_SEM_EXP_20_2_08_002",
+        "source_question_index": 2,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《20-2-08 铬(III)盐的水解》中，关于 Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解，哪项表述正确？",
+        "options": [
+          {
+            "label": "A",
+            "text": "省略 Na₂CO₃，只凭铬盐名称判断现象"
+          },
+          {
+            "label": "B",
+            "text": "向 Cr₂(SO₄)₃ 溶液中滴加 Na₂CO₃ 后观察铬(III)盐水解"
+          },
+          {
+            "label": "C",
+            "text": "改用 KSCN 血红色反应来回答铬(III)水解题"
+          },
+          {
+            "label": "D",
+            "text": "把同小节 FeCl₃ 的沸水水解当成本题点位"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "教材操作指向 Cr₂(SO₄)₃ 溶液与 Na₂CO₃ 作用后观察水解现象，省略 Na₂CO₃ 或改用 KSCN 都不能回答本实验点位。",
+        "difficulty": "basic",
+        "status": "reviewed_polished",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-376fa2cd"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "single_choice"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "省略 Na₂CO₃，只凭铬盐名称判断现象",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解”点位的关键对象或条件：省略 Na₂CO₃，只凭铬盐名称判断现象。"
+          },
+          {
+            "label": "B",
+            "text": "向 Cr₂(SO₄)₃ 溶液中滴加 Na₂CO₃ 后观察铬(III)盐水解",
+            "point_key": "candidate-1-376fa2cd",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解”点位：向 Cr₂(SO₄)₃ 溶液中滴加 Na₂CO₃ 后观察铬(III)盐水解。"
+          },
+          {
+            "label": "C",
+            "text": "改用 KSCN 血红色反应来回答铬(III)水解题",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解”点位：改用 KSCN 血红色反应来回答铬(III)水解题。"
+          },
+          {
+            "label": "D",
+            "text": "把同小节 FeCl₃ 的沸水水解当成本题点位",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解”点位：把同小节 FeCl₃ 的沸水水解当成本题点位。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00322_6c10a1661c"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "current-release audit 修复：原有效题仍是“哪项判断与实验操作、现象或结论一致”的泛化壳，且答案偏铬盐名称识别。最终有效题改为识别 Cr₂(SO₄)₃ + Na₂CO₃ 并观察变化的教材操作；题干、答案和解析由 canonical 铬(III)盐水解步骤直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00322_6c10a1661c"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-2-08 铬(III)盐的水解》实验中，向 Cr₂(SO₄)₃ 溶液中滴加的试剂是哪一种？",
+            "options": [
+              {
+                "label": "A",
+                "text": "KSCN"
+              },
+              {
+                "label": "B",
+                "text": "Na₂CO₃"
+              },
+              {
+                "label": "C",
+                "text": "CCl₄"
+              },
+              {
+                "label": "D",
+                "text": "乙醚"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "步骤明确使用碳酸钠溶液。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00322_6c10a1661c",
+              "expchunk_00319_b995aa9123"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-2-08 铬(III)盐的水解》中，关于 Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解，哪项表述正确？",
+            "options": [
+              {
+                "label": "A",
+                "text": "省略 Na₂CO₃，只凭铬盐名称判断现象"
+              },
+              {
+                "label": "B",
+                "text": "向 Cr₂(SO₄)₃ 溶液中滴加 Na₂CO₃ 后观察铬(III)盐水解"
+              },
+              {
+                "label": "C",
+                "text": "改用 KSCN 血红色反应来回答铬(III)水解题"
+              },
+              {
+                "label": "D",
+                "text": "把同小节 FeCl₃ 的沸水水解当成本题点位"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "教材操作指向 Cr₂(SO₄)₃ 溶液与 Na₂CO₃ 作用后观察水解现象，省略 Na₂CO₃ 或改用 KSCN 都不能回答本实验点位。",
+            "difficulty": "basic",
+            "status": "reviewed_polished",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00322_6c10a1661c",
+              "expchunk_00319_b995aa9123"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "generic_shell_rewritten"
+          ]
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_2_08_003",
+        "source_review_id": "CHK5_SEM_EXP_20_2_08_003",
+        "source_question_index": 3,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-2-08 铬(III)盐的水解》实验中，Cr₂(SO₄)₃ 与 Na₂CO₃ 体系主要体现哪种作用？",
+        "options": [
+          {
+            "label": "A",
+            "text": "硝酸盐热分解"
+          },
+          {
+            "label": "B",
+            "text": "卤素萃取"
+          },
+          {
+            "label": "C",
+            "text": "金属离子水解作用"
+          },
+          {
+            "label": "D",
+            "text": "银镜反应"
+          }
+        ],
+        "answer": {
+          "value": "C"
+        },
+        "explanation": "Cr₂(SO₄)₃ 与 Na₂CO₃ 作用用于观察 Cr(III)盐水解，属于金属离子水解作用。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-376fa2cd"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "single_choice"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "硝酸盐热分解",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解”点位：硝酸盐热分解。"
+          },
+          {
+            "label": "B",
+            "text": "卤素萃取",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解”点位：卤素萃取。"
+          },
+          {
+            "label": "C",
+            "text": "金属离子水解作用",
+            "point_key": "candidate-1-376fa2cd",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解”点位：金属离子水解作用。"
+          },
+          {
+            "label": "D",
+            "text": "银镜反应",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解”点位：银镜反应。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00322_6c10a1661c"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00322_6c10a1661c"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-2-08 铬(III)盐的水解》实验中，Cr₂(SO₄)₃ 与 Na₂CO₃ 体系主要体现哪种作用？",
+            "options": [
+              {
+                "label": "A",
+                "text": "硝酸盐热分解"
+              },
+              {
+                "label": "B",
+                "text": "卤素萃取"
+              },
+              {
+                "label": "C",
+                "text": "金属离子水解作用"
+              },
+              {
+                "label": "D",
+                "text": "银镜反应"
+              }
+            ],
+            "answer": {
+              "value": "C"
+            },
+            "explanation": "Cr₂(SO₄)₃ 与 Na₂CO₃ 作用用于观察 Cr(III)盐水解，属于金属离子水解作用。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00322_6c10a1661c",
+              "expchunk_00319_b995aa9123"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_2_08_004",
+        "source_review_id": "CHK5_SEM_EXP_20_2_08_004",
+        "source_question_index": 4,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-2-08 铬(III)盐的水解》实验中，Cr(III) 水解并与碳酸盐作用时，常观察到的沉淀主要可归因于哪种物质？",
+        "options": [
+          {
+            "label": "A",
+            "text": "CrO₄²⁻"
+          },
+          {
+            "label": "B",
+            "text": "Cr₂O₇²⁻"
+          },
+          {
+            "label": "C",
+            "text": "Na₂SO₄ 晶体"
+          },
+          {
+            "label": "D",
+            "text": "Cr(OH)₃"
+          }
+        ],
+        "answer": {
+          "value": "D"
+        },
+        "explanation": "Cr³⁺ 水解生成氢氧化铬类沉淀。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-376fa2cd"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "single_choice"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "CrO₄²⁻",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解”点位：CrO₄²⁻。"
+          },
+          {
+            "label": "B",
+            "text": "Cr₂O₇²⁻",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解”点位：Cr₂O₇²⁻。"
+          },
+          {
+            "label": "C",
+            "text": "Na₂SO₄ 晶体",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解”点位：Na₂SO₄ 晶体。"
+          },
+          {
+            "label": "D",
+            "text": "Cr(OH)₃",
+            "point_key": "candidate-1-376fa2cd",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解”点位：Cr(OH)₃。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00322_6c10a1661c"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00322_6c10a1661c"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-2-08 铬(III)盐的水解》实验中，Cr(III) 水解并与碳酸盐作用时，常观察到的沉淀主要可归因于哪种物质？",
+            "options": [
+              {
+                "label": "A",
+                "text": "CrO₄²⁻"
+              },
+              {
+                "label": "B",
+                "text": "Cr₂O₇²⁻"
+              },
+              {
+                "label": "C",
+                "text": "Na₂SO₄ 晶体"
+              },
+              {
+                "label": "D",
+                "text": "Cr(OH)₃"
+              }
+            ],
+            "answer": {
+              "value": "D"
+            },
+            "explanation": "Cr³⁺ 水解生成氢氧化铬类沉淀。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00322_6c10a1661c",
+              "expchunk_00319_b995aa9123"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_2_08_005",
+        "source_review_id": "CHK5_SEM_EXP_20_2_08_005",
+        "source_question_index": 5,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-2-08 铬(III)盐的水解》实验中，Na₂CO₃ 促进 Cr(III) 水解的一个原因是什么？",
+        "options": [
+          {
+            "label": "A",
+            "text": "CO₃²⁻ 消耗 H⁺，提高水解程度"
+          },
+          {
+            "label": "B",
+            "text": "CO₃²⁻ 直接提供 Cr³⁺"
+          },
+          {
+            "label": "C",
+            "text": "Na⁺ 氧化 Cr³⁺"
+          },
+          {
+            "label": "D",
+            "text": "SO₄²⁻ 萃取到有机层"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "碳酸根水解显碱性，可推动金属离子水解。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-376fa2cd"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "single_choice"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "CO₃²⁻ 消耗 H⁺，提高水解程度",
+            "point_key": "candidate-1-376fa2cd",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解”点位：CO₃²⁻ 消耗 H⁺，提高水解程度。"
+          },
+          {
+            "label": "B",
+            "text": "CO₃²⁻ 直接提供 Cr³⁺",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解”点位：CO₃²⁻ 直接提供 Cr³⁺。"
+          },
+          {
+            "label": "C",
+            "text": "Na⁺ 氧化 Cr³⁺",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解”点位：Na⁺ 氧化 Cr³⁺。"
+          },
+          {
+            "label": "D",
+            "text": "SO₄²⁻ 萃取到有机层",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解”点位：SO₄²⁻ 萃取到有机层。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00322_6c10a1661c"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00322_6c10a1661c"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-2-08 铬(III)盐的水解》实验中，Na₂CO₃ 促进 Cr(III) 水解的一个原因是什么？",
+            "options": [
+              {
+                "label": "A",
+                "text": "CO₃²⁻ 消耗 H⁺，提高水解程度"
+              },
+              {
+                "label": "B",
+                "text": "CO₃²⁻ 直接提供 Cr³⁺"
+              },
+              {
+                "label": "C",
+                "text": "Na⁺ 氧化 Cr³⁺"
+              },
+              {
+                "label": "D",
+                "text": "SO₄²⁻ 萃取到有机层"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "碳酸根水解显碱性，可推动金属离子水解。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00322_6c10a1661c",
+              "expchunk_00319_b995aa9123"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_2_08_006",
+        "source_review_id": "CHK5_SEM_EXP_20_2_08_006",
+        "source_question_index": 6,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-2-08 铬(III)盐的水解》实验中，进行铬(III)盐水解实验时，最直接的任务是哪一项？",
+        "options": [
+          {
+            "label": "A",
+            "text": "加热 KNO₃ 并检验 O₂"
+          },
+          {
+            "label": "B",
+            "text": "滴加 Na₂CO₃ 后观察现象"
+          },
+          {
+            "label": "C",
+            "text": "加入浓盐酸检验 Cl₂"
+          },
+          {
+            "label": "D",
+            "text": "用乙醚萃取蓝色物"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "原文要求滴加试剂后观察现象。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-376fa2cd"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "single_choice"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "加热 KNO₃ 并检验 O₂",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解”点位：加热 KNO₃ 并检验 O₂。"
+          },
+          {
+            "label": "B",
+            "text": "滴加 Na₂CO₃ 后观察现象",
+            "point_key": "candidate-1-376fa2cd",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解”点位：滴加 Na₂CO₃ 后观察现象。"
+          },
+          {
+            "label": "C",
+            "text": "加入浓盐酸检验 Cl₂",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解”点位：加入浓盐酸检验 Cl₂。"
+          },
+          {
+            "label": "D",
+            "text": "用乙醚萃取蓝色物",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解”点位：用乙醚萃取蓝色物。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00322_6c10a1661c"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00322_6c10a1661c"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-2-08 铬(III)盐的水解》实验中，进行铬(III)盐水解实验时，最直接的任务是哪一项？",
+            "options": [
+              {
+                "label": "A",
+                "text": "加热 KNO₃ 并检验 O₂"
+              },
+              {
+                "label": "B",
+                "text": "滴加 Na₂CO₃ 后观察现象"
+              },
+              {
+                "label": "C",
+                "text": "加入浓盐酸检验 Cl₂"
+              },
+              {
+                "label": "D",
+                "text": "用乙醚萃取蓝色物"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "原文要求滴加试剂后观察现象。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00322_6c10a1661c",
+              "expchunk_00319_b995aa9123"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_2_08_007",
+        "source_review_id": "CHK5_SEM_EXP_20_2_08_007",
+        "source_question_index": 7,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《20-2-08 铬(III)盐的水解》中，关于 Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解，哪项表述正确？",
+        "options": [
+          {
+            "label": "A",
+            "text": "改用 KSCN 血红色反应来回答铬(III)水解题"
+          },
+          {
+            "label": "B",
+            "text": "Na₂CO₃ 需与 Cr₂(SO₄)₃ 溶液作用后，再观察铬(III)盐水解现象"
+          },
+          {
+            "label": "C",
+            "text": "把同小节 FeCl₃ 的沸水水解当成本题点位"
+          },
+          {
+            "label": "D",
+            "text": "把 TiOSO₄ 稀释煮沸误认为铬(III)盐水解"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "教材操作是向 Cr₂(SO₄)₃ 溶液中加入 Na₂CO₃ 后观察水解现象，不能脱离该体系只记试剂名称。",
+        "difficulty": "basic",
+        "status": "reviewed_polished",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-376fa2cd"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "single_choice"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "改用 KSCN 血红色反应来回答铬(III)水解题",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解”点位：改用 KSCN 血红色反应来回答铬(III)水解题。"
+          },
+          {
+            "label": "B",
+            "text": "Na₂CO₃ 需与 Cr₂(SO₄)₃ 溶液作用后，再观察铬(III)盐水解现象",
+            "point_key": "candidate-1-376fa2cd",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解”点位：Na₂CO₃ 需与 Cr₂(SO₄)₃ 溶液作用后，再观察铬(III)盐水解现象。"
+          },
+          {
+            "label": "C",
+            "text": "把同小节 FeCl₃ 的沸水水解当成本题点位",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解”点位：把同小节 FeCl₃ 的沸水水解当成本题点位。"
+          },
+          {
+            "label": "D",
+            "text": "把 TiOSO₄ 稀释煮沸误认为铬(III)盐水解",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解”点位的关键对象或条件：把 TiOSO₄ 稀释煮沸误认为铬(III)盐水解。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00322_6c10a1661c"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00322_6c10a1661c"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-2-08 铬(III)盐的水解》实验中，同一小节中，铁(III)盐水解实验使用的铁盐是哪一种？",
+            "options": [
+              {
+                "label": "A",
+                "text": "FeSO₄"
+              },
+              {
+                "label": "B",
+                "text": "FeS"
+              },
+              {
+                "label": "C",
+                "text": "FeCl₃"
+              },
+              {
+                "label": "D",
+                "text": "FeCl₂"
+              }
+            ],
+            "answer": {
+              "value": "C"
+            },
+            "explanation": "实验资料列出 FeCl₃ 水解。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00322_6c10a1661c",
+              "expchunk_00319_b995aa9123"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-2-08 铬(III)盐的水解》中，关于 Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解，哪项表述正确？",
+            "options": [
+              {
+                "label": "A",
+                "text": "改用 KSCN 血红色反应来回答铬(III)水解题"
+              },
+              {
+                "label": "B",
+                "text": "Na₂CO₃ 需与 Cr₂(SO₄)₃ 溶液作用后，再观察铬(III)盐水解现象"
+              },
+              {
+                "label": "C",
+                "text": "把同小节 FeCl₃ 的沸水水解当成本题点位"
+              },
+              {
+                "label": "D",
+                "text": "把 TiOSO₄ 稀释煮沸误认为铬(III)盐水解"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "教材操作是向 Cr₂(SO₄)₃ 溶液中加入 Na₂CO₃ 后观察水解现象，不能脱离该体系只记试剂名称。",
+            "difficulty": "basic",
+            "status": "reviewed_polished",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00322_6c10a1661c",
+              "expchunk_00319_b995aa9123"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "generic_shell_rewritten"
+          ]
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_2_08_008",
+        "source_review_id": "CHK5_SEM_EXP_20_2_08_008",
+        "source_question_index": 8,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《20-2-08 铬(III)盐的水解》中，关于 Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解，哪项表述正确？",
+        "options": [
+          {
+            "label": "A",
+            "text": "把同小节 FeCl₃ 的沸水水解当成本题点位"
+          },
+          {
+            "label": "B",
+            "text": "Cr(III)水解沉淀的判断需要结合 Na₂CO₃ 促进水解的操作"
+          },
+          {
+            "label": "C",
+            "text": "把 TiOSO₄ 稀释煮沸误认为铬(III)盐水解"
+          },
+          {
+            "label": "D",
+            "text": "省略 Na₂CO₃，只凭铬盐名称判断现象"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "Cr(III)盐水解现象要结合 Na₂CO₃ 加入后的沉淀观察判断，省略 Na₂CO₃ 或换成其他水解实验都不符合本题。",
+        "difficulty": "basic",
+        "status": "reviewed_polished",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-376fa2cd"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "single_choice"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "把同小节 FeCl₃ 的沸水水解当成本题点位",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解”点位：把同小节 FeCl₃ 的沸水水解当成本题点位。"
+          },
+          {
+            "label": "B",
+            "text": "Cr(III)水解沉淀的判断需要结合 Na₂CO₃ 促进水解的操作",
+            "point_key": "candidate-1-376fa2cd",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解”点位：Cr(III)水解沉淀的判断需要结合 Na₂CO₃ 促进水解的操作。"
+          },
+          {
+            "label": "C",
+            "text": "把 TiOSO₄ 稀释煮沸误认为铬(III)盐水解",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解”点位的关键对象或条件：把 TiOSO₄ 稀释煮沸误认为铬(III)盐水解。"
+          },
+          {
+            "label": "D",
+            "text": "省略 Na₂CO₃，只凭铬盐名称判断现象",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解”点位的关键对象或条件：省略 Na₂CO₃，只凭铬盐名称判断现象。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00322_6c10a1661c"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00322_6c10a1661c"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-2-08 铬(III)盐的水解》实验中，同一小节中，钛(IV)盐水解实验使用的钛盐是哪一种？",
+            "options": [
+              {
+                "label": "A",
+                "text": "TiCl₄ 原液直接燃烧"
+              },
+              {
+                "label": "B",
+                "text": "TiO₂ 固体不加水"
+              },
+              {
+                "label": "C",
+                "text": "K₂TiO₃"
+              },
+              {
+                "label": "D",
+                "text": "TiOSO₄"
+              }
+            ],
+            "answer": {
+              "value": "D"
+            },
+            "explanation": "实验资料列出 TiOSO₄ 水解。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00322_6c10a1661c",
+              "expchunk_00319_b995aa9123"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-2-08 铬(III)盐的水解》中，关于 Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解，哪项表述正确？",
+            "options": [
+              {
+                "label": "A",
+                "text": "把同小节 FeCl₃ 的沸水水解当成本题点位"
+              },
+              {
+                "label": "B",
+                "text": "Cr(III)水解沉淀的判断需要结合 Na₂CO₃ 促进水解的操作"
+              },
+              {
+                "label": "C",
+                "text": "把 TiOSO₄ 稀释煮沸误认为铬(III)盐水解"
+              },
+              {
+                "label": "D",
+                "text": "省略 Na₂CO₃，只凭铬盐名称判断现象"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "Cr(III)盐水解现象要结合 Na₂CO₃ 加入后的沉淀观察判断，省略 Na₂CO₃ 或换成其他水解实验都不符合本题。",
+            "difficulty": "basic",
+            "status": "reviewed_polished",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00322_6c10a1661c",
+              "expchunk_00319_b995aa9123"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "generic_shell_rewritten"
+          ]
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_2_08_009",
+        "source_review_id": "CHK5_SEM_EXP_20_2_08_009",
+        "source_question_index": 9,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《20-2-08 铬(III)盐的水解》中，关于 Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解，哪项表述正确？",
+        "options": [
+          {
+            "label": "A",
+            "text": "把 TiOSO₄ 稀释煮沸误认为铬(III)盐水解"
+          },
+          {
+            "label": "B",
+            "text": "Cr₂(SO₄)₃ 提供 Cr(III)，与 Na₂CO₃ 作用后用于观察铬(III)盐水解"
+          },
+          {
+            "label": "C",
+            "text": "省略 Na₂CO₃，只凭铬盐名称判断现象"
+          },
+          {
+            "label": "D",
+            "text": "改用 KSCN 血红色反应来回答铬(III)水解题"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "Cr₂(SO₄)₃ 对应该实验中的铬(III)盐，教材操作是加入 Na₂CO₃ 后观察其水解表现；把其他盐或其他显色反应混入本题不符合实验点位。",
+        "difficulty": "basic",
+        "status": "reviewed_polished",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-376fa2cd"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "single_choice"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "把 TiOSO₄ 稀释煮沸误认为铬(III)盐水解",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解”点位的关键对象或条件：把 TiOSO₄ 稀释煮沸误认为铬(III)盐水解。"
+          },
+          {
+            "label": "B",
+            "text": "Cr₂(SO₄)₃ 提供 Cr(III)，与 Na₂CO₃ 作用后用于观察铬(III)盐水解",
+            "point_key": "candidate-1-376fa2cd",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解”点位：Cr₂(SO₄)₃ 提供 Cr(III)，与 Na₂CO₃ 作用后用于观察铬(III)盐水解。"
+          },
+          {
+            "label": "C",
+            "text": "省略 Na₂CO₃，只凭铬盐名称判断现象",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解”点位的关键对象或条件：省略 Na₂CO₃，只凭铬盐名称判断现象。"
+          },
+          {
+            "label": "D",
+            "text": "改用 KSCN 血红色反应来回答铬(III)水解题",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解”点位：改用 KSCN 血红色反应来回答铬(III)水解题。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00322_6c10a1661c"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00322_6c10a1661c"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-2-08 铬(III)盐的水解》实验中，Cr₂(SO₄)₃ 中铬的氧化态是哪一种？",
+            "options": [
+              {
+                "label": "A",
+                "text": "III"
+              },
+              {
+                "label": "B",
+                "text": "VI"
+              },
+              {
+                "label": "C",
+                "text": "0"
+              },
+              {
+                "label": "D",
+                "text": "II"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "硫酸根为 -2，化合物中铬为 +3。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00322_6c10a1661c",
+              "expchunk_00319_b995aa9123"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-2-08 铬(III)盐的水解》中，关于 Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解，哪项表述正确？",
+            "options": [
+              {
+                "label": "A",
+                "text": "把 TiOSO₄ 稀释煮沸误认为铬(III)盐水解"
+              },
+              {
+                "label": "B",
+                "text": "Cr₂(SO₄)₃ 提供 Cr(III)，与 Na₂CO₃ 作用后用于观察铬(III)盐水解"
+              },
+              {
+                "label": "C",
+                "text": "省略 Na₂CO₃，只凭铬盐名称判断现象"
+              },
+              {
+                "label": "D",
+                "text": "改用 KSCN 血红色反应来回答铬(III)水解题"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "Cr₂(SO₄)₃ 对应该实验中的铬(III)盐，教材操作是加入 Na₂CO₃ 后观察其水解表现；把其他盐或其他显色反应混入本题不符合实验点位。",
+            "difficulty": "basic",
+            "status": "reviewed_polished",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00322_6c10a1661c",
+              "expchunk_00319_b995aa9123"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "generic_shell_rewritten"
+          ]
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_2_08_010",
+        "source_review_id": "CHK5_SEM_EXP_20_2_08_010",
+        "source_question_index": 10,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-2-08 铬(III)盐的水解》实验中，若加入 Na₂CO₃ 后出现 Cr(OH)₃ 类沉淀，说明 Cr(III) 盐在该条件下具有什么倾向？",
+        "options": [
+          {
+            "label": "A",
+            "text": "完全不水解"
+          },
+          {
+            "label": "B",
+            "text": "发生水解"
+          },
+          {
+            "label": "C",
+            "text": "生成氯气"
+          },
+          {
+            "label": "D",
+            "text": "被乙醚萃取"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "沉淀是金属离子水解的重要表现。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-376fa2cd"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "single_choice"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "完全不水解",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解”点位：完全不水解。"
+          },
+          {
+            "label": "B",
+            "text": "发生水解",
+            "point_key": "candidate-1-376fa2cd",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解”点位：发生水解。"
+          },
+          {
+            "label": "C",
+            "text": "生成氯气",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解”点位：生成氯气。"
+          },
+          {
+            "label": "D",
+            "text": "被乙醚萃取",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解”点位：被乙醚萃取。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00322_6c10a1661c"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00322_6c10a1661c"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-2-08 铬(III)盐的水解》实验中，若加入 Na₂CO₃ 后出现 Cr(OH)₃ 类沉淀，说明 Cr(III) 盐在该条件下具有什么倾向？",
+            "options": [
+              {
+                "label": "A",
+                "text": "完全不水解"
+              },
+              {
+                "label": "B",
+                "text": "发生水解"
+              },
+              {
+                "label": "C",
+                "text": "生成氯气"
+              },
+              {
+                "label": "D",
+                "text": "被乙醚萃取"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "沉淀是金属离子水解的重要表现。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00322_6c10a1661c",
+              "expchunk_00319_b995aa9123"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_2_08_011",
+        "source_review_id": "CHK5_SEM_EXP_20_2_08_011",
+        "source_question_index": 11,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《20-2-08 铬(III)盐的水解》中，关于 Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解，哪项表述正确？",
+        "options": [
+          {
+            "label": "A",
+            "text": "改用 KSCN 血红色反应来回答铬(III)水解题"
+          },
+          {
+            "label": "B",
+            "text": "Cr₂(SO₄)₃ 是本实验中用于观察铬(III)盐水解的对象"
+          },
+          {
+            "label": "C",
+            "text": "把同小节 FeCl₃ 的沸水水解当成本题点位"
+          },
+          {
+            "label": "D",
+            "text": "把 TiOSO₄ 稀释煮沸误认为铬(III)盐水解"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "本实验围绕 Cr₂(SO₄)₃ 溶液与 Na₂CO₃ 作用观察 Cr(III)盐水解，其他水解实验不是本题对象。",
+        "difficulty": "basic",
+        "status": "reviewed_polished",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-376fa2cd"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "true_false"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "改用 KSCN 血红色反应来回答铬(III)水解题",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解”点位：改用 KSCN 血红色反应来回答铬(III)水解题。"
+          },
+          {
+            "label": "B",
+            "text": "Cr₂(SO₄)₃ 是本实验中用于观察铬(III)盐水解的对象",
+            "point_key": "candidate-1-376fa2cd",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解”点位：Cr₂(SO₄)₃ 是本实验中用于观察铬(III)盐水解的对象。"
+          },
+          {
+            "label": "C",
+            "text": "把同小节 FeCl₃ 的沸水水解当成本题点位",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解”点位：把同小节 FeCl₃ 的沸水水解当成本题点位。"
+          },
+          {
+            "label": "D",
+            "text": "把 TiOSO₄ 稀释煮沸误认为铬(III)盐水解",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解”点位的关键对象或条件：把 TiOSO₄ 稀释煮沸误认为铬(III)盐水解。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00322_6c10a1661c"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00322_6c10a1661c"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-2-08 铬(III)盐的水解》实验中，判断：水解对象为“Cr₂(SO₄)₃”。",
+            "options": [],
+            "answer": {
+              "value": true
+            },
+            "explanation": "原文写明向 Cr₂(SO₄)₃ 溶液中滴加 Na₂CO₃。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00322_6c10a1661c",
+              "expchunk_00319_b995aa9123"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-2-08 铬(III)盐的水解》中，关于 Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解，哪项表述正确？",
+            "options": [
+              {
+                "label": "A",
+                "text": "改用 KSCN 血红色反应来回答铬(III)水解题"
+              },
+              {
+                "label": "B",
+                "text": "Cr₂(SO₄)₃ 是本实验中用于观察铬(III)盐水解的对象"
+              },
+              {
+                "label": "C",
+                "text": "把同小节 FeCl₃ 的沸水水解当成本题点位"
+              },
+              {
+                "label": "D",
+                "text": "把 TiOSO₄ 稀释煮沸误认为铬(III)盐水解"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "本实验围绕 Cr₂(SO₄)₃ 溶液与 Na₂CO₃ 作用观察 Cr(III)盐水解，其他水解实验不是本题对象。",
+            "difficulty": "basic",
+            "status": "reviewed_polished",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00322_6c10a1661c",
+              "expchunk_00319_b995aa9123"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "generic_shell_rewritten"
+          ]
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_2_08_012",
+        "source_review_id": "CHK5_SEM_EXP_20_2_08_012",
+        "source_question_index": 12,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《20-2-08 铬(III)盐的水解》中，关于 Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解，哪项表述正确？",
+        "options": [
+          {
+            "label": "A",
+            "text": "把同小节 FeCl₃ 的沸水水解当成本题点位"
+          },
+          {
+            "label": "B",
+            "text": "加入 Na₂CO₃ 后观察 Cr₂(SO₄)₃ 溶液中铬(III)盐的水解现象"
+          },
+          {
+            "label": "C",
+            "text": "把 TiOSO₄ 稀释煮沸误认为铬(III)盐水解"
+          },
+          {
+            "label": "D",
+            "text": "省略 Na₂CO₃，只凭铬盐名称判断现象"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "该实验点位考查 Cr₂(SO₄)₃ 溶液中加入 Na₂CO₃ 后的铬(III)盐水解观察；把 FeCl₃ 沸水水解或 TiOSO₄ 稀释煮沸混入本题，均不符合该点位。",
+        "difficulty": "basic",
+        "status": "reviewed_polished",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-376fa2cd"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "true_false"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "把同小节 FeCl₃ 的沸水水解当成本题点位",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解”点位：把同小节 FeCl₃ 的沸水水解当成本题点位。"
+          },
+          {
+            "label": "B",
+            "text": "加入 Na₂CO₃ 后观察 Cr₂(SO₄)₃ 溶液中铬(III)盐的水解现象",
+            "point_key": "candidate-1-376fa2cd",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解”点位：加入 Na₂CO₃ 后观察 Cr₂(SO₄)₃ 溶液中铬(III)盐的水解现象。"
+          },
+          {
+            "label": "C",
+            "text": "把 TiOSO₄ 稀释煮沸误认为铬(III)盐水解",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解”点位的关键对象或条件：把 TiOSO₄ 稀释煮沸误认为铬(III)盐水解。"
+          },
+          {
+            "label": "D",
+            "text": "省略 Na₂CO₃，只凭铬盐名称判断现象",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解”点位的关键对象或条件：省略 Na₂CO₃，只凭铬盐名称判断现象。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00322_6c10a1661c"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00322_6c10a1661c"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-2-08 铬(III)盐的水解》实验中，判断：加入试剂为“KSCN”。",
+            "options": [],
+            "answer": {
+              "value": false
+            },
+            "explanation": "该说法与本实验事实不符；步骤明确使用碳酸钠溶液。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00322_6c10a1661c",
+              "expchunk_00319_b995aa9123"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-2-08 铬(III)盐的水解》中，关于 Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解，哪项表述正确？",
+            "options": [
+              {
+                "label": "A",
+                "text": "把同小节 FeCl₃ 的沸水水解当成本题点位"
+              },
+              {
+                "label": "B",
+                "text": "加入 Na₂CO₃ 后观察 Cr₂(SO₄)₃ 溶液中铬(III)盐的水解现象"
+              },
+              {
+                "label": "C",
+                "text": "把 TiOSO₄ 稀释煮沸误认为铬(III)盐水解"
+              },
+              {
+                "label": "D",
+                "text": "省略 Na₂CO₃，只凭铬盐名称判断现象"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "该实验点位考查 Cr₂(SO₄)₃ 溶液中加入 Na₂CO₃ 后的铬(III)盐水解观察；把 FeCl₃ 沸水水解或 TiOSO₄ 稀释煮沸混入本题，均不符合该点位。",
+            "difficulty": "basic",
+            "status": "reviewed_polished",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00322_6c10a1661c",
+              "expchunk_00319_b995aa9123"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "generic_shell_rewritten"
+          ]
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_2_08_013",
+        "source_review_id": "CHK5_SEM_EXP_20_2_08_013",
+        "source_question_index": 13,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《20-2-08 铬(III)盐的水解》实验中，判断：Cr₂(SO₄)₃ 溶液与 Na₂CO₃ 作用主要用于观察 Cr(III) 的水解作用。",
+        "options": [],
+        "answer": {
+          "value": true
+        },
+        "explanation": "该判断正确。Cr₂(SO₄)₃ 与 Na₂CO₃ 体系对应的是 Cr(III)盐的水解观察。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-376fa2cd"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "true_false"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00322_6c10a1661c"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00322_6c10a1661c"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-2-08 铬(III)盐的水解》实验中，判断：Cr₂(SO₄)₃ 溶液与 Na₂CO₃ 作用主要用于观察 Cr(III) 的水解作用。",
+            "options": [],
+            "answer": {
+              "value": true
+            },
+            "explanation": "该判断正确。Cr₂(SO₄)₃ 与 Na₂CO₃ 体系对应的是 Cr(III)盐的水解观察。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00322_6c10a1661c",
+              "expchunk_00319_b995aa9123"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_2_08_014",
+        "source_review_id": "CHK5_SEM_EXP_20_2_08_014",
+        "source_question_index": 14,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《20-2-08 铬(III)盐的水解》实验中，判断：水解产物为“CrO₄²⁻”。",
+        "options": [],
+        "answer": {
+          "value": false
+        },
+        "explanation": "该说法与本实验事实不符；Cr³⁺ 水解生成氢氧化铬类沉淀。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-376fa2cd"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "true_false"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00322_6c10a1661c"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01118_9e2eabedd8",
+            "textbook_prose_01119_8478df1f7f",
+            "textbook_prose_00293_6e62d1272e"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical。有效题由实验原文支撑；其中颜色、配位、氧化还原或鉴定依据需最小引用 supporting theory：textbook_prose_01118_9e2eabedd8, textbook_prose_01119_8478df1f7f, textbook_prose_00293_6e62d1272e。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00322_6c10a1661c"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01118_9e2eabedd8",
+            "textbook_prose_01119_8478df1f7f",
+            "textbook_prose_00293_6e62d1272e"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01118_9e2eabedd8",
+            "textbook_prose_01119_8478df1f7f",
+            "textbook_prose_00293_6e62d1272e"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-2-08 铬(III)盐的水解》实验中，判断：水解产物为“CrO₄²⁻”。",
+            "options": [],
+            "answer": {
+              "value": false
+            },
+            "explanation": "该说法与本实验事实不符；Cr³⁺ 水解生成氢氧化铬类沉淀。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00322_6c10a1661c",
+              "expchunk_00319_b995aa9123"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_2_08_015",
+        "source_review_id": "CHK5_SEM_EXP_20_2_08_015",
+        "source_question_index": 15,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《20-2-08 铬(III)盐的水解》实验中，判断：碳酸盐作用为“CO₃²⁻ 消耗 H⁺，提高水解程度”。",
+        "options": [],
+        "answer": {
+          "value": true
+        },
+        "explanation": "碳酸根水解显碱性，可推动金属离子水解。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-376fa2cd"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "true_false"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00322_6c10a1661c"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00322_6c10a1661c"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-2-08 铬(III)盐的水解》实验中，判断：碳酸盐作用为“CO₃²⁻ 消耗 H⁺，提高水解程度”。",
+            "options": [],
+            "answer": {
+              "value": true
+            },
+            "explanation": "碳酸根水解显碱性，可推动金属离子水解。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00322_6c10a1661c",
+              "expchunk_00319_b995aa9123"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_2_08_016",
+        "source_review_id": "CHK5_SEM_EXP_20_2_08_016",
+        "source_question_index": 16,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《20-2-08 铬(III)盐的水解》实验中，判断：观察要求为“加热 KNO₃ 并检验 O₂”。",
+        "options": [],
+        "answer": {
+          "value": false
+        },
+        "explanation": "该说法与本实验事实不符；原文要求滴加试剂后观察现象。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-376fa2cd"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "true_false"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00322_6c10a1661c"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00322_6c10a1661c"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-2-08 铬(III)盐的水解》实验中，判断：观察要求为“加热 KNO₃ 并检验 O₂”。",
+            "options": [],
+            "answer": {
+              "value": false
+            },
+            "explanation": "该说法与本实验事实不符；原文要求滴加试剂后观察现象。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00322_6c10a1661c",
+              "expchunk_00319_b995aa9123"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_2_08_017",
+        "source_review_id": "CHK5_SEM_EXP_20_2_08_017",
+        "source_question_index": 17,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《20-2-08 铬(III)盐的水解》中，关于 Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解，哪项表述正确？",
+        "options": [
+          {
+            "label": "A",
+            "text": "把 TiOSO₄ 稀释煮沸误认为铬(III)盐水解"
+          },
+          {
+            "label": "B",
+            "text": "Cr(III)水解沉淀的判断需要结合 Na₂CO₃ 促进水解的操作"
+          },
+          {
+            "label": "C",
+            "text": "省略 Na₂CO₃，只凭铬盐名称判断现象"
+          },
+          {
+            "label": "D",
+            "text": "改用 KSCN 血红色反应来回答铬(III)水解题"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "Cr(III)盐水解现象要结合 Na₂CO₃ 加入后的沉淀观察判断，省略 Na₂CO₃ 或换成其他水解实验都不符合本题。",
+        "difficulty": "basic",
+        "status": "reviewed_polished",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-376fa2cd"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "true_false"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "把 TiOSO₄ 稀释煮沸误认为铬(III)盐水解",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解”点位的关键对象或条件：把 TiOSO₄ 稀释煮沸误认为铬(III)盐水解。"
+          },
+          {
+            "label": "B",
+            "text": "Cr(III)水解沉淀的判断需要结合 Na₂CO₃ 促进水解的操作",
+            "point_key": "candidate-1-376fa2cd",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解”点位：Cr(III)水解沉淀的判断需要结合 Na₂CO₃ 促进水解的操作。"
+          },
+          {
+            "label": "C",
+            "text": "省略 Na₂CO₃，只凭铬盐名称判断现象",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解”点位的关键对象或条件：省略 Na₂CO₃，只凭铬盐名称判断现象。"
+          },
+          {
+            "label": "D",
+            "text": "改用 KSCN 血红色反应来回答铬(III)水解题",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解”点位：改用 KSCN 血红色反应来回答铬(III)水解题。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00322_6c10a1661c"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00322_6c10a1661c"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-2-08 铬(III)盐的水解》实验中，判断：同小节对照为“FeCl₃”。",
+            "options": [],
+            "answer": {
+              "value": true
+            },
+            "explanation": "实验资料列出 FeCl₃ 水解。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00322_6c10a1661c",
+              "expchunk_00319_b995aa9123"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-2-08 铬(III)盐的水解》中，关于 Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解，哪项表述正确？",
+            "options": [
+              {
+                "label": "A",
+                "text": "把 TiOSO₄ 稀释煮沸误认为铬(III)盐水解"
+              },
+              {
+                "label": "B",
+                "text": "Cr(III)水解沉淀的判断需要结合 Na₂CO₃ 促进水解的操作"
+              },
+              {
+                "label": "C",
+                "text": "省略 Na₂CO₃，只凭铬盐名称判断现象"
+              },
+              {
+                "label": "D",
+                "text": "改用 KSCN 血红色反应来回答铬(III)水解题"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "Cr(III)盐水解现象要结合 Na₂CO₃ 加入后的沉淀观察判断，省略 Na₂CO₃ 或换成其他水解实验都不符合本题。",
+            "difficulty": "basic",
+            "status": "reviewed_polished",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00322_6c10a1661c",
+              "expchunk_00319_b995aa9123"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "generic_shell_rewritten"
+          ]
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_2_08_018",
+        "source_review_id": "CHK5_SEM_EXP_20_2_08_018",
+        "source_question_index": 18,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《20-2-08 铬(III)盐的水解》中，关于 Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解，哪项表述正确？",
+        "options": [
+          {
+            "label": "A",
+            "text": "省略 Na₂CO₃，只凭铬盐名称判断现象"
+          },
+          {
+            "label": "B",
+            "text": "本实验围绕 Cr₂(SO₄)₃ 与 Na₂CO₃ 的水解体系，不应改成 FeCl₃ 或 TiOSO₄ 水解"
+          },
+          {
+            "label": "C",
+            "text": "改用 KSCN 血红色反应来回答铬(III)水解题"
+          },
+          {
+            "label": "D",
+            "text": "把同小节 FeCl₃ 的沸水水解当成本题点位"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "题目要求判断 Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的水解现象，FeCl₃ 沸水水解和 TiOSO₄ 煮沸水解都属于其他点位。",
+        "difficulty": "basic",
+        "status": "reviewed_polished",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-376fa2cd"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "true_false"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "省略 Na₂CO₃，只凭铬盐名称判断现象",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解”点位的关键对象或条件：省略 Na₂CO₃，只凭铬盐名称判断现象。"
+          },
+          {
+            "label": "B",
+            "text": "本实验围绕 Cr₂(SO₄)₃ 与 Na₂CO₃ 的水解体系，不应改成 FeCl₃ 或 TiOSO₄ 水解",
+            "point_key": "candidate-1-376fa2cd",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解”点位：本实验围绕 Cr₂(SO₄)₃ 与 Na₂CO₃ 的水解体系，不应改成 FeCl₃ 或 TiOSO₄ 水解。"
+          },
+          {
+            "label": "C",
+            "text": "改用 KSCN 血红色反应来回答铬(III)水解题",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解”点位：改用 KSCN 血红色反应来回答铬(III)水解题。"
+          },
+          {
+            "label": "D",
+            "text": "把同小节 FeCl₃ 的沸水水解当成本题点位",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解”点位：把同小节 FeCl₃ 的沸水水解当成本题点位。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00322_6c10a1661c"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00322_6c10a1661c"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-2-08 铬(III)盐的水解》实验中，判断：同小节钛盐为“TiCl₄ 原液直接燃烧”。",
+            "options": [],
+            "answer": {
+              "value": false
+            },
+            "explanation": "该说法与本实验事实不符；实验资料列出 TiOSO₄ 水解。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00322_6c10a1661c",
+              "expchunk_00319_b995aa9123"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-2-08 铬(III)盐的水解》中，关于 Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解，哪项表述正确？",
+            "options": [
+              {
+                "label": "A",
+                "text": "省略 Na₂CO₃，只凭铬盐名称判断现象"
+              },
+              {
+                "label": "B",
+                "text": "本实验围绕 Cr₂(SO₄)₃ 与 Na₂CO₃ 的水解体系，不应改成 FeCl₃ 或 TiOSO₄ 水解"
+              },
+              {
+                "label": "C",
+                "text": "改用 KSCN 血红色反应来回答铬(III)水解题"
+              },
+              {
+                "label": "D",
+                "text": "把同小节 FeCl₃ 的沸水水解当成本题点位"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "题目要求判断 Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的水解现象，FeCl₃ 沸水水解和 TiOSO₄ 煮沸水解都属于其他点位。",
+            "difficulty": "basic",
+            "status": "reviewed_polished",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00322_6c10a1661c",
+              "expchunk_00319_b995aa9123"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "generic_shell_rewritten"
+          ]
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_2_08_019",
+        "source_review_id": "CHK5_SEM_EXP_20_2_08_019",
+        "source_question_index": 19,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《20-2-08 铬(III)盐的水解》中，关于 Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解，哪项表述正确？",
+        "options": [
+          {
+            "label": "A",
+            "text": "改用 KSCN 血红色反应来回答铬(III)水解题"
+          },
+          {
+            "label": "B",
+            "text": "Cr₂(SO₄)₃ 中 Cr 为 III 价，对应该实验中的铬(III)盐水解"
+          },
+          {
+            "label": "C",
+            "text": "把同小节 FeCl₃ 的沸水水解当成本题点位"
+          },
+          {
+            "label": "D",
+            "text": "把 TiOSO₄ 稀释煮沸误认为铬(III)盐水解"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "Cr₂(SO₄)₃ 提供 Cr(III)，与 Na₂CO₃ 作用后用于观察铬(III)盐水解。",
+        "difficulty": "basic",
+        "status": "reviewed_polished",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-376fa2cd"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "true_false"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "改用 KSCN 血红色反应来回答铬(III)水解题",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解”点位：改用 KSCN 血红色反应来回答铬(III)水解题。"
+          },
+          {
+            "label": "B",
+            "text": "Cr₂(SO₄)₃ 中 Cr 为 III 价，对应该实验中的铬(III)盐水解",
+            "point_key": "candidate-1-376fa2cd",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解”点位：Cr₂(SO₄)₃ 中 Cr 为 III 价，对应该实验中的铬(III)盐水解。"
+          },
+          {
+            "label": "C",
+            "text": "把同小节 FeCl₃ 的沸水水解当成本题点位",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解”点位：把同小节 FeCl₃ 的沸水水解当成本题点位。"
+          },
+          {
+            "label": "D",
+            "text": "把 TiOSO₄ 稀释煮沸误认为铬(III)盐水解",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解”点位的关键对象或条件：把 TiOSO₄ 稀释煮沸误认为铬(III)盐水解。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00322_6c10a1661c"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00322_6c10a1661c"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-2-08 铬(III)盐的水解》实验中，判断：铬价态为“III”。",
+            "options": [],
+            "answer": {
+              "value": true
+            },
+            "explanation": "硫酸根为 -2，化合物中铬为 +3。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00322_6c10a1661c",
+              "expchunk_00319_b995aa9123"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-2-08 铬(III)盐的水解》中，关于 Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解，哪项表述正确？",
+            "options": [
+              {
+                "label": "A",
+                "text": "改用 KSCN 血红色反应来回答铬(III)水解题"
+              },
+              {
+                "label": "B",
+                "text": "Cr₂(SO₄)₃ 中 Cr 为 III 价，对应该实验中的铬(III)盐水解"
+              },
+              {
+                "label": "C",
+                "text": "把同小节 FeCl₃ 的沸水水解当成本题点位"
+              },
+              {
+                "label": "D",
+                "text": "把 TiOSO₄ 稀释煮沸误认为铬(III)盐水解"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "Cr₂(SO₄)₃ 提供 Cr(III)，与 Na₂CO₃ 作用后用于观察铬(III)盐水解。",
+            "difficulty": "basic",
+            "status": "reviewed_polished",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00322_6c10a1661c",
+              "expchunk_00319_b995aa9123"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "generic_shell_rewritten"
+          ]
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_2_08_020",
+        "source_review_id": "CHK5_SEM_EXP_20_2_08_020",
+        "source_question_index": 20,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《20-2-08 铬(III)盐的水解》中，关于 Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解，哪项表述正确？",
+        "options": [
+          {
+            "label": "A",
+            "text": "把同小节 FeCl₃ 的沸水水解当成本题点位"
+          },
+          {
+            "label": "B",
+            "text": "加入 Na₂CO₃ 后可促进 Cr(III)盐水解，并观察到氢氧化物类沉淀"
+          },
+          {
+            "label": "C",
+            "text": "把 TiOSO₄ 稀释煮沸误认为铬(III)盐水解"
+          },
+          {
+            "label": "D",
+            "text": "省略 Na₂CO₃，只凭铬盐名称判断现象"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "本实验观察的是 Cr(III)盐在 Na₂CO₃ 作用下的水解表现，不是“完全不水解”。",
+        "difficulty": "basic",
+        "status": "reviewed_polished",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-376fa2cd"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "true_false"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "把同小节 FeCl₃ 的沸水水解当成本题点位",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解”点位：把同小节 FeCl₃ 的沸水水解当成本题点位。"
+          },
+          {
+            "label": "B",
+            "text": "加入 Na₂CO₃ 后可促进 Cr(III)盐水解，并观察到氢氧化物类沉淀",
+            "point_key": "candidate-1-376fa2cd",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解”点位：加入 Na₂CO₃ 后可促进 Cr(III)盐水解，并观察到氢氧化物类沉淀。"
+          },
+          {
+            "label": "C",
+            "text": "把 TiOSO₄ 稀释煮沸误认为铬(III)盐水解",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解”点位的关键对象或条件：把 TiOSO₄ 稀释煮沸误认为铬(III)盐水解。"
+          },
+          {
+            "label": "D",
+            "text": "省略 Na₂CO₃，只凭铬盐名称判断现象",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解”点位的关键对象或条件：省略 Na₂CO₃，只凭铬盐名称判断现象。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00322_6c10a1661c"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00322_6c10a1661c"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-2-08 铬(III)盐的水解》实验中，判断：实验结论为“完全不水解”。",
+            "options": [],
+            "answer": {
+              "value": false
+            },
+            "explanation": "该说法与本实验事实不符；沉淀是金属离子水解的重要表现。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00322_6c10a1661c",
+              "expchunk_00319_b995aa9123"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-2-08 铬(III)盐的水解》中，关于 Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解，哪项表述正确？",
+            "options": [
+              {
+                "label": "A",
+                "text": "把同小节 FeCl₃ 的沸水水解当成本题点位"
+              },
+              {
+                "label": "B",
+                "text": "加入 Na₂CO₃ 后可促进 Cr(III)盐水解，并观察到氢氧化物类沉淀"
+              },
+              {
+                "label": "C",
+                "text": "把 TiOSO₄ 稀释煮沸误认为铬(III)盐水解"
+              },
+              {
+                "label": "D",
+                "text": "省略 Na₂CO₃，只凭铬盐名称判断现象"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "本实验观察的是 Cr(III)盐在 Na₂CO₃ 作用下的水解表现，不是“完全不水解”。",
+            "difficulty": "basic",
+            "status": "reviewed_polished",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00322_6c10a1661c",
+              "expchunk_00319_b995aa9123"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "generic_shell_rewritten"
+          ]
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_2_08_021",
+        "source_review_id": "CHK5_SEM_EXP_20_2_08_021",
+        "source_question_index": 21,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《20-2-08 铬(III)盐的水解》中，关于 Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解，哪项表述正确？",
+        "options": [
+          {
+            "label": "A",
+            "text": "把 TiOSO₄ 稀释煮沸误认为铬(III)盐水解"
+          },
+          {
+            "label": "B",
+            "text": "铬(III)盐水解实验使用 Cr₂(SO₄)₃ 溶液，并加入 Na₂CO₃ 后观察现象"
+          },
+          {
+            "label": "C",
+            "text": "省略 Na₂CO₃，只凭铬盐名称判断现象"
+          },
+          {
+            "label": "D",
+            "text": "改用 KSCN 血红色反应来回答铬(III)水解题"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "Cr₂(SO₄)₃ 是该实验中的铬(III)盐，后续 Na₂CO₃ 操作与水解现象观察构成完整判断依据。",
+        "difficulty": "basic",
+        "status": "reviewed_polished",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-376fa2cd"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "fill_blank"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "把 TiOSO₄ 稀释煮沸误认为铬(III)盐水解",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解”点位的关键对象或条件：把 TiOSO₄ 稀释煮沸误认为铬(III)盐水解。"
+          },
+          {
+            "label": "B",
+            "text": "铬(III)盐水解实验使用 Cr₂(SO₄)₃ 溶液，并加入 Na₂CO₃ 后观察现象",
+            "point_key": "candidate-1-376fa2cd",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解”点位：铬(III)盐水解实验使用 Cr₂(SO₄)₃ 溶液，并加入 Na₂CO₃ 后观察现象。"
+          },
+          {
+            "label": "C",
+            "text": "省略 Na₂CO₃，只凭铬盐名称判断现象",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解”点位的关键对象或条件：省略 Na₂CO₃，只凭铬盐名称判断现象。"
+          },
+          {
+            "label": "D",
+            "text": "改用 KSCN 血红色反应来回答铬(III)水解题",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解”点位：改用 KSCN 血红色反应来回答铬(III)水解题。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00322_6c10a1661c"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00322_6c10a1661c"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-2-08 铬(III)盐的水解》实验中，铬(III)盐水解实验使用____溶液。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "Cr₂(SO₄)₃"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "原文写明向 Cr₂(SO₄)₃ 溶液中滴加 Na₂CO₃。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00322_6c10a1661c",
+              "expchunk_00319_b995aa9123"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-2-08 铬(III)盐的水解》中，关于 Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解，哪项表述正确？",
+            "options": [
+              {
+                "label": "A",
+                "text": "把 TiOSO₄ 稀释煮沸误认为铬(III)盐水解"
+              },
+              {
+                "label": "B",
+                "text": "铬(III)盐水解实验使用 Cr₂(SO₄)₃ 溶液，并加入 Na₂CO₃ 后观察现象"
+              },
+              {
+                "label": "C",
+                "text": "省略 Na₂CO₃，只凭铬盐名称判断现象"
+              },
+              {
+                "label": "D",
+                "text": "改用 KSCN 血红色反应来回答铬(III)水解题"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "Cr₂(SO₄)₃ 是该实验中的铬(III)盐，后续 Na₂CO₃ 操作与水解现象观察构成完整判断依据。",
+            "difficulty": "basic",
+            "status": "reviewed_polished",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00322_6c10a1661c",
+              "expchunk_00319_b995aa9123"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "generic_shell_rewritten"
+          ]
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_2_08_022",
+        "source_review_id": "CHK5_SEM_EXP_20_2_08_022",
+        "source_question_index": 22,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《20-2-08 铬(III)盐的水解》中，关于 Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解，哪项表述正确？",
+        "options": [
+          {
+            "label": "A",
+            "text": "省略 Na₂CO₃，只凭铬盐名称判断现象"
+          },
+          {
+            "label": "B",
+            "text": "向 Cr₂(SO₄)₃ 溶液中滴加 Na₂CO₃ 溶液后观察水解现象"
+          },
+          {
+            "label": "C",
+            "text": "改用 KSCN 血红色反应来回答铬(III)水解题"
+          },
+          {
+            "label": "D",
+            "text": "把同小节 FeCl₃ 的沸水水解当成本题点位"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "向 Cr₂(SO₄)₃ 溶液中滴加 Na₂CO₃ 并观察现象，是本实验判断铬(III)盐水解的核心操作。",
+        "difficulty": "basic",
+        "status": "reviewed_polished",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-376fa2cd"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "fill_blank"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "省略 Na₂CO₃，只凭铬盐名称判断现象",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解”点位的关键对象或条件：省略 Na₂CO₃，只凭铬盐名称判断现象。"
+          },
+          {
+            "label": "B",
+            "text": "向 Cr₂(SO₄)₃ 溶液中滴加 Na₂CO₃ 溶液后观察水解现象",
+            "point_key": "candidate-1-376fa2cd",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解”点位：向 Cr₂(SO₄)₃ 溶液中滴加 Na₂CO₃ 溶液后观察水解现象。"
+          },
+          {
+            "label": "C",
+            "text": "改用 KSCN 血红色反应来回答铬(III)水解题",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解”点位：改用 KSCN 血红色反应来回答铬(III)水解题。"
+          },
+          {
+            "label": "D",
+            "text": "把同小节 FeCl₃ 的沸水水解当成本题点位",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解”点位：把同小节 FeCl₃ 的沸水水解当成本题点位。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00322_6c10a1661c"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00322_6c10a1661c"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-2-08 铬(III)盐的水解》实验中，向 Cr₂(SO₄)₃ 溶液中滴加____溶液观察现象。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "Na₂CO₃"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "步骤明确使用碳酸钠溶液。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00322_6c10a1661c",
+              "expchunk_00319_b995aa9123"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-2-08 铬(III)盐的水解》中，关于 Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解，哪项表述正确？",
+            "options": [
+              {
+                "label": "A",
+                "text": "省略 Na₂CO₃，只凭铬盐名称判断现象"
+              },
+              {
+                "label": "B",
+                "text": "向 Cr₂(SO₄)₃ 溶液中滴加 Na₂CO₃ 溶液后观察水解现象"
+              },
+              {
+                "label": "C",
+                "text": "改用 KSCN 血红色反应来回答铬(III)水解题"
+              },
+              {
+                "label": "D",
+                "text": "把同小节 FeCl₃ 的沸水水解当成本题点位"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "向 Cr₂(SO₄)₃ 溶液中滴加 Na₂CO₃ 并观察现象，是本实验判断铬(III)盐水解的核心操作。",
+            "difficulty": "basic",
+            "status": "reviewed_polished",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00322_6c10a1661c",
+              "expchunk_00319_b995aa9123"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "generic_shell_rewritten"
+          ]
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_2_08_023",
+        "source_review_id": "CHK5_SEM_EXP_20_2_08_023",
+        "source_question_index": 23,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《20-2-08 铬(III)盐的水解》实验中，该体系主要体现 Cr(III) 的____作用。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "水解"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "Cr₂(SO₄)₃ 与 Na₂CO₃ 体系主要体现 Cr(III) 的水解作用，空格可填“水解”。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-376fa2cd"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "fill_blank"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00322_6c10a1661c"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00322_6c10a1661c"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-2-08 铬(III)盐的水解》实验中，该体系主要体现 Cr(III) 的____作用。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "水解"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "Cr₂(SO₄)₃ 与 Na₂CO₃ 体系主要体现 Cr(III) 的水解作用，空格可填“水解”。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00322_6c10a1661c",
+              "expchunk_00319_b995aa9123"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_2_08_024",
+        "source_review_id": "CHK5_SEM_EXP_20_2_08_024",
+        "source_question_index": 24,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《20-2-08 铬(III)盐的水解》中，关于 Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解，哪项表述正确？",
+        "options": [
+          {
+            "label": "A",
+            "text": "把同小节 FeCl₃ 的沸水水解当成本题点位"
+          },
+          {
+            "label": "B",
+            "text": "Cr(III) 水解常生成 Cr(OH)₃ 类沉淀，可作为水解观察依据"
+          },
+          {
+            "label": "C",
+            "text": "把 TiOSO₄ 稀释煮沸误认为铬(III)盐水解"
+          },
+          {
+            "label": "D",
+            "text": "省略 Na₂CO₃，只凭铬盐名称判断现象"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "在 Cr₂(SO₄)₃ 与 Na₂CO₃ 体系中，Cr(III) 水解生成氢氧化物类沉淀是重要观察依据。",
+        "difficulty": "basic",
+        "status": "reviewed_polished",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-376fa2cd"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "fill_blank"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "把同小节 FeCl₃ 的沸水水解当成本题点位",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解”点位：把同小节 FeCl₃ 的沸水水解当成本题点位。"
+          },
+          {
+            "label": "B",
+            "text": "Cr(III) 水解常生成 Cr(OH)₃ 类沉淀，可作为水解观察依据",
+            "point_key": "candidate-1-376fa2cd",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解”点位：Cr(III) 水解常生成 Cr(OH)₃ 类沉淀，可作为水解观察依据。"
+          },
+          {
+            "label": "C",
+            "text": "把 TiOSO₄ 稀释煮沸误认为铬(III)盐水解",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解”点位的关键对象或条件：把 TiOSO₄ 稀释煮沸误认为铬(III)盐水解。"
+          },
+          {
+            "label": "D",
+            "text": "省略 Na₂CO₃，只凭铬盐名称判断现象",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解”点位的关键对象或条件：省略 Na₂CO₃，只凭铬盐名称判断现象。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00322_6c10a1661c"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00322_6c10a1661c"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-2-08 铬(III)盐的水解》实验中，Cr(III) 水解常生成____沉淀。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "Cr(OH)₃"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "Cr³⁺ 水解生成氢氧化铬类沉淀。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00322_6c10a1661c",
+              "expchunk_00319_b995aa9123"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-2-08 铬(III)盐的水解》中，关于 Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解，哪项表述正确？",
+            "options": [
+              {
+                "label": "A",
+                "text": "把同小节 FeCl₃ 的沸水水解当成本题点位"
+              },
+              {
+                "label": "B",
+                "text": "Cr(III) 水解常生成 Cr(OH)₃ 类沉淀，可作为水解观察依据"
+              },
+              {
+                "label": "C",
+                "text": "把 TiOSO₄ 稀释煮沸误认为铬(III)盐水解"
+              },
+              {
+                "label": "D",
+                "text": "省略 Na₂CO₃，只凭铬盐名称判断现象"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "在 Cr₂(SO₄)₃ 与 Na₂CO₃ 体系中，Cr(III) 水解生成氢氧化物类沉淀是重要观察依据。",
+            "difficulty": "basic",
+            "status": "reviewed_polished",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00322_6c10a1661c",
+              "expchunk_00319_b995aa9123"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "generic_shell_rewritten"
+          ]
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_2_08_025",
+        "source_review_id": "CHK5_SEM_EXP_20_2_08_025",
+        "source_question_index": 25,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《20-2-08 铬(III)盐的水解》中，关于 Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解，哪项表述正确？",
+        "options": [
+          {
+            "label": "A",
+            "text": "把 TiOSO₄ 稀释煮沸误认为铬(III)盐水解"
+          },
+          {
+            "label": "B",
+            "text": "CO₃²⁻ 可消耗 H⁺，从而促进 Cr(III)盐水解"
+          },
+          {
+            "label": "C",
+            "text": "省略 Na₂CO₃，只凭铬盐名称判断现象"
+          },
+          {
+            "label": "D",
+            "text": "改用 KSCN 血红色反应来回答铬(III)水解题"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "CO₃²⁻ 消耗 H⁺ 会推动金属离子水解，因此能解释 Na₂CO₃ 促进 Cr(III)盐水解的现象。",
+        "difficulty": "basic",
+        "status": "reviewed_polished",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-376fa2cd"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "fill_blank"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "把 TiOSO₄ 稀释煮沸误认为铬(III)盐水解",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解”点位的关键对象或条件：把 TiOSO₄ 稀释煮沸误认为铬(III)盐水解。"
+          },
+          {
+            "label": "B",
+            "text": "CO₃²⁻ 可消耗 H⁺，从而促进 Cr(III)盐水解",
+            "point_key": "candidate-1-376fa2cd",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解”点位：CO₃²⁻ 可消耗 H⁺，从而促进 Cr(III)盐水解。"
+          },
+          {
+            "label": "C",
+            "text": "省略 Na₂CO₃，只凭铬盐名称判断现象",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解”点位的关键对象或条件：省略 Na₂CO₃，只凭铬盐名称判断现象。"
+          },
+          {
+            "label": "D",
+            "text": "改用 KSCN 血红色反应来回答铬(III)水解题",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解”点位：改用 KSCN 血红色反应来回答铬(III)水解题。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00322_6c10a1661c"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00322_6c10a1661c"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-2-08 铬(III)盐的水解》实验中，CO₃²⁻ 可消耗____，从而促进水解。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "H⁺"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "碳酸根水解显碱性，可推动金属离子水解。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00322_6c10a1661c",
+              "expchunk_00319_b995aa9123"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-2-08 铬(III)盐的水解》中，关于 Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解，哪项表述正确？",
+            "options": [
+              {
+                "label": "A",
+                "text": "把 TiOSO₄ 稀释煮沸误认为铬(III)盐水解"
+              },
+              {
+                "label": "B",
+                "text": "CO₃²⁻ 可消耗 H⁺，从而促进 Cr(III)盐水解"
+              },
+              {
+                "label": "C",
+                "text": "省略 Na₂CO₃，只凭铬盐名称判断现象"
+              },
+              {
+                "label": "D",
+                "text": "改用 KSCN 血红色反应来回答铬(III)水解题"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "CO₃²⁻ 消耗 H⁺ 会推动金属离子水解，因此能解释 Na₂CO₃ 促进 Cr(III)盐水解的现象。",
+            "difficulty": "basic",
+            "status": "reviewed_polished",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00322_6c10a1661c",
+              "expchunk_00319_b995aa9123"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "generic_shell_rewritten"
+          ]
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_2_08_026",
+        "source_review_id": "CHK5_SEM_EXP_20_2_08_026",
+        "source_question_index": 26,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《20-2-08 铬(III)盐的水解》实验中，操作后应重点____现象。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "观察"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "原文要求滴加试剂后观察现象。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-376fa2cd"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "fill_blank"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00322_6c10a1661c"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00322_6c10a1661c"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-2-08 铬(III)盐的水解》实验中，操作后应重点____现象。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "观察"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "原文要求滴加试剂后观察现象。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00322_6c10a1661c",
+              "expchunk_00319_b995aa9123"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_2_08_027",
+        "source_review_id": "CHK5_SEM_EXP_20_2_08_027",
+        "source_question_index": 27,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《20-2-08 铬(III)盐的水解》中，关于 Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解，哪项表述正确？",
+        "options": [
+          {
+            "label": "A",
+            "text": "改用 KSCN 血红色反应来回答铬(III)水解题"
+          },
+          {
+            "label": "B",
+            "text": "本实验围绕 Cr₂(SO₄)₃ 与 Na₂CO₃ 的水解体系，不应改成 FeCl₃ 或 TiOSO₄ 水解"
+          },
+          {
+            "label": "C",
+            "text": "把同小节 FeCl₃ 的沸水水解当成本题点位"
+          },
+          {
+            "label": "D",
+            "text": "把 TiOSO₄ 稀释煮沸误认为铬(III)盐水解"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "题目要求判断 Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的水解现象，FeCl₃ 沸水水解和 TiOSO₄ 煮沸水解都属于其他点位。",
+        "difficulty": "basic",
+        "status": "reviewed_polished",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-376fa2cd"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "fill_blank"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "改用 KSCN 血红色反应来回答铬(III)水解题",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解”点位：改用 KSCN 血红色反应来回答铬(III)水解题。"
+          },
+          {
+            "label": "B",
+            "text": "本实验围绕 Cr₂(SO₄)₃ 与 Na₂CO₃ 的水解体系，不应改成 FeCl₃ 或 TiOSO₄ 水解",
+            "point_key": "candidate-1-376fa2cd",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解”点位：本实验围绕 Cr₂(SO₄)₃ 与 Na₂CO₃ 的水解体系，不应改成 FeCl₃ 或 TiOSO₄ 水解。"
+          },
+          {
+            "label": "C",
+            "text": "把同小节 FeCl₃ 的沸水水解当成本题点位",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解”点位：把同小节 FeCl₃ 的沸水水解当成本题点位。"
+          },
+          {
+            "label": "D",
+            "text": "把 TiOSO₄ 稀释煮沸误认为铬(III)盐水解",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解”点位的关键对象或条件：把 TiOSO₄ 稀释煮沸误认为铬(III)盐水解。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00322_6c10a1661c"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00322_6c10a1661c"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-2-08 铬(III)盐的水解》实验中，同小节铁(III)盐水解使用____溶液。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "FeCl₃"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "实验资料列出 FeCl₃ 水解。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00322_6c10a1661c",
+              "expchunk_00319_b995aa9123"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-2-08 铬(III)盐的水解》中，关于 Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解，哪项表述正确？",
+            "options": [
+              {
+                "label": "A",
+                "text": "改用 KSCN 血红色反应来回答铬(III)水解题"
+              },
+              {
+                "label": "B",
+                "text": "本实验围绕 Cr₂(SO₄)₃ 与 Na₂CO₃ 的水解体系，不应改成 FeCl₃ 或 TiOSO₄ 水解"
+              },
+              {
+                "label": "C",
+                "text": "把同小节 FeCl₃ 的沸水水解当成本题点位"
+              },
+              {
+                "label": "D",
+                "text": "把 TiOSO₄ 稀释煮沸误认为铬(III)盐水解"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "题目要求判断 Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的水解现象，FeCl₃ 沸水水解和 TiOSO₄ 煮沸水解都属于其他点位。",
+            "difficulty": "basic",
+            "status": "reviewed_polished",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00322_6c10a1661c",
+              "expchunk_00319_b995aa9123"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "generic_shell_rewritten"
+          ]
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_2_08_028",
+        "source_review_id": "CHK5_SEM_EXP_20_2_08_028",
+        "source_question_index": 28,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《20-2-08 铬(III)盐的水解》中，关于 Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解，哪项表述正确？",
+        "options": [
+          {
+            "label": "A",
+            "text": "把同小节 FeCl₃ 的沸水水解当成本题点位"
+          },
+          {
+            "label": "B",
+            "text": "Na₂CO₃ 需与 Cr₂(SO₄)₃ 溶液作用后，再观察铬(III)盐水解现象"
+          },
+          {
+            "label": "C",
+            "text": "把 TiOSO₄ 稀释煮沸误认为铬(III)盐水解"
+          },
+          {
+            "label": "D",
+            "text": "省略 Na₂CO₃，只凭铬盐名称判断现象"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "教材操作是向 Cr₂(SO₄)₃ 溶液中加入 Na₂CO₃ 后观察水解现象，不能脱离该体系只记试剂名称。",
+        "difficulty": "basic",
+        "status": "reviewed_polished",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-376fa2cd"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "fill_blank"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "把同小节 FeCl₃ 的沸水水解当成本题点位",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解”点位：把同小节 FeCl₃ 的沸水水解当成本题点位。"
+          },
+          {
+            "label": "B",
+            "text": "Na₂CO₃ 需与 Cr₂(SO₄)₃ 溶液作用后，再观察铬(III)盐水解现象",
+            "point_key": "candidate-1-376fa2cd",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解”点位：Na₂CO₃ 需与 Cr₂(SO₄)₃ 溶液作用后，再观察铬(III)盐水解现象。"
+          },
+          {
+            "label": "C",
+            "text": "把 TiOSO₄ 稀释煮沸误认为铬(III)盐水解",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解”点位的关键对象或条件：把 TiOSO₄ 稀释煮沸误认为铬(III)盐水解。"
+          },
+          {
+            "label": "D",
+            "text": "省略 Na₂CO₃，只凭铬盐名称判断现象",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解”点位的关键对象或条件：省略 Na₂CO₃，只凭铬盐名称判断现象。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00322_6c10a1661c"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00322_6c10a1661c"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-2-08 铬(III)盐的水解》实验中，同小节钛(IV)盐水解使用____溶液。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "TiOSO₄"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "实验资料列出 TiOSO₄ 水解。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00322_6c10a1661c",
+              "expchunk_00319_b995aa9123"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-2-08 铬(III)盐的水解》中，关于 Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解，哪项表述正确？",
+            "options": [
+              {
+                "label": "A",
+                "text": "把同小节 FeCl₃ 的沸水水解当成本题点位"
+              },
+              {
+                "label": "B",
+                "text": "Na₂CO₃ 需与 Cr₂(SO₄)₃ 溶液作用后，再观察铬(III)盐水解现象"
+              },
+              {
+                "label": "C",
+                "text": "把 TiOSO₄ 稀释煮沸误认为铬(III)盐水解"
+              },
+              {
+                "label": "D",
+                "text": "省略 Na₂CO₃，只凭铬盐名称判断现象"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "教材操作是向 Cr₂(SO₄)₃ 溶液中加入 Na₂CO₃ 后观察水解现象，不能脱离该体系只记试剂名称。",
+            "difficulty": "basic",
+            "status": "reviewed_polished",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00322_6c10a1661c",
+              "expchunk_00319_b995aa9123"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "generic_shell_rewritten"
+          ]
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_2_08_029",
+        "source_review_id": "CHK5_SEM_EXP_20_2_08_029",
+        "source_question_index": 29,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《20-2-08 铬(III)盐的水解》中，关于 Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解，哪项表述正确？",
+        "options": [
+          {
+            "label": "A",
+            "text": "把 TiOSO₄ 稀释煮沸误认为铬(III)盐水解"
+          },
+          {
+            "label": "B",
+            "text": "Cr₂(SO₄)₃ 中 Cr 为 III 价，对应该实验中的铬(III)盐水解"
+          },
+          {
+            "label": "C",
+            "text": "省略 Na₂CO₃，只凭铬盐名称判断现象"
+          },
+          {
+            "label": "D",
+            "text": "改用 KSCN 血红色反应来回答铬(III)水解题"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "Cr₂(SO₄)₃ 提供 Cr(III)，与 Na₂CO₃ 作用后用于观察铬(III)盐水解。",
+        "difficulty": "basic",
+        "status": "reviewed_polished",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-376fa2cd"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "fill_blank"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "把 TiOSO₄ 稀释煮沸误认为铬(III)盐水解",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解”点位的关键对象或条件：把 TiOSO₄ 稀释煮沸误认为铬(III)盐水解。"
+          },
+          {
+            "label": "B",
+            "text": "Cr₂(SO₄)₃ 中 Cr 为 III 价，对应该实验中的铬(III)盐水解",
+            "point_key": "candidate-1-376fa2cd",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接落在“Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解”点位：Cr₂(SO₄)₃ 中 Cr 为 III 价，对应该实验中的铬(III)盐水解。"
+          },
+          {
+            "label": "C",
+            "text": "省略 Na₂CO₃，只凭铬盐名称判断现象",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项会混淆“Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解”点位的关键对象或条件：省略 Na₂CO₃，只凭铬盐名称判断现象。"
+          },
+          {
+            "label": "D",
+            "text": "改用 KSCN 血红色反应来回答铬(III)水解题",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项不属于“Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解”点位：改用 KSCN 血红色反应来回答铬(III)水解题。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00322_6c10a1661c"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00322_6c10a1661c"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-2-08 铬(III)盐的水解》实验中，Cr₂(SO₄)₃ 中 Cr 为____价。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "III"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "硫酸根为 -2，化合物中铬为 +3。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00322_6c10a1661c",
+              "expchunk_00319_b995aa9123"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-2-08 铬(III)盐的水解》中，关于 Cr₂(SO₄)₃ 与 Na₂CO₃ 体系的铬(III)盐水解，哪项表述正确？",
+            "options": [
+              {
+                "label": "A",
+                "text": "把 TiOSO₄ 稀释煮沸误认为铬(III)盐水解"
+              },
+              {
+                "label": "B",
+                "text": "Cr₂(SO₄)₃ 中 Cr 为 III 价，对应该实验中的铬(III)盐水解"
+              },
+              {
+                "label": "C",
+                "text": "省略 Na₂CO₃，只凭铬盐名称判断现象"
+              },
+              {
+                "label": "D",
+                "text": "改用 KSCN 血红色反应来回答铬(III)水解题"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "Cr₂(SO₄)₃ 提供 Cr(III)，与 Na₂CO₃ 作用后用于观察铬(III)盐水解。",
+            "difficulty": "basic",
+            "status": "reviewed_polished",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00322_6c10a1661c",
+              "expchunk_00319_b995aa9123"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "generic_shell_rewritten"
+          ]
+        }
+      },
+      {
+        "question_id": "CHK5_SEM_EXP_20_2_08_030",
+        "source_review_id": "CHK5_SEM_EXP_20_2_08_030",
+        "source_question_index": 30,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《20-2-08 铬(III)盐的水解》实验中，出现氢氧化物类沉淀说明 Cr(III) 盐发生____。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "水解"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "沉淀是金属离子水解的重要表现。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-376fa2cd"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "chunk_5_semantic_final",
+          "fill_blank"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00322_6c10a1661c"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 已逐字复核原题、有效题、点位和 canonical；有效题的题干、答案和解析由教材实验步骤或现象直接支撑，不依赖额外理论。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00322_6c10a1661c"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-2-08 铬(III)盐的水解》实验中，出现氢氧化物类沉淀说明 Cr(III) 盐发生____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "水解"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "沉淀是金属离子水解的重要表现。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00322_6c10a1661c",
+              "expchunk_00319_b995aa9123"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      }
+    ]
+  }
+}

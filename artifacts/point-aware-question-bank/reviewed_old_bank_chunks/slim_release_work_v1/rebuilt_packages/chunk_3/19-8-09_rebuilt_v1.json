@@ -1,0 +1,1868 @@
+{
+  "metadata": {
+    "schema_version": "rebuilt_experiment_question_package_v1",
+    "artifact_type": "manual_semantic_reconstruction_v1",
+    "source_packet": "E:\\chemistry-admin\\artifacts\\point-aware-question-bank\\reviewed_old_bank_chunks\\slim_release_work_v1\\semantic_work_packets\\chunk_3\\19-8-09.json",
+    "experiment_code": "19-8-09",
+    "experiment_title": "As(V)、Sb(V)、Bi(V) 的氧化性",
+    "chunk": "chunk_3",
+    "question_count": 30,
+    "reconstruction_mode": "manual_per_question_semantic_rebuild",
+    "release_json_modified": false,
+    "evidence_policy": [
+      "每题依据 source question、video point、canonical RAG 和必要 supporting theory 逐项判断。",
+      "canonical RAG 直接支持两个 As(V)/Sb(V)/Bi(V) 氧化性比较设计：酸化后加 KI 和四氯化碳，以及酸性硫酸锰体系。",
+      "具体氧化性顺序、强酸性条件、铋酸盐氧化二价锰生成高锰酸根等结论由 supporting theory 支撑。",
+      "未把 canonical 未直接记录的逐管现象写成无边界的观察结论。"
+    ],
+    "rag_source_dir": "E:\\chemistry-rag\\data\\rag_ready"
+  },
+  "video_points": [
+    {
+      "point_key": "candidate-1-e7d43dad",
+      "point_title": "Na[As(OH)6]、K[Sb(OH)6]、NaBiO3 酸化后加入 KI 和 CCl4"
+    },
+    {
+      "point_key": "candidate-2-4523ef13",
+      "point_title": "Na[As(OH)6]、K[Sb(OH)6]、NaBiO3 加入酸性 MnSO4 体系反应"
+    }
+  ],
+  "evidence_sources": {
+    "canonical_experiment_chunks": [
+      {
+        "chunk_id": "expchunk_protocol_ccb6245e7635",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+        "line_number": 9,
+        "source_summary": "实验 19-8 的总 protocol，确认本 packet 属于锡、铅、砷、锑、铋元素性质实验。"
+      },
+      {
+        "chunk_id": "expchunk_00290_963bb10320",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+        "line_number": 303,
+        "source_summary": "实验目的包括掌握砷、锑、铋等不同氧化态的氧化还原性。"
+      },
+      {
+        "chunk_id": "expchunk_00297_c03527ab79",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+        "line_number": 310,
+        "source_summary": "列出 As(V)、Sb(V)、Bi(V) 氧化性比较的两条操作：酸化后加入 KI 和四氯化碳；以及在酸性 MnSO4 溶液中加入三种高价含氧酸盐。"
+      }
+    ],
+    "supporting_theory_chunks": [
+      {
+        "chunk_id": "textbook_prose_00597_06f7e56f06",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+        "line_number": 928,
+        "source_summary": "说明砷酸盐、锑酸盐、铋酸盐均有氧化性且依次增强，前两者在强酸性溶液中明显表现氧化性，铋酸盐在酸性中是很强氧化剂；还说明砷酸可在强酸性下氧化碘离子。"
+      },
+      {
+        "chunk_id": "textbook_prose_00598_cadca448de",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+        "line_number": 947,
+        "source_summary": "给出铋酸钠在酸性条件下把二价锰氧化为高锰酸根的反应，并说明 Bi(V) 氧化性更强。"
+      },
+      {
+        "chunk_id": "textbook_prose_01241_99049758ad",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+        "line_number": 1898,
+        "source_summary": "锰(II)可被铋酸钠氧化为高锰酸根，高锰酸根显紫色，现象明显。"
+      }
+    ]
+  },
+  "questions": [
+    {
+      "question_id": "REBUILT_CH3_19_8_09_Q001",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_09_Q001"
+      ],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "single_choice",
+      "stem": "本小节主要比较哪一组高氧化态物种的氧化性？",
+      "options": [
+        {
+          "label": "A",
+          "text": "Fe(Ⅱ)、Co(Ⅱ)、Ni(Ⅱ)"
+        },
+        {
+          "label": "B",
+          "text": "Na、K、Ca"
+        },
+        {
+          "label": "C",
+          "text": "As(Ⅴ)、Sb(Ⅴ)、Bi(Ⅴ)"
+        },
+        {
+          "label": "D",
+          "text": "氯、溴、碘单质"
+        }
+      ],
+      "answer": {
+        "value": "C"
+      },
+      "explanation": "教材材料实验内容的小标题和两条操作都围绕 As(Ⅴ)、Sb(Ⅴ)、Bi(Ⅴ) 的氧化性比较。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-e7d43dad",
+        "candidate-2-4523ef13"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "experiment_goal",
+        "multi_point",
+        "oxidizing_power"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "distractor_wrong_elements",
+          "diagnostic_note": "不是本实验的比较对象。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "distractor_wrong_group",
+          "diagnostic_note": "碱金属或碱土金属不属于本小节。"
+        },
+        {
+          "label": "C",
+          "point_key": "candidate-1-e7d43dad",
+          "role": "correct_evidence",
+          "diagnostic_note": "与教材材料小标题和实验设计一致。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_adjacent_redox",
+          "diagnostic_note": "卤素不是本小节的核心比较对象。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00290_963bb10320",
+          "expchunk_00297_c03527ab79"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00597_06f7e56f06"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留原比较对象题，并用 supporting theory 补足氧化性趋势。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_label"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_09_Q002",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_09_Q002",
+        "OLD_CHUNK3_EXP_19_8_09_Q021",
+        "OLD_CHUNK3_EXP_19_8_09_Q024"
+      ],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "single_choice",
+      "stem": "酸化后加入碘化钾和四氯化碳的实验中，教材要求比较的三种固体是哪一组？",
+      "options": [
+        {
+          "label": "A",
+          "text": "氯化亚锡、硝酸铅、硝酸铋"
+        },
+        {
+          "label": "B",
+          "text": "三氯化砷、三氯化锑、三氯化铋"
+        },
+        {
+          "label": "C",
+          "text": "砷酸钠、锑酸钾、铋酸钠"
+        },
+        {
+          "label": "D",
+          "text": "硫酸锰、碘化钾、四氯化碳"
+        }
+      ],
+      "answer": {
+        "value": "C"
+      },
+      "explanation": "教材材料指定在 3 支试管中分别加入 Na[As(OH)₆]、K[Sb(OH)₆] 和 NaBiO₃，再酸化并加入 KI 与四氯化碳；可用中文名称表述为砷酸钠、锑酸钾、铋酸钠一组。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-e7d43dad"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "reagent_set",
+        "iodide_branch"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "distractor_other_experiment",
+          "diagnostic_note": "混入锡铅铋支线试剂。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "distractor_previous_branch",
+          "diagnostic_note": "这是三价砷锑铋还原性支线的样品。"
+        },
+        {
+          "label": "C",
+          "point_key": "candidate-1-e7d43dad",
+          "role": "correct_evidence",
+          "diagnostic_note": "对应教材材料中三种五价含氧酸盐。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_reagents_not_samples",
+          "diagnostic_note": "这些是辅助试剂或另一支线试剂，不是三种被比较固体。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00297_c03527ab79"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "保留样品识别题，并把公式填空风险转为中文选项。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_label"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_09_Q003",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_09_Q003",
+        "OLD_CHUNK3_EXP_19_8_09_Q022",
+        "OLD_CHUNK3_EXP_19_8_09_Q023"
+      ],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "single_choice",
+      "stem": "在碘化钾-四氯化碳支线中，三种高价固体加水后下一步操作组合应是：",
+      "options": [
+        {
+          "label": "A",
+          "text": "以稀酸酸化，再加入碘化钾溶液和四氯化碳"
+        },
+        {
+          "label": "B",
+          "text": "加入浓氨水，再加入硫氰酸钾"
+        },
+        {
+          "label": "C",
+          "text": "加入氢氧化钠至白色沉淀后再加氯水"
+        },
+        {
+          "label": "D",
+          "text": "加入盐酸后直接水浴加热至干"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "教材明确写明三种高价固体加少量水后以稀酸酸化，再加入少量 KI 溶液及四氯化碳。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-e7d43dad"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "operation_sequence",
+        "iodide_branch"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-1-e7d43dad",
+          "role": "correct_evidence",
+          "diagnostic_note": "完整对应教材操作顺序。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "distractor_complex_test",
+          "diagnostic_note": "不是此支线操作。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "distractor_trivalent_bismuth",
+          "diagnostic_note": "属于 Bi(Ⅲ) 氯水支线，不是本实验的五价比较。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_invalid_sequence",
+          "diagnostic_note": "教材未要求蒸干。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00297_c03527ab79"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "保留操作顺序题，清除旧乱码。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_label"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_09_Q004",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_09_Q004",
+        "OLD_CHUNK3_EXP_19_8_09_Q026"
+      ],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "single_choice",
+      "stem": "碘化钾-四氯化碳支线主要借助哪一类变化来显示高价砷、锑、铋物种的氧化性？",
+      "options": [
+        {
+          "label": "A",
+          "text": "把碘离子氧化为碘"
+        },
+        {
+          "label": "B",
+          "text": "把硫酸根还原为硫化物"
+        },
+        {
+          "label": "C",
+          "text": "把氨气氧化为氮气"
+        },
+        {
+          "label": "D",
+          "text": "把钠离子还原为金属钠"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "教材材料设计要求酸化后加入 KI 和四氯化碳观察；相关理论说明砷酸盐等具有氧化性，强酸性下可将碘离子氧化为碘。",
+      "difficulty": "intermediate",
+      "primary_point_keys": [
+        "candidate-1-e7d43dad"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "iodide_branch",
+        "reaction_interpretation",
+        "supporting_theory"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-1-e7d43dad",
+          "role": "correct_evidence",
+          "diagnostic_note": "与 KI 支线和相关理论中 I⁻ 被氧化相符。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "distractor_wrong_redox",
+          "diagnostic_note": "本支线没有硫酸根还原判断。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "distractor_wrong_species",
+          "diagnostic_note": "氨气不在本支线中。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_impossible_context",
+          "diagnostic_note": "钠离子还原不是水溶液中该实验的判断依据。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00297_c03527ab79"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00597_06f7e56f06"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "把现象解释限定在 KI 支线和 theory 支持范围内。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_label"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_09_Q005",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_09_Q005",
+        "OLD_CHUNK3_EXP_19_8_09_Q025"
+      ],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "single_choice",
+      "stem": "在酸性硫酸锰支线中，教材材料先在 3 支试管中加入并酸化的是哪一组溶液？",
+      "options": [
+        {
+          "label": "A",
+          "text": "碘化钾和四氯化碳"
+        },
+        {
+          "label": "B",
+          "text": "硫酸锰溶液和硫酸"
+        },
+        {
+          "label": "C",
+          "text": "氯化亚锡和氯化汞"
+        },
+        {
+          "label": "D",
+          "text": "氨水和硝酸银"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "教材材料第二条操作是在 3 支试管中分别加入少量 MnSO₄ 溶液，并用 H₂SO₄ 溶液酸化，再分别加入三种高价固体。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-2-4523ef13"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "operation_reagent",
+        "manganese_branch"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-1-e7d43dad",
+          "role": "adjacent_point",
+          "diagnostic_note": "这是另一条 KI/CCl₄ 支线。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-2-4523ef13",
+          "role": "correct_evidence",
+          "diagnostic_note": "对应酸性 MnSO₄ 支线。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "distractor_tin_branch",
+          "diagnostic_note": "属于 Sn(Ⅱ) 还原性比较。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_silver_ammonia",
+          "diagnostic_note": "属于三价砷锑铋还原性支线。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00297_c03527ab79"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "保留酸性 MnSO4 试剂识别题。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_label"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_09_Q006",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_09_Q006",
+        "OLD_CHUNK3_EXP_19_8_09_Q028_PF1"
+      ],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "single_choice",
+      "stem": "酸性硫酸锰体系中，哪一种高价含氧酸盐最直接由相关理论支持可把二价锰氧化为高锰酸根？",
+      "options": [
+        {
+          "label": "A",
+          "text": "砷酸盐"
+        },
+        {
+          "label": "B",
+          "text": "锑酸盐"
+        },
+        {
+          "label": "C",
+          "text": "铋酸盐"
+        },
+        {
+          "label": "D",
+          "text": "亚砷酸盐"
+        }
+      ],
+      "answer": {
+        "value": "C"
+      },
+      "explanation": "教材相关内容和教材相关内容均给出铋酸钠在酸性条件下把二价锰氧化为高锰酸根的反应。",
+      "difficulty": "intermediate",
+      "primary_point_keys": [
+        "candidate-2-4523ef13"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "manganese_branch",
+        "supporting_theory",
+        "oxidizing_power"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-2-4523ef13",
+          "role": "adjacent_sample",
+          "diagnostic_note": "在实验比较范围内，但不是相关理论直接给出氧化二价锰的物种。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-2-4523ef13",
+          "role": "adjacent_sample",
+          "diagnostic_note": "在实验比较范围内，但不是相关理论直接给出该反应的物种。"
+        },
+        {
+          "label": "C",
+          "point_key": "candidate-2-4523ef13",
+          "role": "correct_evidence",
+          "diagnostic_note": "铋酸盐强氧化性直接支持该判断。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_wrong_oxidation_state",
+          "diagnostic_note": "亚砷酸盐属于三价砷方向，不是本实验的五价比较样品。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00297_c03527ab79"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00598_cadca448de",
+          "textbook_prose_01241_99049758ad"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留原 MnSO4 支线结论题，并标注 theory 依赖。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_label"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_09_Q007",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_09_Q007"
+      ],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "single_choice",
+      "stem": "根据相关理论，砷酸盐、锑酸盐、铋酸盐的氧化性趋势是：",
+      "options": [
+        {
+          "label": "A",
+          "text": "依次增强"
+        },
+        {
+          "label": "B",
+          "text": "依次减弱"
+        },
+        {
+          "label": "C",
+          "text": "三者完全相同"
+        },
+        {
+          "label": "D",
+          "text": "与溶液酸碱性无关"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "教材相关内容明确说明砷酸盐、锑酸盐、铋酸盐都具有氧化性，且氧化性依次增强。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-e7d43dad",
+        "candidate-2-4523ef13"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "trend",
+        "multi_point",
+        "supporting_theory"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-1-e7d43dad",
+          "role": "correct_evidence",
+          "diagnostic_note": "与相关理论原意一致。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "distractor_reversed_trend",
+          "diagnostic_note": "方向与教材相反。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "distractor_no_trend",
+          "diagnostic_note": "教材给出明确递增趋势。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_condition_ignored",
+          "diagnostic_note": "As/Sb 的明显氧化性与强酸性条件有关。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00290_963bb10320",
+          "expchunk_00297_c03527ab79"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00597_06f7e56f06"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留趋势题，并明确 evidence 来自 supporting theory。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_label"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_09_Q008",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_09_Q008"
+      ],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "single_choice",
+      "stem": "关于砷酸盐和锑酸盐明显表现氧化性的条件，哪项表述最符合相关理论？",
+      "options": [
+        {
+          "label": "A",
+          "text": "只有在强碱性溶液中才明显"
+        },
+        {
+          "label": "B",
+          "text": "只有在强酸性溶液中才明显"
+        },
+        {
+          "label": "C",
+          "text": "只在纯水中明显"
+        },
+        {
+          "label": "D",
+          "text": "只在无水乙醇中明显"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "教材相关内容说明前两者只有在强酸性溶液中才表现明显氧化性；教材操作也要求酸化。",
+      "difficulty": "intermediate",
+      "primary_point_keys": [
+        "candidate-1-e7d43dad"
+      ],
+      "secondary_point_keys": [
+        "candidate-2-4523ef13"
+      ],
+      "coverage_tags": [
+        "condition",
+        "supporting_theory",
+        "acidification"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "distractor_wrong_condition",
+          "diagnostic_note": "与相关理论相反。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-1-e7d43dad",
+          "role": "correct_evidence",
+          "diagnostic_note": "对应强酸性条件。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "distractor_under_conditioned",
+          "diagnostic_note": "纯水条件没有相关理论支撑。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_irrelevant_solvent",
+          "diagnostic_note": "无水乙醇不属于本实验体系。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00297_c03527ab79"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00597_06f7e56f06"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "把酸化问题收束为 theory 支持的条件判断。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_label"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_09_Q009",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_09_Q009"
+      ],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "single_choice",
+      "stem": "若酸性硫酸锰支线出现紫色，最合理的解释是：",
+      "options": [
+        {
+          "label": "A",
+          "text": "二价锰被氧化成高锰酸根"
+        },
+        {
+          "label": "B",
+          "text": "锰被还原为金属锰"
+        },
+        {
+          "label": "C",
+          "text": "碘被萃入四氯化碳层"
+        },
+        {
+          "label": "D",
+          "text": "银氨配离子被还原成银镜"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "教材相关内容说明高锰酸根显紫色；教材相关内容和教材相关内容支持铋酸盐把二价锰氧化为高锰酸根。",
+      "difficulty": "intermediate",
+      "primary_point_keys": [
+        "candidate-2-4523ef13"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "manganese_branch",
+        "observation_interpretation",
+        "supporting_theory"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-2-4523ef13",
+          "role": "correct_evidence",
+          "diagnostic_note": "紫色对应高锰酸根。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "distractor_wrong_redox_direction",
+          "diagnostic_note": "此处是二价锰被氧化。"
+        },
+        {
+          "label": "C",
+          "point_key": "candidate-1-e7d43dad",
+          "role": "adjacent_point",
+          "diagnostic_note": "属于 KI/CCl₄ 支线，不解释 MnSO₄ 支线紫色。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_previous_packet",
+          "diagnostic_note": "银氨配离子属于三价砷锑铋还原性支线。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00297_c03527ab79"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00598_cadca448de",
+          "textbook_prose_01241_99049758ad"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "只把紫色解释用于 theory 支持的高锰酸根，不声称 canonical 已记录所有现象。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_label"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_09_Q010",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_09_Q010"
+      ],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "single_choice",
+      "stem": "在本实验的两条操作路线中，四氯化碳只直接出现在哪一支线？",
+      "options": [
+        {
+          "label": "A",
+          "text": "酸性硫酸锰支线"
+        },
+        {
+          "label": "B",
+          "text": "碘化钾支线"
+        },
+        {
+          "label": "C",
+          "text": "银氨配离子支线"
+        },
+        {
+          "label": "D",
+          "text": "氯水氧化铋支线"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "教材材料第一条 As(Ⅴ)/Sb(Ⅴ)/Bi(Ⅴ) 操作在酸化后加入少量 KI 溶液及四氯化碳；第二条酸性 MnSO₄ 支线不含四氯化碳。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-e7d43dad"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "branch_discrimination",
+        "iodide_branch"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-2-4523ef13",
+          "role": "adjacent_point",
+          "diagnostic_note": "该支线用 MnSO₄ 和 H₂SO₄。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-1-e7d43dad",
+          "role": "correct_evidence",
+          "diagnostic_note": "KI/CCl₄ 支线直接包含四氯化碳。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "distractor_previous_packet",
+          "diagnostic_note": "不属于此本实验。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_previous_packet",
+          "diagnostic_note": "不属于此本实验的五价比较支线。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00297_c03527ab79"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "保留分支识别题。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_label"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_09_Q011",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_09_Q011",
+        "OLD_CHUNK3_EXP_19_8_09_Q027"
+      ],
+      "rewrite_action": "rewrite",
+      "question_type": "single_choice",
+      "stem": "关于本实验的实验后处理，最稳妥的表述是：",
+      "options": [
+        {
+          "label": "A",
+          "text": "含砷、锑、铋和有机溶剂的废液应按有害废液回收处理"
+        },
+        {
+          "label": "B",
+          "text": "四氯化碳层可直接倒入水槽"
+        },
+        {
+          "label": "C",
+          "text": "含铋酸盐固体可随普通纸屑丢弃"
+        },
+        {
+          "label": "D",
+          "text": "加入酸后所有废液都变成无害"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "安全提示要求废液回收处理；结合本实验涉及砷、锑、铋和四氯化碳，按有害废液回收处理最稳妥。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-e7d43dad",
+        "candidate-2-4523ef13"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "safety",
+        "waste_handling",
+        "multi_point"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-1-e7d43dad",
+          "role": "correct_safety",
+          "diagnostic_note": "与废液回收处理要求一致。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "unsafe_distractor",
+          "diagnostic_note": "有机溶剂层不可直接倒入水槽。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "unsafe_distractor",
+          "diagnostic_note": "重金属或含铋废物不应普通丢弃。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "unsafe_distractor",
+          "diagnostic_note": "酸化不等于无害化。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_protocol_ccb6245e7635",
+          "expchunk_00297_c03527ab79"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "将旧安全填空改为可判定单选，避免只考公式或乱码词。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_label"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_09_Q012",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_09_Q012"
+      ],
+      "rewrite_action": "rewrite",
+      "question_type": "single_choice",
+      "stem": "下列哪项最准确地区分两条五价砷锑铋氧化性比较支线？",
+      "options": [
+        {
+          "label": "A",
+          "text": "一条用碘化钾和四氯化碳，另一条用酸性硫酸锰"
+        },
+        {
+          "label": "B",
+          "text": "一条用氯水，另一条用银氨配离子"
+        },
+        {
+          "label": "C",
+          "text": "一条用硫氰酸钾，另一条用硝酸银"
+        },
+        {
+          "label": "D",
+          "text": "一条用浓盐酸，另一条用硝酸铅"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "教材材料的两条 As(Ⅴ)/Sb(Ⅴ)/Bi(Ⅴ) 设计分别是酸化后加 KI 和四氯化碳，以及酸性 MnSO₄ 体系。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-e7d43dad",
+        "candidate-2-4523ef13"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "branch_discrimination",
+        "multi_point"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-1-e7d43dad",
+          "role": "correct_evidence",
+          "diagnostic_note": "完整覆盖两条教材材料支线。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "distractor_previous_packet",
+          "diagnostic_note": "属于三价砷锑铋还原性支线。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "distractor_other_tests",
+          "diagnostic_note": "不属于本实验。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_lead_branch",
+          "diagnostic_note": "混入 Pb(Ⅳ) 或铅盐支线。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00297_c03527ab79"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "改写为双支线辨析。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_label"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_09_Q013",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_09_Q013",
+        "OLD_CHUNK3_EXP_19_8_09_Q014"
+      ],
+      "rewrite_action": "rewrite",
+      "question_type": "single_choice",
+      "stem": "根据教材材料判断每支试管具体终点颜色时，哪种说法最稳妥？",
+      "options": [
+        {
+          "label": "A",
+          "text": "教材材料已列出每支试管终点颜色，可直接逐项填入"
+        },
+        {
+          "label": "B",
+          "text": "教材材料只要求观察现象，具体结论需要相关理论或显式记录支撑"
+        },
+        {
+          "label": "C",
+          "text": "只要涉及五价物种，所有试管必然都呈紫色"
+        },
+        {
+          "label": "D",
+          "text": "所有观察都可以忽略，因为只考物质名称"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "教材材料给出操作并要求观察现象，但未逐项记录所有终点颜色；因此具体终点判断必须受相关理论或显式观察记录约束。",
+      "difficulty": "advanced",
+      "primary_point_keys": [
+        "candidate-1-e7d43dad",
+        "candidate-2-4523ef13"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "evidence_boundary",
+        "multi_point",
+        "observation"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "distractor_overclaim",
+          "diagnostic_note": "教材材料没有逐项列出终点颜色。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-1-e7d43dad",
+          "role": "correct_evidence_boundary",
+          "diagnostic_note": "符合观察指令和理论约束。"
+        },
+        {
+          "label": "C",
+          "point_key": "candidate-2-4523ef13",
+          "role": "distractor_overgeneralization",
+          "diagnostic_note": "紫色只可在有相关理论支撑的高锰酸根语境下使用。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_too_narrow",
+          "diagnostic_note": "本实验目标是氧化性比较，不只考名称。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00297_c03527ab79"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00597_06f7e56f06",
+          "textbook_prose_00598_cadca448de",
+          "textbook_prose_01241_99049758ad"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "新增证据边界题，避免把观察指令误写成教材记录。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_label"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_09_Q014",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_09_Q015"
+      ],
+      "rewrite_action": "rewrite",
+      "question_type": "single_choice",
+      "stem": "下列哪种说法最容易把本实验与上一小节三价砷锑铋还原性实验混淆？",
+      "options": [
+        {
+          "label": "A",
+          "text": "本实验比较五价砷、锑、铋物种的氧化性"
+        },
+        {
+          "label": "B",
+          "text": "本实验可用碘化钾支线和酸性硫酸锰支线比较"
+        },
+        {
+          "label": "C",
+          "text": "本实验的样品是三氯化砷、三氯化锑和三氯化铋"
+        },
+        {
+          "label": "D",
+          "text": "铋酸盐在酸性溶液中可表现很强氧化性"
+        }
+      ],
+      "answer": {
+        "value": "C"
+      },
+      "explanation": "三氯化砷、三氯化锑、三氯化铋属于 As(Ⅲ)、Sb(Ⅲ)、Bi(Ⅲ) 还原性支线；本实验的样品是五价含氧酸盐。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-e7d43dad",
+        "candidate-2-4523ef13"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "misconception_cleanup",
+        "oxidation_state",
+        "multi_point"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-1-e7d43dad",
+          "role": "true_statement",
+          "diagnostic_note": "这是本实验的核心目标。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-1-e7d43dad",
+          "role": "true_statement",
+          "diagnostic_note": "对应两条教材材料支线。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "correct_misconception",
+          "diagnostic_note": "三氯化物属于三价支线，和本实验混淆。"
+        },
+        {
+          "label": "D",
+          "point_key": "candidate-2-4523ef13",
+          "role": "true_statement",
+          "diagnostic_note": "由相关理论支撑。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00297_c03527ab79"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00597_06f7e56f06"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "改写混淆辨析题，清理旧题的相邻实验干扰。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_label"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_09_Q015",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_09_Q016"
+      ],
+      "rewrite_action": "rewrite",
+      "question_type": "single_choice",
+      "stem": "下列哪一项操作最能由教材步骤直接支撑？",
+      "options": [
+        {
+          "label": "A",
+          "text": "三种五价固体分别加入酸性硫酸锰体系"
+        },
+        {
+          "label": "B",
+          "text": "每种固体反应后必定出现同一颜色"
+        },
+        {
+          "label": "C",
+          "text": "砷酸盐在任意 pH 下都能氧化碘离子"
+        },
+        {
+          "label": "D",
+          "text": "铋酸盐的氧化性来自惰性电子对效应的详细解释"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "教材直接写出第二条操作：酸性 MnSO₄ 溶液分别加入三种五价固体并观察现象；其余选项都需要相关理论或超出教材材料。",
+      "difficulty": "advanced",
+      "primary_point_keys": [
+        "candidate-2-4523ef13"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "evidence_boundary",
+        "canonical_only",
+        "manganese_branch"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-2-4523ef13",
+          "role": "correct_evidence",
+          "diagnostic_note": "直接来自教材操作。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "distractor_overclaim",
+          "diagnostic_note": "教材材料没有给出逐项同色结论。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "distractor_wrong_condition",
+          "diagnostic_note": "相关理论强调强酸性条件。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_theory_detail",
+          "diagnostic_note": "属于相关理论的解释，不是教材直接操作。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00297_c03527ab79"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "新增 canonical-only 边界题，便于审核证据来源。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_label"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_09_Q016",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_09_Q017_R1"
+      ],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "true_false",
+      "stem": "酸化后加入碘化钾和四氯化碳，是本实验比较 As(Ⅴ)、Sb(Ⅴ)、Bi(Ⅴ) 氧化性的其中一条教材操作。",
+      "options": [],
+      "answer": {
+        "value": true
+      },
+      "explanation": "教材材料第一条 As(Ⅴ)/Sb(Ⅴ)/Bi(Ⅴ) 氧化性操作正是酸化后加入 KI 溶液和四氯化碳并观察。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-e7d43dad"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "true_false",
+        "iodide_branch"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00297_c03527ab79"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "保留操作事实判断。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_bool"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_09_Q017",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_09_Q018"
+      ],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "true_false",
+      "stem": "酸性硫酸锰支线中，三种高价固体是在已酸化的硫酸锰溶液中分别加入的。",
+      "options": [],
+      "answer": {
+        "value": true
+      },
+      "explanation": "教材材料第二条操作要求在 3 支试管中加入 MnSO₄ 溶液并用 H₂SO₄ 酸化，再分别加入三种高价固体。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-2-4523ef13"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "true_false",
+        "manganese_branch",
+        "operation_sequence"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00297_c03527ab79"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "保留酸性 MnSO4 操作判断。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_bool"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_09_Q018",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_09_Q019_R1"
+      ],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "true_false",
+      "stem": "砷酸盐、锑酸盐、铋酸盐都具有氧化性，并且从砷到铋氧化性依次增强。",
+      "options": [],
+      "answer": {
+        "value": true
+      },
+      "explanation": "教材相关内容直接支持该趋势；教材材料的两条实验路线用于说明这组三者的氧化性。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-e7d43dad",
+        "candidate-2-4523ef13"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "true_false",
+        "trend",
+        "supporting_theory"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00290_963bb10320",
+          "expchunk_00297_c03527ab79"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00597_06f7e56f06"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留趋势判断，并标注 theory 依赖。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_bool"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_09_Q019",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_09_Q020_R1"
+      ],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "true_false",
+      "stem": "铋酸盐在酸性溶液中是很强的氧化剂，可把二价锰氧化为高锰酸根。",
+      "options": [],
+      "answer": {
+        "value": true
+      },
+      "explanation": "教材相关内容说明铋酸盐在酸性中是很强氧化剂；教材相关内容和教材相关内容支持其氧化二价锰生成高锰酸根。",
+      "difficulty": "intermediate",
+      "primary_point_keys": [
+        "candidate-2-4523ef13"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "true_false",
+        "manganese_branch",
+        "supporting_theory"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00297_c03527ab79"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00597_06f7e56f06",
+          "textbook_prose_00598_cadca448de",
+          "textbook_prose_01241_99049758ad"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留 Bi(V) 强氧化性判断。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_bool"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_09_Q020",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_09_Q011"
+      ],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "true_false",
+      "stem": "As(Ⅴ)、Sb(Ⅴ)、Bi(Ⅴ) 的氧化性比较属于实验 19-8 中不同氧化态氧化还原性的学习目标。",
+      "options": [],
+      "answer": {
+        "value": true
+      },
+      "explanation": "教材材料的实验目的包括掌握这些元素不同氧化态的氧化还原性；教材材料中有 As(Ⅴ)、Sb(Ⅴ)、Bi(Ⅴ) 氧化性小节。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-e7d43dad",
+        "candidate-2-4523ef13"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "true_false",
+        "experiment_goal",
+        "multi_point"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00290_963bb10320",
+          "expchunk_00297_c03527ab79"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "保留实验目标判断。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_bool"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_09_Q021",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_09_Q012"
+      ],
+      "rewrite_action": "rewrite",
+      "question_type": "true_false",
+      "stem": "本实验的五价氧化性比较样品是三氯化砷、三氯化锑和三氯化铋。",
+      "options": [],
+      "answer": {
+        "value": false
+      },
+      "explanation": "这组三氯化物属于三价砷锑铋还原性比较；本实验的五价比较样品是砷酸盐、锑酸盐和铋酸盐一类高价含氧酸盐。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-e7d43dad",
+        "candidate-2-4523ef13"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "true_false",
+        "misconception_cleanup",
+        "oxidation_state"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00297_c03527ab79"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "改写相邻小节混淆判断。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_bool"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_09_Q022",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_09_Q013",
+        "OLD_CHUNK3_EXP_19_8_09_Q014"
+      ],
+      "rewrite_action": "rewrite",
+      "question_type": "true_false",
+      "stem": "酸性硫酸锰支线中若出现紫色，可理解为二价锰被还原成金属锰。",
+      "options": [],
+      "answer": {
+        "value": false
+      },
+      "explanation": "相关理论指向二价锰被氧化为紫色高锰酸根，而不是被还原为金属锰。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-2-4523ef13"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "true_false",
+        "manganese_branch",
+        "misconception_cleanup"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00297_c03527ab79"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00598_cadca448de",
+          "textbook_prose_01241_99049758ad"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "改写错误方向判断。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_bool"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_09_Q023",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_09_Q015"
+      ],
+      "rewrite_action": "rewrite",
+      "question_type": "true_false",
+      "stem": "教材材料已逐管记录了 As(Ⅴ)、Sb(Ⅴ)、Bi(Ⅴ) 在两条支线中的所有最终颜色，因此无需相关理论。",
+      "options": [],
+      "answer": {
+        "value": false
+      },
+      "explanation": "教材材料主要给出操作并要求观察现象，没有逐项列出全部最终颜色；趋势和高锰酸根紫色等结论需要相关理论支撑。",
+      "difficulty": "advanced",
+      "primary_point_keys": [
+        "candidate-1-e7d43dad",
+        "candidate-2-4523ef13"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "true_false",
+        "evidence_boundary",
+        "multi_point"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00297_c03527ab79"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00597_06f7e56f06",
+          "textbook_prose_00598_cadca448de",
+          "textbook_prose_01241_99049758ad"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "新增证据边界判断，避免 overclaim。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_bool"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_09_Q024",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_09_Q029",
+        "OLD_CHUNK3_EXP_19_8_09_Q030"
+      ],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "fill_blank",
+      "stem": "本实验比较 As(Ⅴ)、Sb(Ⅴ)、Bi(Ⅴ) 的核心性质是____。",
+      "options": [],
+      "answer": {
+        "value": "氧化性",
+        "match": "normalized_exact"
+      },
+      "explanation": "教材材料小节标题和实验目的均指向 As(Ⅴ)、Sb(Ⅴ)、Bi(Ⅴ) 的氧化性比较。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-e7d43dad",
+        "candidate-2-4523ef13"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "fill_blank",
+        "mobile_safe",
+        "experiment_goal"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00290_963bb10320",
+          "expchunk_00297_c03527ab79"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00597_06f7e56f06"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "将符号价态填空改为中文性质填空，降低输入风险。"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": "deterministic_normalized_exact"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_09_Q025",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_09_Q022",
+        "OLD_CHUNK3_EXP_19_8_09_Q023"
+      ],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "fill_blank",
+      "stem": "酸化后加碘化钾的支线中，还要加入____以帮助观察碘的相关现象。",
+      "options": [],
+      "answer": {
+        "value": "四氯化碳",
+        "match": "normalized_exact"
+      },
+      "explanation": "教材明确要求加入少量 KI 溶液及四氯化碳；填空采用中文名称，避免 CCl₄ 输入风险。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-e7d43dad"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "fill_blank",
+        "mobile_safe",
+        "iodide_branch"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00297_c03527ab79"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00597_06f7e56f06"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留 CCl4 知识点，但答案中文化。"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": "deterministic_normalized_exact"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_09_Q026",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_09_Q025"
+      ],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "fill_blank",
+      "stem": "酸性硫酸锰支线中，用来酸化硫酸锰溶液的酸是____。",
+      "options": [],
+      "answer": {
+        "value": "硫酸",
+        "match": "normalized_exact"
+      },
+      "explanation": "教材材料第二条操作写明 MnSO₄ 溶液用 H₂SO₄ 溶液酸化。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-2-4523ef13"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "fill_blank",
+        "mobile_safe",
+        "manganese_branch"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00297_c03527ab79"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "将公式答案转换为中文名称。"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": "deterministic_normalized_exact"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_09_Q027",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_09_Q028_PF1"
+      ],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "fill_blank",
+      "stem": "铋酸盐在酸性条件下可把二价锰氧化为____。",
+      "options": [],
+      "answer": {
+        "value": "高锰酸根",
+        "match": "normalized_exact"
+      },
+      "explanation": "教材相关内容和教材相关内容都支持铋酸钠把二价锰氧化为高锰酸根；答案避免写离子式。",
+      "difficulty": "intermediate",
+      "primary_point_keys": [
+        "candidate-2-4523ef13"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "fill_blank",
+        "mobile_safe",
+        "manganese_branch",
+        "supporting_theory"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00297_c03527ab79"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00598_cadca448de",
+          "textbook_prose_01241_99049758ad"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留 MnSO4 支线结论填空，去除公式输入。"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": "deterministic_normalized_exact"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_09_Q028",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_09_Q013",
+        "OLD_CHUNK3_EXP_19_8_09_Q014"
+      ],
+      "rewrite_action": "rewrite",
+      "question_type": "fill_blank",
+      "stem": "高锰酸根的典型溶液颜色是____。",
+      "options": [],
+      "answer": {
+        "value": "紫色",
+        "match": "normalized_exact"
+      },
+      "explanation": "教材相关内容说明高锰酸根显紫色，现象明显；该填空服务于酸性硫酸锰支线的观察解释。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-2-4523ef13"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "fill_blank",
+        "mobile_safe",
+        "observation_interpretation"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00297_c03527ab79"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_01241_99049758ad"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "将颜色判断明确绑定 theory。"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": "deterministic_normalized_exact"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_09_Q029",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_09_Q007"
+      ],
+      "rewrite_action": "rewrite",
+      "question_type": "fill_blank",
+      "stem": "砷酸盐、锑酸盐、铋酸盐的氧化性从砷到铋____。",
+      "options": [],
+      "answer": {
+        "value": "依次增强",
+        "match": "normalized_exact"
+      },
+      "explanation": "教材相关内容明确说明三者都具有氧化性且氧化性依次增强。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-e7d43dad",
+        "candidate-2-4523ef13"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "fill_blank",
+        "mobile_safe",
+        "trend"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00290_963bb10320",
+          "expchunk_00297_c03527ab79"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00597_06f7e56f06"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "将趋势改为中文短答，避免公式或符号输入。"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": "deterministic_normalized_exact"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_09_Q030",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_09_Q029",
+        "OLD_CHUNK3_EXP_19_8_09_Q030"
+      ],
+      "rewrite_action": "rewrite",
+      "question_type": "fill_blank",
+      "stem": "As(Ⅴ) 和 Sb(Ⅴ) 中的 Ⅴ 表示元素处于____氧化态。",
+      "options": [],
+      "answer": {
+        "value": "五价",
+        "match": "normalized_exact"
+      },
+      "explanation": "Ⅴ 表示五价，答案可用中文价态表述。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-e7d43dad",
+        "candidate-2-4523ef13"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "fill_blank",
+        "mobile_safe",
+        "oxidation_state"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00297_c03527ab79"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00597_06f7e56f06"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "把符号价态答案改为中文，满足填空移动端安全要求。"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": "deterministic_normalized_exact"
+    }
+  ]
+}

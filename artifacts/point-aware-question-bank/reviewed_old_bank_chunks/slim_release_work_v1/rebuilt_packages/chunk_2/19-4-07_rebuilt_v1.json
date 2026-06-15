@@ -1,0 +1,741 @@
+{
+  "metadata": {
+    "schema_version": "small_packet_rebuilt_v1",
+    "artifact_type": "manual_semantic_rebuilt_question_package",
+    "chunk": "chunk_2",
+    "source_packet": "E:\\chemistry-admin\\artifacts\\point-aware-question-bank\\reviewed_old_bank_chunks\\slim_release_work_v1\\semantic_work_packets\\chunk_2\\19-4-07.json",
+    "experiment_code": "19-4-07",
+    "experiment_title": "硝酸盐的热分解",
+    "question_count": 30,
+    "evidence_policy": [
+      "Each question was manually compared against the source packet, video points, canonical experiment evidence, and supporting theory where required.",
+      "RAG source text is not embedded in full; only locators and concise source summaries are stored.",
+      "Inherited chunk ids are not treated as proof.",
+      "Formula or symbolic fill blanks are avoided; retained fill blanks use short ordinary Chinese answers."
+    ],
+    "rag_source_dir": "E:\\chemistry-rag\\data\\rag_ready",
+    "release_json_policy": "Do not modify chunk_X_release_final_v1.json directly; this package is a merge input only."
+  },
+  "video_points": [
+    {"point_key": "candidate-1-2241ae7a", "point_title": "KNO₃ 热分解"},
+    {"point_key": "candidate-2-aa0424f2", "point_title": "Cu(NO₃)₂ 热分解"},
+    {"point_key": "candidate-3-91bbea2b", "point_title": "AgNO₃ 热分解"},
+    {"point_key": "candidate-4-29485ccd", "point_title": "用火柴余烬检验热分解生成的气体"}
+  ],
+  "evidence_sources": {
+    "canonical_experiment_chunks": [
+      {
+        "chunk_id": "expchunk_00243_765fc7b450",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+        "line_number": 256,
+        "evidence_role": "Canonical experiment: test thermal decomposition of KNO3, Cu(NO3)2, and AgNO3; use a glowing match/splint to test the gas; compare similarities and differences."
+      }
+    ],
+    "supporting_theory_chunks": [
+      {
+        "chunk_id": "textbook_prose_00562_ef6a65a064",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+        "line_number": 874,
+        "evidence_role": "Theory: nitrate salts are thermally unstable; active alkali/alkaline earth nitrates often decompose to nitrites and oxygen."
+      },
+      {
+        "chunk_id": "textbook_prose_00563_d9dcf3d136",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+        "line_number": 875,
+        "evidence_role": "Theory continuation: active nitrate examples produce nitrite and oxygen, supporting the oxygen test."
+      },
+      {
+        "chunk_id": "textbook_prose_00564_d916ee2d9c",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+        "line_number": 876,
+        "evidence_role": "Theory: some metal nitrates decompose to metal oxides, nitrogen dioxide, and oxygen."
+      },
+      {
+        "chunk_id": "textbook_prose_00565_4ff80431a2",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+        "line_number": 877,
+        "evidence_role": "Theory: silver nitrate decomposes to silver, nitrogen dioxide, and oxygen."
+      }
+    ]
+  },
+  "questions": [
+    {
+      "question_id": "REBUILT_CH2_19_4_07_Q001",
+      "question_type": "single_choice",
+      "stem": "本实验比较的核心对象是哪一类物质？",
+      "options": [
+        {"label": "A", "text": "硝酸盐"},
+        {"label": "B", "text": "亚硝酸"},
+        {"label": "C", "text": "铵盐"},
+        {"label": "D", "text": "卤化物"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "三个固体样品都用于硝酸盐热分解，最后一步用于检验分解生成的气体。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-1-2241ae7a", "candidate-2-aa0424f2", "candidate-3-91bbea2b", "candidate-4-29485ccd"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["experiment_scope", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-1-2241ae7a", "role": "correct_scope", "diagnostic_note": "覆盖三个硝酸盐点位。"},
+        {"label": "B", "point_key": null, "role": "distractor_previous_packet", "diagnostic_note": "属于亚硝酸实验。"},
+        {"label": "C", "point_key": null, "role": "distractor_previous_subsection", "diagnostic_note": "属于铵盐性质。"},
+        {"label": "D", "point_key": null, "role": "distractor_other_chapter", "diagnostic_note": "不是本实验对象。"}
+      ],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00243_765fc7b450"], "supporting_theory_chunk_ids": [], "evidence_sufficient": true, "supporting_theory_required": false, "reviewer_note": "实验对象由 canonical 直接给出。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_07_Q002",
+      "question_type": "single_choice",
+      "stem": "下列哪组固体正是本实验要求比较热分解的三种样品？",
+      "options": [
+        {"label": "A", "text": "KNO₃、Cu(NO₃)₂、AgNO₃"},
+        {"label": "B", "text": "NaNO₂、KI、KMnO₄"},
+        {"label": "C", "text": "NH₄Cl、NaOH、奈斯勒试剂"},
+        {"label": "D", "text": "PbO₂、HCl、KClO₃"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "教材实验明确列出 KNO₃、Cu(NO₃)₂ 和 AgNO₃ 三种硝酸盐。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-1-2241ae7a", "candidate-2-aa0424f2", "candidate-3-91bbea2b"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["sample_set", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-1-2241ae7a", "role": "correct_evidence", "diagnostic_note": "三种样品完整。"},
+        {"label": "B", "point_key": null, "role": "distractor_previous_packets", "diagnostic_note": "来自亚硝酸实验。"},
+        {"label": "C", "point_key": null, "role": "distractor_previous_subsection", "diagnostic_note": "来自铵盐实验。"},
+        {"label": "D", "point_key": null, "role": "distractor_other_experiment", "diagnostic_note": "不是本实验。"}
+      ],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00243_765fc7b450"], "supporting_theory_chunk_ids": [], "evidence_sufficient": true, "supporting_theory_required": false, "reviewer_note": "样品集合由 canonical 直接给出。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_07_Q003",
+      "question_type": "single_choice",
+      "stem": "用火柴余烬检验热分解生成气体，主要用于判断哪种气体？",
+      "options": [
+        {"label": "A", "text": "氧气"},
+        {"label": "B", "text": "氨气"},
+        {"label": "C", "text": "氢气"},
+        {"label": "D", "text": "氯气"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "余烬复燃是氧气的常见检验现象，教材实验要求用火柴余烬检验生成气体。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-4-29485ccd"],
+      "secondary_point_keys": ["candidate-1-2241ae7a", "candidate-2-aa0424f2", "candidate-3-91bbea2b"],
+      "coverage_tags": ["gas_test", "oxygen", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-4-29485ccd", "role": "correct_evidence", "diagnostic_note": "对应余烬检验。"},
+        {"label": "B", "point_key": null, "role": "distractor_previous_subsection", "diagnostic_note": "氨气不由余烬复燃判断。"},
+        {"label": "C", "point_key": null, "role": "distractor_wrong_gas", "diagnostic_note": "氢气不是余烬复燃检验对象。"},
+        {"label": "D", "point_key": null, "role": "distractor_wrong_gas", "diagnostic_note": "氯气无关。"}
+      ],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00243_765fc7b450"], "supporting_theory_chunk_ids": ["textbook_prose_00562_ef6a65a064", "textbook_prose_00563_d9dcf3d136", "textbook_prose_00564_d916ee2d9c", "textbook_prose_00565_4ff80431a2"], "evidence_sufficient": true, "supporting_theory_required": true, "reviewer_note": "气体检验需 theory 支撑氧气产物。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_07_Q004",
+      "question_type": "single_choice",
+      "stem": "Cu(NO₃)₂ 或 AgNO₃ 热分解时常见的棕色气体是哪一种？",
+      "options": [
+        {"label": "A", "text": "二氧化氮"},
+        {"label": "B", "text": "氨气"},
+        {"label": "C", "text": "氧气"},
+        {"label": "D", "text": "氢气"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "理论段说明多种金属硝酸盐热分解会放出二氧化氮；银盐热分解也给出二氧化氮。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-2-aa0424f2", "candidate-3-91bbea2b"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["brown_gas", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-2-aa0424f2", "role": "correct_evidence", "diagnostic_note": "Cu/Ag 硝酸盐热分解相关。"},
+        {"label": "B", "point_key": null, "role": "distractor_previous_subsection", "diagnostic_note": "氨气无关。"},
+        {"label": "C", "point_key": "candidate-4-29485ccd", "role": "near_miss_other_gas", "diagnostic_note": "氧气可被余烬检验，但不是棕色气体。"},
+        {"label": "D", "point_key": null, "role": "distractor_wrong_gas", "diagnostic_note": "氢气无关。"}
+      ],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00243_765fc7b450"], "supporting_theory_chunk_ids": ["textbook_prose_00564_d916ee2d9c", "textbook_prose_00565_4ff80431a2"], "evidence_sufficient": true, "supporting_theory_required": true, "reviewer_note": "棕色气体需 theory 支撑。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_07_Q005",
+      "question_type": "single_choice",
+      "stem": "本实验的主要操作方式是什么？",
+      "options": [
+        {"label": "A", "text": "加热固体硝酸盐并检验气体"},
+        {"label": "B", "text": "将硝酸盐溶液滴入 KI 中"},
+        {"label": "C", "text": "点滴板上加入萘胺显色"},
+        {"label": "D", "text": "用锌验证铵根"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "三个盐样品都以加热分解为核心操作，最后一步是检验热分解生成气体。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-1-2241ae7a", "candidate-2-aa0424f2", "candidate-3-91bbea2b", "candidate-4-29485ccd"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["operation", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-1-2241ae7a", "role": "correct_evidence", "diagnostic_note": "覆盖热分解操作。"},
+        {"label": "B", "point_key": null, "role": "distractor_previous_packet", "diagnostic_note": "属于亚硝酸氧化性。"},
+        {"label": "C", "point_key": null, "role": "distractor_previous_packet", "diagnostic_note": "属于亚硝酸根检验。"},
+        {"label": "D", "point_key": null, "role": "distractor_previous_packet", "diagnostic_note": "属于硝酸氧化性锌点位。"}
+      ],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00243_765fc7b450"], "supporting_theory_chunk_ids": [], "evidence_sufficient": true, "supporting_theory_required": false, "reviewer_note": "操作方式由 canonical 直接支撑。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_07_Q006",
+      "question_type": "single_choice",
+      "stem": "比较三种硝酸盐热分解，最重要的是比较什么？",
+      "options": [
+        {"label": "A", "text": "分解产物和现象的异同"},
+        {"label": "B", "text": "溶液酸碱度变化"},
+        {"label": "C", "text": "金属离子配位颜色"},
+        {"label": "D", "text": "铵根是否放出氨气"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "教材实验要求说明三种硝酸盐热分解反应的异同，而不是单背样品名称。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-1-2241ae7a", "candidate-2-aa0424f2", "candidate-3-91bbea2b", "candidate-4-29485ccd"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["comparison_goal", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-1-2241ae7a", "role": "correct_evidence", "diagnostic_note": "比较异同。"},
+        {"label": "B", "point_key": null, "role": "distractor_wrong_focus", "diagnostic_note": "不是酸碱度实验。"},
+        {"label": "C", "point_key": null, "role": "distractor_wrong_focus", "diagnostic_note": "不是配位颜色。"},
+        {"label": "D", "point_key": null, "role": "distractor_previous_packet", "diagnostic_note": "属于锌产物验证。"}
+      ],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00243_765fc7b450"], "supporting_theory_chunk_ids": ["textbook_prose_00562_ef6a65a064", "textbook_prose_00564_d916ee2d9c", "textbook_prose_00565_4ff80431a2"], "evidence_sufficient": true, "supporting_theory_required": true, "reviewer_note": "比较题需 theory 支撑不同类型。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_07_Q007",
+      "question_type": "single_choice",
+      "stem": "KNO₃ 热分解最适合与哪条理论规律对应？",
+      "options": [
+        {"label": "A", "text": "活泼金属硝酸盐可生成亚硝酸盐和氧气"},
+        {"label": "B", "text": "银盐必生成金属银和棕色气体"},
+        {"label": "C", "text": "所有硝酸盐只生成氨气"},
+        {"label": "D", "text": "所有硝酸盐都完全不分解"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "KNO₃ 属于活泼金属硝酸盐一类，理论规律指向亚硝酸盐和氧气。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-1-2241ae7a"],
+      "secondary_point_keys": ["candidate-4-29485ccd"],
+      "coverage_tags": ["potassium_nitrate", "oxygen", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-1-2241ae7a", "role": "correct_evidence", "diagnostic_note": "KNO₃ 类型。"},
+        {"label": "B", "point_key": "candidate-3-91bbea2b", "role": "adjacent_silver_nitrate", "diagnostic_note": "属于 AgNO₃。"},
+        {"label": "C", "point_key": null, "role": "distractor_wrong_product", "diagnostic_note": "氨气不是热分解核心。"},
+        {"label": "D", "point_key": null, "role": "distractor_contradiction", "diagnostic_note": "本实验就是热分解。"}
+      ],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00243_765fc7b450"], "supporting_theory_chunk_ids": ["textbook_prose_00562_ef6a65a064", "textbook_prose_00563_d9dcf3d136"], "evidence_sufficient": true, "supporting_theory_required": true, "reviewer_note": "KNO3 类型题。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_07_Q008",
+      "question_type": "single_choice",
+      "stem": "AgNO₃ 热分解最适合与哪条理论规律对应？",
+      "options": [
+        {"label": "A", "text": "生成金属银、二氧化氮和氧气"},
+        {"label": "B", "text": "只生成亚硝酸银和水"},
+        {"label": "C", "text": "只生成氨气"},
+        {"label": "D", "text": "只生成氢气"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "理论段明确给出 AgNO₃ 热分解生成银、二氧化氮和氧气。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-3-91bbea2b"],
+      "secondary_point_keys": ["candidate-4-29485ccd"],
+      "coverage_tags": ["silver_nitrate", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-3-91bbea2b", "role": "correct_evidence", "diagnostic_note": "AgNO₃ 类型。"},
+        {"label": "B", "point_key": null, "role": "distractor_wrong_product", "diagnostic_note": "不是该规律。"},
+        {"label": "C", "point_key": null, "role": "distractor_wrong_gas", "diagnostic_note": "氨气无关。"},
+        {"label": "D", "point_key": null, "role": "distractor_wrong_gas", "diagnostic_note": "氢气无关。"}
+      ],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00243_765fc7b450"], "supporting_theory_chunk_ids": ["textbook_prose_00565_4ff80431a2"], "evidence_sufficient": true, "supporting_theory_required": true, "reviewer_note": "AgNO3 热分解直接由 theory 支撑。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_07_Q009",
+      "question_type": "single_choice",
+      "stem": "进行 Cu(NO₃)₂ 或 AgNO₃ 热分解时，哪种有害棕色气体需要特别注意？",
+      "options": [
+        {"label": "A", "text": "二氧化氮"},
+        {"label": "B", "text": "氨气"},
+        {"label": "C", "text": "氢气"},
+        {"label": "D", "text": "氦气"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "相关理论规律包含二氧化氮生成，实验观察和安全提示都应注意棕色有害气体。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-2-aa0424f2", "candidate-3-91bbea2b"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["safety", "brown_gas", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-2-aa0424f2", "role": "correct_evidence", "diagnostic_note": "Cu/Ag 硝酸盐相关。"},
+        {"label": "B", "point_key": null, "role": "distractor_previous_subsection", "diagnostic_note": "氨气无关。"},
+        {"label": "C", "point_key": null, "role": "distractor_wrong_gas", "diagnostic_note": "氢气无关。"},
+        {"label": "D", "point_key": null, "role": "distractor_unreactive_gas", "diagnostic_note": "氦气无关。"}
+      ],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00243_765fc7b450"], "supporting_theory_chunk_ids": ["textbook_prose_00564_d916ee2d9c", "textbook_prose_00565_4ff80431a2"], "evidence_sufficient": true, "supporting_theory_required": true, "reviewer_note": "安全相关产物题。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_07_Q010",
+      "question_type": "single_choice",
+      "stem": "在 KNO₃、Cu(NO₃)₂、AgNO₃ 热分解及余烬验气中，哪一项不属于本实验观察内容？",
+      "options": [
+        {"label": "A", "text": "Fe²⁺ 与 NO 形成棕色配合物"},
+        {"label": "B", "text": "KNO₃ 热分解"},
+        {"label": "C", "text": "Cu(NO₃)₂ 热分解"},
+        {"label": "D", "text": "用火柴余烬检验气体"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "Fe²⁺ 与 NO 的棕色配合物属于硝酸根检验的后续小项，不是本热分解实验的观察内容。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-1-2241ae7a", "candidate-2-aa0424f2", "candidate-3-91bbea2b", "candidate-4-29485ccd"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["evidence_boundary", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": null, "role": "correct_scope_exclusion", "diagnostic_note": "对应硝酸根检验内容，但非本热分解实验。"},
+        {"label": "B", "point_key": "candidate-1-2241ae7a", "role": "packet_point", "diagnostic_note": "本热分解实验。"},
+        {"label": "C", "point_key": "candidate-2-aa0424f2", "role": "packet_point", "diagnostic_note": "本热分解实验。"},
+        {"label": "D", "point_key": "candidate-4-29485ccd", "role": "packet_point", "diagnostic_note": "本热分解实验。"}
+      ],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00243_765fc7b450"], "supporting_theory_chunk_ids": [], "evidence_sufficient": true, "supporting_theory_required": false, "reviewer_note": "明确排除 expchunk_00244 的硝酸根检验内容。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_07_Q011",
+      "question_type": "true_false",
+      "stem": "本实验用火柴余烬检验热分解生成的气体。",
+      "answer": {"value": true},
+      "explanation": "教材实验明确要求用火柴余烬检验反应生成的气体。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-4-29485ccd"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["gas_test", "true_false"],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00243_765fc7b450"], "supporting_theory_chunk_ids": [], "evidence_sufficient": true, "supporting_theory_required": false, "reviewer_note": "检验工具直接支撑。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_07_Q012",
+      "question_type": "true_false",
+      "stem": "火柴余烬复燃主要用来判断氨气。",
+      "answer": {"value": false},
+      "explanation": "余烬复燃对应氧气，不是氨气。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-4-29485ccd"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["gas_test", "true_false"],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00243_765fc7b450"], "supporting_theory_chunk_ids": ["textbook_prose_00562_ef6a65a064"], "evidence_sufficient": true, "supporting_theory_required": true, "reviewer_note": "气体检验判断。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_07_Q013",
+      "question_type": "true_false",
+      "stem": "Cu(NO₃)₂ 或 AgNO₃ 热分解时可能观察到二氧化氮相关的棕色气体。",
+      "answer": {"value": true},
+      "explanation": "理论段说明相关金属硝酸盐热分解可生成二氧化氮。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-2-aa0424f2", "candidate-3-91bbea2b"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["brown_gas", "true_false", "multi_point"],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00243_765fc7b450"], "supporting_theory_chunk_ids": ["textbook_prose_00564_d916ee2d9c", "textbook_prose_00565_4ff80431a2"], "evidence_sufficient": true, "supporting_theory_required": true, "reviewer_note": "棕色气体判断。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_07_Q014",
+      "question_type": "true_false",
+      "stem": "本实验主要比较三种硝酸盐热分解反应的异同。",
+      "answer": {"value": true},
+      "explanation": "教材实验明确要求说明三种硝酸盐热分解反应的异同。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-1-2241ae7a", "candidate-2-aa0424f2", "candidate-3-91bbea2b"],
+      "secondary_point_keys": ["candidate-4-29485ccd"],
+      "coverage_tags": ["comparison_goal", "true_false", "multi_point"],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00243_765fc7b450"], "supporting_theory_chunk_ids": ["textbook_prose_00562_ef6a65a064", "textbook_prose_00564_d916ee2d9c", "textbook_prose_00565_4ff80431a2"], "evidence_sufficient": true, "supporting_theory_required": true, "reviewer_note": "异同比较判断。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_07_Q015",
+      "question_type": "true_false",
+      "stem": "本实验的主要操作是加热固体硝酸盐样品。",
+      "answer": {"value": true},
+      "explanation": "KNO₃、Cu(NO₃)₂、AgNO₃ 三个样品都属于固体硝酸盐的热分解。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-1-2241ae7a", "candidate-2-aa0424f2", "candidate-3-91bbea2b"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["operation", "true_false", "multi_point"],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00243_765fc7b450"], "supporting_theory_chunk_ids": [], "evidence_sufficient": true, "supporting_theory_required": false, "reviewer_note": "操作判断。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_07_Q016",
+      "question_type": "true_false",
+      "stem": "本热分解实验的核心安全关注之一是氦气。",
+      "answer": {"value": false},
+      "explanation": "硝酸盐热分解可能涉及氧气和二氧化氮等，而不是氦气。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-2-aa0424f2", "candidate-3-91bbea2b", "candidate-4-29485ccd"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["safety", "true_false", "multi_point"],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00243_765fc7b450"], "supporting_theory_chunk_ids": ["textbook_prose_00564_d916ee2d9c", "textbook_prose_00565_4ff80431a2"], "evidence_sufficient": true, "supporting_theory_required": true, "reviewer_note": "排除无关气体。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_07_Q017",
+      "question_type": "true_false",
+      "stem": "AgNO₃ 热分解可生成金属银，同时放出含氮棕色气体和氧气。",
+      "answer": {"value": true},
+      "explanation": "理论段给出 AgNO₃ 分解生成银、二氧化氮和氧气。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-3-91bbea2b"],
+      "secondary_point_keys": ["candidate-4-29485ccd"],
+      "coverage_tags": ["silver_nitrate", "true_false", "multi_point"],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00243_765fc7b450"], "supporting_theory_chunk_ids": ["textbook_prose_00565_4ff80431a2"], "evidence_sufficient": true, "supporting_theory_required": true, "reviewer_note": "AgNO3 理论产物。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_07_Q018",
+      "question_type": "single_choice",
+      "stem": "哪一项最能说明 KNO₃ 和 AgNO₃ 热分解的差异？",
+      "options": [
+        {"label": "A", "text": "前者偏向亚硝酸盐和氧气，后者可生成金属银、二氧化氮和氧气"},
+        {"label": "B", "text": "二者都只生成氨气"},
+        {"label": "C", "text": "二者都完全不分解"},
+        {"label": "D", "text": "二者都只生成水"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "不同金属阳离子对应不同热分解类型，正是本实验要求比较的重点。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-1-2241ae7a", "candidate-3-91bbea2b"],
+      "secondary_point_keys": ["candidate-4-29485ccd"],
+      "coverage_tags": ["product_comparison", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-1-2241ae7a", "role": "correct_evidence", "diagnostic_note": "比较 KNO₃ 和 AgNO₃。"},
+        {"label": "B", "point_key": null, "role": "distractor_wrong_product", "diagnostic_note": "氨气无关。"},
+        {"label": "C", "point_key": null, "role": "distractor_contradiction", "diagnostic_note": "与热分解相反。"},
+        {"label": "D", "point_key": null, "role": "distractor_wrong_product", "diagnostic_note": "不是水生成。"}
+      ],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00243_765fc7b450"], "supporting_theory_chunk_ids": ["textbook_prose_00562_ef6a65a064", "textbook_prose_00563_d9dcf3d136", "textbook_prose_00565_4ff80431a2"], "evidence_sufficient": true, "supporting_theory_required": true, "reviewer_note": "K/Ag 对比。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_07_Q019",
+      "question_type": "single_choice",
+      "stem": "哪一项最适合作为热分解气体检验的安全说法？",
+      "options": [
+        {"label": "A", "text": "可用余烬判断氧气，同时注意可能有二氧化氮"},
+        {"label": "B", "text": "只要闻气味即可判断所有气体"},
+        {"label": "C", "text": "可以在密闭空间大量加热"},
+        {"label": "D", "text": "气体一定只有氨气"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "余烬用于氧气判断；Cu/Ag 类硝酸盐还可能生成二氧化氮，应注意通风。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-2-aa0424f2", "candidate-3-91bbea2b", "candidate-4-29485ccd"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["safety", "gas_test", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-4-29485ccd", "role": "correct_evidence", "diagnostic_note": "安全表述准确。"},
+        {"label": "B", "point_key": null, "role": "distractor_unsafe", "diagnostic_note": "闻气味不安全。"},
+        {"label": "C", "point_key": null, "role": "distractor_unsafe", "diagnostic_note": "密闭大量加热不安全。"},
+        {"label": "D", "point_key": null, "role": "distractor_wrong_gas", "diagnostic_note": "氨气不是本实验气体。"}
+      ],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00243_765fc7b450"], "supporting_theory_chunk_ids": ["textbook_prose_00564_d916ee2d9c", "textbook_prose_00565_4ff80431a2"], "evidence_sufficient": true, "supporting_theory_required": true, "reviewer_note": "安全表述题。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_07_Q020",
+      "question_type": "single_choice",
+      "stem": "比较三种硝酸盐受热分解及气体现象时，最适合形成哪一项学习目标？",
+      "options": [
+        {"label": "A", "text": "比较不同硝酸盐受热分解的产物和气体现象"},
+        {"label": "B", "text": "证明所有硝酸盐完全相同"},
+        {"label": "C", "text": "检验亚硝酸根显红色"},
+        {"label": "D", "text": "研究硝酸与金属铜反应"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "三个盐样品和一个气体检验点共同服务于热分解异同的比较。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-1-2241ae7a", "candidate-2-aa0424f2", "candidate-3-91bbea2b", "candidate-4-29485ccd"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["learning_goal", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-1-2241ae7a", "role": "correct_evidence", "diagnostic_note": "完整目标。"},
+        {"label": "B", "point_key": null, "role": "distractor_contradiction", "diagnostic_note": "本实验比较异同。"},
+        {"label": "C", "point_key": null, "role": "distractor_previous_packet", "diagnostic_note": "属于亚硝酸根检验。"},
+        {"label": "D", "point_key": null, "role": "distractor_previous_packet", "diagnostic_note": "属于硝酸氧化性。"}
+      ],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00243_765fc7b450"], "supporting_theory_chunk_ids": ["textbook_prose_00562_ef6a65a064", "textbook_prose_00564_d916ee2d9c", "textbook_prose_00565_4ff80431a2"], "evidence_sufficient": true, "supporting_theory_required": true, "reviewer_note": "学习目标题。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_07_Q021",
+      "question_type": "fill_blank",
+      "stem": "KNO₃、Cu(NO₃)₂ 和 AgNO₃ 三种固体均属于____，本实验比较它们的热分解。",
+      "answer": {"accepted_answers": ["硝酸盐"], "match": "normalized_exact"},
+      "explanation": "这里需要填写的是普通物质类别词。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-1-2241ae7a", "candidate-2-aa0424f2", "candidate-3-91bbea2b"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["experiment_scope", "mobile_safe_fill_blank", "multi_point"],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00243_765fc7b450"], "supporting_theory_chunk_ids": [], "evidence_sufficient": true, "supporting_theory_required": false, "reviewer_note": "类别词填空。"},
+      "mobile_input_risk": "low",
+      "machine_grading": "normalized_exact",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_07_Q022",
+      "question_type": "fill_blank",
+      "stem": "检验热分解生成的气体时使用____。",
+      "answer": {"accepted_answers": ["火柴余烬", "余烬"], "match": "normalized_exact"},
+      "explanation": "教材实验直接要求用火柴余烬检验反应生成的气体。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-4-29485ccd"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["gas_test", "mobile_safe_fill_blank"],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00243_765fc7b450"], "supporting_theory_chunk_ids": [], "evidence_sufficient": true, "supporting_theory_required": false, "reviewer_note": "普通工具词填空。"},
+      "mobile_input_risk": "low",
+      "machine_grading": "normalized_exact",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_07_Q023",
+      "question_type": "fill_blank",
+      "stem": "实验要求说明三种硝酸盐热分解反应的____。",
+      "answer": {"accepted_answers": ["异同", "异同点"], "match": "normalized_exact"},
+      "explanation": "该填空直接来自教材实验目标。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-1-2241ae7a", "candidate-2-aa0424f2", "candidate-3-91bbea2b"],
+      "secondary_point_keys": ["candidate-4-29485ccd"],
+      "coverage_tags": ["comparison_goal", "mobile_safe_fill_blank", "multi_point"],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00243_765fc7b450"], "supporting_theory_chunk_ids": [], "evidence_sufficient": true, "supporting_theory_required": false, "reviewer_note": "普通目标词填空。"},
+      "mobile_input_risk": "low",
+      "machine_grading": "normalized_exact",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_07_Q024",
+      "question_type": "fill_blank",
+      "stem": "硝酸盐热分解实验的主要操作是____固体样品。",
+      "answer": {"accepted_answers": ["加热"], "match": "normalized_exact"},
+      "explanation": "三个样品都属于加热固体硝酸盐。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-1-2241ae7a", "candidate-2-aa0424f2", "candidate-3-91bbea2b"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["operation", "mobile_safe_fill_blank", "multi_point"],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00243_765fc7b450"], "supporting_theory_chunk_ids": [], "evidence_sufficient": true, "supporting_theory_required": false, "reviewer_note": "普通操作词填空。"},
+      "mobile_input_risk": "low",
+      "machine_grading": "normalized_exact",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_07_Q025",
+      "question_type": "single_choice",
+      "stem": "讨论 KNO₃ 热分解时，哪一种说法把 AgNO₃ 的生成物错套了进来？",
+      "options": [
+        {"label": "A", "text": "一定生成金属银"},
+        {"label": "B", "text": "属于硝酸盐热分解"},
+        {"label": "C", "text": "需要关注氧气"},
+        {"label": "D", "text": "可与余烬检验点关联"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "生成金属银是 AgNO₃ 类型的特征，不应套到 KNO₃ 热分解内容。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-1-2241ae7a", "candidate-3-91bbea2b", "candidate-4-29485ccd"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["distractor_design", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-3-91bbea2b", "role": "correct_distractor", "diagnostic_note": "来自 AgNO₃ 热分解内容。"},
+        {"label": "B", "point_key": "candidate-1-2241ae7a", "role": "supported_statement", "diagnostic_note": "KNO₃ 热分解内容正确。"},
+        {"label": "C", "point_key": "candidate-4-29485ccd", "role": "supported_statement", "diagnostic_note": "氧气检验相关。"},
+        {"label": "D", "point_key": "candidate-4-29485ccd", "role": "supported_statement", "diagnostic_note": "余烬检验相关。"}
+      ],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00243_765fc7b450"], "supporting_theory_chunk_ids": ["textbook_prose_00562_ef6a65a064", "textbook_prose_00563_d9dcf3d136", "textbook_prose_00565_4ff80431a2"], "evidence_sufficient": true, "supporting_theory_required": true, "reviewer_note": "干扰项设计题。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_07_Q026",
+      "question_type": "single_choice",
+      "stem": "讨论 AgNO₃ 热分解时，哪一种说法把 KNO₃ 的分解类型错套了进来？",
+      "options": [
+        {"label": "A", "text": "只生成亚硝酸钾"},
+        {"label": "B", "text": "可生成金属银"},
+        {"label": "C", "text": "可能放出二氧化氮"},
+        {"label": "D", "text": "可能放出氧气"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "亚硝酸钾对应 KNO₃ 类型思路，不应放到 AgNO₃ 热分解内容。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-1-2241ae7a", "candidate-3-91bbea2b", "candidate-4-29485ccd"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["distractor_design", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-1-2241ae7a", "role": "correct_distractor", "diagnostic_note": "来自 KNO₃ 类型。"},
+        {"label": "B", "point_key": "candidate-3-91bbea2b", "role": "supported_statement", "diagnostic_note": "AgNO₃ 热分解内容正确。"},
+        {"label": "C", "point_key": "candidate-3-91bbea2b", "role": "supported_statement", "diagnostic_note": "AgNO₃ 热分解内容正确。"},
+        {"label": "D", "point_key": "candidate-4-29485ccd", "role": "supported_statement", "diagnostic_note": "氧气检验相关。"}
+      ],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00243_765fc7b450"], "supporting_theory_chunk_ids": ["textbook_prose_00562_ef6a65a064", "textbook_prose_00563_d9dcf3d136", "textbook_prose_00565_4ff80431a2"], "evidence_sufficient": true, "supporting_theory_required": true, "reviewer_note": "干扰项设计题。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_07_Q027",
+      "question_type": "single_choice",
+      "stem": "下列哪一项最能说明为什么要设置“火柴余烬”检验？",
+      "options": [
+        {"label": "A", "text": "多个硝酸盐热分解可能产生氧气，需要实验检验"},
+        {"label": "B", "text": "余烬可以检验所有棕色气体"},
+        {"label": "C", "text": "余烬可以检验铵根"},
+        {"label": "D", "text": "余烬用于确认金属银的颜色"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "理论规律显示热分解常伴随氧气生成，余烬检验用于判断该气体。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-1-2241ae7a", "candidate-2-aa0424f2", "candidate-3-91bbea2b", "candidate-4-29485ccd"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["gas_test_purpose", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-4-29485ccd", "role": "correct_evidence", "diagnostic_note": "解释余烬点位。"},
+        {"label": "B", "point_key": null, "role": "distractor_overclaim", "diagnostic_note": "余烬不检验所有棕色气体。"},
+        {"label": "C", "point_key": null, "role": "distractor_previous_subsection", "diagnostic_note": "铵根无关。"},
+        {"label": "D", "point_key": "candidate-3-91bbea2b", "role": "near_miss_wrong_purpose", "diagnostic_note": "金属银不是余烬检验对象。"}
+      ],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00243_765fc7b450"], "supporting_theory_chunk_ids": ["textbook_prose_00562_ef6a65a064", "textbook_prose_00564_d916ee2d9c", "textbook_prose_00565_4ff80431a2"], "evidence_sufficient": true, "supporting_theory_required": true, "reviewer_note": "余烬点位目的。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_07_Q028",
+      "question_type": "single_choice",
+      "stem": "棕色环配合物与本热分解实验的关系应如何判断？",
+      "options": [
+        {"label": "A", "text": "排除在本热分解实验之外"},
+        {"label": "B", "text": "归入 KNO₃ 热分解内容"},
+        {"label": "C", "text": "归入火柴余烬检验氧气内容"},
+        {"label": "D", "text": "作为 AgNO₃ 热分解的唯一结论"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "棕色环配合物属于硝酸根检验小项，不是三种硝酸盐热分解和余烬验气的内容。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-1-2241ae7a", "candidate-2-aa0424f2", "candidate-3-91bbea2b", "candidate-4-29485ccd"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["evidence_boundary", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": null, "role": "correct_scope_exclusion", "diagnostic_note": "排除硝酸根检验。"},
+        {"label": "B", "point_key": "candidate-1-2241ae7a", "role": "wrong_binding", "diagnostic_note": "不属于 KNO₃ 热分解。"},
+        {"label": "C", "point_key": "candidate-4-29485ccd", "role": "wrong_binding", "diagnostic_note": "不属于余烬验氧。"},
+        {"label": "D", "point_key": "candidate-3-91bbea2b", "role": "wrong_binding", "diagnostic_note": "不属于 AgNO₃ 分解。"}
+      ],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00243_765fc7b450"], "supporting_theory_chunk_ids": [], "evidence_sufficient": true, "supporting_theory_required": false, "reviewer_note": "排除 expchunk_00244。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_07_Q029",
+      "question_type": "single_choice",
+      "stem": "只依据三种固体硝酸盐加热和火柴余烬验气，哪一项边界判断最准确？",
+      "options": [
+        {"label": "A", "text": "三种硝酸盐热分解及热分解气体检验"},
+        {"label": "B", "text": "硝酸的氧化性与锌产物验证"},
+        {"label": "C", "text": "硝酸根棕色环检验"},
+        {"label": "D", "text": "亚硝酸根点滴板显色"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "本热分解实验只覆盖三种固体硝酸盐热分解和火柴余烬验气。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-1-2241ae7a", "candidate-2-aa0424f2", "candidate-3-91bbea2b", "candidate-4-29485ccd"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["evidence_boundary", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-1-2241ae7a", "role": "correct_boundary", "diagnostic_note": "范围准确。"},
+        {"label": "B", "point_key": null, "role": "distractor_previous_packet", "diagnostic_note": "属于硝酸氧化性实验。"},
+        {"label": "C", "point_key": null, "role": "distractor_same_chunk_other_subpart", "diagnostic_note": "属于硝酸根检验。"},
+        {"label": "D", "point_key": null, "role": "distractor_previous_packet", "diagnostic_note": "属于亚硝酸根检验。"}
+      ],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00243_765fc7b450"], "supporting_theory_chunk_ids": ["textbook_prose_00562_ef6a65a064", "textbook_prose_00564_d916ee2d9c", "textbook_prose_00565_4ff80431a2"], "evidence_sufficient": true, "supporting_theory_required": true, "reviewer_note": "最终边界题。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_4_07_Q030",
+      "question_type": "single_choice",
+      "stem": "KNO₃、Cu(NO₃)₂、AgNO₃ 热分解及余烬验气共同服务于哪一项比较结论？",
+      "options": [
+        {"label": "A", "text": "不同硝酸盐受热分解产物不同，常需检验氧气并注意二氧化氮"},
+        {"label": "B", "text": "所有硝酸盐都只生成氨气"},
+        {"label": "C", "text": "所有硝酸盐都完全不分解"},
+        {"label": "D", "text": "硝酸盐热分解只用于检验亚硝酸根"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "该结论同时覆盖三种盐的比较、余烬验氧和部分盐释放二氧化氮的安全关注。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-1-2241ae7a", "candidate-2-aa0424f2", "candidate-3-91bbea2b", "candidate-4-29485ccd"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["learning_goal", "conclusion", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-1-2241ae7a", "role": "correct_evidence", "diagnostic_note": "完整结论。"},
+        {"label": "B", "point_key": null, "role": "distractor_wrong_product", "diagnostic_note": "氨气无关。"},
+        {"label": "C", "point_key": null, "role": "distractor_contradiction", "diagnostic_note": "与热分解相反。"},
+        {"label": "D", "point_key": null, "role": "distractor_previous_packet", "diagnostic_note": "亚硝酸根检验无关。"}
+      ],
+      "source_audit": {"canonical_chunk_ids": ["expchunk_00243_765fc7b450"], "supporting_theory_chunk_ids": ["textbook_prose_00562_ef6a65a064", "textbook_prose_00563_d9dcf3d136", "textbook_prose_00564_d916ee2d9c", "textbook_prose_00565_4ff80431a2"], "evidence_sufficient": true, "supporting_theory_required": true, "reviewer_note": "综合结论。"},
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    }
+  ]
+}

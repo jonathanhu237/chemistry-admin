@@ -1,0 +1,3996 @@
+{
+  "metadata": {
+    "version": "chunk-3-release-slim-v1",
+    "artifact_type": "slim_question_bank_work_file",
+    "generated_at": "2026-06-15T03:27:58.895975+00:00",
+    "source_file": "E:\\chemistry-admin\\artifacts\\point-aware-question-bank\\reviewed_old_bank_chunks\\chunk_3_release_final_v1.json",
+    "normalization_rule": "effective question plus minimal lineage, evidence IDs, point bindings, option links, evidence locators, and mechanical risk flags",
+    "evidence_policy": "RAG source text is not embedded; packets carry locators and reviewers must read E:/chemistry-rag/data/rag_ready directly",
+    "chunk_id_policy": "inherited chunk ids are untrusted locator candidates until manually compared with RAG text",
+    "semantic_status": "not_semantically_repaired_by_this_script",
+    "packet_type": "single_experiment_semantic_repair_work_packet",
+    "chunk": 3,
+    "experiment_code": "19-8-06",
+    "question_count": 30
+  },
+  "experiment": {
+    "experiment_id": "EXP_19_8_06",
+    "experiment_code": "19-8-06",
+    "experiment_title": "Sn(II) 的还原性",
+    "chapter_bindings": [
+      {
+        "chapter_id": "CH16",
+        "coverage_type": "partial",
+        "sort_order": 1
+      },
+      {
+        "chapter_id": "CH15",
+        "coverage_type": "partial",
+        "sort_order": 2
+      }
+    ],
+    "video_points": [
+      {
+        "point_key": "candidate-1-4d7bcb6d",
+        "point_title": "SnCl₂ + FeCl₃",
+        "source": null,
+        "candidate_index": null,
+        "resource_count": null,
+        "published_count": null,
+        "resource_titles": []
+      },
+      {
+        "point_key": "candidate-2-24d9ac88",
+        "point_title": "用 KSCN 检验 Fe³⁺ 是否仍存在",
+        "source": null,
+        "candidate_index": null,
+        "resource_count": null,
+        "published_count": null,
+        "resource_titles": []
+      },
+      {
+        "point_key": "candidate-3-b4b43aba",
+        "point_title": "SnCl₂ + HgCl₂",
+        "source": null,
+        "candidate_index": null,
+        "resource_count": null,
+        "published_count": null,
+        "resource_titles": []
+      },
+      {
+        "point_key": "candidate-4-5f9c97e0",
+        "point_title": "比较 Sn(II) 与 Fe(II)、Sn(II) 与 Hg(I) 的还原性",
+        "source": null,
+        "candidate_index": null,
+        "resource_count": null,
+        "published_count": null,
+        "resource_titles": []
+      }
+    ],
+    "canonical_chunk_ids": [
+      "expchunk_00296_a4c00bb9d1",
+      "expchunk_00297_c03527ab79"
+    ],
+    "evidence_lookup": {
+      "policy": "locator_only; canonical RAG text is not embedded in this packet",
+      "chunk_id_policy": "metadata chunk ids are inherited claims, not trusted evidence; reviewers must compare the RAG text against the question stem/options/answer/explanation and replace or remove wrong ids",
+      "primary_source_dir": "E:\\chemistry-rag\\data\\rag_ready",
+      "source_files": {
+        "experiment_chunks": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+        "supporting_theory_chunks": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl"
+      },
+      "search_hints": {
+        "experiment_code": "19-8-06",
+        "parent_experiment_code": "19-8",
+        "experiment_title": "Sn(II) 的还原性",
+        "video_point_titles": [
+          "SnCl₂ + FeCl₃",
+          "用 KSCN 检验 Fe³⁺ 是否仍存在",
+          "SnCl₂ + HgCl₂",
+          "比较 Sn(II) 与 Fe(II)、Sn(II) 与 Hg(I) 的还原性"
+        ],
+        "canonical_chunk_ids_from_metadata": [
+          "expchunk_00296_a4c00bb9d1",
+          "expchunk_00297_c03527ab79"
+        ],
+        "supporting_theory_chunk_ids_from_metadata": [
+          "textbook_prose_00773_a0b6644822",
+          "textbook_prose_00774_e51e8911a2",
+          "textbook_prose_01090_56461596a1",
+          "textbook_prose_01304_9920c29f9d"
+        ],
+        "suggested_search_patterns": [
+          "19-8-06",
+          "19-8",
+          "Sn(II) 的还原性",
+          "SnCl₂ + FeCl₃",
+          "用 KSCN 检验 Fe³⁺ 是否仍存在",
+          "SnCl₂ + HgCl₂",
+          "比较 Sn(II) 与 Fe(II)、Sn(II) 与 Hg(I) 的还原性",
+          "expchunk_00296_a4c00bb9d1",
+          "expchunk_00297_c03527ab79",
+          "textbook_prose_00773_a0b6644822",
+          "textbook_prose_00774_e51e8911a2",
+          "textbook_prose_01090_56461596a1",
+          "textbook_prose_01304_9920c29f9d"
+        ]
+      },
+      "rag_exact_id_presence": {
+        "meaning": "id presence only; this does not validate semantic relevance",
+        "found_ids": [
+          "expchunk_00296_a4c00bb9d1",
+          "expchunk_00297_c03527ab79",
+          "textbook_prose_00773_a0b6644822",
+          "textbook_prose_00774_e51e8911a2",
+          "textbook_prose_01090_56461596a1",
+          "textbook_prose_01304_9920c29f9d"
+        ],
+        "missing_ids": [],
+        "found_locator_summaries": [
+          {
+            "chunk_id": "expchunk_00296_a4c00bb9d1",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+            "line_number": 309,
+            "source_collection": "textbook_experiment_clean_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学实验（第四版）",
+            "page_start": 159,
+            "page_end": 159,
+            "section_path": [
+              "第7章 元素性质实验",
+              "实验 19-8 锡、铅、砷、锑、铋",
+              "（四）实验内容",
+              "2. 氧化还原性"
+            ],
+            "content_type": "property_test",
+            "knowledge_unit": "property_test",
+            "parent_id": "expchunk_protocol_ccb6245e7635",
+            "prev_chunk_id": "expchunk_00295_b30319fd2c",
+            "next_chunk_id": "expchunk_00297_c03527ab79",
+            "relations": {
+              "section_id": "expsec_d5f60796d7bc2d1a",
+              "experiment_id": "experiment:实验_19-8_锡_铅_砷_锑_铋",
+              "page_anchor": "page_159",
+              "parent": "expchunk_protocol_ccb6245e7635"
+            }
+          },
+          {
+            "chunk_id": "expchunk_00297_c03527ab79",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+            "line_number": 310,
+            "source_collection": "textbook_experiment_clean_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学实验（第四版）",
+            "page_start": 160,
+            "page_end": 160,
+            "section_path": [
+              "第7章 元素性质实验",
+              "实验 19-8 锡、铅、砷、锑、铋",
+              "（四）实验内容",
+              "2. 氧化还原性"
+            ],
+            "content_type": "property_test",
+            "knowledge_unit": "property_test",
+            "parent_id": "expchunk_protocol_ccb6245e7635",
+            "prev_chunk_id": "expchunk_00296_a4c00bb9d1",
+            "next_chunk_id": "expchunk_00298_68f5de393c",
+            "relations": {
+              "section_id": "expsec_ef94d63812ecada0",
+              "experiment_id": "experiment:实验_19-8_锡_铅_砷_锑_铋",
+              "page_anchor": "page_160",
+              "parent": "expchunk_protocol_ccb6245e7635"
+            }
+          },
+          {
+            "chunk_id": "textbook_prose_00773_a0b6644822",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+            "line_number": 1234,
+            "source_collection": "textbook_inorganic_lower_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学（下册）（第二版）",
+            "page_start": 127,
+            "page_end": 127,
+            "section_path": [
+              "第 16 章 碳族元素",
+              "16.5 锗、锡、铅的化合物",
+              "16.5.3 卤化物",
+              "2) $\\mathrm{SnCl}_{2}$ 的还原性"
+            ],
+            "content_type": "reaction",
+            "knowledge_unit": "reaction",
+            "parent_id": "section:89afc19c23d9",
+            "prev_chunk_id": "textbook_prose_00772_1a0900f747",
+            "next_chunk_id": "textbook_prose_00774_e51e8911a2",
+            "relations": {
+              "parent": "section:89afc19c23d9",
+              "source_route": "clean_pages",
+              "prev": "textbook_prose_00772_1a0900f747",
+              "next": "textbook_prose_00774_e51e8911a2"
+            }
+          },
+          {
+            "chunk_id": "textbook_prose_00774_e51e8911a2",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+            "line_number": 1235,
+            "source_collection": "textbook_inorganic_lower_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学（下册）（第二版）",
+            "page_start": 127,
+            "page_end": 127,
+            "section_path": [
+              "第 16 章 碳族元素",
+              "16.5 锗、锡、铅的化合物",
+              "16.5.3 卤化物",
+              "2) $\\mathrm{SnCl}_{2}$ 的还原性"
+            ],
+            "content_type": "reaction",
+            "knowledge_unit": "reaction",
+            "parent_id": "section:89afc19c23d9",
+            "prev_chunk_id": "textbook_prose_00773_a0b6644822",
+            "next_chunk_id": null,
+            "relations": {
+              "parent": "section:89afc19c23d9",
+              "source_route": "clean_pages",
+              "prev": "textbook_prose_00773_a0b6644822",
+              "next": null
+            }
+          },
+          {
+            "chunk_id": "textbook_prose_01090_56461596a1",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+            "line_number": 1678,
+            "source_collection": "textbook_inorganic_lower_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学（下册）（第二版）",
+            "page_start": 186,
+            "page_end": 186,
+            "section_path": [
+              "第 19 章 铜锌副族元素",
+              "19.3 锌副族",
+              "19.3.3 汞的化合物",
+              "2) 氯化汞、硝酸汞和硫化汞"
+            ],
+            "content_type": "procedure",
+            "knowledge_unit": "procedure",
+            "parent_id": "section:ffbb892e7448",
+            "prev_chunk_id": null,
+            "next_chunk_id": "textbook_prose_01091_6b9e310a9d",
+            "relations": {
+              "parent": "section:ffbb892e7448",
+              "source_route": "clean_pages",
+              "prev": null,
+              "next": "textbook_prose_01091_6b9e310a9d"
+            }
+          },
+          {
+            "chunk_id": "textbook_prose_01304_9920c29f9d",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+            "line_number": 1990,
+            "source_collection": "textbook_inorganic_lower_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学（下册）（第二版）",
+            "page_start": 226,
+            "page_end": 226,
+            "section_path": [
+              "第 20 章 d 区过渡金属元素",
+              "20.2 第一过渡系列金属元素及其常见化合物",
+              "20.2.6 铁、钴、镍",
+              "iv)其他重要的配合物"
+            ],
+            "content_type": "definition",
+            "knowledge_unit": "definition",
+            "parent_id": "section:e8abe116f1a1",
+            "prev_chunk_id": "textbook_figure_figure_p226_01",
+            "next_chunk_id": "textbook_prose_01305_dd5a94da50",
+            "relations": {
+              "parent": "section:e8abe116f1a1",
+              "source_route": "clean_pages",
+              "prev": "textbook_figure_figure_p226_01",
+              "next": "textbook_prose_01305_dd5a94da50"
+            }
+          }
+        ]
+      },
+      "legacy_locator_summaries": [
+        {
+          "chunk_id": "expchunk_00296_a4c00bb9d1",
+          "source_file": "无机化学实验（第四版）",
+          "book_title": "无机化学实验（第四版）",
+          "document_id": "DOC_CANONICAL_EXPERIMENT_V1",
+          "source_collection": "textbook_experiment_clean_v1",
+          "source_role": "canonical_textbook",
+          "content_type": "property_test",
+          "chapter_id": null,
+          "page_number": 159,
+          "section_title": "实验 19-8 锡、铅、砷、锑、铋 / （四）实验内容 / 2. 氧化还原性",
+          "section_path": [
+            "第7章 元素性质实验",
+            "实验 19-8 锡、铅、砷、锑、铋",
+            "（四）实验内容",
+            "2. 氧化还原性"
+          ]
+        },
+        {
+          "chunk_id": "expchunk_00297_c03527ab79",
+          "source_file": "无机化学实验（第四版）",
+          "book_title": "无机化学实验（第四版）",
+          "document_id": "DOC_CANONICAL_EXPERIMENT_V1",
+          "source_collection": "textbook_experiment_clean_v1",
+          "source_role": "canonical_textbook",
+          "content_type": "property_test",
+          "chapter_id": null,
+          "page_number": 160,
+          "section_title": "实验 19-8 锡、铅、砷、锑、铋 / （四）实验内容 / 2. 氧化还原性",
+          "section_path": [
+            "第7章 元素性质实验",
+            "实验 19-8 锡、铅、砷、锑、铋",
+            "（四）实验内容",
+            "2. 氧化还原性"
+          ]
+        }
+      ],
+      "legacy_missing_ids": [
+        "textbook_prose_00773_a0b6644822",
+        "textbook_prose_00774_e51e8911a2",
+        "textbook_prose_01090_56461596a1",
+        "textbook_prose_01304_9920c29f9d"
+      ]
+    },
+    "questions": [
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_06_Q001",
+        "source_review_id": null,
+        "source_question_index": 1,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-8-06 Sn(II) 的还原性》实验中，检验 Sn(II) 还原 Fe³⁺ 的实验中，向 FeCl₃ 溶液滴加的是哪种溶液？",
+        "options": [
+          {
+            "label": "A",
+            "text": "SnCl₂"
+          },
+          {
+            "label": "B",
+            "text": "NaCl"
+          },
+          {
+            "label": "C",
+            "text": "KSCN"
+          },
+          {
+            "label": "D",
+            "text": "CCl₄"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "步骤为 FeCl₃ 中滴加 SnCl₂。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-4d7bcb6d"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_06",
+          "single_choice",
+          "point_1",
+          "polished_final_v1"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "SnCl₂",
+            "point_key": "candidate-1-4d7bcb6d",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接对应本题考查的实验操作、现象或结论。"
+          },
+          {
+            "label": "B",
+            "text": "NaCl",
+            "point_key": "candidate-1-4d7bcb6d",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“NaCl”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "C",
+            "text": "KSCN",
+            "point_key": "candidate-2-24d9ac88",
+            "role": "adjacent_point",
+            "diagnostic_note": "“KSCN”属于同一实验的“用 KSCN 检验 Fe³⁺ 是否仍存在”点位，但本题考查的是“SnCl₂ + FeCl₃”。"
+          },
+          {
+            "label": "D",
+            "text": "CCl₄",
+            "point_key": "candidate-1-4d7bcb6d",
+            "role": "adjacent_experiment",
+            "diagnostic_note": "“CCl₄”借用了KI/CCl₄ 萃取碘的线索，和本题绑定点位不一致。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00296_a4c00bb9d1",
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00773_a0b6644822",
+            "textbook_prose_00774_e51e8911a2"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00773_a0b6644822（SnCl₂ 是常用还原剂）；textbook_prose_00774_e51e8911a2（SnCl₂ 还原 FeCl₃ 为 FeCl₂）。 绑定点位：SnCl₂ + FeCl₃。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00296_a4c00bb9d1",
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00773_a0b6644822",
+            "textbook_prose_00774_e51e8911a2"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00773_a0b6644822",
+            "textbook_prose_00774_e51e8911a2"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "template_option_link_diagnostic",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-8-06 Sn(II) 的还原性》实验中，检验 Sn(II) 还原 Fe³⁺ 的实验中，向 FeCl₃ 溶液滴加的是哪种溶液？",
+            "options": [
+              {
+                "label": "A",
+                "text": "SnCl₂"
+              },
+              {
+                "label": "B",
+                "text": "NaCl"
+              },
+              {
+                "label": "C",
+                "text": "KSCN"
+              },
+              {
+                "label": "D",
+                "text": "CCl₄"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "步骤为 FeCl₃ 中滴加 SnCl₂。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00296_a4c00bb9d1",
+              "expchunk_00297_c03527ab79"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_06_Q002",
+        "source_review_id": null,
+        "source_question_index": 2,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-8-06 Sn(II) 的还原性》实验中，检验 FeCl₃ 与 SnCl₂ 反应后是否还存在 Fe³⁺，应加入哪种试剂？",
+        "options": [
+          {
+            "label": "A",
+            "text": "浓硫酸"
+          },
+          {
+            "label": "B",
+            "text": "KSCN 溶液"
+          },
+          {
+            "label": "C",
+            "text": "BaCl₂ 溶液"
+          },
+          {
+            "label": "D",
+            "text": "乙醚"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "实验要求用 KSCN 检验 Fe³⁺。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-24d9ac88"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_06",
+          "single_choice",
+          "point_2",
+          "polished_final_v1"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "浓硫酸",
+            "point_key": "candidate-2-24d9ac88",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“浓硫酸”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "B",
+            "text": "KSCN 溶液",
+            "point_key": "candidate-2-24d9ac88",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接对应本题考查的实验操作、现象或结论。"
+          },
+          {
+            "label": "C",
+            "text": "BaCl₂ 溶液",
+            "point_key": "candidate-2-24d9ac88",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“BaCl₂ 溶液”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "D",
+            "text": "乙醚",
+            "point_key": "candidate-2-24d9ac88",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“乙醚”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00296_a4c00bb9d1",
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00773_a0b6644822",
+            "textbook_prose_00774_e51e8911a2",
+            "textbook_prose_01304_9920c29f9d"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00773_a0b6644822（SnCl₂ 是常用还原剂）；textbook_prose_00774_e51e8911a2（SnCl₂ 还原 FeCl₃ 为 FeCl₂）；textbook_prose_01304_9920c29f9d（Fe³⁺ 与 SCN⁻ 形成血红色配合物）。 绑定点位：用 KSCN 检验 Fe³⁺ 是否仍存在。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00296_a4c00bb9d1",
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00773_a0b6644822",
+            "textbook_prose_00774_e51e8911a2",
+            "textbook_prose_01304_9920c29f9d"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00773_a0b6644822",
+            "textbook_prose_00774_e51e8911a2",
+            "textbook_prose_01304_9920c29f9d"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "template_option_link_diagnostic",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-8-06 Sn(II) 的还原性》实验中，检验 FeCl₃ 与 SnCl₂ 反应后是否还存在 Fe³⁺，应加入哪种试剂？",
+            "options": [
+              {
+                "label": "A",
+                "text": "浓硫酸"
+              },
+              {
+                "label": "B",
+                "text": "KSCN 溶液"
+              },
+              {
+                "label": "C",
+                "text": "BaCl₂ 溶液"
+              },
+              {
+                "label": "D",
+                "text": "乙醚"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "实验要求用 KSCN 检验 Fe³⁺。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00296_a4c00bb9d1",
+              "expchunk_00297_c03527ab79"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_06_Q003",
+        "source_review_id": null,
+        "source_question_index": 3,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-8-06 Sn(II) 的还原性》实验中，SnCl₂ 还原 Fe³⁺ 时，Sn(II) 通常被氧化为哪种价态？",
+        "options": [
+          {
+            "label": "A",
+            "text": "Sn(0)"
+          },
+          {
+            "label": "B",
+            "text": "Sn(-II)"
+          },
+          {
+            "label": "C",
+            "text": "Sn(IV)"
+          },
+          {
+            "label": "D",
+            "text": "Sn(VI)"
+          }
+        ],
+        "answer": {
+          "value": "C"
+        },
+        "explanation": "Sn²⁺ 作为还原剂失电子生成 Sn⁴⁺。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-4d7bcb6d"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_06",
+          "single_choice",
+          "point_1",
+          "polished_final_v1"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "Sn(0)",
+            "point_key": "candidate-1-4d7bcb6d",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“Sn(0)”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "B",
+            "text": "Sn(-II)",
+            "point_key": "candidate-1-4d7bcb6d",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“Sn(-II)”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "C",
+            "text": "Sn(IV)",
+            "point_key": "candidate-1-4d7bcb6d",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接对应本题考查的实验操作、现象或结论。"
+          },
+          {
+            "label": "D",
+            "text": "Sn(VI)",
+            "point_key": "candidate-1-4d7bcb6d",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“Sn(VI)”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00296_a4c00bb9d1",
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00773_a0b6644822",
+            "textbook_prose_00774_e51e8911a2"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00773_a0b6644822（SnCl₂ 是常用还原剂）；textbook_prose_00774_e51e8911a2（SnCl₂ 还原 FeCl₃ 为 FeCl₂）。 绑定点位：SnCl₂ + FeCl₃。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00296_a4c00bb9d1",
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00773_a0b6644822",
+            "textbook_prose_00774_e51e8911a2"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00773_a0b6644822",
+            "textbook_prose_00774_e51e8911a2"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "template_option_link_diagnostic",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-8-06 Sn(II) 的还原性》实验中，SnCl₂ 还原 Fe³⁺ 时，Sn(II) 通常被氧化为哪种价态？",
+            "options": [
+              {
+                "label": "A",
+                "text": "Sn(0)"
+              },
+              {
+                "label": "B",
+                "text": "Sn(-II)"
+              },
+              {
+                "label": "C",
+                "text": "Sn(IV)"
+              },
+              {
+                "label": "D",
+                "text": "Sn(VI)"
+              }
+            ],
+            "answer": {
+              "value": "C"
+            },
+            "explanation": "Sn²⁺ 作为还原剂失电子生成 Sn⁴⁺。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00296_a4c00bb9d1",
+              "expchunk_00297_c03527ab79"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_06_Q004",
+        "source_review_id": null,
+        "source_question_index": 4,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-8-06 Sn(II) 的还原性》实验中，Fe³⁺ 被 Sn(II) 还原后主要生成哪种铁离子？",
+        "options": [
+          {
+            "label": "A",
+            "text": "Fe(0)"
+          },
+          {
+            "label": "B",
+            "text": "FeO₄²⁻"
+          },
+          {
+            "label": "C",
+            "text": "[FeCl₄]⁻"
+          },
+          {
+            "label": "D",
+            "text": "Fe²⁺"
+          }
+        ],
+        "answer": {
+          "value": "D"
+        },
+        "explanation": "Fe³⁺ 得电子生成 Fe²⁺。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-4d7bcb6d"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_06",
+          "single_choice",
+          "point_1",
+          "polished_final_v1"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "Fe(0)",
+            "point_key": "candidate-1-4d7bcb6d",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“Fe(0)”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "B",
+            "text": "FeO₄²⁻",
+            "point_key": "candidate-1-4d7bcb6d",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“FeO₄²⁻”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "C",
+            "text": "[FeCl₄]⁻",
+            "point_key": "candidate-1-4d7bcb6d",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“[FeCl₄]⁻”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "D",
+            "text": "Fe²⁺",
+            "point_key": "candidate-1-4d7bcb6d",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接对应本题考查的实验操作、现象或结论。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00296_a4c00bb9d1",
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00773_a0b6644822",
+            "textbook_prose_00774_e51e8911a2"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00773_a0b6644822（SnCl₂ 是常用还原剂）；textbook_prose_00774_e51e8911a2（SnCl₂ 还原 FeCl₃ 为 FeCl₂）。 绑定点位：SnCl₂ + FeCl₃。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00296_a4c00bb9d1",
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00773_a0b6644822",
+            "textbook_prose_00774_e51e8911a2"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00773_a0b6644822",
+            "textbook_prose_00774_e51e8911a2"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "template_option_link_diagnostic",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-8-06 Sn(II) 的还原性》实验中，Fe³⁺ 被 Sn(II) 还原后主要生成哪种铁离子？",
+            "options": [
+              {
+                "label": "A",
+                "text": "Fe(0)"
+              },
+              {
+                "label": "B",
+                "text": "FeO₄²⁻"
+              },
+              {
+                "label": "C",
+                "text": "[FeCl₄]⁻"
+              },
+              {
+                "label": "D",
+                "text": "Fe²⁺"
+              }
+            ],
+            "answer": {
+              "value": "D"
+            },
+            "explanation": "Fe³⁺ 得电子生成 Fe²⁺。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00296_a4c00bb9d1",
+              "expchunk_00297_c03527ab79"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_06_Q005",
+        "source_review_id": null,
+        "source_question_index": 5,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-8-06 Sn(II) 的还原性》实验中，SnCl₂ 与 HgCl₂ 溶液反应通常用于体现 Sn(II) 的哪种性质？",
+        "options": [
+          {
+            "label": "A",
+            "text": "还原性"
+          },
+          {
+            "label": "B",
+            "text": "强碱性"
+          },
+          {
+            "label": "C",
+            "text": "挥发性"
+          },
+          {
+            "label": "D",
+            "text": "萃取性"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "Sn(II) 可还原汞(II)。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-b4b43aba"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_06",
+          "single_choice",
+          "point_3",
+          "polished_final_v1"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "还原性",
+            "point_key": "candidate-3-b4b43aba",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接对应本题考查的实验操作、现象或结论。"
+          },
+          {
+            "label": "B",
+            "text": "强碱性",
+            "point_key": "candidate-3-b4b43aba",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“强碱性”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "C",
+            "text": "挥发性",
+            "point_key": "candidate-3-b4b43aba",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“挥发性”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "D",
+            "text": "萃取性",
+            "point_key": "candidate-3-b4b43aba",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“萃取性”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00296_a4c00bb9d1",
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01090_56461596a1"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_01090_56461596a1（HgCl₂ 被 SnCl₂ 还原为 Hg₂Cl₂/Hg）。 绑定点位：SnCl₂ + HgCl₂。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00296_a4c00bb9d1",
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01090_56461596a1"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01090_56461596a1"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "template_option_link_diagnostic",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-8-06 Sn(II) 的还原性》实验中，SnCl₂ 与 HgCl₂ 溶液反应通常用于体现 Sn(II) 的哪种性质？",
+            "options": [
+              {
+                "label": "A",
+                "text": "还原性"
+              },
+              {
+                "label": "B",
+                "text": "强碱性"
+              },
+              {
+                "label": "C",
+                "text": "挥发性"
+              },
+              {
+                "label": "D",
+                "text": "萃取性"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "Sn(II) 可还原汞(II)。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00296_a4c00bb9d1",
+              "expchunk_00297_c03527ab79"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_06_Q006",
+        "source_review_id": null,
+        "source_question_index": 6,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-8-06 Sn(II) 的还原性》实验中，HgCl₂ 与少量 SnCl₂ 反应可能先出现的白色沉淀通常是哪一种？",
+        "options": [
+          {
+            "label": "A",
+            "text": "BaSO₄"
+          },
+          {
+            "label": "B",
+            "text": "Hg₂Cl₂"
+          },
+          {
+            "label": "C",
+            "text": "AgI"
+          },
+          {
+            "label": "D",
+            "text": "PbCrO₄"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "Sn²⁺ 可将 Hg²⁺ 还原为 Hg(I) 氯化物。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-b4b43aba"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_06",
+          "single_choice",
+          "point_3",
+          "polished_final_v1"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "BaSO₄",
+            "point_key": "candidate-3-b4b43aba",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“BaSO₄”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "B",
+            "text": "Hg₂Cl₂",
+            "point_key": "candidate-3-b4b43aba",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接对应本题考查的实验操作、现象或结论。"
+          },
+          {
+            "label": "C",
+            "text": "AgI",
+            "point_key": "candidate-3-b4b43aba",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“AgI”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "D",
+            "text": "PbCrO₄",
+            "point_key": "candidate-3-b4b43aba",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“PbCrO₄”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00296_a4c00bb9d1",
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01090_56461596a1"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_01090_56461596a1（HgCl₂ 被 SnCl₂ 还原为 Hg₂Cl₂/Hg）。 绑定点位：SnCl₂ + HgCl₂。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00296_a4c00bb9d1",
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01090_56461596a1"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01090_56461596a1"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "template_option_link_diagnostic",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-8-06 Sn(II) 的还原性》实验中，HgCl₂ 与少量 SnCl₂ 反应可能先出现的白色沉淀通常是哪一种？",
+            "options": [
+              {
+                "label": "A",
+                "text": "BaSO₄"
+              },
+              {
+                "label": "B",
+                "text": "Hg₂Cl₂"
+              },
+              {
+                "label": "C",
+                "text": "AgI"
+              },
+              {
+                "label": "D",
+                "text": "PbCrO₄"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "Sn²⁺ 可将 Hg²⁺ 还原为 Hg(I) 氯化物。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00296_a4c00bb9d1",
+              "expchunk_00297_c03527ab79"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_06_Q007",
+        "source_review_id": null,
+        "source_question_index": 7,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-8-06 Sn(II) 的还原性》实验中，若 SnCl₂ 过量，Hg₂Cl₂ 还可能继续被还原生成哪种物质？",
+        "options": [
+          {
+            "label": "A",
+            "text": "O₃"
+          },
+          {
+            "label": "B",
+            "text": "Na₂SO₄"
+          },
+          {
+            "label": "C",
+            "text": "金属 Hg"
+          },
+          {
+            "label": "D",
+            "text": "CrO₅"
+          }
+        ],
+        "answer": {
+          "value": "C"
+        },
+        "explanation": "过量 Sn²⁺ 可继续还原生成汞。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-b4b43aba"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_06",
+          "single_choice",
+          "point_3",
+          "polished_final_v1"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "O₃",
+            "point_key": "candidate-3-b4b43aba",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“O₃”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "B",
+            "text": "Na₂SO₄",
+            "point_key": "candidate-3-b4b43aba",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“Na₂SO₄”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "C",
+            "text": "金属 Hg",
+            "point_key": "candidate-3-b4b43aba",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接对应本题考查的实验操作、现象或结论。"
+          },
+          {
+            "label": "D",
+            "text": "CrO₅",
+            "point_key": "candidate-3-b4b43aba",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“CrO₅”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00296_a4c00bb9d1",
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01090_56461596a1"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_01090_56461596a1（HgCl₂ 被 SnCl₂ 还原为 Hg₂Cl₂/Hg）。 绑定点位：SnCl₂ + HgCl₂。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00296_a4c00bb9d1",
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01090_56461596a1"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01090_56461596a1"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "template_option_link_diagnostic",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-8-06 Sn(II) 的还原性》实验中，若 SnCl₂ 过量，Hg₂Cl₂ 还可能继续被还原生成哪种物质？",
+            "options": [
+              {
+                "label": "A",
+                "text": "O₃"
+              },
+              {
+                "label": "B",
+                "text": "Na₂SO₄"
+              },
+              {
+                "label": "C",
+                "text": "金属 Hg"
+              },
+              {
+                "label": "D",
+                "text": "CrO₅"
+              }
+            ],
+            "answer": {
+              "value": "C"
+            },
+            "explanation": "过量 Sn²⁺ 可继续还原生成汞。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00296_a4c00bb9d1",
+              "expchunk_00297_c03527ab79"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_06_Q008",
+        "source_review_id": null,
+        "source_question_index": 8,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-8-06 Sn(II) 的还原性》实验中，用 KSCN 检验 Fe³⁺ 时，若 Fe³⁺ 明显存在，常见现象是哪一项？",
+        "options": [
+          {
+            "label": "A",
+            "text": "产生臭氧气味"
+          },
+          {
+            "label": "B",
+            "text": "CCl₄ 层变紫"
+          },
+          {
+            "label": "C",
+            "text": "生成蓝色 N₂O₃"
+          },
+          {
+            "label": "D",
+            "text": "出现血红色"
+          }
+        ],
+        "answer": {
+          "value": "D"
+        },
+        "explanation": "Fe³⁺ 与 SCN⁻ 形成血红色配合物。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-24d9ac88"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_06",
+          "single_choice",
+          "point_2",
+          "polished_final_v1"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "产生臭氧气味",
+            "point_key": "candidate-2-24d9ac88",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“产生臭氧气味”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "B",
+            "text": "CCl₄ 层变紫",
+            "point_key": "candidate-2-24d9ac88",
+            "role": "adjacent_experiment",
+            "diagnostic_note": "“CCl₄ 层变紫”借用了KI/CCl₄ 萃取碘的线索，和本题绑定点位不一致。"
+          },
+          {
+            "label": "C",
+            "text": "生成蓝色 N₂O₃",
+            "point_key": "candidate-2-24d9ac88",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“生成蓝色 N₂O₃”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "D",
+            "text": "出现血红色",
+            "point_key": "candidate-2-24d9ac88",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接对应本题考查的实验操作、现象或结论。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00296_a4c00bb9d1",
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00773_a0b6644822",
+            "textbook_prose_00774_e51e8911a2",
+            "textbook_prose_01304_9920c29f9d"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00773_a0b6644822（SnCl₂ 是常用还原剂）；textbook_prose_00774_e51e8911a2（SnCl₂ 还原 FeCl₃ 为 FeCl₂）；textbook_prose_01304_9920c29f9d（Fe³⁺ 与 SCN⁻ 形成血红色配合物）。 绑定点位：用 KSCN 检验 Fe³⁺ 是否仍存在。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00296_a4c00bb9d1",
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00773_a0b6644822",
+            "textbook_prose_00774_e51e8911a2",
+            "textbook_prose_01304_9920c29f9d"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00773_a0b6644822",
+            "textbook_prose_00774_e51e8911a2",
+            "textbook_prose_01304_9920c29f9d"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "template_option_link_diagnostic",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-8-06 Sn(II) 的还原性》实验中，用 KSCN 检验 Fe³⁺ 时，若 Fe³⁺ 明显存在，常见现象是哪一项？",
+            "options": [
+              {
+                "label": "A",
+                "text": "产生臭氧气味"
+              },
+              {
+                "label": "B",
+                "text": "CCl₄ 层变紫"
+              },
+              {
+                "label": "C",
+                "text": "生成蓝色 N₂O₃"
+              },
+              {
+                "label": "D",
+                "text": "出现血红色"
+              }
+            ],
+            "answer": {
+              "value": "D"
+            },
+            "explanation": "Fe³⁺ 与 SCN⁻ 形成血红色配合物。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00296_a4c00bb9d1",
+              "expchunk_00297_c03527ab79"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_06_Q009",
+        "source_review_id": null,
+        "source_question_index": 9,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-8-06 Sn(II) 的还原性》实验中，通过 SnCl₂ 还原 Fe³⁺ 的实验，可比较 Sn(II) 与哪种离子的还原性强弱？",
+        "options": [
+          {
+            "label": "A",
+            "text": "Fe(II)"
+          },
+          {
+            "label": "B",
+            "text": "Na⁺"
+          },
+          {
+            "label": "C",
+            "text": "NO₃⁻"
+          },
+          {
+            "label": "D",
+            "text": "Pb(IV)"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "实验资料要求比较 Sn(II) 与 Fe(II)。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-4d7bcb6d",
+          "candidate-4-5f9c97e0"
+        ],
+        "secondary_point_keys": [
+          "candidate-4-5f9c97e0"
+        ],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_06",
+          "single_choice",
+          "point_1",
+          "point_4",
+          "polished_final_v1"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "Fe(II)",
+            "point_key": "candidate-4-5f9c97e0",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接对应本题考查的实验操作、现象或结论。"
+          },
+          {
+            "label": "B",
+            "text": "Na⁺",
+            "point_key": "candidate-1-4d7bcb6d",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“Na⁺”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "C",
+            "text": "NO₃⁻",
+            "point_key": "candidate-1-4d7bcb6d",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“NO₃⁻”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "D",
+            "text": "Pb(IV)",
+            "point_key": "candidate-1-4d7bcb6d",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“Pb(IV)”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00296_a4c00bb9d1",
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00773_a0b6644822",
+            "textbook_prose_00774_e51e8911a2"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00773_a0b6644822（SnCl₂ 是常用还原剂）；textbook_prose_00774_e51e8911a2（SnCl₂ 还原 FeCl₃ 为 FeCl₂）。 绑定点位：SnCl₂ + FeCl₃；比较 Sn(II) 与 Fe(II)、Sn(II) 与 Hg(I) 的还原性。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00296_a4c00bb9d1",
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00773_a0b6644822",
+            "textbook_prose_00774_e51e8911a2"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00773_a0b6644822",
+            "textbook_prose_00774_e51e8911a2"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "template_option_link_diagnostic",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-8-06 Sn(II) 的还原性》实验中，通过 SnCl₂ 还原 Fe³⁺ 的实验，可比较 Sn(II) 与哪种离子的还原性强弱？",
+            "options": [
+              {
+                "label": "A",
+                "text": "Fe(II)"
+              },
+              {
+                "label": "B",
+                "text": "Na⁺"
+              },
+              {
+                "label": "C",
+                "text": "NO₃⁻"
+              },
+              {
+                "label": "D",
+                "text": "Pb(IV)"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "实验资料要求比较 Sn(II) 与 Fe(II)。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00296_a4c00bb9d1",
+              "expchunk_00297_c03527ab79"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_06_Q010",
+        "source_review_id": null,
+        "source_question_index": 10,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-8-06 Sn(II) 的还原性》实验中，下列哪一组属于该实验的主要反应对象？",
+        "options": [
+          {
+            "label": "A",
+            "text": "BaO₂、H₂SO₄、KI"
+          },
+          {
+            "label": "B",
+            "text": "FeCl₃、SnCl₂、HgCl₂"
+          },
+          {
+            "label": "C",
+            "text": "Na₂SiO₃、CaCl₂、FeCl₃"
+          },
+          {
+            "label": "D",
+            "text": "Cr₂(SO₄)₃、H₂O₂、乙醚"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "该实验围绕 SnCl₂ 对 Fe³⁺ 和 Hg²⁺ 的还原。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-4d7bcb6d",
+          "candidate-3-b4b43aba",
+          "candidate-4-5f9c97e0"
+        ],
+        "secondary_point_keys": [
+          "candidate-3-b4b43aba",
+          "candidate-4-5f9c97e0"
+        ],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_06",
+          "single_choice",
+          "point_1",
+          "point_3",
+          "point_4",
+          "polished_final_v1"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "BaO₂、H₂SO₄、KI",
+            "point_key": "candidate-1-4d7bcb6d",
+            "role": "adjacent_experiment",
+            "diagnostic_note": "“BaO₂、H₂SO₄、KI”借用了KI/CCl₄ 氧化性实验的线索，和本题绑定点位不一致。"
+          },
+          {
+            "label": "B",
+            "text": "FeCl₃、SnCl₂、HgCl₂",
+            "point_key": "candidate-1-4d7bcb6d",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接对应本题考查的实验操作、现象或结论。"
+          },
+          {
+            "label": "C",
+            "text": "Na₂SiO₃、CaCl₂、FeCl₃",
+            "point_key": "candidate-1-4d7bcb6d",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“Na₂SiO₃、CaCl₂、FeCl₃”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "D",
+            "text": "Cr₂(SO₄)₃、H₂O₂、乙醚",
+            "point_key": "candidate-1-4d7bcb6d",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“Cr₂(SO₄)₃、H₂O₂、乙醚”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00296_a4c00bb9d1",
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00773_a0b6644822",
+            "textbook_prose_00774_e51e8911a2",
+            "textbook_prose_01090_56461596a1"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00773_a0b6644822（SnCl₂ 是常用还原剂）；textbook_prose_00774_e51e8911a2（SnCl₂ 还原 FeCl₃ 为 FeCl₂）；textbook_prose_01090_56461596a1（HgCl₂ 被 SnCl₂ 还原为 Hg₂Cl₂/Hg）。 绑定点位：SnCl₂ + FeCl₃；SnCl₂ + HgCl₂；比较 Sn(II) 与 Fe(II)、Sn(II) 与 Hg(I) 的还原性。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00296_a4c00bb9d1",
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00773_a0b6644822",
+            "textbook_prose_00774_e51e8911a2",
+            "textbook_prose_01090_56461596a1"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00773_a0b6644822",
+            "textbook_prose_00774_e51e8911a2",
+            "textbook_prose_01090_56461596a1"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "template_option_link_diagnostic",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-8-06 Sn(II) 的还原性》实验中，下列哪一组属于该实验的主要反应对象？",
+            "options": [
+              {
+                "label": "A",
+                "text": "BaO₂、H₂SO₄、KI"
+              },
+              {
+                "label": "B",
+                "text": "FeCl₃、SnCl₂、HgCl₂"
+              },
+              {
+                "label": "C",
+                "text": "Na₂SiO₃、CaCl₂、FeCl₃"
+              },
+              {
+                "label": "D",
+                "text": "Cr₂(SO₄)₃、H₂O₂、乙醚"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "该实验围绕 SnCl₂ 对 Fe³⁺ 和 Hg²⁺ 的还原。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00296_a4c00bb9d1",
+              "expchunk_00297_c03527ab79"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_06_Q011",
+        "source_review_id": null,
+        "source_question_index": 11,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-8-06 Sn(II) 的还原性》实验中，SnCl₂ 可用于还原 FeCl₃ 溶液中的 Fe³⁺。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "步骤正是 FeCl₃ 中滴加 SnCl₂。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-4d7bcb6d"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_06",
+          "true_false",
+          "point_1",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00296_a4c00bb9d1",
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00773_a0b6644822",
+            "textbook_prose_00774_e51e8911a2"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00773_a0b6644822（SnCl₂ 是常用还原剂）；textbook_prose_00774_e51e8911a2（SnCl₂ 还原 FeCl₃ 为 FeCl₂）。 绑定点位：SnCl₂ + FeCl₃。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00296_a4c00bb9d1",
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00773_a0b6644822",
+            "textbook_prose_00774_e51e8911a2"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00773_a0b6644822",
+            "textbook_prose_00774_e51e8911a2"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-8-06 Sn(II) 的还原性》实验中，SnCl₂ 可用于还原 FeCl₃ 溶液中的 Fe³⁺。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "步骤正是 FeCl₃ 中滴加 SnCl₂。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00296_a4c00bb9d1",
+              "expchunk_00297_c03527ab79"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_06_Q012",
+        "source_review_id": null,
+        "source_question_index": 12,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-8-06 Sn(II) 的还原性》实验中，KSCN 溶液可检验 Fe³⁺ 是否仍存在。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "实验内容直接提出。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-24d9ac88"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_06",
+          "true_false",
+          "point_2",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00296_a4c00bb9d1",
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00773_a0b6644822",
+            "textbook_prose_00774_e51e8911a2",
+            "textbook_prose_01304_9920c29f9d"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00773_a0b6644822（SnCl₂ 是常用还原剂）；textbook_prose_00774_e51e8911a2（SnCl₂ 还原 FeCl₃ 为 FeCl₂）；textbook_prose_01304_9920c29f9d（Fe³⁺ 与 SCN⁻ 形成血红色配合物）。 绑定点位：用 KSCN 检验 Fe³⁺ 是否仍存在。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00296_a4c00bb9d1",
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00773_a0b6644822",
+            "textbook_prose_00774_e51e8911a2",
+            "textbook_prose_01304_9920c29f9d"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00773_a0b6644822",
+            "textbook_prose_00774_e51e8911a2",
+            "textbook_prose_01304_9920c29f9d"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-8-06 Sn(II) 的还原性》实验中，KSCN 溶液可检验 Fe³⁺ 是否仍存在。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "实验内容直接提出。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00296_a4c00bb9d1",
+              "expchunk_00297_c03527ab79"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_06_Q013",
+        "source_review_id": null,
+        "source_question_index": 13,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-8-06 Sn(II) 的还原性》实验中，Sn(II) 作为还原剂时自身可被氧化为 Sn(IV)。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "Sn²⁺ 失电子生成 Sn⁴⁺。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-4d7bcb6d"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_06",
+          "true_false",
+          "point_1",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00296_a4c00bb9d1",
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题答案可由 canonical 实验原文的对象、步骤或观察任务直接支撑，未额外引用 theory。 绑定点位：SnCl₂ + FeCl₃。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00296_a4c00bb9d1",
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-8-06 Sn(II) 的还原性》实验中，Sn(II) 作为还原剂时自身可被氧化为 Sn(IV)。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "Sn²⁺ 失电子生成 Sn⁴⁺。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00296_a4c00bb9d1",
+              "expchunk_00297_c03527ab79"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_06_Q014",
+        "source_review_id": null,
+        "source_question_index": 14,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-8-06 Sn(II) 的还原性》实验中，SnCl₂ 与 HgCl₂ 的反应用于观察 Sn(II) 的还原性。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "实验资料列为 Sn(II) 还原性实验。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-b4b43aba"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_06",
+          "true_false",
+          "point_3",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00296_a4c00bb9d1",
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01090_56461596a1"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_01090_56461596a1（HgCl₂ 被 SnCl₂ 还原为 Hg₂Cl₂/Hg）。 绑定点位：SnCl₂ + HgCl₂。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00296_a4c00bb9d1",
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01090_56461596a1"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01090_56461596a1"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-8-06 Sn(II) 的还原性》实验中，SnCl₂ 与 HgCl₂ 的反应用于观察 Sn(II) 的还原性。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "实验资料列为 Sn(II) 还原性实验。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00296_a4c00bb9d1",
+              "expchunk_00297_c03527ab79"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_06_Q015",
+        "source_review_id": null,
+        "source_question_index": 15,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-8-06 Sn(II) 的还原性》实验中，Fe³⁺ 被 Sn(II) 还原后生成 Fe²⁺。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "Fe³⁺ 得电子为 Fe²⁺。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-4d7bcb6d"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_06",
+          "true_false",
+          "point_1",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00296_a4c00bb9d1",
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00773_a0b6644822",
+            "textbook_prose_00774_e51e8911a2"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00773_a0b6644822（SnCl₂ 是常用还原剂）；textbook_prose_00774_e51e8911a2（SnCl₂ 还原 FeCl₃ 为 FeCl₂）。 绑定点位：SnCl₂ + FeCl₃。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00296_a4c00bb9d1",
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00773_a0b6644822",
+            "textbook_prose_00774_e51e8911a2"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00773_a0b6644822",
+            "textbook_prose_00774_e51e8911a2"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-8-06 Sn(II) 的还原性》实验中，Fe³⁺ 被 Sn(II) 还原后生成 Fe²⁺。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "Fe³⁺ 得电子为 Fe²⁺。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00296_a4c00bb9d1",
+              "expchunk_00297_c03527ab79"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_06_Q016",
+        "source_review_id": null,
+        "source_question_index": 16,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-8-06 Sn(II) 的还原性》实验中，KSCN 是用来检验 Sn⁴⁺ 的唯一试剂。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": false
+        },
+        "explanation": "这里用于检验 Fe³⁺。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-24d9ac88"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_06",
+          "true_false",
+          "point_2",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00296_a4c00bb9d1",
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00773_a0b6644822",
+            "textbook_prose_00774_e51e8911a2",
+            "textbook_prose_01304_9920c29f9d"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00773_a0b6644822（SnCl₂ 是常用还原剂）；textbook_prose_00774_e51e8911a2（SnCl₂ 还原 FeCl₃ 为 FeCl₂）；textbook_prose_01304_9920c29f9d（Fe³⁺ 与 SCN⁻ 形成血红色配合物）。 绑定点位：用 KSCN 检验 Fe³⁺ 是否仍存在。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00296_a4c00bb9d1",
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00773_a0b6644822",
+            "textbook_prose_00774_e51e8911a2",
+            "textbook_prose_01304_9920c29f9d"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00773_a0b6644822",
+            "textbook_prose_00774_e51e8911a2",
+            "textbook_prose_01304_9920c29f9d"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-8-06 Sn(II) 的还原性》实验中，KSCN 是用来检验 Sn⁴⁺ 的唯一试剂。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "这里用于检验 Fe³⁺。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00296_a4c00bb9d1",
+              "expchunk_00297_c03527ab79"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_06_Q017_R1",
+        "source_review_id": null,
+        "source_question_index": 17,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "true_false",
+        "stem": "在《19-8-06 Sn(II) 的还原性》实验中，Sn(II) 与 Fe(II) 的还原性可通过 FeCl₃/SnCl₂ 实验进行比较。",
+        "options": [],
+        "answer": {
+          "value": true
+        },
+        "explanation": "改写为正向判断，避免“这一判断不正确”的双重否定；该判断由实验步骤或对应性质证据支持。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-4d7bcb6d",
+          "candidate-4-5f9c97e0"
+        ],
+        "secondary_point_keys": [
+          "candidate-4-5f9c97e0"
+        ],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_06",
+          "true_false",
+          "point_1",
+          "point_4",
+          "rewritten_replacement",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00296_a4c00bb9d1",
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00773_a0b6644822",
+            "textbook_prose_00774_e51e8911a2"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00773_a0b6644822（SnCl₂ 是常用还原剂）；textbook_prose_00774_e51e8911a2（SnCl₂ 还原 FeCl₃ 为 FeCl₂）。 绑定点位：SnCl₂ + FeCl₃；比较 Sn(II) 与 Fe(II)、Sn(II) 与 Hg(I) 的还原性。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00296_a4c00bb9d1",
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00773_a0b6644822",
+            "textbook_prose_00774_e51e8911a2"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00773_a0b6644822",
+            "textbook_prose_00774_e51e8911a2"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-8-06 Sn(II) 的还原性》实验中，认为：Sn(II) 与 Fe(II) 的还原性可通过 FeCl₃/SnCl₂ 实验进行比较，这一判断是不正确的。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "这一判断本身是正确的。实验资料要求比较。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00296_a4c00bb9d1",
+              "expchunk_00297_c03527ab79"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "true_false",
+            "stem": "在《19-8-06 Sn(II) 的还原性》实验中，Sn(II) 与 Fe(II) 的还原性可通过 FeCl₃/SnCl₂ 实验进行比较。",
+            "options": [],
+            "answer": {
+              "value": true
+            },
+            "explanation": "改写为正向判断，避免“这一判断不正确”的双重否定；该判断由实验步骤或对应性质证据支持。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [
+              "expchunk_00296_a4c00bb9d1",
+              "expchunk_00297_c03527ab79"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_06_Q018",
+        "source_review_id": null,
+        "source_question_index": 18,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-8-06 Sn(II) 的还原性》实验中，HgCl₂ 与 SnCl₂ 反应中 Sn(II) 完全不发生价态变化。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": false
+        },
+        "explanation": "Sn(II) 被氧化。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-b4b43aba"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_06",
+          "true_false",
+          "point_3",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00296_a4c00bb9d1",
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01090_56461596a1"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_01090_56461596a1（HgCl₂ 被 SnCl₂ 还原为 Hg₂Cl₂/Hg）。 绑定点位：SnCl₂ + HgCl₂。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00296_a4c00bb9d1",
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01090_56461596a1"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01090_56461596a1"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-8-06 Sn(II) 的还原性》实验中，HgCl₂ 与 SnCl₂ 反应中 Sn(II) 完全不发生价态变化。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "Sn(II) 被氧化。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00296_a4c00bb9d1",
+              "expchunk_00297_c03527ab79"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_06_Q019_R1",
+        "source_review_id": null,
+        "source_question_index": 19,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "true_false",
+        "stem": "在《19-8-06 Sn(II) 的还原性》实验中，若 Fe³⁺ 已被充分还原，加入 KSCN 后血红色会明显减弱或不出现。",
+        "options": [],
+        "answer": {
+          "value": true
+        },
+        "explanation": "改写为正向判断，避免“这一判断不正确”的双重否定；该判断由实验步骤或对应性质证据支持。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-4d7bcb6d",
+          "candidate-2-24d9ac88"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-24d9ac88"
+        ],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_06",
+          "true_false",
+          "point_1",
+          "point_2",
+          "rewritten_replacement",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00296_a4c00bb9d1",
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00773_a0b6644822",
+            "textbook_prose_00774_e51e8911a2",
+            "textbook_prose_01304_9920c29f9d"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00773_a0b6644822（SnCl₂ 是常用还原剂）；textbook_prose_00774_e51e8911a2（SnCl₂ 还原 FeCl₃ 为 FeCl₂）；textbook_prose_01304_9920c29f9d（Fe³⁺ 与 SCN⁻ 形成血红色配合物）。 绑定点位：SnCl₂ + FeCl₃；用 KSCN 检验 Fe³⁺ 是否仍存在。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00296_a4c00bb9d1",
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00773_a0b6644822",
+            "textbook_prose_00774_e51e8911a2",
+            "textbook_prose_01304_9920c29f9d"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00773_a0b6644822",
+            "textbook_prose_00774_e51e8911a2",
+            "textbook_prose_01304_9920c29f9d"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-8-06 Sn(II) 的还原性》实验中，认为：若 Fe³⁺ 已被充分还原，加入 KSCN 后血红色会明显减弱或不出现，这一判断是不正确的。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "这一判断本身是正确的。Fe³⁺ 减少则 [Fe(SCN)]²⁺ 显色弱。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00296_a4c00bb9d1",
+              "expchunk_00297_c03527ab79"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "true_false",
+            "stem": "在《19-8-06 Sn(II) 的还原性》实验中，若 Fe³⁺ 已被充分还原，加入 KSCN 后血红色会明显减弱或不出现。",
+            "options": [],
+            "answer": {
+              "value": true
+            },
+            "explanation": "改写为正向判断，避免“这一判断不正确”的双重否定；该判断由实验步骤或对应性质证据支持。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [
+              "expchunk_00296_a4c00bb9d1",
+              "expchunk_00297_c03527ab79"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_06_Q020",
+        "source_review_id": null,
+        "source_question_index": 20,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-8-06 Sn(II) 的还原性》实验中，该实验的主题是 Pb(OH)₂ 的两性而不是 Sn(II) 的还原性。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": false
+        },
+        "explanation": "本实验主题是 Sn(II) 的还原性。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-4d7bcb6d",
+          "candidate-3-b4b43aba",
+          "candidate-4-5f9c97e0"
+        ],
+        "secondary_point_keys": [
+          "candidate-3-b4b43aba",
+          "candidate-4-5f9c97e0"
+        ],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_06",
+          "true_false",
+          "point_1",
+          "point_3",
+          "point_4",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00296_a4c00bb9d1",
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题答案可由 canonical 实验原文的对象、步骤或观察任务直接支撑，未额外引用 theory。 绑定点位：SnCl₂ + FeCl₃；SnCl₂ + HgCl₂；比较 Sn(II) 与 Fe(II)、Sn(II) 与 Hg(I) 的还原性。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00296_a4c00bb9d1",
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-8-06 Sn(II) 的还原性》实验中，该实验的主题是 Pb(OH)₂ 的两性而不是 Sn(II) 的还原性。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "本实验主题是 Sn(II) 的还原性。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00296_a4c00bb9d1",
+              "expchunk_00297_c03527ab79"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_06_Q021",
+        "source_review_id": null,
+        "source_question_index": 21,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《19-8-06 Sn(II) 的还原性》实验中，FeCl₃ 溶液中滴加的还原剂是____。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "SnCl₂",
+            "氯化亚锡"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "对应的实验操作或现象内容是“SnCl₂”。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-4d7bcb6d"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_06",
+          "fill_blank",
+          "point_1",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00296_a4c00bb9d1",
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00773_a0b6644822",
+            "textbook_prose_00774_e51e8911a2"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00773_a0b6644822（SnCl₂ 是常用还原剂）；textbook_prose_00774_e51e8911a2（SnCl₂ 还原 FeCl₃ 为 FeCl₂）。 绑定点位：SnCl₂ + FeCl₃。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00296_a4c00bb9d1",
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00773_a0b6644822",
+            "textbook_prose_00774_e51e8911a2"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00773_a0b6644822",
+            "textbook_prose_00774_e51e8911a2"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "formula_or_symbolic_fill_blank_answer",
+          "generic_or_answer_shell_explanation",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-8-06 Sn(II) 的还原性》实验中，FeCl₃ 溶液中滴加的还原剂是____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "SnCl₂",
+                "氯化亚锡"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "对应的实验操作或现象内容是“SnCl₂”。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00296_a4c00bb9d1",
+              "expchunk_00297_c03527ab79"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_06_Q022",
+        "source_review_id": null,
+        "source_question_index": 22,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《19-8-06 Sn(II) 的还原性》实验中，检验 Fe³⁺ 是否仍存在的试剂是____。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "KSCN",
+            "硫氰酸钾"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "对应的实验操作或现象内容是“KSCN”。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-24d9ac88"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_06",
+          "fill_blank",
+          "point_2",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00296_a4c00bb9d1",
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00773_a0b6644822",
+            "textbook_prose_00774_e51e8911a2",
+            "textbook_prose_01304_9920c29f9d"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00773_a0b6644822（SnCl₂ 是常用还原剂）；textbook_prose_00774_e51e8911a2（SnCl₂ 还原 FeCl₃ 为 FeCl₂）；textbook_prose_01304_9920c29f9d（Fe³⁺ 与 SCN⁻ 形成血红色配合物）。 绑定点位：用 KSCN 检验 Fe³⁺ 是否仍存在。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00296_a4c00bb9d1",
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00773_a0b6644822",
+            "textbook_prose_00774_e51e8911a2",
+            "textbook_prose_01304_9920c29f9d"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00773_a0b6644822",
+            "textbook_prose_00774_e51e8911a2",
+            "textbook_prose_01304_9920c29f9d"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "formula_or_symbolic_fill_blank_answer",
+          "generic_or_answer_shell_explanation",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-8-06 Sn(II) 的还原性》实验中，检验 Fe³⁺ 是否仍存在的试剂是____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "KSCN",
+                "硫氰酸钾"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "对应的实验操作或现象内容是“KSCN”。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00296_a4c00bb9d1",
+              "expchunk_00297_c03527ab79"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_06_Q023",
+        "source_review_id": null,
+        "source_question_index": 23,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《19-8-06 Sn(II) 的还原性》实验中，Fe³⁺ 被 Sn(II) 还原后生成____。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "Fe²⁺",
+            "亚铁离子"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "对应的实验操作或现象内容是“Fe²⁺”。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-4d7bcb6d"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_06",
+          "fill_blank",
+          "point_1",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00296_a4c00bb9d1",
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00773_a0b6644822",
+            "textbook_prose_00774_e51e8911a2"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00773_a0b6644822（SnCl₂ 是常用还原剂）；textbook_prose_00774_e51e8911a2（SnCl₂ 还原 FeCl₃ 为 FeCl₂）。 绑定点位：SnCl₂ + FeCl₃。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00296_a4c00bb9d1",
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00773_a0b6644822",
+            "textbook_prose_00774_e51e8911a2"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00773_a0b6644822",
+            "textbook_prose_00774_e51e8911a2"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "formula_or_symbolic_fill_blank_answer",
+          "generic_or_answer_shell_explanation",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-8-06 Sn(II) 的还原性》实验中，Fe³⁺ 被 Sn(II) 还原后生成____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "Fe²⁺",
+                "亚铁离子"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "对应的实验操作或现象内容是“Fe²⁺”。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00296_a4c00bb9d1",
+              "expchunk_00297_c03527ab79"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_06_Q024",
+        "source_review_id": null,
+        "source_question_index": 24,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《19-8-06 Sn(II) 的还原性》实验中，Sn(II) 作还原剂时通常被氧化为____。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "Sn(IV)",
+            "Sn⁴⁺"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "对应的实验操作或现象内容是“Sn(IV)”。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-4d7bcb6d"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_06",
+          "fill_blank",
+          "point_1",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00296_a4c00bb9d1",
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题答案可由 canonical 实验原文的对象、步骤或观察任务直接支撑，未额外引用 theory。 绑定点位：SnCl₂ + FeCl₃。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00296_a4c00bb9d1",
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "formula_or_symbolic_fill_blank_answer",
+          "generic_or_answer_shell_explanation",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-8-06 Sn(II) 的还原性》实验中，Sn(II) 作还原剂时通常被氧化为____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "Sn(IV)",
+                "Sn⁴⁺"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "对应的实验操作或现象内容是“Sn(IV)”。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00296_a4c00bb9d1",
+              "expchunk_00297_c03527ab79"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_06_Q025_PF1",
+        "source_review_id": null,
+        "source_question_index": 25,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-8-06 Sn(II) 的还原性》实验中，SnCl₂ 与 HgCl₂ 反应中先出现白色沉淀、过量 SnCl₂ 时可继续变暗，这组现象主要说明什么？",
+        "options": [
+          {
+            "label": "A",
+            "text": "Sn(II) 能逐步还原 Hg(II) 物种"
+          },
+          {
+            "label": "B",
+            "text": "HgCl₂ 是检验 Fe³⁺ 的显色剂"
+          },
+          {
+            "label": "C",
+            "text": "PbO₂ 在酸中氧化 Mn²⁺"
+          },
+          {
+            "label": "D",
+            "text": "Bi(NO₃)₃ 与 NaOH 只发生酸碱中和"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "HgCl₂/SnCl₂ 点位用于体现 Sn(II) 还原性；改写后考查现象与还原性结论，而不是填写 Hg₂Cl₂。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-b4b43aba",
+          "candidate-4-5f9c97e0"
+        ],
+        "secondary_point_keys": [
+          "candidate-4-5f9c97e0"
+        ],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_06",
+          "fill_blank",
+          "polished_final_v1",
+          "point_3",
+          "point_4"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "Sn(II) 能逐步还原 Hg(II) 物种",
+            "point_key": "candidate-4-5f9c97e0",
+            "role": "correct_evidence",
+            "diagnostic_note": "“Sn(II) 能逐步还原 Hg(II) 物种”对应本题正确判断；教材步骤/点位支撑“在《19-8-06 Sn(II) 的还原性》实验中，SnCl₂ ”中的关键操作或结论。"
+          },
+          {
+            "label": "B",
+            "text": "HgCl₂ 是检验 Fe³⁺ 的显色剂",
+            "point_key": "candidate-2-24d9ac88",
+            "role": "adjacent_point",
+            "diagnostic_note": "“HgCl₂ 是检验 Fe³⁺ 的显色剂”属于同一实验的“用 KSCN 检验 Fe³⁺ 是否仍存在”点位，但本题考查的是“SnCl₂ + HgCl₂; 比较 Sn(II) 与 Fe(II)、Sn(II) 与 Hg(I) 的还原性”。"
+          },
+          {
+            "label": "C",
+            "text": "PbO₂ 在酸中氧化 Mn²⁺",
+            "point_key": "candidate-3-b4b43aba",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“PbO₂ 在酸中氧化 Mn²⁺”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "D",
+            "text": "Bi(NO₃)₃ 与 NaOH 只发生酸碱中和",
+            "point_key": "candidate-3-b4b43aba",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“Bi(NO₃)₃ 与 NaOH 只发生酸碱中和”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00296_a4c00bb9d1",
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01090_56461596a1"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_01090_56461596a1（HgCl₂ 被 SnCl₂ 还原为 Hg₂Cl₂/Hg）。 绑定点位：SnCl₂ + HgCl₂；比较 Sn(II) 与 Fe(II)、Sn(II) 与 Hg(I) 的还原性。 本轮 polish 已改写为可机器确定性判分的有效题，避免重复题干或手机端化学式输入风险。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00296_a4c00bb9d1",
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01090_56461596a1"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01090_56461596a1"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-8-06 Sn(II) 的还原性》实验中，SnCl₂ 与 HgCl₂ 反应可先生成白色____沉淀。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "Hg₂Cl₂",
+                "氯化亚汞"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00296_a4c00bb9d1",
+              "expchunk_00297_c03527ab79"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-8-06 Sn(II) 的还原性》实验中，SnCl₂ 与 HgCl₂ 反应中先出现白色沉淀、过量 SnCl₂ 时可继续变暗，这组现象主要说明什么？",
+            "options": [
+              {
+                "label": "A",
+                "text": "Sn(II) 能逐步还原 Hg(II) 物种"
+              },
+              {
+                "label": "B",
+                "text": "HgCl₂ 是检验 Fe³⁺ 的显色剂"
+              },
+              {
+                "label": "C",
+                "text": "PbO₂ 在酸中氧化 Mn²⁺"
+              },
+              {
+                "label": "D",
+                "text": "Bi(NO₃)₃ 与 NaOH 只发生酸碱中和"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "HgCl₂/SnCl₂ 点位用于体现 Sn(II) 还原性；改写后考查现象与还原性结论，而不是填写 Hg₂Cl₂。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00296_a4c00bb9d1",
+              "expchunk_00297_c03527ab79"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_06_Q026",
+        "source_review_id": null,
+        "source_question_index": 26,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《19-8-06 Sn(II) 的还原性》实验中，SnCl₂ 过量时，汞(I)还可能被进一步还原为金属____。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "Hg",
+            "汞"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "对应的实验操作或现象内容是“Hg”。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-b4b43aba"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_06",
+          "fill_blank",
+          "point_3",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00296_a4c00bb9d1",
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01090_56461596a1"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_01090_56461596a1（HgCl₂ 被 SnCl₂ 还原为 Hg₂Cl₂/Hg）。 绑定点位：SnCl₂ + HgCl₂。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00296_a4c00bb9d1",
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01090_56461596a1"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01090_56461596a1"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "formula_or_symbolic_fill_blank_answer",
+          "generic_or_answer_shell_explanation",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-8-06 Sn(II) 的还原性》实验中，SnCl₂ 过量时，汞(I)还可能被进一步还原为金属____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "Hg",
+                "汞"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "对应的实验操作或现象内容是“Hg”。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00296_a4c00bb9d1",
+              "expchunk_00297_c03527ab79"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_06_Q027",
+        "source_review_id": null,
+        "source_question_index": 27,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《19-8-06 Sn(II) 的还原性》实验中，Fe³⁺ 与 SCN⁻ 显著作用时常呈____。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "血红色"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "对应的实验操作或现象内容是“血红色”。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-24d9ac88"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_06",
+          "fill_blank",
+          "point_2",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00296_a4c00bb9d1",
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00773_a0b6644822",
+            "textbook_prose_00774_e51e8911a2",
+            "textbook_prose_01304_9920c29f9d"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00773_a0b6644822（SnCl₂ 是常用还原剂）；textbook_prose_00774_e51e8911a2（SnCl₂ 还原 FeCl₃ 为 FeCl₂）；textbook_prose_01304_9920c29f9d（Fe³⁺ 与 SCN⁻ 形成血红色配合物）。 绑定点位：用 KSCN 检验 Fe³⁺ 是否仍存在。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00296_a4c00bb9d1",
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00773_a0b6644822",
+            "textbook_prose_00774_e51e8911a2",
+            "textbook_prose_01304_9920c29f9d"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00773_a0b6644822",
+            "textbook_prose_00774_e51e8911a2",
+            "textbook_prose_01304_9920c29f9d"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "generic_or_answer_shell_explanation",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-8-06 Sn(II) 的还原性》实验中，Fe³⁺ 与 SCN⁻ 显著作用时常呈____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "血红色"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "对应的实验操作或现象内容是“血红色”。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00296_a4c00bb9d1",
+              "expchunk_00297_c03527ab79"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_06_Q028",
+        "source_review_id": null,
+        "source_question_index": 28,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《19-8-06 Sn(II) 的还原性》实验中，该实验通过 SnCl₂ 与 FeCl₃ 反应比较 Sn(II) 与____的还原性。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "Fe(II)",
+            "Fe²⁺",
+            "亚铁"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "对应的实验操作或现象内容是“Fe(II)”。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-4d7bcb6d",
+          "candidate-4-5f9c97e0"
+        ],
+        "secondary_point_keys": [
+          "candidate-4-5f9c97e0"
+        ],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_06",
+          "fill_blank",
+          "point_1",
+          "point_4",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00296_a4c00bb9d1",
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00773_a0b6644822",
+            "textbook_prose_00774_e51e8911a2"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00773_a0b6644822（SnCl₂ 是常用还原剂）；textbook_prose_00774_e51e8911a2（SnCl₂ 还原 FeCl₃ 为 FeCl₂）。 绑定点位：SnCl₂ + FeCl₃；比较 Sn(II) 与 Fe(II)、Sn(II) 与 Hg(I) 的还原性。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00296_a4c00bb9d1",
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00773_a0b6644822",
+            "textbook_prose_00774_e51e8911a2"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00773_a0b6644822",
+            "textbook_prose_00774_e51e8911a2"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "formula_or_symbolic_fill_blank_answer",
+          "generic_or_answer_shell_explanation",
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-8-06 Sn(II) 的还原性》实验中，该实验通过 SnCl₂ 与 FeCl₃ 反应比较 Sn(II) 与____的还原性。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "Fe(II)",
+                "Fe²⁺",
+                "亚铁"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "对应的实验操作或现象内容是“Fe(II)”。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00296_a4c00bb9d1",
+              "expchunk_00297_c03527ab79"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_06_Q029",
+        "source_review_id": null,
+        "source_question_index": 29,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《19-8-06 Sn(II) 的还原性》实验中，HgCl₂ 中汞的初始价态为____。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "+2",
+            "二价",
+            "Hg(II)"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "对应的实验操作或现象内容是“+2”。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-b4b43aba"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_06",
+          "fill_blank",
+          "point_3",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00296_a4c00bb9d1",
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01090_56461596a1"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_01090_56461596a1（HgCl₂ 被 SnCl₂ 还原为 Hg₂Cl₂/Hg）。 绑定点位：SnCl₂ + HgCl₂。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00296_a4c00bb9d1",
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01090_56461596a1"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01090_56461596a1"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "formula_or_symbolic_fill_blank_answer",
+          "generic_or_answer_shell_explanation",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-8-06 Sn(II) 的还原性》实验中，HgCl₂ 中汞的初始价态为____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "+2",
+                "二价",
+                "Hg(II)"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "对应的实验操作或现象内容是“+2”。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00296_a4c00bb9d1",
+              "expchunk_00297_c03527ab79"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_06_Q030",
+        "source_review_id": null,
+        "source_question_index": 30,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《19-8-06 Sn(II) 的还原性》实验中，该实验所属大主题为锡、铅、砷、锑、铋的____。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "氧化还原性"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "对应的实验操作或现象内容是“氧化还原性”。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-4-5f9c97e0"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_06",
+          "fill_blank",
+          "point_4",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00296_a4c00bb9d1",
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题答案可由 canonical 实验原文的对象、步骤或观察任务直接支撑，未额外引用 theory。 绑定点位：比较 Sn(II) 与 Fe(II)、Sn(II) 与 Hg(I) 的还原性。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00296_a4c00bb9d1",
+            "expchunk_00297_c03527ab79"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "generic_or_answer_shell_explanation",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-8-06 Sn(II) 的还原性》实验中，该实验所属大主题为锡、铅、砷、锑、铋的____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "氧化还原性"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "对应的实验操作或现象内容是“氧化还原性”。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00296_a4c00bb9d1",
+              "expchunk_00297_c03527ab79"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,4651 @@
+{
+  "metadata": {
+    "version": "chunk-4-release-slim-v1",
+    "artifact_type": "slim_question_bank_work_file",
+    "generated_at": "2026-06-15T03:27:59.050817+00:00",
+    "source_file": "E:\\chemistry-admin\\artifacts\\point-aware-question-bank\\reviewed_old_bank_chunks\\chunk_4_release_final_v1.json",
+    "normalization_rule": "effective question plus minimal lineage, evidence IDs, point bindings, option links, evidence locators, and mechanical risk flags",
+    "evidence_policy": "RAG source text is not embedded; packets carry locators and reviewers must read E:/chemistry-rag/data/rag_ready directly",
+    "chunk_id_policy": "inherited chunk ids are untrusted locator candidates until manually compared with RAG text",
+    "semantic_status": "not_semantically_repaired_by_this_script",
+    "packet_type": "single_experiment_semantic_repair_work_packet",
+    "chunk": 4,
+    "experiment_code": "20-1-09",
+    "question_count": 30
+  },
+  "experiment": {
+    "experiment_id": "EXP_20_1_09",
+    "experiment_code": "20-1-09",
+    "experiment_title": "小设计实验",
+    "chapter_bindings": [
+      {
+        "chapter_id": "CH19",
+        "coverage_type": "primary",
+        "sort_order": 1
+      }
+    ],
+    "video_points": [
+      {
+        "point_key": "candidate-1-07614584",
+        "point_title": "含 Ag⁺、Pb²⁺、Zn²⁺、Cu²⁺ 的试液分离与检出",
+        "source": null,
+        "candidate_index": null,
+        "resource_count": null,
+        "published_count": null,
+        "resource_titles": []
+      },
+      {
+        "point_key": "candidate-2-022b3108",
+        "point_title": "从废定影液 `[Ag(S₂O₃)₂]³⁻` 中回收银，并以 AgNO₃ 形式回收",
+        "source": null,
+        "candidate_index": null,
+        "resource_count": null,
+        "published_count": null,
+        "resource_titles": []
+      }
+    ],
+    "canonical_chunk_ids": [
+      "expchunk_00309_5610e5bc6f",
+      "expchunk_00313_fcfa9b46a0"
+    ],
+    "evidence_lookup": {
+      "policy": "locator_only; canonical RAG text is not embedded in this packet",
+      "chunk_id_policy": "metadata chunk ids are inherited claims, not trusted evidence; reviewers must compare the RAG text against the question stem/options/answer/explanation and replace or remove wrong ids",
+      "primary_source_dir": "E:\\chemistry-rag\\data\\rag_ready",
+      "source_files": {
+        "experiment_chunks": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+        "supporting_theory_chunks": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl"
+      },
+      "search_hints": {
+        "experiment_code": "20-1-09",
+        "parent_experiment_code": "20-1",
+        "experiment_title": "小设计实验",
+        "video_point_titles": [
+          "含 Ag⁺、Pb²⁺、Zn²⁺、Cu²⁺ 的试液分离与检出",
+          "从废定影液 `[Ag(S₂O₃)₂]³⁻` 中回收银，并以 AgNO₃ 形式回收"
+        ],
+        "canonical_chunk_ids_from_metadata": [
+          "expchunk_00309_5610e5bc6f",
+          "expchunk_00313_fcfa9b46a0"
+        ],
+        "supporting_theory_chunk_ids_from_metadata": [
+          "textbook_prose_00394_04911a6294",
+          "textbook_prose_00395_7ea078c59f",
+          "textbook_prose_01058_15764ebcec",
+          "textbook_prose_01062_628733419b"
+        ],
+        "suggested_search_patterns": [
+          "20-1-09",
+          "20-1",
+          "小设计实验",
+          "含 Ag⁺、Pb²⁺、Zn²⁺、Cu²⁺ 的试液分离与检出",
+          "从废定影液 `[Ag(S₂O₃)₂]³⁻` 中回收银，并以 AgNO₃ 形式回收",
+          "expchunk_00309_5610e5bc6f",
+          "expchunk_00313_fcfa9b46a0",
+          "textbook_prose_00394_04911a6294",
+          "textbook_prose_00395_7ea078c59f",
+          "textbook_prose_01058_15764ebcec",
+          "textbook_prose_01062_628733419b"
+        ]
+      },
+      "rag_exact_id_presence": {
+        "meaning": "id presence only; this does not validate semantic relevance",
+        "found_ids": [
+          "expchunk_00309_5610e5bc6f",
+          "expchunk_00313_fcfa9b46a0",
+          "textbook_prose_00394_04911a6294",
+          "textbook_prose_00395_7ea078c59f",
+          "textbook_prose_01058_15764ebcec",
+          "textbook_prose_01062_628733419b"
+        ],
+        "missing_ids": [],
+        "found_locator_summaries": [
+          {
+            "chunk_id": "expchunk_00309_5610e5bc6f",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+            "line_number": 322,
+            "source_collection": "textbook_experiment_clean_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学实验（第四版）",
+            "page_start": 162,
+            "page_end": 162,
+            "section_path": [
+              "第7章 元素性质实验",
+              "实验 20-1 ds 区元素化合物的性质",
+              "（三）实验内容",
+              "2. 配合物的生成与性质"
+            ],
+            "content_type": "property_test",
+            "knowledge_unit": "property_test",
+            "parent_id": "expchunk_protocol_174e0c432181",
+            "prev_chunk_id": "expchunk_00308_f319652f01",
+            "next_chunk_id": "expchunk_00310_822a1490b4",
+            "relations": {
+              "section_id": "expsec_1dd56ce073431e79",
+              "experiment_id": "experiment:实验_20-1_ds_区元素化合物的性质",
+              "page_anchor": "page_162",
+              "parent": "expchunk_protocol_174e0c432181"
+            }
+          },
+          {
+            "chunk_id": "expchunk_00313_fcfa9b46a0",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+            "line_number": 326,
+            "source_collection": "textbook_experiment_clean_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学实验（第四版）",
+            "page_start": 163,
+            "page_end": 163,
+            "section_path": [
+              "第7章 元素性质实验",
+              "实验 20-1 ds 区元素化合物的性质",
+              "（三）实验内容",
+              "5. 小设计实验"
+            ],
+            "content_type": "waste_disposal",
+            "knowledge_unit": "waste_disposal",
+            "parent_id": "expchunk_protocol_174e0c432181",
+            "prev_chunk_id": "expchunk_00312_3907d19546",
+            "next_chunk_id": "expchunk_00314_c493a6ddc5",
+            "relations": {
+              "section_id": "expsec_4090042a7b01502e",
+              "experiment_id": "experiment:实验_20-1_ds_区元素化合物的性质",
+              "page_anchor": "page_163",
+              "parent": "expchunk_protocol_174e0c432181"
+            }
+          },
+          {
+            "chunk_id": "textbook_prose_00394_04911a6294",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+            "line_number": 657,
+            "source_collection": "textbook_inorganic_lower_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学（下册）（第二版）",
+            "page_start": 72,
+            "page_end": 72,
+            "section_path": [
+              "第 14 章 氧族元素",
+              "14.4 硫单质及化合物",
+              "14.4.4 硫的氧化物、含氧酸及其盐",
+              "4) 硫代硫酸及其盐"
+            ],
+            "content_type": "reaction",
+            "knowledge_unit": "reaction",
+            "parent_id": "section:7f8d161286da",
+            "prev_chunk_id": "textbook_prose_00393_2db98879c2",
+            "next_chunk_id": "textbook_prose_00395_7ea078c59f",
+            "relations": {
+              "parent": "section:7f8d161286da",
+              "source_route": "clean_pages",
+              "prev": "textbook_prose_00393_2db98879c2",
+              "next": "textbook_prose_00395_7ea078c59f"
+            }
+          },
+          {
+            "chunk_id": "textbook_prose_00395_7ea078c59f",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+            "line_number": 658,
+            "source_collection": "textbook_inorganic_lower_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学（下册）（第二版）",
+            "page_start": 72,
+            "page_end": 72,
+            "section_path": [
+              "第 14 章 氧族元素",
+              "14.4 硫单质及化合物",
+              "14.4.4 硫的氧化物、含氧酸及其盐",
+              "4) 硫代硫酸及其盐"
+            ],
+            "content_type": "reaction",
+            "knowledge_unit": "reaction",
+            "parent_id": "section:7f8d161286da",
+            "prev_chunk_id": "textbook_prose_00394_04911a6294",
+            "next_chunk_id": null,
+            "relations": {
+              "parent": "section:7f8d161286da",
+              "source_route": "clean_pages",
+              "prev": "textbook_prose_00394_04911a6294",
+              "next": null
+            }
+          },
+          {
+            "chunk_id": "textbook_prose_01058_15764ebcec",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+            "line_number": 1642,
+            "source_collection": "textbook_inorganic_lower_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学（下册）（第二版）",
+            "page_start": 178,
+            "page_end": 179,
+            "section_path": [
+              "第 19 章 铜锌副族元素",
+              "19.2 铜副族",
+              "19.2.3 银的化合物",
+              "2. 其他简单化合物"
+            ],
+            "content_type": "principle",
+            "knowledge_unit": "principle",
+            "parent_id": "section:9f2dd8d2c558",
+            "prev_chunk_id": null,
+            "next_chunk_id": "textbook_prose_01059_37372bf7fa",
+            "relations": {
+              "parent": "section:9f2dd8d2c558",
+              "source_route": "clean_pages",
+              "prev": null,
+              "next": "textbook_prose_01059_37372bf7fa"
+            }
+          },
+          {
+            "chunk_id": "textbook_prose_01062_628733419b",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+            "line_number": 1644,
+            "source_collection": "textbook_inorganic_lower_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学（下册）（第二版）",
+            "page_start": 179,
+            "page_end": 179,
+            "section_path": [
+              "第 19 章 铜锌副族元素",
+              "19.2 铜副族",
+              "19.2.3 银的化合物",
+              "3. 配合物"
+            ],
+            "content_type": "principle",
+            "knowledge_unit": "principle",
+            "parent_id": "section:1aa02bb8876e",
+            "prev_chunk_id": null,
+            "next_chunk_id": "textbook_prose_01063_0b7c13db34",
+            "relations": {
+              "parent": "section:1aa02bb8876e",
+              "source_route": "clean_pages",
+              "prev": null,
+              "next": "textbook_prose_01063_0b7c13db34"
+            }
+          }
+        ]
+      },
+      "legacy_locator_summaries": [
+        {
+          "chunk_id": "expchunk_00309_5610e5bc6f",
+          "source_file": "无机化学实验（第四版）",
+          "book_title": "无机化学实验（第四版）",
+          "document_id": "DOC_CANONICAL_EXPERIMENT_V1",
+          "source_collection": "textbook_experiment_clean_v1",
+          "source_role": "canonical_textbook",
+          "content_type": "property_test",
+          "chapter_id": null,
+          "page_number": 162,
+          "section_title": "实验 20-1 ds 区元素化合物的性质 / （三）实验内容 / 2. 配合物的生成与性质",
+          "section_path": [
+            "第7章 元素性质实验",
+            "实验 20-1 ds 区元素化合物的性质",
+            "（三）实验内容",
+            "2. 配合物的生成与性质"
+          ]
+        },
+        {
+          "chunk_id": "expchunk_00313_fcfa9b46a0",
+          "source_file": "无机化学实验（第四版）",
+          "book_title": "无机化学实验（第四版）",
+          "document_id": "DOC_CANONICAL_EXPERIMENT_V1",
+          "source_collection": "textbook_experiment_clean_v1",
+          "source_role": "canonical_textbook",
+          "content_type": "waste_disposal",
+          "chapter_id": null,
+          "page_number": 163,
+          "section_title": "实验 20-1 ds 区元素化合物的性质 / （三）实验内容 / 5. 小设计实验",
+          "section_path": [
+            "第7章 元素性质实验",
+            "实验 20-1 ds 区元素化合物的性质",
+            "（三）实验内容",
+            "5. 小设计实验"
+          ]
+        }
+      ],
+      "legacy_missing_ids": [
+        "textbook_prose_00394_04911a6294",
+        "textbook_prose_00395_7ea078c59f",
+        "textbook_prose_01058_15764ebcec",
+        "textbook_prose_01060_0065ae1104",
+        "textbook_prose_01062_628733419b"
+      ]
+    },
+    "questions": [
+      {
+        "question_id": "REV_CH4_EXP_20_1_09_Q001",
+        "source_review_id": "REV_CH4_EXP_20_1_09_Q001",
+        "source_question_index": 1,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-1-09 小设计实验》实验中，混合试液设计分离检出的目标阳离子组是哪一组？",
+        "options": [
+          {
+            "label": "A",
+            "text": "Ag⁺、Pb²⁺、Zn²⁺、Cu²⁺"
+          },
+          {
+            "label": "B",
+            "text": "Na⁺、K⁺、Li⁺、Ba²⁺"
+          },
+          {
+            "label": "C",
+            "text": "Cr³⁺、Al³⁺、Mn²⁺"
+          },
+          {
+            "label": "D",
+            "text": "NO₃⁻、NO₂⁻、SO₄²⁻"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "“Ag⁺、Pb²⁺、Zn²⁺、Cu²⁺”与实验操作、观察目标或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-07614584"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "mixed_cation_design_targets"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "Ag⁺、Pb²⁺、Zn²⁺、Cu²⁺",
+            "point_key": "candidate-1-07614584",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项为“Ag⁺、Pb²⁺、Zn²⁺、Cu²⁺”，与题干所问和解析中的有效答案一致，并绑定到实验点位“含 Ag⁺、Pb²⁺、Zn²⁺、Cu²⁺ 的试液分离与检出”。"
+          },
+          {
+            "label": "B",
+            "text": "Na⁺、K⁺、Li⁺、Ba²⁺",
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "该选项为“Na⁺、K⁺、Li⁺、Ba²⁺”，与题干中的实验对象关联较弱；本题有效答案是“Ag⁺、Pb²⁺、Zn²⁺、Cu²⁺”。"
+          },
+          {
+            "label": "C",
+            "text": "Cr³⁺、Al³⁺、Mn²⁺",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项为“Cr³⁺、Al³⁺、Mn²⁺”，会把本题锁定的实验对象、操作或现象转向错误判断；本题有效答案是“Ag⁺、Pb²⁺、Zn²⁺、Cu²⁺”。"
+          },
+          {
+            "label": "D",
+            "text": "NO₃⁻、NO₂⁻、SO₄²⁻",
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "该选项为“NO₃⁻、NO₂⁻、SO₄²⁻”，与题干中的实验对象关联较弱；本题有效答案是“Ag⁺、Pb²⁺、Zn²⁺、Cu²⁺”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00313_fcfa9b46a0",
+            "expchunk_00309_5610e5bc6f",
+            "textbook_prose_01060_0065ae1104"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 保留 original_question；已核对题干、选项/答案/解析、点位和源文，最终有效题证据充分。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00313_fcfa9b46a0",
+            "expchunk_00309_5610e5bc6f",
+            "textbook_prose_01060_0065ae1104"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [
+            "textbook_prose_01060_0065ae1104"
+          ],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-1-09 小设计实验》实验中，混合试液设计分离检出的目标阳离子组是哪一组？",
+            "options": [
+              {
+                "label": "A",
+                "text": "Ag⁺、Pb²⁺、Zn²⁺、Cu²⁺"
+              },
+              {
+                "label": "B",
+                "text": "Na⁺、K⁺、Li⁺、Ba²⁺"
+              },
+              {
+                "label": "C",
+                "text": "Cr³⁺、Al³⁺、Mn²⁺"
+              },
+              {
+                "label": "D",
+                "text": "NO₃⁻、NO₂⁻、SO₄²⁻"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "“Ag⁺、Pb²⁺、Zn²⁺、Cu²⁺”与实验操作、观察目标或结论一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00313_fcfa9b46a0",
+              "expchunk_00309_5610e5bc6f",
+              "textbook_prose_01060_0065ae1104"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_09_Q002",
+        "source_review_id": "REV_CH4_EXP_20_1_09_Q002",
+        "source_question_index": 2,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《20-1-09 小设计实验》中，混合试液设计题首先限定的分离检出对象是哪一组？",
+        "options": [
+          {
+            "label": "A",
+            "text": "Ag⁺、Pb²⁺、Zn²⁺、Cu²⁺"
+          },
+          {
+            "label": "B",
+            "text": "Na⁺、K⁺、Li⁺、Ba²⁺"
+          },
+          {
+            "label": "C",
+            "text": "Cr³⁺、Al³⁺、Mn²⁺"
+          },
+          {
+            "label": "D",
+            "text": "NO₃⁻、NO₂⁻、SO₄²⁻"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "教材原文只明确要求分离并检出这四种阳离子，未规定唯一分离路线。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-07614584"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "mixed_cation_separation_scheme",
+          "semantic_final_rewrite"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": null,
+            "point_key": "candidate-1-07614584",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“Ag⁺、Pb²⁺、Zn²⁺、Cu²⁺”直接支撑“在《20-1-09 小设计实验》中，混合试液设计题首先限定的分离检出对象是哪一组？”；对应点位是“含 Ag⁺、Pb²⁺、Zn²⁺、Cu²⁺ 的试液分离与检出”。"
+          },
+          {
+            "label": "B",
+            "text": null,
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "“Na⁺、K⁺、Li⁺、Ba²⁺”不能作为“在《20-1-09 小设计实验》中，混合试液设计题首先限定的分离检出对象是哪一组？”的教材证据；它排除的是无关操作、条件或观察对象。"
+          },
+          {
+            "label": "C",
+            "text": null,
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "“Cr³⁺、Al³⁺、Mn²⁺”与正确项“Ag⁺、Pb²⁺、Zn²⁺、Cu²⁺”同属相近化学概念，但在“在《20-1-09 小设计实验》中，混合试液设计题首先限定的分离检出对象是哪一组？”中混淆了试剂、价态、产物或现象。"
+          },
+          {
+            "label": "D",
+            "text": null,
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "“NO₃⁻、NO₂⁻、SO₄²⁻”不能作为“在《20-1-09 小设计实验》中，混合试液设计题首先限定的分离检出对象是哪一组？”的教材证据；它排除的是无关操作、条件或观察对象。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00313_fcfa9b46a0",
+            "expchunk_00309_5610e5bc6f",
+            "textbook_prose_01060_0065ae1104"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final proposed_question 已核对 canonical 实验原文、点位和必要 theory；可机器确定性判分。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00313_fcfa9b46a0",
+            "expchunk_00309_5610e5bc6f",
+            "textbook_prose_01060_0065ae1104"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [
+            "textbook_prose_01060_0065ae1104"
+          ],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-1-09 小设计实验》实验中，加入 Cl⁻ 后，Ag⁺ 和 Pb²⁺ 可优先形成哪类沉淀用于初步分离？",
+            "options": [
+              {
+                "label": "A",
+                "text": "氨合物沉淀"
+              },
+              {
+                "label": "B",
+                "text": "氯化物沉淀"
+              },
+              {
+                "label": "C",
+                "text": "丁二酮肟沉淀"
+              },
+              {
+                "label": "D",
+                "text": "铬酸根溶液"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "答案为：氯化物沉淀。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00313_fcfa9b46a0",
+              "expchunk_00309_5610e5bc6f",
+              "textbook_prose_01060_0065ae1104"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-1-09 小设计实验》中，混合试液设计题首先限定的分离检出对象是哪一组？",
+            "options": [
+              {
+                "label": "A",
+                "text": "Ag⁺、Pb²⁺、Zn²⁺、Cu²⁺"
+              },
+              {
+                "label": "B",
+                "text": "Na⁺、K⁺、Li⁺、Ba²⁺"
+              },
+              {
+                "label": "C",
+                "text": "Cr³⁺、Al³⁺、Mn²⁺"
+              },
+              {
+                "label": "D",
+                "text": "NO₃⁻、NO₂⁻、SO₄²⁻"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "教材原文只明确要求分离并检出这四种阳离子，未规定唯一分离路线。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_09_Q003",
+        "source_review_id": "REV_CH4_EXP_20_1_09_Q003",
+        "source_question_index": 3,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《20-1-09 小设计实验》中，一个合格的分离检出方案必须同时写清哪两类内容？",
+        "options": [
+          {
+            "label": "A",
+            "text": "试剂品牌和试管编号"
+          },
+          {
+            "label": "B",
+            "text": "分离步骤和确认检出依据"
+          },
+          {
+            "label": "C",
+            "text": "颜色是否好看和用水量"
+          },
+          {
+            "label": "D",
+            "text": "只写最终沉淀质量"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "方案应同时写清分离步骤和确认检出依据；教材没有限定唯一固定路线。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-07614584"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "ag_pb_separation_scheme",
+          "semantic_final_rewrite"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": null,
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "“试剂品牌和试管编号”不能作为“在《20-1-09 小设计实验》中，一个合格的分离检出方案必须同时写清哪两类内容？”的教材证据；它排除的是无关操作、条件或观察对象。"
+          },
+          {
+            "label": "B",
+            "text": null,
+            "point_key": "candidate-1-07614584",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“分离步骤和确认检出依据”直接支撑“在《20-1-09 小设计实验》中，一个合格的分离检出方案必须同时写清哪两类内容？”；对应点位是“含 Ag⁺、Pb²⁺、Zn²⁺、Cu²⁺ 的试液分离与检出”。"
+          },
+          {
+            "label": "C",
+            "text": null,
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "“颜色是否好看和用水量”不能作为“在《20-1-09 小设计实验》中，一个合格的分离检出方案必须同时写清哪两类内容？”的教材证据；它排除的是无关操作、条件或观察对象。"
+          },
+          {
+            "label": "D",
+            "text": null,
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "“只写最终沉淀质量”与正确项“分离步骤和确认检出依据”同属相近化学概念，但在“在《20-1-09 小设计实验》中，一个合格的分离检出方案必须同时写清哪两类内容？”中混淆了试剂、价态、产物或现象。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00313_fcfa9b46a0",
+            "expchunk_00309_5610e5bc6f",
+            "textbook_prose_01060_0065ae1104"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final proposed_question 已核对 canonical 实验原文、点位和必要 theory；可机器确定性判分。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00313_fcfa9b46a0",
+            "expchunk_00309_5610e5bc6f",
+            "textbook_prose_01060_0065ae1104"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [
+            "textbook_prose_01060_0065ae1104"
+          ],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-1-09 小设计实验》实验中，AgCl 与 PbCl₂ 的分离常可利用 PbCl₂ 的哪种性质差异？",
+            "options": [
+              {
+                "label": "A",
+                "text": "在钴玻璃中显紫色"
+              },
+              {
+                "label": "B",
+                "text": "能生成 Ni(dmg)₂"
+              },
+              {
+                "label": "C",
+                "text": "热水中溶解度较大"
+              },
+              {
+                "label": "D",
+                "text": "可被钥匙遮光"
+              }
+            ],
+            "answer": {
+              "value": "C"
+            },
+            "explanation": "答案为：热水中溶解度较大。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00313_fcfa9b46a0",
+              "expchunk_00309_5610e5bc6f",
+              "textbook_prose_01060_0065ae1104"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-1-09 小设计实验》中，一个合格的分离检出方案必须同时写清哪两类内容？",
+            "options": [
+              {
+                "label": "A",
+                "text": "试剂品牌和试管编号"
+              },
+              {
+                "label": "B",
+                "text": "分离步骤和确认检出依据"
+              },
+              {
+                "label": "C",
+                "text": "颜色是否好看和用水量"
+              },
+              {
+                "label": "D",
+                "text": "只写最终沉淀质量"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "方案应同时写清分离步骤和确认检出依据；教材没有限定唯一固定路线。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_09_Q004",
+        "source_review_id": "REV_CH4_EXP_20_1_09_Q004",
+        "source_question_index": 4,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "关于 Ag⁺、Pb²⁺、Zn²⁺、Cu²⁺ 混合试液设计题，下列哪项说法最符合教材原文？",
+        "options": [
+          {
+            "label": "A",
+            "text": "教材给出唯一固定流程"
+          },
+          {
+            "label": "B",
+            "text": "需要设计能分离并检出四种离子的方案"
+          },
+          {
+            "label": "C",
+            "text": "只需写任意颜色"
+          },
+          {
+            "label": "D",
+            "text": "只检出一种离子即可"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "教材原文提出设计任务，没有把某一具体流程写成唯一答案。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-07614584"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "ag_confirmation_scheme",
+          "semantic_final_rewrite"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": null,
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "“教材给出唯一固定流程”不能作为“关于 Ag⁺、Pb²⁺、Zn²⁺、Cu²⁺ 混合试液设计题，下列哪项说法最符合教材原文？”的教材证据；它排除的是无关操作、条件或观察对象。"
+          },
+          {
+            "label": "B",
+            "text": null,
+            "point_key": "candidate-1-07614584",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“需要设计能分离并检出四种离子的方案”直接支撑“关于 Ag⁺、Pb²⁺、Zn²⁺、Cu²⁺ 混合试液设计题，下列哪项说法最符合教材原文？”；对应点位是“含 Ag⁺、Pb²⁺、Zn²⁺、Cu²⁺ 的试液分离与检出”。"
+          },
+          {
+            "label": "C",
+            "text": null,
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "“只需写任意颜色”不能作为“关于 Ag⁺、Pb²⁺、Zn²⁺、Cu²⁺ 混合试液设计题，下列哪项说法最符合教材原文？”的教材证据；它排除的是无关操作、条件或观察对象。"
+          },
+          {
+            "label": "D",
+            "text": null,
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "“只检出一种离子即可”不能作为“关于 Ag⁺、Pb²⁺、Zn²⁺、Cu²⁺ 混合试液设计题，下列哪项说法最符合教材原文？”的教材证据；它排除的是无关操作、条件或观察对象。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00313_fcfa9b46a0",
+            "expchunk_00309_5610e5bc6f",
+            "textbook_prose_01060_0065ae1104"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final proposed_question 已核对 canonical 实验原文、点位和必要 theory；可机器确定性判分。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00313_fcfa9b46a0",
+            "expchunk_00309_5610e5bc6f",
+            "textbook_prose_01060_0065ae1104"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [
+            "textbook_prose_01060_0065ae1104"
+          ],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-1-09 小设计实验》实验中，检出 Ag⁺ 时，AgCl 溶于氨水后再酸化通常会发生什么？",
+            "options": [
+              {
+                "label": "A",
+                "text": "形成 CuI"
+              },
+              {
+                "label": "B",
+                "text": "生成氧气"
+              },
+              {
+                "label": "C",
+                "text": "出现焰色"
+              },
+              {
+                "label": "D",
+                "text": "AgCl 重新沉淀"
+              }
+            ],
+            "answer": {
+              "value": "D"
+            },
+            "explanation": "答案为：AgCl 重新沉淀。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00313_fcfa9b46a0",
+              "expchunk_00309_5610e5bc6f",
+              "textbook_prose_01060_0065ae1104"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "关于 Ag⁺、Pb²⁺、Zn²⁺、Cu²⁺ 混合试液设计题，下列哪项说法最符合教材原文？",
+            "options": [
+              {
+                "label": "A",
+                "text": "教材给出唯一固定流程"
+              },
+              {
+                "label": "B",
+                "text": "需要设计能分离并检出四种离子的方案"
+              },
+              {
+                "label": "C",
+                "text": "只需写任意颜色"
+              },
+              {
+                "label": "D",
+                "text": "只检出一种离子即可"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "教材原文提出设计任务，没有把某一具体流程写成唯一答案。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_09_Q005",
+        "source_review_id": "REV_CH4_EXP_20_1_09_Q005",
+        "source_question_index": 5,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在该小设计题中，若使用某一步现象作为检出依据，该依据应满足哪项要求？",
+        "options": [
+          {
+            "label": "A",
+            "text": "能对应被检离子且现象明确"
+          },
+          {
+            "label": "B",
+            "text": "只要试剂名称很长"
+          },
+          {
+            "label": "C",
+            "text": "只依赖主观印象评分"
+          },
+          {
+            "label": "D",
+            "text": "不需要与离子有关"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "设计题的检出结论应由确定的试剂和现象支撑。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-07614584"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "cu_confirmation_scheme",
+          "semantic_final_rewrite"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": null,
+            "point_key": "candidate-1-07614584",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“能对应被检离子且现象明确”直接支撑“在该小设计题中，若使用某一步现象作为检出依据，该依据应满足哪项要求？”；对应点位是“含 Ag⁺、Pb²⁺、Zn²⁺、Cu²⁺ 的试液分离与检出”。"
+          },
+          {
+            "label": "B",
+            "text": null,
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "“只要试剂名称很长”不能作为“在该小设计题中，若使用某一步现象作为检出依据，该依据应满足哪项要求？”的教材证据；它排除的是无关操作、条件或观察对象。"
+          },
+          {
+            "label": "C",
+            "text": null,
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "“必须依赖 AI 语义评分”与正确项“能对应被检离子且现象明确”同属相近化学概念，但在“在该小设计题中，若使用某一步现象作为检出依据，该依据应满足哪项要求？”中混淆了试剂、价态、产物或现象。"
+          },
+          {
+            "label": "D",
+            "text": null,
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "“不需要与离子有关”不能作为“在该小设计题中，若使用某一步现象作为检出依据，该依据应满足哪项要求？”的教材证据；它排除的是无关操作、条件或观察对象。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00313_fcfa9b46a0",
+            "expchunk_00309_5610e5bc6f",
+            "textbook_prose_01060_0065ae1104"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final proposed_question 已核对 canonical 实验原文、点位和必要 theory；可机器确定性判分。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00313_fcfa9b46a0",
+            "expchunk_00309_5610e5bc6f",
+            "textbook_prose_01060_0065ae1104"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [
+            "textbook_prose_01060_0065ae1104"
+          ],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-1-09 小设计实验》实验中，Cu²⁺ 与过量氨水形成配合物时，典型溶液颜色是什么？",
+            "options": [
+              {
+                "label": "A",
+                "text": "深蓝色"
+              },
+              {
+                "label": "B",
+                "text": "无色"
+              },
+              {
+                "label": "C",
+                "text": "砖红色火焰"
+              },
+              {
+                "label": "D",
+                "text": "白色钥匙轮廓"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "答案为：深蓝色。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00313_fcfa9b46a0",
+              "expchunk_00309_5610e5bc6f",
+              "textbook_prose_01060_0065ae1104"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在该小设计题中，若使用某一步现象作为检出依据，该依据应满足哪项要求？",
+            "options": [
+              {
+                "label": "A",
+                "text": "能对应被检离子且现象明确"
+              },
+              {
+                "label": "B",
+                "text": "只要试剂名称很长"
+              },
+              {
+                "label": "C",
+                "text": "只依赖主观印象评分"
+              },
+              {
+                "label": "D",
+                "text": "不需要与离子有关"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "设计题的检出结论应由确定的试剂和现象支撑。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_09_Q006",
+        "source_review_id": "REV_CH4_EXP_20_1_09_Q006",
+        "source_question_index": 6,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在 Ag⁺、Pb²⁺、Zn²⁺、Cu²⁺ 分离检出设计中，下列哪项最应避免？",
+        "options": [
+          {
+            "label": "A",
+            "text": "给出清楚步骤和检出依据"
+          },
+          {
+            "label": "B",
+            "text": "把某个未由教材指定的方案当成唯一答案"
+          },
+          {
+            "label": "C",
+            "text": "说明要检出的四种离子"
+          },
+          {
+            "label": "D",
+            "text": "写明关键观察现象"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "教材没有指定唯一分离路线，因此应避免把某个具体路线硬编码为唯一标准。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-07614584"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "zn_separation_scheme",
+          "semantic_final_rewrite"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": null,
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "“给出清楚步骤和检出依据”不能作为“在 Ag⁺、Pb²⁺、Zn²⁺、Cu²⁺ 分离检出设计中，下列哪项最应避免？”的教材证据；它排除的是无关操作、条件或观察对象。"
+          },
+          {
+            "label": "B",
+            "text": null,
+            "point_key": "candidate-1-07614584",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“把某个未由教材指定的方案当成唯一答案”直接支撑“在 Ag⁺、Pb²⁺、Zn²⁺、Cu²⁺ 分离检出设计中，下列哪项最应避免？”；对应点位是“含 Ag⁺、Pb²⁺、Zn²⁺、Cu²⁺ 的试液分离与检出”。"
+          },
+          {
+            "label": "C",
+            "text": null,
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "“说明要检出的四种离子”不能作为“在 Ag⁺、Pb²⁺、Zn²⁺、Cu²⁺ 分离检出设计中，下列哪项最应避免？”的教材证据；它排除的是无关操作、条件或观察对象。"
+          },
+          {
+            "label": "D",
+            "text": null,
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "“写明关键观察现象”不能作为“在 Ag⁺、Pb²⁺、Zn²⁺、Cu²⁺ 分离检出设计中，下列哪项最应避免？”的教材证据；它排除的是无关操作、条件或观察对象。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00313_fcfa9b46a0",
+            "expchunk_00309_5610e5bc6f",
+            "textbook_prose_01060_0065ae1104"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final proposed_question 已核对 canonical 实验原文、点位和必要 theory；可机器确定性判分。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00313_fcfa9b46a0",
+            "expchunk_00309_5610e5bc6f",
+            "textbook_prose_01060_0065ae1104"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [
+            "textbook_prose_01060_0065ae1104"
+          ],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-1-09 小设计实验》实验中，Zn(OH)₂ 在过量 NaOH 中溶解，体现 Zn²⁺ 分离检出可利用哪种性质？",
+            "options": [
+              {
+                "label": "A",
+                "text": "感光性"
+              },
+              {
+                "label": "B",
+                "text": "两性氢氧化物性质"
+              },
+              {
+                "label": "C",
+                "text": "焰色反应"
+              },
+              {
+                "label": "D",
+                "text": "硝酸根棕色环"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "答案为：两性氢氧化物性质。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00313_fcfa9b46a0",
+              "expchunk_00309_5610e5bc6f",
+              "textbook_prose_01060_0065ae1104"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在 Ag⁺、Pb²⁺、Zn²⁺、Cu²⁺ 分离检出设计中，下列哪项最应避免？",
+            "options": [
+              {
+                "label": "A",
+                "text": "给出清楚步骤和检出依据"
+              },
+              {
+                "label": "B",
+                "text": "把某个未由教材指定的方案当成唯一答案"
+              },
+              {
+                "label": "C",
+                "text": "说明要检出的四种离子"
+              },
+              {
+                "label": "D",
+                "text": "写明关键观察现象"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "教材没有指定唯一分离路线，因此应避免把某个具体路线硬编码为唯一标准。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_09_Q007",
+        "source_review_id": "REV_CH4_EXP_20_1_09_Q007",
+        "source_question_index": 7,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-1-09 小设计实验》实验中，废定影液中含银的主要配离子是哪一种？",
+        "options": [
+          {
+            "label": "A",
+            "text": "[Cu(NH₃)₄]²⁺"
+          },
+          {
+            "label": "B",
+            "text": "MnO₄⁻"
+          },
+          {
+            "label": "C",
+            "text": "[Ag(S₂O₃)₂]³⁻"
+          },
+          {
+            "label": "D",
+            "text": "Ni(dmg)₂"
+          }
+        ],
+        "answer": {
+          "value": "C"
+        },
+        "explanation": "“[Ag(S₂O₃)₂]³⁻”与实验操作、观察目标或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-022b3108"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "fixer_silver_complex"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "[Cu(NH₃)₄]²⁺",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项为“[Cu(NH₃)₄]²⁺”，会把本题锁定的实验对象、操作或现象转向错误判断；本题有效答案是“[Ag(S₂O₃)₂]³⁻”。"
+          },
+          {
+            "label": "B",
+            "text": "MnO₄⁻",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项为“MnO₄⁻”，会把本题锁定的实验对象、操作或现象转向错误判断；本题有效答案是“[Ag(S₂O₃)₂]³⁻”。"
+          },
+          {
+            "label": "C",
+            "text": "[Ag(S₂O₃)₂]³⁻",
+            "point_key": "candidate-2-022b3108",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项为“[Ag(S₂O₃)₂]³⁻”，与题干所问和解析中的有效答案一致，并绑定到实验点位“从废定影液 `[Ag(S₂O₃)₂]³⁻` 中回收银，并以 AgNO₃ 形式回收”。"
+          },
+          {
+            "label": "D",
+            "text": "Ni(dmg)₂",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "“Ni(dmg)₂”是 Ni²⁺ 鉴定干扰项；若选它，是把镍检出反应误认为“废定影液中含银的主要配离子是哪种？”的证据。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00313_fcfa9b46a0",
+            "expchunk_00309_5610e5bc6f",
+            "textbook_prose_01060_0065ae1104"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 保留 original_question；已核对题干、选项/答案/解析、点位和源文，最终有效题证据充分。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00313_fcfa9b46a0",
+            "expchunk_00309_5610e5bc6f",
+            "textbook_prose_01060_0065ae1104"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [
+            "textbook_prose_01060_0065ae1104"
+          ],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-1-09 小设计实验》实验中，废定影液中含银的主要配离子是哪一种？",
+            "options": [
+              {
+                "label": "A",
+                "text": "[Cu(NH₃)₄]²⁺"
+              },
+              {
+                "label": "B",
+                "text": "MnO₄⁻"
+              },
+              {
+                "label": "C",
+                "text": "[Ag(S₂O₃)₂]³⁻"
+              },
+              {
+                "label": "D",
+                "text": "Ni(dmg)₂"
+              }
+            ],
+            "answer": {
+              "value": "C"
+            },
+            "explanation": "“[Ag(S₂O₃)₂]³⁻”与实验操作、观察目标或结论一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00313_fcfa9b46a0",
+              "expchunk_00309_5610e5bc6f",
+              "textbook_prose_01060_0065ae1104"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_09_Q008",
+        "source_review_id": "REV_CH4_EXP_20_1_09_Q008",
+        "source_question_index": 8,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-1-09 小设计实验》实验中，废定影液回收银的最终指定形式是什么？",
+        "options": [
+          {
+            "label": "A",
+            "text": "AgCl 滤纸"
+          },
+          {
+            "label": "B",
+            "text": "CuI"
+          },
+          {
+            "label": "C",
+            "text": "BaSO₄"
+          },
+          {
+            "label": "D",
+            "text": "AgNO₃"
+          }
+        ],
+        "answer": {
+          "value": "D"
+        },
+        "explanation": "“AgNO₃”与实验操作、观察目标或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-022b3108"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "fixer_recovery_final_form"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "AgCl 滤纸",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "“AgCl 滤纸”来自银盐感光或遮光演示思路；选择它会把光化学情境误套到“废定影液回收银的最终指定形式是什么？”。"
+          },
+          {
+            "label": "B",
+            "text": "CuI",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项为“CuI”，会把本题锁定的实验对象、操作或现象转向错误判断；本题有效答案是“AgNO₃”。"
+          },
+          {
+            "label": "C",
+            "text": "BaSO₄",
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "该选项为“BaSO₄”，与题干中的实验对象关联较弱；本题有效答案是“AgNO₃”。"
+          },
+          {
+            "label": "D",
+            "text": "AgNO₃",
+            "point_key": "candidate-2-022b3108",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项为“AgNO₃”，与题干所问和解析中的有效答案一致，并绑定到实验点位“从废定影液 `[Ag(S₂O₃)₂]³⁻` 中回收银，并以 AgNO₃ 形式回收”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00313_fcfa9b46a0",
+            "expchunk_00309_5610e5bc6f",
+            "textbook_prose_01060_0065ae1104"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 保留 original_question；已核对题干、选项/答案/解析、点位和源文，最终有效题证据充分。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00313_fcfa9b46a0",
+            "expchunk_00309_5610e5bc6f",
+            "textbook_prose_01060_0065ae1104"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [
+            "textbook_prose_01060_0065ae1104"
+          ],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-1-09 小设计实验》实验中，废定影液回收银的最终指定形式是什么？",
+            "options": [
+              {
+                "label": "A",
+                "text": "AgCl 滤纸"
+              },
+              {
+                "label": "B",
+                "text": "CuI"
+              },
+              {
+                "label": "C",
+                "text": "BaSO₄"
+              },
+              {
+                "label": "D",
+                "text": "AgNO₃"
+              }
+            ],
+            "answer": {
+              "value": "D"
+            },
+            "explanation": "“AgNO₃”与实验操作、观察目标或结论一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00313_fcfa9b46a0",
+              "expchunk_00309_5610e5bc6f",
+              "textbook_prose_01060_0065ae1104"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_09_Q009",
+        "source_review_id": "REV_CH4_EXP_20_1_09_Q009",
+        "source_question_index": 9,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-1-09 小设计实验》实验中，从废定影液回收银时，核心问题是先破坏或转化哪种稳定结构？",
+        "options": [
+          {
+            "label": "A",
+            "text": "银-硫代硫酸根配合物"
+          },
+          {
+            "label": "B",
+            "text": "钴玻璃滤光"
+          },
+          {
+            "label": "C",
+            "text": "焰色电子跃迁"
+          },
+          {
+            "label": "D",
+            "text": "钥匙遮光图案"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "“银-硫代硫酸根配合物”与实验操作、观察目标或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-022b3108"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "fixer_complex_conversion"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "银-硫代硫酸根配合物",
+            "point_key": "candidate-2-022b3108",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项为“银-硫代硫酸根配合物”，与题干所问和解析中的有效答案一致，并绑定到实验点位“从废定影液 `[Ag(S₂O₃)₂]³⁻` 中回收银，并以 AgNO₃ 形式回收”。"
+          },
+          {
+            "label": "B",
+            "text": "钴玻璃滤光",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "“钴玻璃滤光”属于焰色反应识别线索；本题“从废定影液回收银时，核心问题是先破坏或转化哪种稳定结构？”考查的是本实验试剂/现象而非火焰颜色。"
+          },
+          {
+            "label": "C",
+            "text": "焰色电子跃迁",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "“焰色电子跃迁”属于焰色反应识别线索；本题“从废定影液回收银时，核心问题是先破坏或转化哪种稳定结构？”考查的是本实验试剂/现象而非火焰颜色。"
+          },
+          {
+            "label": "D",
+            "text": "钥匙遮光图案",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "“钥匙遮光图案”来自银盐感光或遮光演示思路；选择它会把光化学情境误套到“从废定影液回收银时，核心问题是先破坏或转化哪种稳定结构？”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00313_fcfa9b46a0",
+            "expchunk_00309_5610e5bc6f",
+            "textbook_prose_01060_0065ae1104"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01058_15764ebcec",
+            "textbook_prose_01062_628733419b",
+            "textbook_prose_00394_04911a6294",
+            "textbook_prose_00395_7ea078c59f"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 保留 original_question；已核对题干、选项/答案/解析、点位和源文，最终有效题证据充分。",
+          "supporting_theory_note": "依赖废定影液中银-硫代硫酸根配合物及其稳定性的理论；混合阳离子设计目标本身由 canonical 支持。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00313_fcfa9b46a0",
+            "expchunk_00309_5610e5bc6f",
+            "textbook_prose_01060_0065ae1104"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01058_15764ebcec",
+            "textbook_prose_01062_628733419b",
+            "textbook_prose_00394_04911a6294",
+            "textbook_prose_00395_7ea078c59f"
+          ],
+          "missing_canonical_ids": [
+            "textbook_prose_01060_0065ae1104"
+          ],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01058_15764ebcec",
+            "textbook_prose_01062_628733419b",
+            "textbook_prose_00394_04911a6294",
+            "textbook_prose_00395_7ea078c59f"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-1-09 小设计实验》实验中，从废定影液回收银时，核心问题是先破坏或转化哪种稳定结构？",
+            "options": [
+              {
+                "label": "A",
+                "text": "银-硫代硫酸根配合物"
+              },
+              {
+                "label": "B",
+                "text": "钴玻璃滤光"
+              },
+              {
+                "label": "C",
+                "text": "焰色电子跃迁"
+              },
+              {
+                "label": "D",
+                "text": "钥匙遮光图案"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "“银-硫代硫酸根配合物”与实验操作、观察目标或结论一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00313_fcfa9b46a0",
+              "expchunk_00309_5610e5bc6f",
+              "textbook_prose_01060_0065ae1104"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "source_requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_09_Q010",
+        "source_review_id": "REV_CH4_EXP_20_1_09_Q010",
+        "source_question_index": 10,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-1-09 小设计实验》实验中，小设计实验的作答重点最应体现什么？",
+        "options": [
+          {
+            "label": "A",
+            "text": "只写颜色好看"
+          },
+          {
+            "label": "B",
+            "text": "分离步骤和确认检出依据"
+          },
+          {
+            "label": "C",
+            "text": "只写最终质量"
+          },
+          {
+            "label": "D",
+            "text": "只写仪器品牌"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "“分离步骤和确认检出依据”与实验操作、观察目标或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-07614584",
+          "candidate-2-022b3108"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "small_design_answer_structure"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "只写颜色好看",
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "该选项为“只写颜色好看”，与题干中的实验对象关联较弱；本题有效答案是“分离步骤和确认检出依据”。"
+          },
+          {
+            "label": "B",
+            "text": "分离步骤和确认检出依据",
+            "point_key": "candidate-1-07614584",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项为“分离步骤和确认检出依据”，与题干所问和解析中的有效答案一致，并绑定到实验点位“含 Ag⁺、Pb²⁺、Zn²⁺、Cu²⁺ 的试液分离与检出”。"
+          },
+          {
+            "label": "C",
+            "text": "只写最终质量",
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "该选项为“只写最终质量”，与题干中的实验对象关联较弱；本题有效答案是“分离步骤和确认检出依据”。"
+          },
+          {
+            "label": "D",
+            "text": "只写仪器品牌",
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "该选项为“只写仪器品牌”，与题干中的实验对象关联较弱；本题有效答案是“分离步骤和确认检出依据”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00313_fcfa9b46a0",
+            "expchunk_00309_5610e5bc6f",
+            "textbook_prose_01060_0065ae1104"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01058_15764ebcec",
+            "textbook_prose_01062_628733419b",
+            "textbook_prose_00394_04911a6294",
+            "textbook_prose_00395_7ea078c59f"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 保留 original_question；已核对题干、选项/答案/解析、点位和源文，最终有效题证据充分。",
+          "supporting_theory_note": "依赖废定影液中银-硫代硫酸根配合物及其稳定性的理论；混合阳离子设计目标本身由 canonical 支持。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00313_fcfa9b46a0",
+            "expchunk_00309_5610e5bc6f",
+            "textbook_prose_01060_0065ae1104"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01058_15764ebcec",
+            "textbook_prose_01062_628733419b",
+            "textbook_prose_00394_04911a6294",
+            "textbook_prose_00395_7ea078c59f"
+          ],
+          "missing_canonical_ids": [
+            "textbook_prose_01060_0065ae1104"
+          ],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01058_15764ebcec",
+            "textbook_prose_01062_628733419b",
+            "textbook_prose_00394_04911a6294",
+            "textbook_prose_00395_7ea078c59f"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-1-09 小设计实验》实验中，小设计实验的作答重点最应体现什么？",
+            "options": [
+              {
+                "label": "A",
+                "text": "只写颜色好看"
+              },
+              {
+                "label": "B",
+                "text": "分离步骤和确认检出依据"
+              },
+              {
+                "label": "C",
+                "text": "只写最终质量"
+              },
+              {
+                "label": "D",
+                "text": "只写仪器品牌"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "“分离步骤和确认检出依据”与实验操作、观察目标或结论一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00313_fcfa9b46a0",
+              "expchunk_00309_5610e5bc6f",
+              "textbook_prose_01060_0065ae1104"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "multi_point_binding",
+            "source_requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_09_Q011",
+        "source_review_id": "REV_CH4_EXP_20_1_09_Q011",
+        "source_question_index": 11,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《20-1-09 小设计实验》实验中，该小设计实验要求分离并检出 Ag⁺、Pb²⁺、Zn²⁺、Cu²⁺。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "该判断与实验原文的操作、现象或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-07614584"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "mixed_cation_design_targets"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00313_fcfa9b46a0",
+            "expchunk_00309_5610e5bc6f",
+            "textbook_prose_01060_0065ae1104"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 保留 original_question；已核对题干、选项/答案/解析、点位和源文，最终有效题证据充分。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00313_fcfa9b46a0",
+            "expchunk_00309_5610e5bc6f",
+            "textbook_prose_01060_0065ae1104"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [
+            "textbook_prose_01060_0065ae1104"
+          ],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-1-09 小设计实验》实验中，该小设计实验要求分离并检出 Ag⁺、Pb²⁺、Zn²⁺、Cu²⁺。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "该判断与实验原文的操作、现象或结论一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00313_fcfa9b46a0",
+              "expchunk_00309_5610e5bc6f",
+              "textbook_prose_01060_0065ae1104"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_09_Q012",
+        "source_review_id": "REV_CH4_EXP_20_1_09_Q012",
+        "source_question_index": 12,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《20-1-09 小设计实验》中，Ag⁺、Pb²⁺、Zn²⁺、Cu²⁺ 分离检出题属于哪类任务？",
+        "options": [
+          {
+            "label": "A",
+            "text": "设计实验题"
+          },
+          {
+            "label": "B",
+            "text": "固定背诵题"
+          },
+          {
+            "label": "C",
+            "text": "焰色观察题"
+          },
+          {
+            "label": "D",
+            "text": "气体燃烧题"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "教材原文将其列为小设计实验，要求学生设计分离检出方案。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-07614584"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "mixed_cation_separation_scheme",
+          "semantic_final_rewrite"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": null,
+            "point_key": "candidate-1-07614584",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“设计实验题”直接支撑“在《20-1-09 小设计实验》中，Ag⁺、Pb²⁺、Zn²⁺、Cu²⁺ 分离检出题属于哪类任务”；对应点位是“含 Ag⁺、Pb²⁺、Zn²⁺、Cu²⁺ 的试液分离与检出”。"
+          },
+          {
+            "label": "B",
+            "text": null,
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "“固定背诵题”不能作为“在《20-1-09 小设计实验》中，Ag⁺、Pb²⁺、Zn²⁺、Cu²⁺ 分离检出题属于哪类任务”的教材证据；它排除的是无关操作、条件或观察对象。"
+          },
+          {
+            "label": "C",
+            "text": null,
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "“焰色观察题”属于焰色反应识别线索；本题“在《20-1-09 小设计实验》中，Ag⁺、Pb²⁺、Zn²⁺、Cu²⁺ 分离检出题属于哪类任务”考查的是本实验试剂/现象而非火焰颜色。"
+          },
+          {
+            "label": "D",
+            "text": null,
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "“气体燃烧题”不能作为“在《20-1-09 小设计实验》中，Ag⁺、Pb²⁺、Zn²⁺、Cu²⁺ 分离检出题属于哪类任务”的教材证据；它排除的是无关操作、条件或观察对象。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00313_fcfa9b46a0",
+            "expchunk_00309_5610e5bc6f",
+            "textbook_prose_01060_0065ae1104"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final proposed_question 已核对 canonical 实验原文、点位和必要 theory；可机器确定性判分。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00313_fcfa9b46a0",
+            "expchunk_00309_5610e5bc6f",
+            "textbook_prose_01060_0065ae1104"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [
+            "textbook_prose_01060_0065ae1104"
+          ],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-1-09 小设计实验》实验中，AgCl 与 PbCl₂ 可利用溶解度差异进行分离设计。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "该判断题答案为“正确”。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00313_fcfa9b46a0",
+              "expchunk_00309_5610e5bc6f",
+              "textbook_prose_01060_0065ae1104"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-1-09 小设计实验》中，Ag⁺、Pb²⁺、Zn²⁺、Cu²⁺ 分离检出题属于哪类任务？",
+            "options": [
+              {
+                "label": "A",
+                "text": "设计实验题"
+              },
+              {
+                "label": "B",
+                "text": "固定背诵题"
+              },
+              {
+                "label": "C",
+                "text": "焰色观察题"
+              },
+              {
+                "label": "D",
+                "text": "气体燃烧题"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "教材原文将其列为小设计实验，要求学生设计分离检出方案。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_09_Q013",
+        "source_review_id": "REV_CH4_EXP_20_1_09_Q013",
+        "source_question_index": 13,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "该小设计题的评分重点应落在哪一项？",
+        "options": [
+          {
+            "label": "A",
+            "text": "方案能否分离并确认检出指定离子"
+          },
+          {
+            "label": "B",
+            "text": "是否写出钥匙遮光"
+          },
+          {
+            "label": "C",
+            "text": "是否只背章节标题"
+          },
+          {
+            "label": "D",
+            "text": "是否观察气体燃烧"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "教材任务是分离并检出四种阳离子，方案必须可判定。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-07614584"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "ag_pb_separation_scheme",
+          "semantic_final_rewrite"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": null,
+            "point_key": "candidate-1-07614584",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“方案能否分离并确认检出指定离子”直接支撑“该小设计题的评分重点应落在哪一项？”；对应点位是“含 Ag⁺、Pb²⁺、Zn²⁺、Cu²⁺ 的试液分离与检出”。"
+          },
+          {
+            "label": "B",
+            "text": null,
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "“是否写出钥匙遮光”来自银盐感光或遮光演示思路；选择它会把光化学情境误套到“该小设计题的评分重点应落在哪一项？”。"
+          },
+          {
+            "label": "C",
+            "text": null,
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "“是否只背章节标题”不能作为“该小设计题的评分重点应落在哪一项？”的教材证据；它排除的是无关操作、条件或观察对象。"
+          },
+          {
+            "label": "D",
+            "text": null,
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "“是否观察气体燃烧”不能作为“该小设计题的评分重点应落在哪一项？”的教材证据；它排除的是无关操作、条件或观察对象。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00313_fcfa9b46a0",
+            "expchunk_00309_5610e5bc6f",
+            "textbook_prose_01060_0065ae1104"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final proposed_question 已核对 canonical 实验原文、点位和必要 theory；可机器确定性判分。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00313_fcfa9b46a0",
+            "expchunk_00309_5610e5bc6f",
+            "textbook_prose_01060_0065ae1104"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [
+            "textbook_prose_01060_0065ae1104"
+          ],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-1-09 小设计实验》实验中，Cu²⁺ 与过量氨水形成深蓝色配合物可用于检出。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "该判断题答案为“正确”。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00313_fcfa9b46a0",
+              "expchunk_00309_5610e5bc6f",
+              "textbook_prose_01060_0065ae1104"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "该小设计题的评分重点应落在哪一项？",
+            "options": [
+              {
+                "label": "A",
+                "text": "方案能否分离并确认检出指定离子"
+              },
+              {
+                "label": "B",
+                "text": "是否写出钥匙遮光"
+              },
+              {
+                "label": "C",
+                "text": "是否只背章节标题"
+              },
+              {
+                "label": "D",
+                "text": "是否观察气体燃烧"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "教材任务是分离并检出四种阳离子，方案必须可判定。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_09_Q014",
+        "source_review_id": "REV_CH4_EXP_20_1_09_Q014",
+        "source_question_index": 14,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在小设计实验中，关于分离路线的说法哪一项更稳妥？",
+        "options": [
+          {
+            "label": "A",
+            "text": "教材没有限定唯一分离路线，但方案需有明确依据"
+          },
+          {
+            "label": "B",
+            "text": "教材要求只写 PbCl₂ 热水溶解"
+          },
+          {
+            "label": "C",
+            "text": "不需要任何现象"
+          },
+          {
+            "label": "D",
+            "text": "只需写一种试剂名"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "教材没有限定唯一分离路线，但方案需有明确依据。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-07614584"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "ag_confirmation_scheme",
+          "semantic_final_rewrite"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": null,
+            "point_key": "candidate-1-07614584",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“教材没有限定唯一分离路线，但方案需有明确依据”直接支撑“在小设计实验中，关于分离路线的说法哪一项更稳妥？”；对应点位是“含 Ag⁺、Pb²⁺、Zn²⁺、Cu²⁺ 的试液分离与检出”。"
+          },
+          {
+            "label": "B",
+            "text": null,
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "“教材要求只写 PbCl₂ 热水溶解”与正确项“教材没有限定唯一分离路线，但方案需有明确依据”同属相近化学概念，但在“在小设计实验中，关于分离路线的说法哪一项更稳妥？”中混淆了试剂、价态、产物或现象。"
+          },
+          {
+            "label": "C",
+            "text": null,
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "“不需要任何现象”不能作为“在小设计实验中，关于分离路线的说法哪一项更稳妥？”的教材证据；它排除的是无关操作、条件或观察对象。"
+          },
+          {
+            "label": "D",
+            "text": null,
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "“只需写一种试剂名”不能作为“在小设计实验中，关于分离路线的说法哪一项更稳妥？”的教材证据；它排除的是无关操作、条件或观察对象。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00313_fcfa9b46a0",
+            "expchunk_00309_5610e5bc6f",
+            "textbook_prose_01060_0065ae1104"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final proposed_question 已核对 canonical 实验原文、点位和必要 theory；可机器确定性判分。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00313_fcfa9b46a0",
+            "expchunk_00309_5610e5bc6f",
+            "textbook_prose_01060_0065ae1104"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [
+            "textbook_prose_01060_0065ae1104"
+          ],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-1-09 小设计实验》实验中，Zn(OH)₂ 的两性有助于锌离子的分离检出。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "该判断题答案为“正确”。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00313_fcfa9b46a0",
+              "expchunk_00309_5610e5bc6f",
+              "textbook_prose_01060_0065ae1104"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在小设计实验中，关于分离路线的说法哪一项更稳妥？",
+            "options": [
+              {
+                "label": "A",
+                "text": "教材没有限定唯一分离路线，但方案需有明确依据"
+              },
+              {
+                "label": "B",
+                "text": "教材要求只写 PbCl₂ 热水溶解"
+              },
+              {
+                "label": "C",
+                "text": "不需要任何现象"
+              },
+              {
+                "label": "D",
+                "text": "只需写一种试剂名"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "教材没有限定唯一分离路线，但方案需有明确依据。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_09_Q015",
+        "source_review_id": "REV_CH4_EXP_20_1_09_Q015",
+        "source_question_index": 15,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《20-1-09 小设计实验》实验中，废定影液中的银主要以 [Ag(S₂O₃)₂]³⁻ 形式存在。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "该判断与实验原文的操作、现象或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-07614584"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "cu_confirmation_scheme"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00313_fcfa9b46a0",
+            "expchunk_00309_5610e5bc6f",
+            "textbook_prose_01060_0065ae1104"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 保留 original_question；已核对题干、选项/答案/解析、点位和源文，最终有效题证据充分。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00313_fcfa9b46a0",
+            "expchunk_00309_5610e5bc6f",
+            "textbook_prose_01060_0065ae1104"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [
+            "textbook_prose_01060_0065ae1104"
+          ],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-1-09 小设计实验》实验中，废定影液中的银主要以 [Ag(S₂O₃)₂]³⁻ 形式存在。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "该判断与实验原文的操作、现象或结论一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00313_fcfa9b46a0",
+              "expchunk_00309_5610e5bc6f",
+              "textbook_prose_01060_0065ae1104"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_09_Q016",
+        "source_review_id": "REV_CH4_EXP_20_1_09_Q016",
+        "source_question_index": 16,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《20-1-09 小设计实验》实验中，该小设计实验的混合阳离子是 Cr³⁺、Al³⁺、Mn²⁺。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": false
+        },
+        "explanation": "该判断与实验原文的操作、现象或结论不一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-07614584"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "zn_separation_scheme"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00313_fcfa9b46a0",
+            "expchunk_00309_5610e5bc6f",
+            "textbook_prose_01060_0065ae1104"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 保留 original_question；已核对题干、选项/答案/解析、点位和源文，最终有效题证据充分。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00313_fcfa9b46a0",
+            "expchunk_00309_5610e5bc6f",
+            "textbook_prose_01060_0065ae1104"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [
+            "textbook_prose_01060_0065ae1104"
+          ],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-1-09 小设计实验》实验中，该小设计实验的混合阳离子是 Cr³⁺、Al³⁺、Mn²⁺。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "该判断与实验原文的操作、现象或结论不一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00313_fcfa9b46a0",
+              "expchunk_00309_5610e5bc6f",
+              "textbook_prose_01060_0065ae1104"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_09_Q017",
+        "source_review_id": "REV_CH4_EXP_20_1_09_Q017",
+        "source_question_index": 17,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "true_false",
+        "stem": "在《20-1-09 小设计实验》实验中，判断：回收银的指定最终形式是 AgNO₃。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "该判断与实验原文的操作、现象或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-022b3108"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "fixer_silver_complex",
+          "semantic_final_rewrite"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00313_fcfa9b46a0",
+            "expchunk_00309_5610e5bc6f",
+            "textbook_prose_01060_0065ae1104"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final proposed_question 已核对 canonical 实验原文、点位和必要 theory；可机器确定性判分。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00313_fcfa9b46a0",
+            "expchunk_00309_5610e5bc6f",
+            "textbook_prose_01060_0065ae1104"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [
+            "textbook_prose_01060_0065ae1104"
+          ],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-1-09 小设计实验》实验中，认为：回收银的指定最终形式是 AgNO₃，这一判断是不正确的。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "这一判断本身是正确的。该判断题答案为“错误”。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00313_fcfa9b46a0",
+              "expchunk_00309_5610e5bc6f",
+              "textbook_prose_01060_0065ae1104"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "true_false",
+            "stem": "在《20-1-09 小设计实验》实验中，判断：回收银的指定最终形式是 AgNO₃。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "该判断与实验原文的操作、现象或结论一致。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_09_Q018",
+        "source_review_id": "REV_CH4_EXP_20_1_09_Q018",
+        "source_question_index": 18,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在 Ag⁺、Pb²⁺、Zn²⁺、Cu²⁺ 分离检出设计中，为什么必须写出检出依据？",
+        "options": [
+          {
+            "label": "A",
+            "text": "便于确定每种离子是否被检出"
+          },
+          {
+            "label": "B",
+            "text": "因为检出依据完全不需要"
+          },
+          {
+            "label": "C",
+            "text": "为了比较滤纸质量"
+          },
+          {
+            "label": "D",
+            "text": "为了观察气体燃烧"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "设计实验的结论必须由明确现象或反应依据支持。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-07614584"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "fixer_recovery_final_form",
+          "semantic_final_rewrite"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": null,
+            "point_key": "candidate-1-07614584",
+            "role": "correct_evidence",
+            "diagnostic_note": "Correct option belongs to the Ag+, Pb2+, Zn2+ and Cu2+ separation-and-identification design point."
+          },
+          {
+            "label": "B",
+            "text": null,
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "“因为检出依据完全不需要”不能作为“在 Ag⁺、Pb²⁺、Zn²⁺、Cu²⁺ 分离检出设计中，为什么必须写出检出依据？”的教材证据；它排除的是无关操作、条件或观察对象。"
+          },
+          {
+            "label": "C",
+            "text": null,
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "“为了比较滤纸质量”来自银盐感光或遮光演示思路；选择它会把光化学情境误套到“在 Ag⁺、Pb²⁺、Zn²⁺、Cu²⁺ 分离检出设计中，为什么必须写出检出依据？”。"
+          },
+          {
+            "label": "D",
+            "text": null,
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "“为了观察气体燃烧”不能作为“在 Ag⁺、Pb²⁺、Zn²⁺、Cu²⁺ 分离检出设计中，为什么必须写出检出依据？”的教材证据；它排除的是无关操作、条件或观察对象。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00313_fcfa9b46a0",
+            "expchunk_00309_5610e5bc6f",
+            "textbook_prose_01060_0065ae1104"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01058_15764ebcec",
+            "textbook_prose_01062_628733419b",
+            "textbook_prose_00394_04911a6294",
+            "textbook_prose_00395_7ea078c59f"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final proposed_question 已核对 canonical 实验原文、点位和必要 theory；可机器确定性判分。",
+          "supporting_theory_note": "依赖废定影液中银-硫代硫酸根配合物及其稳定性的理论；混合阳离子设计目标本身由 canonical 支持。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00313_fcfa9b46a0",
+            "expchunk_00309_5610e5bc6f",
+            "textbook_prose_01060_0065ae1104"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01058_15764ebcec",
+            "textbook_prose_01062_628733419b",
+            "textbook_prose_00394_04911a6294",
+            "textbook_prose_00395_7ea078c59f"
+          ],
+          "missing_canonical_ids": [
+            "textbook_prose_01060_0065ae1104"
+          ],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01058_15764ebcec",
+            "textbook_prose_01062_628733419b",
+            "textbook_prose_00394_04911a6294",
+            "textbook_prose_00395_7ea078c59f"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "english_option_link_diagnostic",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-1-09 小设计实验》实验中，Ag⁺、Pb²⁺、Zn²⁺、Cu²⁺ 分离方案不需要任何检出依据。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "该判断题答案为“错误”。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00313_fcfa9b46a0",
+              "expchunk_00309_5610e5bc6f",
+              "textbook_prose_01060_0065ae1104"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在 Ag⁺、Pb²⁺、Zn²⁺、Cu²⁺ 分离检出设计中，为什么必须写出检出依据？",
+            "options": [
+              {
+                "label": "A",
+                "text": "便于确定每种离子是否被检出"
+              },
+              {
+                "label": "B",
+                "text": "因为检出依据完全不需要"
+              },
+              {
+                "label": "C",
+                "text": "为了比较滤纸质量"
+              },
+              {
+                "label": "D",
+                "text": "为了观察气体燃烧"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "设计实验的结论必须由明确现象或反应依据支持。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "source_requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_09_Q019",
+        "source_review_id": "REV_CH4_EXP_20_1_09_Q019",
+        "source_question_index": 19,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "废定影液回收银时，为什么要关注银-硫代硫酸根配合物？",
+        "options": [
+          {
+            "label": "A",
+            "text": "银主要以稳定配离子形式存在，需要转化后回收"
+          },
+          {
+            "label": "B",
+            "text": "因为它与银回收无关"
+          },
+          {
+            "label": "C",
+            "text": "因为只需观察焰色"
+          },
+          {
+            "label": "D",
+            "text": "因为它会生成镁条火焰"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "教材原文指出废定影液中含 [Ag(S₂O₃)₂]³⁻，要求设计回收为 AgNO₃。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-022b3108"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "fixer_complex_conversion",
+          "semantic_final_rewrite"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": null,
+            "point_key": "candidate-2-022b3108",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“银主要以稳定配离子形式存在，需要转化后回收”直接支撑“废定影液回收银时，为什么要关注银-硫代硫酸根配合物？”；对应点位是“从废定影液 `[Ag(S₂O₃)₂]³⁻` 中回收银，并以 AgNO₃ 形式回收”。"
+          },
+          {
+            "label": "B",
+            "text": null,
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "“因为它与银回收无关”不能作为“废定影液回收银时，为什么要关注银-硫代硫酸根配合物？”的教材证据；它排除的是无关操作、条件或观察对象。"
+          },
+          {
+            "label": "C",
+            "text": null,
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "“因为只需观察焰色”属于焰色反应识别线索；本题“废定影液回收银时，为什么要关注银-硫代硫酸根配合物？”考查的是本实验试剂/现象而非火焰颜色。"
+          },
+          {
+            "label": "D",
+            "text": null,
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "“因为它会生成镁条火焰”不能作为“废定影液回收银时，为什么要关注银-硫代硫酸根配合物？”的教材证据；它排除的是无关操作、条件或观察对象。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00313_fcfa9b46a0",
+            "expchunk_00309_5610e5bc6f",
+            "textbook_prose_01060_0065ae1104"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01058_15764ebcec",
+            "textbook_prose_01062_628733419b",
+            "textbook_prose_00394_04911a6294",
+            "textbook_prose_00395_7ea078c59f"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final proposed_question 已核对 canonical 实验原文、点位和必要 theory；可机器确定性判分。",
+          "supporting_theory_note": "依赖废定影液中银-硫代硫酸根配合物及其稳定性的理论；混合阳离子设计目标本身由 canonical 支持。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00313_fcfa9b46a0",
+            "expchunk_00309_5610e5bc6f",
+            "textbook_prose_01060_0065ae1104"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01058_15764ebcec",
+            "textbook_prose_01062_628733419b",
+            "textbook_prose_00394_04911a6294",
+            "textbook_prose_00395_7ea078c59f"
+          ],
+          "missing_canonical_ids": [
+            "textbook_prose_01060_0065ae1104"
+          ],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01058_15764ebcec",
+            "textbook_prose_01062_628733419b",
+            "textbook_prose_00394_04911a6294",
+            "textbook_prose_00395_7ea078c59f"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-1-09 小设计实验》实验中，废定影液回收银时不需要考虑银配合物稳定性。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "该判断题答案为“错误”。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00313_fcfa9b46a0",
+              "expchunk_00309_5610e5bc6f",
+              "textbook_prose_01060_0065ae1104"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "废定影液回收银时，为什么要关注银-硫代硫酸根配合物？",
+            "options": [
+              {
+                "label": "A",
+                "text": "银主要以稳定配离子形式存在，需要转化后回收"
+              },
+              {
+                "label": "B",
+                "text": "因为它与银回收无关"
+              },
+              {
+                "label": "C",
+                "text": "因为只需观察焰色"
+              },
+              {
+                "label": "D",
+                "text": "因为它会生成镁条火焰"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "教材原文指出废定影液中含 [Ag(S₂O₃)₂]³⁻，要求设计回收为 AgNO₃。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "source_requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_09_Q020",
+        "source_review_id": "REV_CH4_EXP_20_1_09_Q020",
+        "source_question_index": 20,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "true_false",
+        "stem": "在《20-1-09 小设计实验》实验中，判断：本实验与 ds 区元素化合物性质有关。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "该判断与实验原文的操作、现象或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-07614584",
+          "candidate-2-022b3108"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "small_design_answer_structure",
+          "semantic_final_rewrite"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00313_fcfa9b46a0",
+            "expchunk_00309_5610e5bc6f",
+            "textbook_prose_01060_0065ae1104"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01058_15764ebcec",
+            "textbook_prose_01062_628733419b",
+            "textbook_prose_00394_04911a6294",
+            "textbook_prose_00395_7ea078c59f"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final proposed_question 已核对 canonical 实验原文、点位和必要 theory；可机器确定性判分。",
+          "supporting_theory_note": "依赖废定影液中银-硫代硫酸根配合物及其稳定性的理论；混合阳离子设计目标本身由 canonical 支持。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00313_fcfa9b46a0",
+            "expchunk_00309_5610e5bc6f",
+            "textbook_prose_01060_0065ae1104"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01058_15764ebcec",
+            "textbook_prose_01062_628733419b",
+            "textbook_prose_00394_04911a6294",
+            "textbook_prose_00395_7ea078c59f"
+          ],
+          "missing_canonical_ids": [
+            "textbook_prose_01060_0065ae1104"
+          ],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01058_15764ebcec",
+            "textbook_prose_01062_628733419b",
+            "textbook_prose_00394_04911a6294",
+            "textbook_prose_00395_7ea078c59f"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-1-09 小设计实验》实验中，认为：本实验与 ds 区元素化合物性质有关，这一判断是不正确的。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "这一判断本身是正确的。该判断题答案为“错误”。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00313_fcfa9b46a0",
+              "expchunk_00309_5610e5bc6f",
+              "textbook_prose_01060_0065ae1104"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "true_false",
+            "stem": "在《20-1-09 小设计实验》实验中，判断：本实验与 ds 区元素化合物性质有关。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "该判断与实验原文的操作、现象或结论一致。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "multi_point_binding",
+            "source_requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_09_Q021",
+        "source_review_id": "REV_CH4_EXP_20_1_09_Q021",
+        "source_question_index": 21,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "fill_blank",
+        "stem": "在《20-1-09 小设计实验》实验中，混合试液需分离检出的阳离子包括 Ag⁺、Pb²⁺、Zn²⁺ 和____（填中文名称）。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "铜离子"
+          ],
+          "match": "normalized_exact",
+          "grading_mode": "normalized_exact",
+          "machine_deterministic": true
+        },
+        "explanation": "对应的实验操作或现象内容是“铜离子”。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-07614584"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "mixed_cation_design_targets",
+          "polished_mobile_fill"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00313_fcfa9b46a0",
+            "expchunk_00309_5610e5bc6f",
+            "textbook_prose_01060_0065ae1104"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final proposed_question 已核对 canonical 实验原文、点位和必要 theory；可机器确定性判分。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00313_fcfa9b46a0",
+            "expchunk_00309_5610e5bc6f",
+            "textbook_prose_01060_0065ae1104"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [
+            "textbook_prose_01060_0065ae1104"
+          ],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "generic_or_answer_shell_explanation",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-1-09 小设计实验》实验中，混合试液需分离检出的阳离子包括 Ag⁺、Pb²⁺、Zn²⁺ 和____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "Cu²⁺",
+                "铜离子"
+              ],
+              "match": "normalized_exact",
+              "grading_mode": "normalized_exact",
+              "machine_deterministic": true
+            },
+            "explanation": "参考答案：Cu²⁺。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00313_fcfa9b46a0",
+              "expchunk_00309_5610e5bc6f",
+              "textbook_prose_01060_0065ae1104"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-1-09 小设计实验》实验中，混合试液需分离检出的阳离子包括 Ag⁺、Pb²⁺、Zn²⁺ 和____（填中文名称）。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "铜离子"
+              ],
+              "match": "normalized_exact",
+              "grading_mode": "normalized_exact",
+              "machine_deterministic": true
+            },
+            "explanation": "对应的实验操作或现象内容是“铜离子”。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_09_Q022",
+        "source_review_id": "REV_CH4_EXP_20_1_09_Q022",
+        "source_question_index": 22,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《20-1-09 小设计实验》中，混合试液题要求最终做到哪一项？",
+        "options": [
+          {
+            "label": "A",
+            "text": "分离并检出 Ag⁺、Pb²⁺、Zn²⁺、Cu²⁺"
+          },
+          {
+            "label": "B",
+            "text": "只观察钥匙遮光"
+          },
+          {
+            "label": "C",
+            "text": "只比较卤素挥发性"
+          },
+          {
+            "label": "D",
+            "text": "只制备 Fe(OH)₃ 胶体"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "替换原来过度指定方案的填空，回到教材直接给出的设计任务。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-07614584"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "mixed_cation_separation_scheme",
+          "semantic_final_rewrite"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": null,
+            "point_key": "candidate-1-07614584",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“分离并检出 Ag⁺、Pb²⁺、Zn²⁺、Cu²⁺”直接支撑“在《20-1-09 小设计实验》中，混合试液题要求最终做到哪一项？”；对应点位是“含 Ag⁺、Pb²⁺、Zn²⁺、Cu²⁺ 的试液分离与检出”。"
+          },
+          {
+            "label": "B",
+            "text": null,
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "“只观察钥匙遮光”来自银盐感光或遮光演示思路；选择它会把光化学情境误套到“在《20-1-09 小设计实验》中，混合试液题要求最终做到哪一项？”。"
+          },
+          {
+            "label": "C",
+            "text": null,
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "“只比较卤素挥发性”不能作为“在《20-1-09 小设计实验》中，混合试液题要求最终做到哪一项？”的教材证据；它排除的是无关操作、条件或观察对象。"
+          },
+          {
+            "label": "D",
+            "text": null,
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "“只制备 Fe(OH)₃ 胶体”与正确项“分离并检出 Ag⁺、Pb²⁺、Zn²⁺、Cu²⁺”同属相近化学概念，但在“在《20-1-09 小设计实验》中，混合试液题要求最终做到哪一项？”中混淆了试剂、价态、产物或现象。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00313_fcfa9b46a0",
+            "expchunk_00309_5610e5bc6f",
+            "textbook_prose_01060_0065ae1104"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final proposed_question 已核对 canonical 实验原文、点位和必要 theory；可机器确定性判分。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00313_fcfa9b46a0",
+            "expchunk_00309_5610e5bc6f",
+            "textbook_prose_01060_0065ae1104"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [
+            "textbook_prose_01060_0065ae1104"
+          ],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-1-09 小设计实验》实验中，Ag⁺ 和 Pb²⁺ 可先形成____沉淀。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "氯化物",
+                "氯化物沉淀"
+              ],
+              "match": "normalized_exact",
+              "grading_mode": "normalized_exact",
+              "machine_deterministic": true
+            },
+            "explanation": "参考答案：氯化物。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00313_fcfa9b46a0",
+              "expchunk_00309_5610e5bc6f",
+              "textbook_prose_01060_0065ae1104"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-1-09 小设计实验》中，混合试液题要求最终做到哪一项？",
+            "options": [
+              {
+                "label": "A",
+                "text": "分离并检出 Ag⁺、Pb²⁺、Zn²⁺、Cu²⁺"
+              },
+              {
+                "label": "B",
+                "text": "只观察钥匙遮光"
+              },
+              {
+                "label": "C",
+                "text": "只比较卤素挥发性"
+              },
+              {
+                "label": "D",
+                "text": "只制备 Fe(OH)₃ 胶体"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "替换原来过度指定方案的填空，回到教材直接给出的设计任务。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_09_Q023",
+        "source_review_id": "REV_CH4_EXP_20_1_09_Q023",
+        "source_question_index": 23,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "小设计实验答案中，除操作步骤外，还应写出哪一类内容？",
+        "options": [
+          {
+            "label": "A",
+            "text": "确认检出依据"
+          },
+          {
+            "label": "B",
+            "text": "仪器品牌"
+          },
+          {
+            "label": "C",
+            "text": "试管购买日期"
+          },
+          {
+            "label": "D",
+            "text": "滤纸重量"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "分离检出题必须能根据确定现象判定目标离子。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-07614584"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "ag_pb_separation_scheme",
+          "semantic_final_rewrite"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": null,
+            "point_key": "candidate-1-07614584",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“确认检出依据”直接支撑“小设计实验答案中，除操作步骤外，还应写出哪一类内容？”；对应点位是“含 Ag⁺、Pb²⁺、Zn²⁺、Cu²⁺ 的试液分离与检出”。"
+          },
+          {
+            "label": "B",
+            "text": null,
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "“仪器品牌”不能作为“小设计实验答案中，除操作步骤外，还应写出哪一类内容？”的教材证据；它排除的是无关操作、条件或观察对象。"
+          },
+          {
+            "label": "C",
+            "text": null,
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "“试管购买日期”不能作为“小设计实验答案中，除操作步骤外，还应写出哪一类内容？”的教材证据；它排除的是无关操作、条件或观察对象。"
+          },
+          {
+            "label": "D",
+            "text": null,
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "“滤纸重量”来自银盐感光或遮光演示思路；选择它会把光化学情境误套到“小设计实验答案中，除操作步骤外，还应写出哪一类内容？”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00313_fcfa9b46a0",
+            "expchunk_00309_5610e5bc6f",
+            "textbook_prose_01060_0065ae1104"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final proposed_question 已核对 canonical 实验原文、点位和必要 theory；可机器确定性判分。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00313_fcfa9b46a0",
+            "expchunk_00309_5610e5bc6f",
+            "textbook_prose_01060_0065ae1104"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [
+            "textbook_prose_01060_0065ae1104"
+          ],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-1-09 小设计实验》实验中，AgCl 与 PbCl₂ 可利用 PbCl₂ 在____中溶解度较大的性质分离。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "热水"
+              ],
+              "match": "normalized_exact",
+              "grading_mode": "normalized_exact",
+              "machine_deterministic": true
+            },
+            "explanation": "参考答案：热水。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00313_fcfa9b46a0",
+              "expchunk_00309_5610e5bc6f",
+              "textbook_prose_01060_0065ae1104"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "小设计实验答案中，除操作步骤外，还应写出哪一类内容？",
+            "options": [
+              {
+                "label": "A",
+                "text": "确认检出依据"
+              },
+              {
+                "label": "B",
+                "text": "仪器品牌"
+              },
+              {
+                "label": "C",
+                "text": "试管购买日期"
+              },
+              {
+                "label": "D",
+                "text": "滤纸重量"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "分离检出题必须能根据确定现象判定目标离子。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_09_Q024",
+        "source_review_id": "REV_CH4_EXP_20_1_09_Q024",
+        "source_question_index": 24,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在该小设计题中，下列哪项最适合作为客观考查内容？",
+        "options": [
+          {
+            "label": "A",
+            "text": "设计目标和检出依据"
+          },
+          {
+            "label": "B",
+            "text": "某一固定路线中的单个空"
+          },
+          {
+            "label": "C",
+            "text": "无关气体燃烧"
+          },
+          {
+            "label": "D",
+            "text": "教材未出现的钥匙遮光"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "该设计题应围绕目标离子、分离步骤和检出依据判断；教材没有限定唯一固定路线。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-07614584"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "ag_confirmation_scheme",
+          "semantic_final_rewrite"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": null,
+            "point_key": "candidate-1-07614584",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“设计目标和检出依据”直接支撑“下列哪项更适合作为该小设计题的终审考点？”；对应点位是“含 Ag⁺、Pb²⁺、Zn²⁺、Cu²⁺ 的试液分离与检出”。"
+          },
+          {
+            "label": "B",
+            "text": null,
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "“某一固定路线中的单个空”不能作为“下列哪项更适合作为该小设计题的终审考点？”的教材证据；它排除的是无关操作、条件或观察对象。"
+          },
+          {
+            "label": "C",
+            "text": null,
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "“无关气体燃烧”不能作为“下列哪项更适合作为该小设计题的终审考点？”的教材证据；它排除的是无关操作、条件或观察对象。"
+          },
+          {
+            "label": "D",
+            "text": null,
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "“教材未出现的钥匙遮光”来自银盐感光或遮光演示思路；选择它会把光化学情境误套到“下列哪项更适合作为该小设计题的终审考点？”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00313_fcfa9b46a0",
+            "expchunk_00309_5610e5bc6f",
+            "textbook_prose_01060_0065ae1104"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final proposed_question 已核对 canonical 实验原文、点位和必要 theory；可机器确定性判分。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00313_fcfa9b46a0",
+            "expchunk_00309_5610e5bc6f",
+            "textbook_prose_01060_0065ae1104"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [
+            "textbook_prose_01060_0065ae1104"
+          ],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-1-09 小设计实验》实验中，AgCl 溶于氨水后酸化可____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "重新沉淀",
+                "再沉淀"
+              ],
+              "match": "normalized_exact",
+              "grading_mode": "normalized_exact",
+              "machine_deterministic": true
+            },
+            "explanation": "参考答案：重新沉淀。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00313_fcfa9b46a0",
+              "expchunk_00309_5610e5bc6f",
+              "textbook_prose_01060_0065ae1104"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在该小设计题中，下列哪项最适合作为客观考查内容？",
+            "options": [
+              {
+                "label": "A",
+                "text": "设计目标和检出依据"
+              },
+              {
+                "label": "B",
+                "text": "某一固定路线中的单个空"
+              },
+              {
+                "label": "C",
+                "text": "无关气体燃烧"
+              },
+              {
+                "label": "D",
+                "text": "教材未出现的钥匙遮光"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "该设计题应围绕目标离子、分离步骤和检出依据判断；教材没有限定唯一固定路线。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_09_Q025",
+        "source_review_id": "REV_CH4_EXP_20_1_09_Q025",
+        "source_question_index": 25,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "若题目要求设计分离检出 Ag⁺、Pb²⁺、Zn²⁺、Cu²⁺，下列哪项答案结构最合理？",
+        "options": [
+          {
+            "label": "A",
+            "text": "逐步分离、分别检出、列出依据"
+          },
+          {
+            "label": "B",
+            "text": "只写“深蓝色”"
+          },
+          {
+            "label": "C",
+            "text": "只写“热水”"
+          },
+          {
+            "label": "D",
+            "text": "只写“氯化物”"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "“逐步分离、分别检出、列出依据”与实验操作、观察目标或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-07614584"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "cu_confirmation_scheme",
+          "semantic_final_rewrite"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": null,
+            "point_key": "candidate-1-07614584",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“逐步分离、分别检出、列出依据”直接支撑“若题目要求设计分离检出 Ag⁺、Pb²⁺、Zn²⁺、Cu²⁺，下列哪项答案结构最合理？”；对应点位是“含 Ag⁺、Pb²⁺、Zn²⁺、Cu²⁺ 的试液分离与检出”。"
+          },
+          {
+            "label": "B",
+            "text": null,
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "“只写“深蓝色””不能作为“若题目要求设计分离检出 Ag⁺、Pb²⁺、Zn²⁺、Cu²⁺，下列哪项答案结构最合理？”的教材证据；它排除的是无关操作、条件或观察对象。"
+          },
+          {
+            "label": "C",
+            "text": null,
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "“只写“热水””不能作为“若题目要求设计分离检出 Ag⁺、Pb²⁺、Zn²⁺、Cu²⁺，下列哪项答案结构最合理？”的教材证据；它排除的是无关操作、条件或观察对象。"
+          },
+          {
+            "label": "D",
+            "text": null,
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "“只写“氯化物””不能作为“若题目要求设计分离检出 Ag⁺、Pb²⁺、Zn²⁺、Cu²⁺，下列哪项答案结构最合理？”的教材证据；它排除的是无关操作、条件或观察对象。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00313_fcfa9b46a0",
+            "expchunk_00309_5610e5bc6f",
+            "textbook_prose_01060_0065ae1104"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final proposed_question 已核对 canonical 实验原文、点位和必要 theory；可机器确定性判分。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00313_fcfa9b46a0",
+            "expchunk_00309_5610e5bc6f",
+            "textbook_prose_01060_0065ae1104"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [
+            "textbook_prose_01060_0065ae1104"
+          ],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-1-09 小设计实验》实验中，Cu²⁺ 与过量氨水常形成____溶液。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "深蓝色"
+              ],
+              "match": "normalized_exact",
+              "grading_mode": "normalized_exact",
+              "machine_deterministic": true
+            },
+            "explanation": "参考答案：深蓝色。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00313_fcfa9b46a0",
+              "expchunk_00309_5610e5bc6f",
+              "textbook_prose_01060_0065ae1104"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "若题目要求设计分离检出 Ag⁺、Pb²⁺、Zn²⁺、Cu²⁺，下列哪项答案结构最合理？",
+            "options": [
+              {
+                "label": "A",
+                "text": "逐步分离、分别检出、列出依据"
+              },
+              {
+                "label": "B",
+                "text": "只写“深蓝色”"
+              },
+              {
+                "label": "C",
+                "text": "只写“热水”"
+              },
+              {
+                "label": "D",
+                "text": "只写“氯化物”"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "“逐步分离、分别检出、列出依据”与实验操作、观察目标或结论一致。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_09_Q026",
+        "source_review_id": "REV_CH4_EXP_20_1_09_Q026",
+        "source_question_index": 26,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "对该小设计实验，哪一项属于可以直接判断的客观事实？",
+        "options": [
+          {
+            "label": "A",
+            "text": "目标离子组和最终设计要求"
+          },
+          {
+            "label": "B",
+            "text": "开放式完整方案优劣"
+          },
+          {
+            "label": "C",
+            "text": "方案表述是否优美"
+          },
+          {
+            "label": "D",
+            "text": "方案是否有创意"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "目标离子组和最终设计要求可以根据实验任务直接判断。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-07614584"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "zn_separation_scheme",
+          "semantic_final_rewrite"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": null,
+            "point_key": "candidate-1-07614584",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“目标离子组和最终设计要求”直接支撑“对该小设计实验，机器确定性判分最适合考查哪项客观事实？”；对应点位是“含 Ag⁺、Pb²⁺、Zn²⁺、Cu²⁺ 的试液分离与检出”。"
+          },
+          {
+            "label": "B",
+            "text": null,
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "“开放式完整方案优劣”不能作为“对该小设计实验，机器确定性判分最适合考查哪项客观事实？”的教材证据；它排除的是无关操作、条件或观察对象。"
+          },
+          {
+            "label": "C",
+            "text": null,
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "“学生自由解释是否漂亮”不能作为“对该小设计实验，机器确定性判分最适合考查哪项客观事实？”的教材证据；它排除的是无关操作、条件或观察对象。"
+          },
+          {
+            "label": "D",
+            "text": null,
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "“AI 判断方案是否有创意”与正确项“目标离子组和最终设计要求”同属相近化学概念，但在“对该小设计实验，机器确定性判分最适合考查哪项客观事实？”中混淆了试剂、价态、产物或现象。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00313_fcfa9b46a0",
+            "expchunk_00309_5610e5bc6f",
+            "textbook_prose_01060_0065ae1104"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final proposed_question 已核对 canonical 实验原文、点位和必要 theory；可机器确定性判分。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00313_fcfa9b46a0",
+            "expchunk_00309_5610e5bc6f",
+            "textbook_prose_01060_0065ae1104"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [
+            "textbook_prose_01060_0065ae1104"
+          ],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-1-09 小设计实验》实验中，Zn(OH)₂ 可溶于过量 NaOH，体现其____性质。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "两性",
+                "两性氢氧化物"
+              ],
+              "match": "normalized_exact",
+              "grading_mode": "normalized_exact",
+              "machine_deterministic": true
+            },
+            "explanation": "参考答案：两性。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00313_fcfa9b46a0",
+              "expchunk_00309_5610e5bc6f",
+              "textbook_prose_01060_0065ae1104"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "对该小设计实验，哪一项属于可以直接判断的客观事实？",
+            "options": [
+              {
+                "label": "A",
+                "text": "目标离子组和最终设计要求"
+              },
+              {
+                "label": "B",
+                "text": "开放式完整方案优劣"
+              },
+              {
+                "label": "C",
+                "text": "方案表述是否优美"
+              },
+              {
+                "label": "D",
+                "text": "方案是否有创意"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "目标离子组和最终设计要求可以根据实验任务直接判断。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_09_Q027",
+        "source_review_id": "REV_CH4_EXP_20_1_09_Q027",
+        "source_question_index": 27,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "废定影液中含银的主要配离子是哪一项？",
+        "options": [
+          {
+            "label": "A",
+            "text": "[Ag(S₂O₃)₂]³⁻"
+          },
+          {
+            "label": "B",
+            "text": "[Cu(NH₃)₄]²⁺"
+          },
+          {
+            "label": "C",
+            "text": "MnO₄⁻"
+          },
+          {
+            "label": "D",
+            "text": "Ni(dmg)₂"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "“[Ag(S₂O₃)₂]³⁻”与实验操作、观察目标或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-022b3108"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "fixer_silver_complex",
+          "semantic_final_rewrite"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": null,
+            "point_key": "candidate-2-022b3108",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“[Ag(S₂O₃)₂]³⁻”直接支撑“废定影液中含银的主要配离子是哪一项？”；对应点位是“从废定影液 `[Ag(S₂O₃)₂]³⁻` 中回收银，并以 AgNO₃ 形式回收”。"
+          },
+          {
+            "label": "B",
+            "text": null,
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "“[Cu(NH₃)₄]²⁺”与正确项“[Ag(S₂O₃)₂]³⁻”同属相近化学概念，但在“废定影液中含银的主要配离子是哪一项？”中混淆了试剂、价态、产物或现象。"
+          },
+          {
+            "label": "C",
+            "text": null,
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "“MnO₄⁻”与正确项“[Ag(S₂O₃)₂]³⁻”同属相近化学概念，但在“废定影液中含银的主要配离子是哪一项？”中混淆了试剂、价态、产物或现象。"
+          },
+          {
+            "label": "D",
+            "text": null,
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "“Ni(dmg)₂”是 Ni²⁺ 鉴定干扰项；若选它，是把镍检出反应误认为“废定影液中含银的主要配离子是哪一项？”的证据。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00313_fcfa9b46a0",
+            "expchunk_00309_5610e5bc6f",
+            "textbook_prose_01060_0065ae1104"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final proposed_question 已核对 canonical 实验原文、点位和必要 theory；可机器确定性判分。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00313_fcfa9b46a0",
+            "expchunk_00309_5610e5bc6f",
+            "textbook_prose_01060_0065ae1104"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [
+            "textbook_prose_01060_0065ae1104"
+          ],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-1-09 小设计实验》实验中，废定影液主要含银配离子____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "[Ag(S₂O₃)₂]³⁻"
+              ],
+              "match": "normalized_exact",
+              "grading_mode": "normalized_exact",
+              "machine_deterministic": true
+            },
+            "explanation": "参考答案：[Ag(S₂O₃)₂]³⁻。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00313_fcfa9b46a0",
+              "expchunk_00309_5610e5bc6f",
+              "textbook_prose_01060_0065ae1104"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "废定影液中含银的主要配离子是哪一项？",
+            "options": [
+              {
+                "label": "A",
+                "text": "[Ag(S₂O₃)₂]³⁻"
+              },
+              {
+                "label": "B",
+                "text": "[Cu(NH₃)₄]²⁺"
+              },
+              {
+                "label": "C",
+                "text": "MnO₄⁻"
+              },
+              {
+                "label": "D",
+                "text": "Ni(dmg)₂"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "“[Ag(S₂O₃)₂]³⁻”与实验操作、观察目标或结论一致。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_09_Q028",
+        "source_review_id": "REV_CH4_EXP_20_1_09_Q028",
+        "source_question_index": 28,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "fill_blank",
+        "stem": "在《20-1-09 小设计实验》实验中，废定影液回收银要求最终以____（填中文名称）形式回收。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "硝酸银"
+          ],
+          "match": "normalized_exact",
+          "grading_mode": "normalized_exact",
+          "machine_deterministic": true
+        },
+        "explanation": "对应的实验操作或现象内容是“硝酸银”。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-022b3108"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "fixer_recovery_final_form",
+          "polished_mobile_fill"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00313_fcfa9b46a0",
+            "expchunk_00309_5610e5bc6f",
+            "textbook_prose_01060_0065ae1104"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final proposed_question 已核对 canonical 实验原文、点位和必要 theory；可机器确定性判分。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00313_fcfa9b46a0",
+            "expchunk_00309_5610e5bc6f",
+            "textbook_prose_01060_0065ae1104"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [
+            "textbook_prose_01060_0065ae1104"
+          ],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "generic_or_answer_shell_explanation",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-1-09 小设计实验》实验中，废定影液回收银要求最终以____形式回收。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "AgNO₃",
+                "硝酸银"
+              ],
+              "match": "normalized_exact",
+              "grading_mode": "normalized_exact",
+              "machine_deterministic": true
+            },
+            "explanation": "参考答案：AgNO₃。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00313_fcfa9b46a0",
+              "expchunk_00309_5610e5bc6f",
+              "textbook_prose_01060_0065ae1104"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-1-09 小设计实验》实验中，废定影液回收银要求最终以____（填中文名称）形式回收。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "硝酸银"
+              ],
+              "match": "normalized_exact",
+              "grading_mode": "normalized_exact",
+              "machine_deterministic": true
+            },
+            "explanation": "对应的实验操作或现象内容是“硝酸银”。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_09_Q029",
+        "source_review_id": "REV_CH4_EXP_20_1_09_Q029",
+        "source_question_index": 29,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "fill_blank",
+        "stem": "在《20-1-09 小设计实验》实验中，回收银需处理稳定的银-____（填中文名称）配合物。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "硫代硫酸根"
+          ],
+          "match": "normalized_exact",
+          "grading_mode": "normalized_exact",
+          "machine_deterministic": true
+        },
+        "explanation": "对应的实验操作或现象内容是“硫代硫酸根”。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-022b3108"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "fixer_complex_conversion",
+          "polished_mobile_fill"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00313_fcfa9b46a0",
+            "expchunk_00309_5610e5bc6f",
+            "textbook_prose_01060_0065ae1104"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01058_15764ebcec",
+            "textbook_prose_01062_628733419b",
+            "textbook_prose_00394_04911a6294",
+            "textbook_prose_00395_7ea078c59f"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final proposed_question 已核对 canonical 实验原文、点位和必要 theory；可机器确定性判分。",
+          "supporting_theory_note": "依赖废定影液中银-硫代硫酸根配合物及其稳定性的理论；混合阳离子设计目标本身由 canonical 支持。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00313_fcfa9b46a0",
+            "expchunk_00309_5610e5bc6f",
+            "textbook_prose_01060_0065ae1104"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01058_15764ebcec",
+            "textbook_prose_01062_628733419b",
+            "textbook_prose_00394_04911a6294",
+            "textbook_prose_00395_7ea078c59f"
+          ],
+          "missing_canonical_ids": [
+            "textbook_prose_01060_0065ae1104"
+          ],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01058_15764ebcec",
+            "textbook_prose_01062_628733419b",
+            "textbook_prose_00394_04911a6294",
+            "textbook_prose_00395_7ea078c59f"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "generic_or_answer_shell_explanation",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-1-09 小设计实验》实验中，回收银需处理稳定的银-____配合物。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "硫代硫酸根",
+                "S₂O₃²⁻"
+              ],
+              "match": "normalized_exact",
+              "grading_mode": "normalized_exact",
+              "machine_deterministic": true
+            },
+            "explanation": "参考答案：硫代硫酸根。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00313_fcfa9b46a0",
+              "expchunk_00309_5610e5bc6f",
+              "textbook_prose_01060_0065ae1104"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-1-09 小设计实验》实验中，回收银需处理稳定的银-____（填中文名称）配合物。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "硫代硫酸根"
+              ],
+              "match": "normalized_exact",
+              "grading_mode": "normalized_exact",
+              "machine_deterministic": true
+            },
+            "explanation": "对应的实验操作或现象内容是“硫代硫酸根”。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "source_requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_1_09_Q030",
+        "source_review_id": "REV_CH4_EXP_20_1_09_Q030",
+        "source_question_index": 30,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《20-1-09 小设计实验》实验中，小设计实验应写清分离步骤和____依据。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "检出",
+            "确认检出"
+          ],
+          "match": "normalized_exact",
+          "grading_mode": "normalized_exact",
+          "machine_deterministic": true
+        },
+        "explanation": "参考答案：检出。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-07614584",
+          "candidate-2-022b3108"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "small_design_answer_structure"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00313_fcfa9b46a0",
+            "expchunk_00309_5610e5bc6f",
+            "textbook_prose_01060_0065ae1104"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 保留 original_question；已核对题干、选项/答案/解析、点位和源文，最终有效题证据充分。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00313_fcfa9b46a0",
+            "expchunk_00309_5610e5bc6f",
+            "textbook_prose_01060_0065ae1104"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [
+            "textbook_prose_01060_0065ae1104"
+          ],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "generic_or_answer_shell_explanation",
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-1-09 小设计实验》实验中，小设计实验应写清分离步骤和____依据。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "检出",
+                "确认检出"
+              ],
+              "match": "normalized_exact",
+              "grading_mode": "normalized_exact",
+              "machine_deterministic": true
+            },
+            "explanation": "参考答案：检出。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00313_fcfa9b46a0",
+              "expchunk_00309_5610e5bc6f",
+              "textbook_prose_01060_0065ae1104"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "multi_point_binding"
+          ]
+        }
+      }
+    ]
+  }
+}

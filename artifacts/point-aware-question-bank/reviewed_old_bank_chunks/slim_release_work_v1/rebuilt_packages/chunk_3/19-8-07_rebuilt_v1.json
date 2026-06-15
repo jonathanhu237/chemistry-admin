@@ -1,0 +1,1882 @@
+{
+  "metadata": {
+    "schema_version": "rebuilt_experiment_question_package_v1",
+    "artifact_type": "manual_semantic_reconstruction_v1",
+    "source_packet": "E:\\chemistry-admin\\artifacts\\point-aware-question-bank\\reviewed_old_bank_chunks\\slim_release_work_v1\\semantic_work_packets\\chunk_3\\19-8-07.json",
+    "experiment_code": "19-8-07",
+    "experiment_title": "Pb(IV) 的氧化性",
+    "chunk": "chunk_3",
+    "question_count": 30,
+    "reconstruction_mode": "manual_per_question_semantic_rebuild",
+    "release_json_modified": false,
+    "evidence_policy": [
+      "每道题按 source question、video point、canonical RAG 和必要 supporting theory 逐题判断。",
+      "canonical 支持 PbO₂ 与浓盐酸、PbO₂ 在硫酸酸化锰盐体系中水浴加热，以及最终氧化性比较。",
+      "氯气、高锰酸根、紫色现象和具体反应方向使用 supporting theory 支撑。",
+      "公式填空改为中文短答案或单选，避免手机端输入复杂化学式。"
+    ],
+    "rag_source_dir": "E:\\chemistry-rag\\data\\rag_ready"
+  },
+  "video_points": [
+    {
+      "point_key": "candidate-1-c469b1aa",
+      "point_title": "PbO₂ + 浓 HCl"
+    },
+    {
+      "point_key": "candidate-2-e9c3de06",
+      "point_title": "PbO₂ + H₂SO₄ + MnSO₄，水浴加热"
+    },
+    {
+      "point_key": "candidate-3-b2358047",
+      "point_title": "比较 Pb(IV) 与 Cl₂、Pb(IV) 与 MnO₄⁻ 的氧化性"
+    }
+  ],
+  "evidence_sources": {
+    "canonical_experiment_chunks": [
+      {
+        "chunk_id": "expchunk_protocol_ccb6245e7635",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+        "line_number": 9,
+        "source_summary": "实验 19-8 的 protocol 父节点，用于确认本 packet 属于锡、铅、砷、锑、铋实验。"
+      },
+      {
+        "chunk_id": "expchunk_00290_963bb10320",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+        "line_number": 303,
+        "source_summary": "实验目的包括掌握锡、铅、砷、锑、铋等不同氧化态的氧化还原性。"
+      },
+      {
+        "chunk_id": "expchunk_00297_c03527ab79",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+        "line_number": 310,
+        "source_summary": "Pb(IV) 氧化性步骤：二氧化铅与浓盐酸；二氧化铅在硫酸酸化硫酸锰体系中水浴加热；比较 Pb(IV) 与氯气、Pb(IV) 与高锰酸根的氧化性。"
+      }
+    ],
+    "supporting_theory_chunks": [
+      {
+        "chunk_id": "textbook_prose_00757_85fc20341a",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+        "line_number": 1213,
+        "source_summary": "二氧化铅、三氧化二铅和四氧化三铅都具有强氧化性。"
+      },
+      {
+        "chunk_id": "textbook_prose_00758_5f5fd037a3",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+        "line_number": 1214,
+        "source_summary": "给出二氧化铅在酸性条件下氧化二价锰为高锰酸根，以及二氧化铅与盐酸生成氯气的反应。"
+      },
+      {
+        "chunk_id": "textbook_prose_00784_dec216b401",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+        "line_number": 1251,
+        "source_summary": "给出二氧化铅与盐酸生成氯化铅、氯气和水的反应。"
+      },
+      {
+        "chunk_id": "textbook_prose_01241_99049758ad",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+        "line_number": 1896,
+        "source_summary": "高锰酸根显紫色，相关反应可用于鉴定二价锰。"
+      }
+    ]
+  },
+  "questions": [
+    {
+      "question_id": "REBUILT_CH3_19_8_07_Q001",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_07_Q001",
+        "OLD_CHUNK3_EXP_19_8_07_Q021"
+      ],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "single_choice",
+      "stem": "考察 Pb(Ⅳ) 氧化性时，教材材料中使用的铅(Ⅳ)固体试剂是哪一种？",
+      "options": [
+        {
+          "label": "A",
+          "text": "氯化铅"
+        },
+        {
+          "label": "B",
+          "text": "硫酸铅"
+        },
+        {
+          "label": "C",
+          "text": "二氧化铅"
+        },
+        {
+          "label": "D",
+          "text": "硝酸铅"
+        }
+      ],
+      "answer": {
+        "value": "C"
+      },
+      "explanation": "教材中 Pb(Ⅳ) 氧化性步骤均以二氧化铅固体为铅(Ⅳ)试剂。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-c469b1aa",
+        "candidate-3-b2358047"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "operation_reagent",
+        "oxidant_identity",
+        "multi_point"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "distractor_lead_species",
+          "diagnostic_note": "氯化铅不是本实验的 Pb(Ⅳ) 固体氧化剂。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "distractor_lead_species",
+          "diagnostic_note": "硫酸铅属于难溶铅盐语境。"
+        },
+        {
+          "label": "C",
+          "point_key": "candidate-1-c469b1aa",
+          "role": "correct_evidence",
+          "diagnostic_note": "二氧化铅是教材材料固体试剂。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_previous_packet",
+          "diagnostic_note": "硝酸铅用于氢氧化铅生成，不是本实验。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00297_c03527ab79"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00757_85fc20341a"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留旧题核心，补充二氧化铅强氧化性 supporting theory。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_label"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_07_Q002",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_07_Q002",
+        "OLD_CHUNK3_EXP_19_8_07_Q022"
+      ],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "single_choice",
+      "stem": "二氧化铅与浓盐酸反应这一支线，主要用于比较 Pb(Ⅳ) 与哪种氧化剂的强弱？",
+      "options": [
+        {
+          "label": "A",
+          "text": "碘"
+        },
+        {
+          "label": "B",
+          "text": "过氧化氢"
+        },
+        {
+          "label": "C",
+          "text": "氧化亚铜"
+        },
+        {
+          "label": "D",
+          "text": "氯气"
+        }
+      ],
+      "answer": {
+        "value": "D"
+      },
+      "explanation": "教材明确要求比较 Pb(Ⅳ) 与氯气的氧化性；相关理论说明二氧化铅与盐酸可生成氯气。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-c469b1aa",
+        "candidate-3-b2358047"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "comparison_target",
+        "chloride_branch",
+        "multi_point"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "distractor_halogen",
+          "diagnostic_note": "碘不是教材材料比较对象。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "distractor_adjacent_redox",
+          "diagnostic_note": "过氧化氢不属于本实验比较对象。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "distractor_wrong_species",
+          "diagnostic_note": "氧化亚铜不属于本步骤。"
+        },
+        {
+          "label": "D",
+          "point_key": "candidate-3-b2358047",
+          "role": "correct_evidence",
+          "diagnostic_note": "二氧化铅氧化氯离子生成氯气，用于比较二者氧化性。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00297_c03527ab79"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00758_5f5fd037a3",
+          "textbook_prose_00784_dec216b401"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留比较对象题，答案中文化。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_label"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_07_Q003",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_07_Q003",
+        "OLD_CHUNK3_EXP_19_8_07_Q023"
+      ],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "single_choice",
+      "stem": "在硫酸酸化的硫酸锰体系中，二氧化铅主要氧化哪类离子？",
+      "options": [
+        {
+          "label": "A",
+          "text": "二价锰离子"
+        },
+        {
+          "label": "B",
+          "text": "硫酸根"
+        },
+        {
+          "label": "C",
+          "text": "二价铅离子"
+        },
+        {
+          "label": "D",
+          "text": "氢离子"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "教材材料的第二支线加入硫酸锰并水浴加热；教材相关内容说明二氧化铅在酸性条件下可将二价锰氧化为高锰酸根。",
+      "difficulty": "intermediate",
+      "primary_point_keys": [
+        "candidate-2-e9c3de06",
+        "candidate-3-b2358047"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "manganese_branch",
+        "oxidized_species",
+        "multi_point"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-2-e9c3de06",
+          "role": "correct_evidence",
+          "diagnostic_note": "硫酸锰提供被氧化的二价锰。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "distractor_medium_component",
+          "diagnostic_note": "硫酸根主要来自酸性介质，不是被氧化对象。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "distractor_product_side",
+          "diagnostic_note": "二价铅不是被氧化对象。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_medium_component",
+          "diagnostic_note": "氢离子提供酸性环境，不是本题被氧化物种。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00297_c03527ab79"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00758_5f5fd037a3"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留 Mn 被氧化题，去掉离子式答案。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_label"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_07_Q004",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_07_Q004",
+        "OLD_CHUNK3_EXP_19_8_07_Q024_PF1"
+      ],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "single_choice",
+      "stem": "硫酸酸化的锰盐体系水浴加热后若出现紫色，最直接对应哪种生成物？",
+      "options": [
+        {
+          "label": "A",
+          "text": "二氧化锰"
+        },
+        {
+          "label": "B",
+          "text": "高锰酸根"
+        },
+        {
+          "label": "C",
+          "text": "锰酸根"
+        },
+        {
+          "label": "D",
+          "text": "氢氧化锰"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "教材相关内容支持二氧化铅把二价锰氧化为高锰酸根；教材相关内容说明高锰酸根显紫色。",
+      "difficulty": "intermediate",
+      "primary_point_keys": [
+        "candidate-2-e9c3de06",
+        "candidate-3-b2358047"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "observable",
+        "permanganate",
+        "multi_point"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "distractor_manganese_species",
+          "diagnostic_note": "二氧化锰不是该紫色物种。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-2-e9c3de06",
+          "role": "correct_evidence",
+          "diagnostic_note": "高锰酸根对应紫色。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "distractor_manganese_species",
+          "diagnostic_note": "锰酸根不是本酸性体系支撑的紫色产物。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_precipitate",
+          "diagnostic_note": "氢氧化锰不是该氧化产物。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00297_c03527ab79"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00758_5f5fd037a3",
+          "textbook_prose_01241_99049758ad"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留颜色-产物题，答案改为中文名称。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_label"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_07_Q005",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_07_Q005",
+        "OLD_CHUNK3_EXP_19_8_07_Q028"
+      ],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "single_choice",
+      "stem": "二氧化铅与浓盐酸反应生成氯气时，被氧化的是哪类离子？",
+      "options": [
+        {
+          "label": "A",
+          "text": "氢离子"
+        },
+        {
+          "label": "B",
+          "text": "四价铅"
+        },
+        {
+          "label": "C",
+          "text": "氯离子"
+        },
+        {
+          "label": "D",
+          "text": "氧离子"
+        }
+      ],
+      "answer": {
+        "value": "C"
+      },
+      "explanation": "相关理论给出二氧化铅与盐酸生成氯气的反应；氯气来自氯离子被氧化。",
+      "difficulty": "intermediate",
+      "primary_point_keys": [
+        "candidate-1-c469b1aa",
+        "candidate-3-b2358047"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "chloride_branch",
+        "oxidized_species",
+        "multi_point"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "distractor_medium_component",
+          "diagnostic_note": "氢离子提供酸性条件，不是生成氯气的被氧化物种。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-1-c469b1aa",
+          "role": "distractor_oxidant",
+          "diagnostic_note": "四价铅在该过程作为氧化剂被还原。"
+        },
+        {
+          "label": "C",
+          "point_key": "candidate-1-c469b1aa",
+          "role": "correct_evidence",
+          "diagnostic_note": "氯离子被氧化为氯气。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_wrong_species",
+          "diagnostic_note": "氧离子不是该支线的被氧化物种。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00297_c03527ab79"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00758_5f5fd037a3",
+          "textbook_prose_00784_dec216b401"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留被氧化物种题，去掉离子式填空。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_label"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_07_Q006",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_07_Q006",
+        "OLD_CHUNK3_EXP_19_8_07_Q025"
+      ],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "single_choice",
+      "stem": "二氧化铅、硫酸锰体系中加入硫酸的主要作用是什么？",
+      "options": [
+        {
+          "label": "A",
+          "text": "提供乙二胺配体"
+        },
+        {
+          "label": "B",
+          "text": "生成淀粉蓝色"
+        },
+        {
+          "label": "C",
+          "text": "把二氧化铅还原为金属铅"
+        },
+        {
+          "label": "D",
+          "text": "提供酸性介质"
+        }
+      ],
+      "answer": {
+        "value": "D"
+      },
+      "explanation": "教材材料写到用硫酸溶液酸化，再加入硫酸锰并水浴加热；硫酸在该步骤中提供酸性介质。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-2-e9c3de06"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "acid_medium",
+        "operation_role"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "distractor_coordination",
+          "diagnostic_note": "乙二胺不属于本步骤。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "distractor_indicator",
+          "diagnostic_note": "淀粉蓝色属于碘检验语境。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "distractor_wrong_redox_direction",
+          "diagnostic_note": "本实验讨论二氧化铅的氧化性，不是硫酸将其还原为金属铅。"
+        },
+        {
+          "label": "D",
+          "point_key": "candidate-2-e9c3de06",
+          "role": "correct_evidence",
+          "diagnostic_note": "教材明确该步骤由硫酸酸化。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00297_c03527ab79"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00758_5f5fd037a3"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留硫酸作用题，改为中文试剂名和介质语义。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_label"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_07_Q007",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_07_Q007",
+        "OLD_CHUNK3_EXP_19_8_07_Q026"
+      ],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "single_choice",
+      "stem": "下列哪项属于二氧化铅氧化二价锰支线的正确操作组合？",
+      "options": [
+        {
+          "label": "A",
+          "text": "二氧化铅、硫酸和硫酸锰，水浴加热"
+        },
+        {
+          "label": "B",
+          "text": "过氧化钠和水，冰浴酸化"
+        },
+        {
+          "label": "C",
+          "text": "氯化铁和硫氰酸钾，再加草酸盐"
+        },
+        {
+          "label": "D",
+          "text": "次氯酸钠和品红"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "教材材料写到在有二氧化铅的试管中加入硫酸溶液酸化，再加入硫酸锰溶液，水浴加热并观察现象。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-2-e9c3de06"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "operation_sequence",
+        "manganese_branch"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-2-e9c3de06",
+          "role": "correct_evidence",
+          "diagnostic_note": "该组合对应教材材料的锰盐支线。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "distractor_wrong_experiment",
+          "diagnostic_note": "过氧化钠体系不属于本实验。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "distractor_previous_packet",
+          "diagnostic_note": "氯化铁/硫氰酸钾属于 Sn(Ⅱ) 还原性本实验。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_bleaching",
+          "diagnostic_note": "次氯酸钠/品红不属于本实验。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00297_c03527ab79"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "保留操作组合题并去除公式堆叠。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_label"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_07_Q008",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_07_Q008",
+        "OLD_CHUNK3_EXP_19_8_07_Q027"
+      ],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "single_choice",
+      "stem": "在本实验两条反应支线中，二氧化铅的角色最接近哪一项？",
+      "options": [
+        {
+          "label": "A",
+          "text": "酸碱指示剂"
+        },
+        {
+          "label": "B",
+          "text": "氧化剂"
+        },
+        {
+          "label": "C",
+          "text": "配体"
+        },
+        {
+          "label": "D",
+          "text": "萃取剂"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "教材材料标题和比较任务均为 Pb(Ⅳ) 的氧化性；教材相关内容也说明二氧化铅具有强氧化性。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-3-b2358047"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "redox_role",
+        "experiment_goal"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "distractor_indicator",
+          "diagnostic_note": "二氧化铅不是酸碱指示剂。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-3-b2358047",
+          "role": "correct_evidence",
+          "diagnostic_note": "二氧化铅作为 Pb(Ⅳ) 氧化剂参与比较。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "distractor_coordination",
+          "diagnostic_note": "配体不是本题角色。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_extraction",
+          "diagnostic_note": "萃取剂不属于本实验。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00297_c03527ab79"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00757_85fc20341a"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留角色题，增加 evidence。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_label"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_07_Q009",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_07_Q009"
+      ],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "single_choice",
+      "stem": "若二氧化铅与浓盐酸支线观察到氯气生成，说明 Pb(Ⅳ) 能氧化哪种离子？",
+      "options": [
+        {
+          "label": "A",
+          "text": "硝酸根"
+        },
+        {
+          "label": "B",
+          "text": "硫酸根"
+        },
+        {
+          "label": "C",
+          "text": "氯离子"
+        },
+        {
+          "label": "D",
+          "text": "钠离子"
+        }
+      ],
+      "answer": {
+        "value": "C"
+      },
+      "explanation": "二氧化铅与盐酸生成氯气的相关反应表明，氯离子被 Pb(Ⅳ) 氧化为氯气。",
+      "difficulty": "intermediate",
+      "primary_point_keys": [
+        "candidate-1-c469b1aa",
+        "candidate-3-b2358047"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "chloride_branch",
+        "oxidized_species",
+        "multi_point"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "distractor_unrelated_ion",
+          "diagnostic_note": "硝酸根不是浓盐酸支线中的被氧化离子。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "distractor_medium_component",
+          "diagnostic_note": "硫酸根属于另一支线介质，不生成氯气。"
+        },
+        {
+          "label": "C",
+          "point_key": "candidate-1-c469b1aa",
+          "role": "correct_evidence",
+          "diagnostic_note": "氯气来自氯离子被氧化。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_unrelated_ion",
+          "diagnostic_note": "钠离子不属于该支线。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00297_c03527ab79"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00758_5f5fd037a3",
+          "textbook_prose_00784_dec216b401"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留氯气生成判断，答案中文化。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_label"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_07_Q010",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_07_Q010"
+      ],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "single_choice",
+      "stem": "本实验最主要的结论方向是哪一项？",
+      "options": [
+        {
+          "label": "A",
+          "text": "比较卤素置换次序"
+        },
+        {
+          "label": "B",
+          "text": "观察水合阳离子颜色"
+        },
+        {
+          "label": "C",
+          "text": "制备银镜"
+        },
+        {
+          "label": "D",
+          "text": "比较 Pb(Ⅳ) 与氯气、Pb(Ⅳ) 与高锰酸根的氧化性"
+        }
+      ],
+      "answer": {
+        "value": "D"
+      },
+      "explanation": "教材材料结尾明确要求由两个支线实验对比 Pb(Ⅳ) 与氯气、Pb(Ⅳ) 与高锰酸根氧化性的强弱。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-c469b1aa",
+        "candidate-2-e9c3de06",
+        "candidate-3-b2358047"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "experiment_goal",
+        "multi_point",
+        "oxidizing_strength"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "distractor_adjacent_concept",
+          "diagnostic_note": "本实验不是卤素置换顺序实验。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "distractor_low_value_observation",
+          "diagnostic_note": "水合阳离子颜色不是本实验主线。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "distractor_wrong_experiment",
+          "diagnostic_note": "银镜反应不是本实验。"
+        },
+        {
+          "label": "D",
+          "point_key": "candidate-3-b2358047",
+          "role": "correct_evidence",
+          "diagnostic_note": "对应教材材料的最终比较要求。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00297_c03527ab79"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "保留结论方向题，去除公式答案。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_label"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_07_Q011",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_07_Q012",
+        "OLD_CHUNK3_EXP_19_8_07_Q014"
+      ],
+      "rewrite_action": "rewrite",
+      "question_type": "single_choice",
+      "stem": "如果在二氧化铅和硫酸锰支线中省略水浴加热，最直接缺少的是哪一项教材材料条件？",
+      "options": [
+        {
+          "label": "A",
+          "text": "加热观察条件"
+        },
+        {
+          "label": "B",
+          "text": "萃取剂颜色"
+        },
+        {
+          "label": "C",
+          "text": "银镜生成条件"
+        },
+        {
+          "label": "D",
+          "text": "焰色观察条件"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "教材材料对二氧化铅、硫酸酸化硫酸锰体系明确要求水浴加热并观察现象；省略它会缺少关键操作条件。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-2-e9c3de06"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "operation_condition",
+        "manganese_branch"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-2-e9c3de06",
+          "role": "correct_evidence",
+          "diagnostic_note": "水浴加热是教材材料条件。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "distractor_extraction",
+          "diagnostic_note": "萃取剂颜色不是本支线条件。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "distractor_wrong_experiment",
+          "diagnostic_note": "银镜反应不属于本支线。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_wrong_experiment",
+          "diagnostic_note": "焰色观察不属于本实验。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00297_c03527ab79"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "合并两个重复水浴判断为操作条件题。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_label"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_07_Q012",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_07_Q011",
+        "OLD_CHUNK3_EXP_19_8_07_Q016"
+      ],
+      "rewrite_action": "rewrite",
+      "question_type": "single_choice",
+      "stem": "关于浓盐酸支线的氧化还原方向，下列哪项最准确？",
+      "options": [
+        {
+          "label": "A",
+          "text": "氯离子被 Pb(Ⅳ) 氧化为氯气"
+        },
+        {
+          "label": "B",
+          "text": "氯离子只被还原，不会被氧化"
+        },
+        {
+          "label": "C",
+          "text": "Pb(Ⅳ) 被氯离子继续氧化为更高价铅"
+        },
+        {
+          "label": "D",
+          "text": "该支线不涉及电子转移"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "相关理论中二氧化铅与盐酸反应生成氯气，说明氯离子被氧化；这也支撑比较 Pb(Ⅳ) 与氯气氧化性的目的。",
+      "difficulty": "intermediate",
+      "primary_point_keys": [
+        "candidate-1-c469b1aa",
+        "candidate-3-b2358047"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "redox_direction",
+        "chloride_branch",
+        "multi_point"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-1-c469b1aa",
+          "role": "correct_evidence",
+          "diagnostic_note": "氯离子被氧化成氯气。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "distractor_wrong_direction",
+          "diagnostic_note": "与生成氯气的方向相反。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "distractor_wrong_direction",
+          "diagnostic_note": "Pb(Ⅳ) 在该反应中作为氧化剂被还原。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_wrong_concept",
+          "diagnostic_note": "该支线是氧化还原反应。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00297_c03527ab79"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00758_5f5fd037a3",
+          "textbook_prose_00784_dec216b401"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "将旧判断题改成方向辨析单选。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_label"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_07_Q013",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_07_Q024_PF1"
+      ],
+      "rewrite_action": "rewrite",
+      "question_type": "single_choice",
+      "stem": "二氧化铅、硫酸锰体系出现紫色时，最直接说明哪一判断？",
+      "options": [
+        {
+          "label": "A",
+          "text": "Pb(Ⅳ) 将二价锰氧化为高锰酸根"
+        },
+        {
+          "label": "B",
+          "text": "氯离子被硫氰酸钾络合成血红色"
+        },
+        {
+          "label": "C",
+          "text": "氢氧化铅只表现碱性"
+        },
+        {
+          "label": "D",
+          "text": "钠离子焰色必须透过钴玻璃观察"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "二氧化铅在酸性条件下能把二价锰氧化为高锰酸根，而高锰酸根显紫色；紫色现象可直接连接到氧化方向，避免要求填写离子式。",
+      "difficulty": "advanced",
+      "primary_point_keys": [
+        "candidate-2-e9c3de06",
+        "candidate-3-b2358047"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "observable_inference",
+        "manganese_branch",
+        "multi_point"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-2-e9c3de06",
+          "role": "correct_evidence",
+          "diagnostic_note": "紫色对应高锰酸根生成。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "distractor_previous_packet",
+          "diagnostic_note": "硫氰酸钾血红色属于 Fe³⁺ 检验语境。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "distractor_previous_packet",
+          "diagnostic_note": "氢氧化铅酸碱性不属于本实验。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_wrong_experiment",
+          "diagnostic_note": "焰色实验不属于本实验。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00297_c03527ab79"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00758_5f5fd037a3",
+          "textbook_prose_01241_99049758ad"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留旧改写题，明确紫色现象来源。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_label"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_07_Q014",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_07_Q017",
+        "OLD_CHUNK3_EXP_19_8_07_Q025"
+      ],
+      "rewrite_action": "rewrite",
+      "question_type": "single_choice",
+      "stem": "下列哪项能说明“本实验不涉及任何酸性介质”这一说法是错误的？",
+      "options": [
+        {
+          "label": "A",
+          "text": "浓盐酸支线和硫酸酸化支线都属于教材操作"
+        },
+        {
+          "label": "B",
+          "text": "本实验只使用中性蒸馏水"
+        },
+        {
+          "label": "C",
+          "text": "本实验只比较沉淀酸碱性"
+        },
+        {
+          "label": "D",
+          "text": "本实验只需要四氯化碳萃取"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "教材材料第一支线使用浓盐酸，第二支线使用硫酸酸化，因此“不涉及任何酸性介质”不成立。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-c469b1aa",
+        "candidate-2-e9c3de06"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "acid_medium",
+        "multi_point",
+        "scope_check"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-1-c469b1aa",
+          "role": "correct_evidence",
+          "diagnostic_note": "两条支线均涉及酸性介质。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "distractor_false_scope",
+          "diagnostic_note": "教材材料不只是中性水体系。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "distractor_previous_packet",
+          "diagnostic_note": "沉淀酸碱性属于前面本实验。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_extraction",
+          "diagnostic_note": "四氯化碳萃取不属于本实验。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00297_c03527ab79"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "重写旧反向判断为证据选择题。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_label"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_07_Q015",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_07_Q019",
+        "OLD_CHUNK3_EXP_19_8_07_Q020"
+      ],
+      "rewrite_action": "rewrite",
+      "question_type": "single_choice",
+      "stem": "关于本实验与前面氢氧化物酸碱性本实验的关系，下列哪项最准确？",
+      "options": [
+        {
+          "label": "A",
+          "text": "本实验应把二氧化铅的氧化性与普通 Pb(Ⅱ) 沉淀酸碱性区分开"
+        },
+        {
+          "label": "B",
+          "text": "两者试剂完全相同"
+        },
+        {
+          "label": "C",
+          "text": "本实验只是在测试氢氧化铅能否溶于碱"
+        },
+        {
+          "label": "D",
+          "text": "本实验不涉及铅的价态变化"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "本实验是 Pb(Ⅳ) 的氧化性，围绕二氧化铅与盐酸、酸化锰盐体系；不能与 Pb(Ⅱ) 氢氧化物酸碱性试验混为一谈。",
+      "difficulty": "intermediate",
+      "primary_point_keys": [
+        "candidate-3-b2358047"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "scope_boundary",
+        "misconception_cleanup"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-3-b2358047",
+          "role": "correct_evidence",
+          "diagnostic_note": "明确区分 Pb(Ⅳ) 氧化性与 Pb(Ⅱ) 沉淀酸碱性。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "distractor_false_scope",
+          "diagnostic_note": "两类本实验试剂并不相同。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "distractor_previous_packet",
+          "diagnostic_note": "氢氧化铅碱溶性不是本实验主线。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "distractor_wrong_concept",
+          "diagnostic_note": "本实验正是四价铅氧化性的考查。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00297_c03527ab79"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00757_85fc20341a"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "合并两个范围辨析判断，改成高质量单选。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_label"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_07_Q016",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_07_Q011",
+        "OLD_CHUNK3_EXP_19_8_07_Q016"
+      ],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "true_false",
+      "stem": "二氧化铅与浓盐酸反应时，氯离子可被 Pb(Ⅳ) 氧化为氯气。",
+      "options": [],
+      "answer": {
+        "value": true
+      },
+      "explanation": "教材材料和相关理论均支持二氧化铅与盐酸生成氯气；该支线用于比较 Pb(Ⅳ) 与氯气的氧化性。",
+      "difficulty": "intermediate",
+      "primary_point_keys": [
+        "candidate-1-c469b1aa",
+        "candidate-3-b2358047"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "true_false",
+        "chloride_branch",
+        "redox_direction"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00297_c03527ab79"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00758_5f5fd037a3",
+          "textbook_prose_00784_dec216b401"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留氯离子被氧化判断，改成正向清晰表述。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_bool"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_07_Q017",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_07_Q012",
+        "OLD_CHUNK3_EXP_19_8_07_Q014"
+      ],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "true_false",
+      "stem": "水浴加热是二氧化铅、硫酸酸化硫酸锰体系实验步骤的一部分。",
+      "options": [],
+      "answer": {
+        "value": true
+      },
+      "explanation": "教材明确写到加入硫酸锰溶液后水浴加热并观察现象。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-2-e9c3de06"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "true_false",
+        "operation_condition"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00297_c03527ab79"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "合并重复水浴判断，保留正向题。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_bool"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_07_Q018",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_07_Q013"
+      ],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "true_false",
+      "stem": "在酸性硫酸锰体系中，二氧化铅可把二价锰氧化为更高价态物种。",
+      "options": [],
+      "answer": {
+        "value": true
+      },
+      "explanation": "教材相关内容支持酸性条件下二氧化铅将二价锰氧化为高锰酸根。",
+      "difficulty": "intermediate",
+      "primary_point_keys": [
+        "candidate-2-e9c3de06",
+        "candidate-3-b2358047"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "true_false",
+        "manganese_branch",
+        "redox_direction"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00297_c03527ab79"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00758_5f5fd037a3"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留锰被氧化判断，说明 theory 来源。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_bool"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_07_Q019",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_07_Q015"
+      ],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "true_false",
+      "stem": "二氧化铅在本实验中主要作为还原剂。",
+      "options": [],
+      "answer": {
+        "value": false
+      },
+      "explanation": "本实验的主题和比较任务都指向 Pb(Ⅳ) 的氧化性；二氧化铅在这些支线中是氧化剂而不是还原剂。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-3-b2358047"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "true_false",
+        "redox_role"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00297_c03527ab79"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00757_85fc20341a"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留角色反向判断。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_bool"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_07_Q020",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_07_Q017"
+      ],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "true_false",
+      "stem": "本实验不涉及任何酸性介质。",
+      "options": [],
+      "answer": {
+        "value": false
+      },
+      "explanation": "第一支线使用浓盐酸，第二支线用硫酸溶液酸化；该判断与教材操作不符。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-c469b1aa",
+        "candidate-2-e9c3de06"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "true_false",
+        "acid_medium",
+        "multi_point"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00297_c03527ab79"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "保留酸性介质反向判断，解释具体支线。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_bool"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_07_Q021",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_07_Q018"
+      ],
+      "rewrite_action": "rewrite",
+      "question_type": "true_false",
+      "stem": "观察高锰酸根的生成，有助于比较 Pb(Ⅳ) 与高锰酸根的氧化性。",
+      "options": [],
+      "answer": {
+        "value": true
+      },
+      "explanation": "教材材料结尾要求比较 Pb(Ⅳ) 与高锰酸根的氧化性；二氧化铅氧化二价锰生成高锰酸根正是该比较的实验依据。",
+      "difficulty": "intermediate",
+      "primary_point_keys": [
+        "candidate-2-e9c3de06",
+        "candidate-3-b2358047"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "true_false",
+        "comparison_target",
+        "multi_point"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00297_c03527ab79"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00758_5f5fd037a3"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留比较目标判断，强化实验依据。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_bool"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_07_Q022",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_07_Q019",
+        "OLD_CHUNK3_EXP_19_8_07_Q020"
+      ],
+      "rewrite_action": "rewrite",
+      "question_type": "true_false",
+      "stem": "Pb(Ⅳ) 氧化性实验与 Sn(OH)₂ 两性实验的试剂和问题完全相同。",
+      "options": [],
+      "answer": {
+        "value": false
+      },
+      "explanation": "本实验使用二氧化铅、浓盐酸、硫酸酸化硫酸锰等，问题是 Pb(Ⅳ) 氧化性；Sn(OH)₂ 两性属于另一类实验内容。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-3-b2358047"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "true_false",
+        "scope_boundary"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00297_c03527ab79"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "合并范围混淆题，保留反向判断。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_bool"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_07_Q023",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_07_Q020"
+      ],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "true_false",
+      "stem": "本实验中的二氧化铅不应与普通 Pb(Ⅱ) 沉淀的酸碱性试验混为一谈。",
+      "options": [],
+      "answer": {
+        "value": true
+      },
+      "explanation": "本实验聚焦 Pb(Ⅳ) 氧化性；Pb(Ⅱ) 沉淀酸碱性属于前面的氢氧化物性质实验。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-3-b2358047"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "true_false",
+        "scope_boundary"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00297_c03527ab79"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00757_85fc20341a"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留概念边界判断。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_bool"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_07_Q024",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_07_Q021"
+      ],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "fill_blank",
+      "stem": "Pb(Ⅳ) 氧化性实验使用的铅(Ⅳ)氧化物是____。",
+      "options": [],
+      "answer": {
+        "value": "二氧化铅",
+        "match": "normalized_exact"
+      },
+      "explanation": "教材中 Pb(Ⅳ) 氧化性步骤使用二氧化铅固体。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-c469b1aa",
+        "candidate-3-b2358047"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "fill_blank",
+        "mobile_safe",
+        "oxidant_identity"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00297_c03527ab79"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00757_85fc20341a"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留填空，去掉 PbO₂ 可见答案。"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": "deterministic_normalized_exact"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_07_Q025",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_07_Q022"
+      ],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "fill_blank",
+      "stem": "二氧化铅与浓盐酸反应可生成____气。",
+      "options": [],
+      "answer": {
+        "value": "氯气",
+        "match": "normalized_exact"
+      },
+      "explanation": "相关理论给出二氧化铅与盐酸生成氯气的反应。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-c469b1aa",
+        "candidate-3-b2358047"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "fill_blank",
+        "mobile_safe",
+        "chloride_branch"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00297_c03527ab79"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00758_5f5fd037a3",
+          "textbook_prose_00784_dec216b401"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留产物填空，去掉 Cl₂ 可见答案。"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": "deterministic_normalized_exact"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_07_Q026",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_07_Q025"
+      ],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "fill_blank",
+      "stem": "二氧化铅、硫酸锰支线中，用于酸化的酸是____。",
+      "options": [],
+      "answer": {
+        "value": "硫酸",
+        "match": "normalized_exact"
+      },
+      "explanation": "教材材料写到用硫酸溶液酸化后再加入硫酸锰溶液。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-2-e9c3de06"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "fill_blank",
+        "mobile_safe",
+        "acid_medium"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00297_c03527ab79"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "保留酸化试剂填空，答案中文化。"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": "deterministic_normalized_exact"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_07_Q027",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_07_Q026"
+      ],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "fill_blank",
+      "stem": "二氧化铅、硫酸、硫酸锰的混合体系需要____加热。",
+      "options": [],
+      "answer": {
+        "value": "水浴",
+        "match": "normalized_exact"
+      },
+      "explanation": "教材明确要求水浴加热，答案为短中文操作词。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-2-e9c3de06"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "fill_blank",
+        "mobile_safe",
+        "operation_condition"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00297_c03527ab79"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "保留操作条件填空。"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": "deterministic_normalized_exact"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_07_Q028",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_07_Q027",
+        "OLD_CHUNK3_EXP_19_8_07_Q030"
+      ],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "fill_blank",
+      "stem": "二氧化铅在本实验中主要作____。",
+      "options": [],
+      "answer": {
+        "value": "氧化剂",
+        "match": "normalized_exact"
+      },
+      "explanation": "本实验主题是 Pb(Ⅳ) 氧化性，二氧化铅作为氧化剂参与两条比较支线。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-3-b2358047"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "fill_blank",
+        "mobile_safe",
+        "redox_role"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00290_963bb10320",
+          "expchunk_00297_c03527ab79"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00757_85fc20341a"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留角色填空，要求完整中文答案“氧化剂”。"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": "deterministic_normalized_exact"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_07_Q029",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_07_Q023",
+        "OLD_CHUNK3_EXP_19_8_07_Q029"
+      ],
+      "rewrite_action": "rewrite",
+      "question_type": "fill_blank",
+      "stem": "硫酸锰提供被二氧化铅氧化的____元素。",
+      "options": [],
+      "answer": {
+        "value": "锰",
+        "match": "normalized_exact"
+      },
+      "explanation": "硫酸锰支线中被氧化的是二价锰；该填空只要求中文元素名，避免 Mn²⁺ 输入。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-2-e9c3de06"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "fill_blank",
+        "mobile_safe",
+        "oxidized_species"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00297_c03527ab79"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00758_5f5fd037a3"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "合并离子式和元素名旧填空，保留手机端短答案。"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": "deterministic_normalized_exact"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_8_07_Q030",
+      "source_question_ids": [
+        "OLD_CHUNK3_EXP_19_8_07_Q010",
+        "OLD_CHUNK3_EXP_19_8_07_Q030"
+      ],
+      "rewrite_action": "rewrite",
+      "question_type": "fill_blank",
+      "stem": "本实验主题是 Pb(Ⅳ) 的____。",
+      "options": [],
+      "answer": {
+        "value": "氧化性",
+        "match": "normalized_exact"
+      },
+      "explanation": "教材材料比较任务指向 Pb(Ⅳ) 的氧化性。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-c469b1aa",
+        "candidate-2-e9c3de06",
+        "candidate-3-b2358047"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "fill_blank",
+        "mobile_safe",
+        "experiment_goal",
+        "multi_point"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00290_963bb10320",
+          "expchunk_00297_c03527ab79"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_prose_00757_85fc20341a"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "重写主题填空，避免只填一个字的低质量答案。"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": "deterministic_normalized_exact"
+    }
+  ]
+}

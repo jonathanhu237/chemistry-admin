@@ -1,0 +1,981 @@
+{
+  "metadata": {
+    "schema_version": "small_packet_rebuilt_v1",
+    "artifact_type": "manual_semantic_rebuilt_question_package",
+    "chunk": "chunk_2",
+    "source_packet": "E:\\chemistry-admin\\artifacts\\point-aware-question-bank\\reviewed_old_bank_chunks\\slim_release_work_v1\\semantic_work_packets\\chunk_2\\19-3-04.json",
+    "experiment_code": "19-3-04",
+    "experiment_title": "性质",
+    "question_count": 30,
+    "evidence_policy": [
+      "Each question was manually compared against the source packet, video points, canonical experiment evidence, and supporting theory where required.",
+      "RAG source text is not embedded in full; only locators and concise source summaries are stored.",
+      "Inherited chunk ids are not treated as proof.",
+      "Formula or symbolic fill blanks are avoided; retained fill blanks use short ordinary Chinese answers."
+    ],
+    "rag_source_dir": "E:\\chemistry-rag\\data\\rag_ready",
+    "release_json_policy": "Do not modify chunk_X_release_final_v1.json directly; this package is a merge input only."
+  },
+  "video_points": [
+    {
+      "point_key": "candidate-1-122909e7",
+      "point_title": "Na₂S₂O₃ + HCl"
+    },
+    {
+      "point_key": "candidate-2-982bdc6e",
+      "point_title": "Na₂S₂O₃ + 碘水"
+    },
+    {
+      "point_key": "candidate-3-387fff62",
+      "point_title": "Na₂S₂O₃ 反应后溶液中 SO₄²⁻ 的验证实验"
+    },
+    {
+      "point_key": "candidate-4-5013d52a",
+      "point_title": "Na₂S₂O₃ + AgNO₃，观察沉淀生成、颜色变化及配位溶解"
+    }
+  ],
+  "evidence_sources": {
+    "canonical_experiment_chunks": [
+      {
+        "chunk_id": "expchunk_00230_5e24188739",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+        "line_number": 243,
+        "evidence_role": "Canonical property-test instructions: dissolve self-made sodium thiosulfate crystals in water, then test with HCl, iodine water, chlorine water followed by SO₄²⁻ verification, and AgNO₃ with observation of precipitate, color change, and coordination dissolution."
+      }
+    ],
+    "supporting_theory_chunks": [
+      {
+        "chunk_id": "textbook_prose_00391_2e025ffdda",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+        "line_number": 654,
+        "evidence_role": "Theory: sodium thiosulfate is stable in neutral or alkaline conditions but decomposes in acidic conditions to sulfur and SO₂."
+      },
+      {
+        "chunk_id": "textbook_prose_00392_f9643d7706",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+        "line_number": 655,
+        "evidence_role": "Theory: acid decomposition equation for S₂O₃²⁻ and statement that thiosulfate has reducing property used in iodometry."
+      },
+      {
+        "chunk_id": "textbook_prose_00393_2db98879c2",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+        "line_number": 656,
+        "evidence_role": "Theory: thiosulfate reduces iodine to iodide while forming tetrathionate."
+      },
+      {
+        "chunk_id": "textbook_prose_00394_04911a6294",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+        "line_number": 657,
+        "evidence_role": "Theory: strong oxidants oxidize sodium thiosulfate to sulfate; thiosulfate has good coordination ability with metal ions."
+      },
+      {
+        "chunk_id": "textbook_prose_00395_7ea078c59f",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+        "line_number": 658,
+        "evidence_role": "Theory: AgBr dissolves in sodium thiosulfate by forming a stable silver thiosulfate complex."
+      }
+    ]
+  },
+  "questions": [
+    {
+      "question_id": "REBUILT_CH2_19_3_04_Q001",
+      "question_type": "single_choice",
+      "stem": "向 Na₂S₂O₃ 溶液滴加 HCl 后，最应关注的现象是哪一项？",
+      "options": [
+        {"label": "A", "text": "溶液变浑浊，并可能有刺激性气体生成"},
+        {"label": "B", "text": "出现硝酸根棕色环"},
+        {"label": "C", "text": "生成深蓝色铜氨配合物"},
+        {"label": "D", "text": "碘水立即褪色"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "实验步骤要求向 Na₂S₂O₃ 溶液滴加 HCl 并观察现象；理论说明硫代硫酸盐在酸性条件下易分解出单质硫和 SO₂，因此浑浊和刺激性气体最贴合该操作。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-1-122909e7"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["acid_decomposition", "observation"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-1-122909e7", "role": "correct_evidence", "diagnostic_note": "HCl 点位和酸分解理论共同支持浑浊与 SO₂ 生成。"},
+        {"label": "B", "point_key": null, "role": "distractor_other_experiment", "diagnostic_note": "棕色环属于硝酸根检验，不是硫代硫酸钠遇酸。"},
+        {"label": "C", "point_key": null, "role": "distractor_other_experiment", "diagnostic_note": "铜氨配合物与本实验的 HCl 点位无关。"},
+        {"label": "D", "point_key": "candidate-2-982bdc6e", "role": "distractor_wrong_point", "diagnostic_note": "碘水褪色属于碘水点位，不是 HCl 点位。"}
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00230_5e24188739"],
+        "supporting_theory_chunk_ids": ["textbook_prose_00391_2e025ffdda", "textbook_prose_00392_f9643d7706"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "实验原文只要求观察，具体产物和浑浊来源需要酸分解 theory。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_3_04_Q002",
+      "question_type": "single_choice",
+      "stem": "Na₂S₂O₃ 遇酸变浑浊时，浑浊主要来自哪一类物质？",
+      "options": [
+        {"label": "A", "text": "单质硫"},
+        {"label": "B", "text": "硫酸钡"},
+        {"label": "C", "text": "银镜"},
+        {"label": "D", "text": "血红色络合物"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "硫代硫酸根在酸性条件下分解，生成单质硫和 SO₂；单质硫的析出使溶液变浑浊。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-1-122909e7"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["acid_decomposition", "product_judgement"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-1-122909e7", "role": "correct_evidence", "diagnostic_note": "酸分解理论明确给出单质硫产物。"},
+        {"label": "B", "point_key": "candidate-3-387fff62", "role": "distractor_wrong_point", "diagnostic_note": "硫酸钡沉淀用于硫酸根验证，不是 HCl 直接浑浊的来源。"},
+        {"label": "C", "point_key": null, "role": "distractor_other_experiment", "diagnostic_note": "银镜不属于本硫代硫酸钠性质实验。"},
+        {"label": "D", "point_key": null, "role": "distractor_other_experiment", "diagnostic_note": "血红色络合物属于 Fe³⁺/SCN⁻ 相关实验。"}
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00230_5e24188739"],
+        "supporting_theory_chunk_ids": ["textbook_prose_00391_2e025ffdda", "textbook_prose_00392_f9643d7706"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "产物判断依赖 supporting theory，不只依赖实验操作句。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_3_04_Q003",
+      "question_type": "true_false",
+      "stem": "判断：Na₂S₂O₃ 在强酸性条件下仍很稳定，因此滴加 HCl 后不应出现浑浊。",
+      "options": [],
+      "answer": {"value": false},
+      "explanation": "错误。理论说明硫代硫酸钠在酸性条件下易分解出单质硫和 SO₂，滴加 HCl 的实验步骤正是观察其酸分解性质。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-1-122909e7"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["acid_decomposition", "true_false"],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00230_5e24188739"],
+        "supporting_theory_chunk_ids": ["textbook_prose_00391_2e025ffdda", "textbook_prose_00392_f9643d7706"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "否定绝对化错误说法，判分确定。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_3_04_Q004",
+      "question_type": "fill_blank",
+      "stem": "Na₂S₂O₃ 遇 HCl 变浑浊，主要是因为析出了单质____。",
+      "options": [],
+      "answer": {"accepted_answers": ["硫"], "match": "normalized_exact"},
+      "explanation": "Na₂S₂O₃ 在酸性条件下易分解并析出单质硫，因此浑浊主要来自硫。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-1-122909e7"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["acid_decomposition", "mobile_safe_fill_blank"],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00230_5e24188739"],
+        "supporting_theory_chunk_ids": ["textbook_prose_00391_2e025ffdda", "textbook_prose_00392_f9643d7706"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留填空，但不暴露化学符号 alias。"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_3_04_Q005",
+      "question_type": "single_choice",
+      "stem": "为什么 Na₂S₂O₃ 与碘水反应不宜长期放在强酸性介质中判断？",
+      "options": [
+        {"label": "A", "text": "强酸会使硫代硫酸盐分解，干扰碘水还原性判断"},
+        {"label": "B", "text": "强酸会把碘水变成硝酸根"},
+        {"label": "C", "text": "强酸会使 AgNO₃ 自动形成棕色环"},
+        {"label": "D", "text": "强酸会让 Na₂S₂O₃ 成为惰性气体"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "碘水步骤用于观察 Na₂S₂O₃ 的还原性；但 HCl 步骤和理论说明表明硫代硫酸盐在酸性条件下不稳定，因此强酸会引入分解干扰。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-1-122909e7", "candidate-2-982bdc6e"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["acid_decomposition", "iodine_reduction", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-1-122909e7", "role": "correct_evidence", "diagnostic_note": "需要同时理解酸分解点位和碘水还原性点位。"},
+        {"label": "B", "point_key": null, "role": "distractor_impossible_product", "diagnostic_note": "碘水不会被强酸说成硝酸根。"},
+        {"label": "C", "point_key": "candidate-4-5013d52a", "role": "distractor_wrong_point", "diagnostic_note": "AgNO₃ 属于银离子配位点位，不解释强酸干扰碘水。"},
+        {"label": "D", "point_key": null, "role": "distractor_misconception", "diagnostic_note": "Na₂S₂O₃ 不是气体。"}
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00230_5e24188739"],
+        "supporting_theory_chunk_ids": ["textbook_prose_00391_2e025ffdda", "textbook_prose_00392_f9643d7706", "textbook_prose_00393_2db98879c2"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "真实多点位题：酸稳定性与碘水还原性共同决定条件判断。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_3_04_Q006",
+      "question_type": "single_choice",
+      "stem": "向 Na₂S₂O₃ 溶液滴加碘水并观察褪色，主要说明 Na₂S₂O₃ 表现出什么性质？",
+      "options": [
+        {"label": "A", "text": "还原性"},
+        {"label": "B", "text": "强酸性"},
+        {"label": "C", "text": "升华性"},
+        {"label": "D", "text": "磁性"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "实验原文把滴加碘水作为 Na₂S₂O₃ 性质测试；理论说明硫代硫酸根能还原 I₂，体现还原性。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-2-982bdc6e"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["iodine_reduction"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-2-982bdc6e", "role": "correct_evidence", "diagnostic_note": "碘水步骤和碘量反应理论支持还原性。"},
+        {"label": "B", "point_key": "candidate-1-122909e7", "role": "distractor_wrong_point", "diagnostic_note": "酸性稳定性属于 HCl 点位，不是碘水性质本身。"},
+        {"label": "C", "point_key": null, "role": "distractor_misconception", "diagnostic_note": "升华性不是本实验考查性质。"},
+        {"label": "D", "point_key": null, "role": "distractor_misconception", "diagnostic_note": "磁性与碘水褪色无关。"}
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00230_5e24188739"],
+        "supporting_theory_chunk_ids": ["textbook_prose_00393_2db98879c2"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "性质名需要 theory 支撑；实验原文只要求观察并说明性质。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_3_04_Q007",
+      "question_type": "single_choice",
+      "stem": "用理论说明解释 Na₂S₂O₃ 使碘水褪色时，碘主要被转化为什么？",
+      "options": [
+        {"label": "A", "text": "I⁻"},
+        {"label": "B", "text": "SO₂"},
+        {"label": "C", "text": "SO₄²⁻"},
+        {"label": "D", "text": "Ag⁺ 配离子"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "理论反应显示 I₂ 被还原为 I⁻，硫代硫酸根被氧化为连四硫酸根。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-2-982bdc6e"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["iodine_reduction", "supporting_theory"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-2-982bdc6e", "role": "correct_evidence", "diagnostic_note": "00393 明确给出 I₂ 到 I⁻ 的转化。"},
+        {"label": "B", "point_key": "candidate-1-122909e7", "role": "distractor_wrong_point", "diagnostic_note": "SO₂ 是酸分解产物，不是碘水被还原后的主要碘产物。"},
+        {"label": "C", "point_key": "candidate-3-387fff62", "role": "distractor_wrong_point", "diagnostic_note": "SO₄²⁻ 与氯水氧化后验证有关。"},
+        {"label": "D", "point_key": "candidate-4-5013d52a", "role": "distractor_wrong_point", "diagnostic_note": "银配离子属于 AgNO₃ 点位。"}
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00230_5e24188739"],
+        "supporting_theory_chunk_ids": ["textbook_prose_00393_2db98879c2"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "产物判断依赖 theory。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_3_04_Q008",
+      "question_type": "fill_blank",
+      "stem": "Na₂S₂O₃ 使碘水褪色时，主要体现其____性。",
+      "options": [],
+      "answer": {"accepted_answers": ["还原", "还原性"], "match": "normalized_exact"},
+      "explanation": "碘水褪色对应硫代硫酸根还原 I₂，因此 Na₂S₂O₃ 在该反应中体现还原性。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-2-982bdc6e"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["iodine_reduction", "mobile_safe_fill_blank"],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00230_5e24188739"],
+        "supporting_theory_chunk_ids": ["textbook_prose_00393_2db98879c2"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留填空，答案不是化学式。"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_3_04_Q009",
+      "question_type": "true_false",
+      "stem": "判断：Na₂S₂O₃ 与碘水反应的核心是配位沉淀，因此不涉及氧化还原。",
+      "options": [],
+      "answer": {"value": false},
+      "explanation": "错误。碘水步骤体现还原性，理论说明中 I₂ 被还原为 I⁻，硫代硫酸根被氧化。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-2-982bdc6e"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["iodine_reduction", "true_false"],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00230_5e24188739"],
+        "supporting_theory_chunk_ids": ["textbook_prose_00393_2db98879c2"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "去除原题库中容易混淆 Ag 配位点位的错误说法。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_3_04_Q010",
+      "question_type": "single_choice",
+      "stem": "Na₂S₂O₃ 分别遇 HCl 和碘水时，两个体系的性质判断有什么区别？",
+      "options": [
+        {"label": "A", "text": "HCl 体系体现酸分解，碘水体系体现还原性"},
+        {"label": "B", "text": "二者都只是在验证 Ag⁺ 配位"},
+        {"label": "C", "text": "二者都用于硝酸根棕色环"},
+        {"label": "D", "text": "HCl 体系体现碘褪色，碘水体系体现 SO₂ 逸出"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "HCl 体系由酸分解解释；碘水体系由硫代硫酸根还原 I₂ 解释，二者不能模板化合并。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-1-122909e7", "candidate-2-982bdc6e"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["acid_decomposition", "iodine_reduction", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-1-122909e7", "role": "correct_evidence", "diagnostic_note": "同时使用 HCl 与碘水两点位的真实语义。"},
+        {"label": "B", "point_key": "candidate-4-5013d52a", "role": "distractor_wrong_point", "diagnostic_note": "Ag⁺ 配位属于第四点位。"},
+        {"label": "C", "point_key": null, "role": "distractor_other_experiment", "diagnostic_note": "棕色环不属于本实验的硫代硫酸钠性质内容。"},
+        {"label": "D", "point_key": "candidate-1-122909e7", "role": "distractor_reversed_mapping", "diagnostic_note": "选项把 HCl 与碘水点位的现象关系倒置。"}
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00230_5e24188739"],
+        "supporting_theory_chunk_ids": ["textbook_prose_00391_2e025ffdda", "textbook_prose_00392_f9643d7706", "textbook_prose_00393_2db98879c2"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "真实多点位比较题。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_3_04_Q011",
+      "question_type": "single_choice",
+      "stem": "实验中向 Na₂S₂O₃ 溶液滴加氯水后，要求验证反应后溶液中存在什么离子？",
+      "options": [
+        {"label": "A", "text": "SO₄²⁻"},
+        {"label": "B", "text": "I⁻"},
+        {"label": "C", "text": "Ag⁺"},
+        {"label": "D", "text": "SCN⁻"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "实验原文明确要求向溶液中滴加氯水，证实反应后溶液中有 SO₄²⁻ 存在。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-3-387fff62"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["chlorine_oxidation", "sulfate_verification"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-3-387fff62", "role": "correct_evidence", "diagnostic_note": "氯水点位的最终验证对象就是 SO₄²⁻。"},
+        {"label": "B", "point_key": "candidate-2-982bdc6e", "role": "distractor_wrong_point", "diagnostic_note": "I⁻ 来自碘水还原过程，不是氯水后验证对象。"},
+        {"label": "C", "point_key": "candidate-4-5013d52a", "role": "distractor_wrong_point", "diagnostic_note": "Ag⁺ 属于 AgNO₃ 点位。"},
+        {"label": "D", "point_key": null, "role": "distractor_other_experiment", "diagnostic_note": "SCN⁻ 与本实验无关。"}
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00230_5e24188739"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "直接由实验原文支撑，无需 theory。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_3_04_Q012",
+      "question_type": "single_choice",
+      "stem": "氯水处理 Na₂S₂O₃ 后能验证 SO₄²⁻，本质上说明氯水在该反应中起什么作用？",
+      "options": [
+        {"label": "A", "text": "氧化硫代硫酸根，使其转化为硫酸根"},
+        {"label": "B", "text": "还原硫酸根，使其转化为碘"},
+        {"label": "C", "text": "与 Ag⁺ 形成配离子"},
+        {"label": "D", "text": "使酸分解停止"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "实验原文给出氯水后验证 SO₄²⁻；理论说明强氧化剂可将硫代硫酸钠氧化成硫酸盐。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-3-387fff62"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["chlorine_oxidation", "supporting_theory"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-3-387fff62", "role": "correct_evidence", "diagnostic_note": "氯水步骤和强氧化剂理论共同支持。"},
+        {"label": "B", "point_key": "candidate-2-982bdc6e", "role": "distractor_reversed_redox", "diagnostic_note": "硫酸根不是被还原成碘；碘属于另一个点位。"},
+        {"label": "C", "point_key": "candidate-4-5013d52a", "role": "distractor_wrong_point", "diagnostic_note": "Ag⁺ 配位属于第四点位。"},
+        {"label": "D", "point_key": "candidate-1-122909e7", "role": "distractor_wrong_point", "diagnostic_note": "酸分解不是氯水氧化的本质作用。"}
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00230_5e24188739"],
+        "supporting_theory_chunk_ids": ["textbook_prose_00394_04911a6294"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "从验证对象推断氧化作用，必须使用 theory。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_3_04_Q013",
+      "question_type": "true_false",
+      "stem": "判断：氯水处理 Na₂S₂O₃ 后的目标是证实反应后溶液中存在 SO₄²⁻，不是观察碘水褪色。",
+      "options": [],
+      "answer": {"value": true},
+      "explanation": "正确。实验原文要求氯水处理后证实反应后溶液中有 SO₄²⁻ 存在；碘水褪色属于另一个实验步骤。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-3-387fff62"],
+      "secondary_point_keys": ["candidate-2-982bdc6e"],
+      "coverage_tags": ["chlorine_oxidation", "point_distinction", "multi_point"],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00230_5e24188739"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "多点位比较，语义明确且无双重否定。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_3_04_Q014",
+      "question_type": "single_choice",
+      "stem": "氯水处理 Na₂S₂O₃ 后验证 SO₄²⁻ 的实验意义是什么？",
+      "options": [
+        {"label": "A", "text": "SO₄²⁻ 是硫代硫酸根被强氧化剂氧化后的证据之一"},
+        {"label": "B", "text": "SO₄²⁻ 是碘水褪色后的唯一产物"},
+        {"label": "C", "text": "SO₄²⁻ 能证明 Ag⁺ 配位溶解"},
+        {"label": "D", "text": "SO₄²⁻ 是 HCl 分解时的浑浊固体"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "氯水是强氧化剂，理论说明强氧化剂可将硫代硫酸盐氧化成硫酸盐；验证 SO₄²⁻ 是对该氧化结果的检查。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-3-387fff62"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["chlorine_oxidation", "evidence_reasoning"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-3-387fff62", "role": "correct_evidence", "diagnostic_note": "正确连接氯水氧化和 SO₄²⁻ 验证。"},
+        {"label": "B", "point_key": "candidate-2-982bdc6e", "role": "distractor_wrong_point", "diagnostic_note": "碘水点位不以 SO₄²⁻ 作为唯一产物判断。"},
+        {"label": "C", "point_key": "candidate-4-5013d52a", "role": "distractor_wrong_point", "diagnostic_note": "Ag⁺ 配位溶解与 SO₄²⁻ 验证无关。"},
+        {"label": "D", "point_key": "candidate-1-122909e7", "role": "distractor_wrong_product", "diagnostic_note": "HCl 分解浑浊主要来自单质硫。"}
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00230_5e24188739"],
+        "supporting_theory_chunk_ids": ["textbook_prose_00394_04911a6294"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "解释性题目依赖 strong oxidant theory。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_3_04_Q015",
+      "question_type": "single_choice",
+      "stem": "Na₂S₂O₃ 遇 HCl 与遇氯水时，含硫产物判断有什么区别？",
+      "options": [
+        {"label": "A", "text": "HCl 体系指向单质硫和 SO₂，氯水体系指向 SO₄²⁻"},
+        {"label": "B", "text": "HCl 体系和氯水体系都只生成 Ag⁺ 配离子"},
+        {"label": "C", "text": "HCl 体系生成 I⁻，氯水体系生成碘水"},
+        {"label": "D", "text": "两组操作都只说明 Na₂S₂O₃ 无反应"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "HCl 步骤体现酸分解，理论说明指向单质硫和 SO₂；氯水步骤体现强氧化剂将硫代硫酸盐氧化到 SO₄²⁻。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-1-122909e7", "candidate-3-387fff62"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["acid_decomposition", "chlorine_oxidation", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-1-122909e7", "role": "correct_evidence", "diagnostic_note": "真实比较 HCl 酸分解与氯水氧化两个点位。"},
+        {"label": "B", "point_key": "candidate-4-5013d52a", "role": "distractor_wrong_point", "diagnostic_note": "Ag⁺ 配位是第四点位。"},
+        {"label": "C", "point_key": "candidate-2-982bdc6e", "role": "distractor_reversed_mapping", "diagnostic_note": "I⁻ 属于碘水还原过程。"},
+        {"label": "D", "point_key": null, "role": "distractor_misconception", "diagnostic_note": "两个点位都有明确反应或验证任务。"}
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00230_5e24188739"],
+        "supporting_theory_chunk_ids": ["textbook_prose_00391_2e025ffdda", "textbook_prose_00392_f9643d7706", "textbook_prose_00394_04911a6294"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "多点位题，避免把酸分解与氯水氧化混成一个现象。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_3_04_Q016",
+      "question_type": "single_choice",
+      "stem": "AgNO₃ 与 Na₂S₂O₃ 反应的正确操作顺序是哪一项？",
+      "options": [
+        {"label": "A", "text": "先在试管中加入 AgNO₃ 溶液，再滴加 Na₂S₂O₃ 溶液并仔细观察"},
+        {"label": "B", "text": "先加入 HCl，再加入碘水，最后不观察沉淀"},
+        {"label": "C", "text": "先加入氯水验证 SO₄²⁻，再省略 AgNO₃"},
+        {"label": "D", "text": "先用 KSCN 检出 Fe³⁺"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "实验原文写明在试管中加入 AgNO₃ 溶液，再滴加 Na₂S₂O₃ 溶液，并仔细观察反应现象。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-4-5013d52a"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["silver_complex", "operation_sequence"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-4-5013d52a", "role": "correct_evidence", "diagnostic_note": "直接对应 AgNO₃ 点位操作顺序。"},
+        {"label": "B", "point_key": "candidate-1-122909e7", "role": "distractor_wrong_sequence", "diagnostic_note": "混入 HCl 和碘水点位，且不符合 AgNO₃ 操作。"},
+        {"label": "C", "point_key": "candidate-3-387fff62", "role": "distractor_wrong_point", "diagnostic_note": "氯水验证 SO₄²⁻ 是第三点位。"},
+        {"label": "D", "point_key": null, "role": "distractor_other_experiment", "diagnostic_note": "Fe³⁺/KSCN 不属于本点位。"}
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00230_5e24188739"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "操作顺序由实验原文直接支撑。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_3_04_Q017",
+      "question_type": "single_choice",
+      "stem": "AgNO₃ 与 Na₂S₂O₃ 反应时应仔细观察哪一组现象？",
+      "options": [
+        {"label": "A", "text": "沉淀生成、颜色变化及配位溶解"},
+        {"label": "B", "text": "碘水褪色和 I⁻ 生成"},
+        {"label": "C", "text": "滴加 HCl 后的浑浊和 SO₂ 气体"},
+        {"label": "D", "text": "氯水后验证 SO₄²⁻"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "实验原文明确要求在 AgNO₃ 与 Na₂S₂O₃ 反应中仔细观察沉淀生成、颜色变化及配位溶解。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-4-5013d52a"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["silver_complex", "observation"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-4-5013d52a", "role": "correct_evidence", "diagnostic_note": "完整对应 AgNO₃ 点位观察要求。"},
+        {"label": "B", "point_key": "candidate-2-982bdc6e", "role": "distractor_wrong_point", "diagnostic_note": "碘水褪色属于第二点位。"},
+        {"label": "C", "point_key": "candidate-1-122909e7", "role": "distractor_wrong_point", "diagnostic_note": "HCl 浑浊属于第一点位。"},
+        {"label": "D", "point_key": "candidate-3-387fff62", "role": "distractor_wrong_point", "diagnostic_note": "SO₄²⁻ 验证属于第三点位。"}
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00230_5e24188739"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "直接考观察要求，不需要 theory。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_3_04_Q018",
+      "question_type": "single_choice",
+      "stem": "AgNO₃ 与 Na₂S₂O₃ 反应中的后续溶解现象，最能说明 Na₂S₂O₃ 具有什么能力？",
+      "options": [
+        {"label": "A", "text": "对 Ag⁺ 的配位或络合作用"},
+        {"label": "B", "text": "把 I₂ 氧化成 I⁻"},
+        {"label": "C", "text": "在酸中保持完全稳定"},
+        {"label": "D", "text": "生成硝酸根棕色环"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "实验步骤要求观察配位溶解；理论说明硫代硫酸根具有良好的配位性能，可与银离子形成稳定配离子。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-4-5013d52a"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["silver_complex", "supporting_theory"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-4-5013d52a", "role": "correct_evidence", "diagnostic_note": "AgNO₃ 步骤和配位理论共同支持。"},
+        {"label": "B", "point_key": "candidate-2-982bdc6e", "role": "distractor_wrong_point", "diagnostic_note": "碘相关氧化还原属于第二点位，且方向也错误。"},
+        {"label": "C", "point_key": "candidate-1-122909e7", "role": "distractor_contradicts_theory", "diagnostic_note": "硫代硫酸盐在酸性条件下不稳定。"},
+        {"label": "D", "point_key": null, "role": "distractor_other_experiment", "diagnostic_note": "棕色环不属于本实验。"}
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00230_5e24188739"],
+        "supporting_theory_chunk_ids": ["textbook_prose_00394_04911a6294", "textbook_prose_00395_7ea078c59f"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "性质解释需要 theory，不能只写配位溶解四个字。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_3_04_Q019",
+      "question_type": "single_choice",
+      "stem": "下列哪项理论说明最贴合 AgNO₃ 步骤中的配位溶解解释？",
+      "options": [
+        {"label": "A", "text": "难溶 AgBr 可溶于 Na₂S₂O₃ 溶液并形成银硫代硫酸根配合物"},
+        {"label": "B", "text": "Na₂S₂O₃ 在酸中分解出 SO₂"},
+        {"label": "C", "text": "I₂ 被还原为 I⁻"},
+        {"label": "D", "text": "强氧化剂把硫代硫酸盐氧化成硫酸盐"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "AgNO₃ 步骤的后续溶解应由硫代硫酸根与银离子形成稳定配离子解释；AgBr 溶于 Na₂S₂O₃ 的理论说明最贴合这一证据。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-4-5013d52a"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["silver_complex", "evidence_choice"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-4-5013d52a", "role": "correct_evidence", "diagnostic_note": "银盐配位溶解的理论说明直接支持这一判断。"},
+        {"label": "B", "point_key": "candidate-1-122909e7", "role": "distractor_wrong_theory", "diagnostic_note": "酸分解理论支持 HCl 步骤。"},
+        {"label": "C", "point_key": "candidate-2-982bdc6e", "role": "distractor_wrong_theory", "diagnostic_note": "碘还原理论支持碘水步骤。"},
+        {"label": "D", "point_key": "candidate-3-387fff62", "role": "distractor_wrong_theory", "diagnostic_note": "强氧化剂理论支持氯水步骤。"}
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00230_5e24188739"],
+        "supporting_theory_chunk_ids": ["textbook_prose_00394_04911a6294", "textbook_prose_00395_7ea078c59f"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "证据选择题，option links 明确区分各点位 theory。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_3_04_Q020",
+      "question_type": "fill_blank",
+      "stem": "AgNO₃ 与 Na₂S₂O₃ 反应中，Na₂S₂O₃ 使银盐后续溶解，体现的是____作用。",
+      "options": [],
+      "answer": {"accepted_answers": ["配位", "络合"], "match": "normalized_exact"},
+      "explanation": "答案为短中文词，不要求输入复杂配合物公式；该判断由 AgNO₃ 步骤和银硫代硫酸根配合物理论支撑。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-4-5013d52a"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["silver_complex", "mobile_safe_fill_blank"],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00230_5e24188739"],
+        "supporting_theory_chunk_ids": ["textbook_prose_00394_04911a6294", "textbook_prose_00395_7ea078c59f"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留填空，但不暴露配合物公式。"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_3_04_Q021",
+      "question_type": "true_false",
+      "stem": "判断：AgNO₃ 与 Na₂S₂O₃ 的实验完全不可能出现沉淀，所以无需观察沉淀生成。",
+      "options": [],
+      "answer": {"value": false},
+      "explanation": "错误。实验原文明确要求仔细观察沉淀生成、颜色变化及配位溶解。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-4-5013d52a"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["silver_complex", "true_false"],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00230_5e24188739"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "否定绝对化说法，直接由实验原文支撑。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_3_04_Q022",
+      "question_type": "single_choice",
+      "stem": "下列哪一项不是 Na₂S₂O₃ 四个性质操作中的内容？",
+      "options": [
+        {"label": "A", "text": "用 Na₂S₂O₃ 溶液检验 Co²⁺"},
+        {"label": "B", "text": "向 Na₂S₂O₃ 溶液滴加 HCl"},
+        {"label": "C", "text": "向 Na₂S₂O₃ 溶液滴加碘水"},
+        {"label": "D", "text": "向 AgNO₃ 溶液中滴加 Na₂S₂O₃ 溶液"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "本实验的四个性质步骤是加入 HCl、加入碘水、氯水氧化后验证 SO₄²⁻、加入 AgNO₃；Co²⁺ 检验不属于该实验。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-1-122909e7", "candidate-2-982bdc6e", "candidate-4-5013d52a"],
+      "secondary_point_keys": ["candidate-3-387fff62"],
+      "coverage_tags": ["point_scope", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": null, "role": "correct_not_in_packet", "diagnostic_note": "Co²⁺ 检验不在本实验的四个性质步骤中。"},
+        {"label": "B", "point_key": "candidate-1-122909e7", "role": "supported_but_not_answer", "diagnostic_note": "这是 HCl 点位，属于本实验。"},
+        {"label": "C", "point_key": "candidate-2-982bdc6e", "role": "supported_but_not_answer", "diagnostic_note": "这是碘水点位，属于本实验。"},
+        {"label": "D", "point_key": "candidate-4-5013d52a", "role": "supported_but_not_answer", "diagnostic_note": "这是 AgNO₃ 点位，属于本实验。"}
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00230_5e24188739"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "范围题真实跨点位，不是模板化多点绑定。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_3_04_Q023",
+      "question_type": "single_choice",
+      "stem": "下列哪一组最完整地对应本实验的四个性质步骤？",
+      "options": [
+        {"label": "A", "text": "HCl 酸分解、碘水还原性、氯水氧化后验证 SO₄²⁻、Ag⁺ 配位溶解"},
+        {"label": "B", "text": "硝酸根棕色环、Co²⁺ 检验、铜氨配合、钠燃烧"},
+        {"label": "C", "text": "只观察 HCl 浑浊，其余操作省略"},
+        {"label": "D", "text": "只观察 AgNO₃ 沉淀，不讨论颜色和配位溶解"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "四个实验步骤分别对应酸分解、碘水还原性、氯水氧化后 SO₄²⁻ 验证和 Ag⁺ 配位溶解，A 是完整映射。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-1-122909e7", "candidate-2-982bdc6e", "candidate-3-387fff62", "candidate-4-5013d52a"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["point_mapping", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-1-122909e7", "role": "correct_evidence", "diagnostic_note": "完整覆盖四个真实点位。"},
+        {"label": "B", "point_key": null, "role": "distractor_other_experiments", "diagnostic_note": "列入其他实验内容，不属于该性质实验。"},
+        {"label": "C", "point_key": "candidate-1-122909e7", "role": "distractor_incomplete_scope", "diagnostic_note": "只覆盖 HCl 点位，遗漏其余三个点位。"},
+        {"label": "D", "point_key": "candidate-4-5013d52a", "role": "distractor_incomplete_scope", "diagnostic_note": "只覆盖 AgNO₃ 的部分观察，遗漏颜色变化和配位溶解。"}
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00230_5e24188739"],
+        "supporting_theory_chunk_ids": ["textbook_prose_00391_2e025ffdda", "textbook_prose_00392_f9643d7706", "textbook_prose_00393_2db98879c2", "textbook_prose_00394_04911a6294", "textbook_prose_00395_7ea078c59f"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "综合映射题，theory supports property labels beyond raw operation text."
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_3_04_Q024",
+      "question_type": "fill_blank",
+      "stem": "Na₂S₂O₃ 在____条件下不稳定，容易分解。",
+      "options": [],
+      "answer": {"accepted_answers": ["酸", "酸性"], "match": "normalized_exact"},
+      "explanation": "答案为短中文词；理论说明硫代硫酸钠在中性或碱性条件下稳定，在酸性条件下易分解。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-1-122909e7"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["acid_decomposition", "mobile_safe_fill_blank"],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00230_5e24188739"],
+        "supporting_theory_chunk_ids": ["textbook_prose_00391_2e025ffdda", "textbook_prose_00392_f9643d7706"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留短中文填空，避免化学式答案。"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_3_04_Q025",
+      "question_type": "single_choice",
+      "stem": "Na₂S₂O₃ 与 AgNO₃ 反应中，沉淀生成、颜色变化及配位溶解应归入哪一类操作？",
+      "options": [
+        {"label": "A", "text": "AgNO₃ 与 Na₂S₂O₃ 的反应观察"},
+        {"label": "B", "text": "HCl、碘水、氯水和 AgNO₃ 四个操作全部"},
+        {"label": "C", "text": "HCl 酸分解操作"},
+        {"label": "D", "text": "Co²⁺ 检验"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "沉淀生成、颜色变化和配位溶解都来自 AgNO₃ 与 Na₂S₂O₃ 的反应观察，不应套入 HCl、碘水或氯水操作。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-4-5013d52a"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["point_binding", "silver_complex"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-4-5013d52a", "role": "correct_evidence", "diagnostic_note": "题干语义只对应第四点位。"},
+        {"label": "B", "point_key": null, "role": "distractor_overbinding", "diagnostic_note": "四项全选会使范围过宽。"},
+        {"label": "C", "point_key": "candidate-1-122909e7", "role": "distractor_wrong_point", "diagnostic_note": "HCl 点位不涉及 AgNO₃ 配位溶解。"},
+        {"label": "D", "point_key": null, "role": "distractor_other_experiment", "diagnostic_note": "Co²⁺ 检验不属于该性质实验。"}
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00230_5e24188739"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "点位绑定质检题，避免继承 broad binding。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_3_04_Q026",
+      "question_type": "single_choice",
+      "stem": "要完整比较 Na₂S₂O₃ 的酸分解、还原性、氯水氧化和 Ag⁺ 配位，应覆盖哪一组操作？",
+      "options": [
+        {"label": "A", "text": "HCl、碘水、氯水和 AgNO₃ 四个性质操作"},
+        {"label": "B", "text": "仅 HCl 酸分解操作"},
+        {"label": "C", "text": "仅 AgNO₃ 配位溶解操作"},
+        {"label": "D", "text": "不属于该性质实验"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "酸分解、还原性、氯水氧化和 Ag⁺ 配位分别来自 HCl、碘水、氯水和 AgNO₃ 四个操作，因此完整比较时应覆盖四个实验步骤。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-1-122909e7", "candidate-2-982bdc6e", "candidate-3-387fff62", "candidate-4-5013d52a"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["point_binding", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-1-122909e7", "role": "correct_evidence", "diagnostic_note": "题干实际覆盖四个点位。"},
+        {"label": "B", "point_key": "candidate-1-122909e7", "role": "distractor_underbinding", "diagnostic_note": "只绑 HCl 会遗漏其余三个操作。"},
+        {"label": "C", "point_key": "candidate-4-5013d52a", "role": "distractor_underbinding", "diagnostic_note": "只绑 AgNO₃ 会遗漏前三个操作。"},
+        {"label": "D", "point_key": null, "role": "distractor_missing_binding", "diagnostic_note": "题干明确来自本实验内容，不能忽略对应关系。"}
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00230_5e24188739"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "真实多点位绑定示范。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_3_04_Q027",
+      "question_type": "single_choice",
+      "stem": "下列哪一项把试剂与 Na₂S₂O₃ 性质判断配对正确？",
+      "options": [
+        {"label": "A", "text": "HCl：酸分解；碘水：还原性；氯水：氧化到 SO₄²⁻；AgNO₃：配位溶解"},
+        {"label": "B", "text": "HCl：配位溶解；碘水：酸分解；氯水：银盐沉淀；AgNO₃：碘量法"},
+        {"label": "C", "text": "HCl：棕色环；碘水：Co²⁺ 检验；氯水：铜氨配合；AgNO₃：无反应"},
+        {"label": "D", "text": "四个试剂都只说明 Na₂S₂O₃ 没有性质变化"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "A 将四个实验操作和对应性质正确配对；其余选项混淆操作对象或引入其他实验。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-1-122909e7", "candidate-2-982bdc6e", "candidate-3-387fff62", "candidate-4-5013d52a"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["integrated_property_map", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-1-122909e7", "role": "correct_evidence", "diagnostic_note": "四个配对均有教材实验和理论资料支撑。"},
+        {"label": "B", "point_key": null, "role": "distractor_mismatched_points", "diagnostic_note": "把四个性质点位互相错配。"},
+        {"label": "C", "point_key": null, "role": "distractor_other_experiments", "diagnostic_note": "混入棕色环、Co²⁺、铜氨等其他实验。"},
+        {"label": "D", "point_key": null, "role": "distractor_misconception", "diagnostic_note": "四个点位都有明确性质变化。"}
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00230_5e24188739"],
+        "supporting_theory_chunk_ids": ["textbook_prose_00391_2e025ffdda", "textbook_prose_00392_f9643d7706", "textbook_prose_00393_2db98879c2", "textbook_prose_00394_04911a6294", "textbook_prose_00395_7ea078c59f"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "整合题，覆盖四个点位并防止点位错配。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_3_04_Q028",
+      "question_type": "true_false",
+      "stem": "判断：本实验的四个性质步骤可以分别对应酸分解、还原性、强氧化剂氧化到硫酸根、银离子配位溶解。",
+      "options": [],
+      "answer": {"value": true},
+      "explanation": "正确。HCl、碘水、氯水和 AgNO₃ 四个实验步骤分别对应这些性质判断。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-1-122909e7", "candidate-2-982bdc6e", "candidate-3-387fff62", "candidate-4-5013d52a"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["integrated_property_map", "true_false", "multi_point"],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00230_5e24188739"],
+        "supporting_theory_chunk_ids": ["textbook_prose_00391_2e025ffdda", "textbook_prose_00392_f9643d7706", "textbook_prose_00393_2db98879c2", "textbook_prose_00394_04911a6294", "textbook_prose_00395_7ea078c59f"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "无双重否定；综合四点位性质判断。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_3_04_Q029",
+      "question_type": "single_choice",
+      "stem": "解释 Na₂S₂O₃ 遇 HCl 变浑浊时，哪一项必须依赖酸分解理论？",
+      "options": [
+        {"label": "A", "text": "判断 Na₂S₂O₃ 在酸中分解生成单质硫和 SO₂"},
+        {"label": "B", "text": "指出实验原文要求滴加 HCl"},
+        {"label": "C", "text": "指出实验原文要求滴加碘水"},
+        {"label": "D", "text": "指出实验原文要求在 AgNO₃ 后滴加 Na₂S₂O₃"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "实验原文只说滴加 HCl 并观察现象；具体分解产物需要理论说明支撑。B、C、D 是操作文本本身即可判断的内容。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-1-122909e7"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["evidence_reasoning", "supporting_theory"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-1-122909e7", "role": "correct_evidence", "diagnostic_note": "产物判断必须结合酸分解理论。"},
+        {"label": "B", "point_key": "candidate-1-122909e7", "role": "supported_but_not_answer", "diagnostic_note": "这是原文操作，不需要额外理论说明。"},
+        {"label": "C", "point_key": "candidate-2-982bdc6e", "role": "supported_but_not_answer", "diagnostic_note": "这是原文操作，不需要额外理论说明。"},
+        {"label": "D", "point_key": "candidate-4-5013d52a", "role": "supported_but_not_answer", "diagnostic_note": "这是原文操作顺序，不需要额外理论说明。"}
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00230_5e24188739"],
+        "supporting_theory_chunk_ids": ["textbook_prose_00391_2e025ffdda", "textbook_prose_00392_f9643d7706"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "显式训练 evidence-first 判断；选项均为可验证具体判断。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_3_04_Q030",
+      "question_type": "single_choice",
+      "stem": "只记住“碘水褪色”时，还缺少哪一项才能完整说明该反应的性质含义？",
+      "options": [
+        {"label": "A", "text": "Na₂S₂O₃ 在该反应中表现还原性，I₂ 被还原"},
+        {"label": "B", "text": "AgNO₃ 反应会完全无沉淀"},
+        {"label": "C", "text": "滴加 HCl 后用于证明 SO₄²⁻ 存在"},
+        {"label": "D", "text": "氯水处理用于生成碘水"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "碘水褪色只是现象；性质含义是 Na₂S₂O₃ 表现还原性并还原 I₂，这由碘量反应理论支撑。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-2-982bdc6e"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["iodine_reduction", "reasoning_from_observation"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-2-982bdc6e", "role": "correct_evidence", "diagnostic_note": "把观察现象提升到性质判断。"},
+        {"label": "B", "point_key": "candidate-4-5013d52a", "role": "distractor_wrong_point", "diagnostic_note": "AgNO₃ 点位要求观察沉淀和配位溶解，不是碘水性质含义。"},
+        {"label": "C", "point_key": "candidate-1-122909e7", "role": "distractor_wrong_point", "diagnostic_note": "HCl 点位不用于证明 SO₄²⁻。"},
+        {"label": "D", "point_key": "candidate-3-387fff62", "role": "distractor_wrong_point", "diagnostic_note": "氯水点位用于氧化后验证 SO₄²⁻。"}
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00230_5e24188739"],
+        "supporting_theory_chunk_ids": ["textbook_prose_00393_2db98879c2"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "减少只背现象的低深度题，要求从观察推出性质。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    }
+  ]
+}

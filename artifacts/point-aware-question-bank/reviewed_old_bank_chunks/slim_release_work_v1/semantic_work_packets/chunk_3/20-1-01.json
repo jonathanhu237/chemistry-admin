@@ -1,0 +1,3923 @@
+{
+  "metadata": {
+    "version": "chunk-3-release-slim-v1",
+    "artifact_type": "slim_question_bank_work_file",
+    "generated_at": "2026-06-15T03:27:58.895975+00:00",
+    "source_file": "E:\\chemistry-admin\\artifacts\\point-aware-question-bank\\reviewed_old_bank_chunks\\chunk_3_release_final_v1.json",
+    "normalization_rule": "effective question plus minimal lineage, evidence IDs, point bindings, option links, evidence locators, and mechanical risk flags",
+    "evidence_policy": "RAG source text is not embedded; packets carry locators and reviewers must read E:/chemistry-rag/data/rag_ready directly",
+    "chunk_id_policy": "inherited chunk ids are untrusted locator candidates until manually compared with RAG text",
+    "semantic_status": "not_semantically_repaired_by_this_script",
+    "packet_type": "single_experiment_semantic_repair_work_packet",
+    "chunk": 3,
+    "experiment_code": "20-1-01",
+    "question_count": 30
+  },
+  "experiment": {
+    "experiment_id": "EXP_20_1_01",
+    "experiment_code": "20-1-01",
+    "experiment_title": "氢氧化物的生成与性质",
+    "chapter_bindings": [
+      {
+        "chapter_id": "CH19",
+        "coverage_type": "primary",
+        "sort_order": 1
+      }
+    ],
+    "video_points": [
+      {
+        "point_key": "candidate-1-5067cf9c",
+        "point_title": "CuSO₄ + NaOH",
+        "source": null,
+        "candidate_index": null,
+        "resource_count": null,
+        "published_count": null,
+        "resource_titles": []
+      },
+      {
+        "point_key": "candidate-2-a771804f",
+        "point_title": "AgNO₃ + NaOH",
+        "source": null,
+        "candidate_index": null,
+        "resource_count": null,
+        "published_count": null,
+        "resource_titles": []
+      },
+      {
+        "point_key": "candidate-3-a9278462",
+        "point_title": "ZnSO₄ + NaOH",
+        "source": null,
+        "candidate_index": null,
+        "resource_count": null,
+        "published_count": null,
+        "resource_titles": []
+      },
+      {
+        "point_key": "candidate-4-4193e867",
+        "point_title": "CdSO₄ + NaOH",
+        "source": null,
+        "candidate_index": null,
+        "resource_count": null,
+        "published_count": null,
+        "resource_titles": []
+      },
+      {
+        "point_key": "candidate-5-35ccfb8e",
+        "point_title": "Hg(NO₃)₂ + NaOH",
+        "source": null,
+        "candidate_index": null,
+        "resource_count": null,
+        "published_count": null,
+        "resource_titles": []
+      },
+      {
+        "point_key": "candidate-6-c702d34e",
+        "point_title": "比较沉淀颜色、形态",
+        "source": null,
+        "candidate_index": null,
+        "resource_count": null,
+        "published_count": null,
+        "resource_titles": []
+      },
+      {
+        "point_key": "candidate-7-80b7b503",
+        "point_title": "检验沉淀酸碱性",
+        "source": null,
+        "candidate_index": null,
+        "resource_count": null,
+        "published_count": null,
+        "resource_titles": []
+      },
+      {
+        "point_key": "candidate-8-30e70528",
+        "point_title": "检验沉淀热稳定性",
+        "source": null,
+        "candidate_index": null,
+        "resource_count": null,
+        "published_count": null,
+        "resource_titles": []
+      }
+    ],
+    "canonical_chunk_ids": [
+      "expchunk_00308_f319652f01"
+    ],
+    "evidence_lookup": {
+      "policy": "locator_only; canonical RAG text is not embedded in this packet",
+      "chunk_id_policy": "metadata chunk ids are inherited claims, not trusted evidence; reviewers must compare the RAG text against the question stem/options/answer/explanation and replace or remove wrong ids",
+      "primary_source_dir": "E:\\chemistry-rag\\data\\rag_ready",
+      "source_files": {
+        "experiment_chunks": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+        "supporting_theory_chunks": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl"
+      },
+      "search_hints": {
+        "experiment_code": "20-1-01",
+        "parent_experiment_code": "20-1",
+        "experiment_title": "氢氧化物的生成与性质",
+        "video_point_titles": [
+          "CuSO₄ + NaOH",
+          "AgNO₃ + NaOH",
+          "ZnSO₄ + NaOH",
+          "CdSO₄ + NaOH",
+          "Hg(NO₃)₂ + NaOH",
+          "比较沉淀颜色、形态",
+          "检验沉淀酸碱性",
+          "检验沉淀热稳定性"
+        ],
+        "canonical_chunk_ids_from_metadata": [
+          "expchunk_00308_f319652f01"
+        ],
+        "supporting_theory_chunk_ids_from_metadata": [
+          "textbook_prose_01042_cb5178e401",
+          "textbook_prose_01057_8ebcc2ce77",
+          "textbook_prose_01079_0f2609f8ca",
+          "textbook_prose_01087_3a6c1c97ff"
+        ],
+        "suggested_search_patterns": [
+          "20-1-01",
+          "20-1",
+          "氢氧化物的生成与性质",
+          "CuSO₄ + NaOH",
+          "AgNO₃ + NaOH",
+          "ZnSO₄ + NaOH",
+          "CdSO₄ + NaOH",
+          "Hg(NO₃)₂ + NaOH",
+          "比较沉淀颜色、形态",
+          "检验沉淀酸碱性",
+          "检验沉淀热稳定性",
+          "expchunk_00308_f319652f01",
+          "textbook_prose_01042_cb5178e401",
+          "textbook_prose_01057_8ebcc2ce77",
+          "textbook_prose_01079_0f2609f8ca",
+          "textbook_prose_01087_3a6c1c97ff"
+        ]
+      },
+      "rag_exact_id_presence": {
+        "meaning": "id presence only; this does not validate semantic relevance",
+        "found_ids": [
+          "expchunk_00308_f319652f01",
+          "textbook_prose_01042_cb5178e401",
+          "textbook_prose_01057_8ebcc2ce77",
+          "textbook_prose_01079_0f2609f8ca",
+          "textbook_prose_01087_3a6c1c97ff"
+        ],
+        "missing_ids": [],
+        "found_locator_summaries": [
+          {
+            "chunk_id": "expchunk_00308_f319652f01",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+            "line_number": 321,
+            "source_collection": "textbook_experiment_clean_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学实验（第四版）",
+            "page_start": 162,
+            "page_end": 162,
+            "section_path": [
+              "第7章 元素性质实验",
+              "实验 20-1 ds 区元素化合物的性质",
+              "（三）实验内容",
+              "1. 氢氧化物的生成与性质"
+            ],
+            "content_type": "property_test",
+            "knowledge_unit": "property_test",
+            "parent_id": "expchunk_protocol_174e0c432181",
+            "prev_chunk_id": "expchunk_00307_07eba7b97b",
+            "next_chunk_id": "expchunk_00309_5610e5bc6f",
+            "relations": {
+              "section_id": "expsec_a4261432eb238c84",
+              "experiment_id": "experiment:实验_20-1_ds_区元素化合物的性质",
+              "page_anchor": "page_162",
+              "parent": "expchunk_protocol_174e0c432181"
+            }
+          },
+          {
+            "chunk_id": "textbook_prose_01042_cb5178e401",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+            "line_number": 1621,
+            "source_collection": "textbook_inorganic_lower_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学（下册）（第二版）",
+            "page_start": 175,
+            "page_end": 176,
+            "section_path": [
+              "第 19 章 铜锌副族元素",
+              "19.2 铜副族",
+              "19.2.2 铜的化合物",
+              "1) 氧化物和氢氧化物"
+            ],
+            "content_type": "definition",
+            "knowledge_unit": "definition",
+            "parent_id": "section:357748ec2c31",
+            "prev_chunk_id": "textbook_prose_01035_f0d055d528",
+            "next_chunk_id": null,
+            "relations": {
+              "parent": "section:357748ec2c31",
+              "source_route": "clean_pages",
+              "prev": "textbook_prose_01035_f0d055d528",
+              "next": null
+            }
+          },
+          {
+            "chunk_id": "textbook_prose_01057_8ebcc2ce77",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+            "line_number": 1643,
+            "source_collection": "textbook_inorganic_lower_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学（下册）（第二版）",
+            "page_start": 178,
+            "page_end": 178,
+            "section_path": [
+              "第 19 章 铜锌副族元素",
+              "19.2 铜副族",
+              "19.2.3 银的化合物",
+              "1. 氢氧化物与氧化物"
+            ],
+            "content_type": "comparison",
+            "knowledge_unit": "comparison",
+            "parent_id": "section:4ad231072c8c",
+            "prev_chunk_id": null,
+            "next_chunk_id": null,
+            "relations": {
+              "parent": "section:4ad231072c8c",
+              "source_route": "clean_pages",
+              "prev": null,
+              "next": null
+            }
+          },
+          {
+            "chunk_id": "textbook_prose_01079_0f2609f8ca",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+            "line_number": 1665,
+            "source_collection": "textbook_inorganic_lower_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学（下册）（第二版）",
+            "page_start": 183,
+            "page_end": 184,
+            "section_path": [
+              "第 19 章 铜锌副族元素",
+              "19.3 锌副族",
+              "19.3.2 锌和镉的化合物",
+              "1. 氧化物与氢氧化物"
+            ],
+            "content_type": "reaction",
+            "knowledge_unit": "reaction",
+            "parent_id": "section:68d1bb6741e7",
+            "prev_chunk_id": "textbook_prose_01078_6cb9695102",
+            "next_chunk_id": null,
+            "relations": {
+              "parent": "section:68d1bb6741e7",
+              "source_route": "clean_pages",
+              "prev": "textbook_prose_01078_6cb9695102",
+              "next": null
+            }
+          },
+          {
+            "chunk_id": "textbook_prose_01087_3a6c1c97ff",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+            "line_number": 1675,
+            "source_collection": "textbook_inorganic_lower_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学（下册）（第二版）",
+            "page_start": 185,
+            "page_end": 185,
+            "section_path": [
+              "第 19 章 铜锌副族元素",
+              "19.3 锌副族",
+              "19.3.3 汞的化合物",
+              "1) 氧化汞"
+            ],
+            "content_type": "comparison",
+            "knowledge_unit": "comparison",
+            "parent_id": "section:4de595bb4a91",
+            "prev_chunk_id": null,
+            "next_chunk_id": "textbook_prose_01088_5ffac92087",
+            "relations": {
+              "parent": "section:4de595bb4a91",
+              "source_route": "clean_pages",
+              "prev": null,
+              "next": "textbook_prose_01088_5ffac92087"
+            }
+          }
+        ]
+      },
+      "legacy_locator_summaries": [
+        {
+          "chunk_id": "expchunk_00308_f319652f01",
+          "source_file": "无机化学实验（第四版）",
+          "book_title": "无机化学实验（第四版）",
+          "document_id": "DOC_CANONICAL_EXPERIMENT_V1",
+          "source_collection": "textbook_experiment_clean_v1",
+          "source_role": "canonical_textbook",
+          "content_type": "property_test",
+          "chapter_id": null,
+          "page_number": 162,
+          "section_title": "实验 20-1 ds 区元素化合物的性质 / （三）实验内容 / 1. 氢氧化物的生成与性质",
+          "section_path": [
+            "第7章 元素性质实验",
+            "实验 20-1 ds 区元素化合物的性质",
+            "（三）实验内容",
+            "1. 氢氧化物的生成与性质"
+          ]
+        }
+      ],
+      "legacy_missing_ids": [
+        "textbook_prose_01042_cb5178e401",
+        "textbook_prose_01057_8ebcc2ce77",
+        "textbook_prose_01079_0f2609f8ca",
+        "textbook_prose_01087_3a6c1c97ff"
+      ]
+    },
+    "questions": [
+      {
+        "question_id": "OLD_CHUNK3_EXP_20_1_01_Q001",
+        "source_review_id": null,
+        "source_question_index": 1,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-1-01 氢氧化物的生成与性质》实验中，本实验向多种金属盐溶液中滴加的共同试剂是哪一种？",
+        "options": [
+          {
+            "label": "A",
+            "text": "2 mol·L⁻¹ NaOH 溶液"
+          },
+          {
+            "label": "B",
+            "text": "浓硝酸"
+          },
+          {
+            "label": "C",
+            "text": "溴水"
+          },
+          {
+            "label": "D",
+            "text": "CCl₄"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "“2 mol·L⁻¹ NaOH 溶液”与实验操作、观察目标或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-5067cf9c",
+          "candidate-2-a771804f",
+          "candidate-3-a9278462",
+          "candidate-4-4193e867",
+          "candidate-5-35ccfb8e"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-a771804f",
+          "candidate-3-a9278462",
+          "candidate-4-4193e867",
+          "candidate-5-35ccfb8e"
+        ],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "20_1_01",
+          "single_choice",
+          "point_1",
+          "point_2",
+          "point_3",
+          "point_4",
+          "point_5",
+          "polished_final_v1"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "2 mol·L⁻¹ NaOH 溶液",
+            "point_key": "candidate-1-5067cf9c",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接对应本题考查的实验操作、现象或结论。"
+          },
+          {
+            "label": "B",
+            "text": "浓硝酸",
+            "point_key": "candidate-7-80b7b503",
+            "role": "adjacent_point",
+            "diagnostic_note": "“浓硝酸”属于同一实验的“检验沉淀酸碱性”点位，但本题考查的是“CuSO₄ + NaOH; AgNO₃ + NaOH”。"
+          },
+          {
+            "label": "C",
+            "text": "溴水",
+            "point_key": "candidate-1-5067cf9c",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“溴水”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "D",
+            "text": "CCl₄",
+            "point_key": "candidate-1-5067cf9c",
+            "role": "adjacent_experiment",
+            "diagnostic_note": "“CCl₄”借用了KI/CCl₄ 萃取碘的线索，和本题绑定点位不一致。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00308_f319652f01"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题答案可由 canonical 实验原文的对象、步骤或观察任务直接支撑，未额外引用 theory。 绑定点位：CuSO₄ + NaOH；AgNO₃ + NaOH；ZnSO₄ + NaOH；CdSO₄ + NaOH；Hg(NO₃)₂ + NaOH。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00308_f319652f01"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "template_option_link_diagnostic"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-1-01 氢氧化物的生成与性质》实验中，本实验向多种金属盐溶液中滴加的共同试剂是哪一种？",
+            "options": [
+              {
+                "label": "A",
+                "text": "2 mol·L⁻¹ NaOH 溶液"
+              },
+              {
+                "label": "B",
+                "text": "浓硝酸"
+              },
+              {
+                "label": "C",
+                "text": "溴水"
+              },
+              {
+                "label": "D",
+                "text": "CCl₄"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "“2 mol·L⁻¹ NaOH 溶液”与实验操作、观察目标或结论一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00308_f319652f01"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_20_1_01_Q002",
+        "source_review_id": null,
+        "source_question_index": 2,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-1-01 氢氧化物的生成与性质》实验中，下列哪组金属盐全部属于本实验列出的对象？",
+        "options": [
+          {
+            "label": "A",
+            "text": "NaCl、KBr、KI、CCl₄、淀粉"
+          },
+          {
+            "label": "B",
+            "text": "CuSO₄、AgNO₃、ZnSO₄、CdSO₄、Hg(NO₃)₂"
+          },
+          {
+            "label": "C",
+            "text": "FeCl₃、KSCN、Na₂C₂O₄、乙二胺"
+          },
+          {
+            "label": "D",
+            "text": "Na₂SO₃、浓硫酸、品红、H₂S"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "“CuSO₄、AgNO₃、ZnSO₄、CdSO₄、Hg(NO₃)₂”与实验操作、观察目标或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-5067cf9c",
+          "candidate-2-a771804f",
+          "candidate-3-a9278462",
+          "candidate-4-4193e867",
+          "candidate-5-35ccfb8e"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-a771804f",
+          "candidate-3-a9278462",
+          "candidate-4-4193e867",
+          "candidate-5-35ccfb8e"
+        ],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "20_1_01",
+          "single_choice",
+          "point_1",
+          "point_2",
+          "point_3",
+          "point_4",
+          "point_5",
+          "polished_final_v1"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "NaCl、KBr、KI、CCl₄、淀粉",
+            "point_key": "candidate-1-5067cf9c",
+            "role": "adjacent_experiment",
+            "diagnostic_note": "“NaCl、KBr、KI、CCl₄、淀粉”借用了KI/CCl₄ 萃取碘的线索，和本题绑定点位不一致。"
+          },
+          {
+            "label": "B",
+            "text": "CuSO₄、AgNO₃、ZnSO₄、CdSO₄、Hg(NO₃)₂",
+            "point_key": "candidate-1-5067cf9c",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接对应本题考查的实验操作、现象或结论。"
+          },
+          {
+            "label": "C",
+            "text": "FeCl₃、KSCN、Na₂C₂O₄、乙二胺",
+            "point_key": "candidate-1-5067cf9c",
+            "role": "adjacent_experiment",
+            "diagnostic_note": "“FeCl₃、KSCN、Na₂C₂O₄、乙二胺”借用了Fe³⁺/KSCN 血红色检验的线索，和本题绑定点位不一致。"
+          },
+          {
+            "label": "D",
+            "text": "Na₂SO₃、浓硫酸、品红、H₂S",
+            "point_key": "candidate-7-80b7b503",
+            "role": "adjacent_point",
+            "diagnostic_note": "“Na₂SO₃、浓硫酸、品红、H₂S”属于同一实验的“检验沉淀酸碱性”点位，但本题考查的是“CuSO₄ + NaOH; AgNO₃ + NaOH”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00308_f319652f01"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01042_cb5178e401",
+            "textbook_prose_01057_8ebcc2ce77",
+            "textbook_prose_01079_0f2609f8ca",
+            "textbook_prose_01087_3a6c1c97ff"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_01042_cb5178e401（Cu(OH)₂ 蓝色沉淀、热稳定/酸碱性质）；textbook_prose_01057_8ebcc2ce77（AgOH 极不稳定并脱水成棕黑色 Ag₂O）；textbook_prose_01079_0f2609f8ca（Zn(OH)₂/Cd(OH)₂ 酸碱性和热稳定性）；textbook_prose_01087_3a6c1c97ff（Hg²⁺ 与碱生成黄色 HgO 及热分解）。 绑定点位：CuSO₄ + NaOH；AgNO₃ + NaOH；ZnSO₄ + NaOH；CdSO₄ + NaOH；Hg(NO₃)₂ + NaOH。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00308_f319652f01"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01042_cb5178e401",
+            "textbook_prose_01057_8ebcc2ce77",
+            "textbook_prose_01079_0f2609f8ca",
+            "textbook_prose_01087_3a6c1c97ff"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01042_cb5178e401",
+            "textbook_prose_01057_8ebcc2ce77",
+            "textbook_prose_01079_0f2609f8ca",
+            "textbook_prose_01087_3a6c1c97ff"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "template_option_link_diagnostic",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-1-01 氢氧化物的生成与性质》实验中，下列哪组金属盐全部属于本实验列出的对象？",
+            "options": [
+              {
+                "label": "A",
+                "text": "NaCl、KBr、KI、CCl₄、淀粉"
+              },
+              {
+                "label": "B",
+                "text": "CuSO₄、AgNO₃、ZnSO₄、CdSO₄、Hg(NO₃)₂"
+              },
+              {
+                "label": "C",
+                "text": "FeCl₃、KSCN、Na₂C₂O₄、乙二胺"
+              },
+              {
+                "label": "D",
+                "text": "Na₂SO₃、浓硫酸、品红、H₂S"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "“CuSO₄、AgNO₃、ZnSO₄、CdSO₄、Hg(NO₃)₂”与实验操作、观察目标或结论一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00308_f319652f01"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_20_1_01_Q003",
+        "source_review_id": null,
+        "source_question_index": 3,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-1-01 氢氧化物的生成与性质》实验中，滴加 NaOH 后首先需要观察沉淀的哪两类外观？",
+        "options": [
+          {
+            "label": "A",
+            "text": "密度与沸点"
+          },
+          {
+            "label": "B",
+            "text": "磁性与导电率"
+          },
+          {
+            "label": "C",
+            "text": "颜色与形态"
+          },
+          {
+            "label": "D",
+            "text": "气味与燃烧热"
+          }
+        ],
+        "answer": {
+          "value": "C"
+        },
+        "explanation": "“颜色与形态”与实验操作、观察目标或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-6-c702d34e",
+          "candidate-1-5067cf9c",
+          "candidate-2-a771804f",
+          "candidate-3-a9278462",
+          "candidate-4-4193e867",
+          "candidate-5-35ccfb8e"
+        ],
+        "secondary_point_keys": [
+          "candidate-1-5067cf9c",
+          "candidate-2-a771804f",
+          "candidate-3-a9278462",
+          "candidate-4-4193e867",
+          "candidate-5-35ccfb8e"
+        ],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "20_1_01",
+          "single_choice",
+          "point_6",
+          "point_1",
+          "point_2",
+          "point_3",
+          "point_4",
+          "point_5",
+          "polished_final_v1"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "密度与沸点",
+            "point_key": "candidate-6-c702d34e",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“密度与沸点”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "B",
+            "text": "磁性与导电率",
+            "point_key": "candidate-6-c702d34e",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“磁性与导电率”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "C",
+            "text": "颜色与形态",
+            "point_key": "candidate-6-c702d34e",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接对应本题考查的实验操作、现象或结论。"
+          },
+          {
+            "label": "D",
+            "text": "气味与燃烧热",
+            "point_key": "candidate-6-c702d34e",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“气味与燃烧热”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00308_f319652f01"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题答案可由 canonical 实验原文的对象、步骤或观察任务直接支撑，未额外引用 theory。 绑定点位：比较沉淀颜色、形态；CuSO₄ + NaOH；AgNO₃ + NaOH；ZnSO₄ + NaOH；CdSO₄ + NaOH；Hg(NO₃)₂ + NaOH。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00308_f319652f01"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "template_option_link_diagnostic"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-1-01 氢氧化物的生成与性质》实验中，滴加 NaOH 后首先需要观察沉淀的哪两类外观？",
+            "options": [
+              {
+                "label": "A",
+                "text": "密度与沸点"
+              },
+              {
+                "label": "B",
+                "text": "磁性与导电率"
+              },
+              {
+                "label": "C",
+                "text": "颜色与形态"
+              },
+              {
+                "label": "D",
+                "text": "气味与燃烧热"
+              }
+            ],
+            "answer": {
+              "value": "C"
+            },
+            "explanation": "“颜色与形态”与实验操作、观察目标或结论一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00308_f319652f01"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_20_1_01_Q004",
+        "source_review_id": null,
+        "source_question_index": 4,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-1-01 氢氧化物的生成与性质》实验中，ZnSO₄ 与 NaOH 生成的 Zn(OH)₂ 常用于说明哪类性质？",
+        "options": [
+          {
+            "label": "A",
+            "text": "强挥发性"
+          },
+          {
+            "label": "B",
+            "text": "强氧化性"
+          },
+          {
+            "label": "C",
+            "text": "卤素置换性"
+          },
+          {
+            "label": "D",
+            "text": "两性"
+          }
+        ],
+        "answer": {
+          "value": "D"
+        },
+        "explanation": "“两性”与实验操作、观察目标或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-a9278462",
+          "candidate-7-80b7b503"
+        ],
+        "secondary_point_keys": [
+          "candidate-7-80b7b503"
+        ],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "20_1_01",
+          "single_choice",
+          "point_3",
+          "point_7",
+          "polished_final_v1"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "强挥发性",
+            "point_key": "candidate-3-a9278462",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“强挥发性”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "B",
+            "text": "强氧化性",
+            "point_key": "candidate-3-a9278462",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“强氧化性”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "C",
+            "text": "卤素置换性",
+            "point_key": "candidate-3-a9278462",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“卤素置换性”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "D",
+            "text": "两性",
+            "point_key": "candidate-7-80b7b503",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接对应本题考查的实验操作、现象或结论。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00308_f319652f01"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01079_0f2609f8ca"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_01079_0f2609f8ca（Zn(OH)₂/Cd(OH)₂ 酸碱性和热稳定性）。 绑定点位：ZnSO₄ + NaOH；检验沉淀酸碱性。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00308_f319652f01"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01079_0f2609f8ca"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01079_0f2609f8ca"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "template_option_link_diagnostic",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-1-01 氢氧化物的生成与性质》实验中，ZnSO₄ 与 NaOH 生成的 Zn(OH)₂ 常用于说明哪类性质？",
+            "options": [
+              {
+                "label": "A",
+                "text": "强挥发性"
+              },
+              {
+                "label": "B",
+                "text": "强氧化性"
+              },
+              {
+                "label": "C",
+                "text": "卤素置换性"
+              },
+              {
+                "label": "D",
+                "text": "两性"
+              }
+            ],
+            "answer": {
+              "value": "D"
+            },
+            "explanation": "“两性”与实验操作、观察目标或结论一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00308_f319652f01"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_20_1_01_Q005",
+        "source_review_id": null,
+        "source_question_index": 5,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-1-01 氢氧化物的生成与性质》实验中，CuSO₄ 与 NaOH 反应常生成哪种颜色的氢氧化铜沉淀？",
+        "options": [
+          {
+            "label": "A",
+            "text": "蓝色"
+          },
+          {
+            "label": "B",
+            "text": "红棕色"
+          },
+          {
+            "label": "C",
+            "text": "黑紫色"
+          },
+          {
+            "label": "D",
+            "text": "无色气体"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "“蓝色”与实验操作、观察目标或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-5067cf9c",
+          "candidate-6-c702d34e"
+        ],
+        "secondary_point_keys": [
+          "candidate-6-c702d34e"
+        ],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "20_1_01",
+          "single_choice",
+          "point_1",
+          "point_6",
+          "polished_final_v1"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "蓝色",
+            "point_key": "candidate-1-5067cf9c",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接对应本题考查的实验操作、现象或结论。"
+          },
+          {
+            "label": "B",
+            "text": "红棕色",
+            "point_key": "candidate-1-5067cf9c",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“红棕色”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "C",
+            "text": "黑紫色",
+            "point_key": "candidate-1-5067cf9c",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“黑紫色”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "D",
+            "text": "无色气体",
+            "point_key": "candidate-1-5067cf9c",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“无色气体”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00308_f319652f01"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01042_cb5178e401"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_01042_cb5178e401（Cu(OH)₂ 蓝色沉淀、热稳定/酸碱性质）。 绑定点位：CuSO₄ + NaOH；比较沉淀颜色、形态。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00308_f319652f01"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01042_cb5178e401"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01042_cb5178e401"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "template_option_link_diagnostic",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-1-01 氢氧化物的生成与性质》实验中，CuSO₄ 与 NaOH 反应常生成哪种颜色的氢氧化铜沉淀？",
+            "options": [
+              {
+                "label": "A",
+                "text": "蓝色"
+              },
+              {
+                "label": "B",
+                "text": "红棕色"
+              },
+              {
+                "label": "C",
+                "text": "黑紫色"
+              },
+              {
+                "label": "D",
+                "text": "无色气体"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "“蓝色”与实验操作、观察目标或结论一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00308_f319652f01"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_20_1_01_Q006",
+        "source_review_id": null,
+        "source_question_index": 6,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-1-01 氢氧化物的生成与性质》实验中，AgNO₃ 与 NaOH 反应时，银的氢氧化物常不稳定，常观察到哪类银氧化物沉淀？",
+        "options": [
+          {
+            "label": "A",
+            "text": "AgCl"
+          },
+          {
+            "label": "B",
+            "text": "Ag₂O"
+          },
+          {
+            "label": "C",
+            "text": "AgI"
+          },
+          {
+            "label": "D",
+            "text": "Ag₂S₂O₃"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "“Ag₂O”与实验操作、观察目标或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-a771804f",
+          "candidate-6-c702d34e"
+        ],
+        "secondary_point_keys": [
+          "candidate-6-c702d34e"
+        ],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "20_1_01",
+          "single_choice",
+          "point_2",
+          "point_6",
+          "polished_final_v1"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "AgCl",
+            "point_key": "candidate-2-a771804f",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“AgCl”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "B",
+            "text": "Ag₂O",
+            "point_key": "candidate-2-a771804f",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接对应本题考查的实验操作、现象或结论。"
+          },
+          {
+            "label": "C",
+            "text": "AgI",
+            "point_key": "candidate-2-a771804f",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“AgI”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "D",
+            "text": "Ag₂S₂O₃",
+            "point_key": "candidate-2-a771804f",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“Ag₂S₂O₃”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00308_f319652f01"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01057_8ebcc2ce77"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_01057_8ebcc2ce77（AgOH 极不稳定并脱水成棕黑色 Ag₂O）。 绑定点位：AgNO₃ + NaOH；比较沉淀颜色、形态。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00308_f319652f01"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01057_8ebcc2ce77"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01057_8ebcc2ce77"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "template_option_link_diagnostic",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-1-01 氢氧化物的生成与性质》实验中，AgNO₃ 与 NaOH 反应时，银的氢氧化物常不稳定，常观察到哪类银氧化物沉淀？",
+            "options": [
+              {
+                "label": "A",
+                "text": "AgCl"
+              },
+              {
+                "label": "B",
+                "text": "Ag₂O"
+              },
+              {
+                "label": "C",
+                "text": "AgI"
+              },
+              {
+                "label": "D",
+                "text": "Ag₂S₂O₃"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "“Ag₂O”与实验操作、观察目标或结论一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00308_f319652f01"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_20_1_01_Q007",
+        "source_review_id": null,
+        "source_question_index": 7,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-1-01 氢氧化物的生成与性质》实验中，本实验除生成沉淀外，还要求试验沉淀的哪两项性质？",
+        "options": [
+          {
+            "label": "A",
+            "text": "萃取性和挥发性"
+          },
+          {
+            "label": "B",
+            "text": "磁性和放射性"
+          },
+          {
+            "label": "C",
+            "text": "酸碱性和热稳定性"
+          },
+          {
+            "label": "D",
+            "text": "燃烧性和爆炸性"
+          }
+        ],
+        "answer": {
+          "value": "C"
+        },
+        "explanation": "“酸碱性和热稳定性”与实验操作、观察目标或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-7-80b7b503",
+          "candidate-8-30e70528"
+        ],
+        "secondary_point_keys": [
+          "candidate-8-30e70528"
+        ],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "20_1_01",
+          "single_choice",
+          "point_7",
+          "point_8",
+          "polished_final_v1"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "萃取性和挥发性",
+            "point_key": "candidate-7-80b7b503",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“萃取性和挥发性”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "B",
+            "text": "磁性和放射性",
+            "point_key": "candidate-7-80b7b503",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“磁性和放射性”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "C",
+            "text": "酸碱性和热稳定性",
+            "point_key": "candidate-7-80b7b503",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接对应本题考查的实验操作、现象或结论。"
+          },
+          {
+            "label": "D",
+            "text": "燃烧性和爆炸性",
+            "point_key": "candidate-7-80b7b503",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“燃烧性和爆炸性”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00308_f319652f01"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01079_0f2609f8ca"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_01079_0f2609f8ca（Zn(OH)₂/Cd(OH)₂ 酸碱性和热稳定性）。 绑定点位：检验沉淀酸碱性；检验沉淀热稳定性。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00308_f319652f01"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01079_0f2609f8ca"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01079_0f2609f8ca"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "template_option_link_diagnostic",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-1-01 氢氧化物的生成与性质》实验中，本实验除生成沉淀外，还要求试验沉淀的哪两项性质？",
+            "options": [
+              {
+                "label": "A",
+                "text": "萃取性和挥发性"
+              },
+              {
+                "label": "B",
+                "text": "磁性和放射性"
+              },
+              {
+                "label": "C",
+                "text": "酸碱性和热稳定性"
+              },
+              {
+                "label": "D",
+                "text": "燃烧性和爆炸性"
+              }
+            ],
+            "answer": {
+              "value": "C"
+            },
+            "explanation": "“酸碱性和热稳定性”与实验操作、观察目标或结论一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00308_f319652f01"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_20_1_01_Q008",
+        "source_review_id": null,
+        "source_question_index": 8,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-1-01 氢氧化物的生成与性质》实验中，下列哪一项不是本实验的主要金属盐？",
+        "options": [
+          {
+            "label": "A",
+            "text": "CuSO₄"
+          },
+          {
+            "label": "B",
+            "text": "ZnSO₄"
+          },
+          {
+            "label": "C",
+            "text": "Hg(NO₃)₂"
+          },
+          {
+            "label": "D",
+            "text": "FeCl₃"
+          }
+        ],
+        "answer": {
+          "value": "D"
+        },
+        "explanation": "“FeCl₃”与实验操作、观察目标或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-5067cf9c",
+          "candidate-3-a9278462",
+          "candidate-5-35ccfb8e"
+        ],
+        "secondary_point_keys": [
+          "candidate-3-a9278462",
+          "candidate-5-35ccfb8e"
+        ],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "20_1_01",
+          "single_choice",
+          "point_1",
+          "point_3",
+          "point_5",
+          "polished_final_v1"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "CuSO₄",
+            "point_key": "candidate-1-5067cf9c",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“CuSO₄”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "B",
+            "text": "ZnSO₄",
+            "point_key": "candidate-1-5067cf9c",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“ZnSO₄”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "C",
+            "text": "Hg(NO₃)₂",
+            "point_key": "candidate-1-5067cf9c",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“Hg(NO₃)₂”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "D",
+            "text": "FeCl₃",
+            "point_key": "candidate-1-5067cf9c",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接对应本题考查的实验操作、现象或结论。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00308_f319652f01"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题答案可由 canonical 实验原文的对象、步骤或观察任务直接支撑，未额外引用 theory。 绑定点位：CuSO₄ + NaOH；ZnSO₄ + NaOH；Hg(NO₃)₂ + NaOH。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00308_f319652f01"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "template_option_link_diagnostic"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-1-01 氢氧化物的生成与性质》实验中，下列哪一项不是本实验的主要金属盐？",
+            "options": [
+              {
+                "label": "A",
+                "text": "CuSO₄"
+              },
+              {
+                "label": "B",
+                "text": "ZnSO₄"
+              },
+              {
+                "label": "C",
+                "text": "Hg(NO₃)₂"
+              },
+              {
+                "label": "D",
+                "text": "FeCl₃"
+              }
+            ],
+            "answer": {
+              "value": "D"
+            },
+            "explanation": "“FeCl₃”与实验操作、观察目标或结论一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00308_f319652f01"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_20_1_01_Q009",
+        "source_review_id": null,
+        "source_question_index": 9,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-1-01 氢氧化物的生成与性质》实验中，CdSO₄ 加 NaOH 生成的 Cd(OH)₂ 与 Zn(OH)₂ 对比，常用于比较哪类差异？",
+        "options": [
+          {
+            "label": "A",
+            "text": "两性强弱或碱中溶解性"
+          },
+          {
+            "label": "B",
+            "text": "卤素氧化性"
+          },
+          {
+            "label": "C",
+            "text": "SO₂ 漂白性"
+          },
+          {
+            "label": "D",
+            "text": "Ti(IV) 鉴定颜色"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "“两性强弱或碱中溶解性”与实验操作、观察目标或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-4-4193e867",
+          "candidate-3-a9278462",
+          "candidate-7-80b7b503"
+        ],
+        "secondary_point_keys": [
+          "candidate-3-a9278462",
+          "candidate-7-80b7b503"
+        ],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "20_1_01",
+          "single_choice",
+          "point_4",
+          "point_3",
+          "point_7",
+          "polished_final_v1"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "两性强弱或碱中溶解性",
+            "point_key": "candidate-7-80b7b503",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接对应本题考查的实验操作、现象或结论。"
+          },
+          {
+            "label": "B",
+            "text": "卤素氧化性",
+            "point_key": "candidate-4-4193e867",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“卤素氧化性”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "C",
+            "text": "SO₂ 漂白性",
+            "point_key": "candidate-4-4193e867",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“SO₂ 漂白性”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "D",
+            "text": "Ti(IV) 鉴定颜色",
+            "point_key": "candidate-6-c702d34e",
+            "role": "adjacent_point",
+            "diagnostic_note": "“Ti(IV) 鉴定颜色”属于同一实验的“比较沉淀颜色、形态”点位，但本题考查的是“CdSO₄ + NaOH; ZnSO₄ + NaOH”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00308_f319652f01"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01079_0f2609f8ca"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_01079_0f2609f8ca（Zn(OH)₂/Cd(OH)₂ 酸碱性和热稳定性）。 绑定点位：CdSO₄ + NaOH；ZnSO₄ + NaOH；检验沉淀酸碱性。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00308_f319652f01"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01079_0f2609f8ca"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01079_0f2609f8ca"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "template_option_link_diagnostic",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-1-01 氢氧化物的生成与性质》实验中，CdSO₄ 加 NaOH 生成的 Cd(OH)₂ 与 Zn(OH)₂ 对比，常用于比较哪类差异？",
+            "options": [
+              {
+                "label": "A",
+                "text": "两性强弱或碱中溶解性"
+              },
+              {
+                "label": "B",
+                "text": "卤素氧化性"
+              },
+              {
+                "label": "C",
+                "text": "SO₂ 漂白性"
+              },
+              {
+                "label": "D",
+                "text": "Ti(IV) 鉴定颜色"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "“两性强弱或碱中溶解性”与实验操作、观察目标或结论一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00308_f319652f01"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_20_1_01_Q010_SF1",
+        "source_review_id": null,
+        "source_question_index": 10,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《20-1-01 氢氧化物的生成与性质》实验中，除滴加 NaOH 生成沉淀外，教材还要求继续检验沉淀的哪两类性质？",
+        "options": [
+          {
+            "label": "A",
+            "text": "酸碱性和对热稳定性"
+          },
+          {
+            "label": "B",
+            "text": "焰色和磁性"
+          },
+          {
+            "label": "C",
+            "text": "碘水氧化性和 CCl₄ 萃取性"
+          },
+          {
+            "label": "D",
+            "text": "钠、钾与水反应剧烈程度"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "教材原文明确要求观察沉淀颜色、形态，并试验酸碱性和对热稳定性；改写避免原题‘最适合形成哪类客观题’的元测试表述。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-7-80b7b503",
+          "candidate-8-30e70528"
+        ],
+        "secondary_point_keys": [
+          "candidate-8-30e70528"
+        ],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "20_1_01",
+          "single_choice",
+          "point_7",
+          "point_8",
+          "semantic_final_replacement",
+          "polished_final_v1"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "酸碱性和对热稳定性",
+            "point_key": "candidate-7-80b7b503",
+            "role": "correct_evidence",
+            "diagnostic_note": "“酸碱性和对热稳定性”对应本题正确判断；教材步骤/点位支撑“在《20-1-01 氢氧化物的生成与性质》实验中，除滴加 NaO”中的关键操作或结论。"
+          },
+          {
+            "label": "B",
+            "text": "焰色和磁性",
+            "point_key": "candidate-7-80b7b503",
+            "role": "adjacent_experiment",
+            "diagnostic_note": "“焰色和磁性”借用了焰色反应的线索，和本题绑定点位不一致。"
+          },
+          {
+            "label": "C",
+            "text": "碘水氧化性和 CCl₄ 萃取性",
+            "point_key": "candidate-7-80b7b503",
+            "role": "adjacent_experiment",
+            "diagnostic_note": "“碘水氧化性和 CCl₄ 萃取性”借用了KI/CCl₄ 萃取碘的线索，和本题绑定点位不一致。"
+          },
+          {
+            "label": "D",
+            "text": "钠、钾与水反应剧烈程度",
+            "point_key": "candidate-7-80b7b503",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“钠、钾与水反应剧烈程度”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00308_f319652f01"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01079_0f2609f8ca"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_01079_0f2609f8ca（Zn(OH)₂/Cd(OH)₂ 酸碱性和热稳定性）。 绑定点位：检验沉淀酸碱性；检验沉淀热稳定性。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00308_f319652f01"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01079_0f2609f8ca"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01079_0f2609f8ca"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-1-01 氢氧化物的生成与性质》实验中，本实验最适合形成哪类客观题？",
+            "options": [
+              {
+                "label": "A",
+                "text": "硝酸盐热分解产物推断"
+              },
+              {
+                "label": "B",
+                "text": "指定金属盐与 NaOH 的沉淀及性质判断"
+              },
+              {
+                "label": "C",
+                "text": "氨气燃烧热计算"
+              },
+              {
+                "label": "D",
+                "text": "稀有气体发现史排序"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": null,
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00308_f319652f01"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-1-01 氢氧化物的生成与性质》实验中，除滴加 NaOH 生成沉淀外，教材还要求继续检验沉淀的哪两类性质？",
+            "options": [
+              {
+                "label": "A",
+                "text": "酸碱性和对热稳定性"
+              },
+              {
+                "label": "B",
+                "text": "焰色和磁性"
+              },
+              {
+                "label": "C",
+                "text": "碘水氧化性和 CCl₄ 萃取性"
+              },
+              {
+                "label": "D",
+                "text": "钠、钾与水反应剧烈程度"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "教材原文明确要求观察沉淀颜色、形态，并试验酸碱性和对热稳定性；改写避免原题‘最适合形成哪类客观题’的元测试表述。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [
+              "expchunk_00308_f319652f01"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_20_1_01_Q011",
+        "source_review_id": null,
+        "source_question_index": 11,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《20-1-01 氢氧化物的生成与性质》实验中，本实验共同滴加的是浓硝酸而不是 NaOH。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": false
+        },
+        "explanation": "该判断与实验原文的操作、现象或结论不一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-5067cf9c",
+          "candidate-2-a771804f",
+          "candidate-3-a9278462",
+          "candidate-4-4193e867",
+          "candidate-5-35ccfb8e"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-a771804f",
+          "candidate-3-a9278462",
+          "candidate-4-4193e867",
+          "candidate-5-35ccfb8e"
+        ],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "20_1_01",
+          "true_false",
+          "point_1",
+          "point_2",
+          "point_3",
+          "point_4",
+          "point_5",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00308_f319652f01"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题答案可由 canonical 实验原文的对象、步骤或观察任务直接支撑，未额外引用 theory。 绑定点位：CuSO₄ + NaOH；AgNO₃ + NaOH；ZnSO₄ + NaOH；CdSO₄ + NaOH；Hg(NO₃)₂ + NaOH。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00308_f319652f01"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-1-01 氢氧化物的生成与性质》实验中，本实验共同滴加的是浓硝酸而不是 NaOH。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "该判断与实验原文的操作、现象或结论不一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00308_f319652f01"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_20_1_01_Q012",
+        "source_review_id": null,
+        "source_question_index": 12,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《20-1-01 氢氧化物的生成与性质》实验中，观察沉淀酸碱性和热稳定性不属于本实验内容。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": false
+        },
+        "explanation": "该判断与实验原文的操作、现象或结论不一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-7-80b7b503",
+          "candidate-8-30e70528"
+        ],
+        "secondary_point_keys": [
+          "candidate-8-30e70528"
+        ],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "20_1_01",
+          "true_false",
+          "point_7",
+          "point_8",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00308_f319652f01"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01079_0f2609f8ca"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_01079_0f2609f8ca（Zn(OH)₂/Cd(OH)₂ 酸碱性和热稳定性）。 绑定点位：检验沉淀酸碱性；检验沉淀热稳定性。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00308_f319652f01"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01079_0f2609f8ca"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01079_0f2609f8ca"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-1-01 氢氧化物的生成与性质》实验中，观察沉淀酸碱性和热稳定性不属于本实验内容。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "该判断与实验原文的操作、现象或结论不一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00308_f319652f01"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_20_1_01_Q013",
+        "source_review_id": null,
+        "source_question_index": 13,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《20-1-01 氢氧化物的生成与性质》实验中，本实验还要求试验沉淀的酸碱性和对热稳定性。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "该判断与实验原文的操作、现象或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-7-80b7b503",
+          "candidate-8-30e70528"
+        ],
+        "secondary_point_keys": [
+          "candidate-8-30e70528"
+        ],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "20_1_01",
+          "true_false",
+          "point_7",
+          "point_8",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00308_f319652f01"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01079_0f2609f8ca"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_01079_0f2609f8ca（Zn(OH)₂/Cd(OH)₂ 酸碱性和热稳定性）。 绑定点位：检验沉淀酸碱性；检验沉淀热稳定性。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00308_f319652f01"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01079_0f2609f8ca"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01079_0f2609f8ca"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-1-01 氢氧化物的生成与性质》实验中，本实验还要求试验沉淀的酸碱性和对热稳定性。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "该判断与实验原文的操作、现象或结论一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00308_f319652f01"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_20_1_01_Q014",
+        "source_review_id": null,
+        "source_question_index": 14,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《20-1-01 氢氧化物的生成与性质》实验中，Cu(OH)₂ 常表现为蓝色沉淀。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "该判断与实验原文的操作、现象或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-5067cf9c",
+          "candidate-6-c702d34e"
+        ],
+        "secondary_point_keys": [
+          "candidate-6-c702d34e"
+        ],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "20_1_01",
+          "true_false",
+          "point_1",
+          "point_6",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00308_f319652f01"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01042_cb5178e401"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_01042_cb5178e401（Cu(OH)₂ 蓝色沉淀、热稳定/酸碱性质）。 绑定点位：CuSO₄ + NaOH；比较沉淀颜色、形态。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00308_f319652f01"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01042_cb5178e401"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01042_cb5178e401"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-1-01 氢氧化物的生成与性质》实验中，Cu(OH)₂ 常表现为蓝色沉淀。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "该判断与实验原文的操作、现象或结论一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00308_f319652f01"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_20_1_01_Q015",
+        "source_review_id": null,
+        "source_question_index": 15,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《20-1-01 氢氧化物的生成与性质》实验中，Zn(OH)₂ 具有两性，可与酸和强碱反应。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "该判断与实验原文的操作、现象或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-a9278462",
+          "candidate-7-80b7b503"
+        ],
+        "secondary_point_keys": [
+          "candidate-7-80b7b503"
+        ],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "20_1_01",
+          "true_false",
+          "point_3",
+          "point_7",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00308_f319652f01"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01079_0f2609f8ca"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_01079_0f2609f8ca（Zn(OH)₂/Cd(OH)₂ 酸碱性和热稳定性）。 绑定点位：ZnSO₄ + NaOH；检验沉淀酸碱性。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00308_f319652f01"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01079_0f2609f8ca"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01079_0f2609f8ca"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-1-01 氢氧化物的生成与性质》实验中，Zn(OH)₂ 具有两性，可与酸和强碱反应。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "该判断与实验原文的操作、现象或结论一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00308_f319652f01"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_20_1_01_Q016",
+        "source_review_id": null,
+        "source_question_index": 16,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《20-1-01 氢氧化物的生成与性质》实验中，本实验的共同试剂是 KSCN，而不是 NaOH。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": false
+        },
+        "explanation": "该判断与实验原文的操作、现象或结论不一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-5067cf9c",
+          "candidate-2-a771804f",
+          "candidate-3-a9278462",
+          "candidate-4-4193e867",
+          "candidate-5-35ccfb8e"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-a771804f",
+          "candidate-3-a9278462",
+          "candidate-4-4193e867",
+          "candidate-5-35ccfb8e"
+        ],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "20_1_01",
+          "true_false",
+          "point_1",
+          "point_2",
+          "point_3",
+          "point_4",
+          "point_5",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00308_f319652f01"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题答案可由 canonical 实验原文的对象、步骤或观察任务直接支撑，未额外引用 theory。 绑定点位：CuSO₄ + NaOH；AgNO₃ + NaOH；ZnSO₄ + NaOH；CdSO₄ + NaOH；Hg(NO₃)₂ + NaOH。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00308_f319652f01"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-1-01 氢氧化物的生成与性质》实验中，本实验的共同试剂是 KSCN，而不是 NaOH。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "该判断与实验原文的操作、现象或结论不一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00308_f319652f01"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_20_1_01_Q017",
+        "source_review_id": null,
+        "source_question_index": 17,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《20-1-01 氢氧化物的生成与性质》实验中，所有生成的氢氧化物都一定完全不溶于酸和碱。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": false
+        },
+        "explanation": "该判断与实验原文的操作、现象或结论不一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-7-80b7b503"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "20_1_01",
+          "true_false",
+          "point_7",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00308_f319652f01"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题答案可由 canonical 实验原文的对象、步骤或观察任务直接支撑，未额外引用 theory。 绑定点位：检验沉淀酸碱性。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00308_f319652f01"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-1-01 氢氧化物的生成与性质》实验中，所有生成的氢氧化物都一定完全不溶于酸和碱。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "该判断与实验原文的操作、现象或结论不一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00308_f319652f01"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_20_1_01_Q018",
+        "source_review_id": null,
+        "source_question_index": 18,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《20-1-01 氢氧化物的生成与性质》实验中，AgNO₃ 与 NaOH 反应可因 AgOH 不稳定而形成 Ag₂O。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "该判断与实验原文的操作、现象或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-a771804f",
+          "candidate-6-c702d34e"
+        ],
+        "secondary_point_keys": [
+          "candidate-6-c702d34e"
+        ],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "20_1_01",
+          "true_false",
+          "point_2",
+          "point_6",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00308_f319652f01"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01057_8ebcc2ce77"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_01057_8ebcc2ce77（AgOH 极不稳定并脱水成棕黑色 Ag₂O）。 绑定点位：AgNO₃ + NaOH；比较沉淀颜色、形态。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00308_f319652f01"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01057_8ebcc2ce77"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01057_8ebcc2ce77"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-1-01 氢氧化物的生成与性质》实验中，AgNO₃ 与 NaOH 反应可因 AgOH 不稳定而形成 Ag₂O。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "该判断与实验原文的操作、现象或结论一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00308_f319652f01"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_20_1_01_Q019",
+        "source_review_id": null,
+        "source_question_index": 19,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《20-1-01 氢氧化物的生成与性质》实验中，本实验完全不需要比较沉淀颜色。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": false
+        },
+        "explanation": "该判断与实验原文的操作、现象或结论不一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-6-c702d34e"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "20_1_01",
+          "true_false",
+          "point_6",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00308_f319652f01"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题答案可由 canonical 实验原文的对象、步骤或观察任务直接支撑，未额外引用 theory。 绑定点位：比较沉淀颜色、形态。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00308_f319652f01"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-1-01 氢氧化物的生成与性质》实验中，本实验完全不需要比较沉淀颜色。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "该判断与实验原文的操作、现象或结论不一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00308_f319652f01"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_20_1_01_Q020",
+        "source_review_id": null,
+        "source_question_index": 20,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《20-1-01 氢氧化物的生成与性质》实验中，Hg(NO₃)₂ 是本实验列出的金属盐之一。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "该判断与实验原文的操作、现象或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-5-35ccfb8e"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "20_1_01",
+          "true_false",
+          "point_5",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00308_f319652f01"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01087_3a6c1c97ff"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_01087_3a6c1c97ff（Hg²⁺ 与碱生成黄色 HgO 及热分解）。 绑定点位：Hg(NO₃)₂ + NaOH。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00308_f319652f01"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01087_3a6c1c97ff"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01087_3a6c1c97ff"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-1-01 氢氧化物的生成与性质》实验中，Hg(NO₃)₂ 是本实验列出的金属盐之一。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "该判断与实验原文的操作、现象或结论一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00308_f319652f01"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_20_1_01_Q021",
+        "source_review_id": null,
+        "source_question_index": 21,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《20-1-01 氢氧化物的生成与性质》实验中，本实验共同滴加的碱是____溶液。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "NaOH",
+            "氢氧化钠"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "对应的实验操作或现象内容是“NaOH”。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-5067cf9c",
+          "candidate-2-a771804f",
+          "candidate-3-a9278462",
+          "candidate-4-4193e867",
+          "candidate-5-35ccfb8e"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-a771804f",
+          "candidate-3-a9278462",
+          "candidate-4-4193e867",
+          "candidate-5-35ccfb8e"
+        ],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "20_1_01",
+          "fill_blank",
+          "point_1",
+          "point_2",
+          "point_3",
+          "point_4",
+          "point_5",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00308_f319652f01"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题答案可由 canonical 实验原文的对象、步骤或观察任务直接支撑，未额外引用 theory。 绑定点位：CuSO₄ + NaOH；AgNO₃ + NaOH；ZnSO₄ + NaOH；CdSO₄ + NaOH；Hg(NO₃)₂ + NaOH。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00308_f319652f01"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "formula_or_symbolic_fill_blank_answer",
+          "generic_or_answer_shell_explanation",
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-1-01 氢氧化物的生成与性质》实验中，本实验共同滴加的碱是____溶液。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "NaOH",
+                "氢氧化钠"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "对应的实验操作或现象内容是“NaOH”。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00308_f319652f01"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_20_1_01_Q022",
+        "source_review_id": null,
+        "source_question_index": 22,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《20-1-01 氢氧化物的生成与性质》实验中，CuSO₄ 与 NaOH 生成的 Cu(OH)₂ 常为____色沉淀。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "蓝",
+            "蓝色"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "对应的实验操作或现象内容是“蓝”。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-5067cf9c",
+          "candidate-6-c702d34e"
+        ],
+        "secondary_point_keys": [
+          "candidate-6-c702d34e"
+        ],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "20_1_01",
+          "fill_blank",
+          "point_1",
+          "point_6",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00308_f319652f01"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01042_cb5178e401"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_01042_cb5178e401（Cu(OH)₂ 蓝色沉淀、热稳定/酸碱性质）。 绑定点位：CuSO₄ + NaOH；比较沉淀颜色、形态。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00308_f319652f01"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01042_cb5178e401"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01042_cb5178e401"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "generic_or_answer_shell_explanation",
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-1-01 氢氧化物的生成与性质》实验中，CuSO₄ 与 NaOH 生成的 Cu(OH)₂ 常为____色沉淀。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "蓝",
+                "蓝色"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "对应的实验操作或现象内容是“蓝”。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00308_f319652f01"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_20_1_01_Q023",
+        "source_review_id": null,
+        "source_question_index": 23,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《20-1-01 氢氧化物的生成与性质》实验中，ZnSO₄ 与 NaOH 生成的两性氢氧化物是____。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "Zn(OH)₂",
+            "氢氧化锌"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "对应的实验操作或现象内容是“Zn(OH)₂”。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-a9278462",
+          "candidate-7-80b7b503"
+        ],
+        "secondary_point_keys": [
+          "candidate-7-80b7b503"
+        ],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "20_1_01",
+          "fill_blank",
+          "point_3",
+          "point_7",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00308_f319652f01"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01079_0f2609f8ca"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_01079_0f2609f8ca（Zn(OH)₂/Cd(OH)₂ 酸碱性和热稳定性）。 绑定点位：ZnSO₄ + NaOH；检验沉淀酸碱性。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00308_f319652f01"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01079_0f2609f8ca"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01079_0f2609f8ca"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "formula_or_symbolic_fill_blank_answer",
+          "generic_or_answer_shell_explanation",
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-1-01 氢氧化物的生成与性质》实验中，ZnSO₄ 与 NaOH 生成的两性氢氧化物是____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "Zn(OH)₂",
+                "氢氧化锌"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "对应的实验操作或现象内容是“Zn(OH)₂”。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00308_f319652f01"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_20_1_01_Q024_PF1",
+        "source_review_id": null,
+        "source_question_index": 24,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《20-1-01 氢氧化物的生成与性质》实验中，AgNO₃ 与 NaOH 步骤中观察到棕黑色 Ag₂O，更直接说明哪一事实？",
+        "options": [
+          {
+            "label": "A",
+            "text": "AgOH 很不稳定，生成后易转变为 Ag₂O"
+          },
+          {
+            "label": "B",
+            "text": "Zn(OH)₂ 只能表现酸性"
+          },
+          {
+            "label": "C",
+            "text": "Cu(OH)₂ 加热不发生变化"
+          },
+          {
+            "label": "D",
+            "text": "Hg(NO₃)₂ 与 NaOH 生成蓝色沉淀"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "AgNO₃/NaOH 点位考查银的氢氧化物/氧化物生成与沉淀现象；改写后不要求填写 Ag₂O。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-a771804f",
+          "candidate-6-c702d34e"
+        ],
+        "secondary_point_keys": [
+          "candidate-6-c702d34e"
+        ],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "20_1_01",
+          "fill_blank",
+          "polished_final_v1",
+          "point_2",
+          "point_6"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "AgOH 很不稳定，生成后易转变为 Ag₂O",
+            "point_key": "candidate-2-a771804f",
+            "role": "correct_evidence",
+            "diagnostic_note": "“AgOH 很不稳定，生成后易转变为 Ag₂O”对应本题正确判断；教材步骤/点位支撑“在《20-1-01 氢氧化物的生成与性质》实验中，AgNO₃ 与”中的关键操作或结论。"
+          },
+          {
+            "label": "B",
+            "text": "Zn(OH)₂ 只能表现酸性",
+            "point_key": "candidate-3-a9278462",
+            "role": "adjacent_point",
+            "diagnostic_note": "“Zn(OH)₂ 只能表现酸性”属于同一实验的“ZnSO₄ + NaOH”点位，但本题考查的是“AgNO₃ + NaOH; 比较沉淀颜色、形态”。"
+          },
+          {
+            "label": "C",
+            "text": "Cu(OH)₂ 加热不发生变化",
+            "point_key": "candidate-1-5067cf9c",
+            "role": "adjacent_point",
+            "diagnostic_note": "“Cu(OH)₂ 加热不发生变化”属于同一实验的“CuSO₄ + NaOH”点位，但本题考查的是“AgNO₃ + NaOH; 比较沉淀颜色、形态”。"
+          },
+          {
+            "label": "D",
+            "text": "Hg(NO₃)₂ 与 NaOH 生成蓝色沉淀",
+            "point_key": "candidate-1-5067cf9c",
+            "role": "adjacent_point",
+            "diagnostic_note": "“Hg(NO₃)₂ 与 NaOH 生成蓝色沉淀”属于同一实验的“CuSO₄ + NaOH”点位，但本题考查的是“AgNO₃ + NaOH; 比较沉淀颜色、形态”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00308_f319652f01"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01057_8ebcc2ce77"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_01057_8ebcc2ce77（AgOH 极不稳定并脱水成棕黑色 Ag₂O）。 绑定点位：AgNO₃ + NaOH；比较沉淀颜色、形态。 本轮 polish 已改写为可机器确定性判分的有效题，避免重复题干或手机端化学式输入风险。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00308_f319652f01"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01057_8ebcc2ce77"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01057_8ebcc2ce77"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-1-01 氢氧化物的生成与性质》实验中，AgNO₃ 与 NaOH 反应常生成氧化银，化学式为____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "Ag₂O"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": null,
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00308_f319652f01"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-1-01 氢氧化物的生成与性质》实验中，AgNO₃ 与 NaOH 步骤中观察到棕黑色 Ag₂O，更直接说明哪一事实？",
+            "options": [
+              {
+                "label": "A",
+                "text": "AgOH 很不稳定，生成后易转变为 Ag₂O"
+              },
+              {
+                "label": "B",
+                "text": "Zn(OH)₂ 只能表现酸性"
+              },
+              {
+                "label": "C",
+                "text": "Cu(OH)₂ 加热不发生变化"
+              },
+              {
+                "label": "D",
+                "text": "Hg(NO₃)₂ 与 NaOH 生成蓝色沉淀"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "AgNO₃/NaOH 点位考查银的氢氧化物/氧化物生成与沉淀现象；改写后不要求填写 Ag₂O。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00308_f319652f01"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_20_1_01_Q025",
+        "source_review_id": null,
+        "source_question_index": 25,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《20-1-01 氢氧化物的生成与性质》实验中，本实验要求观察沉淀颜色与____。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "形态"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "对应的实验操作或现象内容是“形态”。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-6-c702d34e"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "20_1_01",
+          "fill_blank",
+          "point_6",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00308_f319652f01"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题答案可由 canonical 实验原文的对象、步骤或观察任务直接支撑，未额外引用 theory。 绑定点位：比较沉淀颜色、形态。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00308_f319652f01"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "generic_or_answer_shell_explanation",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-1-01 氢氧化物的生成与性质》实验中，本实验要求观察沉淀颜色与____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "形态"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "对应的实验操作或现象内容是“形态”。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00308_f319652f01"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_20_1_01_Q026",
+        "source_review_id": null,
+        "source_question_index": 26,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《20-1-01 氢氧化物的生成与性质》实验中，本实验还要检验沉淀的酸碱性和____稳定性。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "热"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "对应的实验操作或现象内容是“热”。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-7-80b7b503",
+          "candidate-8-30e70528"
+        ],
+        "secondary_point_keys": [
+          "candidate-8-30e70528"
+        ],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "20_1_01",
+          "fill_blank",
+          "point_7",
+          "point_8",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00308_f319652f01"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01079_0f2609f8ca"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_01079_0f2609f8ca（Zn(OH)₂/Cd(OH)₂ 酸碱性和热稳定性）。 绑定点位：检验沉淀酸碱性；检验沉淀热稳定性。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00308_f319652f01"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01079_0f2609f8ca"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01079_0f2609f8ca"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "generic_or_answer_shell_explanation",
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-1-01 氢氧化物的生成与性质》实验中，本实验还要检验沉淀的酸碱性和____稳定性。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "热"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "对应的实验操作或现象内容是“热”。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00308_f319652f01"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_20_1_01_Q027",
+        "source_review_id": null,
+        "source_question_index": 27,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《20-1-01 氢氧化物的生成与性质》实验中，CdSO₄ 与 NaOH 生成的主要沉淀可写为____。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "Cd(OH)₂",
+            "氢氧化镉"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "对应的实验操作或现象内容是“Cd(OH)₂”。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-4-4193e867"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "20_1_01",
+          "fill_blank",
+          "point_4",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00308_f319652f01"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01079_0f2609f8ca"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_01079_0f2609f8ca（Zn(OH)₂/Cd(OH)₂ 酸碱性和热稳定性）。 绑定点位：CdSO₄ + NaOH。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00308_f319652f01"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01079_0f2609f8ca"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01079_0f2609f8ca"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "formula_or_symbolic_fill_blank_answer",
+          "generic_or_answer_shell_explanation",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-1-01 氢氧化物的生成与性质》实验中，CdSO₄ 与 NaOH 生成的主要沉淀可写为____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "Cd(OH)₂",
+                "氢氧化镉"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "对应的实验操作或现象内容是“Cd(OH)₂”。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00308_f319652f01"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_20_1_01_Q028",
+        "source_review_id": null,
+        "source_question_index": 28,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《20-1-01 氢氧化物的生成与性质》实验中，Hg(NO₃)₂ 与 NaOH 反应涉及的汞元素为____价。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "+2",
+            "正二价"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "对应的实验操作或现象内容是“+2”。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-5-35ccfb8e"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "20_1_01",
+          "fill_blank",
+          "point_5",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00308_f319652f01"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01087_3a6c1c97ff"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_01087_3a6c1c97ff（Hg²⁺ 与碱生成黄色 HgO 及热分解）。 绑定点位：Hg(NO₃)₂ + NaOH。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00308_f319652f01"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01087_3a6c1c97ff"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01087_3a6c1c97ff"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "formula_or_symbolic_fill_blank_answer",
+          "generic_or_answer_shell_explanation",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-1-01 氢氧化物的生成与性质》实验中，Hg(NO₃)₂ 与 NaOH 反应涉及的汞元素为____价。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "+2",
+                "正二价"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "对应的实验操作或现象内容是“+2”。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00308_f319652f01"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_20_1_01_Q029",
+        "source_review_id": null,
+        "source_question_index": 29,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《20-1-01 氢氧化物的生成与性质》实验中，既能溶于酸又能溶于强碱的氢氧化物常称为____氢氧化物。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "两性"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "对应的实验操作或现象内容是“两性”。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-7-80b7b503"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "20_1_01",
+          "fill_blank",
+          "point_7",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00308_f319652f01"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01079_0f2609f8ca"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_01079_0f2609f8ca（Zn(OH)₂/Cd(OH)₂ 酸碱性和热稳定性）。 绑定点位：检验沉淀酸碱性。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00308_f319652f01"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01079_0f2609f8ca"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01079_0f2609f8ca"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "generic_or_answer_shell_explanation",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-1-01 氢氧化物的生成与性质》实验中，既能溶于酸又能溶于强碱的氢氧化物常称为____氢氧化物。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "两性"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "对应的实验操作或现象内容是“两性”。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00308_f319652f01"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_20_1_01_Q030",
+        "source_review_id": null,
+        "source_question_index": 30,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《20-1-01 氢氧化物的生成与性质》实验中，本实验属于 ds 区元素化合物中____的生成与性质观察。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "氢氧化物"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "对应的实验操作或现象内容是“氢氧化物”。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-5067cf9c",
+          "candidate-2-a771804f",
+          "candidate-3-a9278462",
+          "candidate-4-4193e867",
+          "candidate-5-35ccfb8e",
+          "candidate-6-c702d34e",
+          "candidate-7-80b7b503",
+          "candidate-8-30e70528"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-a771804f",
+          "candidate-3-a9278462",
+          "candidate-4-4193e867",
+          "candidate-5-35ccfb8e",
+          "candidate-6-c702d34e",
+          "candidate-7-80b7b503",
+          "candidate-8-30e70528"
+        ],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "20_1_01",
+          "fill_blank",
+          "point_1",
+          "point_2",
+          "point_3",
+          "point_4",
+          "point_5",
+          "point_6",
+          "point_7",
+          "point_8",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00308_f319652f01"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题答案可由 canonical 实验原文的对象、步骤或观察任务直接支撑，未额外引用 theory。 绑定点位：CuSO₄ + NaOH；AgNO₃ + NaOH；ZnSO₄ + NaOH；CdSO₄ + NaOH；Hg(NO₃)₂ + NaOH；比较沉淀颜色、形态；检验沉淀酸碱性；检验沉淀热稳定性。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00308_f319652f01"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "generic_or_answer_shell_explanation",
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-1-01 氢氧化物的生成与性质》实验中，本实验属于 ds 区元素化合物中____的生成与性质观察。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "氢氧化物"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "对应的实验操作或现象内容是“氢氧化物”。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00308_f319652f01"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,961 @@
+{
+  "metadata": {
+    "schema_version": "small_packet_rebuilt_v1",
+    "artifact_type": "manual_semantic_rebuilt_question_package",
+    "chunk": "chunk_2",
+    "source_packet": "E:\\chemistry-admin\\artifacts\\point-aware-question-bank\\reviewed_old_bank_chunks\\slim_release_work_v1\\semantic_work_packets\\chunk_2\\19-3-06.json",
+    "experiment_code": "19-3-06",
+    "experiment_title": "过硫酸盐的氧化性",
+    "question_count": 30,
+    "evidence_policy": [
+      "Each question was manually compared against the source packet, video points, canonical experiment evidence, and supporting theory where required.",
+      "RAG source text is not embedded in full; only locators and concise source summaries are stored.",
+      "Inherited chunk ids are not treated as proof.",
+      "Formula or symbolic fill blanks are avoided; retained fill blanks use short ordinary Chinese answers."
+    ],
+    "rag_source_dir": "E:\\chemistry-rag\\data\\rag_ready",
+    "release_json_policy": "Do not modify chunk_X_release_final_v1.json directly; this package is a merge input only."
+  },
+  "video_points": [
+    {
+      "point_key": "candidate-1-f8d33e0a",
+      "point_title": "MnSO₄ + H₂SO₄ + AgNO₃ + K₂S₂O₈"
+    },
+    {
+      "point_key": "candidate-2-1edce2d8",
+      "point_title": "MnSO₄ + H₂SO₄ + K₂S₂O₈，不加 AgNO₃ 对照"
+    }
+  ],
+  "evidence_sources": {
+    "canonical_experiment_chunks": [
+      {
+        "chunk_id": "expchunk_00231_3725c0805d",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+        "line_number": 244,
+        "evidence_role": "Canonical experiment: MnSO₄/H₂SO₄/AgNO₃/K₂S₂O₈ with water-bath heating and a no-AgNO₃ control. The same source chunk also contains a KI operation, but this packet's video points cover only the MnSO₄ comparison."
+      },
+      {
+        "chunk_id": "expchunk_00233_e7fe95eac0",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+        "line_number": 246,
+        "evidence_role": "Thinking questions: why K₂S₂O₈ and Mn²⁺ reaction requires acidic medium and what insufficient acidity affects."
+      }
+    ],
+    "supporting_theory_chunks": [
+      {
+        "chunk_id": "textbook_prose_00397_b4519b367e",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+        "line_number": 659,
+        "evidence_role": "Theory: Mn²⁺ is oxidized by S₂O₈²⁻ under heat and Ag⁺ catalysis to MnO₄⁻ while S₂O₈²⁻ becomes SO₄²⁻."
+      },
+      {
+        "chunk_id": "textbook_prose_01241_99049758ad",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+        "line_number": 1898,
+        "evidence_role": "Theory: same Mn²⁺ to MnO₄⁻ reaction and note that MnO₄⁻ is purple, making the phenomenon clear."
+      }
+    ]
+  },
+  "questions": [
+    {
+      "question_id": "REBUILT_CH2_19_3_06_Q001",
+      "question_type": "single_choice",
+      "stem": "在过硫酸盐氧化性实验中，两个 MnSO₄ 观察体系最核心的比较变量是什么？",
+      "options": [
+        {"label": "A", "text": "是否加入 AgNO₃"},
+        {"label": "B", "text": "是否加入 KI"},
+        {"label": "C", "text": "是否加入 CCl₄"},
+        {"label": "D", "text": "是否加入水玻璃"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "两个观察体系都是 MnSO₄/H₂SO₄/K₂S₂O₈ 体系，差别是第一组加入 AgNO₃，第二组不加 AgNO₃ 作为对照。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-1-f8d33e0a", "candidate-2-1edce2d8"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["control_comparison", "ag_catalysis", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-1-f8d33e0a", "role": "correct_evidence", "diagnostic_note": "两个点位的真实差别是 AgNO₃。"},
+        {"label": "B", "point_key": null, "role": "distractor_outside_packet_points", "diagnostic_note": "KI 操作在同一教材段中，但不属于这两个观察体系。"},
+        {"label": "C", "point_key": null, "role": "distractor_other_experiment", "diagnostic_note": "CCl₄ 不属于这两个观察体系。"},
+        {"label": "D", "point_key": null, "role": "distractor_other_experiment", "diagnostic_note": "水玻璃属于硅酸盐实验。"}
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00231_3725c0805d"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "直接由两个视频点位和实验对照设计支撑。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_3_06_Q002",
+      "question_type": "single_choice",
+      "stem": "不加 AgNO₃ 的试管在本实验中主要承担什么作用？",
+      "options": [
+        {"label": "A", "text": "作为对照，比较 Ag⁺ 对反应现象的影响"},
+        {"label": "B", "text": "提供 I₂ 生成的酸性 KI 体系"},
+        {"label": "C", "text": "作为硅酸盐成膜反应"},
+        {"label": "D", "text": "检验 Fe³⁺ 的血红色络合物"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "教材要求另取一支试管不加 AgNO₃ 进行同样实验，并比较两个实验现象的差异，因此它是 Ag⁺ 作用的对照。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-1-f8d33e0a", "candidate-2-1edce2d8"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["control_comparison", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-2-1edce2d8", "role": "correct_evidence", "diagnostic_note": "不加 AgNO₃ 点位就是对照。"},
+        {"label": "B", "point_key": null, "role": "distractor_outside_packet_points", "diagnostic_note": "KI 操作不属于这两个观察体系。"},
+        {"label": "C", "point_key": null, "role": "distractor_other_experiment", "diagnostic_note": "硅酸盐成膜与本实验无关。"},
+        {"label": "D", "point_key": null, "role": "distractor_other_experiment", "diagnostic_note": "Fe³⁺/SCN⁻ 不属于本实验。"}
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00231_3725c0805d"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "对照目的由 canonical experiment text directly supports."
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_3_06_Q003",
+      "question_type": "single_choice",
+      "stem": "AgNO₃ 在 MnSO₄/H₂SO₄/K₂S₂O₈ 体系中最接近哪一类作用？",
+      "options": [
+        {"label": "A", "text": "促进或催化 Mn²⁺ 被 S₂O₈²⁻ 氧化"},
+        {"label": "B", "text": "提供 Mn²⁺"},
+        {"label": "C", "text": "提供酸性介质"},
+        {"label": "D", "text": "生成 I₂ 的还原剂"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "有无 AgNO₃ 的对照用于比较 Ag⁺ 对 Mn²⁺ 被 K₂S₂O₈ 氧化的影响；理论说明的反应条件中也出现 Ag⁺。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-1-f8d33e0a", "candidate-2-1edce2d8"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["ag_catalysis", "mn_oxidation", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-1-f8d33e0a", "role": "correct_evidence", "diagnostic_note": "Ag⁺ 是对照变量，也符合理论说明中的条件。"},
+        {"label": "B", "point_key": "candidate-1-f8d33e0a", "role": "distractor_reagent_role", "diagnostic_note": "Mn²⁺ 来自 MnSO₄，不是 AgNO₃。"},
+        {"label": "C", "point_key": "candidate-1-f8d33e0a", "role": "distractor_reagent_role", "diagnostic_note": "酸性介质由 H₂SO₄ 提供。"},
+        {"label": "D", "point_key": null, "role": "distractor_outside_packet_points", "diagnostic_note": "I₂ 生成属于 KI 操作，不是本实验的观察目标。"}
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00231_3725c0805d"],
+        "supporting_theory_chunk_ids": ["textbook_prose_00397_b4519b367e", "textbook_prose_01241_99049758ad"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "性质解释需 theory；操作差异来自 canonical。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_3_06_Q004",
+      "question_type": "fill_blank",
+      "stem": "比较加和不加 AgNO₃ 的现象，本质上是在判断 Ag⁺ 对反应的____作用。",
+      "options": [],
+      "answer": {"accepted_answers": ["促进", "催化", "促进或催化"], "match": "normalized_exact"},
+      "explanation": "加 AgNO₃ 与不加 AgNO₃ 的对照用于判断 Ag⁺ 对 Mn²⁺ 被 K₂S₂O₈ 氧化的促进或催化作用。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-1-f8d33e0a", "candidate-2-1edce2d8"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["ag_catalysis", "mobile_safe_fill_blank"],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00231_3725c0805d"],
+        "supporting_theory_chunk_ids": ["textbook_prose_00397_b4519b367e"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留填空，答案不是公式或离子符号。"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_3_06_Q005",
+      "question_type": "single_choice",
+      "stem": "含 AgNO₃ 的观察体系中，提供 Mn²⁺ 的试剂是哪一项？",
+      "options": [
+        {"label": "A", "text": "MnSO₄"},
+        {"label": "B", "text": "AgNO₃"},
+        {"label": "C", "text": "H₂SO₄"},
+        {"label": "D", "text": "K₂S₂O₈"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "实验原文向盛有 MnSO₄ 溶液的试管中加入 H₂SO₄、AgNO₃ 和 K₂S₂O₈；Mn²⁺ 来自 MnSO₄。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-1-f8d33e0a"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["reagent_role", "mn_oxidation"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-1-f8d33e0a", "role": "correct_evidence", "diagnostic_note": "MnSO₄ 是 Mn²⁺ 来源。"},
+        {"label": "B", "point_key": "candidate-1-f8d33e0a", "role": "distractor_reagent_role", "diagnostic_note": "AgNO₃ 是对照变量，不是锰源。"},
+        {"label": "C", "point_key": "candidate-1-f8d33e0a", "role": "distractor_reagent_role", "diagnostic_note": "H₂SO₄ 提供酸性介质。"},
+        {"label": "D", "point_key": "candidate-1-f8d33e0a", "role": "distractor_reagent_role", "diagnostic_note": "K₂S₂O₈ 是氧化剂。"}
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00231_3725c0805d"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "试剂角色题，直接由实验原文支撑。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_3_06_Q006",
+      "question_type": "single_choice",
+      "stem": "本实验中，H₂SO₄ 在 MnSO₄/K₂S₂O₈ 体系中的主要作用是哪一项？",
+      "options": [
+        {"label": "A", "text": "提供酸性介质"},
+        {"label": "B", "text": "提供 Mn²⁺"},
+        {"label": "C", "text": "提供 Ag⁺"},
+        {"label": "D", "text": "萃取 I₂"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "实验原文加入 H₂SO₄，思考题也强调 K₂S₂O₈ 与 Mn²⁺ 的反应为什么要在酸性介质中进行。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-1-f8d33e0a", "candidate-2-1edce2d8"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["acid_medium", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-1-f8d33e0a", "role": "correct_evidence", "diagnostic_note": "H₂SO₄ 对应酸性介质。"},
+        {"label": "B", "point_key": "candidate-1-f8d33e0a", "role": "distractor_reagent_role", "diagnostic_note": "Mn²⁺ 来自 MnSO₄。"},
+        {"label": "C", "point_key": "candidate-1-f8d33e0a", "role": "distractor_reagent_role", "diagnostic_note": "Ag⁺ 来自 AgNO₃。"},
+        {"label": "D", "point_key": null, "role": "distractor_outside_packet_points", "diagnostic_note": "I₂ 萃取不属于这两个观察体系。"}
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00231_3725c0805d", "expchunk_00233_e7fe95eac0"],
+        "supporting_theory_chunk_ids": ["textbook_prose_00397_b4519b367e", "textbook_prose_01241_99049758ad"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "酸性介质要求由实验操作、思考题和 reaction theory 支撑。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_3_06_Q007",
+      "question_type": "single_choice",
+      "stem": "为什么 K₂S₂O₈ 与 Mn²⁺ 的反应不能把酸性介质视为无关条件？",
+      "options": [
+        {"label": "A", "text": "教材思考题专门追问酸性介质不足的影响，说明酸性会影响氧化生成 MnO₄⁻ 的判断"},
+        {"label": "B", "text": "因为酸性介质用于生成水玻璃"},
+        {"label": "C", "text": "因为酸性介质只用于硝酸根棕色环"},
+        {"label": "D", "text": "因为酸性介质能提供 Ag⁺"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "思考题明确要求解释 K₂S₂O₈ 与 Mn²⁺ 反应为什么在酸性介质中进行及酸性不足的影响；这不是可省略条件。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-1-f8d33e0a", "candidate-2-1edce2d8"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["acid_medium", "evidence_reasoning", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-1-f8d33e0a", "role": "correct_evidence", "diagnostic_note": "思考题直接支撑酸性介质必要性。"},
+        {"label": "B", "point_key": null, "role": "distractor_other_experiment", "diagnostic_note": "水玻璃不属于本实验。"},
+        {"label": "C", "point_key": null, "role": "distractor_other_experiment", "diagnostic_note": "棕色环不属于本实验。"},
+        {"label": "D", "point_key": "candidate-1-f8d33e0a", "role": "distractor_reagent_role", "diagnostic_note": "Ag⁺ 来自 AgNO₃，不来自酸性介质。"}
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00231_3725c0805d", "expchunk_00233_e7fe95eac0"],
+        "supporting_theory_chunk_ids": ["textbook_prose_00397_b4519b367e", "textbook_prose_01241_99049758ad"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "避免把 H₂SO₄ 降为试剂名背诵。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_3_06_Q008",
+      "question_type": "single_choice",
+      "stem": "加入 K₂S₂O₈ 后采用水浴加热，最合理的目的是什么？",
+      "options": [
+        {"label": "A", "text": "促进 Mn²⁺ 被 S₂O₈²⁻ 氧化"},
+        {"label": "B", "text": "冷却并冻结所有反应"},
+        {"label": "C", "text": "遮挡 MnO₄⁻ 的颜色"},
+        {"label": "D", "text": "把 H₂SO₄ 变成 AgNO₃"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "实验原文要求水浴加热；理论说明中的反应条件也包含加热，说明加热用于促进氧化反应。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-1-f8d33e0a"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["heating", "mn_oxidation"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-1-f8d33e0a", "role": "correct_evidence", "diagnostic_note": "水浴加热与 Mn²⁺ 氧化反应条件一致。"},
+        {"label": "B", "point_key": null, "role": "distractor_opposite_condition", "diagnostic_note": "实验要求加热，不是冻结。"},
+        {"label": "C", "point_key": null, "role": "distractor_misconception", "diagnostic_note": "实验要观察颜色，不是遮挡颜色。"},
+        {"label": "D", "point_key": null, "role": "distractor_impossible_conversion", "diagnostic_note": "试剂不会这样相互转化。"}
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00231_3725c0805d"],
+        "supporting_theory_chunk_ids": ["textbook_prose_00397_b4519b367e", "textbook_prose_01241_99049758ad"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "加热目的由实验和 theory condition 共同支持。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_3_06_Q009",
+      "question_type": "fill_blank",
+      "stem": "加入 K₂S₂O₈ 后，MnSO₄ 体系采用____加热。",
+      "options": [],
+      "answer": {"accepted_answers": ["水浴", "水浴加热"], "match": "normalized_exact"},
+      "explanation": "实验操作要求加入 K₂S₂O₈ 后采用水浴加热，因此答案是“水浴”或“水浴加热”。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-1-f8d33e0a"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["heating", "mobile_safe_fill_blank"],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00231_3725c0805d"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "保留填空，答案是普通中文操作词。"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_3_06_Q010",
+      "question_type": "single_choice",
+      "stem": "Mn²⁺ 被 S₂O₈²⁻ 氧化后的关键高价锰物种是哪一项？",
+      "options": [
+        {"label": "A", "text": "MnO₄⁻"},
+        {"label": "B", "text": "I₂"},
+        {"label": "C", "text": "Ag⁺"},
+        {"label": "D", "text": "SO₃²⁻"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "理论反应式显示 Mn²⁺ 被 S₂O₈²⁻ 氧化为 MnO₄⁻，这也是颜色观察的依据。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-1-f8d33e0a"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["mn_oxidation", "product_judgement"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-1-f8d33e0a", "role": "correct_evidence", "diagnostic_note": "MnO₄⁻ 是 Mn²⁺ 氧化产物。"},
+        {"label": "B", "point_key": null, "role": "distractor_outside_packet_points", "diagnostic_note": "I₂ 属于 KI 操作，不是本实验的观察目标。"},
+        {"label": "C", "point_key": "candidate-1-f8d33e0a", "role": "distractor_reagent_not_product", "diagnostic_note": "Ag⁺ 是条件变量，不是高价锰产物。"},
+        {"label": "D", "point_key": null, "role": "distractor_other_packet", "diagnostic_note": "SO₃²⁻ 属于亚硫酸根检出。"}
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00231_3725c0805d"],
+        "supporting_theory_chunk_ids": ["textbook_prose_00397_b4519b367e", "textbook_prose_01241_99049758ad"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "产物判断依赖 theory。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_3_06_Q011",
+      "question_type": "single_choice",
+      "stem": "Mn²⁺ 被氧化到 MnO₄⁻ 后，溶液颜色判断最应选哪一项？",
+      "options": [
+        {"label": "A", "text": "紫色或紫红色"},
+        {"label": "B", "text": "纯白色"},
+        {"label": "C", "text": "无色油层"},
+        {"label": "D", "text": "血红色络合物"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "理论说明明确 MnO₄⁻ 显紫色，因而 Mn²⁺ 被氧化后出现紫色或紫红色最符合该观察。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-1-f8d33e0a"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["mn_oxidation", "color_observation"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-1-f8d33e0a", "role": "correct_evidence", "diagnostic_note": "颜色来自 MnO₄⁻。"},
+        {"label": "B", "point_key": null, "role": "distractor_wrong_color", "diagnostic_note": "白色不是 MnO₄⁻ 特征色。"},
+        {"label": "C", "point_key": null, "role": "distractor_other_observation", "diagnostic_note": "无色油层不属于本水溶液体系。"},
+        {"label": "D", "point_key": null, "role": "distractor_other_experiment", "diagnostic_note": "血红色络合物属于 Fe³⁺/SCN⁻。"}
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00231_3725c0805d"],
+        "supporting_theory_chunk_ids": ["textbook_prose_01241_99049758ad"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "颜色不是孤立记忆，需连到 MnO₄⁻。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_3_06_Q012",
+      "question_type": "fill_blank",
+      "stem": "Mn²⁺ 被氧化到 MnO₄⁻ 时，溶液常呈____色。",
+      "options": [],
+      "answer": {"accepted_answers": ["紫", "紫红"], "match": "normalized_exact"},
+      "explanation": "答案是短中文颜色词；理论说明支持 MnO₄⁻ 的紫色现象。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-1-f8d33e0a"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["mn_oxidation", "mobile_safe_fill_blank"],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00231_3725c0805d"],
+        "supporting_theory_chunk_ids": ["textbook_prose_01241_99049758ad"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留填空，但不要求 MnO₄⁻ 公式输入。"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_3_06_Q013",
+      "question_type": "single_choice",
+      "stem": "下列哪一个反应式最贴合本实验中 Mn²⁺ 被 S₂O₈²⁻ 氧化的理论说明？",
+      "options": [
+        {"label": "A", "text": "2 Mn²⁺ + 5 S₂O₈²⁻ + 8 H₂O → 2 MnO₄⁻ + 10 SO₄²⁻ + 16 H⁺"},
+        {"label": "B", "text": "I₂ + 2 e⁻ → 2 I⁻"},
+        {"label": "C", "text": "Ag⁺ + Cl⁻ → AgCl"},
+        {"label": "D", "text": "SO₂ + 品红 → 无色有机物"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "理论说明给出 Mn²⁺ 被 S₂O₈²⁻ 氧化为 MnO₄⁻、S₂O₈²⁻ 生成 SO₄²⁻ 的反应；A 与该判断一致。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-1-f8d33e0a"],
+      "secondary_point_keys": ["candidate-2-1edce2d8"],
+      "coverage_tags": ["mn_oxidation", "reaction_reasoning"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-1-f8d33e0a", "role": "correct_evidence", "diagnostic_note": "对应 00397/01241。"},
+        {"label": "B", "point_key": null, "role": "distractor_outside_packet_points", "diagnostic_note": "碘半反应不属于这两个观察体系。"},
+        {"label": "C", "point_key": null, "role": "distractor_other_reaction", "diagnostic_note": "AgCl 沉淀不是本反应。"},
+        {"label": "D", "point_key": null, "role": "distractor_other_packet", "diagnostic_note": "SO₂ 漂白属于亚硫酸相关性质实验。"}
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00231_3725c0805d"],
+        "supporting_theory_chunk_ids": ["textbook_prose_00397_b4519b367e", "textbook_prose_01241_99049758ad"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "公式题为单选，避免手机端输入复杂反应式。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_3_06_Q014",
+      "question_type": "single_choice",
+      "stem": "在 MnSO₄/H₂SO₄/K₂S₂O₈ 体系生成 MnO₄⁻ 时，S₂O₈²⁻ 被还原成哪种含硫离子？",
+      "options": [
+        {"label": "A", "text": "SO₄²⁻"},
+        {"label": "B", "text": "SO₃²⁻"},
+        {"label": "C", "text": "S²⁻"},
+        {"label": "D", "text": "H₂S"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "理论反应式中 S₂O₈²⁻ 被还原为 SO₄²⁻，与过硫酸盐作氧化剂的角色一致。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-1-f8d33e0a"],
+      "secondary_point_keys": ["candidate-2-1edce2d8"],
+      "coverage_tags": ["oxidant_role", "sulfate_product"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-1-f8d33e0a", "role": "correct_evidence", "diagnostic_note": "SO₄²⁻ 是理论反应中的含硫产物。"},
+        {"label": "B", "point_key": null, "role": "distractor_other_packet", "diagnostic_note": "SO₃²⁻ 属于亚硫酸根检出。"},
+        {"label": "C", "point_key": null, "role": "distractor_related_species", "diagnostic_note": "S²⁻ 未由该反应支撑。"},
+        {"label": "D", "point_key": null, "role": "distractor_other_species", "diagnostic_note": "H₂S 不是该 reaction product。"}
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00231_3725c0805d"],
+        "supporting_theory_chunk_ids": ["textbook_prose_00397_b4519b367e", "textbook_prose_01241_99049758ad"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "产物判断依赖 theory。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_3_06_Q015",
+      "question_type": "single_choice",
+      "stem": "下列哪一项最准确概括 K₂S₂O₈ 在本实验两个观察体系中的共同角色？",
+      "options": [
+        {"label": "A", "text": "氧化剂"},
+        {"label": "B", "text": "还原剂"},
+        {"label": "C", "text": "配位剂"},
+        {"label": "D", "text": "沉淀洗涤剂"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "本实验的两个观察体系都围绕 K₂S₂O₈ 氧化 Mn²⁺ 展开，加或不加 AgNO₃ 是对照变量。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-1-f8d33e0a", "candidate-2-1edce2d8"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["oxidant_role", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-1-f8d33e0a", "role": "correct_evidence", "diagnostic_note": "两个点位共同体现氧化性。"},
+        {"label": "B", "point_key": null, "role": "distractor_reversed_redox", "diagnostic_note": "K₂S₂O₈ 是氧化剂。"},
+        {"label": "C", "point_key": null, "role": "distractor_other_property", "diagnostic_note": "配位性不属于本实验核心。"},
+        {"label": "D", "point_key": null, "role": "distractor_wrong_function", "diagnostic_note": "不是洗涤剂。"}
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00231_3725c0805d", "expchunk_00233_e7fe95eac0"],
+        "supporting_theory_chunk_ids": ["textbook_prose_00397_b4519b367e"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "性质概括题，但限定在本 packet 两点位。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_3_06_Q016",
+      "question_type": "fill_blank",
+      "stem": "在有无 AgNO₃ 的 MnSO₄ 对照体系中，K₂S₂O₈ 主要体现____性。",
+      "options": [],
+      "answer": {"accepted_answers": ["氧化", "氧化性"], "match": "normalized_exact"},
+      "explanation": "答案是普通中文性质词，不要求输入 K₂S₂O₈ 或 S₂O₈²⁻。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-1-f8d33e0a", "candidate-2-1edce2d8"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["oxidant_role", "mobile_safe_fill_blank"],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00231_3725c0805d", "expchunk_00233_e7fe95eac0"],
+        "supporting_theory_chunk_ids": ["textbook_prose_00397_b4519b367e"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "保留填空，答案不是化学式。"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_3_06_Q017",
+      "question_type": "true_false",
+      "stem": "判断：本实验主要围绕 MnSO₄ 体系中 K₂S₂O₈ 的氧化性，而不是酸化 KI 体系。",
+      "options": [],
+      "answer": {"value": true},
+      "explanation": "正确。虽然同一教材段还包含 KI 操作，但本实验的两个观察体系都围绕 MnSO₄/H₂SO₄/K₂S₂O₈ 体系和有无 AgNO₃ 对照展开。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-1-f8d33e0a", "candidate-2-1edce2d8"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["packet_scope", "true_false", "multi_point"],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00231_3725c0805d"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "以本 packet 视频点位限定题库范围，避免复制 19-3-05 的 KI 覆盖。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_3_06_Q018",
+      "question_type": "single_choice",
+      "stem": "MnSO₄、H₂SO₄、AgNO₃、K₂S₂O₈ 体系需要水浴加热，这一操作应归入哪一组观察？",
+      "options": [
+        {"label": "A", "text": "加 AgNO₃ 的 MnSO₄ 体系"},
+        {"label": "B", "text": "不加 AgNO₃ 的对照体系"},
+        {"label": "C", "text": "酸化 KI 操作"},
+        {"label": "D", "text": "水中花园实验"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "该操作明确包含 AgNO₃，因此语义上对应加 AgNO₃ 的 MnSO₄ 体系，不应套入所有观察体系。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-1-f8d33e0a"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["point_binding", "heating"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-1-f8d33e0a", "role": "correct_evidence", "diagnostic_note": "题干含 AgNO₃，精准对应第一点位。"},
+        {"label": "B", "point_key": "candidate-2-1edce2d8", "role": "distractor_wrong_point", "diagnostic_note": "不加 AgNO₃ 对照不含题干中的 AgNO₃。"},
+        {"label": "C", "point_key": null, "role": "distractor_outside_packet_points", "diagnostic_note": "酸化 KI 不在这两个观察体系中。"},
+        {"label": "D", "point_key": null, "role": "distractor_other_experiment", "diagnostic_note": "水中花园属于硅酸盐实验。"}
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00231_3725c0805d"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "点位绑定质检题，避免 broad binding。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_3_06_Q019",
+      "question_type": "single_choice",
+      "stem": "比较加 AgNO₃ 和不加 AgNO₃ 两支 MnSO₄ 试管的现象差异时，应覆盖哪一组体系？",
+      "options": [
+        {"label": "A", "text": "加 AgNO₃ 与不加 AgNO₃ 的两个 MnSO₄ 对照体系"},
+        {"label": "B", "text": "酸化 KI 操作"},
+        {"label": "C", "text": "SO₂ 漂白实验"},
+        {"label": "D", "text": "不属于该对照实验"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "比较两支试管时，必须同时覆盖加 AgNO₃ 体系和不加 AgNO₃ 对照体系。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-1-f8d33e0a", "candidate-2-1edce2d8"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["point_binding", "control_comparison", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-1-f8d33e0a", "role": "correct_evidence", "diagnostic_note": "比较题真实跨两个点位。"},
+        {"label": "B", "point_key": null, "role": "distractor_outside_packet_points", "diagnostic_note": "KI 不在这两个观察体系中。"},
+        {"label": "C", "point_key": null, "role": "distractor_other_packet", "diagnostic_note": "SO₂ 漂白属于亚硫酸相关性质实验。"},
+        {"label": "D", "point_key": null, "role": "distractor_missing_binding", "diagnostic_note": "题干来自明确实验观察，不能忽略对应的实验内容。"}
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00231_3725c0805d"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "真实多点位绑定。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_3_06_Q020",
+      "question_type": "single_choice",
+      "stem": "下列哪一项最准确对应本实验两个观察体系的完整范围？",
+      "options": [
+        {"label": "A", "text": "MnSO₄/H₂SO₄/K₂S₂O₈ 体系，加 AgNO₃ 与不加 AgNO₃ 对照"},
+        {"label": "B", "text": "K₂S₂O₈ 与酸性 KI 生成 I₂"},
+        {"label": "C", "text": "Na₂S₂O₃ 遇 HCl 变浑浊"},
+        {"label": "D", "text": "SO₃²⁻ 检出前除去 SO₄²⁻"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "本实验只覆盖 MnSO₄/H₂SO₄/K₂S₂O₈ 体系及有无 AgNO₃ 的对照。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-1-f8d33e0a", "candidate-2-1edce2d8"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["packet_scope", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-1-f8d33e0a", "role": "correct_evidence", "diagnostic_note": "完整覆盖两个观察体系。"},
+        {"label": "B", "point_key": null, "role": "distractor_outside_packet_points", "diagnostic_note": "KI 操作在同一教材段中，但不属于本实验范围。"},
+        {"label": "C", "point_key": null, "role": "distractor_other_packet", "diagnostic_note": "属于硫代硫酸钠性质实验。"},
+        {"label": "D", "point_key": null, "role": "distractor_other_packet", "diagnostic_note": "属于亚硫酸相关性质实验。"}
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00231_3725c0805d"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "范围题，防止复制上一 packet 的 KI 覆盖。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_3_06_Q021",
+      "question_type": "true_false",
+      "stem": "判断：AgNO₃ 是本实验中 Mn²⁺ 的来源。",
+      "options": [],
+      "answer": {"value": false},
+      "explanation": "错误。Mn²⁺ 来源是 MnSO₄，AgNO₃ 提供 Ag⁺ 作为促进或催化条件。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-1-f8d33e0a"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["reagent_role", "true_false"],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00231_3725c0805d"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "避免把 AgNO₃ 当成锰盐来源。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_3_06_Q022",
+      "question_type": "true_false",
+      "stem": "判断：本实验的 MnSO₄/K₂S₂O₈ 反应完全不涉及酸性介质。",
+      "options": [],
+      "answer": {"value": false},
+      "explanation": "错误。实验操作加入 H₂SO₄，思考题也强调该反应为什么需要酸性介质。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-1-f8d33e0a", "candidate-2-1edce2d8"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["acid_medium", "true_false", "multi_point"],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00231_3725c0805d", "expchunk_00233_e7fe95eac0"],
+        "supporting_theory_chunk_ids": ["textbook_prose_00397_b4519b367e", "textbook_prose_01241_99049758ad"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "否定绝对化错误说法，证据充分。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_3_06_Q023",
+      "question_type": "true_false",
+      "stem": "判断：不加 AgNO₃ 的对照试管可以帮助判断 Ag⁺ 是否影响 Mn²⁺ 被氧化的现象。",
+      "options": [],
+      "answer": {"value": true},
+      "explanation": "正确。比较加 AgNO₃ 与不加 AgNO₃ 两支试管，是对照设计的核心。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-1-f8d33e0a", "candidate-2-1edce2d8"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["control_comparison", "true_false", "multi_point"],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00231_3725c0805d"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "对照设计判断，机器确定性强。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_3_06_Q024",
+      "question_type": "single_choice",
+      "stem": "解释加 AgNO₃ 的 MnSO₄ 体系出现紫色产物时，哪一项必须依赖理论说明？",
+      "options": [
+        {"label": "A", "text": "判断 Mn²⁺ 被氧化后生成 MnO₄⁻ 且显紫色"},
+        {"label": "B", "text": "指出操作中加入了 H₂SO₄"},
+        {"label": "C", "text": "指出操作中加入了 K₂S₂O₈"},
+        {"label": "D", "text": "指出另取一支试管不加 AgNO₃"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "B、C、D 都是实验操作文本可直接确认；A 涉及具体产物和颜色，需要 Mn²⁺ 到 MnO₄⁻ 的理论说明支撑。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-1-f8d33e0a"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["evidence_reasoning", "supporting_theory"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-1-f8d33e0a", "role": "correct_evidence", "diagnostic_note": "产物和颜色需要理论说明。"},
+        {"label": "B", "point_key": "candidate-1-f8d33e0a", "role": "supported_but_not_answer", "diagnostic_note": "H₂SO₄ 是操作文本。"},
+        {"label": "C", "point_key": "candidate-1-f8d33e0a", "role": "supported_but_not_answer", "diagnostic_note": "K₂S₂O₈ 是操作文本。"},
+        {"label": "D", "point_key": "candidate-2-1edce2d8", "role": "supported_but_not_answer", "diagnostic_note": "不加 AgNO₃ 是操作文本。"}
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00231_3725c0805d"],
+        "supporting_theory_chunk_ids": ["textbook_prose_00397_b4519b367e", "textbook_prose_01241_99049758ad"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "显式落实 evidence-first 判断。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_3_06_Q025",
+      "question_type": "single_choice",
+      "stem": "在 MnSO₄/H₂SO₄/K₂S₂O₈ 对照实验中，哪一项属于观察 Ag⁺ 影响的核心内容？",
+      "options": [
+        {"label": "A", "text": "MnSO₄/H₂SO₄/K₂S₂O₈ 体系中比较 Ag⁺ 的影响"},
+        {"label": "B", "text": "Na₂S₂O₃ 遇 HCl 变浑浊"},
+        {"label": "C", "text": "SO₂ 使品红褪色"},
+        {"label": "D", "text": "硝酸根棕色环"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "本实验的核心内容就是 MnSO₄/H₂SO₄/K₂S₂O₈ 体系及有无 AgNO₃ 的对照；其余选项来自其他实验。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-1-f8d33e0a", "candidate-2-1edce2d8"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["cross_experiment_distractor", "packet_scope", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-1-f8d33e0a", "role": "correct_evidence", "diagnostic_note": "直接属于本实验。"},
+        {"label": "B", "point_key": null, "role": "distractor_other_packet", "diagnostic_note": "属于硫代硫酸钠遇酸分解实验。"},
+        {"label": "C", "point_key": null, "role": "distractor_other_packet", "diagnostic_note": "属于亚硫酸相关性质实验。"},
+        {"label": "D", "point_key": null, "role": "distractor_other_experiment", "diagnostic_note": "属于氮氧化物/硝酸根相关实验。"}
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00231_3725c0805d"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "清除旧题库串题风险。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_3_06_Q026",
+      "question_type": "single_choice",
+      "stem": "下列哪一项把试剂角色配对正确？",
+      "options": [
+        {"label": "A", "text": "MnSO₄ 提供 Mn²⁺；H₂SO₄ 提供酸性介质；AgNO₃ 提供 Ag⁺ 条件；K₂S₂O₈ 作氧化剂"},
+        {"label": "B", "text": "MnSO₄ 提供 Ag⁺；H₂SO₄ 提供 Mn²⁺；AgNO₃ 作氧化剂；K₂S₂O₈ 作酸"},
+        {"label": "C", "text": "四种试剂都只用于生成 I₂"},
+        {"label": "D", "text": "四种试剂都不参与 Mn²⁺ 氧化"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "A 正确区分了四种试剂的角色；其他选项错配试剂来源和反应功能。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-1-f8d33e0a", "candidate-2-1edce2d8"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["reagent_role", "integrated_operation", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-1-f8d33e0a", "role": "correct_evidence", "diagnostic_note": "配对符合教材操作和理论说明。"},
+        {"label": "B", "point_key": null, "role": "distractor_mismatched_roles", "diagnostic_note": "把试剂角色全部错配。"},
+        {"label": "C", "point_key": null, "role": "distractor_outside_packet_points", "diagnostic_note": "I₂ 不是这两个观察体系的目标。"},
+        {"label": "D", "point_key": null, "role": "distractor_contradicts_source", "diagnostic_note": "四种试剂正用于 Mn²⁺ 氧化体系。"}
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00231_3725c0805d", "expchunk_00233_e7fe95eac0"],
+        "supporting_theory_chunk_ids": ["textbook_prose_00397_b4519b367e", "textbook_prose_01241_99049758ad"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "整合操作和性质，避免只背试剂名。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_3_06_Q027",
+      "question_type": "true_false",
+      "stem": "判断：比较加 AgNO₃ 与不加 AgNO₃ 两支试管时，应同时关注两个 MnSO₄/K₂S₂O₈ 观察体系。",
+      "options": [],
+      "answer": {"value": true},
+      "explanation": "正确。该比较同时涉及加 AgNO₃ 体系和不加 AgNO₃ 对照体系。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-1-f8d33e0a", "candidate-2-1edce2d8"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["point_binding", "true_false", "multi_point"],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00231_3725c0805d"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "点位绑定质检题，真实多点。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_3_06_Q028",
+      "question_type": "single_choice",
+      "stem": "提供 Mn²⁺ 的试剂来自哪一类体系，而不应误连到 KI 操作？",
+      "options": [
+        {"label": "A", "text": "MnSO₄ 体系提供 Mn²⁺，不需要联系 KI 操作"},
+        {"label": "B", "text": "酸化 KI 操作提供 Mn²⁺"},
+        {"label": "C", "text": "SO₂ 漂白实验提供 Mn²⁺"},
+        {"label": "D", "text": "无法由该实验提供 Mn²⁺ 来源证据"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "Mn²⁺ 来源来自 MnSO₄ 体系；KI 操作不属于本实验的两个观察体系，也不提供 Mn²⁺。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-1-f8d33e0a", "candidate-2-1edce2d8"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["point_binding", "reagent_role"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-1-f8d33e0a", "role": "correct_evidence", "diagnostic_note": "MnSO₄ 体系点位提供证据。"},
+        {"label": "B", "point_key": null, "role": "distractor_outside_packet_points", "diagnostic_note": "KI 操作不提供 Mn²⁺。"},
+        {"label": "C", "point_key": null, "role": "distractor_other_packet", "diagnostic_note": "SO₂ 漂白属于亚硫酸相关性质实验。"},
+        {"label": "D", "point_key": null, "role": "distractor_missing_binding", "diagnostic_note": "题干可由本实验点位支持。"}
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00231_3725c0805d"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "避免 overbinding 到 canonical chunk 中的 KI 操作。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_3_06_Q029",
+      "question_type": "single_choice",
+      "stem": "下列哪一项最能说明“紫色”不是孤立背诵，而是来自反应产物判断？",
+      "options": [
+        {"label": "A", "text": "Mn²⁺ 被 S₂O₈²⁻ 氧化生成 MnO₄⁻，而 MnO₄⁻ 显紫色"},
+        {"label": "B", "text": "AgNO₃ 本身是紫色"},
+        {"label": "C", "text": "H₂SO₄ 会把所有溶液染成紫色"},
+        {"label": "D", "text": "不加 AgNO₃ 时一定生成水玻璃"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "颜色判断应回到 MnO₄⁻ 的生成；理论说明明确 MnO₄⁻ 显紫色。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-1-f8d33e0a"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["color_reasoning", "mn_oxidation"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-1-f8d33e0a", "role": "correct_evidence", "diagnostic_note": "把颜色与产物相连。"},
+        {"label": "B", "point_key": "candidate-1-f8d33e0a", "role": "distractor_reagent_not_product", "diagnostic_note": "AgNO₃ 不是紫色产物。"},
+        {"label": "C", "point_key": null, "role": "distractor_misconception", "diagnostic_note": "H₂SO₄ 不是染色来源。"},
+        {"label": "D", "point_key": null, "role": "distractor_other_experiment", "diagnostic_note": "水玻璃不属于本实验。"}
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00231_3725c0805d"],
+        "supporting_theory_chunk_ids": ["textbook_prose_01241_99049758ad"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "替代低深度颜色背诵。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_3_06_Q030",
+      "question_type": "single_choice",
+      "stem": "从有无 AgNO₃ 的 MnSO₄ 对照看，本实验最应形成哪一项判断？",
+      "options": [
+        {"label": "A", "text": "通过有无 Ag⁺ 的 MnSO₄/K₂S₂O₈ 对照，理解过硫酸盐氧化 Mn²⁺ 的条件、现象和催化影响"},
+        {"label": "B", "text": "只背 MnSO₄、H₂SO₄、AgNO₃、K₂S₂O₈ 四个试剂名"},
+        {"label": "C", "text": "把本实验等同于酸性 KI 生成 I₂"},
+        {"label": "D", "text": "把所有含硫实验都归为 SO₃²⁻ 检出"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "本实验不是孤立试剂名或颜色记忆，而是 Mn²⁺ 被 K₂S₂O₈ 氧化、Ag⁺ 促进作用、酸性与加热条件的综合判断。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-1-f8d33e0a", "candidate-2-1edce2d8"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["learning_goal", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-1-f8d33e0a", "role": "correct_evidence", "diagnostic_note": "完整概括两个观察体系和核心推理。"},
+        {"label": "B", "point_key": null, "role": "distractor_low_depth", "diagnostic_note": "只背试剂名不达标。"},
+        {"label": "C", "point_key": null, "role": "distractor_outside_packet_points", "diagnostic_note": "酸性 KI 不属于这两个观察体系。"},
+        {"label": "D", "point_key": null, "role": "distractor_overgeneralization", "diagnostic_note": "SO₃²⁻ 检出属于亚硫酸根检出实验。"}
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00231_3725c0805d", "expchunk_00233_e7fe95eac0"],
+        "supporting_theory_chunk_ids": ["textbook_prose_00397_b4519b367e", "textbook_prose_01241_99049758ad"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "综合目标题，替代重复试剂/颜色记忆。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "rebuild_decision": "rewrite"
+    }
+  ]
+}

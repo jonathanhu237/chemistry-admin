@@ -1,0 +1,4172 @@
+{
+  "metadata": {
+    "version": "chunk-2-release-slim-v1",
+    "artifact_type": "slim_question_bank_work_file",
+    "generated_at": "2026-06-15T03:27:58.719338+00:00",
+    "source_file": "E:\\chemistry-admin\\artifacts\\point-aware-question-bank\\reviewed_old_bank_chunks\\chunk_2_release_final_v1.json",
+    "normalization_rule": "effective question plus minimal lineage, evidence IDs, point bindings, option links, evidence locators, and mechanical risk flags",
+    "evidence_policy": "RAG source text is not embedded; packets carry locators and reviewers must read E:/chemistry-rag/data/rag_ready directly",
+    "chunk_id_policy": "inherited chunk ids are untrusted locator candidates until manually compared with RAG text",
+    "semantic_status": "not_semantically_repaired_by_this_script",
+    "packet_type": "single_experiment_semantic_repair_work_packet",
+    "chunk": 2,
+    "experiment_code": "19-4-07",
+    "question_count": 30
+  },
+  "experiment": {
+    "experiment_id": "EXP_19_4_07",
+    "experiment_code": "19-4-07",
+    "experiment_title": "硝酸盐的热分解",
+    "chapter_bindings": [
+      {
+        "chapter_id": "CH15",
+        "coverage_type": "primary",
+        "sort_order": 1
+      }
+    ],
+    "video_points": [
+      {
+        "point_key": "candidate-1-2241ae7a",
+        "point_title": "KNO₃ 热分解",
+        "source": "formal_experiment.video_candidates",
+        "candidate_index": 1,
+        "resource_count": 0,
+        "published_count": 0,
+        "resource_titles": []
+      },
+      {
+        "point_key": "candidate-2-aa0424f2",
+        "point_title": "Cu(NO₃)₂ 热分解",
+        "source": "formal_experiment.video_candidates",
+        "candidate_index": 2,
+        "resource_count": 0,
+        "published_count": 0,
+        "resource_titles": []
+      },
+      {
+        "point_key": "candidate-3-91bbea2b",
+        "point_title": "AgNO₃ 热分解",
+        "source": "formal_experiment.video_candidates",
+        "candidate_index": 3,
+        "resource_count": 0,
+        "published_count": 0,
+        "resource_titles": []
+      },
+      {
+        "point_key": "candidate-4-29485ccd",
+        "point_title": "用火柴余烬检验热分解生成的气体",
+        "source": "formal_experiment.video_candidates",
+        "candidate_index": 4,
+        "resource_count": 0,
+        "published_count": 0,
+        "resource_titles": []
+      }
+    ],
+    "canonical_chunk_ids": [
+      "expchunk_00243_765fc7b450",
+      "expchunk_00244_53c663efb4"
+    ],
+    "evidence_lookup": {
+      "policy": "locator_only; canonical RAG text is not embedded in this packet",
+      "chunk_id_policy": "metadata chunk ids are inherited claims, not trusted evidence; reviewers must compare the RAG text against the question stem/options/answer/explanation and replace or remove wrong ids",
+      "primary_source_dir": "E:\\chemistry-rag\\data\\rag_ready",
+      "source_files": {
+        "experiment_chunks": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+        "supporting_theory_chunks": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl"
+      },
+      "search_hints": {
+        "experiment_code": "19-4-07",
+        "parent_experiment_code": "19-4",
+        "experiment_title": "硝酸盐的热分解",
+        "video_point_titles": [
+          "KNO₃ 热分解",
+          "Cu(NO₃)₂ 热分解",
+          "AgNO₃ 热分解",
+          "用火柴余烬检验热分解生成的气体"
+        ],
+        "canonical_chunk_ids_from_metadata": [
+          "expchunk_00243_765fc7b450",
+          "expchunk_00244_53c663efb4"
+        ],
+        "supporting_theory_chunk_ids_from_metadata": [
+          "textbook_prose_00562_ef6a65a064",
+          "textbook_prose_00565_4ff80431a2"
+        ],
+        "suggested_search_patterns": [
+          "19-4-07",
+          "19-4",
+          "硝酸盐的热分解",
+          "KNO₃ 热分解",
+          "Cu(NO₃)₂ 热分解",
+          "AgNO₃ 热分解",
+          "用火柴余烬检验热分解生成的气体",
+          "expchunk_00243_765fc7b450",
+          "expchunk_00244_53c663efb4",
+          "textbook_prose_00562_ef6a65a064",
+          "textbook_prose_00565_4ff80431a2"
+        ]
+      },
+      "rag_exact_id_presence": {
+        "meaning": "id presence only; this does not validate semantic relevance",
+        "found_ids": [
+          "expchunk_00243_765fc7b450",
+          "expchunk_00244_53c663efb4",
+          "textbook_prose_00562_ef6a65a064",
+          "textbook_prose_00565_4ff80431a2"
+        ],
+        "missing_ids": [],
+        "found_locator_summaries": [
+          {
+            "chunk_id": "expchunk_00243_765fc7b450",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+            "line_number": 256,
+            "source_collection": "textbook_experiment_clean_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学实验（第四版）",
+            "page_start": 148,
+            "page_end": 148,
+            "section_path": [
+              "第7章 元素性质实验",
+              "实验 19-4 氮和磷",
+              "（四）实验内容",
+              "3. 硝酸及其盐的性质"
+            ],
+            "content_type": "reaction",
+            "knowledge_unit": "reaction",
+            "parent_id": "expchunk_protocol_80d6d1e3c854",
+            "prev_chunk_id": "expchunk_00242_2da7ff3435",
+            "next_chunk_id": "expchunk_00244_53c663efb4",
+            "relations": {
+              "section_id": "expsec_64ec72dbf2eddf40",
+              "experiment_id": "experiment:实验_19-4_氮和磷",
+              "page_anchor": "page_148",
+              "parent": "expchunk_protocol_80d6d1e3c854"
+            }
+          },
+          {
+            "chunk_id": "expchunk_00244_53c663efb4",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+            "line_number": 257,
+            "source_collection": "textbook_experiment_clean_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学实验（第四版）",
+            "page_start": 149,
+            "page_end": 149,
+            "section_path": [
+              "第7章 元素性质实验",
+              "实验 19-4 氮和磷",
+              "（四）实验内容",
+              "3. 硝酸及其盐的性质"
+            ],
+            "content_type": "reaction",
+            "knowledge_unit": "reaction",
+            "parent_id": "expchunk_protocol_80d6d1e3c854",
+            "prev_chunk_id": "expchunk_00243_765fc7b450",
+            "next_chunk_id": "expchunk_00245_24b8ca5aab",
+            "relations": {
+              "section_id": "expsec_df0ffd00984f1d38",
+              "experiment_id": "experiment:实验_19-4_氮和磷",
+              "page_anchor": "page_149",
+              "parent": "expchunk_protocol_80d6d1e3c854"
+            }
+          },
+          {
+            "chunk_id": "textbook_prose_00562_ef6a65a064",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+            "line_number": 874,
+            "source_collection": "textbook_inorganic_lower_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学（下册）（第二版）",
+            "page_start": 95,
+            "page_end": 95,
+            "section_path": [
+              "第 15 章 氮族元素",
+              "15.4 氮族元素的氧化物、含氧酸及其盐",
+              "15.4.2 氮的含氧酸及其盐",
+              "2. 硝酸及其盐"
+            ],
+            "content_type": "reaction",
+            "knowledge_unit": "reaction",
+            "parent_id": "section:3b040317df93",
+            "prev_chunk_id": "textbook_prose_00561_184d4bc77a",
+            "next_chunk_id": "textbook_prose_00563_d9dcf3d136",
+            "relations": {
+              "parent": "section:3b040317df93",
+              "source_route": "clean_pages",
+              "prev": "textbook_prose_00561_184d4bc77a",
+              "next": "textbook_prose_00563_d9dcf3d136"
+            }
+          },
+          {
+            "chunk_id": "textbook_prose_00565_4ff80431a2",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+            "line_number": 877,
+            "source_collection": "textbook_inorganic_lower_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学（下册）（第二版）",
+            "page_start": 95,
+            "page_end": 95,
+            "section_path": [
+              "第 15 章 氮族元素",
+              "15.4 氮族元素的氧化物、含氧酸及其盐",
+              "15.4.2 氮的含氧酸及其盐",
+              "2. 硝酸及其盐"
+            ],
+            "content_type": "reaction",
+            "knowledge_unit": "reaction",
+            "parent_id": "section:3b040317df93",
+            "prev_chunk_id": "textbook_prose_00564_d916ee2d9c",
+            "next_chunk_id": "textbook_prose_00566_28358acb38",
+            "relations": {
+              "parent": "section:3b040317df93",
+              "source_route": "clean_pages",
+              "prev": "textbook_prose_00564_d916ee2d9c",
+              "next": "textbook_prose_00566_28358acb38"
+            }
+          }
+        ]
+      },
+      "legacy_locator_summaries": [
+        {
+          "chunk_id": "expchunk_00243_765fc7b450",
+          "source_file": "无机化学实验（第四版）",
+          "book_title": "无机化学实验（第四版）",
+          "document_id": "DOC_CANONICAL_EXPERIMENT_V1",
+          "source_collection": "textbook_experiment_clean_v1",
+          "source_role": "canonical_textbook",
+          "content_type": "reaction",
+          "chapter_id": null,
+          "page_number": 148,
+          "section_title": "实验 19-4 氮和磷 / （四）实验内容 / 3. 硝酸及其盐的性质",
+          "section_path": [
+            "第7章 元素性质实验",
+            "实验 19-4 氮和磷",
+            "（四）实验内容",
+            "3. 硝酸及其盐的性质"
+          ]
+        },
+        {
+          "chunk_id": "expchunk_00244_53c663efb4",
+          "source_file": "无机化学实验（第四版）",
+          "book_title": "无机化学实验（第四版）",
+          "document_id": "DOC_CANONICAL_EXPERIMENT_V1",
+          "source_collection": "textbook_experiment_clean_v1",
+          "source_role": "canonical_textbook",
+          "content_type": "reaction",
+          "chapter_id": null,
+          "page_number": 149,
+          "section_title": "实验 19-4 氮和磷 / （四）实验内容 / 3. 硝酸及其盐的性质",
+          "section_path": [
+            "第7章 元素性质实验",
+            "实验 19-4 氮和磷",
+            "（四）实验内容",
+            "3. 硝酸及其盐的性质"
+          ]
+        }
+      ],
+      "legacy_missing_ids": [
+        "textbook_prose_00562_ef6a65a064",
+        "textbook_prose_00565_4ff80431a2"
+      ]
+    },
+    "questions": [
+      {
+        "question_id": "EXP_19_4_07_SEMANTIC_FINAL_001",
+        "source_review_id": "EXP_19_4_07_SEMANTIC_FINAL_001",
+        "source_question_index": 1,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-4-07 硝酸盐的热分解》实验中，该实验比较热分解行为的盐类是哪一类？",
+        "options": [
+          {
+            "label": "A",
+            "text": "硫酸盐"
+          },
+          {
+            "label": "B",
+            "text": "氯化物"
+          },
+          {
+            "label": "C",
+            "text": "硝酸盐"
+          },
+          {
+            "label": "D",
+            "text": "碳酸氢盐"
+          }
+        ],
+        "answer": {
+          "value": "C"
+        },
+        "explanation": "标题和步骤均为硝酸盐热分解。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-2241ae7a",
+          "candidate-2-aa0424f2",
+          "candidate-3-91bbea2b",
+          "candidate-4-29485ccd"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "19_4_07_point_1",
+          "19_4_07_point_2",
+          "19_4_07_point_3",
+          "19_4_07_point_4"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "硫酸盐",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“硫酸盐”与本题焦点“在《19-4-07 硝酸盐的热分解》实验中，该实验比较热分解行为的盐类是哪一类？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“硫酸盐”。"
+          },
+          {
+            "label": "B",
+            "text": "氯化物",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“氯化物”与本题焦点“在《19-4-07 硝酸盐的热分解》实验中，该实验比较热分解行为的盐类是哪一类？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“氯化物”。"
+          },
+          {
+            "label": "C",
+            "text": "硝酸盐",
+            "point_key": "candidate-1-2241ae7a",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“硝酸盐”直接支撑题干所问：在《19-4-07 硝酸盐的热分解》实验中，该实验比较热分解行为的盐类是哪一类？；对应点位为“KNO₃ 热分解”。"
+          },
+          {
+            "label": "D",
+            "text": "碳酸氢盐",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“碳酸氢盐”与本题焦点“在《19-4-07 硝酸盐的热分解》实验中，该实验比较热分解行为的盐类是哪一类？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“碳酸氢盐”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00243_765fc7b450",
+            "expchunk_00244_53c663efb4"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "终审保留：题干、答案和解析与教材实验点位语义一致。",
+          "supporting_theory_note": ""
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00243_765fc7b450",
+            "expchunk_00244_53c663efb4"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-4-07 硝酸盐的热分解》实验中，该实验比较热分解行为的盐类是哪一类？",
+            "options": [
+              {
+                "label": "A",
+                "text": "硫酸盐"
+              },
+              {
+                "label": "B",
+                "text": "氯化物"
+              },
+              {
+                "label": "C",
+                "text": "硝酸盐"
+              },
+              {
+                "label": "D",
+                "text": "碳酸氢盐"
+              }
+            ],
+            "answer": {
+              "value": "C"
+            },
+            "explanation": "标题和步骤均为硝酸盐热分解。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00243_765fc7b450",
+              "expchunk_00244_53c663efb4"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_4_07_SEMANTIC_FINAL_002",
+        "source_review_id": "EXP_19_4_07_SEMANTIC_FINAL_002",
+        "source_question_index": 2,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-4-07 硝酸盐的热分解》中，KNO₃、Cu(NO₃)₂、AgNO₃ 热分解比较，主要考查哪类物质？",
+        "options": [
+          {
+            "label": "A",
+            "text": "硝酸盐"
+          },
+          {
+            "label": "B",
+            "text": "亚硝酸盐"
+          },
+          {
+            "label": "C",
+            "text": "硅酸盐"
+          },
+          {
+            "label": "D",
+            "text": "过氧化物"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "本点位比较不同硝酸盐热分解。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-2241ae7a",
+          "candidate-2-aa0424f2",
+          "candidate-3-91bbea2b"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_1_2241ae7a",
+          "point_candidate_2_aa0424f2",
+          "point_candidate_3_91bbea2b"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "硝酸盐",
+            "point_key": "candidate-1-2241ae7a",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“硝酸盐”直接支撑题干所问：在《19-4-07 硝酸盐的热分解》中，KNO₃、Cu(NO₃)₂、AgNO₃ 热分解比较，主要考查哪类物质？；对应点位为“KNO₃ 热分解”。"
+          },
+          {
+            "label": "B",
+            "text": "亚硝酸盐",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“亚硝酸盐”与本题焦点“在《19-4-07 硝酸盐的热分解》中，KNO₃、Cu(NO₃)₂、AgNO₃ 热分解比较，主要考查哪类物质？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“亚硝酸盐”。"
+          },
+          {
+            "label": "C",
+            "text": "硅酸盐",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“硅酸盐”与本题焦点“在《19-4-07 硝酸盐的热分解》中，KNO₃、Cu(NO₃)₂、AgNO₃ 热分解比较，主要考查哪类物质？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“硅酸盐”。"
+          },
+          {
+            "label": "D",
+            "text": "过氧化物",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“过氧化物”与本题焦点“在《19-4-07 硝酸盐的热分解》中，KNO₃、Cu(NO₃)₂、AgNO₃ 热分解比较，主要考查哪类物质？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“过氧化物”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00243_765fc7b450",
+            "expchunk_00244_53c663efb4"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final rewrite：low_quality_keep_rewritten；有效题为本 proposed_question。；原题存在证据、深度或题型风险，最终有效题已由 proposed_question 修复。",
+          "supporting_theory_note": ""
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00243_765fc7b450",
+            "expchunk_00244_53c663efb4"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-4-07 硝酸盐的热分解》实验中，参与热分解比较的钾盐样品是哪一种？",
+            "options": [
+              {
+                "label": "A",
+                "text": "KCl(s)"
+              },
+              {
+                "label": "B",
+                "text": "K₂SO₄(s)"
+              },
+              {
+                "label": "C",
+                "text": "KI(s)"
+              },
+              {
+                "label": "D",
+                "text": "KNO₃(s)"
+              }
+            ],
+            "answer": {
+              "value": "D"
+            },
+            "explanation": "原文列出 KNO₃(s)。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00243_765fc7b450",
+              "expchunk_00244_53c663efb4"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-4-07 硝酸盐的热分解》中，KNO₃、Cu(NO₃)₂、AgNO₃ 热分解比较，主要考查哪类物质？",
+            "options": [
+              {
+                "label": "A",
+                "text": "硝酸盐"
+              },
+              {
+                "label": "B",
+                "text": "亚硝酸盐"
+              },
+              {
+                "label": "C",
+                "text": "硅酸盐"
+              },
+              {
+                "label": "D",
+                "text": "过氧化物"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "本点位比较不同硝酸盐热分解。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_4_07_SEMANTIC_FINAL_003",
+        "source_review_id": "EXP_19_4_07_SEMANTIC_FINAL_003",
+        "source_question_index": 3,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-4-07 硝酸盐的热分解》中，用火柴余烬检验热分解生成气体，主要用于判断是否有哪种气体？",
+        "options": [
+          {
+            "label": "A",
+            "text": "NH₃"
+          },
+          {
+            "label": "B",
+            "text": "SO₂"
+          },
+          {
+            "label": "C",
+            "text": "NO"
+          },
+          {
+            "label": "D",
+            "text": "O₂"
+          }
+        ],
+        "answer": {
+          "value": "D"
+        },
+        "explanation": "余烬复燃可作为 O₂ 的检验。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-4-29485ccd"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_4_29485ccd"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "NH₃",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“NH₃”与本题焦点“在《19-4-07 硝酸盐的热分解》中，用火柴余烬检验热分解生成气体，主要用于判断是否有哪种气体？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“NH₃”。"
+          },
+          {
+            "label": "B",
+            "text": "SO₂",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“SO₂”与本题焦点“在《19-4-07 硝酸盐的热分解》中，用火柴余烬检验热分解生成气体，主要用于判断是否有哪种气体？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“SO₂”。"
+          },
+          {
+            "label": "C",
+            "text": "NO",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“NO”与本题焦点“在《19-4-07 硝酸盐的热分解》中，用火柴余烬检验热分解生成气体，主要用于判断是否有哪种气体？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“NO”。"
+          },
+          {
+            "label": "D",
+            "text": "O₂",
+            "point_key": "candidate-4-29485ccd",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“O₂”直接支撑题干所问：在《19-4-07 硝酸盐的热分解》中，用火柴余烬检验热分解生成气体，主要用于判断是否有哪种气体？；对应点位为“用火柴余烬检验热分解生成的气体”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00243_765fc7b450",
+            "expchunk_00244_53c663efb4"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final rewrite：low_quality_keep_rewritten；有效题为本 proposed_question。；原题存在证据、深度或题型风险，最终有效题已由 proposed_question 修复。",
+          "supporting_theory_note": ""
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00243_765fc7b450",
+            "expchunk_00244_53c663efb4"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-4-07 硝酸盐的热分解》实验中，参与热分解比较的铜盐样品是哪一种？",
+            "options": [
+              {
+                "label": "A",
+                "text": "Cu(NO₃)₂(s)"
+              },
+              {
+                "label": "B",
+                "text": "CuSO₄(s)"
+              },
+              {
+                "label": "C",
+                "text": "CuCl₂(s)"
+              },
+              {
+                "label": "D",
+                "text": "CuO(s)"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "原文列出 Cu(NO₃)₂(s)。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00243_765fc7b450",
+              "expchunk_00244_53c663efb4"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-4-07 硝酸盐的热分解》中，用火柴余烬检验热分解生成气体，主要用于判断是否有哪种气体？",
+            "options": [
+              {
+                "label": "A",
+                "text": "NH₃"
+              },
+              {
+                "label": "B",
+                "text": "SO₂"
+              },
+              {
+                "label": "C",
+                "text": "NO"
+              },
+              {
+                "label": "D",
+                "text": "O₂"
+              }
+            ],
+            "answer": {
+              "value": "D"
+            },
+            "explanation": "余烬复燃可作为 O₂ 的检验。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_4_07_SEMANTIC_FINAL_004",
+        "source_review_id": "EXP_19_4_07_SEMANTIC_FINAL_004",
+        "source_question_index": 4,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-4-07 硝酸盐的热分解》中，Cu(NO₃)₂ 或 AgNO₃ 热分解中，常见棕色气体是哪一种？",
+        "options": [
+          {
+            "label": "A",
+            "text": "I₂"
+          },
+          {
+            "label": "B",
+            "text": "SO₂"
+          },
+          {
+            "label": "C",
+            "text": "NO₂"
+          },
+          {
+            "label": "D",
+            "text": "H₂"
+          }
+        ],
+        "answer": {
+          "value": "C"
+        },
+        "explanation": "部分硝酸盐热分解生成 NO₂。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-aa0424f2",
+          "candidate-3-91bbea2b"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_2_aa0424f2",
+          "point_candidate_3_91bbea2b"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "I₂",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“I₂”与本题焦点“在《19-4-07 硝酸盐的热分解》中，Cu(NO₃)₂ 或 AgNO₃ 热分解中，常见棕色气体是哪一种？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“I₂”。"
+          },
+          {
+            "label": "B",
+            "text": "SO₂",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“SO₂”与本题焦点“在《19-4-07 硝酸盐的热分解》中，Cu(NO₃)₂ 或 AgNO₃ 热分解中，常见棕色气体是哪一种？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“SO₂”。"
+          },
+          {
+            "label": "C",
+            "text": "NO₂",
+            "point_key": "candidate-2-aa0424f2",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“NO₂”直接支撑题干所问：在《19-4-07 硝酸盐的热分解》中，Cu(NO₃)₂ 或 AgNO₃ 热分解中，常见棕色气体是哪一种？；对应点位为“Cu(NO₃)₂ 热分解”。"
+          },
+          {
+            "label": "D",
+            "text": "H₂",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“H₂”与本题焦点“在《19-4-07 硝酸盐的热分解》中，Cu(NO₃)₂ 或 AgNO₃ 热分解中，常见棕色气体是哪一种？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“H₂”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00243_765fc7b450",
+            "expchunk_00244_53c663efb4"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final rewrite：low_quality_keep_rewritten；有效题为本 proposed_question。；原题存在证据、深度或题型风险，最终有效题已由 proposed_question 修复。",
+          "supporting_theory_note": ""
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00243_765fc7b450",
+            "expchunk_00244_53c663efb4"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-4-07 硝酸盐的热分解》实验中，参与热分解比较的银盐样品是哪一种？",
+            "options": [
+              {
+                "label": "A",
+                "text": "AgCl(s)"
+              },
+              {
+                "label": "B",
+                "text": "AgNO₃(s)"
+              },
+              {
+                "label": "C",
+                "text": "Ag₂S(s)"
+              },
+              {
+                "label": "D",
+                "text": "AgBr(s)"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "原文列出 AgNO₃(s)。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00243_765fc7b450",
+              "expchunk_00244_53c663efb4"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-4-07 硝酸盐的热分解》中，Cu(NO₃)₂ 或 AgNO₃ 热分解中，常见棕色气体是哪一种？",
+            "options": [
+              {
+                "label": "A",
+                "text": "I₂"
+              },
+              {
+                "label": "B",
+                "text": "SO₂"
+              },
+              {
+                "label": "C",
+                "text": "NO₂"
+              },
+              {
+                "label": "D",
+                "text": "H₂"
+              }
+            ],
+            "answer": {
+              "value": "C"
+            },
+            "explanation": "部分硝酸盐热分解生成 NO₂。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_4_07_SEMANTIC_FINAL_005",
+        "source_review_id": "EXP_19_4_07_SEMANTIC_FINAL_005",
+        "source_question_index": 5,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-4-07 硝酸盐的热分解》实验中，检验热分解生成气体时使用的工具是哪一项？",
+        "options": [
+          {
+            "label": "A",
+            "text": "湿 KI-淀粉试纸"
+          },
+          {
+            "label": "B",
+            "text": "pH 试纸"
+          },
+          {
+            "label": "C",
+            "text": "火柴余烬"
+          },
+          {
+            "label": "D",
+            "text": "玻璃棒蘸氨水"
+          }
+        ],
+        "answer": {
+          "value": "C"
+        },
+        "explanation": "步骤要求用火柴余烬检验气体。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-4-29485ccd"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "19_4_07_point_4"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "湿 KI-淀粉试纸",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“湿 KI-淀粉试纸”混入其他实验或相邻操作，易造成点位错配；本题实际问的是“在《19-4-07 硝酸盐的热分解》实验中，检验热分解生成气体时使用的工具是哪一项？”。"
+          },
+          {
+            "label": "B",
+            "text": "pH 试纸",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“pH 试纸”与本题焦点“在《19-4-07 硝酸盐的热分解》实验中，检验热分解生成气体时使用的工具是哪一项？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“pH 试纸”。"
+          },
+          {
+            "label": "C",
+            "text": "火柴余烬",
+            "point_key": "candidate-4-29485ccd",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“火柴余烬”直接支撑题干所问：在《19-4-07 硝酸盐的热分解》实验中，检验热分解生成气体时使用的工具是哪一项？；对应点位为“用火柴余烬检验热分解生成的气体”。"
+          },
+          {
+            "label": "D",
+            "text": "玻璃棒蘸氨水",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“玻璃棒蘸氨水”与本题焦点“在《19-4-07 硝酸盐的热分解》实验中，检验热分解生成气体时使用的工具是哪一项？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“玻璃棒蘸氨水”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00243_765fc7b450",
+            "expchunk_00244_53c663efb4"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "终审保留：题干、答案和解析与教材实验点位语义一致。",
+          "supporting_theory_note": ""
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00243_765fc7b450",
+            "expchunk_00244_53c663efb4"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-4-07 硝酸盐的热分解》实验中，检验热分解生成气体时使用的工具是哪一项？",
+            "options": [
+              {
+                "label": "A",
+                "text": "湿 KI-淀粉试纸"
+              },
+              {
+                "label": "B",
+                "text": "pH 试纸"
+              },
+              {
+                "label": "C",
+                "text": "火柴余烬"
+              },
+              {
+                "label": "D",
+                "text": "玻璃棒蘸氨水"
+              }
+            ],
+            "answer": {
+              "value": "C"
+            },
+            "explanation": "步骤要求用火柴余烬检验气体。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00243_765fc7b450",
+              "expchunk_00244_53c663efb4"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_4_07_SEMANTIC_FINAL_006",
+        "source_review_id": "EXP_19_4_07_SEMANTIC_FINAL_006",
+        "source_question_index": 6,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-4-07 硝酸盐的热分解》实验中，用火柴余烬复燃来判断的气体主要是哪一种？",
+        "options": [
+          {
+            "label": "A",
+            "text": "NH₃"
+          },
+          {
+            "label": "B",
+            "text": "HCl"
+          },
+          {
+            "label": "C",
+            "text": "SO₂"
+          },
+          {
+            "label": "D",
+            "text": "O₂"
+          }
+        ],
+        "answer": {
+          "value": "D"
+        },
+        "explanation": "硝酸盐热分解常放出氧气，余烬可复燃。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-4-29485ccd"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "19_4_07_point_4"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "NH₃",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“NH₃”与本题焦点“在《19-4-07 硝酸盐的热分解》实验中，用火柴余烬复燃来判断的气体主要是哪一种？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“NH₃”。"
+          },
+          {
+            "label": "B",
+            "text": "HCl",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“HCl”与本题焦点“在《19-4-07 硝酸盐的热分解》实验中，用火柴余烬复燃来判断的气体主要是哪一种？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“HCl”。"
+          },
+          {
+            "label": "C",
+            "text": "SO₂",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“SO₂”与本题焦点“在《19-4-07 硝酸盐的热分解》实验中，用火柴余烬复燃来判断的气体主要是哪一种？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“SO₂”。"
+          },
+          {
+            "label": "D",
+            "text": "O₂",
+            "point_key": "candidate-4-29485ccd",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“O₂”直接支撑题干所问：在《19-4-07 硝酸盐的热分解》实验中，用火柴余烬复燃来判断的气体主要是哪一种？；对应点位为“用火柴余烬检验热分解生成的气体”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00243_765fc7b450",
+            "expchunk_00244_53c663efb4"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00562_ef6a65a064",
+            "textbook_prose_00565_4ff80431a2"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "终审保留：题干、答案和解析与教材实验点位语义一致。；polished final 补充 supporting theory 引用：textbook_prose_00562_ef6a65a064, textbook_prose_00565_4ff80431a2。",
+          "supporting_theory_note": "该判断依赖教材理论 chunk：textbook_prose_00562_ef6a65a064, textbook_prose_00565_4ff80431a2。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00243_765fc7b450",
+            "expchunk_00244_53c663efb4"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00562_ef6a65a064",
+            "textbook_prose_00565_4ff80431a2"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00562_ef6a65a064",
+            "textbook_prose_00565_4ff80431a2"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-4-07 硝酸盐的热分解》实验中，用火柴余烬复燃来判断的气体主要是哪一种？",
+            "options": [
+              {
+                "label": "A",
+                "text": "NH₃"
+              },
+              {
+                "label": "B",
+                "text": "HCl"
+              },
+              {
+                "label": "C",
+                "text": "SO₂"
+              },
+              {
+                "label": "D",
+                "text": "O₂"
+              }
+            ],
+            "answer": {
+              "value": "D"
+            },
+            "explanation": "硝酸盐热分解常放出氧气，余烬可复燃。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00243_765fc7b450",
+              "expchunk_00244_53c663efb4"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_4_07_SEMANTIC_FINAL_007",
+        "source_review_id": "EXP_19_4_07_SEMANTIC_FINAL_007",
+        "source_question_index": 7,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-4-07 硝酸盐的热分解》实验中，Cu(NO₃)₂ 或 AgNO₃ 热分解时常可观察到的棕色气体是哪一种？",
+        "options": [
+          {
+            "label": "A",
+            "text": "NO₂"
+          },
+          {
+            "label": "B",
+            "text": "CO₂"
+          },
+          {
+            "label": "C",
+            "text": "H₂"
+          },
+          {
+            "label": "D",
+            "text": "N₂"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "过渡金属或银的硝酸盐热分解可产生二氧化氮。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-aa0424f2",
+          "candidate-3-91bbea2b"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "19_4_07_point_2",
+          "19_4_07_point_3"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "NO₂",
+            "point_key": "candidate-2-aa0424f2",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“NO₂”直接支撑题干所问：在《19-4-07 硝酸盐的热分解》实验中，Cu(NO₃)₂ 或 AgNO₃ 热分解时常可观察到的棕色气体是哪一种？；对应点位为“Cu(NO₃)₂ 热分解”。"
+          },
+          {
+            "label": "B",
+            "text": "CO₂",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“CO₂”与本题焦点“在《19-4-07 硝酸盐的热分解》实验中，Cu(NO₃)₂ 或 AgNO₃ 热分解时常可观察到的棕色气体是哪一种？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“CO₂”。"
+          },
+          {
+            "label": "C",
+            "text": "H₂",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“H₂”与本题焦点“在《19-4-07 硝酸盐的热分解》实验中，Cu(NO₃)₂ 或 AgNO₃ 热分解时常可观察到的棕色气体是哪一种？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“H₂”。"
+          },
+          {
+            "label": "D",
+            "text": "N₂",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“N₂”与本题焦点“在《19-4-07 硝酸盐的热分解》实验中，Cu(NO₃)₂ 或 AgNO₃ 热分解时常可观察到的棕色气体是哪一种？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“N₂”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00243_765fc7b450",
+            "expchunk_00244_53c663efb4"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00562_ef6a65a064",
+            "textbook_prose_00565_4ff80431a2"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "终审保留：题干、答案和解析与教材实验点位语义一致。；polished final 补充 supporting theory 引用：textbook_prose_00562_ef6a65a064, textbook_prose_00565_4ff80431a2。",
+          "supporting_theory_note": "该判断依赖教材理论 chunk：textbook_prose_00562_ef6a65a064, textbook_prose_00565_4ff80431a2。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00243_765fc7b450",
+            "expchunk_00244_53c663efb4"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00562_ef6a65a064",
+            "textbook_prose_00565_4ff80431a2"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00562_ef6a65a064",
+            "textbook_prose_00565_4ff80431a2"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-4-07 硝酸盐的热分解》实验中，Cu(NO₃)₂ 或 AgNO₃ 热分解时常可观察到的棕色气体是哪一种？",
+            "options": [
+              {
+                "label": "A",
+                "text": "NO₂"
+              },
+              {
+                "label": "B",
+                "text": "CO₂"
+              },
+              {
+                "label": "C",
+                "text": "H₂"
+              },
+              {
+                "label": "D",
+                "text": "N₂"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "过渡金属或银的硝酸盐热分解可产生二氧化氮。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00243_765fc7b450",
+              "expchunk_00244_53c663efb4"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_4_07_SEMANTIC_FINAL_008",
+        "source_review_id": "EXP_19_4_07_SEMANTIC_FINAL_008",
+        "source_question_index": 8,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-4-07 硝酸盐的热分解》实验中，该实验要求比较不同硝酸盐热分解反应的哪一方面？",
+        "options": [
+          {
+            "label": "A",
+            "text": "溶解度曲线"
+          },
+          {
+            "label": "B",
+            "text": "异同点"
+          },
+          {
+            "label": "C",
+            "text": "电泳速度"
+          },
+          {
+            "label": "D",
+            "text": "折射率"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "原文要求说明它们热分解反应的异同。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-2241ae7a",
+          "candidate-2-aa0424f2",
+          "candidate-3-91bbea2b",
+          "candidate-4-29485ccd"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "19_4_07_point_1",
+          "19_4_07_point_2",
+          "19_4_07_point_3",
+          "19_4_07_point_4"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "溶解度曲线",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“溶解度曲线”与本题焦点“在《19-4-07 硝酸盐的热分解》实验中，该实验要求比较不同硝酸盐热分解反应的哪一方面？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“溶解度曲线”。"
+          },
+          {
+            "label": "B",
+            "text": "异同点",
+            "point_key": "candidate-1-2241ae7a",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“异同点”直接支撑题干所问：在《19-4-07 硝酸盐的热分解》实验中，该实验要求比较不同硝酸盐热分解反应的哪一方面？；对应点位为“KNO₃ 热分解”。"
+          },
+          {
+            "label": "C",
+            "text": "电泳速度",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“电泳速度”与本题焦点“在《19-4-07 硝酸盐的热分解》实验中，该实验要求比较不同硝酸盐热分解反应的哪一方面？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“电泳速度”。"
+          },
+          {
+            "label": "D",
+            "text": "折射率",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“折射率”与本题焦点“在《19-4-07 硝酸盐的热分解》实验中，该实验要求比较不同硝酸盐热分解反应的哪一方面？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“折射率”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00243_765fc7b450",
+            "expchunk_00244_53c663efb4"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "终审保留：题干、答案和解析与教材实验点位语义一致。",
+          "supporting_theory_note": ""
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00243_765fc7b450",
+            "expchunk_00244_53c663efb4"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-4-07 硝酸盐的热分解》实验中，该实验要求比较不同硝酸盐热分解反应的哪一方面？",
+            "options": [
+              {
+                "label": "A",
+                "text": "溶解度曲线"
+              },
+              {
+                "label": "B",
+                "text": "异同点"
+              },
+              {
+                "label": "C",
+                "text": "电泳速度"
+              },
+              {
+                "label": "D",
+                "text": "折射率"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "原文要求说明它们热分解反应的异同。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00243_765fc7b450",
+              "expchunk_00244_53c663efb4"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_4_07_SEMANTIC_FINAL_009",
+        "source_review_id": "EXP_19_4_07_SEMANTIC_FINAL_009",
+        "source_question_index": 9,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-4-07 硝酸盐的热分解》实验中，该实验的主要操作方式是哪一项？",
+        "options": [
+          {
+            "label": "A",
+            "text": "通入 SO₂"
+          },
+          {
+            "label": "B",
+            "text": "滴加过量氨水"
+          },
+          {
+            "label": "C",
+            "text": "加热固体硝酸盐"
+          },
+          {
+            "label": "D",
+            "text": "加入金属汞振荡"
+          }
+        ],
+        "answer": {
+          "value": "C"
+        },
+        "explanation": "热分解需要对固体硝酸盐加热。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-2241ae7a",
+          "candidate-2-aa0424f2",
+          "candidate-3-91bbea2b",
+          "candidate-4-29485ccd"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "19_4_07_point_1",
+          "19_4_07_point_2",
+          "19_4_07_point_3",
+          "19_4_07_point_4"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "通入 SO₂",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“通入 SO₂”与本题焦点“在《19-4-07 硝酸盐的热分解》实验中，该实验的主要操作方式是哪一项？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“通入 SO₂”。"
+          },
+          {
+            "label": "B",
+            "text": "滴加过量氨水",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“滴加过量氨水”与本题焦点“在《19-4-07 硝酸盐的热分解》实验中，该实验的主要操作方式是哪一项？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“滴加过量氨水”。"
+          },
+          {
+            "label": "C",
+            "text": "加热固体硝酸盐",
+            "point_key": "candidate-1-2241ae7a",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“加热固体硝酸盐”直接支撑题干所问：在《19-4-07 硝酸盐的热分解》实验中，该实验的主要操作方式是哪一项？；对应点位为“KNO₃ 热分解”。"
+          },
+          {
+            "label": "D",
+            "text": "加入金属汞振荡",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“加入金属汞振荡”与本题焦点“在《19-4-07 硝酸盐的热分解》实验中，该实验的主要操作方式是哪一项？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“加入金属汞振荡”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00243_765fc7b450",
+            "expchunk_00244_53c663efb4"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "终审保留：题干、答案和解析与教材实验点位语义一致。",
+          "supporting_theory_note": ""
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00243_765fc7b450",
+            "expchunk_00244_53c663efb4"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-4-07 硝酸盐的热分解》实验中，该实验的主要操作方式是哪一项？",
+            "options": [
+              {
+                "label": "A",
+                "text": "通入 SO₂"
+              },
+              {
+                "label": "B",
+                "text": "滴加过量氨水"
+              },
+              {
+                "label": "C",
+                "text": "加热固体硝酸盐"
+              },
+              {
+                "label": "D",
+                "text": "加入金属汞振荡"
+              }
+            ],
+            "answer": {
+              "value": "C"
+            },
+            "explanation": "热分解需要对固体硝酸盐加热。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00243_765fc7b450",
+              "expchunk_00244_53c663efb4"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_4_07_SEMANTIC_FINAL_010",
+        "source_review_id": "EXP_19_4_07_SEMANTIC_FINAL_010",
+        "source_question_index": 10,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-4-07 硝酸盐的热分解》实验中，进行 Cu(NO₃)₂ 或 AgNO₃ 热分解时，应特别注意哪种有害气体？",
+        "options": [
+          {
+            "label": "A",
+            "text": "He"
+          },
+          {
+            "label": "B",
+            "text": "Ar"
+          },
+          {
+            "label": "C",
+            "text": "N₂"
+          },
+          {
+            "label": "D",
+            "text": "NO₂"
+          }
+        ],
+        "answer": {
+          "value": "D"
+        },
+        "explanation": "二氧化氮为棕色有毒气体。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-aa0424f2",
+          "candidate-3-91bbea2b"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "19_4_07_point_2",
+          "19_4_07_point_3"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "He",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“He”与本题焦点“在《19-4-07 硝酸盐的热分解》实验中，进行 Cu(NO₃)₂ 或 AgNO₃ 热分解时，应特别注意哪种有害气体？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“He”。"
+          },
+          {
+            "label": "B",
+            "text": "Ar",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“Ar”与本题焦点“在《19-4-07 硝酸盐的热分解》实验中，进行 Cu(NO₃)₂ 或 AgNO₃ 热分解时，应特别注意哪种有害气体？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“Ar”。"
+          },
+          {
+            "label": "C",
+            "text": "N₂",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“N₂”与本题焦点“在《19-4-07 硝酸盐的热分解》实验中，进行 Cu(NO₃)₂ 或 AgNO₃ 热分解时，应特别注意哪种有害气体？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“N₂”。"
+          },
+          {
+            "label": "D",
+            "text": "NO₂",
+            "point_key": "candidate-2-aa0424f2",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“NO₂”直接支撑题干所问：在《19-4-07 硝酸盐的热分解》实验中，进行 Cu(NO₃)₂ 或 AgNO₃ 热分解时，应特别注意哪种有害气体？；对应点位为“Cu(NO₃)₂ 热分解”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00243_765fc7b450",
+            "expchunk_00244_53c663efb4"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00562_ef6a65a064",
+            "textbook_prose_00565_4ff80431a2"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "终审保留：题干、答案和解析与教材实验点位语义一致。；polished final 补充 supporting theory 引用：textbook_prose_00562_ef6a65a064, textbook_prose_00565_4ff80431a2。",
+          "supporting_theory_note": "该判断依赖教材理论 chunk：textbook_prose_00562_ef6a65a064, textbook_prose_00565_4ff80431a2。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00243_765fc7b450",
+            "expchunk_00244_53c663efb4"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00562_ef6a65a064",
+            "textbook_prose_00565_4ff80431a2"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00562_ef6a65a064",
+            "textbook_prose_00565_4ff80431a2"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-4-07 硝酸盐的热分解》实验中，进行 Cu(NO₃)₂ 或 AgNO₃ 热分解时，应特别注意哪种有害气体？",
+            "options": [
+              {
+                "label": "A",
+                "text": "He"
+              },
+              {
+                "label": "B",
+                "text": "Ar"
+              },
+              {
+                "label": "C",
+                "text": "N₂"
+              },
+              {
+                "label": "D",
+                "text": "NO₂"
+              }
+            ],
+            "answer": {
+              "value": "D"
+            },
+            "explanation": "二氧化氮为棕色有毒气体。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00243_765fc7b450",
+              "expchunk_00244_53c663efb4"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_4_07_SEMANTIC_FINAL_011",
+        "source_review_id": "EXP_19_4_07_SEMANTIC_FINAL_011",
+        "source_question_index": 11,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-4-07 硝酸盐的热分解》中，比较三种硝酸盐热分解，最重要的不是背名称，而是什么？",
+        "options": [
+          {
+            "label": "A",
+            "text": "检验水玻璃成分"
+          },
+          {
+            "label": "B",
+            "text": "比较分解产物和检验现象差异"
+          },
+          {
+            "label": "C",
+            "text": "观察 CCl₄ 萃取"
+          },
+          {
+            "label": "D",
+            "text": "比较卤素置换"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "实验关注热分解行为和气体检验。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-2241ae7a",
+          "candidate-2-aa0424f2",
+          "candidate-3-91bbea2b",
+          "candidate-4-29485ccd"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_1_2241ae7a",
+          "point_candidate_2_aa0424f2",
+          "point_candidate_3_91bbea2b",
+          "point_candidate_4_29485ccd"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "检验水玻璃成分",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“检验水玻璃成分”混入其他实验或相邻操作，易造成点位错配；本题实际问的是“在《19-4-07 硝酸盐的热分解》中，比较三种硝酸盐热分解，最重要的不是背名称，而是什么？”。"
+          },
+          {
+            "label": "B",
+            "text": "比较分解产物和检验现象差异",
+            "point_key": "candidate-1-2241ae7a",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“比较分解产物和检验现象差异”直接支撑题干所问：在《19-4-07 硝酸盐的热分解》中，比较三种硝酸盐热分解，最重要的不是背名称，而是什么？；对应点位为“KNO₃ 热分解”。"
+          },
+          {
+            "label": "C",
+            "text": "观察 CCl₄ 萃取",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“观察 CCl₄ 萃取”混入其他实验或相邻操作，易造成点位错配；本题实际问的是“在《19-4-07 硝酸盐的热分解》中，比较三种硝酸盐热分解，最重要的不是背名称，而是什么？”。"
+          },
+          {
+            "label": "D",
+            "text": "比较卤素置换",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“比较卤素置换”与本题焦点“在《19-4-07 硝酸盐的热分解》中，比较三种硝酸盐热分解，最重要的不是背名称，而是什么？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“比较卤素置换”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00243_765fc7b450",
+            "expchunk_00244_53c663efb4"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final rewrite：low_quality_keep_rewritten；有效题为本 proposed_question。；原题存在证据、深度或题型风险，最终有效题已由 proposed_question 修复。",
+          "supporting_theory_note": ""
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00243_765fc7b450",
+            "expchunk_00244_53c663efb4"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-4-07 硝酸盐的热分解》实验中，判断：实验对象为“硝酸盐”。",
+            "options": [],
+            "answer": {
+              "value": true
+            },
+            "explanation": "标题和步骤均为硝酸盐热分解。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00243_765fc7b450",
+              "expchunk_00244_53c663efb4"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-4-07 硝酸盐的热分解》中，比较三种硝酸盐热分解，最重要的不是背名称，而是什么？",
+            "options": [
+              {
+                "label": "A",
+                "text": "检验水玻璃成分"
+              },
+              {
+                "label": "B",
+                "text": "比较分解产物和检验现象差异"
+              },
+              {
+                "label": "C",
+                "text": "观察 CCl₄ 萃取"
+              },
+              {
+                "label": "D",
+                "text": "比较卤素置换"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "实验关注热分解行为和气体检验。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_4_07_SEMANTIC_FINAL_012",
+        "source_review_id": "EXP_19_4_07_SEMANTIC_FINAL_012",
+        "source_question_index": 12,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-4-07 硝酸盐的热分解》中，KNO₃、Cu(NO₃)₂、AgNO₃ 热分解比较，主要考查哪类物质（从对照作用角度判断）？",
+        "options": [
+          {
+            "label": "A",
+            "text": "硝酸盐"
+          },
+          {
+            "label": "B",
+            "text": "亚硝酸盐"
+          },
+          {
+            "label": "C",
+            "text": "硅酸盐"
+          },
+          {
+            "label": "D",
+            "text": "过氧化物"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "本点位比较不同硝酸盐热分解。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-2241ae7a",
+          "candidate-2-aa0424f2",
+          "candidate-3-91bbea2b"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_1_2241ae7a",
+          "point_candidate_2_aa0424f2",
+          "point_candidate_3_91bbea2b"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "硝酸盐",
+            "point_key": "candidate-1-2241ae7a",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“硝酸盐”直接支撑题干所问：在《19-4-07 硝酸盐的热分解》中，KNO₃、Cu(NO₃)₂、AgNO₃ 热分解比较，主要考查哪类物质（从对照作用角度判断；对应点位为“KNO₃ 热分解”。"
+          },
+          {
+            "label": "B",
+            "text": "亚硝酸盐",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“亚硝酸盐”与本题焦点“在《19-4-07 硝酸盐的热分解》中，KNO₃、Cu(NO₃)₂、AgNO₃ 热分解比较，主要考查哪类物质（从对照作用角度判断”不匹配；错误点在于把应判断的操作、现象或结论替换成了“亚硝酸盐”。"
+          },
+          {
+            "label": "C",
+            "text": "硅酸盐",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“硅酸盐”与本题焦点“在《19-4-07 硝酸盐的热分解》中，KNO₃、Cu(NO₃)₂、AgNO₃ 热分解比较，主要考查哪类物质（从对照作用角度判断”不匹配；错误点在于把应判断的操作、现象或结论替换成了“硅酸盐”。"
+          },
+          {
+            "label": "D",
+            "text": "过氧化物",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“过氧化物”与本题焦点“在《19-4-07 硝酸盐的热分解》中，KNO₃、Cu(NO₃)₂、AgNO₃ 热分解比较，主要考查哪类物质（从对照作用角度判断”不匹配；错误点在于把应判断的操作、现象或结论替换成了“过氧化物”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00243_765fc7b450",
+            "expchunk_00244_53c663efb4"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final rewrite：low_quality_keep_rewritten；有效题为本 proposed_question。；原题存在证据、深度或题型风险，最终有效题已由 proposed_question 修复。",
+          "supporting_theory_note": ""
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00243_765fc7b450",
+            "expchunk_00244_53c663efb4"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-4-07 硝酸盐的热分解》实验中，判断：钾盐样品为“KCl(s)”。",
+            "options": [],
+            "answer": {
+              "value": false
+            },
+            "explanation": "该说法与本实验事实不符；原文列出 KNO₃(s)。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00243_765fc7b450",
+              "expchunk_00244_53c663efb4"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-4-07 硝酸盐的热分解》中，KNO₃、Cu(NO₃)₂、AgNO₃ 热分解比较，主要考查哪类物质（从对照作用角度判断）？",
+            "options": [
+              {
+                "label": "A",
+                "text": "硝酸盐"
+              },
+              {
+                "label": "B",
+                "text": "亚硝酸盐"
+              },
+              {
+                "label": "C",
+                "text": "硅酸盐"
+              },
+              {
+                "label": "D",
+                "text": "过氧化物"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "本点位比较不同硝酸盐热分解。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_4_07_SEMANTIC_FINAL_013",
+        "source_review_id": "EXP_19_4_07_SEMANTIC_FINAL_013",
+        "source_question_index": 13,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-4-07 硝酸盐的热分解》中，用火柴余烬检验热分解生成气体，主要用于判断是否有哪种气体（从安全要求角度判断）？",
+        "options": [
+          {
+            "label": "A",
+            "text": "NH₃"
+          },
+          {
+            "label": "B",
+            "text": "SO₂"
+          },
+          {
+            "label": "C",
+            "text": "NO"
+          },
+          {
+            "label": "D",
+            "text": "O₂"
+          }
+        ],
+        "answer": {
+          "value": "D"
+        },
+        "explanation": "余烬复燃可作为 O₂ 的检验。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-4-29485ccd"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_4_29485ccd"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "NH₃",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“NH₃”与本题焦点“在《19-4-07 硝酸盐的热分解》中，用火柴余烬检验热分解生成气体，主要用于判断是否有哪种气体（从安全要求角度判断）？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“NH₃”。"
+          },
+          {
+            "label": "B",
+            "text": "SO₂",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“SO₂”与本题焦点“在《19-4-07 硝酸盐的热分解》中，用火柴余烬检验热分解生成气体，主要用于判断是否有哪种气体（从安全要求角度判断）？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“SO₂”。"
+          },
+          {
+            "label": "C",
+            "text": "NO",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“NO”与本题焦点“在《19-4-07 硝酸盐的热分解》中，用火柴余烬检验热分解生成气体，主要用于判断是否有哪种气体（从安全要求角度判断）？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“NO”。"
+          },
+          {
+            "label": "D",
+            "text": "O₂",
+            "point_key": "candidate-4-29485ccd",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“O₂”直接支撑题干所问：在《19-4-07 硝酸盐的热分解》中，用火柴余烬检验热分解生成气体，主要用于判断是否有哪种气体（从安全要求角度判断）？；对应点位为“用火柴余烬检验热分解生成的气体”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00243_765fc7b450",
+            "expchunk_00244_53c663efb4"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final rewrite：low_quality_keep_rewritten；有效题为本 proposed_question。；原题存在证据、深度或题型风险，最终有效题已由 proposed_question 修复。",
+          "supporting_theory_note": ""
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00243_765fc7b450",
+            "expchunk_00244_53c663efb4"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-4-07 硝酸盐的热分解》实验中，判断：铜盐样品为“Cu(NO₃)₂(s)”。",
+            "options": [],
+            "answer": {
+              "value": true
+            },
+            "explanation": "原文列出 Cu(NO₃)₂(s)。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00243_765fc7b450",
+              "expchunk_00244_53c663efb4"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-4-07 硝酸盐的热分解》中，用火柴余烬检验热分解生成气体，主要用于判断是否有哪种气体（从安全要求角度判断）？",
+            "options": [
+              {
+                "label": "A",
+                "text": "NH₃"
+              },
+              {
+                "label": "B",
+                "text": "SO₂"
+              },
+              {
+                "label": "C",
+                "text": "NO"
+              },
+              {
+                "label": "D",
+                "text": "O₂"
+              }
+            ],
+            "answer": {
+              "value": "D"
+            },
+            "explanation": "余烬复燃可作为 O₂ 的检验。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_4_07_SEMANTIC_FINAL_014",
+        "source_review_id": "EXP_19_4_07_SEMANTIC_FINAL_014",
+        "source_question_index": 14,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-4-07 硝酸盐的热分解》中，Cu(NO₃)₂ 或 AgNO₃ 热分解中，常见棕色气体是哪一种（从产物判断角度判断）？",
+        "options": [
+          {
+            "label": "A",
+            "text": "I₂"
+          },
+          {
+            "label": "B",
+            "text": "SO₂"
+          },
+          {
+            "label": "C",
+            "text": "NO₂"
+          },
+          {
+            "label": "D",
+            "text": "H₂"
+          }
+        ],
+        "answer": {
+          "value": "C"
+        },
+        "explanation": "部分硝酸盐热分解生成 NO₂。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-aa0424f2",
+          "candidate-3-91bbea2b"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_2_aa0424f2",
+          "point_candidate_3_91bbea2b"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "I₂",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“I₂”与本题焦点“在《19-4-07 硝酸盐的热分解》中，Cu(NO₃)₂ 或 AgNO₃ 热分解中，常见棕色气体是哪一种（从产物判断角度判断）？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“I₂”。"
+          },
+          {
+            "label": "B",
+            "text": "SO₂",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“SO₂”与本题焦点“在《19-4-07 硝酸盐的热分解》中，Cu(NO₃)₂ 或 AgNO₃ 热分解中，常见棕色气体是哪一种（从产物判断角度判断）？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“SO₂”。"
+          },
+          {
+            "label": "C",
+            "text": "NO₂",
+            "point_key": "candidate-2-aa0424f2",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“NO₂”直接支撑题干所问：在《19-4-07 硝酸盐的热分解》中，Cu(NO₃)₂ 或 AgNO₃ 热分解中，常见棕色气体是哪一种（从产物判断角度判断）？；对应点位为“Cu(NO₃)₂ 热分解”。"
+          },
+          {
+            "label": "D",
+            "text": "H₂",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“H₂”与本题焦点“在《19-4-07 硝酸盐的热分解》中，Cu(NO₃)₂ 或 AgNO₃ 热分解中，常见棕色气体是哪一种（从产物判断角度判断）？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“H₂”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00243_765fc7b450",
+            "expchunk_00244_53c663efb4"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final rewrite：low_quality_keep_rewritten；有效题为本 proposed_question。；原题存在证据、深度或题型风险，最终有效题已由 proposed_question 修复。",
+          "supporting_theory_note": ""
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00243_765fc7b450",
+            "expchunk_00244_53c663efb4"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-4-07 硝酸盐的热分解》实验中，判断：银盐样品为“AgCl(s)”。",
+            "options": [],
+            "answer": {
+              "value": false
+            },
+            "explanation": "该说法与本实验事实不符；原文列出 AgNO₃(s)。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00243_765fc7b450",
+              "expchunk_00244_53c663efb4"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-4-07 硝酸盐的热分解》中，Cu(NO₃)₂ 或 AgNO₃ 热分解中，常见棕色气体是哪一种（从产物判断角度判断）？",
+            "options": [
+              {
+                "label": "A",
+                "text": "I₂"
+              },
+              {
+                "label": "B",
+                "text": "SO₂"
+              },
+              {
+                "label": "C",
+                "text": "NO₂"
+              },
+              {
+                "label": "D",
+                "text": "H₂"
+              }
+            ],
+            "answer": {
+              "value": "C"
+            },
+            "explanation": "部分硝酸盐热分解生成 NO₂。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_4_07_SEMANTIC_FINAL_015",
+        "source_review_id": "EXP_19_4_07_SEMANTIC_FINAL_015",
+        "source_question_index": 15,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-4-07 硝酸盐的热分解》实验中，判断：气体检验为“火柴余烬”。",
+        "options": [],
+        "answer": {
+          "value": true
+        },
+        "explanation": "步骤要求用火柴余烬检验气体。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-4-29485ccd"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "19_4_07_point_4"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00243_765fc7b450",
+            "expchunk_00244_53c663efb4"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "终审保留：题干、答案和解析与教材实验点位语义一致。",
+          "supporting_theory_note": ""
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00243_765fc7b450",
+            "expchunk_00244_53c663efb4"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-4-07 硝酸盐的热分解》实验中，判断：气体检验为“火柴余烬”。",
+            "options": [],
+            "answer": {
+              "value": true
+            },
+            "explanation": "步骤要求用火柴余烬检验气体。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00243_765fc7b450",
+              "expchunk_00244_53c663efb4"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_4_07_SEMANTIC_FINAL_016",
+        "source_review_id": "EXP_19_4_07_SEMANTIC_FINAL_016",
+        "source_question_index": 16,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-4-07 硝酸盐的热分解》实验中，判断：被检气体为“NH₃”。",
+        "options": [],
+        "answer": {
+          "value": false
+        },
+        "explanation": "该说法与本实验事实不符；硝酸盐热分解常放出氧气，余烬可复燃。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-4-29485ccd"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "19_4_07_point_4"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00243_765fc7b450",
+            "expchunk_00244_53c663efb4"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00562_ef6a65a064",
+            "textbook_prose_00565_4ff80431a2"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "终审保留：题干、答案和解析与教材实验点位语义一致。；polished final 补充 supporting theory 引用：textbook_prose_00562_ef6a65a064, textbook_prose_00565_4ff80431a2。",
+          "supporting_theory_note": "该判断依赖教材理论 chunk：textbook_prose_00562_ef6a65a064, textbook_prose_00565_4ff80431a2。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00243_765fc7b450",
+            "expchunk_00244_53c663efb4"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00562_ef6a65a064",
+            "textbook_prose_00565_4ff80431a2"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00562_ef6a65a064",
+            "textbook_prose_00565_4ff80431a2"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-4-07 硝酸盐的热分解》实验中，判断：被检气体为“NH₃”。",
+            "options": [],
+            "answer": {
+              "value": false
+            },
+            "explanation": "该说法与本实验事实不符；硝酸盐热分解常放出氧气，余烬可复燃。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00243_765fc7b450",
+              "expchunk_00244_53c663efb4"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_4_07_SEMANTIC_FINAL_017",
+        "source_review_id": "EXP_19_4_07_SEMANTIC_FINAL_017",
+        "source_question_index": 17,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-4-07 硝酸盐的热分解》实验中，判断：棕色气体为“NO₂”。",
+        "options": [],
+        "answer": {
+          "value": true
+        },
+        "explanation": "过渡金属或银的硝酸盐热分解可产生二氧化氮。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-aa0424f2",
+          "candidate-3-91bbea2b"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "19_4_07_point_2",
+          "19_4_07_point_3"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00243_765fc7b450",
+            "expchunk_00244_53c663efb4"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00562_ef6a65a064",
+            "textbook_prose_00565_4ff80431a2"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "终审保留：题干、答案和解析与教材实验点位语义一致。；polished final 补充 supporting theory 引用：textbook_prose_00562_ef6a65a064, textbook_prose_00565_4ff80431a2。",
+          "supporting_theory_note": "该判断依赖教材理论 chunk：textbook_prose_00562_ef6a65a064, textbook_prose_00565_4ff80431a2。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00243_765fc7b450",
+            "expchunk_00244_53c663efb4"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00562_ef6a65a064",
+            "textbook_prose_00565_4ff80431a2"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00562_ef6a65a064",
+            "textbook_prose_00565_4ff80431a2"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-4-07 硝酸盐的热分解》实验中，判断：棕色气体为“NO₂”。",
+            "options": [],
+            "answer": {
+              "value": true
+            },
+            "explanation": "过渡金属或银的硝酸盐热分解可产生二氧化氮。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00243_765fc7b450",
+              "expchunk_00244_53c663efb4"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_4_07_SEMANTIC_FINAL_018",
+        "source_review_id": "EXP_19_4_07_SEMANTIC_FINAL_018",
+        "source_question_index": 18,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-4-07 硝酸盐的热分解》实验中，判断：固体差异为“溶解度曲线”。",
+        "options": [],
+        "answer": {
+          "value": false
+        },
+        "explanation": "该说法与本实验事实不符；原文要求说明它们热分解反应的异同。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-2241ae7a",
+          "candidate-2-aa0424f2",
+          "candidate-3-91bbea2b",
+          "candidate-4-29485ccd"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "19_4_07_point_1",
+          "19_4_07_point_2",
+          "19_4_07_point_3",
+          "19_4_07_point_4"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00243_765fc7b450",
+            "expchunk_00244_53c663efb4"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "终审保留：题干、答案和解析与教材实验点位语义一致。",
+          "supporting_theory_note": ""
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00243_765fc7b450",
+            "expchunk_00244_53c663efb4"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-4-07 硝酸盐的热分解》实验中，判断：固体差异为“溶解度曲线”。",
+            "options": [],
+            "answer": {
+              "value": false
+            },
+            "explanation": "该说法与本实验事实不符；原文要求说明它们热分解反应的异同。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00243_765fc7b450",
+              "expchunk_00244_53c663efb4"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_4_07_SEMANTIC_FINAL_019",
+        "source_review_id": "EXP_19_4_07_SEMANTIC_FINAL_019",
+        "source_question_index": 19,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-4-07 硝酸盐的热分解》实验中，判断：操作方式为“加热固体硝酸盐”。",
+        "options": [],
+        "answer": {
+          "value": true
+        },
+        "explanation": "热分解需要对固体硝酸盐加热。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-2241ae7a",
+          "candidate-2-aa0424f2",
+          "candidate-3-91bbea2b",
+          "candidate-4-29485ccd"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "19_4_07_point_1",
+          "19_4_07_point_2",
+          "19_4_07_point_3",
+          "19_4_07_point_4"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00243_765fc7b450",
+            "expchunk_00244_53c663efb4"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "终审保留：题干、答案和解析与教材实验点位语义一致。",
+          "supporting_theory_note": ""
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00243_765fc7b450",
+            "expchunk_00244_53c663efb4"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-4-07 硝酸盐的热分解》实验中，判断：操作方式为“加热固体硝酸盐”。",
+            "options": [],
+            "answer": {
+              "value": true
+            },
+            "explanation": "热分解需要对固体硝酸盐加热。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00243_765fc7b450",
+              "expchunk_00244_53c663efb4"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_4_07_SEMANTIC_FINAL_020",
+        "source_review_id": "EXP_19_4_07_SEMANTIC_FINAL_020",
+        "source_question_index": 20,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-4-07 硝酸盐的热分解》实验中，判断：安全关注为“He”。",
+        "options": [],
+        "answer": {
+          "value": false
+        },
+        "explanation": "该说法与本实验事实不符；二氧化氮为棕色有毒气体。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-aa0424f2",
+          "candidate-3-91bbea2b"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "19_4_07_point_2",
+          "19_4_07_point_3"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00243_765fc7b450",
+            "expchunk_00244_53c663efb4"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00562_ef6a65a064",
+            "textbook_prose_00565_4ff80431a2"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "终审保留：题干、答案和解析与教材实验点位语义一致。；polished final 补充 supporting theory 引用：textbook_prose_00562_ef6a65a064, textbook_prose_00565_4ff80431a2。",
+          "supporting_theory_note": "该判断依赖教材理论 chunk：textbook_prose_00562_ef6a65a064, textbook_prose_00565_4ff80431a2。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00243_765fc7b450",
+            "expchunk_00244_53c663efb4"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00562_ef6a65a064",
+            "textbook_prose_00565_4ff80431a2"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00562_ef6a65a064",
+            "textbook_prose_00565_4ff80431a2"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-4-07 硝酸盐的热分解》实验中，判断：安全关注为“He”。",
+            "options": [],
+            "answer": {
+              "value": false
+            },
+            "explanation": "该说法与本实验事实不符；二氧化氮为棕色有毒气体。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00243_765fc7b450",
+              "expchunk_00244_53c663efb4"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_4_07_SEMANTIC_FINAL_021",
+        "source_review_id": "EXP_19_4_07_SEMANTIC_FINAL_021",
+        "source_question_index": 21,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《19-4-07 硝酸盐的热分解》实验中，该实验研究____的热分解。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "硝酸盐"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "标题和步骤均为硝酸盐热分解。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-2241ae7a",
+          "candidate-2-aa0424f2",
+          "candidate-3-91bbea2b",
+          "candidate-4-29485ccd"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "19_4_07_point_1",
+          "19_4_07_point_2",
+          "19_4_07_point_3",
+          "19_4_07_point_4"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00243_765fc7b450",
+            "expchunk_00244_53c663efb4"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "终审保留：题干、答案和解析与教材实验点位语义一致。",
+          "supporting_theory_note": ""
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00243_765fc7b450",
+            "expchunk_00244_53c663efb4"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-4-07 硝酸盐的热分解》实验中，该实验研究____的热分解。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "硝酸盐"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "标题和步骤均为硝酸盐热分解。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00243_765fc7b450",
+              "expchunk_00244_53c663efb4"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_4_07_SEMANTIC_FINAL_022",
+        "source_review_id": "EXP_19_4_07_SEMANTIC_FINAL_022",
+        "source_question_index": 22,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-4-07 硝酸盐的热分解》实验中，热分解比较中使用的钾盐是____。下列哪一项最适合填入空白处？",
+        "options": [
+          {
+            "label": "A",
+            "text": "NaNO₂"
+          },
+          {
+            "label": "B",
+            "text": "KI-CCl₄"
+          },
+          {
+            "label": "C",
+            "text": "KNO₃(s)"
+          },
+          {
+            "label": "D",
+            "text": "水玻璃"
+          }
+        ],
+        "answer": {
+          "value": "C"
+        },
+        "explanation": "空白处应填“KNO₃(s)”。本轮将原手机端高风险填空改为单选，避免上下标、别名或复杂化学式输入导致机器判分不稳定。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-2241ae7a"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_1_2241ae7a"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "NaNO₂",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“NaNO₂”与本题焦点“在《19-4-07 硝酸盐的热分解》实验中，热分解比较中使用的钾盐是____。下列哪一项最适合填入空白处？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“NaNO₂”。"
+          },
+          {
+            "label": "B",
+            "text": "KI-CCl₄",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“KI-CCl₄”混入其他实验或相邻操作，易造成点位错配；本题实际问的是“在《19-4-07 硝酸盐的热分解》实验中，热分解比较中使用的钾盐是____。下列哪一项最适合填入空白处？”。"
+          },
+          {
+            "label": "C",
+            "text": "KNO₃(s)",
+            "point_key": "candidate-1-2241ae7a",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“KNO₃(s)”直接支撑题干所问：在《19-4-07 硝酸盐的热分解》实验中，热分解比较中使用的钾盐是____。下列哪一项最适合填入空白处？；对应点位为“KNO₃ 热分解”。"
+          },
+          {
+            "label": "D",
+            "text": "水玻璃",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“水玻璃”混入其他实验或相邻操作，易造成点位错配；本题实际问的是“在《19-4-07 硝酸盐的热分解》实验中，热分解比较中使用的钾盐是____。下列哪一项最适合填入空白处？”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00243_765fc7b450",
+            "expchunk_00244_53c663efb4"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final rewrite：phone_risk_repaired_as_single_choice；有效题为本 proposed_question。；原题存在证据、深度或题型风险，最终有效题已由 proposed_question 修复。",
+          "supporting_theory_note": ""
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00243_765fc7b450",
+            "expchunk_00244_53c663efb4"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "generic_or_answer_shell_explanation",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-4-07 硝酸盐的热分解》实验中，热分解比较中使用的钾盐是____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "KNO₃(s)"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "原文列出 KNO₃(s)。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00243_765fc7b450",
+              "expchunk_00244_53c663efb4"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-4-07 硝酸盐的热分解》实验中，热分解比较中使用的钾盐是____。下列哪一项最适合填入空白处？",
+            "options": [
+              {
+                "label": "A",
+                "text": "NaNO₂"
+              },
+              {
+                "label": "B",
+                "text": "KI-CCl₄"
+              },
+              {
+                "label": "C",
+                "text": "KNO₃(s)"
+              },
+              {
+                "label": "D",
+                "text": "水玻璃"
+              }
+            ],
+            "answer": {
+              "value": "C"
+            },
+            "explanation": "空白处应填“KNO₃(s)”。本轮将原手机端高风险填空改为单选，避免上下标、别名或复杂化学式输入导致机器判分不稳定。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_4_07_SEMANTIC_FINAL_023",
+        "source_review_id": "EXP_19_4_07_SEMANTIC_FINAL_023",
+        "source_question_index": 23,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-4-07 硝酸盐的热分解》实验中，热分解比较中使用的铜盐是____。下列哪一项最适合填入空白处？",
+        "options": [
+          {
+            "label": "A",
+            "text": "NaNO₂"
+          },
+          {
+            "label": "B",
+            "text": "KI-CCl₄"
+          },
+          {
+            "label": "C",
+            "text": "水玻璃"
+          },
+          {
+            "label": "D",
+            "text": "Cu(NO₃)₂(s)"
+          }
+        ],
+        "answer": {
+          "value": "D"
+        },
+        "explanation": "空白处应填“Cu(NO₃)₂(s)”。本轮将原手机端高风险填空改为单选，避免上下标、别名或复杂化学式输入导致机器判分不稳定。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-aa0424f2"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_2_aa0424f2"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "NaNO₂",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“NaNO₂”与本题焦点“在《19-4-07 硝酸盐的热分解》实验中，热分解比较中使用的铜盐是____。下列哪一项最适合填入空白处？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“NaNO₂”。"
+          },
+          {
+            "label": "B",
+            "text": "KI-CCl₄",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“KI-CCl₄”混入其他实验或相邻操作，易造成点位错配；本题实际问的是“在《19-4-07 硝酸盐的热分解》实验中，热分解比较中使用的铜盐是____。下列哪一项最适合填入空白处？”。"
+          },
+          {
+            "label": "C",
+            "text": "水玻璃",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“水玻璃”混入其他实验或相邻操作，易造成点位错配；本题实际问的是“在《19-4-07 硝酸盐的热分解》实验中，热分解比较中使用的铜盐是____。下列哪一项最适合填入空白处？”。"
+          },
+          {
+            "label": "D",
+            "text": "Cu(NO₃)₂(s)",
+            "point_key": "candidate-2-aa0424f2",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“Cu(NO₃)₂(s)”直接支撑题干所问：在《19-4-07 硝酸盐的热分解》实验中，热分解比较中使用的铜盐是____。下列哪一项最适合填入空白处？；对应点位为“Cu(NO₃)₂ 热分解”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00243_765fc7b450",
+            "expchunk_00244_53c663efb4"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final rewrite：phone_risk_repaired_as_single_choice；有效题为本 proposed_question。；原题存在证据、深度或题型风险，最终有效题已由 proposed_question 修复。",
+          "supporting_theory_note": ""
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00243_765fc7b450",
+            "expchunk_00244_53c663efb4"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "generic_or_answer_shell_explanation",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-4-07 硝酸盐的热分解》实验中，热分解比较中使用的铜盐是____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "Cu(NO₃)₂(s)"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "原文列出 Cu(NO₃)₂(s)。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00243_765fc7b450",
+              "expchunk_00244_53c663efb4"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-4-07 硝酸盐的热分解》实验中，热分解比较中使用的铜盐是____。下列哪一项最适合填入空白处？",
+            "options": [
+              {
+                "label": "A",
+                "text": "NaNO₂"
+              },
+              {
+                "label": "B",
+                "text": "KI-CCl₄"
+              },
+              {
+                "label": "C",
+                "text": "水玻璃"
+              },
+              {
+                "label": "D",
+                "text": "Cu(NO₃)₂(s)"
+              }
+            ],
+            "answer": {
+              "value": "D"
+            },
+            "explanation": "空白处应填“Cu(NO₃)₂(s)”。本轮将原手机端高风险填空改为单选，避免上下标、别名或复杂化学式输入导致机器判分不稳定。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_4_07_SEMANTIC_FINAL_024",
+        "source_review_id": "EXP_19_4_07_SEMANTIC_FINAL_024",
+        "source_question_index": 24,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-4-07 硝酸盐的热分解》实验中，热分解比较中使用的银盐是____。下列哪一项最适合填入空白处？",
+        "options": [
+          {
+            "label": "A",
+            "text": "AgNO₃(s)"
+          },
+          {
+            "label": "B",
+            "text": "NaNO₂"
+          },
+          {
+            "label": "C",
+            "text": "KI-CCl₄"
+          },
+          {
+            "label": "D",
+            "text": "水玻璃"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "空白处应填“AgNO₃(s)”。本轮将原手机端高风险填空改为单选，避免上下标、别名或复杂化学式输入导致机器判分不稳定。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-91bbea2b"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_3_91bbea2b"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "AgNO₃(s)",
+            "point_key": "candidate-3-91bbea2b",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“AgNO₃(s)”直接支撑题干所问：在《19-4-07 硝酸盐的热分解》实验中，热分解比较中使用的银盐是____。下列哪一项最适合填入空白处？；对应点位为“AgNO₃ 热分解”。"
+          },
+          {
+            "label": "B",
+            "text": "NaNO₂",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“NaNO₂”与本题焦点“在《19-4-07 硝酸盐的热分解》实验中，热分解比较中使用的银盐是____。下列哪一项最适合填入空白处？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“NaNO₂”。"
+          },
+          {
+            "label": "C",
+            "text": "KI-CCl₄",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“KI-CCl₄”混入其他实验或相邻操作，易造成点位错配；本题实际问的是“在《19-4-07 硝酸盐的热分解》实验中，热分解比较中使用的银盐是____。下列哪一项最适合填入空白处？”。"
+          },
+          {
+            "label": "D",
+            "text": "水玻璃",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“水玻璃”混入其他实验或相邻操作，易造成点位错配；本题实际问的是“在《19-4-07 硝酸盐的热分解》实验中，热分解比较中使用的银盐是____。下列哪一项最适合填入空白处？”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00243_765fc7b450",
+            "expchunk_00244_53c663efb4"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final rewrite：phone_risk_repaired_as_single_choice；有效题为本 proposed_question。；原题存在证据、深度或题型风险，最终有效题已由 proposed_question 修复。",
+          "supporting_theory_note": ""
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00243_765fc7b450",
+            "expchunk_00244_53c663efb4"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "generic_or_answer_shell_explanation",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-4-07 硝酸盐的热分解》实验中，热分解比较中使用的银盐是____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "AgNO₃(s)"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "原文列出 AgNO₃(s)。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00243_765fc7b450",
+              "expchunk_00244_53c663efb4"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-4-07 硝酸盐的热分解》实验中，热分解比较中使用的银盐是____。下列哪一项最适合填入空白处？",
+            "options": [
+              {
+                "label": "A",
+                "text": "AgNO₃(s)"
+              },
+              {
+                "label": "B",
+                "text": "NaNO₂"
+              },
+              {
+                "label": "C",
+                "text": "KI-CCl₄"
+              },
+              {
+                "label": "D",
+                "text": "水玻璃"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "空白处应填“AgNO₃(s)”。本轮将原手机端高风险填空改为单选，避免上下标、别名或复杂化学式输入导致机器判分不稳定。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_4_07_SEMANTIC_FINAL_025",
+        "source_review_id": "EXP_19_4_07_SEMANTIC_FINAL_025",
+        "source_question_index": 25,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《19-4-07 硝酸盐的热分解》实验中，检验热分解生成的气体时使用____。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "火柴余烬"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "步骤要求用火柴余烬检验气体。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-4-29485ccd"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "19_4_07_point_4"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00243_765fc7b450",
+            "expchunk_00244_53c663efb4"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "终审保留：题干、答案和解析与教材实验点位语义一致。",
+          "supporting_theory_note": ""
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00243_765fc7b450",
+            "expchunk_00244_53c663efb4"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-4-07 硝酸盐的热分解》实验中，检验热分解生成的气体时使用____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "火柴余烬"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "步骤要求用火柴余烬检验气体。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00243_765fc7b450",
+              "expchunk_00244_53c663efb4"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_4_07_SEMANTIC_FINAL_026",
+        "source_review_id": "EXP_19_4_07_SEMANTIC_FINAL_026",
+        "source_question_index": 26,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-4-07 硝酸盐的热分解》实验中，能使余烬复燃的气体是____。下列哪一项最适合填入空白处？",
+        "options": [
+          {
+            "label": "A",
+            "text": "NaNO₂"
+          },
+          {
+            "label": "B",
+            "text": "KI-CCl₄"
+          },
+          {
+            "label": "C",
+            "text": "O₂"
+          },
+          {
+            "label": "D",
+            "text": "水玻璃"
+          }
+        ],
+        "answer": {
+          "value": "C"
+        },
+        "explanation": "空白处应填“O₂”。本轮将原手机端高风险填空改为单选，避免上下标、别名或复杂化学式输入导致机器判分不稳定。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-4-29485ccd"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_4_29485ccd"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "NaNO₂",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“NaNO₂”与本题焦点“在《19-4-07 硝酸盐的热分解》实验中，能使余烬复燃的气体是____。下列哪一项最适合填入空白处？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“NaNO₂”。"
+          },
+          {
+            "label": "B",
+            "text": "KI-CCl₄",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“KI-CCl₄”混入其他实验或相邻操作，易造成点位错配；本题实际问的是“在《19-4-07 硝酸盐的热分解》实验中，能使余烬复燃的气体是____。下列哪一项最适合填入空白处？”。"
+          },
+          {
+            "label": "C",
+            "text": "O₂",
+            "point_key": "candidate-4-29485ccd",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“O₂”直接支撑题干所问：在《19-4-07 硝酸盐的热分解》实验中，能使余烬复燃的气体是____。下列哪一项最适合填入空白处？；对应点位为“用火柴余烬检验热分解生成的气体”。"
+          },
+          {
+            "label": "D",
+            "text": "水玻璃",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“水玻璃”混入其他实验或相邻操作，易造成点位错配；本题实际问的是“在《19-4-07 硝酸盐的热分解》实验中，能使余烬复燃的气体是____。下列哪一项最适合填入空白处？”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00243_765fc7b450",
+            "expchunk_00244_53c663efb4"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00562_ef6a65a064",
+            "textbook_prose_00565_4ff80431a2"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final rewrite：phone_risk_repaired_as_single_choice；有效题为本 proposed_question。；原题存在证据、深度或题型风险，最终有效题已由 proposed_question 修复。",
+          "supporting_theory_note": "本题判断除实验操作/现象外，还依赖 supporting theory: textbook_prose_00562_ef6a65a064, textbook_prose_00565_4ff80431a2。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00243_765fc7b450",
+            "expchunk_00244_53c663efb4"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00562_ef6a65a064",
+            "textbook_prose_00565_4ff80431a2"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00562_ef6a65a064",
+            "textbook_prose_00565_4ff80431a2"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "generic_or_answer_shell_explanation",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-4-07 硝酸盐的热分解》实验中，能使余烬复燃的气体是____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "O₂"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "硝酸盐热分解常放出氧气，余烬可复燃。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00243_765fc7b450",
+              "expchunk_00244_53c663efb4"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-4-07 硝酸盐的热分解》实验中，能使余烬复燃的气体是____。下列哪一项最适合填入空白处？",
+            "options": [
+              {
+                "label": "A",
+                "text": "NaNO₂"
+              },
+              {
+                "label": "B",
+                "text": "KI-CCl₄"
+              },
+              {
+                "label": "C",
+                "text": "O₂"
+              },
+              {
+                "label": "D",
+                "text": "水玻璃"
+              }
+            ],
+            "answer": {
+              "value": "C"
+            },
+            "explanation": "空白处应填“O₂”。本轮将原手机端高风险填空改为单选，避免上下标、别名或复杂化学式输入导致机器判分不稳定。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_4_07_SEMANTIC_FINAL_027",
+        "source_review_id": "EXP_19_4_07_SEMANTIC_FINAL_027",
+        "source_question_index": 27,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-4-07 硝酸盐的热分解》实验中，部分硝酸盐热分解会产生棕色的____。下列哪一项最适合填入空白处？",
+        "options": [
+          {
+            "label": "A",
+            "text": "NaNO₂"
+          },
+          {
+            "label": "B",
+            "text": "KI-CCl₄"
+          },
+          {
+            "label": "C",
+            "text": "水玻璃"
+          },
+          {
+            "label": "D",
+            "text": "NO₂"
+          }
+        ],
+        "answer": {
+          "value": "D"
+        },
+        "explanation": "空白处应填“NO₂”。本轮将原手机端高风险填空改为单选，避免上下标、别名或复杂化学式输入导致机器判分不稳定。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-aa0424f2",
+          "candidate-3-91bbea2b"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_2_aa0424f2",
+          "point_candidate_3_91bbea2b"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "NaNO₂",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“NaNO₂”与本题焦点“在《19-4-07 硝酸盐的热分解》实验中，部分硝酸盐热分解会产生棕色的____。下列哪一项最适合填入空白处？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“NaNO₂”。"
+          },
+          {
+            "label": "B",
+            "text": "KI-CCl₄",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“KI-CCl₄”混入其他实验或相邻操作，易造成点位错配；本题实际问的是“在《19-4-07 硝酸盐的热分解》实验中，部分硝酸盐热分解会产生棕色的____。下列哪一项最适合填入空白处？”。"
+          },
+          {
+            "label": "C",
+            "text": "水玻璃",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“水玻璃”混入其他实验或相邻操作，易造成点位错配；本题实际问的是“在《19-4-07 硝酸盐的热分解》实验中，部分硝酸盐热分解会产生棕色的____。下列哪一项最适合填入空白处？”。"
+          },
+          {
+            "label": "D",
+            "text": "NO₂",
+            "point_key": "candidate-2-aa0424f2",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“NO₂”直接支撑题干所问：在《19-4-07 硝酸盐的热分解》实验中，部分硝酸盐热分解会产生棕色的____。下列哪一项最适合填入空白处？；对应点位为“Cu(NO₃)₂ 热分解”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00243_765fc7b450",
+            "expchunk_00244_53c663efb4"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00562_ef6a65a064",
+            "textbook_prose_00565_4ff80431a2"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final rewrite：phone_risk_repaired_as_single_choice；有效题为本 proposed_question。；原题存在证据、深度或题型风险，最终有效题已由 proposed_question 修复。",
+          "supporting_theory_note": "本题判断除实验操作/现象外，还依赖 supporting theory: textbook_prose_00562_ef6a65a064, textbook_prose_00565_4ff80431a2。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00243_765fc7b450",
+            "expchunk_00244_53c663efb4"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00562_ef6a65a064",
+            "textbook_prose_00565_4ff80431a2"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00562_ef6a65a064",
+            "textbook_prose_00565_4ff80431a2"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "generic_or_answer_shell_explanation",
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-4-07 硝酸盐的热分解》实验中，部分硝酸盐热分解会产生棕色的____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "NO₂"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "过渡金属或银的硝酸盐热分解可产生二氧化氮。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00243_765fc7b450",
+              "expchunk_00244_53c663efb4"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-4-07 硝酸盐的热分解》实验中，部分硝酸盐热分解会产生棕色的____。下列哪一项最适合填入空白处？",
+            "options": [
+              {
+                "label": "A",
+                "text": "NaNO₂"
+              },
+              {
+                "label": "B",
+                "text": "KI-CCl₄"
+              },
+              {
+                "label": "C",
+                "text": "水玻璃"
+              },
+              {
+                "label": "D",
+                "text": "NO₂"
+              }
+            ],
+            "answer": {
+              "value": "D"
+            },
+            "explanation": "空白处应填“NO₂”。本轮将原手机端高风险填空改为单选，避免上下标、别名或复杂化学式输入导致机器判分不稳定。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_4_07_SEMANTIC_FINAL_028",
+        "source_review_id": "EXP_19_4_07_SEMANTIC_FINAL_028",
+        "source_question_index": 28,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《19-4-07 硝酸盐的热分解》实验中，实验要求说明三种硝酸盐热分解反应的____。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "异同点"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "原文要求说明它们热分解反应的异同。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-2241ae7a",
+          "candidate-2-aa0424f2",
+          "candidate-3-91bbea2b",
+          "candidate-4-29485ccd"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "19_4_07_point_1",
+          "19_4_07_point_2",
+          "19_4_07_point_3",
+          "19_4_07_point_4"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00243_765fc7b450",
+            "expchunk_00244_53c663efb4"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "终审保留：题干、答案和解析与教材实验点位语义一致。",
+          "supporting_theory_note": ""
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00243_765fc7b450",
+            "expchunk_00244_53c663efb4"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-4-07 硝酸盐的热分解》实验中，实验要求说明三种硝酸盐热分解反应的____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "异同点"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "原文要求说明它们热分解反应的异同。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00243_765fc7b450",
+              "expchunk_00244_53c663efb4"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_4_07_SEMANTIC_FINAL_029",
+        "source_review_id": "EXP_19_4_07_SEMANTIC_FINAL_029",
+        "source_question_index": 29,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《19-4-07 硝酸盐的热分解》实验中，硝酸盐热分解实验的主要操作是____固体样品。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "加热"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "热分解需要对固体硝酸盐加热。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-2241ae7a",
+          "candidate-2-aa0424f2",
+          "candidate-3-91bbea2b",
+          "candidate-4-29485ccd"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "19_4_07_point_1",
+          "19_4_07_point_2",
+          "19_4_07_point_3",
+          "19_4_07_point_4"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00243_765fc7b450",
+            "expchunk_00244_53c663efb4"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "终审保留：题干、答案和解析与教材实验点位语义一致。",
+          "supporting_theory_note": ""
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00243_765fc7b450",
+            "expchunk_00244_53c663efb4"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-4-07 硝酸盐的热分解》实验中，硝酸盐热分解实验的主要操作是____固体样品。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "加热"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "热分解需要对固体硝酸盐加热。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00243_765fc7b450",
+              "expchunk_00244_53c663efb4"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_4_07_SEMANTIC_FINAL_030",
+        "source_review_id": "EXP_19_4_07_SEMANTIC_FINAL_030",
+        "source_question_index": 30,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-4-07 硝酸盐的热分解》实验中，硝酸盐热分解可能放出有害的____，应注意通风。下列哪一项最适合填入空白处？",
+        "options": [
+          {
+            "label": "A",
+            "text": "NaNO₂"
+          },
+          {
+            "label": "B",
+            "text": "KI-CCl₄"
+          },
+          {
+            "label": "C",
+            "text": "NO₂"
+          },
+          {
+            "label": "D",
+            "text": "水玻璃"
+          }
+        ],
+        "answer": {
+          "value": "C"
+        },
+        "explanation": "空白处应填“NO₂”。本轮将原手机端高风险填空改为单选，避免上下标、别名或复杂化学式输入导致机器判分不稳定。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-aa0424f2",
+          "candidate-3-91bbea2b"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_2_aa0424f2",
+          "point_candidate_3_91bbea2b"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "NaNO₂",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“NaNO₂”与本题焦点“在《19-4-07 硝酸盐的热分解》实验中，硝酸盐热分解可能放出有害的____，应注意通风。下列哪一项最适合填入空白处？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“NaNO₂”。"
+          },
+          {
+            "label": "B",
+            "text": "KI-CCl₄",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“KI-CCl₄”混入其他实验或相邻操作，易造成点位错配；本题实际问的是“在《19-4-07 硝酸盐的热分解》实验中，硝酸盐热分解可能放出有害的____，应注意通风。下列哪一项最适合填入空白处？”。"
+          },
+          {
+            "label": "C",
+            "text": "NO₂",
+            "point_key": "candidate-2-aa0424f2",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“NO₂”直接支撑题干所问：在《19-4-07 硝酸盐的热分解》实验中，硝酸盐热分解可能放出有害的____，应注意通风。下列哪一项最适合填入空白处？；对应点位为“Cu(NO₃)₂ 热分解”。"
+          },
+          {
+            "label": "D",
+            "text": "水玻璃",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“水玻璃”混入其他实验或相邻操作，易造成点位错配；本题实际问的是“在《19-4-07 硝酸盐的热分解》实验中，硝酸盐热分解可能放出有害的____，应注意通风。下列哪一项最适合填入空白处？”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00243_765fc7b450",
+            "expchunk_00244_53c663efb4"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00562_ef6a65a064",
+            "textbook_prose_00565_4ff80431a2"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final rewrite：phone_risk_repaired_as_single_choice；有效题为本 proposed_question。；原题存在证据、深度或题型风险，最终有效题已由 proposed_question 修复。",
+          "supporting_theory_note": "本题判断除实验操作/现象外，还依赖 supporting theory: textbook_prose_00562_ef6a65a064, textbook_prose_00565_4ff80431a2。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00243_765fc7b450",
+            "expchunk_00244_53c663efb4"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00562_ef6a65a064",
+            "textbook_prose_00565_4ff80431a2"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00562_ef6a65a064",
+            "textbook_prose_00565_4ff80431a2"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "generic_or_answer_shell_explanation",
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-4-07 硝酸盐的热分解》实验中，硝酸盐热分解可能放出有害的____，应注意通风。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "NO₂"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "二氧化氮为棕色有毒气体。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00243_765fc7b450",
+              "expchunk_00244_53c663efb4"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-4-07 硝酸盐的热分解》实验中，硝酸盐热分解可能放出有害的____，应注意通风。下列哪一项最适合填入空白处？",
+            "options": [
+              {
+                "label": "A",
+                "text": "NaNO₂"
+              },
+              {
+                "label": "B",
+                "text": "KI-CCl₄"
+              },
+              {
+                "label": "C",
+                "text": "NO₂"
+              },
+              {
+                "label": "D",
+                "text": "水玻璃"
+              }
+            ],
+            "answer": {
+              "value": "C"
+            },
+            "explanation": "空白处应填“NO₂”。本轮将原手机端高风险填空改为单选，避免上下标、别名或复杂化学式输入导致机器判分不稳定。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "requires_supporting_theory"
+          ]
+        }
+      }
+    ]
+  }
+}

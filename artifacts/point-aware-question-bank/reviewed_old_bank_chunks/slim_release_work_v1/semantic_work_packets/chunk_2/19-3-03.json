@@ -1,0 +1,4448 @@
+{
+  "metadata": {
+    "version": "chunk-2-release-slim-v1",
+    "artifact_type": "slim_question_bank_work_file",
+    "generated_at": "2026-06-15T03:27:58.719338+00:00",
+    "source_file": "E:\\chemistry-admin\\artifacts\\point-aware-question-bank\\reviewed_old_bank_chunks\\chunk_2_release_final_v1.json",
+    "normalization_rule": "effective question plus minimal lineage, evidence IDs, point bindings, option links, evidence locators, and mechanical risk flags",
+    "evidence_policy": "RAG source text is not embedded; packets carry locators and reviewers must read E:/chemistry-rag/data/rag_ready directly",
+    "chunk_id_policy": "inherited chunk ids are untrusted locator candidates until manually compared with RAG text",
+    "semantic_status": "not_semantically_repaired_by_this_script",
+    "packet_type": "single_experiment_semantic_repair_work_packet",
+    "chunk": 2,
+    "experiment_code": "19-3-03",
+    "question_count": 30
+  },
+  "experiment": {
+    "experiment_id": "EXP_19_3_03",
+    "experiment_code": "19-3-03",
+    "experiment_title": "SO₃²⁻ 的检出",
+    "chapter_bindings": [
+      {
+        "chapter_id": "CH14",
+        "coverage_type": "primary",
+        "sort_order": 1
+      }
+    ],
+    "video_points": [
+      {
+        "point_key": "candidate-1-26a8e36e",
+        "point_title": "设计方法除去 SO₄²⁻ 干扰",
+        "source": "formal_experiment.video_candidates",
+        "candidate_index": 1,
+        "resource_count": 0,
+        "published_count": 0,
+        "resource_titles": []
+      },
+      {
+        "point_key": "candidate-2-795f5a0b",
+        "point_title": "验证样品中 SO₃²⁻ 的存在",
+        "source": "formal_experiment.video_candidates",
+        "candidate_index": 2,
+        "resource_count": 0,
+        "published_count": 0,
+        "resource_titles": []
+      }
+    ],
+    "canonical_chunk_ids": [
+      "expchunk_00223_91cb040d8f",
+      "expchunk_00224_166bfb5a4a",
+      "expchunk_00228_5e99fe31b9"
+    ],
+    "evidence_lookup": {
+      "policy": "locator_only; canonical RAG text is not embedded in this packet",
+      "chunk_id_policy": "metadata chunk ids are inherited claims, not trusted evidence; reviewers must compare the RAG text against the question stem/options/answer/explanation and replace or remove wrong ids",
+      "primary_source_dir": "E:\\chemistry-rag\\data\\rag_ready",
+      "source_files": {
+        "experiment_chunks": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+        "supporting_theory_chunks": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl"
+      },
+      "search_hints": {
+        "experiment_code": "19-3-03",
+        "parent_experiment_code": "19-3",
+        "experiment_title": "SO₃²⁻ 的检出",
+        "video_point_titles": [
+          "设计方法除去 SO₄²⁻ 干扰",
+          "验证样品中 SO₃²⁻ 的存在"
+        ],
+        "canonical_chunk_ids_from_metadata": [
+          "expchunk_00223_91cb040d8f",
+          "expchunk_00224_166bfb5a4a",
+          "expchunk_00228_5e99fe31b9"
+        ],
+        "supporting_theory_chunk_ids_from_metadata": [
+          "textbook_prose_00340_77f9d61c94",
+          "textbook_prose_00363_d345af4100"
+        ],
+        "suggested_search_patterns": [
+          "19-3-03",
+          "19-3",
+          "SO₃²⁻ 的检出",
+          "设计方法除去 SO₄²⁻ 干扰",
+          "验证样品中 SO₃²⁻ 的存在",
+          "expchunk_00223_91cb040d8f",
+          "expchunk_00224_166bfb5a4a",
+          "expchunk_00228_5e99fe31b9",
+          "textbook_prose_00340_77f9d61c94",
+          "textbook_prose_00363_d345af4100"
+        ]
+      },
+      "rag_exact_id_presence": {
+        "meaning": "id presence only; this does not validate semantic relevance",
+        "found_ids": [
+          "expchunk_00223_91cb040d8f",
+          "expchunk_00224_166bfb5a4a",
+          "expchunk_00228_5e99fe31b9",
+          "textbook_prose_00340_77f9d61c94",
+          "textbook_prose_00363_d345af4100"
+        ],
+        "missing_ids": [],
+        "found_locator_summaries": [
+          {
+            "chunk_id": "expchunk_00223_91cb040d8f",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+            "line_number": 236,
+            "source_collection": "textbook_experiment_clean_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学实验（第四版）",
+            "page_start": 144,
+            "page_end": 144,
+            "section_path": [
+              "第7章 元素性质实验",
+              "实验 19-3 硫及其化合物",
+              "（二）实验预习"
+            ],
+            "content_type": "property_test",
+            "knowledge_unit": "property_test",
+            "parent_id": "expchunk_protocol_81411c02b5a6",
+            "prev_chunk_id": "expchunk_00222_4b38498af2",
+            "next_chunk_id": "expchunk_00224_166bfb5a4a",
+            "relations": {
+              "section_id": "expsec_31133addc3308732",
+              "experiment_id": "experiment:实验_19-3_硫及其化合物",
+              "page_anchor": "page_144",
+              "parent": "expchunk_protocol_81411c02b5a6"
+            }
+          },
+          {
+            "chunk_id": "expchunk_00224_166bfb5a4a",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+            "line_number": 237,
+            "source_collection": "textbook_experiment_clean_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学实验（第四版）",
+            "page_start": 144,
+            "page_end": 144,
+            "section_path": [
+              "第7章 元素性质实验",
+              "实验 19-3 硫及其化合物",
+              "（三）安全知识"
+            ],
+            "content_type": "safety_note",
+            "knowledge_unit": "safety_note",
+            "parent_id": "expchunk_protocol_81411c02b5a6",
+            "prev_chunk_id": "expchunk_00223_91cb040d8f",
+            "next_chunk_id": "expchunk_00225_b2d05b795c",
+            "relations": {
+              "section_id": "expsec_ec2632c84feb0810",
+              "experiment_id": "experiment:实验_19-3_硫及其化合物",
+              "page_anchor": "page_144",
+              "parent": "expchunk_protocol_81411c02b5a6"
+            }
+          },
+          {
+            "chunk_id": "expchunk_00228_5e99fe31b9",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+            "line_number": 241,
+            "source_collection": "textbook_experiment_clean_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学实验（第四版）",
+            "page_start": 145,
+            "page_end": 145,
+            "section_path": [
+              "第7章 元素性质实验",
+              "实验 19-3 硫及其化合物",
+              "（四）实验内容",
+              "2. 硫的氧化物——二氧化硫"
+            ],
+            "content_type": "property_test",
+            "knowledge_unit": "property_test",
+            "parent_id": "expchunk_protocol_81411c02b5a6",
+            "prev_chunk_id": "expchunk_00227_71b290e848",
+            "next_chunk_id": "expchunk_00229_23988fd5d4",
+            "relations": {
+              "section_id": "expsec_962a0496444948b6",
+              "experiment_id": "experiment:实验_19-3_硫及其化合物",
+              "page_anchor": "page_145",
+              "parent": "expchunk_protocol_81411c02b5a6"
+            }
+          },
+          {
+            "chunk_id": "textbook_prose_00340_77f9d61c94",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+            "line_number": 591,
+            "source_collection": "textbook_inorganic_lower_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学（下册）（第二版）",
+            "page_start": 66,
+            "page_end": 66,
+            "section_path": [
+              "第 14 章 氧族元素",
+              "14.4 硫单质及化合物",
+              "14.4.4 硫的氧化物、含氧酸及其盐",
+              "1) 二氧化硫"
+            ],
+            "content_type": "reaction",
+            "knowledge_unit": "reaction",
+            "parent_id": "section:f0b0acfe7c92",
+            "prev_chunk_id": "textbook_figure_figure_p066_01",
+            "next_chunk_id": "textbook_prose_00341_44241a0b9e",
+            "relations": {
+              "parent": "section:f0b0acfe7c92",
+              "source_route": "clean_pages",
+              "prev": "textbook_figure_figure_p066_01",
+              "next": "textbook_prose_00341_44241a0b9e"
+            }
+          },
+          {
+            "chunk_id": "textbook_prose_00363_d345af4100",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+            "line_number": 614,
+            "source_collection": "textbook_inorganic_lower_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学（下册）（第二版）",
+            "page_start": 68,
+            "page_end": 68,
+            "section_path": [
+              "第 14 章 氧族元素",
+              "14.4 硫单质及化合物",
+              "14.4.4 硫的氧化物、含氧酸及其盐",
+              "2) 亚硫酸及其盐"
+            ],
+            "content_type": "reaction",
+            "knowledge_unit": "reaction",
+            "parent_id": "section:e1bccf16150d",
+            "prev_chunk_id": "textbook_prose_00362_9aba41fd5e",
+            "next_chunk_id": "textbook_prose_00364_8a5e9a2573",
+            "relations": {
+              "parent": "section:e1bccf16150d",
+              "source_route": "clean_pages",
+              "prev": "textbook_prose_00362_9aba41fd5e",
+              "next": "textbook_prose_00364_8a5e9a2573"
+            }
+          }
+        ]
+      },
+      "legacy_locator_summaries": [
+        {
+          "chunk_id": "expchunk_00223_91cb040d8f",
+          "source_file": "无机化学实验（第四版）",
+          "book_title": "无机化学实验（第四版）",
+          "document_id": "DOC_CANONICAL_EXPERIMENT_V1",
+          "source_collection": "textbook_experiment_clean_v1",
+          "source_role": "canonical_textbook",
+          "content_type": "property_test",
+          "chapter_id": null,
+          "page_number": 144,
+          "section_title": "第7章 元素性质实验 / 实验 19-3 硫及其化合物 / （二）实验预习",
+          "section_path": [
+            "第7章 元素性质实验",
+            "实验 19-3 硫及其化合物",
+            "（二）实验预习"
+          ]
+        },
+        {
+          "chunk_id": "expchunk_00224_166bfb5a4a",
+          "source_file": "无机化学实验（第四版）",
+          "book_title": "无机化学实验（第四版）",
+          "document_id": "DOC_CANONICAL_EXPERIMENT_V1",
+          "source_collection": "textbook_experiment_clean_v1",
+          "source_role": "canonical_textbook",
+          "content_type": "safety_note",
+          "chapter_id": null,
+          "page_number": 144,
+          "section_title": "第7章 元素性质实验 / 实验 19-3 硫及其化合物 / （三）安全知识",
+          "section_path": [
+            "第7章 元素性质实验",
+            "实验 19-3 硫及其化合物",
+            "（三）安全知识"
+          ]
+        },
+        {
+          "chunk_id": "expchunk_00228_5e99fe31b9",
+          "source_file": "无机化学实验（第四版）",
+          "book_title": "无机化学实验（第四版）",
+          "document_id": "DOC_CANONICAL_EXPERIMENT_V1",
+          "source_collection": "textbook_experiment_clean_v1",
+          "source_role": "canonical_textbook",
+          "content_type": "property_test",
+          "chapter_id": null,
+          "page_number": 145,
+          "section_title": "实验 19-3 硫及其化合物 / （四）实验内容 / 2. 硫的氧化物——二氧化硫",
+          "section_path": [
+            "第7章 元素性质实验",
+            "实验 19-3 硫及其化合物",
+            "（四）实验内容",
+            "2. 硫的氧化物——二氧化硫"
+          ]
+        }
+      ],
+      "legacy_missing_ids": [
+        "textbook_prose_00340_77f9d61c94",
+        "textbook_prose_00363_d345af4100"
+      ]
+    },
+    "questions": [
+      {
+        "question_id": "EXP_19_3_03_SEMANTIC_FINAL_001",
+        "source_review_id": "EXP_19_3_03_SEMANTIC_FINAL_001",
+        "source_question_index": 1,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-3-03 SO₃²⁻ 的检出》中，检出 SO₃²⁻ 前先除去 SO₄²⁻ 的主要原因是什么？",
+        "options": [
+          {
+            "label": "A",
+            "text": "SO₄²⁻ 会干扰 SO₃²⁻ 的检出"
+          },
+          {
+            "label": "B",
+            "text": "SO₄²⁻ 能把 CCl₄ 氧化"
+          },
+          {
+            "label": "C",
+            "text": "SO₄²⁻ 是目标离子"
+          },
+          {
+            "label": "D",
+            "text": "SO₄²⁻ 会生成棕色环"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "教材明确说明 SO₄²⁻ 会干扰 SO₃²⁻ 检出，因此先除去干扰再验证目标离子。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-26a8e36e",
+          "candidate-2-795f5a0b"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "19_3_03_point_1",
+          "19_3_03_point_2"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "SO₄²⁻ 会干扰 SO₃²⁻ 的检出",
+            "point_key": "candidate-1-26a8e36e",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“SO₄²⁻ 会干扰 SO₃²⁻ 的检出”直接支撑题干所问：在《19-3-03 SO₃²⁻ 的检出》中，检出 SO₃²⁻ 前先除去 SO₄²⁻ 的主要原因是什么？；对应点位为“设计方法除去 SO₄²⁻ 干扰”。"
+          },
+          {
+            "label": "B",
+            "text": "SO₄²⁻ 能把 CCl₄ 氧化",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“SO₄²⁻ 能把 CCl₄ 氧化”混入其他实验或相邻操作，易造成点位错配；本题实际问的是“在《19-3-03 SO₃²⁻ 的检出》中，检出 SO₃²⁻ 前先除去 SO₄²⁻ 的主要原因是什么？”。"
+          },
+          {
+            "label": "C",
+            "text": "SO₄²⁻ 是目标离子",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“SO₄²⁻ 是目标离子”与本题焦点“在《19-3-03 SO₃²⁻ 的检出》中，检出 SO₃²⁻ 前先除去 SO₄²⁻ 的主要原因是什么？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“SO₄²⁻ 是目标离子”。"
+          },
+          {
+            "label": "D",
+            "text": "SO₄²⁻ 会生成棕色环",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“SO₄²⁻ 会生成棕色环”混入其他实验或相邻操作，易造成点位错配；本题实际问的是“在《19-3-03 SO₃²⁻ 的检出》中，检出 SO₃²⁻ 前先除去 SO₄²⁻ 的主要原因是什么？”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00223_91cb040d8f",
+            "expchunk_00224_166bfb5a4a",
+            "expchunk_00228_5e99fe31b9"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "教材明确说明 SO₄²⁻ 会干扰 SO₃²⁻ 检出，因此先除去干扰再验证目标离子。；原题存在证据、深度或题型风险，最终有效题已由 proposed_question 修复。",
+          "supporting_theory_note": ""
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00223_91cb040d8f",
+            "expchunk_00224_166bfb5a4a",
+            "expchunk_00228_5e99fe31b9"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-3-03 SO₃²⁻ 的检出》实验中，该实验设计检出的离子是哪一种？",
+            "options": [
+              {
+                "label": "A",
+                "text": "SO₄²⁻"
+              },
+              {
+                "label": "B",
+                "text": "NO₃⁻"
+              },
+              {
+                "label": "C",
+                "text": "SO₃²⁻"
+              },
+              {
+                "label": "D",
+                "text": "Cl⁻"
+              }
+            ],
+            "answer": {
+              "value": "C"
+            },
+            "explanation": "标题和步骤均指向亚硫酸根检出。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00228_5e99fe31b9",
+              "expchunk_00223_91cb040d8f",
+              "expchunk_00224_166bfb5a4a"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-3-03 SO₃²⁻ 的检出》中，检出 SO₃²⁻ 前先除去 SO₄²⁻ 的主要原因是什么？",
+            "options": [
+              {
+                "label": "A",
+                "text": "SO₄²⁻ 会干扰 SO₃²⁻ 的检出"
+              },
+              {
+                "label": "B",
+                "text": "SO₄²⁻ 能把 CCl₄ 氧化"
+              },
+              {
+                "label": "C",
+                "text": "SO₄²⁻ 是目标离子"
+              },
+              {
+                "label": "D",
+                "text": "SO₄²⁻ 会生成棕色环"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "教材明确说明 SO₄²⁻ 会干扰 SO₃²⁻ 检出，因此先除去干扰再验证目标离子。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_3_03_SEMANTIC_FINAL_002",
+        "source_review_id": "EXP_19_3_03_SEMANTIC_FINAL_002",
+        "source_question_index": 2,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-3-03 SO₃²⁻ 的检出》中，检出 SO₃²⁻ 前先排除 SO₄²⁻ 干扰，最直接的目的是什么？",
+        "options": [
+          {
+            "label": "A",
+            "text": "避免硫酸根干扰亚硫酸根检出"
+          },
+          {
+            "label": "B",
+            "text": "把 SO₄²⁻ 当作目标离子"
+          },
+          {
+            "label": "C",
+            "text": "生成棕色环"
+          },
+          {
+            "label": "D",
+            "text": "萃取碘单质"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "先除去 SO₄²⁻ 后再验证 SO₃²⁻，能降低干扰。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-26a8e36e",
+          "candidate-2-795f5a0b"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_1_26a8e36e",
+          "point_candidate_2_795f5a0b"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "避免硫酸根干扰亚硫酸根检出",
+            "point_key": "candidate-1-26a8e36e",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“避免硫酸根干扰亚硫酸根检出”直接支撑题干所问：在《19-3-03 SO₃²⁻ 的检出》中，检出 SO₃²⁻ 前先排除 SO₄²⁻ 干扰，最直接的目的是什么？；对应点位为“设计方法除去 SO₄²⁻ 干扰”。"
+          },
+          {
+            "label": "B",
+            "text": "把 SO₄²⁻ 当作目标离子",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“把 SO₄²⁻ 当作目标离子”与本题焦点“在《19-3-03 SO₃²⁻ 的检出》中，检出 SO₃²⁻ 前先排除 SO₄²⁻ 干扰，最直接的目的是什么？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“把 SO₄²⁻ 当作目标离子”。"
+          },
+          {
+            "label": "C",
+            "text": "生成棕色环",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“生成棕色环”混入其他实验或相邻操作，易造成点位错配；本题实际问的是“在《19-3-03 SO₃²⁻ 的检出》中，检出 SO₃²⁻ 前先排除 SO₄²⁻ 干扰，最直接的目的是什么？”。"
+          },
+          {
+            "label": "D",
+            "text": "萃取碘单质",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“萃取碘单质”与本题焦点“在《19-3-03 SO₃²⁻ 的检出》中，检出 SO₃²⁻ 前先排除 SO₄²⁻ 干扰，最直接的目的是什么？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“萃取碘单质”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00223_91cb040d8f",
+            "expchunk_00224_166bfb5a4a",
+            "expchunk_00228_5e99fe31b9"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final rewrite：low_quality_keep_rewritten；有效题为本 proposed_question。；原题存在证据、深度或题型风险，最终有效题已由 proposed_question 修复。",
+          "supporting_theory_note": ""
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00223_91cb040d8f",
+            "expchunk_00224_166bfb5a4a",
+            "expchunk_00228_5e99fe31b9"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-3-03 SO₃²⁻ 的检出》实验中，检出 SO₃²⁻ 前需要预先除去的常见干扰离子是哪一种？",
+            "options": [
+              {
+                "label": "A",
+                "text": "K⁺"
+              },
+              {
+                "label": "B",
+                "text": "Na⁺"
+              },
+              {
+                "label": "C",
+                "text": "H⁺"
+              },
+              {
+                "label": "D",
+                "text": "SO₄²⁻"
+              }
+            ],
+            "answer": {
+              "value": "D"
+            },
+            "explanation": "实验资料明确指出硫酸根会干扰。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00228_5e99fe31b9",
+              "expchunk_00223_91cb040d8f",
+              "expchunk_00224_166bfb5a4a"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-3-03 SO₃²⁻ 的检出》中，检出 SO₃²⁻ 前先排除 SO₄²⁻ 干扰，最直接的目的是什么？",
+            "options": [
+              {
+                "label": "A",
+                "text": "避免硫酸根干扰亚硫酸根检出"
+              },
+              {
+                "label": "B",
+                "text": "把 SO₄²⁻ 当作目标离子"
+              },
+              {
+                "label": "C",
+                "text": "生成棕色环"
+              },
+              {
+                "label": "D",
+                "text": "萃取碘单质"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "先除去 SO₄²⁻ 后再验证 SO₃²⁻，能降低干扰。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_3_03_SEMANTIC_FINAL_003",
+        "source_review_id": "EXP_19_3_03_SEMANTIC_FINAL_003",
+        "source_question_index": 3,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-3-03 SO₃²⁻ 的检出》实验中，该实验要求先做的关键处理是哪一项？",
+        "options": [
+          {
+            "label": "A",
+            "text": "预先除去 SO₄²⁻"
+          },
+          {
+            "label": "B",
+            "text": "先加入大量淀粉"
+          },
+          {
+            "label": "C",
+            "text": "先蒸干所有溶液"
+          },
+          {
+            "label": "D",
+            "text": "先加入 CCl₄ 萃取硫酸根"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "硫酸根干扰亚硫酸根检出。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-26a8e36e"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "19_3_03_point_1"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "预先除去 SO₄²⁻",
+            "point_key": "candidate-1-26a8e36e",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“预先除去 SO₄²⁻”直接支撑题干所问：在《19-3-03 SO₃²⁻ 的检出》实验中，该实验要求先做的关键处理是哪一项？；对应点位为“设计方法除去 SO₄²⁻ 干扰”。"
+          },
+          {
+            "label": "B",
+            "text": "先加入大量淀粉",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“先加入大量淀粉”与本题焦点“在《19-3-03 SO₃²⁻ 的检出》实验中，该实验要求先做的关键处理是哪一项？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“先加入大量淀粉”。"
+          },
+          {
+            "label": "C",
+            "text": "先蒸干所有溶液",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“先蒸干所有溶液”与本题焦点“在《19-3-03 SO₃²⁻ 的检出》实验中，该实验要求先做的关键处理是哪一项？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“先蒸干所有溶液”。"
+          },
+          {
+            "label": "D",
+            "text": "先加入 CCl₄ 萃取硫酸根",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“先加入 CCl₄ 萃取硫酸根”混入其他实验或相邻操作，易造成点位错配；本题实际问的是“在《19-3-03 SO₃²⁻ 的检出》实验中，该实验要求先做的关键处理是哪一项？”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00223_91cb040d8f",
+            "expchunk_00224_166bfb5a4a",
+            "expchunk_00228_5e99fe31b9"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "终审保留：题干、答案和解析与教材实验点位语义一致。",
+          "supporting_theory_note": ""
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00223_91cb040d8f",
+            "expchunk_00224_166bfb5a4a",
+            "expchunk_00228_5e99fe31b9"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-3-03 SO₃²⁻ 的检出》实验中，该实验要求先做的关键处理是哪一项？",
+            "options": [
+              {
+                "label": "A",
+                "text": "预先除去 SO₄²⁻"
+              },
+              {
+                "label": "B",
+                "text": "先加入大量淀粉"
+              },
+              {
+                "label": "C",
+                "text": "先蒸干所有溶液"
+              },
+              {
+                "label": "D",
+                "text": "先加入 CCl₄ 萃取硫酸根"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "硫酸根干扰亚硫酸根检出。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00228_5e99fe31b9",
+              "expchunk_00223_91cb040d8f",
+              "expchunk_00224_166bfb5a4a"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_3_03_SEMANTIC_FINAL_004",
+        "source_review_id": "EXP_19_3_03_SEMANTIC_FINAL_004",
+        "source_question_index": 4,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-3-03 SO₃²⁻ 的检出》实验中，验证 SO₃²⁻ 的常用思路是哪一项？",
+        "options": [
+          {
+            "label": "A",
+            "text": "加入 KSCN 生成血红色络合物"
+          },
+          {
+            "label": "B",
+            "text": "酸化使其生成 SO₂ 并检验 SO₂ 性质"
+          },
+          {
+            "label": "C",
+            "text": "加入氨水生成深蓝色溶液"
+          },
+          {
+            "label": "D",
+            "text": "加入 NaCl 生成白色 Hg₂Cl₂"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "亚硫酸根酸化可生成二氧化硫。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-795f5a0b"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "19_3_03_point_2"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "加入 KSCN 生成血红色络合物",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“加入 KSCN 生成血红色络合物”与本题焦点“在《19-3-03 SO₃²⁻ 的检出》实验中，验证 SO₃²⁻ 的常用思路是哪一项？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“加入 KSCN 生成血红色络合物”。"
+          },
+          {
+            "label": "B",
+            "text": "酸化使其生成 SO₂ 并检验 SO₂ 性质",
+            "point_key": "candidate-2-795f5a0b",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“酸化使其生成 SO₂ 并检验 SO₂ 性质”直接支撑题干所问：在《19-3-03 SO₃²⁻ 的检出》实验中，验证 SO₃²⁻ 的常用思路是哪一项？；对应点位为“验证样品中 SO₃²⁻ 的存在”。"
+          },
+          {
+            "label": "C",
+            "text": "加入氨水生成深蓝色溶液",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“加入氨水生成深蓝色溶液”与本题焦点“在《19-3-03 SO₃²⁻ 的检出》实验中，验证 SO₃²⁻ 的常用思路是哪一项？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“加入氨水生成深蓝色溶液”。"
+          },
+          {
+            "label": "D",
+            "text": "加入 NaCl 生成白色 Hg₂Cl₂",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“加入 NaCl 生成白色 Hg₂Cl₂”与本题焦点“在《19-3-03 SO₃²⁻ 的检出》实验中，验证 SO₃²⁻ 的常用思路是哪一项？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“加入 NaCl 生成白色 Hg₂Cl₂”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00223_91cb040d8f",
+            "expchunk_00224_166bfb5a4a",
+            "expchunk_00228_5e99fe31b9"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00340_77f9d61c94",
+            "textbook_prose_00363_d345af4100"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "current-release audit 条件复核：题干问 SO₂ 使酸性 KMnO₄ 溶液紫色褪去，canonical SO₂ 性质实验支持“酸化 KMnO₄ 后通入 SO₂ 并观察现象”；答案“紫”为短中文输入，手机端可机器确定性判分。该题保留为低深度颜色观察锚点，不作为强推理题；SO₂ 还原性和高锰酸根紫色判断依赖 supporting theory：textbook_prose_00340_77f9d61c94, textbook_prose_00363_d345af4100。",
+          "supporting_theory_note": "该判断依赖教材理论 chunk：textbook_prose_00340_77f9d61c94, textbook_prose_00363_d345af4100。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00223_91cb040d8f",
+            "expchunk_00224_166bfb5a4a",
+            "expchunk_00228_5e99fe31b9"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00340_77f9d61c94",
+            "textbook_prose_00363_d345af4100"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00340_77f9d61c94",
+            "textbook_prose_00363_d345af4100"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-3-03 SO₃²⁻ 的检出》实验中，验证 SO₃²⁻ 的常用思路是哪一项？",
+            "options": [
+              {
+                "label": "A",
+                "text": "加入 KSCN 生成血红色络合物"
+              },
+              {
+                "label": "B",
+                "text": "酸化使其生成 SO₂ 并检验 SO₂ 性质"
+              },
+              {
+                "label": "C",
+                "text": "加入氨水生成深蓝色溶液"
+              },
+              {
+                "label": "D",
+                "text": "加入 NaCl 生成白色 Hg₂Cl₂"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "亚硫酸根酸化可生成二氧化硫。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00228_5e99fe31b9",
+              "expchunk_00223_91cb040d8f",
+              "expchunk_00224_166bfb5a4a"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "requires_supporting_theory",
+            "current_release_audit_conditional_rechecked",
+            "low_depth_retained_with_reason",
+            "mobile_safe_short_answer"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_3_03_SEMANTIC_FINAL_005",
+        "source_review_id": "EXP_19_3_03_SEMANTIC_FINAL_005",
+        "source_question_index": 5,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-3-03 SO₃²⁻ 的检出》实验中，SO₂ 通入酸性 KMnO₄ 溶液时，最能说明 SO₂ 还原性的现象是哪一项？",
+        "options": [
+          {
+            "label": "A",
+            "text": "产生蓝色淀粉络合物"
+          },
+          {
+            "label": "B",
+            "text": "生成银镜"
+          },
+          {
+            "label": "C",
+            "text": "紫色褪去"
+          },
+          {
+            "label": "D",
+            "text": "出现黄色 Ni(dmg)₂ 沉淀"
+          }
+        ],
+        "answer": {
+          "value": "C"
+        },
+        "explanation": "SO₂ 具有还原性，可还原高锰酸根。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-795f5a0b"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "19_3_03_point_2"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "产生蓝色淀粉络合物",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“产生蓝色淀粉络合物”与本题焦点“在《19-3-03 SO₃²⁻ 的检出》实验中，SO₂ 通入酸性 KMnO₄ 溶液时，最能说明 SO₂ 还原性的现象是哪一项？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“产生蓝色淀粉络合物”。"
+          },
+          {
+            "label": "B",
+            "text": "生成银镜",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“生成银镜”与本题焦点“在《19-3-03 SO₃²⁻ 的检出》实验中，SO₂ 通入酸性 KMnO₄ 溶液时，最能说明 SO₂ 还原性的现象是哪一项？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“生成银镜”。"
+          },
+          {
+            "label": "C",
+            "text": "紫色褪去",
+            "point_key": "candidate-2-795f5a0b",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“紫色褪去”直接支撑题干所问：在《19-3-03 SO₃²⁻ 的检出》实验中，SO₂ 通入酸性 KMnO₄ 溶液时，最能说明 SO₂ 还原性的现象是哪一项？；对应点位为“验证样品中 SO₃²⁻ 的存在”。"
+          },
+          {
+            "label": "D",
+            "text": "出现黄色 Ni(dmg)₂ 沉淀",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“出现黄色 Ni(dmg)₂ 沉淀”与本题焦点“在《19-3-03 SO₃²⁻ 的检出》实验中，SO₂ 通入酸性 KMnO₄ 溶液时，最能说明 SO₂ 还原性的现象是哪一项？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“出现黄色 Ni(dmg)₂ 沉淀”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00223_91cb040d8f",
+            "expchunk_00224_166bfb5a4a",
+            "expchunk_00228_5e99fe31b9"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00340_77f9d61c94",
+            "textbook_prose_00363_d345af4100"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "终审保留：题干、答案和解析与教材实验点位语义一致。；polished final 补充 supporting theory 引用：textbook_prose_00340_77f9d61c94, textbook_prose_00363_d345af4100。",
+          "supporting_theory_note": "该判断依赖教材理论 chunk：textbook_prose_00340_77f9d61c94, textbook_prose_00363_d345af4100。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00223_91cb040d8f",
+            "expchunk_00224_166bfb5a4a",
+            "expchunk_00228_5e99fe31b9"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00340_77f9d61c94",
+            "textbook_prose_00363_d345af4100"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00340_77f9d61c94",
+            "textbook_prose_00363_d345af4100"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-3-03 SO₃²⁻ 的检出》实验中，SO₂ 通入酸性 KMnO₄ 溶液时，最能说明 SO₂ 还原性的现象是哪一项？",
+            "options": [
+              {
+                "label": "A",
+                "text": "产生蓝色淀粉络合物"
+              },
+              {
+                "label": "B",
+                "text": "生成银镜"
+              },
+              {
+                "label": "C",
+                "text": "紫色褪去"
+              },
+              {
+                "label": "D",
+                "text": "出现黄色 Ni(dmg)₂ 沉淀"
+              }
+            ],
+            "answer": {
+              "value": "C"
+            },
+            "explanation": "SO₂ 具有还原性，可还原高锰酸根。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00228_5e99fe31b9",
+              "expchunk_00223_91cb040d8f",
+              "expchunk_00224_166bfb5a4a"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_3_03_SEMANTIC_FINAL_006",
+        "source_review_id": "EXP_19_3_03_SEMANTIC_FINAL_006",
+        "source_question_index": 6,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-3-03 SO₃²⁻ 的检出》实验中，SO₂ 通入品红溶液时主要观察哪一现象？",
+        "options": [
+          {
+            "label": "A",
+            "text": "品红变成深蓝"
+          },
+          {
+            "label": "B",
+            "text": "出现黑色沉淀"
+          },
+          {
+            "label": "C",
+            "text": "产生氨味"
+          },
+          {
+            "label": "D",
+            "text": "品红褪色"
+          }
+        ],
+        "answer": {
+          "value": "D"
+        },
+        "explanation": "二氧化硫具有漂白作用。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-795f5a0b"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "19_3_03_point_2"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "品红变成深蓝",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“品红变成深蓝”与本题焦点“在《19-3-03 SO₃²⁻ 的检出》实验中，SO₂ 通入品红溶液时主要观察哪一现象？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“品红变成深蓝”。"
+          },
+          {
+            "label": "B",
+            "text": "出现黑色沉淀",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“出现黑色沉淀”与本题焦点“在《19-3-03 SO₃²⁻ 的检出》实验中，SO₂ 通入品红溶液时主要观察哪一现象？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“出现黑色沉淀”。"
+          },
+          {
+            "label": "C",
+            "text": "产生氨味",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“产生氨味”与本题焦点“在《19-3-03 SO₃²⁻ 的检出》实验中，SO₂ 通入品红溶液时主要观察哪一现象？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“产生氨味”。"
+          },
+          {
+            "label": "D",
+            "text": "品红褪色",
+            "point_key": "candidate-2-795f5a0b",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“品红褪色”直接支撑题干所问：在《19-3-03 SO₃²⁻ 的检出》实验中，SO₂ 通入品红溶液时主要观察哪一现象？；对应点位为“验证样品中 SO₃²⁻ 的存在”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00223_91cb040d8f",
+            "expchunk_00224_166bfb5a4a",
+            "expchunk_00228_5e99fe31b9"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00340_77f9d61c94",
+            "textbook_prose_00363_d345af4100"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "终审保留：题干、答案和解析与教材实验点位语义一致。；polished final 补充 supporting theory 引用：textbook_prose_00340_77f9d61c94, textbook_prose_00363_d345af4100。",
+          "supporting_theory_note": "该判断依赖教材理论 chunk：textbook_prose_00340_77f9d61c94, textbook_prose_00363_d345af4100。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00223_91cb040d8f",
+            "expchunk_00224_166bfb5a4a",
+            "expchunk_00228_5e99fe31b9"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00340_77f9d61c94",
+            "textbook_prose_00363_d345af4100"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00340_77f9d61c94",
+            "textbook_prose_00363_d345af4100"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-3-03 SO₃²⁻ 的检出》实验中，SO₂ 通入品红溶液时主要观察哪一现象？",
+            "options": [
+              {
+                "label": "A",
+                "text": "品红变成深蓝"
+              },
+              {
+                "label": "B",
+                "text": "出现黑色沉淀"
+              },
+              {
+                "label": "C",
+                "text": "产生氨味"
+              },
+              {
+                "label": "D",
+                "text": "品红褪色"
+              }
+            ],
+            "answer": {
+              "value": "D"
+            },
+            "explanation": "二氧化硫具有漂白作用。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00228_5e99fe31b9",
+              "expchunk_00223_91cb040d8f",
+              "expchunk_00224_166bfb5a4a"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_3_03_SEMANTIC_FINAL_007",
+        "source_review_id": "EXP_19_3_03_SEMANTIC_FINAL_007",
+        "source_question_index": 7,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-3-03 SO₃²⁻ 的检出》实验中，涉及 SO₂ 制备或放出的操作应在哪里进行？",
+        "options": [
+          {
+            "label": "A",
+            "text": "通风橱内"
+          },
+          {
+            "label": "B",
+            "text": "密闭抽屉内"
+          },
+          {
+            "label": "C",
+            "text": "无通风的桌面"
+          },
+          {
+            "label": "D",
+            "text": "火焰正上方"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "SO₂ 有刺激性和毒害性，需要通风。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-795f5a0b"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "19_3_03_point_2"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "通风橱内",
+            "point_key": "candidate-2-795f5a0b",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“通风橱内”直接支撑题干所问：在《19-3-03 SO₃²⁻ 的检出》实验中，涉及 SO₂ 制备或放出的操作应在哪里进行？；对应点位为“验证样品中 SO₃²⁻ 的存在”。"
+          },
+          {
+            "label": "B",
+            "text": "密闭抽屉内",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“密闭抽屉内”与本题焦点“在《19-3-03 SO₃²⁻ 的检出》实验中，涉及 SO₂ 制备或放出的操作应在哪里进行？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“密闭抽屉内”。"
+          },
+          {
+            "label": "C",
+            "text": "无通风的桌面",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“无通风的桌面”与本题焦点“在《19-3-03 SO₃²⁻ 的检出》实验中，涉及 SO₂ 制备或放出的操作应在哪里进行？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“无通风的桌面”。"
+          },
+          {
+            "label": "D",
+            "text": "火焰正上方",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“火焰正上方”与本题焦点“在《19-3-03 SO₃²⁻ 的检出》实验中，涉及 SO₂ 制备或放出的操作应在哪里进行？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“火焰正上方”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00223_91cb040d8f",
+            "expchunk_00224_166bfb5a4a",
+            "expchunk_00228_5e99fe31b9"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "终审保留：题干、答案和解析与教材实验点位语义一致。",
+          "supporting_theory_note": ""
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00223_91cb040d8f",
+            "expchunk_00224_166bfb5a4a",
+            "expchunk_00228_5e99fe31b9"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-3-03 SO₃²⁻ 的检出》实验中，涉及 SO₂ 制备或放出的操作应在哪里进行？",
+            "options": [
+              {
+                "label": "A",
+                "text": "通风橱内"
+              },
+              {
+                "label": "B",
+                "text": "密闭抽屉内"
+              },
+              {
+                "label": "C",
+                "text": "无通风的桌面"
+              },
+              {
+                "label": "D",
+                "text": "火焰正上方"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "SO₂ 有刺激性和毒害性，需要通风。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00228_5e99fe31b9",
+              "expchunk_00223_91cb040d8f",
+              "expchunk_00224_166bfb5a4a"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_3_03_SEMANTIC_FINAL_008",
+        "source_review_id": "EXP_19_3_03_SEMANTIC_FINAL_008",
+        "source_question_index": 8,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-3-03 SO₃²⁻ 的检出》中，较合理的 SO₃²⁻ 检出流程应先处理哪一类问题？",
+        "options": [
+          {
+            "label": "A",
+            "text": "先排除 SO₄²⁻ 对后续检出的干扰"
+          },
+          {
+            "label": "B",
+            "text": "先用 CCl₄ 萃取 SO₄²⁻"
+          },
+          {
+            "label": "C",
+            "text": "先检验 Fe³⁺ 的血红色络合物"
+          },
+          {
+            "label": "D",
+            "text": "先做硝酸根棕色环"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "该题回到 SO₃²⁻ 检出的真实流程：先除去 SO₄²⁻ 干扰，再验证目标离子。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-26a8e36e",
+          "candidate-2-795f5a0b"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "19_3_03_point_1",
+          "19_3_03_point_2"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "先排除 SO₄²⁻ 对后续检出的干扰",
+            "point_key": "candidate-1-26a8e36e",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“先排除 SO₄²⁻ 对后续检出的干扰”直接支撑题干所问：在《19-3-03 SO₃²⁻ 的检出》中，较合理的 SO₃²⁻ 检出流程应先处理哪一类问题？；对应点位为“设计方法除去 SO₄²⁻ 干扰”。"
+          },
+          {
+            "label": "B",
+            "text": "先用 CCl₄ 萃取 SO₄²⁻",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“先用 CCl₄ 萃取 SO₄²⁻”混入其他实验或相邻操作，易造成点位错配；本题实际问的是“在《19-3-03 SO₃²⁻ 的检出》中，较合理的 SO₃²⁻ 检出流程应先处理哪一类问题？”。"
+          },
+          {
+            "label": "C",
+            "text": "先检验 Fe³⁺ 的血红色络合物",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“先检验 Fe³⁺ 的血红色络合物”与本题焦点“在《19-3-03 SO₃²⁻ 的检出》中，较合理的 SO₃²⁻ 检出流程应先处理哪一类问题？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“先检验 Fe³⁺ 的血红色络合物”。"
+          },
+          {
+            "label": "D",
+            "text": "先做硝酸根棕色环",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“先做硝酸根棕色环”混入其他实验或相邻操作，易造成点位错配；本题实际问的是“在《19-3-03 SO₃²⁻ 的检出》中，较合理的 SO₃²⁻ 检出流程应先处理哪一类问题？”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00223_91cb040d8f",
+            "expchunk_00224_166bfb5a4a",
+            "expchunk_00228_5e99fe31b9"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "该题回到 SO₃²⁻ 检出的真实流程：先除去 SO₄²⁻ 干扰，再验证目标离子。；原题存在证据、深度或题型风险，最终有效题已由 proposed_question 修复。",
+          "supporting_theory_note": ""
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00223_91cb040d8f",
+            "expchunk_00224_166bfb5a4a",
+            "expchunk_00228_5e99fe31b9"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-3-03 SO₃²⁻ 的检出》实验中，实验室制备 SO₂ 时蒸馏瓶内放入的固体是哪一种？",
+            "options": [
+              {
+                "label": "A",
+                "text": "NaCl"
+              },
+              {
+                "label": "B",
+                "text": "Na₂SO₃"
+              },
+              {
+                "label": "C",
+                "text": "KNO₃"
+              },
+              {
+                "label": "D",
+                "text": "CuSO₄"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "实验资料给出 Na₂SO₃ 固体与浓硫酸反应。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00228_5e99fe31b9",
+              "expchunk_00223_91cb040d8f",
+              "expchunk_00224_166bfb5a4a"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-3-03 SO₃²⁻ 的检出》中，较合理的 SO₃²⁻ 检出流程应先处理哪一类问题？",
+            "options": [
+              {
+                "label": "A",
+                "text": "先排除 SO₄²⁻ 对后续检出的干扰"
+              },
+              {
+                "label": "B",
+                "text": "先用 CCl₄ 萃取 SO₄²⁻"
+              },
+              {
+                "label": "C",
+                "text": "先检验 Fe³⁺ 的血红色络合物"
+              },
+              {
+                "label": "D",
+                "text": "先做硝酸根棕色环"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "该题回到 SO₃²⁻ 检出的真实流程：先除去 SO₄²⁻ 干扰，再验证目标离子。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_3_03_SEMANTIC_FINAL_009",
+        "source_review_id": "EXP_19_3_03_SEMANTIC_FINAL_009",
+        "source_question_index": 9,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-3-03 SO₃²⁻ 的检出》中，若用 SO₂ 性质间接验证 SO₃²⁻，下列哪项现象最能对应 SO₂ 的还原性？",
+        "options": [
+          {
+            "label": "A",
+            "text": "酸性 KMnO₄ 紫色褪去"
+          },
+          {
+            "label": "B",
+            "text": "CCl₄ 层出现碘的紫色"
+          },
+          {
+            "label": "C",
+            "text": "FeSO₄ 形成棕色环"
+          },
+          {
+            "label": "D",
+            "text": "水玻璃形成花园状沉淀"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "SO₃²⁻ 酸化可放出 SO₂；SO₂ 还原性判断依赖酸性 KMnO₄ 褪色这一理论现象。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-795f5a0b"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "19_3_03_point_2"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "酸性 KMnO₄ 紫色褪去",
+            "point_key": "candidate-2-795f5a0b",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“酸性 KMnO₄ 紫色褪去”直接支撑题干所问：在《19-3-03 SO₃²⁻ 的检出》中，若用 SO₂ 性质间接验证 SO₃²⁻，下列哪项现象最能对应 SO₂ 的还原性？；对应点位为“验证样品中 SO₃²⁻ 的存在”。"
+          },
+          {
+            "label": "B",
+            "text": "CCl₄ 层出现碘的紫色",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“CCl₄ 层出现碘的紫色”混入其他实验或相邻操作，易造成点位错配；本题实际问的是“在《19-3-03 SO₃²⁻ 的检出》中，若用 SO₂ 性质间接验证 SO₃²⁻，下列哪项现象最能对应 SO₂ 的还原性？”。"
+          },
+          {
+            "label": "C",
+            "text": "FeSO₄ 形成棕色环",
+            "point_key": "candidate-1-26a8e36e",
+            "role": "adjacent_point",
+            "diagnostic_note": "干扰项“FeSO₄ 形成棕色环”对应相邻点位“设计方法除去 SO₄²⁻ 干扰”，但不是本题所绑定点位的答案。"
+          },
+          {
+            "label": "D",
+            "text": "水玻璃形成花园状沉淀",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“水玻璃形成花园状沉淀”混入其他实验或相邻操作，易造成点位错配；本题实际问的是“在《19-3-03 SO₃²⁻ 的检出》中，若用 SO₂ 性质间接验证 SO₃²⁻，下列哪项现象最能对应 SO₂ 的还原性？”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00223_91cb040d8f",
+            "expchunk_00224_166bfb5a4a",
+            "expchunk_00228_5e99fe31b9"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "SO₃²⁻ 酸化可放出 SO₂；SO₂ 还原性判断依赖酸性 KMnO₄ 褪色这一理论现象。；原题存在证据、深度或题型风险，最终有效题已由 proposed_question 修复。",
+          "supporting_theory_note": ""
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00223_91cb040d8f",
+            "expchunk_00224_166bfb5a4a",
+            "expchunk_00228_5e99fe31b9"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-3-03 SO₃²⁻ 的检出》实验中，制备 SO₂ 时分液漏斗内装的酸是哪一种？",
+            "options": [
+              {
+                "label": "A",
+                "text": "稀 HNO₃"
+              },
+              {
+                "label": "B",
+                "text": "冰醋酸"
+              },
+              {
+                "label": "C",
+                "text": "浓 H₂SO₄"
+              },
+              {
+                "label": "D",
+                "text": "氨水"
+              }
+            ],
+            "answer": {
+              "value": "C"
+            },
+            "explanation": "原文指定缓慢滴加浓硫酸。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00228_5e99fe31b9",
+              "expchunk_00223_91cb040d8f",
+              "expchunk_00224_166bfb5a4a"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-3-03 SO₃²⁻ 的检出》中，若用 SO₂ 性质间接验证 SO₃²⁻，下列哪项现象最能对应 SO₂ 的还原性？",
+            "options": [
+              {
+                "label": "A",
+                "text": "酸性 KMnO₄ 紫色褪去"
+              },
+              {
+                "label": "B",
+                "text": "CCl₄ 层出现碘的紫色"
+              },
+              {
+                "label": "C",
+                "text": "FeSO₄ 形成棕色环"
+              },
+              {
+                "label": "D",
+                "text": "水玻璃形成花园状沉淀"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "SO₃²⁻ 酸化可放出 SO₂；SO₂ 还原性判断依赖酸性 KMnO₄ 褪色这一理论现象。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_3_03_SEMANTIC_FINAL_010",
+        "source_review_id": "EXP_19_3_03_SEMANTIC_FINAL_010",
+        "source_question_index": 10,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-3-03 SO₃²⁻ 的检出》中，涉及 SO₂ 产生或参与的操作，教材要求优先在哪里进行（从安全要求角度判断）？",
+        "options": [
+          {
+            "label": "A",
+            "text": "点滴板上避光静置"
+          },
+          {
+            "label": "B",
+            "text": "通风橱内"
+          },
+          {
+            "label": "C",
+            "text": "强碱性铝屑体系"
+          },
+          {
+            "label": "D",
+            "text": "CCl₄ 萃取层中"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "SO₂ 有刺激性，教材安全知识要求相关操作在通风橱内进行。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-795f5a0b"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_2_795f5a0b"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "点滴板上避光静置",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“点滴板上避光静置”与本题焦点“在《19-3-03 SO₃²⁻ 的检出》中，涉及 SO₂ 产生或参与的操作，教材要求优先在哪里进行（从安全要求角度判断）？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“点滴板上避光静置”。"
+          },
+          {
+            "label": "B",
+            "text": "通风橱内",
+            "point_key": "candidate-2-795f5a0b",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“通风橱内”直接支撑题干所问：在《19-3-03 SO₃²⁻ 的检出》中，涉及 SO₂ 产生或参与的操作，教材要求优先在哪里进行（从安全要求角度判断）？；对应点位为“验证样品中 SO₃²⁻ 的存在”。"
+          },
+          {
+            "label": "C",
+            "text": "强碱性铝屑体系",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“强碱性铝屑体系”混入其他实验或相邻操作，易造成点位错配；本题实际问的是“在《19-3-03 SO₃²⁻ 的检出》中，涉及 SO₂ 产生或参与的操作，教材要求优先在哪里进行（从安全要求角度判断）？”。"
+          },
+          {
+            "label": "D",
+            "text": "CCl₄ 萃取层中",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“CCl₄ 萃取层中”混入其他实验或相邻操作，易造成点位错配；本题实际问的是“在《19-3-03 SO₃²⁻ 的检出》中，涉及 SO₂ 产生或参与的操作，教材要求优先在哪里进行（从安全要求角度判断）？”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00223_91cb040d8f",
+            "expchunk_00224_166bfb5a4a",
+            "expchunk_00228_5e99fe31b9"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final rewrite：deduplicated_proposed_question；有效题为本 proposed_question。；原题存在证据、深度或题型风险，最终有效题已由 proposed_question 修复。",
+          "supporting_theory_note": ""
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00223_91cb040d8f",
+            "expchunk_00224_166bfb5a4a",
+            "expchunk_00228_5e99fe31b9"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-3-03 SO₃²⁻ 的检出》实验中，设计 SO₃²⁻ 检出流程时，最终应写出的核心内容是什么？",
+            "options": [
+              {
+                "label": "A",
+                "text": "配位数计算表"
+              },
+              {
+                "label": "B",
+                "text": "电极电势数据库"
+              },
+              {
+                "label": "C",
+                "text": "色谱峰面积表"
+              },
+              {
+                "label": "D",
+                "text": "分离过程示意图和有关反应方程式"
+              }
+            ],
+            "answer": {
+              "value": "D"
+            },
+            "explanation": "实验资料要求设计分离步骤并写出相关方程式。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00228_5e99fe31b9",
+              "expchunk_00223_91cb040d8f",
+              "expchunk_00224_166bfb5a4a"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-3-03 SO₃²⁻ 的检出》中，涉及 SO₂ 产生或参与的操作，教材要求优先在哪里进行（从安全要求角度判断）？",
+            "options": [
+              {
+                "label": "A",
+                "text": "点滴板上避光静置"
+              },
+              {
+                "label": "B",
+                "text": "通风橱内"
+              },
+              {
+                "label": "C",
+                "text": "强碱性铝屑体系"
+              },
+              {
+                "label": "D",
+                "text": "CCl₄ 萃取层中"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "SO₂ 有刺激性，教材安全知识要求相关操作在通风橱内进行。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_3_03_SEMANTIC_FINAL_011",
+        "source_review_id": "EXP_19_3_03_SEMANTIC_FINAL_011",
+        "source_question_index": 11,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "true_false",
+        "stem": "在《19-3-03 SO₃²⁻ 的检出》中，先除去 SO₄²⁻ 是为了减少对 SO₃²⁻ 检出的干扰。",
+        "options": [],
+        "answer": {
+          "value": true
+        },
+        "explanation": "教材原文直接指出 SO₄²⁻ 是干扰离子。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-26a8e36e"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "19_3_03_point_1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00223_91cb040d8f",
+            "expchunk_00224_166bfb5a4a",
+            "expchunk_00228_5e99fe31b9"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "教材原文直接指出 SO₄²⁻ 是干扰离子。；原题存在证据、深度或题型风险，最终有效题已由 proposed_question 修复。",
+          "supporting_theory_note": ""
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00223_91cb040d8f",
+            "expchunk_00224_166bfb5a4a",
+            "expchunk_00228_5e99fe31b9"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-3-03 SO₃²⁻ 的检出》实验中，判断：检出对象为“SO₃²⁻”。",
+            "options": [],
+            "answer": {
+              "value": true
+            },
+            "explanation": "标题和步骤均指向亚硫酸根检出。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00228_5e99fe31b9",
+              "expchunk_00223_91cb040d8f",
+              "expchunk_00224_166bfb5a4a"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "true_false",
+            "stem": "在《19-3-03 SO₃²⁻ 的检出》中，先除去 SO₄²⁻ 是为了减少对 SO₃²⁻ 检出的干扰。",
+            "options": [],
+            "answer": {
+              "value": true
+            },
+            "explanation": "教材原文直接指出 SO₄²⁻ 是干扰离子。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_3_03_SEMANTIC_FINAL_012",
+        "source_review_id": "EXP_19_3_03_SEMANTIC_FINAL_012",
+        "source_question_index": 12,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-3-03 SO₃²⁻ 的检出》中，涉及 SO₂ 产生或参与的操作，教材要求优先在哪里进行？",
+        "options": [
+          {
+            "label": "A",
+            "text": "点滴板上避光静置"
+          },
+          {
+            "label": "B",
+            "text": "通风橱内"
+          },
+          {
+            "label": "C",
+            "text": "强碱性铝屑体系"
+          },
+          {
+            "label": "D",
+            "text": "CCl₄ 萃取层中"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "SO₂ 有刺激性，教材安全知识要求相关操作在通风橱内进行。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-795f5a0b"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_2_795f5a0b"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "点滴板上避光静置",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“点滴板上避光静置”与本题焦点“在《19-3-03 SO₃²⁻ 的检出》中，涉及 SO₂ 产生或参与的操作，教材要求优先在哪里进行？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“点滴板上避光静置”。"
+          },
+          {
+            "label": "B",
+            "text": "通风橱内",
+            "point_key": "candidate-2-795f5a0b",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“通风橱内”直接支撑题干所问：在《19-3-03 SO₃²⁻ 的检出》中，涉及 SO₂ 产生或参与的操作，教材要求优先在哪里进行？；对应点位为“验证样品中 SO₃²⁻ 的存在”。"
+          },
+          {
+            "label": "C",
+            "text": "强碱性铝屑体系",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“强碱性铝屑体系”混入其他实验或相邻操作，易造成点位错配；本题实际问的是“在《19-3-03 SO₃²⁻ 的检出》中，涉及 SO₂ 产生或参与的操作，教材要求优先在哪里进行？”。"
+          },
+          {
+            "label": "D",
+            "text": "CCl₄ 萃取层中",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“CCl₄ 萃取层中”混入其他实验或相邻操作，易造成点位错配；本题实际问的是“在《19-3-03 SO₃²⁻ 的检出》中，涉及 SO₂ 产生或参与的操作，教材要求优先在哪里进行？”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00223_91cb040d8f",
+            "expchunk_00224_166bfb5a4a",
+            "expchunk_00228_5e99fe31b9"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final rewrite：low_quality_keep_rewritten；有效题为本 proposed_question。；原题存在证据、深度或题型风险，最终有效题已由 proposed_question 修复。",
+          "supporting_theory_note": ""
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00223_91cb040d8f",
+            "expchunk_00224_166bfb5a4a",
+            "expchunk_00228_5e99fe31b9"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-3-03 SO₃²⁻ 的检出》实验中，判断：干扰离子为“K⁺”。",
+            "options": [],
+            "answer": {
+              "value": false
+            },
+            "explanation": "该说法与本实验事实不符；实验资料明确指出硫酸根会干扰。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00228_5e99fe31b9",
+              "expchunk_00223_91cb040d8f",
+              "expchunk_00224_166bfb5a4a"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-3-03 SO₃²⁻ 的检出》中，涉及 SO₂ 产生或参与的操作，教材要求优先在哪里进行？",
+            "options": [
+              {
+                "label": "A",
+                "text": "点滴板上避光静置"
+              },
+              {
+                "label": "B",
+                "text": "通风橱内"
+              },
+              {
+                "label": "C",
+                "text": "强碱性铝屑体系"
+              },
+              {
+                "label": "D",
+                "text": "CCl₄ 萃取层中"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "SO₂ 有刺激性，教材安全知识要求相关操作在通风橱内进行。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_3_03_SEMANTIC_FINAL_013",
+        "source_review_id": "EXP_19_3_03_SEMANTIC_FINAL_013",
+        "source_question_index": 13,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-3-03 SO₃²⁻ 的检出》中，用酸性 KMnO₄ 检验 SO₂ 还原性时，应重点观察什么现象？",
+        "options": [
+          {
+            "label": "A",
+            "text": "紫色褪去或变浅"
+          },
+          {
+            "label": "B",
+            "text": "生成棕色环"
+          },
+          {
+            "label": "C",
+            "text": "CCl₄ 层显紫色"
+          },
+          {
+            "label": "D",
+            "text": "产生蓝色 N₂O₃"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "SO₂ 还原酸性 KMnO₄，观察紫色变化。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-795f5a0b"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_2_795f5a0b"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "紫色褪去或变浅",
+            "point_key": "candidate-2-795f5a0b",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“紫色褪去或变浅”直接支撑题干所问：在《19-3-03 SO₃²⁻ 的检出》中，用酸性 KMnO₄ 检验 SO₂ 还原性时，应重点观察什么现象？；对应点位为“验证样品中 SO₃²⁻ 的存在”。"
+          },
+          {
+            "label": "B",
+            "text": "生成棕色环",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“生成棕色环”混入其他实验或相邻操作，易造成点位错配；本题实际问的是“在《19-3-03 SO₃²⁻ 的检出》中，用酸性 KMnO₄ 检验 SO₂ 还原性时，应重点观察什么现象？”。"
+          },
+          {
+            "label": "C",
+            "text": "CCl₄ 层显紫色",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“CCl₄ 层显紫色”混入其他实验或相邻操作，易造成点位错配；本题实际问的是“在《19-3-03 SO₃²⁻ 的检出》中，用酸性 KMnO₄ 检验 SO₂ 还原性时，应重点观察什么现象？”。"
+          },
+          {
+            "label": "D",
+            "text": "产生蓝色 N₂O₃",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“产生蓝色 N₂O₃”与本题焦点“在《19-3-03 SO₃²⁻ 的检出》中，用酸性 KMnO₄ 检验 SO₂ 还原性时，应重点观察什么现象？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“产生蓝色 N₂O₃”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00223_91cb040d8f",
+            "expchunk_00224_166bfb5a4a",
+            "expchunk_00228_5e99fe31b9"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final rewrite：low_quality_keep_rewritten；有效题为本 proposed_question。；原题存在证据、深度或题型风险，最终有效题已由 proposed_question 修复。",
+          "supporting_theory_note": ""
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00223_91cb040d8f",
+            "expchunk_00224_166bfb5a4a",
+            "expchunk_00228_5e99fe31b9"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-3-03 SO₃²⁻ 的检出》实验中，判断：分离要求为“预先除去 SO₄²⁻”。",
+            "options": [],
+            "answer": {
+              "value": true
+            },
+            "explanation": "硫酸根干扰亚硫酸根检出。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00228_5e99fe31b9",
+              "expchunk_00223_91cb040d8f",
+              "expchunk_00224_166bfb5a4a"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-3-03 SO₃²⁻ 的检出》中，用酸性 KMnO₄ 检验 SO₂ 还原性时，应重点观察什么现象？",
+            "options": [
+              {
+                "label": "A",
+                "text": "紫色褪去或变浅"
+              },
+              {
+                "label": "B",
+                "text": "生成棕色环"
+              },
+              {
+                "label": "C",
+                "text": "CCl₄ 层显紫色"
+              },
+              {
+                "label": "D",
+                "text": "产生蓝色 N₂O₃"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "SO₂ 还原酸性 KMnO₄，观察紫色变化。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_3_03_SEMANTIC_FINAL_014",
+        "source_review_id": "EXP_19_3_03_SEMANTIC_FINAL_014",
+        "source_question_index": 14,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-3-03 SO₃²⁻ 的检出》实验中，判断：验证思路为“加入 KSCN 生成血红色络合物”。",
+        "options": [],
+        "answer": {
+          "value": false
+        },
+        "explanation": "该说法与本实验事实不符；亚硫酸根酸化可生成二氧化硫。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-795f5a0b"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "19_3_03_point_2"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00223_91cb040d8f",
+            "expchunk_00224_166bfb5a4a",
+            "expchunk_00228_5e99fe31b9"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "终审保留：题干、答案和解析与教材实验点位语义一致。",
+          "supporting_theory_note": ""
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00223_91cb040d8f",
+            "expchunk_00224_166bfb5a4a",
+            "expchunk_00228_5e99fe31b9"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-3-03 SO₃²⁻ 的检出》实验中，判断：验证思路为“加入 KSCN 生成血红色络合物”。",
+            "options": [],
+            "answer": {
+              "value": false
+            },
+            "explanation": "该说法与本实验事实不符；亚硫酸根酸化可生成二氧化硫。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00228_5e99fe31b9",
+              "expchunk_00223_91cb040d8f",
+              "expchunk_00224_166bfb5a4a"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_3_03_SEMANTIC_FINAL_015",
+        "source_review_id": "EXP_19_3_03_SEMANTIC_FINAL_015",
+        "source_question_index": 15,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-3-03 SO₃²⁻ 的检出》实验中，判断：SO₂ 还原性为“紫色褪去”。",
+        "options": [],
+        "answer": {
+          "value": true
+        },
+        "explanation": "SO₂ 具有还原性，可还原高锰酸根。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-795f5a0b"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "19_3_03_point_2"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00223_91cb040d8f",
+            "expchunk_00224_166bfb5a4a",
+            "expchunk_00228_5e99fe31b9"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00340_77f9d61c94",
+            "textbook_prose_00363_d345af4100"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "终审保留：题干、答案和解析与教材实验点位语义一致。；polished final 补充 supporting theory 引用：textbook_prose_00340_77f9d61c94, textbook_prose_00363_d345af4100。",
+          "supporting_theory_note": "该判断依赖教材理论 chunk：textbook_prose_00340_77f9d61c94, textbook_prose_00363_d345af4100。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00223_91cb040d8f",
+            "expchunk_00224_166bfb5a4a",
+            "expchunk_00228_5e99fe31b9"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00340_77f9d61c94",
+            "textbook_prose_00363_d345af4100"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00340_77f9d61c94",
+            "textbook_prose_00363_d345af4100"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-3-03 SO₃²⁻ 的检出》实验中，判断：SO₂ 还原性为“紫色褪去”。",
+            "options": [],
+            "answer": {
+              "value": true
+            },
+            "explanation": "SO₂ 具有还原性，可还原高锰酸根。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00228_5e99fe31b9",
+              "expchunk_00223_91cb040d8f",
+              "expchunk_00224_166bfb5a4a"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_3_03_SEMANTIC_FINAL_016",
+        "source_review_id": "EXP_19_3_03_SEMANTIC_FINAL_016",
+        "source_question_index": 16,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-3-03 SO₃²⁻ 的检出》实验中，判断：SO₂ 漂白性为“品红变成深蓝”。",
+        "options": [],
+        "answer": {
+          "value": false
+        },
+        "explanation": "该说法与本实验事实不符；二氧化硫具有漂白作用。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-795f5a0b"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "19_3_03_point_2"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00223_91cb040d8f",
+            "expchunk_00224_166bfb5a4a",
+            "expchunk_00228_5e99fe31b9"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00340_77f9d61c94",
+            "textbook_prose_00363_d345af4100"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "终审保留：题干、答案和解析与教材实验点位语义一致。；polished final 补充 supporting theory 引用：textbook_prose_00340_77f9d61c94, textbook_prose_00363_d345af4100。",
+          "supporting_theory_note": "该判断依赖教材理论 chunk：textbook_prose_00340_77f9d61c94, textbook_prose_00363_d345af4100。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00223_91cb040d8f",
+            "expchunk_00224_166bfb5a4a",
+            "expchunk_00228_5e99fe31b9"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00340_77f9d61c94",
+            "textbook_prose_00363_d345af4100"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00340_77f9d61c94",
+            "textbook_prose_00363_d345af4100"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-3-03 SO₃²⁻ 的检出》实验中，判断：SO₂ 漂白性为“品红变成深蓝”。",
+            "options": [],
+            "answer": {
+              "value": false
+            },
+            "explanation": "该说法与本实验事实不符；二氧化硫具有漂白作用。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00228_5e99fe31b9",
+              "expchunk_00223_91cb040d8f",
+              "expchunk_00224_166bfb5a4a"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_3_03_SEMANTIC_FINAL_017",
+        "source_review_id": "EXP_19_3_03_SEMANTIC_FINAL_017",
+        "source_question_index": 17,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-3-03 SO₃²⁻ 的检出》中，SO₂ 通入品红溶液的观察重点是什么？",
+        "options": [
+          {
+            "label": "A",
+            "text": "生成白色 BaSO₄"
+          },
+          {
+            "label": "B",
+            "text": "品红褪色"
+          },
+          {
+            "label": "C",
+            "text": "出现棕色环"
+          },
+          {
+            "label": "D",
+            "text": "生成蓝色沉淀"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "SO₂ 的漂白性可使品红褪色。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-795f5a0b"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_2_795f5a0b"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "生成白色 BaSO₄",
+            "point_key": "candidate-1-26a8e36e",
+            "role": "adjacent_point",
+            "diagnostic_note": "干扰项“生成白色 BaSO₄”对应相邻点位“设计方法除去 SO₄²⁻ 干扰”，但不是本题所绑定点位的答案。"
+          },
+          {
+            "label": "B",
+            "text": "品红褪色",
+            "point_key": "candidate-2-795f5a0b",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“品红褪色”直接支撑题干所问：在《19-3-03 SO₃²⁻ 的检出》中，SO₂ 通入品红溶液的观察重点是什么？；对应点位为“验证样品中 SO₃²⁻ 的存在”。"
+          },
+          {
+            "label": "C",
+            "text": "出现棕色环",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“出现棕色环”混入其他实验或相邻操作，易造成点位错配；本题实际问的是“在《19-3-03 SO₃²⁻ 的检出》中，SO₂ 通入品红溶液的观察重点是什么？”。"
+          },
+          {
+            "label": "D",
+            "text": "生成蓝色沉淀",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“生成蓝色沉淀”与本题焦点“在《19-3-03 SO₃²⁻ 的检出》中，SO₂ 通入品红溶液的观察重点是什么？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“生成蓝色沉淀”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00223_91cb040d8f",
+            "expchunk_00224_166bfb5a4a",
+            "expchunk_00228_5e99fe31b9"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final rewrite：low_quality_keep_rewritten；有效题为本 proposed_question。；原题存在证据、深度或题型风险，最终有效题已由 proposed_question 修复。",
+          "supporting_theory_note": ""
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00223_91cb040d8f",
+            "expchunk_00224_166bfb5a4a",
+            "expchunk_00228_5e99fe31b9"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-3-03 SO₃²⁻ 的检出》实验中，判断：安全场所为“通风橱内”。",
+            "options": [],
+            "answer": {
+              "value": true
+            },
+            "explanation": "SO₂ 有刺激性和毒害性，需要通风。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00228_5e99fe31b9",
+              "expchunk_00223_91cb040d8f",
+              "expchunk_00224_166bfb5a4a"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-3-03 SO₃²⁻ 的检出》中，SO₂ 通入品红溶液的观察重点是什么？",
+            "options": [
+              {
+                "label": "A",
+                "text": "生成白色 BaSO₄"
+              },
+              {
+                "label": "B",
+                "text": "品红褪色"
+              },
+              {
+                "label": "C",
+                "text": "出现棕色环"
+              },
+              {
+                "label": "D",
+                "text": "生成蓝色沉淀"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "SO₂ 的漂白性可使品红褪色。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_3_03_SEMANTIC_FINAL_018",
+        "source_review_id": "EXP_19_3_03_SEMANTIC_FINAL_018",
+        "source_question_index": 18,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "true_false",
+        "stem": "在《19-3-03 SO₃²⁻ 的检出》中，SO₃²⁻ 是目标检出离子，SO₄²⁻ 是需要先处理的干扰离子。",
+        "options": [],
+        "answer": {
+          "value": true
+        },
+        "explanation": "教材把 SO₄²⁻ 标为干扰，并要求设计步骤验证 SO₃²⁻。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-26a8e36e",
+          "candidate-2-795f5a0b"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "19_3_03_point_1",
+          "19_3_03_point_2"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00223_91cb040d8f",
+            "expchunk_00224_166bfb5a4a",
+            "expchunk_00228_5e99fe31b9"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "教材把 SO₄²⁻ 标为干扰，并要求设计步骤验证 SO₃²⁻。；原题存在证据、深度或题型风险，最终有效题已由 proposed_question 修复。",
+          "supporting_theory_note": ""
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00223_91cb040d8f",
+            "expchunk_00224_166bfb5a4a",
+            "expchunk_00228_5e99fe31b9"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-3-03 SO₃²⁻ 的检出》实验中，判断：SO₂ 制备固体为“NaCl”。",
+            "options": [],
+            "answer": {
+              "value": false
+            },
+            "explanation": "该说法与本实验事实不符；实验资料给出 Na₂SO₃ 固体与浓硫酸反应。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00228_5e99fe31b9",
+              "expchunk_00223_91cb040d8f",
+              "expchunk_00224_166bfb5a4a"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "true_false",
+            "stem": "在《19-3-03 SO₃²⁻ 的检出》中，SO₃²⁻ 是目标检出离子，SO₄²⁻ 是需要先处理的干扰离子。",
+            "options": [],
+            "answer": {
+              "value": true
+            },
+            "explanation": "教材把 SO₄²⁻ 标为干扰，并要求设计步骤验证 SO₃²⁻。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_3_03_SEMANTIC_FINAL_019",
+        "source_review_id": "EXP_19_3_03_SEMANTIC_FINAL_019",
+        "source_question_index": 19,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-3-03 SO₃²⁻ 的检出》中，用酸性 KMnO₄ 检验 SO₂ 还原性时，应重点观察什么现象（从产物判断角度判断）？",
+        "options": [
+          {
+            "label": "A",
+            "text": "紫色褪去或变浅"
+          },
+          {
+            "label": "B",
+            "text": "生成棕色环"
+          },
+          {
+            "label": "C",
+            "text": "CCl₄ 层显紫色"
+          },
+          {
+            "label": "D",
+            "text": "产生蓝色 N₂O₃"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "SO₂ 还原酸性 KMnO₄，观察紫色变化。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-795f5a0b"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_2_795f5a0b"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "紫色褪去或变浅",
+            "point_key": "candidate-2-795f5a0b",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“紫色褪去或变浅”直接支撑题干所问：在《19-3-03 SO₃²⁻ 的检出》中，用酸性 KMnO₄ 检验 SO₂ 还原性时，应重点观察什么现象（从产物判断角度判断）；对应点位为“验证样品中 SO₃²⁻ 的存在”。"
+          },
+          {
+            "label": "B",
+            "text": "生成棕色环",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“生成棕色环”混入其他实验或相邻操作，易造成点位错配；本题实际问的是“在《19-3-03 SO₃²⁻ 的检出》中，用酸性 KMnO₄ 检验 SO₂ 还原性时，应重点观察什么现象（从产物判断角度判断）”。"
+          },
+          {
+            "label": "C",
+            "text": "CCl₄ 层显紫色",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“CCl₄ 层显紫色”混入其他实验或相邻操作，易造成点位错配；本题实际问的是“在《19-3-03 SO₃²⁻ 的检出》中，用酸性 KMnO₄ 检验 SO₂ 还原性时，应重点观察什么现象（从产物判断角度判断）”。"
+          },
+          {
+            "label": "D",
+            "text": "产生蓝色 N₂O₃",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“产生蓝色 N₂O₃”与本题焦点“在《19-3-03 SO₃²⁻ 的检出》中，用酸性 KMnO₄ 检验 SO₂ 还原性时，应重点观察什么现象（从产物判断角度判断）”不匹配；错误点在于把应判断的操作、现象或结论替换成了“产生蓝色 N₂O₃”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00223_91cb040d8f",
+            "expchunk_00224_166bfb5a4a",
+            "expchunk_00228_5e99fe31b9"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final rewrite：deduplicated_proposed_question；有效题为本 proposed_question。；原题存在证据、深度或题型风险，最终有效题已由 proposed_question 修复。",
+          "supporting_theory_note": ""
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00223_91cb040d8f",
+            "expchunk_00224_166bfb5a4a",
+            "expchunk_00228_5e99fe31b9"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-3-03 SO₃²⁻ 的检出》实验中，判断：SO₂ 制备酸为“浓 H₂SO₄”。",
+            "options": [],
+            "answer": {
+              "value": true
+            },
+            "explanation": "原文指定缓慢滴加浓硫酸。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00228_5e99fe31b9",
+              "expchunk_00223_91cb040d8f",
+              "expchunk_00224_166bfb5a4a"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-3-03 SO₃²⁻ 的检出》中，用酸性 KMnO₄ 检验 SO₂ 还原性时，应重点观察什么现象（从产物判断角度判断）？",
+            "options": [
+              {
+                "label": "A",
+                "text": "紫色褪去或变浅"
+              },
+              {
+                "label": "B",
+                "text": "生成棕色环"
+              },
+              {
+                "label": "C",
+                "text": "CCl₄ 层显紫色"
+              },
+              {
+                "label": "D",
+                "text": "产生蓝色 N₂O₃"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "SO₂ 还原酸性 KMnO₄，观察紫色变化。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_3_03_SEMANTIC_FINAL_020",
+        "source_review_id": "EXP_19_3_03_SEMANTIC_FINAL_020",
+        "source_question_index": 20,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-3-03 SO₃²⁻ 的检出》中，SO₂ 通入品红溶液的观察重点是什么（从性质判断角度判断）？",
+        "options": [
+          {
+            "label": "A",
+            "text": "生成白色 BaSO₄"
+          },
+          {
+            "label": "B",
+            "text": "出现棕色环"
+          },
+          {
+            "label": "C",
+            "text": "生成蓝色沉淀"
+          },
+          {
+            "label": "D",
+            "text": "品红褪色"
+          }
+        ],
+        "answer": {
+          "value": "D"
+        },
+        "explanation": "SO₂ 的漂白性可使品红褪色。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-795f5a0b"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_2_795f5a0b"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "生成白色 BaSO₄",
+            "point_key": "candidate-1-26a8e36e",
+            "role": "adjacent_point",
+            "diagnostic_note": "干扰项“生成白色 BaSO₄”对应相邻点位“设计方法除去 SO₄²⁻ 干扰”，但不是本题所绑定点位的答案。"
+          },
+          {
+            "label": "B",
+            "text": "出现棕色环",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“出现棕色环”混入其他实验或相邻操作，易造成点位错配；本题实际问的是“在《19-3-03 SO₃²⁻ 的检出》中，SO₂ 通入品红溶液的观察重点是什么（从性质判断角度判断）？”。"
+          },
+          {
+            "label": "C",
+            "text": "生成蓝色沉淀",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“生成蓝色沉淀”与本题焦点“在《19-3-03 SO₃²⁻ 的检出》中，SO₂ 通入品红溶液的观察重点是什么（从性质判断角度判断）？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“生成蓝色沉淀”。"
+          },
+          {
+            "label": "D",
+            "text": "品红褪色",
+            "point_key": "candidate-2-795f5a0b",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“品红褪色”直接支撑题干所问：在《19-3-03 SO₃²⁻ 的检出》中，SO₂ 通入品红溶液的观察重点是什么（从性质判断角度判断）？；对应点位为“验证样品中 SO₃²⁻ 的存在”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00223_91cb040d8f",
+            "expchunk_00224_166bfb5a4a",
+            "expchunk_00228_5e99fe31b9"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final rewrite：deduplicated_proposed_question；有效题为本 proposed_question。；原题存在证据、深度或题型风险，最终有效题已由 proposed_question 修复。",
+          "supporting_theory_note": ""
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00223_91cb040d8f",
+            "expchunk_00224_166bfb5a4a",
+            "expchunk_00228_5e99fe31b9"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-3-03 SO₃²⁻ 的检出》实验中，判断：设计产物为“配位数计算表”。",
+            "options": [],
+            "answer": {
+              "value": false
+            },
+            "explanation": "该说法与本实验事实不符；实验资料要求设计分离步骤并写出相关方程式。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00228_5e99fe31b9",
+              "expchunk_00223_91cb040d8f",
+              "expchunk_00224_166bfb5a4a"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-3-03 SO₃²⁻ 的检出》中，SO₂ 通入品红溶液的观察重点是什么（从性质判断角度判断）？",
+            "options": [
+              {
+                "label": "A",
+                "text": "生成白色 BaSO₄"
+              },
+              {
+                "label": "B",
+                "text": "出现棕色环"
+              },
+              {
+                "label": "C",
+                "text": "生成蓝色沉淀"
+              },
+              {
+                "label": "D",
+                "text": "品红褪色"
+              }
+            ],
+            "answer": {
+              "value": "D"
+            },
+            "explanation": "SO₂ 的漂白性可使品红褪色。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_3_03_SEMANTIC_FINAL_021",
+        "source_review_id": "EXP_19_3_03_SEMANTIC_FINAL_021",
+        "source_question_index": 21,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-3-03 SO₃²⁻ 的检出》中，SO₃²⁻ 检出前应先除去____。下列哪一项最适合填入空白处？",
+        "options": [
+          {
+            "label": "A",
+            "text": "NO₃⁻"
+          },
+          {
+            "label": "B",
+            "text": "SO₄²⁻"
+          },
+          {
+            "label": "C",
+            "text": "Cl⁻"
+          },
+          {
+            "label": "D",
+            "text": "H₂S"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "空白处应填“SO₄²⁻”。本轮将原手机端高风险填空改为单选，避免上下标、别名或复杂化学式输入导致机器判分不稳定。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-26a8e36e"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_1_26a8e36e"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "NO₃⁻",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“NO₃⁻”与本题焦点“在《19-3-03 SO₃²⁻ 的检出》中，SO₃²⁻ 检出前应先除去____。下列哪一项最适合填入空白处？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“NO₃⁻”。"
+          },
+          {
+            "label": "B",
+            "text": "SO₄²⁻",
+            "point_key": "candidate-1-26a8e36e",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“SO₄²⁻”直接支撑题干所问：在《19-3-03 SO₃²⁻ 的检出》中，SO₃²⁻ 检出前应先除去____。下列哪一项最适合填入空白处？；对应点位为“设计方法除去 SO₄²⁻ 干扰”。"
+          },
+          {
+            "label": "C",
+            "text": "Cl⁻",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“Cl⁻”与本题焦点“在《19-3-03 SO₃²⁻ 的检出》中，SO₃²⁻ 检出前应先除去____。下列哪一项最适合填入空白处？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“Cl⁻”。"
+          },
+          {
+            "label": "D",
+            "text": "H₂S",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“H₂S”与本题焦点“在《19-3-03 SO₃²⁻ 的检出》中，SO₃²⁻ 检出前应先除去____。下列哪一项最适合填入空白处？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“H₂S”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00223_91cb040d8f",
+            "expchunk_00224_166bfb5a4a",
+            "expchunk_00228_5e99fe31b9"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final rewrite：phone_risk_repaired_as_single_choice；有效题为本 proposed_question。；原题存在证据、深度或题型风险，最终有效题已由 proposed_question 修复。",
+          "supporting_theory_note": ""
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00223_91cb040d8f",
+            "expchunk_00224_166bfb5a4a",
+            "expchunk_00228_5e99fe31b9"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "generic_or_answer_shell_explanation",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-3-03 SO₃²⁻ 的检出》实验中，该实验要验证样品中是否含有____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "SO₃²⁻"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "标题和步骤均指向亚硫酸根检出。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00228_5e99fe31b9",
+              "expchunk_00223_91cb040d8f",
+              "expchunk_00224_166bfb5a4a"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-3-03 SO₃²⁻ 的检出》中，SO₃²⁻ 检出前应先除去____。下列哪一项最适合填入空白处？",
+            "options": [
+              {
+                "label": "A",
+                "text": "NO₃⁻"
+              },
+              {
+                "label": "B",
+                "text": "SO₄²⁻"
+              },
+              {
+                "label": "C",
+                "text": "Cl⁻"
+              },
+              {
+                "label": "D",
+                "text": "H₂S"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "空白处应填“SO₄²⁻”。本轮将原手机端高风险填空改为单选，避免上下标、别名或复杂化学式输入导致机器判分不稳定。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_3_03_SEMANTIC_FINAL_022",
+        "source_review_id": "EXP_19_3_03_SEMANTIC_FINAL_022",
+        "source_question_index": 22,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-3-03 SO₃²⁻ 的检出》实验中，含 SO₃²⁻ 的溶液中常有少量____会干扰检出。下列哪一项最适合填入空白处？",
+        "options": [
+          {
+            "label": "A",
+            "text": "NO₃⁻"
+          },
+          {
+            "label": "B",
+            "text": "Cl⁻"
+          },
+          {
+            "label": "C",
+            "text": "SO₄²⁻"
+          },
+          {
+            "label": "D",
+            "text": "H₂S"
+          }
+        ],
+        "answer": {
+          "value": "C"
+        },
+        "explanation": "空白处应填“SO₄²⁻”。本轮将原手机端高风险填空改为单选，避免上下标、别名或复杂化学式输入导致机器判分不稳定。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-26a8e36e"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_1_26a8e36e"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "NO₃⁻",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“NO₃⁻”与本题焦点“在《19-3-03 SO₃²⁻ 的检出》实验中，含 SO₃²⁻ 的溶液中常有少量____会干扰检出。下列哪一项最适合填入空白处？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“NO₃⁻”。"
+          },
+          {
+            "label": "B",
+            "text": "Cl⁻",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“Cl⁻”与本题焦点“在《19-3-03 SO₃²⁻ 的检出》实验中，含 SO₃²⁻ 的溶液中常有少量____会干扰检出。下列哪一项最适合填入空白处？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“Cl⁻”。"
+          },
+          {
+            "label": "C",
+            "text": "SO₄²⁻",
+            "point_key": "candidate-1-26a8e36e",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“SO₄²⁻”直接支撑题干所问：在《19-3-03 SO₃²⁻ 的检出》实验中，含 SO₃²⁻ 的溶液中常有少量____会干扰检出。下列哪一项最适合填入空白处？；对应点位为“设计方法除去 SO₄²⁻ 干扰”。"
+          },
+          {
+            "label": "D",
+            "text": "H₂S",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“H₂S”与本题焦点“在《19-3-03 SO₃²⁻ 的检出》实验中，含 SO₃²⁻ 的溶液中常有少量____会干扰检出。下列哪一项最适合填入空白处？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“H₂S”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00223_91cb040d8f",
+            "expchunk_00224_166bfb5a4a",
+            "expchunk_00228_5e99fe31b9"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final rewrite：phone_risk_repaired_as_single_choice；有效题为本 proposed_question。；原题存在证据、深度或题型风险，最终有效题已由 proposed_question 修复。",
+          "supporting_theory_note": ""
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00223_91cb040d8f",
+            "expchunk_00224_166bfb5a4a",
+            "expchunk_00228_5e99fe31b9"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "generic_or_answer_shell_explanation",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-3-03 SO₃²⁻ 的检出》实验中，含 SO₃²⁻ 的溶液中常有少量____会干扰检出。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "SO₄²⁻"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "实验资料明确指出硫酸根会干扰。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00228_5e99fe31b9",
+              "expchunk_00223_91cb040d8f",
+              "expchunk_00224_166bfb5a4a"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-3-03 SO₃²⁻ 的检出》实验中，含 SO₃²⁻ 的溶液中常有少量____会干扰检出。下列哪一项最适合填入空白处？",
+            "options": [
+              {
+                "label": "A",
+                "text": "NO₃⁻"
+              },
+              {
+                "label": "B",
+                "text": "Cl⁻"
+              },
+              {
+                "label": "C",
+                "text": "SO₄²⁻"
+              },
+              {
+                "label": "D",
+                "text": "H₂S"
+              }
+            ],
+            "answer": {
+              "value": "C"
+            },
+            "explanation": "空白处应填“SO₄²⁻”。本轮将原手机端高风险填空改为单选，避免上下标、别名或复杂化学式输入导致机器判分不稳定。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_3_03_SEMANTIC_FINAL_023",
+        "source_review_id": "EXP_19_3_03_SEMANTIC_FINAL_023",
+        "source_question_index": 23,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-3-03 SO₃²⁻ 的检出》实验中，为避免干扰，应先将____预先除去。下列哪一项最适合填入空白处？",
+        "options": [
+          {
+            "label": "A",
+            "text": "NO₃⁻"
+          },
+          {
+            "label": "B",
+            "text": "Cl⁻"
+          },
+          {
+            "label": "C",
+            "text": "H₂S"
+          },
+          {
+            "label": "D",
+            "text": "SO₄²⁻"
+          }
+        ],
+        "answer": {
+          "value": "D"
+        },
+        "explanation": "空白处应填“SO₄²⁻”。本轮将原手机端高风险填空改为单选，避免上下标、别名或复杂化学式输入导致机器判分不稳定。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-26a8e36e"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_1_26a8e36e"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "NO₃⁻",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“NO₃⁻”与本题焦点“在《19-3-03 SO₃²⁻ 的检出》实验中，为避免干扰，应先将____预先除去。下列哪一项最适合填入空白处？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“NO₃⁻”。"
+          },
+          {
+            "label": "B",
+            "text": "Cl⁻",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“Cl⁻”与本题焦点“在《19-3-03 SO₃²⁻ 的检出》实验中，为避免干扰，应先将____预先除去。下列哪一项最适合填入空白处？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“Cl⁻”。"
+          },
+          {
+            "label": "C",
+            "text": "H₂S",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“H₂S”与本题焦点“在《19-3-03 SO₃²⁻ 的检出》实验中，为避免干扰，应先将____预先除去。下列哪一项最适合填入空白处？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“H₂S”。"
+          },
+          {
+            "label": "D",
+            "text": "SO₄²⁻",
+            "point_key": "candidate-1-26a8e36e",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“SO₄²⁻”直接支撑题干所问：在《19-3-03 SO₃²⁻ 的检出》实验中，为避免干扰，应先将____预先除去。下列哪一项最适合填入空白处？；对应点位为“设计方法除去 SO₄²⁻ 干扰”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00223_91cb040d8f",
+            "expchunk_00224_166bfb5a4a",
+            "expchunk_00228_5e99fe31b9"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final rewrite：phone_risk_repaired_as_single_choice；有效题为本 proposed_question。；原题存在证据、深度或题型风险，最终有效题已由 proposed_question 修复。",
+          "supporting_theory_note": ""
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00223_91cb040d8f",
+            "expchunk_00224_166bfb5a4a",
+            "expchunk_00228_5e99fe31b9"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "generic_or_answer_shell_explanation",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-3-03 SO₃²⁻ 的检出》实验中，为避免干扰，应先将____预先除去。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "SO₄²⁻"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "硫酸根干扰亚硫酸根检出。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00228_5e99fe31b9",
+              "expchunk_00223_91cb040d8f",
+              "expchunk_00224_166bfb5a4a"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-3-03 SO₃²⁻ 的检出》实验中，为避免干扰，应先将____预先除去。下列哪一项最适合填入空白处？",
+            "options": [
+              {
+                "label": "A",
+                "text": "NO₃⁻"
+              },
+              {
+                "label": "B",
+                "text": "Cl⁻"
+              },
+              {
+                "label": "C",
+                "text": "H₂S"
+              },
+              {
+                "label": "D",
+                "text": "SO₄²⁻"
+              }
+            ],
+            "answer": {
+              "value": "D"
+            },
+            "explanation": "空白处应填“SO₄²⁻”。本轮将原手机端高风险填空改为单选，避免上下标、别名或复杂化学式输入导致机器判分不稳定。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_3_03_SEMANTIC_FINAL_024",
+        "source_review_id": "EXP_19_3_03_SEMANTIC_FINAL_024",
+        "source_question_index": 24,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-3-03 SO₃²⁻ 的检出》实验中，SO₃²⁻ 经酸化可放出____，再据其性质验证。下列哪一项最适合填入空白处？",
+        "options": [
+          {
+            "label": "A",
+            "text": "SO₂"
+          },
+          {
+            "label": "B",
+            "text": "氧化性"
+          },
+          {
+            "label": "C",
+            "text": "还原性"
+          },
+          {
+            "label": "D",
+            "text": "配位性"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "空白处应填“SO₂”。本轮将原手机端高风险填空改为单选，避免上下标、别名或复杂化学式输入导致机器判分不稳定。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-795f5a0b"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_2_795f5a0b"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "SO₂",
+            "point_key": "candidate-2-795f5a0b",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“SO₂”直接支撑题干所问：在《19-3-03 SO₃²⁻ 的检出》实验中，SO₃²⁻ 经酸化可放出____，再据其性质验证。下列哪一项最适合填入空白处？；对应点位为“验证样品中 SO₃²⁻ 的存在”。"
+          },
+          {
+            "label": "B",
+            "text": "氧化性",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“氧化性”与本题焦点“在《19-3-03 SO₃²⁻ 的检出》实验中，SO₃²⁻ 经酸化可放出____，再据其性质验证。下列哪一项最适合填入空白处？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“氧化性”。"
+          },
+          {
+            "label": "C",
+            "text": "还原性",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“还原性”与本题焦点“在《19-3-03 SO₃²⁻ 的检出》实验中，SO₃²⁻ 经酸化可放出____，再据其性质验证。下列哪一项最适合填入空白处？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“还原性”。"
+          },
+          {
+            "label": "D",
+            "text": "配位性",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“配位性”与本题焦点“在《19-3-03 SO₃²⁻ 的检出》实验中，SO₃²⁻ 经酸化可放出____，再据其性质验证。下列哪一项最适合填入空白处？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“配位性”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00223_91cb040d8f",
+            "expchunk_00224_166bfb5a4a",
+            "expchunk_00228_5e99fe31b9"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00340_77f9d61c94",
+            "textbook_prose_00363_d345af4100"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final rewrite：phone_risk_repaired_as_single_choice；有效题为本 proposed_question。；原题存在证据、深度或题型风险，最终有效题已由 proposed_question 修复。",
+          "supporting_theory_note": "本题判断除实验操作/现象外，还依赖 supporting theory: textbook_prose_00340_77f9d61c94, textbook_prose_00363_d345af4100。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00223_91cb040d8f",
+            "expchunk_00224_166bfb5a4a",
+            "expchunk_00228_5e99fe31b9"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00340_77f9d61c94",
+            "textbook_prose_00363_d345af4100"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00340_77f9d61c94",
+            "textbook_prose_00363_d345af4100"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "generic_or_answer_shell_explanation",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-3-03 SO₃²⁻ 的检出》实验中，SO₃²⁻ 经酸化可放出____，再据其性质验证。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "SO₂"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "亚硫酸根酸化可生成二氧化硫。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00228_5e99fe31b9",
+              "expchunk_00223_91cb040d8f",
+              "expchunk_00224_166bfb5a4a"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-3-03 SO₃²⁻ 的检出》实验中，SO₃²⁻ 经酸化可放出____，再据其性质验证。下列哪一项最适合填入空白处？",
+            "options": [
+              {
+                "label": "A",
+                "text": "SO₂"
+              },
+              {
+                "label": "B",
+                "text": "氧化性"
+              },
+              {
+                "label": "C",
+                "text": "还原性"
+              },
+              {
+                "label": "D",
+                "text": "配位性"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "空白处应填“SO₂”。本轮将原手机端高风险填空改为单选，避免上下标、别名或复杂化学式输入导致机器判分不稳定。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_3_03_SEMANTIC_FINAL_025",
+        "source_review_id": "EXP_19_3_03_SEMANTIC_FINAL_025",
+        "source_question_index": 25,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《19-3-03 SO₃²⁻ 的检出》实验中，SO₂ 能使酸性 KMnO₄ 溶液的____色褪去。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "紫"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "SO₂ 具有还原性，可还原高锰酸根。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-795f5a0b"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "19_3_03_point_2"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00223_91cb040d8f",
+            "expchunk_00224_166bfb5a4a",
+            "expchunk_00228_5e99fe31b9"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00340_77f9d61c94",
+            "textbook_prose_00363_d345af4100"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "current-release audit 条件复核：题干问 SO₂ 使酸性 KMnO₄ 溶液紫色褪去，canonical SO₂ 性质实验支持“酸化 KMnO₄ 后通入 SO₂ 并观察现象”；答案“紫”为短中文输入，手机端可机器确定性判分。该题保留为低深度颜色观察锚点，不作为强推理题；SO₂ 还原性和高锰酸根紫色判断依赖 supporting theory：textbook_prose_00340_77f9d61c94, textbook_prose_00363_d345af4100。",
+          "supporting_theory_note": "该判断依赖教材理论 chunk：textbook_prose_00340_77f9d61c94, textbook_prose_00363_d345af4100。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00223_91cb040d8f",
+            "expchunk_00224_166bfb5a4a",
+            "expchunk_00228_5e99fe31b9"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00340_77f9d61c94",
+            "textbook_prose_00363_d345af4100"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00340_77f9d61c94",
+            "textbook_prose_00363_d345af4100"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-3-03 SO₃²⁻ 的检出》实验中，SO₂ 能使酸性 KMnO₄ 溶液的____色褪去。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "紫"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "SO₂ 具有还原性，可还原高锰酸根。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00228_5e99fe31b9",
+              "expchunk_00223_91cb040d8f",
+              "expchunk_00224_166bfb5a4a"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "requires_supporting_theory",
+            "current_release_audit_conditional_rechecked",
+            "low_depth_retained_with_reason",
+            "mobile_safe_short_answer"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_3_03_SEMANTIC_FINAL_026",
+        "source_review_id": "EXP_19_3_03_SEMANTIC_FINAL_026",
+        "source_question_index": 26,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《19-3-03 SO₃²⁻ 的检出》实验中，SO₂ 通入品红溶液可使品红____。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "褪色"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "二氧化硫具有漂白作用。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-795f5a0b"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "19_3_03_point_2"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00223_91cb040d8f",
+            "expchunk_00224_166bfb5a4a",
+            "expchunk_00228_5e99fe31b9"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00340_77f9d61c94",
+            "textbook_prose_00363_d345af4100"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "终审保留：题干、答案和解析与教材实验点位语义一致。；polished final 补充 supporting theory 引用：textbook_prose_00340_77f9d61c94, textbook_prose_00363_d345af4100。",
+          "supporting_theory_note": "该判断依赖教材理论 chunk：textbook_prose_00340_77f9d61c94, textbook_prose_00363_d345af4100。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00223_91cb040d8f",
+            "expchunk_00224_166bfb5a4a",
+            "expchunk_00228_5e99fe31b9"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00340_77f9d61c94",
+            "textbook_prose_00363_d345af4100"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00340_77f9d61c94",
+            "textbook_prose_00363_d345af4100"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-3-03 SO₃²⁻ 的检出》实验中，SO₂ 通入品红溶液可使品红____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "褪色"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "二氧化硫具有漂白作用。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00228_5e99fe31b9",
+              "expchunk_00223_91cb040d8f",
+              "expchunk_00224_166bfb5a4a"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_3_03_SEMANTIC_FINAL_027",
+        "source_review_id": "EXP_19_3_03_SEMANTIC_FINAL_027",
+        "source_question_index": 27,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-3-03 SO₃²⁻ 的检出》中，检出 SO₃²⁻ 前先排除 SO₄²⁻ 干扰，最直接的目的是什么（从对照作用角度判断）？",
+        "options": [
+          {
+            "label": "A",
+            "text": "把 SO₄²⁻ 当作目标离子"
+          },
+          {
+            "label": "B",
+            "text": "生成棕色环"
+          },
+          {
+            "label": "C",
+            "text": "避免硫酸根干扰亚硫酸根检出"
+          },
+          {
+            "label": "D",
+            "text": "萃取碘单质"
+          }
+        ],
+        "answer": {
+          "value": "C"
+        },
+        "explanation": "先除去 SO₄²⁻ 后再验证 SO₃²⁻，能降低干扰。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-26a8e36e",
+          "candidate-2-795f5a0b"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_1_26a8e36e",
+          "point_candidate_2_795f5a0b"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "把 SO₄²⁻ 当作目标离子",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“把 SO₄²⁻ 当作目标离子”与本题焦点“在《19-3-03 SO₃²⁻ 的检出》中，检出 SO₃²⁻ 前先排除 SO₄²⁻ 干扰，最直接的目的是什么（从对照作用角度判断”不匹配；错误点在于把应判断的操作、现象或结论替换成了“把 SO₄²⁻ 当作目标离子”。"
+          },
+          {
+            "label": "B",
+            "text": "生成棕色环",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“生成棕色环”混入其他实验或相邻操作，易造成点位错配；本题实际问的是“在《19-3-03 SO₃²⁻ 的检出》中，检出 SO₃²⁻ 前先排除 SO₄²⁻ 干扰，最直接的目的是什么（从对照作用角度判断”。"
+          },
+          {
+            "label": "C",
+            "text": "避免硫酸根干扰亚硫酸根检出",
+            "point_key": "candidate-1-26a8e36e",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“避免硫酸根干扰亚硫酸根检出”直接支撑题干所问：在《19-3-03 SO₃²⁻ 的检出》中，检出 SO₃²⁻ 前先排除 SO₄²⁻ 干扰，最直接的目的是什么（从对照作用角度判断；对应点位为“设计方法除去 SO₄²⁻ 干扰”。"
+          },
+          {
+            "label": "D",
+            "text": "萃取碘单质",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“萃取碘单质”与本题焦点“在《19-3-03 SO₃²⁻ 的检出》中，检出 SO₃²⁻ 前先排除 SO₄²⁻ 干扰，最直接的目的是什么（从对照作用角度判断”不匹配；错误点在于把应判断的操作、现象或结论替换成了“萃取碘单质”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00223_91cb040d8f",
+            "expchunk_00224_166bfb5a4a",
+            "expchunk_00228_5e99fe31b9"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final rewrite：low_quality_keep_rewritten；有效题为本 proposed_question。；原题存在证据、深度或题型风险，最终有效题已由 proposed_question 修复。",
+          "supporting_theory_note": ""
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00223_91cb040d8f",
+            "expchunk_00224_166bfb5a4a",
+            "expchunk_00228_5e99fe31b9"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-3-03 SO₃²⁻ 的检出》实验中，涉及 SO₂ 的操作应在____内进行。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "通风橱"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "SO₂ 有刺激性和毒害性，需要通风。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00228_5e99fe31b9",
+              "expchunk_00223_91cb040d8f",
+              "expchunk_00224_166bfb5a4a"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-3-03 SO₃²⁻ 的检出》中，检出 SO₃²⁻ 前先排除 SO₄²⁻ 干扰，最直接的目的是什么（从对照作用角度判断）？",
+            "options": [
+              {
+                "label": "A",
+                "text": "把 SO₄²⁻ 当作目标离子"
+              },
+              {
+                "label": "B",
+                "text": "生成棕色环"
+              },
+              {
+                "label": "C",
+                "text": "避免硫酸根干扰亚硫酸根检出"
+              },
+              {
+                "label": "D",
+                "text": "萃取碘单质"
+              }
+            ],
+            "answer": {
+              "value": "C"
+            },
+            "explanation": "先除去 SO₄²⁻ 后再验证 SO₃²⁻，能降低干扰。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_3_03_SEMANTIC_FINAL_028",
+        "source_review_id": "EXP_19_3_03_SEMANTIC_FINAL_028",
+        "source_question_index": 28,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-3-03 SO₃²⁻ 的检出》中，酸化 SO₃²⁻ 可放出____用于后续性质验证。下列哪一项最适合填入空白处？",
+        "options": [
+          {
+            "label": "A",
+            "text": "SO₂"
+          },
+          {
+            "label": "B",
+            "text": "氧化性"
+          },
+          {
+            "label": "C",
+            "text": "还原性"
+          },
+          {
+            "label": "D",
+            "text": "配位性"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "空白处应填“SO₂”。本轮将原手机端高风险填空改为单选，避免上下标、别名或复杂化学式输入导致机器判分不稳定。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-795f5a0b"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_2_795f5a0b"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "SO₂",
+            "point_key": "candidate-2-795f5a0b",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“SO₂”直接支撑题干所问：在《19-3-03 SO₃²⁻ 的检出》中，酸化 SO₃²⁻ 可放出____用于后续性质验证。下列哪一项最适合填入空白处？；对应点位为“验证样品中 SO₃²⁻ 的存在”。"
+          },
+          {
+            "label": "B",
+            "text": "氧化性",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“氧化性”与本题焦点“在《19-3-03 SO₃²⁻ 的检出》中，酸化 SO₃²⁻ 可放出____用于后续性质验证。下列哪一项最适合填入空白处？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“氧化性”。"
+          },
+          {
+            "label": "C",
+            "text": "还原性",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“还原性”与本题焦点“在《19-3-03 SO₃²⁻ 的检出》中，酸化 SO₃²⁻ 可放出____用于后续性质验证。下列哪一项最适合填入空白处？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“还原性”。"
+          },
+          {
+            "label": "D",
+            "text": "配位性",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“配位性”与本题焦点“在《19-3-03 SO₃²⁻ 的检出》中，酸化 SO₃²⁻ 可放出____用于后续性质验证。下列哪一项最适合填入空白处？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“配位性”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00223_91cb040d8f",
+            "expchunk_00224_166bfb5a4a",
+            "expchunk_00228_5e99fe31b9"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final rewrite：phone_risk_repaired_as_single_choice；有效题为本 proposed_question。；原题存在证据、深度或题型风险，最终有效题已由 proposed_question 修复。",
+          "supporting_theory_note": ""
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00223_91cb040d8f",
+            "expchunk_00224_166bfb5a4a",
+            "expchunk_00228_5e99fe31b9"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "generic_or_answer_shell_explanation",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-3-03 SO₃²⁻ 的检出》实验中，制备 SO₂ 时蒸馏瓶内可放入____固体。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "Na₂SO₃"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "实验资料给出 Na₂SO₃ 固体与浓硫酸反应。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00228_5e99fe31b9",
+              "expchunk_00223_91cb040d8f",
+              "expchunk_00224_166bfb5a4a"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-3-03 SO₃²⁻ 的检出》中，酸化 SO₃²⁻ 可放出____用于后续性质验证。下列哪一项最适合填入空白处？",
+            "options": [
+              {
+                "label": "A",
+                "text": "SO₂"
+              },
+              {
+                "label": "B",
+                "text": "氧化性"
+              },
+              {
+                "label": "C",
+                "text": "还原性"
+              },
+              {
+                "label": "D",
+                "text": "配位性"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "空白处应填“SO₂”。本轮将原手机端高风险填空改为单选，避免上下标、别名或复杂化学式输入导致机器判分不稳定。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_3_03_SEMANTIC_FINAL_029",
+        "source_review_id": "EXP_19_3_03_SEMANTIC_FINAL_029",
+        "source_question_index": 29,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-3-03 SO₃²⁻ 的检出》中，检出 SO₃²⁻ 前先排除 SO₄²⁻ 干扰，最直接的目的是什么（从介质作用角度判断）？",
+        "options": [
+          {
+            "label": "A",
+            "text": "把 SO₄²⁻ 当作目标离子"
+          },
+          {
+            "label": "B",
+            "text": "生成棕色环"
+          },
+          {
+            "label": "C",
+            "text": "避免硫酸根干扰亚硫酸根检出"
+          },
+          {
+            "label": "D",
+            "text": "萃取碘单质"
+          }
+        ],
+        "answer": {
+          "value": "C"
+        },
+        "explanation": "先除去 SO₄²⁻ 后再验证 SO₃²⁻，能降低干扰。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-26a8e36e",
+          "candidate-2-795f5a0b"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_1_26a8e36e",
+          "point_candidate_2_795f5a0b"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "把 SO₄²⁻ 当作目标离子",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“把 SO₄²⁻ 当作目标离子”与本题焦点“在《19-3-03 SO₃²⁻ 的检出》中，检出 SO₃²⁻ 前先排除 SO₄²⁻ 干扰，最直接的目的是什么（从介质作用角度判断”不匹配；错误点在于把应判断的操作、现象或结论替换成了“把 SO₄²⁻ 当作目标离子”。"
+          },
+          {
+            "label": "B",
+            "text": "生成棕色环",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“生成棕色环”混入其他实验或相邻操作，易造成点位错配；本题实际问的是“在《19-3-03 SO₃²⁻ 的检出》中，检出 SO₃²⁻ 前先排除 SO₄²⁻ 干扰，最直接的目的是什么（从介质作用角度判断”。"
+          },
+          {
+            "label": "C",
+            "text": "避免硫酸根干扰亚硫酸根检出",
+            "point_key": "candidate-1-26a8e36e",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“避免硫酸根干扰亚硫酸根检出”直接支撑题干所问：在《19-3-03 SO₃²⁻ 的检出》中，检出 SO₃²⁻ 前先排除 SO₄²⁻ 干扰，最直接的目的是什么（从介质作用角度判断；对应点位为“设计方法除去 SO₄²⁻ 干扰”。"
+          },
+          {
+            "label": "D",
+            "text": "萃取碘单质",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“萃取碘单质”与本题焦点“在《19-3-03 SO₃²⁻ 的检出》中，检出 SO₃²⁻ 前先排除 SO₄²⁻ 干扰，最直接的目的是什么（从介质作用角度判断”不匹配；错误点在于把应判断的操作、现象或结论替换成了“萃取碘单质”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00223_91cb040d8f",
+            "expchunk_00224_166bfb5a4a",
+            "expchunk_00228_5e99fe31b9"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final rewrite：deduplicated_proposed_question；有效题为本 proposed_question。；原题存在证据、深度或题型风险，最终有效题已由 proposed_question 修复。",
+          "supporting_theory_note": ""
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00223_91cb040d8f",
+            "expchunk_00224_166bfb5a4a",
+            "expchunk_00228_5e99fe31b9"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-3-03 SO₃²⁻ 的检出》实验中，制备 SO₂ 时分液漏斗内装____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "浓 H₂SO₄"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "原文指定缓慢滴加浓硫酸。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00228_5e99fe31b9",
+              "expchunk_00223_91cb040d8f",
+              "expchunk_00224_166bfb5a4a"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-3-03 SO₃²⁻ 的检出》中，检出 SO₃²⁻ 前先排除 SO₄²⁻ 干扰，最直接的目的是什么（从介质作用角度判断）？",
+            "options": [
+              {
+                "label": "A",
+                "text": "把 SO₄²⁻ 当作目标离子"
+              },
+              {
+                "label": "B",
+                "text": "生成棕色环"
+              },
+              {
+                "label": "C",
+                "text": "避免硫酸根干扰亚硫酸根检出"
+              },
+              {
+                "label": "D",
+                "text": "萃取碘单质"
+              }
+            ],
+            "answer": {
+              "value": "C"
+            },
+            "explanation": "先除去 SO₄²⁻ 后再验证 SO₃²⁻，能降低干扰。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_3_03_SEMANTIC_FINAL_030",
+        "source_review_id": "EXP_19_3_03_SEMANTIC_FINAL_030",
+        "source_question_index": 30,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "fill_blank",
+        "stem": "在《19-3-03 SO₃²⁻ 的检出》中，酸化 SO₃²⁻ 可放出____用于后续性质验证。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "SO2",
+            "SO₂",
+            "二氧化硫"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "对应的实验操作或现象内容是“SO₂/二氧化硫”。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-795f5a0b"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "19_3_03_point_2"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00223_91cb040d8f",
+            "expchunk_00224_166bfb5a4a",
+            "expchunk_00228_5e99fe31b9"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "答案为 SO₂/二氧化硫，短且可确定。；原题存在证据、深度或题型风险，最终有效题已由 proposed_question 修复。",
+          "supporting_theory_note": ""
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00223_91cb040d8f",
+            "expchunk_00224_166bfb5a4a",
+            "expchunk_00228_5e99fe31b9"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "formula_or_symbolic_fill_blank_answer",
+          "generic_or_answer_shell_explanation",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-3-03 SO₃²⁻ 的检出》实验中，题目要求写出分离过程示意图及有关反应的____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "方程式"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "实验资料要求设计分离步骤并写出相关方程式。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00228_5e99fe31b9",
+              "expchunk_00223_91cb040d8f",
+              "expchunk_00224_166bfb5a4a"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-3-03 SO₃²⁻ 的检出》中，酸化 SO₃²⁻ 可放出____用于后续性质验证。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "SO2",
+                "SO₂",
+                "二氧化硫"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "对应的实验操作或现象内容是“SO₂/二氧化硫”。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      }
+    ]
+  }
+}

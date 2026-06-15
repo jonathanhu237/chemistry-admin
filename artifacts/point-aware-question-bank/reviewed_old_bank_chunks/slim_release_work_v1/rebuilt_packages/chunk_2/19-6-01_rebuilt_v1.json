@@ -1,0 +1,978 @@
+{
+  "metadata": {
+    "schema": "manual_semantic_rebuilt_question_package",
+    "version": "rebuilt-v1",
+    "chunk": "chunk_2",
+    "experiment_code": "19-6-01",
+    "experiment_title": "金属钠燃烧及产物性质",
+    "question_count": 30,
+    "source_packet": "semantic_work_packets/chunk_2/19-6-01.json",
+    "manual_reconstruction": true,
+    "direct_release_json_modified": false
+  },
+  "video_points": [
+    { "point_key": "candidate-1-137976d3", "point_title": "金属钠加热燃烧" },
+    { "point_key": "candidate-2-43d12c37", "point_title": "燃烧产物加水溶解" },
+    { "point_key": "candidate-3-42b0372b", "point_title": "检验溶液 pH" },
+    { "point_key": "candidate-4-4e7f7f6c", "point_title": "酸化后加入 KMnO₄，检验过氧化物 / 过氧化氢相关性质" }
+  ],
+  "evidence_sources": {
+    "canonical_experiment_chunks": [
+      {
+        "chunk_id": "expchunk_00266_c041a8c010",
+        "line_number": 279,
+        "evidence_note": "contains the full sodium combustion operation: filter paper, stop heating after ignition, product dissolution/cooling, pH test, sulfuric acid acidification, and KMnO₄ addition"
+      }
+    ],
+    "supporting_theory_chunks": [
+      {
+        "chunk_id": "textbook_prose_00952_bf111b030e",
+        "line_number": 1503,
+        "evidence_note": "supports sodium burning in oxygen to form Na₂O₂"
+      },
+      {
+        "chunk_id": "textbook_prose_00956_766b576ca2",
+        "line_number": 1513,
+        "evidence_note": "supports peroxide compounds releasing H₂O₂ with acid or water"
+      },
+      {
+        "chunk_id": "textbook_prose_00295_e1465a9872",
+        "line_number": 518,
+        "evidence_note": "supports H₂O₂ reaction with acidified permanganate"
+      },
+      {
+        "chunk_id": "textbook_prose_00960_559616cf6d",
+        "line_number": 1516,
+        "evidence_note": "supports peroxide oxidizing-property context"
+      }
+    ]
+  },
+  "questions": [
+    {
+      "question_id": "REBUILT_CH2_19_6_01_Q001",
+      "question_type": "single_choice",
+      "stem": "加热金属钠前，教材要求先用什么吸干钠表面的煤油？",
+      "options": [
+        { "label": "A", "text": "滤纸" },
+        { "label": "B", "text": "玻璃棒" },
+        { "label": "C", "text": "石棉网" },
+        { "label": "D", "text": "pH 试纸" }
+      ],
+      "answer": { "value": "A" },
+      "explanation": "操作中领取一小块金属钠后，用滤纸吸干表面的煤油。",
+      "difficulty": "easy",
+      "primary_point_keys": ["candidate-1-137976d3"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["preheating_operation", "sodium_handling"],
+      "option_links": [
+        { "label": "A", "linked": true, "reason": "canonical operation" },
+        { "label": "B", "linked": false, "reason": "used later for crushing cooled product" },
+        { "label": "C", "linked": false, "reason": "not stated" },
+        { "label": "D", "linked": false, "reason": "used later for pH, not kerosene removal" }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00266_c041a8c010"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "direct operation detail"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": { "grading_type": "single_label" },
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_6_01_Q002",
+      "question_type": "single_choice",
+      "stem": "金属钠一旦开始燃烧，正确的加热处理是哪一项？",
+      "options": [
+        { "label": "A", "text": "停止加热并观察现象" },
+        { "label": "B", "text": "继续强热到完全熔干" },
+        { "label": "C", "text": "立即加水冷却" },
+        { "label": "D", "text": "加入浓硫酸再加热" }
+      ],
+      "answer": { "value": "A" },
+      "explanation": "教材要求一旦金属钠开始燃烧即停止加热，观察现象。",
+      "difficulty": "easy",
+      "primary_point_keys": ["candidate-1-137976d3"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["heating_control", "safety_operation"],
+      "option_links": [
+        { "label": "A", "linked": true, "reason": "canonical operation" },
+        { "label": "B", "linked": false, "reason": "contradicts protocol" },
+        { "label": "C", "linked": false, "reason": "water is added only after product cools and is transferred" },
+        { "label": "D", "linked": false, "reason": "acidification occurs later in solution" }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00266_c041a8c010"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "direct stop-heating instruction"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": { "grading_type": "single_label" },
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_6_01_Q003",
+      "question_type": "single_choice",
+      "stem": "根据理论证据，金属钠点燃后与氧气反应的典型产物是哪一项？",
+      "options": [
+        { "label": "A", "text": "Na₂O₂" },
+        { "label": "B", "text": "NaCl" },
+        { "label": "C", "text": "Na₂SO₄" },
+        { "label": "D", "text": "NaNO₃" }
+      ],
+      "answer": { "value": "A" },
+      "explanation": "理论块给出钠与氧气点燃生成 Na₂O₂。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-1-137976d3"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["combustion_product", "sodium_peroxide"],
+      "option_links": [
+        { "label": "A", "linked": true, "reason": "supported combustion product" },
+        { "label": "B", "linked": false, "reason": "not combustion product" },
+        { "label": "C", "linked": false, "reason": "not combustion product" },
+        { "label": "D", "linked": false, "reason": "not combustion product" }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00266_c041a8c010"],
+        "supporting_theory_chunk_ids": ["textbook_prose_00952_bf111b030e"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "combustion product comes from theory chunk"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": { "grading_type": "single_label" },
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_6_01_Q004",
+      "question_type": "single_choice",
+      "stem": "燃烧产物冷却后，教材要求先怎样处理再转入试管？",
+      "options": [
+        { "label": "A", "text": "用玻璃棒轻轻捣碎产物" },
+        { "label": "B", "text": "直接加入浓酸" },
+        { "label": "C", "text": "把产物扔入水槽" },
+        { "label": "D", "text": "立即用手取出" }
+      ],
+      "answer": { "value": "A" },
+      "explanation": "产物冷却后，用玻璃棒轻轻捣碎，再转移入试管。",
+      "difficulty": "easy",
+      "primary_point_keys": ["candidate-2-43d12c37"],
+      "secondary_point_keys": ["candidate-1-137976d3"],
+      "coverage_tags": ["product_handling", "dissolution_preparation"],
+      "option_links": [
+        { "label": "A", "linked": true, "reason": "canonical handling step" },
+        { "label": "B", "linked": false, "reason": "acidification occurs after dissolving/cooling" },
+        { "label": "C", "linked": false, "reason": "not protocol" },
+        { "label": "D", "linked": false, "reason": "unsafe and not protocol" }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00266_c041a8c010"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "direct cooled-product handling step"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": { "grading_type": "single_label" },
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_6_01_Q005",
+      "question_type": "single_choice",
+      "stem": "燃烧产物转入试管后，加入少量水的直接目的是什么？",
+      "options": [
+        { "label": "A", "text": "令产物溶解并为后续检验制备溶液" },
+        { "label": "B", "text": "让金属钠继续在蒸发皿中燃烧" },
+        { "label": "C", "text": "洗去滤纸上的煤油" },
+        { "label": "D", "text": "配制硝酸根检验试液" }
+      ],
+      "answer": { "value": "A" },
+      "explanation": "教材要求向试管中加入少量水令产物溶解、冷却，随后观察和检验。",
+      "difficulty": "easy",
+      "primary_point_keys": ["candidate-2-43d12c37"],
+      "secondary_point_keys": ["candidate-3-42b0372b", "candidate-4-4e7f7f6c"],
+      "coverage_tags": ["dissolution", "solution_preparation"],
+      "option_links": [
+        { "label": "A", "linked": true, "reason": "canonical purpose" },
+        { "label": "B", "linked": false, "reason": "combustion has ended" },
+        { "label": "C", "linked": false, "reason": "not the step" },
+        { "label": "D", "linked": false, "reason": "different experiment" }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00266_c041a8c010"],
+        "supporting_theory_chunk_ids": ["textbook_prose_00956_766b576ca2"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "operation plus peroxide-water context"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": { "grading_type": "single_label" },
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_6_01_Q006",
+      "question_type": "single_choice",
+      "stem": "燃烧产物加水溶解并冷却后，教材要求检验哪一项溶液性质？",
+      "options": [
+        { "label": "A", "text": "pH" },
+        { "label": "B", "text": "沸点" },
+        { "label": "C", "text": "折射率" },
+        { "label": "D", "text": "硬度" }
+      ],
+      "answer": { "value": "A" },
+      "explanation": "操作明确要求检验溶液的 pH。",
+      "difficulty": "easy",
+      "primary_point_keys": ["candidate-3-42b0372b"],
+      "secondary_point_keys": ["candidate-2-43d12c37"],
+      "coverage_tags": ["ph_test", "solution_property"],
+      "option_links": [
+        { "label": "A", "linked": true, "reason": "canonical test" },
+        { "label": "B", "linked": false, "reason": "not tested" },
+        { "label": "C", "linked": false, "reason": "not tested" },
+        { "label": "D", "linked": false, "reason": "not a solution property test here" }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00266_c041a8c010"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "direct pH-test point"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": { "grading_type": "single_label" },
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_6_01_Q007",
+      "question_type": "single_choice",
+      "stem": "进行 KMnO₄ 检验前，教材要求先用哪种酸酸化溶液？",
+      "options": [
+        { "label": "A", "text": "H₂SO₄ 溶液" },
+        { "label": "B", "text": "醋酸" },
+        { "label": "C", "text": "浓氨水" },
+        { "label": "D", "text": "碳酸钠溶液" }
+      ],
+      "answer": { "value": "A" },
+      "explanation": "操作中用 H₂SO₄ 溶液酸化后，再加入 KMnO₄ 溶液观察。",
+      "difficulty": "easy",
+      "primary_point_keys": ["candidate-4-4e7f7f6c"],
+      "secondary_point_keys": ["candidate-2-43d12c37"],
+      "coverage_tags": ["acidification", "permanganate_test"],
+      "option_links": [
+        { "label": "A", "linked": true, "reason": "canonical acid" },
+        { "label": "B", "linked": false, "reason": "not listed" },
+        { "label": "C", "linked": false, "reason": "not acidification" },
+        { "label": "D", "linked": false, "reason": "not acidification" }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00266_c041a8c010"],
+        "supporting_theory_chunk_ids": ["textbook_prose_00295_e1465a9872"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "acidified permanganate test setup"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": { "grading_type": "single_label" },
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_6_01_Q008",
+      "question_type": "single_choice",
+      "stem": "酸化后加入 KMnO₄ 溶液，主要服务于哪一类性质判断？",
+      "options": [
+        { "label": "A", "text": "过氧化物或过氧化氢相关性质" },
+        { "label": "B", "text": "氯离子沉淀性质" },
+        { "label": "C", "text": "硝酸根棕色环现象" },
+        { "label": "D", "text": "硅酸盐水中花园现象" }
+      ],
+      "answer": { "value": "A" },
+      "explanation": "过氧化物遇水或酸可释放 H₂O₂，酸性 KMnO₄ 与 H₂O₂ 的反应可作为相关性质检验。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-4-4e7f7f6c"],
+      "secondary_point_keys": ["candidate-1-137976d3", "candidate-2-43d12c37"],
+      "coverage_tags": ["peroxide_test", "permanganate"],
+      "option_links": [
+        { "label": "A", "linked": true, "reason": "matches point and theory evidence" },
+        { "label": "B", "linked": false, "reason": "not chloride test" },
+        { "label": "C", "linked": false, "reason": "different nitrate test" },
+        { "label": "D", "linked": false, "reason": "different silicate experiment" }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00266_c041a8c010"],
+        "supporting_theory_chunk_ids": ["textbook_prose_00952_bf111b030e", "textbook_prose_00956_766b576ca2", "textbook_prose_00295_e1465a9872"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "connects sodium peroxide product to acidified permanganate test"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": { "grading_type": "single_label" },
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_6_01_Q009",
+      "question_type": "single_choice",
+      "stem": "下列哪一项是产物冷却后的正确处理顺序？",
+      "options": [
+        { "label": "A", "text": "捣碎、转入试管、加少量水溶解并冷却、检验 pH" },
+        { "label": "B", "text": "未冷却即加浓酸、强热、再测 pH" },
+        { "label": "C", "text": "先加 KMnO₄、再燃烧金属钠" },
+        { "label": "D", "text": "先加水玻璃、再放入金属盐" }
+      ],
+      "answer": { "value": "A" },
+      "explanation": "该顺序与教材对燃烧产物后处理和 pH 检验的安排一致。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-2-43d12c37", "candidate-3-42b0372b"],
+      "secondary_point_keys": ["candidate-1-137976d3"],
+      "coverage_tags": ["operation_sequence", "product_solution"],
+      "option_links": [
+        { "label": "A", "linked": true, "reason": "canonical sequence" },
+        { "label": "B", "linked": false, "reason": "unsafe and out of order" },
+        { "label": "C", "linked": false, "reason": "reverses steps" },
+        { "label": "D", "linked": false, "reason": "water-garden experiment" }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00266_c041a8c010"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "sequence item built from canonical operation"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": { "grading_type": "single_label" },
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_6_01_Q010",
+      "question_type": "single_choice",
+      "stem": "下列哪一项最能概括本实验从燃烧到检验的主线？",
+      "options": [
+        { "label": "A", "text": "钠燃烧生成过氧化物，产物溶水后测 pH，并用酸性 KMnO₄ 检验相关性质" },
+        { "label": "B", "text": "钠与水玻璃形成难溶性硅酸盐" },
+        { "label": "C", "text": "钠与 FeSO₄ 形成棕色环" },
+        { "label": "D", "text": "钠盐受热分解后用余烬检验氧气" }
+      ],
+      "answer": { "value": "A" },
+      "explanation": "这一路径覆盖四个实验环节：燃烧、溶解、pH 检验和酸性 KMnO₄ 检验。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-1-137976d3", "candidate-2-43d12c37", "candidate-3-42b0372b", "candidate-4-4e7f7f6c"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["packet_summary", "multi_point_integration"],
+      "option_links": [
+        { "label": "A", "linked": true, "reason": "complete packet chain" },
+        { "label": "B", "linked": false, "reason": "silicate experiment" },
+        { "label": "C", "linked": false, "reason": "nitrate brown-ring test" },
+        { "label": "D", "linked": false, "reason": "nitrate thermal decomposition" }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00266_c041a8c010"],
+        "supporting_theory_chunk_ids": ["textbook_prose_00952_bf111b030e", "textbook_prose_00956_766b576ca2", "textbook_prose_00295_e1465a9872"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "full packet integration"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": { "grading_type": "single_label" },
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_6_01_Q011",
+      "question_type": "single_choice",
+      "stem": "过氧化物与水或酸反应可释放 H₂O₂，这条理论最直接支持本实验的哪一步？",
+      "options": [
+        { "label": "A", "text": "产物加水溶解后，再酸化并用 KMnO₄ 检验" },
+        { "label": "B", "text": "金属钠表面煤油用滤纸吸干" },
+        { "label": "C", "text": "蒸发皿中一开始放入水玻璃" },
+        { "label": "D", "text": "用硝酸根棕色环法定性" }
+      ],
+      "answer": { "value": "A" },
+      "explanation": "Na₂O₂ 等过氧化物遇水或酸释放 H₂O₂，酸性 KMnO₄ 可与 H₂O₂ 反应。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-2-43d12c37", "candidate-4-4e7f7f6c"],
+      "secondary_point_keys": ["candidate-1-137976d3"],
+      "coverage_tags": ["peroxide_theory", "test_rationale"],
+      "option_links": [
+        { "label": "A", "linked": true, "reason": "direct theory-to-operation link" },
+        { "label": "B", "linked": false, "reason": "handling step, not peroxide test" },
+        { "label": "C", "linked": false, "reason": "different experiment" },
+        { "label": "D", "linked": false, "reason": "different experiment" }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00266_c041a8c010"],
+        "supporting_theory_chunk_ids": ["textbook_prose_00956_766b576ca2", "textbook_prose_00295_e1465a9872"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "peroxide/H₂O₂ theory supports later test"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": { "grading_type": "single_label" },
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_6_01_Q012",
+      "question_type": "single_choice",
+      "stem": "酸性 KMnO₄ 与 H₂O₂ 的反应证据说明，加入 KMnO₄ 后应重点观察什么？",
+      "options": [
+        { "label": "A", "text": "氧化还原相关现象是否发生" },
+        { "label": "B", "text": "是否生成硫酸钡白色沉淀" },
+        { "label": "C", "text": "是否出现硝酸根棕色环" },
+        { "label": "D", "text": "是否形成水中花园形态" }
+      ],
+      "answer": { "value": "A" },
+      "explanation": "理论方程显示酸性高锰酸根可被 H₂O₂ 还原，因此该步骤关注过氧化物/过氧化氢相关的氧化还原现象。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-4-4e7f7f6c"],
+      "secondary_point_keys": ["candidate-2-43d12c37"],
+      "coverage_tags": ["permanganate_observation", "redox_property"],
+      "option_links": [
+        { "label": "A", "linked": true, "reason": "matches H₂O₂-permanganate theory" },
+        { "label": "B", "linked": false, "reason": "not barium sulfate test" },
+        { "label": "C", "linked": false, "reason": "not nitrate test" },
+        { "label": "D", "linked": false, "reason": "not silicate experiment" }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00266_c041a8c010"],
+        "supporting_theory_chunk_ids": ["textbook_prose_00295_e1465a9872"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "does not overclaim a specific color; focuses on redox observation"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": { "grading_type": "single_label" },
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_6_01_Q013",
+      "question_type": "single_choice",
+      "stem": "下列哪一项最不符合本实验的安全操作结论？",
+      "options": [
+        { "label": "A", "text": "钠开始燃烧后应停止加热" },
+        { "label": "B", "text": "产物冷却后再捣碎并转移" },
+        { "label": "C", "text": "溶解冷却后检验 pH" },
+        { "label": "D", "text": "燃烧产物未冷却时直接加入水和浓酸" }
+      ],
+      "answer": { "value": "D" },
+      "explanation": "教材要求产物冷却后再处理，并且酸化是在产物溶解、冷却并完成前序观察之后。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-1-137976d3", "candidate-2-43d12c37", "candidate-3-42b0372b", "candidate-4-4e7f7f6c"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["operation_sequence", "misconception_check"],
+      "option_links": [
+        { "label": "A", "linked": true, "reason": "valid operation" },
+        { "label": "B", "linked": true, "reason": "valid operation" },
+        { "label": "C", "linked": true, "reason": "valid operation" },
+        { "label": "D", "linked": false, "reason": "unsafe and not canonical sequence" }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00266_c041a8c010"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "operation sequence and safety control"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": { "grading_type": "single_label" },
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_6_01_Q014",
+      "question_type": "single_choice",
+      "stem": "本实验中的 pH 检验应放在哪个阶段？",
+      "options": [
+        { "label": "A", "text": "燃烧产物加少量水溶解并冷却之后" },
+        { "label": "B", "text": "钠表面煤油尚未吸干之前" },
+        { "label": "C", "text": "金属钠刚开始加热之前" },
+        { "label": "D", "text": "加入 KMnO₄ 之后再倒回蒸发皿" }
+      ],
+      "answer": { "value": "A" },
+      "explanation": "产物加水溶解、冷却后，才观察气体并检验溶液 pH。",
+      "difficulty": "easy",
+      "primary_point_keys": ["candidate-3-42b0372b"],
+      "secondary_point_keys": ["candidate-2-43d12c37"],
+      "coverage_tags": ["ph_test", "operation_sequence"],
+      "option_links": [
+        { "label": "A", "linked": true, "reason": "canonical stage" },
+        { "label": "B", "linked": false, "reason": "too early" },
+        { "label": "C", "linked": false, "reason": "too early" },
+        { "label": "D", "linked": false, "reason": "not protocol" }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00266_c041a8c010"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "pH timing"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": { "grading_type": "single_label" },
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_6_01_Q015",
+      "question_type": "single_choice",
+      "stem": "下列哪组步骤最准确连接“过氧化钠产物”和“高锰酸钾检验”？",
+      "options": [
+        { "label": "A", "text": "钠燃烧生成 Na₂O₂，产物与水或酸相关生成 H₂O₂，再用酸性 KMnO₄ 观察" },
+        { "label": "B", "text": "钠燃烧生成 NaCl，然后用 AgNO₃ 沉淀" },
+        { "label": "C", "text": "钠燃烧生成 FeCl₃，然后观察棕色环" },
+        { "label": "D", "text": "钠燃烧生成 CaCl₂，然后形成水中花园" }
+      ],
+      "answer": { "value": "A" },
+      "explanation": "理论证据支持钠燃烧生成 Na₂O₂、过氧化物遇水或酸释放 H₂O₂、H₂O₂ 与酸性 KMnO₄ 发生反应。",
+      "difficulty": "hard",
+      "primary_point_keys": ["candidate-1-137976d3", "candidate-2-43d12c37", "candidate-4-4e7f7f6c"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["evidence_chain", "peroxide_permanganate"],
+      "option_links": [
+        { "label": "A", "linked": true, "reason": "supported evidence chain" },
+        { "label": "B", "linked": false, "reason": "wrong product and test" },
+        { "label": "C", "linked": false, "reason": "wrong product and experiment" },
+        { "label": "D", "linked": false, "reason": "wrong product and experiment" }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00266_c041a8c010"],
+        "supporting_theory_chunk_ids": ["textbook_prose_00952_bf111b030e", "textbook_prose_00956_766b576ca2", "textbook_prose_00295_e1465a9872"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "complete theory-supported chain"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": { "grading_type": "single_label" },
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_6_01_Q016",
+      "question_type": "true_false",
+      "stem": "加热金属钠前，应先用滤纸吸干其表面的煤油。",
+      "options": [
+        { "label": "T", "text": "正确" },
+        { "label": "F", "text": "错误" }
+      ],
+      "answer": { "value": true },
+      "explanation": "这是钠燃烧前的第一步处理。",
+      "difficulty": "easy",
+      "primary_point_keys": ["candidate-1-137976d3"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["preheating_operation"],
+      "option_links": [
+        { "label": "T", "linked": true, "reason": "canonical step" },
+        { "label": "F", "linked": false, "reason": "contradicts protocol" }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00266_c041a8c010"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "direct operation detail"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": { "grading_type": "true_false" },
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_6_01_Q017",
+      "question_type": "true_false",
+      "stem": "金属钠开始燃烧后，应继续强烈加热直到没有任何固体残留。",
+      "options": [
+        { "label": "T", "text": "正确" },
+        { "label": "F", "text": "错误" }
+      ],
+      "answer": { "value": false },
+      "explanation": "教材要求一旦开始燃烧即停止加热。",
+      "difficulty": "easy",
+      "primary_point_keys": ["candidate-1-137976d3"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["heating_control", "misconception_check"],
+      "option_links": [
+        { "label": "T", "linked": false, "reason": "contradicts protocol" },
+        { "label": "F", "linked": true, "reason": "correctly rejects over-heating" }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00266_c041a8c010"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "stop-heating instruction"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": { "grading_type": "true_false" },
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_6_01_Q018",
+      "question_type": "true_false",
+      "stem": "燃烧产物应冷却后再捣碎、转移并加少量水溶解。",
+      "options": [
+        { "label": "T", "text": "正确" },
+        { "label": "F", "text": "错误" }
+      ],
+      "answer": { "value": true },
+      "explanation": "产物冷却后，用玻璃棒轻轻捣碎，转入试管并加水溶解。",
+      "difficulty": "easy",
+      "primary_point_keys": ["candidate-2-43d12c37"],
+      "secondary_point_keys": ["candidate-1-137976d3"],
+      "coverage_tags": ["product_handling", "dissolution"],
+      "option_links": [
+        { "label": "T", "linked": true, "reason": "canonical product handling" },
+        { "label": "F", "linked": false, "reason": "contradicts protocol" }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00266_c041a8c010"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "cooled-product handling"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": { "grading_type": "true_false" },
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_6_01_Q019",
+      "question_type": "true_false",
+      "stem": "产物溶解并冷却后，需要检验溶液的 pH。",
+      "options": [
+        { "label": "T", "text": "正确" },
+        { "label": "F", "text": "错误" }
+      ],
+      "answer": { "value": true },
+      "explanation": "教材明确要求检验溶液的 pH。",
+      "difficulty": "easy",
+      "primary_point_keys": ["candidate-3-42b0372b"],
+      "secondary_point_keys": ["candidate-2-43d12c37"],
+      "coverage_tags": ["ph_test"],
+      "option_links": [
+        { "label": "T", "linked": true, "reason": "canonical pH test" },
+        { "label": "F", "linked": false, "reason": "contradicts protocol" }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00266_c041a8c010"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "direct pH test"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": { "grading_type": "true_false" },
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_6_01_Q020",
+      "question_type": "true_false",
+      "stem": "进行 KMnO₄ 检验前，溶液先用 H₂SO₄ 酸化。",
+      "options": [
+        { "label": "T", "text": "正确" },
+        { "label": "F", "text": "错误" }
+      ],
+      "answer": { "value": true },
+      "explanation": "操作明确要求用 H₂SO₄ 溶液酸化后，再加入 KMnO₄ 溶液。",
+      "difficulty": "easy",
+      "primary_point_keys": ["candidate-4-4e7f7f6c"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["acidification", "permanganate_test"],
+      "option_links": [
+        { "label": "T", "linked": true, "reason": "canonical acidification" },
+        { "label": "F", "linked": false, "reason": "contradicts protocol" }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00266_c041a8c010"],
+        "supporting_theory_chunk_ids": ["textbook_prose_00295_e1465a9872"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "acidified permanganate setup"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": { "grading_type": "true_false" },
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_6_01_Q021",
+      "question_type": "true_false",
+      "stem": "酸化后加入 KMnO₄ 的目的，是检验氯离子沉淀。",
+      "options": [
+        { "label": "T", "text": "正确" },
+        { "label": "F", "text": "错误" }
+      ],
+      "answer": { "value": false },
+      "explanation": "该步骤服务于过氧化物或 H₂O₂ 相关性质判断，而不是氯离子沉淀。",
+      "difficulty": "easy",
+      "primary_point_keys": ["candidate-4-4e7f7f6c"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["permanganate_test", "misconception_check"],
+      "option_links": [
+        { "label": "T", "linked": false, "reason": "wrong test target" },
+        { "label": "F", "linked": true, "reason": "correctly rejects chloride test" }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00266_c041a8c010"],
+        "supporting_theory_chunk_ids": ["textbook_prose_00956_766b576ca2", "textbook_prose_00295_e1465a9872"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "target of KMnO₄ test"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": { "grading_type": "true_false" },
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_6_01_Q022",
+      "question_type": "true_false",
+      "stem": "理论证据支持钠在氧气中燃烧可生成 Na₂O₂。",
+      "options": [
+        { "label": "T", "text": "正确" },
+        { "label": "F", "text": "错误" }
+      ],
+      "answer": { "value": true },
+      "explanation": "理论块列出钠与氧气点燃生成 Na₂O₂。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-1-137976d3"],
+      "secondary_point_keys": ["candidate-4-4e7f7f6c"],
+      "coverage_tags": ["combustion_product", "sodium_peroxide"],
+      "option_links": [
+        { "label": "T", "linked": true, "reason": "theory-supported" },
+        { "label": "F", "linked": false, "reason": "contradicts theory evidence" }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00266_c041a8c010"],
+        "supporting_theory_chunk_ids": ["textbook_prose_00952_bf111b030e"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "combustion product theory"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": { "grading_type": "true_false" },
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_6_01_Q023",
+      "question_type": "fill_blank",
+      "stem": "加热金属钠前，应用____吸干其表面的煤油。",
+      "answer": {
+        "accepted_answers": ["滤纸"],
+        "match": "normalized_exact"
+      },
+      "explanation": "操作中使用滤纸吸干钠表面的煤油。",
+      "difficulty": "easy",
+      "primary_point_keys": ["candidate-1-137976d3"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["preheating_operation", "fill_blank_low_risk"],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00266_c041a8c010"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "simple tool name"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": { "grading_type": "normalized_text", "case_sensitive": false },
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_6_01_Q024",
+      "question_type": "fill_blank",
+      "stem": "金属钠一旦开始燃烧，应立即____加热。",
+      "answer": {
+        "accepted_answers": ["停止", "停止继续"],
+        "match": "normalized_exact"
+      },
+      "explanation": "教材明确要求一旦开始燃烧即停止加热。",
+      "difficulty": "easy",
+      "primary_point_keys": ["candidate-1-137976d3"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["heating_control", "fill_blank_low_risk"],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00266_c041a8c010"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "operation verb answer"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": { "grading_type": "normalized_text", "case_sensitive": false },
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_6_01_Q025",
+      "question_type": "fill_blank",
+      "stem": "燃烧产物加水溶解并冷却后，要检验溶液的____。",
+      "answer": {
+        "accepted_answers": ["pH", "酸碱性"],
+        "match": "normalized_exact"
+      },
+      "explanation": "教材要求检验溶液的 pH。",
+      "difficulty": "easy",
+      "primary_point_keys": ["candidate-3-42b0372b"],
+      "secondary_point_keys": ["candidate-2-43d12c37"],
+      "coverage_tags": ["ph_test", "fill_blank_low_risk"],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00266_c041a8c010"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "short non-formula lab term"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": { "grading_type": "normalized_text", "case_sensitive": false },
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_6_01_Q026",
+      "question_type": "fill_blank",
+      "stem": "酸化后加入的紫色氧化剂溶液是____。",
+      "answer": {
+        "accepted_answers": ["高锰酸钾", "高锰酸钾溶液"],
+        "match": "normalized_exact"
+      },
+      "explanation": "教材操作在酸化后加入 KMnO₄ 溶液；填空使用中文名称。",
+      "difficulty": "easy",
+      "primary_point_keys": ["candidate-4-4e7f7f6c"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["permanganate_test", "fill_blank_low_risk"],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00266_c041a8c010"],
+        "supporting_theory_chunk_ids": ["textbook_prose_00295_e1465a9872"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "Chinese reagent name avoids formula fill"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": { "grading_type": "normalized_text", "case_sensitive": false },
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_6_01_Q027",
+      "question_type": "single_choice",
+      "stem": "下列哪一项正确区分了本实验和硝酸根棕色环实验？",
+      "options": [
+        { "label": "A", "text": "本实验关注钠燃烧产物及其过氧化物相关检验，不是硝酸根棕色环" },
+        { "label": "B", "text": "本实验也以 FeSO₄ 与浓硫酸形成棕色环为核心" },
+        { "label": "C", "text": "本实验的目标是鉴别水中花园中的硅酸盐形态" },
+        { "label": "D", "text": "本实验只比较不同硝酸盐热分解" }
+      ],
+      "answer": { "value": "A" },
+      "explanation": "本实验的四个观察环节均围绕钠燃烧、产物溶水、pH 和酸性 KMnO₄ 检验。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-1-137976d3", "candidate-2-43d12c37", "candidate-3-42b0372b", "candidate-4-4e7f7f6c"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["scope_control", "neighbor_packet_distinction"],
+      "option_links": [
+        { "label": "A", "linked": true, "reason": "correct scope distinction" },
+        { "label": "B", "linked": false, "reason": "nitrate brown-ring experiment" },
+        { "label": "C", "linked": false, "reason": "water-garden experiment" },
+        { "label": "D", "linked": false, "reason": "nitrate thermal decomposition" }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00266_c041a8c010"],
+        "supporting_theory_chunk_ids": ["textbook_prose_00952_bf111b030e", "textbook_prose_00956_766b576ca2"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "scope distinction"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": { "grading_type": "single_label" },
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_6_01_Q028",
+      "question_type": "single_choice",
+      "stem": "为什么本实验要把产物溶液冷却后再进入后续检验？",
+      "options": [
+        { "label": "A", "text": "教材操作顺序要求溶解、冷却后再观察、测 pH 和酸化检验" },
+        { "label": "B", "text": "冷却会把钠重新变成金属块" },
+        { "label": "C", "text": "冷却会生成硝酸根棕色环" },
+        { "label": "D", "text": "冷却是为了让水玻璃凝固" }
+      ],
+      "answer": { "value": "A" },
+      "explanation": "冷却是产物溶解后的前序操作，后续才进行气体观察、pH 检验和酸化 KMnO₄ 检验。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-2-43d12c37", "candidate-3-42b0372b", "candidate-4-4e7f7f6c"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["operation_sequence", "cooling_step"],
+      "option_links": [
+        { "label": "A", "linked": true, "reason": "canonical sequence" },
+        { "label": "B", "linked": false, "reason": "unsupported" },
+        { "label": "C", "linked": false, "reason": "different experiment" },
+        { "label": "D", "linked": false, "reason": "different experiment" }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00266_c041a8c010"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "sequence reasoning from canonical operation"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": { "grading_type": "single_label" },
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_6_01_Q029",
+      "question_type": "single_choice",
+      "stem": "下列哪一组全部属于本实验的核心检测或处理动作？",
+      "options": [
+        { "label": "A", "text": "停止加热、产物加水溶解、检验 pH、酸化后加 KMnO₄" },
+        { "label": "B", "text": "加水玻璃、放金属盐、记位置、一小时后观察" },
+        { "label": "C", "text": "加 FeSO₄、加 NaNO₃、加浓硫酸、观察棕色环" },
+        { "label": "D", "text": "加热 KNO₃、Cu(NO₃)₂、AgNO₃、用余烬检验气体" }
+      ],
+      "answer": { "value": "A" },
+      "explanation": "选项 A 覆盖钠燃烧及产物性质实验的主要步骤；其他选项属于相邻或不同实验。",
+      "difficulty": "medium",
+      "primary_point_keys": ["candidate-1-137976d3", "candidate-2-43d12c37", "candidate-3-42b0372b", "candidate-4-4e7f7f6c"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["packet_scope", "operation_chain"],
+      "option_links": [
+        { "label": "A", "linked": true, "reason": "all core actions in packet" },
+        { "label": "B", "linked": false, "reason": "water-garden experiment" },
+        { "label": "C", "linked": false, "reason": "nitrate brown-ring experiment" },
+        { "label": "D", "linked": false, "reason": "nitrate thermal decomposition" }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00266_c041a8c010"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "operation-chain scope item"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": { "grading_type": "single_label" },
+      "rebuild_decision": "rewrite"
+    },
+    {
+      "question_id": "REBUILT_CH2_19_6_01_Q030",
+      "question_type": "single_choice",
+      "stem": "围绕钠燃烧产物溶水、pH 与酸性 KMnO₄ 检验，最合理的学习目标是哪一项？",
+      "options": [
+        { "label": "A", "text": "观察金属钠燃烧并检验燃烧产物溶液和过氧化物相关性质" },
+        { "label": "B", "text": "比较八种金属盐在水玻璃中的水中花园现象" },
+        { "label": "C", "text": "掌握硝酸根棕色环检验" },
+        { "label": "D", "text": "比较磷酸根、焦磷酸根和偏磷酸根" }
+      ],
+      "answer": { "value": "A" },
+      "explanation": "四个观察环节都围绕钠燃烧、产物溶水、pH 检验和酸性 KMnO₄ 检验展开。",
+      "difficulty": "easy",
+      "primary_point_keys": ["candidate-1-137976d3", "candidate-2-43d12c37", "candidate-3-42b0372b", "candidate-4-4e7f7f6c"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["learning_objective", "packet_summary"],
+      "option_links": [
+        { "label": "A", "linked": true, "reason": "matches all packet points" },
+        { "label": "B", "linked": false, "reason": "19-5-01 experiment" },
+        { "label": "C", "linked": false, "reason": "19-4 nitrate test" },
+        { "label": "D", "linked": false, "reason": "phosphate experiment" }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00266_c041a8c010"],
+        "supporting_theory_chunk_ids": ["textbook_prose_00952_bf111b030e", "textbook_prose_00956_766b576ca2", "textbook_prose_00295_e1465a9872"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "packet learning objective"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": { "grading_type": "single_label" },
+      "rebuild_decision": "rewrite"
+    }
+  ]
+}

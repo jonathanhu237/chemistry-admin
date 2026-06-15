@@ -1,0 +1,3836 @@
+{
+  "metadata": {
+    "version": "chunk-1-release-slim-v1",
+    "artifact_type": "slim_question_bank_work_file",
+    "generated_at": "2026-06-15T03:27:58.553194+00:00",
+    "source_file": "E:\\chemistry-admin\\artifacts\\point-aware-question-bank\\reviewed_old_bank_chunks\\chunk_1_release_final_v1.json",
+    "normalization_rule": "effective question plus minimal lineage, evidence IDs, point bindings, option links, evidence locators, and mechanical risk flags",
+    "evidence_policy": "RAG source text is not embedded; packets carry locators and reviewers must read E:/chemistry-rag/data/rag_ready directly",
+    "chunk_id_policy": "inherited chunk ids are untrusted locator candidates until manually compared with RAG text",
+    "semantic_status": "not_semantically_repaired_by_this_script",
+    "packet_type": "single_experiment_semantic_repair_work_packet",
+    "chunk": 1,
+    "experiment_code": "19-2-03",
+    "question_count": 30
+  },
+  "experiment": {
+    "experiment_id": "EXP_19_2_03",
+    "experiment_code": "19-2-03",
+    "experiment_title": "过氧化氢的鉴定",
+    "chapter_bindings": [
+      {
+        "chapter_id": "CH14",
+        "coverage_type": "primary",
+        "sort_order": 1
+      },
+      {
+        "chapter_id": "CH22",
+        "coverage_type": "partial",
+        "sort_order": 2
+      }
+    ],
+    "video_points": [
+      {
+        "point_key": "candidate-1-dcc53e2a",
+        "point_title": "H₂O₂ + 乙醚 + H₂SO₄ + K₂CrO₄",
+        "source": null,
+        "candidate_index": null,
+        "resource_count": null,
+        "published_count": null,
+        "resource_titles": []
+      },
+      {
+        "point_key": "candidate-2-181dfe62",
+        "point_title": "观察水层和乙醚层颜色变化",
+        "source": null,
+        "candidate_index": null,
+        "resource_count": null,
+        "published_count": null,
+        "resource_titles": []
+      },
+      {
+        "point_key": "candidate-3-06f59206",
+        "point_title": "通过生成蓝色过氧化铬 / 乙醚层蓝色鉴定 H₂O₂",
+        "source": null,
+        "candidate_index": null,
+        "resource_count": null,
+        "published_count": null,
+        "resource_titles": []
+      }
+    ],
+    "canonical_chunk_ids": [
+      "expchunk_00218_1a6196cddf",
+      "expchunk_00219_5cb548b963"
+    ],
+    "evidence_lookup": {
+      "policy": "locator_only; canonical RAG text is not embedded in this packet",
+      "chunk_id_policy": "metadata chunk ids are inherited claims, not trusted evidence; reviewers must compare the RAG text against the question stem/options/answer/explanation and replace or remove wrong ids",
+      "primary_source_dir": "E:\\chemistry-rag\\data\\rag_ready",
+      "source_files": {
+        "experiment_chunks": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+        "supporting_theory_chunks": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl"
+      },
+      "search_hints": {
+        "experiment_code": "19-2-03",
+        "parent_experiment_code": "19-2",
+        "experiment_title": "过氧化氢的鉴定",
+        "video_point_titles": [
+          "H₂O₂ + 乙醚 + H₂SO₄ + K₂CrO₄",
+          "观察水层和乙醚层颜色变化",
+          "通过生成蓝色过氧化铬 / 乙醚层蓝色鉴定 H₂O₂"
+        ],
+        "canonical_chunk_ids_from_metadata": [
+          "expchunk_00218_1a6196cddf",
+          "expchunk_00219_5cb548b963"
+        ],
+        "supporting_theory_chunk_ids_from_metadata": [
+          "textbook_prose_00028_a4c7b7c9ae",
+          "textbook_prose_00114_be4a779fba"
+        ],
+        "suggested_search_patterns": [
+          "19-2-03",
+          "19-2",
+          "过氧化氢的鉴定",
+          "H₂O₂ + 乙醚 + H₂SO₄ + K₂CrO₄",
+          "观察水层和乙醚层颜色变化",
+          "通过生成蓝色过氧化铬 / 乙醚层蓝色鉴定 H₂O₂",
+          "expchunk_00218_1a6196cddf",
+          "expchunk_00219_5cb548b963",
+          "textbook_prose_00028_a4c7b7c9ae",
+          "textbook_prose_00114_be4a779fba"
+        ]
+      },
+      "rag_exact_id_presence": {
+        "meaning": "id presence only; this does not validate semantic relevance",
+        "found_ids": [
+          "expchunk_00218_1a6196cddf",
+          "expchunk_00219_5cb548b963",
+          "textbook_prose_00028_a4c7b7c9ae",
+          "textbook_prose_00114_be4a779fba"
+        ],
+        "missing_ids": [],
+        "found_locator_summaries": [
+          {
+            "chunk_id": "expchunk_00218_1a6196cddf",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+            "line_number": 231,
+            "source_collection": "textbook_experiment_clean_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学实验（第四版）",
+            "page_start": 143,
+            "page_end": 143,
+            "section_path": [
+              "第7章 元素性质实验",
+              "实验 19-2 氢、氧、过氧化氢",
+              "（四）实验内容",
+              "4. 过氧化氢的制备与性质"
+            ],
+            "content_type": "property_test",
+            "knowledge_unit": "property_test",
+            "parent_id": "expchunk_protocol_61b1d39c8665",
+            "prev_chunk_id": "expchunk_00217_8449d94776",
+            "next_chunk_id": "expchunk_00219_5cb548b963",
+            "relations": {
+              "section_id": "expsec_54cfb2085f1ba9a6",
+              "experiment_id": "experiment:实验_19-2_氢_氧_过氧化氢",
+              "page_anchor": "page_143",
+              "parent": "expchunk_protocol_61b1d39c8665"
+            }
+          },
+          {
+            "chunk_id": "expchunk_00219_5cb548b963",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+            "line_number": 232,
+            "source_collection": "textbook_experiment_clean_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学实验（第四版）",
+            "page_start": 144,
+            "page_end": 144,
+            "section_path": [
+              "第7章 元素性质实验",
+              "实验 19-2 氢、氧、过氧化氢",
+              "（四）实验内容",
+              "4. 过氧化氢的制备与性质"
+            ],
+            "content_type": "property_test",
+            "knowledge_unit": "property_test",
+            "parent_id": "expchunk_protocol_61b1d39c8665",
+            "prev_chunk_id": "expchunk_00218_1a6196cddf",
+            "next_chunk_id": "expchunk_00220_42e84103ab",
+            "relations": {
+              "section_id": "expsec_2686e892e217de13",
+              "experiment_id": "experiment:实验_19-2_氢_氧_过氧化氢",
+              "page_anchor": "page_144",
+              "parent": "expchunk_protocol_61b1d39c8665"
+            }
+          },
+          {
+            "chunk_id": "textbook_prose_00028_a4c7b7c9ae",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+            "line_number": 123,
+            "source_collection": "textbook_inorganic_lower_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学（下册）（第二版）",
+            "page_start": 22,
+            "page_end": 22,
+            "section_path": [
+              "第 13 章 卤族元素",
+              "13.2 卤素单质",
+              "13.2.1 物理性质",
+              "物质为什么会显示不同的颜色？\\*"
+            ],
+            "content_type": "reaction",
+            "knowledge_unit": "reaction",
+            "parent_id": "section:c73237c487b0",
+            "prev_chunk_id": "textbook_prose_00027_29d13c3805",
+            "next_chunk_id": null,
+            "relations": {
+              "parent": "section:c73237c487b0",
+              "source_route": "clean_pages",
+              "prev": "textbook_prose_00027_29d13c3805",
+              "next": null
+            }
+          },
+          {
+            "chunk_id": "textbook_prose_00114_be4a779fba",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+            "line_number": 232,
+            "source_collection": "textbook_inorganic_lower_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学（下册）（第二版）",
+            "page_start": 32,
+            "page_end": 33,
+            "section_path": [
+              "第 13 章 卤族元素",
+              "13.4 卤化物、卤素互化物和多卤化物 (Halides, Interhalogens and Polyhalides)",
+              "13.4.1 卤化物",
+              "2) 在水中的溶解度"
+            ],
+            "content_type": "principle",
+            "knowledge_unit": "principle",
+            "parent_id": "section:706b2229e07e",
+            "prev_chunk_id": null,
+            "next_chunk_id": "textbook_prose_00115_139251f13c",
+            "relations": {
+              "parent": "section:706b2229e07e",
+              "source_route": "clean_pages",
+              "prev": null,
+              "next": "textbook_prose_00115_139251f13c"
+            }
+          }
+        ]
+      },
+      "legacy_locator_summaries": [
+        {
+          "chunk_id": "expchunk_00218_1a6196cddf",
+          "source_file": "无机化学实验（第四版）",
+          "book_title": "无机化学实验（第四版）",
+          "document_id": "DOC_CANONICAL_EXPERIMENT_V1",
+          "source_collection": "textbook_experiment_clean_v1",
+          "source_role": "canonical_textbook",
+          "content_type": "property_test",
+          "chapter_id": null,
+          "page_number": 143,
+          "section_title": "实验 19-2 氢、氧、过氧化氢 / （四）实验内容 / 4. 过氧化氢的制备与性质",
+          "section_path": [
+            "第7章 元素性质实验",
+            "实验 19-2 氢、氧、过氧化氢",
+            "（四）实验内容",
+            "4. 过氧化氢的制备与性质"
+          ]
+        },
+        {
+          "chunk_id": "expchunk_00219_5cb548b963",
+          "source_file": "无机化学实验（第四版）",
+          "book_title": "无机化学实验（第四版）",
+          "document_id": "DOC_CANONICAL_EXPERIMENT_V1",
+          "source_collection": "textbook_experiment_clean_v1",
+          "source_role": "canonical_textbook",
+          "content_type": "property_test",
+          "chapter_id": null,
+          "page_number": 144,
+          "section_title": "实验 19-2 氢、氧、过氧化氢 / （四）实验内容 / 4. 过氧化氢的制备与性质",
+          "section_path": [
+            "第7章 元素性质实验",
+            "实验 19-2 氢、氧、过氧化氢",
+            "（四）实验内容",
+            "4. 过氧化氢的制备与性质"
+          ]
+        }
+      ],
+      "legacy_missing_ids": [
+        "textbook_prose_00028_a4c7b7c9ae",
+        "textbook_prose_00114_be4a779fba"
+      ]
+    },
+    "questions": [
+      {
+        "question_id": "CHUNK1_19_2_03_Q001",
+        "source_review_id": "CHUNK1_19_2_03_Q001",
+        "source_question_index": 1,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-2-03 过氧化氢的鉴定》实验中，该实验要鉴定的物质是哪一种？",
+        "options": [
+          {
+            "label": "A",
+            "text": "H₂O₂"
+          },
+          {
+            "label": "B",
+            "text": "O₃"
+          },
+          {
+            "label": "C",
+            "text": "NaOH"
+          },
+          {
+            "label": "D",
+            "text": "K₂CrO₄"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "实验标题和步骤均围绕过氧化氢鉴定。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-dcc53e2a"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_1_dcc53e2a"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "H₂O₂",
+            "point_key": "candidate-1-dcc53e2a",
+            "role": "correct_evidence",
+            "diagnostic_note": "实验标题和步骤均围绕过氧化氢鉴定。 源文要求 H₂O₂ 溶液加入乙醚、硫酸和 K₂CrO₄，振荡后观察水层与乙醚层，乙醚层蓝色是鉴定 H₂O₂ 的关键证据。"
+          },
+          {
+            "label": "B",
+            "text": "O₃",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该项不能成立：源文要求 H₂O₂ 溶液加入乙醚、硫酸和 K₂CrO₄，振荡后观察水层与乙醚层，乙醚层蓝色是鉴定 H₂O₂ 的关键证据。 题中选项“O₃”不符合该证据链。"
+          },
+          {
+            "label": "C",
+            "text": "NaOH",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该项不能成立：源文要求 H₂O₂ 溶液加入乙醚、硫酸和 K₂CrO₄，振荡后观察水层与乙醚层，乙醚层蓝色是鉴定 H₂O₂ 的关键证据。 题中选项“NaOH”不符合该证据链。"
+          },
+          {
+            "label": "D",
+            "text": "K₂CrO₄",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该项不能成立：源文要求 H₂O₂ 溶液加入乙醚、硫酸和 K₂CrO₄，振荡后观察水层与乙醚层，乙醚层蓝色是鉴定 H₂O₂ 的关键证据。 题中选项“K₂CrO₄”不符合该证据链。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polish 终审：最终有效题为 original_question，题干、答案和解析可由本实验 canonical 文本/点位支撑；最终有效题只需 canonical 实验步骤、点位和题干选项证据即可支撑。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-2-03 过氧化氢的鉴定》实验中，该实验要鉴定的物质是哪一种？",
+            "options": [
+              {
+                "label": "A",
+                "text": "H₂O₂"
+              },
+              {
+                "label": "B",
+                "text": "O₃"
+              },
+              {
+                "label": "C",
+                "text": "NaOH"
+              },
+              {
+                "label": "D",
+                "text": "K₂CrO₄"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "实验标题和步骤均围绕过氧化氢鉴定。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00218_1a6196cddf",
+              "expchunk_00219_5cb548b963"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_2_03_Q002",
+        "source_review_id": "CHUNK1_19_2_03_Q002",
+        "source_question_index": 2,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-2-03 过氧化氢的鉴定》实验中，鉴定 H₂O₂ 时加入 0.5 mL 的有机溶剂是哪一种？",
+        "options": [
+          {
+            "label": "A",
+            "text": "CCl₄"
+          },
+          {
+            "label": "B",
+            "text": "乙醚"
+          },
+          {
+            "label": "C",
+            "text": "乙醇"
+          },
+          {
+            "label": "D",
+            "text": "苯酚"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "步骤明确加入乙醚并观察乙醚层颜色。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-dcc53e2a",
+          "candidate-2-181dfe62"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_1_dcc53e2a",
+          "point_candidate_2_181dfe62",
+          "observation"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "CCl₄",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该项不能成立：源文要求 H₂O₂ 溶液加入乙醚、硫酸和 K₂CrO₄，振荡后观察水层与乙醚层，乙醚层蓝色是鉴定 H₂O₂ 的关键证据。 题中选项“CCl₄”不符合该证据链。"
+          },
+          {
+            "label": "B",
+            "text": "乙醚",
+            "point_key": "candidate-1-dcc53e2a",
+            "role": "correct_evidence",
+            "diagnostic_note": "步骤明确加入乙醚并观察乙醚层颜色。 源文要求 H₂O₂ 溶液加入乙醚、硫酸和 K₂CrO₄，振荡后观察水层与乙醚层，乙醚层蓝色是鉴定 H₂O₂ 的关键证据。"
+          },
+          {
+            "label": "C",
+            "text": "乙醇",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该项不能成立：源文要求 H₂O₂ 溶液加入乙醚、硫酸和 K₂CrO₄，振荡后观察水层与乙醚层，乙醚层蓝色是鉴定 H₂O₂ 的关键证据。 题中选项“乙醇”不符合该证据链。"
+          },
+          {
+            "label": "D",
+            "text": "苯酚",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该项不能成立：源文要求 H₂O₂ 溶液加入乙醚、硫酸和 K₂CrO₄，振荡后观察水层与乙醚层，乙醚层蓝色是鉴定 H₂O₂ 的关键证据。 题中选项“苯酚”不符合该证据链。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polish 终审：最终有效题为 original_question，题干、答案和解析可由本实验 canonical 文本/点位支撑；最终有效题只需 canonical 实验步骤、点位和题干选项证据即可支撑。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-2-03 过氧化氢的鉴定》实验中，鉴定 H₂O₂ 时加入 0.5 mL 的有机溶剂是哪一种？",
+            "options": [
+              {
+                "label": "A",
+                "text": "CCl₄"
+              },
+              {
+                "label": "B",
+                "text": "乙醚"
+              },
+              {
+                "label": "C",
+                "text": "乙醇"
+              },
+              {
+                "label": "D",
+                "text": "苯酚"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "步骤明确加入乙醚并观察乙醚层颜色。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00218_1a6196cddf",
+              "expchunk_00219_5cb548b963"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_2_03_Q003",
+        "source_review_id": "CHUNK1_19_2_03_Q003",
+        "source_question_index": 3,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-2-03 过氧化氢的鉴定》实验中，鉴定 H₂O₂ 时用于酸化的酸是哪一种？",
+        "options": [
+          {
+            "label": "A",
+            "text": "HCl"
+          },
+          {
+            "label": "B",
+            "text": "HNO₃"
+          },
+          {
+            "label": "C",
+            "text": "H₂SO₄"
+          },
+          {
+            "label": "D",
+            "text": "HAc"
+          }
+        ],
+        "answer": {
+          "value": "C"
+        },
+        "explanation": "实验资料指定使用硫酸酸化。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-dcc53e2a"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_1_dcc53e2a",
+          "acidification"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "HCl",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该项不能成立：源文要求 H₂O₂ 溶液加入乙醚、硫酸和 K₂CrO₄，振荡后观察水层与乙醚层，乙醚层蓝色是鉴定 H₂O₂ 的关键证据。 题中选项“HCl”不符合该证据链。"
+          },
+          {
+            "label": "B",
+            "text": "HNO₃",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该项不能成立：源文要求 H₂O₂ 溶液加入乙醚、硫酸和 K₂CrO₄，振荡后观察水层与乙醚层，乙醚层蓝色是鉴定 H₂O₂ 的关键证据。 题中选项“HNO₃”不符合该证据链。"
+          },
+          {
+            "label": "C",
+            "text": "H₂SO₄",
+            "point_key": "candidate-1-dcc53e2a",
+            "role": "correct_evidence",
+            "diagnostic_note": "实验资料指定使用硫酸酸化。 源文要求 H₂O₂ 溶液加入乙醚、硫酸和 K₂CrO₄，振荡后观察水层与乙醚层，乙醚层蓝色是鉴定 H₂O₂ 的关键证据。"
+          },
+          {
+            "label": "D",
+            "text": "HAc",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该项不能成立：源文要求 H₂O₂ 溶液加入乙醚、硫酸和 K₂CrO₄，振荡后观察水层与乙醚层，乙醚层蓝色是鉴定 H₂O₂ 的关键证据。 题中选项“HAc”不符合该证据链。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polish 终审：最终有效题为 original_question，题干、答案和解析可由本实验 canonical 文本/点位支撑；最终有效题只需 canonical 实验步骤、点位和题干选项证据即可支撑。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-2-03 过氧化氢的鉴定》实验中，鉴定 H₂O₂ 时用于酸化的酸是哪一种？",
+            "options": [
+              {
+                "label": "A",
+                "text": "HCl"
+              },
+              {
+                "label": "B",
+                "text": "HNO₃"
+              },
+              {
+                "label": "C",
+                "text": "H₂SO₄"
+              },
+              {
+                "label": "D",
+                "text": "HAc"
+              }
+            ],
+            "answer": {
+              "value": "C"
+            },
+            "explanation": "实验资料指定使用硫酸酸化。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00218_1a6196cddf",
+              "expchunk_00219_5cb548b963"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_2_03_Q004",
+        "source_review_id": "CHUNK1_19_2_03_Q004",
+        "source_question_index": 4,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-2-03 过氧化氢的鉴定》实验中，加入乙醚和硫酸后，用来与 H₂O₂ 反应显色的试剂是哪一种？",
+        "options": [
+          {
+            "label": "A",
+            "text": "AgNO₃"
+          },
+          {
+            "label": "B",
+            "text": "KMnO₄"
+          },
+          {
+            "label": "C",
+            "text": "Na₂SO₃"
+          },
+          {
+            "label": "D",
+            "text": "K₂CrO₄"
+          }
+        ],
+        "answer": {
+          "value": "D"
+        },
+        "explanation": "步骤中加入 0.1 mol·L⁻¹ K₂CrO₄ 溶液。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-dcc53e2a"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_1_dcc53e2a"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "AgNO₃",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该项不能成立：源文要求 H₂O₂ 溶液加入乙醚、硫酸和 K₂CrO₄，振荡后观察水层与乙醚层，乙醚层蓝色是鉴定 H₂O₂ 的关键证据。 题中选项“AgNO₃”不符合该证据链。"
+          },
+          {
+            "label": "B",
+            "text": "KMnO₄",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该项不能成立：源文要求 H₂O₂ 溶液加入乙醚、硫酸和 K₂CrO₄，振荡后观察水层与乙醚层，乙醚层蓝色是鉴定 H₂O₂ 的关键证据。 题中选项“KMnO₄”不符合该证据链。"
+          },
+          {
+            "label": "C",
+            "text": "Na₂SO₃",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该项不能成立：源文要求 H₂O₂ 溶液加入乙醚、硫酸和 K₂CrO₄，振荡后观察水层与乙醚层，乙醚层蓝色是鉴定 H₂O₂ 的关键证据。 题中选项“Na₂SO₃”不符合该证据链。"
+          },
+          {
+            "label": "D",
+            "text": "K₂CrO₄",
+            "point_key": "candidate-1-dcc53e2a",
+            "role": "correct_evidence",
+            "diagnostic_note": "步骤中加入 0.1 mol·L⁻¹ K₂CrO₄ 溶液。 源文要求 H₂O₂ 溶液加入乙醚、硫酸和 K₂CrO₄，振荡后观察水层与乙醚层，乙醚层蓝色是鉴定 H₂O₂ 的关键证据。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polish 终审：最终有效题为 original_question，题干、答案和解析可由本实验 canonical 文本/点位支撑；最终有效题只需 canonical 实验步骤、点位和题干选项证据即可支撑。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-2-03 过氧化氢的鉴定》实验中，加入乙醚和硫酸后，用来与 H₂O₂ 反应显色的试剂是哪一种？",
+            "options": [
+              {
+                "label": "A",
+                "text": "AgNO₃"
+              },
+              {
+                "label": "B",
+                "text": "KMnO₄"
+              },
+              {
+                "label": "C",
+                "text": "Na₂SO₃"
+              },
+              {
+                "label": "D",
+                "text": "K₂CrO₄"
+              }
+            ],
+            "answer": {
+              "value": "D"
+            },
+            "explanation": "步骤中加入 0.1 mol·L⁻¹ K₂CrO₄ 溶液。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00218_1a6196cddf",
+              "expchunk_00219_5cb548b963"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_2_03_Q005",
+        "source_review_id": "CHUNK1_19_2_03_Q005",
+        "source_question_index": 5,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-2-03 过氧化氢的鉴定》实验中，该鉴定实验要求重点观察哪两层颜色变化？",
+        "options": [
+          {
+            "label": "A",
+            "text": "水层和乙醚层"
+          },
+          {
+            "label": "B",
+            "text": "沉淀层和滤纸"
+          },
+          {
+            "label": "C",
+            "text": "气相和固相"
+          },
+          {
+            "label": "D",
+            "text": "油层和汞层"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "原文要求观察水层和乙醚层颜色变化。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-dcc53e2a",
+          "candidate-2-181dfe62"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_1_dcc53e2a",
+          "point_candidate_2_181dfe62",
+          "observation"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "水层和乙醚层",
+            "point_key": "candidate-1-dcc53e2a",
+            "role": "correct_evidence",
+            "diagnostic_note": "原文要求观察水层和乙醚层颜色变化。 源文要求 H₂O₂ 溶液加入乙醚、硫酸和 K₂CrO₄，振荡后观察水层与乙醚层，乙醚层蓝色是鉴定 H₂O₂ 的关键证据。"
+          },
+          {
+            "label": "B",
+            "text": "沉淀层和滤纸",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该项不能成立：源文要求 H₂O₂ 溶液加入乙醚、硫酸和 K₂CrO₄，振荡后观察水层与乙醚层，乙醚层蓝色是鉴定 H₂O₂ 的关键证据。 题中选项“沉淀层和滤纸”不符合该证据链。"
+          },
+          {
+            "label": "C",
+            "text": "气相和固相",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该项不能成立：源文要求 H₂O₂ 溶液加入乙醚、硫酸和 K₂CrO₄，振荡后观察水层与乙醚层，乙醚层蓝色是鉴定 H₂O₂ 的关键证据。 题中选项“气相和固相”不符合该证据链。"
+          },
+          {
+            "label": "D",
+            "text": "油层和汞层",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该项不能成立：源文要求 H₂O₂ 溶液加入乙醚、硫酸和 K₂CrO₄，振荡后观察水层与乙醚层，乙醚层蓝色是鉴定 H₂O₂ 的关键证据。 题中选项“油层和汞层”不符合该证据链。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polish 终审：最终有效题为 original_question，题干、答案和解析可由本实验 canonical 文本/点位支撑；最终有效题只需 canonical 实验步骤、点位和题干选项证据即可支撑。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-2-03 过氧化氢的鉴定》实验中，该鉴定实验要求重点观察哪两层颜色变化？",
+            "options": [
+              {
+                "label": "A",
+                "text": "水层和乙醚层"
+              },
+              {
+                "label": "B",
+                "text": "沉淀层和滤纸"
+              },
+              {
+                "label": "C",
+                "text": "气相和固相"
+              },
+              {
+                "label": "D",
+                "text": "油层和汞层"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "原文要求观察水层和乙醚层颜色变化。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00218_1a6196cddf",
+              "expchunk_00219_5cb548b963"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_2_03_Q006",
+        "source_review_id": "CHUNK1_19_2_03_Q006",
+        "source_question_index": 6,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-2-03 过氧化氢的鉴定》实验中，H₂O₂ 与酸性 K₂CrO₄ 在乙醚存在下的阳性现象最接近哪一项？",
+        "options": [
+          {
+            "label": "A",
+            "text": "产生白色 AgCl 沉淀"
+          },
+          {
+            "label": "B",
+            "text": "乙醚层出现蓝色"
+          },
+          {
+            "label": "C",
+            "text": "放出臭鸡蛋气味"
+          },
+          {
+            "label": "D",
+            "text": "溶液显血红色"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "过氧化铬类蓝色物质进入乙醚层，是常用鉴定现象。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-dcc53e2a",
+          "candidate-2-181dfe62"
+        ],
+        "secondary_point_keys": [
+          "candidate-3-06f59206"
+        ],
+        "coverage_tags": [
+          "point_candidate_1_dcc53e2a",
+          "point_candidate_2_181dfe62",
+          "point_candidate_3_06f59206"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "产生白色 AgCl 沉淀",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该项不能成立：源文要求 H₂O₂ 溶液加入乙醚、硫酸和 K₂CrO₄，振荡后观察水层与乙醚层，乙醚层蓝色是鉴定 H₂O₂ 的关键证据。 题中选项“产生白色 AgCl 沉淀”不符合该证据链。"
+          },
+          {
+            "label": "B",
+            "text": "乙醚层出现蓝色",
+            "point_key": "candidate-1-dcc53e2a",
+            "role": "correct_evidence",
+            "diagnostic_note": "过氧化铬类蓝色物质进入乙醚层，是常用鉴定现象。 源文要求 H₂O₂ 溶液加入乙醚、硫酸和 K₂CrO₄，振荡后观察水层与乙醚层，乙醚层蓝色是鉴定 H₂O₂ 的关键证据。"
+          },
+          {
+            "label": "C",
+            "text": "放出臭鸡蛋气味",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该项不能成立：源文要求 H₂O₂ 溶液加入乙醚、硫酸和 K₂CrO₄，振荡后观察水层与乙醚层，乙醚层蓝色是鉴定 H₂O₂ 的关键证据。 题中选项“放出臭鸡蛋气味”不符合该证据链。"
+          },
+          {
+            "label": "D",
+            "text": "溶液显血红色",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该项不能成立：源文要求 H₂O₂ 溶液加入乙醚、硫酸和 K₂CrO₄，振荡后观察水层与乙醚层，乙醚层蓝色是鉴定 H₂O₂ 的关键证据。 题中选项“溶液显血红色”不符合该证据链。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polish 终审：最终有效题为 original_question，题干、答案和解析可由本实验 canonical 文本/点位支撑；最终有效题只需 canonical 实验步骤、点位和题干选项证据即可支撑。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-2-03 过氧化氢的鉴定》实验中，H₂O₂ 与酸性 K₂CrO₄ 在乙醚存在下的阳性现象最接近哪一项？",
+            "options": [
+              {
+                "label": "A",
+                "text": "产生白色 AgCl 沉淀"
+              },
+              {
+                "label": "B",
+                "text": "乙醚层出现蓝色"
+              },
+              {
+                "label": "C",
+                "text": "放出臭鸡蛋气味"
+              },
+              {
+                "label": "D",
+                "text": "溶液显血红色"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "过氧化铬类蓝色物质进入乙醚层，是常用鉴定现象。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00218_1a6196cddf",
+              "expchunk_00219_5cb548b963"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_2_03_Q007",
+        "source_review_id": "CHUNK1_19_2_03_Q007",
+        "source_question_index": 7,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-2-03 过氧化氢的鉴定》实验中，加入乙醚、H₂SO₄ 和 K₂CrO₄ 后振荡，重点观察什么？",
+        "options": [
+          {
+            "label": "A",
+            "text": "水层与乙醚层颜色变化，尤其乙醚层蓝色"
+          },
+          {
+            "label": "B",
+            "text": "PbS 是否变白"
+          },
+          {
+            "label": "C",
+            "text": "KMnO₄ 是否褪色"
+          },
+          {
+            "label": "D",
+            "text": "滤纸是否形成钥匙轮廓"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "源文要求振荡后观察水层和乙醚层颜色，阳性证据是乙醚层萃取出蓝色物质。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-dcc53e2a",
+          "candidate-2-181dfe62"
+        ],
+        "secondary_point_keys": [
+          "candidate-3-06f59206"
+        ],
+        "coverage_tags": [
+          "layer_color_observation"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "水层与乙醚层颜色变化，尤其乙醚层蓝色",
+            "point_key": "candidate-1-dcc53e2a",
+            "role": "correct_evidence",
+            "diagnostic_note": "与题干要求和绑定点位的实验证据一致。"
+          },
+          {
+            "label": "B",
+            "text": "PbS 是否变白",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "与当前实验点位的观察对象或结论不符。"
+          },
+          {
+            "label": "C",
+            "text": "KMnO₄ 是否褪色",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "与当前实验点位的观察对象或结论不符。"
+          },
+          {
+            "label": "D",
+            "text": "滤纸是否形成钥匙轮廓",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "与当前实验点位的观察对象或结论不符。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "替换题针对终审原因：题目偏向 H₂O₂ 制备，不属于当前“鉴定”点位。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-2-03 过氧化氢的鉴定》实验中，本实验中上一步制得 H₂O₂ 的起始固体是哪一种？",
+            "options": [
+              {
+                "label": "A",
+                "text": "MnO₂"
+              },
+              {
+                "label": "B",
+                "text": "KClO₃"
+              },
+              {
+                "label": "C",
+                "text": "Na₂O₂"
+              },
+              {
+                "label": "D",
+                "text": "Na₂SO₃"
+              }
+            ],
+            "answer": {
+              "value": "C"
+            },
+            "explanation": "制备步骤从 Na₂O₂ 固体开始。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00218_1a6196cddf",
+              "expchunk_00219_5cb548b963"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-2-03 过氧化氢的鉴定》实验中，加入乙醚、H₂SO₄ 和 K₂CrO₄ 后振荡，重点观察什么？",
+            "options": [
+              {
+                "label": "A",
+                "text": "水层与乙醚层颜色变化，尤其乙醚层蓝色"
+              },
+              {
+                "label": "B",
+                "text": "PbS 是否变白"
+              },
+              {
+                "label": "C",
+                "text": "KMnO₄ 是否褪色"
+              },
+              {
+                "label": "D",
+                "text": "滤纸是否形成钥匙轮廓"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "源文要求振荡后观察水层和乙醚层颜色，阳性证据是乙醚层萃取出蓝色物质。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final",
+            "off_point_preparation_for_identification_split",
+            "evidence_first_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_2_03_Q008",
+        "source_review_id": "CHUNK1_19_2_03_Q008",
+        "source_question_index": 8,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-2-03 过氧化氢的鉴定》实验中，乙醚的主要作用是哪一项？",
+        "options": [
+          {
+            "label": "A",
+            "text": "萃取并稳定显示蓝色过氧化铬类物质"
+          },
+          {
+            "label": "B",
+            "text": "作为主要氧化剂氧化 H₂O₂"
+          },
+          {
+            "label": "C",
+            "text": "沉淀 Na⁺"
+          },
+          {
+            "label": "D",
+            "text": "还原 KI"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "CrO₅ 类蓝色物质在水相中不稳定，乙醚萃取后乙醚层呈蓝色，便于鉴定 H₂O₂。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-06f59206"
+        ],
+        "secondary_point_keys": [
+          "candidate-1-dcc53e2a"
+        ],
+        "coverage_tags": [
+          "ether_layer_blue"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "帮助萃取并观察蓝色过氧化铬类物质",
+            "point_key": "candidate-1-dcc53e2a",
+            "role": "correct_evidence",
+            "diagnostic_note": "与题干要求和绑定点位的实验证据一致。"
+          },
+          {
+            "label": "B",
+            "text": "作为主要氧化剂",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "与当前实验点位的观察对象或结论不符。"
+          },
+          {
+            "label": "C",
+            "text": "沉淀 Na⁺",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "与当前实验点位的观察对象或结论不符。"
+          },
+          {
+            "label": "D",
+            "text": "还原 KI",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "与当前实验点位的观察对象或结论不符。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "替换题针对终审原因：题目偏向 H₂O₂ 制备，不属于当前“鉴定”点位。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-2-03 过氧化氢的鉴定》实验中，制备 H₂O₂ 时把溶液放在冰水中冷却，主要是为了减少哪类问题？",
+            "options": [
+              {
+                "label": "A",
+                "text": "AgCl 溶解"
+              },
+              {
+                "label": "B",
+                "text": "Cl₂ 挥发"
+              },
+              {
+                "label": "C",
+                "text": "淀粉结块"
+              },
+              {
+                "label": "D",
+                "text": "H₂O₂ 分解或副反应"
+              }
+            ],
+            "answer": {
+              "value": "D"
+            },
+            "explanation": "过氧化氢不稳定，低温有助于保存生成物。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00218_1a6196cddf",
+              "expchunk_00219_5cb548b963"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-2-03 过氧化氢的鉴定》实验中，乙醚的主要作用是哪一项？",
+            "options": [
+              {
+                "label": "A",
+                "text": "萃取并稳定显示蓝色过氧化铬类物质"
+              },
+              {
+                "label": "B",
+                "text": "作为主要氧化剂氧化 H₂O₂"
+              },
+              {
+                "label": "C",
+                "text": "沉淀 Na⁺"
+              },
+              {
+                "label": "D",
+                "text": "还原 KI"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "CrO₅ 类蓝色物质在水相中不稳定，乙醚萃取后乙醚层呈蓝色，便于鉴定 H₂O₂。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final",
+            "off_point_preparation_for_identification_split",
+            "evidence_first_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_2_03_Q009",
+        "source_review_id": "CHUNK1_19_2_03_Q009",
+        "source_question_index": 9,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-2-03 过氧化氢的鉴定》实验中，加入 K₂CrO₄ 后为什么要振荡试管？",
+        "options": [
+          {
+            "label": "A",
+            "text": "使水层和乙醚层充分接触并萃取显色物"
+          },
+          {
+            "label": "B",
+            "text": "使乙醚燃烧完全"
+          },
+          {
+            "label": "C",
+            "text": "过滤固体杂质"
+          },
+          {
+            "label": "D",
+            "text": "沉淀所有铬酸根"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "振荡有利于反应和蓝色物进入乙醚层。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-dcc53e2a",
+          "candidate-2-181dfe62"
+        ],
+        "secondary_point_keys": [
+          "candidate-3-06f59206"
+        ],
+        "coverage_tags": [
+          "point_candidate_1_dcc53e2a",
+          "point_candidate_2_181dfe62",
+          "point_candidate_3_06f59206"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "使水层和乙醚层充分接触并萃取显色物",
+            "point_key": "candidate-1-dcc53e2a",
+            "role": "correct_evidence",
+            "diagnostic_note": "振荡有利于反应和蓝色物进入乙醚层。 源文要求 H₂O₂ 溶液加入乙醚、硫酸和 K₂CrO₄，振荡后观察水层与乙醚层，乙醚层蓝色是鉴定 H₂O₂ 的关键证据。"
+          },
+          {
+            "label": "B",
+            "text": "使乙醚燃烧完全",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该项不能成立：源文要求 H₂O₂ 溶液加入乙醚、硫酸和 K₂CrO₄，振荡后观察水层与乙醚层，乙醚层蓝色是鉴定 H₂O₂ 的关键证据。 题中选项“使乙醚燃烧完全”不符合该证据链。"
+          },
+          {
+            "label": "C",
+            "text": "过滤固体杂质",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该项不能成立：源文要求 H₂O₂ 溶液加入乙醚、硫酸和 K₂CrO₄，振荡后观察水层与乙醚层，乙醚层蓝色是鉴定 H₂O₂ 的关键证据。 题中选项“过滤固体杂质”不符合该证据链。"
+          },
+          {
+            "label": "D",
+            "text": "沉淀所有铬酸根",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该项不能成立：源文要求 H₂O₂ 溶液加入乙醚、硫酸和 K₂CrO₄，振荡后观察水层与乙醚层，乙醚层蓝色是鉴定 H₂O₂ 的关键证据。 题中选项“沉淀所有铬酸根”不符合该证据链。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polish 终审：最终有效题为 original_question，题干、答案和解析可由本实验 canonical 文本/点位支撑；最终有效题只需 canonical 实验步骤、点位和题干选项证据即可支撑。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-2-03 过氧化氢的鉴定》实验中，加入 K₂CrO₄ 后为什么要振荡试管？",
+            "options": [
+              {
+                "label": "A",
+                "text": "使水层和乙醚层充分接触并萃取显色物"
+              },
+              {
+                "label": "B",
+                "text": "使乙醚燃烧完全"
+              },
+              {
+                "label": "C",
+                "text": "过滤固体杂质"
+              },
+              {
+                "label": "D",
+                "text": "沉淀所有铬酸根"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "振荡有利于反应和蓝色物进入乙醚层。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00218_1a6196cddf",
+              "expchunk_00219_5cb548b963"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_2_03_Q010",
+        "source_review_id": "CHUNK1_19_2_03_Q010",
+        "source_question_index": 10,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-2-03 过氧化氢的鉴定》实验中，该实验用来确认 H₂O₂ 的关键依据是什么？",
+        "options": [
+          {
+            "label": "A",
+            "text": "H₂O₂ 与 NaCl 生成白色沉淀"
+          },
+          {
+            "label": "B",
+            "text": "酸性铬酸盐体系生成可被乙醚萃取的蓝色物"
+          },
+          {
+            "label": "C",
+            "text": "H₂O₂ 与酚酞生成红色络合物"
+          },
+          {
+            "label": "D",
+            "text": "H₂O₂ 与 BaCl₂ 生成 BaSO₄"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "蓝色过氧铬类物质是该鉴定的特征。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-dcc53e2a",
+          "candidate-3-06f59206"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_1_dcc53e2a",
+          "point_candidate_3_06f59206"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "H₂O₂ 与 NaCl 生成白色沉淀",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该项不能成立：源文要求 H₂O₂ 溶液加入乙醚、硫酸和 K₂CrO₄，振荡后观察水层与乙醚层，乙醚层蓝色是鉴定 H₂O₂ 的关键证据。 题中选项“H₂O₂ 与 NaCl 生成白色沉淀”不符合该证据链。"
+          },
+          {
+            "label": "B",
+            "text": "酸性铬酸盐体系生成可被乙醚萃取的蓝色物",
+            "point_key": "candidate-1-dcc53e2a",
+            "role": "correct_evidence",
+            "diagnostic_note": "蓝色过氧铬类物质是该鉴定的特征。 源文要求 H₂O₂ 溶液加入乙醚、硫酸和 K₂CrO₄，振荡后观察水层与乙醚层，乙醚层蓝色是鉴定 H₂O₂ 的关键证据。"
+          },
+          {
+            "label": "C",
+            "text": "H₂O₂ 与酚酞生成红色络合物",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该项不能成立：源文要求 H₂O₂ 溶液加入乙醚、硫酸和 K₂CrO₄，振荡后观察水层与乙醚层，乙醚层蓝色是鉴定 H₂O₂ 的关键证据。 题中选项“H₂O₂ 与酚酞生成红色络合物”不符合该证据链。"
+          },
+          {
+            "label": "D",
+            "text": "H₂O₂ 与 BaCl₂ 生成 BaSO₄",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该项不能成立：源文要求 H₂O₂ 溶液加入乙醚、硫酸和 K₂CrO₄，振荡后观察水层与乙醚层，乙醚层蓝色是鉴定 H₂O₂ 的关键证据。 题中选项“H₂O₂ 与 BaCl₂ 生成 BaSO₄”不符合该证据链。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polish 终审：最终有效题为 original_question，题干、答案和解析可由本实验 canonical 文本/点位支撑；最终有效题只需 canonical 实验步骤、点位和题干选项证据即可支撑。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-2-03 过氧化氢的鉴定》实验中，该实验用来确认 H₂O₂ 的关键依据是什么？",
+            "options": [
+              {
+                "label": "A",
+                "text": "H₂O₂ 与 NaCl 生成白色沉淀"
+              },
+              {
+                "label": "B",
+                "text": "酸性铬酸盐体系生成可被乙醚萃取的蓝色物"
+              },
+              {
+                "label": "C",
+                "text": "H₂O₂ 与酚酞生成红色络合物"
+              },
+              {
+                "label": "D",
+                "text": "H₂O₂ 与 BaCl₂ 生成 BaSO₄"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "蓝色过氧铬类物质是该鉴定的特征。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00218_1a6196cddf",
+              "expchunk_00219_5cb548b963"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_2_03_Q011",
+        "source_review_id": "CHUNK1_19_2_03_Q011",
+        "source_question_index": 11,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-2-03 过氧化氢的鉴定》实验中，判断：鉴定对象为“H₂O₂”。",
+        "options": [],
+        "answer": {
+          "value": true
+        },
+        "explanation": "实验标题和步骤均围绕过氧化氢鉴定。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-dcc53e2a"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_1_dcc53e2a"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polish 终审：最终有效题为 original_question，题干、答案和解析可由本实验 canonical 文本/点位支撑；最终有效题只需 canonical 实验步骤、点位和题干选项证据即可支撑。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-2-03 过氧化氢的鉴定》实验中，判断：鉴定对象为“H₂O₂”。",
+            "options": [],
+            "answer": {
+              "value": true
+            },
+            "explanation": "实验标题和步骤均围绕过氧化氢鉴定。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00218_1a6196cddf",
+              "expchunk_00219_5cb548b963"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_2_03_Q012",
+        "source_review_id": "CHUNK1_19_2_03_Q012",
+        "source_question_index": 12,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-2-03 过氧化氢的鉴定》实验中，判断：萃取溶剂为“CCl₄”。",
+        "options": [],
+        "answer": {
+          "value": false
+        },
+        "explanation": "该说法与本实验事实不符；步骤明确加入乙醚并观察乙醚层颜色。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-dcc53e2a",
+          "candidate-2-181dfe62"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_1_dcc53e2a",
+          "point_candidate_2_181dfe62",
+          "ccl4_observation",
+          "observation"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00028_a4c7b7c9ae"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polish 终审：最终有效题为 original_question，题干、答案和解析可由本实验 canonical 文本/点位支撑；部分判断依赖 supporting theory：textbook_prose_00028_a4c7b7c9ae。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00028_a4c7b7c9ae"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00028_a4c7b7c9ae"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-2-03 过氧化氢的鉴定》实验中，判断：萃取溶剂为“CCl₄”。",
+            "options": [],
+            "answer": {
+              "value": false
+            },
+            "explanation": "该说法与本实验事实不符；步骤明确加入乙醚并观察乙醚层颜色。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00218_1a6196cddf",
+              "expchunk_00219_5cb548b963"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_2_03_Q013",
+        "source_review_id": "CHUNK1_19_2_03_Q013",
+        "source_question_index": 13,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-2-03 过氧化氢的鉴定》实验中，判断：酸化试剂为“H₂SO₄”。",
+        "options": [],
+        "answer": {
+          "value": true
+        },
+        "explanation": "实验资料指定使用硫酸酸化。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-dcc53e2a"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_1_dcc53e2a",
+          "acidification"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polish 终审：最终有效题为 original_question，题干、答案和解析可由本实验 canonical 文本/点位支撑；最终有效题只需 canonical 实验步骤、点位和题干选项证据即可支撑。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-2-03 过氧化氢的鉴定》实验中，判断：酸化试剂为“H₂SO₄”。",
+            "options": [],
+            "answer": {
+              "value": true
+            },
+            "explanation": "实验资料指定使用硫酸酸化。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00218_1a6196cddf",
+              "expchunk_00219_5cb548b963"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_2_03_Q014",
+        "source_review_id": "CHUNK1_19_2_03_Q014",
+        "source_question_index": 14,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-2-03 过氧化氢的鉴定》实验中，判断：显色试剂为“AgNO₃”。",
+        "options": [],
+        "answer": {
+          "value": false
+        },
+        "explanation": "该说法与本实验事实不符；步骤中加入 0.1 mol·L⁻¹ K₂CrO₄ 溶液。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-dcc53e2a"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_1_dcc53e2a"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polish 终审：最终有效题为 original_question，题干、答案和解析可由本实验 canonical 文本/点位支撑；最终有效题只需 canonical 实验步骤、点位和题干选项证据即可支撑。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-2-03 过氧化氢的鉴定》实验中，判断：显色试剂为“AgNO₃”。",
+            "options": [],
+            "answer": {
+              "value": false
+            },
+            "explanation": "该说法与本实验事实不符；步骤中加入 0.1 mol·L⁻¹ K₂CrO₄ 溶液。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00218_1a6196cddf",
+              "expchunk_00219_5cb548b963"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_2_03_Q015",
+        "source_review_id": "CHUNK1_19_2_03_Q015",
+        "source_question_index": 15,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-2-03 过氧化氢的鉴定》实验中，判断：观察部位为“水层和乙醚层”。",
+        "options": [],
+        "answer": {
+          "value": true
+        },
+        "explanation": "原文要求观察水层和乙醚层颜色变化。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-dcc53e2a",
+          "candidate-2-181dfe62"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_1_dcc53e2a",
+          "point_candidate_2_181dfe62",
+          "observation"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polish 终审：最终有效题为 original_question，题干、答案和解析可由本实验 canonical 文本/点位支撑；最终有效题只需 canonical 实验步骤、点位和题干选项证据即可支撑。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-2-03 过氧化氢的鉴定》实验中，判断：观察部位为“水层和乙醚层”。",
+            "options": [],
+            "answer": {
+              "value": true
+            },
+            "explanation": "原文要求观察水层和乙醚层颜色变化。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00218_1a6196cddf",
+              "expchunk_00219_5cb548b963"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_2_03_Q016",
+        "source_review_id": "CHUNK1_19_2_03_Q016",
+        "source_question_index": 16,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-2-03 过氧化氢的鉴定》实验中，判断：特征现象为“产生白色 AgCl 沉淀”。",
+        "options": [],
+        "answer": {
+          "value": false
+        },
+        "explanation": "该说法与本实验事实不符；过氧化铬类蓝色物质进入乙醚层，是常用鉴定现象。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-dcc53e2a",
+          "candidate-2-181dfe62"
+        ],
+        "secondary_point_keys": [
+          "candidate-3-06f59206"
+        ],
+        "coverage_tags": [
+          "point_candidate_1_dcc53e2a",
+          "point_candidate_2_181dfe62",
+          "point_candidate_3_06f59206"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00114_be4a779fba"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polish 终审：最终有效题为 original_question，题干、答案和解析可由本实验 canonical 文本/点位支撑；部分判断依赖 supporting theory：textbook_prose_00114_be4a779fba。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00114_be4a779fba"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00114_be4a779fba"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-2-03 过氧化氢的鉴定》实验中，判断：特征现象为“产生白色 AgCl 沉淀”。",
+            "options": [],
+            "answer": {
+              "value": false
+            },
+            "explanation": "该说法与本实验事实不符；过氧化铬类蓝色物质进入乙醚层，是常用鉴定现象。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00218_1a6196cddf",
+              "expchunk_00219_5cb548b963"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_2_03_Q017",
+        "source_review_id": "CHUNK1_19_2_03_Q017",
+        "source_question_index": 17,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-2-03 过氧化氢的鉴定》实验中，静置分层后哪一层的蓝色最能作为阳性证据？",
+        "options": [
+          {
+            "label": "A",
+            "text": "乙醚层"
+          },
+          {
+            "label": "B",
+            "text": "滤纸层"
+          },
+          {
+            "label": "C",
+            "text": "沉淀层"
+          },
+          {
+            "label": "D",
+            "text": "汞层"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "乙醚层萃取出蓝色 CrO₅ 类物质，是鉴定 H₂O₂ 的特征现象。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-181dfe62",
+          "candidate-3-06f59206"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "layer_color_observation"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "水层与乙醚层颜色变化，尤其乙醚层蓝色",
+            "point_key": "candidate-1-dcc53e2a",
+            "role": "correct_evidence",
+            "diagnostic_note": "与题干要求和绑定点位的实验证据一致。"
+          },
+          {
+            "label": "B",
+            "text": "PbS 是否变白",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "与当前实验点位的观察对象或结论不符。"
+          },
+          {
+            "label": "C",
+            "text": "KMnO₄ 是否褪色",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "与当前实验点位的观察对象或结论不符。"
+          },
+          {
+            "label": "D",
+            "text": "滤纸是否形成钥匙轮廓",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "与当前实验点位的观察对象或结论不符。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "替换题针对终审原因：题目偏向 H₂O₂ 制备，不属于当前“鉴定”点位。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-2-03 过氧化氢的鉴定》实验中，判断：制备来源为“Na₂O₂”。",
+            "options": [],
+            "answer": {
+              "value": true
+            },
+            "explanation": "制备步骤从 Na₂O₂ 固体开始。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00218_1a6196cddf",
+              "expchunk_00219_5cb548b963"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-2-03 过氧化氢的鉴定》实验中，静置分层后哪一层的蓝色最能作为阳性证据？",
+            "options": [
+              {
+                "label": "A",
+                "text": "乙醚层"
+              },
+              {
+                "label": "B",
+                "text": "滤纸层"
+              },
+              {
+                "label": "C",
+                "text": "沉淀层"
+              },
+              {
+                "label": "D",
+                "text": "汞层"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "乙醚层萃取出蓝色 CrO₅ 类物质，是鉴定 H₂O₂ 的特征现象。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final",
+            "off_point_preparation_for_identification_split",
+            "evidence_first_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_2_03_Q018",
+        "source_review_id": "CHUNK1_19_2_03_Q018",
+        "source_question_index": 18,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-2-03 过氧化氢的鉴定》实验中，为什么不能把 CCl₄ 写成该实验的萃取剂？",
+        "options": [
+          {
+            "label": "A",
+            "text": "源文指定使用乙醚并观察乙醚层蓝色"
+          },
+          {
+            "label": "B",
+            "text": "CCl₄ 会生成过氧化铬"
+          },
+          {
+            "label": "C",
+            "text": "CCl₄ 是酸化试剂"
+          },
+          {
+            "label": "D",
+            "text": "CCl₄ 是显色试剂 K₂CrO₄"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "canonical 步骤明确加入 0.5 mL 乙醚，阳性证据也来自乙醚层蓝色。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-dcc53e2a",
+          "candidate-2-181dfe62"
+        ],
+        "secondary_point_keys": [
+          "candidate-3-06f59206"
+        ],
+        "coverage_tags": [
+          "ether_layer_blue"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "帮助萃取并观察蓝色过氧化铬类物质",
+            "point_key": "candidate-1-dcc53e2a",
+            "role": "correct_evidence",
+            "diagnostic_note": "与题干要求和绑定点位的实验证据一致。"
+          },
+          {
+            "label": "B",
+            "text": "作为主要氧化剂",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "与当前实验点位的观察对象或结论不符。"
+          },
+          {
+            "label": "C",
+            "text": "沉淀 Na⁺",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "与当前实验点位的观察对象或结论不符。"
+          },
+          {
+            "label": "D",
+            "text": "还原 KI",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "与当前实验点位的观察对象或结论不符。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "替换题针对终审原因：题目偏向 H₂O₂ 制备，不属于当前“鉴定”点位。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-2-03 过氧化氢的鉴定》实验中，判断：冷却目的为“AgCl 溶解”。",
+            "options": [],
+            "answer": {
+              "value": false
+            },
+            "explanation": "该说法与本实验事实不符；过氧化氢不稳定，低温有助于保存生成物。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00218_1a6196cddf",
+              "expchunk_00219_5cb548b963"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-2-03 过氧化氢的鉴定》实验中，为什么不能把 CCl₄ 写成该实验的萃取剂？",
+            "options": [
+              {
+                "label": "A",
+                "text": "源文指定使用乙醚并观察乙醚层蓝色"
+              },
+              {
+                "label": "B",
+                "text": "CCl₄ 会生成过氧化铬"
+              },
+              {
+                "label": "C",
+                "text": "CCl₄ 是酸化试剂"
+              },
+              {
+                "label": "D",
+                "text": "CCl₄ 是显色试剂 K₂CrO₄"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "canonical 步骤明确加入 0.5 mL 乙醚，阳性证据也来自乙醚层蓝色。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final",
+            "off_point_preparation_for_identification_split",
+            "evidence_first_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_2_03_Q019",
+        "source_review_id": "CHUNK1_19_2_03_Q019",
+        "source_question_index": 19,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-2-03 过氧化氢的鉴定》实验中，判断：振荡操作为“使水层和乙醚层充分接触并萃取显色物”。",
+        "options": [],
+        "answer": {
+          "value": true
+        },
+        "explanation": "振荡有利于反应和蓝色物进入乙醚层。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-dcc53e2a",
+          "candidate-2-181dfe62"
+        ],
+        "secondary_point_keys": [
+          "candidate-3-06f59206"
+        ],
+        "coverage_tags": [
+          "point_candidate_1_dcc53e2a",
+          "point_candidate_2_181dfe62",
+          "point_candidate_3_06f59206"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polish 终审：最终有效题为 original_question，题干、答案和解析可由本实验 canonical 文本/点位支撑；最终有效题只需 canonical 实验步骤、点位和题干选项证据即可支撑。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-2-03 过氧化氢的鉴定》实验中，判断：振荡操作为“使水层和乙醚层充分接触并萃取显色物”。",
+            "options": [],
+            "answer": {
+              "value": true
+            },
+            "explanation": "振荡有利于反应和蓝色物进入乙醚层。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00218_1a6196cddf",
+              "expchunk_00219_5cb548b963"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_2_03_Q020",
+        "source_review_id": "CHUNK1_19_2_03_Q020",
+        "source_question_index": 20,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-2-03 过氧化氢的鉴定》实验中，判断：鉴定依据为“H₂O₂ 与 NaCl 生成白色沉淀”。",
+        "options": [],
+        "answer": {
+          "value": false
+        },
+        "explanation": "该说法与本实验事实不符；蓝色过氧铬类物质是该鉴定的特征。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-dcc53e2a",
+          "candidate-3-06f59206"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_1_dcc53e2a",
+          "point_candidate_3_06f59206"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polish 终审：最终有效题为 original_question，题干、答案和解析可由本实验 canonical 文本/点位支撑；最终有效题只需 canonical 实验步骤、点位和题干选项证据即可支撑。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-2-03 过氧化氢的鉴定》实验中，判断：鉴定依据为“H₂O₂ 与 NaCl 生成白色沉淀”。",
+            "options": [],
+            "answer": {
+              "value": false
+            },
+            "explanation": "该说法与本实验事实不符；蓝色过氧铬类物质是该鉴定的特征。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00218_1a6196cddf",
+              "expchunk_00219_5cb548b963"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_2_03_Q021",
+        "source_review_id": "CHUNK1_19_2_03_Q021",
+        "source_question_index": 21,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-2-03 过氧化氢的鉴定》实验中，蓝色阳性物质主要指哪一类物质？",
+        "options": [
+          {
+            "label": "A",
+            "text": "过氧化铬类物质"
+          },
+          {
+            "label": "B",
+            "text": "氯化银沉淀"
+          },
+          {
+            "label": "C",
+            "text": "硫化铅沉淀"
+          },
+          {
+            "label": "D",
+            "text": "碘-淀粉络合物"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "H₂O₂ 在酸性铬酸盐体系中生成蓝色 CrO₅ 类过氧化铬物质，并被乙醚萃取。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-06f59206"
+        ],
+        "secondary_point_keys": [
+          "candidate-1-dcc53e2a"
+        ],
+        "coverage_tags": [
+          "layer_color_observation"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "水层与乙醚层颜色变化，尤其乙醚层蓝色",
+            "point_key": "candidate-1-dcc53e2a",
+            "role": "correct_evidence",
+            "diagnostic_note": "与题干要求和绑定点位的实验证据一致。"
+          },
+          {
+            "label": "B",
+            "text": "PbS 是否变白",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "与当前实验点位的观察对象或结论不符。"
+          },
+          {
+            "label": "C",
+            "text": "KMnO₄ 是否褪色",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "与当前实验点位的观察对象或结论不符。"
+          },
+          {
+            "label": "D",
+            "text": "滤纸是否形成钥匙轮廓",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "与当前实验点位的观察对象或结论不符。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "替换题针对终审原因：填空答案只给带下标公式，缺少手机友好的中文/ASCII 确定性答案。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-2-03 过氧化氢的鉴定》实验中，该鉴定实验的目标物质是____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "H₂O₂"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "实验标题和步骤均围绕过氧化氢鉴定。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00218_1a6196cddf",
+              "expchunk_00219_5cb548b963"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-2-03 过氧化氢的鉴定》实验中，蓝色阳性物质主要指哪一类物质？",
+            "options": [
+              {
+                "label": "A",
+                "text": "过氧化铬类物质"
+              },
+              {
+                "label": "B",
+                "text": "氯化银沉淀"
+              },
+              {
+                "label": "C",
+                "text": "硫化铅沉淀"
+              },
+              {
+                "label": "D",
+                "text": "碘-淀粉络合物"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "H₂O₂ 在酸性铬酸盐体系中生成蓝色 CrO₅ 类过氧化铬物质，并被乙醚萃取。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final",
+            "evidence_first_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_2_03_Q022",
+        "source_review_id": "CHUNK1_19_2_03_Q022",
+        "source_question_index": 22,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《19-2-03 过氧化氢的鉴定》实验中，鉴定 H₂O₂ 时加入约 0.5 mL ____作为有机层。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "乙醚"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "步骤明确加入乙醚并观察乙醚层颜色。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-dcc53e2a",
+          "candidate-2-181dfe62"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_1_dcc53e2a",
+          "point_candidate_2_181dfe62",
+          "observation"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polish 终审：最终有效题为 original_question，题干、答案和解析可由本实验 canonical 文本/点位支撑；最终有效题只需 canonical 实验步骤、点位和题干选项证据即可支撑。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-2-03 过氧化氢的鉴定》实验中，鉴定 H₂O₂ 时加入约 0.5 mL ____作为有机层。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "乙醚"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "步骤明确加入乙醚并观察乙醚层颜色。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00218_1a6196cddf",
+              "expchunk_00219_5cb548b963"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_2_03_Q023",
+        "source_review_id": "CHUNK1_19_2_03_Q023",
+        "source_question_index": 23,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-2-03 过氧化氢的鉴定》实验中，K₂CrO₄ 的作用最接近哪一项？",
+        "options": [
+          {
+            "label": "A",
+            "text": "提供铬酸盐体系，与 H₂O₂ 在酸性条件下生成蓝色物"
+          },
+          {
+            "label": "B",
+            "text": "直接作为乙醚层"
+          },
+          {
+            "label": "C",
+            "text": "吸收所有水层颜色"
+          },
+          {
+            "label": "D",
+            "text": "检验 SO₂ 气体"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "源文要求酸化后加入 K₂CrO₄，蓝色过氧化铬类物质来自 H₂O₂ 与铬酸盐体系的反应。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-dcc53e2a",
+          "candidate-3-06f59206"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "layer_color_observation"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "水层与乙醚层颜色变化，尤其乙醚层蓝色",
+            "point_key": "candidate-1-dcc53e2a",
+            "role": "correct_evidence",
+            "diagnostic_note": "与题干要求和绑定点位的实验证据一致。"
+          },
+          {
+            "label": "B",
+            "text": "PbS 是否变白",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "与当前实验点位的观察对象或结论不符。"
+          },
+          {
+            "label": "C",
+            "text": "KMnO₄ 是否褪色",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "与当前实验点位的观察对象或结论不符。"
+          },
+          {
+            "label": "D",
+            "text": "滤纸是否形成钥匙轮廓",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "与当前实验点位的观察对象或结论不符。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "替换题针对终审原因：填空答案只给带下标公式，缺少手机友好的中文/ASCII 确定性答案。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-2-03 过氧化氢的鉴定》实验中，鉴定 H₂O₂ 时用少量 1 mol·L⁻¹ ____酸化。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "H₂SO₄"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "实验资料指定使用硫酸酸化。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00218_1a6196cddf",
+              "expchunk_00219_5cb548b963"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-2-03 过氧化氢的鉴定》实验中，K₂CrO₄ 的作用最接近哪一项？",
+            "options": [
+              {
+                "label": "A",
+                "text": "提供铬酸盐体系，与 H₂O₂ 在酸性条件下生成蓝色物"
+              },
+              {
+                "label": "B",
+                "text": "直接作为乙醚层"
+              },
+              {
+                "label": "C",
+                "text": "吸收所有水层颜色"
+              },
+              {
+                "label": "D",
+                "text": "检验 SO₂ 气体"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "源文要求酸化后加入 K₂CrO₄，蓝色过氧化铬类物质来自 H₂O₂ 与铬酸盐体系的反应。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final",
+            "evidence_first_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_2_03_Q024",
+        "source_review_id": "CHUNK1_19_2_03_Q024",
+        "source_question_index": 24,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-2-03 过氧化氢的鉴定》实验中，稀硫酸酸化的直接意义是什么？",
+        "options": [
+          {
+            "label": "A",
+            "text": "为铬酸盐-过氧化氢显色反应提供酸性条件"
+          },
+          {
+            "label": "B",
+            "text": "把乙醚变成水层"
+          },
+          {
+            "label": "C",
+            "text": "沉淀 H₂O₂"
+          },
+          {
+            "label": "D",
+            "text": "生成 Ag₂O"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "canonical 说明该反应必须在酸性条件下进行，酸度不足则显色不明显。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-dcc53e2a"
+        ],
+        "secondary_point_keys": [
+          "candidate-3-06f59206"
+        ],
+        "coverage_tags": [
+          "ether_layer_blue"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "帮助萃取并观察蓝色过氧化铬类物质",
+            "point_key": "candidate-1-dcc53e2a",
+            "role": "correct_evidence",
+            "diagnostic_note": "与题干要求和绑定点位的实验证据一致。"
+          },
+          {
+            "label": "B",
+            "text": "作为主要氧化剂",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "与当前实验点位的观察对象或结论不符。"
+          },
+          {
+            "label": "C",
+            "text": "沉淀 Na⁺",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "与当前实验点位的观察对象或结论不符。"
+          },
+          {
+            "label": "D",
+            "text": "还原 KI",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "与当前实验点位的观察对象或结论不符。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "替换题针对终审原因：填空答案只给带下标公式，缺少手机友好的中文/ASCII 确定性答案。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-2-03 过氧化氢的鉴定》实验中，鉴定 H₂O₂ 时最后滴加的铬酸盐试剂是____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "K₂CrO₄"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "步骤中加入 0.1 mol·L⁻¹ K₂CrO₄ 溶液。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00218_1a6196cddf",
+              "expchunk_00219_5cb548b963"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-2-03 过氧化氢的鉴定》实验中，稀硫酸酸化的直接意义是什么？",
+            "options": [
+              {
+                "label": "A",
+                "text": "为铬酸盐-过氧化氢显色反应提供酸性条件"
+              },
+              {
+                "label": "B",
+                "text": "把乙醚变成水层"
+              },
+              {
+                "label": "C",
+                "text": "沉淀 H₂O₂"
+              },
+              {
+                "label": "D",
+                "text": "生成 Ag₂O"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "canonical 说明该反应必须在酸性条件下进行，酸度不足则显色不明显。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final",
+            "evidence_first_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_2_03_Q025",
+        "source_review_id": "CHUNK1_19_2_03_Q025",
+        "source_question_index": 25,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《19-2-03 过氧化氢的鉴定》实验中，振荡后要观察____和乙醚层的颜色变化。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "水层"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "原文要求观察水层和乙醚层颜色变化。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-dcc53e2a",
+          "candidate-2-181dfe62"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_1_dcc53e2a",
+          "point_candidate_2_181dfe62",
+          "observation"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polish 终审：最终有效题为 original_question，题干、答案和解析可由本实验 canonical 文本/点位支撑；最终有效题只需 canonical 实验步骤、点位和题干选项证据即可支撑。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-2-03 过氧化氢的鉴定》实验中，振荡后要观察____和乙醚层的颜色变化。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "水层"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "原文要求观察水层和乙醚层颜色变化。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00218_1a6196cddf",
+              "expchunk_00219_5cb548b963"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_2_03_Q026",
+        "source_review_id": "CHUNK1_19_2_03_Q026",
+        "source_question_index": 26,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《19-2-03 过氧化氢的鉴定》实验中，H₂O₂ 的铬酸盐-乙醚鉴定中，阳性时乙醚层可呈____色。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "蓝"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "过氧化铬类蓝色物质进入乙醚层，是常用鉴定现象。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-dcc53e2a",
+          "candidate-2-181dfe62"
+        ],
+        "secondary_point_keys": [
+          "candidate-3-06f59206"
+        ],
+        "coverage_tags": [
+          "point_candidate_1_dcc53e2a",
+          "point_candidate_2_181dfe62",
+          "point_candidate_3_06f59206"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polish 终审：最终有效题为 original_question，题干、答案和解析可由本实验 canonical 文本/点位支撑；最终有效题只需 canonical 实验步骤、点位和题干选项证据即可支撑。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-2-03 过氧化氢的鉴定》实验中，H₂O₂ 的铬酸盐-乙醚鉴定中，阳性时乙醚层可呈____色。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "蓝"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "过氧化铬类蓝色物质进入乙醚层，是常用鉴定现象。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00218_1a6196cddf",
+              "expchunk_00219_5cb548b963"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_2_03_Q027",
+        "source_review_id": "CHUNK1_19_2_03_Q027",
+        "source_question_index": 27,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-2-03 过氧化氢的鉴定》实验中，下列哪组操作顺序最符合源文？",
+        "options": [
+          {
+            "label": "A",
+            "text": "加入乙醚和 H₂SO₄ 酸化，再滴加 K₂CrO₄ 后振荡观察"
+          },
+          {
+            "label": "B",
+            "text": "先加入 PbS，再用 KMnO₄ 滴定"
+          },
+          {
+            "label": "C",
+            "text": "先蒸干 H₂O₂，再加入浓氨水"
+          },
+          {
+            "label": "D",
+            "text": "用钥匙遮光后观察滤纸轮廓"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "源文步骤依次为 H₂O₂ 溶液加入乙醚、H₂SO₄ 酸化、滴加 K₂CrO₄、振荡并观察两层颜色。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-dcc53e2a",
+          "candidate-2-181dfe62"
+        ],
+        "secondary_point_keys": [
+          "candidate-3-06f59206"
+        ],
+        "coverage_tags": [
+          "layer_color_observation"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "水层与乙醚层颜色变化，尤其乙醚层蓝色",
+            "point_key": "candidate-1-dcc53e2a",
+            "role": "correct_evidence",
+            "diagnostic_note": "与题干要求和绑定点位的实验证据一致。"
+          },
+          {
+            "label": "B",
+            "text": "PbS 是否变白",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "与当前实验点位的观察对象或结论不符。"
+          },
+          {
+            "label": "C",
+            "text": "KMnO₄ 是否褪色",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "与当前实验点位的观察对象或结论不符。"
+          },
+          {
+            "label": "D",
+            "text": "滤纸是否形成钥匙轮廓",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "与当前实验点位的观察对象或结论不符。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "替换题针对终审原因：题目偏向 H₂O₂ 制备，不属于当前“鉴定”点位。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-2-03 过氧化氢的鉴定》实验中，制备 H₂O₂ 时先取少量____固体加水。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "Na₂O₂"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "制备步骤从 Na₂O₂ 固体开始。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00218_1a6196cddf",
+              "expchunk_00219_5cb548b963"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-2-03 过氧化氢的鉴定》实验中，下列哪组操作顺序最符合源文？",
+            "options": [
+              {
+                "label": "A",
+                "text": "加入乙醚和 H₂SO₄ 酸化，再滴加 K₂CrO₄ 后振荡观察"
+              },
+              {
+                "label": "B",
+                "text": "先加入 PbS，再用 KMnO₄ 滴定"
+              },
+              {
+                "label": "C",
+                "text": "先蒸干 H₂O₂，再加入浓氨水"
+              },
+              {
+                "label": "D",
+                "text": "用钥匙遮光后观察滤纸轮廓"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "源文步骤依次为 H₂O₂ 溶液加入乙醚、H₂SO₄ 酸化、滴加 K₂CrO₄、振荡并观察两层颜色。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final",
+            "off_point_preparation_for_identification_split",
+            "evidence_first_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_2_03_Q028",
+        "source_review_id": "CHUNK1_19_2_03_Q028",
+        "source_question_index": 28,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-2-03 过氧化氢的鉴定》实验中，阳性结果最简明的判据是哪一项？",
+        "options": [
+          {
+            "label": "A",
+            "text": "乙醚层出现蓝色"
+          },
+          {
+            "label": "B",
+            "text": "KMnO₄ 紫色褪去"
+          },
+          {
+            "label": "C",
+            "text": "PbS 转白"
+          },
+          {
+            "label": "D",
+            "text": "Na₂SO₃ 产生 SO₂"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "蓝色 CrO₅ 类物质被乙醚萃取后使乙醚层显蓝，是本鉴定实验的关键阳性证据。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-06f59206"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-181dfe62"
+        ],
+        "coverage_tags": [
+          "ether_layer_blue"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "帮助萃取并观察蓝色过氧化铬类物质",
+            "point_key": "candidate-1-dcc53e2a",
+            "role": "correct_evidence",
+            "diagnostic_note": "与题干要求和绑定点位的实验证据一致。"
+          },
+          {
+            "label": "B",
+            "text": "作为主要氧化剂",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "与当前实验点位的观察对象或结论不符。"
+          },
+          {
+            "label": "C",
+            "text": "沉淀 Na⁺",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "与当前实验点位的观察对象或结论不符。"
+          },
+          {
+            "label": "D",
+            "text": "还原 KI",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "与当前实验点位的观察对象或结论不符。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "替换题针对终审原因：题目偏向 H₂O₂ 制备，不属于当前“鉴定”点位。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-2-03 过氧化氢的鉴定》实验中，冰水冷却有助于减少 H₂O₂ 的____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "分解",
+                "分解或副反应"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "过氧化氢不稳定，低温有助于保存生成物。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00218_1a6196cddf",
+              "expchunk_00219_5cb548b963"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-2-03 过氧化氢的鉴定》实验中，阳性结果最简明的判据是哪一项？",
+            "options": [
+              {
+                "label": "A",
+                "text": "乙醚层出现蓝色"
+              },
+              {
+                "label": "B",
+                "text": "KMnO₄ 紫色褪去"
+              },
+              {
+                "label": "C",
+                "text": "PbS 转白"
+              },
+              {
+                "label": "D",
+                "text": "Na₂SO₃ 产生 SO₂"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "蓝色 CrO₅ 类物质被乙醚萃取后使乙醚层显蓝，是本鉴定实验的关键阳性证据。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final",
+            "off_point_preparation_for_identification_split",
+            "evidence_first_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_2_03_Q029",
+        "source_review_id": "CHUNK1_19_2_03_Q029",
+        "source_question_index": 29,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《19-2-03 过氧化氢的鉴定》实验中，加入 K₂CrO₄ 后振荡，是为了促进接触和____显色物。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "萃取"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "振荡有利于反应和蓝色物进入乙醚层。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-dcc53e2a",
+          "candidate-2-181dfe62"
+        ],
+        "secondary_point_keys": [
+          "candidate-3-06f59206"
+        ],
+        "coverage_tags": [
+          "point_candidate_1_dcc53e2a",
+          "point_candidate_2_181dfe62",
+          "point_candidate_3_06f59206"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polish 终审：最终有效题为 original_question，题干、答案和解析可由本实验 canonical 文本/点位支撑；最终有效题只需 canonical 实验步骤、点位和题干选项证据即可支撑。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-2-03 过氧化氢的鉴定》实验中，加入 K₂CrO₄ 后振荡，是为了促进接触和____显色物。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "萃取"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "振荡有利于反应和蓝色物进入乙醚层。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00218_1a6196cddf",
+              "expchunk_00219_5cb548b963"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound"
+          ]
+        }
+      },
+      {
+        "question_id": "CHUNK1_19_2_03_Q030",
+        "source_review_id": "CHUNK1_19_2_03_Q030",
+        "source_question_index": 30,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《19-2-03 过氧化氢的鉴定》实验中，该鉴定依据是生成可被乙醚萃取的____色物质。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "蓝"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "蓝色过氧铬类物质是该鉴定的特征。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-dcc53e2a",
+          "candidate-3-06f59206"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_1_dcc53e2a",
+          "point_candidate_3_06f59206"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polish 终审：最终有效题为 original_question，题干、答案和解析可由本实验 canonical 文本/点位支撑；最终有效题只需 canonical 实验步骤、点位和题干选项证据即可支撑。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00218_1a6196cddf",
+            "expchunk_00219_5cb548b963"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-2-03 过氧化氢的鉴定》实验中，该鉴定依据是生成可被乙醚萃取的____色物质。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "蓝"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "蓝色过氧铬类物质是该鉴定的特征。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00218_1a6196cddf",
+              "expchunk_00219_5cb548b963"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final",
+            "source_supported",
+            "point_bound"
+          ]
+        }
+      }
+    ]
+  }
+}

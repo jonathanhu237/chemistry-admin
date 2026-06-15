@@ -1,0 +1,2061 @@
+{
+  "metadata": {
+    "schema_version": "rebuilt_experiment_question_package_v1",
+    "artifact_type": "manual_small_packet_semantic_reconstruction",
+    "source_packet": "E:\\chemistry-admin\\artifacts\\point-aware-question-bank\\reviewed_old_bank_chunks\\slim_release_work_v1\\semantic_work_packets\\chunk_5\\20-3-04.json",
+    "experiment_code": "20-3-04",
+    "experiment_title": "观察不同配体的 Co(Ⅱ) 配合物的颜色",
+    "question_count": 30,
+    "chunk": "chunk_5",
+    "reconstruction_status": "manual_question_by_question_semantic_rebuild",
+    "evidence_policy": "RAG text was read for every cited id. JSON stores ids, source file, line number, and concise evidence role only; no release JSON was edited.",
+    "rag_source_dir": "E:\\chemistry-rag\\data\\rag_ready",
+    "release_json_direct_edit": false
+  },
+  "video_points": [
+    {
+      "point_key": "candidate-1-2059a278",
+      "point_title": "CoCl₂ + KSCN 生成蓝紫色配合物"
+    },
+    {
+      "point_key": "candidate-2-5eaed5b5",
+      "point_title": "原溶液作为对照"
+    },
+    {
+      "point_key": "candidate-3-c47ca8d9",
+      "point_title": "加水后的颜色变化"
+    },
+    {
+      "point_key": "candidate-4-e1fb1262",
+      "point_title": "加丙酮后的颜色变化"
+    }
+  ],
+  "evidence_sources": {
+    "canonical_experiment_chunks": [
+      {
+        "chunk_id": "expchunk_00331_3f7cc41ff9",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+        "line_number": 344,
+        "evidence_role": "Primary canonical procedure: add CoCl₂ solution to saturated KSCN until blue-purple, divide into three tubes, add distilled water to one and acetone to another, compare colors. The equation shows thiocyanato cobalt complex interconverting with [Co(H₂O)₆]²⁺ and SCN⁻ under acetone/water conditions."
+      }
+    ],
+    "supporting_theory_chunks": [
+      {
+        "chunk_id": "textbook_table_context_p224_0e08e79e44",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+        "line_number": 1970,
+        "evidence_role": "Table context for common iron-group complexes."
+      },
+      {
+        "chunk_id": "textbook_table_record_table_p224_t01_r051",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+        "line_number": 1975,
+        "evidence_role": "Cobalt(Ⅱ) complex table: [Co(H₂O)₆]²⁺ is pink; cobalt thiocyanate complex is blue; cobalt ammine complex is earthy yellow."
+      },
+      {
+        "chunk_id": "textbook_table_record_table_p224_t01_r071",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+        "line_number": 1977,
+        "evidence_role": "Iron(Ⅲ) thiocyanate complex is blood red; used only to avoid confusing the cobalt experiment with iron thiocyanate identification."
+      }
+    ]
+  },
+  "questions": [
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_04_001",
+      "question_type": "single_choice",
+      "stem": "制备蓝紫色钴(Ⅱ)-硫氰配合物时，应向哪种饱和溶液中滴加 CoCl₂？",
+      "options": [
+        {
+          "label": "A",
+          "text": "KSCN 饱和溶液"
+        },
+        {
+          "label": "B",
+          "text": "NaOH 溶液"
+        },
+        {
+          "label": "C",
+          "text": "AgNO₃ 溶液"
+        },
+        {
+          "label": "D",
+          "text": "淀粉溶液"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "教材资料规定向 KSCN 饱和溶液滴加 CoCl₂ 溶液至呈蓝紫色。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-2059a278"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "initial_operation",
+        "kscn_reagent"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-1-2059a278",
+          "role": "correct_reagent",
+          "diagnostic_note": "A 是教材步骤指定的饱和溶液。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "wrong_reagent_distractor",
+          "diagnostic_note": "B 不是本步配体来源。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "wrong_reagent_distractor",
+          "diagnostic_note": "C 是银盐语境。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "wrong_reagent_distractor",
+          "diagnostic_note": "D 与本实验无关。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00331_3f7cc41ff9"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "人工逐题判断：源题直接命中 canonical 初始操作，保留。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_04_002",
+      "question_type": "single_choice",
+      "stem": "将蓝紫色溶液分成三份后，其中两份分别加入什么？",
+      "options": [
+        {
+          "label": "A",
+          "text": "硫酸和盐酸"
+        },
+        {
+          "label": "B",
+          "text": "蒸馏水和丙酮"
+        },
+        {
+          "label": "C",
+          "text": "氨水和双氧水"
+        },
+        {
+          "label": "D",
+          "text": "硝酸银和氯化钠"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "教材步骤要求把蓝紫色溶液分至三支试管，其中两支分别加入蒸馏水和丙酮，另一支保留对照。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-3-c47ca8d9"
+      ],
+      "secondary_point_keys": [
+        "candidate-4-e1fb1262",
+        "candidate-2-5eaed5b5"
+      ],
+      "coverage_tags": [
+        "three_tube_setup",
+        "water_acetone"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "wrong_reagent_pair",
+          "diagnostic_note": "A 不是本实验的两种处理。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-3-c47ca8d9",
+          "role": "correct_reagent_pair",
+          "diagnostic_note": "B 对应教材步骤的两支处理。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "wrong_reagent_pair",
+          "diagnostic_note": "C 是其他实验语境。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "wrong_reagent_pair",
+          "diagnostic_note": "D 与本实验无关。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00331_3f7cc41ff9"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "人工逐题判断：源题直接命中 canonical 三试管处理，保留。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_04_003",
+      "question_type": "single_choice",
+      "stem": "加入蒸馏水后，平衡更有利于形成哪种配合物？",
+      "options": [
+        {
+          "label": "A",
+          "text": "血红色铁硫氰配合物"
+        },
+        {
+          "label": "B",
+          "text": "银氨配合物"
+        },
+        {
+          "label": "C",
+          "text": "[Co(H₂O)₆]²⁺"
+        },
+        {
+          "label": "D",
+          "text": "Cr₂O₇²⁻"
+        }
+      ],
+      "answer": {
+        "value": "C"
+      },
+      "explanation": "教材方程式显示加水与硫氰配合物相互转化时可形成 [Co(H₂O)₆]²⁺；表 20.10 也支持该水合钴(Ⅱ)配合物为粉红色。",
+      "difficulty": "intermediate",
+      "primary_point_keys": [
+        "candidate-3-c47ca8d9"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "water_shift",
+        "cobalt_hydrated_complex"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "iron_thiocyanate_distractor",
+          "diagnostic_note": "A 属于 Fe(Ⅲ)-硫氰配合物语境。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "wrong_complex_distractor",
+          "diagnostic_note": "B 是银配合物语境。"
+        },
+        {
+          "label": "C",
+          "point_key": "candidate-3-c47ca8d9",
+          "role": "correct_water_product",
+          "diagnostic_note": "C 对应方程式水合钴(Ⅱ)一侧。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "wrong_anion_distractor",
+          "diagnostic_note": "D 是铬含氧阴离子。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00331_3f7cc41ff9"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_table_record_table_p224_t01_r051"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "人工逐题判断：源题直接由 canonical 方程式支撑，表格补充颜色背景，保留。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_04_004",
+      "question_type": "single_choice",
+      "stem": "加入丙酮后，平衡更有利于哪种蓝色或蓝紫色配合物？",
+      "options": [
+        {
+          "label": "A",
+          "text": "[Co(H₂O)₆]²⁺"
+        },
+        {
+          "label": "B",
+          "text": "CrO₄²⁻"
+        },
+        {
+          "label": "C",
+          "text": "镍丁二酮肟沉淀"
+        },
+        {
+          "label": "D",
+          "text": "钴(Ⅱ)-硫氰络阴离子"
+        }
+      ],
+      "answer": {
+        "value": "D"
+      },
+      "explanation": "教材方程式把丙酮标在硫氰合钴(Ⅱ)络阴离子方向；表 20.10 也支持钴(Ⅱ)硫氰配合物呈蓝色。",
+      "difficulty": "intermediate",
+      "primary_point_keys": [
+        "candidate-4-e1fb1262"
+      ],
+      "secondary_point_keys": [
+        "candidate-1-2059a278"
+      ],
+      "coverage_tags": [
+        "acetone_shift",
+        "cobalt_thiocyanate_complex"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "water_side_distractor",
+          "diagnostic_note": "A 是加水更有利的一侧。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "wrong_anion_distractor",
+          "diagnostic_note": "B 是铬酸根。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "nickel_dmg_distractor",
+          "diagnostic_note": "C 是镍鉴定语境。"
+        },
+        {
+          "label": "D",
+          "point_key": "candidate-4-e1fb1262",
+          "role": "correct_acetone_side",
+          "diagnostic_note": "D 对应丙酮方向的蓝色硫氰钴配合物。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00331_3f7cc41ff9"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_table_record_table_p224_t01_r051"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "人工逐题判断：源题直接由 canonical 方程式支撑，表格补充蓝色钴硫氰配合物，保留。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_04_005",
+      "question_type": "single_choice",
+      "stem": "该实验的核心变量是哪一项？",
+      "options": [
+        {
+          "label": "A",
+          "text": "配体和溶剂环境"
+        },
+        {
+          "label": "B",
+          "text": "试管编号"
+        },
+        {
+          "label": "C",
+          "text": "玻璃棒长度"
+        },
+        {
+          "label": "D",
+          "text": "滤纸质量"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "本实验通过 KSCN、水和丙酮条件改变钴(Ⅱ)配合物的配体/溶剂环境，再比较颜色差异。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-2-5eaed5b5"
+      ],
+      "secondary_point_keys": [
+        "candidate-3-c47ca8d9",
+        "candidate-4-e1fb1262"
+      ],
+      "coverage_tags": [
+        "experimental_variable",
+        "ligand_solvent_effect"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-2-5eaed5b5",
+          "role": "correct_variable",
+          "diagnostic_note": "A 对应本实验对照设计。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "irrelevant_distractor",
+          "diagnostic_note": "B 不是化学变量。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "irrelevant_distractor",
+          "diagnostic_note": "C 与颜色差异无关。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "irrelevant_distractor",
+          "diagnostic_note": "D 不是本实验观察指标。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00331_3f7cc41ff9"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_table_record_table_p224_t01_r051"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "人工逐题判断：源题变量判断正确，保留。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_04_006",
+      "question_type": "single_choice",
+      "stem": "CoCl₂ 与 KSCN 形成蓝紫色配合物时，主要配体来自哪一种离子？",
+      "options": [
+        {
+          "label": "A",
+          "text": "NO₃⁻"
+        },
+        {
+          "label": "B",
+          "text": "SCN⁻"
+        },
+        {
+          "label": "C",
+          "text": "ClO₄⁻"
+        },
+        {
+          "label": "D",
+          "text": "CO₃²⁻"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "KSCN 提供 SCN⁻，教材方程式中的钴(Ⅱ)-硫氰络阴离子正是由 SCN⁻ 配位形成。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-2059a278"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "thiocyanate_ligand",
+        "kscn"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "wrong_ligand_distractor",
+          "diagnostic_note": "A 是硝酸根，不是 KSCN 提供的配体。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-1-2059a278",
+          "role": "correct_ligand",
+          "diagnostic_note": "B 是硫氰根配体。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "wrong_ligand_distractor",
+          "diagnostic_note": "C 不在本实验操作中。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "wrong_ligand_distractor",
+          "diagnostic_note": "D 不在本实验操作中。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00331_3f7cc41ff9"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "人工逐题判断：源题直接由 KSCN 和方程式支撑，保留。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_04_007",
+      "question_type": "single_choice",
+      "stem": "保留一支原溶液作为对照的目的是什么？",
+      "options": [
+        {
+          "label": "A",
+          "text": "测定试管质量"
+        },
+        {
+          "label": "B",
+          "text": "证明溶液一定无色"
+        },
+        {
+          "label": "C",
+          "text": "与加水、加丙酮后的颜色进行比较"
+        },
+        {
+          "label": "D",
+          "text": "代替所有实验记录"
+        }
+      ],
+      "answer": {
+        "value": "C"
+      },
+      "explanation": "教材步骤要求把溶液分为三支试管，其中一支原溶液用于对照，便于比较水和丙酮处理后的颜色差异。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-2-5eaed5b5"
+      ],
+      "secondary_point_keys": [
+        "candidate-3-c47ca8d9",
+        "candidate-4-e1fb1262"
+      ],
+      "coverage_tags": [
+        "control_tube",
+        "color_comparison"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "wrong_measurement_distractor",
+          "diagnostic_note": "A 不是本实验目的。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "contradicted_by_initial_color",
+          "diagnostic_note": "B 与蓝紫色初始溶液不符。"
+        },
+        {
+          "label": "C",
+          "point_key": "candidate-2-5eaed5b5",
+          "role": "correct_control_purpose",
+          "diagnostic_note": "C 准确说明对照作用。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "incomplete_record_distractor",
+          "diagnostic_note": "D 不能替代实验记录。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00331_3f7cc41ff9"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "人工逐题判断：源题对照目的正确，保留。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_04_008",
+      "question_type": "single_choice",
+      "stem": "[Co(H₂O)₆]²⁺ 通常偏什么颜色？",
+      "options": [
+        {
+          "label": "A",
+          "text": "黄色"
+        },
+        {
+          "label": "B",
+          "text": "血红色"
+        },
+        {
+          "label": "C",
+          "text": "蓝色"
+        },
+        {
+          "label": "D",
+          "text": "粉红色"
+        }
+      ],
+      "answer": {
+        "value": "D"
+      },
+      "explanation": "表 20.10 记录 [Co(H₂O)₆]²⁺ 为粉红色；血红色是铁(Ⅲ)-硫氰配合物语境。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-3-c47ca8d9"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "cobalt_hydrated_complex_color"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "wrong_color_distractor",
+          "diagnostic_note": "A 不是水合钴(Ⅱ)表列颜色。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "iron_thiocyanate_distractor",
+          "diagnostic_note": "B 属于铁硫氰配合物语境。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "thiocyanate_side_color",
+          "diagnostic_note": "C 更接近硫氰钴配合物颜色。"
+        },
+        {
+          "label": "D",
+          "point_key": "candidate-3-c47ca8d9",
+          "role": "correct_color",
+          "diagnostic_note": "D 是 [Co(H₂O)₆]²⁺ 表列颜色。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00331_3f7cc41ff9"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_table_record_table_p224_t01_r051",
+          "textbook_table_record_table_p224_t01_r071"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "人工逐题判断：源题颜色有表格支撑，保留并排除 Fe(Ⅲ)-SCN 混淆。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_04_009",
+      "question_type": "single_choice",
+      "stem": "钴(Ⅱ)-硫氰络阴离子中，硫氰根配体个数是多少？",
+      "options": [
+        {
+          "label": "A",
+          "text": "四个"
+        },
+        {
+          "label": "B",
+          "text": "两个"
+        },
+        {
+          "label": "C",
+          "text": "六个"
+        },
+        {
+          "label": "D",
+          "text": "八个"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "教材方程式中的硫氰钴络阴离子含四个 SCN⁻ 配体，因此配位的硫氰根数目为四个。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-2059a278"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "formula_reading",
+        "thiocyanate_ligand_count"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-1-2059a278",
+          "role": "correct_ligand_count",
+          "diagnostic_note": "A 对应四个硫氰根配体。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "wrong_count_distractor",
+          "diagnostic_note": "B 与方程式不符。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "water_ligand_count_distractor",
+          "diagnostic_note": "C 容易混淆为水合配合物的六个水。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "wrong_count_distractor",
+          "diagnostic_note": "D 与方程式不符。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00331_3f7cc41ff9"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "人工逐题判断：源题公式读取可用，但改成中文表述避免可见 ASCII 公式风险。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_04_010",
+      "question_type": "single_choice",
+      "stem": "下列哪项不是本实验直接操作？",
+      "options": [
+        {
+          "label": "A",
+          "text": "向 KSCN 饱和溶液滴加 CoCl₂"
+        },
+        {
+          "label": "B",
+          "text": "加热 Cr(NO₃)₃ 溶液"
+        },
+        {
+          "label": "C",
+          "text": "向一支试管加入蒸馏水"
+        },
+        {
+          "label": "D",
+          "text": "向另一支试管加入丙酮"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "加热 Cr(NO₃)₃ 溶液属于前一小节 Cr(Ⅲ) 水合异构实验，不是本 Co(Ⅱ) 配合物颜色实验的直接操作。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-2059a278"
+      ],
+      "secondary_point_keys": [
+        "candidate-3-c47ca8d9",
+        "candidate-4-e1fb1262"
+      ],
+      "coverage_tags": [
+        "operation_scope",
+        "neighbor_experiment_contrast"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-1-2059a278",
+          "role": "direct_operation",
+          "diagnostic_note": "A 是本实验直接操作。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "correct_answer_wrong_experiment",
+          "diagnostic_note": "B 属于 Cr(Ⅲ) 水合异构实验。"
+        },
+        {
+          "label": "C",
+          "point_key": "candidate-3-c47ca8d9",
+          "role": "direct_operation",
+          "diagnostic_note": "C 是本实验直接操作。"
+        },
+        {
+          "label": "D",
+          "point_key": "candidate-4-e1fb1262",
+          "role": "direct_operation",
+          "diagnostic_note": "D 是本实验直接操作。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00331_3f7cc41ff9"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "人工逐题判断：源题范围排除正确，保留。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_04_011",
+      "question_type": "true_false",
+      "stem": "本实验通过加水和加丙酮比较 Co(Ⅱ) 配合物颜色变化。",
+      "options": [
+        {
+          "label": "T",
+          "text": "正确"
+        },
+        {
+          "label": "F",
+          "text": "错误"
+        }
+      ],
+      "answer": {
+        "value": true
+      },
+      "explanation": "教材资料明确要求在两支试管中分别加入蒸馏水和丙酮，对比三支试管颜色差异。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-3-c47ca8d9"
+      ],
+      "secondary_point_keys": [
+        "candidate-4-e1fb1262",
+        "candidate-2-5eaed5b5"
+      ],
+      "coverage_tags": [
+        "true_false",
+        "water_acetone_comparison"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00331_3f7cc41ff9"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "人工逐题判断：源题正确，保留。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_04_012",
+      "question_type": "true_false",
+      "stem": "KSCN 提供 SCN⁻ 配体。",
+      "options": [
+        {
+          "label": "T",
+          "text": "正确"
+        },
+        {
+          "label": "F",
+          "text": "错误"
+        }
+      ],
+      "answer": {
+        "value": true
+      },
+      "explanation": "教材资料使用 KSCN 饱和溶液，并在方程式中出现 SCN⁻，说明它是硫氰配体来源。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-2059a278"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "true_false",
+        "thiocyanate_ligand"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00331_3f7cc41ff9"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "人工逐题判断：源题正确，保留。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_04_013",
+      "question_type": "true_false",
+      "stem": "加入蒸馏水有利于形成 [Co(H₂O)₆]²⁺。",
+      "options": [
+        {
+          "label": "T",
+          "text": "正确"
+        },
+        {
+          "label": "F",
+          "text": "错误"
+        }
+      ],
+      "answer": {
+        "value": true
+      },
+      "explanation": "教材方程式显示硫氰合钴(Ⅱ)络阴离子与水可转化为 [Co(H₂O)₆]²⁺。",
+      "difficulty": "intermediate",
+      "primary_point_keys": [
+        "candidate-3-c47ca8d9"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "true_false",
+        "water_shift"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00331_3f7cc41ff9"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_table_record_table_p224_t01_r051"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "人工逐题判断：源题由 canonical 和 Co 表格支撑，保留。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_04_014",
+      "question_type": "true_false",
+      "stem": "加入丙酮有利于保持或增强钴(Ⅱ)-硫氰络阴离子的蓝色或蓝紫色。",
+      "options": [
+        {
+          "label": "T",
+          "text": "正确"
+        },
+        {
+          "label": "F",
+          "text": "错误"
+        }
+      ],
+      "answer": {
+        "value": true
+      },
+      "explanation": "教材方程式将丙酮标在硫氰合钴(Ⅱ)络阴离子方向，表 20.10 也支持钴(Ⅱ)硫氰配合物为蓝色。",
+      "difficulty": "intermediate",
+      "primary_point_keys": [
+        "candidate-4-e1fb1262"
+      ],
+      "secondary_point_keys": [
+        "candidate-1-2059a278"
+      ],
+      "coverage_tags": [
+        "true_false",
+        "acetone_shift"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00331_3f7cc41ff9"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_table_record_table_p224_t01_r051"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "人工逐题判断：源题由 canonical 和 Co 表格支撑，保留。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_04_015",
+      "question_type": "true_false",
+      "stem": "Co(Ⅱ) 配合物颜色与配体无关。",
+      "options": [
+        {
+          "label": "T",
+          "text": "正确"
+        },
+        {
+          "label": "F",
+          "text": "错误"
+        }
+      ],
+      "answer": {
+        "value": false
+      },
+      "explanation": "本实验正是通过水和硫氰根等配体环境变化比较颜色差异；表 20.10 也显示不同 Co(Ⅱ) 配合物颜色不同。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-3-c47ca8d9"
+      ],
+      "secondary_point_keys": [
+        "candidate-4-e1fb1262"
+      ],
+      "coverage_tags": [
+        "true_false",
+        "ligand_color_effect"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00331_3f7cc41ff9"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_table_record_table_p224_t01_r051"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "人工逐题判断：源题可由实验设计和表格反驳，保留。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_04_016",
+      "question_type": "true_false",
+      "stem": "原溶液作为对照有助于比较颜色变化。",
+      "options": [
+        {
+          "label": "T",
+          "text": "正确"
+        },
+        {
+          "label": "F",
+          "text": "错误"
+        }
+      ],
+      "answer": {
+        "value": true
+      },
+      "explanation": "三支试管中保留原溶液，可与加水和加丙酮后的溶液比较颜色差异。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-2-5eaed5b5"
+      ],
+      "secondary_point_keys": [
+        "candidate-3-c47ca8d9",
+        "candidate-4-e1fb1262"
+      ],
+      "coverage_tags": [
+        "true_false",
+        "control_tube"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00331_3f7cc41ff9"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "人工逐题判断：源题正确，保留。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_04_017",
+      "question_type": "true_false",
+      "stem": "钴(Ⅱ)-硫氰络阴离子中的 SCN⁻ 是配体。",
+      "options": [
+        {
+          "label": "T",
+          "text": "正确"
+        },
+        {
+          "label": "F",
+          "text": "错误"
+        }
+      ],
+      "answer": {
+        "value": true
+      },
+      "explanation": "方程式中的硫氰钴络阴离子含 SCN⁻ 配体，且与水合钴(Ⅱ)配合物发生配体交换。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-2059a278"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "true_false",
+        "thiocyanate_ligand"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00331_3f7cc41ff9"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "人工逐题判断：源题语义正确，仅将公式化表述改为文字表述以降低可见公式风险。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_04_018",
+      "question_type": "single_choice",
+      "stem": "关于水和丙酮条件下的颜色变化，哪项表述正确？",
+      "options": [
+        {
+          "label": "A",
+          "text": "加水和加丙酮都不改变配合物平衡"
+        },
+        {
+          "label": "B",
+          "text": "加水有利于水合钴(Ⅱ)配合物，加丙酮有利于蓝色硫氰钴配合物"
+        },
+        {
+          "label": "C",
+          "text": "加水会生成金属钴单质"
+        },
+        {
+          "label": "D",
+          "text": "加丙酮会把钴配合物全部氧化成 CrO₄²⁻"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "教材方程式和实验设计共同说明：水推动形成 [Co(H₂O)₆]²⁺ 一侧，丙酮推动蓝色硫氰钴配合物一侧。",
+      "difficulty": "intermediate",
+      "primary_point_keys": [
+        "candidate-3-c47ca8d9"
+      ],
+      "secondary_point_keys": [
+        "candidate-4-e1fb1262"
+      ],
+      "coverage_tags": [
+        "water_acetone_shift",
+        "integrated_interpretation"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "contradicted_by_experiment",
+          "diagnostic_note": "A 否认本实验比较的平衡变化。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-3-c47ca8d9",
+          "role": "correct_integrated_statement",
+          "diagnostic_note": "B 同时解释加水与加丙酮。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "wrong_redox_distractor",
+          "diagnostic_note": "C 把配体交换误说成金属生成。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "wrong_element_distractor",
+          "diagnostic_note": "D 把钴实验混成铬酸根。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00331_3f7cc41ff9"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_table_record_table_p224_t01_r051"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "人工逐题判断：旧重复模板重写为水/丙酮双条件整合题。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_04_019",
+      "question_type": "true_false",
+      "stem": "CoCl₂ 溶液滴入 KSCN 饱和溶液至蓝紫色是本实验操作之一。",
+      "options": [
+        {
+          "label": "T",
+          "text": "正确"
+        },
+        {
+          "label": "F",
+          "text": "错误"
+        }
+      ],
+      "answer": {
+        "value": true
+      },
+      "explanation": "教材资料初始操作正是向 KSCN 饱和溶液滴加 CoCl₂ 溶液至呈蓝紫色。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-1-2059a278"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "true_false",
+        "initial_operation"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00331_3f7cc41ff9"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "人工逐题判断：源题语义正确，保留。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_04_020",
+      "question_type": "true_false",
+      "stem": "[Co(H₂O)₆]²⁺ 和钴(Ⅱ)-硫氰络阴离子可通过配体交换相互转化。",
+      "options": [
+        {
+          "label": "T",
+          "text": "正确"
+        },
+        {
+          "label": "F",
+          "text": "错误"
+        }
+      ],
+      "answer": {
+        "value": true
+      },
+      "explanation": "教材方程式显示硫氰钴配合物与水合钴(Ⅱ)配合物之间存在可逆配体交换，丙酮和水条件影响方向。",
+      "difficulty": "intermediate",
+      "primary_point_keys": [
+        "candidate-3-c47ca8d9"
+      ],
+      "secondary_point_keys": [
+        "candidate-4-e1fb1262"
+      ],
+      "coverage_tags": [
+        "true_false",
+        "ligand_exchange"
+      ],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00331_3f7cc41ff9"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_table_record_table_p224_t01_r051"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "人工逐题判断：源题语义正确，保留并改为文字化硫氰络阴离子表述。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "keep"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_04_021",
+      "question_type": "single_choice",
+      "stem": "哪项最准确说明三支试管的设置？",
+      "options": [
+        {
+          "label": "A",
+          "text": "三支都加入同样量的丙酮"
+        },
+        {
+          "label": "B",
+          "text": "一支保留原溶液作对照，另两支分别加入水和丙酮"
+        },
+        {
+          "label": "C",
+          "text": "三支都只加入硝酸银"
+        },
+        {
+          "label": "D",
+          "text": "只做一支试管，不需要比较"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "教材资料明确把蓝紫色溶液分至三支试管，其中两支分别加水和丙酮，剩余一支用于对照。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-2-5eaed5b5"
+      ],
+      "secondary_point_keys": [
+        "candidate-3-c47ca8d9",
+        "candidate-4-e1fb1262"
+      ],
+      "coverage_tags": [
+        "three_tube_setup",
+        "control_design"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "wrong_setup_distractor",
+          "diagnostic_note": "A 没有水处理和对照。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-2-5eaed5b5",
+          "role": "correct_setup",
+          "diagnostic_note": "B 符合教材步骤三试管设计。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "wrong_reagent_distractor",
+          "diagnostic_note": "C 与本实验无关。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "missing_comparison_distractor",
+          "diagnostic_note": "D 不能比较颜色差异。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00331_3f7cc41ff9"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "人工逐题判断：旧重复模板重写为三试管设置题。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_04_022",
+      "question_type": "single_choice",
+      "stem": "若要让平衡更偏向粉红色水合钴(Ⅱ)配合物，应选择哪种处理？",
+      "options": [
+        {
+          "label": "A",
+          "text": "加入丙酮"
+        },
+        {
+          "label": "B",
+          "text": "加入蒸馏水"
+        },
+        {
+          "label": "C",
+          "text": "加入四氯化碳"
+        },
+        {
+          "label": "D",
+          "text": "加热 Cr(NO₃)₃"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "加水使体系偏向 [Co(H₂O)₆]²⁺ 一侧，表 20.10 记录该水合钴(Ⅱ)配合物为粉红色。",
+      "difficulty": "intermediate",
+      "primary_point_keys": [
+        "candidate-3-c47ca8d9"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "water_shift",
+        "cobalt_hydrated_color"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-4-e1fb1262",
+          "role": "opposite_condition_distractor",
+          "diagnostic_note": "A 更有利于蓝色硫氰钴配合物。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-3-c47ca8d9",
+          "role": "correct_water_condition",
+          "diagnostic_note": "B 推动水合钴(Ⅱ)配合物一侧。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "wrong_solvent_distractor",
+          "diagnostic_note": "C 不是教材步骤处理。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "wrong_experiment_distractor",
+          "diagnostic_note": "D 属于 Cr(Ⅲ) 水合异构实验。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00331_3f7cc41ff9"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_table_record_table_p224_t01_r051"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "人工逐题判断：旧重复模板重写为加水方向和颜色结果题。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_04_023",
+      "question_type": "single_choice",
+      "stem": "若要让体系更偏向蓝色硫氰钴配合物，应选择哪种处理？",
+      "options": [
+        {
+          "label": "A",
+          "text": "加入大量蒸馏水"
+        },
+        {
+          "label": "B",
+          "text": "加入丙酮"
+        },
+        {
+          "label": "C",
+          "text": "加入淀粉"
+        },
+        {
+          "label": "D",
+          "text": "加入硝酸银沉淀氯离子"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "教材方程式把丙酮标在硫氰钴配合物方向；表 20.10 也支持钴(Ⅱ)硫氰配合物呈蓝色。",
+      "difficulty": "intermediate",
+      "primary_point_keys": [
+        "candidate-4-e1fb1262"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "acetone_shift",
+        "cobalt_thiocyanate_color"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-3-c47ca8d9",
+          "role": "opposite_condition_distractor",
+          "diagnostic_note": "A 更偏向水合钴(Ⅱ)一侧。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-4-e1fb1262",
+          "role": "correct_acetone_condition",
+          "diagnostic_note": "B 对应丙酮方向。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "wrong_reagent_distractor",
+          "diagnostic_note": "C 与本实验无关。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "wrong_reagent_distractor",
+          "diagnostic_note": "D 不是教材步骤处理。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00331_3f7cc41ff9"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_table_record_table_p224_t01_r051"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "人工逐题判断：旧重复模板重写为丙酮方向和颜色结果题。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_04_024",
+      "question_type": "single_choice",
+      "stem": "要说明 [Co(H₂O)₆]²⁺ 的颜色，哪组证据最稳妥？",
+      "options": [
+        {
+          "label": "A",
+          "text": "只引用 Fe(Ⅲ)-硫氰血红色反应"
+        },
+        {
+          "label": "B",
+          "text": "用教材资料定位加水处理，再用表 20.10 确认水合钴(Ⅱ)配合物为粉红色"
+        },
+        {
+          "label": "C",
+          "text": "只引用 CrO₄²⁻ 黄色"
+        },
+        {
+          "label": "D",
+          "text": "只看试管编号"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "教材资料说明加水使体系转向 [Co(H₂O)₆]²⁺；表 20.10 明确该水合钴(Ⅱ)配合物呈粉红色。",
+      "difficulty": "intermediate",
+      "primary_point_keys": [
+        "candidate-3-c47ca8d9"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "evidence_sufficiency",
+        "cobalt_hydrated_color"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "wrong_iron_context",
+          "diagnostic_note": "A 是铁硫氰配合物，不是水合钴(Ⅱ)。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-3-c47ca8d9",
+          "role": "correct_evidence_set",
+          "diagnostic_note": "B 同时有操作和颜色表证据。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "wrong_chromium_context",
+          "diagnostic_note": "C 是铬酸根颜色。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "insufficient_evidence",
+          "diagnostic_note": "D 不能支撑颜色结论。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00331_3f7cc41ff9"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_table_record_table_p224_t01_r051",
+          "textbook_table_record_table_p224_t01_r071"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "人工逐题判断：旧重复模板重写为证据组合题。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_04_025",
+      "question_type": "single_choice",
+      "stem": "下列哪项最能说明“配体不同，颜色不同”？",
+      "options": [
+        {
+          "label": "A",
+          "text": "同一支试管不做任何处理"
+        },
+        {
+          "label": "B",
+          "text": "水合钴(Ⅱ)配合物偏粉红，硫氰钴配合物偏蓝色"
+        },
+        {
+          "label": "C",
+          "text": "所有钴配合物都必定无色"
+        },
+        {
+          "label": "D",
+          "text": "颜色只由试管大小决定"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "表 20.10 中水合钴(Ⅱ)配合物为粉红色，硫氰钴配合物为蓝色；本实验正通过水和丙酮条件比较这种颜色差异。",
+      "difficulty": "intermediate",
+      "primary_point_keys": [
+        "candidate-3-c47ca8d9"
+      ],
+      "secondary_point_keys": [
+        "candidate-4-e1fb1262"
+      ],
+      "coverage_tags": [
+        "ligand_color_effect",
+        "table_20_10"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "no_comparison_distractor",
+          "diagnostic_note": "A 不能体现配体差异。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-3-c47ca8d9",
+          "role": "correct_ligand_color_contrast",
+          "diagnostic_note": "B 对应表格和实验比较。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "contradicted_by_table",
+          "diagnostic_note": "C 与表格颜色相反。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "irrelevant_factor",
+          "diagnostic_note": "D 不是颜色差异原因。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00331_3f7cc41ff9"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_table_record_table_p224_t01_r051"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "人工逐题判断：旧重复模板重写为配体颜色对比题。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_04_026",
+      "question_type": "single_choice",
+      "stem": "关于本实验中的对照，下列哪项记录最完整？",
+      "options": [
+        {
+          "label": "A",
+          "text": "只写“蓝紫色”，不说明是哪支试管"
+        },
+        {
+          "label": "B",
+          "text": "分别记录原溶液、加水后、加丙酮后三支试管的颜色"
+        },
+        {
+          "label": "C",
+          "text": "只记录加热前后的 Cr(Ⅲ) 颜色"
+        },
+        {
+          "label": "D",
+          "text": "只记录滤纸质量"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "教材资料的设计是三支试管对比；完整记录应把原溶液、加水、加丙酮三个条件下的颜色分开。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-2-5eaed5b5"
+      ],
+      "secondary_point_keys": [
+        "candidate-3-c47ca8d9",
+        "candidate-4-e1fb1262"
+      ],
+      "coverage_tags": [
+        "recording_quality",
+        "control_design"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "incomplete_record",
+          "diagnostic_note": "A 缺少处理条件。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-2-5eaed5b5",
+          "role": "correct_complete_record",
+          "diagnostic_note": "B 符合三试管比较。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "wrong_experiment_context",
+          "diagnostic_note": "C 属于 Cr(Ⅲ) 水合异构实验。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "irrelevant_measurement",
+          "diagnostic_note": "D 与颜色比较无关。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00331_3f7cc41ff9"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "人工逐题判断：旧重复模板重写为记录完整性题。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_04_027",
+      "question_type": "single_choice",
+      "stem": "[Co(H₂O)₆]²⁺ 中配位水分子数是多少？",
+      "options": [
+        {
+          "label": "A",
+          "text": "两个"
+        },
+        {
+          "label": "B",
+          "text": "六个"
+        },
+        {
+          "label": "C",
+          "text": "四个"
+        },
+        {
+          "label": "D",
+          "text": "一个"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "[Co(H₂O)₆]²⁺ 是教材方程式中的水合钴(Ⅱ)配合物，式中右下角六表示六个水配体。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-3-c47ca8d9"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "formula_reading",
+        "water_ligand_count"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "wrong_count",
+          "diagnostic_note": "A 与式中六个水配体不符。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-3-c47ca8d9",
+          "role": "correct_count",
+          "diagnostic_note": "B 正确读取六个水配体。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "thiocyanate_count_distractor",
+          "diagnostic_note": "C 容易混淆为硫氰配体数。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "wrong_count",
+          "diagnostic_note": "D 与式中六个水配体不符。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00331_3f7cc41ff9"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "人工逐题判断：旧重复模板重写为手机端安全的公式读取题。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_04_028",
+      "question_type": "single_choice",
+      "stem": "若把本实验解释成 Fe(Ⅲ)-硫氰血红色反应，哪项判断正确？",
+      "options": [
+        {
+          "label": "A",
+          "text": "正确，因为本实验使用 Fe(Ⅲ)"
+        },
+        {
+          "label": "B",
+          "text": "错误；本实验对象是 Co(Ⅱ) 配合物，铁硫氰血红色属于不同鉴别语境"
+        },
+        {
+          "label": "C",
+          "text": "正确，因为所有硫氰配合物都血红色"
+        },
+        {
+          "label": "D",
+          "text": "无法判断，因为教材资料没有给出金属元素"
+        }
+      ],
+      "answer": {
+        "value": "B"
+      },
+      "explanation": "教材资料明确使用 CoCl₂ 和 KSCN 生成钴(Ⅱ)配合物；表 20.10 中 Fe(Ⅲ)-硫氰配合物血红色是另一个金属体系，不能套用。",
+      "difficulty": "intermediate",
+      "primary_point_keys": [
+        "candidate-1-2059a278"
+      ],
+      "secondary_point_keys": [],
+      "coverage_tags": [
+        "wrong_context_feedback",
+        "iron_thiocyanate_contrast"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": null,
+          "role": "contradicted_by_canonical",
+          "diagnostic_note": "A 与 CoCl₂ 试剂相反。"
+        },
+        {
+          "label": "B",
+          "point_key": "candidate-1-2059a278",
+          "role": "correct_correction",
+          "diagnostic_note": "B 准确区分 Co 和 Fe 硫氰体系。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "overgeneralization_distractor",
+          "diagnostic_note": "C 把 Fe(Ⅲ) 颜色泛化。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "contradicted_by_canonical",
+          "diagnostic_note": "D 忽略教材步骤的 CoCl₂。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00331_3f7cc41ff9"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_table_record_table_p224_t01_r051",
+          "textbook_table_record_table_p224_t01_r071"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "人工逐题判断：旧重复模板重写为 Fe(Ⅲ)-SCN 与 Co(Ⅱ)-SCN 混淆纠错。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_04_029",
+      "question_type": "single_choice",
+      "stem": "下列哪项最适合作为本实验的结论？",
+      "options": [
+        {
+          "label": "A",
+          "text": "Co(Ⅱ) 配合物颜色与配体环境有关"
+        },
+        {
+          "label": "B",
+          "text": "所有金属离子在水中都无色"
+        },
+        {
+          "label": "C",
+          "text": "KSCN 一定只用于铁的鉴别"
+        },
+        {
+          "label": "D",
+          "text": "丙酮必然把 Co(Ⅱ) 还原为金属钴"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "本实验通过水和丙酮改变配体/溶剂环境并比较颜色，说明 Co(Ⅱ) 配合物颜色与配体环境有关。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-3-c47ca8d9"
+      ],
+      "secondary_point_keys": [
+        "candidate-4-e1fb1262"
+      ],
+      "coverage_tags": [
+        "experiment_conclusion",
+        "ligand_color_effect"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-3-c47ca8d9",
+          "role": "correct_conclusion",
+          "diagnostic_note": "A 概括本实验核心结论。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "contradicted_generalization",
+          "diagnostic_note": "B 与本实验颜色观察相反。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "overgeneralization_distractor",
+          "diagnostic_note": "C 忽略 KSCN 在本钴实验中的作用。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "wrong_redox_distractor",
+          "diagnostic_note": "D 把配体交换误说成还原。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00331_3f7cc41ff9"
+        ],
+        "supporting_theory_chunk_ids": [
+          "textbook_table_record_table_p224_t01_r051"
+        ],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "人工逐题判断：旧重复模板重写为结论题。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "rewrite"
+    },
+    {
+      "question_id": "CHK5_SEM_EXP_20_3_04_030",
+      "question_type": "single_choice",
+      "stem": "若只观察加丙酮后的颜色而不记录原溶液和加水后的颜色，主要问题是什么？",
+      "options": [
+        {
+          "label": "A",
+          "text": "缺少对照和另一条件下的颜色比较"
+        },
+        {
+          "label": "B",
+          "text": "无法证明存在氯气"
+        },
+        {
+          "label": "C",
+          "text": "会自动生成铬酸根"
+        },
+        {
+          "label": "D",
+          "text": "会把 CoCl₂ 变成 AgCl"
+        }
+      ],
+      "answer": {
+        "value": "A"
+      },
+      "explanation": "教材资料的目的在于比较三支试管的颜色差异；只记录加丙酮一支会丢失原溶液对照和加水条件。",
+      "difficulty": "basic",
+      "primary_point_keys": [
+        "candidate-4-e1fb1262"
+      ],
+      "secondary_point_keys": [
+        "candidate-2-5eaed5b5",
+        "candidate-3-c47ca8d9"
+      ],
+      "coverage_tags": [
+        "recording_quality",
+        "control_design"
+      ],
+      "option_links": [
+        {
+          "label": "A",
+          "point_key": "candidate-4-e1fb1262",
+          "role": "correct_missing_evidence",
+          "diagnostic_note": "A 指出缺少比较对象。"
+        },
+        {
+          "label": "B",
+          "point_key": null,
+          "role": "wrong_target_distractor",
+          "diagnostic_note": "B 与本实验无关。"
+        },
+        {
+          "label": "C",
+          "point_key": null,
+          "role": "wrong_element_distractor",
+          "diagnostic_note": "C 把钴实验混成铬酸根。"
+        },
+        {
+          "label": "D",
+          "point_key": null,
+          "role": "wrong_reaction_distractor",
+          "diagnostic_note": "D 与本实验无关。"
+        }
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": [
+          "expchunk_00331_3f7cc41ff9"
+        ],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "人工逐题判断：旧重复模板重写为记录质量题。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic",
+      "review_decision": "rewrite"
+    }
+  ]
+}

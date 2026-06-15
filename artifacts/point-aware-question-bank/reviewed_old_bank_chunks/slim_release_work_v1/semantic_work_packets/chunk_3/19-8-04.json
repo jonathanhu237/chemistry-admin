@@ -1,0 +1,3847 @@
+{
+  "metadata": {
+    "version": "chunk-3-release-slim-v1",
+    "artifact_type": "slim_question_bank_work_file",
+    "generated_at": "2026-06-15T03:27:58.895975+00:00",
+    "source_file": "E:\\chemistry-admin\\artifacts\\point-aware-question-bank\\reviewed_old_bank_chunks\\chunk_3_release_final_v1.json",
+    "normalization_rule": "effective question plus minimal lineage, evidence IDs, point bindings, option links, evidence locators, and mechanical risk flags",
+    "evidence_policy": "RAG source text is not embedded; packets carry locators and reviewers must read E:/chemistry-rag/data/rag_ready directly",
+    "chunk_id_policy": "inherited chunk ids are untrusted locator candidates until manually compared with RAG text",
+    "semantic_status": "not_semantically_repaired_by_this_script",
+    "packet_type": "single_experiment_semantic_repair_work_packet",
+    "chunk": 3,
+    "experiment_code": "19-8-04",
+    "question_count": 30
+  },
+  "experiment": {
+    "experiment_id": "EXP_19_8_04",
+    "experiment_code": "19-8-04",
+    "experiment_title": "Bi(OH)₃ 的生成与性质",
+    "chapter_bindings": [
+      {
+        "chapter_id": "CH16",
+        "coverage_type": "partial",
+        "sort_order": 1
+      },
+      {
+        "chapter_id": "CH15",
+        "coverage_type": "partial",
+        "sort_order": 2
+      }
+    ],
+    "video_points": [
+      {
+        "point_key": "candidate-1-a4e9dd30",
+        "point_title": "Bi(NO₃)₃ + NaOH",
+        "source": null,
+        "candidate_index": null,
+        "resource_count": null,
+        "published_count": null,
+        "resource_titles": []
+      },
+      {
+        "point_key": "candidate-2-7e4abe55",
+        "point_title": "Bi(OH)₃ + HCl",
+        "source": null,
+        "candidate_index": null,
+        "resource_count": null,
+        "published_count": null,
+        "resource_titles": []
+      },
+      {
+        "point_key": "candidate-3-fa887f71",
+        "point_title": "Bi(OH)₃ + 6 mol/L NaOH",
+        "source": null,
+        "candidate_index": null,
+        "resource_count": null,
+        "published_count": null,
+        "resource_titles": []
+      },
+      {
+        "point_key": "candidate-4-6daac070",
+        "point_title": "Bi(OH)₃ + 40% NaOH",
+        "source": null,
+        "candidate_index": null,
+        "resource_count": null,
+        "published_count": null,
+        "resource_titles": []
+      }
+    ],
+    "canonical_chunk_ids": [
+      "expchunk_00295_b30319fd2c",
+      "expchunk_00298_68f5de393c"
+    ],
+    "evidence_lookup": {
+      "policy": "locator_only; canonical RAG text is not embedded in this packet",
+      "chunk_id_policy": "metadata chunk ids are inherited claims, not trusted evidence; reviewers must compare the RAG text against the question stem/options/answer/explanation and replace or remove wrong ids",
+      "primary_source_dir": "E:\\chemistry-rag\\data\\rag_ready",
+      "source_files": {
+        "experiment_chunks": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+        "supporting_theory_chunks": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl"
+      },
+      "search_hints": {
+        "experiment_code": "19-8-04",
+        "parent_experiment_code": "19-8",
+        "experiment_title": "Bi(OH)₃ 的生成与性质",
+        "video_point_titles": [
+          "Bi(NO₃)₃ + NaOH",
+          "Bi(OH)₃ + HCl",
+          "Bi(OH)₃ + 6 mol/L NaOH",
+          "Bi(OH)₃ + 40% NaOH"
+        ],
+        "canonical_chunk_ids_from_metadata": [
+          "expchunk_00295_b30319fd2c",
+          "expchunk_00298_68f5de393c"
+        ],
+        "supporting_theory_chunk_ids_from_metadata": [
+          "textbook_prose_00596_462a4c7dff"
+        ],
+        "suggested_search_patterns": [
+          "19-8-04",
+          "19-8",
+          "Bi(OH)₃ 的生成与性质",
+          "Bi(NO₃)₃ + NaOH",
+          "Bi(OH)₃ + HCl",
+          "Bi(OH)₃ + 6 mol/L NaOH",
+          "Bi(OH)₃ + 40% NaOH",
+          "expchunk_00295_b30319fd2c",
+          "expchunk_00298_68f5de393c",
+          "textbook_prose_00596_462a4c7dff"
+        ]
+      },
+      "rag_exact_id_presence": {
+        "meaning": "id presence only; this does not validate semantic relevance",
+        "found_ids": [
+          "expchunk_00295_b30319fd2c",
+          "expchunk_00298_68f5de393c",
+          "textbook_prose_00596_462a4c7dff"
+        ],
+        "missing_ids": [],
+        "found_locator_summaries": [
+          {
+            "chunk_id": "expchunk_00295_b30319fd2c",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+            "line_number": 308,
+            "source_collection": "textbook_experiment_clean_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学实验（第四版）",
+            "page_start": 159,
+            "page_end": 159,
+            "section_path": [
+              "第7章 元素性质实验",
+              "实验 19-8 锡、铅、砷、锑、铋",
+              "（四）实验内容",
+              "1. 氢氧化物的性质"
+            ],
+            "content_type": "property_test",
+            "knowledge_unit": "property_test",
+            "parent_id": "expchunk_protocol_ccb6245e7635",
+            "prev_chunk_id": "expchunk_00294_7dad070b73",
+            "next_chunk_id": "expchunk_00296_a4c00bb9d1",
+            "relations": {
+              "section_id": "expsec_d0f3705edaae1a5e",
+              "experiment_id": "experiment:实验_19-8_锡_铅_砷_锑_铋",
+              "page_anchor": "page_159",
+              "parent": "expchunk_protocol_ccb6245e7635"
+            }
+          },
+          {
+            "chunk_id": "expchunk_00298_68f5de393c",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+            "line_number": 311,
+            "source_collection": "textbook_experiment_clean_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学实验（第四版）",
+            "page_start": 160,
+            "page_end": 160,
+            "section_path": [
+              "第7章 元素性质实验",
+              "实验 19-8 锡、铅、砷、锑、铋",
+              "（四）实验内容",
+              "*3. 盐类水解特征"
+            ],
+            "content_type": "property_test",
+            "knowledge_unit": "property_test",
+            "parent_id": "expchunk_protocol_ccb6245e7635",
+            "prev_chunk_id": "expchunk_00297_c03527ab79",
+            "next_chunk_id": "expchunk_00299_b3fba28fa3",
+            "relations": {
+              "section_id": "expsec_6048a7abd0f42678",
+              "experiment_id": "experiment:实验_19-8_锡_铅_砷_锑_铋",
+              "page_anchor": "page_160",
+              "parent": "expchunk_protocol_ccb6245e7635"
+            }
+          },
+          {
+            "chunk_id": "textbook_prose_00596_462a4c7dff",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+            "line_number": 929,
+            "source_collection": "textbook_inorganic_lower_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学（下册）（第二版）",
+            "page_start": 99,
+            "page_end": 99,
+            "section_path": [
+              "第 15 章 氮族元素",
+              "15.4 氮族元素的氧化物、含氧酸及其盐",
+              "15.4.4 砷、锑、铋的氧化物、含氧酸及其盐"
+            ],
+            "content_type": "procedure",
+            "knowledge_unit": "procedure",
+            "parent_id": "section:e07395cf916a",
+            "prev_chunk_id": "textbook_prose_00595_f3ef324d5d",
+            "next_chunk_id": "textbook_prose_00597_06f7e56f06",
+            "relations": {
+              "parent": "section:e07395cf916a",
+              "source_route": "clean_pages",
+              "prev": "textbook_prose_00595_f3ef324d5d",
+              "next": "textbook_prose_00597_06f7e56f06"
+            }
+          }
+        ]
+      },
+      "legacy_locator_summaries": [
+        {
+          "chunk_id": "expchunk_00295_b30319fd2c",
+          "source_file": "无机化学实验（第四版）",
+          "book_title": "无机化学实验（第四版）",
+          "document_id": "DOC_CANONICAL_EXPERIMENT_V1",
+          "source_collection": "textbook_experiment_clean_v1",
+          "source_role": "canonical_textbook",
+          "content_type": "property_test",
+          "chapter_id": null,
+          "page_number": 159,
+          "section_title": "实验 19-8 锡、铅、砷、锑、铋 / （四）实验内容 / 1. 氢氧化物的性质",
+          "section_path": [
+            "第7章 元素性质实验",
+            "实验 19-8 锡、铅、砷、锑、铋",
+            "（四）实验内容",
+            "1. 氢氧化物的性质"
+          ]
+        },
+        {
+          "chunk_id": "expchunk_00298_68f5de393c",
+          "source_file": "无机化学实验（第四版）",
+          "book_title": "无机化学实验（第四版）",
+          "document_id": "DOC_CANONICAL_EXPERIMENT_V1",
+          "source_collection": "textbook_experiment_clean_v1",
+          "source_role": "canonical_textbook",
+          "content_type": "property_test",
+          "chapter_id": null,
+          "page_number": 160,
+          "section_title": "实验 19-8 锡、铅、砷、锑、铋 / （四）实验内容 / *3. 盐类水解特征",
+          "section_path": [
+            "第7章 元素性质实验",
+            "实验 19-8 锡、铅、砷、锑、铋",
+            "（四）实验内容",
+            "*3. 盐类水解特征"
+          ]
+        }
+      ],
+      "legacy_missing_ids": [
+        "textbook_prose_00596_462a4c7dff"
+      ]
+    },
+    "questions": [
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_04_Q001",
+        "source_review_id": null,
+        "source_question_index": 1,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-8-04 Bi(OH)₃ 的生成与性质》实验中，生成 Bi(OH)₃ 沉淀时，通常向 Bi(NO₃)₃ 溶液中滴加哪种试剂？",
+        "options": [
+          {
+            "label": "A",
+            "text": "NaOH 溶液"
+          },
+          {
+            "label": "B",
+            "text": "KSCN 溶液"
+          },
+          {
+            "label": "C",
+            "text": "CCl₄"
+          },
+          {
+            "label": "D",
+            "text": "Na₂S₂O₃ 溶液"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "实验记录列出 Bi(NO₃)₃ + NaOH。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-a4e9dd30"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_04",
+          "single_choice",
+          "point_1",
+          "polished_final_v1"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "NaOH 溶液",
+            "point_key": "candidate-1-a4e9dd30",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接对应本题考查的实验操作、现象或结论。"
+          },
+          {
+            "label": "B",
+            "text": "KSCN 溶液",
+            "point_key": "candidate-1-a4e9dd30",
+            "role": "adjacent_experiment",
+            "diagnostic_note": "“KSCN 溶液”借用了Fe³⁺/KSCN 血红色检验的线索，和本题绑定点位不一致。"
+          },
+          {
+            "label": "C",
+            "text": "CCl₄",
+            "point_key": "candidate-1-a4e9dd30",
+            "role": "adjacent_experiment",
+            "diagnostic_note": "“CCl₄”借用了KI/CCl₄ 萃取碘的线索，和本题绑定点位不一致。"
+          },
+          {
+            "label": "D",
+            "text": "Na₂S₂O₃ 溶液",
+            "point_key": "candidate-1-a4e9dd30",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“Na₂S₂O₃ 溶液”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00596_462a4c7dff"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00596_462a4c7dff（As/Sb/Bi 氢氧化物酸碱性和还原性趋势）。 绑定点位：Bi(NO₃)₃ + NaOH。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00596_462a4c7dff"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00596_462a4c7dff"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "template_option_link_diagnostic",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-8-04 Bi(OH)₃ 的生成与性质》实验中，生成 Bi(OH)₃ 沉淀时，通常向 Bi(NO₃)₃ 溶液中滴加哪种试剂？",
+            "options": [
+              {
+                "label": "A",
+                "text": "NaOH 溶液"
+              },
+              {
+                "label": "B",
+                "text": "KSCN 溶液"
+              },
+              {
+                "label": "C",
+                "text": "CCl₄"
+              },
+              {
+                "label": "D",
+                "text": "Na₂S₂O₃ 溶液"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "实验记录列出 Bi(NO₃)₃ + NaOH。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00295_b30319fd2c",
+              "expchunk_00298_68f5de393c"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_04_Q002",
+        "source_review_id": null,
+        "source_question_index": 2,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-8-04 Bi(OH)₃ 的生成与性质》实验中，Bi(NO₃)₃ 与 NaOH 反应生成 Bi(OH)₃ 时，主要观察什么？",
+        "options": [
+          {
+            "label": "A",
+            "text": "棕色环形成"
+          },
+          {
+            "label": "B",
+            "text": "沉淀生成"
+          },
+          {
+            "label": "C",
+            "text": "镁条燃烧"
+          },
+          {
+            "label": "D",
+            "text": "银镜形成"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "氢氧化铋难溶，加入碱后生成沉淀。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-a4e9dd30"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_04",
+          "single_choice",
+          "point_1",
+          "polished_final_v1"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "棕色环形成",
+            "point_key": "candidate-1-a4e9dd30",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“棕色环形成”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "B",
+            "text": "沉淀生成",
+            "point_key": "candidate-1-a4e9dd30",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接对应本题考查的实验操作、现象或结论。"
+          },
+          {
+            "label": "C",
+            "text": "镁条燃烧",
+            "point_key": "candidate-1-a4e9dd30",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“镁条燃烧”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "D",
+            "text": "银镜形成",
+            "point_key": "candidate-1-a4e9dd30",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“银镜形成”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00596_462a4c7dff"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00596_462a4c7dff（As/Sb/Bi 氢氧化物酸碱性和还原性趋势）。 绑定点位：Bi(NO₃)₃ + NaOH。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00596_462a4c7dff"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00596_462a4c7dff"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "template_option_link_diagnostic",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-8-04 Bi(OH)₃ 的生成与性质》实验中，Bi(NO₃)₃ 与 NaOH 反应生成 Bi(OH)₃ 时，主要观察什么？",
+            "options": [
+              {
+                "label": "A",
+                "text": "棕色环形成"
+              },
+              {
+                "label": "B",
+                "text": "沉淀生成"
+              },
+              {
+                "label": "C",
+                "text": "镁条燃烧"
+              },
+              {
+                "label": "D",
+                "text": "银镜形成"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "氢氧化铋难溶，加入碱后生成沉淀。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00295_b30319fd2c",
+              "expchunk_00298_68f5de393c"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_04_Q003",
+        "source_review_id": null,
+        "source_question_index": 3,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-8-04 Bi(OH)₃ 的生成与性质》实验中，检验 Bi(OH)₃ 与酸反应时，实验记录列出的酸是？",
+        "options": [
+          {
+            "label": "A",
+            "text": "HNO₃"
+          },
+          {
+            "label": "B",
+            "text": "HAc"
+          },
+          {
+            "label": "C",
+            "text": "HCl"
+          },
+          {
+            "label": "D",
+            "text": "HF"
+          }
+        ],
+        "answer": {
+          "value": "C"
+        },
+        "explanation": "实验记录列出 Bi(OH)₃ + HCl。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-7e4abe55"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_04",
+          "single_choice",
+          "point_2",
+          "polished_final_v1"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "HNO₃",
+            "point_key": "candidate-2-7e4abe55",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“HNO₃”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "B",
+            "text": "HAc",
+            "point_key": "candidate-2-7e4abe55",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“HAc”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "C",
+            "text": "HCl",
+            "point_key": "candidate-2-7e4abe55",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接对应本题考查的实验操作、现象或结论。"
+          },
+          {
+            "label": "D",
+            "text": "HF",
+            "point_key": "candidate-2-7e4abe55",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“HF”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00596_462a4c7dff"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00596_462a4c7dff（As/Sb/Bi 氢氧化物酸碱性和还原性趋势）。 绑定点位：Bi(OH)₃ + HCl。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00596_462a4c7dff"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00596_462a4c7dff"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "template_option_link_diagnostic",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-8-04 Bi(OH)₃ 的生成与性质》实验中，检验 Bi(OH)₃ 与酸反应时，实验记录列出的酸是？",
+            "options": [
+              {
+                "label": "A",
+                "text": "HNO₃"
+              },
+              {
+                "label": "B",
+                "text": "HAc"
+              },
+              {
+                "label": "C",
+                "text": "HCl"
+              },
+              {
+                "label": "D",
+                "text": "HF"
+              }
+            ],
+            "answer": {
+              "value": "C"
+            },
+            "explanation": "实验记录列出 Bi(OH)₃ + HCl。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00295_b30319fd2c",
+              "expchunk_00298_68f5de393c"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_04_Q004",
+        "source_review_id": null,
+        "source_question_index": 4,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-8-04 Bi(OH)₃ 的生成与性质》实验中，Bi(OH)₃ 加 HCl 后沉淀溶解，主要说明 Bi(OH)₃ 具有什么性质？",
+        "options": [
+          {
+            "label": "A",
+            "text": "强还原性"
+          },
+          {
+            "label": "B",
+            "text": "强挥发性"
+          },
+          {
+            "label": "C",
+            "text": "萃取性"
+          },
+          {
+            "label": "D",
+            "text": "碱性氢氧化物性质"
+          }
+        ],
+        "answer": {
+          "value": "D"
+        },
+        "explanation": "Bi(OH)₃ 与酸反应生成铋盐，体现碱性。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-7e4abe55"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_04",
+          "single_choice",
+          "point_2",
+          "polished_final_v1"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "强还原性",
+            "point_key": "candidate-2-7e4abe55",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“强还原性”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "B",
+            "text": "强挥发性",
+            "point_key": "candidate-2-7e4abe55",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“强挥发性”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "C",
+            "text": "萃取性",
+            "point_key": "candidate-2-7e4abe55",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“萃取性”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "D",
+            "text": "碱性氢氧化物性质",
+            "point_key": "candidate-2-7e4abe55",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接对应本题考查的实验操作、现象或结论。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00596_462a4c7dff"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00596_462a4c7dff（As/Sb/Bi 氢氧化物酸碱性和还原性趋势）。 绑定点位：Bi(OH)₃ + HCl。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00596_462a4c7dff"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00596_462a4c7dff"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "template_option_link_diagnostic",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-8-04 Bi(OH)₃ 的生成与性质》实验中，Bi(OH)₃ 加 HCl 后沉淀溶解，主要说明 Bi(OH)₃ 具有什么性质？",
+            "options": [
+              {
+                "label": "A",
+                "text": "强还原性"
+              },
+              {
+                "label": "B",
+                "text": "强挥发性"
+              },
+              {
+                "label": "C",
+                "text": "萃取性"
+              },
+              {
+                "label": "D",
+                "text": "碱性氢氧化物性质"
+              }
+            ],
+            "answer": {
+              "value": "D"
+            },
+            "explanation": "Bi(OH)₃ 与酸反应生成铋盐，体现碱性。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00295_b30319fd2c",
+              "expchunk_00298_68f5de393c"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_04_Q005",
+        "source_review_id": null,
+        "source_question_index": 5,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-8-04 Bi(OH)₃ 的生成与性质》实验中，实验还比较 Bi(OH)₃ 与 6 mol·L⁻¹ NaOH 和哪种更浓碱的作用？",
+        "options": [
+          {
+            "label": "A",
+            "text": "40% NaOH"
+          },
+          {
+            "label": "B",
+            "text": "饱和 KSCN"
+          },
+          {
+            "label": "C",
+            "text": "浓盐酸"
+          },
+          {
+            "label": "D",
+            "text": "乙醚"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "实验记录列出 Bi(OH)₃ + 6 mol·L⁻¹ NaOH 和 + 40% NaOH。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-fa887f71",
+          "candidate-4-6daac070"
+        ],
+        "secondary_point_keys": [
+          "candidate-4-6daac070"
+        ],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_04",
+          "single_choice",
+          "point_3",
+          "point_4",
+          "polished_final_v1"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "40% NaOH",
+            "point_key": "candidate-4-6daac070",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接对应本题考查的实验操作、现象或结论。"
+          },
+          {
+            "label": "B",
+            "text": "饱和 KSCN",
+            "point_key": "candidate-3-fa887f71",
+            "role": "adjacent_experiment",
+            "diagnostic_note": "“饱和 KSCN”借用了Fe³⁺/KSCN 血红色检验的线索，和本题绑定点位不一致。"
+          },
+          {
+            "label": "C",
+            "text": "浓盐酸",
+            "point_key": "candidate-2-7e4abe55",
+            "role": "adjacent_point",
+            "diagnostic_note": "“浓盐酸”属于同一实验的“Bi(OH)₃ + HCl”点位，但本题考查的是“Bi(OH)₃ + 6 mol/L NaOH; Bi(OH)₃ + 40% NaOH”。"
+          },
+          {
+            "label": "D",
+            "text": "乙醚",
+            "point_key": "candidate-3-fa887f71",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“乙醚”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00596_462a4c7dff"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00596_462a4c7dff（As/Sb/Bi 氢氧化物酸碱性和还原性趋势）。 绑定点位：Bi(OH)₃ + 6 mol/L NaOH；Bi(OH)₃ + 40% NaOH。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00596_462a4c7dff"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00596_462a4c7dff"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "template_option_link_diagnostic",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-8-04 Bi(OH)₃ 的生成与性质》实验中，实验还比较 Bi(OH)₃ 与 6 mol·L⁻¹ NaOH 和哪种更浓碱的作用？",
+            "options": [
+              {
+                "label": "A",
+                "text": "40% NaOH"
+              },
+              {
+                "label": "B",
+                "text": "饱和 KSCN"
+              },
+              {
+                "label": "C",
+                "text": "浓盐酸"
+              },
+              {
+                "label": "D",
+                "text": "乙醚"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "实验记录列出 Bi(OH)₃ + 6 mol·L⁻¹ NaOH 和 + 40% NaOH。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00295_b30319fd2c",
+              "expchunk_00298_68f5de393c"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_04_Q006",
+        "source_review_id": null,
+        "source_question_index": 6,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-8-04 Bi(OH)₃ 的生成与性质》实验中，若 Bi(OH)₃ 在过量 NaOH 中不明显溶解，说明它与 Sn、Pb、Sb 的某些氢氧化物相比怎样？",
+        "options": [
+          {
+            "label": "A",
+            "text": "强酸性更明显"
+          },
+          {
+            "label": "B",
+            "text": "两性较弱，偏碱性"
+          },
+          {
+            "label": "C",
+            "text": "完全是挥发性物质"
+          },
+          {
+            "label": "D",
+            "text": "只作氧化剂"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "Bi(OH)₃ 通常偏碱性，在强碱中不易溶。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-fa887f71",
+          "candidate-4-6daac070"
+        ],
+        "secondary_point_keys": [
+          "candidate-4-6daac070"
+        ],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_04",
+          "single_choice",
+          "point_3",
+          "point_4",
+          "polished_final_v1"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "强酸性更明显",
+            "point_key": "candidate-2-7e4abe55",
+            "role": "adjacent_point",
+            "diagnostic_note": "“强酸性更明显”属于同一实验的“Bi(OH)₃ + HCl”点位，但本题考查的是“Bi(OH)₃ + 6 mol/L NaOH; Bi(OH)₃ + 40% NaOH”。"
+          },
+          {
+            "label": "B",
+            "text": "两性较弱，偏碱性",
+            "point_key": "candidate-3-fa887f71",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接对应本题考查的实验操作、现象或结论。"
+          },
+          {
+            "label": "C",
+            "text": "完全是挥发性物质",
+            "point_key": "candidate-3-fa887f71",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“完全是挥发性物质”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "D",
+            "text": "只作氧化剂",
+            "point_key": "candidate-3-fa887f71",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“只作氧化剂”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00596_462a4c7dff"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00596_462a4c7dff（As/Sb/Bi 氢氧化物酸碱性和还原性趋势）。 绑定点位：Bi(OH)₃ + 6 mol/L NaOH；Bi(OH)₃ + 40% NaOH。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00596_462a4c7dff"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00596_462a4c7dff"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "template_option_link_diagnostic",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-8-04 Bi(OH)₃ 的生成与性质》实验中，若 Bi(OH)₃ 在过量 NaOH 中不明显溶解，说明它与 Sn、Pb、Sb 的某些氢氧化物相比怎样？",
+            "options": [
+              {
+                "label": "A",
+                "text": "强酸性更明显"
+              },
+              {
+                "label": "B",
+                "text": "两性较弱，偏碱性"
+              },
+              {
+                "label": "C",
+                "text": "完全是挥发性物质"
+              },
+              {
+                "label": "D",
+                "text": "只作氧化剂"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "Bi(OH)₃ 通常偏碱性，在强碱中不易溶。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00295_b30319fd2c",
+              "expchunk_00298_68f5de393c"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_04_Q007",
+        "source_review_id": null,
+        "source_question_index": 7,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-8-04 Bi(OH)₃ 的生成与性质》实验中，本实验属于 19-8 中哪一模块？",
+        "options": [
+          {
+            "label": "A",
+            "text": "硝酸根的检验"
+          },
+          {
+            "label": "B",
+            "text": "汞(I)的歧化分解"
+          },
+          {
+            "label": "C",
+            "text": "氢氧化物的性质"
+          },
+          {
+            "label": "D",
+            "text": "钛盐水解"
+          }
+        ],
+        "answer": {
+          "value": "C"
+        },
+        "explanation": "实验资料中该实验位于氢氧化物的性质。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-a4e9dd30",
+          "candidate-2-7e4abe55",
+          "candidate-3-fa887f71",
+          "candidate-4-6daac070"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-7e4abe55",
+          "candidate-3-fa887f71",
+          "candidate-4-6daac070"
+        ],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_04",
+          "single_choice",
+          "point_1",
+          "point_2",
+          "point_3",
+          "point_4",
+          "polished_final_v1"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "硝酸根的检验",
+            "point_key": "candidate-1-a4e9dd30",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“硝酸根的检验”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "B",
+            "text": "汞(I)的歧化分解",
+            "point_key": "candidate-1-a4e9dd30",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“汞(I)的歧化分解”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "C",
+            "text": "氢氧化物的性质",
+            "point_key": "candidate-1-a4e9dd30",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接对应本题考查的实验操作、现象或结论。"
+          },
+          {
+            "label": "D",
+            "text": "钛盐水解",
+            "point_key": "candidate-1-a4e9dd30",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“钛盐水解”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00596_462a4c7dff"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00596_462a4c7dff（As/Sb/Bi 氢氧化物酸碱性和还原性趋势）。 绑定点位：Bi(NO₃)₃ + NaOH；Bi(OH)₃ + HCl；Bi(OH)₃ + 6 mol/L NaOH；Bi(OH)₃ + 40% NaOH。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00596_462a4c7dff"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00596_462a4c7dff"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "template_option_link_diagnostic",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-8-04 Bi(OH)₃ 的生成与性质》实验中，本实验属于 19-8 中哪一模块？",
+            "options": [
+              {
+                "label": "A",
+                "text": "硝酸根的检验"
+              },
+              {
+                "label": "B",
+                "text": "汞(I)的歧化分解"
+              },
+              {
+                "label": "C",
+                "text": "氢氧化物的性质"
+              },
+              {
+                "label": "D",
+                "text": "钛盐水解"
+              }
+            ],
+            "answer": {
+              "value": "C"
+            },
+            "explanation": "实验资料中该实验位于氢氧化物的性质。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00295_b30319fd2c",
+              "expchunk_00298_68f5de393c"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_04_Q008",
+        "source_review_id": null,
+        "source_question_index": 8,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-8-04 Bi(OH)₃ 的生成与性质》实验中，配制或使用 Bi(NO₃)₃ 时，实验资料的相关思考题提示要注意什么问题？",
+        "options": [
+          {
+            "label": "A",
+            "text": "必须在强光下保存"
+          },
+          {
+            "label": "B",
+            "text": "只能用木棒取样"
+          },
+          {
+            "label": "C",
+            "text": "必须加入丁二酮肟"
+          },
+          {
+            "label": "D",
+            "text": "铋等化合物有毒，废液集中回收"
+          }
+        ],
+        "answer": {
+          "value": "D"
+        },
+        "explanation": "安全知识和思考题提示锑、铋、锡、铅等化合物有毒，废液回收。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-a4e9dd30"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_04",
+          "single_choice",
+          "point_1",
+          "polished_final_v1"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "必须在强光下保存",
+            "point_key": "candidate-1-a4e9dd30",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“必须在强光下保存”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "B",
+            "text": "只能用木棒取样",
+            "point_key": "candidate-1-a4e9dd30",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“只能用木棒取样”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "C",
+            "text": "必须加入丁二酮肟",
+            "point_key": "candidate-1-a4e9dd30",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“必须加入丁二酮肟”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "D",
+            "text": "铋等化合物有毒，废液集中回收",
+            "point_key": "candidate-1-a4e9dd30",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接对应本题考查的实验操作、现象或结论。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00596_462a4c7dff"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00596_462a4c7dff（As/Sb/Bi 氢氧化物酸碱性和还原性趋势）。 绑定点位：Bi(NO₃)₃ + NaOH。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00596_462a4c7dff"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00596_462a4c7dff"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "template_option_link_diagnostic",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-8-04 Bi(OH)₃ 的生成与性质》实验中，配制或使用 Bi(NO₃)₃ 时，实验资料的相关思考题提示要注意什么问题？",
+            "options": [
+              {
+                "label": "A",
+                "text": "必须在强光下保存"
+              },
+              {
+                "label": "B",
+                "text": "只能用木棒取样"
+              },
+              {
+                "label": "C",
+                "text": "必须加入丁二酮肟"
+              },
+              {
+                "label": "D",
+                "text": "铋等化合物有毒，废液集中回收"
+              }
+            ],
+            "answer": {
+              "value": "D"
+            },
+            "explanation": "安全知识和思考题提示锑、铋、锡、铅等化合物有毒，废液回收。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00295_b30319fd2c",
+              "expchunk_00298_68f5de393c"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_04_Q009",
+        "source_review_id": null,
+        "source_question_index": 9,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-8-04 Bi(OH)₃ 的生成与性质》实验中，下列哪项最能体现 Bi(OH)₃ 的“生成”？",
+        "options": [
+          {
+            "label": "A",
+            "text": "Bi³⁺ 与 OH⁻ 作用形成 Bi(OH)₃ 沉淀"
+          },
+          {
+            "label": "B",
+            "text": "I₂ 被 CCl₄ 萃取"
+          },
+          {
+            "label": "C",
+            "text": "NO₃⁻ 形成棕色环"
+          },
+          {
+            "label": "D",
+            "text": "Co²⁺ 与 SCN⁻ 形成蓝色配合物"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "加入 NaOH 后生成氢氧化铋沉淀。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-a4e9dd30"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_04",
+          "single_choice",
+          "point_1",
+          "polished_final_v1"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "Bi³⁺ 与 OH⁻ 作用形成 Bi(OH)₃ 沉淀",
+            "point_key": "candidate-1-a4e9dd30",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接对应本题考查的实验操作、现象或结论。"
+          },
+          {
+            "label": "B",
+            "text": "I₂ 被 CCl₄ 萃取",
+            "point_key": "candidate-1-a4e9dd30",
+            "role": "adjacent_experiment",
+            "diagnostic_note": "“I₂ 被 CCl₄ 萃取”借用了KI/CCl₄ 萃取碘的线索，和本题绑定点位不一致。"
+          },
+          {
+            "label": "C",
+            "text": "NO₃⁻ 形成棕色环",
+            "point_key": "candidate-1-a4e9dd30",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“NO₃⁻ 形成棕色环”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "D",
+            "text": "Co²⁺ 与 SCN⁻ 形成蓝色配合物",
+            "point_key": "candidate-1-a4e9dd30",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“Co²⁺ 与 SCN⁻ 形成蓝色配合物”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00596_462a4c7dff"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00596_462a4c7dff（As/Sb/Bi 氢氧化物酸碱性和还原性趋势）。 绑定点位：Bi(NO₃)₃ + NaOH。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00596_462a4c7dff"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00596_462a4c7dff"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "template_option_link_diagnostic",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-8-04 Bi(OH)₃ 的生成与性质》实验中，下列哪项最能体现 Bi(OH)₃ 的“生成”？",
+            "options": [
+              {
+                "label": "A",
+                "text": "Bi³⁺ 与 OH⁻ 作用形成 Bi(OH)₃ 沉淀"
+              },
+              {
+                "label": "B",
+                "text": "I₂ 被 CCl₄ 萃取"
+              },
+              {
+                "label": "C",
+                "text": "NO₃⁻ 形成棕色环"
+              },
+              {
+                "label": "D",
+                "text": "Co²⁺ 与 SCN⁻ 形成蓝色配合物"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "加入 NaOH 后生成氢氧化铋沉淀。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00295_b30319fd2c",
+              "expchunk_00298_68f5de393c"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_04_Q010",
+        "source_review_id": null,
+        "source_question_index": 10,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-8-04 Bi(OH)₃ 的生成与性质》实验中，下列哪一项不是本实验的直接试剂组合？",
+        "options": [
+          {
+            "label": "A",
+            "text": "Bi(NO₃)₃ + NaOH"
+          },
+          {
+            "label": "B",
+            "text": "Bi(OH)₃ + KSCN + 戊醇"
+          },
+          {
+            "label": "C",
+            "text": "Bi(OH)₃ + HCl"
+          },
+          {
+            "label": "D",
+            "text": "Bi(OH)₃ + 40% NaOH"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "KSCN + 戊醇用于钴鉴定，不是 Bi(OH)₃ 性质实验。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-a4e9dd30",
+          "candidate-2-7e4abe55",
+          "candidate-4-6daac070"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-7e4abe55",
+          "candidate-4-6daac070"
+        ],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_04",
+          "single_choice",
+          "point_1",
+          "point_2",
+          "point_4",
+          "polished_final_v1"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "Bi(NO₃)₃ + NaOH",
+            "point_key": "candidate-1-a4e9dd30",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“Bi(NO₃)₃ + NaOH”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "B",
+            "text": "Bi(OH)₃ + KSCN + 戊醇",
+            "point_key": "candidate-1-a4e9dd30",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接对应本题考查的实验操作、现象或结论。"
+          },
+          {
+            "label": "C",
+            "text": "Bi(OH)₃ + HCl",
+            "point_key": "candidate-1-a4e9dd30",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“Bi(OH)₃ + HCl”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "D",
+            "text": "Bi(OH)₃ + 40% NaOH",
+            "point_key": "candidate-1-a4e9dd30",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“Bi(OH)₃ + 40% NaOH”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00596_462a4c7dff"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00596_462a4c7dff（As/Sb/Bi 氢氧化物酸碱性和还原性趋势）。 绑定点位：Bi(NO₃)₃ + NaOH；Bi(OH)₃ + HCl；Bi(OH)₃ + 40% NaOH。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00596_462a4c7dff"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00596_462a4c7dff"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "template_option_link_diagnostic",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-8-04 Bi(OH)₃ 的生成与性质》实验中，下列哪一项不是本实验的直接试剂组合？",
+            "options": [
+              {
+                "label": "A",
+                "text": "Bi(NO₃)₃ + NaOH"
+              },
+              {
+                "label": "B",
+                "text": "Bi(OH)₃ + KSCN + 戊醇"
+              },
+              {
+                "label": "C",
+                "text": "Bi(OH)₃ + HCl"
+              },
+              {
+                "label": "D",
+                "text": "Bi(OH)₃ + 40% NaOH"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "KSCN + 戊醇用于钴鉴定，不是 Bi(OH)₃ 性质实验。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00295_b30319fd2c",
+              "expchunk_00298_68f5de393c"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_04_Q011",
+        "source_review_id": null,
+        "source_question_index": 11,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-8-04 Bi(OH)₃ 的生成与性质》实验中，Bi(NO₃)₃ 溶液与 NaOH 作用可生成 Bi(OH)₃ 沉淀。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "实验记录列出该组合。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-a4e9dd30"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_04",
+          "true_false",
+          "point_1",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00596_462a4c7dff"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00596_462a4c7dff（As/Sb/Bi 氢氧化物酸碱性和还原性趋势）。 绑定点位：Bi(NO₃)₃ + NaOH。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00596_462a4c7dff"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00596_462a4c7dff"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-8-04 Bi(OH)₃ 的生成与性质》实验中，Bi(NO₃)₃ 溶液与 NaOH 作用可生成 Bi(OH)₃ 沉淀。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "实验记录列出该组合。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00295_b30319fd2c",
+              "expchunk_00298_68f5de393c"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_04_Q012",
+        "source_review_id": null,
+        "source_question_index": 12,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-8-04 Bi(OH)₃ 的生成与性质》实验中，Bi(OH)₃ 与 HCl 反应可体现其碱性氢氧化物性质。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "氢氧化铋可与酸反应生成盐和水。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-7e4abe55"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_04",
+          "true_false",
+          "point_2",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00596_462a4c7dff"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00596_462a4c7dff（As/Sb/Bi 氢氧化物酸碱性和还原性趋势）。 绑定点位：Bi(OH)₃ + HCl。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00596_462a4c7dff"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00596_462a4c7dff"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-8-04 Bi(OH)₃ 的生成与性质》实验中，Bi(OH)₃ 与 HCl 反应可体现其碱性氢氧化物性质。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "氢氧化铋可与酸反应生成盐和水。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00295_b30319fd2c",
+              "expchunk_00298_68f5de393c"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_04_Q013",
+        "source_review_id": null,
+        "source_question_index": 13,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-8-04 Bi(OH)₃ 的生成与性质》实验中，本实验比较 Bi(OH)₃ 在 6 mol·L⁻¹ NaOH 和 40% NaOH 中的表现。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "实验记录列出两个碱浓度。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-fa887f71",
+          "candidate-4-6daac070"
+        ],
+        "secondary_point_keys": [
+          "candidate-4-6daac070"
+        ],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_04",
+          "true_false",
+          "point_3",
+          "point_4",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00596_462a4c7dff"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00596_462a4c7dff（As/Sb/Bi 氢氧化物酸碱性和还原性趋势）。 绑定点位：Bi(OH)₃ + 6 mol/L NaOH；Bi(OH)₃ + 40% NaOH。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00596_462a4c7dff"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00596_462a4c7dff"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-8-04 Bi(OH)₃ 的生成与性质》实验中，本实验比较 Bi(OH)₃ 在 6 mol·L⁻¹ NaOH 和 40% NaOH 中的表现。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "实验记录列出两个碱浓度。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00295_b30319fd2c",
+              "expchunk_00298_68f5de393c"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_04_Q014",
+        "source_review_id": null,
+        "source_question_index": 14,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-8-04 Bi(OH)₃ 的生成与性质》实验中，Bi(OH)₃ 是典型强两性氢氧化物，必然易溶于任意稀碱。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": false
+        },
+        "explanation": "Bi(OH)₃ 通常偏碱性，在碱中不易溶，实验正比较其性质。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-fa887f71",
+          "candidate-4-6daac070"
+        ],
+        "secondary_point_keys": [
+          "candidate-4-6daac070"
+        ],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_04",
+          "true_false",
+          "point_3",
+          "point_4",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00596_462a4c7dff"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00596_462a4c7dff（As/Sb/Bi 氢氧化物酸碱性和还原性趋势）。 绑定点位：Bi(OH)₃ + 6 mol/L NaOH；Bi(OH)₃ + 40% NaOH。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00596_462a4c7dff"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00596_462a4c7dff"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-8-04 Bi(OH)₃ 的生成与性质》实验中，Bi(OH)₃ 是典型强两性氢氧化物，必然易溶于任意稀碱。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "Bi(OH)₃ 通常偏碱性，在碱中不易溶，实验正比较其性质。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00295_b30319fd2c",
+              "expchunk_00298_68f5de393c"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_04_Q015",
+        "source_review_id": null,
+        "source_question_index": 15,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-8-04 Bi(OH)₃ 的生成与性质》实验中，本实验属于锡、铅、砷、锑、铋实验中的氢氧化物性质部分。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "实验资料中模块为氢氧化物的性质。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-a4e9dd30",
+          "candidate-2-7e4abe55",
+          "candidate-3-fa887f71",
+          "candidate-4-6daac070"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-7e4abe55",
+          "candidate-3-fa887f71",
+          "candidate-4-6daac070"
+        ],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_04",
+          "true_false",
+          "point_1",
+          "point_2",
+          "point_3",
+          "point_4",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00596_462a4c7dff"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00596_462a4c7dff（As/Sb/Bi 氢氧化物酸碱性和还原性趋势）。 绑定点位：Bi(NO₃)₃ + NaOH；Bi(OH)₃ + HCl；Bi(OH)₃ + 6 mol/L NaOH；Bi(OH)₃ + 40% NaOH。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00596_462a4c7dff"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00596_462a4c7dff"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-8-04 Bi(OH)₃ 的生成与性质》实验中，本实验属于锡、铅、砷、锑、铋实验中的氢氧化物性质部分。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "实验资料中模块为氢氧化物的性质。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00295_b30319fd2c",
+              "expchunk_00298_68f5de393c"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_04_Q016",
+        "source_review_id": null,
+        "source_question_index": 16,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-8-04 Bi(OH)₃ 的生成与性质》实验中，使用铋化合物时应注意毒性和废液回收。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "实验资料安全知识提示锑、铋、锡、铅等化合物有毒，废液回收。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-a4e9dd30"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_04",
+          "true_false",
+          "point_1",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00596_462a4c7dff"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00596_462a4c7dff（As/Sb/Bi 氢氧化物酸碱性和还原性趋势）。 绑定点位：Bi(NO₃)₃ + NaOH。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00596_462a4c7dff"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00596_462a4c7dff"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-8-04 Bi(OH)₃ 的生成与性质》实验中，使用铋化合物时应注意毒性和废液回收。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "实验资料安全知识提示锑、铋、锡、铅等化合物有毒，废液回收。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00295_b30319fd2c",
+              "expchunk_00298_68f5de393c"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_04_Q017",
+        "source_review_id": null,
+        "source_question_index": 17,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-8-04 Bi(OH)₃ 的生成与性质》实验中，Bi(OH)₃ 的生成实验核心是检验 NO₃⁻ 的棕色环。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": false
+        },
+        "explanation": "棕色环属于硝酸根检验。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-a4e9dd30"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_04",
+          "true_false",
+          "point_1",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00596_462a4c7dff"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00596_462a4c7dff（As/Sb/Bi 氢氧化物酸碱性和还原性趋势）。 绑定点位：Bi(NO₃)₃ + NaOH。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00596_462a4c7dff"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00596_462a4c7dff"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-8-04 Bi(OH)₃ 的生成与性质》实验中，Bi(OH)₃ 的生成实验核心是检验 NO₃⁻ 的棕色环。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "棕色环属于硝酸根检验。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00295_b30319fd2c",
+              "expchunk_00298_68f5de393c"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_04_Q018_R1",
+        "source_review_id": null,
+        "source_question_index": 18,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "true_false",
+        "stem": "在《19-8-04 Bi(OH)₃ 的生成与性质》实验中，向 Bi(OH)₃ 中加入 HCl 后若沉淀溶解，可说明酸能与其反应。",
+        "options": [],
+        "answer": {
+          "value": true
+        },
+        "explanation": "改写为正向判断，避免“这一判断不正确”的双重否定；该判断由实验步骤或对应性质证据支持。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-7e4abe55"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_04",
+          "true_false",
+          "point_2",
+          "rewritten_replacement",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00596_462a4c7dff"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00596_462a4c7dff（As/Sb/Bi 氢氧化物酸碱性和还原性趋势）。 绑定点位：Bi(OH)₃ + HCl。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00596_462a4c7dff"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00596_462a4c7dff"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-8-04 Bi(OH)₃ 的生成与性质》实验中，认为：向 Bi(OH)₃ 中加入 HCl 后若沉淀溶解，可说明酸能与其反应，这一判断是不正确的。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "这一判断本身是正确的。酸碱反应使沉淀转化为可溶铋盐。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00295_b30319fd2c",
+              "expchunk_00298_68f5de393c"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "true_false",
+            "stem": "在《19-8-04 Bi(OH)₃ 的生成与性质》实验中，向 Bi(OH)₃ 中加入 HCl 后若沉淀溶解，可说明酸能与其反应。",
+            "options": [],
+            "answer": {
+              "value": true
+            },
+            "explanation": "改写为正向判断，避免“这一判断不正确”的双重否定；该判断由实验步骤或对应性质证据支持。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [
+              "expchunk_00295_b30319fd2c"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_04_Q019_R1",
+        "source_review_id": null,
+        "source_question_index": 19,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "true_false",
+        "stem": "在《19-8-04 Bi(OH)₃ 的生成与性质》实验中，Bi(NO₃)₃ 与 NaOH 反应中 OH⁻ 是形成氢氧化物沉淀的必要离子。",
+        "options": [],
+        "answer": {
+          "value": true
+        },
+        "explanation": "改写为正向判断，避免“这一判断不正确”的双重否定；该判断由实验步骤或对应性质证据支持。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-a4e9dd30"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_04",
+          "true_false",
+          "point_1",
+          "rewritten_replacement",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00596_462a4c7dff"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00596_462a4c7dff（As/Sb/Bi 氢氧化物酸碱性和还原性趋势）。 绑定点位：Bi(NO₃)₃ + NaOH。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00596_462a4c7dff"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00596_462a4c7dff"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-8-04 Bi(OH)₃ 的生成与性质》实验中，认为：Bi(NO₃)₃ 与 NaOH 反应中 OH⁻ 是形成氢氧化物沉淀的必要离子，这一判断是不正确的。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "这一判断本身是正确的。Bi³⁺ 与 OH⁻ 结合形成 Bi(OH)₃。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00295_b30319fd2c",
+              "expchunk_00298_68f5de393c"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "true_false",
+            "stem": "在《19-8-04 Bi(OH)₃ 的生成与性质》实验中，Bi(NO₃)₃ 与 NaOH 反应中 OH⁻ 是形成氢氧化物沉淀的必要离子。",
+            "options": [],
+            "answer": {
+              "value": true
+            },
+            "explanation": "改写为正向判断，避免“这一判断不正确”的双重否定；该判断由实验步骤或对应性质证据支持。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [
+              "expchunk_00295_b30319fd2c"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_04_Q020_R1",
+        "source_review_id": null,
+        "source_question_index": 20,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "true_false",
+        "stem": "在《19-8-04 Bi(OH)₃ 的生成与性质》实验中，40% NaOH 是本实验列出的强碱条件之一。",
+        "options": [],
+        "answer": {
+          "value": true
+        },
+        "explanation": "改写为正向判断，避免“这一判断不正确”的双重否定；该判断由实验步骤或对应性质证据支持。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-4-6daac070"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_04",
+          "true_false",
+          "point_4",
+          "rewritten_replacement",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00596_462a4c7dff"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00596_462a4c7dff（As/Sb/Bi 氢氧化物酸碱性和还原性趋势）。 绑定点位：Bi(OH)₃ + 40% NaOH。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00596_462a4c7dff"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00596_462a4c7dff"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-8-04 Bi(OH)₃ 的生成与性质》实验中，认为：40% NaOH 是本实验列出的强碱条件之一，这一判断是不正确的。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "这一判断本身是正确的。实验记录明确列出 40% NaOH。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00295_b30319fd2c",
+              "expchunk_00298_68f5de393c"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "true_false",
+            "stem": "在《19-8-04 Bi(OH)₃ 的生成与性质》实验中，40% NaOH 是本实验列出的强碱条件之一。",
+            "options": [],
+            "answer": {
+              "value": true
+            },
+            "explanation": "改写为正向判断，避免“这一判断不正确”的双重否定；该判断由实验步骤或对应性质证据支持。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [
+              "expchunk_00295_b30319fd2c"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_04_Q021",
+        "source_review_id": null,
+        "source_question_index": 21,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《19-8-04 Bi(OH)₃ 的生成与性质》实验中，生成 Bi(OH)₃ 时，Bi(NO₃)₃ 溶液中滴加____溶液。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "NaOH",
+            "氢氧化钠"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "实验记录列出 Bi(NO₃)₃ + NaOH。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-a4e9dd30"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_04",
+          "fill_blank",
+          "point_1",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00596_462a4c7dff"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00596_462a4c7dff（As/Sb/Bi 氢氧化物酸碱性和还原性趋势）。 绑定点位：Bi(NO₃)₃ + NaOH。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00596_462a4c7dff"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00596_462a4c7dff"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "formula_or_symbolic_fill_blank_answer",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-8-04 Bi(OH)₃ 的生成与性质》实验中，生成 Bi(OH)₃ 时，Bi(NO₃)₃ 溶液中滴加____溶液。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "NaOH",
+                "氢氧化钠"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "实验记录列出 Bi(NO₃)₃ + NaOH。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00295_b30319fd2c",
+              "expchunk_00298_68f5de393c"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_04_Q022",
+        "source_review_id": null,
+        "source_question_index": 22,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《19-8-04 Bi(OH)₃ 的生成与性质》实验中，Bi(OH)₃ 与____反应可体现其碱性。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "HCl",
+            "盐酸"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "实验记录列出 Bi(OH)₃ + HCl。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-7e4abe55"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_04",
+          "fill_blank",
+          "point_2",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00596_462a4c7dff"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00596_462a4c7dff（As/Sb/Bi 氢氧化物酸碱性和还原性趋势）。 绑定点位：Bi(OH)₃ + HCl。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00596_462a4c7dff"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00596_462a4c7dff"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "formula_or_symbolic_fill_blank_answer",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-8-04 Bi(OH)₃ 的生成与性质》实验中，Bi(OH)₃ 与____反应可体现其碱性。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "HCl",
+                "盐酸"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "实验记录列出 Bi(OH)₃ + HCl。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00295_b30319fd2c",
+              "expchunk_00298_68f5de393c"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_04_Q023",
+        "source_review_id": null,
+        "source_question_index": 23,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《19-8-04 Bi(OH)₃ 的生成与性质》实验中，Bi(OH)₃ 的化学名称是____。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "氢氧化铋"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "Bi(OH)₃ 即氢氧化铋。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-a4e9dd30"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_04",
+          "fill_blank",
+          "point_1",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00596_462a4c7dff"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00596_462a4c7dff（As/Sb/Bi 氢氧化物酸碱性和还原性趋势）。 绑定点位：Bi(NO₃)₃ + NaOH。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00596_462a4c7dff"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00596_462a4c7dff"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-8-04 Bi(OH)₃ 的生成与性质》实验中，Bi(OH)₃ 的化学名称是____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "氢氧化铋"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "Bi(OH)₃ 即氢氧化铋。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00295_b30319fd2c",
+              "expchunk_00298_68f5de393c"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_04_Q024_SF1",
+        "source_review_id": null,
+        "source_question_index": 24,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-8-04 Bi(OH)₃ 的生成与性质》实验中，比较 Bi(OH)₃ 与 6 mol·L⁻¹ NaOH 和更强 NaOH 条件的作用，主要是为了判断什么？",
+        "options": [
+          {
+            "label": "A",
+            "text": "Bi(OH)₃ 在强碱中是否表现明显两性"
+          },
+          {
+            "label": "B",
+            "text": "Na⁺ 的焰色是否为黄色"
+          },
+          {
+            "label": "C",
+            "text": "Cl⁻ 是否被 PbO₂ 氧化为 Cl₂"
+          },
+          {
+            "label": "D",
+            "text": "镁条表面是否有氧化膜"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "教材列出不同强碱条件用于观察 Bi(OH)₃ 的碱中表现；改写后考实验目的，不再单纯背 40% 这个数值。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-fa887f71",
+          "candidate-4-6daac070"
+        ],
+        "secondary_point_keys": [
+          "candidate-4-6daac070"
+        ],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_04",
+          "fill_blank",
+          "point_3",
+          "point_4",
+          "semantic_final_replacement",
+          "polished_final_v1"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "Bi(OH)₃ 在强碱中是否表现明显两性",
+            "point_key": "candidate-3-fa887f71",
+            "role": "correct_evidence",
+            "diagnostic_note": "“Bi(OH)₃ 在强碱中是否表现明显两性”对应本题正确判断；教材步骤/点位支撑“在《19-8-04 Bi(OH)₃ 的生成与性质》实验中，比较 ”中的关键操作或结论。"
+          },
+          {
+            "label": "B",
+            "text": "Na⁺ 的焰色是否为黄色",
+            "point_key": "candidate-3-fa887f71",
+            "role": "adjacent_experiment",
+            "diagnostic_note": "“Na⁺ 的焰色是否为黄色”借用了焰色反应的线索，和本题绑定点位不一致。"
+          },
+          {
+            "label": "C",
+            "text": "Cl⁻ 是否被 PbO₂ 氧化为 Cl₂",
+            "point_key": "candidate-3-fa887f71",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“Cl⁻ 是否被 PbO₂ 氧化为 Cl₂”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "D",
+            "text": "镁条表面是否有氧化膜",
+            "point_key": "candidate-3-fa887f71",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“镁条表面是否有氧化膜”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00596_462a4c7dff"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00596_462a4c7dff（As/Sb/Bi 氢氧化物酸碱性和还原性趋势）。 绑定点位：Bi(OH)₃ + 6 mol/L NaOH；Bi(OH)₃ + 40% NaOH。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00596_462a4c7dff"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00596_462a4c7dff"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-8-04 Bi(OH)₃ 的生成与性质》实验中，实验比较 Bi(OH)₃ 与 6 mol·L⁻¹ NaOH 和____ NaOH 的作用。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "40%",
+                "质量分数40%"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "实验记录列出 40% NaOH。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00295_b30319fd2c",
+              "expchunk_00298_68f5de393c"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-8-04 Bi(OH)₃ 的生成与性质》实验中，比较 Bi(OH)₃ 与 6 mol·L⁻¹ NaOH 和更强 NaOH 条件的作用，主要是为了判断什么？",
+            "options": [
+              {
+                "label": "A",
+                "text": "Bi(OH)₃ 在强碱中是否表现明显两性"
+              },
+              {
+                "label": "B",
+                "text": "Na⁺ 的焰色是否为黄色"
+              },
+              {
+                "label": "C",
+                "text": "Cl⁻ 是否被 PbO₂ 氧化为 Cl₂"
+              },
+              {
+                "label": "D",
+                "text": "镁条表面是否有氧化膜"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "教材列出不同强碱条件用于观察 Bi(OH)₃ 的碱中表现；改写后考实验目的，不再单纯背 40% 这个数值。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [
+              "expchunk_00295_b30319fd2c"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_04_Q025",
+        "source_review_id": null,
+        "source_question_index": 25,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《19-8-04 Bi(OH)₃ 的生成与性质》实验中，Bi(NO₃)₃ 与 NaOH 反应生成的沉淀含有____离子。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "Bi³⁺",
+            "铋(III)"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "Bi(OH)₃ 中铋为 +3 价。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-a4e9dd30"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_04",
+          "fill_blank",
+          "point_1",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00596_462a4c7dff"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00596_462a4c7dff（As/Sb/Bi 氢氧化物酸碱性和还原性趋势）。 绑定点位：Bi(NO₃)₃ + NaOH。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00596_462a4c7dff"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00596_462a4c7dff"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "formula_or_symbolic_fill_blank_answer",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-8-04 Bi(OH)₃ 的生成与性质》实验中，Bi(NO₃)₃ 与 NaOH 反应生成的沉淀含有____离子。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "Bi³⁺",
+                "铋(III)"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "Bi(OH)₃ 中铋为 +3 价。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00295_b30319fd2c",
+              "expchunk_00298_68f5de393c"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_04_Q026",
+        "source_review_id": null,
+        "source_question_index": 26,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《19-8-04 Bi(OH)₃ 的生成与性质》实验中，Bi(OH)₃ 与酸反应生成盐和____。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "水",
+            "H₂O"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "氢氧化物与酸反应生成盐和水。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-7e4abe55"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_04",
+          "fill_blank",
+          "point_2",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00596_462a4c7dff"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00596_462a4c7dff（As/Sb/Bi 氢氧化物酸碱性和还原性趋势）。 绑定点位：Bi(OH)₃ + HCl。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00596_462a4c7dff"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00596_462a4c7dff"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "formula_or_symbolic_fill_blank_answer",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-8-04 Bi(OH)₃ 的生成与性质》实验中，Bi(OH)₃ 与酸反应生成盐和____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "水",
+                "H₂O"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "氢氧化物与酸反应生成盐和水。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00295_b30319fd2c",
+              "expchunk_00298_68f5de393c"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_04_Q027",
+        "source_review_id": null,
+        "source_question_index": 27,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《19-8-04 Bi(OH)₃ 的生成与性质》实验中，本实验所在模块为____的性质。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "氢氧化物"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "实验资料模块为氢氧化物的性质。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-a4e9dd30",
+          "candidate-2-7e4abe55",
+          "candidate-3-fa887f71",
+          "candidate-4-6daac070"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-7e4abe55",
+          "candidate-3-fa887f71",
+          "candidate-4-6daac070"
+        ],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_04",
+          "fill_blank",
+          "point_1",
+          "point_2",
+          "point_3",
+          "point_4",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00596_462a4c7dff"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00596_462a4c7dff（As/Sb/Bi 氢氧化物酸碱性和还原性趋势）。 绑定点位：Bi(NO₃)₃ + NaOH；Bi(OH)₃ + HCl；Bi(OH)₃ + 6 mol/L NaOH；Bi(OH)₃ + 40% NaOH。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00596_462a4c7dff"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00596_462a4c7dff"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-8-04 Bi(OH)₃ 的生成与性质》实验中，本实验所在模块为____的性质。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "氢氧化物"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "实验资料模块为氢氧化物的性质。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00295_b30319fd2c",
+              "expchunk_00298_68f5de393c"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_04_Q028",
+        "source_review_id": null,
+        "source_question_index": 28,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《19-8-04 Bi(OH)₃ 的生成与性质》实验中，使用铋化合物后，废液应集中____处理。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "回收",
+            "回收处理"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "实验资料安全知识要求废液回收。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-a4e9dd30"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_04",
+          "fill_blank",
+          "point_1",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00596_462a4c7dff"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00596_462a4c7dff（As/Sb/Bi 氢氧化物酸碱性和还原性趋势）。 绑定点位：Bi(NO₃)₃ + NaOH。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00596_462a4c7dff"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00596_462a4c7dff"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-8-04 Bi(OH)₃ 的生成与性质》实验中，使用铋化合物后，废液应集中____处理。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "回收",
+                "回收处理"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "实验资料安全知识要求废液回收。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00295_b30319fd2c",
+              "expchunk_00298_68f5de393c"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_04_Q029",
+        "source_review_id": null,
+        "source_question_index": 29,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《19-8-04 Bi(OH)₃ 的生成与性质》实验中，Bi(OH)₃ 在碱中不易溶时，说明其两性相对较____。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "弱",
+            "不明显"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "Bi(OH)₃ 偏碱性。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-fa887f71",
+          "candidate-4-6daac070"
+        ],
+        "secondary_point_keys": [
+          "candidate-4-6daac070"
+        ],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_04",
+          "fill_blank",
+          "point_3",
+          "point_4",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00596_462a4c7dff"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00596_462a4c7dff（As/Sb/Bi 氢氧化物酸碱性和还原性趋势）。 绑定点位：Bi(OH)₃ + 6 mol/L NaOH；Bi(OH)₃ + 40% NaOH。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00596_462a4c7dff"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00596_462a4c7dff"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-8-04 Bi(OH)₃ 的生成与性质》实验中，Bi(OH)₃ 在碱中不易溶时，说明其两性相对较____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "弱",
+                "不明显"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "Bi(OH)₃ 偏碱性。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00295_b30319fd2c",
+              "expchunk_00298_68f5de393c"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_04_Q030_PF1",
+        "source_review_id": null,
+        "source_question_index": 30,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "true_false",
+        "stem": "在《19-8-04 Bi(OH)₃ 的生成与性质》实验中，Bi(NO₃)₃ 与 NaOH 生成 Bi(OH)₃ 只是第一步，后续还需比较其与 HCl、6 mol/L NaOH 和 40% NaOH 的作用。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "该判断与实验原文的操作、现象或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-a4e9dd30",
+          "candidate-2-7e4abe55",
+          "candidate-3-fa887f71",
+          "candidate-4-6daac070"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-7e4abe55",
+          "candidate-3-fa887f71",
+          "candidate-4-6daac070"
+        ],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_04",
+          "fill_blank",
+          "polished_final_v1",
+          "point_1",
+          "point_2",
+          "point_3",
+          "point_4"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00596_462a4c7dff"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00596_462a4c7dff（As/Sb/Bi 氢氧化物酸碱性和还原性趋势）。 绑定点位：Bi(NO₃)₃ + NaOH；Bi(OH)₃ + HCl；Bi(OH)₃ + 6 mol/L NaOH；Bi(OH)₃ + 40% NaOH。 本轮 polish 已改写为可机器确定性判分的有效题，避免重复题干或手机端化学式输入风险。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00295_b30319fd2c"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00596_462a4c7dff"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00596_462a4c7dff"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-8-04 Bi(OH)₃ 的生成与性质》实验中，Bi(OH)₃ 的生成可用 Bi³⁺ 与____结合来概括。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "OH⁻",
+                "氢氧根"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "Bi³⁺ 与 OH⁻ 生成氢氧化物沉淀。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00295_b30319fd2c",
+              "expchunk_00298_68f5de393c"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "true_false",
+            "stem": "在《19-8-04 Bi(OH)₃ 的生成与性质》实验中，Bi(NO₃)₃ 与 NaOH 生成 Bi(OH)₃ 只是第一步，后续还需比较其与 HCl、6 mol/L NaOH 和 40% NaOH 的作用。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "该判断与实验原文的操作、现象或结论一致。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00295_b30319fd2c"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      }
+    ]
+  }
+}

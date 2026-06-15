@@ -1,0 +1,3891 @@
+{
+  "metadata": {
+    "version": "chunk-2-release-slim-v1",
+    "artifact_type": "slim_question_bank_work_file",
+    "generated_at": "2026-06-15T03:27:58.719338+00:00",
+    "source_file": "E:\\chemistry-admin\\artifacts\\point-aware-question-bank\\reviewed_old_bank_chunks\\chunk_2_release_final_v1.json",
+    "normalization_rule": "effective question plus minimal lineage, evidence IDs, point bindings, option links, evidence locators, and mechanical risk flags",
+    "evidence_policy": "RAG source text is not embedded; packets carry locators and reviewers must read E:/chemistry-rag/data/rag_ready directly",
+    "chunk_id_policy": "inherited chunk ids are untrusted locator candidates until manually compared with RAG text",
+    "semantic_status": "not_semantically_repaired_by_this_script",
+    "packet_type": "single_experiment_semantic_repair_work_packet",
+    "chunk": 2,
+    "experiment_code": "19-4-03",
+    "question_count": 30
+  },
+  "experiment": {
+    "experiment_id": "EXP_19_4_03",
+    "experiment_code": "19-4-03",
+    "experiment_title": "亚硝酸的还原性",
+    "chapter_bindings": [
+      {
+        "chapter_id": "CH15",
+        "coverage_type": "primary",
+        "sort_order": 1
+      }
+    ],
+    "video_points": [
+      {
+        "point_key": "candidate-1-80f91837",
+        "point_title": "NaNO₂ + KMnO₄",
+        "source": "formal_experiment.video_candidates",
+        "candidate_index": 1,
+        "resource_count": 0,
+        "published_count": 0,
+        "resource_titles": []
+      },
+      {
+        "point_key": "candidate-2-72cbedf8",
+        "point_title": "再加入 H₂SO₄ 酸化，观察 KMnO₄ 褪色",
+        "source": "formal_experiment.video_candidates",
+        "candidate_index": 2,
+        "resource_count": 0,
+        "published_count": 0,
+        "resource_titles": []
+      }
+    ],
+    "canonical_chunk_ids": [
+      "expchunk_00242_2da7ff3435"
+    ],
+    "evidence_lookup": {
+      "policy": "locator_only; canonical RAG text is not embedded in this packet",
+      "chunk_id_policy": "metadata chunk ids are inherited claims, not trusted evidence; reviewers must compare the RAG text against the question stem/options/answer/explanation and replace or remove wrong ids",
+      "primary_source_dir": "E:\\chemistry-rag\\data\\rag_ready",
+      "source_files": {
+        "experiment_chunks": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+        "supporting_theory_chunks": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl"
+      },
+      "search_hints": {
+        "experiment_code": "19-4-03",
+        "parent_experiment_code": "19-4",
+        "experiment_title": "亚硝酸的还原性",
+        "video_point_titles": [
+          "NaNO₂ + KMnO₄",
+          "再加入 H₂SO₄ 酸化，观察 KMnO₄ 褪色"
+        ],
+        "canonical_chunk_ids_from_metadata": [
+          "expchunk_00242_2da7ff3435"
+        ],
+        "supporting_theory_chunk_ids_from_metadata": [
+          "textbook_prose_00547_2a1f998120",
+          "textbook_prose_00549_1931138c9a"
+        ],
+        "suggested_search_patterns": [
+          "19-4-03",
+          "19-4",
+          "亚硝酸的还原性",
+          "NaNO₂ + KMnO₄",
+          "再加入 H₂SO₄ 酸化，观察 KMnO₄ 褪色",
+          "expchunk_00242_2da7ff3435",
+          "textbook_prose_00547_2a1f998120",
+          "textbook_prose_00549_1931138c9a"
+        ]
+      },
+      "rag_exact_id_presence": {
+        "meaning": "id presence only; this does not validate semantic relevance",
+        "found_ids": [
+          "expchunk_00242_2da7ff3435",
+          "textbook_prose_00547_2a1f998120",
+          "textbook_prose_00549_1931138c9a"
+        ],
+        "missing_ids": [],
+        "found_locator_summaries": [
+          {
+            "chunk_id": "expchunk_00242_2da7ff3435",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+            "line_number": 255,
+            "source_collection": "textbook_experiment_clean_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学实验（第四版）",
+            "page_start": 148,
+            "page_end": 148,
+            "section_path": [
+              "第7章 元素性质实验",
+              "实验 19-4 氮和磷",
+              "（四）实验内容",
+              "2. 亚硝酸及其盐的性质"
+            ],
+            "content_type": "reaction",
+            "knowledge_unit": "reaction",
+            "parent_id": "expchunk_protocol_80d6d1e3c854",
+            "prev_chunk_id": "expchunk_00241_4f35eeeede",
+            "next_chunk_id": "expchunk_00243_765fc7b450",
+            "relations": {
+              "section_id": "expsec_5d2112ddac67e104",
+              "experiment_id": "experiment:实验_19-4_氮和磷",
+              "page_anchor": "page_148",
+              "parent": "expchunk_protocol_80d6d1e3c854"
+            }
+          },
+          {
+            "chunk_id": "textbook_prose_00547_2a1f998120",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+            "line_number": 857,
+            "source_collection": "textbook_inorganic_lower_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学（下册）（第二版）",
+            "page_start": 93,
+            "page_end": 93,
+            "section_path": [
+              "第 15 章 氮族元素",
+              "15.4 氮族元素的氧化物、含氧酸及其盐",
+              "15.4.2 氮的含氧酸及其盐",
+              "1. 亚硝酸及其盐"
+            ],
+            "content_type": "reaction",
+            "knowledge_unit": "reaction",
+            "parent_id": "section:b2b3d723ed08",
+            "prev_chunk_id": "textbook_prose_00546_867c348536",
+            "next_chunk_id": "textbook_prose_00548_e41b91cedc",
+            "relations": {
+              "parent": "section:b2b3d723ed08",
+              "source_route": "clean_pages",
+              "prev": "textbook_prose_00546_867c348536",
+              "next": "textbook_prose_00548_e41b91cedc"
+            }
+          },
+          {
+            "chunk_id": "textbook_prose_00549_1931138c9a",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+            "line_number": 859,
+            "source_collection": "textbook_inorganic_lower_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学（下册）（第二版）",
+            "page_start": 93,
+            "page_end": 93,
+            "section_path": [
+              "第 15 章 氮族元素",
+              "15.4 氮族元素的氧化物、含氧酸及其盐",
+              "15.4.2 氮的含氧酸及其盐",
+              "1. 亚硝酸及其盐"
+            ],
+            "content_type": "reaction",
+            "knowledge_unit": "reaction",
+            "parent_id": "section:b2b3d723ed08",
+            "prev_chunk_id": "textbook_prose_00548_e41b91cedc",
+            "next_chunk_id": "textbook_prose_00550_cc1537a485",
+            "relations": {
+              "parent": "section:b2b3d723ed08",
+              "source_route": "clean_pages",
+              "prev": "textbook_prose_00548_e41b91cedc",
+              "next": "textbook_prose_00550_cc1537a485"
+            }
+          }
+        ]
+      },
+      "legacy_locator_summaries": [
+        {
+          "chunk_id": "expchunk_00242_2da7ff3435",
+          "source_file": "无机化学实验（第四版）",
+          "book_title": "无机化学实验（第四版）",
+          "document_id": "DOC_CANONICAL_EXPERIMENT_V1",
+          "source_collection": "textbook_experiment_clean_v1",
+          "source_role": "canonical_textbook",
+          "content_type": "reaction",
+          "chapter_id": null,
+          "page_number": 148,
+          "section_title": "实验 19-4 氮和磷 / （四）实验内容 / 2. 亚硝酸及其盐的性质",
+          "section_path": [
+            "第7章 元素性质实验",
+            "实验 19-4 氮和磷",
+            "（四）实验内容",
+            "2. 亚硝酸及其盐的性质"
+          ]
+        }
+      ],
+      "legacy_missing_ids": [
+        "textbook_prose_00547_2a1f998120",
+        "textbook_prose_00549_1931138c9a"
+      ]
+    },
+    "questions": [
+      {
+        "question_id": "EXP_19_4_03_SEMANTIC_FINAL_001",
+        "source_review_id": "EXP_19_4_03_SEMANTIC_FINAL_001",
+        "source_question_index": 1,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-4-03 亚硝酸的还原性》实验中，实验操作中，KMnO₄ 溶液在滴加 NaNO₂ 前应先用什么酸化？",
+        "options": [
+          {
+            "label": "A",
+            "text": "HCl"
+          },
+          {
+            "label": "B",
+            "text": "HNO₃"
+          },
+          {
+            "label": "C",
+            "text": "H₂SO₄"
+          },
+          {
+            "label": "D",
+            "text": "HAc"
+          }
+        ],
+        "answer": {
+          "value": "C"
+        },
+        "explanation": "实验资料中写明用硫酸酸化 KMnO₄。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-72cbedf8"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "19_4_03_point_2"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "HCl",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“HCl”与本题焦点“在《19-4-03 亚硝酸的还原性》实验中，实验操作中，KMnO₄ 溶液在滴加 NaNO₂ 前应先用什么酸化？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“HCl”。"
+          },
+          {
+            "label": "B",
+            "text": "HNO₃",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“HNO₃”与本题焦点“在《19-4-03 亚硝酸的还原性》实验中，实验操作中，KMnO₄ 溶液在滴加 NaNO₂ 前应先用什么酸化？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“HNO₃”。"
+          },
+          {
+            "label": "C",
+            "text": "H₂SO₄",
+            "point_key": "candidate-2-72cbedf8",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“H₂SO₄”直接支撑题干所问：在《19-4-03 亚硝酸的还原性》实验中，实验操作中，KMnO₄ 溶液在滴加 NaNO₂ 前应先用什么酸化？；对应点位为“再加入 H₂SO₄ 酸化，观察 KMnO₄ 褪色”。"
+          },
+          {
+            "label": "D",
+            "text": "HAc",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“HAc”与本题焦点“在《19-4-03 亚硝酸的还原性》实验中，实验操作中，KMnO₄ 溶液在滴加 NaNO₂ 前应先用什么酸化？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“HAc”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00242_2da7ff3435"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "终审保留：题干、答案和解析与教材实验点位语义一致。",
+          "supporting_theory_note": ""
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00242_2da7ff3435"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-4-03 亚硝酸的还原性》实验中，实验操作中，KMnO₄ 溶液在滴加 NaNO₂ 前应先用什么酸化？",
+            "options": [
+              {
+                "label": "A",
+                "text": "HCl"
+              },
+              {
+                "label": "B",
+                "text": "HNO₃"
+              },
+              {
+                "label": "C",
+                "text": "H₂SO₄"
+              },
+              {
+                "label": "D",
+                "text": "HAc"
+              }
+            ],
+            "answer": {
+              "value": "C"
+            },
+            "explanation": "实验资料中写明用硫酸酸化 KMnO₄。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00242_2da7ff3435"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_4_03_SEMANTIC_FINAL_002",
+        "source_review_id": "EXP_19_4_03_SEMANTIC_FINAL_002",
+        "source_question_index": 2,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-4-03 亚硝酸的还原性》实验中，酸性 KMnO₄ 与 NaNO₂ 反应褪色，说明亚硝酸或亚硝酸盐表现什么性质？",
+        "options": [
+          {
+            "label": "A",
+            "text": "强碱性"
+          },
+          {
+            "label": "B",
+            "text": "沉淀性"
+          },
+          {
+            "label": "C",
+            "text": "挥发性"
+          },
+          {
+            "label": "D",
+            "text": "还原性"
+          }
+        ],
+        "answer": {
+          "value": "D"
+        },
+        "explanation": "亚硝酸盐把 MnO₄⁻ 还原，自己被氧化。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-72cbedf8"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "19_4_03_point_2"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "强碱性",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“强碱性”与本题焦点“在《19-4-03 亚硝酸的还原性》实验中，酸性 KMnO₄ 与 NaNO₂ 反应褪色，说明亚硝酸或亚硝酸盐表现什么性质？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“强碱性”。"
+          },
+          {
+            "label": "B",
+            "text": "沉淀性",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“沉淀性”与本题焦点“在《19-4-03 亚硝酸的还原性》实验中，酸性 KMnO₄ 与 NaNO₂ 反应褪色，说明亚硝酸或亚硝酸盐表现什么性质？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“沉淀性”。"
+          },
+          {
+            "label": "C",
+            "text": "挥发性",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“挥发性”与本题焦点“在《19-4-03 亚硝酸的还原性》实验中，酸性 KMnO₄ 与 NaNO₂ 反应褪色，说明亚硝酸或亚硝酸盐表现什么性质？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“挥发性”。"
+          },
+          {
+            "label": "D",
+            "text": "还原性",
+            "point_key": "candidate-2-72cbedf8",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“还原性”直接支撑题干所问：在《19-4-03 亚硝酸的还原性》实验中，酸性 KMnO₄ 与 NaNO₂ 反应褪色，说明亚硝酸或亚硝酸盐表现什么性质？；对应点位为“再加入 H₂SO₄ 酸化，观察 KMnO₄ 褪色”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00242_2da7ff3435"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00547_2a1f998120",
+            "textbook_prose_00549_1931138c9a"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "终审保留：题干、答案和解析与教材实验点位语义一致。；polished final 补充 supporting theory 引用：textbook_prose_00547_2a1f998120, textbook_prose_00549_1931138c9a。",
+          "supporting_theory_note": "该判断依赖教材理论 chunk：textbook_prose_00547_2a1f998120, textbook_prose_00549_1931138c9a。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00242_2da7ff3435"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00547_2a1f998120",
+            "textbook_prose_00549_1931138c9a"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00547_2a1f998120",
+            "textbook_prose_00549_1931138c9a"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-4-03 亚硝酸的还原性》实验中，酸性 KMnO₄ 与 NaNO₂ 反应褪色，说明亚硝酸或亚硝酸盐表现什么性质？",
+            "options": [
+              {
+                "label": "A",
+                "text": "强碱性"
+              },
+              {
+                "label": "B",
+                "text": "沉淀性"
+              },
+              {
+                "label": "C",
+                "text": "挥发性"
+              },
+              {
+                "label": "D",
+                "text": "还原性"
+              }
+            ],
+            "answer": {
+              "value": "D"
+            },
+            "explanation": "亚硝酸盐把 MnO₄⁻ 还原，自己被氧化。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00242_2da7ff3435"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_4_03_SEMANTIC_FINAL_003",
+        "source_review_id": "EXP_19_4_03_SEMANTIC_FINAL_003",
+        "source_question_index": 3,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-4-03 亚硝酸的还原性》实验中，在酸性 KMnO₄ 体系中，NO₂⁻ 通常被氧化为哪种离子？",
+        "options": [
+          {
+            "label": "A",
+            "text": "NO₃⁻"
+          },
+          {
+            "label": "B",
+            "text": "NH₄⁺"
+          },
+          {
+            "label": "C",
+            "text": "N₃⁻"
+          },
+          {
+            "label": "D",
+            "text": "CN⁻"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "亚硝酸根作为还原剂时常被氧化为硝酸根。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-72cbedf8"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "19_4_03_point_2"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "NO₃⁻",
+            "point_key": "candidate-2-72cbedf8",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“NO₃⁻”直接支撑题干所问：在《19-4-03 亚硝酸的还原性》实验中，在酸性 KMnO₄ 体系中，NO₂⁻ 通常被氧化为哪种离子？；对应点位为“再加入 H₂SO₄ 酸化，观察 KMnO₄ 褪色”。"
+          },
+          {
+            "label": "B",
+            "text": "NH₄⁺",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“NH₄⁺”与本题焦点“在《19-4-03 亚硝酸的还原性》实验中，在酸性 KMnO₄ 体系中，NO₂⁻ 通常被氧化为哪种离子？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“NH₄⁺”。"
+          },
+          {
+            "label": "C",
+            "text": "N₃⁻",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“N₃⁻”与本题焦点“在《19-4-03 亚硝酸的还原性》实验中，在酸性 KMnO₄ 体系中，NO₂⁻ 通常被氧化为哪种离子？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“N₃⁻”。"
+          },
+          {
+            "label": "D",
+            "text": "CN⁻",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“CN⁻”与本题焦点“在《19-4-03 亚硝酸的还原性》实验中，在酸性 KMnO₄ 体系中，NO₂⁻ 通常被氧化为哪种离子？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“CN⁻”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00242_2da7ff3435"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00547_2a1f998120",
+            "textbook_prose_00549_1931138c9a"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "终审保留：题干、答案和解析与教材实验点位语义一致。；polished final 补充 supporting theory 引用：textbook_prose_00547_2a1f998120, textbook_prose_00549_1931138c9a。",
+          "supporting_theory_note": "该判断依赖教材理论 chunk：textbook_prose_00547_2a1f998120, textbook_prose_00549_1931138c9a。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00242_2da7ff3435"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00547_2a1f998120",
+            "textbook_prose_00549_1931138c9a"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00547_2a1f998120",
+            "textbook_prose_00549_1931138c9a"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-4-03 亚硝酸的还原性》实验中，在酸性 KMnO₄ 体系中，NO₂⁻ 通常被氧化为哪种离子？",
+            "options": [
+              {
+                "label": "A",
+                "text": "NO₃⁻"
+              },
+              {
+                "label": "B",
+                "text": "NH₄⁺"
+              },
+              {
+                "label": "C",
+                "text": "N₃⁻"
+              },
+              {
+                "label": "D",
+                "text": "CN⁻"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "亚硝酸根作为还原剂时常被氧化为硝酸根。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00242_2da7ff3435"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_4_03_SEMANTIC_FINAL_004",
+        "source_review_id": "EXP_19_4_03_SEMANTIC_FINAL_004",
+        "source_question_index": 4,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-4-03 亚硝酸的还原性》实验中，酸性 KMnO₄ 被 NaNO₂ 还原后，锰的主要低价产物可视为哪种离子？",
+        "options": [
+          {
+            "label": "A",
+            "text": "MnO₄²⁻"
+          },
+          {
+            "label": "B",
+            "text": "Mn²⁺"
+          },
+          {
+            "label": "C",
+            "text": "MnO₂ 固体"
+          },
+          {
+            "label": "D",
+            "text": "Mn 金属"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "酸性高锰酸根被还原通常生成 Mn²⁺。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-72cbedf8"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "19_4_03_point_2"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "MnO₄²⁻",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“MnO₄²⁻”与本题焦点“在《19-4-03 亚硝酸的还原性》实验中，酸性 KMnO₄ 被 NaNO₂ 还原后，锰的主要低价产物可视为哪种离子？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“MnO₄²⁻”。"
+          },
+          {
+            "label": "B",
+            "text": "Mn²⁺",
+            "point_key": "candidate-2-72cbedf8",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“Mn²⁺”直接支撑题干所问：在《19-4-03 亚硝酸的还原性》实验中，酸性 KMnO₄ 被 NaNO₂ 还原后，锰的主要低价产物可视为哪种离子？；对应点位为“再加入 H₂SO₄ 酸化，观察 KMnO₄ 褪色”。"
+          },
+          {
+            "label": "C",
+            "text": "MnO₂ 固体",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“MnO₂ 固体”与本题焦点“在《19-4-03 亚硝酸的还原性》实验中，酸性 KMnO₄ 被 NaNO₂ 还原后，锰的主要低价产物可视为哪种离子？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“MnO₂ 固体”。"
+          },
+          {
+            "label": "D",
+            "text": "Mn 金属",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“Mn 金属”与本题焦点“在《19-4-03 亚硝酸的还原性》实验中，酸性 KMnO₄ 被 NaNO₂ 还原后，锰的主要低价产物可视为哪种离子？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“Mn 金属”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00242_2da7ff3435"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00547_2a1f998120",
+            "textbook_prose_00549_1931138c9a"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "终审保留：题干、答案和解析与教材实验点位语义一致。；polished final 补充 supporting theory 引用：textbook_prose_00547_2a1f998120, textbook_prose_00549_1931138c9a。",
+          "supporting_theory_note": "该判断依赖教材理论 chunk：textbook_prose_00547_2a1f998120, textbook_prose_00549_1931138c9a。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00242_2da7ff3435"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00547_2a1f998120",
+            "textbook_prose_00549_1931138c9a"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00547_2a1f998120",
+            "textbook_prose_00549_1931138c9a"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-4-03 亚硝酸的还原性》实验中，酸性 KMnO₄ 被 NaNO₂ 还原后，锰的主要低价产物可视为哪种离子？",
+            "options": [
+              {
+                "label": "A",
+                "text": "MnO₄²⁻"
+              },
+              {
+                "label": "B",
+                "text": "Mn²⁺"
+              },
+              {
+                "label": "C",
+                "text": "MnO₂ 固体"
+              },
+              {
+                "label": "D",
+                "text": "Mn 金属"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "酸性高锰酸根被还原通常生成 Mn²⁺。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00242_2da7ff3435"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_4_03_SEMANTIC_FINAL_005",
+        "source_review_id": "EXP_19_4_03_SEMANTIC_FINAL_005",
+        "source_question_index": 5,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-4-03 亚硝酸的还原性》实验中，本实验中最直接的阳性现象是哪一项？",
+        "options": [
+          {
+            "label": "A",
+            "text": "生成银镜"
+          },
+          {
+            "label": "B",
+            "text": "出现棕色环"
+          },
+          {
+            "label": "C",
+            "text": "KMnO₄ 紫色褪去或明显变浅"
+          },
+          {
+            "label": "D",
+            "text": "生成红色 Ni(dmg)₂"
+          }
+        ],
+        "answer": {
+          "value": "C"
+        },
+        "explanation": "观察 NaNO₂ 还原酸性 KMnO₄ 的现象。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-72cbedf8"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "19_4_03_point_2"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "生成银镜",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“生成银镜”与本题焦点“在《19-4-03 亚硝酸的还原性》实验中，本实验中最直接的阳性现象是哪一项？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“生成银镜”。"
+          },
+          {
+            "label": "B",
+            "text": "出现棕色环",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“出现棕色环”混入其他实验或相邻操作，易造成点位错配；本题实际问的是“在《19-4-03 亚硝酸的还原性》实验中，本实验中最直接的阳性现象是哪一项？”。"
+          },
+          {
+            "label": "C",
+            "text": "KMnO₄ 紫色褪去或明显变浅",
+            "point_key": "candidate-2-72cbedf8",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“KMnO₄ 紫色褪去或明显变浅”直接支撑题干所问：在《19-4-03 亚硝酸的还原性》实验中，本实验中最直接的阳性现象是哪一项？；对应点位为“再加入 H₂SO₄ 酸化，观察 KMnO₄ 褪色”。"
+          },
+          {
+            "label": "D",
+            "text": "生成红色 Ni(dmg)₂",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“生成红色 Ni(dmg)₂”与本题焦点“在《19-4-03 亚硝酸的还原性》实验中，本实验中最直接的阳性现象是哪一项？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“生成红色 Ni(dmg)₂”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00242_2da7ff3435"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "终审保留：题干、答案和解析与教材实验点位语义一致。",
+          "supporting_theory_note": ""
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00242_2da7ff3435"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-4-03 亚硝酸的还原性》实验中，本实验中最直接的阳性现象是哪一项？",
+            "options": [
+              {
+                "label": "A",
+                "text": "生成银镜"
+              },
+              {
+                "label": "B",
+                "text": "出现棕色环"
+              },
+              {
+                "label": "C",
+                "text": "KMnO₄ 紫色褪去或明显变浅"
+              },
+              {
+                "label": "D",
+                "text": "生成红色 Ni(dmg)₂"
+              }
+            ],
+            "answer": {
+              "value": "C"
+            },
+            "explanation": "观察 NaNO₂ 还原酸性 KMnO₄ 的现象。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00242_2da7ff3435"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_4_03_SEMANTIC_FINAL_006",
+        "source_review_id": "EXP_19_4_03_SEMANTIC_FINAL_006",
+        "source_question_index": 6,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-4-03 亚硝酸的还原性》中，滴加 NaNO₂ 后观察 KMnO₄ 紫色变浅，主要说明什么？",
+        "options": [
+          {
+            "label": "A",
+            "text": "NO₂⁻ 表现还原性"
+          },
+          {
+            "label": "B",
+            "text": "NO₂⁻ 生成棕色环"
+          },
+          {
+            "label": "C",
+            "text": "K⁺ 被氧化"
+          },
+          {
+            "label": "D",
+            "text": "CCl₄ 萃取 I₂"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "酸性 KMnO₄ 被 NaNO₂ 还原，体现亚硝酸盐还原性。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-72cbedf8"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "19_4_03_point_2"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "NO₂⁻ 表现还原性",
+            "point_key": "candidate-2-72cbedf8",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“NO₂⁻ 表现还原性”直接支撑题干所问：在《19-4-03 亚硝酸的还原性》中，滴加 NaNO₂ 后观察 KMnO₄ 紫色变浅，主要说明什么？；对应点位为“再加入 H₂SO₄ 酸化，观察 KMnO₄ 褪色”。"
+          },
+          {
+            "label": "B",
+            "text": "NO₂⁻ 生成棕色环",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“NO₂⁻ 生成棕色环”混入其他实验或相邻操作，易造成点位错配；本题实际问的是“在《19-4-03 亚硝酸的还原性》中，滴加 NaNO₂ 后观察 KMnO₄ 紫色变浅，主要说明什么？”。"
+          },
+          {
+            "label": "C",
+            "text": "K⁺ 被氧化",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“K⁺ 被氧化”与本题焦点“在《19-4-03 亚硝酸的还原性》中，滴加 NaNO₂ 后观察 KMnO₄ 紫色变浅，主要说明什么？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“K⁺ 被氧化”。"
+          },
+          {
+            "label": "D",
+            "text": "CCl₄ 萃取 I₂",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“CCl₄ 萃取 I₂”混入其他实验或相邻操作，易造成点位错配；本题实际问的是“在《19-4-03 亚硝酸的还原性》中，滴加 NaNO₂ 后观察 KMnO₄ 紫色变浅，主要说明什么？”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00242_2da7ff3435"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "酸性 KMnO₄ 被 NaNO₂ 还原，体现亚硝酸盐还原性。；原题存在证据、深度或题型风险，最终有效题已由 proposed_question 修复。",
+          "supporting_theory_note": ""
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00242_2da7ff3435"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-4-03 亚硝酸的还原性》实验中，NaNO₂ 在亚硝酸的氧化性实验中与 KI 反应，而在本实验中与 KMnO₄ 反应；这说明 HNO₂/NO₂⁻ 具有什么特点？",
+            "options": [
+              {
+                "label": "A",
+                "text": "只能作沉淀剂"
+              },
+              {
+                "label": "B",
+                "text": "完全不参与氧化还原"
+              },
+              {
+                "label": "C",
+                "text": "只能作配体"
+              },
+              {
+                "label": "D",
+                "text": "既可表现氧化性也可表现还原性"
+              }
+            ],
+            "answer": {
+              "value": "D"
+            },
+            "explanation": "亚硝酸及其盐兼具氧化性和还原性。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00242_2da7ff3435"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-4-03 亚硝酸的还原性》中，滴加 NaNO₂ 后观察 KMnO₄ 紫色变浅，主要说明什么？",
+            "options": [
+              {
+                "label": "A",
+                "text": "NO₂⁻ 表现还原性"
+              },
+              {
+                "label": "B",
+                "text": "NO₂⁻ 生成棕色环"
+              },
+              {
+                "label": "C",
+                "text": "K⁺ 被氧化"
+              },
+              {
+                "label": "D",
+                "text": "CCl₄ 萃取 I₂"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "酸性 KMnO₄ 被 NaNO₂ 还原，体现亚硝酸盐还原性。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_4_03_SEMANTIC_FINAL_007",
+        "source_review_id": "EXP_19_4_03_SEMANTIC_FINAL_007",
+        "source_question_index": 7,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-4-03 亚硝酸的还原性》实验中，下列哪项属于本实验使用的氧化剂？",
+        "options": [
+          {
+            "label": "A",
+            "text": "KMnO₄"
+          },
+          {
+            "label": "B",
+            "text": "NaCl"
+          },
+          {
+            "label": "C",
+            "text": "KSCN"
+          },
+          {
+            "label": "D",
+            "text": "CCl₄"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "酸性 KMnO₄ 氧化 NaNO₂。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-80f91837",
+          "candidate-2-72cbedf8"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "19_4_03_point_1",
+          "19_4_03_point_2"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "KMnO₄",
+            "point_key": "candidate-1-80f91837",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“KMnO₄”直接支撑题干所问：在《19-4-03 亚硝酸的还原性》实验中，下列哪项属于本实验使用的氧化剂？；对应点位为“NaNO₂ + KMnO₄”。"
+          },
+          {
+            "label": "B",
+            "text": "NaCl",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“NaCl”与本题焦点“在《19-4-03 亚硝酸的还原性》实验中，下列哪项属于本实验使用的氧化剂？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“NaCl”。"
+          },
+          {
+            "label": "C",
+            "text": "KSCN",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“KSCN”与本题焦点“在《19-4-03 亚硝酸的还原性》实验中，下列哪项属于本实验使用的氧化剂？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“KSCN”。"
+          },
+          {
+            "label": "D",
+            "text": "CCl₄",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“CCl₄”混入其他实验或相邻操作，易造成点位错配；本题实际问的是“在《19-4-03 亚硝酸的还原性》实验中，下列哪项属于本实验使用的氧化剂？”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00242_2da7ff3435"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "终审保留：题干、答案和解析与教材实验点位语义一致。",
+          "supporting_theory_note": ""
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00242_2da7ff3435"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-4-03 亚硝酸的还原性》实验中，下列哪项属于本实验使用的氧化剂？",
+            "options": [
+              {
+                "label": "A",
+                "text": "KMnO₄"
+              },
+              {
+                "label": "B",
+                "text": "NaCl"
+              },
+              {
+                "label": "C",
+                "text": "KSCN"
+              },
+              {
+                "label": "D",
+                "text": "CCl₄"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "酸性 KMnO₄ 氧化 NaNO₂。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00242_2da7ff3435"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_4_03_SEMANTIC_FINAL_008",
+        "source_review_id": "EXP_19_4_03_SEMANTIC_FINAL_008",
+        "source_question_index": 8,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-4-03 亚硝酸的还原性》实验中，NaNO₂ 溶液滴加到酸化 KMnO₄ 中时，滴加方式最好是？",
+        "options": [
+          {
+            "label": "A",
+            "text": "一次倒入大量固体"
+          },
+          {
+            "label": "B",
+            "text": "逐滴加入并观察颜色变化"
+          },
+          {
+            "label": "C",
+            "text": "直接蒸干"
+          },
+          {
+            "label": "D",
+            "text": "先加入戊醇萃取"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "实验要求滴加并观察现象，逐滴便于控制。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-72cbedf8"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "19_4_03_point_2"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "一次倒入大量固体",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“一次倒入大量固体”与本题焦点“在《19-4-03 亚硝酸的还原性》实验中，NaNO₂ 溶液滴加到酸化 KMnO₄ 中时，滴加方式最好是？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“一次倒入大量固体”。"
+          },
+          {
+            "label": "B",
+            "text": "逐滴加入并观察颜色变化",
+            "point_key": "candidate-2-72cbedf8",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“逐滴加入并观察颜色变化”直接支撑题干所问：在《19-4-03 亚硝酸的还原性》实验中，NaNO₂ 溶液滴加到酸化 KMnO₄ 中时，滴加方式最好是？；对应点位为“再加入 H₂SO₄ 酸化，观察 KMnO₄ 褪色”。"
+          },
+          {
+            "label": "C",
+            "text": "直接蒸干",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“直接蒸干”与本题焦点“在《19-4-03 亚硝酸的还原性》实验中，NaNO₂ 溶液滴加到酸化 KMnO₄ 中时，滴加方式最好是？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“直接蒸干”。"
+          },
+          {
+            "label": "D",
+            "text": "先加入戊醇萃取",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“先加入戊醇萃取”与本题焦点“在《19-4-03 亚硝酸的还原性》实验中，NaNO₂ 溶液滴加到酸化 KMnO₄ 中时，滴加方式最好是？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“先加入戊醇萃取”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00242_2da7ff3435"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "终审保留：题干、答案和解析与教材实验点位语义一致。",
+          "supporting_theory_note": ""
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00242_2da7ff3435"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-4-03 亚硝酸的还原性》实验中，NaNO₂ 溶液滴加到酸化 KMnO₄ 中时，滴加方式最好是？",
+            "options": [
+              {
+                "label": "A",
+                "text": "一次倒入大量固体"
+              },
+              {
+                "label": "B",
+                "text": "逐滴加入并观察颜色变化"
+              },
+              {
+                "label": "C",
+                "text": "直接蒸干"
+              },
+              {
+                "label": "D",
+                "text": "先加入戊醇萃取"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "实验要求滴加并观察现象，逐滴便于控制。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00242_2da7ff3435"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_4_03_SEMANTIC_FINAL_009",
+        "source_review_id": "EXP_19_4_03_SEMANTIC_FINAL_009",
+        "source_question_index": 9,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-4-03 亚硝酸的还原性》实验中，不宜用盐酸酸化 KMnO₄ 与 NaNO₂ 体系的原因之一是？",
+        "options": [
+          {
+            "label": "A",
+            "text": "盐酸不能溶于水"
+          },
+          {
+            "label": "B",
+            "text": "盐酸会沉淀 Na⁺"
+          },
+          {
+            "label": "C",
+            "text": "Cl⁻ 可能被 KMnO₄ 氧化而干扰"
+          },
+          {
+            "label": "D",
+            "text": "盐酸会生成 Ni(dmg)₂"
+          }
+        ],
+        "answer": {
+          "value": "C"
+        },
+        "explanation": "强氧化剂高锰酸根可氧化氯离子，硫酸更合适。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-72cbedf8"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "19_4_03_point_2"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "盐酸不能溶于水",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“盐酸不能溶于水”与本题焦点“在《19-4-03 亚硝酸的还原性》实验中，不宜用盐酸酸化 KMnO₄ 与 NaNO₂ 体系的原因之一是？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“盐酸不能溶于水”。"
+          },
+          {
+            "label": "B",
+            "text": "盐酸会沉淀 Na⁺",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“盐酸会沉淀 Na⁺”与本题焦点“在《19-4-03 亚硝酸的还原性》实验中，不宜用盐酸酸化 KMnO₄ 与 NaNO₂ 体系的原因之一是？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“盐酸会沉淀 Na⁺”。"
+          },
+          {
+            "label": "C",
+            "text": "Cl⁻ 可能被 KMnO₄ 氧化而干扰",
+            "point_key": "candidate-2-72cbedf8",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“Cl⁻ 可能被 KMnO₄ 氧化而干扰”直接支撑题干所问：在《19-4-03 亚硝酸的还原性》实验中，不宜用盐酸酸化 KMnO₄ 与 NaNO₂ 体系的原因之一是？；对应点位为“再加入 H₂SO₄ 酸化，观察 KMnO₄ 褪色”。"
+          },
+          {
+            "label": "D",
+            "text": "盐酸会生成 Ni(dmg)₂",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“盐酸会生成 Ni(dmg)₂”与本题焦点“在《19-4-03 亚硝酸的还原性》实验中，不宜用盐酸酸化 KMnO₄ 与 NaNO₂ 体系的原因之一是？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“盐酸会生成 Ni(dmg)₂”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00242_2da7ff3435"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00547_2a1f998120",
+            "textbook_prose_00549_1931138c9a"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "终审保留：题干、答案和解析与教材实验点位语义一致。；polished final 补充 supporting theory 引用：textbook_prose_00547_2a1f998120, textbook_prose_00549_1931138c9a。",
+          "supporting_theory_note": "该判断依赖教材理论 chunk：textbook_prose_00547_2a1f998120, textbook_prose_00549_1931138c9a。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00242_2da7ff3435"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00547_2a1f998120",
+            "textbook_prose_00549_1931138c9a"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00547_2a1f998120",
+            "textbook_prose_00549_1931138c9a"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-4-03 亚硝酸的还原性》实验中，不宜用盐酸酸化 KMnO₄ 与 NaNO₂ 体系的原因之一是？",
+            "options": [
+              {
+                "label": "A",
+                "text": "盐酸不能溶于水"
+              },
+              {
+                "label": "B",
+                "text": "盐酸会沉淀 Na⁺"
+              },
+              {
+                "label": "C",
+                "text": "Cl⁻ 可能被 KMnO₄ 氧化而干扰"
+              },
+              {
+                "label": "D",
+                "text": "盐酸会生成 Ni(dmg)₂"
+              }
+            ],
+            "answer": {
+              "value": "C"
+            },
+            "explanation": "强氧化剂高锰酸根可氧化氯离子，硫酸更合适。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00242_2da7ff3435"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_4_03_SEMANTIC_FINAL_010",
+        "source_review_id": "EXP_19_4_03_SEMANTIC_FINAL_010",
+        "source_question_index": 10,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-4-03 亚硝酸的还原性》中，酸性 KMnO₄ 与 NaNO₂ 反应褪色，说明 NaNO₂ 主要表现什么性质？",
+        "options": [
+          {
+            "label": "A",
+            "text": "还原性"
+          },
+          {
+            "label": "B",
+            "text": "氧化性"
+          },
+          {
+            "label": "C",
+            "text": "配位性"
+          },
+          {
+            "label": "D",
+            "text": "强碱性"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "NaNO₂ 使酸性 KMnO₄ 褪色，体现还原性。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-72cbedf8"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_2_72cbedf8"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "还原性",
+            "point_key": "candidate-2-72cbedf8",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“还原性”直接支撑题干所问：在《19-4-03 亚硝酸的还原性》中，酸性 KMnO₄ 与 NaNO₂ 反应褪色，说明 NaNO₂ 主要表现什么性质？；对应点位为“再加入 H₂SO₄ 酸化，观察 KMnO₄ 褪色”。"
+          },
+          {
+            "label": "B",
+            "text": "氧化性",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“氧化性”与本题焦点“在《19-4-03 亚硝酸的还原性》中，酸性 KMnO₄ 与 NaNO₂ 反应褪色，说明 NaNO₂ 主要表现什么性质？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“氧化性”。"
+          },
+          {
+            "label": "C",
+            "text": "配位性",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“配位性”与本题焦点“在《19-4-03 亚硝酸的还原性》中，酸性 KMnO₄ 与 NaNO₂ 反应褪色，说明 NaNO₂ 主要表现什么性质？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“配位性”。"
+          },
+          {
+            "label": "D",
+            "text": "强碱性",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“强碱性”与本题焦点“在《19-4-03 亚硝酸的还原性》中，酸性 KMnO₄ 与 NaNO₂ 反应褪色，说明 NaNO₂ 主要表现什么性质？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“强碱性”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00242_2da7ff3435"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final rewrite：deduplicated_proposed_question；有效题为本 proposed_question。；原题存在证据、深度或题型风险，最终有效题已由 proposed_question 修复。",
+          "supporting_theory_note": ""
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00242_2da7ff3435"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-4-03 亚硝酸的还原性》实验中，本实验所在模块是下列哪一项？",
+            "options": [
+              {
+                "label": "A",
+                "text": "配合物应用"
+              },
+              {
+                "label": "B",
+                "text": "氢氧化物的酸碱性"
+              },
+              {
+                "label": "C",
+                "text": "钛盐水解"
+              },
+              {
+                "label": "D",
+                "text": "亚硝酸及其盐的性质"
+              }
+            ],
+            "answer": {
+              "value": "D"
+            },
+            "explanation": "实验资料中该实验属于亚硝酸及其盐的性质。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00242_2da7ff3435"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-4-03 亚硝酸的还原性》中，酸性 KMnO₄ 与 NaNO₂ 反应褪色，说明 NaNO₂ 主要表现什么性质？",
+            "options": [
+              {
+                "label": "A",
+                "text": "还原性"
+              },
+              {
+                "label": "B",
+                "text": "氧化性"
+              },
+              {
+                "label": "C",
+                "text": "配位性"
+              },
+              {
+                "label": "D",
+                "text": "强碱性"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "NaNO₂ 使酸性 KMnO₄ 褪色，体现还原性。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_4_03_SEMANTIC_FINAL_011",
+        "source_review_id": "EXP_19_4_03_SEMANTIC_FINAL_011",
+        "source_question_index": 11,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-4-03 亚硝酸的还原性》实验中，酸性 KMnO₄ 可用于检验 NaNO₂ 的还原性。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "NaNO₂ 使酸性 KMnO₄ 褪色。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-72cbedf8"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "19_4_03_point_2"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00242_2da7ff3435"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "终审保留：题干、答案和解析与教材实验点位语义一致。",
+          "supporting_theory_note": ""
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00242_2da7ff3435"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-4-03 亚硝酸的还原性》实验中，酸性 KMnO₄ 可用于检验 NaNO₂ 的还原性。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "NaNO₂ 使酸性 KMnO₄ 褪色。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00242_2da7ff3435"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_4_03_SEMANTIC_FINAL_012",
+        "source_review_id": "EXP_19_4_03_SEMANTIC_FINAL_012",
+        "source_question_index": 12,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-4-03 亚硝酸的还原性》实验中，本实验中 NaNO₂ 是主要氧化剂，KMnO₄ 是主要还原剂。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": false
+        },
+        "explanation": "酸性 KMnO₄ 是氧化剂，NaNO₂ 是还原剂。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-72cbedf8"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "19_4_03_point_2"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00242_2da7ff3435"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00547_2a1f998120",
+            "textbook_prose_00549_1931138c9a"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "终审保留：题干、答案和解析与教材实验点位语义一致。；polished final 补充 supporting theory 引用：textbook_prose_00547_2a1f998120, textbook_prose_00549_1931138c9a。",
+          "supporting_theory_note": "该判断依赖教材理论 chunk：textbook_prose_00547_2a1f998120, textbook_prose_00549_1931138c9a。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00242_2da7ff3435"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00547_2a1f998120",
+            "textbook_prose_00549_1931138c9a"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00547_2a1f998120",
+            "textbook_prose_00549_1931138c9a"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-4-03 亚硝酸的还原性》实验中，本实验中 NaNO₂ 是主要氧化剂，KMnO₄ 是主要还原剂。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "酸性 KMnO₄ 是氧化剂，NaNO₂ 是还原剂。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00242_2da7ff3435"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_4_03_SEMANTIC_FINAL_013",
+        "source_review_id": "EXP_19_4_03_SEMANTIC_FINAL_013",
+        "source_question_index": 13,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-4-03 亚硝酸的还原性》实验中，实验中 KMnO₄ 应用硫酸酸化。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "实验资料明确写有用硫酸酸化。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-72cbedf8"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "19_4_03_point_2"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00242_2da7ff3435"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "终审保留：题干、答案和解析与教材实验点位语义一致。",
+          "supporting_theory_note": ""
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00242_2da7ff3435"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-4-03 亚硝酸的还原性》实验中，实验中 KMnO₄ 应用硫酸酸化。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "实验资料明确写有用硫酸酸化。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00242_2da7ff3435"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_4_03_SEMANTIC_FINAL_014",
+        "source_review_id": "EXP_19_4_03_SEMANTIC_FINAL_014",
+        "source_question_index": 14,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-4-03 亚硝酸的还原性》实验中，NO₂⁻ 在该反应中可被氧化为 NO₃⁻。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "亚硝酸根表现还原性时被氧化。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-72cbedf8"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "19_4_03_point_2"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00242_2da7ff3435"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00547_2a1f998120",
+            "textbook_prose_00549_1931138c9a"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "终审保留：题干、答案和解析与教材实验点位语义一致。；polished final 补充 supporting theory 引用：textbook_prose_00547_2a1f998120, textbook_prose_00549_1931138c9a。",
+          "supporting_theory_note": "该判断依赖教材理论 chunk：textbook_prose_00547_2a1f998120, textbook_prose_00549_1931138c9a。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00242_2da7ff3435"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00547_2a1f998120",
+            "textbook_prose_00549_1931138c9a"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00547_2a1f998120",
+            "textbook_prose_00549_1931138c9a"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-4-03 亚硝酸的还原性》实验中，NO₂⁻ 在该反应中可被氧化为 NO₃⁻。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "亚硝酸根表现还原性时被氧化。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00242_2da7ff3435"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_4_03_SEMANTIC_FINAL_015",
+        "source_review_id": "EXP_19_4_03_SEMANTIC_FINAL_015",
+        "source_question_index": 15,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-4-03 亚硝酸的还原性》实验中，观察 KMnO₄ 紫色变化是本实验的重要现象。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "高锰酸根紫色褪去是判断反应的直接现象。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-72cbedf8"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "19_4_03_point_2"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00242_2da7ff3435"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "终审保留：题干、答案和解析与教材实验点位语义一致。",
+          "supporting_theory_note": ""
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00242_2da7ff3435"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-4-03 亚硝酸的还原性》实验中，观察 KMnO₄ 紫色变化是本实验的重要现象。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "高锰酸根紫色褪去是判断反应的直接现象。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00242_2da7ff3435"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_4_03_SEMANTIC_FINAL_016",
+        "source_review_id": "EXP_19_4_03_SEMANTIC_FINAL_016",
+        "source_question_index": 16,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "true_false",
+        "stem": "在《19-4-03 亚硝酸的还原性》中，NaNO₂ 使酸性 KMnO₄ 颜色变浅，可作为其还原性的观察依据。",
+        "options": [],
+        "answer": {
+          "value": true
+        },
+        "explanation": "该判断直接对应 KMnO₄ 褪色点位。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-72cbedf8"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "19_4_03_point_2"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00242_2da7ff3435"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "该判断直接对应 KMnO₄ 褪色点位。；原题存在证据、深度或题型风险，最终有效题已由 proposed_question 修复。",
+          "supporting_theory_note": ""
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00242_2da7ff3435"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-4-03 亚硝酸的还原性》实验中，亚硝酸及其盐只能表现还原性，不能表现氧化性。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "同一实验资料中还有亚硝酸的氧化性实验。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00242_2da7ff3435"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "true_false",
+            "stem": "在《19-4-03 亚硝酸的还原性》中，NaNO₂ 使酸性 KMnO₄ 颜色变浅，可作为其还原性的观察依据。",
+            "options": [],
+            "answer": {
+              "value": true
+            },
+            "explanation": "该判断直接对应 KMnO₄ 褪色点位。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_4_03_SEMANTIC_FINAL_017",
+        "source_review_id": "EXP_19_4_03_SEMANTIC_FINAL_017",
+        "source_question_index": 17,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-4-03 亚硝酸的还原性》实验中，在酸性介质中，MnO₄⁻ 通常被还原为 Mn²⁺。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "酸性高锰酸根的常见还原产物为 Mn²⁺。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-72cbedf8"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "19_4_03_point_2"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00242_2da7ff3435"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00547_2a1f998120",
+            "textbook_prose_00549_1931138c9a"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "终审保留：题干、答案和解析与教材实验点位语义一致。；polished final 补充 supporting theory 引用：textbook_prose_00547_2a1f998120, textbook_prose_00549_1931138c9a。",
+          "supporting_theory_note": "该判断依赖教材理论 chunk：textbook_prose_00547_2a1f998120, textbook_prose_00549_1931138c9a。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00242_2da7ff3435"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00547_2a1f998120",
+            "textbook_prose_00549_1931138c9a"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00547_2a1f998120",
+            "textbook_prose_00549_1931138c9a"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-4-03 亚硝酸的还原性》实验中，在酸性介质中，MnO₄⁻ 通常被还原为 Mn²⁺。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "酸性高锰酸根的常见还原产物为 Mn²⁺。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00242_2da7ff3435"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_4_03_SEMANTIC_FINAL_018",
+        "source_review_id": "EXP_19_4_03_SEMANTIC_FINAL_018",
+        "source_question_index": 18,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-4-03 亚硝酸的还原性》实验中，本实验的操作与硝酸根棕色环实验完全相同。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": false
+        },
+        "explanation": "本实验是 NaNO₂ 与酸性 KMnO₄，棕色环是硝酸根检验。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-72cbedf8"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "19_4_03_point_2"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00242_2da7ff3435"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "终审保留：题干、答案和解析与教材实验点位语义一致。",
+          "supporting_theory_note": ""
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00242_2da7ff3435"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-4-03 亚硝酸的还原性》实验中，本实验的操作与硝酸根棕色环实验完全相同。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "本实验是 NaNO₂ 与酸性 KMnO₄，棕色环是硝酸根检验。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00242_2da7ff3435"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_4_03_SEMANTIC_FINAL_019",
+        "source_review_id": "EXP_19_4_03_SEMANTIC_FINAL_019",
+        "source_question_index": 19,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-4-03 亚硝酸的还原性》中，在酸性 KMnO₄ 体系中，NO₂⁻ 通常被氧化为哪种离子？",
+        "options": [
+          {
+            "label": "A",
+            "text": "I₂"
+          },
+          {
+            "label": "B",
+            "text": "AgCl"
+          },
+          {
+            "label": "C",
+            "text": "SiO₃²⁻"
+          },
+          {
+            "label": "D",
+            "text": "NO₃⁻"
+          }
+        ],
+        "answer": {
+          "value": "D"
+        },
+        "explanation": "亚硝酸根表现还原性时可被氧化为硝酸根。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-72cbedf8"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_2_72cbedf8"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "I₂",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“I₂”与本题焦点“在《19-4-03 亚硝酸的还原性》中，在酸性 KMnO₄ 体系中，NO₂⁻ 通常被氧化为哪种离子？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“I₂”。"
+          },
+          {
+            "label": "B",
+            "text": "AgCl",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“AgCl”混入其他实验或相邻操作，易造成点位错配；本题实际问的是“在《19-4-03 亚硝酸的还原性》中，在酸性 KMnO₄ 体系中，NO₂⁻ 通常被氧化为哪种离子？”。"
+          },
+          {
+            "label": "C",
+            "text": "SiO₃²⁻",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“SiO₃²⁻”与本题焦点“在《19-4-03 亚硝酸的还原性》中，在酸性 KMnO₄ 体系中，NO₂⁻ 通常被氧化为哪种离子？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“SiO₃²⁻”。"
+          },
+          {
+            "label": "D",
+            "text": "NO₃⁻",
+            "point_key": "candidate-2-72cbedf8",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“NO₃⁻”直接支撑题干所问：在《19-4-03 亚硝酸的还原性》中，在酸性 KMnO₄ 体系中，NO₂⁻ 通常被氧化为哪种离子？；对应点位为“再加入 H₂SO₄ 酸化，观察 KMnO₄ 褪色”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00242_2da7ff3435"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final rewrite：deduplicated_proposed_question；有效题为本 proposed_question。；原题存在证据、深度或题型风险，最终有效题已由 proposed_question 修复。",
+          "supporting_theory_note": ""
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00242_2da7ff3435"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-4-03 亚硝酸的还原性》实验中，认为：用 HCl 代替 H₂SO₄ 酸化可能引入氯离子被氧化的干扰，这一判断是不正确的。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "这一判断本身是正确的。因此常用硫酸酸化。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00242_2da7ff3435"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-4-03 亚硝酸的还原性》中，在酸性 KMnO₄ 体系中，NO₂⁻ 通常被氧化为哪种离子？",
+            "options": [
+              {
+                "label": "A",
+                "text": "I₂"
+              },
+              {
+                "label": "B",
+                "text": "AgCl"
+              },
+              {
+                "label": "C",
+                "text": "SiO₃²⁻"
+              },
+              {
+                "label": "D",
+                "text": "NO₃⁻"
+              }
+            ],
+            "answer": {
+              "value": "D"
+            },
+            "explanation": "亚硝酸根表现还原性时可被氧化为硝酸根。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_4_03_SEMANTIC_FINAL_020",
+        "source_review_id": "EXP_19_4_03_SEMANTIC_FINAL_020",
+        "source_question_index": 20,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-4-03 亚硝酸的还原性》中，酸性条件下 MnO₄⁻ 被还原后的常见低价锰产物是哪一种？",
+        "options": [
+          {
+            "label": "A",
+            "text": "MnO₄⁻"
+          },
+          {
+            "label": "B",
+            "text": "Fe²⁺"
+          },
+          {
+            "label": "C",
+            "text": "Mn²⁺"
+          },
+          {
+            "label": "D",
+            "text": "Na⁺"
+          }
+        ],
+        "answer": {
+          "value": "C"
+        },
+        "explanation": "酸性高锰酸根被还原，紫色褪去。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-72cbedf8"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_2_72cbedf8"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "MnO₄⁻",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“MnO₄⁻”与本题焦点“在《19-4-03 亚硝酸的还原性》中，酸性条件下 MnO₄⁻ 被还原后的常见低价锰产物是哪一种？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“MnO₄⁻”。"
+          },
+          {
+            "label": "B",
+            "text": "Fe²⁺",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“Fe²⁺”与本题焦点“在《19-4-03 亚硝酸的还原性》中，酸性条件下 MnO₄⁻ 被还原后的常见低价锰产物是哪一种？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“Fe²⁺”。"
+          },
+          {
+            "label": "C",
+            "text": "Mn²⁺",
+            "point_key": "candidate-2-72cbedf8",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“Mn²⁺”直接支撑题干所问：在《19-4-03 亚硝酸的还原性》中，酸性条件下 MnO₄⁻ 被还原后的常见低价锰产物是哪一种？；对应点位为“再加入 H₂SO₄ 酸化，观察 KMnO₄ 褪色”。"
+          },
+          {
+            "label": "D",
+            "text": "Na⁺",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“Na⁺”与本题焦点“在《19-4-03 亚硝酸的还原性》中，酸性条件下 MnO₄⁻ 被还原后的常见低价锰产物是哪一种？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“Na⁺”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00242_2da7ff3435"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final rewrite：deduplicated_proposed_question；有效题为本 proposed_question。；原题存在证据、深度或题型风险，最终有效题已由 proposed_question 修复。",
+          "supporting_theory_note": ""
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00242_2da7ff3435"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-4-03 亚硝酸的还原性》实验中，认为：滴加 NaNO₂ 后若 KMnO₄ 褪色，可说明发生了氧化还原反应，这一判断是不正确的。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "这一判断本身是正确的。颜色变化来自 MnO₄⁻ 被还原。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00242_2da7ff3435"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-4-03 亚硝酸的还原性》中，酸性条件下 MnO₄⁻ 被还原后的常见低价锰产物是哪一种？",
+            "options": [
+              {
+                "label": "A",
+                "text": "MnO₄⁻"
+              },
+              {
+                "label": "B",
+                "text": "Fe²⁺"
+              },
+              {
+                "label": "C",
+                "text": "Mn²⁺"
+              },
+              {
+                "label": "D",
+                "text": "Na⁺"
+              }
+            ],
+            "answer": {
+              "value": "C"
+            },
+            "explanation": "酸性高锰酸根被还原，紫色褪去。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_4_03_SEMANTIC_FINAL_021",
+        "source_review_id": "EXP_19_4_03_SEMANTIC_FINAL_021",
+        "source_question_index": 21,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-4-03 亚硝酸的还原性》实验中，本实验中 KMnO₄ 溶液用____酸化。下列哪一项最适合填入空白处？",
+        "options": [
+          {
+            "label": "A",
+            "text": "氧化性"
+          },
+          {
+            "label": "B",
+            "text": "H₂SO₄"
+          },
+          {
+            "label": "C",
+            "text": "还原性"
+          },
+          {
+            "label": "D",
+            "text": "配位性"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "空白处应填“H₂SO₄”。本轮将原手机端高风险填空改为单选，避免上下标、别名或复杂化学式输入导致机器判分不稳定。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-72cbedf8"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_2_72cbedf8"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "氧化性",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“氧化性”与本题焦点“在《19-4-03 亚硝酸的还原性》实验中，本实验中 KMnO₄ 溶液用____酸化。下列哪一项最适合填入空白处？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“氧化性”。"
+          },
+          {
+            "label": "B",
+            "text": "H₂SO₄",
+            "point_key": "candidate-2-72cbedf8",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“H₂SO₄”直接支撑题干所问：在《19-4-03 亚硝酸的还原性》实验中，本实验中 KMnO₄ 溶液用____酸化。下列哪一项最适合填入空白处？；对应点位为“再加入 H₂SO₄ 酸化，观察 KMnO₄ 褪色”。"
+          },
+          {
+            "label": "C",
+            "text": "还原性",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“还原性”与本题焦点“在《19-4-03 亚硝酸的还原性》实验中，本实验中 KMnO₄ 溶液用____酸化。下列哪一项最适合填入空白处？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“还原性”。"
+          },
+          {
+            "label": "D",
+            "text": "配位性",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“配位性”与本题焦点“在《19-4-03 亚硝酸的还原性》实验中，本实验中 KMnO₄ 溶液用____酸化。下列哪一项最适合填入空白处？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“配位性”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00242_2da7ff3435"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final rewrite：phone_risk_repaired_as_single_choice；有效题为本 proposed_question。；原题存在证据、深度或题型风险，最终有效题已由 proposed_question 修复。",
+          "supporting_theory_note": ""
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00242_2da7ff3435"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "generic_or_answer_shell_explanation",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-4-03 亚硝酸的还原性》实验中，本实验中 KMnO₄ 溶液用____酸化。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "H₂SO₄",
+                "硫酸"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "实验资料写有用硫酸酸化。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00242_2da7ff3435"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-4-03 亚硝酸的还原性》实验中，本实验中 KMnO₄ 溶液用____酸化。下列哪一项最适合填入空白处？",
+            "options": [
+              {
+                "label": "A",
+                "text": "氧化性"
+              },
+              {
+                "label": "B",
+                "text": "H₂SO₄"
+              },
+              {
+                "label": "C",
+                "text": "还原性"
+              },
+              {
+                "label": "D",
+                "text": "配位性"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "空白处应填“H₂SO₄”。本轮将原手机端高风险填空改为单选，避免上下标、别名或复杂化学式输入导致机器判分不稳定。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_4_03_SEMANTIC_FINAL_022",
+        "source_review_id": "EXP_19_4_03_SEMANTIC_FINAL_022",
+        "source_question_index": 22,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《19-4-03 亚硝酸的还原性》实验中，酸性 KMnO₄ 的紫色褪去说明 MnO₄⁻ 被____。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "还原",
+            "还原了"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "高锰酸根被 NaNO₂ 还原。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-72cbedf8"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "19_4_03_point_2"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00242_2da7ff3435"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00547_2a1f998120",
+            "textbook_prose_00549_1931138c9a"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "终审保留：题干、答案和解析与教材实验点位语义一致。；polished final 补充 supporting theory 引用：textbook_prose_00547_2a1f998120, textbook_prose_00549_1931138c9a。",
+          "supporting_theory_note": "该判断依赖教材理论 chunk：textbook_prose_00547_2a1f998120, textbook_prose_00549_1931138c9a。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00242_2da7ff3435"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00547_2a1f998120",
+            "textbook_prose_00549_1931138c9a"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00547_2a1f998120",
+            "textbook_prose_00549_1931138c9a"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-4-03 亚硝酸的还原性》实验中，酸性 KMnO₄ 的紫色褪去说明 MnO₄⁻ 被____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "还原",
+                "还原了"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "高锰酸根被 NaNO₂ 还原。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00242_2da7ff3435"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_4_03_SEMANTIC_FINAL_023",
+        "source_review_id": "EXP_19_4_03_SEMANTIC_FINAL_023",
+        "source_question_index": 23,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《19-4-03 亚硝酸的还原性》实验中，NaNO₂ 在该实验中主要表现____性。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "还原",
+            "还原性"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "本实验通过 NaNO₂ 参与反应考查亚硝酸盐的还原性，因此空格可填“还原”或“还原性”。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-72cbedf8"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "19_4_03_point_2"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00242_2da7ff3435"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "终审保留：题干、答案和解析与教材实验点位语义一致。",
+          "supporting_theory_note": ""
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00242_2da7ff3435"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-4-03 亚硝酸的还原性》实验中，NaNO₂ 在该实验中主要表现____性。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "还原",
+                "还原性"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "本实验通过 NaNO₂ 参与反应考查亚硝酸盐的还原性，因此空格可填“还原”或“还原性”。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00242_2da7ff3435"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_4_03_SEMANTIC_FINAL_024",
+        "source_review_id": "EXP_19_4_03_SEMANTIC_FINAL_024",
+        "source_question_index": 24,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-4-03 亚硝酸的还原性》实验中，NO₂⁻ 表现还原性时常被氧化为____。下列哪一项最适合填入空白处？",
+        "options": [
+          {
+            "label": "A",
+            "text": "NO₃⁻"
+          },
+          {
+            "label": "B",
+            "text": "氧化性"
+          },
+          {
+            "label": "C",
+            "text": "还原性"
+          },
+          {
+            "label": "D",
+            "text": "配位性"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "空白处应填“NO₃⁻”。本轮将原手机端高风险填空改为单选，避免上下标、别名或复杂化学式输入导致机器判分不稳定。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-72cbedf8"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_2_72cbedf8"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "NO₃⁻",
+            "point_key": "candidate-2-72cbedf8",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“NO₃⁻”直接支撑题干所问：在《19-4-03 亚硝酸的还原性》实验中，NO₂⁻ 表现还原性时常被氧化为____。下列哪一项最适合填入空白处？；对应点位为“再加入 H₂SO₄ 酸化，观察 KMnO₄ 褪色”。"
+          },
+          {
+            "label": "B",
+            "text": "氧化性",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“氧化性”与本题焦点“在《19-4-03 亚硝酸的还原性》实验中，NO₂⁻ 表现还原性时常被氧化为____。下列哪一项最适合填入空白处？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“氧化性”。"
+          },
+          {
+            "label": "C",
+            "text": "还原性",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“还原性”与本题焦点“在《19-4-03 亚硝酸的还原性》实验中，NO₂⁻ 表现还原性时常被氧化为____。下列哪一项最适合填入空白处？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“还原性”。"
+          },
+          {
+            "label": "D",
+            "text": "配位性",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“配位性”与本题焦点“在《19-4-03 亚硝酸的还原性》实验中，NO₂⁻ 表现还原性时常被氧化为____。下列哪一项最适合填入空白处？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“配位性”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00242_2da7ff3435"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00547_2a1f998120",
+            "textbook_prose_00549_1931138c9a"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final rewrite：phone_risk_repaired_as_single_choice；有效题为本 proposed_question。；原题存在证据、深度或题型风险，最终有效题已由 proposed_question 修复。",
+          "supporting_theory_note": "本题判断除实验操作/现象外，还依赖 supporting theory: textbook_prose_00547_2a1f998120, textbook_prose_00549_1931138c9a。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00242_2da7ff3435"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00547_2a1f998120",
+            "textbook_prose_00549_1931138c9a"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00547_2a1f998120",
+            "textbook_prose_00549_1931138c9a"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "generic_or_answer_shell_explanation",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-4-03 亚硝酸的还原性》实验中，NO₂⁻ 表现还原性时常被氧化为____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "NO₃⁻",
+                "硝酸根"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "亚硝酸根被氧化为硝酸根。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00242_2da7ff3435"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-4-03 亚硝酸的还原性》实验中，NO₂⁻ 表现还原性时常被氧化为____。下列哪一项最适合填入空白处？",
+            "options": [
+              {
+                "label": "A",
+                "text": "NO₃⁻"
+              },
+              {
+                "label": "B",
+                "text": "氧化性"
+              },
+              {
+                "label": "C",
+                "text": "还原性"
+              },
+              {
+                "label": "D",
+                "text": "配位性"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "空白处应填“NO₃⁻”。本轮将原手机端高风险填空改为单选，避免上下标、别名或复杂化学式输入导致机器判分不稳定。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_4_03_SEMANTIC_FINAL_025",
+        "source_review_id": "EXP_19_4_03_SEMANTIC_FINAL_025",
+        "source_question_index": 25,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-4-03 亚硝酸的还原性》实验中，酸性条件下 MnO₄⁻ 常被还原为____。下列哪一项最适合填入空白处？",
+        "options": [
+          {
+            "label": "A",
+            "text": "氧化性"
+          },
+          {
+            "label": "B",
+            "text": "Mn²⁺"
+          },
+          {
+            "label": "C",
+            "text": "还原性"
+          },
+          {
+            "label": "D",
+            "text": "配位性"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "空白处应填“Mn²⁺”。本轮将原手机端高风险填空改为单选，避免上下标、别名或复杂化学式输入导致机器判分不稳定。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-72cbedf8"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_2_72cbedf8"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "氧化性",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“氧化性”与本题焦点“在《19-4-03 亚硝酸的还原性》实验中，酸性条件下 MnO₄⁻ 常被还原为____。下列哪一项最适合填入空白处？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“氧化性”。"
+          },
+          {
+            "label": "B",
+            "text": "Mn²⁺",
+            "point_key": "candidate-2-72cbedf8",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“Mn²⁺”直接支撑题干所问：在《19-4-03 亚硝酸的还原性》实验中，酸性条件下 MnO₄⁻ 常被还原为____。下列哪一项最适合填入空白处？；对应点位为“再加入 H₂SO₄ 酸化，观察 KMnO₄ 褪色”。"
+          },
+          {
+            "label": "C",
+            "text": "还原性",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“还原性”与本题焦点“在《19-4-03 亚硝酸的还原性》实验中，酸性条件下 MnO₄⁻ 常被还原为____。下列哪一项最适合填入空白处？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“还原性”。"
+          },
+          {
+            "label": "D",
+            "text": "配位性",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“配位性”与本题焦点“在《19-4-03 亚硝酸的还原性》实验中，酸性条件下 MnO₄⁻ 常被还原为____。下列哪一项最适合填入空白处？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“配位性”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00242_2da7ff3435"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00547_2a1f998120",
+            "textbook_prose_00549_1931138c9a"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final rewrite：phone_risk_repaired_as_single_choice；有效题为本 proposed_question。；原题存在证据、深度或题型风险，最终有效题已由 proposed_question 修复。",
+          "supporting_theory_note": "本题判断除实验操作/现象外，还依赖 supporting theory: textbook_prose_00547_2a1f998120, textbook_prose_00549_1931138c9a。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00242_2da7ff3435"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00547_2a1f998120",
+            "textbook_prose_00549_1931138c9a"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00547_2a1f998120",
+            "textbook_prose_00549_1931138c9a"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "generic_or_answer_shell_explanation",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-4-03 亚硝酸的还原性》实验中，酸性条件下 MnO₄⁻ 常被还原为____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "Mn²⁺",
+                "锰(II)离子"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "酸性高锰酸根的常见产物为 Mn²⁺。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00242_2da7ff3435"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-4-03 亚硝酸的还原性》实验中，酸性条件下 MnO₄⁻ 常被还原为____。下列哪一项最适合填入空白处？",
+            "options": [
+              {
+                "label": "A",
+                "text": "氧化性"
+              },
+              {
+                "label": "B",
+                "text": "Mn²⁺"
+              },
+              {
+                "label": "C",
+                "text": "还原性"
+              },
+              {
+                "label": "D",
+                "text": "配位性"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "空白处应填“Mn²⁺”。本轮将原手机端高风险填空改为单选，避免上下标、别名或复杂化学式输入导致机器判分不稳定。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_4_03_SEMANTIC_FINAL_026",
+        "source_review_id": "EXP_19_4_03_SEMANTIC_FINAL_026",
+        "source_question_index": 26,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-4-03 亚硝酸的还原性》实验中，本实验使用的紫色氧化剂是____。下列哪一项最适合填入空白处？",
+        "options": [
+          {
+            "label": "A",
+            "text": "氧化性"
+          },
+          {
+            "label": "B",
+            "text": "还原性"
+          },
+          {
+            "label": "C",
+            "text": "KMnO₄"
+          },
+          {
+            "label": "D",
+            "text": "配位性"
+          }
+        ],
+        "answer": {
+          "value": "C"
+        },
+        "explanation": "空白处应填“KMnO₄”。本轮将原手机端高风险填空改为单选，避免上下标、别名或复杂化学式输入导致机器判分不稳定。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-80f91837",
+          "candidate-2-72cbedf8"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_1_80f91837",
+          "point_candidate_2_72cbedf8"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "氧化性",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“氧化性”与本题焦点“在《19-4-03 亚硝酸的还原性》实验中，本实验使用的紫色氧化剂是____。下列哪一项最适合填入空白处？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“氧化性”。"
+          },
+          {
+            "label": "B",
+            "text": "还原性",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“还原性”与本题焦点“在《19-4-03 亚硝酸的还原性》实验中，本实验使用的紫色氧化剂是____。下列哪一项最适合填入空白处？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“还原性”。"
+          },
+          {
+            "label": "C",
+            "text": "KMnO₄",
+            "point_key": "candidate-1-80f91837",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“KMnO₄”直接支撑题干所问：在《19-4-03 亚硝酸的还原性》实验中，本实验使用的紫色氧化剂是____。下列哪一项最适合填入空白处？；对应点位为“NaNO₂ + KMnO₄”。"
+          },
+          {
+            "label": "D",
+            "text": "配位性",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“配位性”与本题焦点“在《19-4-03 亚硝酸的还原性》实验中，本实验使用的紫色氧化剂是____。下列哪一项最适合填入空白处？”不匹配；错误点在于把应判断的操作、现象或结论替换成了“配位性”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00242_2da7ff3435"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final rewrite：phone_risk_repaired_as_single_choice；有效题为本 proposed_question。；原题存在证据、深度或题型风险，最终有效题已由 proposed_question 修复。",
+          "supporting_theory_note": ""
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00242_2da7ff3435"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "generic_or_answer_shell_explanation",
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-4-03 亚硝酸的还原性》实验中，本实验使用的紫色氧化剂是____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "KMnO₄",
+                "高锰酸钾"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "实验资料列出 KMnO₄。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00242_2da7ff3435"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-4-03 亚硝酸的还原性》实验中，本实验使用的紫色氧化剂是____。下列哪一项最适合填入空白处？",
+            "options": [
+              {
+                "label": "A",
+                "text": "氧化性"
+              },
+              {
+                "label": "B",
+                "text": "还原性"
+              },
+              {
+                "label": "C",
+                "text": "KMnO₄"
+              },
+              {
+                "label": "D",
+                "text": "配位性"
+              }
+            ],
+            "answer": {
+              "value": "C"
+            },
+            "explanation": "空白处应填“KMnO₄”。本轮将原手机端高风险填空改为单选，避免上下标、别名或复杂化学式输入导致机器判分不稳定。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_4_03_SEMANTIC_FINAL_027",
+        "source_review_id": "EXP_19_4_03_SEMANTIC_FINAL_027",
+        "source_question_index": 27,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《19-4-03 亚硝酸的还原性》实验中，NaNO₂ 溶液应向酸化 KMnO₄ 中____滴加。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "逐滴",
+            "缓慢"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "逐滴观察现象更合适。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-72cbedf8"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "19_4_03_point_2"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00242_2da7ff3435"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "终审保留：题干、答案和解析与教材实验点位语义一致。",
+          "supporting_theory_note": ""
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00242_2da7ff3435"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-4-03 亚硝酸的还原性》实验中，NaNO₂ 溶液应向酸化 KMnO₄ 中____滴加。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "逐滴",
+                "缓慢"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "逐滴观察现象更合适。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00242_2da7ff3435"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_4_03_SEMANTIC_FINAL_028",
+        "source_review_id": "EXP_19_4_03_SEMANTIC_FINAL_028",
+        "source_question_index": 28,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "fill_blank",
+        "stem": "在《19-4-03 亚硝酸的还原性》中，NaNO₂ 使酸性 KMnO₄ 褪色，主要表现____性。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "还原",
+            "还原性"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "对应的实验操作或现象内容是“还原性”。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-72cbedf8"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "19_4_03_point_2"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00242_2da7ff3435"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "答案为还原性。；原题存在证据、深度或题型风险，最终有效题已由 proposed_question 修复。",
+          "supporting_theory_note": ""
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00242_2da7ff3435"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "generic_or_answer_shell_explanation",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-4-03 亚硝酸的还原性》实验中，亚硝酸及其盐既可表现氧化性，也可表现____性。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "还原",
+                "还原性"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "实验资料同时包含氧化性和还原性实验。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00242_2da7ff3435"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-4-03 亚硝酸的还原性》中，NaNO₂ 使酸性 KMnO₄ 褪色，主要表现____性。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "还原",
+                "还原性"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "对应的实验操作或现象内容是“还原性”。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_4_03_SEMANTIC_FINAL_029",
+        "source_review_id": "EXP_19_4_03_SEMANTIC_FINAL_029",
+        "source_question_index": 29,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-4-03 亚硝酸的还原性》实验中，本实验不宜用盐酸酸化，是为了避免____离子被氧化的干扰。下列哪一项最适合填入空白处？",
+        "options": [
+          {
+            "label": "A",
+            "text": "氧化性"
+          },
+          {
+            "label": "B",
+            "text": "Cl⁻"
+          },
+          {
+            "label": "C",
+            "text": "还原性"
+          },
+          {
+            "label": "D",
+            "text": "配位性"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "空白处应填“Cl⁻”。本轮将原手机端高风险填空改为单选，避免上下标、别名或复杂化学式输入导致机器判分不稳定。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-72cbedf8"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "point_candidate_2_72cbedf8"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "氧化性",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“氧化性”与本题焦点“在《19-4-03 亚硝酸的还原性》实验中，本实验不宜用盐酸酸化，是为了避免____离子被氧化的干扰。下列哪一项最适合填入空白处”不匹配；错误点在于把应判断的操作、现象或结论替换成了“氧化性”。"
+          },
+          {
+            "label": "B",
+            "text": "Cl⁻",
+            "point_key": "candidate-2-72cbedf8",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“Cl⁻”直接支撑题干所问：在《19-4-03 亚硝酸的还原性》实验中，本实验不宜用盐酸酸化，是为了避免____离子被氧化的干扰。下列哪一项最适合填入空白处；对应点位为“再加入 H₂SO₄ 酸化，观察 KMnO₄ 褪色”。"
+          },
+          {
+            "label": "C",
+            "text": "还原性",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“还原性”与本题焦点“在《19-4-03 亚硝酸的还原性》实验中，本实验不宜用盐酸酸化，是为了避免____离子被氧化的干扰。下列哪一项最适合填入空白处”不匹配；错误点在于把应判断的操作、现象或结论替换成了“还原性”。"
+          },
+          {
+            "label": "D",
+            "text": "配位性",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "干扰项“配位性”与本题焦点“在《19-4-03 亚硝酸的还原性》实验中，本实验不宜用盐酸酸化，是为了避免____离子被氧化的干扰。下列哪一项最适合填入空白处”不匹配；错误点在于把应判断的操作、现象或结论替换成了“配位性”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00242_2da7ff3435"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00547_2a1f998120",
+            "textbook_prose_00549_1931138c9a"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final rewrite：phone_risk_repaired_as_single_choice；有效题为本 proposed_question。；原题存在证据、深度或题型风险，最终有效题已由 proposed_question 修复。",
+          "supporting_theory_note": "本题判断除实验操作/现象外，还依赖 supporting theory: textbook_prose_00547_2a1f998120, textbook_prose_00549_1931138c9a。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00242_2da7ff3435"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00547_2a1f998120",
+            "textbook_prose_00549_1931138c9a"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00547_2a1f998120",
+            "textbook_prose_00549_1931138c9a"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "generic_or_answer_shell_explanation",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-4-03 亚硝酸的还原性》实验中，本实验不宜用盐酸酸化，是为了避免____离子被氧化的干扰。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "Cl⁻",
+                "氯",
+                "氯离子"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "HCl 引入 Cl⁻。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00242_2da7ff3435"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-4-03 亚硝酸的还原性》实验中，本实验不宜用盐酸酸化，是为了避免____离子被氧化的干扰。下列哪一项最适合填入空白处？",
+            "options": [
+              {
+                "label": "A",
+                "text": "氧化性"
+              },
+              {
+                "label": "B",
+                "text": "Cl⁻"
+              },
+              {
+                "label": "C",
+                "text": "还原性"
+              },
+              {
+                "label": "D",
+                "text": "配位性"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "空白处应填“Cl⁻”。本轮将原手机端高风险填空改为单选，避免上下标、别名或复杂化学式输入导致机器判分不稳定。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "EXP_19_4_03_SEMANTIC_FINAL_030",
+        "source_review_id": "EXP_19_4_03_SEMANTIC_FINAL_030",
+        "source_question_index": 30,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《19-4-03 亚硝酸的还原性》实验中，本实验观察的关键现象是 KMnO₄ 的紫色____。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "褪去",
+            "变浅",
+            "消失"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "还原酸性 KMnO₄ 会使紫色变浅或褪去。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-72cbedf8"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "19_4_03_point_2"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00242_2da7ff3435"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00547_2a1f998120",
+            "textbook_prose_00549_1931138c9a"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "终审保留：题干、答案和解析与教材实验点位语义一致。；polished final 补充 supporting theory 引用：textbook_prose_00547_2a1f998120, textbook_prose_00549_1931138c9a。",
+          "supporting_theory_note": "该判断依赖教材理论 chunk：textbook_prose_00547_2a1f998120, textbook_prose_00549_1931138c9a。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00242_2da7ff3435"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00547_2a1f998120",
+            "textbook_prose_00549_1931138c9a"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00547_2a1f998120",
+            "textbook_prose_00549_1931138c9a"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-4-03 亚硝酸的还原性》实验中，本实验观察的关键现象是 KMnO₄ 的紫色____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "褪去",
+                "变浅",
+                "消失"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "还原酸性 KMnO₄ 会使紫色变浅或褪去。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00242_2da7ff3435"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "requires_supporting_theory"
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,4038 @@
+{
+  "metadata": {
+    "version": "chunk-4-release-slim-v1",
+    "artifact_type": "slim_question_bank_work_file",
+    "generated_at": "2026-06-15T03:27:59.050817+00:00",
+    "source_file": "E:\\chemistry-admin\\artifacts\\point-aware-question-bank\\reviewed_old_bank_chunks\\chunk_4_release_final_v1.json",
+    "normalization_rule": "effective question plus minimal lineage, evidence IDs, point bindings, option links, evidence locators, and mechanical risk flags",
+    "evidence_policy": "RAG source text is not embedded; packets carry locators and reviewers must read E:/chemistry-rag/data/rag_ready directly",
+    "chunk_id_policy": "inherited chunk ids are untrusted locator candidates until manually compared with RAG text",
+    "semantic_status": "not_semantically_repaired_by_this_script",
+    "packet_type": "single_experiment_semantic_repair_work_packet",
+    "chunk": 4,
+    "experiment_code": "20-2-01",
+    "question_count": 30
+  },
+  "experiment": {
+    "experiment_id": "EXP_20_2_01",
+    "experiment_code": "20-2-01",
+    "experiment_title": "氢氧化物的酸碱性",
+    "chapter_bindings": [
+      {
+        "chapter_id": "CH20",
+        "coverage_type": "primary",
+        "sort_order": 1
+      }
+    ],
+    "video_points": [
+      {
+        "point_key": "candidate-1-09f9898e",
+        "point_title": "TiOSO₄ + NaOH",
+        "source": null,
+        "candidate_index": null,
+        "resource_count": null,
+        "published_count": null,
+        "resource_titles": []
+      },
+      {
+        "point_key": "candidate-2-db3dac4e",
+        "point_title": "Cr₂(SO₄)₃ + NaOH",
+        "source": null,
+        "candidate_index": null,
+        "resource_count": null,
+        "published_count": null,
+        "resource_titles": []
+      },
+      {
+        "point_key": "candidate-3-cc8323eb",
+        "point_title": "MnSO₄ + NaOH",
+        "source": null,
+        "candidate_index": null,
+        "resource_count": null,
+        "published_count": null,
+        "resource_titles": []
+      },
+      {
+        "point_key": "candidate-4-daaa17d4",
+        "point_title": "(NH₄)₂Fe(SO₄)₂ + NaOH",
+        "source": null,
+        "candidate_index": null,
+        "resource_count": null,
+        "published_count": null,
+        "resource_titles": []
+      },
+      {
+        "point_key": "candidate-5-66191ac4",
+        "point_title": "FeCl₃ + NaOH",
+        "source": null,
+        "candidate_index": null,
+        "resource_count": null,
+        "published_count": null,
+        "resource_titles": []
+      },
+      {
+        "point_key": "candidate-6-557bc1be",
+        "point_title": "CoCl₃ + NaOH",
+        "source": null,
+        "candidate_index": null,
+        "resource_count": null,
+        "published_count": null,
+        "resource_titles": []
+      },
+      {
+        "point_key": "candidate-7-31a1594f",
+        "point_title": "NiSO₄ + NaOH",
+        "source": null,
+        "candidate_index": null,
+        "resource_count": null,
+        "published_count": null,
+        "resource_titles": []
+      },
+      {
+        "point_key": "candidate-8-80b7b503",
+        "point_title": "检验沉淀酸碱性",
+        "source": null,
+        "candidate_index": null,
+        "resource_count": null,
+        "published_count": null,
+        "resource_titles": []
+      },
+      {
+        "point_key": "candidate-9-afa96094",
+        "point_title": "可溶于稀碱的体系加热煮沸，观察变化",
+        "source": null,
+        "candidate_index": null,
+        "resource_count": null,
+        "published_count": null,
+        "resource_titles": []
+      }
+    ],
+    "canonical_chunk_ids": [
+      "expchunk_00319_b995aa9123",
+      "expchunk_00324_5148cfb68c"
+    ],
+    "evidence_lookup": {
+      "policy": "locator_only; canonical RAG text is not embedded in this packet",
+      "chunk_id_policy": "metadata chunk ids are inherited claims, not trusted evidence; reviewers must compare the RAG text against the question stem/options/answer/explanation and replace or remove wrong ids",
+      "primary_source_dir": "E:\\chemistry-rag\\data\\rag_ready",
+      "source_files": {
+        "experiment_chunks": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+        "supporting_theory_chunks": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl"
+      },
+      "search_hints": {
+        "experiment_code": "20-2-01",
+        "parent_experiment_code": "20-2",
+        "experiment_title": "氢氧化物的酸碱性",
+        "video_point_titles": [
+          "TiOSO₄ + NaOH",
+          "Cr₂(SO₄)₃ + NaOH",
+          "MnSO₄ + NaOH",
+          "(NH₄)₂Fe(SO₄)₂ + NaOH",
+          "FeCl₃ + NaOH",
+          "CoCl₃ + NaOH",
+          "NiSO₄ + NaOH",
+          "检验沉淀酸碱性",
+          "可溶于稀碱的体系加热煮沸，观察变化"
+        ],
+        "canonical_chunk_ids_from_metadata": [
+          "expchunk_00319_b995aa9123",
+          "expchunk_00324_5148cfb68c"
+        ],
+        "supporting_theory_chunk_ids_from_metadata": [
+          "textbook_prose_01275_e701d5ec73",
+          "textbook_prose_01276_088374f10a",
+          "textbook_prose_01277_a1ca6bdce2",
+          "textbook_prose_01285_71bc122540"
+        ],
+        "suggested_search_patterns": [
+          "20-2-01",
+          "20-2",
+          "氢氧化物的酸碱性",
+          "TiOSO₄ + NaOH",
+          "Cr₂(SO₄)₃ + NaOH",
+          "MnSO₄ + NaOH",
+          "(NH₄)₂Fe(SO₄)₂ + NaOH",
+          "FeCl₃ + NaOH",
+          "CoCl₃ + NaOH",
+          "NiSO₄ + NaOH",
+          "检验沉淀酸碱性",
+          "可溶于稀碱的体系加热煮沸，观察变化",
+          "expchunk_00319_b995aa9123",
+          "expchunk_00324_5148cfb68c",
+          "textbook_prose_01275_e701d5ec73",
+          "textbook_prose_01276_088374f10a",
+          "textbook_prose_01277_a1ca6bdce2",
+          "textbook_prose_01285_71bc122540"
+        ]
+      },
+      "rag_exact_id_presence": {
+        "meaning": "id presence only; this does not validate semantic relevance",
+        "found_ids": [
+          "expchunk_00319_b995aa9123",
+          "expchunk_00324_5148cfb68c",
+          "textbook_prose_01275_e701d5ec73",
+          "textbook_prose_01276_088374f10a",
+          "textbook_prose_01277_a1ca6bdce2",
+          "textbook_prose_01285_71bc122540"
+        ],
+        "missing_ids": [],
+        "found_locator_summaries": [
+          {
+            "chunk_id": "expchunk_00319_b995aa9123",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+            "line_number": 332,
+            "source_collection": "textbook_experiment_clean_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学实验（第四版）",
+            "page_start": 164,
+            "page_end": 164,
+            "section_path": [
+              "第7章 元素性质实验",
+              "实验 20-2 d 区元素化合物的性质（一）",
+              "（三）实验内容",
+              "1. 氢氧化物的酸碱性"
+            ],
+            "content_type": "property_test",
+            "knowledge_unit": "property_test",
+            "parent_id": "expchunk_protocol_721ef1f8d319",
+            "prev_chunk_id": "expchunk_00318_b905278432",
+            "next_chunk_id": "expchunk_00320_309c0516a8",
+            "relations": {
+              "section_id": "expsec_76afe2364e4e0f15",
+              "experiment_id": "experiment:实验_20-2_d_区元素化合物的性质_一",
+              "page_anchor": "page_164",
+              "parent": "expchunk_protocol_721ef1f8d319"
+            }
+          },
+          {
+            "chunk_id": "expchunk_00324_5148cfb68c",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+            "line_number": 337,
+            "source_collection": "textbook_experiment_clean_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学实验（第四版）",
+            "page_start": 165,
+            "page_end": 165,
+            "section_path": [
+              "第7章 元素性质实验",
+              "实验 20-2 d 区元素化合物的性质（一）",
+              "【注释】"
+            ],
+            "content_type": "reagent",
+            "knowledge_unit": "reagent",
+            "parent_id": "expchunk_protocol_721ef1f8d319",
+            "prev_chunk_id": "expchunk_00323_56549b57c0",
+            "next_chunk_id": "expchunk_00325_d498507596",
+            "relations": {
+              "section_id": "expsec_7f3cb177733dec9d",
+              "experiment_id": "experiment:实验_20-2_d_区元素化合物的性质_一",
+              "page_anchor": "page_165",
+              "parent": "expchunk_protocol_721ef1f8d319"
+            }
+          },
+          {
+            "chunk_id": "textbook_prose_01275_e701d5ec73",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+            "line_number": 1934,
+            "source_collection": "textbook_inorganic_lower_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学（下册）（第二版）",
+            "page_start": 221,
+            "page_end": 221,
+            "section_path": [
+              "第 20 章 d 区过渡金属元素",
+              "20.2 第一过渡系列金属元素及其常见化合物",
+              "20.2.6 铁、钴、镍",
+              "1）铁系元素的氧化物及氢氧化物"
+            ],
+            "content_type": "reaction",
+            "knowledge_unit": "reaction",
+            "parent_id": "section:a370cd703b9c",
+            "prev_chunk_id": "textbook_prose_01274_59074e3dd0",
+            "next_chunk_id": "textbook_prose_01276_088374f10a",
+            "relations": {
+              "parent": "section:a370cd703b9c",
+              "source_route": "clean_pages",
+              "prev": "textbook_prose_01274_59074e3dd0",
+              "next": "textbook_prose_01276_088374f10a"
+            }
+          },
+          {
+            "chunk_id": "textbook_prose_01276_088374f10a",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+            "line_number": 1937,
+            "source_collection": "textbook_inorganic_lower_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学（下册）（第二版）",
+            "page_start": 221,
+            "page_end": 221,
+            "section_path": [
+              "第 20 章 d 区过渡金属元素",
+              "20.2 第一过渡系列金属元素及其常见化合物",
+              "20.2.6 铁、钴、镍",
+              "1）铁系元素的氧化物及氢氧化物"
+            ],
+            "content_type": "procedure",
+            "knowledge_unit": "procedure",
+            "parent_id": "section:a370cd703b9c",
+            "prev_chunk_id": "textbook_prose_01275_e701d5ec73",
+            "next_chunk_id": "textbook_table_context_p221_92c8ab726d",
+            "relations": {
+              "parent": "section:a370cd703b9c",
+              "source_route": "clean_pages",
+              "prev": "textbook_prose_01275_e701d5ec73",
+              "next": "textbook_table_context_p221_92c8ab726d"
+            }
+          },
+          {
+            "chunk_id": "textbook_prose_01277_a1ca6bdce2",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+            "line_number": 1946,
+            "source_collection": "textbook_inorganic_lower_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学（下册）（第二版）",
+            "page_start": 222,
+            "page_end": 222,
+            "section_path": [
+              "第 20 章 d 区过渡金属元素",
+              "20.2 第一过渡系列金属元素及其常见化合物",
+              "20.2.6 铁、钴、镍",
+              "1）铁系元素的氧化物及氢氧化物"
+            ],
+            "content_type": "reaction",
+            "knowledge_unit": "reaction",
+            "parent_id": "section:a370cd703b9c",
+            "prev_chunk_id": "textbook_table_context_p221_92c8ab726d",
+            "next_chunk_id": null,
+            "relations": {
+              "parent": "section:a370cd703b9c",
+              "source_route": "clean_pages",
+              "prev": "textbook_table_context_p221_92c8ab726d",
+              "next": null
+            }
+          },
+          {
+            "chunk_id": "textbook_prose_01285_71bc122540",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+            "line_number": 1961,
+            "source_collection": "textbook_inorganic_lower_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学（下册）（第二版）",
+            "page_start": 223,
+            "page_end": 223,
+            "section_path": [
+              "第 20 章 d 区过渡金属元素",
+              "20.2 第一过渡系列金属元素及其常见化合物",
+              "20.2.6 铁、钴、镍",
+              "3) 铁系元素的其他盐"
+            ],
+            "content_type": "reaction",
+            "knowledge_unit": "reaction",
+            "parent_id": "section:5e1577ec4f72",
+            "prev_chunk_id": "textbook_prose_01284_de36e18839",
+            "next_chunk_id": "textbook_prose_01286_6a1b72ac49",
+            "relations": {
+              "parent": "section:5e1577ec4f72",
+              "source_route": "clean_pages",
+              "prev": "textbook_prose_01284_de36e18839",
+              "next": "textbook_prose_01286_6a1b72ac49"
+            }
+          }
+        ]
+      },
+      "legacy_locator_summaries": [
+        {
+          "chunk_id": "expchunk_00319_b995aa9123",
+          "source_file": "无机化学实验（第四版）",
+          "book_title": "无机化学实验（第四版）",
+          "document_id": "DOC_CANONICAL_EXPERIMENT_V1",
+          "source_collection": "textbook_experiment_clean_v1",
+          "source_role": "canonical_textbook",
+          "content_type": "property_test",
+          "chapter_id": null,
+          "page_number": 164,
+          "section_title": "实验 20-2 d 区元素化合物的性质（一） / （三）实验内容 / 1. 氢氧化物的酸碱性",
+          "section_path": [
+            "第7章 元素性质实验",
+            "实验 20-2 d 区元素化合物的性质（一）",
+            "（三）实验内容",
+            "1. 氢氧化物的酸碱性"
+          ]
+        },
+        {
+          "chunk_id": "expchunk_00324_5148cfb68c",
+          "source_file": "无机化学实验（第四版）",
+          "book_title": "无机化学实验（第四版）",
+          "document_id": "DOC_CANONICAL_EXPERIMENT_V1",
+          "source_collection": "textbook_experiment_clean_v1",
+          "source_role": "canonical_textbook",
+          "content_type": "reagent",
+          "chapter_id": null,
+          "page_number": 165,
+          "section_title": "第7章 元素性质实验 / 实验 20-2 d 区元素化合物的性质（一） / 【注释】",
+          "section_path": [
+            "第7章 元素性质实验",
+            "实验 20-2 d 区元素化合物的性质（一）",
+            "【注释】"
+          ]
+        }
+      ],
+      "legacy_missing_ids": [
+        "textbook_prose_01275_e701d5ec73",
+        "textbook_prose_01276_088374f10a",
+        "textbook_prose_01277_a1ca6bdce2",
+        "textbook_prose_01285_71bc122540"
+      ]
+    },
+    "questions": [
+      {
+        "question_id": "REV_CH4_EXP_20_2_01_Q001",
+        "source_review_id": "REV_CH4_EXP_20_2_01_Q001",
+        "source_question_index": 1,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-2-01 氢氧化物的酸碱性》实验中，检验多种 d 区金属氢氧化物酸碱性时，滴加的碱是下列哪一种？",
+        "options": [
+          {
+            "label": "A",
+            "text": "浓 HNO₃"
+          },
+          {
+            "label": "B",
+            "text": "KI 溶液"
+          },
+          {
+            "label": "C",
+            "text": "2 mol·L⁻¹ NaOH"
+          },
+          {
+            "label": "D",
+            "text": "CCl₄"
+          }
+        ],
+        "answer": {
+          "value": "C"
+        },
+        "explanation": "步骤中向各溶液滴加 2 mol·L⁻¹ NaOH。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-8-80b7b503"
+        ],
+        "secondary_point_keys": [
+          "candidate-1-09f9898e",
+          "candidate-2-db3dac4e",
+          "candidate-3-cc8323eb",
+          "candidate-4-daaa17d4",
+          "candidate-5-66191ac4",
+          "candidate-6-557bc1be",
+          "candidate-7-31a1594f"
+        ],
+        "coverage_tags": [
+          "naoh_for_hydroxide_acidity_test"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "浓 HNO₃",
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "该选项为“浓 HNO₃”，与题干中的实验对象关联较弱；本题有效答案是“2 mol·L⁻¹ NaOH”。"
+          },
+          {
+            "label": "B",
+            "text": "KI 溶液",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项为“KI 溶液”，会把本题锁定的实验对象、操作或现象转向错误判断；本题有效答案是“2 mol·L⁻¹ NaOH”。"
+          },
+          {
+            "label": "C",
+            "text": "2 mol·L⁻¹ NaOH",
+            "point_key": "candidate-8-80b7b503",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项为“2 mol·L⁻¹ NaOH”，与题干所问和解析中的有效答案一致，并绑定到实验点位“检验沉淀酸碱性”。"
+          },
+          {
+            "label": "D",
+            "text": "CCl₄",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项为“CCl₄”，属于其他试剂、现象或实验情境；本题有效答案是“2 mol·L⁻¹ NaOH”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00324_5148cfb68c"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 保留 original_question；已核对题干、选项/答案/解析、点位和源文，最终有效题证据充分。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00324_5148cfb68c"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-2-01 氢氧化物的酸碱性》实验中，检验多种 d 区金属氢氧化物酸碱性时，滴加的碱是下列哪一种？",
+            "options": [
+              {
+                "label": "A",
+                "text": "浓 HNO₃"
+              },
+              {
+                "label": "B",
+                "text": "KI 溶液"
+              },
+              {
+                "label": "C",
+                "text": "2 mol·L⁻¹ NaOH"
+              },
+              {
+                "label": "D",
+                "text": "CCl₄"
+              }
+            ],
+            "answer": {
+              "value": "C"
+            },
+            "explanation": "步骤中向各溶液滴加 2 mol·L⁻¹ NaOH。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00319_b995aa9123",
+              "expchunk_00324_5148cfb68c"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "multi_point_binding"
+          ]
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_2_01_Q002",
+        "source_review_id": "REV_CH4_EXP_20_2_01_Q002",
+        "source_question_index": 2,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-2-01 氢氧化物的酸碱性》实验中，下列哪种溶液属于该实验列出的试样？",
+        "options": [
+          {
+            "label": "A",
+            "text": "NaCl"
+          },
+          {
+            "label": "B",
+            "text": "BaO₂"
+          },
+          {
+            "label": "C",
+            "text": "Pb₃O₄"
+          },
+          {
+            "label": "D",
+            "text": "TiOSO₄"
+          }
+        ],
+        "answer": {
+          "value": "D"
+        },
+        "explanation": "实验资料列出 TiOSO₄。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-09f9898e"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "tioso4_sample"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "NaCl",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项为“NaCl”，会把本题锁定的实验对象、操作或现象转向错误判断；本题有效答案是“TiOSO₄”。"
+          },
+          {
+            "label": "B",
+            "text": "BaO₂",
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "该选项为“BaO₂”，与题干中的实验对象关联较弱；本题有效答案是“TiOSO₄”。"
+          },
+          {
+            "label": "C",
+            "text": "Pb₃O₄",
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "该选项为“Pb₃O₄”，与题干中的实验对象关联较弱；本题有效答案是“TiOSO₄”。"
+          },
+          {
+            "label": "D",
+            "text": "TiOSO₄",
+            "point_key": "candidate-1-09f9898e",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项为“TiOSO₄”，与题干所问和解析中的有效答案一致，并绑定到实验点位“TiOSO₄ + NaOH”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00324_5148cfb68c"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 保留 original_question；已核对题干、选项/答案/解析、点位和源文，最终有效题证据充分。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00324_5148cfb68c"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-2-01 氢氧化物的酸碱性》实验中，下列哪种溶液属于该实验列出的试样？",
+            "options": [
+              {
+                "label": "A",
+                "text": "NaCl"
+              },
+              {
+                "label": "B",
+                "text": "BaO₂"
+              },
+              {
+                "label": "C",
+                "text": "Pb₃O₄"
+              },
+              {
+                "label": "D",
+                "text": "TiOSO₄"
+              }
+            ],
+            "answer": {
+              "value": "D"
+            },
+            "explanation": "实验资料列出 TiOSO₄。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00319_b995aa9123",
+              "expchunk_00324_5148cfb68c"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_2_01_Q003",
+        "source_review_id": "REV_CH4_EXP_20_2_01_Q003",
+        "source_question_index": 3,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-2-01 氢氧化物的酸碱性》实验中，实验中检验沉淀酸碱性后，对可溶于稀碱的溶液还要进行什么操作？",
+        "options": [
+          {
+            "label": "A",
+            "text": "加热煮沸"
+          },
+          {
+            "label": "B",
+            "text": "冷冻三天"
+          },
+          {
+            "label": "C",
+            "text": "通入 H₂S"
+          },
+          {
+            "label": "D",
+            "text": "加入乙醚萃取"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "步骤要求加热煮沸并观察。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-8-80b7b503",
+          "candidate-9-afa96094"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "alkali_soluble_heat_observation"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "加热煮沸",
+            "point_key": "candidate-8-80b7b503",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项为“加热煮沸”，与题干所问和解析中的有效答案一致，并绑定到实验点位“检验沉淀酸碱性”。"
+          },
+          {
+            "label": "B",
+            "text": "冷冻三天",
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "该选项为“冷冻三天”，与题干中的实验对象关联较弱；本题有效答案是“加热煮沸”。"
+          },
+          {
+            "label": "C",
+            "text": "通入 H₂S",
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "该选项为“通入 H₂S”，与题干中的实验对象关联较弱；本题有效答案是“加热煮沸”。"
+          },
+          {
+            "label": "D",
+            "text": "加入乙醚萃取",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项为“加入乙醚萃取”，属于其他试剂、现象或实验情境；本题有效答案是“加热煮沸”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00324_5148cfb68c"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01275_e701d5ec73",
+            "textbook_prose_01276_088374f10a",
+            "textbook_prose_01277_a1ca6bdce2",
+            "textbook_prose_01285_71bc122540"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 保留 original_question；已核对题干、选项/答案/解析、点位和源文，最终有效题证据充分。",
+          "supporting_theory_note": "依赖 d 区金属氢氧化物酸碱性、Fe(OH)₂ 易被空气氧化等理论。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00324_5148cfb68c"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01275_e701d5ec73",
+            "textbook_prose_01276_088374f10a",
+            "textbook_prose_01277_a1ca6bdce2",
+            "textbook_prose_01285_71bc122540"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01275_e701d5ec73",
+            "textbook_prose_01276_088374f10a",
+            "textbook_prose_01277_a1ca6bdce2",
+            "textbook_prose_01285_71bc122540"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-2-01 氢氧化物的酸碱性》实验中，实验中检验沉淀酸碱性后，对可溶于稀碱的溶液还要进行什么操作？",
+            "options": [
+              {
+                "label": "A",
+                "text": "加热煮沸"
+              },
+              {
+                "label": "B",
+                "text": "冷冻三天"
+              },
+              {
+                "label": "C",
+                "text": "通入 H₂S"
+              },
+              {
+                "label": "D",
+                "text": "加入乙醚萃取"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "步骤要求加热煮沸并观察。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00319_b995aa9123",
+              "expchunk_00324_5148cfb68c"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "multi_point_binding",
+            "source_requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_2_01_Q004",
+        "source_review_id": "REV_CH4_EXP_20_2_01_Q004",
+        "source_question_index": 4,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-2-01 氢氧化物的酸碱性》实验中，Fe(OH)₂ 的制备注释强调要避免带入哪种物质？",
+        "options": [
+          {
+            "label": "A",
+            "text": "蒸馏水"
+          },
+          {
+            "label": "B",
+            "text": "空气"
+          },
+          {
+            "label": "C",
+            "text": "硫酸根"
+          },
+          {
+            "label": "D",
+            "text": "钠离子"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "注释说明避免将空气带进溶液。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-4-daaa17d4"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "fe_oh2_air_exclusion"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "蒸馏水",
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "该选项为“蒸馏水”，与题干中的实验对象关联较弱；本题有效答案是“空气”。"
+          },
+          {
+            "label": "B",
+            "text": "空气",
+            "point_key": "candidate-4-daaa17d4",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项为“空气”，与题干所问和解析中的有效答案一致，并绑定到实验点位“(NH₄)₂Fe(SO₄)₂ + NaOH”。"
+          },
+          {
+            "label": "C",
+            "text": "硫酸根",
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "该选项为“硫酸根”，与题干中的实验对象关联较弱；本题有效答案是“空气”。"
+          },
+          {
+            "label": "D",
+            "text": "钠离子",
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "该选项为“钠离子”，与题干中的实验对象关联较弱；本题有效答案是“空气”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00324_5148cfb68c"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01275_e701d5ec73",
+            "textbook_prose_01276_088374f10a",
+            "textbook_prose_01277_a1ca6bdce2",
+            "textbook_prose_01285_71bc122540"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 保留 original_question；已核对题干、选项/答案/解析、点位和源文，最终有效题证据充分。",
+          "supporting_theory_note": "依赖 d 区金属氢氧化物酸碱性、Fe(OH)₂ 易被空气氧化等理论。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00324_5148cfb68c"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01275_e701d5ec73",
+            "textbook_prose_01276_088374f10a",
+            "textbook_prose_01277_a1ca6bdce2",
+            "textbook_prose_01285_71bc122540"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01275_e701d5ec73",
+            "textbook_prose_01276_088374f10a",
+            "textbook_prose_01277_a1ca6bdce2",
+            "textbook_prose_01285_71bc122540"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-2-01 氢氧化物的酸碱性》实验中，Fe(OH)₂ 的制备注释强调要避免带入哪种物质？",
+            "options": [
+              {
+                "label": "A",
+                "text": "蒸馏水"
+              },
+              {
+                "label": "B",
+                "text": "空气"
+              },
+              {
+                "label": "C",
+                "text": "硫酸根"
+              },
+              {
+                "label": "D",
+                "text": "钠离子"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "注释说明避免将空气带进溶液。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00319_b995aa9123",
+              "expchunk_00324_5148cfb68c"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "source_requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_2_01_Q005",
+        "source_review_id": "REV_CH4_EXP_20_2_01_Q005",
+        "source_question_index": 5,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-2-01 氢氧化物的酸碱性》实验中，为除去水中空气以制备近乎白色 Fe(OH)₂，注释中采用的操作是下列哪一种？",
+        "options": [
+          {
+            "label": "A",
+            "text": "加入 CCl₄"
+          },
+          {
+            "label": "B",
+            "text": "加入 KI-淀粉"
+          },
+          {
+            "label": "C",
+            "text": "煮沸蒸馏水"
+          },
+          {
+            "label": "D",
+            "text": "加入乙醚"
+          }
+        ],
+        "answer": {
+          "value": "C"
+        },
+        "explanation": "注释要求煮沸以赶尽空气。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-4-daaa17d4"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "boil_water_to_remove_air"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "加入 CCl₄",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项为“加入 CCl₄”，属于其他试剂、现象或实验情境；本题有效答案是“煮沸蒸馏水”。"
+          },
+          {
+            "label": "B",
+            "text": "加入 KI-淀粉",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项为“加入 KI-淀粉”，会把本题锁定的实验对象、操作或现象转向错误判断；本题有效答案是“煮沸蒸馏水”。"
+          },
+          {
+            "label": "C",
+            "text": "煮沸蒸馏水",
+            "point_key": "candidate-4-daaa17d4",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项为“煮沸蒸馏水”，与题干所问和解析中的有效答案一致，并绑定到实验点位“(NH₄)₂Fe(SO₄)₂ + NaOH”。"
+          },
+          {
+            "label": "D",
+            "text": "加入乙醚",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项为“加入乙醚”，属于其他试剂、现象或实验情境；本题有效答案是“煮沸蒸馏水”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00324_5148cfb68c"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 保留 original_question；已核对题干、选项/答案/解析、点位和源文，最终有效题证据充分。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00324_5148cfb68c"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-2-01 氢氧化物的酸碱性》实验中，为除去水中空气以制备近乎白色 Fe(OH)₂，注释中采用的操作是下列哪一种？",
+            "options": [
+              {
+                "label": "A",
+                "text": "加入 CCl₄"
+              },
+              {
+                "label": "B",
+                "text": "加入 KI-淀粉"
+              },
+              {
+                "label": "C",
+                "text": "煮沸蒸馏水"
+              },
+              {
+                "label": "D",
+                "text": "加入乙醚"
+              }
+            ],
+            "answer": {
+              "value": "C"
+            },
+            "explanation": "注释要求煮沸以赶尽空气。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00319_b995aa9123",
+              "expchunk_00324_5148cfb68c"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_2_01_Q006",
+        "source_review_id": "REV_CH4_EXP_20_2_01_Q006",
+        "source_question_index": 6,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-2-01 氢氧化物的酸碱性》实验中，该实验的直接目的最接近哪一项？",
+        "options": [
+          {
+            "label": "A",
+            "text": "制备臭氧"
+          },
+          {
+            "label": "B",
+            "text": "形成水中花园"
+          },
+          {
+            "label": "C",
+            "text": "比较卤素置换次序"
+          },
+          {
+            "label": "D",
+            "text": "比较 d 区元素某些氢氧化物的酸碱性"
+          }
+        ],
+        "answer": {
+          "value": "D"
+        },
+        "explanation": "实验目的明确为掌握 d 区元素某些氢氧化物酸碱性。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-8-80b7b503"
+        ],
+        "secondary_point_keys": [
+          "candidate-1-09f9898e",
+          "candidate-2-db3dac4e",
+          "candidate-3-cc8323eb",
+          "candidate-4-daaa17d4",
+          "candidate-5-66191ac4",
+          "candidate-6-557bc1be",
+          "candidate-7-31a1594f"
+        ],
+        "coverage_tags": [
+          "hydroxide_acidity_purpose"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "制备臭氧",
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "该选项为“制备臭氧”，与题干中的实验对象关联较弱；本题有效答案是“比较 d 区元素某些氢氧化物的酸碱性”。"
+          },
+          {
+            "label": "B",
+            "text": "形成水中花园",
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "该选项为“形成水中花园”，与题干中的实验对象关联较弱；本题有效答案是“比较 d 区元素某些氢氧化物的酸碱性”。"
+          },
+          {
+            "label": "C",
+            "text": "比较卤素置换次序",
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "该选项为“比较卤素置换次序”，与题干中的实验对象关联较弱；本题有效答案是“比较 d 区元素某些氢氧化物的酸碱性”。"
+          },
+          {
+            "label": "D",
+            "text": "比较 d 区元素某些氢氧化物的酸碱性",
+            "point_key": "candidate-8-80b7b503",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项为“比较 d 区元素某些氢氧化物的酸碱性”，与题干所问和解析中的有效答案一致，并绑定到实验点位“检验沉淀酸碱性”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00324_5148cfb68c"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 保留 original_question；已核对题干、选项/答案/解析、点位和源文，最终有效题证据充分。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00324_5148cfb68c"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-2-01 氢氧化物的酸碱性》实验中，该实验的直接目的最接近哪一项？",
+            "options": [
+              {
+                "label": "A",
+                "text": "制备臭氧"
+              },
+              {
+                "label": "B",
+                "text": "形成水中花园"
+              },
+              {
+                "label": "C",
+                "text": "比较卤素置换次序"
+              },
+              {
+                "label": "D",
+                "text": "比较 d 区元素某些氢氧化物的酸碱性"
+              }
+            ],
+            "answer": {
+              "value": "D"
+            },
+            "explanation": "实验目的明确为掌握 d 区元素某些氢氧化物酸碱性。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00319_b995aa9123",
+              "expchunk_00324_5148cfb68c"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "multi_point_binding"
+          ]
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_2_01_Q007",
+        "source_review_id": "REV_CH4_EXP_20_2_01_Q007",
+        "source_question_index": 7,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-2-01 氢氧化物的酸碱性》实验中，下列哪一组都在该实验试样列表中？",
+        "options": [
+          {
+            "label": "A",
+            "text": "Cr₂(SO₄)₃、MnSO₄、NiSO₄"
+          },
+          {
+            "label": "B",
+            "text": "KBr、KI、KCl"
+          },
+          {
+            "label": "C",
+            "text": "BaO₂、Pb₃O₄、HgCl₂"
+          },
+          {
+            "label": "D",
+            "text": "Na₂SiO₃、CaCl₂、CuSO₄"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "这些均列于步骤。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-db3dac4e",
+          "candidate-3-cc8323eb",
+          "candidate-7-31a1594f"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "listed_d_metal_salt_samples"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "Cr₂(SO₄)₃、MnSO₄、NiSO₄",
+            "point_key": "candidate-2-db3dac4e",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项为“Cr₂(SO₄)₃、MnSO₄、NiSO₄”，与题干所问和解析中的有效答案一致，并绑定到实验点位“Cr₂(SO₄)₃ + NaOH”。"
+          },
+          {
+            "label": "B",
+            "text": "KBr、KI、KCl",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项为“KBr、KI、KCl”，会把本题锁定的实验对象、操作或现象转向错误判断；本题有效答案是“Cr₂(SO₄)₃、MnSO₄、NiSO₄”。"
+          },
+          {
+            "label": "C",
+            "text": "BaO₂、Pb₃O₄、HgCl₂",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项为“BaO₂、Pb₃O₄、HgCl₂”，会把本题锁定的实验对象、操作或现象转向错误判断；本题有效答案是“Cr₂(SO₄)₃、MnSO₄、NiSO₄”。"
+          },
+          {
+            "label": "D",
+            "text": "Na₂SiO₃、CaCl₂、CuSO₄",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "“Na₂SiO₃、CaCl₂、CuSO₄”属于硅酸盐/水玻璃情境；与本题“下列哪一组都在该实验试样列表中？”的过渡金属实验点不相连。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00324_5148cfb68c"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 保留 original_question；已核对题干、选项/答案/解析、点位和源文，最终有效题证据充分。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00324_5148cfb68c"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-2-01 氢氧化物的酸碱性》实验中，下列哪一组都在该实验试样列表中？",
+            "options": [
+              {
+                "label": "A",
+                "text": "Cr₂(SO₄)₃、MnSO₄、NiSO₄"
+              },
+              {
+                "label": "B",
+                "text": "KBr、KI、KCl"
+              },
+              {
+                "label": "C",
+                "text": "BaO₂、Pb₃O₄、HgCl₂"
+              },
+              {
+                "label": "D",
+                "text": "Na₂SiO₃、CaCl₂、CuSO₄"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "这些均列于步骤。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00319_b995aa9123",
+              "expchunk_00324_5148cfb68c"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "multi_point_binding"
+          ]
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_2_01_Q008",
+        "source_review_id": "REV_CH4_EXP_20_2_01_Q008",
+        "source_question_index": 8,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-2-01 氢氧化物的酸碱性》实验中，向金属盐溶液滴加 NaOH，最先观察的通常是哪类现象？",
+        "options": [
+          {
+            "label": "A",
+            "text": "臭氧气体逸出"
+          },
+          {
+            "label": "B",
+            "text": "氢氧化物沉淀的生成"
+          },
+          {
+            "label": "C",
+            "text": "CCl₄ 层变紫"
+          },
+          {
+            "label": "D",
+            "text": "银镜生成"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "金属离子与 OH⁻ 可形成氢氧化物沉淀。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-09f9898e",
+          "candidate-2-db3dac4e",
+          "candidate-3-cc8323eb",
+          "candidate-4-daaa17d4",
+          "candidate-5-66191ac4",
+          "candidate-6-557bc1be",
+          "candidate-7-31a1594f"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "hydroxide_precipitate_observation"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "臭氧气体逸出",
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "该选项为“臭氧气体逸出”，与题干中的实验对象关联较弱；本题有效答案是“氢氧化物沉淀的生成”。"
+          },
+          {
+            "label": "B",
+            "text": "氢氧化物沉淀的生成",
+            "point_key": "candidate-1-09f9898e",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项为“氢氧化物沉淀的生成”，与题干所问和解析中的有效答案一致，并绑定到实验点位“TiOSO₄ + NaOH”。"
+          },
+          {
+            "label": "C",
+            "text": "CCl₄ 层变紫",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项为“CCl₄ 层变紫”，属于其他试剂、现象或实验情境；本题有效答案是“氢氧化物沉淀的生成”。"
+          },
+          {
+            "label": "D",
+            "text": "银镜生成",
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "该选项为“银镜生成”，与题干中的实验对象关联较弱；本题有效答案是“氢氧化物沉淀的生成”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00324_5148cfb68c"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 保留 original_question；已核对题干、选项/答案/解析、点位和源文，最终有效题证据充分。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00324_5148cfb68c"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-2-01 氢氧化物的酸碱性》实验中，向金属盐溶液滴加 NaOH，最先观察的通常是哪类现象？",
+            "options": [
+              {
+                "label": "A",
+                "text": "臭氧气体逸出"
+              },
+              {
+                "label": "B",
+                "text": "氢氧化物沉淀的生成"
+              },
+              {
+                "label": "C",
+                "text": "CCl₄ 层变紫"
+              },
+              {
+                "label": "D",
+                "text": "银镜生成"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "金属离子与 OH⁻ 可形成氢氧化物沉淀。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00319_b995aa9123",
+              "expchunk_00324_5148cfb68c"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "multi_point_binding"
+          ]
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_2_01_Q009",
+        "source_review_id": "REV_CH4_EXP_20_2_01_Q009",
+        "source_question_index": 9,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-2-01 氢氧化物的酸碱性》实验中，TiOSO₄ 溶液配制注释中使用 TiCl₄、H₂SO₄ 后再进行什么处理？",
+        "options": [
+          {
+            "label": "A",
+            "text": "加入浓氨水至蓝色"
+          },
+          {
+            "label": "B",
+            "text": "通入 SO₂"
+          },
+          {
+            "label": "C",
+            "text": "用水稀释至一定体积"
+          },
+          {
+            "label": "D",
+            "text": "加入水玻璃"
+          }
+        ],
+        "answer": {
+          "value": "C"
+        },
+        "explanation": "注释给出用水稀释至 200 mL。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-09f9898e"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "tioso4_preparation_note"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "加入浓氨水至蓝色",
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "该选项为“加入浓氨水至蓝色”，与题干中的实验对象关联较弱；本题有效答案是“用水稀释至一定体积”。"
+          },
+          {
+            "label": "B",
+            "text": "通入 SO₂",
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "该选项为“通入 SO₂”，与题干中的实验对象关联较弱；本题有效答案是“用水稀释至一定体积”。"
+          },
+          {
+            "label": "C",
+            "text": "用水稀释至一定体积",
+            "point_key": "candidate-1-09f9898e",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项为“用水稀释至一定体积”，与题干所问和解析中的有效答案一致，并绑定到实验点位“TiOSO₄ + NaOH”。"
+          },
+          {
+            "label": "D",
+            "text": "加入水玻璃",
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "“加入水玻璃”属于硅酸盐/水玻璃情境；与本题“TiOSO₄ 溶液配制注释中使用 TiCl₄、H₂SO₄ 后再进行什么处理？”的过渡金属实验点不相连。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00324_5148cfb68c"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 保留 original_question；已核对题干、选项/答案/解析、点位和源文，最终有效题证据充分。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00324_5148cfb68c"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-2-01 氢氧化物的酸碱性》实验中，TiOSO₄ 溶液配制注释中使用 TiCl₄、H₂SO₄ 后再进行什么处理？",
+            "options": [
+              {
+                "label": "A",
+                "text": "加入浓氨水至蓝色"
+              },
+              {
+                "label": "B",
+                "text": "通入 SO₂"
+              },
+              {
+                "label": "C",
+                "text": "用水稀释至一定体积"
+              },
+              {
+                "label": "D",
+                "text": "加入水玻璃"
+              }
+            ],
+            "answer": {
+              "value": "C"
+            },
+            "explanation": "注释给出用水稀释至 200 mL。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00319_b995aa9123",
+              "expchunk_00324_5148cfb68c"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_2_01_Q010",
+        "source_review_id": "REV_CH4_EXP_20_2_01_Q010",
+        "source_question_index": 10,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《20-2-01 氢氧化物的酸碱性》实验中，实验中 (NH₄)₂Fe(SO₄)₂ 主要用于制备哪种氢氧化物？",
+        "options": [
+          {
+            "label": "A",
+            "text": "Fe(OH)₃"
+          },
+          {
+            "label": "B",
+            "text": "Cr(OH)₃"
+          },
+          {
+            "label": "C",
+            "text": "TiO(OH)₂"
+          },
+          {
+            "label": "D",
+            "text": "Fe(OH)₂"
+          }
+        ],
+        "answer": {
+          "value": "D"
+        },
+        "explanation": "注释标题为 Fe(OH)₂ 的制备方法。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-4-daaa17d4"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "fe_ii_hydroxide_preparation"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "Fe(OH)₃",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项为“Fe(OH)₃”，会把本题锁定的实验对象、操作或现象转向错误判断；本题有效答案是“Fe(OH)₂”。"
+          },
+          {
+            "label": "B",
+            "text": "Cr(OH)₃",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项为“Cr(OH)₃”，会把本题锁定的实验对象、操作或现象转向错误判断；本题有效答案是“Fe(OH)₂”。"
+          },
+          {
+            "label": "C",
+            "text": "TiO(OH)₂",
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "该选项为“TiO(OH)₂”，会把本题锁定的实验对象、操作或现象转向错误判断；本题有效答案是“Fe(OH)₂”。"
+          },
+          {
+            "label": "D",
+            "text": "Fe(OH)₂",
+            "point_key": "candidate-4-daaa17d4",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项为“Fe(OH)₂”，与题干所问和解析中的有效答案一致，并绑定到实验点位“(NH₄)₂Fe(SO₄)₂ + NaOH”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00324_5148cfb68c"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 保留 original_question；已核对题干、选项/答案/解析、点位和源文，最终有效题证据充分。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00324_5148cfb68c"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-2-01 氢氧化物的酸碱性》实验中，实验中 (NH₄)₂Fe(SO₄)₂ 主要用于制备哪种氢氧化物？",
+            "options": [
+              {
+                "label": "A",
+                "text": "Fe(OH)₃"
+              },
+              {
+                "label": "B",
+                "text": "Cr(OH)₃"
+              },
+              {
+                "label": "C",
+                "text": "TiO(OH)₂"
+              },
+              {
+                "label": "D",
+                "text": "Fe(OH)₂"
+              }
+            ],
+            "answer": {
+              "value": "D"
+            },
+            "explanation": "注释标题为 Fe(OH)₂ 的制备方法。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00319_b995aa9123",
+              "expchunk_00324_5148cfb68c"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_2_01_Q011",
+        "source_review_id": "REV_CH4_EXP_20_2_01_Q011",
+        "source_question_index": 11,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《20-2-01 氢氧化物的酸碱性》实验中，该实验向多种 d 区金属盐溶液中滴加 2 mol·L⁻¹ NaOH。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "步骤直接给出。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-8-80b7b503"
+        ],
+        "secondary_point_keys": [
+          "candidate-1-09f9898e",
+          "candidate-2-db3dac4e",
+          "candidate-3-cc8323eb",
+          "candidate-4-daaa17d4",
+          "candidate-5-66191ac4",
+          "candidate-6-557bc1be",
+          "candidate-7-31a1594f"
+        ],
+        "coverage_tags": [
+          "naoh_for_hydroxide_acidity_test"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00324_5148cfb68c"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 保留 original_question；已核对题干、选项/答案/解析、点位和源文，最终有效题证据充分。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00324_5148cfb68c"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-2-01 氢氧化物的酸碱性》实验中，该实验向多种 d 区金属盐溶液中滴加 2 mol·L⁻¹ NaOH。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "步骤直接给出。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00319_b995aa9123",
+              "expchunk_00324_5148cfb68c"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "multi_point_binding"
+          ]
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_2_01_Q012",
+        "source_review_id": "REV_CH4_EXP_20_2_01_Q012",
+        "source_question_index": 12,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《20-2-01 氢氧化物的酸碱性》实验中，实验要观察沉淀并检验其酸碱性。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "这是该实验核心。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-09f9898e"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "tioso4_sample"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00324_5148cfb68c"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 保留 original_question；已核对题干、选项/答案/解析、点位和源文，最终有效题证据充分。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00324_5148cfb68c"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-2-01 氢氧化物的酸碱性》实验中，实验要观察沉淀并检验其酸碱性。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "这是该实验核心。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00319_b995aa9123",
+              "expchunk_00324_5148cfb68c"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_2_01_Q013",
+        "source_review_id": "REV_CH4_EXP_20_2_01_Q013",
+        "source_question_index": 13,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《20-2-01 氢氧化物的酸碱性》实验中，可溶于稀碱的体系还要加热煮沸观察变化。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "步骤明确要求。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-8-80b7b503",
+          "candidate-9-afa96094"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "alkali_soluble_heat_observation"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00324_5148cfb68c"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01275_e701d5ec73",
+            "textbook_prose_01276_088374f10a",
+            "textbook_prose_01277_a1ca6bdce2",
+            "textbook_prose_01285_71bc122540"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 保留 original_question；已核对题干、选项/答案/解析、点位和源文，最终有效题证据充分。",
+          "supporting_theory_note": "依赖 d 区金属氢氧化物酸碱性、Fe(OH)₂ 易被空气氧化等理论。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00324_5148cfb68c"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01275_e701d5ec73",
+            "textbook_prose_01276_088374f10a",
+            "textbook_prose_01277_a1ca6bdce2",
+            "textbook_prose_01285_71bc122540"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01275_e701d5ec73",
+            "textbook_prose_01276_088374f10a",
+            "textbook_prose_01277_a1ca6bdce2",
+            "textbook_prose_01285_71bc122540"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-2-01 氢氧化物的酸碱性》实验中，可溶于稀碱的体系还要加热煮沸观察变化。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "步骤明确要求。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00319_b995aa9123",
+              "expchunk_00324_5148cfb68c"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "multi_point_binding",
+            "source_requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_2_01_Q014",
+        "source_review_id": "REV_CH4_EXP_20_2_01_Q014",
+        "source_question_index": 14,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《20-2-01 氢氧化物的酸碱性》实验中，Fe(OH)₂ 制备时应尽量避免空气进入。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "注释强调避免空气。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-4-daaa17d4"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "fe_oh2_air_exclusion"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00324_5148cfb68c"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 保留 original_question；已核对题干、选项/答案/解析、点位和源文，最终有效题证据充分。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00324_5148cfb68c"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-2-01 氢氧化物的酸碱性》实验中，Fe(OH)₂ 制备时应尽量避免空气进入。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "注释强调避免空气。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00319_b995aa9123",
+              "expchunk_00324_5148cfb68c"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_2_01_Q015",
+        "source_review_id": "REV_CH4_EXP_20_2_01_Q015",
+        "source_question_index": 15,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《20-2-01 氢氧化物的酸碱性》实验中，煮沸蒸馏水可以帮助赶尽其中的空气。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "注释这样说明。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-4-daaa17d4"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "boil_water_to_remove_air"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00324_5148cfb68c"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 保留 original_question；已核对题干、选项/答案/解析、点位和源文，最终有效题证据充分。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00324_5148cfb68c"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-2-01 氢氧化物的酸碱性》实验中，煮沸蒸馏水可以帮助赶尽其中的空气。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "注释这样说明。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00319_b995aa9123",
+              "expchunk_00324_5148cfb68c"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_2_01_Q016",
+        "source_review_id": "REV_CH4_EXP_20_2_01_Q016",
+        "source_question_index": 16,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《20-2-01 氢氧化物的酸碱性》实验中，最直接的实验目的是什么？",
+        "options": [
+          {
+            "label": "A",
+            "text": "比较 d 区元素某些氢氧化物的酸碱性"
+          },
+          {
+            "label": "B",
+            "text": "只研究卤素离子还原性"
+          },
+          {
+            "label": "C",
+            "text": "制备臭氧"
+          },
+          {
+            "label": "D",
+            "text": "比较焰色反应"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "教材目的明确指向 d 区金属氢氧化物酸碱性。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-8-80b7b503"
+        ],
+        "secondary_point_keys": [
+          "candidate-1-09f9898e",
+          "candidate-2-db3dac4e",
+          "candidate-3-cc8323eb",
+          "candidate-4-daaa17d4",
+          "candidate-5-66191ac4",
+          "candidate-6-557bc1be",
+          "candidate-7-31a1594f"
+        ],
+        "coverage_tags": [
+          "hydroxide_acidity_purpose",
+          "semantic_final_rewrite"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": null,
+            "point_key": "candidate-8-80b7b503",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“比较 d 区元素某些氢氧化物的酸碱性”直接支撑“最直接的实验目的是什么？”；对应点位是“检验沉淀酸碱性”。"
+          },
+          {
+            "label": "B",
+            "text": null,
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "“只研究卤素离子还原性”与正确项“比较 d 区元素某些氢氧化物的酸碱性”同属相近化学概念，但在“最直接的实验目的是什么？”中混淆了试剂、价态、产物或现象。"
+          },
+          {
+            "label": "C",
+            "text": null,
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "“制备臭氧”不能作为“最直接的实验目的是什么？”的教材证据；它排除的是无关操作、条件或观察对象。"
+          },
+          {
+            "label": "D",
+            "text": null,
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "“比较焰色反应”属于焰色反应识别线索；本题“最直接的实验目的是什么？”考查的是本实验试剂/现象而非火焰颜色。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00324_5148cfb68c"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final proposed_question 已核对 canonical 实验原文、点位和必要 theory；可机器确定性判分。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00324_5148cfb68c"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-2-01 氢氧化物的酸碱性》实验中，该实验只研究卤素离子的还原性。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "研究 d 区氢氧化物酸碱性。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00319_b995aa9123",
+              "expchunk_00324_5148cfb68c"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-2-01 氢氧化物的酸碱性》实验中，最直接的实验目的是什么？",
+            "options": [
+              {
+                "label": "A",
+                "text": "比较 d 区元素某些氢氧化物的酸碱性"
+              },
+              {
+                "label": "B",
+                "text": "只研究卤素离子还原性"
+              },
+              {
+                "label": "C",
+                "text": "制备臭氧"
+              },
+              {
+                "label": "D",
+                "text": "比较焰色反应"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "教材目的明确指向 d 区金属氢氧化物酸碱性。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "multi_point_binding"
+          ]
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_2_01_Q017",
+        "source_review_id": "REV_CH4_EXP_20_2_01_Q017",
+        "source_question_index": 17,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "true_false",
+        "stem": "在《20-2-01 氢氧化物的酸碱性》实验中，判断：Cr₂(SO₄)₃ 和 NiSO₄ 都属于该实验列出的试样。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "该判断与实验原文的操作、现象或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-db3dac4e",
+          "candidate-3-cc8323eb",
+          "candidate-7-31a1594f"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "listed_d_metal_salt_samples",
+          "semantic_final_rewrite"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00324_5148cfb68c"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final proposed_question 已核对 canonical 实验原文、点位和必要 theory；可机器确定性判分。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00324_5148cfb68c"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-2-01 氢氧化物的酸碱性》实验中，认为：Cr₂(SO₄)₃ 和 NiSO₄ 都属于该实验列出的试样，这一判断是不正确的。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "这一判断本身是正确的。二者均在列表中。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00319_b995aa9123",
+              "expchunk_00324_5148cfb68c"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "true_false",
+            "stem": "在《20-2-01 氢氧化物的酸碱性》实验中，判断：Cr₂(SO₄)₃ 和 NiSO₄ 都属于该实验列出的试样。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "该判断与实验原文的操作、现象或结论一致。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "multi_point_binding"
+          ]
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_2_01_Q018",
+        "source_review_id": "REV_CH4_EXP_20_2_01_Q018",
+        "source_question_index": 18,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《20-2-01 氢氧化物的酸碱性》实验中，NaOH 的直接作用是哪一项？",
+        "options": [
+          {
+            "label": "A",
+            "text": "提供 OH⁻ 生成金属氢氧化物沉淀并检验酸碱性"
+          },
+          {
+            "label": "B",
+            "text": "完全不参与沉淀"
+          },
+          {
+            "label": "C",
+            "text": "提供 I₂"
+          },
+          {
+            "label": "D",
+            "text": "萃取 CCl₄"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "教材步骤要求向各金属盐溶液滴加 NaOH 并观察沉淀。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-09f9898e",
+          "candidate-2-db3dac4e",
+          "candidate-3-cc8323eb",
+          "candidate-4-daaa17d4",
+          "candidate-5-66191ac4",
+          "candidate-6-557bc1be",
+          "candidate-7-31a1594f"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "hydroxide_precipitate_observation",
+          "semantic_final_rewrite"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": null,
+            "point_key": "candidate-1-09f9898e",
+            "role": "correct_evidence",
+            "diagnostic_note": "正确项“提供 OH⁻ 生成金属氢氧化物沉淀并检验酸碱性”直接支撑“NaOH 的直接作用是哪一项？”；对应点位是“TiOSO₄ + NaOH”。"
+          },
+          {
+            "label": "B",
+            "text": null,
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "“完全不参与沉淀”与正确项“提供 OH⁻ 生成金属氢氧化物沉淀并检验酸碱性”同属相近化学概念，但在“NaOH 的直接作用是哪一项？”中混淆了试剂、价态、产物或现象。"
+          },
+          {
+            "label": "C",
+            "text": null,
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "“提供 I₂”与正确项“提供 OH⁻ 生成金属氢氧化物沉淀并检验酸碱性”同属相近化学概念，但在“NaOH 的直接作用是哪一项？”中混淆了试剂、价态、产物或现象。"
+          },
+          {
+            "label": "D",
+            "text": null,
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "该选项为“萃取 CCl₄”，属于其他试剂、现象或实验情境；本题有效答案是“提供 OH⁻ 生成金属氢氧化物沉淀并检验酸碱性”。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00324_5148cfb68c"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01275_e701d5ec73",
+            "textbook_prose_01276_088374f10a",
+            "textbook_prose_01277_a1ca6bdce2",
+            "textbook_prose_01285_71bc122540"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final proposed_question 已核对 canonical 实验原文、点位和必要 theory；可机器确定性判分。",
+          "supporting_theory_note": "依赖 d 区金属氢氧化物酸碱性、Fe(OH)₂ 易被空气氧化等理论。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00324_5148cfb68c"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01275_e701d5ec73",
+            "textbook_prose_01276_088374f10a",
+            "textbook_prose_01277_a1ca6bdce2",
+            "textbook_prose_01285_71bc122540"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01275_e701d5ec73",
+            "textbook_prose_01276_088374f10a",
+            "textbook_prose_01277_a1ca6bdce2",
+            "textbook_prose_01285_71bc122540"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-2-01 氢氧化物的酸碱性》实验中，NaOH 在该实验中完全不参与沉淀生成。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "NaOH 提供 OH⁻ 生成氢氧化物。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00319_b995aa9123",
+              "expchunk_00324_5148cfb68c"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-2-01 氢氧化物的酸碱性》实验中，NaOH 的直接作用是哪一项？",
+            "options": [
+              {
+                "label": "A",
+                "text": "提供 OH⁻ 生成金属氢氧化物沉淀并检验酸碱性"
+              },
+              {
+                "label": "B",
+                "text": "完全不参与沉淀"
+              },
+              {
+                "label": "C",
+                "text": "提供 I₂"
+              },
+              {
+                "label": "D",
+                "text": "萃取 CCl₄"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "教材步骤要求向各金属盐溶液滴加 NaOH 并观察沉淀。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "multi_point_binding",
+            "source_requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_2_01_Q019",
+        "source_review_id": "REV_CH4_EXP_20_2_01_Q019",
+        "source_question_index": 19,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "true_false",
+        "stem": "在《20-2-01 氢氧化物的酸碱性》实验中，判断：近乎白色 Fe(OH)₂ 容易受空气影响而变化。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "该判断与实验原文的操作、现象或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-09f9898e"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "tioso4_preparation_note",
+          "semantic_final_rewrite"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00324_5148cfb68c"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final proposed_question 已核对 canonical 实验原文、点位和必要 theory；可机器确定性判分。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00324_5148cfb68c"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-2-01 氢氧化物的酸碱性》实验中，认为：近乎白色 Fe(OH)₂ 容易受空气影响而变化，这一判断是不正确的。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "这一判断本身是正确的。制备中特别避免空气。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00319_b995aa9123",
+              "expchunk_00324_5148cfb68c"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "true_false",
+            "stem": "在《20-2-01 氢氧化物的酸碱性》实验中，判断：近乎白色 Fe(OH)₂ 容易受空气影响而变化。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "该判断与实验原文的操作、现象或结论一致。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_2_01_Q020",
+        "source_review_id": "REV_CH4_EXP_20_2_01_Q020",
+        "source_question_index": 20,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "true_false",
+        "stem": "在《20-2-01 氢氧化物的酸碱性》实验中，判断：实验目的之一是掌握 d 区元素某些氢氧化物的酸碱性。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "该判断与实验原文的操作、现象或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-4-daaa17d4"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "fe_ii_hydroxide_preparation",
+          "semantic_final_rewrite"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00324_5148cfb68c"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final proposed_question 已核对 canonical 实验原文、点位和必要 theory；可机器确定性判分。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00324_5148cfb68c"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《20-2-01 氢氧化物的酸碱性》实验中，认为：实验目的之一是掌握 d 区元素某些氢氧化物的酸碱性，这一判断是不正确的。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "这一判断本身是正确的。实验目的直接给出。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00319_b995aa9123",
+              "expchunk_00324_5148cfb68c"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "true_false",
+            "stem": "在《20-2-01 氢氧化物的酸碱性》实验中，判断：实验目的之一是掌握 d 区元素某些氢氧化物的酸碱性。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "该判断与实验原文的操作、现象或结论一致。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_2_01_Q021",
+        "source_review_id": "REV_CH4_EXP_20_2_01_Q021",
+        "source_question_index": 21,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "fill_blank",
+        "stem": "在《20-2-01 氢氧化物的酸碱性》实验中，滴加到各金属盐溶液中的碱是____（填中文名称）。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "氢氧化钠"
+          ],
+          "match": "normalized_exact",
+          "grading_mode": "normalized_exact",
+          "machine_deterministic": true
+        },
+        "explanation": "对应的实验操作或现象内容是“氢氧化钠”。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-8-80b7b503"
+        ],
+        "secondary_point_keys": [
+          "candidate-1-09f9898e",
+          "candidate-2-db3dac4e",
+          "candidate-3-cc8323eb",
+          "candidate-4-daaa17d4",
+          "candidate-5-66191ac4",
+          "candidate-6-557bc1be",
+          "candidate-7-31a1594f"
+        ],
+        "coverage_tags": [
+          "naoh_for_hydroxide_acidity_test",
+          "polished_mobile_fill"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00324_5148cfb68c"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final proposed_question 已核对 canonical 实验原文、点位和必要 theory；可机器确定性判分。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00324_5148cfb68c"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "generic_or_answer_shell_explanation",
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-2-01 氢氧化物的酸碱性》实验中，滴加到各金属盐溶液中的碱是____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "NaOH",
+                "氢氧化钠"
+              ],
+              "match": "normalized_exact",
+              "grading_mode": "normalized_exact",
+              "machine_deterministic": true
+            },
+            "explanation": "",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00319_b995aa9123",
+              "expchunk_00324_5148cfb68c"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-2-01 氢氧化物的酸碱性》实验中，滴加到各金属盐溶液中的碱是____（填中文名称）。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "氢氧化钠"
+              ],
+              "match": "normalized_exact",
+              "grading_mode": "normalized_exact",
+              "machine_deterministic": true
+            },
+            "explanation": "对应的实验操作或现象内容是“氢氧化钠”。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "multi_point_binding"
+          ]
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_2_01_Q022",
+        "source_review_id": "REV_CH4_EXP_20_2_01_Q022",
+        "source_question_index": 22,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《20-2-01 氢氧化物的酸碱性》实验中，滴加 NaOH 后继续检验沉淀酸碱性的目的是什么？",
+        "options": [
+          {
+            "label": "A",
+            "text": "比较不同金属氢氧化物在酸、碱中的行为"
+          },
+          {
+            "label": "B",
+            "text": "只记住 NaOH 浓度数字"
+          },
+          {
+            "label": "C",
+            "text": "制备氯气"
+          },
+          {
+            "label": "D",
+            "text": "观察银镜"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "“比较不同金属氢氧化物在酸、碱中的行为”与实验操作、观察目标或结论一致。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-8-80b7b503"
+        ],
+        "secondary_point_keys": [
+          "candidate-1-09f9898e",
+          "candidate-2-db3dac4e",
+          "candidate-3-cc8323eb",
+          "candidate-4-daaa17d4",
+          "candidate-5-66191ac4",
+          "candidate-6-557bc1be",
+          "candidate-7-31a1594f"
+        ],
+        "coverage_tags": [
+          "polished_final_rewrite",
+          "tioso4_sample"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": null,
+            "point_key": "candidate-8-80b7b503",
+            "role": "correct_evidence",
+            "diagnostic_note": "Correct option points to testing precipitate acid-base behavior after NaOH precipitation, not to one isolated salt."
+          },
+          {
+            "label": "B",
+            "text": null,
+            "point_key": null,
+            "role": "distractor_misconception",
+            "diagnostic_note": "“只记住 NaOH 浓度数字”与正确项“比较不同金属氢氧化物在酸、碱中的行为”同属相近化学概念，但在“滴加 NaOH 后继续检验沉淀酸碱性的目的是什么？”中混淆了试剂、价态、产物或现象。"
+          },
+          {
+            "label": "C",
+            "text": null,
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "“制备氯气”不能作为“滴加 NaOH 后继续检验沉淀酸碱性的目的是什么？”的教材证据；它排除的是无关操作、条件或观察对象。"
+          },
+          {
+            "label": "D",
+            "text": null,
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "“观察银镜”不能作为“滴加 NaOH 后继续检验沉淀酸碱性的目的是什么？”的教材证据；它排除的是无关操作、条件或观察对象。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00324_5148cfb68c"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final proposed_question 已核对 canonical 实验原文、点位和必要 theory；可机器确定性判分。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00324_5148cfb68c"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "english_option_link_diagnostic",
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-2-01 氢氧化物的酸碱性》实验中，NaOH 溶液浓度为____ mol·L⁻¹。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "2"
+              ],
+              "match": "normalized_exact",
+              "grading_mode": "normalized_exact",
+              "machine_deterministic": true
+            },
+            "explanation": "",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00319_b995aa9123",
+              "expchunk_00324_5148cfb68c"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-2-01 氢氧化物的酸碱性》实验中，滴加 NaOH 后继续检验沉淀酸碱性的目的是什么？",
+            "options": [
+              {
+                "label": "A",
+                "text": "比较不同金属氢氧化物在酸、碱中的行为"
+              },
+              {
+                "label": "B",
+                "text": "只记住 NaOH 浓度数字"
+              },
+              {
+                "label": "C",
+                "text": "制备氯气"
+              },
+              {
+                "label": "D",
+                "text": "观察银镜"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "“比较不同金属氢氧化物在酸、碱中的行为”与实验操作、观察目标或结论一致。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_2_01_Q023",
+        "source_review_id": "REV_CH4_EXP_20_2_01_Q023",
+        "source_question_index": 23,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《20-2-01 氢氧化物的酸碱性》实验中，该实验比较 d 区元素某些____的酸碱性。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "氢氧化物"
+          ],
+          "match": "normalized_exact",
+          "grading_mode": "normalized_exact",
+          "machine_deterministic": true
+        },
+        "explanation": "对应的实验操作或现象内容是“氢氧化物”。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-8-80b7b503",
+          "candidate-9-afa96094"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "alkali_soluble_heat_observation"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00324_5148cfb68c"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 保留 original_question；已核对题干、选项/答案/解析、点位和源文，最终有效题证据充分。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00324_5148cfb68c"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "generic_or_answer_shell_explanation",
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-2-01 氢氧化物的酸碱性》实验中，该实验比较 d 区元素某些____的酸碱性。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "氢氧化物"
+              ],
+              "match": "normalized_exact",
+              "grading_mode": "normalized_exact",
+              "machine_deterministic": true
+            },
+            "explanation": "对应的实验操作或现象内容是“氢氧化物”。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00319_b995aa9123",
+              "expchunk_00324_5148cfb68c"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "multi_point_binding"
+          ]
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_2_01_Q024",
+        "source_review_id": "REV_CH4_EXP_20_2_01_Q024",
+        "source_question_index": 24,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《20-2-01 氢氧化物的酸碱性》实验中，可溶于稀碱的溶液还要____煮沸观察变化。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "加热"
+          ],
+          "match": "normalized_exact",
+          "grading_mode": "normalized_exact",
+          "machine_deterministic": true
+        },
+        "explanation": "对应的实验操作或现象内容是“加热”。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-4-daaa17d4"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "fe_oh2_air_exclusion"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00324_5148cfb68c"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_01275_e701d5ec73",
+            "textbook_prose_01276_088374f10a",
+            "textbook_prose_01277_a1ca6bdce2",
+            "textbook_prose_01285_71bc122540"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 保留 original_question；已核对题干、选项/答案/解析、点位和源文，最终有效题证据充分。",
+          "supporting_theory_note": "依赖 d 区金属氢氧化物酸碱性、Fe(OH)₂ 易被空气氧化等理论。"
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00324_5148cfb68c"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_01275_e701d5ec73",
+            "textbook_prose_01276_088374f10a",
+            "textbook_prose_01277_a1ca6bdce2",
+            "textbook_prose_01285_71bc122540"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_01275_e701d5ec73",
+            "textbook_prose_01276_088374f10a",
+            "textbook_prose_01277_a1ca6bdce2",
+            "textbook_prose_01285_71bc122540"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "generic_or_answer_shell_explanation",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-2-01 氢氧化物的酸碱性》实验中，可溶于稀碱的溶液还要____煮沸观察变化。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "加热"
+              ],
+              "match": "normalized_exact",
+              "grading_mode": "normalized_exact",
+              "machine_deterministic": true
+            },
+            "explanation": "对应的实验操作或现象内容是“加热”。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00319_b995aa9123",
+              "expchunk_00324_5148cfb68c"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "source_requires_supporting_theory"
+          ]
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_2_01_Q025",
+        "source_review_id": "REV_CH4_EXP_20_2_01_Q025",
+        "source_question_index": 25,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《20-2-01 氢氧化物的酸碱性》实验中，Fe(OH)₂ 制备时需避免带入____。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "空气"
+          ],
+          "match": "normalized_exact",
+          "grading_mode": "normalized_exact",
+          "machine_deterministic": true
+        },
+        "explanation": "对应的实验操作或现象内容是“空气”。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-4-daaa17d4"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "boil_water_to_remove_air"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00324_5148cfb68c"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 保留 original_question；已核对题干、选项/答案/解析、点位和源文，最终有效题证据充分。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00324_5148cfb68c"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "generic_or_answer_shell_explanation",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-2-01 氢氧化物的酸碱性》实验中，Fe(OH)₂ 制备时需避免带入____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "空气"
+              ],
+              "match": "normalized_exact",
+              "grading_mode": "normalized_exact",
+              "machine_deterministic": true
+            },
+            "explanation": "对应的实验操作或现象内容是“空气”。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00319_b995aa9123",
+              "expchunk_00324_5148cfb68c"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_2_01_Q026",
+        "source_review_id": "REV_CH4_EXP_20_2_01_Q026",
+        "source_question_index": 26,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《20-2-01 氢氧化物的酸碱性》实验中，制备 Fe(OH)₂ 前煮沸蒸馏水是为了赶尽____。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "空气"
+          ],
+          "match": "normalized_exact",
+          "grading_mode": "normalized_exact",
+          "machine_deterministic": true
+        },
+        "explanation": "对应的实验操作或现象内容是“空气”。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-8-80b7b503"
+        ],
+        "secondary_point_keys": [
+          "candidate-1-09f9898e",
+          "candidate-2-db3dac4e",
+          "candidate-3-cc8323eb",
+          "candidate-4-daaa17d4",
+          "candidate-5-66191ac4",
+          "candidate-6-557bc1be",
+          "candidate-7-31a1594f"
+        ],
+        "coverage_tags": [
+          "hydroxide_acidity_purpose"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00324_5148cfb68c"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 保留 original_question；已核对题干、选项/答案/解析、点位和源文，最终有效题证据充分。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00324_5148cfb68c"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "generic_or_answer_shell_explanation",
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-2-01 氢氧化物的酸碱性》实验中，制备 Fe(OH)₂ 前煮沸蒸馏水是为了赶尽____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "空气"
+              ],
+              "match": "normalized_exact",
+              "grading_mode": "normalized_exact",
+              "machine_deterministic": true
+            },
+            "explanation": "对应的实验操作或现象内容是“空气”。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00319_b995aa9123",
+              "expchunk_00324_5148cfb68c"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "multi_point_binding"
+          ]
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_2_01_Q027",
+        "source_review_id": "REV_CH4_EXP_20_2_01_Q027",
+        "source_question_index": 27,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "fill_blank",
+        "stem": "在《20-2-01 氢氧化物的酸碱性》实验中，用于制备 Fe(OH)₂ 的亚铁盐是____（填中文名称）。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "硫酸亚铁铵"
+          ],
+          "match": "normalized_exact",
+          "grading_mode": "normalized_exact",
+          "machine_deterministic": true
+        },
+        "explanation": "对应的实验操作或现象内容是“硫酸亚铁铵”。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-db3dac4e",
+          "candidate-3-cc8323eb",
+          "candidate-7-31a1594f"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "listed_d_metal_salt_samples",
+          "polished_mobile_fill"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00324_5148cfb68c"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final proposed_question 已核对 canonical 实验原文、点位和必要 theory；可机器确定性判分。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00324_5148cfb68c"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "generic_or_answer_shell_explanation",
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-2-01 氢氧化物的酸碱性》实验中，用于制备 Fe(OH)₂ 的亚铁盐是____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "(NH₄)₂Fe(SO₄)₂",
+                "硫酸亚铁铵"
+              ],
+              "match": "normalized_exact",
+              "grading_mode": "normalized_exact",
+              "machine_deterministic": true
+            },
+            "explanation": "",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00319_b995aa9123",
+              "expchunk_00324_5148cfb68c"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-2-01 氢氧化物的酸碱性》实验中，用于制备 Fe(OH)₂ 的亚铁盐是____（填中文名称）。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "硫酸亚铁铵"
+              ],
+              "match": "normalized_exact",
+              "grading_mode": "normalized_exact",
+              "machine_deterministic": true
+            },
+            "explanation": "对应的实验操作或现象内容是“硫酸亚铁铵”。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "multi_point_binding"
+          ]
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_2_01_Q028",
+        "source_review_id": "REV_CH4_EXP_20_2_01_Q028",
+        "source_question_index": 28,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《20-2-01 氢氧化物的酸碱性》实验中，TiOSO₄ 溶液可由 TiCl₄ 加 H₂SO₄ 后再用水____至一定体积。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "稀释"
+          ],
+          "match": "normalized_exact",
+          "grading_mode": "normalized_exact",
+          "machine_deterministic": true
+        },
+        "explanation": "对应的实验操作或现象内容是“稀释”。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-09f9898e",
+          "candidate-2-db3dac4e",
+          "candidate-3-cc8323eb",
+          "candidate-4-daaa17d4",
+          "candidate-5-66191ac4",
+          "candidate-6-557bc1be",
+          "candidate-7-31a1594f"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "hydroxide_precipitate_observation"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00324_5148cfb68c"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 保留 original_question；已核对题干、选项/答案/解析、点位和源文，最终有效题证据充分。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00324_5148cfb68c"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "generic_or_answer_shell_explanation",
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-2-01 氢氧化物的酸碱性》实验中，TiOSO₄ 溶液可由 TiCl₄ 加 H₂SO₄ 后再用水____至一定体积。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "稀释"
+              ],
+              "match": "normalized_exact",
+              "grading_mode": "normalized_exact",
+              "machine_deterministic": true
+            },
+            "explanation": "对应的实验操作或现象内容是“稀释”。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00319_b995aa9123",
+              "expchunk_00324_5148cfb68c"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "multi_point_binding"
+          ]
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_2_01_Q029",
+        "source_review_id": "REV_CH4_EXP_20_2_01_Q029",
+        "source_question_index": 29,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《20-2-01 氢氧化物的酸碱性》实验中，向金属盐中加入 OH⁻ 常生成金属____沉淀。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "氢氧化物"
+          ],
+          "match": "normalized_exact",
+          "grading_mode": "normalized_exact",
+          "machine_deterministic": true
+        },
+        "explanation": "对应的实验操作或现象内容是“氢氧化物”。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-09f9898e"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "tioso4_preparation_note"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00324_5148cfb68c"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final 保留 original_question；已核对题干、选项/答案/解析、点位和源文，最终有效题证据充分。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00324_5148cfb68c"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "generic_or_answer_shell_explanation",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-2-01 氢氧化物的酸碱性》实验中，向金属盐中加入 OH⁻ 常生成金属____沉淀。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "氢氧化物"
+              ],
+              "match": "normalized_exact",
+              "grading_mode": "normalized_exact",
+              "machine_deterministic": true
+            },
+            "explanation": "对应的实验操作或现象内容是“氢氧化物”。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00319_b995aa9123",
+              "expchunk_00324_5148cfb68c"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": []
+        }
+      },
+      {
+        "question_id": "REV_CH4_EXP_20_2_01_Q030",
+        "source_review_id": "REV_CH4_EXP_20_2_01_Q030",
+        "source_question_index": 30,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《20-2-01 氢氧化物的酸碱性》实验中，下列哪项最能概括实验目的和操作？",
+        "options": [
+          {
+            "label": "A",
+            "text": "向多种 d 区金属盐加入 NaOH 并比较氢氧化物酸碱性"
+          },
+          {
+            "label": "B",
+            "text": "只根据章节序号判断实验内容"
+          },
+          {
+            "label": "C",
+            "text": "滤纸是否感光"
+          },
+          {
+            "label": "D",
+            "text": "气体是否燃烧"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "该实验通过向多种 d 区金属盐溶液加入 NaOH，比较生成氢氧化物的酸碱性。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-09f9898e",
+          "candidate-2-db3dac4e",
+          "candidate-3-cc8323eb",
+          "candidate-4-daaa17d4",
+          "candidate-5-66191ac4",
+          "candidate-6-557bc1be",
+          "candidate-7-31a1594f",
+          "candidate-8-80b7b503"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "fe_ii_hydroxide_preparation",
+          "semantic_final_rewrite"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": null,
+            "point_key": "candidate-8-80b7b503",
+            "role": "correct_evidence",
+            "diagnostic_note": "Correct option summarizes adding NaOH to several d-block salts and comparing hydroxide acid-base behavior; point_key anchors the acid-base testing point."
+          },
+          {
+            "label": "B",
+            "text": null,
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "“只根据章节序号判断实验内容”不能作为本实验目的和操作的教材证据；它排除的是无关索引信息。"
+          },
+          {
+            "label": "C",
+            "text": null,
+            "point_key": null,
+            "role": "unrelated_distractor",
+            "diagnostic_note": "“滤纸是否感光”来自银盐感光或遮光演示思路；选择它会把光化学情境误套到“保留为客观题时最应考查哪项？”。"
+          },
+          {
+            "label": "D",
+            "text": null,
+            "point_key": null,
+            "role": "weak_distractor",
+            "diagnostic_note": "“气体是否燃烧”不能作为“保留为客观题时最应考查哪项？”的教材证据；它排除的是无关操作、条件或观察对象。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00324_5148cfb68c"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final proposed_question 已核对 canonical 实验原文、点位和必要 theory；可机器确定性判分。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00319_b995aa9123",
+            "expchunk_00324_5148cfb68c"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "english_option_link_diagnostic",
+          "multi_point_binding",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《20-2-01 氢氧化物的酸碱性》实验中，该实验所在章节主题为 d 区元素化合物的性质____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "一",
+                "（一）"
+              ],
+              "match": "normalized_exact",
+              "grading_mode": "normalized_exact",
+              "machine_deterministic": true
+            },
+            "explanation": "",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00319_b995aa9123",
+              "expchunk_00324_5148cfb68c"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《20-2-01 氢氧化物的酸碱性》实验中，下列哪项最能概括实验目的和操作？",
+            "options": [
+              {
+                "label": "A",
+                "text": "向多种 d 区金属盐加入 NaOH 并比较氢氧化物酸碱性"
+              },
+              {
+                "label": "B",
+                "text": "只根据章节序号判断实验内容"
+              },
+              {
+                "label": "C",
+                "text": "滤纸是否感光"
+              },
+              {
+                "label": "D",
+                "text": "气体是否燃烧"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "该实验通过向多种 d 区金属盐溶液加入 NaOH，比较生成氢氧化物的酸碱性。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [],
+            "source_refs": []
+          },
+          "previous_quality_flags": []
+        }
+      }
+    ]
+  }
+}

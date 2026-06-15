@@ -1,0 +1,4118 @@
+{
+  "metadata": {
+    "version": "chunk-3-release-slim-v1",
+    "artifact_type": "slim_question_bank_work_file",
+    "generated_at": "2026-06-15T03:27:58.895975+00:00",
+    "source_file": "E:\\chemistry-admin\\artifacts\\point-aware-question-bank\\reviewed_old_bank_chunks\\chunk_3_release_final_v1.json",
+    "normalization_rule": "effective question plus minimal lineage, evidence IDs, point bindings, option links, evidence locators, and mechanical risk flags",
+    "evidence_policy": "RAG source text is not embedded; packets carry locators and reviewers must read E:/chemistry-rag/data/rag_ready directly",
+    "chunk_id_policy": "inherited chunk ids are untrusted locator candidates until manually compared with RAG text",
+    "semantic_status": "not_semantically_repaired_by_this_script",
+    "packet_type": "single_experiment_semantic_repair_work_packet",
+    "chunk": 3,
+    "experiment_code": "19-8-11",
+    "question_count": 30
+  },
+  "experiment": {
+    "experiment_id": "EXP_19_8_11",
+    "experiment_code": "19-8-11",
+    "experiment_title": "小设计实验",
+    "chapter_bindings": [
+      {
+        "chapter_id": "CH16",
+        "coverage_type": "partial",
+        "sort_order": 1
+      },
+      {
+        "chapter_id": "CH15",
+        "coverage_type": "partial",
+        "sort_order": 2
+      }
+    ],
+    "video_points": [
+      {
+        "point_key": "candidate-1-bca363dc",
+        "point_title": "设计分析铅丹 Pb₃O₄ 组成的实验方法",
+        "source": null,
+        "candidate_index": null,
+        "resource_count": null,
+        "published_count": null,
+        "resource_titles": []
+      },
+      {
+        "point_key": "candidate-2-4f3744ff",
+        "point_title": "Pb₃O₄ + HNO₃，微热",
+        "source": null,
+        "candidate_index": null,
+        "resource_count": null,
+        "published_count": null,
+        "resource_titles": []
+      },
+      {
+        "point_key": "candidate-3-bbffc85e",
+        "point_title": "吸取清液，用稀 H₂SO₄ 检查 Pb²⁺",
+        "source": null,
+        "candidate_index": null,
+        "resource_count": null,
+        "published_count": null,
+        "resource_titles": []
+      }
+    ],
+    "canonical_chunk_ids": [
+      "expchunk_00301_dee65904aa"
+    ],
+    "evidence_lookup": {
+      "policy": "locator_only; canonical RAG text is not embedded in this packet",
+      "chunk_id_policy": "metadata chunk ids are inherited claims, not trusted evidence; reviewers must compare the RAG text against the question stem/options/answer/explanation and replace or remove wrong ids",
+      "primary_source_dir": "E:\\chemistry-rag\\data\\rag_ready",
+      "source_files": {
+        "experiment_chunks": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+        "supporting_theory_chunks": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl"
+      },
+      "search_hints": {
+        "experiment_code": "19-8-11",
+        "parent_experiment_code": "19-8",
+        "experiment_title": "小设计实验",
+        "video_point_titles": [
+          "设计分析铅丹 Pb₃O₄ 组成的实验方法",
+          "Pb₃O₄ + HNO₃，微热",
+          "吸取清液，用稀 H₂SO₄ 检查 Pb²⁺"
+        ],
+        "canonical_chunk_ids_from_metadata": [
+          "expchunk_00301_dee65904aa"
+        ],
+        "supporting_theory_chunk_ids_from_metadata": [
+          "textbook_prose_00379_033ea5b92b",
+          "textbook_prose_00756_b42e11e0c6",
+          "textbook_prose_00757_85fc20341a",
+          "textbook_prose_00788_cfbfaab4bc"
+        ],
+        "suggested_search_patterns": [
+          "19-8-11",
+          "19-8",
+          "小设计实验",
+          "设计分析铅丹 Pb₃O₄ 组成的实验方法",
+          "Pb₃O₄ + HNO₃，微热",
+          "吸取清液，用稀 H₂SO₄ 检查 Pb²⁺",
+          "expchunk_00301_dee65904aa",
+          "textbook_prose_00379_033ea5b92b",
+          "textbook_prose_00756_b42e11e0c6",
+          "textbook_prose_00757_85fc20341a",
+          "textbook_prose_00788_cfbfaab4bc"
+        ]
+      },
+      "rag_exact_id_presence": {
+        "meaning": "id presence only; this does not validate semantic relevance",
+        "found_ids": [
+          "expchunk_00301_dee65904aa",
+          "textbook_prose_00379_033ea5b92b",
+          "textbook_prose_00756_b42e11e0c6",
+          "textbook_prose_00757_85fc20341a",
+          "textbook_prose_00788_cfbfaab4bc"
+        ],
+        "missing_ids": [],
+        "found_locator_summaries": [
+          {
+            "chunk_id": "expchunk_00301_dee65904aa",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+            "line_number": 314,
+            "source_collection": "textbook_experiment_clean_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学实验（第四版）",
+            "page_start": 161,
+            "page_end": 161,
+            "section_path": [
+              "第7章 元素性质实验",
+              "实验 19-8 锡、铅、砷、锑、铋",
+              "（四）实验内容",
+              "5. 小设计实验"
+            ],
+            "content_type": "property_test",
+            "knowledge_unit": "property_test",
+            "parent_id": "expchunk_protocol_ccb6245e7635",
+            "prev_chunk_id": "expchunk_00300_dfe060c876",
+            "next_chunk_id": "expchunk_00302_59594deb5f",
+            "relations": {
+              "section_id": "expsec_6ff550952579844d",
+              "experiment_id": "experiment:实验_19-8_锡_铅_砷_锑_铋",
+              "page_anchor": "page_161",
+              "parent": "expchunk_protocol_ccb6245e7635"
+            }
+          },
+          {
+            "chunk_id": "textbook_prose_00379_033ea5b92b",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+            "line_number": 636,
+            "source_collection": "textbook_inorganic_lower_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学（下册）（第二版）",
+            "page_start": 70,
+            "page_end": 70,
+            "section_path": [
+              "第 14 章 氧族元素",
+              "14.4 硫单质及化合物",
+              "14.4.4 硫的氧化物、含氧酸及其盐",
+              "2) 硫酸及其盐"
+            ],
+            "content_type": "procedure",
+            "knowledge_unit": "procedure",
+            "parent_id": "section:0ebe8e2257a9",
+            "prev_chunk_id": "textbook_prose_00378_7d67aef524",
+            "next_chunk_id": "textbook_prose_00380_d38035eb9f",
+            "relations": {
+              "parent": "section:0ebe8e2257a9",
+              "source_route": "clean_pages",
+              "prev": "textbook_prose_00378_7d67aef524",
+              "next": "textbook_prose_00380_d38035eb9f"
+            }
+          },
+          {
+            "chunk_id": "textbook_prose_00756_b42e11e0c6",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+            "line_number": 1213,
+            "source_collection": "textbook_inorganic_lower_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学（下册）（第二版）",
+            "page_start": 126,
+            "page_end": 126,
+            "section_path": [
+              "第 16 章 碳族元素",
+              "16.5 锗、锡、铅的化合物",
+              "16.5.1 氧化物"
+            ],
+            "content_type": "reaction",
+            "knowledge_unit": "reaction",
+            "parent_id": "section:b6aa3b41db66",
+            "prev_chunk_id": "textbook_prose_00755_49d712fa45",
+            "next_chunk_id": "textbook_prose_00757_85fc20341a",
+            "relations": {
+              "parent": "section:b6aa3b41db66",
+              "source_route": "clean_pages",
+              "prev": "textbook_prose_00755_49d712fa45",
+              "next": "textbook_prose_00757_85fc20341a"
+            }
+          },
+          {
+            "chunk_id": "textbook_prose_00757_85fc20341a",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+            "line_number": 1214,
+            "source_collection": "textbook_inorganic_lower_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学（下册）（第二版）",
+            "page_start": 126,
+            "page_end": 126,
+            "section_path": [
+              "第 16 章 碳族元素",
+              "16.5 锗、锡、铅的化合物",
+              "16.5.1 氧化物"
+            ],
+            "content_type": "reaction",
+            "knowledge_unit": "reaction",
+            "parent_id": "section:b6aa3b41db66",
+            "prev_chunk_id": "textbook_prose_00756_b42e11e0c6",
+            "next_chunk_id": "textbook_prose_00758_5f5fd037a3",
+            "relations": {
+              "parent": "section:b6aa3b41db66",
+              "source_route": "clean_pages",
+              "prev": "textbook_prose_00756_b42e11e0c6",
+              "next": "textbook_prose_00758_5f5fd037a3"
+            }
+          },
+          {
+            "chunk_id": "textbook_prose_00788_cfbfaab4bc",
+            "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+            "line_number": 1252,
+            "source_collection": "textbook_inorganic_lower_v1",
+            "source_role": "canonical_textbook",
+            "authority_level": "primary",
+            "book_title": "无机化学（下册）（第二版）",
+            "page_start": 129,
+            "page_end": 129,
+            "section_path": [
+              "第 16 章 碳族元素",
+              "16.5 锗、锡、铅的化合物",
+              "16.5.4 铅的其他化合物"
+            ],
+            "content_type": "concept",
+            "knowledge_unit": "concept",
+            "parent_id": "section:b2666ffabe5d",
+            "prev_chunk_id": null,
+            "next_chunk_id": "textbook_prose_00789_e61f8704bd",
+            "relations": {
+              "parent": "section:b2666ffabe5d",
+              "source_route": "clean_pages",
+              "prev": null,
+              "next": "textbook_prose_00789_e61f8704bd"
+            }
+          }
+        ]
+      },
+      "legacy_locator_summaries": [
+        {
+          "chunk_id": "expchunk_00301_dee65904aa",
+          "source_file": "无机化学实验（第四版）",
+          "book_title": "无机化学实验（第四版）",
+          "document_id": "DOC_CANONICAL_EXPERIMENT_V1",
+          "source_collection": "textbook_experiment_clean_v1",
+          "source_role": "canonical_textbook",
+          "content_type": "property_test",
+          "chapter_id": null,
+          "page_number": 161,
+          "section_title": "实验 19-8 锡、铅、砷、锑、铋 / （四）实验内容 / 5. 小设计实验",
+          "section_path": [
+            "第7章 元素性质实验",
+            "实验 19-8 锡、铅、砷、锑、铋",
+            "（四）实验内容",
+            "5. 小设计实验"
+          ]
+        }
+      ],
+      "legacy_missing_ids": [
+        "textbook_prose_00379_033ea5b92b",
+        "textbook_prose_00756_b42e11e0c6",
+        "textbook_prose_00757_85fc20341a",
+        "textbook_prose_00788_cfbfaab4bc"
+      ]
+    },
+    "questions": [
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_11_Q001",
+        "source_review_id": null,
+        "source_question_index": 1,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-8-11 小设计实验》实验中，设计分析铅丹组成时，研究对象的化学式是哪一个？",
+        "options": [
+          {
+            "label": "A",
+            "text": "PbCl₂"
+          },
+          {
+            "label": "B",
+            "text": "SnCl₂"
+          },
+          {
+            "label": "C",
+            "text": "Pb₃O₄"
+          },
+          {
+            "label": "D",
+            "text": "Bi₂S₃"
+          }
+        ],
+        "answer": {
+          "value": "C"
+        },
+        "explanation": "实验内容列出铅丹 Pb₃O₄。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-bca363dc"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_11",
+          "single_choice",
+          "point_1",
+          "polished_final_v1"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "PbCl₂",
+            "point_key": "candidate-1-bca363dc",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“PbCl₂”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "B",
+            "text": "SnCl₂",
+            "point_key": "candidate-1-bca363dc",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“SnCl₂”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "C",
+            "text": "Pb₃O₄",
+            "point_key": "candidate-1-bca363dc",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接对应本题考查的实验操作、现象或结论。"
+          },
+          {
+            "label": "D",
+            "text": "Bi₂S₃",
+            "point_key": "candidate-1-bca363dc",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“Bi₂S₃”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00301_dee65904aa"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00756_b42e11e0c6",
+            "textbook_prose_00757_85fc20341a"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00756_b42e11e0c6（Pb₃O₄ 是铅(IV)酸铅(II)盐）；textbook_prose_00757_85fc20341a（PbO₂/Pb₃O₄ 的强氧化性和颜色）。 绑定点位：设计分析铅丹 Pb₃O₄ 组成的实验方法。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00301_dee65904aa"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00756_b42e11e0c6",
+            "textbook_prose_00757_85fc20341a"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00756_b42e11e0c6",
+            "textbook_prose_00757_85fc20341a"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language",
+          "template_option_link_diagnostic",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-8-11 小设计实验》实验中，设计分析铅丹组成时，研究对象的化学式是哪一个？",
+            "options": [
+              {
+                "label": "A",
+                "text": "PbCl₂"
+              },
+              {
+                "label": "B",
+                "text": "SnCl₂"
+              },
+              {
+                "label": "C",
+                "text": "Pb₃O₄"
+              },
+              {
+                "label": "D",
+                "text": "Bi₂S₃"
+              }
+            ],
+            "answer": {
+              "value": "C"
+            },
+            "explanation": "实验内容列出铅丹 Pb₃O₄。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00301_dee65904aa"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_11_Q002",
+        "source_review_id": null,
+        "source_question_index": 2,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-8-11 小设计实验》实验中，实验资料中，铅丹分析先让 Pb₃O₄ 与哪种酸作用并微热？",
+        "options": [
+          {
+            "label": "A",
+            "text": "HCl"
+          },
+          {
+            "label": "B",
+            "text": "HAc"
+          },
+          {
+            "label": "C",
+            "text": "H₃PO₄"
+          },
+          {
+            "label": "D",
+            "text": "HNO₃"
+          }
+        ],
+        "answer": {
+          "value": "D"
+        },
+        "explanation": "候选步骤为 Pb₃O₄ + HNO₃，微热。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-4f3744ff"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_11",
+          "single_choice",
+          "point_2",
+          "polished_final_v1"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "HCl",
+            "point_key": "candidate-2-4f3744ff",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“HCl”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "B",
+            "text": "HAc",
+            "point_key": "candidate-2-4f3744ff",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“HAc”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "C",
+            "text": "H₃PO₄",
+            "point_key": "candidate-2-4f3744ff",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“H₃PO₄”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "D",
+            "text": "HNO₃",
+            "point_key": "candidate-2-4f3744ff",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接对应本题考查的实验操作、现象或结论。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00301_dee65904aa"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00756_b42e11e0c6",
+            "textbook_prose_00757_85fc20341a"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00756_b42e11e0c6（Pb₃O₄ 是铅(IV)酸铅(II)盐）；textbook_prose_00757_85fc20341a（PbO₂/Pb₃O₄ 的强氧化性和颜色）。 绑定点位：Pb₃O₄ + HNO₃，微热。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00301_dee65904aa"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00756_b42e11e0c6",
+            "textbook_prose_00757_85fc20341a"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00756_b42e11e0c6",
+            "textbook_prose_00757_85fc20341a"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language",
+          "template_option_link_diagnostic",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-8-11 小设计实验》实验中，实验资料中，铅丹分析先让 Pb₃O₄ 与哪种酸作用并微热？",
+            "options": [
+              {
+                "label": "A",
+                "text": "HCl"
+              },
+              {
+                "label": "B",
+                "text": "HAc"
+              },
+              {
+                "label": "C",
+                "text": "H₃PO₄"
+              },
+              {
+                "label": "D",
+                "text": "HNO₃"
+              }
+            ],
+            "answer": {
+              "value": "D"
+            },
+            "explanation": "候选步骤为 Pb₃O₄ + HNO₃，微热。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00301_dee65904aa"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_11_Q003",
+        "source_review_id": null,
+        "source_question_index": 3,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-8-11 小设计实验》实验中，吸取 Pb₃O₄ 与 HNO₃ 作用后的清液后，用于检查 Pb²⁺ 的试剂是哪一种？",
+        "options": [
+          {
+            "label": "A",
+            "text": "稀 H₂SO₄"
+          },
+          {
+            "label": "B",
+            "text": "浓氨水"
+          },
+          {
+            "label": "C",
+            "text": "乙醚"
+          },
+          {
+            "label": "D",
+            "text": "KSCN"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "候选步骤用稀 H₂SO₄ 检查 Pb²⁺。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-bbffc85e"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_11",
+          "single_choice",
+          "point_3",
+          "polished_final_v1"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "稀 H₂SO₄",
+            "point_key": "candidate-3-bbffc85e",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接对应本题考查的实验操作、现象或结论。"
+          },
+          {
+            "label": "B",
+            "text": "浓氨水",
+            "point_key": "candidate-3-bbffc85e",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“浓氨水”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "C",
+            "text": "乙醚",
+            "point_key": "candidate-3-bbffc85e",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“乙醚”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "D",
+            "text": "KSCN",
+            "point_key": "candidate-3-bbffc85e",
+            "role": "adjacent_experiment",
+            "diagnostic_note": "“KSCN”借用了Fe³⁺/KSCN 血红色检验的线索，和本题绑定点位不一致。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00301_dee65904aa"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00756_b42e11e0c6",
+            "textbook_prose_00757_85fc20341a",
+            "textbook_prose_00788_cfbfaab4bc",
+            "textbook_prose_00379_033ea5b92b"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00756_b42e11e0c6（Pb₃O₄ 是铅(IV)酸铅(II)盐）；textbook_prose_00757_85fc20341a（PbO₂/Pb₃O₄ 的强氧化性和颜色）；textbook_prose_00788_cfbfaab4bc（PbSO₄ 难溶，Pb(NO₃)₂ 可溶）；textbook_prose_00379_033ea5b92b（PbSO₄ 难溶性）。 绑定点位：吸取清液，用稀 H₂SO₄ 检查 Pb²⁺。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00301_dee65904aa"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00756_b42e11e0c6",
+            "textbook_prose_00757_85fc20341a",
+            "textbook_prose_00788_cfbfaab4bc",
+            "textbook_prose_00379_033ea5b92b"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00756_b42e11e0c6",
+            "textbook_prose_00757_85fc20341a",
+            "textbook_prose_00788_cfbfaab4bc",
+            "textbook_prose_00379_033ea5b92b"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language",
+          "template_option_link_diagnostic",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-8-11 小设计实验》实验中，吸取 Pb₃O₄ 与 HNO₃ 作用后的清液后，用于检查 Pb²⁺ 的试剂是哪一种？",
+            "options": [
+              {
+                "label": "A",
+                "text": "稀 H₂SO₄"
+              },
+              {
+                "label": "B",
+                "text": "浓氨水"
+              },
+              {
+                "label": "C",
+                "text": "乙醚"
+              },
+              {
+                "label": "D",
+                "text": "KSCN"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "候选步骤用稀 H₂SO₄ 检查 Pb²⁺。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00301_dee65904aa"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_11_Q004",
+        "source_review_id": null,
+        "source_question_index": 4,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-8-11 小设计实验》实验中，用稀 H₂SO₄ 检查 Pb²⁺ 时，最可能观察到的铅盐沉淀是下列哪一种？",
+        "options": [
+          {
+            "label": "A",
+            "text": "PbI₂"
+          },
+          {
+            "label": "B",
+            "text": "PbSO₄"
+          },
+          {
+            "label": "C",
+            "text": "PbCrO₄"
+          },
+          {
+            "label": "D",
+            "text": "PbS"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "Pb²⁺ 与 SO₄²⁻ 形成难溶 PbSO₄。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-bbffc85e"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_11",
+          "single_choice",
+          "point_3",
+          "polished_final_v1"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "PbI₂",
+            "point_key": "candidate-3-bbffc85e",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“PbI₂”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "B",
+            "text": "PbSO₄",
+            "point_key": "candidate-3-bbffc85e",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接对应本题考查的实验操作、现象或结论。"
+          },
+          {
+            "label": "C",
+            "text": "PbCrO₄",
+            "point_key": "candidate-3-bbffc85e",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“PbCrO₄”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "D",
+            "text": "PbS",
+            "point_key": "candidate-3-bbffc85e",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“PbS”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00301_dee65904aa"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00788_cfbfaab4bc",
+            "textbook_prose_00379_033ea5b92b"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00788_cfbfaab4bc（PbSO₄ 难溶，Pb(NO₃)₂ 可溶）；textbook_prose_00379_033ea5b92b（PbSO₄ 难溶性）。 绑定点位：吸取清液，用稀 H₂SO₄ 检查 Pb²⁺。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00301_dee65904aa"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00788_cfbfaab4bc",
+            "textbook_prose_00379_033ea5b92b"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00788_cfbfaab4bc",
+            "textbook_prose_00379_033ea5b92b"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language",
+          "template_option_link_diagnostic",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-8-11 小设计实验》实验中，用稀 H₂SO₄ 检查 Pb²⁺ 时，最可能观察到的铅盐沉淀是下列哪一种？",
+            "options": [
+              {
+                "label": "A",
+                "text": "PbI₂"
+              },
+              {
+                "label": "B",
+                "text": "PbSO₄"
+              },
+              {
+                "label": "C",
+                "text": "PbCrO₄"
+              },
+              {
+                "label": "D",
+                "text": "PbS"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "Pb²⁺ 与 SO₄²⁻ 形成难溶 PbSO₄。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00301_dee65904aa"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_11_Q005",
+        "source_review_id": null,
+        "source_question_index": 5,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-8-11 小设计实验》实验中，Pb₃O₄ 可看作含有 Pb(II) 和 Pb(IV) 的氧化物，设计实验的关键是区分哪两类铅？",
+        "options": [
+          {
+            "label": "A",
+            "text": "Pb(0) 与 Pb(-II)"
+          },
+          {
+            "label": "B",
+            "text": "Na 与 K"
+          },
+          {
+            "label": "C",
+            "text": "Pb(II) 与 Pb(IV)"
+          },
+          {
+            "label": "D",
+            "text": "Sn(II) 与 Fe(II)"
+          }
+        ],
+        "answer": {
+          "value": "C"
+        },
+        "explanation": "铅丹组成分析关注不同价态铅。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-bca363dc"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_11",
+          "single_choice",
+          "point_1",
+          "polished_final_v1"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "Pb(0) 与 Pb(-II)",
+            "point_key": "candidate-1-bca363dc",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“Pb(0) 与 Pb(-II)”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "B",
+            "text": "Na 与 K",
+            "point_key": "candidate-1-bca363dc",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“Na 与 K”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "C",
+            "text": "Pb(II) 与 Pb(IV)",
+            "point_key": "candidate-1-bca363dc",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接对应本题考查的实验操作、现象或结论。"
+          },
+          {
+            "label": "D",
+            "text": "Sn(II) 与 Fe(II)",
+            "point_key": "candidate-1-bca363dc",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“Sn(II) 与 Fe(II)”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00301_dee65904aa"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00756_b42e11e0c6",
+            "textbook_prose_00757_85fc20341a"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00756_b42e11e0c6（Pb₃O₄ 是铅(IV)酸铅(II)盐）；textbook_prose_00757_85fc20341a（PbO₂/Pb₃O₄ 的强氧化性和颜色）。 绑定点位：设计分析铅丹 Pb₃O₄ 组成的实验方法。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00301_dee65904aa"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00756_b42e11e0c6",
+            "textbook_prose_00757_85fc20341a"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00756_b42e11e0c6",
+            "textbook_prose_00757_85fc20341a"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "template_option_link_diagnostic",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-8-11 小设计实验》实验中，Pb₃O₄ 可看作含有 Pb(II) 和 Pb(IV) 的氧化物，设计实验的关键是区分哪两类铅？",
+            "options": [
+              {
+                "label": "A",
+                "text": "Pb(0) 与 Pb(-II)"
+              },
+              {
+                "label": "B",
+                "text": "Na 与 K"
+              },
+              {
+                "label": "C",
+                "text": "Pb(II) 与 Pb(IV)"
+              },
+              {
+                "label": "D",
+                "text": "Sn(II) 与 Fe(II)"
+              }
+            ],
+            "answer": {
+              "value": "C"
+            },
+            "explanation": "铅丹组成分析关注不同价态铅。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00301_dee65904aa"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_11_Q006_R1",
+        "source_review_id": null,
+        "source_question_index": 6,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-8-11 小设计实验》中，Pb₃O₄ 与 HNO₃ 微热后吸取清液，再用稀 H₂SO₄ 检查 Pb²⁺，这一设计最直接服务于哪一目标？",
+        "options": [
+          {
+            "label": "A",
+            "text": "分析铅丹 Pb₃O₄ 中铅的组成证据"
+          },
+          {
+            "label": "B",
+            "text": "分离鉴定 SbCl₃ 与 Bi(NO₃)₃"
+          },
+          {
+            "label": "C",
+            "text": "观察 Li⁺ 的焰色反应"
+          },
+          {
+            "label": "D",
+            "text": "检验 Fe³⁺ 与 KSCN 的血红色"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "本块正式点位围绕铅丹 Pb₃O₄ 组成分析展开，HNO₃ 微热和 H₂SO₄ 检查 Pb²⁺均是该设计证据链的一部分。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-bca363dc",
+          "candidate-2-4f3744ff",
+          "candidate-3-bbffc85e"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-4f3744ff",
+          "candidate-3-bbffc85e"
+        ],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_11",
+          "single_choice",
+          "point_1",
+          "point_2",
+          "point_3",
+          "rewritten_replacement",
+          "polished_final_v1"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "分析铅丹 Pb₃O₄ 中铅的组成证据",
+            "point_key": "candidate-1-bca363dc",
+            "role": "correct_evidence",
+            "diagnostic_note": "“分析铅丹 Pb₃O₄ 中铅的组成证据”对应本题正确判断；教材步骤/点位支撑“在《19-8-11 小设计实验》中，Pb₃O₄ 与 HNO₃ 微”中的关键操作或结论。"
+          },
+          {
+            "label": "B",
+            "text": "分离鉴定 SbCl₃ 与 Bi(NO₃)₃",
+            "point_key": "candidate-1-bca363dc",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“分离鉴定 SbCl₃ 与 Bi(NO₃)₃”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "C",
+            "text": "观察 Li⁺ 的焰色反应",
+            "point_key": "candidate-1-bca363dc",
+            "role": "adjacent_experiment",
+            "diagnostic_note": "“观察 Li⁺ 的焰色反应”借用了焰色反应的线索，和本题绑定点位不一致。"
+          },
+          {
+            "label": "D",
+            "text": "检验 Fe³⁺ 与 KSCN 的血红色",
+            "point_key": "candidate-1-bca363dc",
+            "role": "adjacent_experiment",
+            "diagnostic_note": "“检验 Fe³⁺ 与 KSCN 的血红色”借用了Fe³⁺/KSCN 血红色检验的线索，和本题绑定点位不一致。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00301_dee65904aa"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00756_b42e11e0c6",
+            "textbook_prose_00757_85fc20341a",
+            "textbook_prose_00788_cfbfaab4bc",
+            "textbook_prose_00379_033ea5b92b"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00756_b42e11e0c6（Pb₃O₄ 是铅(IV)酸铅(II)盐）；textbook_prose_00757_85fc20341a（PbO₂/Pb₃O₄ 的强氧化性和颜色）；textbook_prose_00788_cfbfaab4bc（PbSO₄ 难溶，Pb(NO₃)₂ 可溶）；textbook_prose_00379_033ea5b92b（PbSO₄ 难溶性）。 绑定点位：设计分析铅丹 Pb₃O₄ 组成的实验方法；Pb₃O₄ + HNO₃，微热；吸取清液，用稀 H₂SO₄ 检查 Pb²⁺。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00301_dee65904aa"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00756_b42e11e0c6",
+            "textbook_prose_00757_85fc20341a",
+            "textbook_prose_00788_cfbfaab4bc",
+            "textbook_prose_00379_033ea5b92b"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00756_b42e11e0c6",
+            "textbook_prose_00757_85fc20341a",
+            "textbook_prose_00788_cfbfaab4bc",
+            "textbook_prose_00379_033ea5b92b"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-8-11 小设计实验》实验中，本小设计实验的另一项任务是混合 SbCl₃ 溶液与哪种溶液后分离鉴定？",
+            "options": [
+              {
+                "label": "A",
+                "text": "FeCl₃"
+              },
+              {
+                "label": "B",
+                "text": "CuSO₄"
+              },
+              {
+                "label": "C",
+                "text": "Na₂SiO₃"
+              },
+              {
+                "label": "D",
+                "text": "Bi(NO₃)₃"
+              }
+            ],
+            "answer": {
+              "value": "D"
+            },
+            "explanation": "实验内容列出 SbCl₃ 与 Bi(NO₃)₃ 混合。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00301_dee65904aa"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-8-11 小设计实验》中，Pb₃O₄ 与 HNO₃ 微热后吸取清液，再用稀 H₂SO₄ 检查 Pb²⁺，这一设计最直接服务于哪一目标？",
+            "options": [
+              {
+                "label": "A",
+                "text": "分析铅丹 Pb₃O₄ 中铅的组成证据"
+              },
+              {
+                "label": "B",
+                "text": "分离鉴定 SbCl₃ 与 Bi(NO₃)₃"
+              },
+              {
+                "label": "C",
+                "text": "观察 Li⁺ 的焰色反应"
+              },
+              {
+                "label": "D",
+                "text": "检验 Fe³⁺ 与 KSCN 的血红色"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "本块正式点位围绕铅丹 Pb₃O₄ 组成分析展开，HNO₃ 微热和 H₂SO₄ 检查 Pb²⁺均是该设计证据链的一部分。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [
+              "expchunk_00301_dee65904aa"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_11_Q007_R1_PF1",
+        "source_review_id": null,
+        "source_question_index": 7,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-8-11 小设计实验》实验中，Pb₃O₄ 与 HNO₃ 微热后，为什么还要吸取清液并用稀 H₂SO₄ 检查？",
+        "options": [
+          {
+            "label": "A",
+            "text": "在清液中验证由 HNO₃ 处理释放出的 Pb²⁺"
+          },
+          {
+            "label": "B",
+            "text": "分离 SbCl₃ 与 Bi(NO₃)₃"
+          },
+          {
+            "label": "C",
+            "text": "观察 K⁺ 是否需要钴玻璃"
+          },
+          {
+            "label": "D",
+            "text": "检查 Fe³⁺ 与 KSCN 的血红色"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "该步骤承接 Pb₃O₄ 与 HNO₃ 微热，目标是在清液中检查 Pb²⁺，与 Q006 的总体目标题区分开。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-4f3744ff",
+          "candidate-3-bbffc85e"
+        ],
+        "secondary_point_keys": [
+          "candidate-3-bbffc85e"
+        ],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_11",
+          "single_choice",
+          "rewritten_replacement",
+          "polished_final_v1",
+          "point_2",
+          "point_3"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "在清液中验证由 HNO₃ 处理释放出的 Pb²⁺",
+            "point_key": "candidate-2-4f3744ff",
+            "role": "correct_evidence",
+            "diagnostic_note": "“在清液中验证由 HNO₃ 处理释放出的 Pb²⁺”对应本题正确判断；教材步骤/点位支撑“在《19-8-11 小设计实验》实验中，Pb₃O₄ 与 HNO₃”中的关键操作或结论。"
+          },
+          {
+            "label": "B",
+            "text": "分离 SbCl₃ 与 Bi(NO₃)₃",
+            "point_key": "candidate-2-4f3744ff",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“分离 SbCl₃ 与 Bi(NO₃)₃”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "C",
+            "text": "观察 K⁺ 是否需要钴玻璃",
+            "point_key": "candidate-2-4f3744ff",
+            "role": "adjacent_experiment",
+            "diagnostic_note": "“观察 K⁺ 是否需要钴玻璃”借用了钾焰色反应的线索，和本题绑定点位不一致。"
+          },
+          {
+            "label": "D",
+            "text": "检查 Fe³⁺ 与 KSCN 的血红色",
+            "point_key": "candidate-2-4f3744ff",
+            "role": "adjacent_experiment",
+            "diagnostic_note": "“检查 Fe³⁺ 与 KSCN 的血红色”借用了Fe³⁺/KSCN 血红色检验的线索，和本题绑定点位不一致。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00301_dee65904aa"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00756_b42e11e0c6",
+            "textbook_prose_00757_85fc20341a",
+            "textbook_prose_00788_cfbfaab4bc",
+            "textbook_prose_00379_033ea5b92b"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00756_b42e11e0c6（Pb₃O₄ 是铅(IV)酸铅(II)盐）；textbook_prose_00757_85fc20341a（PbO₂/Pb₃O₄ 的强氧化性和颜色）；textbook_prose_00788_cfbfaab4bc（PbSO₄ 难溶，Pb(NO₃)₂ 可溶）；textbook_prose_00379_033ea5b92b（PbSO₄ 难溶性）。 绑定点位：Pb₃O₄ + HNO₃，微热；吸取清液，用稀 H₂SO₄ 检查 Pb²⁺。 本轮 polish 已改写为可机器确定性判分的有效题，避免重复题干或手机端化学式输入风险。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00301_dee65904aa"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00756_b42e11e0c6",
+            "textbook_prose_00757_85fc20341a",
+            "textbook_prose_00788_cfbfaab4bc",
+            "textbook_prose_00379_033ea5b92b"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00756_b42e11e0c6",
+            "textbook_prose_00757_85fc20341a",
+            "textbook_prose_00788_cfbfaab4bc",
+            "textbook_prose_00379_033ea5b92b"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-8-11 小设计实验》实验中，SbCl₃ 与 Bi(NO₃)₃ 混合实验中，两种被分离鉴定的元素是下列哪一组？",
+            "options": [
+              {
+                "label": "A",
+                "text": "锑和铋"
+              },
+              {
+                "label": "B",
+                "text": "铅和锡"
+              },
+              {
+                "label": "C",
+                "text": "钛和钒"
+              },
+              {
+                "label": "D",
+                "text": "氯和溴"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "试剂分别含 Sb 和 Bi。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00301_dee65904aa"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-8-11 小设计实验》实验中，Pb₃O₄ 与 HNO₃ 微热后，为什么还要吸取清液并用稀 H₂SO₄ 检查？",
+            "options": [
+              {
+                "label": "A",
+                "text": "在清液中验证由 HNO₃ 处理释放出的 Pb²⁺"
+              },
+              {
+                "label": "B",
+                "text": "分离 SbCl₃ 与 Bi(NO₃)₃"
+              },
+              {
+                "label": "C",
+                "text": "观察 K⁺ 是否需要钴玻璃"
+              },
+              {
+                "label": "D",
+                "text": "检查 Fe³⁺ 与 KSCN 的血红色"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "该步骤承接 Pb₃O₄ 与 HNO₃ 微热，目标是在清液中检查 Pb²⁺，与 Q006 的总体目标题区分开。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00301_dee65904aa"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_11_Q008",
+        "source_review_id": null,
+        "source_question_index": 8,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-8-11 小设计实验》实验中，下列哪项最符合“小设计实验”的性质？",
+        "options": [
+          {
+            "label": "A",
+            "text": "只背诵一个固定颜色"
+          },
+          {
+            "label": "B",
+            "text": "根据给定对象设计分析、分离和鉴定步骤"
+          },
+          {
+            "label": "C",
+            "text": "只测量水温"
+          },
+          {
+            "label": "D",
+            "text": "只制备臭氧"
+          }
+        ],
+        "answer": {
+          "value": "B"
+        },
+        "explanation": "该实验要求设计方法。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-bca363dc"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_11",
+          "single_choice",
+          "point_1",
+          "polished_final_v1"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "只背诵一个固定颜色",
+            "point_key": "candidate-1-bca363dc",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“只背诵一个固定颜色”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "B",
+            "text": "根据给定对象设计分析、分离和鉴定步骤",
+            "point_key": "candidate-1-bca363dc",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接对应本题考查的实验操作、现象或结论。"
+          },
+          {
+            "label": "C",
+            "text": "只测量水温",
+            "point_key": "candidate-1-bca363dc",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“只测量水温”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "D",
+            "text": "只制备臭氧",
+            "point_key": "candidate-1-bca363dc",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“只制备臭氧”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00301_dee65904aa"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题答案可由 canonical 实验原文的对象、步骤或观察任务直接支撑，未额外引用 theory。 绑定点位：设计分析铅丹 Pb₃O₄ 组成的实验方法。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00301_dee65904aa"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language",
+          "template_option_link_diagnostic"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-8-11 小设计实验》实验中，下列哪项最符合“小设计实验”的性质？",
+            "options": [
+              {
+                "label": "A",
+                "text": "只背诵一个固定颜色"
+              },
+              {
+                "label": "B",
+                "text": "根据给定对象设计分析、分离和鉴定步骤"
+              },
+              {
+                "label": "C",
+                "text": "只测量水温"
+              },
+              {
+                "label": "D",
+                "text": "只制备臭氧"
+              }
+            ],
+            "answer": {
+              "value": "B"
+            },
+            "explanation": "该实验要求设计方法。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00301_dee65904aa"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_11_Q009",
+        "source_review_id": null,
+        "source_question_index": 9,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "single_choice",
+        "stem": "在《19-8-11 小设计实验》实验中，如果 Pb₃O₄ 中 Pb(II) 进入硝酸清液，加入稀 H₂SO₄ 的目的最接近哪一项？",
+        "options": [
+          {
+            "label": "A",
+            "text": "氧化所有 Pb(IV) 为臭氧"
+          },
+          {
+            "label": "B",
+            "text": "萃取 Pb²⁺ 到乙醚层"
+          },
+          {
+            "label": "C",
+            "text": "用硫酸根沉淀 Pb²⁺"
+          },
+          {
+            "label": "D",
+            "text": "生成 KSCN 配合物"
+          }
+        ],
+        "answer": {
+          "value": "C"
+        },
+        "explanation": "硫酸根可检查 Pb²⁺。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-4f3744ff",
+          "candidate-3-bbffc85e"
+        ],
+        "secondary_point_keys": [
+          "candidate-3-bbffc85e"
+        ],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_11",
+          "single_choice",
+          "point_2",
+          "point_3",
+          "polished_final_v1"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "氧化所有 Pb(IV) 为臭氧",
+            "point_key": "candidate-2-4f3744ff",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“氧化所有 Pb(IV) 为臭氧”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "B",
+            "text": "萃取 Pb²⁺ 到乙醚层",
+            "point_key": "candidate-2-4f3744ff",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“萃取 Pb²⁺ 到乙醚层”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "C",
+            "text": "用硫酸根沉淀 Pb²⁺",
+            "point_key": "candidate-3-bbffc85e",
+            "role": "correct_evidence",
+            "diagnostic_note": "该选项直接对应本题考查的实验操作、现象或结论。"
+          },
+          {
+            "label": "D",
+            "text": "生成 KSCN 配合物",
+            "point_key": "candidate-2-4f3744ff",
+            "role": "adjacent_experiment",
+            "diagnostic_note": "“生成 KSCN 配合物”借用了Fe³⁺/KSCN 血红色检验的线索，和本题绑定点位不一致。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00301_dee65904aa"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00756_b42e11e0c6",
+            "textbook_prose_00757_85fc20341a",
+            "textbook_prose_00788_cfbfaab4bc",
+            "textbook_prose_00379_033ea5b92b"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00756_b42e11e0c6（Pb₃O₄ 是铅(IV)酸铅(II)盐）；textbook_prose_00757_85fc20341a（PbO₂/Pb₃O₄ 的强氧化性和颜色）；textbook_prose_00788_cfbfaab4bc（PbSO₄ 难溶，Pb(NO₃)₂ 可溶）；textbook_prose_00379_033ea5b92b（PbSO₄ 难溶性）。 绑定点位：Pb₃O₄ + HNO₃，微热；吸取清液，用稀 H₂SO₄ 检查 Pb²⁺。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00301_dee65904aa"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00756_b42e11e0c6",
+            "textbook_prose_00757_85fc20341a",
+            "textbook_prose_00788_cfbfaab4bc",
+            "textbook_prose_00379_033ea5b92b"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00756_b42e11e0c6",
+            "textbook_prose_00757_85fc20341a",
+            "textbook_prose_00788_cfbfaab4bc",
+            "textbook_prose_00379_033ea5b92b"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "template_option_link_diagnostic",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-8-11 小设计实验》实验中，如果 Pb₃O₄ 中 Pb(II) 进入硝酸清液，加入稀 H₂SO₄ 的目的最接近哪一项？",
+            "options": [
+              {
+                "label": "A",
+                "text": "氧化所有 Pb(IV) 为臭氧"
+              },
+              {
+                "label": "B",
+                "text": "萃取 Pb²⁺ 到乙醚层"
+              },
+              {
+                "label": "C",
+                "text": "用硫酸根沉淀 Pb²⁺"
+              },
+              {
+                "label": "D",
+                "text": "生成 KSCN 配合物"
+              }
+            ],
+            "answer": {
+              "value": "C"
+            },
+            "explanation": "硫酸根可检查 Pb²⁺。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00301_dee65904aa"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_11_Q010_SF1",
+        "source_review_id": null,
+        "source_question_index": 10,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-8-11 小设计实验》中，下列哪一组步骤都属于铅丹 Pb₃O₄ 组成分析这条正式点位链？",
+        "options": [
+          {
+            "label": "A",
+            "text": "Pb₃O₄ 与 HNO₃ 微热，再取清液用稀 H₂SO₄ 检查 Pb²⁺"
+          },
+          {
+            "label": "B",
+            "text": "SbCl₃ 与 Bi(NO₃)₃ 混合后分离鉴定"
+          },
+          {
+            "label": "C",
+            "text": "LiCl、NaCl、KCl 的焰色观察"
+          },
+          {
+            "label": "D",
+            "text": "CuSO₄ 与氨水形成配合物"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "该题考查铅丹 Pb₃O₄ 组成分析的操作链，应围绕同一正式实验任务中的步骤判断。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-bca363dc",
+          "candidate-2-4f3744ff",
+          "candidate-3-bbffc85e"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-4f3744ff",
+          "candidate-3-bbffc85e"
+        ],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_11",
+          "single_choice",
+          "point_1",
+          "point_2",
+          "point_3",
+          "semantic_final_replacement",
+          "polished_final_v1"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "Pb₃O₄ 与 HNO₃ 微热，再取清液用稀 H₂SO₄ 检查 Pb²⁺",
+            "point_key": "candidate-1-bca363dc",
+            "role": "correct_evidence",
+            "diagnostic_note": "“Pb₃O₄ 与 HNO₃ 微热，再取清液用稀 H₂SO₄ 检查 Pb²⁺”对应本题正确判断；教材步骤/点位支撑“在《19-8-11 小设计实验》中，下列哪一组步骤都属于铅丹 P”中的关键操作或结论。"
+          },
+          {
+            "label": "B",
+            "text": "SbCl₃ 与 Bi(NO₃)₃ 混合后分离鉴定",
+            "point_key": "candidate-1-bca363dc",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“SbCl₃ 与 Bi(NO₃)₃ 混合后分离鉴定”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          },
+          {
+            "label": "C",
+            "text": "LiCl、NaCl、KCl 的焰色观察",
+            "point_key": "candidate-1-bca363dc",
+            "role": "adjacent_experiment",
+            "diagnostic_note": "“LiCl、NaCl、KCl 的焰色观察”借用了焰色反应的线索，和本题绑定点位不一致。"
+          },
+          {
+            "label": "D",
+            "text": "CuSO₄ 与氨水形成配合物",
+            "point_key": "candidate-1-bca363dc",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“CuSO₄ 与氨水形成配合物”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00301_dee65904aa"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00756_b42e11e0c6",
+            "textbook_prose_00757_85fc20341a",
+            "textbook_prose_00788_cfbfaab4bc",
+            "textbook_prose_00379_033ea5b92b"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00756_b42e11e0c6（Pb₃O₄ 是铅(IV)酸铅(II)盐）；textbook_prose_00757_85fc20341a（PbO₂/Pb₃O₄ 的强氧化性和颜色）；textbook_prose_00788_cfbfaab4bc（PbSO₄ 难溶，Pb(NO₃)₂ 可溶）；textbook_prose_00379_033ea5b92b（PbSO₄ 难溶性）。 绑定点位：设计分析铅丹 Pb₃O₄ 组成的实验方法；Pb₃O₄ + HNO₃，微热；吸取清液，用稀 H₂SO₄ 检查 Pb²⁺。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00301_dee65904aa"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00756_b42e11e0c6",
+            "textbook_prose_00757_85fc20341a",
+            "textbook_prose_00788_cfbfaab4bc",
+            "textbook_prose_00379_033ea5b92b"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00756_b42e11e0c6",
+            "textbook_prose_00757_85fc20341a",
+            "textbook_prose_00788_cfbfaab4bc",
+            "textbook_prose_00379_033ea5b92b"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-8-11 小设计实验》实验中，下列哪一组都属于本小设计实验给出的对象？",
+            "options": [
+              {
+                "label": "A",
+                "text": "BaO₂、KI、淀粉"
+              },
+              {
+                "label": "B",
+                "text": "Na₂SO₃、KMnO₄、品红"
+              },
+              {
+                "label": "C",
+                "text": "TiOSO₄、NH₄VO₃、KMnO₄"
+              },
+              {
+                "label": "D",
+                "text": "Pb₃O₄、SbCl₃、Bi(NO₃)₃"
+              }
+            ],
+            "answer": {
+              "value": "D"
+            },
+            "explanation": "实验资料列出这些对象。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00301_dee65904aa"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-8-11 小设计实验》中，下列哪一组步骤都属于铅丹 Pb₃O₄ 组成分析这条正式点位链？",
+            "options": [
+              {
+                "label": "A",
+                "text": "Pb₃O₄ 与 HNO₃ 微热，再取清液用稀 H₂SO₄ 检查 Pb²⁺"
+              },
+              {
+                "label": "B",
+                "text": "SbCl₃ 与 Bi(NO₃)₃ 混合后分离鉴定"
+              },
+              {
+                "label": "C",
+                "text": "LiCl、NaCl、KCl 的焰色观察"
+              },
+              {
+                "label": "D",
+                "text": "CuSO₄ 与氨水形成配合物"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "该题考查铅丹 Pb₃O₄ 组成分析的操作链，应围绕同一正式实验任务中的步骤判断。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [
+              "expchunk_00301_dee65904aa"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_11_Q011",
+        "source_review_id": null,
+        "source_question_index": 11,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-8-11 小设计实验》实验中，该小设计实验要求设计分析铅丹 Pb₃O₄ 组成的方法。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "实验内容直接列出。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-bca363dc"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_11",
+          "true_false",
+          "point_1",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00301_dee65904aa"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00756_b42e11e0c6",
+            "textbook_prose_00757_85fc20341a"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00756_b42e11e0c6（Pb₃O₄ 是铅(IV)酸铅(II)盐）；textbook_prose_00757_85fc20341a（PbO₂/Pb₃O₄ 的强氧化性和颜色）。 绑定点位：设计分析铅丹 Pb₃O₄ 组成的实验方法。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00301_dee65904aa"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00756_b42e11e0c6",
+            "textbook_prose_00757_85fc20341a"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00756_b42e11e0c6",
+            "textbook_prose_00757_85fc20341a"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-8-11 小设计实验》实验中，该小设计实验要求设计分析铅丹 Pb₃O₄ 组成的方法。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "实验内容直接列出。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00301_dee65904aa"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_11_Q012",
+        "source_review_id": null,
+        "source_question_index": 12,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-8-11 小设计实验》实验中，实验资料提示 Pb₃O₄ 可与 HNO₃ 微热处理。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "候选步骤这样写。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-4f3744ff"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_11",
+          "true_false",
+          "point_2",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00301_dee65904aa"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00756_b42e11e0c6",
+            "textbook_prose_00757_85fc20341a"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00756_b42e11e0c6（Pb₃O₄ 是铅(IV)酸铅(II)盐）；textbook_prose_00757_85fc20341a（PbO₂/Pb₃O₄ 的强氧化性和颜色）。 绑定点位：Pb₃O₄ + HNO₃，微热。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00301_dee65904aa"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00756_b42e11e0c6",
+            "textbook_prose_00757_85fc20341a"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00756_b42e11e0c6",
+            "textbook_prose_00757_85fc20341a"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-8-11 小设计实验》实验中，实验资料提示 Pb₃O₄ 可与 HNO₃ 微热处理。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "候选步骤这样写。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00301_dee65904aa"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_11_Q013",
+        "source_review_id": null,
+        "source_question_index": 13,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-8-11 小设计实验》实验中，吸取清液后可用稀 H₂SO₄ 检查 Pb²⁺。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "候选步骤直接给出。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-bbffc85e"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_11",
+          "true_false",
+          "point_3",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00301_dee65904aa"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00788_cfbfaab4bc",
+            "textbook_prose_00379_033ea5b92b"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00788_cfbfaab4bc（PbSO₄ 难溶，Pb(NO₃)₂ 可溶）；textbook_prose_00379_033ea5b92b（PbSO₄ 难溶性）。 绑定点位：吸取清液，用稀 H₂SO₄ 检查 Pb²⁺。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00301_dee65904aa"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00788_cfbfaab4bc",
+            "textbook_prose_00379_033ea5b92b"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00788_cfbfaab4bc",
+            "textbook_prose_00379_033ea5b92b"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-8-11 小设计实验》实验中，吸取清液后可用稀 H₂SO₄ 检查 Pb²⁺。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "候选步骤直接给出。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00301_dee65904aa"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_11_Q014",
+        "source_review_id": null,
+        "source_question_index": 14,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-8-11 小设计实验》实验中，Pb²⁺ 与 SO₄²⁻ 可形成难溶 PbSO₄。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "这是检查 Pb²⁺ 的依据。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-bbffc85e"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_11",
+          "true_false",
+          "point_3",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00301_dee65904aa"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00788_cfbfaab4bc",
+            "textbook_prose_00379_033ea5b92b"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00788_cfbfaab4bc（PbSO₄ 难溶，Pb(NO₃)₂ 可溶）；textbook_prose_00379_033ea5b92b（PbSO₄ 难溶性）。 绑定点位：吸取清液，用稀 H₂SO₄ 检查 Pb²⁺。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00301_dee65904aa"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00788_cfbfaab4bc",
+            "textbook_prose_00379_033ea5b92b"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00788_cfbfaab4bc",
+            "textbook_prose_00379_033ea5b92b"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-8-11 小设计实验》实验中，Pb²⁺ 与 SO₄²⁻ 可形成难溶 PbSO₄。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "这是检查 Pb²⁺ 的依据。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00301_dee65904aa"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_11_Q015_R1",
+        "source_review_id": null,
+        "source_question_index": 15,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "true_false",
+        "stem": "在《19-8-11 小设计实验》中，Pb₃O₄ 与 HNO₃ 微热以及取清液用稀 H₂SO₄ 检查 Pb²⁺，属于分析铅丹组成的同一证据链。",
+        "options": [],
+        "answer": {
+          "value": true
+        },
+        "explanation": "该判断绑定到铅丹组成分析、HNO₃ 微热和 H₂SO₄ 检查 Pb²⁺三个正式点位，避免偏离到未列入本块视频点位的 Sb/Bi 分离。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-bca363dc",
+          "candidate-2-4f3744ff",
+          "candidate-3-bbffc85e"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-4f3744ff",
+          "candidate-3-bbffc85e"
+        ],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_11",
+          "true_false",
+          "point_1",
+          "point_2",
+          "point_3",
+          "rewritten_replacement",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00301_dee65904aa"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00756_b42e11e0c6",
+            "textbook_prose_00757_85fc20341a",
+            "textbook_prose_00788_cfbfaab4bc",
+            "textbook_prose_00379_033ea5b92b"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00756_b42e11e0c6（Pb₃O₄ 是铅(IV)酸铅(II)盐）；textbook_prose_00757_85fc20341a（PbO₂/Pb₃O₄ 的强氧化性和颜色）；textbook_prose_00788_cfbfaab4bc（PbSO₄ 难溶，Pb(NO₃)₂ 可溶）；textbook_prose_00379_033ea5b92b（PbSO₄ 难溶性）。 绑定点位：设计分析铅丹 Pb₃O₄ 组成的实验方法；Pb₃O₄ + HNO₃，微热；吸取清液，用稀 H₂SO₄ 检查 Pb²⁺。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00301_dee65904aa"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00756_b42e11e0c6",
+            "textbook_prose_00757_85fc20341a",
+            "textbook_prose_00788_cfbfaab4bc",
+            "textbook_prose_00379_033ea5b92b"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00756_b42e11e0c6",
+            "textbook_prose_00757_85fc20341a",
+            "textbook_prose_00788_cfbfaab4bc",
+            "textbook_prose_00379_033ea5b92b"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-8-11 小设计实验》实验中，SbCl₃ 与 Bi(NO₃)₃ 混合后需要分离鉴定。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "实验内容列出该任务。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00301_dee65904aa"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "true_false",
+            "stem": "在《19-8-11 小设计实验》中，Pb₃O₄ 与 HNO₃ 微热以及取清液用稀 H₂SO₄ 检查 Pb²⁺，属于分析铅丹组成的同一证据链。",
+            "options": [],
+            "answer": {
+              "value": true
+            },
+            "explanation": "该判断绑定到铅丹组成分析、HNO₃ 微热和 H₂SO₄ 检查 Pb²⁺三个正式点位，避免偏离到未列入本块视频点位的 Sb/Bi 分离。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [
+              "expchunk_00301_dee65904aa"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_11_Q016",
+        "source_review_id": null,
+        "source_question_index": 16,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-8-11 小设计实验》实验中，该实验只要求观察水合阳离子颜色，不涉及设计分析。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": false
+        },
+        "explanation": "本实验是小设计。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-bca363dc"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_11",
+          "true_false",
+          "point_1",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00301_dee65904aa"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题答案可由 canonical 实验原文的对象、步骤或观察任务直接支撑，未额外引用 theory。 绑定点位：设计分析铅丹 Pb₃O₄ 组成的实验方法。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00301_dee65904aa"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-8-11 小设计实验》实验中，该实验只要求观察水合阳离子颜色，不涉及设计分析。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "本实验是小设计。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00301_dee65904aa"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_11_Q017_R1",
+        "source_review_id": null,
+        "source_question_index": 17,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "true_false",
+        "stem": "在《19-8-11 小设计实验》中，Pb₃O₄ 的组成分析可围绕 Pb(II) 与 Pb(IV) 两类铅展开。",
+        "options": [],
+        "answer": {
+          "value": true
+        },
+        "explanation": "改写为正向判断，避免“这一判断不正确”的双重否定；该判断由实验步骤或对应性质证据支持。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-bca363dc"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_11",
+          "true_false",
+          "point_1",
+          "rewritten_replacement",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00301_dee65904aa"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00756_b42e11e0c6",
+            "textbook_prose_00757_85fc20341a"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00756_b42e11e0c6（Pb₃O₄ 是铅(IV)酸铅(II)盐）；textbook_prose_00757_85fc20341a（PbO₂/Pb₃O₄ 的强氧化性和颜色）。 绑定点位：设计分析铅丹 Pb₃O₄ 组成的实验方法。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00301_dee65904aa"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00756_b42e11e0c6",
+            "textbook_prose_00757_85fc20341a"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00756_b42e11e0c6",
+            "textbook_prose_00757_85fc20341a"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-8-11 小设计实验》实验中，认为：Pb₃O₄ 的组成分析可围绕 Pb(II) 与 Pb(IV) 两类铅展开，这一判断是不正确的。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "这一判断本身是正确的。铅丹可视作混合价态氧化物。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00301_dee65904aa"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "true_false",
+            "stem": "在《19-8-11 小设计实验》中，Pb₃O₄ 的组成分析可围绕 Pb(II) 与 Pb(IV) 两类铅展开。",
+            "options": [],
+            "answer": {
+              "value": true
+            },
+            "explanation": "改写为正向判断，避免“这一判断不正确”的双重否定；该判断由实验步骤或对应性质证据支持。",
+            "difficulty": "basic",
+            "status": null,
+            "bank_kind": null,
+            "source_chunk_ids": [
+              "expchunk_00301_dee65904aa"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_11_Q018",
+        "source_review_id": null,
+        "source_question_index": 18,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "true_false",
+        "stem": "在《19-8-11 小设计实验》实验中，稀 H₂SO₄ 检查 Pb²⁺ 的依据是生成可溶性臭氧。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": false
+        },
+        "explanation": "依据是难溶 PbSO₄ 沉淀。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-bbffc85e"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_11",
+          "true_false",
+          "point_3",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00301_dee65904aa"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00788_cfbfaab4bc",
+            "textbook_prose_00379_033ea5b92b"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00788_cfbfaab4bc（PbSO₄ 难溶，Pb(NO₃)₂ 可溶）；textbook_prose_00379_033ea5b92b（PbSO₄ 难溶性）。 绑定点位：吸取清液，用稀 H₂SO₄ 检查 Pb²⁺。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00301_dee65904aa"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00788_cfbfaab4bc",
+            "textbook_prose_00379_033ea5b92b"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00788_cfbfaab4bc",
+            "textbook_prose_00379_033ea5b92b"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-8-11 小设计实验》实验中，稀 H₂SO₄ 检查 Pb²⁺ 的依据是生成可溶性臭氧。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "依据是难溶 PbSO₄ 沉淀。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00301_dee65904aa"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_11_Q019_R1_PF1",
+        "source_review_id": null,
+        "source_question_index": 19,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "true_false",
+        "stem": "在《19-8-11 小设计实验》实验中，用稀 H₂SO₄ 检查的是 HNO₃ 处理后清液中的 Pb²⁺，不是 SbCl₃ 与 Bi(NO₃)₃ 的分离鉴定步骤。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "正式视频点位为铅丹组成分析、HNO₃ 微热和清液 Pb²⁺ 检查；该判断用于排除原题偏向未列入本块点位的 Sb/Bi 分离。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-4f3744ff",
+          "candidate-3-bbffc85e"
+        ],
+        "secondary_point_keys": [
+          "candidate-3-bbffc85e"
+        ],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_11",
+          "true_false",
+          "rewritten_replacement",
+          "polished_final_v1",
+          "point_2",
+          "point_3"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00301_dee65904aa"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00756_b42e11e0c6",
+            "textbook_prose_00757_85fc20341a",
+            "textbook_prose_00788_cfbfaab4bc",
+            "textbook_prose_00379_033ea5b92b"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00756_b42e11e0c6（Pb₃O₄ 是铅(IV)酸铅(II)盐）；textbook_prose_00757_85fc20341a（PbO₂/Pb₃O₄ 的强氧化性和颜色）；textbook_prose_00788_cfbfaab4bc（PbSO₄ 难溶，Pb(NO₃)₂ 可溶）；textbook_prose_00379_033ea5b92b（PbSO₄ 难溶性）。 绑定点位：Pb₃O₄ + HNO₃，微热；吸取清液，用稀 H₂SO₄ 检查 Pb²⁺。 本轮 polish 已改写为可机器确定性判分的有效题，避免重复题干或手机端化学式输入风险。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00301_dee65904aa"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00756_b42e11e0c6",
+            "textbook_prose_00757_85fc20341a",
+            "textbook_prose_00788_cfbfaab4bc",
+            "textbook_prose_00379_033ea5b92b"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00756_b42e11e0c6",
+            "textbook_prose_00757_85fc20341a",
+            "textbook_prose_00788_cfbfaab4bc",
+            "textbook_prose_00379_033ea5b92b"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-8-11 小设计实验》实验中，认为：Bi(NO₃)₃ 中含有铋元素，这一判断是不正确的。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "这一判断本身是正确的。化学式中的 Bi 为铋。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00301_dee65904aa"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "true_false",
+            "stem": "在《19-8-11 小设计实验》实验中，用稀 H₂SO₄ 检查的是 HNO₃ 处理后清液中的 Pb²⁺，不是 SbCl₃ 与 Bi(NO₃)₃ 的分离鉴定步骤。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "正式视频点位为铅丹组成分析、HNO₃ 微热和清液 Pb²⁺ 检查；该判断用于排除原题偏向未列入本块点位的 Sb/Bi 分离。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00301_dee65904aa"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_11_Q020_R1_PF1",
+        "source_review_id": null,
+        "source_question_index": 20,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "true_false",
+        "stem": "在《19-8-11 小设计实验》实验中，若省去清液的稀 H₂SO₄ 检查，仅凭 Pb₃O₄ 与 HNO₃ 微热不能完成 Pb²⁺ 证据确认。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "H₂SO₄ 检查 Pb²⁺ 是铅丹组成分析证据链中的独立确认步骤；改写后与 Q015/Q019 不重复。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-bca363dc",
+          "candidate-2-4f3744ff",
+          "candidate-3-bbffc85e"
+        ],
+        "secondary_point_keys": [
+          "candidate-2-4f3744ff",
+          "candidate-3-bbffc85e"
+        ],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_11",
+          "true_false",
+          "rewritten_replacement",
+          "polished_final_v1",
+          "point_1",
+          "point_2",
+          "point_3"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00301_dee65904aa"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00756_b42e11e0c6",
+            "textbook_prose_00757_85fc20341a",
+            "textbook_prose_00788_cfbfaab4bc",
+            "textbook_prose_00379_033ea5b92b"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00756_b42e11e0c6（Pb₃O₄ 是铅(IV)酸铅(II)盐）；textbook_prose_00757_85fc20341a（PbO₂/Pb₃O₄ 的强氧化性和颜色）；textbook_prose_00788_cfbfaab4bc（PbSO₄ 难溶，Pb(NO₃)₂ 可溶）；textbook_prose_00379_033ea5b92b（PbSO₄ 难溶性）。 绑定点位：设计分析铅丹 Pb₃O₄ 组成的实验方法；Pb₃O₄ + HNO₃，微热；吸取清液，用稀 H₂SO₄ 检查 Pb²⁺。 本轮 polish 已改写为可机器确定性判分的有效题，避免重复题干或手机端化学式输入风险。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00301_dee65904aa"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00756_b42e11e0c6",
+            "textbook_prose_00757_85fc20341a",
+            "textbook_prose_00788_cfbfaab4bc",
+            "textbook_prose_00379_033ea5b92b"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00756_b42e11e0c6",
+            "textbook_prose_00757_85fc20341a",
+            "textbook_prose_00788_cfbfaab4bc",
+            "textbook_prose_00379_033ea5b92b"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "true_false",
+            "stem": "在《19-8-11 小设计实验》实验中，认为：SbCl₃ 中含有锑元素，这一判断是不正确的。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": false
+            },
+            "explanation": "这一判断本身是正确的。化学式中的 Sb 为锑。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00301_dee65904aa"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "true_false",
+            "stem": "在《19-8-11 小设计实验》实验中，若省去清液的稀 H₂SO₄ 检查，仅凭 Pb₃O₄ 与 HNO₃ 微热不能完成 Pb²⁺ 证据确认。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "H₂SO₄ 检查 Pb²⁺ 是铅丹组成分析证据链中的独立确认步骤；改写后与 Q015/Q019 不重复。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00301_dee65904aa"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_11_Q021",
+        "source_review_id": null,
+        "source_question_index": 21,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《19-8-11 小设计实验》实验中，铅丹的化学式是____。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "Pb₃O₄",
+            "四氧化三铅"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "对应的实验操作或现象内容是“Pb₃O₄”。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-bca363dc"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_11",
+          "fill_blank",
+          "point_1",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00301_dee65904aa"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00756_b42e11e0c6",
+            "textbook_prose_00757_85fc20341a"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00756_b42e11e0c6（Pb₃O₄ 是铅(IV)酸铅(II)盐）；textbook_prose_00757_85fc20341a（PbO₂/Pb₃O₄ 的强氧化性和颜色）。 绑定点位：设计分析铅丹 Pb₃O₄ 组成的实验方法。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00301_dee65904aa"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00756_b42e11e0c6",
+            "textbook_prose_00757_85fc20341a"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00756_b42e11e0c6",
+            "textbook_prose_00757_85fc20341a"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "formula_or_symbolic_fill_blank_answer",
+          "generic_or_answer_shell_explanation",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-8-11 小设计实验》实验中，铅丹的化学式是____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "Pb₃O₄",
+                "四氧化三铅"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "对应的实验操作或现象内容是“Pb₃O₄”。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00301_dee65904aa"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_11_Q022",
+        "source_review_id": null,
+        "source_question_index": 22,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《19-8-11 小设计实验》实验中，铅丹组成分析候选步骤中，Pb₃O₄ 先与____微热。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "HNO₃",
+            "硝酸"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "对应的实验操作或现象内容是“HNO₃”。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-4f3744ff"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_11",
+          "fill_blank",
+          "point_2",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00301_dee65904aa"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00756_b42e11e0c6",
+            "textbook_prose_00757_85fc20341a"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00756_b42e11e0c6（Pb₃O₄ 是铅(IV)酸铅(II)盐）；textbook_prose_00757_85fc20341a（PbO₂/Pb₃O₄ 的强氧化性和颜色）。 绑定点位：Pb₃O₄ + HNO₃，微热。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00301_dee65904aa"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00756_b42e11e0c6",
+            "textbook_prose_00757_85fc20341a"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00756_b42e11e0c6",
+            "textbook_prose_00757_85fc20341a"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "formula_or_symbolic_fill_blank_answer",
+          "generic_or_answer_shell_explanation",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-8-11 小设计实验》实验中，铅丹组成分析候选步骤中，Pb₃O₄ 先与____微热。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "HNO₃",
+                "硝酸"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "对应的实验操作或现象内容是“HNO₃”。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00301_dee65904aa"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_11_Q023",
+        "source_review_id": null,
+        "source_question_index": 23,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《19-8-11 小设计实验》实验中，吸取清液后，用稀____检查 Pb²⁺。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "H₂SO₄",
+            "硫酸"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "对应的实验操作或现象内容是“H₂SO₄”。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-bbffc85e"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_11",
+          "fill_blank",
+          "point_3",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00301_dee65904aa"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00788_cfbfaab4bc",
+            "textbook_prose_00379_033ea5b92b"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00788_cfbfaab4bc（PbSO₄ 难溶，Pb(NO₃)₂ 可溶）；textbook_prose_00379_033ea5b92b（PbSO₄ 难溶性）。 绑定点位：吸取清液，用稀 H₂SO₄ 检查 Pb²⁺。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00301_dee65904aa"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00788_cfbfaab4bc",
+            "textbook_prose_00379_033ea5b92b"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00788_cfbfaab4bc",
+            "textbook_prose_00379_033ea5b92b"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "formula_or_symbolic_fill_blank_answer",
+          "generic_or_answer_shell_explanation",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-8-11 小设计实验》实验中，吸取清液后，用稀____检查 Pb²⁺。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "H₂SO₄",
+                "硫酸"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "对应的实验操作或现象内容是“H₂SO₄”。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00301_dee65904aa"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_11_Q024",
+        "source_review_id": null,
+        "source_question_index": 24,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《19-8-11 小设计实验》实验中，Pb²⁺ 与 SO₄²⁻ 形成的难溶沉淀是____。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "PbSO₄",
+            "硫酸铅"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "对应的实验操作或现象内容是“PbSO₄”。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-bbffc85e"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_11",
+          "fill_blank",
+          "point_3",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00301_dee65904aa"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00788_cfbfaab4bc",
+            "textbook_prose_00379_033ea5b92b"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00788_cfbfaab4bc（PbSO₄ 难溶，Pb(NO₃)₂ 可溶）；textbook_prose_00379_033ea5b92b（PbSO₄ 难溶性）。 绑定点位：吸取清液，用稀 H₂SO₄ 检查 Pb²⁺。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00301_dee65904aa"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00788_cfbfaab4bc",
+            "textbook_prose_00379_033ea5b92b"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00788_cfbfaab4bc",
+            "textbook_prose_00379_033ea5b92b"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "formula_or_symbolic_fill_blank_answer",
+          "generic_or_answer_shell_explanation",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-8-11 小设计实验》实验中，Pb²⁺ 与 SO₄²⁻ 形成的难溶沉淀是____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "PbSO₄",
+                "硫酸铅"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "对应的实验操作或现象内容是“PbSO₄”。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00301_dee65904aa"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_11_Q025",
+        "source_review_id": null,
+        "source_question_index": 25,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《19-8-11 小设计实验》实验中，Pb₃O₄ 可用于讨论 Pb(II) 和____两种价态。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "Pb(IV)",
+            "Pb⁴⁺",
+            "四价铅"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "对应的实验操作或现象内容是“Pb(IV)”。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-bca363dc"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_11",
+          "fill_blank",
+          "point_1",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00301_dee65904aa"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00756_b42e11e0c6",
+            "textbook_prose_00757_85fc20341a"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00756_b42e11e0c6（Pb₃O₄ 是铅(IV)酸铅(II)盐）；textbook_prose_00757_85fc20341a（PbO₂/Pb₃O₄ 的强氧化性和颜色）。 绑定点位：设计分析铅丹 Pb₃O₄ 组成的实验方法。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00301_dee65904aa"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00756_b42e11e0c6",
+            "textbook_prose_00757_85fc20341a"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00756_b42e11e0c6",
+            "textbook_prose_00757_85fc20341a"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "formula_or_symbolic_fill_blank_answer",
+          "generic_or_answer_shell_explanation",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-8-11 小设计实验》实验中，Pb₃O₄ 可用于讨论 Pb(II) 和____两种价态。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "Pb(IV)",
+                "Pb⁴⁺",
+                "四价铅"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "对应的实验操作或现象内容是“Pb(IV)”。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00301_dee65904aa"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_11_Q026_R1_PF1",
+        "source_review_id": null,
+        "source_question_index": 26,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-8-11 小设计实验》实验中，稀 H₂SO₄ 检查 Pb²⁺ 时，最关键的可观察依据是哪一项？",
+        "options": [
+          {
+            "label": "A",
+            "text": "形成难溶的 PbSO₄ 沉淀"
+          },
+          {
+            "label": "B",
+            "text": "生成紫色 CCl₄ 有机层"
+          },
+          {
+            "label": "C",
+            "text": "产生 K⁺ 的紫色焰色"
+          },
+          {
+            "label": "D",
+            "text": "形成 Fe³⁺-SCN⁻ 血红色"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "清液中 Pb²⁺ 与稀 H₂SO₄ 的检查以难溶 PbSO₄ 为依据；改写后避免 Pb²⁺ 填空重复。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-bbffc85e"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_11",
+          "fill_blank",
+          "rewritten_replacement",
+          "polished_final_v1",
+          "point_3"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "形成难溶的 PbSO₄ 沉淀",
+            "point_key": "candidate-3-bbffc85e",
+            "role": "correct_evidence",
+            "diagnostic_note": "“形成难溶的 PbSO₄ 沉淀”对应本题正确判断；教材步骤/点位支撑“在《19-8-11 小设计实验》实验中，稀 H₂SO₄ 检查 P”中的关键操作或结论。"
+          },
+          {
+            "label": "B",
+            "text": "生成紫色 CCl₄ 有机层",
+            "point_key": "candidate-3-bbffc85e",
+            "role": "adjacent_experiment",
+            "diagnostic_note": "“生成紫色 CCl₄ 有机层”借用了KI/CCl₄ 萃取碘的线索，和本题绑定点位不一致。"
+          },
+          {
+            "label": "C",
+            "text": "产生 K⁺ 的紫色焰色",
+            "point_key": "candidate-3-bbffc85e",
+            "role": "adjacent_experiment",
+            "diagnostic_note": "“产生 K⁺ 的紫色焰色”借用了焰色反应的线索，和本题绑定点位不一致。"
+          },
+          {
+            "label": "D",
+            "text": "形成 Fe³⁺-SCN⁻ 血红色",
+            "point_key": "candidate-3-bbffc85e",
+            "role": "adjacent_experiment",
+            "diagnostic_note": "“形成 Fe³⁺-SCN⁻ 血红色”借用了Fe³⁺/KSCN 血红色检验的线索，和本题绑定点位不一致。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00301_dee65904aa"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00788_cfbfaab4bc",
+            "textbook_prose_00379_033ea5b92b"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00788_cfbfaab4bc（PbSO₄ 难溶，Pb(NO₃)₂ 可溶）；textbook_prose_00379_033ea5b92b（PbSO₄ 难溶性）。 绑定点位：吸取清液，用稀 H₂SO₄ 检查 Pb²⁺。 本轮 polish 已改写为可机器确定性判分的有效题，避免重复题干或手机端化学式输入风险。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00301_dee65904aa"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00788_cfbfaab4bc",
+            "textbook_prose_00379_033ea5b92b"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00788_cfbfaab4bc",
+            "textbook_prose_00379_033ea5b92b"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-8-11 小设计实验》实验中，另一个小设计任务混合的是 SbCl₃ 和____溶液。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "Bi(NO₃)₃",
+                "硝酸铋"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00301_dee65904aa"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-8-11 小设计实验》实验中，稀 H₂SO₄ 检查 Pb²⁺ 时，最关键的可观察依据是哪一项？",
+            "options": [
+              {
+                "label": "A",
+                "text": "形成难溶的 PbSO₄ 沉淀"
+              },
+              {
+                "label": "B",
+                "text": "生成紫色 CCl₄ 有机层"
+              },
+              {
+                "label": "C",
+                "text": "产生 K⁺ 的紫色焰色"
+              },
+              {
+                "label": "D",
+                "text": "形成 Fe³⁺-SCN⁻ 血红色"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "清液中 Pb²⁺ 与稀 H₂SO₄ 的检查以难溶 PbSO₄ 为依据；改写后避免 Pb²⁺ 填空重复。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00301_dee65904aa"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_11_Q027_R1_PF1",
+        "source_review_id": null,
+        "source_question_index": 27,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "single_choice",
+        "stem": "在《19-8-11 小设计实验》实验中，吸取清液而不是直接处理残渣，更接近哪一项实验意图？",
+        "options": [
+          {
+            "label": "A",
+            "text": "在溶液相中检查 HNO₃ 处理后进入清液的 Pb²⁺"
+          },
+          {
+            "label": "B",
+            "text": "用残渣直接做焰色反应"
+          },
+          {
+            "label": "C",
+            "text": "用 CCl₄ 萃取 PbO₂"
+          },
+          {
+            "label": "D",
+            "text": "用 NaOH 鉴定 K⁺"
+          }
+        ],
+        "answer": {
+          "value": "A"
+        },
+        "explanation": "教材步骤明确为吸取清液再加稀 H₂SO₄；本题考查“清液”这一操作选择的含义，与 Q026 的沉淀依据区分。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-2-4f3744ff",
+          "candidate-3-bbffc85e"
+        ],
+        "secondary_point_keys": [
+          "candidate-3-bbffc85e"
+        ],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_11",
+          "fill_blank",
+          "rewritten_replacement",
+          "polished_final_v1",
+          "point_2",
+          "point_3"
+        ],
+        "option_links": [
+          {
+            "label": "A",
+            "text": "在溶液相中检查 HNO₃ 处理后进入清液的 Pb²⁺",
+            "point_key": "candidate-2-4f3744ff",
+            "role": "correct_evidence",
+            "diagnostic_note": "“在溶液相中检查 HNO₃ 处理后进入清液的 Pb²⁺”对应本题正确判断；教材步骤/点位支撑“在《19-8-11 小设计实验》实验中，吸取清液而不是直接处理残”中的关键操作或结论。"
+          },
+          {
+            "label": "B",
+            "text": "用残渣直接做焰色反应",
+            "point_key": "candidate-2-4f3744ff",
+            "role": "adjacent_experiment",
+            "diagnostic_note": "“用残渣直接做焰色反应”借用了焰色反应的线索，和本题绑定点位不一致。"
+          },
+          {
+            "label": "C",
+            "text": "用 CCl₄ 萃取 PbO₂",
+            "point_key": "candidate-2-4f3744ff",
+            "role": "adjacent_experiment",
+            "diagnostic_note": "“用 CCl₄ 萃取 PbO₂”借用了KI/CCl₄ 萃取碘的线索，和本题绑定点位不一致。"
+          },
+          {
+            "label": "D",
+            "text": "用 NaOH 鉴定 K⁺",
+            "point_key": "candidate-2-4f3744ff",
+            "role": "distractor_misconception",
+            "diagnostic_note": "“用 NaOH 鉴定 K⁺”会把试剂、现象或结论方向混到本题中；按本实验点位不能推出该选项。"
+          }
+        ],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00301_dee65904aa"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00788_cfbfaab4bc",
+            "textbook_prose_00379_033ea5b92b"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00788_cfbfaab4bc（PbSO₄ 难溶，Pb(NO₃)₂ 可溶）；textbook_prose_00379_033ea5b92b（PbSO₄ 难溶性）。 绑定点位：Pb₃O₄ + HNO₃，微热；吸取清液，用稀 H₂SO₄ 检查 Pb²⁺。 本轮 polish 已改写为可机器确定性判分的有效题，避免重复题干或手机端化学式输入风险。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00301_dee65904aa"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00788_cfbfaab4bc",
+            "textbook_prose_00379_033ea5b92b"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00788_cfbfaab4bc",
+            "textbook_prose_00379_033ea5b92b"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "ascii_formula_like_visible_text",
+          "multi_point_binding",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-8-11 小设计实验》实验中，SbCl₃ 中的元素 Sb 是____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "锑"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00301_dee65904aa"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "single_choice",
+            "stem": "在《19-8-11 小设计实验》实验中，吸取清液而不是直接处理残渣，更接近哪一项实验意图？",
+            "options": [
+              {
+                "label": "A",
+                "text": "在溶液相中检查 HNO₃ 处理后进入清液的 Pb²⁺"
+              },
+              {
+                "label": "B",
+                "text": "用残渣直接做焰色反应"
+              },
+              {
+                "label": "C",
+                "text": "用 CCl₄ 萃取 PbO₂"
+              },
+              {
+                "label": "D",
+                "text": "用 NaOH 鉴定 K⁺"
+              }
+            ],
+            "answer": {
+              "value": "A"
+            },
+            "explanation": "教材步骤明确为吸取清液再加稀 H₂SO₄；本题考查“清液”这一操作选择的含义，与 Q026 的沉淀依据区分。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00301_dee65904aa"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_11_Q028_R1_PF1",
+        "source_review_id": null,
+        "source_question_index": 28,
+        "active": true,
+        "review_decision": "rewrite",
+        "effective_source": "proposed_question",
+        "question_type": "true_false",
+        "stem": "在《19-8-11 小设计实验》实验中，稀 H₂SO₄ 步骤的判断对象是清液中的 Pb²⁺，而不是检验 HNO₃ 本身。",
+        "options": [
+          {
+            "label": "T",
+            "text": "正确"
+          },
+          {
+            "label": "F",
+            "text": "错误"
+          }
+        ],
+        "answer": {
+          "value": true
+        },
+        "explanation": "该点位写明“吸取清液，用稀 H₂SO₄ 检查 Pb²⁺”；本题改成对象辨析，避免第三个重复填空。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-bbffc85e"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_11",
+          "fill_blank",
+          "rewritten_replacement",
+          "polished_final_v1",
+          "point_3"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00301_dee65904aa"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00788_cfbfaab4bc",
+            "textbook_prose_00379_033ea5b92b"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00788_cfbfaab4bc（PbSO₄ 难溶，Pb(NO₃)₂ 可溶）；textbook_prose_00379_033ea5b92b（PbSO₄ 难溶性）。 绑定点位：吸取清液，用稀 H₂SO₄ 检查 Pb²⁺。 本轮 polish 已改写为可机器确定性判分的有效题，避免重复题干或手机端化学式输入风险。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00301_dee65904aa"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00788_cfbfaab4bc",
+            "textbook_prose_00379_033ea5b92b"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00788_cfbfaab4bc",
+            "textbook_prose_00379_033ea5b92b"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-8-11 小设计实验》实验中，Bi(NO₃)₃ 中的元素 Bi 是____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "铋"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00301_dee65904aa"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": {
+            "question_type": "true_false",
+            "stem": "在《19-8-11 小设计实验》实验中，稀 H₂SO₄ 步骤的判断对象是清液中的 Pb²⁺，而不是检验 HNO₃ 本身。",
+            "options": [
+              {
+                "label": "T",
+                "text": "正确"
+              },
+              {
+                "label": "F",
+                "text": "错误"
+              }
+            ],
+            "answer": {
+              "value": true
+            },
+            "explanation": "该点位写明“吸取清液，用稀 H₂SO₄ 检查 Pb²⁺”；本题改成对象辨析，避免第三个重复填空。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00301_dee65904aa"
+            ],
+            "source_refs": []
+          },
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_11_Q029",
+        "source_review_id": null,
+        "source_question_index": 29,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《19-8-11 小设计实验》实验中，该实验名称中的“小设计”强调需要自行设计分析、分离和____步骤。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "鉴定"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "对应的实验操作或现象内容是“鉴定”。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-1-bca363dc"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_11",
+          "fill_blank",
+          "point_1",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00301_dee65904aa"
+          ],
+          "supporting_theory_chunk_ids": [],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题答案可由 canonical 实验原文的对象、步骤或观察任务直接支撑，未额外引用 theory。 绑定点位：设计分析铅丹 Pb₃O₄ 组成的实验方法。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00301_dee65904aa"
+          ],
+          "supporting_theory_ids": [],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": []
+        },
+        "mechanical_risk_flags": [
+          "generic_or_answer_shell_explanation",
+          "old_or_inherited_audit_language"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-8-11 小设计实验》实验中，该实验名称中的“小设计”强调需要自行设计分析、分离和____步骤。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "鉴定"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "对应的实验操作或现象内容是“鉴定”。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00301_dee65904aa"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed"
+          ]
+        }
+      },
+      {
+        "question_id": "OLD_CHUNK3_EXP_19_8_11_Q030",
+        "source_review_id": null,
+        "source_question_index": 30,
+        "active": true,
+        "review_decision": "keep",
+        "effective_source": "original_question",
+        "question_type": "fill_blank",
+        "stem": "在《19-8-11 小设计实验》实验中，用稀 H₂SO₄ 检查 Pb²⁺ 的关键离子是____。",
+        "options": [],
+        "answer": {
+          "accepted_answers": [
+            "SO₄²⁻",
+            "硫酸根"
+          ],
+          "match": "normalized_exact"
+        },
+        "explanation": "对应的实验操作或现象内容是“SO₄²⁻”。",
+        "difficulty": "basic",
+        "status": "draft",
+        "bank_kind": "default",
+        "primary_point_keys": [
+          "candidate-3-bbffc85e"
+        ],
+        "secondary_point_keys": [],
+        "coverage_tags": [
+          "old_bank_chunk_3",
+          "19_8_11",
+          "fill_blank",
+          "point_3",
+          "polished_final_v1"
+        ],
+        "option_links": [],
+        "source_audit": {
+          "canonical_chunk_ids": [
+            "expchunk_00301_dee65904aa"
+          ],
+          "supporting_theory_chunk_ids": [
+            "textbook_prose_00788_cfbfaab4bc",
+            "textbook_prose_00379_033ea5b92b"
+          ],
+          "evidence_sufficient": true,
+          "reviewer_note": "polished final：已按有效版本复核 canonical 实验步骤、点位绑定和机器判分确定性。 本题的颜色/产物/价态/酸碱或氧化还原判断依赖 supporting theory：textbook_prose_00788_cfbfaab4bc（PbSO₄ 难溶，Pb(NO₃)₂ 可溶）；textbook_prose_00379_033ea5b92b（PbSO₄ 难溶性）。 绑定点位：吸取清液，用稀 H₂SO₄ 检查 Pb²⁺。",
+          "supporting_theory_note": null
+        },
+        "evidence_ref_status": {
+          "meaning": "presence check only; semantic support must be manually verified against RAG chunks",
+          "canonical_ids": [
+            "expchunk_00301_dee65904aa"
+          ],
+          "supporting_theory_ids": [
+            "textbook_prose_00788_cfbfaab4bc",
+            "textbook_prose_00379_033ea5b92b"
+          ],
+          "missing_canonical_ids": [],
+          "missing_supporting_theory_ids": [
+            "textbook_prose_00788_cfbfaab4bc",
+            "textbook_prose_00379_033ea5b92b"
+          ]
+        },
+        "mechanical_risk_flags": [
+          "formula_or_symbolic_fill_blank_answer",
+          "generic_or_answer_shell_explanation",
+          "old_or_inherited_audit_language",
+          "uses_supporting_theory"
+        ],
+        "lineage": {
+          "original_question": {
+            "question_type": "fill_blank",
+            "stem": "在《19-8-11 小设计实验》实验中，用稀 H₂SO₄ 检查 Pb²⁺ 的关键离子是____。",
+            "options": [],
+            "answer": {
+              "accepted_answers": [
+                "SO₄²⁻",
+                "硫酸根"
+              ],
+              "match": "normalized_exact"
+            },
+            "explanation": "对应的实验操作或现象内容是“SO₄²⁻”。",
+            "difficulty": "basic",
+            "status": "draft",
+            "bank_kind": "default",
+            "source_chunk_ids": [
+              "expchunk_00301_dee65904aa"
+            ],
+            "source_refs": []
+          },
+          "proposed_question": null,
+          "previous_quality_flags": [
+            "semantic_final_reviewed",
+            "theory_dependent_for_outcome_or_property"
+          ]
+        }
+      }
+    ]
+  }
+}

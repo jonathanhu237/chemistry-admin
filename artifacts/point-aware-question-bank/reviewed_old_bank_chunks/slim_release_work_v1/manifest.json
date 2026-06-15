@@ -1,0 +1,112 @@
+{
+  "generated_at": "2026-06-15T03:27:58.532253+00:00",
+  "input_dir": "E:\\chemistry-admin\\artifacts\\point-aware-question-bank\\reviewed_old_bank_chunks",
+  "output_dir": "E:\\chemistry-admin\\artifacts\\point-aware-question-bank\\reviewed_old_bank_chunks\\slim_release_work_v1",
+  "rag_ready_dir": "E:\\chemistry-rag\\data\\rag_ready",
+  "rag_source_files": {
+    "experiment_chunks": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+    "supporting_theory_chunks": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl"
+  },
+  "evidence_policy": "locator_only_no_canonical_text_embedded",
+  "chunks": [
+    {
+      "chunk": 1,
+      "source_file": "E:\\chemistry-admin\\artifacts\\point-aware-question-bank\\reviewed_old_bank_chunks\\chunk_1_release_final_v1.json",
+      "slim_file": "E:\\chemistry-admin\\artifacts\\point-aware-question-bank\\reviewed_old_bank_chunks\\slim_release_work_v1\\chunk_1_release_slim_v1.json",
+      "experiments": 15,
+      "questions": 450,
+      "risk_counts": {
+        "ascii_formula_like_visible_text": 17,
+        "formula_or_symbolic_fill_blank_answer": 6,
+        "multi_point_binding": 204,
+        "uses_supporting_theory": 41
+      },
+      "type_counts": {
+        "fill_blank": 51,
+        "single_choice": 270,
+        "true_false": 129
+      }
+    },
+    {
+      "chunk": 2,
+      "source_file": "E:\\chemistry-admin\\artifacts\\point-aware-question-bank\\reviewed_old_bank_chunks\\chunk_2_release_final_v1.json",
+      "slim_file": "E:\\chemistry-admin\\artifacts\\point-aware-question-bank\\reviewed_old_bank_chunks\\slim_release_work_v1\\chunk_2_release_slim_v1.json",
+      "experiments": 15,
+      "questions": 450,
+      "risk_counts": {
+        "ascii_formula_like_visible_text": 35,
+        "formula_or_symbolic_fill_blank_answer": 15,
+        "generic_or_answer_shell_explanation": 117,
+        "multi_point_binding": 140,
+        "old_or_inherited_audit_language": 448,
+        "uses_supporting_theory": 170
+      },
+      "type_counts": {
+        "fill_blank": 64,
+        "single_choice": 271,
+        "true_false": 115
+      }
+    },
+    {
+      "chunk": 3,
+      "source_file": "E:\\chemistry-admin\\artifacts\\point-aware-question-bank\\reviewed_old_bank_chunks\\chunk_3_release_final_v1.json",
+      "slim_file": "E:\\chemistry-admin\\artifacts\\point-aware-question-bank\\reviewed_old_bank_chunks\\slim_release_work_v1\\chunk_3_release_slim_v1.json",
+      "experiments": 15,
+      "questions": 450,
+      "risk_counts": {
+        "ascii_formula_like_visible_text": 304,
+        "formula_or_symbolic_fill_blank_answer": 70,
+        "generic_or_answer_shell_explanation": 81,
+        "multi_point_binding": 174,
+        "old_or_inherited_audit_language": 450,
+        "template_option_link_diagnostic": 144,
+        "uses_supporting_theory": 368
+      },
+      "type_counts": {
+        "fill_blank": 133,
+        "single_choice": 164,
+        "true_false": 153
+      }
+    },
+    {
+      "chunk": 4,
+      "source_file": "E:\\chemistry-admin\\artifacts\\point-aware-question-bank\\reviewed_old_bank_chunks\\chunk_4_release_final_v1.json",
+      "slim_file": "E:\\chemistry-admin\\artifacts\\point-aware-question-bank\\reviewed_old_bank_chunks\\slim_release_work_v1\\chunk_4_release_slim_v1.json",
+      "experiments": 15,
+      "questions": 450,
+      "risk_counts": {
+        "ascii_formula_like_visible_text": 156,
+        "english_option_link_diagnostic": 13,
+        "formula_or_symbolic_fill_blank_answer": 17,
+        "generic_or_answer_shell_explanation": 104,
+        "multi_point_binding": 221,
+        "old_or_inherited_audit_language": 448,
+        "uses_supporting_theory": 226
+      },
+      "type_counts": {
+        "fill_blank": 125,
+        "single_choice": 218,
+        "true_false": 107
+      }
+    },
+    {
+      "chunk": 5,
+      "source_file": "E:\\chemistry-admin\\artifacts\\point-aware-question-bank\\reviewed_old_bank_chunks\\chunk_5_release_final_v1.json",
+      "slim_file": "E:\\chemistry-admin\\artifacts\\point-aware-question-bank\\reviewed_old_bank_chunks\\slim_release_work_v1\\chunk_5_release_slim_v1.json",
+      "experiments": 17,
+      "questions": 510,
+      "risk_counts": {
+        "ascii_formula_like_visible_text": 329,
+        "generic_or_answer_shell_explanation": 20,
+        "multi_point_binding": 113,
+        "old_or_inherited_audit_language": 506,
+        "uses_supporting_theory": 203
+      },
+      "type_counts": {
+        "fill_blank": 35,
+        "single_choice": 322,
+        "true_false": 153
+      }
+    }
+  ]
+}

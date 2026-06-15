@@ -1,0 +1,969 @@
+{
+  "metadata": {
+    "schema_version": "rebuilt_experiment_question_package_v1",
+    "artifact_type": "manual_semantic_reconstruction_v1",
+    "source_packet": "E:\\chemistry-admin\\artifacts\\point-aware-question-bank\\reviewed_old_bank_chunks\\slim_release_work_v1\\semantic_work_packets\\chunk_3\\19-6-02.json",
+    "experiment_code": "19-6-02",
+    "experiment_title": "金属镁燃烧",
+    "chunk": "chunk_3",
+    "question_count": 30,
+    "reconstruction_mode": "manual_per_question_semantic_rebuild",
+    "release_json_modified": false,
+    "evidence_policy": [
+      "每道题按 source question、video point、canonical RAG 和必要 supporting theory 重新判断。",
+      "canonical 实验文本只直接支持取镁条、砂纸除氧化层、点燃、观察现象以及本节用于总结活泼性。",
+      "Mg 燃烧产物属于普通氧化物的判断使用 supporting theory，不把 inherited ids 当作自动证明。",
+      "不把 RAG 原文大段嵌入题库 JSON，只保留 locator、行号和简短 source summary。"
+    ],
+    "rag_source_dir": "E:\\chemistry-rag\\data\\rag_ready"
+  },
+  "video_points": [
+    {
+      "point_key": "candidate-1-a3329021",
+      "point_title": "镁条除去氧化膜后点燃"
+    },
+    {
+      "point_key": "candidate-2-ea144d3d",
+      "point_title": "观察镁燃烧及生成物"
+    }
+  ],
+  "evidence_sources": {
+    "canonical_experiment_chunks": [
+      {
+        "chunk_id": "expchunk_protocol_8d70481ad785",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+        "line_number": 7,
+        "source_summary": "实验 19-6 的 protocol 级 locator，提供本 packet 所属实验章节背景。"
+      },
+      {
+        "chunk_id": "expchunk_00266_c041a8c010",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+        "line_number": 279,
+        "source_summary": "实验内容 *1 中明确写到取一小段金属镁条，用砂纸除去表面氧化层，点燃，观察现象；同 chunk 也给出钠燃烧、水作用、钠汞齐等可作为干扰项边界。"
+      },
+      {
+        "chunk_id": "expchunk_00267_6f29b82f65",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_experiment_chunks_v1.jsonl",
+        "line_number": 280,
+        "source_summary": "实验后要求根据以上反应总结碱金属、碱土金属活泼性，支持把镁燃烧放在活泼性比较任务中理解。"
+      }
+    ],
+    "supporting_theory_chunks": [
+      {
+        "chunk_id": "textbook_table_record_table_p158_t01_r011",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+        "line_number": 1510,
+        "source_summary": "表 18.2 说明锂、铍、镁、钙、锶的燃烧产物为普通氧化物，用于支撑镁燃烧产物类别判断。"
+      },
+      {
+        "chunk_id": "textbook_prose_00272_faa84a49a8",
+        "source_file": "E:\\chemistry-rag\\data\\rag_ready\\chunks\\textbook_inorganic_lower_chunks_v1.jsonl",
+        "line_number": 491,
+        "source_summary": "氧化物定义与普通氧化物、过氧化物、超氧化物等类别区分，用于解释为什么产物类别题需要理论证据。"
+      }
+    ]
+  },
+  "questions": [
+    {
+      "question_id": "REBUILT_CH3_19_6_02_Q001",
+      "source_question_ids": ["OLD_CHUNK3_EXP_19_6_02_Q001", "OLD_CHUNK3_EXP_19_6_02_Q011"],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "single_choice",
+      "stem": "按教材实验步骤，《19-6-02 金属镁燃烧》的完整操作链应怎样概括？",
+      "options": [
+        {"label": "A", "text": "取一小段镁条，用砂纸除去表面氧化层，点燃后观察现象"},
+        {"label": "B", "text": "将镁条分别放入冷水和热水中，比较反应差异"},
+        {"label": "C", "text": "把钠放入汞滴中形成钠汞齐，再转移到水中比较反应"},
+        {"label": "D", "text": "用钴玻璃观察钾离子的焰色并记录颜色"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "教材实验步骤明确给出的镁燃烧操作是取一小段金属镁条，用砂纸除去表面氧化层，点燃并观察现象。B、C、D 都属于同一章中相邻任务或其他小实验，不是本实验的操作链。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-1-a3329021", "candidate-2-ea144d3d"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["operation_sequence", "multi_point", "canonical_boundary"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-1-a3329021", "role": "correct_evidence", "diagnostic_note": "该项同时包含先处理镁条表面和随后点燃观察两个实验步骤。"},
+        {"label": "B", "point_key": null, "role": "distractor_wrong_subexperiment", "diagnostic_note": "这是镁与水作用的对比任务，不是镁燃烧。"},
+        {"label": "C", "point_key": null, "role": "distractor_wrong_subexperiment", "diagnostic_note": "这是钠汞齐与水反应任务，属于同一章的另一实验，不能替代镁燃烧。"},
+        {"label": "D", "point_key": null, "role": "distractor_wrong_subexperiment", "diagnostic_note": "钴玻璃用于钾离子焰色观察，属于焰色反应，不属于本实验。"}
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00266_c041a8c010"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "逐题读证后保留核心 workflow 题，但重写选项诊断，避免模板化 unrelated_distractor。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_label"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_6_02_Q002",
+      "source_question_ids": ["OLD_CHUNK3_EXP_19_6_02_Q002", "OLD_CHUNK3_EXP_19_6_02_Q022"],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "single_choice",
+      "stem": "点燃镁条前，实验步骤要求先处理镁条表面的哪一部分？",
+      "options": [
+        {"label": "A", "text": "表面氧化层"},
+        {"label": "B", "text": "煤油层"},
+        {"label": "C", "text": "硫酸盐沉淀"},
+        {"label": "D", "text": "钴玻璃滤光片"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "实验步骤写的是“用砂纸除去表面氧化层”。煤油层对应钠、钾取用，硫酸盐沉淀和钴玻璃都不是本镁燃烧步骤。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-1-a3329021"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["pre_ignition_preparation", "point_1"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-1-a3329021", "role": "correct_evidence", "diagnostic_note": "该项直接对应点燃前用砂纸处理镁条表面的步骤。"},
+        {"label": "B", "point_key": null, "role": "distractor_cross_operation", "diagnostic_note": "煤油层出现在钠、钾取用场景，不是镁条点燃前的处理对象。"},
+        {"label": "C", "point_key": null, "role": "distractor_wrong_product", "diagnostic_note": "硫酸盐沉淀不属于镁条点燃前表面处理。"},
+        {"label": "D", "point_key": null, "role": "distractor_wrong_tool", "diagnostic_note": "钴玻璃是焰色观察辅助材料，不是镁条表面待除去部分。"}
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00266_c041a8c010"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "原题事实正确且点位准确，保留为低难度锚点题；修正选项诊断为具体误区。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_label"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_6_02_Q003",
+      "source_question_ids": ["OLD_CHUNK3_EXP_19_6_02_Q028"],
+      "rewrite_action": "rewrite",
+      "question_type": "single_choice",
+      "stem": "除去镁条表面氧化层所用的材料或工具是哪一项？",
+      "options": [
+        {"label": "A", "text": "砂纸"},
+        {"label": "B", "text": "滤纸"},
+        {"label": "C", "text": "玻璃棒"},
+        {"label": "D", "text": "漏斗"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "镁燃烧步骤写的是“用砂纸除去表面氧化层”。滤纸、玻璃棒和漏斗均出现在同 chunk 的其他操作中，不能移植到本步骤。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-1-a3329021"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["tool_selection", "canonical_boundary", "point_1"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-1-a3329021", "role": "correct_evidence", "diagnostic_note": "砂纸是教材文本中直接用于镁条表面处理的材料。"},
+        {"label": "B", "point_key": null, "role": "distractor_cross_operation", "diagnostic_note": "滤纸用于吸干钠、钾表面的煤油，不用于本镁条表面氧化层处理。"},
+        {"label": "C", "point_key": null, "role": "distractor_cross_operation", "diagnostic_note": "玻璃棒用于钠燃烧产物冷却后的捣碎步骤，不是本题所问。"},
+        {"label": "D", "point_key": null, "role": "distractor_cross_operation", "diagnostic_note": "漏斗用于钠、钾与水反应时盖住烧杯，不是镁燃烧预处理。"}
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00266_c041a8c010"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "原包用坩埚钳作安全填空但 RAG 未明示；改为 RAG 明示的砂纸。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_label"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_6_02_Q004",
+      "source_question_ids": ["OLD_CHUNK3_EXP_19_6_02_Q003", "OLD_CHUNK3_EXP_19_6_02_Q013"],
+      "rewrite_action": "rewrite",
+      "question_type": "single_choice",
+      "stem": "点燃镁条后，本实验直接要求完成的内容是什么？",
+      "options": [
+        {"label": "A", "text": "点燃后观察镁条燃烧现象"},
+        {"label": "B", "text": "直接断言现象一定是血红色溶液"},
+        {"label": "C", "text": "直接断言出现钾离子紫色焰色"},
+        {"label": "D", "text": "直接断言生成硫酸钡沉淀"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "实验步骤对镁条写的是“点燃，观察现象”。血红色溶液、钾离子焰色和硫酸钡沉淀都属于其他实验语境。",
+      "difficulty": "intermediate",
+      "primary_point_keys": ["candidate-2-ea144d3d"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["evidence_boundary", "observation_task", "point_2"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-2-ea144d3d", "role": "correct_evidence", "diagnostic_note": "该项准确区分了教材直接支持的观察任务和未直接给出的现象结果。"},
+        {"label": "B", "point_key": null, "role": "distractor_wrong_phenomenon", "diagnostic_note": "血红色溶液是其他离子检验语境，不是本镁燃烧材料。"},
+        {"label": "C", "point_key": null, "role": "distractor_wrong_subexperiment", "diagnostic_note": "钾离子焰色观察属于焰色反应，与本实验不同。"},
+        {"label": "D", "point_key": null, "role": "distractor_wrong_reaction", "diagnostic_note": "硫酸钡沉淀不是镁条点燃观察任务的结果。"}
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00266_c041a8c010"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "旧题直接考白光，但本 packet canonical 文本只要求观察现象；改写为证据边界题。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_label"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_6_02_Q005",
+      "source_question_ids": ["OLD_CHUNK3_EXP_19_6_02_Q004", "OLD_CHUNK3_EXP_19_6_02_Q024"],
+      "rewrite_action": "rewrite",
+      "question_type": "single_choice",
+      "stem": "关于镁燃烧产物类别，哪一项需要同时依赖实验步骤和相关理论？",
+      "options": [
+        {"label": "A", "text": "镁的燃烧产物属于普通氧化物"},
+        {"label": "B", "text": "镁条点燃前要先用砂纸处理"},
+        {"label": "C", "text": "该步骤需要观察现象"},
+        {"label": "D", "text": "本实验包含两个观察环节"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "实验步骤给出点燃和观察要求；表 18.2 则说明镁的燃烧产物属于普通氧化物。B、C 是直接操作要求，D 不属于本步骤的产物或操作判断。",
+      "difficulty": "intermediate",
+      "primary_point_keys": ["candidate-2-ea144d3d"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["supporting_theory_dependency", "product_category", "point_2"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-2-ea144d3d", "role": "correct_evidence", "diagnostic_note": "产物类别超出实验操作句，需要表 18.2 的普通氧化物依据。"},
+        {"label": "B", "point_key": "candidate-1-a3329021", "role": "distractor_canonical_only", "diagnostic_note": "砂纸处理已由教材实验步骤直接给出，不需要相关理论。"},
+        {"label": "C", "point_key": "candidate-2-ea144d3d", "role": "distractor_canonical_only", "diagnostic_note": "观察现象是教材文本的直接操作要求。"},
+        {"label": "D", "point_key": null, "role": "distractor_metadata", "diagnostic_note": "观察环节数量不是化学材料判断。"}
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00266_c041a8c010"],
+        "supporting_theory_chunk_ids": ["textbook_table_record_table_p158_t01_r011", "textbook_prose_00272_faa84a49a8"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "把原来的 MgO 填空改成产物类别与证据依赖判断，避免复杂公式输入，也避免 unsupported canonical claim。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_label"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_6_02_Q006",
+      "source_question_ids": ["OLD_CHUNK3_EXP_19_6_02_Q005", "OLD_CHUNK3_EXP_19_6_02_Q015"],
+      "rewrite_action": "rewrite",
+      "question_type": "single_choice",
+      "stem": "下列哪项最能说明“镁燃烧”被放在本节活泼性比较任务中，而不是孤立背产物名称？",
+      "options": [
+        {"label": "A", "text": "教材后续要求根据以上反应总结碱金属、碱土金属的活泼性"},
+        {"label": "B", "text": "实验要求用硫氰酸钾检验铁离子"},
+        {"label": "C", "text": "实验要求通过钴玻璃观察钾离子焰色"},
+        {"label": "D", "text": "实验要求制备硫酸钡沉淀"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "教材后续明确要求“根据以上反应，总结碱金属、碱土金属的活泼性”。因此镁燃烧题应服务于活泼性比较，而不是只重复产物名或颜色。",
+      "difficulty": "intermediate",
+      "primary_point_keys": ["candidate-2-ea144d3d"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["activity_comparison", "experiment_goal", "point_2"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-2-ea144d3d", "role": "correct_evidence", "diagnostic_note": "该项来自紧随实验内容后的总结要求，与镁燃烧观察环节相连。"},
+        {"label": "B", "point_key": null, "role": "distractor_wrong_context", "diagnostic_note": "硫氰酸钾检验铁离子不在本镁燃烧材料链中。"},
+        {"label": "C", "point_key": null, "role": "distractor_wrong_subexperiment", "diagnostic_note": "钴玻璃观察属于焰色反应。"},
+        {"label": "D", "point_key": null, "role": "distractor_wrong_reaction", "diagnostic_note": "硫酸钡沉淀与本镁燃烧任务无关。"}
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00267_6f29b82f65"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "旧题只问氧化还原类别，证据不够贴合本 packet；改为实验目的和总结任务。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_label"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_6_02_Q007",
+      "source_question_ids": ["OLD_CHUNK3_EXP_19_6_02_Q026_PF1"],
+      "rewrite_action": "rewrite",
+      "question_type": "single_choice",
+      "stem": "镁燃烧实验中，为什么要先处理镁条表面再点燃并观察？",
+      "options": [
+        {"label": "A", "text": "除去表面氧化膜后再点燃，才能按教材步骤观察镁燃烧及生成物"},
+        {"label": "B", "text": "只观察燃烧现象即可，点燃前表面处理与实验无关"},
+        {"label": "C", "text": "只除去氧化膜即可，不需要点燃后观察"},
+        {"label": "D", "text": "这是焰色反应中排除钠黄光干扰的步骤"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "教材步骤要求取一小段镁条，用砂纸除去表面氧化层，再点燃并观察现象；前处理和燃烧观察共同构成这个实验链。",
+      "difficulty": "intermediate",
+      "primary_point_keys": ["candidate-1-a3329021", "candidate-2-ea144d3d"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["point_binding", "multi_point", "workflow"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-1-a3329021", "role": "correct_evidence", "diagnostic_note": "完整操作同时需要表面处理、点燃和观察。"},
+        {"label": "B", "point_key": "candidate-2-ea144d3d", "role": "distractor_under_binding", "diagnostic_note": "该项漏掉点燃前的表面处理。"},
+        {"label": "C", "point_key": "candidate-1-a3329021", "role": "distractor_under_binding", "diagnostic_note": "该项漏掉点燃后的观察任务。"},
+        {"label": "D", "point_key": null, "role": "distractor_wrong_point", "diagnostic_note": "焰色反应不是本实验的观察环节。"}
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00266_c041a8c010"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "原 PF1 多点绑定正确但含 theory id 过宽；去掉不必要 theory，改成点位语义判断题。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_label"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_6_02_Q008",
+      "source_question_ids": ["OLD_CHUNK3_EXP_19_6_02_Q006", "OLD_CHUNK3_EXP_19_6_02_Q016"],
+      "rewrite_action": "rewrite",
+      "question_type": "single_choice",
+      "stem": "关于镁条燃烧实验的直接操作任务，哪项最贴合教材材料？",
+      "options": [
+        {"label": "A", "text": "先除去镁条表面氧化层，再点燃并观察现象"},
+        {"label": "B", "text": "把氧气作为本实验的直接观察对象"},
+        {"label": "C", "text": "只记录氧化镁的化学式，不观察实验现象"},
+        {"label": "D", "text": "观察硫氰酸钾与 Fe³⁺ 的显色"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "教材材料明确给出除去表面氧化层、点燃并观察现象的操作链；硫氰酸钾显色属于其他实验内容。",
+      "difficulty": "intermediate",
+      "primary_point_keys": ["candidate-2-ea144d3d"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["rewrite_reasoning", "mobile_safe", "evidence_boundary"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-2-ea144d3d", "role": "correct_evidence", "diagnostic_note": "该项对应教材明示的操作和观察任务。"},
+        {"label": "B", "point_key": null, "role": "distractor_wrong_object", "diagnostic_note": "氧气不是该步骤的直接观察对象。"},
+        {"label": "C", "point_key": null, "role": "distractor_low_depth", "diagnostic_note": "教材步骤要求观察现象，不是只记录化学式。"},
+        {"label": "D", "point_key": null, "role": "distractor_wrong_context", "diagnostic_note": "硫氰酸钾与 Fe³⁺ 不属于本镁燃烧材料链。"}
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00266_c041a8c010"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "旧题低层且依赖未列 theory；改成证据边界和 mobile-safe 判断。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_label"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_6_02_Q009",
+      "source_question_ids": ["OLD_CHUNK3_EXP_19_6_02_Q007", "OLD_CHUNK3_EXP_19_6_02_Q017_R1"],
+      "rewrite_action": "rewrite",
+      "question_type": "single_choice",
+      "stem": "观察镁燃烧时，哪一项最符合本实验的操作要求？",
+      "options": [
+        {"label": "A", "text": "点燃镁条并观察燃烧现象，不混入其他实验现象"},
+        {"label": "B", "text": "只讨论长时间直视强光是否安全"},
+        {"label": "C", "text": "转向血红色溶液现象"},
+        {"label": "D", "text": "转向钾离子的紫色焰色"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "本步骤要求点燃镁条并观察燃烧现象。血红色溶液和钾离子焰色属于其他实验语境，安全判断也不是该步骤的直接观察内容。",
+      "difficulty": "intermediate",
+      "primary_point_keys": ["candidate-2-ea144d3d"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["safety_claim_boundary", "observation_task", "point_2"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-2-ea144d3d", "role": "correct_evidence", "diagnostic_note": "该项只考教材明示的观察任务，依据充分。"},
+        {"label": "B", "point_key": null, "role": "distractor_unsupported_safety_claim", "diagnostic_note": "长时间直视强光的安全判断未在本实验材料中直接出现。"},
+        {"label": "C", "point_key": null, "role": "distractor_wrong_phenomenon", "diagnostic_note": "血红色溶液属于其他反应语境。"},
+        {"label": "D", "point_key": null, "role": "distractor_wrong_subexperiment", "diagnostic_note": "钾离子焰色不是镁燃烧。"}
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00266_c041a8c010"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "旧题安全常识未由 RAG 支撑；改为可证实的观察任务。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_label"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_6_02_Q010",
+      "source_question_ids": ["OLD_CHUNK3_EXP_19_6_02_Q008", "OLD_CHUNK3_EXP_19_6_02_Q018"],
+      "rewrite_action": "rewrite",
+      "question_type": "single_choice",
+      "stem": "下列哪一项不是教材在镁燃烧实验中直接给出的内容？",
+      "options": [
+        {"label": "A", "text": "教材明示用砂纸处理镁条表面"},
+        {"label": "B", "text": "教材明示点燃后观察现象"},
+        {"label": "C", "text": "教材明示镁燃烧必须用坩埚钳夹持"},
+        {"label": "D", "text": "教材后续要求总结活泼性"}
+      ],
+      "answer": {"value": "C"},
+      "explanation": "当前教材内容没有写“坩埚钳夹持镁条”。它可能是合理实验常识，但不能当作本步骤已经给出的内容。A、B、D 均能在教材材料中找到。",
+      "difficulty": "intermediate",
+      "primary_point_keys": ["candidate-1-a3329021"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["unsupported_claim_rejection", "point_1"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-1-a3329021", "role": "distractor_supported_claim", "diagnostic_note": "砂纸处理表面氧化层由教材材料明示。"},
+        {"label": "B", "point_key": "candidate-2-ea144d3d", "role": "distractor_supported_claim", "diagnostic_note": "点燃后观察现象由教材材料明示。"},
+        {"label": "C", "point_key": null, "role": "correct_unsupported_claim", "diagnostic_note": "坩埚钳夹持未在当前教材内容中出现。"},
+        {"label": "D", "point_key": "candidate-2-ea144d3d", "role": "distractor_supported_claim", "diagnostic_note": "活泼性总结由教材后续要求明示。"}
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00266_c041a8c010", "expchunk_00267_6f29b82f65"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "原题以坩埚钳作正确答案，但 RAG 未明示；改为 unsupported-claim 识别题。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_label"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_6_02_Q011",
+      "source_question_ids": ["OLD_CHUNK3_EXP_19_6_02_Q009", "OLD_CHUNK3_EXP_19_6_02_Q019"],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "single_choice",
+      "stem": "本镁燃烧小实验在实验 19-6 中服务于哪一类总体比较？",
+      "options": [
+        {"label": "A", "text": "碱金属、碱土金属活泼性的比较"},
+        {"label": "B", "text": "卤素单质氧化性的比较"},
+        {"label": "C", "text": "过渡金属配合物颜色比较"},
+        {"label": "D", "text": "铵盐热分解规律比较"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "实验内容标题为“碱金属、碱土金属活泼性的比较”，后续又要求根据以上反应总结活泼性；这些内容说明镁燃烧服务于活泼性比较，而不是孤立的产物记忆。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-2-ea144d3d"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["experiment_goal", "activity_comparison"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-2-ea144d3d", "role": "correct_evidence", "diagnostic_note": "该项对应教材标题和总结要求。"},
+        {"label": "B", "point_key": null, "role": "distractor_wrong_chapter", "diagnostic_note": "卤素氧化性不属于实验 19-6 这个片段。"},
+        {"label": "C", "point_key": null, "role": "distractor_wrong_chapter", "diagnostic_note": "配合物颜色比较不在本实验材料中。"},
+        {"label": "D", "point_key": null, "role": "distractor_wrong_theory", "diagnostic_note": "铵盐热分解规律与镁燃烧小实验无关。"}
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00266_c041a8c010", "expchunk_00267_6f29b82f65"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "该源题质量尚可但过于简短；保留核心考点并强化 RAG 依据。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_label"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_6_02_Q012",
+      "source_question_ids": ["OLD_CHUNK3_EXP_19_6_02_Q010", "OLD_CHUNK3_EXP_19_6_02_Q020", "OLD_CHUNK3_EXP_19_6_02_Q030"],
+      "rewrite_action": "rewrite",
+      "question_type": "single_choice",
+      "stem": "仅依据本实验步骤判断镁燃烧观察内容时，哪项说法最稳妥？",
+      "options": [
+        {"label": "A", "text": "本步骤要求点燃并观察现象，但未直接给出氧化镁的颜色"},
+        {"label": "B", "text": "本步骤直接要求填写“白色”"},
+        {"label": "C", "text": "只要点燃镁条，就可以忽略观察现象"},
+        {"label": "D", "text": "镁燃烧后产物应记为深蓝色"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "相关理论表能说明镁燃烧产物为普通氧化物，但颜色信息不来自该实验步骤；因此不能把“白色”当作本步骤直接给出的观察结论。",
+      "difficulty": "intermediate",
+      "primary_point_keys": ["candidate-2-ea144d3d"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["reject_weak_color_fact", "supporting_theory_boundary"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-2-ea144d3d", "role": "correct_evidence", "diagnostic_note": "该项区分了产物类别和本步骤直接给出的观察要求。"},
+        {"label": "B", "point_key": null, "role": "distractor_evidence_insufficient", "diagnostic_note": "本实验步骤未直接给出白色结论。"},
+        {"label": "C", "point_key": null, "role": "distractor_wrong_audit", "diagnostic_note": "教材明确要求观察现象。"},
+        {"label": "D", "point_key": null, "role": "distractor_nonsense", "diagnostic_note": "深蓝色不符合镁燃烧常识和本实验内容。"}
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00266_c041a8c010"],
+        "supporting_theory_chunk_ids": ["textbook_table_record_table_p158_t01_r011"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "把旧包重复颜色题改为证据边界题；不发布 unsupported 白色事实题。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_label"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_6_02_Q013",
+      "source_question_ids": ["OLD_CHUNK3_EXP_19_6_02_Q012"],
+      "rewrite_action": "rewrite",
+      "question_type": "true_false",
+      "stem": "判断：本实验中镁条预处理的依据是“用砂纸除去表面氧化层”，不是“除去水银层”。",
+      "options": [],
+      "answer": {"value": true},
+      "explanation": "教材实验步骤直接写出“用砂纸除去表面氧化层”。“水银层”来自钠汞齐语境，不能挪到镁条预处理。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-1-a3329021"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["true_false", "pre_ignition_preparation", "point_1"],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00266_c041a8c010"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "保留原判断题意，但把题干写成非双重否定、明确证据对照。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_boolean"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_6_02_Q014",
+      "source_question_ids": ["OLD_CHUNK3_EXP_19_6_02_Q014"],
+      "rewrite_action": "rewrite",
+      "question_type": "true_false",
+      "stem": "判断：仅凭教材实验步骤中“点燃，观察现象”这句话，就可以直接证明主要产物是 MgCl₂。",
+      "options": [],
+      "answer": {"value": false},
+      "explanation": "教材只要求观察现象，没有给出 MgCl₂ 产物；相关理论也指向镁燃烧产物属于普通氧化物，而不是氯化物。",
+      "difficulty": "intermediate",
+      "primary_point_keys": ["candidate-2-ea144d3d"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["true_false", "product_category", "evidence_boundary"],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00266_c041a8c010"],
+        "supporting_theory_chunk_ids": ["textbook_table_record_table_p158_t01_r011"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "原题简单否定 MgCl₂；改写为证据边界和 theory 支持判断。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_boolean"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_6_02_Q015",
+      "source_question_ids": ["OLD_CHUNK3_EXP_19_6_02_Q021"],
+      "rewrite_action": "rewrite",
+      "question_type": "true_false",
+      "stem": "判断：镁燃烧实验中，先除去表面氧化层后点燃并观察现象，包含点燃前处理和燃烧观察两个实验环节。",
+      "options": [],
+      "answer": {"value": true},
+      "explanation": "除去表面氧化层属于点燃前处理，点燃后观察现象属于燃烧观察；两者都出现在教材步骤中。",
+      "difficulty": "intermediate",
+      "primary_point_keys": ["candidate-1-a3329021", "candidate-2-ea144d3d"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["true_false", "multi_point", "point_binding"],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00266_c041a8c010"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "旧填空多点位合理但低深度；改成明确点位绑定判断。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_boolean"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_6_02_Q016",
+      "source_question_ids": ["OLD_CHUNK3_EXP_19_6_02_Q023"],
+      "rewrite_action": "rewrite",
+      "question_type": "true_false",
+      "stem": "判断：当前镁燃烧实验步骤已经直接写明“镁燃烧发出耀眼白光”这一颜色现象。",
+      "options": [],
+      "answer": {"value": false},
+      "explanation": "当前教材材料只写“点燃，观察现象”。是否白光不是教材材料直接给出的文本依据，因此不能把它标记为教材直接支撑。",
+      "difficulty": "intermediate",
+      "primary_point_keys": ["candidate-2-ea144d3d"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["true_false", "evidence_boundary", "observation_task"],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00266_c041a8c010"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "明确否定旧包 white-light 题的 canonical 证据充分性。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_boolean"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_6_02_Q017",
+      "source_question_ids": ["OLD_CHUNK3_EXP_19_6_02_Q025"],
+      "rewrite_action": "rewrite",
+      "question_type": "true_false",
+      "stem": "判断：只讨论镁燃烧是否属于氧化还原反应，不能充分体现本实验的表面处理和观察环节。",
+      "options": [],
+      "answer": {"value": true},
+      "explanation": "氧化还原本质可以由通用理论判断，但本实验的独特材料是砂纸处理、点燃、观察和活泼性比较。单问反应类别不能体现这些实验环节。",
+      "difficulty": "intermediate",
+      "primary_point_keys": ["candidate-2-ea144d3d"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["true_false", "low_depth_rewrite", "point_binding"],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00266_c041a8c010", "expchunk_00267_6f29b82f65"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "旧氧化还原题过于泛化；改为质量判断，避免低深度重复。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_boolean"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_6_02_Q018",
+      "source_question_ids": ["OLD_CHUNK3_EXP_19_6_02_Q029"],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "true_false",
+      "stem": "判断：教材后续要求支持把镁燃烧观察结果用于总结碱金属、碱土金属的活泼性。",
+      "options": [],
+      "answer": {"value": true},
+      "explanation": "教材明确要求根据以上反应总结碱金属、碱土金属的活泼性，因此活泼性是本实验的目标性考点。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-2-ea144d3d"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["true_false", "activity_comparison", "experiment_goal"],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00267_6f29b82f65"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "原活泼性题证据充分，但改为 RAG 行级判断，减少空泛。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_boolean"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_6_02_Q019",
+      "source_question_ids": ["OLD_CHUNK3_EXP_19_6_02_Q027"],
+      "rewrite_action": "rewrite",
+      "question_type": "true_false",
+      "stem": "判断：教材中的镁燃烧步骤已经直接写明“不要长时间直视强光”这一安全要求。",
+      "options": [],
+      "answer": {"value": false},
+      "explanation": "这条安全建议本身合理，但当前教材实验步骤和相关理论没有直接写出这一安全要求；因此不能把它当作教材原文内容。",
+      "difficulty": "intermediate",
+      "primary_point_keys": ["candidate-2-ea144d3d"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["true_false", "unsupported_safety_claim", "evidence_boundary"],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00266_c041a8c010"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "旧题安全判断 unsupported；改为证据充分性判断。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_boolean"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_6_02_Q020",
+      "source_question_ids": ["OLD_CHUNK3_EXP_19_6_02_Q030"],
+      "rewrite_action": "rewrite",
+      "question_type": "true_false",
+      "stem": "判断：教材材料已直接给出“MgO 通常为白色固体”这一观察结论。",
+      "options": [],
+      "answer": {"value": false},
+      "explanation": "相关理论能支撑镁燃烧产物属于普通氧化物；本实验步骤本身要求观察现象，但不把“白色固体”作为直接给出的固定结论。",
+      "difficulty": "intermediate",
+      "primary_point_keys": ["candidate-2-ea144d3d"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["true_false", "fill_blank_risk", "unsupported_color_fact"],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00266_c041a8c010"],
+        "supporting_theory_chunk_ids": ["textbook_table_record_table_p158_t01_r011"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "旧题颜色和公式风险并存；改为发布标准判断。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_boolean"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_6_02_Q021",
+      "source_question_ids": ["OLD_CHUNK3_EXP_19_6_02_Q022"],
+      "rewrite_action": "keep_with_alias_tightening",
+      "question_type": "fill_blank",
+      "stem": "点燃镁条前，教材要求用砂纸除去其表面____。",
+      "options": [],
+      "answer": {
+        "value": "氧化层",
+        "match": "normalized_exact",
+        "hidden_grading_aliases": [
+          {"value": "氧化膜", "visible_to_student": false, "match": "normalized_exact"}
+        ]
+      },
+      "explanation": "实验步骤写的是“用砂纸除去表面氧化层”，“氧化膜”也可理解为等价说法。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-1-a3329021"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["fill_blank", "mobile_safe", "point_1"],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00266_c041a8c010"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "保留短中文填空，隐藏同义 alias，手机端风险低。"
+      },
+      "mobile_input_risk": "low_hidden_alias",
+      "machine_grading": "deterministic_normalized_exact_with_hidden_alias"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_6_02_Q022",
+      "source_question_ids": ["OLD_CHUNK3_EXP_19_6_02_Q021"],
+      "rewrite_action": "rewrite",
+      "question_type": "fill_blank",
+      "stem": "处理好表面氧化层后，教材步骤要求将镁条____。",
+      "options": [],
+      "answer": {"value": "点燃", "match": "normalized_exact"},
+      "explanation": "教材原文在砂纸处理后紧接着写“点燃，观察现象”，因此该步骤的动作是点燃。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-1-a3329021"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["fill_blank", "operation_sequence", "mobile_safe", "point_1"],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00266_c041a8c010"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "将原“燃烧现象”重复填空改为操作顺序动作。"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": "deterministic_normalized_exact"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_6_02_Q023",
+      "source_question_ids": ["OLD_CHUNK3_EXP_19_6_02_Q023"],
+      "rewrite_action": "rewrite",
+      "question_type": "fill_blank",
+      "stem": "点燃镁条后，应按实验步骤____。",
+      "options": [],
+      "answer": {"value": "观察现象", "match": "normalized_exact"},
+      "explanation": "实验步骤明确要求点燃后观察现象，而不是填写复杂产物公式。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-2-ea144d3d"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["fill_blank", "observation_task", "mobile_safe", "point_2"],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00266_c041a8c010"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "替换原 unsupported 白光填空，保留 RAG 明示的观察任务。"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": "deterministic_normalized_exact"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_6_02_Q024",
+      "source_question_ids": ["OLD_CHUNK3_EXP_19_6_02_Q024"],
+      "rewrite_action": "rewrite",
+      "question_type": "fill_blank",
+      "stem": "表 18.2 支持镁燃烧产物的类别为____。",
+      "options": [],
+      "answer": {"value": "普通氧化物", "match": "normalized_exact"},
+      "explanation": "相关理论表明锂、铍、镁、钙、锶的燃烧产物为普通氧化物；这里用中文类别作答，避免把类别判断变成化学式书写。",
+      "difficulty": "intermediate",
+      "primary_point_keys": ["candidate-2-ea144d3d"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["fill_blank", "supporting_theory_dependency", "mobile_safe", "product_category"],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00266_c041a8c010"],
+        "supporting_theory_chunk_ids": ["textbook_table_record_table_p158_t01_r011"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "将 MgO 公式填空改为短中文类别填空，避免 visible formula。"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": "deterministic_normalized_exact"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_6_02_Q025",
+      "source_question_ids": ["OLD_CHUNK3_EXP_19_6_02_Q029"],
+      "rewrite_action": "keep_with_semantic_tightening",
+      "question_type": "fill_blank",
+      "stem": "根据以上反应，本节要求总结碱金属、碱土金属的____。",
+      "options": [],
+      "answer": {"value": "活泼性", "match": "normalized_exact"},
+      "explanation": "教材明确写出根据以上反应总结碱金属、碱土金属的活泼性；答案短且确定。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-2-ea144d3d"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["fill_blank", "experiment_goal", "mobile_safe"],
+      "option_links": [],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00267_6f29b82f65"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "原题可保留，但改成直接贴合 RAG 总结句。"
+      },
+      "mobile_input_risk": "low",
+      "machine_grading": "deterministic_normalized_exact"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_6_02_Q026",
+      "source_question_ids": ["OLD_CHUNK3_EXP_19_6_02_Q004", "OLD_CHUNK3_EXP_19_6_02_Q006"],
+      "rewrite_action": "rewrite",
+      "question_type": "single_choice",
+      "stem": "关于镁燃烧产物和实验观察的关系，下列哪项最合理？",
+      "options": [
+        {"label": "A", "text": "产物类别判断需要结合相关理论，实验操作本身强调点燃并观察"},
+        {"label": "B", "text": "教材证明 MgO 一定错误"},
+        {"label": "C", "text": "本实验不能结合任何相关理论"},
+        {"label": "D", "text": "镁条点燃后不会发生化学变化"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "实验操作强调点燃并观察；产物类别可结合相关理论判断，但不能说本实验直接否定 MgO 或禁止使用理论。",
+      "difficulty": "intermediate",
+      "primary_point_keys": ["candidate-2-ea144d3d"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["mobile_input_risk", "formula_alias", "supporting_theory_dependency"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-2-ea144d3d", "role": "correct_evidence", "diagnostic_note": "该项同时说明材料侧重点和理论依赖。"},
+        {"label": "B", "point_key": null, "role": "distractor_false_reason", "diagnostic_note": "MgO 并非一定错误，关键是操作文本和理论结论的来源不同。"},
+        {"label": "C", "point_key": null, "role": "distractor_false_policy", "diagnostic_note": "需要判断产物类别时可以结合相关理论。"},
+        {"label": "D", "point_key": null, "role": "distractor_overgeneralization", "diagnostic_note": "短中文答案也可以确定判分。"}
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00266_c041a8c010"],
+        "supporting_theory_chunk_ids": ["textbook_table_record_table_p158_t01_r011"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "替换原公式/氧化剂重复题，明确 mobile-safe rewrite 原因。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_label"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_6_02_Q027",
+      "source_question_ids": ["OLD_CHUNK3_EXP_19_6_02_Q001"],
+      "rewrite_action": "rewrite",
+      "question_type": "single_choice",
+      "stem": "如果一个选项说“直接加水检验镁条是否溶解”，它为什么不能作为本实验的正确答案？",
+      "options": [
+        {"label": "A", "text": "它对应镁与水作用的另一小步骤，不是镁燃烧的点燃观察步骤"},
+        {"label": "B", "text": "它完整覆盖了砂纸除氧化层和点燃观察"},
+        {"label": "C", "text": "它是相关理论中的普通氧化物分类"},
+        {"label": "D", "text": "它是焰色反应的标准操作"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "同一组实验中另有“与水的作用”，但 19-6-02 金属镁燃烧的环节是除去氧化层后点燃并观察，不是把镁条直接加水。",
+      "difficulty": "basic",
+      "primary_point_keys": ["candidate-1-a3329021", "candidate-2-ea144d3d"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["distractor_diagnosis", "canonical_boundary", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-1-a3329021", "role": "correct_evidence", "diagnostic_note": "该项指出干扰项来自同章相邻步骤，但不属于本实验。"},
+        {"label": "B", "point_key": null, "role": "distractor_wrong_mapping", "diagnostic_note": "直接加水没有覆盖砂纸处理、点燃、观察这条链。"},
+        {"label": "C", "point_key": null, "role": "distractor_wrong_evidence_type", "diagnostic_note": "普通氧化物分类是相关理论，不是直接加水操作。"},
+        {"label": "D", "point_key": null, "role": "distractor_wrong_subexperiment", "diagnostic_note": "焰色反应不等于镁燃烧。"}
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00266_c041a8c010"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "补强 option-specific 诊断，避免原题模板化干扰项说明。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_label"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_6_02_Q028",
+      "source_question_ids": ["OLD_CHUNK3_EXP_19_6_02_Q010"],
+      "rewrite_action": "rewrite",
+      "question_type": "single_choice",
+      "stem": "镁燃烧实验中，哪项组合同时包含操作和理论结论？",
+      "options": [
+        {"label": "A", "text": "先按教材步骤处理镁条并点燃观察，再结合相关理论判断产物属于普通氧化物"},
+        {"label": "B", "text": "只反复判断氧化镁是不是白色"},
+        {"label": "C", "text": "只判断镁燃烧是否发出白光"},
+        {"label": "D", "text": "只要求填写 MgO"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "本实验的直接操作是处理镁条、点燃和观察；产物类别可结合相关理论。这样的组合比单一颜色或化学式记忆更能体现实验链。",
+      "difficulty": "intermediate",
+      "primary_point_keys": ["candidate-2-ea144d3d"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["duplicate_resolution", "evidence_boundary", "coverage_variety"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-2-ea144d3d", "role": "correct_evidence", "diagnostic_note": "该项同时包含实验操作和产物类别判断。"},
+        {"label": "B", "point_key": null, "role": "distractor_duplicate_low_depth", "diagnostic_note": "单独追问颜色容易偏离本步骤直接给出的内容。"},
+        {"label": "C", "point_key": null, "role": "distractor_duplicate_low_depth", "diagnostic_note": "白光题重复且教材未直接给出现象颜色。"},
+        {"label": "D", "point_key": null, "role": "distractor_mobile_risk", "diagnostic_note": "只写化学式会遗漏实验过程。"}
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00266_c041a8c010"],
+        "supporting_theory_chunk_ids": ["textbook_table_record_table_p158_t01_r011"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "重复题簇处理说明型题，证明不是只替换 metadata。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_label"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_6_02_Q029",
+      "source_question_ids": ["OLD_CHUNK3_EXP_19_6_02_Q002", "OLD_CHUNK3_EXP_19_6_02_Q028"],
+      "rewrite_action": "rewrite",
+      "question_type": "single_choice",
+      "stem": "镁燃烧实验只问“点燃前除去什么”时，最准确的回答是哪一项？",
+      "options": [
+        {"label": "A", "text": "除去镁条表面的氧化膜"},
+        {"label": "B", "text": "观察镁燃烧及生成物"},
+        {"label": "C", "text": "同时判断所有燃烧现象和产物类别"},
+        {"label": "D", "text": "改做钠汞齐与水反应"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "此处只涉及点燃前表面处理；若同时要求燃烧观察或生成物判断，才需要联系后续观察环节。",
+      "difficulty": "intermediate",
+      "primary_point_keys": ["candidate-1-a3329021"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["point_binding", "single_point", "pre_ignition_preparation"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-1-a3329021", "role": "correct_evidence", "diagnostic_note": "该项对应点燃前表面处理。"},
+        {"label": "B", "point_key": "candidate-2-ea144d3d", "role": "distractor_wrong_point", "diagnostic_note": "这是点燃后的观察任务。"},
+        {"label": "C", "point_key": null, "role": "distractor_over_binding", "diagnostic_note": "该项超出了点燃前除去什么的范围。"},
+        {"label": "D", "point_key": null, "role": "distractor_wrong_subexperiment", "diagnostic_note": "钠汞齐不属于本实验环节。"}
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00266_c041a8c010"],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": true,
+        "supporting_theory_required": false,
+        "reviewer_note": "修复旧题中泛化多点位绑定风险。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_label"
+    },
+    {
+      "question_id": "REBUILT_CH3_19_6_02_Q030",
+      "source_question_ids": ["OLD_CHUNK3_EXP_19_6_02_Q001", "OLD_CHUNK3_EXP_19_6_02_Q026_PF1"],
+      "rewrite_action": "rewrite",
+      "question_type": "single_choice",
+      "stem": "金属镁燃烧实验中，从准备到现象判断，哪组内容构成完整实验链？",
+      "options": [
+        {"label": "A", "text": "砂纸处理镁条表面、点燃并观察现象，再联系活泼性比较和产物类别"},
+        {"label": "B", "text": "只反复记忆 MgO、白色和氧化还原"},
+        {"label": "C", "text": "只练习填写化学式，不关注实验操作"},
+        {"label": "D", "text": "只讨论钠、钾、钴玻璃和硫氰酸钾等其他实验"}
+      ],
+      "answer": {"value": "A"},
+      "explanation": "完整实验链应包括点燃前表面处理、点燃和观察，并能联系本节的活泼性比较；单独重复颜色、化学式或其他实验内容都偏离镁燃烧。",
+      "difficulty": "intermediate",
+      "primary_point_keys": ["candidate-1-a3329021", "candidate-2-ea144d3d"],
+      "secondary_point_keys": [],
+      "coverage_tags": ["package_coverage", "duplicate_resolution", "multi_point"],
+      "option_links": [
+        {"label": "A", "point_key": "candidate-1-a3329021", "role": "correct_evidence", "diagnostic_note": "该项覆盖准备、点燃、观察和后续比较。"},
+        {"label": "B", "point_key": null, "role": "distractor_duplicate_cluster", "diagnostic_note": "该项只重复少数结论，遗漏操作和观察。"},
+        {"label": "C", "point_key": null, "role": "distractor_mobile_risk", "diagnostic_note": "只写化学式会遗漏实验过程。"},
+        {"label": "D", "point_key": null, "role": "distractor_wrong_scope", "diagnostic_note": "其他小实验只能作为干扰项边界，不能成为本实验主覆盖。"}
+      ],
+      "source_audit": {
+        "canonical_chunk_ids": ["expchunk_00266_c041a8c010", "expchunk_00267_6f29b82f65"],
+        "supporting_theory_chunk_ids": ["textbook_table_record_table_p158_t01_r011", "textbook_prose_00272_faa84a49a8"],
+        "evidence_sufficient": true,
+        "supporting_theory_required": true,
+        "reviewer_note": "收束整包覆盖，明确重复题簇已语义重构。"
+      },
+      "mobile_input_risk": "none",
+      "machine_grading": "deterministic_label"
+    }
+  ],
+  "validation_notes": {
+    "manual_semantic_rebuild_statement": "本 packet 已逐题语义重构，不是脚本批量生成；脚本仅用于读取、RAG id 查找和 JSON validation。",
+    "visible_formula_policy": "没有要求学生在可见填空答案中输入复杂化学式；MgO/O₂ 等符号类旧题已改写。",
+    "evidence_insufficient_publishable_questions": 0
+  }
+}
