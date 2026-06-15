@@ -64,6 +64,7 @@ class QuestionRequest(BaseModel):
     related_knowledge_point_ids: list[str] = Field(default_factory=list)
     source_chunk_ids: list[str] = Field(default_factory=list)
     source_refs: list[dict[str, Any]] = Field(default_factory=list)
+    metadata: dict[str, Any] = Field(default_factory=dict)
     status: str = Field(default="draft", pattern="^(draft|published|disabled|archived)$")
     bank_kind: str = Field(default="manual", pattern="^(default|generated|manual)$")
 
@@ -78,6 +79,7 @@ class QuestionUpdateRequest(BaseModel):
     related_knowledge_point_ids: list[str] | None = None
     source_chunk_ids: list[str] | None = None
     source_refs: list[dict[str, Any]] | None = None
+    metadata: dict[str, Any] | None = None
     status: str | None = Field(default=None, pattern="^(draft|published|disabled|archived)$")
 
 
@@ -99,6 +101,31 @@ class QuestionBankAssistantRequest(BaseModel):
     question_id: str | None = None
     question_types: list[str] = Field(default_factory=lambda: ["single_choice", "true_false", "fill_blank"])
     count: int = Field(default=5, ge=1, le=20)
+    difficulty: str | None = "basic"
+
+
+class PointAwareSuggestionRequest(BaseModel):
+    intent: str = Field(default="add_questions", pattern="^(add_questions|repair_question)$")
+    experiment_id: str = Field(min_length=1)
+    prompt: str = Field(min_length=1, max_length=2000)
+    question_id: str | None = None
+    point_key: str | None = None
+    question_types: list[str] = Field(default_factory=lambda: ["single_choice", "true_false"])
+    count: int = Field(default=3, ge=1, le=20)
+    difficulty: str | None = "basic"
+
+
+class WorkbenchSessionRequest(BaseModel):
+    mode: str = Field(pattern="^(repair|create)$")
+    experiment_id: str = Field(min_length=1)
+    question_id: str | None = None
+    point_key: str | None = None
+
+
+class WorkbenchMessageRequest(BaseModel):
+    prompt: str = Field(min_length=1, max_length=2000)
+    question_types: list[str] = Field(default_factory=lambda: ["single_choice", "true_false"])
+    count: int = Field(default=1, ge=1, le=20)
     difficulty: str | None = "basic"
 
 
@@ -134,11 +161,11 @@ class ExperimentVideoPointResourceRequest(BaseModel):
 
 
 def _json(value: Any) -> str:
-    return json.dumps(value if value is not None else {}, ensure_ascii=False)
+    return json.dumps(value if value is not None else {}, ensure_ascii=False, default=str)
 
 
 def _json_array(value: Any) -> str:
-    return json.dumps(value if value is not None else [], ensure_ascii=False)
+    return json.dumps(value if value is not None else [], ensure_ascii=False, default=str)
 
 
 def _dump(model: BaseModel) -> dict[str, Any]:
@@ -501,32 +528,6 @@ def _list_experiment_video_resources(experiment_id: str | None = None) -> list[d
             .mappings()
             .all()
         ]
-        point_attempts = [
-            dict(row)
-            for row in session.execute(
-                text(
-                    f"""
-                    SELECT a.experiment_id,
-                           fe.code AS experiment_code,
-                           fe.title AS experiment_title,
-                           a.question_id,
-                           q.stem,
-                           a.correct,
-                           a.metadata,
-                           q.metadata AS question_metadata
-                    FROM experiment_question_attempts a
-                    LEFT JOIN experiment_questions q ON q.id = a.question_id
-                    LEFT JOIN formal_experiments fe ON fe.id = a.experiment_id
-                    WHERE {filter_sql}
-                    ORDER BY a.created_at DESC
-                    LIMIT 1000
-                    """
-                ),
-                params,
-            )
-            .mappings()
-            .all()
-        ]
     for row in rows:
         row["title"] = row.get("binding_title") or row.get("media_title") or row.get("original_file_name")
         if not isinstance(row.get("binding_metadata"), dict):
@@ -859,6 +860,7 @@ def _validate_question_payload(payload: dict[str, Any]) -> tuple[dict[str, Any] 
         answer = {}
     if errors:
         return None, errors
+    metadata = payload.get("metadata") if isinstance(payload.get("metadata"), dict) else {}
     normalized = {
         "question_type": question_type,
         "stem": stem,
@@ -870,6 +872,7 @@ def _validate_question_payload(payload: dict[str, Any]) -> tuple[dict[str, Any] 
         "related_knowledge_point_ids": list(payload.get("related_knowledge_point_ids") or []),
         "source_chunk_ids": list(payload.get("source_chunk_ids") or []),
         "source_refs": list(payload.get("source_refs") or []),
+        "metadata": metadata,
         "status": payload.get("status") or "draft",
     }
     if normalized["status"] not in QUESTION_STATUSES:
@@ -927,13 +930,13 @@ def _insert_question(
                 INSERT INTO experiment_questions (
                   bank_id, experiment_id, generation_id, question_type, stem, options, answer,
                   explanation, difficulty, related_chapter_ids, related_knowledge_point_ids,
-                  source_chunk_ids, source_refs, status, created_by, published_by, published_at, updated_at
+                  source_chunk_ids, source_refs, status, metadata, created_by, published_by, published_at, updated_at
                 )
                 VALUES (
                   CAST(:bank_id AS uuid), :experiment_id, CAST(:generation_id AS uuid),
                   :question_type, :stem, CAST(:options AS jsonb), CAST(:answer AS jsonb),
                   :explanation, :difficulty, :related_chapter_ids, :related_knowledge_point_ids,
-                  :source_chunk_ids, CAST(:source_refs AS jsonb), :status,
+                  :source_chunk_ids, CAST(:source_refs AS jsonb), :status, CAST(:metadata AS jsonb),
                   CAST(:created_by AS uuid),
                   CASE WHEN :status = 'published' THEN CAST(:created_by AS uuid) ELSE NULL END,
                   CASE WHEN :status = 'published' THEN now() ELSE NULL END,
@@ -957,6 +960,7 @@ def _insert_question(
                 "source_chunk_ids": normalized["source_chunk_ids"],
                 "source_refs": _json_array(normalized["source_refs"]),
                 "status": normalized["status"],
+                "metadata": _json(normalized["metadata"]),
                 "created_by": actor_user_id,
             },
         )
@@ -2043,7 +2047,10 @@ async def admin_list_question_banks(
                            b.created_at, b.updated_at,
                            COUNT(q.id) AS question_count,
                            COUNT(q.id) FILTER (WHERE q.status = 'published') AS published_count,
-                           COUNT(q.id) FILTER (WHERE q.status = 'draft') AS draft_count
+                           COUNT(q.id) FILTER (WHERE q.status = 'draft') AS draft_count,
+                           COUNT(q.id) FILTER (WHERE q.question_type = 'single_choice') AS choice_count,
+                           COUNT(q.id) FILTER (WHERE q.question_type = 'true_false') AS true_false_count,
+                           COUNT(q.id) FILTER (WHERE q.question_type = 'fill_blank') AS fill_blank_count
                     FROM experiment_question_banks b
                     LEFT JOIN experiment_questions q ON q.bank_id = b.id
                     GROUP BY b.id
@@ -2159,6 +2166,7 @@ async def admin_update_question(
                         related_knowledge_point_ids = :related_knowledge_point_ids,
                         source_chunk_ids = :source_chunk_ids,
                         source_refs = CAST(:source_refs AS jsonb),
+                        metadata = CAST(:metadata AS jsonb),
                         status = :status,
                         published_by = CASE WHEN :status = 'published' THEN CAST(:actor AS uuid) ELSE published_by END,
                         published_at = CASE WHEN :status = 'published' THEN COALESCE(published_at, now()) ELSE published_at END,
@@ -2178,6 +2186,7 @@ async def admin_update_question(
                     "related_knowledge_point_ids": normalized["related_knowledge_point_ids"],
                     "source_chunk_ids": normalized["source_chunk_ids"],
                     "source_refs": _json_array(normalized["source_refs"]),
+                    "metadata": _json(normalized["metadata"]),
                     "status": normalized["status"],
                     "actor": user.id,
                 },
@@ -2497,6 +2506,1207 @@ def _try_openai_generation(
         return rows if isinstance(rows, list) else None
     except Exception:
         return None
+
+
+def _question_source_chunk_ids(source_refs: list[dict[str, Any]], source_audit: dict[str, Any] | None = None) -> list[str]:
+    seen: set[str] = set()
+    values: list[str] = []
+    for raw in [
+        *((source_audit or {}).get("canonical_chunk_ids") or []),
+        *((source_audit or {}).get("supporting_theory_chunk_ids") or []),
+        *[item.get("chunk_id") for item in source_refs if isinstance(item, dict)],
+    ]:
+        value = str(raw or "").strip()
+        if value and value not in seen:
+            seen.add(value)
+            values.append(value)
+    return values
+
+
+def _source_audit_for_suggestion(
+    *,
+    source_refs: list[dict[str, Any]],
+    target_question: dict[str, Any] | None = None,
+) -> dict[str, Any]:
+    target_metadata = target_question.get("metadata") if isinstance(target_question, dict) else {}
+    existing = target_metadata.get("source_audit") if isinstance(target_metadata, dict) else None
+    if isinstance(existing, dict) and existing.get("canonical_chunk_ids"):
+        return {
+            **existing,
+            "reviewer_note": existing.get("reviewer_note") or "Inherited from the original point-aware question for AI repair review.",
+        }
+    chunk_ids = [item.get("chunk_id") for item in source_refs if isinstance(item, dict) and item.get("chunk_id")]
+    return {
+        "canonical_chunk_ids": [str(item) for item in chunk_ids],
+        "supporting_theory_chunk_ids": [],
+        "evidence_sufficient": bool(chunk_ids),
+        "reviewer_note": "AI suggestion draft; teacher must verify source support before publication.",
+    }
+
+
+def _point_from_metadata(metadata: Any) -> dict[str, str] | None:
+    if not isinstance(metadata, dict):
+        return None
+    points = metadata.get("primary_points") or []
+    if isinstance(points, list):
+        for point in points:
+            if isinstance(point, dict) and (point.get("point_key") or point.get("point_title")):
+                return {
+                    "point_key": str(point.get("point_key") or "").strip(),
+                    "point_title": str(point.get("point_title") or point.get("point_key") or "").strip(),
+                }
+    keys = metadata.get("primary_point_keys") or []
+    if isinstance(keys, list) and keys:
+        key = str(keys[0] or "").strip()
+        if key:
+            return {"point_key": key, "point_title": key}
+    return None
+
+
+def _select_suggestion_point(
+    *,
+    points: list[dict[str, Any]],
+    point_key: str | None,
+    target_question: dict[str, Any] | None,
+) -> dict[str, str] | None:
+    if point_key:
+        found = next((item for item in points if item.get("point_key") == point_key), None)
+        if found:
+            return {
+                "point_key": str(found.get("point_key") or ""),
+                "point_title": str(found.get("point_title") or found.get("point_key") or ""),
+            }
+    if target_question:
+        from_question = _point_from_metadata(target_question.get("metadata"))
+        if from_question:
+            return from_question
+    first = next((item for item in points if item.get("point_key") and item.get("source") != "legacy"), None)
+    if first:
+        return {
+            "point_key": str(first.get("point_key") or ""),
+            "point_title": str(first.get("point_title") or first.get("point_key") or ""),
+        }
+    return None
+
+
+def _default_option_links(options: list[Any], point: dict[str, str] | None) -> list[dict[str, Any]]:
+    links: list[dict[str, Any]] = []
+    for index, option in enumerate(options):
+        label = option.get("label") if isinstance(option, dict) else None
+        label = str(label or chr(65 + index))
+        if index == 0:
+            links.append(
+                {
+                    "label": label,
+                    "role": "correct_evidence",
+                    "point_key": point.get("point_key") if point else None,
+                    "point_title": point.get("point_title") if point else None,
+                    "diagnostic_note": "Correct option tied to the selected experiment point.",
+                }
+            )
+        else:
+            links.append(
+                {
+                    "label": label,
+                    "role": "weak_distractor",
+                    "point_key": None,
+                    "diagnostic_note": "Draft distractor; teacher should verify diagnostic value.",
+                }
+            )
+    return links
+
+
+def _with_point_aware_metadata(
+    *,
+    row: dict[str, Any],
+    request: PointAwareSuggestionRequest,
+    experiment: dict[str, Any],
+    point: dict[str, str] | None,
+    source_refs: list[dict[str, Any]],
+    target_question: dict[str, Any] | None,
+    index: int,
+) -> dict[str, Any]:
+    existing_metadata = row.get("metadata") if isinstance(row.get("metadata"), dict) else {}
+    target_metadata = target_question.get("metadata") if isinstance(target_question, dict) and isinstance(target_question.get("metadata"), dict) else {}
+    source_audit = row.get("source_audit") if isinstance(row.get("source_audit"), dict) else None
+    if source_audit is None:
+        source_audit = existing_metadata.get("source_audit") if isinstance(existing_metadata.get("source_audit"), dict) else None
+    source_audit = source_audit or _source_audit_for_suggestion(source_refs=source_refs, target_question=target_question)
+    primary_point_keys = [str(item) for item in (row.get("primary_point_keys") or existing_metadata.get("primary_point_keys") or []) if str(item).strip()]
+    if not primary_point_keys and point and point.get("point_key"):
+        primary_point_keys = [point["point_key"]]
+    primary_points = [
+        {
+            "point_key": point["point_key"],
+            "point_title": point.get("point_title") or point["point_key"],
+        }
+        for point in ([point] if point and point.get("point_key") else [])
+    ]
+    if not primary_points and isinstance(target_metadata.get("primary_points"), list):
+        primary_points = [item for item in target_metadata["primary_points"] if isinstance(item, dict)]
+    question_type = str(row.get("question_type") or "")
+    options = row.get("options") if isinstance(row.get("options"), list) else []
+    option_links = row.get("option_links") if isinstance(row.get("option_links"), list) else None
+    if option_links is None:
+        option_links = existing_metadata.get("option_links") if isinstance(existing_metadata.get("option_links"), list) else None
+    if question_type == "single_choice" and not option_links:
+        option_links = _default_option_links(options, point)
+    metadata = {
+        **existing_metadata,
+        "point_aware_question_bank": True,
+        "suggestion_intent": request.intent,
+        "primary_point_keys": primary_point_keys,
+        "primary_points": primary_points,
+        "secondary_point_keys": list(row.get("secondary_point_keys") or existing_metadata.get("secondary_point_keys") or []),
+        "coverage_tags": list(row.get("coverage_tags") or existing_metadata.get("coverage_tags") or target_metadata.get("coverage_tags") or []),
+        "option_links": option_links or [],
+        "quality_flags": list(row.get("quality_flags") or existing_metadata.get("quality_flags") or ["ai_suggestion", "needs_teacher_review"]),
+        "source_audit": source_audit,
+        "review_decision": "rewrite" if request.intent == "repair_question" else "keep",
+        "review_lineage": {
+            **(existing_metadata.get("review_lineage") if isinstance(existing_metadata.get("review_lineage"), dict) else {}),
+            "suggestion_intent": request.intent,
+            "suggestion_index": index,
+            "generated_at": datetime.now(timezone.utc).isoformat(),
+            "experiment_id": experiment.get("id"),
+            "experiment_code": experiment.get("code"),
+            "original_question_id": request.question_id if request.intent == "repair_question" else None,
+        },
+        "machine_grading": row.get("machine_grading") or existing_metadata.get("machine_grading") or "deterministic",
+    }
+    return {
+        **row,
+        "related_chapter_ids": list(row.get("related_chapter_ids") or (target_question or {}).get("related_chapter_ids") or []),
+        "related_knowledge_point_ids": list(
+            row.get("related_knowledge_point_ids") or (target_question or {}).get("related_knowledge_point_ids") or []
+        ),
+        "source_refs": row.get("source_refs") or source_refs or (target_question or {}).get("source_refs") or [],
+        "source_chunk_ids": _question_source_chunk_ids(source_refs or [], source_audit),
+        "metadata": metadata,
+    }
+
+
+def _local_point_aware_suggestions(
+    *,
+    request: PointAwareSuggestionRequest,
+    experiment: dict[str, Any],
+    point: dict[str, str] | None,
+    target_question: dict[str, Any] | None,
+) -> list[dict[str, Any]]:
+    valid_types = [item for item in request.question_types if item in OBJECTIVE_TYPES] or ["single_choice"]
+    if request.intent == "repair_question" and target_question:
+        valid_types = [str(target_question.get("question_type") or valid_types[0])]
+    title = str(experiment.get("title") or experiment.get("code") or "experiment")
+    point_title = str((point or {}).get("point_title") or "selected experiment point")
+    rows: list[dict[str, Any]] = []
+    for index in range(request.count):
+        question_type = valid_types[index % len(valid_types)]
+        if request.intent == "repair_question" and target_question:
+            base_stem = str(target_question.get("stem") or "")
+            repair_prefix = "修正建议："
+            stem = base_stem if base_stem.startswith(repair_prefix) else f"{repair_prefix}{base_stem}"
+            explanation = target_question.get("explanation") or "请教师结合来源证据复核本题解析。"
+            options = target_question.get("options") or []
+            answer = target_question.get("answer") or {}
+        elif question_type == "true_false":
+            stem = f"在《{title}》中，围绕“{point_title}”的实验现象可以直接支持本题所述结论。"
+            options = []
+            answer = {"value": True}
+            explanation = "该判断题为 AI 草稿，教师需要核对实验来源和点位绑定后再发布。"
+        elif question_type == "fill_blank":
+            stem = f"《{title}》中与“{point_title}”直接相关的实验点位是____。"
+            options = []
+            answer = {"accepted_answers": [point_title[:12] or title[:12]], "match": "normalized_exact"}
+            explanation = "填空答案使用短词精确匹配，发布前需要确认手机端输入友好。"
+        else:
+            stem = f"在《{title}》中，哪一项最能诊断学生是否理解“{point_title}”？"
+            options = [
+                {"label": "A", "text": f"围绕“{point_title}”说明实验操作、现象和结论之间的关系"},
+                {"label": "B", "text": "只记住实验名称，不分析现象和结论"},
+                {"label": "C", "text": "把相邻实验的现象直接套用到本实验"},
+                {"label": "D", "text": "忽略实验条件，仅凭最终结论作答"},
+            ]
+            answer = {"value": "A"}
+            explanation = "正确项要求学生把点位对应的操作、现象和结论连起来；其余选项用于暴露记忆化或混淆相邻实验的问题。"
+        rows.append(
+            {
+                "question_type": question_type,
+                "stem": stem,
+                "options": options,
+                "answer": answer,
+                "explanation": explanation,
+                "difficulty": request.difficulty or target_question.get("difficulty") if target_question else request.difficulty or "basic",
+            }
+        )
+    return rows
+
+
+def _try_openai_point_aware_suggestions(
+    *,
+    request: PointAwareSuggestionRequest,
+    experiment: dict[str, Any],
+    point: dict[str, str] | None,
+    target_question: dict[str, Any] | None,
+    source_refs: list[dict[str, Any]],
+) -> list[dict[str, Any]] | None:
+    settings = effective_ai_settings(get_settings())
+    if settings.agent_llm_provider == "disabled":
+        return None
+    api_key = settings.agent_llm_api_key or os.getenv("OPENAI_API_KEY", "")
+    model = settings.agent_llm_model or os.getenv("OPENAI_MODEL", "gpt-4.1-mini")
+    if not api_key:
+        return None
+    try:
+        from openai import OpenAI
+
+        client = OpenAI(api_key=api_key, base_url=settings.agent_llm_base_url or None)
+        response = client.chat.completions.create(
+            model=model,
+            response_format={"type": "json_object"},
+            messages=[
+                {
+                    "role": "system",
+                    "content": (
+                        "Generate teacher-review draft chemistry objective questions for a point-aware experiment question bank. "
+                        "Return JSON only: {\"questions\":[...]}. "
+                        "Each question must include question_type, stem, options, answer, explanation, primary_point_keys, "
+                        "source_audit, and option_links for single_choice. Do not publish."
+                    ),
+                },
+                {
+                    "role": "user",
+                    "content": json.dumps(
+                        {
+                            "intent": request.intent,
+                            "prompt": request.prompt,
+                            "question_types": request.question_types,
+                            "count": request.count,
+                            "difficulty": request.difficulty,
+                            "experiment": {
+                                "id": experiment.get("id"),
+                                "code": experiment.get("code"),
+                                "title": experiment.get("title"),
+                                "summary": experiment.get("summary"),
+                            },
+                            "selected_point": point,
+                            "original_question": target_question,
+                            "source_refs": source_refs,
+                        },
+                        ensure_ascii=False,
+                    ),
+                },
+            ],
+        )
+        data = json.loads(response.choices[0].message.content or "{}")
+        rows = data.get("questions") or []
+        return rows if isinstance(rows, list) else None
+    except Exception:
+        return None
+
+
+def _load_question_for_workbench(session: Any, question_id: str) -> dict[str, Any]:
+    row = (
+        session.execute(
+            text(
+                """
+                SELECT q.*, fe.code AS experiment_code, fe.title AS experiment_title,
+                       b.bank_kind, b.title AS bank_title
+                FROM experiment_questions q
+                JOIN formal_experiments fe ON fe.id = q.experiment_id
+                LEFT JOIN experiment_question_banks b ON b.id = q.bank_id
+                WHERE q.id = CAST(:id AS uuid)
+                """
+            ),
+            {"id": question_id},
+        )
+        .mappings()
+        .first()
+    )
+    if not row:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Question not found")
+    return dict(row)
+
+
+def _question_snapshot(question: dict[str, Any] | None) -> dict[str, Any]:
+    if not question:
+        return {}
+    keys = [
+        "id",
+        "experiment_id",
+        "experiment_code",
+        "experiment_title",
+        "bank_kind",
+        "question_type",
+        "stem",
+        "options",
+        "answer",
+        "explanation",
+        "difficulty",
+        "status",
+        "related_chapter_ids",
+        "related_knowledge_point_ids",
+        "source_chunk_ids",
+        "source_refs",
+        "metadata",
+        "created_at",
+        "updated_at",
+    ]
+    return {key: question.get(key) for key in keys if key in question}
+
+
+def _workbench_context(
+    *,
+    mode: str,
+    experiment: dict[str, Any],
+    point: dict[str, str] | None,
+    target_question: dict[str, Any] | None,
+    source_refs: list[dict[str, Any]],
+    coverage: dict[str, Any] | None = None,
+) -> dict[str, Any]:
+    return {
+        "mode": mode,
+        "experiment": {
+            "id": experiment.get("id"),
+            "code": experiment.get("code"),
+            "title": experiment.get("title"),
+            "summary": experiment.get("summary"),
+        },
+        "selected_point": point,
+        "original_question": _question_snapshot(target_question),
+        "source_refs": source_refs,
+        "coverage": coverage or {},
+    }
+
+
+def _question_coverage_for_context(session: Any, experiment_id: str, point_key: str | None) -> dict[str, Any]:
+    params = {"experiment_id": experiment_id}
+    rows = [
+        dict(row)
+        for row in session.execute(
+            text(
+                """
+                SELECT question_type, status, metadata
+                FROM experiment_questions
+                WHERE experiment_id = :experiment_id
+                """
+            ),
+            params,
+        )
+        .mappings()
+        .all()
+    ]
+    type_counts: dict[str, int] = {}
+    point_question_count = 0
+    for row in rows:
+        type_counts[str(row.get("question_type") or "")] = type_counts.get(str(row.get("question_type") or ""), 0) + 1
+        metadata = row.get("metadata") if isinstance(row.get("metadata"), dict) else {}
+        point_keys = metadata.get("primary_point_keys") if isinstance(metadata, dict) else []
+        if point_key and isinstance(point_keys, list) and point_key in point_keys:
+            point_question_count += 1
+    return {
+        "question_count": len(rows),
+        "type_counts": type_counts,
+        "selected_point_question_count": point_question_count if point_key else None,
+    }
+
+
+def _load_workbench_source_refs(
+    session: Any,
+    *,
+    experiment: dict[str, Any],
+    prompt: str,
+    target_question: dict[str, Any] | None,
+) -> list[dict[str, Any]]:
+    prompt_parts = [
+        prompt,
+        str(target_question.get("stem")) if target_question else "",
+    ]
+    source_refs = _load_generation_sources(
+        session,
+        experiment=experiment,
+        prompt=" ".join(item for item in prompt_parts if item),
+        chapter_ids=list((target_question or {}).get("related_chapter_ids") or []),
+        knowledge_point_ids=list((target_question or {}).get("related_knowledge_point_ids") or []),
+    )
+    if not source_refs and target_question:
+        source_refs = list(target_question.get("source_refs") or [])
+    return source_refs
+
+
+def _create_or_reopen_workbench_session(
+    session: Any,
+    *,
+    request: WorkbenchSessionRequest,
+    user_id: str,
+) -> str:
+    experiment = _ensure_experiment(session, request.experiment_id)
+    target_question = None
+    if request.mode == "repair":
+        if not request.question_id:
+            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="question_id is required for repair workbench")
+        target_question = _load_question_for_workbench(session, request.question_id)
+        if target_question.get("experiment_id") != request.experiment_id:
+            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Question does not belong to experiment")
+
+    points = _experiment_video_points(experiment, _list_experiment_video_resources(request.experiment_id))
+    selected_point = _select_suggestion_point(points=points, point_key=request.point_key, target_question=target_question)
+    point_key = selected_point.get("point_key") if selected_point else request.point_key
+    params = {
+        "mode": request.mode,
+        "experiment_id": request.experiment_id,
+        "question_id": request.question_id,
+        "point_key": point_key or "",
+        "created_by": user_id,
+    }
+    if request.mode == "repair":
+        existing = (
+            session.execute(
+                text(
+                    """
+                    SELECT id
+                    FROM experiment_question_workbench_sessions
+                    WHERE mode = 'repair'
+                      AND question_id = CAST(:question_id AS uuid)
+                      AND status = 'open'
+                      AND created_by = CAST(:created_by AS uuid)
+                    ORDER BY updated_at DESC
+                    LIMIT 1
+                    """
+                ),
+                params,
+            )
+            .mappings()
+            .first()
+        )
+    else:
+        existing = (
+            session.execute(
+                text(
+                    """
+                    SELECT id
+                    FROM experiment_question_workbench_sessions
+                    WHERE mode = 'create'
+                      AND experiment_id = :experiment_id
+                      AND COALESCE(point_key, '') = :point_key
+                      AND status = 'open'
+                      AND created_by = CAST(:created_by AS uuid)
+                    ORDER BY updated_at DESC
+                    LIMIT 1
+                    """
+                ),
+                params,
+            )
+            .mappings()
+            .first()
+        )
+    if existing:
+        return str(existing["id"])
+
+    initial_prompt = str(target_question.get("stem") or "") if target_question else str(experiment.get("title") or "")
+    source_refs = _load_workbench_source_refs(
+        session,
+        experiment=experiment,
+        prompt=initial_prompt,
+        target_question=target_question,
+    )
+    coverage = _question_coverage_for_context(session, request.experiment_id, point_key)
+    context = _workbench_context(
+        mode=request.mode,
+        experiment=experiment,
+        point=selected_point,
+        target_question=target_question,
+        source_refs=source_refs,
+        coverage=coverage,
+    )
+    session_id = str(
+        session.execute(
+            text(
+                """
+                INSERT INTO experiment_question_workbench_sessions (
+                  mode, experiment_id, point_key, question_id, original_question_snapshot,
+                  context_snapshot, status, created_by
+                )
+                VALUES (
+                  :mode, :experiment_id, :point_key, CAST(:question_id AS uuid),
+                  CAST(:original_question_snapshot AS jsonb),
+                  CAST(:context_snapshot AS jsonb), 'open', CAST(:created_by AS uuid)
+                )
+                RETURNING id
+                """
+            ),
+            {
+                **params,
+                "point_key": point_key,
+                "original_question_snapshot": _json(_question_snapshot(target_question)),
+                "context_snapshot": _json(context),
+            },
+        ).scalar_one()
+    )
+    return session_id
+
+
+def _insert_workbench_turn(
+    session: Any,
+    *,
+    session_id: str,
+    role: str,
+    content: str,
+    provider: str | None = None,
+    model: str | None = None,
+    error_state: dict[str, Any] | None = None,
+    metadata: dict[str, Any] | None = None,
+) -> dict[str, Any]:
+    return dict(
+        session.execute(
+            text(
+                """
+                INSERT INTO experiment_question_workbench_turns (
+                  session_id, role, content, provider, model, error_state, metadata
+                )
+                VALUES (
+                  CAST(:session_id AS uuid), :role, :content, :provider, :model,
+                  CAST(:error_state AS jsonb), CAST(:metadata AS jsonb)
+                )
+                RETURNING *
+                """
+            ),
+            {
+                "session_id": session_id,
+                "role": role,
+                "content": content,
+                "provider": provider,
+                "model": model,
+                "error_state": _json(error_state) if error_state is not None else None,
+                "metadata": _json(metadata or {}),
+            },
+        )
+        .mappings()
+        .one()
+    )
+
+
+def _workbench_candidate_validation_errors(
+    payload: dict[str, Any],
+    *,
+    session_id: str,
+    turn_id: str,
+) -> list[str]:
+    errors: list[str] = []
+    metadata = payload.get("metadata") if isinstance(payload.get("metadata"), dict) else {}
+    point_keys = metadata.get("primary_point_keys") if isinstance(metadata, dict) else []
+    if not isinstance(point_keys, list) or not [item for item in point_keys if str(item).strip()]:
+        errors.append("primary_point_keys are required")
+    source_audit = metadata.get("source_audit") if isinstance(metadata, dict) else None
+    if not isinstance(source_audit, dict):
+        errors.append("source_audit is required")
+    if payload.get("question_type") == "single_choice":
+        option_links = metadata.get("option_links") if isinstance(metadata, dict) else []
+        if not isinstance(option_links, list) or not option_links:
+            errors.append("single_choice option_links are required")
+    lineage = metadata.get("review_lineage") if isinstance(metadata, dict) else None
+    if not isinstance(lineage, dict) or lineage.get("workbench_session_id") != session_id or lineage.get("workbench_turn_id") != turn_id:
+        errors.append("workbench lineage is required")
+    return errors
+
+
+def _record_workbench_generation_failure(
+    session: Any,
+    *,
+    session_id: str,
+    user_turn: dict[str, Any],
+    exc: Exception,
+) -> dict[str, Any]:
+    assistant_turn = _insert_workbench_turn(
+        session,
+        session_id=session_id,
+        role="assistant",
+        content="AI 建议生成失败，已保留本轮提示。请调整提示或稍后重试。",
+        error_state={"message": str(exc), "type": exc.__class__.__name__},
+        metadata={"user_turn_id": str(user_turn["id"])},
+    )
+    session.execute(
+        text("UPDATE experiment_question_workbench_sessions SET updated_at = now() WHERE id = CAST(:id AS uuid)"),
+        {"id": session_id},
+    )
+    return assistant_turn
+
+
+def _workbench_session_response(session: Any, session_id: str) -> dict[str, Any]:
+    row = (
+        session.execute(
+            text(
+                """
+                SELECT s.*, fe.code AS experiment_code, fe.title AS experiment_title
+                FROM experiment_question_workbench_sessions s
+                JOIN formal_experiments fe ON fe.id = s.experiment_id
+                WHERE s.id = CAST(:id AS uuid)
+                """
+            ),
+            {"id": session_id},
+        )
+        .mappings()
+        .first()
+    )
+    if not row:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Workbench session not found")
+    turns = [
+        dict(turn)
+        for turn in session.execute(
+            text(
+                """
+                SELECT *
+                FROM experiment_question_workbench_turns
+                WHERE session_id = CAST(:id AS uuid)
+                ORDER BY created_at ASC
+                """
+            ),
+            {"id": session_id},
+        )
+        .mappings()
+        .all()
+    ]
+    candidates = [
+        dict(candidate)
+        for candidate in session.execute(
+            text(
+                """
+                SELECT c.*, d.status AS draft_status, d.validation_errors AS draft_validation_errors
+                FROM experiment_question_workbench_candidates c
+                LEFT JOIN experiment_question_drafts d ON d.id = c.draft_id
+                WHERE c.session_id = CAST(:id AS uuid)
+                ORDER BY c.created_at DESC
+                """
+            ),
+            {"id": session_id},
+        )
+        .mappings()
+        .all()
+    ]
+    response = dict(row)
+    response["turns"] = turns
+    response["candidates"] = candidates
+    return response
+
+
+@admin_router.post("/question-banks/workbench-sessions")
+async def admin_create_question_workbench_session(
+    payload: WorkbenchSessionRequest,
+    user: AuthUser = Depends(require_roles("admin", "teacher")),
+) -> dict[str, Any]:
+    if not ai_feature_enabled("question_bank_assistant"):
+        raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Question bank assistant is disabled")
+    with db_session() as session:
+        session_id = _create_or_reopen_workbench_session(session, request=payload, user_id=user.id)
+        return _workbench_session_response(session, session_id)
+
+
+@admin_router.get("/question-banks/workbench-sessions/{session_id}")
+async def admin_get_question_workbench_session(
+    session_id: str = Path(min_length=1),
+    user: AuthUser = Depends(require_roles("admin", "teacher")),
+) -> dict[str, Any]:
+    with db_session() as session:
+        return _workbench_session_response(session, session_id)
+
+
+@admin_router.post("/question-banks/workbench-sessions/{session_id}/messages")
+async def admin_send_question_workbench_message(
+    payload: WorkbenchMessageRequest,
+    session_id: str = Path(min_length=1),
+    user: AuthUser = Depends(require_roles("admin", "teacher")),
+) -> dict[str, Any]:
+    if not ai_feature_enabled("question_bank_assistant"):
+        raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Question bank assistant is disabled")
+    invalid_types = [item for item in payload.question_types if item not in OBJECTIVE_TYPES]
+    if invalid_types:
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=f"Unsupported question types: {invalid_types}")
+
+    with db_session() as session:
+        workbench = (
+            session.execute(
+                text("SELECT * FROM experiment_question_workbench_sessions WHERE id = CAST(:id AS uuid)"),
+                {"id": session_id},
+            )
+            .mappings()
+            .first()
+        )
+        if not workbench:
+            raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Workbench session not found")
+        if workbench["status"] != "open":
+            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Workbench session is not open")
+
+        workbench = dict(workbench)
+        experiment = _ensure_experiment(session, workbench["experiment_id"])
+        context_snapshot = workbench.get("context_snapshot") if isinstance(workbench.get("context_snapshot"), dict) else {}
+        target_question = (
+            dict(workbench.get("original_question_snapshot") or {})
+            if workbench.get("mode") == "repair"
+            else None
+        )
+        selected_point = context_snapshot.get("selected_point") if isinstance(context_snapshot.get("selected_point"), dict) else None
+        source_refs = _load_workbench_source_refs(
+            session,
+            experiment=experiment,
+            prompt=payload.prompt,
+            target_question=target_question,
+        )
+        if not source_refs:
+            source_refs = list(context_snapshot.get("source_refs") or [])
+
+        user_turn = _insert_workbench_turn(
+            session,
+            session_id=session_id,
+            role="user",
+            content=payload.prompt,
+            metadata={"question_types": payload.question_types, "count": payload.count},
+        )
+        ai_settings = effective_ai_settings(get_settings())
+        suggestion_request = PointAwareSuggestionRequest(
+            intent="repair_question" if workbench["mode"] == "repair" else "add_questions",
+            experiment_id=workbench["experiment_id"],
+            prompt=payload.prompt,
+            question_id=str(workbench.get("question_id")) if workbench.get("question_id") else None,
+            point_key=str(workbench.get("point_key") or "") or None,
+            question_types=payload.question_types,
+            count=payload.count,
+            difficulty=payload.difficulty,
+        )
+        try:
+            generated = _try_openai_point_aware_suggestions(
+                request=suggestion_request,
+                experiment=experiment,
+                point=selected_point,
+                target_question=target_question,
+                source_refs=source_refs,
+            )
+            mode = "openai_sdk" if generated else "local_template"
+            if not generated:
+                generated = _local_point_aware_suggestions(
+                    request=suggestion_request,
+                    experiment=experiment,
+                    point=selected_point,
+                    target_question=target_question,
+                )
+            assistant_turn = _insert_workbench_turn(
+                session,
+                session_id=session_id,
+                role="assistant",
+                content=f"已生成 {min(len(generated), payload.count)} 条候选，可继续追问或发布通过校验的版本。",
+                provider="openai" if mode == "openai_sdk" else "local",
+                model=ai_settings.agent_llm_model or os.getenv("OPENAI_MODEL", ""),
+                metadata={"mode": mode, "source_ref_count": len(source_refs), "user_turn_id": str(user_turn["id"])},
+            )
+            generation_id = str(
+                session.execute(
+                    text(
+                        """
+                        INSERT INTO experiment_question_generations (
+                          experiment_id, prompt, question_types, difficulty, requested_count,
+                          provider, model, mode, rag_sources, warning, status, created_by, metadata
+                        )
+                        VALUES (
+                          :experiment_id, :prompt, :question_types, :difficulty, :requested_count,
+                          :provider, :model, :mode, CAST(:rag_sources AS jsonb),
+                          :warning, 'draft', CAST(:created_by AS uuid), CAST(:metadata AS jsonb)
+                        )
+                        RETURNING id
+                        """
+                    ),
+                    {
+                        "experiment_id": workbench["experiment_id"],
+                        "prompt": payload.prompt,
+                        "question_types": payload.question_types,
+                        "difficulty": payload.difficulty,
+                        "requested_count": payload.count,
+                        "provider": "openai" if mode == "openai_sdk" else "local",
+                        "model": ai_settings.agent_llm_model or os.getenv("OPENAI_MODEL", ""),
+                        "mode": mode,
+                        "rag_sources": _json_array(source_refs),
+                        "warning": "" if source_refs else "No source refs found; teacher review is required before publication.",
+                        "created_by": user.id,
+                        "metadata": _json(
+                            {
+                                "workbench_session_id": session_id,
+                                "workbench_user_turn_id": str(user_turn["id"]),
+                                "workbench_assistant_turn_id": str(assistant_turn["id"]),
+                                "intent": suggestion_request.intent,
+                                "point_key": selected_point.get("point_key") if selected_point else None,
+                                "question_id": suggestion_request.question_id,
+                            }
+                        ),
+                    },
+                ).scalar_one()
+            )
+            for index, row in enumerate(generated[: payload.count]):
+                row_payload = _with_point_aware_metadata(
+                    row={**row, "status": "draft", "difficulty": row.get("difficulty") or payload.difficulty or "basic"},
+                    request=suggestion_request,
+                    experiment=experiment,
+                    point=selected_point,
+                    source_refs=source_refs,
+                    target_question=target_question,
+                    index=index,
+                )
+                metadata = row_payload.get("metadata") if isinstance(row_payload.get("metadata"), dict) else {}
+                lineage = metadata.get("review_lineage") if isinstance(metadata.get("review_lineage"), dict) else {}
+                metadata["review_lineage"] = {
+                    **lineage,
+                    "workbench_session_id": session_id,
+                    "workbench_user_turn_id": str(user_turn["id"]),
+                    "workbench_turn_id": str(assistant_turn["id"]),
+                }
+                row_payload["metadata"] = metadata
+                normalized, errors = _validate_question_payload(row_payload)
+                candidate_payload = normalized or row_payload
+                errors = [*errors, *_workbench_candidate_validation_errors(candidate_payload, session_id=session_id, turn_id=str(assistant_turn["id"]))]
+                draft = dict(
+                    session.execute(
+                        text(
+                            """
+                            INSERT INTO experiment_question_drafts (
+                              generation_id, experiment_id, payload, validation_errors, status
+                            )
+                            VALUES (
+                              CAST(:generation_id AS uuid), :experiment_id,
+                              CAST(:payload AS jsonb), CAST(:errors AS jsonb), 'draft'
+                            )
+                            RETURNING *
+                            """
+                        ),
+                        {
+                            "generation_id": generation_id,
+                            "experiment_id": workbench["experiment_id"],
+                            "payload": _json(candidate_payload),
+                            "errors": _json_array(errors),
+                        },
+                    )
+                    .mappings()
+                    .one()
+                )
+                session.execute(
+                    text(
+                        """
+                        INSERT INTO experiment_question_workbench_candidates (
+                          session_id, turn_id, draft_id, payload, validation_errors, status, lineage
+                        )
+                        VALUES (
+                          CAST(:session_id AS uuid), CAST(:turn_id AS uuid), CAST(:draft_id AS uuid),
+                          CAST(:payload AS jsonb), CAST(:errors AS jsonb), 'draft', CAST(:lineage AS jsonb)
+                        )
+                        """
+                    ),
+                    {
+                        "session_id": session_id,
+                        "turn_id": str(assistant_turn["id"]),
+                        "draft_id": str(draft["id"]),
+                        "payload": _json(candidate_payload),
+                        "errors": _json_array(errors),
+                        "lineage": _json(metadata.get("review_lineage") or {}),
+                    },
+                )
+            session.execute(
+                text(
+                    """
+                    UPDATE experiment_question_workbench_sessions
+                    SET context_snapshot = CAST(:context_snapshot AS jsonb), updated_at = now()
+                    WHERE id = CAST(:id AS uuid)
+                    """
+                ),
+                {
+                    "id": session_id,
+                    "context_snapshot": _json(
+                        {
+                            **context_snapshot,
+                            "source_refs": source_refs,
+                            "last_prompt": payload.prompt,
+                        }
+                    ),
+                },
+            )
+        except Exception as exc:
+            _record_workbench_generation_failure(
+                session,
+                session_id=session_id,
+                user_turn=user_turn,
+                exc=exc,
+            )
+        return _workbench_session_response(session, session_id)
+
+
+@admin_router.post("/question-banks/workbench-candidates/{candidate_id}/reject")
+async def admin_reject_question_workbench_candidate(
+    candidate_id: str = Path(min_length=1),
+    user: AuthUser = Depends(require_roles("admin", "teacher")),
+) -> dict[str, Any]:
+    with db_session() as session:
+        candidate = (
+            session.execute(
+                text("SELECT * FROM experiment_question_workbench_candidates WHERE id = CAST(:id AS uuid)"),
+                {"id": candidate_id},
+            )
+            .mappings()
+            .first()
+        )
+        if not candidate:
+            raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Candidate not found")
+        candidate = dict(candidate)
+        if candidate.get("draft_id"):
+            session.execute(
+                text("UPDATE experiment_question_drafts SET status = 'rejected', updated_at = now() WHERE id = CAST(:id AS uuid)"),
+                {"id": str(candidate["draft_id"])},
+            )
+        row = (
+            session.execute(
+                text(
+                    """
+                    UPDATE experiment_question_workbench_candidates
+                    SET status = 'rejected', updated_at = now()
+                    WHERE id = CAST(:id AS uuid)
+                    RETURNING *
+                    """
+                ),
+                {"id": candidate_id},
+            )
+            .mappings()
+            .one()
+        )
+    return dict(row)
+
+
+@admin_router.post("/question-banks/workbench-candidates/{candidate_id}/publish")
+async def admin_publish_question_workbench_candidate(
+    candidate_id: str = Path(min_length=1),
+    user: AuthUser = Depends(require_roles("admin", "teacher")),
+) -> dict[str, Any]:
+    with db_session() as session:
+        candidate = (
+            session.execute(
+                text(
+                    """
+                    SELECT c.*, s.experiment_id, s.question_id, d.generation_id
+                    FROM experiment_question_workbench_candidates c
+                    JOIN experiment_question_workbench_sessions s ON s.id = c.session_id
+                    LEFT JOIN experiment_question_drafts d ON d.id = c.draft_id
+                    WHERE c.id = CAST(:id AS uuid)
+                    """
+                ),
+                {"id": candidate_id},
+            )
+            .mappings()
+            .first()
+        )
+        if not candidate:
+            raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Candidate not found")
+        candidate = dict(candidate)
+        if candidate["status"] != "draft":
+            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Only draft candidates can be published")
+        validation_errors = candidate.get("validation_errors") or []
+        if validation_errors:
+            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail={"errors": validation_errors})
+        payload_data = dict(candidate.get("payload") or {})
+        metadata = payload_data.get("metadata") if isinstance(payload_data.get("metadata"), dict) else {}
+        lineage = metadata.get("review_lineage") if isinstance(metadata.get("review_lineage"), dict) else {}
+        metadata["review_lineage"] = {
+            **lineage,
+            "workbench_candidate_id": candidate_id,
+            "published_from_workbench_at": datetime.now(timezone.utc).isoformat(),
+        }
+        payload_data["metadata"] = metadata
+        payload_data["status"] = "published"
+        inserted = _insert_question(
+            session,
+            experiment_id=candidate["experiment_id"],
+            payload=payload_data,
+            bank_kind="generated",
+            actor_user_id=user.id,
+            generation_id=str(candidate["generation_id"]) if candidate.get("generation_id") else None,
+        )
+        if candidate.get("draft_id"):
+            session.execute(
+                text("UPDATE experiment_question_drafts SET status = 'published', updated_at = now() WHERE id = CAST(:id AS uuid)"),
+                {"id": str(candidate["draft_id"])},
+            )
+        session.execute(
+            text(
+                """
+                UPDATE experiment_question_workbench_candidates
+                SET status = 'published',
+                    lineage = lineage || CAST(:lineage AS jsonb),
+                    updated_at = now()
+                WHERE id = CAST(:id AS uuid)
+                """
+            ),
+            {
+                "id": candidate_id,
+                "lineage": _json({"published_question_id": str(inserted["id"])}),
+            },
+        )
+    return inserted
+
+
+@admin_router.post("/question-banks/point-aware-suggestions")
+async def admin_create_point_aware_suggestions(
+    payload: PointAwareSuggestionRequest,
+    user: AuthUser = Depends(require_roles("admin", "teacher")),
+) -> dict[str, Any]:
+    if not ai_feature_enabled("question_bank_assistant"):
+        raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Question bank assistant is disabled")
+    invalid_types = [item for item in payload.question_types if item not in OBJECTIVE_TYPES]
+    if invalid_types:
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=f"Unsupported question types: {invalid_types}")
+    if payload.intent == "repair_question" and not payload.question_id:
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="question_id is required for repair suggestions")
+
+    with db_session() as session:
+        experiment = _ensure_experiment(session, payload.experiment_id)
+        target_question = None
+        if payload.question_id:
+            target_question = (
+                session.execute(
+                    text(
+                        """
+                        SELECT q.*, fe.code AS experiment_code, fe.title AS experiment_title,
+                               b.bank_kind, b.title AS bank_title
+                        FROM experiment_questions q
+                        JOIN formal_experiments fe ON fe.id = q.experiment_id
+                        LEFT JOIN experiment_question_banks b ON b.id = q.bank_id
+                        WHERE q.id = CAST(:id AS uuid)
+                        """
+                    ),
+                    {"id": payload.question_id},
+                )
+                .mappings()
+                .first()
+            )
+            if not target_question:
+                raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Question not found")
+            target_question = dict(target_question)
+            if target_question.get("experiment_id") != payload.experiment_id:
+                raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Question does not belong to experiment")
+
+        points = _experiment_video_points(experiment, _list_experiment_video_resources(payload.experiment_id))
+        selected_point = _select_suggestion_point(points=points, point_key=payload.point_key, target_question=target_question)
+        prompt_parts = [
+            payload.prompt,
+            str(selected_point.get("point_title")) if selected_point else "",
+            str(target_question.get("stem")) if target_question else "",
+        ]
+        source_refs = _load_generation_sources(
+            session,
+            experiment=experiment,
+            prompt=" ".join(item for item in prompt_parts if item),
+            chapter_ids=list((target_question or {}).get("related_chapter_ids") or []),
+            knowledge_point_ids=list((target_question or {}).get("related_knowledge_point_ids") or []),
+        )
+        if not source_refs and target_question:
+            source_refs = list(target_question.get("source_refs") or [])
+        ai_settings = effective_ai_settings(get_settings())
+        generated = _try_openai_point_aware_suggestions(
+            request=payload,
+            experiment=experiment,
+            point=selected_point,
+            target_question=target_question,
+            source_refs=source_refs,
+        )
+        mode = "openai_sdk" if generated else "local_template"
+        if not generated:
+            generated = _local_point_aware_suggestions(
+                request=payload,
+                experiment=experiment,
+                point=selected_point,
+                target_question=target_question,
+            )
+        warning = "" if source_refs else "No source refs found; teacher review is required before publication."
+        generation_id = str(
+            session.execute(
+                text(
+                    """
+                    INSERT INTO experiment_question_generations (
+                      experiment_id, prompt, question_types, difficulty, requested_count,
+                      provider, model, mode, rag_sources, warning, status, created_by, metadata
+                    )
+                    VALUES (
+                      :experiment_id, :prompt, :question_types, :difficulty, :requested_count,
+                      :provider, :model, :mode, CAST(:rag_sources AS jsonb),
+                      :warning, 'draft', CAST(:created_by AS uuid), CAST(:metadata AS jsonb)
+                    )
+                    RETURNING id
+                    """
+                ),
+                {
+                    "experiment_id": payload.experiment_id,
+                    "prompt": payload.prompt,
+                    "question_types": payload.question_types,
+                    "difficulty": payload.difficulty,
+                    "requested_count": payload.count,
+                    "provider": "openai" if mode == "openai_sdk" else "local",
+                    "model": ai_settings.agent_llm_model or os.getenv("OPENAI_MODEL", ""),
+                    "mode": mode,
+                    "rag_sources": _json_array(source_refs),
+                    "warning": warning,
+                    "created_by": user.id,
+                    "metadata": _json(
+                        {
+                            "point_aware_suggestion": True,
+                            "intent": payload.intent,
+                            "point_key": selected_point.get("point_key") if selected_point else None,
+                            "question_id": payload.question_id,
+                        }
+                    ),
+                },
+            ).scalar_one()
+        )
+        drafts: list[dict[str, Any]] = []
+        for index, row in enumerate(generated[: payload.count]):
+            row_payload = _with_point_aware_metadata(
+                row={**row, "status": "draft", "difficulty": row.get("difficulty") or payload.difficulty or "basic"},
+                request=payload,
+                experiment=experiment,
+                point=selected_point,
+                source_refs=source_refs,
+                target_question=target_question,
+                index=index,
+            )
+            normalized, errors = _validate_question_payload(row_payload)
+            draft = dict(
+                session.execute(
+                    text(
+                        """
+                        INSERT INTO experiment_question_drafts (
+                          generation_id, experiment_id, payload, validation_errors, status
+                        )
+                        VALUES (
+                          CAST(:generation_id AS uuid), :experiment_id,
+                          CAST(:payload AS jsonb), CAST(:errors AS jsonb), 'draft'
+                        )
+                        RETURNING *
+                        """
+                    ),
+                    {
+                        "generation_id": generation_id,
+                        "experiment_id": payload.experiment_id,
+                        "payload": _json(normalized or row_payload),
+                        "errors": _json_array(errors),
+                    },
+                )
+                .mappings()
+                .one()
+            )
+            drafts.append(draft)
+
+    return {
+        "generation_id": generation_id,
+        "mode": mode,
+        "warning": warning,
+        "source_refs": source_refs,
+        "drafts": drafts,
+        "target": {
+            "intent": payload.intent,
+            "experiment_id": payload.experiment_id,
+            "question_id": payload.question_id,
+            "point": selected_point,
+        },
+    }
 
 
 @admin_router.post("/question-banks/generate")
@@ -3267,6 +4477,32 @@ async def admin_class_weak_points(
                              q.related_chapter_ids, q.related_knowledge_point_ids
                     ORDER BY incorrect_count DESC, attempt_count DESC
                     LIMIT 100
+                    """
+                ),
+                params,
+            )
+            .mappings()
+            .all()
+        ]
+        point_attempts = [
+            dict(row)
+            for row in session.execute(
+                text(
+                    f"""
+                    SELECT a.experiment_id,
+                           fe.code AS experiment_code,
+                           fe.title AS experiment_title,
+                           a.question_id,
+                           q.stem,
+                           a.correct,
+                           a.metadata,
+                           q.metadata AS question_metadata
+                    FROM experiment_question_attempts a
+                    LEFT JOIN experiment_questions q ON q.id = a.question_id
+                    LEFT JOIN formal_experiments fe ON fe.id = a.experiment_id
+                    WHERE {filter_sql}
+                    ORDER BY a.created_at DESC
+                    LIMIT 1000
                     """
                 ),
                 params,

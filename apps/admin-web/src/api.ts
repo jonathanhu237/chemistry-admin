@@ -554,10 +554,38 @@ export type QuestionBankSummary = Experiment & {
     bank_kind: string;
     title: string;
     status: string;
+    source_label?: string | null;
     question_count: number;
     published_count: number;
     draft_count: number;
+    choice_count?: number;
+    true_false_count?: number;
+    fill_blank_count?: number;
   }>;
+};
+
+export type SourceRef = {
+  chunk_id?: string;
+  source_file?: string;
+  page_number?: number | string | null;
+  section_title?: string | null;
+  text?: string;
+  [key: string]: unknown;
+};
+
+export type QuestionPoint = {
+  point_key?: string;
+  point_title?: string;
+};
+
+export type QuestionOptionLink = {
+  label?: string;
+  role?: string;
+  point_key?: string;
+  point_title?: string;
+  diagnostic_note?: string;
+  source_chunk_ids?: string[];
+  [key: string]: unknown;
 };
 
 export type Question = {
@@ -576,14 +604,20 @@ export type Question = {
   related_chapter_ids?: string[];
   related_knowledge_point_ids?: string[];
   source_chunk_ids?: string[];
-  source_refs?: Array<Record<string, unknown>>;
+  source_refs?: SourceRef[];
   metadata?: {
     point_aware_question_bank?: boolean;
+    suggestion_intent?: "add_questions" | "repair_question" | string;
     primary_point_keys?: string[];
-    primary_points?: Array<{ point_key?: string; point_title?: string }>;
+    primary_points?: QuestionPoint[];
+    secondary_point_keys?: string[];
+    option_links?: QuestionOptionLink[];
     coverage_tags?: string[];
     review_decision?: string;
+    review_lineage?: Record<string, unknown>;
     quality_flags?: string[];
+    mobile_input_risk?: string;
+    machine_grading?: string;
     source_audit?: {
       evidence_sufficient?: boolean;
       canonical_chunk_ids?: string[];
@@ -656,13 +690,98 @@ export type QuestionDraft = {
   experiment_id: string;
   experiment_code?: string;
   experiment_title?: string;
-  payload: Record<string, unknown>;
+  payload: Partial<Question> & Record<string, unknown>;
   validation_errors: string[];
   status: string;
   prompt?: string;
   mode?: string;
   warning?: string;
   created_at?: string;
+};
+
+export type PointAwareSuggestionRequest = {
+  intent: "add_questions" | "repair_question";
+  experiment_id: string;
+  prompt: string;
+  question_id?: string | null;
+  point_key?: string | null;
+  question_types?: Question["question_type"][];
+  count?: number;
+  difficulty?: string | null;
+};
+
+export type PointAwareSuggestionResponse = {
+  generation_id: string;
+  mode: string;
+  warning?: string;
+  source_refs: SourceRef[];
+  drafts: QuestionDraft[];
+  target: {
+    intent: "add_questions" | "repair_question";
+    experiment_id: string;
+    question_id?: string | null;
+    point?: QuestionPoint | null;
+  };
+};
+
+export type QuestionWorkbenchTurn = {
+  id: string;
+  session_id: string;
+  role: "user" | "assistant" | "system";
+  content: string;
+  provider?: string | null;
+  model?: string | null;
+  error_state?: Record<string, unknown> | null;
+  metadata?: Record<string, unknown>;
+  created_at?: string;
+};
+
+export type QuestionWorkbenchCandidate = {
+  id: string;
+  session_id: string;
+  turn_id?: string | null;
+  draft_id?: string | null;
+  payload: Partial<Question> & Record<string, unknown>;
+  validation_errors: string[];
+  status: "draft" | "rejected" | "published";
+  lineage?: Record<string, unknown>;
+  draft_status?: string | null;
+  draft_validation_errors?: string[] | null;
+  created_at?: string;
+  updated_at?: string;
+};
+
+export type QuestionWorkbenchSession = {
+  id: string;
+  mode: "repair" | "create";
+  experiment_id: string;
+  experiment_code?: string;
+  experiment_title?: string;
+  point_key?: string | null;
+  question_id?: string | null;
+  original_question_snapshot?: Partial<Question> & Record<string, unknown>;
+  context_snapshot?: {
+    experiment?: {
+      id?: string;
+      code?: string;
+      title?: string;
+      summary?: string | null;
+    };
+    selected_point?: QuestionPoint | null;
+    source_refs?: SourceRef[];
+    coverage?: {
+      question_count?: number;
+      selected_point_question_count?: number | null;
+      type_counts?: Record<string, number>;
+    };
+    last_prompt?: string;
+    [key: string]: unknown;
+  };
+  status: "open" | "closed" | "discarded";
+  turns: QuestionWorkbenchTurn[];
+  candidates: QuestionWorkbenchCandidate[];
+  created_at?: string;
+  updated_at?: string;
 };
 
 export type AnalyticsDashboard = {
@@ -692,6 +811,70 @@ export type AnalyticsDashboard = {
   }>;
   recent_activity: Array<Record<string, unknown>>;
   missing_students: Array<Record<string, unknown>>;
+};
+
+export type WeakQuestionItem = {
+  experiment_id?: string;
+  experiment_code?: string;
+  experiment_title?: string;
+  question_id?: string;
+  stem?: string;
+  attempt_count: number;
+  incorrect_count: number;
+  incorrect_rate: number;
+  weak_kp_ids?: string[];
+  unmapped?: boolean;
+};
+
+export type WeakVideoPointItem = {
+  point_key: string;
+  point_title: string;
+  experiment_id?: string;
+  experiment_code?: string;
+  experiment_title?: string;
+  attempt_count: number;
+  incorrect_count: number;
+  incorrect_rate: number;
+  representative_questions?: Array<{ question_id?: string; stem?: string }>;
+  selected_option_links?: QuestionOptionLink[];
+  kp_unmapped?: boolean;
+};
+
+export type WeakPointsResponse = ApiList<WeakQuestionItem> & {
+  point_items: WeakVideoPointItem[];
+  point_total: number;
+};
+
+export type StudentAttempt = {
+  id?: string;
+  experiment_id?: string;
+  experiment_code?: string;
+  experiment_title?: string;
+  question_id?: string;
+  question_type?: Question["question_type"];
+  stem?: string;
+  correct?: boolean | null;
+  score?: number | null;
+  submitted_answer?: unknown;
+  answer?: unknown;
+  metadata?: {
+    primary_points?: QuestionPoint[];
+    primary_point_keys?: string[];
+    selected_option_label?: string | null;
+    selected_option_link?: QuestionOptionLink | null;
+    diagnostic_role?: string | null;
+    [key: string]: unknown;
+  };
+  created_at?: string;
+};
+
+export type StudentReport = {
+  student?: Record<string, unknown>;
+  progress?: Array<Record<string, unknown>>;
+  attempts?: StudentAttempt[];
+  weak_points?: Array<Record<string, unknown>>;
+  weak_video_points?: WeakVideoPointItem[];
+  timeline?: Array<Record<string, unknown>>;
 };
 
 export type ApiList<T> = {

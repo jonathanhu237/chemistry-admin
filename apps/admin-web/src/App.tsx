@@ -99,11 +99,14 @@ import type {
   LearningResourceOverview,
   MediaAsset,
   MediaDuplicatePrecheck,
+  PointAwareSuggestionResponse,
   Question,
-  ChapterQuestion,
-  QuestionBankAssistantPreview,
-  QuestionBankChapterSummary,
   QuestionBankSummary,
+  QuestionDraft,
+  QuestionWorkbenchCandidate,
+  QuestionWorkbenchSession,
+  StudentReport,
+  WeakPointsResponse,
   LearningBehaviorSettings,
   PlatformSettingsResponse,
   RegistrationSettings,
@@ -4240,13 +4243,6 @@ function VideoResourcesPage() {
   );
 }
 
-type AssistantFormValues = {
-  intent: "add_questions" | "repair_question";
-  prompt: string;
-  question_types: Array<"single_choice" | "true_false" | "fill_blank">;
-  count: number;
-};
-
 function answerText(answer?: Record<string, unknown>) {
   if (!answer) return "-";
   if (Array.isArray(answer.accepted_answers)) return answer.accepted_answers.map(String).join("，");
@@ -4264,12 +4260,90 @@ function sourceRefLabel(ref: Record<string, unknown>) {
   return `${file}${page}${section}`;
 }
 
-function questionPointTitles(question: ChapterQuestion) {
+function questionPoints(question: Question) {
   const points = question.metadata?.primary_points || [];
   if (points.length) {
-    return points.map((point) => String(point.point_title || point.point_key || "")).filter(Boolean);
+    return points
+      .map((point) => ({
+        point_key: String(point.point_key || "").trim(),
+        point_title: String(point.point_title || point.point_key || "").trim(),
+      }))
+      .filter((point) => point.point_key || point.point_title);
   }
-  return (question.metadata?.primary_point_keys || []).map((key) => String(key));
+  return (question.metadata?.primary_point_keys || [])
+    .map((key) => ({ point_key: String(key), point_title: String(key) }))
+    .filter((point) => point.point_key);
+}
+
+function questionPointTitles(question: Question) {
+  return questionPoints(question).map((point) => point.point_title || point.point_key).filter(Boolean);
+}
+
+function draftPayload(draft: QuestionDraft) {
+  return draft.payload || {};
+}
+
+function draftStem(draft: QuestionDraft) {
+  return String(draftPayload(draft).stem || "");
+}
+
+function draftQuestionType(draft: QuestionDraft) {
+  return String(draftPayload(draft).question_type || "");
+}
+
+function draftQuestionPoints(draft: QuestionDraft) {
+  const metadata = draftPayload(draft).metadata || {};
+  const points = Array.isArray(metadata.primary_points) ? metadata.primary_points : [];
+  if (points.length) {
+    return points
+      .map((point) => ({
+        point_key: String(point?.point_key || "").trim(),
+        point_title: String(point?.point_title || point?.point_key || "").trim(),
+      }))
+      .filter((point) => point.point_key || point.point_title);
+  }
+  const keys = Array.isArray(metadata.primary_point_keys) ? metadata.primary_point_keys : [];
+  return keys.map((key) => ({ point_key: String(key), point_title: String(key) })).filter((point) => point.point_key);
+}
+
+function candidatePayload(candidate: QuestionWorkbenchCandidate) {
+  return candidate.payload || {};
+}
+
+function candidateStem(candidate: QuestionWorkbenchCandidate) {
+  return String(candidatePayload(candidate).stem || "");
+}
+
+function candidateQuestionType(candidate: QuestionWorkbenchCandidate) {
+  return String(candidatePayload(candidate).question_type || "");
+}
+
+function candidateQuestionPoints(candidate: QuestionWorkbenchCandidate) {
+  const metadata = candidatePayload(candidate).metadata || {};
+  const points = Array.isArray(metadata.primary_points) ? metadata.primary_points : [];
+  if (points.length) {
+    return points
+      .map((point) => ({
+        point_key: String(point?.point_key || "").trim(),
+        point_title: String(point?.point_title || point?.point_key || "").trim(),
+      }))
+      .filter((point) => point.point_key || point.point_title);
+  }
+  const keys = Array.isArray(metadata.primary_point_keys) ? metadata.primary_point_keys : [];
+  return keys.map((key) => ({ point_key: String(key), point_title: String(key) })).filter((point) => point.point_key);
+}
+
+function candidateValidationErrors(candidate: QuestionWorkbenchCandidate) {
+  return candidate.validation_errors?.length
+    ? candidate.validation_errors
+    : candidate.draft_validation_errors?.length
+      ? candidate.draft_validation_errors
+      : [];
+}
+
+function questionHasPoint(question: Question, pointKey?: string) {
+  if (!pointKey) return true;
+  return questionPoints(question).some((point) => point.point_key === pointKey);
 }
 
 function reviewDecisionTag(decision?: string) {
@@ -4279,12 +4353,21 @@ function reviewDecisionTag(decision?: string) {
   return null;
 }
 
-function assistantActionLabel(action: QuestionBankAssistantPreview["actions"][number]) {
-  if (action.action_type === "add_question") return "新增题目建议";
-  if (action.action_type === "repair_question") return "审核建议";
-  return action.title || action.action_type;
+function evidenceStatusTag(question: Question) {
+  if (question.metadata?.source_audit?.evidence_sufficient) return <Tag color="green">证据已核对</Tag>;
+  if (question.source_refs?.length) return <Tag color="gold">有来源</Tag>;
+  return <Tag>待核对</Tag>;
 }
 
+function optionDiagnosticRoleLabel(role?: string) {
+  if (role === "correct_evidence") return "正确证据";
+  if (role === "adjacent_point") return "相邻点位";
+  if (role === "adjacent_experiment") return "相邻实验";
+  if (role === "distractor_misconception") return "误区干扰";
+  if (role === "unrelated_distractor") return "无关干扰";
+  if (role === "weak_distractor") return "弱干扰";
+  return role || "-";
+}
 
 function questionBankStatusTag(status?: string) {
   if (status === "published") return <Tag color="green">启用</Tag>;
@@ -4292,131 +4375,220 @@ function questionBankStatusTag(status?: string) {
   return statusTag(status);
 }
 
-function assistantPromptPlaceholder(intent?: AssistantFormValues["intent"]) {
-  if (intent === "add_questions") return "例如：为本章补充 3 道覆盖实验现象和关键结论的选择、判断、填空题。";
-  return "例如：请审核这道题的题干、答案和解析是否准确，并给出修改建议。";
-}
-
 function QuestionBanksPage() {
   const { message } = AntApp.useApp();
-  const experiments = useExperiments();
-  const [chapterId, setChapterId] = useState<string>();
-  const [questionType, setQuestionType] = useState<string>();
+  const queryClient = useQueryClient();
   const [experimentId, setExperimentId] = useState<string>();
+  const [questionType, setQuestionType] = useState<string>();
+  const [pointKey, setPointKey] = useState<string>();
+  const [statusFilter, setStatusFilter] = useState<string>("published");
   const [search, setSearch] = useState("");
   const [workbenchOpen, setWorkbenchOpen] = useState(false);
-  const [workbenchMode, setWorkbenchMode] = useState<"assistant" | "question">("assistant");
-  const [selectedQuestion, setSelectedQuestion] = useState<ChapterQuestion | null>(null);
-  const [assistantPreview, setAssistantPreview] = useState<QuestionBankAssistantPreview | null>(null);
-  const [assistantForm] = Form.useForm<AssistantFormValues>();
-  const assistantIntent = Form.useWatch("intent", assistantForm) as AssistantFormValues["intent"] | undefined;
+  const [selectedQuestion, setSelectedQuestion] = useState<Question | null>(null);
+  const [assistantIntent, setAssistantIntent] = useState<"add_questions" | "repair_question">("add_questions");
+  const [assistantQuestion, setAssistantQuestion] = useState<Question | null>(null);
+  const [assistantPointKey, setAssistantPointKey] = useState<string>();
+  const [aiWorkbenchOpen, setAiWorkbenchOpen] = useState(false);
+  const [aiWorkbenchSessionId, setAiWorkbenchSessionId] = useState<string>();
+  const [workbenchPrompt, setWorkbenchPrompt] = useState("");
+  const [workbenchQuestionTypes, setWorkbenchQuestionTypes] = useState<Question["question_type"][]>(["single_choice", "true_false"]);
+  const [workbenchCount, setWorkbenchCount] = useState(3);
 
-  const chapters = useQuery({
-    queryKey: ["question-bank-chapters"],
-    queryFn: () => api<ApiList<QuestionBankChapterSummary>>("/api/admin/question-banks/chapters"),
+  const banks = useQuery({
+    queryKey: ["question-banks"],
+    queryFn: () => api<ApiList<QuestionBankSummary>>("/api/admin/question-banks"),
   });
 
-  useEffect(() => {
-    if (!chapterId && chapters.data?.items.length) {
-      setChapterId(chapters.data.items[0].chapter_id);
-    }
-  }, [chapterId, chapters.data?.items]);
+  const bankExperiments = banks.data?.items || [];
 
-  const questionParams = new URLSearchParams();
-  if (chapterId) questionParams.set("chapter_id", chapterId);
-  if (questionType) questionParams.set("question_type", questionType);
+  useEffect(() => {
+    if (!experimentId && bankExperiments.length) {
+      const firstWithBank = bankExperiments.find((experiment) =>
+        experiment.banks.some((bank) => bank.bank_kind === "default" && Number(bank.published_count || bank.question_count || 0) > 0),
+      );
+      setExperimentId((firstWithBank || bankExperiments[0]).id);
+    }
+  }, [bankExperiments, experimentId]);
+
+  const questionParams = new URLSearchParams({ limit: "1000" });
   if (experimentId) questionParams.set("experiment_id", experimentId);
+  if (questionType) questionParams.set("question_type", questionType);
+  if (statusFilter) questionParams.set("status_filter", statusFilter);
   if (search.trim()) questionParams.set("search", search.trim());
 
   const questions = useQuery({
-    queryKey: ["chapter-questions", questionParams.toString()],
-    queryFn: () => api<ApiList<ChapterQuestion>>(`/api/admin/question-banks/chapter-questions?${questionParams.toString()}`),
-    enabled: Boolean(chapterId),
+    queryKey: ["experiment-bank-questions", questionParams.toString()],
+    queryFn: () => api<ApiList<Question>>(`/api/admin/question-banks/questions?${questionParams.toString()}`),
+    enabled: Boolean(experimentId),
   });
 
-  const selectedChapter = useMemo(
-    () => chapters.data?.items.find((item) => item.chapter_id === chapterId),
-    [chapterId, chapters.data?.items],
+  const experimentPoints = useQuery({
+    queryKey: ["question-bank-video-points", experimentId],
+    queryFn: () => api<ExperimentVideoPointsResponse>(`/api/admin/experiments/${experimentId}/video-points`),
+    enabled: Boolean(experimentId),
+  });
+
+  const drafts = useQuery({
+    queryKey: ["question-bank-drafts", experimentId],
+    queryFn: () => api<ApiList<QuestionDraft>>(`/api/admin/question-banks/drafts?experiment_id=${experimentId}`),
+    enabled: Boolean(experimentId),
+  });
+
+  const aiWorkbench = useQuery({
+    queryKey: ["question-ai-workbench", aiWorkbenchSessionId],
+    queryFn: () => api<QuestionWorkbenchSession>(`/api/admin/question-banks/workbench-sessions/${aiWorkbenchSessionId}`),
+    enabled: Boolean(aiWorkbenchOpen && aiWorkbenchSessionId),
+  });
+
+  const selectedExperiment = useMemo(
+    () => bankExperiments.find((item) => item.id === experimentId),
+    [bankExperiments, experimentId],
   );
+  const selectedBank = selectedExperiment?.banks.find((bank) => bank.bank_kind === "default") || selectedExperiment?.banks[0];
+
   const totals = useMemo(
     () =>
-      (chapters.data?.items || []).reduce(
-        (acc, item) => ({
-          total: acc.total + item.total_count,
-          choice: acc.choice + item.choice_count,
-          trueFalse: acc.trueFalse + item.true_false_count,
-          fillBlank: acc.fillBlank + item.fill_blank_count,
-          enabled: acc.enabled + item.enabled_count,
-        }),
-        { total: 0, choice: 0, trueFalse: 0, fillBlank: 0, enabled: 0 },
+      bankExperiments.reduce(
+        (acc, experiment) => {
+          const bank = experiment.banks.find((item) => item.bank_kind === "default") || experiment.banks[0];
+          return {
+            total: acc.total + Number(bank?.question_count || 0),
+            published: acc.published + Number(bank?.published_count || 0),
+            choice: acc.choice + Number(bank?.choice_count || 0),
+            trueFalse: acc.trueFalse + Number(bank?.true_false_count || 0),
+            fillBlank: acc.fillBlank + Number(bank?.fill_blank_count || 0),
+          };
+        },
+        { total: 0, published: 0, choice: 0, trueFalse: 0, fillBlank: 0 },
       ),
-    [chapters.data?.items],
+    [bankExperiments],
   );
-  const selectedChapterExperiments = useMemo(() => {
-    if (!chapterId) return [];
-    return (experiments.data?.items || []).filter((experiment) =>
-      experiment.chapter_bindings.some((binding) => binding.chapter_id === chapterId),
-    );
-  }, [chapterId, experiments.data?.items]);
 
-  const openAssistantWorkbench = () => {
-    setWorkbenchMode("assistant");
-    setSelectedQuestion(null);
-    setAssistantPreview(null);
-    assistantForm.setFieldsValue({
-      intent: "add_questions",
-      prompt: "",
-      count: 5,
-      question_types: ["single_choice", "true_false", "fill_blank"],
-    });
-    setWorkbenchOpen(true);
-  };
+  const pointOptions = useMemo(() => {
+    const byKey = new Map<string, string>();
+    for (const point of experimentPoints.data?.points || []) {
+      if (point.point_key && point.source !== "legacy") byKey.set(point.point_key, point.point_title || point.point_key);
+    }
+    for (const question of questions.data?.items || []) {
+      for (const point of questionPoints(question)) {
+        const key = point.point_key || point.point_title;
+        if (key && !byKey.has(key)) byKey.set(key, point.point_title || key);
+      }
+    }
+    return [...byKey.entries()].map(([value, label]) => ({ value, label }));
+  }, [experimentPoints.data?.points, questions.data?.items]);
 
-  const openQuestionWorkbench = (question: ChapterQuestion) => {
-    setWorkbenchMode("question");
+  const visibleQuestions = useMemo(
+    () => (questions.data?.items || []).filter((question) => questionHasPoint(question, pointKey)),
+    [pointKey, questions.data?.items],
+  );
+
+  const workbenchCandidates = aiWorkbench.data?.candidates || [];
+  const workbenchTurns = aiWorkbench.data?.turns || [];
+  const workbenchContext = aiWorkbench.data?.context_snapshot || {};
+  const workbenchOriginalQuestion = aiWorkbench.data?.original_question_snapshot || assistantQuestion || null;
+
+  const openQuestionWorkbench = (question: Question) => {
     setSelectedQuestion(question);
-    setAssistantPreview(null);
-    assistantForm.setFieldsValue({
-      intent: "repair_question",
-      prompt: "",
-      count: 5,
-      question_types: [question.question_type],
-    });
     setWorkbenchOpen(true);
   };
 
   const closeWorkbench = () => {
     setWorkbenchOpen(false);
-    setAssistantPreview(null);
+    setSelectedQuestion(null);
   };
 
-  const assistant = useMutation({
-    mutationFn: (values: AssistantFormValues) => {
-      if (values.intent === "repair_question" && !selectedQuestion) {
-        throw new Error("请先打开一道题目");
-      }
-      return postJson<QuestionBankAssistantPreview>("/api/admin/question-banks/assistant/preview", {
-        ...values,
-        chapter_id: chapterId,
-        experiment_id: selectedQuestion?.experiment_id || experimentId,
-        question_id: values.intent === "repair_question" ? selectedQuestion?.id : undefined,
-      });
+  const openAddSuggestion = () => {
+    setAssistantIntent("add_questions");
+    setAssistantQuestion(null);
+    setAssistantPointKey(pointKey);
+    setWorkbenchPrompt(selectedExperiment ? `为《${selectedExperiment.code} ${selectedExperiment.title}》补充点位诊断题。` : "补充点位诊断题。");
+    setWorkbenchQuestionTypes(["single_choice", "true_false"]);
+    setWorkbenchCount(3);
+    if (experimentId) {
+      startWorkbench.mutate({ mode: "create", experiment_id: experimentId, point_key: pointKey || null });
+    }
+  };
+
+  const openRepairSuggestion = (question: Question) => {
+    setAssistantIntent("repair_question");
+    setAssistantQuestion(question);
+    setWorkbenchOpen(false);
+    setAssistantPointKey(questionPoints(question)[0]?.point_key);
+    setWorkbenchPrompt("请基于当前实验点位、来源证据和选项诊断链接，给出一版更清晰、更可诊断的修正题。");
+    setWorkbenchQuestionTypes([question.question_type]);
+    setWorkbenchCount(1);
+    startWorkbench.mutate({
+      mode: "repair",
+      experiment_id: question.experiment_id,
+      question_id: question.id,
+      point_key: questionPoints(question)[0]?.point_key || null,
+    });
+  };
+
+  const refreshQuestionBank = () => {
+    void queryClient.invalidateQueries({ queryKey: ["question-banks"] });
+    void queryClient.invalidateQueries({ queryKey: ["question-bank-drafts", experimentId] });
+    void queryClient.invalidateQueries({ queryKey: ["experiment-bank-questions"] });
+  };
+
+  const startWorkbench = useMutation({
+    mutationFn: (payload: {
+      mode: "repair" | "create";
+      experiment_id: string;
+      question_id?: string | null;
+      point_key?: string | null;
+    }) => postJson<QuestionWorkbenchSession>("/api/admin/question-banks/workbench-sessions", payload),
+    onSuccess: (result) => {
+      setAiWorkbenchSessionId(result.id);
+      setAiWorkbenchOpen(true);
+      void queryClient.invalidateQueries({ queryKey: ["question-ai-workbench", result.id] });
     },
-    onSuccess: (data) => {
-      setAssistantPreview(data);
-      message.success("已生成 AI 建议预览");
-    },
-    onError: (error) => message.error(errorMessage(error)),
+    onError: (error) => message.error(`AI 工作台打开失败：${errorMessage(error)}`),
   });
 
-  const showAddControls = assistantIntent === "add_questions";
-  const workbenchTitle = workbenchMode === "question" ? "题目详情" : "新增题目建议";
+  const sendWorkbenchMessage = useMutation({
+    mutationFn: () =>
+      postJson<QuestionWorkbenchSession>(`/api/admin/question-banks/workbench-sessions/${aiWorkbenchSessionId}/messages`, {
+        prompt: workbenchPrompt,
+        question_types: workbenchQuestionTypes,
+        count: workbenchCount,
+        difficulty: "basic",
+      }),
+    onSuccess: () => {
+      message.success("AI 候选已更新");
+      setWorkbenchPrompt("");
+      void queryClient.invalidateQueries({ queryKey: ["question-ai-workbench", aiWorkbenchSessionId] });
+      refreshQuestionBank();
+    },
+    onError: (error) => message.error(`AI 生成失败：${errorMessage(error)}`),
+  });
+
+  const publishCandidate = useMutation({
+    mutationFn: (candidateId: string) => postJson<Question>(`/api/admin/question-banks/workbench-candidates/${candidateId}/publish`, {}),
+    onSuccess: () => {
+      message.success("候选已发布为生成题");
+      void queryClient.invalidateQueries({ queryKey: ["question-ai-workbench", aiWorkbenchSessionId] });
+      refreshQuestionBank();
+    },
+    onError: (error) => message.error(`发布失败：${errorMessage(error)}`),
+  });
+
+  const rejectCandidate = useMutation({
+    mutationFn: (candidateId: string) => postJson<QuestionWorkbenchCandidate>(`/api/admin/question-banks/workbench-candidates/${candidateId}/reject`, {}),
+    onSuccess: () => {
+      message.success("候选已拒绝");
+      void queryClient.invalidateQueries({ queryKey: ["question-ai-workbench", aiWorkbenchSessionId] });
+      refreshQuestionBank();
+    },
+    onError: (error) => message.error(`拒绝失败：${errorMessage(error)}`),
+  });
 
   return (
     <Space direction="vertical" size={18} className="full">
       <PageTitle
         title="题库管理"
-        description="按理论章节查看当前题库；新增建议和当前题审核由题库助手生成预览，确认前不会修改题库。"
+        description="按正式实验和实验点位查看当前发布题库，核对题目、证据来源和单选诊断链接。"
       />
 
       <div className="stat-grid">
@@ -4424,13 +4596,13 @@ function QuestionBanksPage() {
           <Statistic title="当前题库" value={totals.total} suffix="题" prefix={<DatabaseOutlined />} />
         </Card>
         <Card>
-          <Statistic title="选择题" value={totals.choice} />
+          <Statistic title="已发布" value={totals.published} suffix="题" prefix={<CheckCircleOutlined />} />
         </Card>
         <Card>
-          <Statistic title="判断题" value={totals.trueFalse} />
+          <Statistic title="选择/判断" value={`${totals.choice} / ${totals.trueFalse}`} />
         </Card>
         <Card>
-          <Statistic title="填空题" value={totals.fillBlank} />
+          <Statistic title="填空题" value={totals.fillBlank} suffix="题" />
         </Card>
       </div>
 
@@ -4438,73 +4610,86 @@ function QuestionBanksPage() {
         <Card className="question-chapter-panel">
           <Flex justify="space-between" align="center" className="drawer-table-heading">
             <div>
-              <Text strong>章节题库</Text>
+              <Text strong>实验题库</Text>
               <Text type="secondary" className="block-text">
-                先选章节，再查看该章节下的题目。
+                先选实验，再按点位查看题目。
               </Text>
             </div>
-            <Tag color="green">启用 {totals.enabled}</Tag>
+            <Tag color="green">{bankExperiments.length} 个实验</Tag>
           </Flex>
-          <QueryState loading={chapters.isLoading} error={chapters.error} empty={!chapters.data?.items.length}>
+          <QueryState loading={banks.isLoading} error={banks.error} empty={!bankExperiments.length}>
             <Table
-              rowKey="chapter_id"
+              rowKey="id"
               size="small"
-              pagination={false}
-              dataSource={chapters.data?.items || []}
-              rowClassName={(row) => (row.chapter_id === chapterId ? "question-chapter-row-active" : "")}
+              pagination={{ pageSize: 12, showSizeChanger: false }}
+              dataSource={bankExperiments}
+              rowClassName={(row) => (row.id === experimentId ? "question-chapter-row-active" : "")}
               onRow={(record) => ({
                 onClick: () => {
-                  setChapterId(record.chapter_id);
+                  setExperimentId(record.id);
                   setQuestionType(undefined);
-                  setExperimentId(undefined);
+                  setPointKey(undefined);
                   setSearch("");
-                  setWorkbenchOpen(false);
                   setSelectedQuestion(null);
-                  setAssistantPreview(null);
+                  setWorkbenchOpen(false);
                 },
               })}
               columns={[
                 {
-                  title: "章节",
-                  render: (_: unknown, row: QuestionBankChapterSummary) => (
+                  title: "实验",
+                  render: (_: unknown, row: QuestionBankSummary) => (
                     <Space direction="vertical" size={2}>
-                      <Text strong>{row.chapter_title}</Text>
-                      <Text type="secondary">{row.linked_experiment_count} 个绑定实验</Text>
+                      <Text strong>
+                        {row.code} {row.title}
+                      </Text>
+                      <Text type="secondary">{row.media_resources?.length || 0} 个视频点位</Text>
                     </Space>
                   ),
                 },
-                { title: "总题", dataIndex: "total_count", width: 68 },
+                {
+                  title: "总题",
+                  width: 68,
+                  render: (_: unknown, row: QuestionBankSummary) =>
+                    row.banks.find((bank) => bank.bank_kind === "default")?.published_count || row.published_question_count || 0,
+                },
                 {
                   title: "构成",
                   width: 150,
-                  render: (_: unknown, row: QuestionBankChapterSummary) => (
-                    <Space size={4} wrap>
-                      <Tag>选 {row.choice_count}</Tag>
-                      <Tag>判 {row.true_false_count}</Tag>
-                      <Tag>填 {row.fill_blank_count}</Tag>
-                    </Space>
-                  ),
+                  render: (_: unknown, row: QuestionBankSummary) => {
+                    const bank = row.banks.find((item) => item.bank_kind === "default") || row.banks[0];
+                    return (
+                      <Space size={4} wrap>
+                        <Tag>选 {Number(bank?.choice_count || 0)}</Tag>
+                        <Tag>判 {Number(bank?.true_false_count || 0)}</Tag>
+                        <Tag>填 {Number(bank?.fill_blank_count || 0)}</Tag>
+                      </Space>
+                    );
+                  },
                 },
               ]}
             />
           </QueryState>
         </Card>
 
-        <Card title="当前章节题目" className="question-bank-question-panel">
+        <Card title="当前实验题目" className="question-bank-question-panel">
           <Flex justify="space-between" gap={16} wrap="wrap" className="question-list-heading">
             <div>
-              <Text className="eyebrow">当前章节</Text>
-              <Title level={3}>{selectedChapter?.chapter_title || "请选择章节"}</Title>
+              <Text className="eyebrow">当前实验</Text>
+              <Title level={3}>
+                {selectedExperiment ? `${selectedExperiment.code} ${selectedExperiment.title}` : "请选择实验"}
+              </Title>
               <Space wrap>
-                <Tag color="green">启用 {selectedChapter?.enabled_count || 0}</Tag>
-                <Tag>选择 {selectedChapter?.choice_count || 0}</Tag>
-                <Tag>判断 {selectedChapter?.true_false_count || 0}</Tag>
-                <Tag>填空 {selectedChapter?.fill_blank_count || 0}</Tag>
+                <Tag color="green">已发布 {selectedBank?.published_count || 0}</Tag>
+                <Tag>选择 {selectedBank?.choice_count || 0}</Tag>
+                <Tag>判断 {selectedBank?.true_false_count || 0}</Tag>
+                <Tag>填空 {selectedBank?.fill_blank_count || 0}</Tag>
+                {selectedBank?.source_label ? <Tag color="blue">{selectedBank.source_label}</Tag> : null}
               </Space>
             </div>
             <Space wrap className="question-list-heading-actions">
-              <Button type="primary" disabled={!selectedChapter} icon={<PlusOutlined />} onClick={openAssistantWorkbench}>
-                新增题目建议
+              <Tag color="cyan">点位过滤 {pointOptions.length}</Tag>
+              <Button type="primary" icon={<MessageOutlined />} onClick={openAddSuggestion} disabled={!experimentId}>
+                AI 新增建议
               </Button>
             </Space>
           </Flex>
@@ -4523,13 +4708,22 @@ function QuestionBanksPage() {
             />
             <Select
               allowClear
-              placeholder="绑定实验"
-              value={experimentId}
-              onChange={setExperimentId}
-              options={selectedChapterExperiments.map((experiment) => ({
-                value: experiment.id,
-                label: `${experiment.code} ${experiment.title}`,
-              }))}
+              placeholder="实验点位"
+              value={pointKey}
+              onChange={setPointKey}
+              showSearch
+              optionFilterProp="label"
+              options={pointOptions}
+            />
+            <Select
+              placeholder="状态"
+              value={statusFilter}
+              onChange={setStatusFilter}
+              options={[
+                { value: "published", label: "已发布" },
+                { value: "disabled", label: "已停用" },
+                { value: "draft", label: "草稿" },
+              ]}
             />
             <Input.Search
               allowClear
@@ -4540,34 +4734,57 @@ function QuestionBanksPage() {
             />
           </div>
 
-          <QueryState loading={questions.isLoading} error={questions.error} empty={!questions.data?.items.length}>
+          <QueryState loading={questions.isLoading} error={questions.error} empty={!visibleQuestions.length}>
             <Table
               rowKey="id"
-              dataSource={questions.data?.items || []}
+              dataSource={visibleQuestions}
               pagination={{ pageSize: 8 }}
               onRow={(record) => ({ onClick: () => openQuestionWorkbench(record) })}
               columns={[
                 { title: "题型", width: 90, dataIndex: "question_type", render: questionTypeLabel },
                 { title: "题干", dataIndex: "stem" },
                 {
-                  title: "绑定实验",
-                  width: 220,
-                  render: (_: unknown, row: ChapterQuestion) => `${row.experiment_code || ""} ${row.experiment_title || ""}`,
+                  title: "主点位",
+                  width: 260,
+                  render: (_: unknown, row: Question) => {
+                    const points = questionPointTitles(row);
+                    return (
+                      <Space size={4} wrap>
+                        {points.slice(0, 2).map((title) => (
+                          <Tag key={title} color="cyan">
+                            {title}
+                          </Tag>
+                        ))}
+                        {points.length > 2 ? <Tag>+{points.length - 2}</Tag> : null}
+                        {points.length > 1 ? <Tag color="blue">多点位</Tag> : null}
+                      </Space>
+                    );
+                  },
+                },
+                {
+                  title: "证据",
+                  width: 130,
+                  render: (_: unknown, row: Question) => (
+                    <Space direction="vertical" size={2}>
+                      {evidenceStatusTag(row)}
+                      <Text type="secondary">{row.source_refs?.length || 0} 条来源</Text>
+                    </Space>
+                  ),
                 },
                 { title: "状态", width: 100, dataIndex: "status", render: questionBankStatusTag },
                 {
                   title: "操作",
-                  width: 130,
-                  render: (_: unknown, row: ChapterQuestion) => (
+                  width: 120,
+                  render: (_: unknown, row: Question) => (
                     <Button
                       type="link"
-                      icon={<EditOutlined />}
+                      icon={<EyeOutlined />}
                       onClick={(event) => {
                         event.stopPropagation();
                         openQuestionWorkbench(row);
                       }}
                     >
-                      查看详情
+                      查看
                     </Button>
                   ),
                 },
@@ -4578,18 +4795,29 @@ function QuestionBanksPage() {
       </div>
 
       <Modal
-        title={workbenchTitle}
+        title="题目详情"
         open={workbenchOpen}
-        width={920}
+        width={980}
         onCancel={closeWorkbench}
-        footer={[
-          <Button key="close" onClick={closeWorkbench}>
-            关闭
-          </Button>,
-        ]}
+        footer={
+          selectedQuestion
+            ? [
+                <Button key="repair" type="primary" icon={<MessageOutlined />} onClick={() => openRepairSuggestion(selectedQuestion)}>
+                  AI 修正建议
+                </Button>,
+                <Button key="close" onClick={closeWorkbench}>
+                  关闭
+                </Button>,
+              ]
+            : [
+                <Button key="close" onClick={closeWorkbench}>
+                  关闭
+                </Button>,
+              ]
+        }
       >
-        <Space direction="vertical" size={16} className="full">
-          {workbenchMode === "question" && selectedQuestion ? (
+        {selectedQuestion ? (
+          <Space direction="vertical" size={16} className="full">
             <div className="modal-section question-detail-card">
               <div>
                 <Text className="eyebrow">题目详情</Text>
@@ -4597,6 +4825,7 @@ function QuestionBanksPage() {
                 <Space wrap className="question-detail-meta">
                   <Tag color="blue">{questionTypeLabel(selectedQuestion.question_type)}</Tag>
                   {questionBankStatusTag(selectedQuestion.status)}
+                  {evidenceStatusTag(selectedQuestion)}
                   {selectedQuestion.experiment_code || selectedQuestion.experiment_title ? (
                     <Tag>
                       {selectedQuestion.experiment_code} {selectedQuestion.experiment_title}
@@ -4604,6 +4833,7 @@ function QuestionBanksPage() {
                   ) : null}
                 </Space>
               </div>
+
               {selectedQuestion.options?.length ? (
                 <div className="question-options question-workbench-options">
                   {selectedQuestion.options.map((option, index) => {
@@ -4618,138 +4848,346 @@ function QuestionBanksPage() {
                   })}
                 </div>
               ) : null}
+
               <Descriptions size="small" column={1} className="question-workbench-descriptions">
-                <Descriptions.Item label="答案">{answerText(selectedQuestion.answer)}</Descriptions.Item>
+                <Descriptions.Item label="确定性答案">{answerText(selectedQuestion.answer)}</Descriptions.Item>
                 <Descriptions.Item label="解析">{selectedQuestion.explanation || "暂无解析"}</Descriptions.Item>
               </Descriptions>
-              {selectedQuestion.metadata?.point_aware_question_bank ? (
-                <div className="question-point-section">
-                  <Flex justify="space-between" align="center" gap={10} wrap="wrap">
-                    <Text strong>点位与审查</Text>
-                    <Space size={6} wrap>
-                      {reviewDecisionTag(selectedQuestion.metadata.review_decision)}
-                      {selectedQuestion.metadata.source_audit?.evidence_sufficient ? <Tag color="green">证据已核对</Tag> : <Tag>证据待核对</Tag>}
-                    </Space>
-                  </Flex>
-                  <Space wrap className="question-point-list">
-                    {questionPointTitles(selectedQuestion).map((title) => (
-                      <Tag key={title} color="cyan">
-                        {title}
-                      </Tag>
-                    ))}
-                    {selectedQuestion.metadata.coverage_tags?.map((tag) => (
-                      <Tag key={tag}>{tag}</Tag>
-                    ))}
+
+              <div className="question-point-section">
+                <Flex justify="space-between" align="center" gap={10} wrap="wrap">
+                  <Text strong>实验点位与证据</Text>
+                  <Space size={6} wrap>
+                    {reviewDecisionTag(selectedQuestion.metadata?.review_decision)}
+                    {evidenceStatusTag(selectedQuestion)}
                   </Space>
-                  {selectedQuestion.metadata.source_audit?.reviewer_note ? (
-                    <Text type="secondary" className="block-text">
-                      {selectedQuestion.metadata.source_audit.reviewer_note}
-                    </Text>
+                </Flex>
+                <Space wrap className="question-point-list">
+                  {questionPointTitles(selectedQuestion).map((title) => (
+                    <Tag key={title} color="cyan">
+                      {title}
+                    </Tag>
+                  ))}
+                  {selectedQuestion.metadata?.coverage_tags?.map((tag) => (
+                    <Tag key={tag}>{tag}</Tag>
+                  ))}
+                </Space>
+                <Descriptions size="small" column={1} className="question-workbench-descriptions">
+                  <Descriptions.Item label="canonical chunks">
+                    {(selectedQuestion.metadata?.source_audit?.canonical_chunk_ids || []).join("，") || "-"}
+                  </Descriptions.Item>
+                  <Descriptions.Item label="supporting theory">
+                    {(selectedQuestion.metadata?.source_audit?.supporting_theory_chunk_ids || []).join("，") || "-"}
+                  </Descriptions.Item>
+                  {selectedQuestion.metadata?.source_audit?.reviewer_note ? (
+                    <Descriptions.Item label="审查备注">{selectedQuestion.metadata.source_audit.reviewer_note}</Descriptions.Item>
                   ) : null}
+                </Descriptions>
+              </div>
+
+              {selectedQuestion.metadata?.option_links?.length ? (
+                <div className="question-source-section">
+                  <Text strong>选项诊断链接</Text>
+                  <Table
+                    rowKey={(row) => String(row.label || row.role || Math.random())}
+                    size="small"
+                    pagination={false}
+                    dataSource={selectedQuestion.metadata.option_links}
+                    columns={[
+                      { title: "选项", dataIndex: "label", width: 70 },
+                      { title: "角色", dataIndex: "role", width: 120, render: optionDiagnosticRoleLabel },
+                      {
+                        title: "点位/说明",
+                        render: (_: unknown, row) => row.point_title || row.point_key || row.diagnostic_note || "-",
+                      },
+                    ]}
+                  />
                 </div>
               ) : null}
+
               {selectedQuestion.source_refs?.length ? (
                 <div className="question-source-section">
                   <Text strong>来源依据</Text>
                   <Space wrap className="question-source-list">
-                    {selectedQuestion.source_refs.slice(0, 3).map((ref, index) => (
-                      <Tag key={index}>{sourceRefLabel(ref)}</Tag>
+                    {selectedQuestion.source_refs.map((ref, index) => (
+                      <Tag key={`${ref.chunk_id || index}`}>{sourceRefLabel(ref)}</Tag>
                     ))}
                   </Space>
                 </div>
               ) : null}
             </div>
-          ) : (
-            <Alert
-              type="info"
-              showIcon
-              message={selectedChapter?.chapter_title || "请选择章节"}
-              description="题库助手会基于当前章节和可用资料生成待确认建议，不会直接修改题库。"
-            />
-          )}
+          </Space>
+        ) : (
+          <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description="请选择题目" />
+        )}
+      </Modal>
 
-          <div className="modal-section question-assistant-card">
-            <Flex justify="space-between" align="flex-start" gap={12} wrap="wrap">
-              <div>
-                <Text strong>题库助手</Text>
-                <Text type="secondary" className="block-text">
-                  {workbenchMode === "question"
-                    ? "让 AI 审核当前题，生成修改建议预览；这里不会直接改题。"
-                    : "让 AI 为当前章节生成新增题目建议预览；这里不会直接写入题库。"}
-                </Text>
+      <Drawer
+        title={assistantIntent === "repair_question" ? "AI 修题工作台" : "AI 新增题工作台"}
+        open={aiWorkbenchOpen}
+        width="min(1280px, 96vw)"
+        onClose={() => setAiWorkbenchOpen(false)}
+        className="ai-question-workbench-drawer"
+        extra={
+          <Button
+            type="primary"
+            icon={<MessageOutlined />}
+            loading={sendWorkbenchMessage.isPending}
+            disabled={!aiWorkbenchSessionId || !workbenchPrompt.trim()}
+            onClick={() => sendWorkbenchMessage.mutate()}
+          >
+            发送提示
+          </Button>
+        }
+      >
+        <QueryState loading={aiWorkbench.isLoading || startWorkbench.isPending} error={aiWorkbench.error}>
+          <div className="ai-workbench-grid">
+            <section className="ai-workbench-panel ai-workbench-context">
+              <Flex justify="space-between" align="center" gap={10} wrap="wrap" className="ai-workbench-section-head">
+                <div>
+                  <Text className="eyebrow">{assistantIntent === "repair_question" ? "原题上下文" : "新增上下文"}</Text>
+                  <Title level={4}>
+                    {aiWorkbench.data?.experiment_code || selectedExperiment?.code} {aiWorkbench.data?.experiment_title || selectedExperiment?.title}
+                  </Title>
+                </div>
+                <Tag color={assistantIntent === "repair_question" ? "gold" : "blue"}>
+                  {assistantIntent === "repair_question" ? "修题会话" : "新增会话"}
+                </Tag>
+              </Flex>
+
+              {assistantIntent === "repair_question" && workbenchOriginalQuestion ? (
+                <Space direction="vertical" size={12} className="full">
+                  <div className="ai-workbench-original-card">
+                    <Text strong>{String(workbenchOriginalQuestion.stem || "")}</Text>
+                    <Space wrap className="question-detail-meta">
+                      <Tag color="blue">{questionTypeLabel(String(workbenchOriginalQuestion.question_type || ""))}</Tag>
+                      {workbenchOriginalQuestion.status ? questionBankStatusTag(String(workbenchOriginalQuestion.status)) : null}
+                    </Space>
+                    {Array.isArray(workbenchOriginalQuestion.options) && workbenchOriginalQuestion.options.length ? (
+                      <div className="question-options">
+                        {workbenchOriginalQuestion.options.map((option, index) => {
+                          const label = typeof option === "string" ? String.fromCharCode(65 + index) : option.label || String.fromCharCode(65 + index);
+                          const text = typeof option === "string" ? option : option.text || "";
+                          return (
+                            <div key={`${label}-${index}`} className="question-option">
+                              <Text strong>{label}</Text>
+                              <Text>{text}</Text>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    ) : null}
+                    <Descriptions size="small" column={1} className="question-workbench-descriptions">
+                      <Descriptions.Item label="答案">{answerText(workbenchOriginalQuestion.answer as Record<string, unknown>)}</Descriptions.Item>
+                      <Descriptions.Item label="解析">{String(workbenchOriginalQuestion.explanation || "暂无解析")}</Descriptions.Item>
+                    </Descriptions>
+                  </div>
+                </Space>
+              ) : (
+                <div className="ai-workbench-original-card">
+                  <Text strong>当前实验与点位</Text>
+                  <Descriptions size="small" column={1} className="question-workbench-descriptions">
+                    <Descriptions.Item label="目标点位">
+                      {workbenchContext.selected_point?.point_title || workbenchContext.selected_point?.point_key || assistantPointKey || "全部点位"}
+                    </Descriptions.Item>
+                    <Descriptions.Item label="已有题量">{workbenchContext.coverage?.question_count ?? "-"}</Descriptions.Item>
+                    <Descriptions.Item label="该点位题量">{workbenchContext.coverage?.selected_point_question_count ?? "-"}</Descriptions.Item>
+                  </Descriptions>
+                </div>
+              )}
+
+              <div className="question-point-section">
+                <Text strong>点位与证据</Text>
+                <Space wrap className="question-point-list">
+                  {workbenchContext.selected_point ? (
+                    <Tag color="cyan">{workbenchContext.selected_point.point_title || workbenchContext.selected_point.point_key}</Tag>
+                  ) : null}
+                  {workbenchOriginalQuestion?.metadata
+                    ? questionPoints(workbenchOriginalQuestion as Question).map((point) => (
+                        <Tag key={point.point_key || point.point_title} color="cyan">
+                          {point.point_title || point.point_key}
+                        </Tag>
+                      ))
+                    : null}
+                </Space>
+                <Space wrap className="question-source-list">
+                  {(workbenchContext.source_refs || []).slice(0, 8).map((ref, index) => (
+                    <Tag key={`${ref.chunk_id || index}`}>{sourceRefLabel(ref)}</Tag>
+                  ))}
+                  {!(workbenchContext.source_refs || []).length ? <Tag>暂无来源片段</Tag> : null}
+                </Space>
               </div>
-              <Tag color="green">{workbenchMode === "question" ? "审核当前题" : "新增题目建议"}</Tag>
-            </Flex>
-            <Form<AssistantFormValues>
-              form={assistantForm}
-              layout="vertical"
-              className="modal-form"
-              initialValues={{
-                intent: "add_questions",
-                count: 5,
-                question_types: ["single_choice", "true_false", "fill_blank"],
-              }}
-              onFinish={(values) => assistant.mutate(values)}
-            >
-              <Form.Item name="intent" hidden>
-                <Input />
-              </Form.Item>
-              <Form.Item name="prompt" label="给 AI 的要求" rules={[{ required: true, message: "请输入需求" }]}>
-                <Input.TextArea rows={4} placeholder={assistantPromptPlaceholder(assistantIntent)} className="fixed-textarea" />
-              </Form.Item>
-              {showAddControls ? (
-                <div className="compact-form-grid">
-                  <Form.Item name="question_types" label="题型">
+
+              {workbenchOriginalQuestion?.metadata?.option_links?.length ? (
+                <div className="question-source-section">
+                  <Text strong>原题选项诊断</Text>
+                  <Table
+                    rowKey={(row) => String(row.label || row.role || row.diagnostic_note || Math.random())}
+                    size="small"
+                    pagination={false}
+                    dataSource={workbenchOriginalQuestion.metadata.option_links}
+                    columns={[
+                      { title: "选项", dataIndex: "label", width: 64 },
+                      { title: "角色", dataIndex: "role", width: 110, render: optionDiagnosticRoleLabel },
+                      { title: "说明", render: (_: unknown, row) => row.point_title || row.point_key || row.diagnostic_note || "-" },
+                    ]}
+                  />
+                </div>
+              ) : null}
+            </section>
+
+            <section className="ai-workbench-panel ai-workbench-chat">
+              <Flex justify="space-between" align="center" gap={10} className="ai-workbench-section-head">
+                <div>
+                  <Text className="eyebrow">多轮提示</Text>
+                  <Title level={4}>会话记录</Title>
+                </div>
+                <Tag>{workbenchTurns.length} 轮</Tag>
+              </Flex>
+              <div className="ai-workbench-chat-timeline">
+                {workbenchTurns.length ? (
+                  workbenchTurns.map((turn) => (
+                    <div key={turn.id} className={`ai-chat-turn ai-chat-turn-${turn.role}`}>
+                      <Text strong>{turn.role === "user" ? "老师" : "AI"}</Text>
+                      <Text className="block-text">{turn.content}</Text>
+                      {turn.error_state ? <Alert type="error" showIcon message="本轮生成失败" description={String(turn.error_state.message || "")} /> : null}
+                    </div>
+                  ))
+                ) : (
+                  <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description="还没有开始对话" />
+                )}
+              </div>
+              <div className="ai-workbench-composer">
+                <Space direction="vertical" size={10} className="full">
+                  <Space wrap>
                     <Select
                       mode="multiple"
+                      value={workbenchQuestionTypes}
+                      onChange={(value) => setWorkbenchQuestionTypes(value as Question["question_type"][])}
                       options={[
                         { value: "single_choice", label: "选择" },
                         { value: "true_false", label: "判断" },
                         { value: "fill_blank", label: "填空" },
                       ]}
+                      disabled={assistantIntent === "repair_question"}
+                      className="ai-workbench-type-select"
                     />
-                  </Form.Item>
-                  <Form.Item name="count" label="建议数量">
-                    <InputNumber min={1} max={20} className="full" />
-                  </Form.Item>
-                </div>
-              ) : null}
-              <Button type="primary" htmlType="submit" loading={assistant.isPending} icon={<QuestionCircleOutlined />}>
-                {workbenchMode === "question" ? "生成审核建议" : "生成新增建议"}
-              </Button>
-            </Form>
-            <Alert
-              className="drawer-hint"
-              type="info"
-              showIcon
-              message="助手只生成待确认建议"
-              description="本轮预览不会直接改动题库。"
-            />
-            {assistantPreview ? (
-              <div className="assistant-preview">
-                <Text strong>{assistantPreview.summary}</Text>
-                {assistantPreview.warnings.map((warning) => (
-                  <Alert key={warning} type="warning" showIcon title={warning} />
-                ))}
-                <Space direction="vertical" size={10} className="full">
-                  {assistantPreview.actions.map((action, index) => (
-                    <div key={`${action.action_type}-${index}`} className="assistant-action">
-                      <Space direction="vertical" size={6} className="full">
-                        <Space>
-                          <Tag color="blue">{assistantActionLabel(action)}</Tag>
-                          {action.question_type ? <Tag>{questionTypeLabel(action.question_type)}</Tag> : null}
-                        </Space>
-                        <Text>{action.stem || action.suggested_stem || action.summary}</Text>
-                        {action.answer ? <Text type="secondary">答案：{answerText(action.answer)}</Text> : null}
-                      </Space>
-                    </div>
-                  ))}
+                    <InputNumber
+                      min={1}
+                      max={20}
+                      value={workbenchCount}
+                      onChange={(value) => setWorkbenchCount(Number(value || 1))}
+                      addonBefore="数量"
+                      disabled={assistantIntent === "repair_question"}
+                    />
+                  </Space>
+                  <Input.TextArea
+                    rows={4}
+                    value={workbenchPrompt}
+                    onChange={(event) => setWorkbenchPrompt(event.target.value)}
+                    placeholder="可以连续追问，例如：保留原实验点位，把选项 B 改成更有诊断价值的误区。"
+                  />
                 </Space>
               </div>
-            ) : null}
+            </section>
+
+            <section className="ai-workbench-panel ai-workbench-candidates">
+              <Flex justify="space-between" align="center" gap={10} className="ai-workbench-section-head">
+                <div>
+                  <Text className="eyebrow">候选版本</Text>
+                  <Title level={4}>建议草稿</Title>
+                </div>
+                <Tag>{workbenchCandidates.length} 条</Tag>
+              </Flex>
+              <div className="ai-workbench-candidate-list">
+                {workbenchCandidates.length ? (
+                  workbenchCandidates.map((candidate) => {
+                    const payload = candidatePayload(candidate);
+                    const errors = candidateValidationErrors(candidate);
+                    return (
+                      <div key={candidate.id} className="ai-candidate-card">
+                        <Space direction="vertical" size={8} className="full">
+                          <Flex justify="space-between" align="start" gap={8}>
+                            <Space size={4} wrap>
+                              <Tag color="blue">{questionTypeLabel(candidateQuestionType(candidate))}</Tag>
+                              {errors.length ? <Tag color="red">需修订</Tag> : <Tag color="green">可发布</Tag>}
+                              {candidate.status !== "draft" ? <Tag>{candidate.status}</Tag> : null}
+                            </Space>
+                            <Text type="secondary">{candidate.id.slice(0, 8)}</Text>
+                          </Flex>
+                          <Text strong>{candidateStem(candidate) || "未生成题干"}</Text>
+                          {Array.isArray(payload.options) && payload.options.length ? (
+                            <div className="question-options">
+                              {payload.options.map((option, index) => {
+                                const label = typeof option === "string" ? String.fromCharCode(65 + index) : option.label || String.fromCharCode(65 + index);
+                                const text = typeof option === "string" ? option : option.text || "";
+                                return (
+                                  <div key={`${candidate.id}-${label}-${index}`} className="question-option">
+                                    <Text strong>{label}</Text>
+                                    <Text>{text}</Text>
+                                  </div>
+                                );
+                              })}
+                            </div>
+                          ) : null}
+                          <Descriptions size="small" column={1} className="question-workbench-descriptions">
+                            <Descriptions.Item label="答案">{answerText(payload.answer as Record<string, unknown>)}</Descriptions.Item>
+                            <Descriptions.Item label="解析">{String(payload.explanation || "暂无解析")}</Descriptions.Item>
+                          </Descriptions>
+                          <Space size={4} wrap>
+                            {candidateQuestionPoints(candidate).slice(0, 3).map((point) => (
+                              <Tag key={point.point_key || point.point_title} color="cyan">
+                                {point.point_title || point.point_key}
+                              </Tag>
+                            ))}
+                          </Space>
+                          {errors.length ? <Alert type="warning" showIcon message={errors.join("；")} /> : null}
+                          <Flex justify="space-between" align="center" gap={8} wrap="wrap">
+                            <Button
+                              size="small"
+                              onClick={() => setWorkbenchPrompt(`请继续修订候选 ${candidate.id.slice(0, 8)}：`)}
+                            >
+                              继续修
+                            </Button>
+                            <Space size={4}>
+                              <Popconfirm
+                                title="发布这条候选？"
+                                onConfirm={() => publishCandidate.mutate(candidate.id)}
+                                disabled={Boolean(errors.length) || candidate.status !== "draft"}
+                              >
+                                <Button
+                                  type="link"
+                                  size="small"
+                                  disabled={Boolean(errors.length) || candidate.status !== "draft"}
+                                  loading={publishCandidate.isPending}
+                                >
+                                  发布
+                                </Button>
+                              </Popconfirm>
+                              <Button
+                                type="link"
+                                danger
+                                size="small"
+                                disabled={candidate.status !== "draft"}
+                                loading={rejectCandidate.isPending}
+                                onClick={() => rejectCandidate.mutate(candidate.id)}
+                              >
+                                拒绝
+                              </Button>
+                            </Space>
+                          </Flex>
+                        </Space>
+                      </div>
+                    );
+                  })
+                ) : (
+                  <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description="暂无候选，先发送一条提示" />
+                )}
+              </div>
+            </section>
           </div>
-        </Space>
-      </Modal>
+        </QueryState>
+      </Drawer>
     </Space>
   );
 }
@@ -4767,12 +5205,12 @@ function AnalyticsPage() {
   });
   const weakPoints = useQuery({
     queryKey: ["weak-points", activeClassId],
-    queryFn: () => api<ApiList<Record<string, unknown>>>(`/api/admin/analytics/classes/${activeClassId}/weak-points`),
+    queryFn: () => api<WeakPointsResponse>(`/api/admin/analytics/classes/${activeClassId}/weak-points`),
     enabled: Boolean(activeClassId),
   });
   const studentReport = useQuery({
     queryKey: ["student-report", activeClassId, studentId],
-    queryFn: () => api<Record<string, unknown>>(`/api/admin/analytics/classes/${activeClassId}/students/${studentId}`),
+    queryFn: () => api<StudentReport>(`/api/admin/analytics/classes/${activeClassId}/students/${studentId}`),
     enabled: Boolean(activeClassId && studentId),
   });
 
@@ -4863,23 +5301,136 @@ function AnalyticsPage() {
         </Card>
         <div className="two-column">
           <Card title="薄弱点">
-            <Table
-              rowKey={(row) => String(row.question_id || row.experiment_id || row.stem)}
-              size="small"
-              dataSource={weakPoints.data?.items || []}
-              pagination={{ pageSize: 6 }}
-              columns={[
-                { title: "实验", render: (_: unknown, row: Record<string, unknown>) => `${row.experiment_code || ""} ${row.experiment_title || ""}` },
-                { title: "题目", dataIndex: "stem" },
-                { title: "错误率", dataIndex: "incorrect_rate", width: 90, render: (value) => `${value || 0}%` },
-                { title: "KP", dataIndex: "unmapped", width: 90, render: (value) => (value ? <Tag>未映射</Tag> : <Tag color="green">已映射</Tag>) },
-              ]}
-            />
+            <Space direction="vertical" size={14} className="full">
+              <Table
+                rowKey={(row) => row.point_key}
+                size="small"
+                dataSource={weakPoints.data?.point_items || []}
+                pagination={{ pageSize: 5, showSizeChanger: false }}
+                locale={{ emptyText: <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description="暂无点位答题数据" /> }}
+                columns={[
+                  {
+                    title: "实验点位",
+                    render: (_: unknown, row) => (
+                      <Space direction="vertical" size={2}>
+                        <Text strong>{row.point_title}</Text>
+                        <Text type="secondary">
+                          {row.experiment_code || ""} {row.experiment_title || ""}
+                        </Text>
+                      </Space>
+                    ),
+                  },
+                  { title: "作答", dataIndex: "attempt_count", width: 70 },
+                  { title: "错题", dataIndex: "incorrect_count", width: 70 },
+                  { title: "错误率", dataIndex: "incorrect_rate", width: 90, render: (value) => `${value || 0}%` },
+                  {
+                    title: "诊断",
+                    width: 150,
+                    render: (_: unknown, row) => (
+                      <Space size={4} wrap>
+                        {(row.selected_option_links || []).slice(0, 2).map((link, index) => (
+                          <Tag key={`${link.label || "option"}-${index}`}>
+                            {link.label ? `${link.label} · ` : ""}
+                            {optionDiagnosticRoleLabel(link.role)}
+                          </Tag>
+                        ))}
+                        {row.kp_unmapped ? <Tag>KP 未映射</Tag> : null}
+                      </Space>
+                    ),
+                  },
+                ]}
+              />
+              <div>
+                <Text type="secondary">题目/KP 回退视图</Text>
+                <Table
+                  rowKey={(row) => String(row.question_id || row.experiment_id || row.stem)}
+                  size="small"
+                  dataSource={weakPoints.data?.items || []}
+                  pagination={{ pageSize: 4, showSizeChanger: false }}
+                  columns={[
+                    { title: "实验", render: (_: unknown, row) => `${row.experiment_code || ""} ${row.experiment_title || ""}` },
+                    { title: "题目", dataIndex: "stem" },
+                    { title: "错误率", dataIndex: "incorrect_rate", width: 90, render: (value) => `${value || 0}%` },
+                    { title: "KP", dataIndex: "unmapped", width: 90, render: (value) => (value ? <Tag>未映射</Tag> : <Tag color="green">已映射</Tag>) },
+                  ]}
+                />
+              </div>
+            </Space>
           </Card>
           <Card title="学生路径">
             {studentId ? (
               <QueryState loading={studentReport.isLoading} error={studentReport.error}>
-                <pre className="json-preview">{JSON.stringify(studentReport.data, null, 2)}</pre>
+                <Space direction="vertical" size={14} className="full">
+                  <Space wrap>
+                    <Tag color="blue">学生 {String(studentReport.data?.student?.student_name || studentId)}</Tag>
+                    <Tag>{studentReport.data?.attempts?.length || 0} 次答题</Tag>
+                    <Tag color={studentReport.data?.weak_video_points?.length ? "gold" : "green"}>
+                      弱点 {studentReport.data?.weak_video_points?.length || 0}
+                    </Tag>
+                  </Space>
+                  <Table
+                    rowKey={(row) => row.point_key}
+                    size="small"
+                    title={() => "薄弱实验点位"}
+                    dataSource={studentReport.data?.weak_video_points || []}
+                    pagination={{ pageSize: 4, showSizeChanger: false }}
+                    locale={{ emptyText: <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description="暂无点位弱项" /> }}
+                    columns={[
+                      { title: "点位", dataIndex: "point_title" },
+                      { title: "实验", render: (_: unknown, row) => `${row.experiment_code || ""} ${row.experiment_title || ""}` },
+                      { title: "错误次数", dataIndex: "incorrect_count", width: 90 },
+                    ]}
+                  />
+                  <Table
+                    rowKey={(row) => String(row.id || row.question_id || row.created_at)}
+                    size="small"
+                    title={() => "最近答题"}
+                    dataSource={(studentReport.data?.attempts || []).slice(0, 8)}
+                    pagination={false}
+                    columns={[
+                      {
+                        title: "实验",
+                        width: 150,
+                        render: (_: unknown, row) => `${row.experiment_code || ""} ${row.experiment_title || ""}`,
+                      },
+                      { title: "题目", dataIndex: "stem" },
+                      {
+                        title: "点位",
+                        width: 180,
+                        render: (_: unknown, row) => (
+                          <Space size={4} wrap>
+                            {(row.metadata?.primary_points || []).slice(0, 2).map((point) => (
+                              <Tag key={point.point_key || point.point_title}>{point.point_title || point.point_key}</Tag>
+                            ))}
+                          </Space>
+                        ),
+                      },
+                      {
+                        title: "结果",
+                        width: 80,
+                        render: (_: unknown, row) =>
+                          row.correct === true ? <Tag color="green">正确</Tag> : row.correct === false ? <Tag color="red">错误</Tag> : <Tag>未判定</Tag>,
+                      },
+                    ]}
+                  />
+                  <Table
+                    rowKey={(row) => String(row.id || row.created_at || row.event_type)}
+                    size="small"
+                    title={() => "时间线"}
+                    dataSource={(studentReport.data?.timeline || []).slice(0, 8)}
+                    pagination={false}
+                    columns={[
+                      { title: "时间", dataIndex: "created_at", width: 150, render: (value) => (value ? dayjs(String(value)).format("MM-DD HH:mm") : "-") },
+                      { title: "事件", dataIndex: "event_type" },
+                      {
+                        title: "结果",
+                        width: 80,
+                        render: (_: unknown, row) =>
+                          row.correct === true ? <Tag color="green">正确</Tag> : row.correct === false ? <Tag color="red">错误</Tag> : <Tag>-</Tag>,
+                      },
+                    ]}
+                  />
+                </Space>
               </QueryState>
             ) : (
               <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description="点击矩阵中的学生查看路径" />
