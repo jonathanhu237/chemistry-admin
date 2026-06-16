@@ -22,6 +22,11 @@ from server.app.media import create_media_asset, create_media_binding
 def _json(value: Any) -> str:
     return json.dumps(value if value is not None else {}, ensure_ascii=False, default=str)
 
+
+def _dump(model: Any) -> dict[str, Any]:
+    return model.model_dump() if hasattr(model, "model_dump") else model.dict()
+
+
 def _ensure_experiment(session: Any, experiment_id: str) -> dict[str, Any]:
     row = (
         session.execute(

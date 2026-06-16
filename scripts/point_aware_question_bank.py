@@ -18,8 +18,8 @@ if str(ROOT) not in sys.path:
 
 from server.app.canonical_evidence import resolve_source_refs
 from server.app.database import apply_migrations, db_session
-from server.app.experiment_admin import _validate_question_payload
 from server.app.services.experiment_catalog_service import _candidate_point_key, _video_candidates
+from server.app.services.question_bank_service import _validate_question_payload
 
 ARTIFACT_DIR = ROOT / "artifacts" / "point-aware-question-bank"
 SEED_DIR = ROOT / "data" / "seed"

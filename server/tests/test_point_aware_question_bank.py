@@ -8,12 +8,12 @@ from server.app.experiment_admin import (
     PointAwareSuggestionRequest,
     _local_point_aware_suggestions,
     _record_workbench_generation_failure,
-    _validate_question_payload,
     _workbench_candidate_validation_errors,
     _workbench_context,
     _question_snapshot,
     _with_point_aware_metadata,
 )
+from server.app.services.question_bank_service import _validate_question_payload
 from server.app.services.student_experiment_service import _attempt_diagnostic_metadata
 
 
