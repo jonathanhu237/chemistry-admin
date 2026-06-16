@@ -85,6 +85,7 @@ class Settings:
     rag_vector_top_k: int = 24
     rag_rerank_top_k: int = 9
     rag_final_top_k: int = 5
+    chemistry_rag_root: Path = Path("E:/chemistry-rag") if os.name == "nt" else Path("/chemistry-rag")
     admin_web_dist: Path = ROOT / "apps" / "admin-web" / "dist"
 
     @property
@@ -162,5 +163,6 @@ def get_settings() -> Settings:
         rag_vector_top_k=_get_int("RAG_VECTOR_TOP_K", Settings.rag_vector_top_k),
         rag_rerank_top_k=_get_int("RAG_RERANK_TOP_K", Settings.rag_rerank_top_k),
         rag_final_top_k=_get_int("RAG_FINAL_TOP_K", Settings.rag_final_top_k),
+        chemistry_rag_root=Path(_getenv("CHEMISTRY_RAG_ROOT", str(Settings.chemistry_rag_root))),
         admin_web_dist=Path(_getenv("ADMIN_WEB_DIST", str(Settings.admin_web_dist))),
     )

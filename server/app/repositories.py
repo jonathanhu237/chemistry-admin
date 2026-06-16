@@ -28,6 +28,12 @@ class ContentRepository(Protocol):
     def get_learning_card(self, experiment_id: str) -> dict[str, Any] | None: ...
     def get_question(self, question_id: str) -> dict[str, Any] | None: ...
     def related_chunks_for_kp(self, kp_id: str, limit: int = 8) -> list[dict[str, Any]]: ...
+    def point_question_evidence(
+        self,
+        experiment_id: str,
+        point_key: str,
+        limit: int = 12,
+    ) -> list[dict[str, Any]]: ...
 
 
 class LearningRepository(Protocol):
@@ -100,6 +106,25 @@ class JsonContentRepository:
     def related_chunks_for_kp(self, kp_id: str, limit: int = 8) -> list[dict[str, Any]]:
         return data_loader.related_chunks_for_kp(kp_id, limit)
 
+    def point_question_evidence(
+        self,
+        experiment_id: str,
+        point_key: str,
+        limit: int = 12,
+    ) -> list[dict[str, Any]]:
+        result: list[dict[str, Any]] = []
+        for question in data_loader.questions():
+            related_experiment_ids = question.get("related_experiment_ids") or []
+            if experiment_id and experiment_id not in related_experiment_ids and question.get("experiment_id") != experiment_id:
+                continue
+            metadata = _metadata_dict(question.get("metadata"))
+            if point_key not in _metadata_point_keys(metadata):
+                continue
+            result.append({**question, "metadata": metadata})
+            if len(result) >= limit:
+                break
+        return result
+
 
 class JsonLearningRepository:
     def load_events(self) -> list[dict[str, Any]]:
@@ -153,6 +178,33 @@ def _table_exists(table_name: str) -> bool:
 
 def _json_param(value: Any) -> str:
     return json.dumps(value if value is not None else {}, ensure_ascii=False)
+
+
+def _metadata_dict(value: Any) -> dict[str, Any]:
+    if isinstance(value, dict):
+        return value
+    if isinstance(value, str) and value.strip():
+        try:
+            parsed = json.loads(value)
+        except ValueError:
+            return {}
+        return parsed if isinstance(parsed, dict) else {}
+    return {}
+
+
+def _metadata_point_keys(metadata: dict[str, Any]) -> set[str]:
+    keys: set[str] = set()
+    for item in metadata.get("primary_point_keys") or []:
+        text = str(item or "").strip()
+        if text:
+            keys.add(text)
+    for item in metadata.get("primary_points") or []:
+        if not isinstance(item, dict):
+            continue
+        text = str(item.get("point_key") or "").strip()
+        if text:
+            keys.add(text)
+    return keys
 
 
 def _published_expr(table_alias: str = "") -> str:
@@ -432,6 +484,54 @@ class PostgresContentRepository:
             """,
             {"kp_id": kp_id, "limit": limit},
         )
+
+    def point_question_evidence(
+        self,
+        experiment_id: str,
+        point_key: str,
+        limit: int = 12,
+    ) -> list[dict[str, Any]]:
+        if not experiment_id or not point_key or not _table_exists("experiment_questions"):
+            return []
+        rows = _rows(
+            """
+            SELECT
+              q.id::text AS question_id,
+              q.id::text AS id,
+              q.experiment_id,
+              q.question_type,
+              q.stem,
+              q.source_chunk_ids,
+              q.source_refs,
+              q.status,
+              q.metadata,
+              q.updated_at,
+              q.created_at
+            FROM experiment_questions q
+            WHERE q.experiment_id = :experiment_id
+              AND COALESCE(q.status, 'draft') = 'published'
+              AND (
+                q.metadata->'primary_point_keys' ? :point_key
+                OR EXISTS (
+                  SELECT 1
+                  FROM jsonb_array_elements(
+                    CASE
+                      WHEN jsonb_typeof(q.metadata->'primary_points') = 'array'
+                      THEN q.metadata->'primary_points'
+                      ELSE '[]'::jsonb
+                    END
+                  ) AS point
+                  WHERE point->>'point_key' = :point_key
+                )
+              )
+            ORDER BY q.updated_at DESC NULLS LAST, q.created_at DESC NULLS LAST
+            LIMIT :limit
+            """,
+            {"experiment_id": experiment_id, "point_key": point_key, "limit": limit},
+        )
+        for row in rows:
+            row["metadata"] = _metadata_dict(row.get("metadata"))
+        return rows
 
     def _question_chapter_id(self, question: dict[str, Any]) -> str | None:
         kp_ids = question.get("related_knowledge_point_ids") or []

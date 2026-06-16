@@ -1,11 +1,13 @@
 from __future__ import annotations
 
 import os
+import hashlib
 import json
 import re
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, AsyncIterator, Callable
+from urllib.parse import quote
 
 from server.app.config import ROOT, Settings, get_settings
 from server.app.hybrid_rag import retrieve_hybrid_context
@@ -61,9 +63,110 @@ OUT_OF_SCOPE_KEYWORDS = {
 }
 
 RESOURCE_KEYWORDS = {"视频", "资料", "资源", "课件", "演示", "哪里看", "在哪看"}
+PLATFORM_RESOURCE_KEYWORDS = {"视频", "资料", "资源", "课件", "演示", "播放", "可播放", "上传", "发布", "下载", "文件", "链接", "哪里看", "在哪看"}
+RAG_SOURCE_ASSET_KEYWORDS = {
+    "教材图",
+    "原图",
+    "截图",
+    "图像",
+    "图表",
+    "插图",
+    "示意图",
+    "电势图",
+    "F-Z",
+    "FZ图",
+    "Frost",
+    "frost",
+    "拉蒂默",
+    "Latimer",
+    "来源图",
+    "证据图",
+}
 ASSESSMENT_KEYWORDS = {"考试", "测验", "选择题", "题目", "答案", "选哪个", "直接告诉", "帮我选"}
 UNSAFE_KEYWORDS = {"在家", "私下", "自制", "爆炸", "剧毒", "氢氟酸", "氰", "浓硫酸", "明火", "加热到", "剂量", "详细步骤"}
 GREETING_RE = re.compile(r"^(你好|您好|hello|hi|嗨|在吗)[!！。.\s]*$", re.IGNORECASE)
+
+
+def _is_rag_source_asset_request(question: str) -> bool:
+    text = question.strip()
+    if not text:
+        return False
+    lowered = text.lower()
+    literal_keywords = {
+        "教材图",
+        "教材图片",
+        "来源图",
+        "来源图片",
+        "证据图",
+        "证据图片",
+        "原图",
+        "插图",
+        "图像证据",
+        "图片证据",
+        "F-Z图",
+        "f-z图",
+        "Frost图",
+        "frost图",
+        "拉蒂默图",
+        "Latimer图",
+        "latimer图",
+    }
+    if any(keyword.lower() in lowered for keyword in literal_keywords):
+        return True
+    if "图" in text and any(hint.lower() in lowered for hint in ("教材", "来源", "证据", "图片", "插图", "F-Z", "Frost", "Latimer", "拉蒂默", "电势")):
+        return True
+    if "图" in text and any(verb in text for verb in ("给我", "发我", "展示", "看看", "看一下", "引用", "返回")):
+        return True
+    if any(keyword in text for keyword in RAG_SOURCE_ASSET_KEYWORDS):
+        return True
+    return bool(re.search(r"(教材|课本|来源|证据).{0,8}图|图.{0,8}(教材|课本|来源|证据)", text, re.IGNORECASE))
+
+
+def _is_platform_resource_request(question: str) -> bool:
+    if _is_rag_source_asset_request(question):
+        return False
+    text = question.strip()
+    if not text:
+        return False
+    resource_terms = [
+        "视频",
+        "资料",
+        "资源",
+        "课件",
+        "演示",
+        "播放",
+        "链接",
+        "下载",
+        *PLATFORM_RESOURCE_KEYWORDS,
+    ]
+    availability_terms = [
+        "有没有",
+        "是否有",
+        "有吗",
+        "能不能看",
+        "可以看",
+        "可播放",
+        "在哪里",
+        "在哪",
+        "哪里",
+        "发布",
+        "上传",
+        "下载",
+        "链接",
+        "播放",
+        "打开",
+        "查看资源",
+    ]
+    explanation_terms = ["解释", "为什么", "原理", "现象", "说明什么", "怎么理解", "这个点位", "实验点位"]
+    has_resource_term = any(keyword in text for keyword in resource_terms)
+    has_availability_term = any(keyword in text for keyword in availability_terms)
+    if not (has_resource_term and has_availability_term):
+        return False
+    if any(keyword in text for keyword in explanation_terms) and not any(
+        keyword in text for keyword in ("有没有", "是否有", "有吗", "在哪里", "在哪", "哪里", "下载", "链接", "播放")
+    ):
+        return False
+    return True
 
 STUDENT_AI_POLICY_VERSION = "student-ai-policy-v1"
 POLICY_DECISION_MODES = {
@@ -125,6 +228,7 @@ class AgentRunContext:
     tool_calls: list[dict[str, Any]] = field(default_factory=list)
     sources: list[RagSource] = field(default_factory=list)
     rag_traces: list[dict[str, Any]] = field(default_factory=list)
+    point_evidence: dict[str, Any] = field(default_factory=dict)
     guardrail_decisions: list[dict[str, Any]] = field(default_factory=list)
     mode: str = "local"
 
@@ -156,15 +260,168 @@ def load_agent_policy(policy_path: Path | None = None) -> AgentPolicy:
     )
 
 
+def _candidate_point_key(index: int, title: str) -> str:
+    digest = hashlib.sha1(title.strip().encode("utf-8")).hexdigest()[:8]
+    return f"candidate-{index + 1}-{digest}"
+
+
+def _experiment_title(experiment: dict[str, Any] | None) -> str:
+    if not experiment:
+        return ""
+    return str(
+        experiment.get("title")
+        or experiment.get("name")
+        or experiment.get("normalized_name")
+        or experiment.get("code")
+        or experiment.get("experiment_id")
+        or ""
+    ).strip()
+
+
+def _experiment_video_points(experiment: dict[str, Any] | None) -> list[dict[str, str]]:
+    if not experiment:
+        return []
+    raw_candidates = experiment.get("video_candidates")
+    if not isinstance(raw_candidates, list):
+        metadata = experiment.get("metadata") if isinstance(experiment.get("metadata"), dict) else {}
+        raw_candidates = metadata.get("video_candidates") if isinstance(metadata, dict) else []
+    if not isinstance(raw_candidates, list):
+        return []
+    result: list[dict[str, str]] = []
+    seen: set[str] = set()
+    for index, raw_title in enumerate(raw_candidates):
+        title = str(raw_title or "").strip()
+        if not title or title in seen:
+            continue
+        seen.add(title)
+        result.append({"point_key": _candidate_point_key(index, title), "point_title": title})
+    return result
+
+
+def _resolve_point_context(context: AgentRunContext) -> dict[str, Any]:
+    requested_point_key = str(context.request.point_key or "").strip()
+    experiment_id = str(context.request.experiment_id or "").strip()
+    if not requested_point_key or not experiment_id:
+        return {}
+    experiment = context.repositories.content.get_experiment(experiment_id)
+    points = _experiment_video_points(experiment)
+    selected = next(
+        (
+            point
+            for point in points
+            if requested_point_key in {point.get("point_key"), point.get("point_title")}
+        ),
+        None,
+    )
+    resolved_point_key = selected.get("point_key") if selected else requested_point_key
+    return {
+        "requested_point_key": requested_point_key,
+        "point_key": resolved_point_key,
+        "point_title": (selected or {}).get("point_title") or requested_point_key,
+        "experiment_id": experiment_id,
+        "experiment_code": (experiment or {}).get("code"),
+        "experiment_title": _experiment_title(experiment),
+        "chapter_id": context.request.chapter_id or (experiment or {}).get("chapter_id"),
+        "available_point_count": len(points),
+        "resolved": bool(selected),
+    }
+
+
+def _question_metadata(question: dict[str, Any]) -> dict[str, Any]:
+    metadata = question.get("metadata")
+    if isinstance(metadata, dict):
+        return metadata
+    if isinstance(metadata, str) and metadata.strip():
+        try:
+            parsed = json.loads(metadata)
+        except ValueError:
+            return {}
+        return parsed if isinstance(parsed, dict) else {}
+    return {}
+
+
+def _unique_texts(values: list[Any]) -> list[str]:
+    result: list[str] = []
+    seen: set[str] = set()
+    for value in values:
+        text = str(value or "").strip()
+        if text and text not in seen:
+            seen.add(text)
+            result.append(text)
+    return result
+
+
+def _question_source_chunk_ids(question: dict[str, Any]) -> list[str]:
+    metadata = _question_metadata(question)
+    source_audit = metadata.get("source_audit") if isinstance(metadata.get("source_audit"), dict) else {}
+    ids: list[Any] = []
+    ids.extend(question.get("source_chunk_ids") or [])
+    ids.extend(metadata.get("source_chunk_ids") or [])
+    ids.extend(source_audit.get("canonical_chunk_ids") or [])
+    ids.extend(source_audit.get("supporting_theory_chunk_ids") or [])
+    for ref in question.get("source_refs") or metadata.get("source_refs") or []:
+        if isinstance(ref, dict):
+            ids.append(ref.get("chunk_id") or ref.get("id"))
+        else:
+            ids.append(ref)
+    return _unique_texts(ids)
+
+
+def _build_point_evidence_package(context: AgentRunContext) -> None:
+    point_context = _resolve_point_context(context)
+    if not point_context:
+        context.point_evidence = {}
+        return
+
+    experiment_id = point_context["experiment_id"]
+    point_key = point_context["point_key"]
+    questions = context.repositories.content.point_question_evidence(experiment_id, point_key, limit=12)
+    chunk_ids = _unique_texts([chunk_id for question in questions for chunk_id in _question_source_chunk_ids(question)])
+    source_chunks = context.repositories.content.source_chunks() if chunk_ids else []
+    chunks_by_id = {
+        str(chunk.get("chunk_id") or chunk.get("id")): chunk
+        for chunk in source_chunks
+        if str(chunk.get("chunk_id") or chunk.get("id") or "").strip()
+    }
+    fixed_chunks = [chunks_by_id[chunk_id] for chunk_id in chunk_ids if chunk_id in chunks_by_id]
+    fixed_sources = [_source_from_chunk(chunk) for chunk in fixed_chunks[:8]]
+    if fixed_sources:
+        context.sources = _merge_sources(fixed_sources, context.sources)
+
+    context.point_evidence = {
+        **point_context,
+        "enabled": True,
+        "question_count": len(questions),
+        "chunk_ids": chunk_ids[:12],
+        "source_count": len(fixed_sources),
+        "sources": [_source_evidence_payload(source) for source in fixed_sources[:5]],
+        "question_samples": [
+            {
+                "question_id": question.get("question_id") or question.get("id"),
+                "question_type": question.get("question_type"),
+                "stem": str(question.get("stem") or "")[:160],
+            }
+            for question in questions[:5]
+        ],
+    }
+    if fixed_sources:
+        context.add_guardrail("point_context_fixed", "use_fixed_evidence", "已按实验视频点位装载固定教材证据")
+    else:
+        context.add_guardrail("point_context_empty", "answer_from_model_knowledge", "该点位暂无题库 source_audit 证据，仍保留章节与点位上下文")
+
+
 def classify_agent_request(request: AgentAskRequest) -> dict[str, Any]:
     question = request.question.strip()
     lowered = question.lower()
     has_course_keyword = any(keyword.lower() in lowered for keyword in COURSE_KEYWORDS)
-    has_scope_hint = bool(request.chapter_id or request.experiment_id or request.knowledge_point_ids)
+    has_scope_hint = bool(request.chapter_id or request.experiment_id or request.point_key or request.knowledge_point_ids)
     is_greeting = bool(GREETING_RE.match(question))
-    is_resource_request = any(keyword in question for keyword in RESOURCE_KEYWORDS) or any(
-        keyword in question for keyword in ("视频", "资料", "资源", "课件", "演示")
+    is_source_asset_request = _is_rag_source_asset_request(question)
+    is_resource_request = (not is_source_asset_request) and (
+        _is_platform_resource_request(question)
+        or any(keyword in question for keyword in ("视频", "资料", "资源", "课件", "演示"))
     )
+    is_resource_request = (not is_source_asset_request) and _is_platform_resource_request(question)
     is_assessment_leakage = any(keyword in question for keyword in ASSESSMENT_KEYWORDS) and (
         "答案" in question or "选" in question or "直接" in question
     )
@@ -187,6 +444,7 @@ def classify_agent_request(request: AgentAskRequest) -> dict[str, Any]:
         "requires_evidence": False,
         "rag_preferred": factual_query and not is_greeting and not is_resource_request,
         "resource_request": is_resource_request,
+        "source_asset_request": is_source_asset_request,
         "experiment_safety": is_unsafe_experiment,
         "assessment_leakage": is_assessment_leakage,
         "simple_greeting": is_greeting,
@@ -217,6 +475,33 @@ async def _policy_gate_decision(context: AgentRunContext, settings: Settings) ->
     return decision
 
 
+def _policy_conversation_payload(context: AgentRunContext) -> list[dict[str, str]]:
+    payload: list[dict[str, str]] = []
+    for item in context.request.conversation_history[-6:]:
+        data = item.model_dump() if hasattr(item, "model_dump") else item.dict()
+        payload.append(
+            {
+                "role": str(data.get("role") or ""),
+                "content": " ".join(str(data.get("content") or "").split())[:600],
+            }
+        )
+    return payload
+
+
+def _resolved_policy_question(context: AgentRunContext) -> str:
+    question = context.request.question.strip()
+    history = _policy_conversation_payload(context)
+    if not history:
+        return question
+    short_followup = len(question) <= 12 or question in {"为什么", "为啥", "怎么理解", "继续", "展开讲讲", "这是什么意思"}
+    if not short_followup:
+        return question
+    last_user = next((item["content"] for item in reversed(history) if item["role"] == "user"), "")
+    last_assistant = next((item["content"] for item in reversed(history) if item["role"] == "assistant"), "")
+    parts = [part for part in [f"上一轮学生问题：{last_user}" if last_user else "", f"上一轮助手回答摘要：{last_assistant}" if last_assistant else "", f"当前追问：{question}"] if part]
+    return "；".join(parts) or question
+
+
 async def _run_openai_policy_gate(context: AgentRunContext, settings: Settings) -> StudentAIPolicyDecision:
     from openai import OpenAI
 
@@ -239,6 +524,11 @@ async def _run_openai_policy_gate(context: AgentRunContext, settings: Settings) 
                     "Allowed mode values: normal_answer, refuse_out_of_scope, safe_experiment_guidance, "
                     "assessment_hint, needs_platform_evidence.\n"
                     "Use needs_platform_evidence only for platform-specific resource/material availability claims. "
+                    "Do not classify a short follow-up as out of scope when resolved_question or conversation_history "
+                    "shows it continues an inorganic chemistry explanation. "
+                    "Requests for textbook figures, source images, Frost/F-Z diagrams, Latimer diagrams, or evidence images "
+                    "should use normal_answer with rag_search instead of published_resource_lookup. "
+                    "Requests to explain a video point or experiment observation are normal_answer, not platform resource requests. "
                     "For ordinary inorganic chemistry factual questions, use normal_answer and treat RAG as optional support.\n"
                     "Return keys: mode, reason, evidence_required, student_guidance, allowed_tools. "
                     "allowed_tools may include rag_search, curriculum_lookup, published_resource_lookup, "
@@ -250,8 +540,12 @@ async def _run_openai_policy_gate(context: AgentRunContext, settings: Settings) 
                 "content": json.dumps(
                     {
                         "question": context.request.question,
+                        "resolved_question": _resolved_policy_question(context),
+                        "conversation_history": _policy_conversation_payload(context),
                         "chapter_id": context.request.chapter_id,
                         "experiment_id": context.request.experiment_id,
+                        "point_key": context.request.point_key,
+                        "point_context": context.point_evidence,
                         "knowledge_point_ids": context.request.knowledge_point_ids,
                         "student_id_present": bool(context.request.student_id),
                         "allow_rag_lookup": context.request.allow_rag_lookup,
@@ -340,7 +634,30 @@ def _apply_policy_decision_to_classification(context: AgentRunContext) -> None:
     decision = context.policy_decision
     classification = context.classification
     mode = decision.mode if decision.mode in POLICY_DECISION_MODES else "normal_answer"
+    source_asset_request = _is_rag_source_asset_request(context.request.question)
+    deterministic_platform_resource_request = (not source_asset_request) and _is_platform_resource_request(context.request.question)
+    if source_asset_request and mode in {"needs_platform_evidence", "refuse_out_of_scope"}:
+        mode = "normal_answer"
+    if mode == "needs_platform_evidence" and not deterministic_platform_resource_request:
+        context.add_guardrail(
+            "policy_resource_veto",
+            "treat_as_learning_answer",
+            "Policy gate classified the turn as platform-resource availability, but deterministic resource-boundary checks identify it as a learning/explanation request.",
+        )
+        mode = "normal_answer"
+        decision.evidence_required = False
+    if not deterministic_platform_resource_request:
+        decision.allowed_tools = tuple(
+            tool for tool in decision.allowed_tools if tool != "published_resource_lookup"
+        )
+        if mode == "normal_answer" and not decision.allowed_tools:
+            decision.allowed_tools = ("rag_search", "curriculum_lookup")
     resource_tool_allowed = "published_resource_lookup" in decision.allowed_tools
+    platform_resource_request = bool(
+        deterministic_platform_resource_request
+        and resource_tool_allowed
+        and mode == "needs_platform_evidence"
+    )
     if not decision.valid:
         classification.update(
             {
@@ -348,6 +665,7 @@ def _apply_policy_decision_to_classification(context: AgentRunContext) -> None:
                 "in_course_scope": True,
                 "requires_evidence": False,
                 "resource_request": False,
+                "source_asset_request": source_asset_request,
                 "experiment_safety": False,
                 "assessment_leakage": False,
             }
@@ -356,9 +674,10 @@ def _apply_policy_decision_to_classification(context: AgentRunContext) -> None:
         classification.update(
             {
                 "intent": mode,
-                "in_course_scope": mode != "refuse_out_of_scope",
-                "requires_evidence": bool(resource_tool_allowed and (decision.evidence_required or mode == "needs_platform_evidence")),
-                "resource_request": bool(resource_tool_allowed and mode == "needs_platform_evidence"),
+                "in_course_scope": True if source_asset_request else mode != "refuse_out_of_scope",
+                "requires_evidence": bool(platform_resource_request and (decision.evidence_required or mode == "needs_platform_evidence")),
+                "resource_request": platform_resource_request,
+                "source_asset_request": source_asset_request,
                 "experiment_safety": mode == "safe_experiment_guidance",
                 "assessment_leakage": mode == "assessment_hint",
             }
@@ -401,6 +720,7 @@ async def run_agent(
     )
 
     try:
+        _build_point_evidence_package(context)
         context.policy_decision = await _policy_gate_decision(context, settings)
         _apply_policy_decision_to_classification(context)
         answer = _preflight_response(context)
@@ -441,6 +761,7 @@ async def run_agent_stream(
     )
 
     try:
+        _build_point_evidence_package(context)
         yield {"event": "status", "message": "正在判断问题类型与安全策略"}
         context.policy_decision = await _policy_gate_decision(context, settings)
         _apply_policy_decision_to_classification(context)
@@ -506,6 +827,7 @@ def agent_to_rag_request(request: AgentAskRequest) -> RagAskRequest:
         question=request.question,
         chapter_id=request.chapter_id,
         experiment_id=request.experiment_id,
+        point_key=request.point_key,
         knowledge_point_ids=request.knowledge_point_ids,
     )
 
@@ -516,6 +838,7 @@ def rag_to_agent_request(request: RagAskRequest) -> AgentAskRequest:
         question=request.question,
         chapter_id=request.chapter_id,
         experiment_id=request.experiment_id,
+        point_key=request.point_key,
         knowledge_point_ids=request.knowledge_point_ids,
     )
 
@@ -546,16 +869,9 @@ def rag_search_tool(context: AgentRunContext, query: str) -> dict[str, Any]:
     context.rag_traces.append(hybrid_result.trace)
     sources = [_source_from_chunk(chunk) for chunk in chunks]
     context.sources = _merge_sources(context.sources, sources)
+    evidence = [_source_evidence_payload(source) for source in sources]
     result = {
-        "evidence": [
-            {
-                "chunk_id": source.chunk_id,
-                "source_file": source.source_file,
-                "page_number": source.page_number,
-                "text_preview": source.text_preview,
-            }
-            for source in sources
-        ],
+        "evidence": evidence,
         "trace": hybrid_result.trace,
     }
     context.record_tool(
@@ -742,6 +1058,81 @@ async def _run_openai_agents_sdk(context: AgentRunContext, settings: Settings) -
     return str(result.final_output).strip()
 
 
+def _source_asset_answer(figure_evidence_items: list[dict[str, Any]]) -> str:
+    if not figure_evidence_items:
+        return "当前这轮检索还没有找到可直接展示的教材图。你可以把图名、页码或相关概念说得更具体一些，我会继续按教材证据检索。"
+    lines = [
+        "可以。本轮检索已经找到对应的教材图，右侧“来源证据”里会展示可预览的图像。",
+        "",
+        "已命中的图像证据：",
+    ]
+    for index, item in enumerate(figure_evidence_items[:3], start=1):
+        caption = item.get("caption") or item.get("source_file") or "教材图"
+        page = f"p.{item.get('page_number')}" if item.get("page_number") else ""
+        asset_count = item.get("asset_count") or 0
+        suffix = f"（{page}，{asset_count} 个图像资产）" if page else f"（{asset_count} 个图像资产）"
+        lines.append(f"{index}. {caption}{suffix}")
+        image_asset = next(
+            (
+                asset
+                for asset in item.get("asset_files", [])
+                if isinstance(asset, dict) and asset.get("path") and asset.get("kind") != "page"
+            ),
+            None,
+        ) or next(
+            (
+                asset
+                for asset in item.get("asset_files", [])
+                if isinstance(asset, dict) and asset.get("path")
+            ),
+            None,
+        )
+        if image_asset:
+            markdown = image_asset.get("markdown") or _source_asset_markdown(image_asset, caption)
+            if markdown:
+                lines.append(f"   {markdown}")
+    lines.extend([
+        "",
+        "你可以在右侧来源卡片中查看原图；我也可以继续按这张图解释稳定区、氧化态和氧化性关系。",
+    ])
+    return "\n".join(lines)
+
+
+def _figure_evidence_items(context: AgentRunContext, evidence: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    candidates = [*evidence, *[source_to_dict(source) for source in context.sources]]
+    result: list[dict[str, Any]] = []
+    seen: set[str] = set()
+    for item in candidates:
+        assets = item.get("assets") or []
+        if not assets:
+            continue
+        chunk_id = str(item.get("chunk_id") or item.get("id") or item.get("caption") or len(result))
+        if chunk_id in seen:
+            continue
+        seen.add(chunk_id)
+        result.append(
+            {
+                "source_file": item.get("source_file"),
+                "page_number": item.get("page_number"),
+                "caption": item.get("caption") or item.get("text_preview"),
+                "content_type": item.get("content_type"),
+                "asset_count": len(assets),
+                "asset_files": [
+                    {
+                        "file_name": asset.get("file_name"),
+                        "kind": asset.get("kind"),
+                        "path": asset.get("path"),
+                        "url": _asset_url(asset.get("path")),
+                        "markdown": _source_asset_markdown(asset, item.get("caption") or item.get("text_preview")),
+                    }
+                    for asset in assets[:3]
+                    if isinstance(asset, dict) and asset.get("path")
+                ],
+            }
+        )
+    return result[:3]
+
+
 async def _run_openai_chat_completion(context: AgentRunContext, settings: Settings) -> str:
     from openai import OpenAI
 
@@ -759,14 +1150,23 @@ async def _run_openai_chat_completion(context: AgentRunContext, settings: Settin
         for point in curriculum.get("knowledge_points", [])
         if point.get("content")
     ][:5]
+    fixed_point_evidence = context.point_evidence.get("sources", []) if context.point_evidence else []
     evidence_items = [
         {
             "source_file": item.get("source_file"),
             "page_number": item.get("page_number"),
             "text_preview": item.get("text_preview"),
+            "caption": item.get("caption"),
+            "content_type": item.get("content_type"),
+            "asset_count": len(item.get("assets") or []),
+            "markdown_images": item.get("markdown_images") or [],
         }
         for item in evidence[:5]
     ]
+    figure_evidence_items = _figure_evidence_items(context, evidence)
+    if context.classification.get("source_asset_request"):
+        context.mode = "source_asset_evidence"
+        return _source_asset_answer(figure_evidence_items)
     client = OpenAI(
         api_key=settings.agent_llm_api_key or os.getenv("OPENAI_API_KEY"),
         base_url=settings.agent_llm_base_url or None,
@@ -783,6 +1183,11 @@ async def _run_openai_chat_completion(context: AgentRunContext, settings: Settin
                     "RAG/课程证据只是辅助：如果提供了证据，优先参考证据并避免和证据冲突；"
                     "如果没有证据或本次未开启 RAG，就用你可靠的无机化学常识回答。"
                     "不要声称平台存在某个视频、资源或教材出处，除非证据中明确提供。"
+                    "fixed_point_evidence is trusted evidence for the selected experiment video point and remains available even when supplemental RAG is disabled. "
+                    "Use it before supplemental rag_evidence when answering point explanations. "
+                    "If rag_figure_evidence is not empty or any rag_evidence item has asset_count > 0, tell the student the source figure is available in the evidence panel and summarize what it shows; do not say the figure is unavailable."
+                    "When a source figure helps answer the question, include one provided Markdown image reference exactly as-is from markdown_images or rag_figure_evidence.asset_files[].markdown."
+                    "If source_figures_available is true, you must not say the system has no image files or asset_count is zero."
                     "不要提供危险实验的私下操作步骤，也不要直接给测验答案。"
                     "回答要适合学生阅读，简洁、分点、可复习。"
                 ),
@@ -797,7 +1202,12 @@ async def _run_openai_chat_completion(context: AgentRunContext, settings: Settin
                         "knowledge_point_ids": context.request.knowledge_point_ids,
                         "conversation_history": _conversation_history_payload(context),
                         "related_knowledge_points": point_titles,
+                        "point_context": context.point_evidence,
+                        "fixed_point_evidence": fixed_point_evidence,
                         "rag_evidence": evidence_items,
+                        "rag_figure_evidence": figure_evidence_items,
+                        "source_figures_available": bool(figure_evidence_items),
+                        "source_figure_count": len(figure_evidence_items),
                     },
                     ensure_ascii=False,
                 ),
@@ -826,14 +1236,26 @@ async def _run_openai_chat_completion_stream(context: AgentRunContext, settings:
         for point in curriculum.get("knowledge_points", [])
         if point.get("content")
     ][:5]
+    fixed_point_evidence = context.point_evidence.get("sources", []) if context.point_evidence else []
     evidence_items = [
         {
             "source_file": item.get("source_file"),
             "page_number": item.get("page_number"),
             "text_preview": item.get("text_preview"),
+            "caption": item.get("caption"),
+            "content_type": item.get("content_type"),
+            "asset_count": len(item.get("assets") or []),
+            "markdown_images": item.get("markdown_images") or [],
         }
         for item in evidence[:5]
     ]
+    figure_evidence_items = _figure_evidence_items(context, evidence)
+    if context.classification.get("source_asset_request"):
+        context.mode = "source_asset_evidence"
+        answer = _source_asset_answer(figure_evidence_items)
+        for delta in _chunk_stream_text(answer):
+            yield delta
+        return
     client = OpenAI(
         api_key=settings.agent_llm_api_key or os.getenv("OPENAI_API_KEY"),
         base_url=settings.agent_llm_base_url or None,
@@ -849,6 +1271,11 @@ async def _run_openai_chat_completion_stream(context: AgentRunContext, settings:
                 "content": (
                     "你是无机化学实验学习助手。请用中文、面向学生、简洁回答。"
                     "优先基于给定课程证据和实验上下文回答；没有证据时要说明平台暂未找到可靠来源。"
+                    "fixed_point_evidence is trusted evidence for the selected experiment video point and remains available even when supplemental RAG is disabled. "
+                    "Use it before supplemental rag_evidence when answering point explanations. "
+                    "If rag_figure_evidence is not empty or any rag_evidence item has asset_count > 0, tell the student the source figure is available in the evidence panel and summarize what it shows; do not say the figure is unavailable."
+                    "When a source figure helps answer the question, include one provided Markdown image reference exactly as-is from markdown_images or rag_figure_evidence.asset_files[].markdown."
+                    "If source_figures_available is true, you must not say the system has no image files or asset_count is zero."
                     "不要提供危险家庭实验步骤，不要直接泄露测验答案，只给思路和概念提示。"
                 ),
             },
@@ -862,7 +1289,12 @@ async def _run_openai_chat_completion_stream(context: AgentRunContext, settings:
                         "knowledge_point_ids": context.request.knowledge_point_ids,
                         "conversation_history": _conversation_history_payload(context),
                         "related_knowledge_points": point_titles,
+                        "point_context": context.point_evidence,
+                        "fixed_point_evidence": fixed_point_evidence,
                         "rag_evidence": evidence_items,
+                        "rag_figure_evidence": figure_evidence_items,
+                        "source_figures_available": bool(figure_evidence_items),
+                        "source_figure_count": len(figure_evidence_items),
                         "policy_decision": context.policy_decision.as_dict(),
                     },
                     ensure_ascii=False,
@@ -890,6 +1322,18 @@ def _run_local_agent(context: AgentRunContext) -> str:
         return "已找到这些已发布资源：" + "；".join(titles)
 
     curriculum = tools["curriculum_lookup"](context.request.question)
+    fixed_sources = context.point_evidence.get("sources", []) if context.point_evidence else []
+    if fixed_sources:
+        previews = [
+            str(item.get("text_preview") or item.get("caption") or "").strip()
+            for item in fixed_sources[:3]
+            if isinstance(item, dict) and str(item.get("text_preview") or item.get("caption") or "").strip()
+        ]
+        if previews:
+            context.mode = "point_context_local"
+            return "根据当前视频点位已绑定的实验教材证据，可以先这样理解：\n" + "\n".join(
+                f"{index}. {preview}" for index, preview in enumerate(previews, start=1)
+            )
     if not context.classification.get("allow_rag_lookup", True):
         context.add_guardrail("rag_lookup_disabled", "answer_without_rag", "学生侧 AI RAG 接入已关闭。")
         point_titles = [
@@ -918,7 +1362,7 @@ def _run_local_agent(context: AgentRunContext) -> str:
 
 
 def _apply_output_guardrails(context: AgentRunContext, answer: str) -> str:
-    evidence_required = bool(context.classification["requires_evidence"] or context.policy_decision.evidence_required)
+    evidence_required = bool(context.classification["requires_evidence"])
     if evidence_required and not context.classification["resource_request"] and not context.sources and "没有找到" not in answer:
         context.add_guardrail("source_grounding", "override_no_evidence", "事实性课程回答缺少来源。")
         answer = "当前平台没有找到足够可靠的已发布课程材料来回答这个问题。你可以换成具体章节、知识点或实验现象再问。"
@@ -1061,12 +1505,12 @@ def _generate_retrieval_queries(
 
 
 def _rag_trace_payload(context: AgentRunContext) -> dict[str, Any]:
-    if not context.rag_traces:
-        return {}
-    return {
-        "runs": context.rag_traces,
-        "latest": context.rag_traces[-1],
-    }
+    payload: dict[str, Any] = {}
+    if context.rag_traces:
+        payload.update({"runs": context.rag_traces, "latest": context.rag_traces[-1]})
+    if context.point_evidence:
+        payload["point_context"] = context.point_evidence
+    return payload
 
 
 def _conversation_history_payload(context: AgentRunContext) -> list[dict[str, str]]:
@@ -1077,12 +1521,13 @@ def _conversation_history_payload(context: AgentRunContext) -> list[dict[str, st
 
 
 def _agent_user_input(context: AgentRunContext) -> str:
-    if not context.request.conversation_history:
+    if not context.request.conversation_history and not context.point_evidence:
         return context.request.question
     return json.dumps(
         {
             "conversation_history": _conversation_history_payload(context),
             "current_question": context.request.question,
+            "point_context": context.point_evidence,
         },
         ensure_ascii=False,
     )
@@ -1136,13 +1581,192 @@ def _retrieve_context(
     return scored[:limit]
 
 
+def _chunk_metadata(chunk: dict[str, Any]) -> dict[str, Any]:
+    metadata = chunk.get("metadata")
+    if isinstance(metadata, dict):
+        return metadata
+    if isinstance(metadata, str) and metadata.strip():
+        try:
+            parsed = json.loads(metadata)
+        except ValueError:
+            return {}
+        return parsed if isinstance(parsed, dict) else {}
+    return {}
+
+
+def _first_chunk_value(chunk: dict[str, Any], metadata: dict[str, Any], *keys: str) -> Any:
+    for key in keys:
+        value = chunk.get(key)
+        if value not in (None, "", []):
+            return value
+        value = metadata.get(key)
+        if value not in (None, "", []):
+            return value
+    return None
+
+
+def _path_file_name(path: str) -> str:
+    return path.replace("\\", "/").rstrip("/").split("/")[-1] or path
+
+
+def _clean_figure_caption(caption: Any) -> str | None:
+    text = " ".join(str(caption or "").split())
+    if not text:
+        return None
+    markers = (
+        "； 前文",
+        "；前文",
+        "; 前文",
+        ";前文",
+        "，前文",
+        ", 前文",
+        "； 后文",
+        "；后文",
+        "; 后文",
+        ";后文",
+        "，后文",
+        ", 后文",
+        "视觉摘要",
+    )
+    cut = min((index for marker in markers if (index := text.find(marker)) > 0), default=-1)
+    if cut > 0:
+        text = text[:cut]
+    text = re.sub(r"\s*(前文|后文|视觉摘要)\s*[:：].*$", "", text).strip()
+    text = text.rstrip("；;，,。 ")
+    if len(text) > 72:
+        punctuation_cuts = [
+            index
+            for token in ("；", ";", "。", "，", ",")
+            if (index := text.find(token, 18)) > 0
+        ]
+        if punctuation_cuts:
+            text = text[: min(punctuation_cuts)].rstrip("；;，,。 ")
+        if len(text) > 72:
+            text = text[:69].rstrip() + "..."
+    return text or None
+
+
+def _asset_entries(paths: Any, *, kind: str, caption: str | None) -> list[dict[str, str | None]]:
+    if not isinstance(paths, list):
+        return []
+    clean_caption = _clean_figure_caption(caption)
+    entries: list[dict[str, str | None]] = []
+    seen: set[str] = set()
+    for item in paths:
+        path = str(item or "").strip()
+        if not path or path in seen:
+            continue
+        seen.add(path)
+        entries.append(
+            {
+                "path": path,
+                "file_name": _path_file_name(path),
+                "kind": kind,
+                "caption": clean_caption,
+            }
+        )
+    return entries
+
+
+def _asset_url(path: Any) -> str | None:
+    if not path:
+        return None
+    return f"/api/admin/rag-assets?path={quote(str(path), safe='')}"
+
+
+def _asset_markdown(asset: dict[str, Any], caption: str | None = None) -> str | None:
+    path = asset.get("path")
+    url = _asset_url(path)
+    if not url:
+        return None
+    alt = str(caption or asset.get("caption") or asset.get("file_name") or "RAG 图像证据").strip()
+    alt = alt.replace("[", " ").replace("]", " ").replace("\n", " ").strip() or "RAG 图像证据"
+    return f"![{alt}]({url})"
+
+
+def _source_asset_markdown(asset: dict[str, Any], caption: str | None = None) -> str | None:
+    path = asset.get("path")
+    url = _asset_url(path)
+    if not url:
+        return None
+    alt = str(
+        _clean_figure_caption(caption)
+        or _clean_figure_caption(asset.get("caption"))
+        or asset.get("file_name")
+        or "RAG image evidence"
+    ).strip()
+    alt = alt.replace("[", " ").replace("]", " ").replace("\n", " ").strip() or "RAG image evidence"
+    return f"![{alt}]({url})"
+
+
+def _source_evidence_payload(source: RagSource) -> dict[str, Any]:
+    payload = source_to_dict(source)
+    assets = payload.get("assets") or []
+    if isinstance(assets, list):
+        markdown_images = [
+            markdown
+            for asset in assets
+            if isinstance(asset, dict)
+            for markdown in [_source_asset_markdown(asset, payload.get("caption") or payload.get("text_preview"))]
+            if markdown
+        ]
+        if markdown_images:
+            payload["markdown_images"] = markdown_images[:3]
+    return payload
+
+
+def _is_page_image_path(path: str) -> bool:
+    normalized = path.replace("\\", "/").lower()
+    return "/page_images/" in normalized or bool(re.search(r"/page_\d+\.(png|jpg|jpeg|webp)$", normalized))
+
+
+def _source_assets(
+    chunk: dict[str, Any],
+    metadata: dict[str, Any],
+    caption: str | None,
+    content_type: str | None,
+) -> list[dict[str, str | None]]:
+    raw_asset_paths = _first_chunk_value(chunk, metadata, "asset_paths")
+    asset_paths = [str(item or "").strip() for item in raw_asset_paths] if isinstance(raw_asset_paths, list) else []
+    has_figure = (
+        content_type == "figure"
+        or _first_chunk_value(chunk, metadata, "has_figure") is True
+        or any(path and not _is_page_image_path(path) for path in asset_paths)
+    )
+    if not has_figure:
+        return []
+
+    figure_asset_paths = [path for path in asset_paths if path and not _is_page_image_path(path)] or asset_paths
+    assets = _asset_entries(figure_asset_paths, kind="figure", caption=caption)
+    page_assets = _asset_entries(
+        _first_chunk_value(chunk, metadata, "source_page_images"),
+        kind="page",
+        caption=caption,
+    )
+    if assets:
+        return [*assets[:3], *page_assets[:1]]
+    return page_assets[:1]
+
+
 def _source_from_chunk(chunk: dict[str, Any]) -> RagSource:
-    text = " ".join((chunk.get("text") or chunk.get("markdown") or "").split())
+    metadata = _chunk_metadata(chunk)
+    content_type = _first_chunk_value(chunk, metadata, "content_type")
+    caption = _first_chunk_value(chunk, metadata, "caption", "title")
+    display_caption = _clean_figure_caption(caption) or (str(caption) if caption else None)
+    section_path = _first_chunk_value(chunk, metadata, "section_path") or []
+    if not isinstance(section_path, list):
+        section_path = []
+    raw_text = chunk.get("text") or chunk.get("markdown") or caption or ""
+    text = " ".join(str(raw_text).split())
     return RagSource(
         chunk_id=str(chunk.get("chunk_id") or chunk.get("id")),
-        source_file=chunk.get("source_file"),
-        page_number=chunk.get("page_number"),
+        source_file=chunk.get("source_file") or _first_chunk_value(chunk, metadata, "source_file", "book_title"),
+        page_number=chunk.get("page_number") or _first_chunk_value(chunk, metadata, "page_number", "page_start"),
         text_preview=text[:220],
+        content_type=str(content_type) if content_type else None,
+        caption=display_caption,
+        section_path=[str(item) for item in section_path],
+        assets=_source_assets(chunk, metadata, display_caption, str(content_type) if content_type else None),
     )
 
 

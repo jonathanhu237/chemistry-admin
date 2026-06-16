@@ -201,6 +201,7 @@ export type LearningAssistantAskRequest = {
   student_id?: string | null;
   chapter_id?: string | null;
   experiment_id?: string | null;
+  point_key?: string | null;
   knowledge_point_ids?: string[];
   allow_progress_lookup: boolean;
   allow_rag_lookup: boolean;
@@ -211,11 +212,22 @@ export type LearningAssistantAskRequest = {
   max_answer_chars?: number | null;
 };
 
+export type LearningAssistantSourceAsset = {
+  path: string;
+  file_name: string;
+  kind: "figure" | "page" | string;
+  caption?: string | null;
+};
+
 export type LearningAssistantSource = {
   chunk_id: string;
   source_file?: string | null;
   page_number?: number | null;
   text_preview: string;
+  content_type?: string | null;
+  caption?: string | null;
+  section_path?: string[];
+  assets?: LearningAssistantSourceAsset[];
 };
 
 export type LearningAssistantResponse = {
@@ -237,6 +249,7 @@ export type LearningAssistantResponse = {
 export type LearningAssistantRuntime = {
   checked_at: string;
   rag_runtime?: AIConfiguration["rag_runtime"];
+  bge_status?: "not_required" | "checking" | "healthy" | "degraded" | "unreachable" | "not_configured" | string;
   bge_error?: string | null;
   bge_metrics?: {
     ok?: boolean;

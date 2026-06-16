@@ -10,7 +10,15 @@ class RagAskRequest(BaseModel):
     question: str = Field(min_length=1)
     chapter_id: str | None = None
     experiment_id: str | None = None
+    point_key: str | None = None
     knowledge_point_ids: list[str] = Field(default_factory=list)
+
+
+class RagSourceAsset(BaseModel):
+    path: str
+    file_name: str
+    kind: str = "figure"
+    caption: str | None = None
 
 
 class RagSource(BaseModel):
@@ -18,6 +26,10 @@ class RagSource(BaseModel):
     source_file: str | None = None
     page_number: int | None = None
     text_preview: str
+    content_type: str | None = None
+    caption: str | None = None
+    section_path: list[str] = Field(default_factory=list)
+    assets: list[RagSourceAsset] = Field(default_factory=list)
 
 
 class RagAskResponse(BaseModel):
@@ -39,6 +51,7 @@ class AgentAskRequest(BaseModel):
     question: str = Field(min_length=1)
     chapter_id: str | None = None
     experiment_id: str | None = None
+    point_key: str | None = None
     knowledge_point_ids: list[str] = Field(default_factory=list)
     allow_progress_lookup: bool = True
     allow_rag_lookup: bool = True

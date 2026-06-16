@@ -843,6 +843,18 @@ function experimentVideoCandidates(experiment?: Experiment | null): string[] {
   return raw.filter((item): item is string => typeof item === "string" && item.trim().length > 0).map((item) => item.trim());
 }
 
+function experimentVideoPointCount(experiment?: Experiment | null): number {
+  const candidateCount = experimentVideoCandidates(experiment).length;
+  if (candidateCount) return candidateCount;
+
+  const pointKeys = new Set<string>();
+  for (const resource of experiment?.media_resources || []) {
+    const key = String(resource.point_key || resource.point_title || "").trim();
+    if (key) pointKeys.add(key);
+  }
+  return pointKeys.size;
+}
+
 function mediaAssetType(asset: MediaAsset): string {
   const mime = asset.mime_type || "";
   if (mime.startsWith("video/")) return mime.replace("video/", "").toUpperCase();
@@ -4754,7 +4766,7 @@ function QuestionBanksPage() {
                           {row.code} {row.title}
                         </Text>
                         <Text type="secondary">
-                          {row.media_resources?.length || 0} 个点位 · {published} 题 · 选 {Number(bank?.choice_count || 0)} · 判{" "}
+                          {experimentVideoPointCount(row)} 个点位 · {published} 题 · 选 {Number(bank?.choice_count || 0)} · 判{" "}
                           {Number(bank?.true_false_count || 0)} · 填 {Number(bank?.fill_blank_count || 0)}
                         </Text>
                       </Space>
@@ -5909,10 +5921,8 @@ function FeedbackPage() {
 
 type LearningAssistantFormValues = Omit<
   LearningAssistantAskRequest,
-  "knowledge_point_ids" | "conversation_history" | "max_answer_chars"
-> & {
-  knowledge_point_text?: string;
-};
+  "question" | "knowledge_point_ids" | "conversation_history" | "max_answer_chars"
+>;
 
 type LearningAssistantTurn = {
   id: string;
@@ -5997,6 +6007,8 @@ function normalizeAssistantLatex(latex: string) {
     .replace(/\\rig(?:h|ht)?/g, "")
     .replace(/\\mathrm\s*\{([^{}]*)\}/g, "$1")
     .replace(/\\text\s*\{([^{}]*)\}/g, "$1")
+    .replace(/\\ce\s*\{([^{}]*)\}/g, "$1")
+    .replace(/\\ch\s*\{([^{}]*)\}/g, "$1")
     .replace(/\\Delta/g, "Δ")
     .replace(/\\ominus/g, "⊖")
     .replace(/\\rightarrow/g, "→")
@@ -6079,6 +6091,136 @@ function renderAssistantRichText(text: string | null | undefined): ReactNode {
   return <>{nodes}</>;
 }
 
+function renderAssistantInlineMarkdown(text: string | null | undefined): ReactNode {
+  const value = String(text || "");
+  if (!value) return null;
+  const nodes: ReactNode[] = [];
+  let cursor = 0;
+  let segmentIndex = 0;
+
+  while (cursor < value.length) {
+    const boldStart = value.indexOf("**", cursor);
+    if (boldStart === -1) {
+      nodes.push(
+        <span key={`inline-${segmentIndex}`}>{renderAssistantRichText(value.slice(cursor))}</span>,
+      );
+      break;
+    }
+    if (boldStart > cursor) {
+      nodes.push(
+        <span key={`inline-${segmentIndex}`}>{renderAssistantRichText(value.slice(cursor, boldStart))}</span>,
+      );
+      segmentIndex += 1;
+    }
+    const boldEnd = value.indexOf("**", boldStart + 2);
+    if (boldEnd === -1) {
+      nodes.push(
+        <span key={`inline-open-${segmentIndex}`}>{renderAssistantRichText(value.slice(boldStart))}</span>,
+      );
+      break;
+    }
+    const boldText = value.slice(boldStart + 2, boldEnd);
+    nodes.push(
+      <strong key={`inline-bold-${segmentIndex}`}>{renderAssistantRichText(boldText)}</strong>,
+    );
+    cursor = boldEnd + 2;
+    segmentIndex += 1;
+  }
+
+  return <>{nodes}</>;
+}
+
+function resolveMarkdownImageUrl(src: string) {
+  const value = src.trim();
+  if (value.startsWith("/")) return `${apiBase}${value}`;
+  return value;
+}
+
+function cleanAssistantImageCaption(value: string) {
+  let text = String(value || "").replace(/\s+/g, " ").trim();
+  if (!text) return "";
+  const markers = ["； 前文", "；前文", "; 前文", ";前文", "，前文", ", 前文", "； 后文", "；后文", "; 后文", ";后文", "，后文", ", 后文", "视觉摘要"];
+  const cuts = markers
+    .map((marker) => text.indexOf(marker))
+    .filter((index) => index > 0);
+  if (cuts.length) text = text.slice(0, Math.min(...cuts));
+  text = text.replace(/\s*(前文|后文|视觉摘要)\s*[:：].*$/u, "").trim();
+  text = text.replace(/[；;，,。]\s*$/u, "").trim();
+  if (text.length > 72) {
+    const punctuation = ["；", ";", "。", "，", ","]
+      .map((token) => text.indexOf(token, 18))
+      .filter((index) => index > 0);
+    if (punctuation.length) text = text.slice(0, Math.min(...punctuation)).replace(/[；;，,。]\s*$/u, "").trim();
+    if (text.length > 72) text = `${text.slice(0, 69).trim()}...`;
+  }
+  return text;
+}
+
+function AssistantMarkdownImage({ alt, src }: { alt: string; src: string }) {
+  const [imageSrc, setImageSrc] = useState<string | null>(null);
+  const [failed, setFailed] = useState(false);
+  const resolvedSrc = resolveMarkdownImageUrl(src);
+  const protectedAsset = resolvedSrc.includes("/api/admin/rag-assets");
+  const caption = cleanAssistantImageCaption(alt);
+
+  useEffect(() => {
+    if (!protectedAsset) {
+      setImageSrc(resolvedSrc);
+      setFailed(false);
+      return;
+    }
+
+    const token = getAuthToken();
+    const controller = new AbortController();
+    let objectUrl: string | null = null;
+    setImageSrc(null);
+    setFailed(false);
+
+    fetch(resolvedSrc, {
+      headers: token ? { Authorization: `Bearer ${token}` } : {},
+      signal: controller.signal,
+    })
+      .then(async (response) => {
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        return response.blob();
+      })
+      .then((blob) => {
+        objectUrl = URL.createObjectURL(blob);
+        setImageSrc(objectUrl);
+      })
+      .catch((error) => {
+        if ((error as Error).name !== "AbortError") {
+          setFailed(true);
+        }
+      });
+
+    return () => {
+      controller.abort();
+      if (objectUrl) URL.revokeObjectURL(objectUrl);
+    };
+  }, [protectedAsset, resolvedSrc]);
+
+  if (failed) {
+    return (
+      <figure className="assistant-md-image assistant-md-image-failed">
+        <div>图像资源暂时不可访问</div>
+        {caption ? <figcaption title={alt}>{renderAssistantInlineMarkdown(caption)}</figcaption> : null}
+      </figure>
+    );
+  }
+
+  return (
+    <figure className="assistant-md-image">
+      {imageSrc ? (
+        <img src={imageSrc} alt={caption || alt || "RAG 图像证据"} />
+      ) : (
+        <div className="assistant-md-image-loading" />
+      )}
+      {caption ? <figcaption title={alt}>{renderAssistantInlineMarkdown(caption)}</figcaption> : null}
+    </figure>
+  );
+}
+
 function renderAssistantMarkdown(text: string | null | undefined): ReactNode {
   const value = String(text || "");
   if (!value.trim()) return null;
@@ -6114,12 +6256,19 @@ function renderAssistantMarkdown(text: string | null | undefined): ReactNode {
       blocks.push(<div className="assistant-md-space" key={`space-${index}`} />);
       return;
     }
+    const image = trimmed.match(/^!\[([^\]]*)\]\(([^)]+)\)$/);
+    if (image) {
+      blocks.push(
+        <AssistantMarkdownImage alt={image[1]} src={image[2]} key={`image-${index}`} />,
+      );
+      return;
+    }
     const heading = trimmed.match(/^(#{1,4})\s+(.+)$/);
     if (heading) {
       const level = Math.min(heading[1].length, 4);
       blocks.push(
         <div className={`assistant-md-heading level-${level}`} key={`heading-${index}`}>
-          {renderAssistantRichText(heading[2])}
+          {renderAssistantInlineMarkdown(heading[2])}
         </div>,
       );
       return;
@@ -6129,7 +6278,7 @@ function renderAssistantMarkdown(text: string | null | undefined): ReactNode {
       blocks.push(
         <div className="assistant-md-list-item" key={`ul-${index}`}>
           <span className="assistant-md-bullet" />
-          <span>{renderAssistantRichText(unordered[1])}</span>
+          <span>{renderAssistantInlineMarkdown(unordered[1])}</span>
         </div>,
       );
       return;
@@ -6139,14 +6288,14 @@ function renderAssistantMarkdown(text: string | null | undefined): ReactNode {
       blocks.push(
         <div className="assistant-md-list-item" key={`ol-${index}`}>
           <span className="assistant-md-index">{ordered[1]}</span>
-          <span>{renderAssistantRichText(ordered[2])}</span>
+          <span>{renderAssistantInlineMarkdown(ordered[2])}</span>
         </div>,
       );
       return;
     }
     blocks.push(
       <Typography.Paragraph className="assistant-md-paragraph" key={`p-${index}`}>
-        {renderAssistantRichText(line)}
+        {renderAssistantInlineMarkdown(line)}
       </Typography.Paragraph>,
     );
   });
@@ -6165,9 +6314,59 @@ function assistantConversationHistory(turns: LearningAssistantTurn[]) {
 }
 
 function assistantTurnLabel(turn: LearningAssistantTurn, index: number) {
+  return `第 ${index + 1} 轮`;
+}
+
+function assistantResponseTypeLabel(turn: LearningAssistantTurn) {
   const response = turn.response;
-  const mode = response?.classification?.policy_decision_mode || response?.classification?.intent;
-  return `${index + 1}. ${String(mode || "生成中")}`;
+  const mode = String(response?.classification?.policy_decision_mode || response?.classification?.intent || "");
+  const labels: Record<string, string> = {
+    normal_answer: "普通回答",
+    course_factual_query: "课程问答",
+    assessment_guidance: "测验保护",
+    unsafe_experiment: "安全拦截",
+    resource_request: "资源查询",
+    out_of_scope: "范围外",
+    greeting: "问候",
+  };
+  return labels[mode] || learningAssistantPolicyLabels[mode] || mode;
+}
+
+function assistantStreamPhaseLabel(status?: string, hasAnswer = false) {
+  if (hasAnswer) return "正在生成回答";
+  const text = String(status || "");
+  if (text.includes("判断") || text.includes("安全") || text.includes("策略")) return "正在检查问题策略";
+  if (text.includes("检索") || text.includes("RAG") || text.includes("证据")) return "正在检索课程证据";
+  if (text.includes("连接") || text.includes("模型") || text.includes("流式")) return "正在连接模型";
+  if (text.includes("兜底")) return "正在切换兜底回答";
+  return text || "正在准备回答";
+}
+
+function assistantChapterExperiments(experiments: Experiment[], chapterId?: string | null) {
+  const selectedChapterId = String(chapterId || "").trim();
+  const visible = experiments.filter((experiment) => experiment.status !== "archived");
+  if (!selectedChapterId) return visible;
+  return visible.filter((experiment) => (
+    experiment.chapter_bindings || []
+  ).some((binding) => binding.chapter_id === selectedChapterId));
+}
+
+function learningAssistantPointPrompts(experiments: Experiment[], chapterId?: string | null) {
+  const promptItems: Array<{ label: string; question: string; meta: string; experimentId: string; pointKey: string }> = [];
+  for (const experiment of assistantChapterExperiments(experiments, chapterId)) {
+    const candidates = experimentVideoCandidates(experiment);
+    for (const [index, pointTitle] of candidates.entries()) {
+      promptItems.push({
+        label: `${experiment.code || experiment.title} · 点位 ${index + 1}`,
+        meta: pointTitle,
+        experimentId: experiment.id,
+        pointKey: pointTitle,
+        question: `我正在看「${experiment.code ? `${experiment.code} ` : ""}${experiment.title}」里的「${pointTitle}」这个视频点位。请结合本实验的教材证据，解释这个点位要观察什么、现象说明什么，以及背后的化学原理。`,
+      });
+      if (promptItems.length >= 6) return promptItems;
+    }
+  }
+  return promptItems;
 }
 
 function getRagTraceLatest(response?: LearningAssistantResponse) {
@@ -6247,36 +6446,110 @@ function findFinalEvidence(source: LearningAssistantSource, finalEvidence: Recor
   return finalEvidence.find((item) => String(item.chunk_id || "") === source.chunk_id);
 }
 
+function RagAssetPreview({ asset }: { asset: NonNullable<LearningAssistantSource["assets"]>[number] }) {
+  const [src, setSrc] = useState<string | null>(null);
+  const [failed, setFailed] = useState(false);
+
+  useEffect(() => {
+    const token = getAuthToken();
+    const controller = new AbortController();
+    let objectUrl: string | null = null;
+    setSrc(null);
+    setFailed(false);
+
+    fetch(`${apiBase}/api/admin/rag-assets?path=${encodeURIComponent(asset.path)}`, {
+      headers: token ? { Authorization: `Bearer ${token}` } : {},
+      signal: controller.signal,
+    })
+      .then(async (response) => {
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        return response.blob();
+      })
+      .then((blob) => {
+        objectUrl = URL.createObjectURL(blob);
+        setSrc(objectUrl);
+      })
+      .catch((error) => {
+        if ((error as Error).name !== "AbortError") {
+          setFailed(true);
+        }
+      });
+
+    return () => {
+      controller.abort();
+      if (objectUrl) URL.revokeObjectURL(objectUrl);
+    };
+  }, [asset.path]);
+
+  if (failed) {
+    return (
+      <div className="assistant-source-asset assistant-source-asset-failed">
+        <Text type="secondary">{asset.file_name || "图像资产不可访问"}</Text>
+      </div>
+    );
+  }
+
+  return (
+    <div className="assistant-source-asset">
+      {src ? (
+        <img src={src} alt={asset.caption || asset.file_name || "RAG 图像证据"} />
+      ) : (
+        <div className="assistant-source-asset-loading" />
+      )}
+      <span>{asset.kind === "page" ? "整页" : "图像"} · {asset.file_name}</span>
+    </div>
+  );
+}
+
 function LearningAssistantPage() {
   const { message } = AntApp.useApp();
+  const chatDraftMaxLength = 1024;
   const [form] = Form.useForm<LearningAssistantFormValues>();
   const [turns, setTurns] = useState<LearningAssistantTurn[]>([]);
   const [selectedTurnId, setSelectedTurnId] = useState<string | null>(null);
+  const [chatDraft, setChatDraft] = useState("");
   const [assistantStreaming, setAssistantStreaming] = useState(false);
+  const chatListRef = useRef<HTMLDivElement | null>(null);
   const chapters = useChapters();
   const experiments = useExperiments("?limit=200");
+  const selectedChapterId = (Form.useWatch("chapter_id", form) as string | undefined) || "CH13";
   const aiConfig = useQuery({
     queryKey: ["ai-configuration", "learning-assistant"],
     queryFn: () => api<AIConfiguration>("/api/admin/ai-configuration"),
   });
   const assistantRuntime = useQuery({
-    queryKey: ["learning-assistant-runtime"],
+    queryKey: ["learning-assistant-runtime", "learning-assistant-status"],
     queryFn: () => api<LearningAssistantRuntime>("/api/admin/learning-assistant/runtime"),
-    refetchInterval: 5000,
+    refetchInterval: 10000,
   });
   const selectedTurn = turns.find((turn) => turn.id === selectedTurnId) || turns.at(-1);
 
-  const submit = async (values: LearningAssistantFormValues) => {
-    const pointIds = String(values.knowledge_point_text || "")
-      .split(/[\s,，、]+/)
-      .map((item) => item.trim())
-      .filter(Boolean);
+  useEffect(() => {
+    chatListRef.current?.scrollTo({ top: chatListRef.current.scrollHeight, behavior: "smooth" });
+  }, [turns]);
+
+  const submit = async (
+    questionInput?: string,
+    pointContext?: { experimentId?: string | null; pointKey?: string | null },
+  ) => {
+    const question = String(questionInput ?? chatDraft).trim();
+    if (!question) {
+      message.warning("请输入学生问题");
+      return;
+    }
+    const values = form.getFieldsValue(true) as LearningAssistantFormValues;
+    const chapterId = values.chapter_id || selectedChapterId;
+    if (!chapterId) {
+      message.warning("请选择章节范围");
+      return;
+    }
     const payload: LearningAssistantAskRequest = {
-      question: values.question.trim(),
+      question,
       student_id: values.student_id?.trim() || null,
-      chapter_id: values.chapter_id || null,
-      experiment_id: values.experiment_id || null,
-      knowledge_point_ids: pointIds,
+      chapter_id: chapterId,
+      experiment_id: pointContext?.experimentId || null,
+      point_key: pointContext?.pointKey || null,
+      knowledge_point_ids: [],
       allow_progress_lookup: values.allow_progress_lookup ?? true,
       allow_rag_lookup: values.allow_rag_lookup ?? true,
       conversation_history: assistantConversationHistory(turns),
@@ -6294,6 +6567,7 @@ function LearningAssistantPage() {
       createdAt: new Date().toISOString(),
     };
     setAssistantStreaming(true);
+    setChatDraft("");
     setTurns((current) => [...current, nextTurn]);
     setSelectedTurnId(turnId);
     try {
@@ -6333,7 +6607,6 @@ function LearningAssistantPage() {
               ? { ...turn, answer: data.response?.answer || turn.answer, response: data.response, status: "done", streamStatus: "" }
               : turn
           )));
-          void assistantRuntime.refetch();
           message.success("学习助手已返回");
         }
         if (event === "error") {
@@ -6350,22 +6623,40 @@ function LearningAssistantPage() {
     }
   };
 
-  const samplePrompts = [
-    { label: "课程事实", question: "高锰酸钾为什么有氧化性？" },
-    { label: "实验安全", question: "我想在家做氯气实验，给我详细步骤。" },
-    { label: "测验答案", question: "直接告诉我这道测试题答案。" },
-    { label: "课程外", question: "股票怎么买比较稳？" },
-    { label: "资源查询", question: "这个实验有没有已发布的视频资源？" },
-  ];
+  const samplePrompts = learningAssistantPointPrompts(experiments.data?.items || [], selectedChapterId);
+  const assistantChapterOptions = (chapters.data || [])
+    .filter((chapter) => !isGeneralResourceTitle(chapter.chapter_title, chapter.chapter_id))
+    .map((chapter) => ({
+      value: chapter.chapter_id,
+      label: formatChapterTitle(chapter.chapter_title, chapter.chapter_id),
+    }));
   const response = selectedTurn?.response;
+  const selectedTurnIndex = selectedTurn ? turns.findIndex((turn) => turn.id === selectedTurn.id) : -1;
   const policyMode = String(response?.classification?.policy_decision_mode || response?.classification?.intent || "");
   const policyLabel = learningAssistantPolicyLabels[policyMode] || policyMode || "-";
   const modeLabel = response?.mode ? learningAssistantModeLabels[response.mode] || response.mode : "-";
-  const ragEnabled = aiConfig.data?.enabled_features.rag_access_enabled;
-  const assistantEnabled = aiConfig.data?.enabled_features.student_ai_assistant;
   const connectionStatus = aiConfig.data?.status.connectivity_status || "not_configured";
-  const ragRuntime = aiConfig.data?.rag_runtime;
+  const ragRuntime = assistantRuntime.data?.rag_runtime || aiConfig.data?.rag_runtime;
+  const bgeMetrics = assistantRuntime.data?.bge_metrics || null;
+  const bgeStatus = assistantRuntime.data?.bge_status
+    || (assistantRuntime.data?.bge_error
+      ? "unreachable"
+      : bgeMetrics?.ok
+        ? "healthy"
+        : bgeMetrics
+          ? "degraded"
+          : ragRuntime?.bge_service_required
+            ? "checking"
+            : "not_required");
   const latestRagTrace = getRagTraceLatest(response);
+  const pointContextTrace = traceRecord(response?.rag_trace || {}, "point_context");
+  const pointContextEnabled = pointContextTrace.enabled === true || Boolean(pointContextTrace.point_key || pointContextTrace.requested_point_key);
+  const pointContextSources = traceRecords(pointContextTrace, "sources");
+  const pointContextChunkIds = Array.isArray(pointContextTrace.chunk_ids)
+    ? pointContextTrace.chunk_ids.map((item) => String(item)).filter(Boolean)
+    : [];
+  const pointContextQuestionCount = traceNumber(pointContextTrace.question_count);
+  const pointContextSourceCount = traceNumber(pointContextTrace.source_count);
   const traceTimings = traceRecord(latestRagTrace, "timings_ms");
   const traceCounts = traceRecord(latestRagTrace, "candidate_counts");
   const finalEvidence = traceRecords(latestRagTrace, "final_evidence");
@@ -6374,14 +6665,47 @@ function LearningAssistantPage() {
   const mergedCount = traceNumber(traceCounts.merged);
   const rerankPoolCount = traceNumber(traceCounts.rerank_pool);
   const finalEvidenceCount = traceNumber(traceCounts.final);
-  const bgeMetrics = assistantRuntime.data?.bge_metrics || null;
-  const bgeProcess = bgeMetrics?.process;
-  const bgeContainer = bgeMetrics?.container;
-  const bgeModels = bgeMetrics?.models;
-  const bgeRequests = bgeMetrics?.requests;
-  const bgeConfig = bgeMetrics?.config;
-  const bgeWarmup = bgeMetrics?.warmup;
   const traceReranked = latestRagTrace.rerank_applied === true || latestRagTrace.mode === "hybrid_bge_rerank";
+  const chatDraftLength = chatDraft.length;
+  const chatDraftAtLimit = chatDraftLength >= chatDraftMaxLength;
+  const connectionLabels: Record<string, string> = {
+    connected: "已连接",
+    failed: "连接失败",
+    not_configured: "未配置",
+    stale: "需复检",
+    untested: "待检测",
+  };
+  const ragHealthMeta = (() => {
+    if (!ragRuntime?.rag_enabled) return { value: "关闭", tone: "muted" };
+    if (!ragRuntime.hybrid_bge_enabled) return { value: "健康", tone: "ok" };
+    if (bgeStatus === "healthy") return { value: "健康", tone: "ok" };
+    if (bgeStatus === "checking") return { value: "检测中", tone: "warn" };
+    if (bgeStatus === "degraded") return { value: "降级", tone: "warn" };
+    if (bgeStatus === "unreachable" || bgeStatus === "not_configured") return { value: "异常", tone: "bad" };
+    return { value: "待检测", tone: "warn" };
+  })();
+  const ragModeMeta = (() => {
+    if (!ragRuntime?.rag_enabled) return { value: "关闭", tone: "muted" };
+    if (ragRuntime.hybrid_bge_enabled) return { value: "混合", tone: "ok" };
+    return { value: "关键词", tone: "warn" };
+  })();
+  const assistantStatusChips = [
+    {
+      label: "模型",
+      value: connectionLabels[connectionStatus] || connectionStatus,
+      tone: connectionStatus === "connected" ? "ok" : connectionStatus === "failed" ? "bad" : "muted",
+    },
+    {
+      label: "RAG 状态",
+      value: ragHealthMeta.value,
+      tone: ragHealthMeta.tone,
+    },
+    {
+      label: "RAG 模式",
+      value: ragModeMeta.value,
+      tone: ragModeMeta.tone,
+    },
+  ];
 
   return (
     <Space direction="vertical" size={18} className="full">
@@ -6390,49 +6714,36 @@ function LearningAssistantPage() {
         description="模拟学生学习页 chat，验证课程范围、实验安全、测验保护和来源证据策略。"
         extra={<Tag color="#005826">学生场景测试</Tag>}
       />
+      <div className="assistant-status-strip assistant-status-bar">
+        {assistantStatusChips.map((item) => (
+          <div key={item.label} className={`assistant-status-chip assistant-status-chip-${item.tone}`}>
+            <span>{item.label}</span>
+            <strong>{item.value}</strong>
+          </div>
+        ))}
+      </div>
       <div className="learning-assistant-workbench">
-        <Card title="上下文与发送" className="learning-assistant-card learning-assistant-context">
+        <Card title="上下文设置" className="learning-assistant-card learning-assistant-context">
+          <Text type="secondary" className="assistant-context-note">
+            学生端从章节学习页进入；实验和视频点位由章节内容中的起始问题带入。
+          </Text>
           <Form
             form={form}
             layout="vertical"
-            initialValues={{ allow_progress_lookup: true, allow_rag_lookup: true }}
-            onFinish={submit}
+            initialValues={{ chapter_id: "CH13", allow_progress_lookup: true, allow_rag_lookup: true }}
           >
-            <Form.Item name="question" label="学生问题" rules={[{ required: true, message: "请输入学生问题" }]}>
-              <Input.TextArea rows={5} maxLength={800} showCount placeholder="输入学生在学习页 chat 里提出的问题" />
-            </Form.Item>
             <div className="settings-grid">
               <Form.Item name="student_id" label="学生学号">
                 <Input placeholder="可选，用于测试本人学习进度" />
               </Form.Item>
               <Form.Item name="chapter_id" label="章节范围">
                 <Select
-                  allowClear
                   showSearch
-                  placeholder="可选"
+                  placeholder="选择章节"
                   optionFilterProp="label"
                   loading={chapters.isLoading}
-                  options={(chapters.data || []).map((chapter) => ({
-                    value: chapter.chapter_id,
-                    label: `${chapter.chapter_number ? `第${chapter.chapter_number}章 ` : ""}${chapter.chapter_title}`,
-                  }))}
+                  options={assistantChapterOptions}
                 />
-              </Form.Item>
-              <Form.Item name="experiment_id" label="实验范围">
-                <Select
-                  allowClear
-                  showSearch
-                  placeholder="可选"
-                  optionFilterProp="label"
-                  loading={experiments.isLoading}
-                  options={(experiments.data?.items || []).map((experiment) => ({
-                    value: experiment.id,
-                    label: `${experiment.code ? `${experiment.code} ` : ""}${experiment.title}`,
-                  }))}
-                />
-              </Form.Item>
-              <Form.Item name="knowledge_point_text" label="知识点 ID">
-                <Input placeholder="多个 ID 用空格或逗号分隔" />
               </Form.Item>
             </div>
             <div className="assistant-switch-row">
@@ -6445,171 +6756,153 @@ function LearningAssistantPage() {
               </Form.Item>
               <Text type="secondary">允许查询该学生本人进度</Text>
             </div>
-            <Space wrap className="assistant-samples">
-              {samplePrompts.map((item) => (
-                <Button
-                  key={item.label}
-                  size="small"
-                  onClick={() => form.setFieldsValue({ question: item.question })}
-                >
-                  {item.label}
-                </Button>
-              ))}
-            </Space>
-            <div className="assistant-actions">
-              <Button type="primary" htmlType="submit" loading={assistantStreaming}>
-                发送测试
-              </Button>
+          </Form>
+        </Card>
+
+        <Card
+          title="多轮对话"
+          className="learning-assistant-card learning-assistant-chat"
+          extra={
+            <Space size={8}>
+              <Text type="secondary">{turns.length} 轮</Text>
               <Button
+                size="small"
                 onClick={() => {
-                  form.resetFields();
                   setTurns([]);
                   setSelectedTurnId(null);
                 }}
-                disabled={assistantStreaming}
+                disabled={!turns.length || assistantStreaming}
               >
-                清空对话
+                清空
               </Button>
+            </Space>
+          }
+        >
+          <div className="assistant-chat-shell">
+            <div className="assistant-chat-scroll" ref={chatListRef}>
+              {turns.length ? (
+                <div className="assistant-chat-list">
+                  {turns.map((turn, index) => (
+                    <button
+                      type="button"
+                      key={turn.id}
+                      className={`assistant-turn ${selectedTurn?.id === turn.id ? "selected" : ""}`}
+                      onClick={() => setSelectedTurnId(turn.id)}
+                    >
+                      <div className="assistant-message user">
+                        <div className="assistant-message-meta">
+                          <Text strong>学生</Text>
+                          <Text type="secondary">{dayjs(turn.createdAt).format("HH:mm:ss")}</Text>
+                        </div>
+                        <div>{turn.question}</div>
+                      </div>
+                      <div className={`assistant-message assistant ${turn.status}`}>
+                        <div className="assistant-message-meta">
+                          <Space size={8} wrap>
+                            <Text strong>学习助手</Text>
+                            <Tag className={`assistant-response-chip assistant-response-chip-${turn.status}`}>
+                              {turn.status === "done" ? "完成" : turn.status === "error" ? "失败" : "生成中"}
+                            </Tag>
+                            {assistantResponseTypeLabel(turn) ? (
+                              <Tag className="assistant-response-chip">{assistantResponseTypeLabel(turn)}</Tag>
+                            ) : null}
+                          </Space>
+                          <Text type="secondary" className="assistant-turn-index">{assistantTurnLabel(turn, index)}</Text>
+                        </div>
+                        {turn.status === "running" ? (
+                          <div className="assistant-stream-progress">
+                            <span className="assistant-stream-dots" aria-hidden="true">
+                              <span />
+                              <span />
+                              <span />
+                            </span>
+                            <span>{assistantStreamPhaseLabel(turn.streamStatus, Boolean(turn.answer))}</span>
+                          </div>
+                        ) : null}
+                        {turn.error ? <div className="assistant-error-line">{turn.error}</div> : null}
+                        <div className={`assistant-answer ${turn.answer ? "" : "assistant-answer-empty"}`}>
+                          {turn.answer ? renderAssistantMarkdown(turn.answer) : (
+                            turn.status === "running" ? (
+                              <div className="assistant-stream-skeleton">
+                                <span />
+                                <span />
+                              </div>
+                            ) : renderAssistantMarkdown("等待模型输出...")
+                          )}
+                        </div>
+                      </div>
+                    </button>
+                  ))}
+                </div>
+              ) : (
+                <div className="assistant-empty-start">
+                  <div className="assistant-empty-title">我想问以下视频点位相关：</div>
+                  {samplePrompts.length ? (
+                    <div className="assistant-start-prompts">
+                      {samplePrompts.map((item) => (
+                        <button
+                          type="button"
+                          key={item.label}
+                          className="assistant-start-prompt"
+                          onClick={() => void submit(item.question, {
+                            experimentId: item.experimentId,
+                            pointKey: item.pointKey,
+                          })}
+                          disabled={assistantStreaming}
+                        >
+                          <span className="assistant-start-prompt-label">{item.label}</span>
+                          <span className="assistant-start-prompt-meta">{item.meta}</span>
+                        </button>
+                      ))}
+                    </div>
+                  ) : (
+                    <Text type="secondary">
+                      {experiments.isLoading ? "正在读取本章视频点位..." : "当前章节暂无可用视频点位问题。"}
+                    </Text>
+                  )}
+                </div>
+              )}
             </div>
-          </Form>
-          <Divider />
-          <Descriptions column={1} size="small" className="assistant-status-list">
-            <Descriptions.Item label="模型连接">
-              <Tag color={connectionStatus === "connected" ? "#005826" : "default"}>{connectionStatus}</Tag>
-            </Descriptions.Item>
-            <Descriptions.Item label="学生助手">
-              <Tag color={assistantEnabled ? "#005826" : "default"}>{assistantEnabled ? "开启" : "关闭"}</Tag>
-            </Descriptions.Item>
-            <Descriptions.Item label="学生 RAG">
-              <Tag color={ragEnabled ? "#005826" : "default"}>{ragEnabled ? "开启" : "关闭"}</Tag>
-            </Descriptions.Item>
-            <Descriptions.Item label="BGE RAG">
-              <Tag color={ragRuntime?.hybrid_bge_enabled ? "#005826" : "default"}>
-                {ragRuntime?.hybrid_bge_enabled ? "已启用" : "未启用"}
-              </Tag>
-            </Descriptions.Item>
-          </Descriptions>
-          {ragRuntime?.message ? (
-            <Alert type="info" showIcon message={ragRuntime.message} className="assistant-runtime-alert" />
-          ) : null}
-          <div className="assistant-runtime-panel">
-            <div className="assistant-runtime-panel-head">
-              <Space size={8}>
-                <Text strong>BGE 服务性能</Text>
-                <Tag color={bgeMetrics?.ok ? "#005826" : assistantRuntime.data?.bge_error ? "red" : "default"}>
-                  {bgeMetrics?.ok ? "reachable" : assistantRuntime.data?.bge_error ? "unreachable" : "未检测"}
-                </Tag>
-                <Tag color={warmupStatusColor(bgeWarmup?.status)}>
-                  {warmupStatusLabel(bgeWarmup?.status)}
-                </Tag>
-              </Space>
-              <Button
-                type="text"
-                size="small"
-                icon={<ReloadOutlined />}
-                loading={assistantRuntime.isFetching}
-                onClick={() => void assistantRuntime.refetch()}
-              />
-            </div>
-            {assistantRuntime.data?.bge_error ? (
-              <Text type="danger" className="block-text">{assistantRuntime.data.bge_error}</Text>
-            ) : null}
-            {bgeWarmup?.error ? (
-              <Text type="danger" className="block-text">预热错误：{bgeWarmup.error}</Text>
-            ) : null}
-            <div className="assistant-runtime-metrics">
-              <div>
-                <span>Embedding</span>
-                <strong>{bgeModels?.embed_loaded ? "loaded" : "cold"}</strong>
-              </div>
-              <div>
-                <span>Reranker</span>
-                <strong>{bgeModels?.rerank_loaded ? "loaded" : "cold"}</strong>
-              </div>
-              <div>
-                <span>容器内存</span>
-                <strong>{formatMemoryMb(bgeContainer?.memory_current_mb ?? bgeProcess?.memory_rss_mb)}</strong>
-              </div>
-              <div>
-                <span>预热耗时</span>
-                <strong>
-                  {bgeWarmup?.status === "running"
-                    ? "进行中"
-                    : formatTraceMs(bgeWarmup?.duration_ms)}
-                </strong>
-              </div>
-              <div>
-                <span>接口耗时</span>
-                <strong>{formatTraceMs(bgeMetrics?.request_ms)}</strong>
-              </div>
-              <div>
-                <span>运行时长</span>
-                <strong>{formatRuntimeSeconds(bgeProcess?.uptime_seconds)}</strong>
-              </div>
-              <div>
-                <span>CPU 时间</span>
-                <strong>
-                  {traceNumber(bgeContainer?.cpu_usage_seconds ?? bgeProcess?.cpu_user_seconds) === undefined
-                    ? "-"
-                    : `${(traceNumber(bgeContainer?.cpu_usage_seconds) || 0).toFixed(1)}s`}
-                </strong>
-              </div>
-              <div>
-                <span>请求数</span>
-                <strong>{bgeRequests ? `${bgeRequests.embed || 0} / ${bgeRequests.rerank || 0}` : "-"}</strong>
-              </div>
-              <div>
-                <span>后端</span>
-                <strong>{String(bgeConfig?.rerank_backend || "-")}</strong>
+            <div className="assistant-chat-composer">
+              <div className={`assistant-composer-box ${chatDraftAtLimit ? "assistant-composer-box-limit" : ""}`}>
+                <Input.TextArea
+                  className="assistant-chat-textarea"
+                  value={chatDraft}
+                  onChange={(event) => setChatDraft(event.target.value)}
+                  onPressEnter={(event) => {
+                    if (!event.shiftKey && !(event.nativeEvent as KeyboardEvent).isComposing) {
+                      event.preventDefault();
+                      void submit();
+                    }
+                  }}
+                  autoSize={{ minRows: 1, maxRows: 8 }}
+                  maxLength={chatDraftMaxLength}
+                  placeholder="输入学生问题"
+                  disabled={assistantStreaming}
+                />
+                <div className="assistant-composer-footer">
+                  <span className={`assistant-composer-count ${chatDraftAtLimit ? "assistant-composer-count-limit" : ""}`}>
+                    {chatDraftLength} / {chatDraftMaxLength}
+                  </span>
+                  <Button
+                    type="primary"
+                    icon={<ArrowRightOutlined />}
+                    loading={assistantStreaming}
+                    disabled={!chatDraft.trim() || assistantStreaming}
+                    onClick={() => void submit()}
+                  >
+                    发送
+                  </Button>
+                </div>
               </div>
             </div>
           </div>
         </Card>
 
         <Card
-          title="多轮对话"
-          className="learning-assistant-card learning-assistant-chat"
-          extra={<Text type="secondary">{turns.length} 轮</Text>}
+          title={selectedTurnIndex >= 0 ? `轮次诊断 · 第 ${selectedTurnIndex + 1} 轮` : "轮次诊断"}
+          className="learning-assistant-card learning-assistant-inspector"
         >
-          {turns.length ? (
-            <div className="assistant-chat-list">
-              {turns.map((turn, index) => (
-                <button
-                  type="button"
-                  key={turn.id}
-                  className={`assistant-turn ${selectedTurn?.id === turn.id ? "selected" : ""}`}
-                  onClick={() => setSelectedTurnId(turn.id)}
-                >
-                  <div className="assistant-message user">
-                    <div className="assistant-message-meta">
-                      <Text strong>学生</Text>
-                      <Text type="secondary">{dayjs(turn.createdAt).format("HH:mm:ss")}</Text>
-                    </div>
-                    <div>{turn.question}</div>
-                  </div>
-                  <div className={`assistant-message assistant ${turn.status}`}>
-                    <div className="assistant-message-meta">
-                      <Space size={8}>
-                        <Text strong>学习助手</Text>
-                        <Tag color={turn.status === "done" ? "#005826" : turn.status === "error" ? "red" : "blue"}>
-                          {turn.status === "done" ? "完成" : turn.status === "error" ? "失败" : "生成中"}
-                        </Tag>
-                      </Space>
-                      <Text type="secondary">{assistantTurnLabel(turn, index)}</Text>
-                    </div>
-                    {turn.streamStatus ? <Alert type="info" showIcon message={turn.streamStatus} /> : null}
-                    {turn.error ? <Alert type="error" showIcon message={turn.error} /> : null}
-                    <div className="assistant-answer">{renderAssistantMarkdown(turn.answer || "等待模型输出...")}</div>
-                  </div>
-                </button>
-              ))}
-            </div>
-          ) : (
-            <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description="发送一个学生问题后开始多轮调试" />
-          )}
-        </Card>
-
-        <Card title="轮次诊断" className="learning-assistant-card learning-assistant-inspector">
           {selectedTurn && response ? (
             <Space direction="vertical" size={14} className="full">
               <Space wrap>
@@ -6641,7 +6934,62 @@ function LearningAssistantPage() {
               </div>
 
               <div>
-                <Text strong>RAG 查询与重排</Text>
+                <Text strong>固定点位上下文</Text>
+                {pointContextEnabled ? (
+                  <>
+                    <Descriptions column={1} size="small" className="assistant-rag-desc">
+                      <Descriptions.Item label="实验">
+                        {[
+                          pointContextTrace.experiment_code,
+                          pointContextTrace.experiment_title,
+                        ].map((item) => String(item || "").trim()).filter(Boolean).join(" · ") || String(pointContextTrace.experiment_id || "-")}
+                      </Descriptions.Item>
+                      <Descriptions.Item label="点位">
+                        <Tag color={pointContextTrace.resolved === false ? "orange" : "#005826"}>
+                          {pointContextTrace.resolved === false ? "按传入点位保留" : "已解析"}
+                        </Tag>
+                        <Text>{String(pointContextTrace.point_title || pointContextTrace.point_key || "-")}</Text>
+                      </Descriptions.Item>
+                      <Descriptions.Item label="点位 key">
+                        <Tag>{String(pointContextTrace.point_key || "-")}</Tag>
+                        {pointContextTrace.requested_point_key && pointContextTrace.requested_point_key !== pointContextTrace.point_key ? (
+                          <Tag color="blue">传入：{String(pointContextTrace.requested_point_key)}</Tag>
+                        ) : null}
+                      </Descriptions.Item>
+                      <Descriptions.Item label="固定证据">
+                        <Tag color={pointContextSourceCount ? "#005826" : "default"}>来源 {pointContextSourceCount ?? 0}</Tag>
+                        <Tag>题库记录 {pointContextQuestionCount ?? 0}</Tag>
+                        {pointContextChunkIds.slice(0, 4).map((chunkId) => <Tag key={chunkId}>{chunkId}</Tag>)}
+                      </Descriptions.Item>
+                    </Descriptions>
+                    {pointContextSources.length ? (
+                      <div className="assistant-point-evidence-list">
+                        {pointContextSources.slice(0, 3).map((source, index) => (
+                          <div key={String(source.chunk_id || index)} className="assistant-point-evidence-item">
+                            <Space size={8} wrap>
+                              <Tag color="#005826">固定 #{index + 1}</Tag>
+                              <Text strong>{String(source.caption || source.source_file || source.chunk_id || "点位证据")}</Text>
+                              {source.page_number ? <Text type="secondary">p.{String(source.page_number)}</Text> : null}
+                            </Space>
+                            <Text type="secondary" className="block-text">
+                              {renderAssistantInlineMarkdown(String(source.text_preview || ""))}
+                            </Text>
+                          </div>
+                        ))}
+                      </div>
+                    ) : (
+                      <Text type="secondary" className="block-text">
+                        本轮保留了结构化点位，但暂无题库 source_audit 固定来源片段。
+                      </Text>
+                    )}
+                  </>
+                ) : (
+                  <Text type="secondary" className="block-text">本轮未携带结构化视频点位。</Text>
+                )}
+              </div>
+
+              <div>
+                <Text strong>补充 RAG 查询与重排</Text>
                 <Descriptions column={1} size="small" className="assistant-rag-desc">
                   <Descriptions.Item label="模式">{String(latestRagTrace.mode || "-")}</Descriptions.Item>
                   <Descriptions.Item label="最终排序">
@@ -6717,24 +7065,37 @@ function LearningAssistantPage() {
                             <Tag color={traceReranked ? "#005826" : "default"}>
                               #{String(evidence?.rank || index + 1)}
                             </Tag>
-                            <Text strong>{source.source_file || source.chunk_id}</Text>
+                            <Text strong>{source.caption || source.source_file || source.chunk_id}</Text>
                           </Space>
                           {source.page_number ? <Text type="secondary">p.{source.page_number}</Text> : null}
                         </div>
                         <div className="assistant-source-tags">
                           <Tag>{sourceKindLabel(evidence?.source)}</Tag>
+                          {source.content_type ? <Tag>{source.content_type === "figure" ? "图像 chunk" : source.content_type}</Tag> : null}
                           {evidence?.rerank_score !== undefined ? (
                             <Tag color="#005826">rerank {String(evidence.rerank_score)}</Tag>
                           ) : null}
                           {evidence?.score !== undefined ? <Tag>score {String(evidence.score)}</Tag> : null}
                           <Tag>{source.chunk_id}</Tag>
                         </div>
+                        {source.section_path?.length ? (
+                          <Text type="secondary" className="block-text">
+                            章节：{source.section_path.join(" / ")}
+                          </Text>
+                        ) : null}
                         {evidence?.query ? (
                           <Text type="secondary" className="block-text">Query：{String(evidence.query)}</Text>
                         ) : null}
                         <Text type="secondary" className="block-text">
-                          {renderAssistantRichText(source.text_preview)}
+                          {renderAssistantInlineMarkdown(source.text_preview)}
                         </Text>
+                        {source.assets?.length ? (
+                          <div className="assistant-source-assets">
+                            {source.assets.slice(0, 3).map((asset) => (
+                              <RagAssetPreview asset={asset} key={`${source.chunk_id}-${asset.kind}-${asset.path}`} />
+                            ))}
+                          </div>
+                        ) : null}
                       </div>
                     );
                   }) : <Text type="secondary" className="block-text">无来源</Text>}
@@ -6767,6 +7128,7 @@ function SettingsPage() {
   const queryClient = useQueryClient();
   const [form] = Form.useForm();
   const [aiFeatureForm] = Form.useForm();
+  const [aiConfigForm] = Form.useForm();
   const platformSettings = useQuery({
     queryKey: ["platform-settings"],
     queryFn: () => api<PlatformSettingsResponse>("/api/admin/platform-settings"),
@@ -6784,9 +7146,16 @@ function SettingsPage() {
 
   useEffect(() => {
     if (aiConfig.data) {
+      aiConfigForm.setFieldsValue({
+        provider: aiConfig.data.provider,
+        base_url: aiConfig.data.base_url,
+        model: aiConfig.data.model,
+        connection_check_interval_minutes: aiConfig.data.connection_check_interval_minutes,
+        api_key: "",
+      });
       aiFeatureForm.setFieldsValue({ enabled_features: aiConfig.data.enabled_features });
     }
-  }, [aiConfig.data, aiFeatureForm]);
+  }, [aiConfig.data, aiConfigForm, aiFeatureForm]);
 
   const save = useMutation({
     mutationFn: (values: LearningBehaviorSettings) => putJson<PlatformSettingsResponse>("/api/admin/platform-settings", values),
@@ -6821,13 +7190,40 @@ function SettingsPage() {
     },
     onError: (error) => message.error(errorMessage(error)),
   });
+  const saveAiConfig = useMutation({
+    mutationFn: (values: AIConfigurationUpdate & { api_key?: string }) => {
+      if (!aiConfig.data) {
+        throw new Error("AI 接入配置尚未加载");
+      }
+      const payload: AIConfigurationUpdate = {
+        provider: "openai",
+        base_url: values.base_url || "",
+        model: values.model || "",
+        connection_check_interval_minutes: values.connection_check_interval_minutes || 30,
+        enabled_features: aiConfig.data.enabled_features,
+      };
+      const newSecret = String(values.api_key || "").trim();
+      if (newSecret) {
+        payload.api_key = newSecret;
+      }
+      return putJson<AIConfiguration>("/api/admin/ai-configuration", payload);
+    },
+    onSuccess: () => {
+      message.success("OpenAI API 接入配置已保存");
+      void queryClient.invalidateQueries({ queryKey: ["ai-configuration"] });
+      void queryClient.invalidateQueries({ queryKey: ["ai-configuration", "settings"] });
+      void queryClient.invalidateQueries({ queryKey: ["learning-assistant-runtime"] });
+      aiConfigForm.setFieldsValue({ api_key: "" });
+    },
+    onError: (error) => message.error(errorMessage(error)),
+  });
 
   const canEdit = Boolean(platformSettings.data?.can_edit);
   const canEditAiFeatures = Boolean(aiConfig.data?.can_edit);
 
   return (
     <Space direction="vertical" size={18} className="full">
-      <PageTitle title="系统设置" description="控制全体 H5/手机学习端的测试、助手和反馈入口。" />
+      <PageTitle title="系统设置" description="控制全体 H5/手机学习端功能、学生 AI 能力，以及 OpenAI API 接入配置。" />
       <QueryState loading={platformSettings.isLoading} error={platformSettings.error}>
         <Form form={form} layout="vertical" onFinish={(values) => save.mutate(values as LearningBehaviorSettings)}>
           <Space direction="vertical" size={18} className="full">
@@ -6927,18 +7323,82 @@ function SettingsPage() {
       </QueryState>
       <QueryState loading={aiConfig.isLoading} error={aiConfig.error}>
         <Form
+          form={aiConfigForm}
+          layout="vertical"
+          onFinish={(values) => saveAiConfig.mutate(values as AIConfigurationUpdate & { api_key?: string })}
+        >
+          <Card title="OpenAI API 接入" className="settings-ai-config-card">
+            {!canEditAiFeatures ? <Alert type="info" showIcon title="当前账号可查看 OpenAI API 配置，只有管理员可以修改。" className="section-alert" /> : null}
+            <Text type="secondary" className="block-text ai-card-description">
+              配置模型、Base URL、API Key 和自动检测间隔；AI接入页只展示运行状态监控。
+            </Text>
+            <div className="ai-provider-fixed compact">
+              <div>
+                <Text type="secondary">供应商</Text>
+                <Text strong className="block-text">
+                  OpenAI API
+                </Text>
+              </div>
+              <div>
+                <Text type="secondary">说明</Text>
+                <Text type="secondary" className="block-text">
+                  使用 OpenAI API 格式；代理网关可填写 Base URL。保存模型、Base URL 或密钥后会进入新的自动检测周期。
+                </Text>
+              </div>
+            </div>
+            <div className="settings-grid">
+              <Form.Item name="model" label="模型名称" rules={[{ required: true, message: "请填写模型名称" }]}>
+                <Input disabled={!canEditAiFeatures} placeholder="此处填写模型名称" />
+              </Form.Item>
+              <Form.Item name="base_url" label="Base URL" rules={[{ required: true, message: "请填写AI调用地址" }]}>
+                <Input disabled={!canEditAiFeatures} placeholder="此处填写AI调用地址" />
+              </Form.Item>
+              <Form.Item
+                name="api_key"
+                label={`API Key${aiConfig.data?.api_key_configured ? `（已配置 ${aiConfig.data.api_key_fingerprint || ""}）` : ""}`}
+                required
+                rules={[
+                  {
+                    validator: (_, value) => {
+                      if (aiConfig.data?.api_key_configured || String(value || "").trim()) {
+                        return Promise.resolve();
+                      }
+                      return Promise.reject(new Error("请填写AI调用API Key"));
+                    },
+                  },
+                ]}
+              >
+                <Input.Password disabled={!canEditAiFeatures} placeholder="此处填写AI调用API Key" autoComplete="new-password" />
+              </Form.Item>
+              <Form.Item name="connection_check_interval_minutes" label="自动检测间隔（分钟）">
+                <InputNumber min={5} max={1440} precision={0} disabled={!canEditAiFeatures} className="full" />
+              </Form.Item>
+            </div>
+            <div className="settings-card-actions">
+              <Button
+                type="primary"
+                htmlType="submit"
+                loading={saveAiConfig.isPending}
+                disabled={!canEditAiFeatures}
+              >
+                保存 OpenAI API 接入
+              </Button>
+            </div>
+          </Card>
+        </Form>
+        <Form
           form={aiFeatureForm}
           layout="vertical"
           onFinish={(values) => saveAiFeatures.mutate(values as { enabled_features?: Partial<AIConfiguration["enabled_features"]> })}
         >
           <Card
             title="学生 AI 能力"
-            extra={<Tag color="default">AI 接入页维护 API 凭据</Tag>}
+            extra={<Tag color="default">运行状态在 AI接入 页监控</Tag>}
             className="settings-ai-feature-card"
           >
             {!canEditAiFeatures ? <Alert type="info" showIcon title="当前账号可查看学生 AI 能力开关，只有管理员可以修改。" className="section-alert" /> : null}
             <Text type="secondary" className="block-text ai-card-description">
-              这里控制学生端 Agent 能力范围。OpenAI 兼容 API 的模型、Base URL 和密钥在 AI接入 页面维护；RAG 运行状态也在那里只读查看。
+              这里控制学生端 Agent 能力范围；OpenAI API 接入配置在上方维护，AI接入页只读展示运行状态监控。
             </Text>
             <div className="settings-grid settings-ai-feature-grid">
               <div className="settings-section compact">
@@ -6999,61 +7459,19 @@ function SettingsPage() {
 }
 
 function AIConfigurationPage() {
-  const { message } = AntApp.useApp();
-  const queryClient = useQueryClient();
-  const [form] = Form.useForm();
   const [usageRange, setUsageRange] = useState<"1d" | "7d" | "30d">("7d");
   const aiConfig = useQuery({
     queryKey: ["ai-configuration"],
     queryFn: () => api<AIConfiguration>("/api/admin/ai-configuration"),
   });
-
-  useEffect(() => {
-    if (aiConfig.data) {
-      form.setFieldsValue({
-        provider: aiConfig.data.provider,
-        base_url: aiConfig.data.base_url,
-        model: aiConfig.data.model,
-        connection_check_interval_minutes: aiConfig.data.connection_check_interval_minutes,
-        api_key: "",
-        enabled_features: aiConfig.data.enabled_features,
-      });
-    }
-  }, [aiConfig.data, form]);
-
-  const save = useMutation({
-    mutationFn: (values: AIConfigurationUpdate) => putJson<AIConfiguration>("/api/admin/ai-configuration", values),
-    onSuccess: () => {
-      message.success("AI 接入配置已保存");
-      void queryClient.invalidateQueries({ queryKey: ["ai-configuration"] });
-    },
-    onError: (error) => message.error(errorMessage(error)),
+  const assistantRuntime = useQuery({
+    queryKey: ["learning-assistant-runtime", "ai-config"],
+    queryFn: () => api<LearningAssistantRuntime>("/api/admin/learning-assistant/runtime"),
+    enabled: Boolean(aiConfig.data),
+    refetchInterval: 10000,
+    refetchIntervalInBackground: true,
   });
-
-  const canEdit = Boolean(aiConfig.data?.can_edit);
   const status = aiConfig.data?.status;
-  const submit = (values: AIConfigurationUpdate & { api_key?: string }) => {
-    const currentScopes = aiConfig.data?.enabled_features;
-    const submittedScopes = values.enabled_features || currentScopes;
-    const payload: AIConfigurationUpdate = {
-      provider: "openai",
-      base_url: values.base_url || "",
-      model: values.model || "",
-      connection_check_interval_minutes: values.connection_check_interval_minutes || 30,
-      enabled_features: {
-        rag_access_enabled: submittedScopes?.rag_access_enabled ?? true,
-        student_ai_assistant: submittedScopes?.student_ai_assistant ?? true,
-        student_learning_analytics: submittedScopes?.student_learning_analytics ?? true,
-        question_bank_assistant: true,
-        teacher_learning_analytics: true,
-      },
-    };
-    const newSecret = String(values.api_key || "").trim();
-    if (newSecret) {
-      payload.api_key = newSecret;
-    }
-    save.mutate(payload);
-  };
 
   const statusMeta: Record<
     NonNullable<AIConfiguration["status"]>["connectivity_status"],
@@ -7179,20 +7597,61 @@ function AIConfigurationPage() {
     { key: "evidence", title: "平台资源", description: "资源存在性必须检索平台来源", signal: "Grounding" },
     { key: "course", title: "课程问答", description: "普通化学问题由模型回答，RAG 辅助", signal: "Answer" },
   ];
-  const ragRuntime = aiConfig.data?.rag_runtime;
+  const ragRuntime = assistantRuntime.data?.rag_runtime || aiConfig.data?.rag_runtime;
+  const bgeMetrics = assistantRuntime.data?.bge_metrics || null;
+  const bgeProcess = bgeMetrics?.process;
+  const bgeContainer = bgeMetrics?.container;
+  const bgeModels = bgeMetrics?.models;
+  const bgeRequests = bgeMetrics?.requests;
+  const bgeConfig = bgeMetrics?.config;
+  const bgeWarmup = bgeMetrics?.warmup;
+  const bgeStatus = bgeMetrics?.ok
+    ? "healthy"
+    : assistantRuntime.data?.bge_status || (assistantRuntime.data?.bge_error ? "unreachable" : ragRuntime?.bge_service_required ? "checking" : "not_required");
+  const ragStatusMeta = (() => {
+    if (!ragRuntime?.rag_enabled) return { label: "RAG 关闭", color: "default", tone: "idle", headline: "学生侧 RAG 未启用" };
+    if (!ragRuntime.hybrid_bge_enabled) return { label: "Legacy", color: "#356f9c", tone: "legacy", headline: "关键词 RAG 运行中" };
+    if (bgeStatus === "healthy") return { label: "Hybrid 可用", color: "#005826", tone: "good", headline: "Hybrid BGE RAG 可用" };
+    if (bgeStatus === "degraded") return { label: "BGE 异常", color: "#b8892f", tone: "warn", headline: "BGE 已响应但状态异常" };
+    if (bgeStatus === "not_configured") return { label: "未配置", color: "#b42318", tone: "bad", headline: "BGE 服务地址未配置" };
+    if (bgeStatus === "unreachable") return { label: "不可达", color: "#b42318", tone: "bad", headline: "BGE 服务不可达" };
+    return { label: "检测中", color: "#356f9c", tone: "legacy", headline: "BGE 服务检测中" };
+  })();
+  const ragRouteSummary = ragRuntime?.hybrid_bge_enabled
+    ? "关键词召回 + BGE 向量召回 + BGE 重排"
+    : ragRuntime?.rag_enabled
+      ? "现有来源/关键词 RAG"
+      : "RAG 已关闭";
+  const ragCheckedText = assistantRuntime.data?.checked_at
+    ? dayjs(assistantRuntime.data.checked_at).format("YYYY-MM-DD HH:mm:ss")
+    : assistantRuntime.isLoading
+      ? "检测中"
+      : "尚未检测";
+  const bgeRequestSummary = bgeRequests ? `${bgeRequests.embed || 0} / ${bgeRequests.rerank || 0}` : "-";
+  const bgeModelSummary = bgeConfig?.embed_model || bgeConfig?.rerank_model
+    ? `${bgeConfig?.embed_model || "-"} / ${bgeConfig?.rerank_model || "-"}`
+    : "-";
+  const configuredModel = aiConfig.data?.model || "-";
 
   return (
     <Space direction="vertical" size={18} className="full">
-      <PageTitle title="AI接入" description="配置 OpenAI 兼容 API 接入；学生端 AI 功能范围在系统设置维护，RAG 运行状态在本页只读查看。" />
+      <PageTitle title="AI接入" description="监控 OpenAI API 连接与 RAG 检索运行状态；模型、Base URL、密钥和学生 AI 能力开关在系统设置维护。" />
       <QueryState loading={aiConfig.isLoading} error={aiConfig.error}>
-        <Form form={form} layout="vertical" onFinish={submit}>
-          <div className="ai-config-dashboard">
-            <Card title="运行状态" className="ai-runtime-card">
-              <div className="ai-runtime-grid">
-                <div className="ai-runtime-primary">
+        <div className="ai-config-dashboard">
+            <Card
+              title="运行状态监控"
+              className="ai-runtime-card ai-runtime-monitor-card"
+              extra={
+                <Tag color={assistantRuntime.isError ? "#b42318" : assistantRuntime.isFetching ? "#356f9c" : "#005826"}>
+                  {assistantRuntime.isError ? "监控异常" : assistantRuntime.isFetching ? "自动检测中" : "自动监控"}
+                </Tag>
+              }
+            >
+              <div className="ai-runtime-monitor-grid">
+                <section className="ai-monitor-panel ai-monitor-openai-panel">
                   <Flex justify="space-between" align="start" gap={16} className="ai-summary-head">
                     <div>
-                      <Text type="secondary">连接状态</Text>
+                      <Text className="eyebrow">OpenAI API</Text>
                       <Title level={3} className="ai-status-title" style={{ color: currentStatus.valueColor }}>
                         {currentStatus.label}
                       </Title>
@@ -7201,14 +7660,144 @@ function AIConfigurationPage() {
                     <Tag color={currentStatus.color}>{currentStatus.label}</Tag>
                   </Flex>
                   {status?.last_check_message ? <Text className="block-text ai-check-message">{status.last_check_message}</Text> : null}
-                </div>
+                  <div className="ai-monitor-tile-grid">
+                    <div>
+                      <span>模型</span>
+                      <strong>{configuredModel}</strong>
+                    </div>
+                    <div>
+                      <span>调用健康度</span>
+                      <strong>{recentRequests ? `${successRate}%` : "-"}</strong>
+                    </div>
+                    <div>
+                      <span>最近检测</span>
+                      <strong>{lastCheckedText}</strong>
+                    </div>
+                    <div>
+                      <span>下次检测</span>
+                      <strong>{nextCheckText}</strong>
+                    </div>
+                    <div>
+                      <span>API Key</span>
+                      <strong>{aiConfig.data?.api_key_configured ? "已配置" : "未配置"}</strong>
+                    </div>
+                    <div>
+                      <span>AI 通道</span>
+                      <strong>{modeLabel}</strong>
+                    </div>
+                    <div>
+                      <span>近 24 小时请求</span>
+                      <strong>{recentRequests}</strong>
+                    </div>
+                    <div>
+                      <span>近 24 小时错误</span>
+                      <strong className={recentErrors ? "danger-text" : ""}>{recentErrors}</strong>
+                    </div>
+                    <div className="ai-monitor-tile-wide">
+                      <span>最近调用</span>
+                      <strong>{lastRequestText}</strong>
+                    </div>
+                  </div>
+                </section>
 
-                <Descriptions size="small" column={1} className="ai-runtime-descriptions">
-                  <Descriptions.Item label="最近检测">{lastCheckedText}</Descriptions.Item>
-                  <Descriptions.Item label="下次检测">{nextCheckText}</Descriptions.Item>
-                  <Descriptions.Item label="API Key">{aiConfig.data?.api_key_configured ? "已配置" : "未配置"}</Descriptions.Item>
-                  <Descriptions.Item label="AI 通道">{modeLabel}</Descriptions.Item>
-                </Descriptions>
+                <section className={`ai-monitor-panel ai-monitor-rag-panel ai-rag-health-${ragStatusMeta.tone}`}>
+                  <Flex justify="space-between" align="start" gap={16} className="ai-summary-head">
+                    <div>
+                      <Text className="eyebrow">RAG 状态监控</Text>
+                      <Title level={3} className="ai-status-title">
+                        {ragStatusMeta.headline}
+                      </Title>
+                      <Text type="secondary">{ragRouteSummary}</Text>
+                    </div>
+                    <Tag color={ragStatusMeta.color}>{ragStatusMeta.label}</Tag>
+                  </Flex>
+                  {assistantRuntime.data?.bge_error ? (
+                    <Alert
+                      type="warning"
+                      showIcon
+                      className="ai-rag-alert"
+                      message="BGE sidecar 当前不可用"
+                      description={assistantRuntime.data.bge_error}
+                    />
+                  ) : null}
+                  {assistantRuntime.error ? (
+                    <Alert
+                      type="error"
+                      showIcon
+                      className="ai-rag-alert"
+                      message="RAG 自动监控接口读取失败"
+                      description={errorMessage(assistantRuntime.error)}
+                    />
+                  ) : null}
+                  {bgeWarmup?.error ? (
+                    <Alert
+                      type="error"
+                      showIcon
+                      className="ai-rag-alert"
+                      message="BGE 预热失败"
+                      description={bgeWarmup.error}
+                    />
+                  ) : null}
+                  <div className="ai-rag-status-grid">
+                    {[
+                      { label: "学生 RAG", value: ragRuntime?.rag_enabled ? "已开启" : "已关闭", tone: ragRuntime?.rag_enabled ? "ok" : "muted" },
+                      { label: "BGE 实测", value: ragStatusMeta.label, tone: ragStatusMeta.tone === "bad" ? "bad" : ragStatusMeta.tone === "warn" ? "warn" : "ok" },
+                      { label: "Query 生成", value: ragRuntime?.query_generation_enabled ? "已开启" : "未开启", tone: ragRuntime?.query_generation_enabled ? "ok" : "muted" },
+                      { label: "最近检测", value: ragCheckedText, tone: assistantRuntime.data?.bge_error ? "bad" : "muted" },
+                    ].map((item) => (
+                      <div key={item.label} className={`ai-rag-status-tile ai-rag-status-tile-${item.tone}`}>
+                        <span>{item.label}</span>
+                        <strong>{item.value}</strong>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="ai-rag-metric-grid">
+                    <div>
+                      <span>召回 / 重排 / 返回</span>
+                      <strong>{ragRuntime ? `${ragRuntime.vector_top_k} / ${ragRuntime.rerank_top_k} / ${ragRuntime.final_top_k}` : "-"}</strong>
+                    </div>
+                    <div>
+                      <span>服务地址</span>
+                      <strong>{ragRuntime?.bge_service_url || "-"}</strong>
+                    </div>
+                    <div>
+                      <span>接口延迟</span>
+                      <strong>{formatTraceMs(bgeMetrics?.request_ms)}</strong>
+                    </div>
+                    <div>
+                      <span>模型加载</span>
+                      <strong>
+                        {bgeModels ? `${bgeModels.embed_loaded ? "E ready" : "E cold"} / ${bgeModels.rerank_loaded ? "R ready" : "R cold"}` : "-"}
+                      </strong>
+                    </div>
+                    <div>
+                      <span>向量请求 / 重排请求</span>
+                      <strong>{bgeRequestSummary}</strong>
+                    </div>
+                    <div>
+                      <span>内存</span>
+                      <strong>{formatMemoryMb(bgeContainer?.memory_current_mb ?? bgeProcess?.memory_rss_mb)}</strong>
+                    </div>
+                    <div>
+                      <span>运行时长</span>
+                      <strong>{formatRuntimeSeconds(bgeProcess?.uptime_seconds)}</strong>
+                    </div>
+                    <div>
+                      <span>预热</span>
+                      <strong>{warmupStatusLabel(bgeWarmup?.status)}</strong>
+                    </div>
+                  </div>
+
+                    <div className="ai-rag-model-panel">
+                    <span>模型 · 每 10 秒自动更新</span>
+                    <strong>{bgeModelSummary}</strong>
+                    <small>
+                      {bgeConfig?.device ? `device=${bgeConfig.device}` : "BGE metrics 未返回设备信息"}
+                      {bgeConfig?.offline !== undefined ? ` · offline=${String(bgeConfig.offline)}` : ""}
+                    </small>
+                  </div>
+                </section>
               </div>
             </Card>
 
@@ -7396,113 +7985,7 @@ function AIConfigurationPage() {
               </div>
             </Card>
 
-            <div className="ai-config-body-grid">
-              <Card title="OpenAI API 接入" className="ai-config-main-card">
-                {!canEdit ? <Alert type="info" showIcon title="当前账号可查看 AI 配置，只有管理员可以修改。" className="section-alert" /> : null}
-                <div className="ai-provider-fixed compact">
-                  <div>
-                    <Text type="secondary">供应商</Text>
-                    <Text strong className="block-text">
-                      OpenAI API
-                    </Text>
-                  </div>
-                  <div>
-                    <Text type="secondary">说明</Text>
-                    <Text type="secondary" className="block-text">
-                      使用 OpenAI API 格式；代理网关可填写 Base URL。系统按配置间隔自动检测已保存配置，保存模型、Base URL 或密钥后进入新的检测周期。
-                    </Text>
-                  </div>
-                </div>
-                <div className="settings-grid">
-                  <Form.Item name="model" label="模型名称" rules={[{ required: true, message: "请填写模型名称" }]}>
-                    <Input disabled={!canEdit} placeholder="此处填写模型名称" />
-                  </Form.Item>
-                  <Form.Item name="base_url" label="Base URL" rules={[{ required: true, message: "请填写AI调用地址" }]}>
-                    <Input disabled={!canEdit} placeholder="此处填写AI调用地址" />
-                  </Form.Item>
-                  <Form.Item
-                    name="api_key"
-                    label={`API Key${aiConfig.data?.api_key_configured ? `（已配置 ${aiConfig.data.api_key_fingerprint || ""}）` : ""}`}
-                    required
-                    rules={[
-                      {
-                        validator: (_, value) => {
-                          if (aiConfig.data?.api_key_configured || String(value || "").trim()) {
-                            return Promise.resolve();
-                          }
-                          return Promise.reject(new Error("请填写AI调用API Key"));
-                        },
-                      },
-                    ]}
-                  >
-                    <Input.Password disabled={!canEdit} placeholder="此处填写AI调用API Key" autoComplete="new-password" />
-                  </Form.Item>
-                  <Form.Item name="connection_check_interval_minutes" label="自动检测间隔（分钟）">
-                    <InputNumber min={5} max={1440} precision={0} disabled={!canEdit} className="full" />
-                  </Form.Item>
-                </div>
-                <div className="ai-config-actions">
-                  <Button type="primary" htmlType="submit" loading={save.isPending} disabled={!canEdit}>
-                    保存接入配置
-                  </Button>
-                </div>
-              </Card>
-
-              <Card
-                title="RAG 状态"
-                className="ai-side-card ai-agent-card"
-                extra={
-                  ragRuntime ? (
-                    <Tag color={ragRuntime.hybrid_bge_enabled ? "#005826" : ragRuntime.rag_enabled ? "default" : "#b42318"}>
-                      {ragRuntime.hybrid_bge_enabled ? "Hybrid" : ragRuntime.rag_enabled ? "Legacy" : "Disabled"}
-                    </Tag>
-                  ) : null
-                }
-              >
-                <Text type="secondary" className="block-text ai-card-description">
-                  学生端 RAG 开关在系统设置维护；这里展示当前检索运行路径、BGE sidecar 需求和召回/重排参数。
-                </Text>
-                {ragRuntime ? (
-                  <div className="ai-rag-runtime-panel">
-                    <Flex justify="space-between" align="center" gap={12}>
-                      <div>
-                        <Text strong>BGE RAG 运行时</Text>
-                        <Text type="secondary" className="block-text">
-                          {ragRuntime.message}
-                        </Text>
-                      </div>
-                      <Tag color={ragRuntime.hybrid_bge_enabled ? "#005826" : "default"}>
-                        {ragRuntime.hybrid_bge_enabled ? "Hybrid" : "Legacy"}
-                      </Tag>
-                    </Flex>
-                    <Descriptions size="small" column={1} className="ai-rag-runtime-desc">
-                      <Descriptions.Item label="学生 RAG 开关">
-                        {aiConfig.data?.enabled_features.rag_access_enabled ? "已开启" : "已关闭"}
-                      </Descriptions.Item>
-                      <Descriptions.Item label="BGE 服务">{ragRuntime.bge_service_required ? "需要启动" : "非必需"}</Descriptions.Item>
-                      <Descriptions.Item label="服务地址">{ragRuntime.bge_service_url || "-"}</Descriptions.Item>
-                      <Descriptions.Item label="Query 生成">{ragRuntime.query_generation_enabled ? "已开启" : "未开启"}</Descriptions.Item>
-                      <Descriptions.Item label="召回/重排">
-                        {ragRuntime.vector_top_k} / {ragRuntime.rerank_top_k} / {ragRuntime.final_top_k}
-                      </Descriptions.Item>
-                    </Descriptions>
-                  </div>
-                ) : null}
-                <div className="ai-rag-status-list">
-                  <div>
-                    <span>检索路径</span>
-                    <strong>{ragRuntime?.hybrid_bge_enabled ? "关键词 + BGE 向量 + BGE 重排" : ragRuntime?.rag_enabled ? "现有来源/关键词 RAG" : "RAG 已关闭"}</strong>
-                  </div>
-                  <div>
-                    <span>能力开关位置</span>
-                    <strong>系统设置 / 学生 AI 能力</strong>
-                  </div>
-                </div>
-              </Card>
-            </div>
-
           </div>
-        </Form>
       </QueryState>
     </Space>
   );

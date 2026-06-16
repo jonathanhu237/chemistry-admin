@@ -12,8 +12,135 @@ from server.app.agent import (
     run_agent,
 )
 from server.app.config import Settings
-from server.app.repositories import get_repositories
-from server.app.schemas import AgentAskRequest
+from server.app.repositories import EmptyMediaRepository, NoopAgentLogRepository, RepositoryProvider, get_repositories
+from server.app.schemas import AgentAskRequest, AgentChatMessage
+
+
+class _FakeContentRepository:
+    point_title = "Observe permanganate color change"
+    point_key = agent_module._candidate_point_key(0, point_title)
+
+    def areas(self):
+        return []
+
+    def chapters(self):
+        return [{"chapter_id": "CH13", "chapter_title": "Chapter 13"}]
+
+    def units(self):
+        return []
+
+    def knowledge_points(self):
+        return [{"knowledge_point_id": "KP_TEST", "chapter_id": "CH13", "content": "Permanganate oxidation state changes"}]
+
+    def experiments(self):
+        return [self.get_experiment("EXP_TEST")]
+
+    def learning_cards(self):
+        return []
+
+    def questions(self):
+        return []
+
+    def links(self):
+        return []
+
+    def source_chunks(self):
+        return [
+            {
+                "chunk_id": "chunk-point-1",
+                "source_file": "test-source.md",
+                "page_number": 12,
+                "text": "Permanganate color fading is evidence that Mn(VII) is reduced while oxidizing the substrate.",
+                "metadata": {"content_type": "text", "section_path": ["Experiment", "Permanganate"]},
+            }
+        ]
+
+    def get_chapter(self, chapter_id):
+        return {"chapter_id": chapter_id, "chapter_title": "Chapter 13"} if chapter_id == "CH13" else None
+
+    def get_unit(self, unit_id):
+        return None
+
+    def get_knowledge_point(self, kp_id):
+        return None
+
+    def get_experiment(self, experiment_id):
+        if experiment_id != "EXP_TEST":
+            return None
+        return {
+            "id": "EXP_TEST",
+            "experiment_id": "EXP_TEST",
+            "code": "T-1",
+            "title": "Permanganate test",
+            "chapter_id": "CH13",
+            "video_candidates": [self.point_title],
+        }
+
+    def get_learning_card(self, experiment_id):
+        return None
+
+    def get_question(self, question_id):
+        return None
+
+    def related_chunks_for_kp(self, kp_id, limit=8):
+        return []
+
+    def point_question_evidence(self, experiment_id, point_key, limit=12):
+        if experiment_id != "EXP_TEST" or point_key != self.point_key:
+            return []
+        return [
+            {
+                "id": "Q_POINT_1",
+                "question_id": "Q_POINT_1",
+                "experiment_id": experiment_id,
+                "question_type": "single_choice",
+                "stem": "Which observation shows permanganate reduction?",
+                "source_chunk_ids": ["chunk-point-1"],
+                "metadata": {
+                    "primary_point_keys": [self.point_key],
+                    "source_audit": {
+                        "canonical_chunk_ids": ["chunk-point-1"],
+                        "supporting_theory_chunk_ids": [],
+                        "evidence_sufficient": True,
+                    },
+                },
+            }
+        ]
+
+
+class _NoopLearningRepository:
+    def load_events(self):
+        return []
+
+    def append_event(self, event):
+        return event
+
+    def load_mastery(self):
+        return {}
+
+    def save_mastery(self, data):
+        return None
+
+    def load_students(self):
+        return []
+
+    def save_students(self, students):
+        return None
+
+
+class _NoopReviewRepository:
+    def list_items(self):
+        return []
+
+
+def _fake_repositories(media=None) -> RepositoryProvider:
+    return RepositoryProvider(
+        content=_FakeContentRepository(),
+        learning=_NoopLearningRepository(),
+        review=_NoopReviewRepository(),
+        media=media or EmptyMediaRepository(),
+        agent_logs=NoopAgentLogRepository(),
+    )
 
 
 def _request(question: str, **overrides) -> AgentAskRequest:
@@ -123,3 +250,110 @@ def test_agent_sdk_failure_uses_plain_llm_fallback_for_course_facts(monkeypatch)
     assert response.classification["requires_evidence"] is False
     assert any(item["code"] == "agent_sdk_fallback" for item in response.guardrail_decisions)
     assert not any(item["code"] == "source_grounding" for item in response.guardrail_decisions)
+
+
+def test_rag_disabled_point_request_uses_fixed_point_evidence():
+    response = asyncio.run(
+        run_agent(
+            _request(
+                "请解释这个视频点位为什么会褪色。",
+                chapter_id="CH13",
+                experiment_id="EXP_TEST",
+                point_key=_FakeContentRepository.point_title,
+                allow_rag_lookup=False,
+            ),
+            repositories=_fake_repositories(),
+            settings=Settings(agent_llm_provider="disabled"),
+        )
+    )
+
+    point_context = response.rag_trace["point_context"]
+    assert response.mode == "point_context_local"
+    assert response.classification["resource_request"] is False
+    assert point_context["requested_point_key"] == _FakeContentRepository.point_title
+    assert point_context["point_key"] == _FakeContentRepository.point_key
+    assert point_context["resolved"] is True
+    assert point_context["question_count"] == 1
+    assert point_context["source_count"] == 1
+    assert response.sources[0].chunk_id == "chunk-point-1"
+    assert any(item["code"] == "point_context_fixed" for item in response.guardrail_decisions)
+    assert not any(call["name"] == "rag_search" for call in response.tool_calls)
+
+
+def test_resource_availability_miss_returns_unavailable_without_scope_refusal():
+    response = asyncio.run(
+        run_agent(
+            _request(
+                "这个实验有没有已发布的视频资源？",
+                chapter_id="CH13",
+                experiment_id="EXP_TEST",
+                allow_rag_lookup=False,
+            ),
+            repositories=_fake_repositories(),
+            settings=Settings(agent_llm_provider="disabled"),
+        )
+    )
+
+    assert response.mode == "local"
+    assert response.classification["resource_request"] is True
+    assert response.classification["in_course_scope"] is True
+    assert any(call["name"] == "published_resource_lookup" and call["result_count"] == 0 for call in response.tool_calls)
+    assert any(item["code"] == "no_fabricated_resource" for item in response.guardrail_decisions)
+    assert not any(item["code"] == "course_scope" for item in response.guardrail_decisions)
+    assert response.answer
+
+
+def test_policy_resource_false_positive_does_not_override_point_explanation(monkeypatch):
+    async def false_positive_policy_gate(context, settings):  # noqa: ANN001
+        return StudentAIPolicyDecision(
+            mode="needs_platform_evidence",
+            reason="mistook video point explanation for platform resource availability",
+            evidence_required=True,
+            allowed_tools=("published_resource_lookup", "rag_search", "curriculum_lookup"),
+        )
+
+    monkeypatch.setattr(agent_module, "_policy_gate_decision", false_positive_policy_gate)
+
+    response = asyncio.run(
+        run_agent(
+            _request(
+                "我正在看【19-1-01 氯、溴、碘的置换次序】里的【氯水 + KBr 溶液 + CCl4】这个视频点位。"
+                "请结合本实验的教材证据，解释这个点位要观察什么、现象说明什么，以及背后的化学原理。",
+                chapter_id="CH13",
+                allow_rag_lookup=False,
+            ),
+            repositories=_fake_repositories(),
+            settings=Settings(agent_llm_provider="disabled"),
+        )
+    )
+
+    assert response.classification["policy_decision_mode"] == "normal_answer"
+    assert response.classification["resource_request"] is False
+    assert response.classification["requires_evidence"] is False
+    assert not any(call["name"] == "published_resource_lookup" for call in response.tool_calls)
+    assert any(item["code"] == "policy_resource_veto" for item in response.guardrail_decisions)
+    assert not any(item["code"] == "no_fabricated_resource" for item in response.guardrail_decisions)
+
+
+def test_short_follow_up_policy_question_includes_recent_context():
+    request = _request(
+        "为什么？",
+        chapter_id="CH13",
+        experiment_id="EXP_TEST",
+        conversation_history=[
+            AgentChatMessage(role="user", content="高锰酸钾为什么有氧化性？"),
+            AgentChatMessage(role="assistant", content="因为锰处于高氧化态，容易接受电子。"),
+        ],
+    )
+    context = AgentRunContext(
+        request=request,
+        repositories=_fake_repositories(),
+        policy=AgentPolicy(source_path=None, source_excerpt="", course_scope=()),
+        classification=classify_agent_request(request),
+    )
+
+    resolved = agent_module._resolved_policy_question(context)
+
+    assert "为什么？" in resolved
+    assert "高锰酸钾为什么有氧化性？" in resolved
+    assert "锰处于高氧化态" in resolved

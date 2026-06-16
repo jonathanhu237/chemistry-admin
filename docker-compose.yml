@@ -34,11 +34,13 @@ services:
       RAG_BGE_SERVICE_URL: http://bge-rag:8010
       RAG_BGE_TIMEOUT_SECONDS: "60"
       RAG_RERANK_TOP_K: "9"
+      CHEMISTRY_RAG_ROOT: /chemistry-rag
     ports:
       - "8000:8000"
     volumes:
       - ./data/media:/app/data/media
       - ./apps/admin-web/dist:/app/apps/admin-web/dist:ro
+      - E:/chemistry-rag:/chemistry-rag:ro
     depends_on:
       postgres:
         condition: service_healthy
