@@ -93,7 +93,8 @@ Current extraction status:
 - Done: experiments and experiment media bindings -> `server/app/routers/admin_experiments.py`, `server/app/services/experiment_catalog_service.py`.
 - Done: question-bank CRUD/import/export -> `server/app/routers/admin_question_banks.py`, `server/app/services/question_bank_service.py`.
 - Done: question draft list/update/publish/reject -> `server/app/routers/admin_question_drafts.py`, `server/app/services/question_draft_service.py`.
-- Remaining: question generation `/api/admin/question-banks/generate`, question workbench sessions/candidates, point-aware suggestions, and shared question-generation helpers.
+- Done: shared question generation helpers -> `server/app/services/question_generation_service.py`.
+- Remaining: question generation `/api/admin/question-banks/generate`, question workbench sessions/candidates, and point-aware suggestions.
 
 Pydantic request models currently defined at the top of the file should move into `server/app/schemas/experiment_admin.py` or feature-specific schema modules before router extraction:
 
