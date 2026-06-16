@@ -4,13 +4,15 @@ import json
 
 import server.app.experiment_admin as experiment_admin_module
 from scripts.point_aware_question_bank import prepare_import_rows
+from server.app.experiment_admin_schemas import PointAwareSuggestionRequest
 from server.app.experiment_admin import (
-    PointAwareSuggestionRequest,
-    _local_point_aware_suggestions,
     _record_workbench_generation_failure,
     _workbench_candidate_validation_errors,
     _workbench_context,
     _question_snapshot,
+)
+from server.app.services.point_aware_question_service import (
+    _local_point_aware_suggestions,
     _with_point_aware_metadata,
 )
 from server.app.services.question_bank_service import _validate_question_payload

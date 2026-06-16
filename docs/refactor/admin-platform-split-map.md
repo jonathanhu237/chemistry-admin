@@ -79,9 +79,10 @@ Preserve these endpoint paths while extracting routers:
 | 642-901 | Experiments and experiment media bindings | `/api/admin/experiments*`, `/api/admin/experiment-videos` | `server/app/routers/admin_experiments.py` |
 | 2002-2027 | Learning resource overview/framework | `/api/admin/learning-resources/overview`, `/api/admin/experiment-knowledge-framework/overview` | `server/app/routers/admin_learning_resources.py` |
 | 2041-2456 | Question bank CRUD/import/export | `/api/admin/question-banks*` excluding workbench/generation | `server/app/routers/admin_question_banks.py` |
-| 2456-2968 | AI generation and point-aware suggestions helpers | generation source loading, local/OpenAI suggestion helpers | `server/app/services/question_generation_service.py` |
-| 2969-4118 | Question workbench sessions, turns, candidates | `/api/admin/question-banks/workbench-*` | `server/app/routers/admin_question_workbench.py` plus `services/question_workbench_service.py` |
-| 4295-4518 | Legacy draft generation endpoints | `/api/admin/question-banks/generate`, `/drafts*` | `server/app/routers/admin_question_drafts.py` |
+| Split | AI generation helpers | generation source loading and local/OpenAI draft helpers | `server/app/services/question_generation_service.py` |
+| Split | Point-aware suggestion endpoint and helpers | `/api/admin/question-banks/point-aware-suggestions` | `server/app/routers/admin_point_aware_questions.py` plus `server/app/services/point_aware_question_service.py` |
+| Current 787-1294 | Question workbench sessions, turns, candidates | `/api/admin/question-banks/workbench-*` | `server/app/routers/admin_question_workbench.py` plus `services/question_workbench_service.py` |
+| Split | Legacy draft generation endpoints | `/api/admin/question-banks/generate`, `/drafts*` | `server/app/routers/admin_question_generation.py`, `server/app/routers/admin_question_drafts.py` |
 | 4615 | Student submit API | `/api/experiment-questions/submit` | `server/app/routers/student_experiment_questions.py` |
 | 4832-5177 | Class analytics | `/api/admin/analytics/classes/*` | `server/app/routers/admin_analytics.py` |
 
@@ -95,7 +96,8 @@ Current extraction status:
 - Done: question draft list/update/publish/reject -> `server/app/routers/admin_question_drafts.py`, `server/app/services/question_draft_service.py`.
 - Done: shared question generation helpers -> `server/app/services/question_generation_service.py`.
 - Done: question generation `/api/admin/question-banks/generate` -> `server/app/routers/admin_question_generation.py`, `server/app/services/question_generation_service.py`.
-- Remaining: question workbench sessions/candidates and point-aware suggestions.
+- Done: point-aware suggestions `/api/admin/question-banks/point-aware-suggestions` -> `server/app/routers/admin_point_aware_questions.py`, `server/app/services/point_aware_question_service.py`.
+- Remaining: question workbench sessions/candidates.
 
 Pydantic request models currently defined at the top of the file should move into `server/app/schemas/experiment_admin.py` or feature-specific schema modules before router extraction:
 
@@ -114,7 +116,8 @@ Prefer service extraction before router moves when helper functions are shared b
 - `services/media_binding_service.py`: experiment video/resource bindings, media asset lookup and point resource operations.
 - `services/learning_resource_service.py`: resource dashboard stats, framework overview, chapter/unit/kp listing.
 - `services/question_bank_service.py`: question payload validation, bank CRUD, imports/exports, source ref attachment.
-- `services/question_generation_service.py`: local/OpenAI generation, point-aware metadata, source audit and option diagnostics.
+- `services/question_generation_service.py`: local/OpenAI generation, generation source loading, draft persistence.
+- `services/point_aware_question_service.py`: point-aware metadata, source audit, option diagnostics, and point-aware suggestion draft persistence.
 - `services/question_workbench_service.py`: RAG gate, session context, evidence package retrieval, turn/candidate lifecycle.
 - `services/analytics_service.py`: class dashboard, student report, weak points, exports.
 - `services/student_experiment_service.py`: submit answers, grade attempts, progress/events.
