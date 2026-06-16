@@ -18,7 +18,7 @@ if str(ROOT) not in sys.path:
 
 from server.app.database import apply_migrations, db_session
 
-DEFAULT_CHUNK_FILE = Path(r"E:\chemistry-rag\data\rag_ready\chunks\textbook_experiment_chunks_v1.jsonl")
+DEFAULT_CHUNK_FILE = ROOT / "data" / "seed" / "canonical_rag" / "chunks" / "textbook_experiment_chunks_v1.jsonl"
 DEFAULT_REPORT = ROOT / "artifacts" / "experiment_knowledge_framework_import_report.json"
 SOURCE_COLLECTION = "textbook_experiment_clean_v1"
 DOC_ID = "DOC_CANONICAL_EXPERIMENT_V1"

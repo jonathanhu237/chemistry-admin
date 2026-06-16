@@ -16,14 +16,7 @@ if str(ROOT) not in sys.path:
 
 from server.app.database import apply_migrations, db_session
 
-DEFAULT_EVIDENCE_PATH = (
-    ROOT
-    / "artifacts"
-    / "video-point-default-evidence"
-    / "gpu-rerank-direct-v2-20260616T1140Z"
-    / "manual-reviewed-from-start-20260616T2135Z"
-    / "manual_reviewed_point_evidence.jsonl"
-)
+DEFAULT_EVIDENCE_PATH = ROOT / "data" / "seed" / "point_evidence" / "manual_reviewed_point_evidence.jsonl"
 
 ALLOWED_GRADES = {"pass", "usable", "weak_but_best_available"}
 

@@ -1,0 +1,128 @@
+{
+  "generated_at": "2026-06-16T17:20:06.744103+00:00",
+  "manifest": "data/seed/manifests/core_resources.json",
+  "mode": "dry_run",
+  "media_cleanup": {
+    "path": "data/media",
+    "action": "requires_explicit_database_ui_consistency_plan",
+    "reason": "media_assets rows can point to local files, so media deletion is not automatic."
+  },
+  "summary": {
+    "target_count": 10,
+    "existing_target_count": 0,
+    "delete_file_count": 0,
+    "delete_size_bytes": 0
+  },
+  "targets": [
+    {
+      "path": "artifacts/point-aware-question-bank",
+      "source": "target",
+      "category": "historical_question_bank_review",
+      "reason": "Current point inventory, schema, and merged bank are protected in data/seed.",
+      "exists": false,
+      "kind": "file",
+      "file_count": 0,
+      "size_bytes": 0,
+      "action": "skip_missing"
+    },
+    {
+      "path": "artifacts/point-aware-question-demo",
+      "source": "target",
+      "category": "historical_question_bank_demo",
+      "reason": "Demo artifact is not part of the current production seed.",
+      "exists": false,
+      "kind": "file",
+      "file_count": 0,
+      "size_bytes": 0,
+      "action": "skip_missing"
+    },
+    {
+      "path": "artifacts/video-point-default-evidence",
+      "source": "target",
+      "category": "historical_point_evidence_generation",
+      "reason": "Final reviewed point evidence and run manifest are protected in data/seed.",
+      "exists": false,
+      "kind": "file",
+      "file_count": 0,
+      "size_bytes": 0,
+      "action": "skip_missing"
+    },
+    {
+      "path": "artifacts/playwright",
+      "source": "target",
+      "category": "generated_ui_verification_output",
+      "reason": "Playwright screenshots are generated verification output.",
+      "exists": false,
+      "kind": "file",
+      "file_count": 0,
+      "size_bytes": 0,
+      "action": "skip_missing"
+    },
+    {
+      "path": "artifacts/experiment_knowledge_framework_import_report.json",
+      "source": "target",
+      "category": "historical_import_report_copy",
+      "reason": "Current import report is protected in data/seed/import_reports.",
+      "exists": false,
+      "kind": "file",
+      "file_count": 0,
+      "size_bytes": 0,
+      "action": "skip_missing"
+    },
+    {
+      "path": ".tmp",
+      "source": "target",
+      "category": "local_temporary_output",
+      "reason": "Temporary validation and scratch output.",
+      "exists": false,
+      "kind": "file",
+      "file_count": 0,
+      "size_bytes": 0,
+      "action": "skip_missing"
+    },
+    {
+      "path": "logs",
+      "source": "target",
+      "category": "local_logs",
+      "reason": "Local runtime logs are not production seed resources.",
+      "exists": false,
+      "kind": "file",
+      "file_count": 0,
+      "size_bytes": 0,
+      "action": "skip_missing"
+    },
+    {
+      "path": ".pytest_cache",
+      "source": "target",
+      "category": "test_cache",
+      "reason": "Pytest cache is generated locally.",
+      "exists": false,
+      "kind": "file",
+      "file_count": 0,
+      "size_bytes": 0,
+      "action": "skip_missing"
+    },
+    {
+      "path": "apps/admin-web/dist",
+      "source": "target",
+      "category": "frontend_build_output",
+      "reason": "Vite build output is reproducible.",
+      "exists": false,
+      "kind": "file",
+      "file_count": 0,
+      "size_bytes": 0,
+      "action": "skip_missing"
+    },
+    {
+      "path": "apps/admin-web/node_modules",
+      "source": "target",
+      "category": "frontend_dependency_directory",
+      "reason": "Dependencies are restored from package-lock.json.",
+      "exists": false,
+      "kind": "file",
+      "file_count": 0,
+      "size_bytes": 0,
+      "action": "skip_missing"
+    }
+  ]
+}

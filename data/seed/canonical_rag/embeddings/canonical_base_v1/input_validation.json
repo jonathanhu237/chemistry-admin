@@ -1,0 +1,82 @@
+{
+  "ok": true,
+  "created_at": "2026-05-27T02:59:36+08:00",
+  "input_chunk_files": {
+    "main_textbook": "/mnt/e/chemistry-rag/data/rag_ready/chunks/textbook_inorganic_lower_chunks_v1.jsonl",
+    "experiment_textbook": "/mnt/e/chemistry-rag/data/rag_ready/chunks/textbook_experiment_chunks_v1.jsonl"
+  },
+  "input_kg_files": {
+    "main_nodes": "/mnt/e/chemistry-rag/data/rag_ready/kg/textbook_inorganic_lower_nodes_v1.jsonl",
+    "main_edges": "/mnt/e/chemistry-rag/data/rag_ready/kg/textbook_inorganic_lower_edges_v1.jsonl",
+    "experiment_nodes": "/mnt/e/chemistry-rag/data/rag_ready/kg/textbook_experiment_nodes_v1.jsonl",
+    "experiment_edges": "/mnt/e/chemistry-rag/data/rag_ready/kg/textbook_experiment_edges_v1.jsonl"
+  },
+  "chunk_count": 3637,
+  "chunk_count_by_input": {
+    "experiment_textbook": 349,
+    "main_textbook": 3288
+  },
+  "kg_counts": {
+    "main_nodes": 12548,
+    "main_edges": 41950,
+    "experiment_nodes": 262,
+    "experiment_edges": 391
+  },
+  "content_type_distribution": {
+    "apparatus": 64,
+    "appendix_reference": 30,
+    "comparison": 65,
+    "concept": 284,
+    "definition": 75,
+    "error_analysis": 13,
+    "experiment_protocol": 26,
+    "figure": 137,
+    "formula_math": 54,
+    "observation": 10,
+    "principle": 81,
+    "procedure": 300,
+    "procedure_step": 38,
+    "property": 96,
+    "property_test": 104,
+    "reaction": 604,
+    "reagent": 21,
+    "result_calculation": 15,
+    "safety_note": 13,
+    "table_context": 110,
+    "table_record": 1225,
+    "teaching_question_seed": 13,
+    "visual_numeric_record": 236,
+    "waste_disposal": 23
+  },
+  "source_role_distribution": {
+    "canonical_textbook": 3637
+  },
+  "authority_level_distribution": {
+    "primary": 3637
+  },
+  "source_collection_distribution": {
+    "textbook_experiment_clean_v1": 349,
+    "textbook_inorganic_lower_v1": 3288
+  },
+  "content_hash_summary_hash": "87075fdd42520bf3708761308e931fb42eb6344bd4938568f1d377c6d4060041",
+  "input_file_sha256": {
+    "data/rag_ready/chunks/textbook_inorganic_lower_chunks_v1.jsonl": "65fe5ed9c5b8772e1864de1a85576708e78e4e4bc8fa9efcab4e07f5c90eb061",
+    "data/rag_ready/chunks/textbook_experiment_chunks_v1.jsonl": "1d5324662bbf91ffee3189a32ef730e685d6252c7e7211350623c011df86b7a9",
+    "data/rag_ready/kg/textbook_inorganic_lower_nodes_v1.jsonl": "a7a05047fa00b109bbb4a5dde968b78a60a74960d846a33562e9dd618d419f8f",
+    "data/rag_ready/kg/textbook_inorganic_lower_edges_v1.jsonl": "8a11cd20750c7e894060ff2b06bf2a7274b8bdbf31f60c268f2760b5fa6aecf1",
+    "data/rag_ready/kg/textbook_experiment_nodes_v1.jsonl": "a3e69ab8b8c90f8a2539845e536c610442e7590ca488bea1a68a3915106730e1",
+    "data/rag_ready/kg/textbook_experiment_edges_v1.jsonl": "822f28ac725b60d1e613e9094072048e208e731b41b5013b277e0b634ef6ff23"
+  },
+  "empty_clean_text_count": 0,
+  "duplicate_chunk_ids": [],
+  "missing_content_hash_count": 0,
+  "accepted_risks": {
+    "safety_note_missing": 7,
+    "waste_disposal_missing": 7
+  },
+  "teaching_aid_or_auxiliary_contamination": [],
+  "blocking_issue_count": 0,
+  "issues": [],
+  "no_qdrant_ingestion": true,
+  "qdrant_ingested": false
+}
