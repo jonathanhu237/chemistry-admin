@@ -15,6 +15,7 @@ from server.app.database import check_database_connection
 from server.app.experiment_admin import admin_router as experiment_admin_router
 from server.app.repositories import get_repositories
 from server.app.routers.admin_analytics import router as admin_analytics_router
+from server.app.routers.admin_experiments import router as admin_experiments_router
 from server.app.routers.admin_learning_resources import router as admin_learning_resources_router
 from server.app.routers.student_experiment_questions import router as student_experiment_questions_router
 
@@ -42,6 +43,7 @@ app.include_router(auth_router)
 app.include_router(admin_router)
 app.include_router(experiment_admin_router)
 app.include_router(admin_analytics_router)
+app.include_router(admin_experiments_router)
 app.include_router(admin_learning_resources_router)
 app.include_router(student_experiment_questions_router)
 
