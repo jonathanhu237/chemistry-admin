@@ -85,6 +85,14 @@ Preserve these endpoint paths while extracting routers:
 | 4615 | Student submit API | `/api/experiment-questions/submit` | `server/app/routers/student_experiment_questions.py` |
 | 4832-5177 | Class analytics | `/api/admin/analytics/classes/*` | `server/app/routers/admin_analytics.py` |
 
+Current extraction status:
+
+- Done: student submissions -> `server/app/routers/student_experiment_questions.py`, `server/app/services/student_experiment_service.py`.
+- Done: learning resource overview/framework -> `server/app/routers/admin_learning_resources.py`, `server/app/services/learning_resource_service.py`.
+- Done: class analytics -> `server/app/routers/admin_analytics.py`, `server/app/services/analytics_service.py`.
+- Done: experiments and experiment media bindings -> `server/app/routers/admin_experiments.py`, `server/app/services/experiment_catalog_service.py`.
+- Remaining: question-bank CRUD/import/export, question workbench sessions/candidates, point-aware suggestions, legacy draft generation, and shared question-generation helpers.
+
 Pydantic request models currently defined at the top of the file should move into `server/app/schemas/experiment_admin.py` or feature-specific schema modules before router extraction:
 
 - `ExperimentCreateRequest`, `ExperimentUpdateRequest`, `ExperimentChapterBinding`
