@@ -9,7 +9,7 @@ from fastapi.staticfiles import StaticFiles
 
 from server.app.admin import router as admin_router
 from server.app.auth import AuthUser, LoginResponse
-from server.app.auth import change_password, login, logout, me
+from server.app.auth import change_password, change_student_password, login, logout, me, student_login
 from server.app.config import get_settings
 from server.app.database import check_database_connection
 from server.app.experiment_admin import admin_router as experiment_admin_router
@@ -31,9 +31,11 @@ app.add_middleware(
 
 auth_router = APIRouter(prefix="/api/auth", tags=["auth"])
 auth_router.post("/login", response_model=LoginResponse)(login)
+auth_router.post("/student/login", response_model=LoginResponse)(student_login)
 auth_router.get("/me", response_model=AuthUser)(me)
 auth_router.post("/logout")(logout)
 auth_router.post("/password")(change_password)
+auth_router.post("/student/password", response_model=LoginResponse)(change_student_password)
 
 app.include_router(auth_router)
 app.include_router(admin_router)
@@ -44,6 +46,13 @@ if (settings.admin_web_dist / "assets").exists():
         "/admin/assets",
         StaticFiles(directory=settings.admin_web_dist / "assets"),
         name="admin-assets",
+    )
+
+if (settings.student_web_dist / "assets").exists():
+    app.mount(
+        "/assets",
+        StaticFiles(directory=settings.student_web_dist / "assets"),
+        name="student-assets",
     )
 
 
@@ -69,9 +78,11 @@ async def admin_logo() -> FileResponse:
 
 @app.get("/favicon.ico", include_in_schema=False)
 async def favicon() -> FileResponse:
-    logo_path = settings.admin_web_dist / "sysu-logo.svg"
+    logo_path = settings.student_web_dist / "sysu-logo.svg"
     if not logo_path.exists():
-        raise HTTPException(status_code=404, detail="Admin logo has not been built")
+        logo_path = settings.admin_web_dist / "sysu-logo.svg"
+    if not logo_path.exists():
+        raise HTTPException(status_code=404, detail="Frontend logo has not been built")
     return FileResponse(logo_path, media_type="image/svg+xml")
 
 
@@ -113,3 +124,14 @@ def _chapter_summary(chapter: dict[str, Any]) -> dict[str, Any]:
 @app.get("/api/chapters")
 async def api_chapters() -> list[dict[str, Any]]:
     return [_chapter_summary(chapter) for chapter in repositories.content.chapters()]
+
+
+@app.get("/", include_in_schema=False)
+@app.get("/{full_path:path}", include_in_schema=False)
+async def student_web(full_path: str = "") -> FileResponse:
+    if full_path.startswith(("api/", "admin/", "assets/")) or full_path in {"api", "admin", "assets"}:
+        raise HTTPException(status_code=404, detail="Not found")
+    index_path = settings.student_web_dist / "index.html"
+    if not index_path.exists():
+        raise HTTPException(status_code=404, detail="Student web has not been built")
+    return FileResponse(index_path)
