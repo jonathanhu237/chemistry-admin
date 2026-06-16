@@ -13,7 +13,7 @@ Current shell and route components:
 | 281 | `App` | top-level router | `src/app/App.tsx` |
 | 343 | `LoginPage` | `/login` | `src/pages/LoginPage.tsx` |
 | 408 | `ProtectedShell` | authenticated layout | `src/app/ProtectedShell.tsx` |
-| 1561 | `LearningResourcesPage` | `/overview` | `src/features/resources/LearningResourcesPage.tsx` |
+| Split | `LearningResourcesPage` | `/overview` | `src/features/resources/LearningResourcesPage.tsx` |
 | 1744 | `ClassesPage` | `/classes` | `src/features/classes/ClassesPage.tsx` |
 | 2349 | `ExperimentsPage` | `/experiments` | `src/features/experiments/ExperimentsPage.tsx` |
 | 3467 | `VideoResourcesPage` | `/videos` | `src/features/media/VideoResourcesPage.tsx` |
@@ -79,7 +79,9 @@ Current frontend extraction status:
 - Done: learning-assistant runtime format helpers -> `src/features/learning-assistant/runtimeFormat.ts`, shared by learning assistant diagnostics and AI config.
 - Done: analytics page -> `src/features/analytics/AnalyticsPage.tsx`, lazy-loaded from the `/analytics` route.
 - Done: shared status/diagnostic display helpers -> `src/lib/status.tsx`, used by analytics and remaining legacy pages.
-- Remaining: overview/resources, classes/students, experiments, videos/media, question bank, learning assistant, and broader global CSS split.
+- Done: resource overview page -> `src/features/resources/LearningResourcesPage.tsx`, lazy-loaded from the `/overview` route.
+- Done: resource/media display helpers -> `src/features/resources/resourceUtils.ts`, shared by resource overview and remaining legacy experiment/media pages.
+- Remaining: classes/students, experiments, videos/media, question bank, learning assistant, and broader global CSS split.
 
 ## Backend Endpoint Map
 
