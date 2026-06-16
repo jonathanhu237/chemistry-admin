@@ -17,7 +17,7 @@ Current shell and route components:
 | Split | `ClassesPage` | `/classes` | `src/features/classes/ClassesPage.tsx` |
 | Split | `ExperimentsPage` | `/experiments` | `src/features/experiments/ExperimentsPage.tsx` |
 | Split | `VideoResourcesPage` | `/videos` | `src/features/media/VideoResourcesPage.tsx` |
-| 4585 | `QuestionBanksPage` | `/question-banks` | `src/features/question-bank/QuestionBanksPage.tsx` |
+| Split | `QuestionBanksPage` | `/question-banks` | `src/features/question-bank/QuestionBanksPage.tsx` |
 | Split | `AnalyticsPage` | `/analytics` | `src/features/analytics/AnalyticsPage.tsx` |
 | Split | `FeedbackPage` | `/feedback` | `src/features/feedback/FeedbackPage.tsx` |
 | 6955 | `LearningAssistantPage` | `/learning-assistant` | `src/features/learning-assistant/LearningAssistantPage.tsx` |
@@ -87,7 +87,8 @@ Current frontend extraction status:
 - Done: shared authenticated image loader -> `src/components/AuthenticatedImage.tsx`, reused by media and remaining experiment pages.
 - Done: experiments page -> `src/features/experiments/ExperimentsPage.tsx`, lazy-loaded from the `/experiments` route.
 - Done: shared experiment hooks -> `src/features/experiments/experimentHooks.ts`, reused by experiments and remaining learning-assistant code.
-- Remaining: question bank, learning assistant, and broader global CSS split.
+- Done: question bank page and AI workbench UI -> `src/features/question-bank/QuestionBanksPage.tsx`, lazy-loaded from the `/question-banks` route.
+- Remaining: learning assistant and broader global CSS split.
 
 ## Backend Endpoint Map
 
