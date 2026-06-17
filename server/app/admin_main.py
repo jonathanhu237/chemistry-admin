@@ -12,8 +12,16 @@ from server.app.auth import AuthUser, LoginResponse
 from server.app.auth import change_password, change_student_password, login, logout, me, student_login
 from server.app.config import get_settings
 from server.app.database import check_database_connection
-from server.app.experiment_admin import admin_router as experiment_admin_router
 from server.app.repositories import get_repositories
+from server.app.routers.admin_analytics import router as admin_analytics_router
+from server.app.routers.admin_experiments import router as admin_experiments_router
+from server.app.routers.admin_learning_resources import router as admin_learning_resources_router
+from server.app.routers.admin_question_banks import router as admin_question_banks_router
+from server.app.routers.admin_question_drafts import router as admin_question_drafts_router
+from server.app.routers.admin_question_generation import router as admin_question_generation_router
+from server.app.routers.admin_question_workbench import router as admin_question_workbench_router
+from server.app.routers.admin_point_aware_questions import router as admin_point_aware_questions_router
+from server.app.routers.student_experiment_questions import router as student_experiment_questions_router
 
 
 settings = get_settings()
@@ -39,7 +47,15 @@ auth_router.post("/student/password", response_model=LoginResponse)(change_stude
 
 app.include_router(auth_router)
 app.include_router(admin_router)
-app.include_router(experiment_admin_router)
+app.include_router(admin_analytics_router)
+app.include_router(admin_experiments_router)
+app.include_router(admin_learning_resources_router)
+app.include_router(admin_question_banks_router)
+app.include_router(admin_question_drafts_router)
+app.include_router(admin_question_generation_router)
+app.include_router(admin_question_workbench_router)
+app.include_router(admin_point_aware_questions_router)
+app.include_router(student_experiment_questions_router)
 
 if (settings.admin_web_dist / "assets").exists():
     app.mount(

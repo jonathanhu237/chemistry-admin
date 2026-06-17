@@ -17,11 +17,12 @@ if str(ROOT) not in sys.path:
 
 from server.app.database import apply_migrations, db_session
 
+SEED_RAG_DIR = ROOT / "data" / "seed" / "canonical_rag"
 DEFAULT_CHUNK_FILES = [
-    Path(r"E:\chemistry-rag\data\rag_ready\chunks\textbook_inorganic_lower_chunks_v1.jsonl"),
-    Path(r"E:\chemistry-rag\data\rag_ready\chunks\textbook_experiment_chunks_v1.jsonl"),
+    SEED_RAG_DIR / "chunks" / "textbook_inorganic_lower_chunks_v1.jsonl",
+    SEED_RAG_DIR / "chunks" / "textbook_experiment_chunks_v1.jsonl",
 ]
-DEFAULT_EMBEDDING_DIR = Path(r"E:\chemistry-rag\data\rag_ready\embeddings\canonical_base_v1")
+DEFAULT_EMBEDDING_DIR = SEED_RAG_DIR / "embeddings" / "canonical_base_v1"
 EMBEDDING_MODEL = "BAAI/bge-m3"
 EMBEDDING_DIMENSION = 1024
 
@@ -29,14 +30,14 @@ SOURCE_DOCUMENTS = {
     "textbook_inorganic_lower_v1": {
         "id": "DOC_CANONICAL_INORGANIC_LOWER_V1",
         "file_name": "无机化学（下册）（第二版）",
-        "path": r"E:\chemistry-rag\data\rag_ready\chunks\textbook_inorganic_lower_chunks_v1.jsonl",
+        "path": str(SEED_RAG_DIR / "chunks" / "textbook_inorganic_lower_chunks_v1.jsonl"),
         "type": "jsonl",
         "document_kind": "canonical_textbook",
     },
     "textbook_experiment_clean_v1": {
         "id": "DOC_CANONICAL_EXPERIMENT_V1",
         "file_name": "无机化学实验（第四版）",
-        "path": r"E:\chemistry-rag\data\rag_ready\chunks\textbook_experiment_chunks_v1.jsonl",
+        "path": str(SEED_RAG_DIR / "chunks" / "textbook_experiment_chunks_v1.jsonl"),
         "type": "jsonl",
         "document_kind": "canonical_textbook",
     },

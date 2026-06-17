@@ -1,0 +1,60 @@
+{
+  "ok": true,
+  "created_at": "2026-05-27T03:03:05+08:00",
+  "chunk_count": 3637,
+  "dense_shape": [
+    3637,
+    1024
+  ],
+  "dense_dtype": "float32",
+  "dense_dimension_consistent": true,
+  "dense_nan_count": 0,
+  "dense_inf_count": 0,
+  "empty_text_count": 0,
+  "failure_count": 0,
+  "duplicate_chunk_id_count": 0,
+  "success_by_content_type": {
+    "apparatus": 64,
+    "appendix_reference": 30,
+    "comparison": 65,
+    "concept": 284,
+    "definition": 75,
+    "error_analysis": 13,
+    "experiment_protocol": 26,
+    "figure": 137,
+    "formula_math": 54,
+    "observation": 10,
+    "principle": 81,
+    "procedure": 300,
+    "procedure_step": 38,
+    "property": 96,
+    "property_test": 104,
+    "reaction": 604,
+    "reagent": 21,
+    "result_calculation": 15,
+    "safety_note": 13,
+    "table_context": 110,
+    "table_record": 1225,
+    "teaching_question_seed": 13,
+    "visual_numeric_record": 236,
+    "waste_disposal": 23
+  },
+  "source_role_distribution": {
+    "canonical_textbook": 3637
+  },
+  "accepted_risks": {
+    "safety_note_missing": 7,
+    "waste_disposal_missing": 7
+  },
+  "text_length_stats": {
+    "min": 2,
+    "max": 2048,
+    "mean": 196.49656310145724
+  },
+  "sparse_available": true,
+  "sparse_written": true,
+  "multivector_available": true,
+  "multivector_written": false,
+  "no_qdrant_ingestion": true,
+  "qdrant_ingested": false
+}

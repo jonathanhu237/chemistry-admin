@@ -17,11 +17,9 @@ if str(ROOT) not in sys.path:
 
 from server.app.database import apply_migrations, db_session
 from server.app.canonical_evidence import missing_canonical_chunk_ids, resolve_source_refs
-from server.app.experiment_admin import _validate_question_payload
+from server.app.services.question_bank_service import _validate_question_payload
 
-DEFAULT_BANK_PATH = Path(
-    r"E:\chemistry-rag\data\generated\experiment_question_bank_v1\experiment_question_bank_v1.json"
-)
+LEGACY_BANK_PATH = Path(r"E:\chemistry-rag\data\generated\experiment_question_bank_v1\experiment_question_bank_v1.json")
 FORBIDDEN_ALIAS_NAME = "experiment_question_bank_v1_with_ascii_aliases.json"
 EXPECTED_SHA256 = "09648686fa90998c4e0965b1cdd7b18b6246f91ebc5617b998cfaa8b3b2b88bd"
 EXPECTED_TOTAL = 2310
@@ -402,10 +400,22 @@ def update_experiment_evidence_coverage(session: Any, rows: list[dict[str, Any]]
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Import the reviewed offline experiment question bank.")
-    parser.add_argument("--file", type=Path, default=DEFAULT_BANK_PATH)
+    parser = argparse.ArgumentParser(
+        description=(
+            "Import the legacy flat offline experiment question bank. "
+            "Current production point-aware imports use scripts/point_aware_question_bank.py import."
+        )
+    )
+    parser.add_argument("--file", type=Path)
     parser.add_argument("--skip-migrations", action="store_true")
     args = parser.parse_args()
+
+    if args.file is None:
+        raise SystemExit(
+            "This legacy importer no longer has a default file. "
+            "Pass --file explicitly, or use scripts/point_aware_question_bank.py import for the production seed bank. "
+            f"Previous legacy path was: {LEGACY_BANK_PATH}"
+        )
 
     if not args.skip_migrations:
         apply_migrations()

@@ -18,16 +18,19 @@ if str(ROOT) not in sys.path:
 
 from server.app.canonical_evidence import resolve_source_refs
 from server.app.database import apply_migrations, db_session
-from server.app.experiment_admin import _candidate_point_key, _validate_question_payload, _video_candidates
+from server.app.services.experiment_catalog_service import _candidate_point_key, _video_candidates
+from server.app.services.question_bank_service import _validate_question_payload
 
 ARTIFACT_DIR = ROOT / "artifacts" / "point-aware-question-bank"
-DEFAULT_INVENTORY = ARTIFACT_DIR / "formal_experiment_point_inventory.json"
+SEED_DIR = ROOT / "data" / "seed"
+DEFAULT_INVENTORY = SEED_DIR / "experiment_points" / "formal_experiment_point_inventory.json"
 DEFAULT_INVENTORY_AUDIT = ARTIFACT_DIR / "formal_experiment_point_inventory_audit.md"
-DEFAULT_SCHEMA = ARTIFACT_DIR / "point_aware_question_bank_schema.json"
+DEFAULT_SCHEMA = SEED_DIR / "question_bank" / "point_aware_question_bank_schema.json"
 DEFAULT_VALIDATION_REPORT = ARTIFACT_DIR / "point_aware_question_bank_validation_report.json"
 DEFAULT_SCAFFOLD = ARTIFACT_DIR / "full_candidate_scaffold_v1.json"
 DEFAULT_SCAFFOLD_REPORT = ARTIFACT_DIR / "full_candidate_scaffold_v1_review.md"
 DEFAULT_REVIEWED_CHUNKS_DIR = ARTIFACT_DIR / "reviewed_old_bank_chunks"
+DEFAULT_RELEASE_BANK = SEED_DIR / "question_bank" / "rebuilt_question_bank_merged_v1.json"
 DEFAULT_REVIEWED_MERGED = DEFAULT_REVIEWED_CHUNKS_DIR / "reviewed_old_bank_merged_v1.json"
 DEFAULT_REVIEWED_MERGE_REPORT = DEFAULT_REVIEWED_CHUNKS_DIR / "reviewed_old_bank_merged_v1_report.md"
 DEFAULT_REVIEWED_MERGE_VALIDATION_REPORT = DEFAULT_REVIEWED_CHUNKS_DIR / "reviewed_old_bank_merged_v1_validation_report.json"
@@ -1683,7 +1686,7 @@ def main() -> None:
     inventory_parser.add_argument("--schema", type=Path, default=DEFAULT_SCHEMA)
 
     validate_parser = subparsers.add_parser("validate", help="Validate a point-aware question bank artifact.")
-    validate_parser.add_argument("--file", type=Path, required=True)
+    validate_parser.add_argument("--file", type=Path, default=DEFAULT_RELEASE_BANK)
     validate_parser.add_argument("--inventory", type=Path, default=DEFAULT_INVENTORY)
     validate_parser.add_argument("--report", type=Path, default=DEFAULT_VALIDATION_REPORT)
 
@@ -1701,7 +1704,7 @@ def main() -> None:
     merge_parser.add_argument("--import-report", type=Path, default=DEFAULT_REVIEWED_MERGE_IMPORT_REPORT)
 
     import_parser = subparsers.add_parser("import", help="Validate and import a point-aware artifact into question banks.")
-    import_parser.add_argument("--file", type=Path, required=True)
+    import_parser.add_argument("--file", type=Path, default=DEFAULT_RELEASE_BANK)
     import_parser.add_argument("--inventory", type=Path, default=DEFAULT_INVENTORY)
     import_parser.add_argument("--bank-kind", choices=["generated", "default", "manual"], default="generated")
     import_parser.add_argument("--bank-status", choices=["draft", "published", "archived", "disabled"], default="draft")

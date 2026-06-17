@@ -1,0 +1,26 @@
+# Production Seed Resources
+
+This directory contains the protected current-system resources for the chemistry admin platform. It is intentionally separate from historical `artifacts/` output so cleanup and refactor work has a stable source of truth.
+
+Protected resource groups:
+
+- `formal_experiments.json`: 77 current formal experiments.
+- `knowledge_framework/`: 11 chapters, 133 knowledge units, 385 knowledge points, plus the reviewed curriculum source used to publish them.
+- `experiment_points/`: 77 experiments and 300 current experiment points.
+- `question_bank/`: the current reviewed point-aware question bank with 2310 questions and its schema.
+- `point_evidence/`: the manually reviewed 300 point-to-canonical-chunk evidence bindings. The original path includes `video-point-default-evidence`, but the final reviewed JSONL is core learning evidence, not disposable video output.
+- `canonical_rag/`: mirrored canonical chunks and embeddings from `E:/chemistry-rag/data/rag_ready`, including 3637 chunks/embeddings.
+- `import_reports/`: current import/validation reports retained for auditability.
+- `manifests/core_resources.json`: count, size, and SHA256 manifest used as the cleanup guard.
+
+Run this before cleanup or refactor work that touches resources:
+
+```bash
+python scripts/validate_production_resources.py
+```
+
+Regenerate the manifest only after intentionally replacing the protected seed resources:
+
+```bash
+python scripts/validate_production_resources.py --write-manifest
+```
