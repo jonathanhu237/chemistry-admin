@@ -69,6 +69,15 @@ export type FeedbackStatus = "open" | "in_progress" | "resolved" | "archived";
 
 export type FeedbackType = "course_content" | "experiment_resource" | "ai_answer" | "system_issue" | "other";
 
+export type FeedbackAttachmentItem = {
+  id: string;
+  feedback_id: string;
+  original_file_name?: string | null;
+  mime_type: string;
+  file_size_bytes: number;
+  created_at?: string | null;
+};
+
 export type FeedbackItem = {
   id: string;
   student_id: string;
@@ -88,6 +97,8 @@ export type FeedbackItem = {
   handler_display_name?: string | null;
   internal_note?: string | null;
   metadata?: Record<string, unknown>;
+  attachment_count?: number;
+  attachments?: FeedbackAttachmentItem[];
   resolved_at?: string | null;
   created_at?: string | null;
   updated_at?: string | null;

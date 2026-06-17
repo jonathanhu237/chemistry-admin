@@ -30,6 +30,7 @@ from server.app.routers.admin_question_workbench import router as admin_question
 from server.app.routers.admin_point_aware_questions import router as admin_point_aware_questions_router
 from server.app.routers.student_experiment_questions import router as student_experiment_questions_router
 from server.app.routers.student_assistant import router as student_assistant_router
+from server.app.routers.student_feedback import router as student_feedback_router
 from server.app.routers.student_learning import router as student_learning_router
 from server.app.routers.student_posttest import router as student_posttest_router
 from server.app.routers.student_pretest import router as student_pretest_router
@@ -82,6 +83,7 @@ app.include_router(admin_question_workbench_router)
 app.include_router(admin_point_aware_questions_router)
 app.include_router(student_experiment_questions_router)
 app.include_router(student_assistant_router)
+app.include_router(student_feedback_router)
 app.include_router(student_learning_router)
 app.include_router(student_posttest_router)
 app.include_router(student_pretest_router)

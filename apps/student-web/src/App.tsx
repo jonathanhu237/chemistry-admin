@@ -58,6 +58,8 @@ import {
   submitStudentPosttest,
   submitStudentPretest,
 } from "./api";
+import { PageFeedback } from "./components/PageFeedback";
+import type { PageFeedbackContext } from "./components/PageFeedback";
 import { periodicElements } from "./periodic";
 
 type ViewState = "checking" | "login" | "password" | "pretest-loading" | "pretest-error" | "pretest" | "home";
@@ -255,13 +257,25 @@ function App() {
       {view === "pretest-loading" ? <LoadingPanel text="正在准备课前摸底" /> : null}
       {view === "pretest-error" ? <PretestErrorPanel message={pretestError} onLogout={handleLogout} /> : null}
       {view === "pretest" && pretest ? (
-        <AssessmentPanel
-          eyebrow="课前摸底"
-          title="请完成以下题目"
-          questions={pretest.questions}
-          submitting={pretestLoading}
-          onSubmit={handlePretestSubmit}
-        />
+        <>
+          <AssessmentPanel
+            eyebrow="课前摸底"
+            title="请完成以下题目"
+            questions={pretest.questions}
+            submitting={pretestLoading}
+            onSubmit={handlePretestSubmit}
+          />
+          {user ? (
+            <PageFeedback
+              user={user}
+              context={{
+                pageType: "pretest",
+                pageTitle: "课前摸底",
+                context: { stage: pretest.stage, question_count: pretest.questions.length },
+              }}
+            />
+          ) : null}
+        </>
       ) : null}
       {view === "home" && user ? <LearningSurface user={user} onLogout={handleLogout} /> : null}
     </main>
@@ -553,6 +567,51 @@ function LearningSurface({ user, onLogout }: { user: AuthUser; onLogout: () => v
   const [posttestSubmitting, setPosttestSubmitting] = useState(false);
   const [posttestError, setPosttestError] = useState("");
 
+  const feedbackContext = useMemo<PageFeedbackContext>(() => {
+    if (route.screen === "group") {
+      return {
+        pageType: "experiment_group",
+        pageTitle: `实验组 ${route.parentCode}`,
+        context: { parent_code: route.parentCode },
+      };
+    }
+    if (route.screen === "experiment") {
+      return {
+        pageType: "experiment_detail",
+        pageTitle: "实验详情",
+        experimentId: route.experimentId,
+        context: { parent_code: route.parentCode, experiment_id: route.experimentId },
+      };
+    }
+    if (route.screen === "posttest") {
+      return {
+        pageType: "posttest",
+        pageTitle: "学习后测",
+        context: {
+          session_id: route.posttest.session_id,
+          experiment_ids: route.posttest.experiments.map((experiment) => experiment.id),
+          question_count: route.posttest.questions.length,
+        },
+      };
+    }
+    if (route.screen === "summary") {
+      return {
+        pageType: "posttest_report",
+        pageTitle: "实验报告",
+        context: {
+          session_id: route.report.session_id,
+          experiment_ids: route.report.experiments.map((experiment) => experiment.id),
+          score: route.report.score,
+        },
+      };
+    }
+    return {
+      pageType: "learning_home",
+      pageTitle: "学习首页",
+      context: { screen: "home" },
+    };
+  }, [route]);
+
   const finishLearning = async () => {
     setPosttestLoading(true);
     setPosttestError("");
@@ -584,53 +643,70 @@ function LearningSurface({ user, onLogout }: { user: AuthUser; onLogout: () => v
 
   if (route.screen === "group") {
     return (
-      <ExperimentGroupPanel
-        parentCode={route.parentCode}
-        onBack={() => setRoute({ screen: "home" })}
-        onSelectExperiment={(experimentId) => setRoute({ screen: "experiment", parentCode: route.parentCode, experimentId })}
-        onFinishLearning={finishLearning}
-        finishing={posttestLoading}
-        finishError={posttestError}
-      />
+      <>
+        <ExperimentGroupPanel
+          parentCode={route.parentCode}
+          onBack={() => setRoute({ screen: "home" })}
+          onSelectExperiment={(experimentId) => setRoute({ screen: "experiment", parentCode: route.parentCode, experimentId })}
+          onFinishLearning={finishLearning}
+          finishing={posttestLoading}
+          finishError={posttestError}
+        />
+        <PageFeedback user={user} context={feedbackContext} />
+      </>
     );
   }
 
   if (route.screen === "experiment") {
     return (
-      <ExperimentDetailPanel
-        experimentId={route.experimentId}
-        onBack={() => setRoute({ screen: "group", parentCode: route.parentCode })}
-        onFinishLearning={finishLearning}
-        finishing={posttestLoading}
-        finishError={posttestError}
-      />
+      <>
+        <ExperimentDetailPanel
+          experimentId={route.experimentId}
+          onBack={() => setRoute({ screen: "group", parentCode: route.parentCode })}
+          onFinishLearning={finishLearning}
+          finishing={posttestLoading}
+          finishError={posttestError}
+        />
+        <PageFeedback user={user} context={feedbackContext} />
+      </>
     );
   }
 
   if (route.screen === "posttest") {
     return (
-      <PosttestPanel
-        posttest={route.posttest}
-        submitting={posttestSubmitting}
-        error={posttestError}
-        onSubmit={(answers) => submitPosttest(route.posttest, answers)}
-      />
+      <>
+        <PosttestPanel
+          posttest={route.posttest}
+          submitting={posttestSubmitting}
+          error={posttestError}
+          onSubmit={(answers) => submitPosttest(route.posttest, answers)}
+        />
+        <PageFeedback user={user} context={feedbackContext} />
+      </>
     );
   }
 
   if (route.screen === "summary") {
-    return <PosttestSummaryPanel report={route.report} onContinue={() => setRoute({ screen: "home" })} />;
+    return (
+      <>
+        <PosttestSummaryPanel report={route.report} onContinue={() => setRoute({ screen: "home" })} />
+        <PageFeedback user={user} context={feedbackContext} />
+      </>
+    );
   }
 
   return (
-    <LearningHomePanel
-      user={user}
-      onLogout={onLogout}
-      onEnterGroup={(parentCode) => setRoute({ screen: "group", parentCode })}
-      onFinishLearning={finishLearning}
-      finishing={posttestLoading}
-      finishError={posttestError}
-    />
+    <>
+      <LearningHomePanel
+        user={user}
+        onLogout={onLogout}
+        onEnterGroup={(parentCode) => setRoute({ screen: "group", parentCode })}
+        onFinishLearning={finishLearning}
+        finishing={posttestLoading}
+        finishError={posttestError}
+      />
+      <PageFeedback user={user} context={feedbackContext} />
+    </>
   );
 }
 

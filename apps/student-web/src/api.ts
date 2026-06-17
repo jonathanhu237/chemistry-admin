@@ -210,6 +210,26 @@ export type StudentAssistantGeneratedResponse = {
   cached: boolean;
 };
 
+export type StudentFeedbackType = "system_issue" | "course_content" | "experiment_resource" | "ai_answer" | "other";
+
+export type StudentFeedbackSubmit = {
+  feedback_type: StudentFeedbackType;
+  content: string;
+  page_path?: string | null;
+  chapter_id?: string | null;
+  unit_id?: string | null;
+  knowledge_point_id?: string | null;
+  experiment_id?: string | null;
+  metadata?: Record<string, unknown>;
+  attachment?: File | null;
+};
+
+export type StudentFeedbackSubmitResponse = {
+  id: string;
+  status: string;
+  attachment_count: number;
+};
+
 export type StudentAssistantStreamEvent =
   | { event: "status"; message?: string }
   | { event: "delta"; delta?: string }
@@ -293,6 +313,11 @@ async function api<T>(path: string, options: RequestInit = {}): Promise<T> {
 
 function postJson<T>(path: string, body: unknown): Promise<T> {
   return api<T>(path, { method: "POST", body: JSON.stringify(body) });
+}
+
+function appendOptionalFormValue(formData: FormData, key: string, value: unknown): void {
+  const text = String(value || "").trim();
+  if (text) formData.append(key, text);
 }
 
 function parseSseBlock(block: string): StudentAssistantStreamEvent | null {
@@ -418,6 +443,20 @@ export function explainPosttestMistakes(sessionId: string): Promise<StudentAssis
   return postJson<StudentAssistantGeneratedResponse>("/api/student/assistant/posttest-mistakes", {
     session_id: sessionId,
   });
+}
+
+export function submitStudentFeedback(payload: StudentFeedbackSubmit): Promise<StudentFeedbackSubmitResponse> {
+  const formData = new FormData();
+  formData.append("feedback_type", payload.feedback_type);
+  formData.append("content", payload.content);
+  appendOptionalFormValue(formData, "page_path", payload.page_path);
+  appendOptionalFormValue(formData, "chapter_id", payload.chapter_id);
+  appendOptionalFormValue(formData, "unit_id", payload.unit_id);
+  appendOptionalFormValue(formData, "knowledge_point_id", payload.knowledge_point_id);
+  appendOptionalFormValue(formData, "experiment_id", payload.experiment_id);
+  if (payload.metadata) formData.append("metadata", JSON.stringify(payload.metadata));
+  if (payload.attachment) formData.append("attachment", payload.attachment);
+  return api<StudentFeedbackSubmitResponse>("/api/student/feedback", { method: "POST", body: formData });
 }
 
 export function studentMediaUrl(path: string): string {

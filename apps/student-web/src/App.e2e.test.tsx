@@ -32,6 +32,7 @@ const apiMocks = vi.hoisted(() => ({
   generatePosttestAiSummary: vi.fn(),
   explainPosttestMistakes: vi.fn(),
   streamStudentAssistantAsk: vi.fn(),
+  submitStudentFeedback: vi.fn(),
 }));
 
 vi.mock("./api", () => ({
@@ -53,6 +54,7 @@ vi.mock("./api", () => ({
   generatePosttestAiSummary: apiMocks.generatePosttestAiSummary,
   explainPosttestMistakes: apiMocks.explainPosttestMistakes,
   streamStudentAssistantAsk: apiMocks.streamStudentAssistantAsk,
+  submitStudentFeedback: apiMocks.submitStudentFeedback,
   studentMediaUrl: (path: string) => path,
   errorMessage: (error: unknown) => (error instanceof Error ? error.message : "请求失败，请稍后重试"),
 }));
@@ -297,6 +299,7 @@ describe("student app e2e flow", () => {
     apiMocks.submitStudentPosttest.mockResolvedValue({ status: "completed", report });
     apiMocks.generatePosttestAiSummary.mockResolvedValue(aiSummary);
     apiMocks.explainPosttestMistakes.mockResolvedValue(aiMistakeExplanation);
+    apiMocks.submitStudentFeedback.mockResolvedValue({ id: "feedback-e2e", status: "open", attachment_count: 0 });
   });
 
   afterEach(() => cleanup());
@@ -340,5 +343,25 @@ describe("student app e2e flow", () => {
     expect(document.querySelector(".mistake-ai-answer ol.ai-md-list")).not.toBeNull();
     expect(document.querySelector(".mistake-ai-answer .katex")).not.toBeNull();
     expect(screen.queryByText("---")).not.toBeInTheDocument();
+
+    fireEvent.click(screen.getByRole("button", { name: "页面反馈" }));
+    fireEvent.click(screen.getByRole("button", { name: "题目/内容问题" }));
+    fireEvent.change(screen.getByPlaceholderText("请描述你遇到的问题或建议"), {
+      target: { value: "报告里的错题讲解建议再清楚一点" },
+    });
+    fireEvent.click(screen.getByRole("button", { name: "提交反馈" }));
+
+    await waitFor(() => expect(apiMocks.submitStudentFeedback).toHaveBeenCalledTimes(1));
+    expect(apiMocks.submitStudentFeedback).toHaveBeenCalledWith(
+      expect.objectContaining({
+        feedback_type: "course_content",
+        content: "报告里的错题讲解建议再清楚一点",
+        metadata: expect.objectContaining({
+          page_type: "posttest_report",
+          context: expect.objectContaining({ session_id: "posttest-session-e2e" }),
+        }),
+      }),
+    );
+    expect(await screen.findByText("反馈已提交")).toBeInTheDocument();
   });
 });
