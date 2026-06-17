@@ -40,12 +40,12 @@
 
 ## 6. Assistant Runtime Modularization
 
-- [ ] 6.1 Characterize current learning-assistant behavior with focused tests or fixtures for representative point-aware, RAG, guardrail, and normalization scenarios.
-- [ ] 6.2 Map `server/app/agent.py` responsibilities into runtime orchestration, retrieval/rerank coordination, prompt/context construction, output normalization, and evidence/citation shaping.
-- [ ] 6.3 Extract output normalization and citation/evidence shaping helpers first, reusing existing `agent_output_normalization` where appropriate.
-- [ ] 6.4 Extract retrieval/rerank and source-context construction into focused services or helpers with dependency injection that is testable without changing endpoints.
-- [ ] 6.5 Extract runtime orchestration into a smaller public facade while preserving existing endpoint imports and response schemas.
-- [ ] 6.6 Run assistant-focused tests, backend tests, and authenticated learning-assistant smoke checks to confirm equivalent behavior.
+- [x] 6.1 Characterize current learning-assistant behavior with focused tests or fixtures for representative point-aware, RAG, guardrail, and normalization scenarios.
+- [x] 6.2 Map `server/app/agent.py` responsibilities into runtime orchestration, retrieval/rerank coordination, prompt/context construction, output normalization, and evidence/citation shaping.
+- [x] 6.3 Extract output normalization and citation/evidence shaping helpers first, reusing existing `agent_output_normalization` where appropriate.
+- [x] 6.4 Extract retrieval/rerank and source-context construction into focused services or helpers with dependency injection that is testable without changing endpoints.
+- [x] 6.5 Extract runtime orchestration into a smaller public facade while preserving existing endpoint imports and response schemas.
+- [x] 6.6 Run assistant-focused tests, backend tests, and authenticated learning-assistant smoke checks to confirm equivalent behavior.
 
 ## 7. Migration And Operations Polish
 

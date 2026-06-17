@@ -4,7 +4,7 @@ import os
 import hashlib
 import json
 import re
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, AsyncIterator, Callable
 
@@ -12,14 +12,35 @@ from server.app.config import ROOT, Settings, get_settings
 from server.app.hybrid_rag import retrieve_hybrid_context
 from server.app.repositories import RepositoryProvider, get_repositories
 from server.app.retrieval import keyword_score
-from server.app.schemas import AgentAskRequest, AgentAskResponse, RagAskRequest, RagSource
+from server.app.schemas import AgentAskRequest, AgentAskResponse, RagSource
 from server.app.services.agent_output_normalization import (
     CHEM_MATH_OUTPUT_CONTRACT,
-    has_raw_latex_leak,
     normalize_assistant_formula_output as _normalize_assistant_formula_output,
 )
+from server.app.services.agent_evidence_shaping import (
+    build_figure_evidence_items as _figure_evidence_items,
+    merge_sources as _merge_sources,
+    rag_trace_payload as _rag_trace_payload,
+)
+from server.app.services.agent_output_guardrails import (
+    has_resource_tool_result as _has_resource_tool_result,
+    normalize_formula_answer,
+)
+from server.app.services.agent_retrieval import (
+    agent_to_rag_request,
+    generate_retrieval_queries as _generate_retrieval_queries,
+    rag_to_agent_request,
+    retrieve_context as _retrieve_context,
+)
+from server.app.services.agent_runtime import (
+    AgentRunContext,
+    StudentAIPolicyDecision,
+    build_agent_response,
+    chunk_stream_text as _chunk_stream_text,
+    create_agent_context,
+    dump_agent_response as _dump_agent_response,
+)
 from server.app.services.rag_source_service import (
-    _asset_url,
     _source_asset_markdown,
     _source_evidence_payload,
     _source_from_chunk,
@@ -205,56 +226,6 @@ class AgentPolicy:
     compact_rail: str = COMPACT_STUDENT_AI_POLICY_RAIL
     version: str = STUDENT_AI_POLICY_VERSION
     max_answer_chars: int = 520
-
-
-@dataclass
-class StudentAIPolicyDecision:
-    mode: str = "normal_answer"
-    reason: str = ""
-    evidence_required: bool = False
-    student_guidance: str = ""
-    allowed_tools: tuple[str, ...] = field(default_factory=tuple)
-    valid: bool = True
-    raw: dict[str, Any] = field(default_factory=dict)
-
-    def as_dict(self) -> dict[str, Any]:
-        return {
-            "mode": self.mode,
-            "reason": self.reason,
-            "evidence_required": self.evidence_required,
-            "student_guidance": self.student_guidance,
-            "allowed_tools": list(self.allowed_tools),
-            "valid": self.valid,
-        }
-
-
-@dataclass
-class AgentRunContext:
-    request: AgentAskRequest
-    repositories: RepositoryProvider
-    policy: AgentPolicy
-    classification: dict[str, Any]
-    settings: Settings | None = None
-    policy_decision: StudentAIPolicyDecision = field(default_factory=StudentAIPolicyDecision)
-    tool_calls: list[dict[str, Any]] = field(default_factory=list)
-    sources: list[RagSource] = field(default_factory=list)
-    rag_traces: list[dict[str, Any]] = field(default_factory=list)
-    point_evidence: dict[str, Any] = field(default_factory=dict)
-    guardrail_decisions: list[dict[str, Any]] = field(default_factory=list)
-    mode: str = "local"
-
-    def record_tool(self, name: str, arguments: dict[str, Any], result: Any) -> None:
-        self.tool_calls.append(
-            {
-                "name": name,
-                "arguments": arguments,
-                "result_count": _count_result(result),
-                "result_preview": _preview_result(result),
-            }
-        )
-
-    def add_guardrail(self, code: str, action: str, reason: str) -> None:
-        self.guardrail_decisions.append({"code": code, "action": action, "reason": reason})
 
 
 def load_agent_policy(policy_path: Path | None = None) -> AgentPolicy:
@@ -751,7 +722,7 @@ async def run_agent(
 ) -> AgentAskResponse:
     repositories = repositories or get_repositories()
     settings = settings or get_settings()
-    context = AgentRunContext(
+    context = create_agent_context(
         request=request,
         repositories=repositories,
         policy=policy or load_agent_policy(),
@@ -767,16 +738,7 @@ async def run_agent(
         if answer is None:
             answer = await _run_with_optional_sdk(context, settings)
         answer = _apply_output_guardrails(context, answer)
-        response = AgentAskResponse(
-            answer=answer,
-            sources=context.sources,
-            mode=context.mode,
-            classification=context.classification,
-            tool_calls=context.tool_calls,
-            guardrail_decisions=context.guardrail_decisions,
-            rag_trace=_rag_trace_payload(context),
-            review_required=True,
-        )
+        response = build_agent_response(context, answer)
         _persist_agent_log(context, response)
         return response
     except Exception as exc:
@@ -792,7 +754,7 @@ async def run_agent_stream(
 ) -> AsyncIterator[dict[str, Any]]:
     repositories = repositories or get_repositories()
     settings = settings or get_settings()
-    context = AgentRunContext(
+    context = create_agent_context(
         request=request,
         repositories=repositories,
         policy=policy or load_agent_policy(),
@@ -844,43 +806,12 @@ async def run_agent_stream(
             answer = guarded_answer
             yield {"event": "replace", "answer": answer}
 
-        response = AgentAskResponse(
-            answer=answer,
-            sources=context.sources,
-            mode=context.mode,
-            classification=context.classification,
-            tool_calls=context.tool_calls,
-            guardrail_decisions=context.guardrail_decisions,
-            rag_trace=_rag_trace_payload(context),
-            review_required=True,
-        )
+        response = build_agent_response(context, answer)
         _persist_agent_log(context, response)
         yield {"event": "final", "response": _dump_agent_response(response)}
     except Exception as exc:
         _persist_agent_error_log(context, exc)
         yield {"event": "error", "message": str(exc) or exc.__class__.__name__}
-
-
-def agent_to_rag_request(request: AgentAskRequest) -> RagAskRequest:
-    return RagAskRequest(
-        student_id=request.student_id,
-        question=request.question,
-        chapter_id=request.chapter_id,
-        experiment_id=request.experiment_id,
-        point_key=request.point_key,
-        knowledge_point_ids=request.knowledge_point_ids,
-    )
-
-
-def rag_to_agent_request(request: RagAskRequest) -> AgentAskRequest:
-    return AgentAskRequest(
-        student_id=request.student_id,
-        question=request.question,
-        chapter_id=request.chapter_id,
-        experiment_id=request.experiment_id,
-        point_key=request.point_key,
-        knowledge_point_ids=request.knowledge_point_ids,
-    )
 
 
 def rag_search_tool(context: AgentRunContext, query: str) -> dict[str, Any]:
@@ -1138,41 +1069,6 @@ def _source_asset_answer(figure_evidence_items: list[dict[str, Any]]) -> str:
     return "\n".join(lines)
 
 
-def _figure_evidence_items(context: AgentRunContext, evidence: list[dict[str, Any]]) -> list[dict[str, Any]]:
-    candidates = [*evidence, *[source_to_dict(source) for source in context.sources]]
-    result: list[dict[str, Any]] = []
-    seen: set[str] = set()
-    for item in candidates:
-        assets = item.get("assets") or []
-        if not assets:
-            continue
-        chunk_id = str(item.get("chunk_id") or item.get("id") or item.get("caption") or len(result))
-        if chunk_id in seen:
-            continue
-        seen.add(chunk_id)
-        result.append(
-            {
-                "source_file": item.get("source_file"),
-                "page_number": item.get("page_number"),
-                "caption": item.get("caption") or item.get("text_preview"),
-                "content_type": item.get("content_type"),
-                "asset_count": len(assets),
-                "asset_files": [
-                    {
-                        "file_name": asset.get("file_name"),
-                        "kind": asset.get("kind"),
-                        "path": asset.get("path"),
-                        "url": _asset_url(asset.get("path")),
-                        "markdown": _source_asset_markdown(asset, item.get("caption") or item.get("text_preview")),
-                    }
-                    for asset in assets[:3]
-                    if isinstance(asset, dict) and asset.get("path")
-                ],
-            }
-        )
-    return result[:3]
-
-
 async def _run_openai_chat_completion(context: AgentRunContext, settings: Settings) -> str:
     from openai import OpenAI
 
@@ -1415,9 +1311,9 @@ def _apply_output_guardrails(context: AgentRunContext, answer: str) -> str:
     if max_answer_chars and len(answer) > max_answer_chars:
         context.add_guardrail("mobile_length", "trim", "回答超过小程序端建议长度。")
         answer = answer[:max_answer_chars].rstrip() + "..."
-    normalized_answer = _normalize_assistant_formula_output(answer)
+    normalized_answer, raw_latex_leak = normalize_formula_answer(answer)
     if normalized_answer != answer:
-        if has_raw_latex_leak(answer):
+        if raw_latex_leak:
             context.add_guardrail("chem_latex_format", "normalize_formula_output", "normalized chemistry/math LaTeX formatting")
         answer = normalized_answer
     return answer
@@ -1482,84 +1378,6 @@ def _persist_agent_error_log(context: AgentRunContext, error: Exception) -> None
         pass
 
 
-def _generate_retrieval_queries(
-    context: AgentRunContext,
-    settings: Settings,
-    question: str,
-) -> tuple[list[str], dict[str, Any]]:
-    trace: dict[str, Any] = {"status": "skipped", "reason": "", "provider": settings.agent_llm_provider}
-    if not settings.rag_query_generation_enabled:
-        trace["reason"] = "disabled"
-        return [question], trace
-    if not _sdk_enabled(settings):
-        trace["reason"] = "llm_not_configured"
-        return [question], trace
-    try:
-        from openai import OpenAI
-
-        client = OpenAI(
-            api_key=settings.agent_llm_api_key or os.getenv("OPENAI_API_KEY"),
-            base_url=settings.agent_llm_base_url or None,
-            timeout=10.0,
-        )
-        response = client.chat.completions.create(
-            model=settings.agent_llm_model,
-            temperature=0,
-            response_format={"type": "json_object"},
-            messages=[
-                {
-                    "role": "system",
-                    "content": (
-                        "You rewrite an inorganic chemistry student question into concise retrieval queries. "
-                        "Return JSON only with key queries as an array of 1 to 3 Chinese search queries. "
-                        "Keep reagent names, experiment numbers, and chemistry terms exact. Do not answer the question."
-                    ),
-                },
-                {
-                    "role": "user",
-                    "content": json.dumps(
-                        {
-                            "question": question,
-                            "chapter_id": context.request.chapter_id,
-                            "experiment_id": context.request.experiment_id,
-                            "knowledge_point_ids": context.request.knowledge_point_ids,
-                            "conversation_history": [
-                                item.model_dump() if hasattr(item, "model_dump") else item.dict()
-                                for item in context.request.conversation_history[-6:]
-                            ],
-                        },
-                        ensure_ascii=False,
-                    ),
-                },
-            ],
-        )
-        content = response.choices[0].message.content if response.choices else ""
-        payload = json.loads(content or "{}")
-        raw_queries = payload.get("queries") if isinstance(payload, dict) else []
-        queries = [
-            " ".join(str(item or "").split())
-            for item in raw_queries
-            if isinstance(item, str) and str(item or "").strip()
-        ][:3]
-        if not queries:
-            trace.update({"status": "fallback", "reason": "empty_queries"})
-            return [question], trace
-        trace.update({"status": "generated", "reason": "", "queries": queries})
-        return queries, trace
-    except Exception as exc:
-        trace.update({"status": "fallback", "reason": f"{exc.__class__.__name__}: {str(exc)[:160]}"})
-        return [question], trace
-
-
-def _rag_trace_payload(context: AgentRunContext) -> dict[str, Any]:
-    payload: dict[str, Any] = {}
-    if context.rag_traces:
-        payload.update({"runs": context.rag_traces, "latest": context.rag_traces[-1]})
-    if context.point_evidence:
-        payload["point_context"] = context.point_evidence
-    return payload
-
-
 def _conversation_history_payload(context: AgentRunContext) -> list[dict[str, str]]:
     return [
         item.model_dump() if hasattr(item, "model_dump") else item.dict()
@@ -1578,76 +1396,6 @@ def _agent_user_input(context: AgentRunContext) -> str:
         },
         ensure_ascii=False,
     )
-
-
-def _retrieve_context(
-    repositories: RepositoryProvider,
-    question: str,
-    request: AgentAskRequest,
-    limit: int = 5,
-) -> list[dict[str, Any]]:
-    candidates: list[dict[str, Any]] = []
-    seen: set[str] = set()
-
-    def add(item: dict[str, Any]) -> None:
-        item_id = str(item.get("id") or item.get("chunk_id") or "")
-        if item_id and item_id not in seen:
-            seen.add(item_id)
-            candidates.append(item)
-
-    if request.knowledge_point_ids:
-        for kp_id in request.knowledge_point_ids:
-            for chunk in repositories.content.related_chunks_for_kp(kp_id, limit=limit):
-                add(chunk)
-    source_chunks = repositories.content.source_chunks()
-    if request.experiment_id:
-        experiment = repositories.content.get_experiment(request.experiment_id)
-        chunk_ids = set((experiment or {}).get("source_chunk_ids") or [])
-        for chunk in source_chunks:
-            if chunk.get("id") in chunk_ids or chunk.get("chunk_id") in chunk_ids:
-                add(chunk)
-    if request.chapter_id:
-        for chunk in source_chunks:
-            if chunk.get("chapter_id") == request.chapter_id:
-                add(chunk)
-    for chunk in source_chunks:
-        add(chunk)
-
-    scored: list[dict[str, Any]] = []
-    for item in candidates:
-        score = keyword_score(
-            question,
-            item,
-            chapter_id=request.chapter_id,
-            experiment_id=request.experiment_id,
-            knowledge_point_ids=request.knowledge_point_ids,
-        )
-        if score > 0.04:
-            scored.append({**item, "_score": score})
-    scored.sort(key=lambda item: item["_score"], reverse=True)
-    return scored[:limit]
-
-
-def _dump_agent_response(response: AgentAskResponse) -> dict[str, Any]:
-    if hasattr(response, "model_dump"):
-        return response.model_dump()
-    return response.dict()
-
-
-def _chunk_stream_text(text: str, chunk_size: int = 18) -> list[str]:
-    if not text:
-        return []
-    return [text[index : index + chunk_size] for index in range(0, len(text), chunk_size)]
-
-
-def _merge_sources(existing: list[RagSource], incoming: list[RagSource]) -> list[RagSource]:
-    result = list(existing)
-    seen = {source.chunk_id for source in result}
-    for source in incoming:
-        if source.chunk_id not in seen:
-            seen.add(source.chunk_id)
-            result.append(source)
-    return result[:8]
 
 
 def _intent_name(**flags: bool) -> str:
@@ -1689,27 +1437,3 @@ def _agent_instructions(context: AgentRunContext) -> str:
         f"\n课程限制提示摘录：{context.policy.source_excerpt}"
         f"{CHEM_MATH_OUTPUT_CONTRACT}"
     )
-
-
-def _has_resource_tool_result(context: AgentRunContext) -> bool:
-    for call in context.tool_calls:
-        if call.get("name") == "published_resource_lookup" and call.get("result_count", 0) > 0:
-            return True
-    return False
-
-
-def _count_result(result: Any) -> int:
-    if isinstance(result, list):
-        return len(result)
-    if isinstance(result, dict):
-        if "resources" in result and isinstance(result["resources"], list):
-            return len(result["resources"])
-        if "evidence" in result and isinstance(result["evidence"], list):
-            return len(result["evidence"])
-        return len(result)
-    return 1 if result else 0
-
-
-def _preview_result(result: Any) -> str:
-    text = str(result)
-    return text[:240]
