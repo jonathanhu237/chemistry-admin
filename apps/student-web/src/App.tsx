@@ -26,6 +26,16 @@ import {
 } from "lucide-react";
 import logoUrl from "./assets/sysu-logo.svg";
 import {
+  MobileButton,
+  MobileEmptyState,
+  MobileField,
+  MobileFloatingOverlay,
+  MobileIconButton,
+  MobileStatus,
+  MobileTextArea,
+  useFloatingOverlayState,
+} from "./mobile/primitives";
+import {
   AgentChatMessage,
   AuthUser,
   LoginResponse,
@@ -84,7 +94,6 @@ type FeedbackContext = {
   pointKey?: string | null;
   metadata?: Record<string, unknown>;
 };
-type FloatingOverlay = "assistant" | "feedback" | null;
 type AreaId = "p" | "s" | "d" | "ds" | "f";
 type PeriodicArea = "s区" | "p区" | "d区" | "ds区" | "f区";
 type LearningRoute =
@@ -390,7 +399,7 @@ function AssessmentPanel({
             </div>
             <h3>{question.stem}</h3>
             {question.question_type === "fill_blank" ? (
-              <input
+              <MobileField
                 className="fill-answer"
                 value={answers[question.id] || ""}
                 onChange={(event) => setAnswers((current) => ({ ...current, [question.id]: event.target.value }))}
@@ -439,14 +448,14 @@ function PretestErrorPanel({ message, onSkip, onLogout }: { message: string; onS
         <h2>{title}</h2>
       </div>
       <div className="form-hint">临时跳过屏障：课前摸底由后续分支继续完善，本轮可先进入学习页检查学习体验。</div>
-      <button className="primary-action" type="button" onClick={onSkip}>
+      <MobileButton className="primary-action" type="button" onClick={onSkip}>
         <BookOpenCheck size={18} />
         <span>跳过课前摸底</span>
-      </button>
-      <button className="secondary-action" type="button" onClick={onLogout}>
+      </MobileButton>
+      <MobileButton variant="secondary" className="secondary-action" type="button" onClick={onLogout}>
         <LogOut size={18} />
         <span>退出登录</span>
-      </button>
+      </MobileButton>
     </section>
   );
 }
@@ -496,7 +505,7 @@ function LoginPanel({
       <form onSubmit={submit} className="auth-form">
         <label>
           <span>学号</span>
-          <input
+          <MobileField
             value={studentId}
             onChange={(event) => setStudentId(event.target.value)}
             placeholder="请输入学号"
@@ -506,7 +515,7 @@ function LoginPanel({
         </label>
         <label>
           <span>密码</span>
-          <input
+          <MobileField
             value={password}
             onChange={(event) => setPassword(event.target.value)}
             placeholder="请输入密码"
@@ -515,10 +524,10 @@ function LoginPanel({
           />
         </label>
         {error ? <div className="form-error">{error}</div> : null}
-        <button className="primary-action" type="submit" disabled={loading || !studentId.trim() || !password}>
+        <MobileButton className="primary-action" type="submit" loading={loading} disabled={!studentId.trim() || !password}>
           {loading ? <LoaderCircle className="spin" size={18} /> : <LogIn size={18} />}
           <span>{loading ? "正在登录" : "登录"}</span>
-        </button>
+        </MobileButton>
       </form>
     </section>
   );
@@ -563,7 +572,7 @@ function PasswordPanel({ user, onChanged }: { user: AuthUser; onChanged: (respon
         <div className="form-hint">首次登录已完成身份校验，只需要设置新密码。</div>
         <label>
           <span>新密码</span>
-          <input
+          <MobileField
             value={newPassword}
             onChange={(event) => setNewPassword(event.target.value)}
             placeholder="至少 8 位"
@@ -573,7 +582,7 @@ function PasswordPanel({ user, onChanged }: { user: AuthUser; onChanged: (respon
         </label>
         <label>
           <span>确认新密码</span>
-          <input
+          <MobileField
             value={confirmPassword}
             onChange={(event) => setConfirmPassword(event.target.value)}
             placeholder="再次输入新密码"
@@ -584,10 +593,10 @@ function PasswordPanel({ user, onChanged }: { user: AuthUser; onChanged: (respon
         {newPassword && newPassword.length < 8 ? <div className="form-hint">新密码至少 8 位</div> : null}
         {confirmPassword && newPassword !== confirmPassword ? <div className="form-hint">两次输入的新密码不一致</div> : null}
         {error ? <div className="form-error">{error}</div> : null}
-        <button className="primary-action" type="submit" disabled={loading || !canSubmit}>
+        <MobileButton className="primary-action" type="submit" loading={loading} disabled={!canSubmit}>
           {loading ? <LoaderCircle className="spin" size={18} /> : <ShieldCheck size={18} />}
           <span>{loading ? "正在保存" : "保存并继续"}</span>
-        </button>
+        </MobileButton>
       </form>
     </section>
   );
@@ -767,7 +776,7 @@ function LearningHomePanel({
   const [selectedPropertyKey, setSelectedPropertyKey] = useState<string>(initialPropertyKey || "");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
-  const [activeOverlay, setActiveOverlay] = useState<FloatingOverlay>(null);
+  const { activeOverlay, resetOverlay, toggleOverlay } = useFloatingOverlayState();
 
   useEffect(() => {
     setSelectedProfileId(profileId || null);
@@ -778,8 +787,8 @@ function LearningHomePanel({
   }, [initialPropertyKey]);
 
   useEffect(() => {
-    setActiveOverlay(null);
-  }, [selectedProfileId, selectedPropertyKey]);
+    resetOverlay();
+  }, [selectedProfileId, selectedPropertyKey, resetOverlay]);
 
   useEffect(() => {
     let cancelled = false;
@@ -859,9 +868,9 @@ function LearningHomePanel({
           <p>{user.student_id || user.username}</p>
           <h2>{user.display_name}</h2>
         </div>
-        <button className="icon-action" type="button" onClick={onLogout} aria-label="退出登录">
+        <MobileIconButton className="icon-action" type="button" onClick={onLogout} aria-label="退出登录">
           <LogOut size={18} />
-        </button>
+        </MobileIconButton>
       </div>
 
       {configError ? <div className="form-hint">设置刷新失败，当前页面会继续使用上一次配置：{configError}</div> : null}
@@ -915,10 +924,9 @@ function LearningHomePanel({
                 ))}
               </div>
             ) : (
-              <div className="empty-learning-card">
-                <FlaskConical size={20} />
+              <MobileEmptyState className="empty-learning-card" icon={<FlaskConical size={20} />}>
                 <span>该性质暂未匹配到开放实验点</span>
-              </div>
+              </MobileEmptyState>
             )}
           </section>
 
@@ -927,14 +935,14 @@ function LearningHomePanel({
             <StudentAiChat
               context={homeAssistantContext}
               open={activeOverlay === "assistant"}
-              onOpenChange={(isOpen) => setActiveOverlay(isOpen ? "assistant" : null)}
+              onOpenChange={(isOpen) => toggleOverlay("assistant", isOpen)}
             />
           ) : null}
           {feedbackEnabled && feedbackContext && activeOverlay !== "assistant" ? (
             <StudentFeedbackFab
               context={feedbackContext}
               open={activeOverlay === "feedback"}
-              onOpenChange={(isOpen) => setActiveOverlay(isOpen ? "feedback" : null)}
+              onOpenChange={(isOpen) => toggleOverlay("feedback", isOpen)}
             />
           ) : null}
         </>
@@ -1123,12 +1131,7 @@ function firstGroupForArea(groups: StudentExperimentGroupSummary[], areaId: Area
 }
 
 function LearningState({ icon, text }: { icon: ReactNode; text: string }) {
-  return (
-    <div className="learning-state">
-      {icon}
-      <span>{text}</span>
-    </div>
-  );
+  return <MobileStatus className="learning-state" icon={icon} text={text} />;
 }
 
 function ExperimentGroupCard({
@@ -1335,7 +1338,7 @@ function ExperimentDetailPanel({
   const [detail, setDetail] = useState<StudentExperimentDetailResponse | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
-  const [activeOverlay, setActiveOverlay] = useState<FloatingOverlay>(null);
+  const { activeOverlay, resetOverlay, toggleOverlay } = useFloatingOverlayState();
 
   useEffect(() => {
     let cancelled = false;
@@ -1357,8 +1360,8 @@ function ExperimentDetailPanel({
   }, [experimentId]);
 
   useEffect(() => {
-    setActiveOverlay(null);
-  }, [experimentId, propertyKey, pointKey]);
+    resetOverlay();
+  }, [experimentId, propertyKey, pointKey, resetOverlay]);
 
   const video = detail?.videos.find((item) => pointKey && item.point_key === pointKey) || detail?.videos[0] || null;
   const effectivePointTitle = pointTitle || video?.point_title || detail?.video_candidates[0] || detail?.title || "实验点位";
@@ -1439,7 +1442,7 @@ function ExperimentDetailPanel({
                 ))}
               </div>
             ) : (
-              <div className="empty-learning-card">暂无观察点</div>
+              <MobileEmptyState className="empty-learning-card">暂无观察点</MobileEmptyState>
             )}
           </section>
 
@@ -1458,14 +1461,14 @@ function ExperimentDetailPanel({
             <StudentAiChat
               context={detailAssistantContext}
               open={activeOverlay === "assistant"}
-              onOpenChange={(isOpen) => setActiveOverlay(isOpen ? "assistant" : null)}
+              onOpenChange={(isOpen) => toggleOverlay("assistant", isOpen)}
             />
           ) : null}
           {feedbackEnabled && feedbackContext && activeOverlay !== "assistant" ? (
             <StudentFeedbackFab
               context={feedbackContext}
               open={activeOverlay === "feedback"}
-              onOpenChange={(isOpen) => setActiveOverlay(isOpen ? "feedback" : null)}
+              onOpenChange={(isOpen) => toggleOverlay("feedback", isOpen)}
             />
           ) : null}
         </>
@@ -1478,10 +1481,10 @@ function FinishLearningAction({ loading, error, onClick }: { loading: boolean; e
   return (
     <section className="finish-learning">
       {error ? <div className="form-error">{error}</div> : null}
-      <button className="secondary-action finish-action" type="button" disabled={loading} onClick={onClick}>
+      <MobileButton variant="secondary" className="secondary-action finish-action" type="button" loading={loading} onClick={onClick}>
         {loading ? <LoaderCircle className="spin" size={18} /> : <GraduationCap size={18} />}
         <span>{loading ? "正在生成后测" : "完成学习"}</span>
-      </button>
+      </MobileButton>
     </section>
   );
 }
@@ -1672,7 +1675,7 @@ function StudentAiChat({
   };
 
   return (
-    <aside className={open ? "ai-chat-fab open" : "ai-chat-fab"}>
+    <MobileFloatingOverlay family="assistant" open={open} className="ai-chat-fab">
       {open ? (
         <section className="ai-chat-panel" role="dialog" aria-label="AI 学习助手">
           <header className="ai-chat-head">
@@ -1718,7 +1721,7 @@ function StudentAiChat({
           </div>
 
           <form className="ai-chat-compose" onSubmit={handleSubmit}>
-            <input
+            <MobileField
               value={input}
               onChange={(event) => setInput(event.target.value)}
               placeholder="问当前学习内容"
@@ -1731,11 +1734,11 @@ function StudentAiChat({
           <div className="ai-chat-status">{assistantStatusLabel(status, loading)}</div>
         </section>
       ) : null}
-      <button className="ai-chat-toggle" type="button" aria-expanded={open} onClick={() => setOpen((current) => !current)}>
+      <MobileButton fullWidth={false} className="ai-chat-toggle" type="button" aria-expanded={open} onClick={() => setOpen((current) => !current)}>
         <MessageCircle size={18} />
         <span>问 AI</span>
-      </button>
-    </aside>
+      </MobileButton>
+    </MobileFloatingOverlay>
   );
 }
 
@@ -1807,7 +1810,7 @@ function StudentFeedbackFab({
   };
 
   return (
-    <aside className={open ? "feedback-fab open" : "feedback-fab"}>
+    <MobileFloatingOverlay family="feedback" open={open} className="feedback-fab">
       {open ? (
         <form className="feedback-panel" onSubmit={submit} role="dialog" aria-label="页面反馈">
           <header className="feedback-head">
@@ -1831,7 +1834,7 @@ function StudentFeedbackFab({
               </button>
             ))}
           </div>
-          <textarea
+          <MobileTextArea
             value={content}
             rows={4}
             maxLength={4000}
@@ -1840,17 +1843,17 @@ function StudentFeedbackFab({
           />
           {message ? <div className="form-hint">{message}</div> : null}
           {error ? <div className="form-error">{error}</div> : null}
-          <button className="primary-action" type="submit" disabled={!content.trim() || loading}>
+          <MobileButton className="primary-action" type="submit" loading={loading} disabled={!content.trim()}>
             {loading ? <LoaderCircle className="spin" size={18} /> : <Send size={18} />}
             <span>{loading ? "正在提交" : "提交反馈"}</span>
-          </button>
+          </MobileButton>
         </form>
       ) : null}
-      <button className="feedback-toggle" type="button" aria-expanded={open} onClick={() => setOpen((current) => !current)}>
+      <MobileButton fullWidth={false} className="feedback-toggle" type="button" aria-expanded={open} onClick={() => setOpen((current) => !current)}>
         <ClipboardList size={18} />
         <span>反馈</span>
-      </button>
-    </aside>
+      </MobileButton>
+    </MobileFloatingOverlay>
   );
 }
 
@@ -2029,17 +2032,22 @@ function PosttestSummaryPanel({ report, onContinue }: { report: StudentPosttestR
             ))}
           </div>
         ) : (
-          <div className="empty-learning-card">
-            <CheckCircle2 size={20} />
+          <MobileEmptyState className="empty-learning-card" icon={<CheckCircle2 size={20} />}>
             <span>本轮没有错题</span>
-          </div>
+          </MobileEmptyState>
         )}
         {report.wrong_answers.length ? (
           <>
-            <button className="secondary-action full ai-mistake-action" type="button" disabled={mistakeLoading} onClick={() => void explainMistakes()}>
+            <MobileButton
+              variant="secondary"
+              className="secondary-action full ai-mistake-action"
+              type="button"
+              loading={mistakeLoading}
+              onClick={() => void explainMistakes()}
+            >
               {mistakeLoading ? <LoaderCircle className="spin" size={18} /> : <Bot size={18} />}
               <span>{mistakeLoading ? "AI 正在讲解" : "AI 讲解错题"}</span>
-            </button>
+            </MobileButton>
             {mistakeError ? <div className="form-error">{mistakeError}</div> : null}
             {mistakeAnswer ? (
               <div className="mistake-ai-answer">
@@ -2054,10 +2062,10 @@ function PosttestSummaryPanel({ report, onContinue }: { report: StudentPosttestR
         ) : null}
       </section>
 
-      <button className="primary-action full" type="button" onClick={onContinue}>
+      <MobileButton className="primary-action full" type="button" onClick={onContinue}>
         <BookOpenCheck size={18} />
         <span>继续学习</span>
-      </button>
+      </MobileButton>
     </section>
   );
 }
@@ -2065,9 +2073,9 @@ function PosttestSummaryPanel({ report, onContinue }: { report: StudentPosttestR
 function PageBar({ title, onBack }: { title: string; onBack: () => void }) {
   return (
     <div className="pagebar">
-      <button className="icon-action" type="button" onClick={onBack} aria-label="返回">
+      <MobileIconButton className="icon-action" type="button" onClick={onBack} aria-label="返回">
         <ArrowLeft size={18} />
-      </button>
+      </MobileIconButton>
       <h2>{title}</h2>
       <span />
     </div>
