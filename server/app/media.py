@@ -101,6 +101,83 @@ def _row_dict(row: Any) -> dict[str, Any]:
     return item
 
 
+def _media_file_status(kind: str, relative_path: str) -> dict[str, Any]:
+    entry: dict[str, Any] = {
+        "kind": kind,
+        "kinds": [kind],
+        "relative_path": relative_path,
+        "exists": False,
+        "file_size_bytes": None,
+        "error": None,
+    }
+    try:
+        path = _resolve_media_relative(relative_path)
+    except ValueError as exc:
+        entry["error"] = str(exc)
+        return entry
+    try:
+        if path.is_file():
+            entry["exists"] = True
+            entry["file_size_bytes"] = path.stat().st_size
+    except OSError as exc:
+        entry["error"] = exc.__class__.__name__
+    return entry
+
+
+def _asset_file_entries(asset: dict[str, Any]) -> list[dict[str, Any]]:
+    by_path: dict[str, dict[str, Any]] = {}
+
+    def add(kind: str, relative_path: Any) -> None:
+        value = str(relative_path or "").strip()
+        if not value:
+            return
+        if value in by_path:
+            by_path[value]["kinds"].append(kind)
+            return
+        by_path[value] = _media_file_status(kind, value)
+
+    add("relative", asset.get("relative_path"))
+    add("source", asset.get("source_relative_path"))
+    add("playback", asset.get("playback_relative_path"))
+    add("thumbnail", asset.get("thumbnail_relative_path"))
+    for rendition in asset.get("renditions") or []:
+        add(f"rendition:{rendition.get('kind') or 'unknown'}", rendition.get("relative_path"))
+    return list(by_path.values())
+
+
+def media_asset_file_summary(asset: dict[str, Any]) -> dict[str, Any]:
+    files = _asset_file_entries(asset)
+    existing_count = sum(1 for item in files if item["exists"])
+    missing_count = sum(1 for item in files if not item["exists"])
+    primary_file_available = any(
+        item["exists"] and any(kind in {"playback", "source", "relative"} for kind in item["kinds"])
+        for item in files
+    )
+    if not files:
+        file_state = "untracked"
+    elif existing_count == len(files):
+        file_state = "available"
+    elif existing_count == 0:
+        file_state = "missing"
+    else:
+        file_state = "partial"
+    if asset.get("upload_status") in {"pending", "processing"} and existing_count == 0:
+        file_state = "pending"
+    return {
+        "file_state": file_state,
+        "primary_file_available": primary_file_available,
+        "existing_file_count": existing_count,
+        "missing_file_count": missing_count,
+        "media_files": files,
+    }
+
+
+def _row_with_file_summary(row: Any) -> dict[str, Any]:
+    item = _row_dict(row)
+    item.update(media_asset_file_summary(item))
+    return item
+
+
 def _find_exact_asset(checksum: str, file_size_bytes: int) -> dict[str, Any] | None:
     with db_session() as session:
         row = (
@@ -490,7 +567,158 @@ def list_media_assets(upload_status: str | None = None, limit: int = 200) -> dic
             .mappings()
             .all()
         ]
-    return {"items": [_row_dict(row) for row in rows], "total": len(rows)}
+    return {"items": [_row_with_file_summary(row) for row in rows], "total": len(rows)}
+
+
+def _media_dependency_counts(limit: int) -> dict[str, dict[str, int]]:
+    with db_session() as session:
+        rows = session.execute(
+            text(
+                """
+                SELECT ma.id,
+                       (
+                         SELECT COUNT(*) FROM media_bindings mb
+                         WHERE mb.media_asset_id = ma.id
+                       ) AS binding_count,
+                       (
+                         SELECT COUNT(*) FROM media_bindings mb
+                         WHERE mb.media_asset_id = ma.id
+                           AND mb.status <> 'archived'
+                       ) AS active_binding_count,
+                       (
+                         SELECT COUNT(*) FROM media_processing_jobs mpj
+                         WHERE mpj.media_asset_id = ma.id
+                       ) AS processing_job_count,
+                       (
+                         SELECT COUNT(*) FROM media_renditions mr
+                         WHERE mr.media_asset_id = ma.id
+                       ) AS rendition_count,
+                       (
+                         SELECT COUNT(*) FROM media_video_fingerprints mvf
+                         WHERE mvf.media_asset_id = ma.id
+                       ) AS fingerprint_count,
+                       (
+                         SELECT COUNT(*) FROM media_duplicate_candidates mdc
+                         WHERE mdc.media_asset_id = ma.id
+                            OR mdc.candidate_asset_id = ma.id
+                       ) AS duplicate_candidate_count
+                FROM media_assets ma
+                ORDER BY ma.created_at DESC
+                LIMIT :limit
+                """
+            ),
+            {"limit": limit},
+        ).mappings().all()
+    return {
+        str(row["id"]): {
+            "binding_count": int(row["binding_count"] or 0),
+            "active_binding_count": int(row["active_binding_count"] or 0),
+            "processing_job_count": int(row["processing_job_count"] or 0),
+            "rendition_count": int(row["rendition_count"] or 0),
+            "fingerprint_count": int(row["fingerprint_count"] or 0),
+            "duplicate_candidate_count": int(row["duplicate_candidate_count"] or 0),
+        }
+        for row in rows
+    }
+
+
+def _media_cleanup_action(asset: dict[str, Any], dependencies: dict[str, int]) -> str:
+    if dependencies.get("active_binding_count", 0) > 0:
+        return "keep_active_binding"
+    if asset.get("upload_status") == "ready":
+        return "keep_ready_asset_without_binding"
+    if asset.get("file_state") == "missing":
+        return "review_missing_file_record"
+    if asset.get("upload_status") in {"failed", "replaced"}:
+        return "manual_archive_or_delete_candidate"
+    return "review_before_cleanup"
+
+
+def _media_referenced_paths() -> set[str]:
+    with db_session() as session:
+        rows = session.execute(
+            text(
+                """
+                SELECT relative_path AS path FROM media_assets WHERE relative_path IS NOT NULL
+                UNION
+                SELECT source_relative_path AS path FROM media_assets WHERE source_relative_path IS NOT NULL
+                UNION
+                SELECT playback_relative_path AS path FROM media_assets WHERE playback_relative_path IS NOT NULL
+                UNION
+                SELECT thumbnail_relative_path AS path FROM media_assets WHERE thumbnail_relative_path IS NOT NULL
+                UNION
+                SELECT relative_path AS path FROM media_renditions WHERE relative_path IS NOT NULL
+                """
+            )
+        ).scalars().all()
+    return {str(path).strip().replace("\\", "/") for path in rows if str(path or "").strip()}
+
+
+def _orphan_media_files(referenced_paths: set[str], limit: int) -> tuple[list[dict[str, Any]], int, int]:
+    root = get_settings().media_root.resolve()
+    if not root.exists():
+        return [], 0, 0
+    output: list[dict[str, Any]] = []
+    total_count = 0
+    total_bytes = 0
+    for path in root.rglob("*"):
+        if not path.is_file():
+            continue
+        relative_path = path.relative_to(root).as_posix()
+        if relative_path in referenced_paths:
+            continue
+        try:
+            size = path.stat().st_size
+        except OSError:
+            size = 0
+        total_count += 1
+        total_bytes += size
+        if len(output) < limit:
+            output.append({"relative_path": relative_path, "file_size_bytes": size})
+    return output, total_count, total_bytes
+
+
+def media_cleanup_dry_run(*, limit: int = 500, orphan_limit: int = 200) -> dict[str, Any]:
+    assets = list_media_assets(limit=limit)["items"]
+    dependencies_by_id = _media_dependency_counts(limit)
+    referenced_paths = _media_referenced_paths()
+    orphan_files, orphan_total_count, orphan_total_bytes = _orphan_media_files(referenced_paths, orphan_limit)
+    asset_items = []
+    for asset in assets:
+        dependencies = dependencies_by_id.get(str(asset["id"]), {})
+        existing_bytes = sum(int(item.get("file_size_bytes") or 0) for item in asset.get("media_files") or [])
+        asset_items.append(
+            {
+                "id": str(asset["id"]),
+                "title": asset.get("title"),
+                "original_file_name": asset.get("original_file_name"),
+                "upload_status": asset.get("upload_status"),
+                "file_state": asset.get("file_state"),
+                "primary_file_available": asset.get("primary_file_available"),
+                "existing_file_count": asset.get("existing_file_count"),
+                "missing_file_count": asset.get("missing_file_count"),
+                "existing_file_bytes": existing_bytes,
+                "dependencies": dependencies,
+                "action": _media_cleanup_action(asset, dependencies),
+                "media_files": asset.get("media_files") or [],
+            }
+        )
+    return {
+        "dry_run": True,
+        "media_root": str(get_settings().media_root),
+        "asset_count": len(asset_items),
+        "asset_limit": limit,
+        "referenced_path_count": len(referenced_paths),
+        "orphan_file_count": orphan_total_count,
+        "orphan_file_bytes": orphan_total_bytes,
+        "orphan_files_returned": len(orphan_files),
+        "orphan_files": orphan_files,
+        "assets": asset_items,
+        "policy": {
+            "asset_file_deletion": "refused_without_archive_or_tombstone_state",
+            "orphan_file_deletion": "allowed_only_for_files_not_referenced_by_media_database_rows",
+        },
+    }
 
 
 def active_media_processing_status(limit: int = 200) -> dict[str, Any]:

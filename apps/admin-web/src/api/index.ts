@@ -582,9 +582,23 @@ export type MediaAsset = {
   created_at?: string;
   updated_at?: string;
   association_count?: number;
+  file_state?: "available" | "partial" | "missing" | "pending" | "untracked" | string;
+  primary_file_available?: boolean;
+  existing_file_count?: number;
+  missing_file_count?: number;
+  media_files?: MediaFileEntry[];
   processing_job?: MediaProcessingJob | null;
   renditions?: MediaRendition[];
   duplicate_candidates?: MediaDuplicateCandidate[];
+};
+
+export type MediaFileEntry = {
+  kind: string;
+  kinds?: string[];
+  relative_path: string;
+  exists: boolean;
+  file_size_bytes?: number | null;
+  error?: string | null;
 };
 
 export type MediaProcessingJob = {

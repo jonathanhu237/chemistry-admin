@@ -31,12 +31,12 @@
 
 ## 5. Media Lifecycle Hardening
 
-- [ ] 5.1 Map `media_assets`, `media_bindings`, local files, thumbnails, playback files, processing jobs, review rows, and derived candidates into a cleanup dependency model.
-- [ ] 5.2 Implement a media cleanup dry-run that reports candidate files, database dependencies, action type, and byte impact without deleting anything.
-- [ ] 5.3 Add guarded destructive cleanup modes that refuse active referenced files unless an archive/tombstone state is explicitly applied.
-- [ ] 5.4 Update admin API/UI behavior so archived or missing media is represented intentionally instead of exposing broken playback/thumbnail links.
-- [ ] 5.5 Add tests or smoke checks covering active media, archived media, missing files, and cleanup refusal cases.
-- [ ] 5.6 Document the production media cleanup procedure and when `data/media` may be removed.
+- [x] 5.1 Map `media_assets`, `media_bindings`, local files, thumbnails, playback files, processing jobs, review rows, and derived candidates into a cleanup dependency model.
+- [x] 5.2 Implement a media cleanup dry-run that reports candidate files, database dependencies, action type, and byte impact without deleting anything.
+- [x] 5.3 Add guarded destructive cleanup modes that refuse active referenced files unless an archive/tombstone state is explicitly applied.
+- [x] 5.4 Update admin API/UI behavior so archived or missing media is represented intentionally instead of exposing broken playback/thumbnail links.
+- [x] 5.5 Add tests or smoke checks covering active media, archived media, missing files, and cleanup refusal cases.
+- [x] 5.6 Document the production media cleanup procedure and when `data/media` may be removed.
 
 ## 6. Assistant Runtime Modularization
 

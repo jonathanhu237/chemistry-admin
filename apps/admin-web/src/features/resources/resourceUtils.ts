@@ -106,5 +106,6 @@ export function mediaAssetTime(asset: MediaAsset): string {
 
 export function isPreviewableVideo(asset?: MediaAsset | null): boolean {
   if (!asset || asset.upload_status !== "ready") return false;
+  if (asset.primary_file_available === false) return false;
   return !asset.mime_type || asset.mime_type.startsWith("video/");
 }

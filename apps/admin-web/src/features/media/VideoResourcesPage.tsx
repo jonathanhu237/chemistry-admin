@@ -113,6 +113,14 @@ const mediaStatusColors: Record<string, string> = {
   replaced: "default",
 };
 
+const mediaFileStateLabels: Record<string, { label: string; color: string }> = {
+  available: { label: "文件完整", color: "#005826" },
+  partial: { label: "部分文件缺失", color: "#b8892f" },
+  missing: { label: "文件缺失", color: "#b42318" },
+  pending: { label: "文件待生成", color: "#356f9c" },
+  untracked: { label: "未跟踪文件", color: "default" },
+};
+
 const processingPhaseLabels: Record<string, string> = {
   queued: "已排队",
   starting: "启动中",
@@ -136,6 +144,14 @@ const duplicateDecisionLabels: Record<string, string> = {
 function mediaStatusTag(status?: string) {
   const value = status || "pending";
   return <Tag color={mediaStatusColors[value] || "default"}>{mediaStatusLabels[value] || value}</Tag>;
+}
+
+function mediaFileStateTag(asset: MediaAsset) {
+  if (!asset.file_state) return null;
+  const state = asset.file_state;
+  const meta = mediaFileStateLabels[state] || { label: state, color: "default" };
+  if (state === "available") return null;
+  return <Tag color={meta.color}>{meta.label}</Tag>;
 }
 
 function processingPhaseText(asset?: MediaAsset | null): string {
@@ -798,6 +814,7 @@ export function VideoResourcesPage() {
     <Space size={[4, 4]} wrap className="video-asset-badges">
       {hasPendingDuplicate(asset) ? <Tag color="#b8892f">疑似重复待确认</Tag> : null}
       {asset.upload_status !== "ready" && asset.upload_status !== "failed" ? <Tag>{processingPhaseText(asset)}</Tag> : null}
+      {mediaFileStateTag(asset)}
     </Space>
   );
 
@@ -813,9 +830,20 @@ export function VideoResourcesPage() {
   );
 
   const renderProcessingLine = (asset: MediaAsset) => {
+    if (asset.file_state === "missing") return <Text type="danger">本地媒体文件缺失</Text>;
+    if (asset.file_state === "partial") return <Text type="warning">部分媒体文件缺失</Text>;
     if (asset.upload_status === "ready") return <Text type="secondary">{formatDurationSeconds(asset.duration_seconds)} · {formatResolution(asset)}</Text>;
     if (asset.upload_status === "failed") return <Text type="danger">{asset.error_reason || asset.processing_job?.error_reason || "处理失败"}</Text>;
     return <Progress percent={processingProgressValue(asset)} size="small" status="active" format={() => processingPhaseText(asset)} />;
+  };
+
+  const renderPreviewButton = (asset: MediaAsset) => {
+    const missingPrimaryFile = asset.primary_file_available === false;
+    return (
+      <Tooltip title={missingPrimaryFile ? "本地媒体文件缺失，无法预览" : ""}>
+        <Button size="small" icon={<EyeOutlined />} disabled={!isPreviewableVideo(asset)} onClick={() => setPreviewAsset(asset)}>预览</Button>
+      </Tooltip>
+    );
   };
 
   const renderVersionPanel = (asset: MediaAsset) => {
@@ -937,14 +965,14 @@ export function VideoResourcesPage() {
                     {renderAssetBadges(asset)}
                     <Flex justify="space-between" align="center" gap={8}>
                       <Text type="secondary">{mediaAssetTime(asset)}</Text>
-                      <Space size={6}>{asset.upload_status === "failed" ? <Button size="small" icon={<ReloadOutlined />} loading={retryProcessing.isPending} onClick={() => retryProcessing.mutate(asset.id)}>重试</Button> : null}<Button size="small" icon={<EyeOutlined />} disabled={!isPreviewableVideo(asset)} onClick={() => setPreviewAsset(asset)}>预览</Button></Space>
+                      <Space size={6}>{asset.upload_status === "failed" ? <Button size="small" icon={<ReloadOutlined />} loading={retryProcessing.isPending} onClick={() => retryProcessing.mutate(asset.id)}>重试</Button> : null}{renderPreviewButton(asset)}</Space>
                     </Flex>
                   </Space>
                 </div>
               ))}
             </div>
           ) : (
-            <Table rowKey="id" dataSource={filteredAssets} pagination={{ pageSize: 12, showSizeChanger: false }} columns={[{ title: "文件名", render: (_: unknown, asset: MediaAsset) => renderAssetName(asset) }, { title: "处理", width: 190, render: (_: unknown, asset: MediaAsset) => renderProcessingLine(asset) }, { title: "大小", width: 110, render: (_: unknown, asset: MediaAsset) => formatBytes(asset.file_size_bytes) }, { title: "状态", width: 110, render: (_: unknown, asset: MediaAsset) => mediaStatusTag(asset.upload_status) }, { title: "引用", width: 90, render: (_: unknown, asset: MediaAsset) => asset.association_count || 0 }, { title: "更新时间", width: 170, render: (_: unknown, asset: MediaAsset) => mediaAssetTime(asset) }, { title: "操作", width: 170, render: (_: unknown, asset: MediaAsset) => <Space size={6}>{asset.upload_status === "failed" ? <Button size="small" icon={<ReloadOutlined />} onClick={() => retryProcessing.mutate(asset.id)}>重试</Button> : null}<Button size="small" icon={<EyeOutlined />} disabled={!isPreviewableVideo(asset)} onClick={() => setPreviewAsset(asset)}>预览</Button></Space> }]} />
+            <Table rowKey="id" dataSource={filteredAssets} pagination={{ pageSize: 12, showSizeChanger: false }} columns={[{ title: "文件名", render: (_: unknown, asset: MediaAsset) => renderAssetName(asset) }, { title: "处理", width: 190, render: (_: unknown, asset: MediaAsset) => renderProcessingLine(asset) }, { title: "大小", width: 110, render: (_: unknown, asset: MediaAsset) => formatBytes(asset.file_size_bytes) }, { title: "状态", width: 110, render: (_: unknown, asset: MediaAsset) => mediaStatusTag(asset.upload_status) }, { title: "引用", width: 90, render: (_: unknown, asset: MediaAsset) => asset.association_count || 0 }, { title: "更新时间", width: 170, render: (_: unknown, asset: MediaAsset) => mediaAssetTime(asset) }, { title: "操作", width: 170, render: (_: unknown, asset: MediaAsset) => <Space size={6}>{asset.upload_status === "failed" ? <Button size="small" icon={<ReloadOutlined />} onClick={() => retryProcessing.mutate(asset.id)}>重试</Button> : null}{renderPreviewButton(asset)}</Space> }]} />
           )}
         </QueryState>
       </div>

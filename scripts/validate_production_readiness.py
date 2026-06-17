@@ -118,7 +118,7 @@ def _stages(args: argparse.Namespace) -> list[Stage]:
         )
     )
     if not args.skip_backend_tests:
-        stages.append(Stage("backend tests", [sys.executable, "-m", "pytest", "server\\tests", "-q"]))
+        stages.append(Stage("backend tests", [sys.executable, "-m", "pytest", "server/tests", "-q"]))
 
     stages.extend(_frontend_dependencies_stage(args))
     if not args.skip_frontend:
