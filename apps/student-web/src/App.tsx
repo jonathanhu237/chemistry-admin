@@ -958,7 +958,7 @@ function LearningEntryPanel({
             <span>先从周期表定位章节，再进入该族的元素特性、通性规律和实验点位学习。</span>
           </section>
 
-          <PeriodicTable selectedArea={selectedArea} onSelectArea={setSelectedArea} />
+          <PeriodicTable selectedArea={selectedArea} recommendedArea={recommendedArea} onSelectArea={setSelectedArea} />
 
           <section className="chapter-card-panel" aria-label="可学习章节">
             <div className="point-list-head">
@@ -1823,9 +1823,11 @@ function stripExperimentPrefix(value: string): string {
 
 function PeriodicTable({
   selectedArea,
+  recommendedArea,
   onSelectArea,
 }: {
   selectedArea: AreaId;
+  recommendedArea?: AreaId | null;
   onSelectArea: (areaId: AreaId) => void;
 }) {
   const groupNumbers = Array.from({ length: 18 }, (_, index) => index + 1);
@@ -1840,19 +1842,25 @@ function PeriodicTable({
         <Atom size={22} />
       </div>
       <div className="area-legend" aria-label="元素区图例">
-        {(Object.keys(periodicAreaByAreaId) as AreaId[]).map((areaId) => (
-          <button
-            key={areaId}
-            type="button"
-            className={selectedArea === areaId ? "selected" : ""}
-            style={{ "--area-color": areaSwatches[areaId], "--area-ink": areaInk[areaId] } as CSSProperties}
-            onClick={() => onSelectArea(areaId)}
-            aria-pressed={selectedArea === areaId}
-          >
-            <i />
-            <span>{periodicAreaByAreaId[areaId]}</span>
-          </button>
-        ))}
+        {(Object.keys(periodicAreaByAreaId) as AreaId[]).map((areaId) => {
+          const isSelected = selectedArea === areaId;
+          const isRecommended = recommendedArea === areaId;
+          return (
+            <button
+              key={areaId}
+              type="button"
+              className={[isSelected ? "selected" : "", isRecommended ? "recommended-area" : ""].filter(Boolean).join(" ")}
+              style={{ "--area-color": areaSwatches[areaId], "--area-ink": areaInk[areaId] } as CSSProperties}
+              onClick={() => onSelectArea(areaId)}
+              aria-label={`${periodicAreaByAreaId[areaId]}${isRecommended ? "，推荐区域" : ""}`}
+              aria-pressed={isSelected}
+            >
+              <i />
+              <span>{periodicAreaByAreaId[areaId]}</span>
+              {isRecommended ? <em>推荐</em> : null}
+            </button>
+          );
+        })}
       </div>
       <div className="periodic-caption">族（IUPAC 编号）</div>
       <div className="periodic-grid">
@@ -1868,11 +1876,11 @@ function PeriodicTable({
             <button
               key={element.atomicNumber}
               type="button"
-              className={["element-cell", selected ? "selected-area" : ""].filter(Boolean).join(" ")}
+              className={["element-cell", selected ? "selected-area" : "muted-area"].filter(Boolean).join(" ")}
               style={{
                 gridColumn: element.group,
                 gridRow: element.period + 1,
-                background: selected ? areaSwatches[areaId] : `${areaSwatches[areaId]}9d`,
+                background: areaSwatches[areaId],
                 "--cell-ink": areaInk[areaId],
               } as CSSProperties}
               aria-label={`${element.symbol} ${element.name}，选择${periodicAreaByAreaId[areaId]}`}
