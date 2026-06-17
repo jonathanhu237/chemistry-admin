@@ -37,10 +37,10 @@
 
 ## 6. Final Validation And Handoff
 
-- [ ] 6.1 Run protected resource validation and OpenSpec strict validation for `production-quality-iteration-three`.
-- [ ] 6.2 Run backend import smoke, assistant-focused tests, and full backend tests.
-- [ ] 6.3 Run frontend typecheck, frontend tests, production build, and build chunk report.
-- [ ] 6.4 Run Docker backend/BGE health checks if runtime-impacting backend changes were made.
-- [ ] 6.5 Run authenticated API smoke and the committed e2e browser smoke.
-- [ ] 6.6 Update final notes with completed work, validation results, and any remaining known risks.
-- [ ] 6.7 Commit coherent phases and push `codex/productionize-admin-platform`.
+- [x] 6.1 Run protected resource validation and OpenSpec strict validation for `production-quality-iteration-three`.
+- [x] 6.2 Run backend import smoke, assistant-focused tests, and full backend tests.
+- [x] 6.3 Run frontend typecheck, frontend tests, production build, and build chunk report.
+- [x] 6.4 Run Docker backend/BGE health checks if runtime-impacting backend changes were made.
+- [x] 6.5 Run authenticated API smoke and the committed e2e browser smoke.
+- [x] 6.6 Update final notes with completed work, validation results, and any remaining known risks.
+- [x] 6.7 Commit coherent phases and push `codex/productionize-admin-platform`.
