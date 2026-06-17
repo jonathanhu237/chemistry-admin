@@ -1838,7 +1838,6 @@ function PeriodicTable({
         <div>
           <p>周期表入口</p>
           <h3>按族进入章节</h3>
-          {recommendedArea ? <span className="periodic-recommendation-tag">推荐学习 · {periodicAreaByAreaId[recommendedArea]}</span> : null}
         </div>
         <Atom size={22} />
       </div>
@@ -1858,6 +1857,7 @@ function PeriodicTable({
             >
               <i />
               <span>{periodicAreaByAreaId[areaId]}</span>
+              {isRecommended ? <em>推荐学习</em> : null}
             </button>
           );
         })}

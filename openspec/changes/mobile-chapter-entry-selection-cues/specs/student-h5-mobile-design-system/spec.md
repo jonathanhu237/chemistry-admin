@@ -10,8 +10,9 @@ The student H5 mobile design system SHALL use distinct visual cues for selected 
 
 #### Scenario: Recommended area is visible
 - **WHEN** the selected or unselected area matches the recommended profile's area
-- **THEN** the periodic-table entry MUST show a compact recommendation cue that names the recommended area
+- **THEN** that area control MUST show a compact recommendation cue
 - **AND** the cue MUST NOT replace or obscure the selected-state affordance
+- **AND** the cue MUST NOT resize the area control's label text
 
 #### Scenario: Chapter entry cards remain tappable rows
 - **WHEN** chapter cards are shown on a phone viewport

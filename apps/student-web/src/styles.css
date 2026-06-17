@@ -470,26 +470,8 @@ button {
   margin-bottom: 12px;
 }
 
-.periodic-card-head > div {
-  display: grid;
-  min-width: 0;
-  gap: 6px;
-}
-
 .periodic-card-head svg {
   color: var(--green);
-}
-
-.periodic-recommendation-tag {
-  width: fit-content;
-  border-radius: 999px;
-  padding: 3px 7px;
-  color: #6e4a10;
-  background: rgba(210, 155, 45, 0.18);
-  font-size: 11px;
-  font-weight: 900;
-  line-height: 1;
-  white-space: nowrap;
 }
 
 .area-legend {
@@ -517,6 +499,23 @@ button {
 }
 
 .area-legend button span {
+  white-space: nowrap;
+}
+
+.area-legend button em {
+  position: absolute;
+  top: -8px;
+  right: 6px;
+  width: max-content;
+  border-radius: 999px;
+  padding: 2px 5px;
+  color: #6e4a10;
+  background: rgba(210, 155, 45, 0.2);
+  font-size: 9px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 1;
+  pointer-events: none;
   white-space: nowrap;
 }
 

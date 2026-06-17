@@ -30,11 +30,11 @@ The current recommended chapter card uses a green border and light green backgro
 
    Alternative considered: keep the recommended chapter's green-tinted card. Rejected because it looks like the current active choice before the user has entered a chapter.
 
-2. Add recommended-area cue to the periodic-table heading.
+2. Add recommended-area cue to the recommended area control.
 
-   The selected area button remains the primary state indicator. The periodic-table heading shows a compact `推荐学习 · <area>` tag so a student can see the system suggestion without crowding or distorting the area buttons.
+   The selected area button remains the primary state indicator. The recommended area button shows a compact `推荐学习` tag so the guidance stays attached to the area it recommends.
 
-   Alternative considered: attach a small tag to the recommended area button. Rejected because the button is narrow on phone widths and the tag either floats awkwardly or crowds the area label.
+   Alternative considered: show a heading-level `推荐学习 · <area>` tag. Rejected because it reads as a disconnected note rather than a cue attached to the recommended area.
 
 3. Use fill, opacity, and soft shadow for periodic-table area emphasis.
 
@@ -44,6 +44,6 @@ The current recommended chapter card uses a green border and light green backgro
 
 ## Risks / Trade-offs
 
-- Recommendation may be less prominent after removing the full-card tint. Mitigation: keep the chapter tag and add a heading-level area recommendation tag.
+- Recommendation may be less prominent after removing the full-card tint. Mitigation: keep the chapter tag and add an area-button recommendation tag.
 - Muting non-selected periodic-table cells could reduce color category recognition. Mitigation: preserve each area color and only reduce opacity/saturation modestly.
-- The recommended-area tag is not embedded inside the area button. Mitigation: include the recommended area name in the tag while keeping area buttons dedicated to selection state.
+- The area button carries both selected and recommended cues. Mitigation: selected styling remains structural, while recommendation is a compact absolute-positioned tag that does not resize the button text.
