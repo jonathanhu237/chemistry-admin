@@ -74,4 +74,3 @@ The system SHALL store the review decision and lineage for every generated candi
 - **WHEN** a candidate question is marked `reject`
 - **THEN** the review artifact SHALL preserve rejection reasons
 - **AND** the candidate SHALL NOT be imported into the active default bank.
-

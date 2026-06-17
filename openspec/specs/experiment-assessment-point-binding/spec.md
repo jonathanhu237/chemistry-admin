@@ -66,4 +66,3 @@ The system SHALL record whether a reviewed question should be kept, rewritten, o
 - **WHEN** the cited source chunks do not support the stem, answer, or explanation
 - **THEN** the question SHALL be marked as under-evidenced
 - **AND** it SHALL NOT be accepted into the point-aware demo bank.
-

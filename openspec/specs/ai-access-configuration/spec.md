@@ -36,3 +36,20 @@ The project SHALL document that backend source changes require rebuilding the ba
 - **THEN** they SHALL rebuild and recreate the backend service with `docker compose up -d --build backend`
 - **AND** they SHALL verify the changed route or setting against the running backend instead of relying only on Vite or browser refresh.
 
+### Requirement: H5 feature switch propagation
+The system SHALL propagate admin-managed learning feature switches to the student H5 app through a pull-based configuration endpoint and enforce them again at protected action endpoints.
+
+#### Scenario: Admin disables student AI entry
+- **WHEN** an admin disables the AI learning assistant entry in system settings
+- **THEN** subsequent student app-config responses MUST mark the H5 assistant entry as disabled
+- **AND** student assistant request endpoints MUST reject stale requests without invoking the agent
+
+#### Scenario: Admin disables feedback entry
+- **WHEN** an admin disables the feedback entry in system settings
+- **THEN** subsequent student app-config responses MUST mark the H5 feedback entry as disabled
+- **AND** student feedback submission endpoints MUST reject stale requests
+
+#### Scenario: Admin disables student AI capability
+- **WHEN** an admin disables student AI capability in AI feature controls
+- **THEN** subsequent student app-config responses MUST mark student AI capability as disabled
+- **AND** the H5 assistant entry MUST not be available even if the general learning assistant entry remains enabled

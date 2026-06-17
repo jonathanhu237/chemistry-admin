@@ -136,4 +136,3 @@ The admin console SHALL provide an admin-only "学习助手" page for testing th
 - **WHEN** the student AI assistant or student RAG feature switch affects the test request
 - **THEN** the page SHALL show the current AI configuration status
 - **AND** submission results SHALL reflect the same feature-switch behavior used by student chat.
-

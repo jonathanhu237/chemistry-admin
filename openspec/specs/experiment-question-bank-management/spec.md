@@ -358,4 +358,3 @@ The system SHALL keep the release evidence for the imported point-aware default 
 #### Scenario: Teacher inspects a migrated question
 - **WHEN** a teacher opens a migrated question detail
 - **THEN** the console SHALL show the linked experiment, primary point titles, evidence status, source references, answer, explanation, and option-level diagnostic links where available.
-
