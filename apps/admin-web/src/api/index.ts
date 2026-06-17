@@ -958,12 +958,17 @@ export type AnalyticsDashboard = {
     student_id: string;
     student_name: string;
     status?: string;
+    average_score?: number;
     experiments: Record<
       string,
       {
         status: string;
         completion_percent: number;
         best_score: number | null;
+        mastery_score: number;
+        score: number;
+        has_mastery: boolean;
+        evidence_count: number;
         attempt_count: number;
       }
     >;

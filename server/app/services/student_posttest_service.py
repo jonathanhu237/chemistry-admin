@@ -13,6 +13,7 @@ from server.app.auth import AuthUser
 from server.app.database import db_session
 from server.app.mastery import MasterySnapshot, update_mastery
 from server.app.platform_settings import get_learning_behavior_settings
+from server.app.services.experiment_mastery_service import update_experiment_mastery_from_attempt_rows
 from server.app.services.student_experiment_service import _grade_answer
 from server.app.services.student_pretest_service import _ensure_student_row, _load_student_context
 from server.app.student_posttest_schemas import (
@@ -518,7 +519,8 @@ def _update_mastery_from_posttest(session: Any, *, student_id: str, posttest_ses
         for row in session.execute(
             text(
                 """
-                SELECT a.correct, q.difficulty, q.related_knowledge_point_ids
+                SELECT a.correct, a.class_id, a.experiment_id, a.question_type,
+                       q.difficulty, q.related_knowledge_point_ids
                 FROM experiment_question_attempts a
                 JOIN experiment_questions q ON q.id = a.question_id
                 WHERE a.student_id = :student_id
@@ -531,6 +533,14 @@ def _update_mastery_from_posttest(session: Any, *, student_id: str, posttest_ses
         .mappings()
         .all()
     ]
+    update_experiment_mastery_from_attempt_rows(
+        session,
+        student_id=student_id,
+        class_id=next((str(row.get("class_id")) for row in attempt_rows if row.get("class_id")), None),
+        attempt_rows=attempt_rows,
+        evidence_kind="posttest",
+        evidence_id=posttest_session_id,
+    )
     kp_ids = sorted(
         {
             str(kp_id)

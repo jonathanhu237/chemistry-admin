@@ -1,36 +1,26 @@
 import { useMemo, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { App as AntApp, Button, Card, Empty, Progress, Select, Space, Statistic, Table, Tag, Typography } from "antd";
-import dayjs from "dayjs";
+import { App as AntApp, Button, Card, Empty, Select, Space, Statistic, Table, Tooltip, Typography } from "antd";
+import type { TableColumnsType } from "antd";
 
 import { api, apiBase, getAuthToken } from "../../api";
-import type { AnalyticsDashboard, ClassItem, StudentReport, WeakPointsResponse } from "../../api";
+import type { AnalyticsDashboard, ClassItem, Experiment } from "../../api";
 import { PageTitle } from "../../components/PageTitle";
 import { QueryState } from "../../components/QueryState";
-import { optionDiagnosticRoleLabel, statusTag } from "../../lib/status";
 
 const { Text } = Typography;
+
+type MatrixRow = AnalyticsDashboard["matrix"][number];
 
 export function AnalyticsPage() {
   const { message } = AntApp.useApp();
   const classes = useQuery({ queryKey: ["classes"], queryFn: () => api<ClassItem[]>("/api/admin/classes") });
   const [classId, setClassId] = useState<string>();
-  const [studentId, setStudentId] = useState<string>();
   const activeClassId = classId || classes.data?.[0]?.id;
   const dashboard = useQuery({
     queryKey: ["analytics-dashboard", activeClassId],
     queryFn: () => api<AnalyticsDashboard>(`/api/admin/analytics/classes/${activeClassId}/dashboard`),
     enabled: Boolean(activeClassId),
-  });
-  const weakPoints = useQuery({
-    queryKey: ["weak-points", activeClassId],
-    queryFn: () => api<WeakPointsResponse>(`/api/admin/analytics/classes/${activeClassId}/weak-points`),
-    enabled: Boolean(activeClassId),
-  });
-  const studentReport = useQuery({
-    queryKey: ["student-report", activeClassId, studentId],
-    queryFn: () => api<StudentReport>(`/api/admin/analytics/classes/${activeClassId}/students/${studentId}`),
-    enabled: Boolean(activeClassId && studentId),
   });
 
   const exportReport = async () => {
@@ -46,217 +36,153 @@ export function AnalyticsPage() {
     const url = URL.createObjectURL(blob);
     const link = document.createElement("a");
     link.href = url;
-    link.download = `class-${activeClassId}-experiment-report.csv`;
+    link.download = `class-${activeClassId}-experiment-mastery.csv`;
     link.click();
     URL.revokeObjectURL(url);
   };
 
-  const matrixColumns = useMemo(() => {
+  const matrixColumns: TableColumnsType<MatrixRow> = useMemo(() => {
     const experiments = dashboard.data?.experiments || [];
     return [
-      { title: "学号", dataIndex: "student_id", fixed: "left" as const, width: 130 },
-      { title: "姓名", dataIndex: "student_name", fixed: "left" as const, width: 120 },
+      {
+        title: "学生",
+        dataIndex: "student_name",
+        fixed: "left",
+        width: 190,
+        render: (_value: unknown, row: MatrixRow) => (
+          <Space orientation="vertical" size={1} className="analytics-student-cell">
+            <Text strong>{row.student_name || row.student_id}</Text>
+            <Text type="secondary">{row.student_id}</Text>
+          </Space>
+        ),
+      },
+      {
+        title: "均分",
+        dataIndex: "average_score",
+        fixed: "left",
+        width: 92,
+        sorter: (a: MatrixRow, b: MatrixRow) => (a.average_score || 0) - (b.average_score || 0),
+        render: (value: number | undefined) => <ScorePill score={value ?? 0} />,
+      },
       ...experiments.map((experiment) => ({
-        title: experiment.code,
-        width: 140,
-        render: (_: unknown, row: AnalyticsDashboard["matrix"][number]) => {
-          const state = row.experiments[experiment.id];
-          return (
-            <Space orientation="vertical" size={2} className="full">
-              {statusTag(state?.status)}
-              <Progress percent={Math.round(state?.completion_percent || 0)} size="small" />
-              <Text type="secondary">{state?.best_score ?? "-"} 分</Text>
-            </Space>
-          );
-        },
+        title: <ExperimentColumnTitle experiment={experiment} />,
+        width: 154,
+        align: "center" as const,
+        render: (_value: unknown, row: MatrixRow) => (
+          <ScorePill
+            score={row.experiments[experiment.id]?.mastery_score ?? 50}
+            muted={!row.experiments[experiment.id]?.has_mastery}
+            evidenceCount={row.experiments[experiment.id]?.evidence_count}
+          />
+        ),
       })),
     ];
   }, [dashboard.data?.experiments]);
 
+  const experimentCount = dashboard.data?.experiments.length || 0;
+  const tableScrollX = Math.max(980, 282 + experimentCount * 154);
+
   return (
-    <Space orientation="vertical" size={18} className="full">
+    <Space orientation="vertical" size={18} className="full analytics-page">
       <PageTitle
         title="学情分析"
-        description="按班级查看实验进度、答题情况、个人路径和薄弱点。"
-        extra={<Button onClick={() => void exportReport()}>导出报告</Button>}
+        description="班级实验分数总览"
+        extra={<Button onClick={() => void exportReport()}>导出分数</Button>}
       />
-      <Card>
-        <Select
-          placeholder="选择班级"
-          style={{ width: 280 }}
-          value={activeClassId}
-          onChange={(value) => {
-            setClassId(value);
-            setStudentId(undefined);
-          }}
-          options={(classes.data || []).map((item) => ({ value: item.id, label: item.class_name }))}
-        />
+      <Card className="analytics-toolbar-card">
+        <Space wrap size={12}>
+          <Select
+            placeholder="选择班级"
+            style={{ width: 280 }}
+            value={activeClassId}
+            onChange={(value) => setClassId(value)}
+            options={(classes.data || []).map((item) => ({ value: item.id, label: item.class_name }))}
+          />
+          <Text type="secondary">未答题实验按 50 分计入。</Text>
+        </Space>
       </Card>
       <QueryState loading={dashboard.isLoading} error={dashboard.error} empty={!activeClassId}>
-        <div className="stat-grid">
+        <div className="stat-grid analytics-stat-grid">
           <Card>
             <Statistic title="班级人数" value={dashboard.data?.metrics.class_size || 0} />
           </Card>
           <Card>
-            <Statistic title="活跃学生" value={dashboard.data?.metrics.active_students || 0} />
+            <Statistic title="班级均分" value={dashboard.data?.metrics.average_score || 0} precision={1} suffix="分" />
           </Card>
           <Card>
-            <Statistic title="完成率" value={dashboard.data?.metrics.completion_rate || 0} suffix="%" />
+            <Statistic title="实验数量" value={dashboard.data?.metrics.published_experiments || 0} />
           </Card>
           <Card>
-            <Statistic title="平均分" value={dashboard.data?.metrics.average_score || 0} suffix="分" />
+            <Statistic title="已有答题学生" value={dashboard.data?.metrics.active_students || 0} />
           </Card>
         </div>
-        <Card title="实验完成矩阵">
+        <Card
+          title="学生实验分数"
+          extra={<Text type="secondary">{dashboard.data?.matrix.length || 0} 名学生</Text>}
+          className="analytics-matrix-card"
+        >
           <Table
             rowKey="student_id"
-            scroll={{ x: 1180 }}
+            size="small"
+            scroll={{ x: tableScrollX, y: "calc(100vh - 390px)" }}
             dataSource={dashboard.data?.matrix || []}
             columns={matrixColumns}
-            onRow={(record) => ({
-              onClick: () => setStudentId(record.student_id),
-            })}
+            pagination={{ pageSize: 20, showSizeChanger: false }}
+            locale={{ emptyText: <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description="暂无学生" /> }}
           />
         </Card>
-        <div className="two-column">
-          <Card title="薄弱点">
-            <Space orientation="vertical" size={14} className="full">
-              <Table
-                rowKey={(row) => row.point_key}
-                size="small"
-                dataSource={weakPoints.data?.point_items || []}
-                pagination={{ pageSize: 5, showSizeChanger: false }}
-                locale={{ emptyText: <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description="暂无点位答题数据" /> }}
-                columns={[
-                  {
-                    title: "实验点位",
-                    render: (_: unknown, row) => (
-                      <Space orientation="vertical" size={2}>
-                        <Text strong>{row.point_title}</Text>
-                        <Text type="secondary">
-                          {row.experiment_code || ""} {row.experiment_title || ""}
-                        </Text>
-                      </Space>
-                    ),
-                  },
-                  { title: "作答", dataIndex: "attempt_count", width: 70 },
-                  { title: "错题", dataIndex: "incorrect_count", width: 70 },
-                  { title: "错误率", dataIndex: "incorrect_rate", width: 90, render: (value) => `${value || 0}%` },
-                  {
-                    title: "诊断",
-                    width: 150,
-                    render: (_: unknown, row) => (
-                      <Space size={4} wrap>
-                        {(row.selected_option_links || []).slice(0, 2).map((link, index) => (
-                          <Tag key={`${link.label || "option"}-${index}`}>
-                            {link.label ? `${link.label} · ` : ""}
-                            {optionDiagnosticRoleLabel(link.role)}
-                          </Tag>
-                        ))}
-                        {row.kp_unmapped ? <Tag>KP 未映射</Tag> : null}
-                      </Space>
-                    ),
-                  },
-                ]}
-              />
-              <div>
-                <Text type="secondary">题目/KP 回退视图</Text>
-                <Table
-                  rowKey={(row) => String(row.question_id || row.experiment_id || row.stem)}
-                  size="small"
-                  dataSource={weakPoints.data?.items || []}
-                  pagination={{ pageSize: 4, showSizeChanger: false }}
-                  columns={[
-                    { title: "实验", render: (_: unknown, row) => `${row.experiment_code || ""} ${row.experiment_title || ""}` },
-                    { title: "题目", dataIndex: "stem" },
-                    { title: "错误率", dataIndex: "incorrect_rate", width: 90, render: (value) => `${value || 0}%` },
-                    { title: "KP", dataIndex: "unmapped", width: 90, render: (value) => (value ? <Tag>未映射</Tag> : <Tag color="green">已映射</Tag>) },
-                  ]}
-                />
-              </div>
-            </Space>
-          </Card>
-          <Card title="学生路径">
-            {studentId ? (
-              <QueryState loading={studentReport.isLoading} error={studentReport.error}>
-                <Space orientation="vertical" size={14} className="full">
-                  <Space wrap>
-                    <Tag color="blue">学生 {String(studentReport.data?.student?.student_name || studentId)}</Tag>
-                    <Tag>{studentReport.data?.attempts?.length || 0} 次答题</Tag>
-                    <Tag color={studentReport.data?.weak_video_points?.length ? "gold" : "green"}>
-                      弱点 {studentReport.data?.weak_video_points?.length || 0}
-                    </Tag>
-                  </Space>
-                  <Table
-                    rowKey={(row) => row.point_key}
-                    size="small"
-                    title={() => "薄弱实验点位"}
-                    dataSource={studentReport.data?.weak_video_points || []}
-                    pagination={{ pageSize: 4, showSizeChanger: false }}
-                    locale={{ emptyText: <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description="暂无点位弱项" /> }}
-                    columns={[
-                      { title: "点位", dataIndex: "point_title" },
-                      { title: "实验", render: (_: unknown, row) => `${row.experiment_code || ""} ${row.experiment_title || ""}` },
-                      { title: "错误次数", dataIndex: "incorrect_count", width: 90 },
-                    ]}
-                  />
-                  <Table
-                    rowKey={(row) => String(row.id || row.question_id || row.created_at)}
-                    size="small"
-                    title={() => "最近答题"}
-                    dataSource={(studentReport.data?.attempts || []).slice(0, 8)}
-                    pagination={false}
-                    columns={[
-                      {
-                        title: "实验",
-                        width: 150,
-                        render: (_: unknown, row) => `${row.experiment_code || ""} ${row.experiment_title || ""}`,
-                      },
-                      { title: "题目", dataIndex: "stem" },
-                      {
-                        title: "点位",
-                        width: 180,
-                        render: (_: unknown, row) => (
-                          <Space size={4} wrap>
-                            {(row.metadata?.primary_points || []).slice(0, 2).map((point) => (
-                              <Tag key={point.point_key || point.point_title}>{point.point_title || point.point_key}</Tag>
-                            ))}
-                          </Space>
-                        ),
-                      },
-                      {
-                        title: "结果",
-                        width: 80,
-                        render: (_: unknown, row) =>
-                          row.correct === true ? <Tag color="green">正确</Tag> : row.correct === false ? <Tag color="red">错误</Tag> : <Tag>未判定</Tag>,
-                      },
-                    ]}
-                  />
-                  <Table
-                    rowKey={(row) => String(row.id || row.created_at || row.event_type)}
-                    size="small"
-                    title={() => "时间线"}
-                    dataSource={(studentReport.data?.timeline || []).slice(0, 8)}
-                    pagination={false}
-                    columns={[
-                      { title: "时间", dataIndex: "created_at", width: 150, render: (value) => (value ? dayjs(String(value)).format("MM-DD HH:mm") : "-") },
-                      { title: "事件", dataIndex: "event_type" },
-                      {
-                        title: "结果",
-                        width: 80,
-                        render: (_: unknown, row) =>
-                          row.correct === true ? <Tag color="green">正确</Tag> : row.correct === false ? <Tag color="red">错误</Tag> : <Tag>-</Tag>,
-                      },
-                    ]}
-                  />
-                </Space>
-              </QueryState>
-            ) : (
-              <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description="点击矩阵中的学生查看路径" />
-            )}
-          </Card>
-        </div>
       </QueryState>
     </Space>
   );
+}
+
+function ExperimentColumnTitle({ experiment }: { experiment: Experiment }) {
+  const family = experimentFamily(experiment);
+  const title = cleanExperimentTitle(experiment.title);
+  return (
+    <Tooltip title={`${family ? `${family} / ` : ""}${title}`}>
+      <div className="analytics-experiment-title">
+        <strong>{title}</strong>
+        <span>{family || experiment.code}</span>
+      </div>
+    </Tooltip>
+  );
+}
+
+function ScorePill({
+  score,
+  muted = false,
+  evidenceCount = 0,
+}: {
+  score: number;
+  muted?: boolean;
+  evidenceCount?: number;
+}) {
+  const title = muted ? "暂无答题证据，按默认 50 分计入" : `答题证据 ${evidenceCount} 条`;
+  return (
+    <Tooltip title={title}>
+      <span className={`analytics-score-pill ${scoreTone(score)} ${muted ? "is-default" : ""}`}>{formatScore(score)}</span>
+    </Tooltip>
+  );
+}
+
+function formatScore(value: number) {
+  return Number.isInteger(value) ? String(value) : value.toFixed(1);
+}
+
+function scoreTone(value: number) {
+  if (value < 40) return "score-low";
+  if (value < 60) return "score-watch";
+  if (value < 80) return "score-steady";
+  return "score-high";
+}
+
+function cleanExperimentTitle(value: string) {
+  return value.replace(/^实验\s*\d+-\d+\s*/, "").trim();
+}
+
+function experimentFamily(experiment: Experiment) {
+  const metadata = experiment.metadata || {};
+  const parentTitle = typeof metadata.parent_title === "string" ? metadata.parent_title : "";
+  return cleanExperimentTitle(parentTitle);
 }

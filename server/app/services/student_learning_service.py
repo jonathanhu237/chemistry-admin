@@ -13,6 +13,7 @@ from sqlalchemy import text
 from server.app.auth import AuthUser
 from server.app.config import get_settings
 from server.app.database import db_session
+from server.app.mastery import DEFAULT_EXPERIMENT_MASTERY_SCORE
 from server.app.media import is_student_visible_media
 from server.app.normalization import CHAPTER_AREA_MAP
 from server.app.student_learning_schemas import (
@@ -312,36 +313,53 @@ def _latest_pretest_area_id(session: Any, student_id: str) -> str | None:
     return PRETEST_AREA_IDS.get(str(row.get("weakest_area") or ""))
 
 
-def _lowest_mastery_chapter_id(session: Any, *, student_id: str, area_id: str) -> str | None:
-    chapter_ids = [chapter_id for chapter_id, chapter in CHAPTER_AREA_MAP.items() if chapter.get("area_id") == area_id]
-    if not chapter_ids:
+def _lowest_mastery_parent_code(
+    session: Any,
+    *,
+    student_id: str,
+    groups: list[ParentGroup],
+    area_id: str,
+) -> str | None:
+    candidates = [group for group in groups if group.area_id == area_id]
+    if not candidates:
         return None
-    row = (
-        session.execute(
+    experiment_ids = [
+        str(experiment["id"])
+        for group in candidates
+        for experiment in group.experiments
+    ]
+    mastery_scores = {
+        str(row["experiment_id"]): float(row["mastery_score"])
+        for row in session.execute(
             text(
                 """
-                SELECT kp.chapter_id, sm.mastery_score
-                FROM student_mastery sm
-                JOIN knowledge_points kp ON kp.id = sm.knowledge_point_id
-                WHERE sm.student_id = :student_id
-                  AND kp.chapter_id = ANY(:chapter_ids)
-                ORDER BY sm.mastery_score ASC, kp.chapter_id ASC, kp.id ASC
-                LIMIT 1
+                SELECT experiment_id, mastery_score
+                FROM student_experiment_mastery
+                WHERE student_id = :student_id
+                  AND experiment_id = ANY(:experiment_ids)
                 """
             ),
-            {"student_id": student_id, "chapter_ids": chapter_ids},
-        )
-        .mappings()
-        .first()
-    )
-    return str(row["chapter_id"]) if row else None
+            {"student_id": student_id, "experiment_ids": experiment_ids},
+        ).mappings()
+    }
+
+    def group_average(group: ParentGroup) -> float:
+        values = [
+            mastery_scores.get(str(experiment["id"]), DEFAULT_EXPERIMENT_MASTERY_SCORE)
+            for experiment in group.experiments
+        ]
+        return sum(values) / len(values) if values else DEFAULT_EXPERIMENT_MASTERY_SCORE
+
+    weakest = min(candidates, key=lambda group: (group_average(group), group.display_order, group.parent_code))
+    return weakest.parent_code
 
 
 def _choose_recommendation(
     *,
     groups: list[ParentGroup],
     pretest_area_id: str | None,
-    mastery_chapter_id: str | None,
+    mastery_parent_code: str | None = None,
+    mastery_chapter_id: str | None = None,
 ) -> tuple[str | None, str | None]:
     groups_by_area: dict[str, list[ParentGroup]] = defaultdict(list)
     for group in groups:
@@ -353,6 +371,10 @@ def _choose_recommendation(
         return (first_group.area_id, first_group.parent_code) if first_group else (None, None)
 
     candidates = groups_by_area[area_id]
+    if mastery_parent_code:
+        matched = next((group for group in candidates if group.parent_code == mastery_parent_code), None)
+        if matched:
+            return matched.area_id, matched.parent_code
     if mastery_chapter_id:
         matched = next((group for group in candidates if mastery_chapter_id in group.chapter_ids), None)
         if matched:
@@ -470,15 +492,16 @@ def get_student_learning_home(user: AuthUser) -> StudentLearningHomeResponse:
         groups = _build_parent_groups(experiments)
         student_id = _student_id(user)
         pretest_area_id = _latest_pretest_area_id(session, student_id)
-        mastery_chapter_id = _lowest_mastery_chapter_id(
+        mastery_parent_code = _lowest_mastery_parent_code(
             session,
             student_id=student_id,
+            groups=groups,
             area_id=pretest_area_id or DEFAULT_RECOMMENDED_AREA_ID,
         )
         recommended_area_id, recommended_parent_code = _choose_recommendation(
             groups=groups,
             pretest_area_id=pretest_area_id,
-            mastery_chapter_id=mastery_chapter_id,
+            mastery_parent_code=mastery_parent_code,
         )
     return StudentLearningHomeResponse(
         recommended_area_id=recommended_area_id,

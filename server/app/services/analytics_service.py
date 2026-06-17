@@ -9,6 +9,7 @@ from sqlalchemy import text
 
 from server.app.auth import AuthUser
 from server.app.database import db_session
+from server.app.mastery import DEFAULT_EXPERIMENT_MASTERY_SCORE
 
 def _teacher_can_access_class(user: AuthUser, class_id: str) -> bool:
     if user.role == "admin":
@@ -203,6 +204,7 @@ def get_class_dashboard(
     _require_class_access(class_id, user)
     with db_session() as session:
         students = _class_students(session, class_id)
+        student_ids = [str(student["student_id"]) for student in students]
         experiments = _list_experiments(status_filter="published")
         if experiment_id:
             experiments = [item for item in experiments if item["id"] == experiment_id]
@@ -237,6 +239,25 @@ def get_class_dashboard(
             .mappings()
             .all()
         ]
+        mastery_rows = (
+            [
+                dict(row)
+                for row in session.execute(
+                    text(
+                        """
+                        SELECT student_id, experiment_id, mastery_score, evidence_count, updated_at
+                        FROM student_experiment_mastery
+                        WHERE student_id = ANY(:student_ids)
+                        """
+                    ),
+                    {"student_ids": student_ids},
+                )
+                .mappings()
+                .all()
+            ]
+            if student_ids
+            else []
+        )
         recent = [
             dict(row)
             for row in session.execute(
@@ -260,31 +281,49 @@ def get_class_dashboard(
         ]
     progress_by_key = {(row["student_id"], row["experiment_id"]): row for row in progress_rows}
     attempts_by_key = {(row["student_id"], row["experiment_id"]): row for row in attempt_rows}
+    mastery_by_key = {(row["student_id"], row["experiment_id"]): row for row in mastery_rows}
     matrix: list[dict[str, Any]] = []
     completed_cells = 0
     scored_cells: list[float] = []
     active_students: set[str] = set()
     for student in students:
         experiment_states: dict[str, Any] = {}
+        student_scores: list[float] = []
         for experiment in experiments:
             key = (student["student_id"], experiment["id"])
             progress = progress_by_key.get(key)
             attempt = attempts_by_key.get(key)
-            if progress or attempt:
+            mastery = mastery_by_key.get(key)
+            if progress or attempt or mastery:
                 active_students.add(student["student_id"])
             status_value = progress.get("status") if progress else "not_started"
             if status_value == "completed":
                 completed_cells += 1
-            score_value = float(progress["best_score"]) if progress and progress.get("best_score") is not None else None
-            if score_value is not None:
-                scored_cells.append(score_value)
+            best_score = float(progress["best_score"]) if progress and progress.get("best_score") is not None else None
+            mastery_score = (
+                float(mastery["mastery_score"])
+                if mastery and mastery.get("mastery_score") is not None
+                else DEFAULT_EXPERIMENT_MASTERY_SCORE
+            )
+            scored_cells.append(mastery_score)
+            student_scores.append(mastery_score)
             experiment_states[experiment["id"]] = {
                 "status": status_value,
                 "completion_percent": float(progress["completion_percent"]) if progress else 0,
-                "best_score": score_value,
+                "best_score": best_score,
+                "mastery_score": mastery_score,
+                "score": mastery_score,
+                "has_mastery": bool(mastery),
+                "evidence_count": int(mastery["evidence_count"]) if mastery else 0,
                 "attempt_count": int(attempt["attempt_count"]) if attempt else 0,
             }
-        matrix.append({**student, "experiments": experiment_states})
+        matrix.append(
+            {
+                **student,
+                "average_score": round(sum(student_scores) / len(student_scores), 2) if student_scores else 0,
+                "experiments": experiment_states,
+            }
+        )
     total_cells = max(1, len(students) * len(experiments))
     missing_students = [row for row in matrix if all(cell["status"] == "not_started" for cell in row["experiments"].values())]
     return {
@@ -547,7 +586,7 @@ def export_class_report_response(
     dashboard = get_class_dashboard(class_id=class_id, user=user)
     output = io.StringIO()
     writer = csv.writer(output)
-    writer.writerow(["class_id", "student_id", "student_name", "experiment_id", "experiment_code", "completion", "score"])
+    writer.writerow(["class_id", "student_id", "student_name", "experiment_id", "experiment_code", "mastery_score"])
     experiments_by_id = {item["id"]: item for item in dashboard["experiments"]}
     for student in dashboard["matrix"]:
         for experiment_id, state in student["experiments"].items():
@@ -559,8 +598,7 @@ def export_class_report_response(
                     student["student_name"],
                     experiment_id,
                     experiment.get("code"),
-                    state["status"],
-                    state["best_score"] if state["best_score"] is not None else "",
+                    state.get("mastery_score", DEFAULT_EXPERIMENT_MASTERY_SCORE),
                 ]
             )
     return Response(
