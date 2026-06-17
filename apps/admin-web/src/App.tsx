@@ -197,7 +197,7 @@ function LoginPage() {
   return (
     <div className="login-page">
       <Card className="login-card">
-        <Space direction="vertical" size={20} className="full">
+        <Space orientation="vertical" size={20} className="full">
           <div className="login-brand-lockup">
             <img src={sysuLogoSrc} alt="" />
             <div>

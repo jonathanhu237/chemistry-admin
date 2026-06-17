@@ -206,7 +206,7 @@ export function AIConfigurationPage() {
   const configuredModel = aiConfig.data?.model || "-";
 
   return (
-    <Space direction="vertical" size={18} className="full">
+    <Space orientation="vertical" size={18} className="full">
       <PageTitle title="AI接入" description="监控 OpenAI API 连接与 RAG 检索运行状态；模型、Base URL、密钥和学生 AI 能力开关在系统设置维护。" />
       <QueryState loading={aiConfig.isLoading} error={aiConfig.error}>
         <div className="ai-config-dashboard">
@@ -288,7 +288,7 @@ export function AIConfigurationPage() {
                       type="warning"
                       showIcon
                       className="ai-rag-alert"
-                      message="BGE sidecar 当前不可用"
+                      title="BGE sidecar 当前不可用"
                       description={assistantRuntime.data.bge_error}
                     />
                   ) : null}
@@ -297,7 +297,7 @@ export function AIConfigurationPage() {
                       type="error"
                       showIcon
                       className="ai-rag-alert"
-                      message="RAG 自动监控接口读取失败"
+                      title="RAG 自动监控接口读取失败"
                       description={errorMessage(assistantRuntime.error)}
                     />
                   ) : null}
@@ -306,7 +306,7 @@ export function AIConfigurationPage() {
                       type="error"
                       showIcon
                       className="ai-rag-alert"
-                      message="BGE 预热失败"
+                      title="BGE 预热失败"
                       description={bgeWarmup.error}
                     />
                   ) : null}

@@ -821,7 +821,7 @@ export function VideoResourcesPage() {
   const renderAssetName = (asset: MediaAsset) => (
     <Space size={10} align="start" className="video-asset-name">
       <MediaThumbnail asset={asset} compact />
-      <Space direction="vertical" size={1}>
+      <Space orientation="vertical" size={1}>
         <Text strong>{asset.title}</Text>
         <Text type="secondary">{asset.original_file_name}</Text>
         {renderAssetBadges(asset)}
@@ -914,7 +914,7 @@ export function VideoResourcesPage() {
   };
 
   return (
-    <Space direction="vertical" size={18} className="full">
+    <Space orientation="vertical" size={18} className="full">
       <PageTitle
         title="视频资源"
         description="这里是后台的视频资源库，用来集中管理老师上传的视频文件。上传支持断点续传，上传完成后系统会在后台自动读取视频信息、生成真实缩略图、为学生端选择或生成更适合在线播放的学生播放源，并提示可能重复的视频。这个页面只负责上传、检索、预览和处理状态查看；把视频引用到具体实验点，仍然在实验管理页面完成。若出现处理失败，通常表示后台无法读取或生成视频输出，比如文件损坏、编码不兼容、磁盘空间不足或视频处理服务中断，可以稍后重试。"
@@ -938,7 +938,7 @@ export function VideoResourcesPage() {
             type="warning"
             showIcon
             className="video-review-alert"
-            message={"有 " + pendingDuplicateAssets.length + " 个疑似重复视频待确认"}
+            title={"有 " + pendingDuplicateAssets.length + " 个疑似重复视频待确认"}
             description="这些视频内容可能与已有视频相近，但不是完全相同文件。建议集中查看后决定保留、复用已有视频或忽略提示。"
             action={<Button size="small" onClick={() => setStatusFilter("duplicate_pending")}>查看待确认</Button>}
           />
@@ -958,7 +958,7 @@ export function VideoResourcesPage() {
               {filteredAssets.map((asset) => (
                 <div className="video-asset-card" key={asset.id}>
                   <button type="button" className="video-asset-cover" onClick={() => setPreviewAsset(asset)} disabled={!isPreviewableVideo(asset)}><MediaThumbnail asset={asset} /></button>
-                  <Space direction="vertical" size={8} className="full">
+                  <Space orientation="vertical" size={8} className="full">
                     <div><Text strong className="video-asset-title">{asset.title}</Text><Text type="secondary" className="video-asset-file">{asset.original_file_name}</Text></div>
                     <Flex justify="space-between" align="center" gap={8}>{mediaStatusTag(asset.upload_status)}<Text type="secondary">{formatBytes(asset.file_size_bytes)}</Text></Flex>
                     {renderProcessingLine(asset)}
@@ -978,10 +978,10 @@ export function VideoResourcesPage() {
       </div>
 
       <Modal title="上传视频" open={uploadOpen} onCancel={closeUploadModal} footer={uploadModalFooter} width={780}>
-        <Space direction="vertical" size={14} className="full">
+        <Space orientation="vertical" size={14} className="full">
           {!uploadFinished ? (
             <>
-              {!tusEndpoint ? <Alert type="warning" showIcon message="当前使用小文件回退上传" description="配置 VITE_TUS_ENDPOINT 后可启用断点续传。" /> : null}
+              {!tusEndpoint ? <Alert type="warning" showIcon title="当前使用小文件回退上传" description="配置 VITE_TUS_ENDPOINT 后可启用断点续传。" /> : null}
               <Input
                 placeholder={uploadItems.length > 1 ? "多个视频将默认使用各自文件名作为标题" : "视频标题"}
                 value={uploadItems.length > 1 ? "" : uploadTitle}
@@ -1112,12 +1112,12 @@ export function VideoResourcesPage() {
           ) : null}
           {uploadState.stage === "hashing" ? <div className="video-upload-status"><Text strong>正在校验当前文件</Text><Progress percent={uploadState.hashProgress} /></div> : null}
           {uploadState.note && !["processing", "complete"].includes(uploadState.stage) ? <div className="video-upload-inline-note">{uploadState.note}</div> : null}
-          {(currentUploadItem?.duplicateAsset || uploadState.duplicateAsset) ? <Alert type="success" showIcon message="发现完全相同的已上传文件" description={<Space align="center" size={12}><MediaThumbnail asset={(currentUploadItem?.duplicateAsset || uploadState.duplicateAsset) as MediaAsset} compact /><div><Text strong>{(currentUploadItem?.duplicateAsset || uploadState.duplicateAsset)?.title}</Text><Text type="secondary" className="block-text">{(currentUploadItem?.duplicateAsset || uploadState.duplicateAsset)?.original_file_name} · {formatBytes((currentUploadItem?.duplicateAsset || uploadState.duplicateAsset)?.file_size_bytes)} · {mediaStatusLabels[(currentUploadItem?.duplicateAsset || uploadState.duplicateAsset)?.upload_status || ""] || (currentUploadItem?.duplicateAsset || uploadState.duplicateAsset)?.upload_status}</Text></div></Space>} /> : null}
+          {(currentUploadItem?.duplicateAsset || uploadState.duplicateAsset) ? <Alert type="success" showIcon title="发现完全相同的已上传文件" description={<Space align="center" size={12}><MediaThumbnail asset={(currentUploadItem?.duplicateAsset || uploadState.duplicateAsset) as MediaAsset} compact /><div><Text strong>{(currentUploadItem?.duplicateAsset || uploadState.duplicateAsset)?.title}</Text><Text type="secondary" className="block-text">{(currentUploadItem?.duplicateAsset || uploadState.duplicateAsset)?.original_file_name} · {formatBytes((currentUploadItem?.duplicateAsset || uploadState.duplicateAsset)?.file_size_bytes)} · {mediaStatusLabels[(currentUploadItem?.duplicateAsset || uploadState.duplicateAsset)?.upload_status || ""] || (currentUploadItem?.duplicateAsset || uploadState.duplicateAsset)?.upload_status}</Text></div></Space>} /> : null}
           {["uploading", "paused", "finalizing"].includes(uploadState.stage) ? <div className="video-upload-status"><Flex justify="space-between" align="center"><Text strong>{uploadState.stage === "finalizing" ? "正在完成当前文件入库" : uploadState.stage === "paused" ? "当前文件已暂停" : "正在上传当前文件"}</Text><Text type="secondary">{formatBytes(uploadState.uploadedBytes)} / {formatBytes(uploadState.totalBytes || currentUploadItem?.file.size)}</Text></Flex><Progress percent={uploadState.progress} status={uploadState.stage === "paused" ? "normal" : "active"} /></div> : null}
           {uploadState.stage === "processing" ? (
             <div className="video-upload-inline-note success">当前文件已上传，队列会继续上传后续文件；已完成的视频会留在列表里显示后台处理阶段。</div>
           ) : null}
-          {uploadState.error ? <Alert type="error" showIcon message={uploadState.error} /> : null}
+          {uploadState.error ? <Alert type="error" showIcon title={uploadState.error} /> : null}
         </Space>
       </Modal>
 
@@ -1134,18 +1134,18 @@ export function VideoResourcesPage() {
         width={1040}
       >
         {previewAsset ? (
-          <Space direction="vertical" size={16} className="full">
+          <Space orientation="vertical" size={16} className="full">
             {hasPendingDuplicate(previewAsset) ? (
               <Alert
                 type="warning"
                 showIcon
-                message="这个视频可能与已有视频内容相近"
+                title="这个视频可能与已有视频内容相近"
                 description="这是感知相似度检测结果，不是完全相同文件。请在下方重复审核区确认保留、复用或忽略。"
               />
             ) : null}
             <div className="video-preview-layout">
               <div className="video-preview-stage">
-                {previewLoading ? <Spin /> : previewError ? <Alert type="error" showIcon message={previewError} /> : previewUrl ? <video controls preload="metadata" className="video-preview-player" src={previewUrl} poster={previewPosterUrl} /> : <Alert type="info" showIcon message="该视频当前不可预览" description="只有上传状态为就绪的视频可以在线播放。" />}
+                {previewLoading ? <Spin /> : previewError ? <Alert type="error" showIcon title={previewError} /> : previewUrl ? <video controls preload="metadata" className="video-preview-player" src={previewUrl} poster={previewPosterUrl} /> : <Alert type="info" showIcon title="该视频当前不可预览" description="只有上传状态为就绪的视频可以在线播放。" />}
               </div>
               <Descriptions
                 size="small"
@@ -1166,7 +1166,7 @@ export function VideoResourcesPage() {
             </div>
             {renderVersionPanel(previewAsset)}
             {previewAsset.upload_status !== "ready" ? <Progress percent={processingProgressValue(previewAsset)} status={previewAsset.upload_status === "failed" ? "exception" : "active"} format={() => processingPhaseText(previewAsset)} /> : null}
-            {previewAsset.error_reason ? <Alert type="error" showIcon message={previewAsset.error_reason} /> : null}
+            {previewAsset.error_reason ? <Alert type="error" showIcon title={previewAsset.error_reason} /> : null}
             {renderDuplicateCandidates(previewAsset)}
           </Space>
         ) : null}

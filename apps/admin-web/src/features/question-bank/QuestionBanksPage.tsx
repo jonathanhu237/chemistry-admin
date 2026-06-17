@@ -617,7 +617,7 @@ export function QuestionBanksPage() {
   });
 
   return (
-    <Space direction="vertical" size={18} className="full">
+    <Space orientation="vertical" size={18} className="full">
       <PageTitle
         title="题库管理"
         description="按正式实验和实验点位查看当前发布题库，核对题目、证据来源和单选诊断链接。"
@@ -670,7 +670,7 @@ export function QuestionBanksPage() {
                     const bank = row.banks.find((item) => item.bank_kind === "default") || row.banks[0];
                     const published = Number(bank?.published_count || row.published_question_count || 0);
                     return (
-                      <Space direction="vertical" size={3} className="question-bank-experiment-cell">
+                      <Space orientation="vertical" size={3} className="question-bank-experiment-cell">
                         <Text strong>
                           {row.code} {row.title}
                         </Text>
@@ -818,7 +818,7 @@ export function QuestionBanksPage() {
                   title: "证据",
                   width: 96,
                   render: (_: unknown, row: Question) => (
-                    <Space direction="vertical" size={2}>
+                    <Space orientation="vertical" size={2}>
                       {evidenceStatusTag(row)}
                       <Text type="secondary">{row.source_refs?.length || 0} 条来源</Text>
                     </Space>
@@ -878,7 +878,7 @@ export function QuestionBanksPage() {
         }
       >
         {selectedQuestion ? (
-          <Space direction="vertical" size={16} className="full">
+          <Space orientation="vertical" size={16} className="full">
             <div className="modal-section question-detail-card">
               <div>
                 <Title level={4}>{selectedQuestion.stem}</Title>
@@ -1039,7 +1039,7 @@ export function QuestionBanksPage() {
       <Drawer
         title={assistantIntent === "repair_question" ? "AI 修题工作台" : "AI 新增题工作台"}
         open={aiWorkbenchOpen}
-        width="min(1280px, 96vw)"
+        size="min(1280px, 96vw)"
         onClose={() => setAiWorkbenchOpen(false)}
         className="ai-question-workbench-drawer"
         extra={
@@ -1091,7 +1091,7 @@ export function QuestionBanksPage() {
               </div>
 
               {assistantIntent === "repair_question" && workbenchOriginalQuestion ? (
-                <Space direction="vertical" size={12} className="full">
+                <Space orientation="vertical" size={12} className="full">
                   <div className="ai-workbench-original-card">
                     <Text strong>{String(workbenchOriginalQuestion.stem || "")}</Text>
                     <Space wrap className="question-detail-meta">
@@ -1192,7 +1192,7 @@ export function QuestionBanksPage() {
                     <div key={turn.id} className={`ai-chat-turn ai-chat-turn-${turn.role}`}>
                       <Text strong>{turn.role === "user" ? "老师" : "AI"}</Text>
                       <Text className="block-text">{turn.content}</Text>
-                      {turn.error_state ? <Alert type="error" showIcon message="本轮生成失败" description={String(turn.error_state.message || "")} /> : null}
+                      {turn.error_state ? <Alert type="error" showIcon title="本轮生成失败" description={String(turn.error_state.message || "")} /> : null}
                     </div>
                   ))
                 ) : (
@@ -1209,7 +1209,7 @@ export function QuestionBanksPage() {
                 ) : null}
               </div>
               <div className="ai-workbench-composer">
-                <Space direction="vertical" size={10} className="full">
+                <Space orientation="vertical" size={10} className="full">
                   <Space wrap>
                     <Select
                       mode="multiple"
@@ -1258,7 +1258,7 @@ export function QuestionBanksPage() {
                     const errors = candidateValidationErrors(candidate);
                     return (
                       <div key={candidate.id} className="ai-candidate-card">
-                        <Space direction="vertical" size={8} className="full">
+                        <Space orientation="vertical" size={8} className="full">
                           <Flex justify="space-between" align="start" gap={8}>
                             <Space size={4} wrap>
                               <Tag color="blue">{questionTypeLabel(candidateQuestionType(candidate))}</Tag>
@@ -1293,7 +1293,7 @@ export function QuestionBanksPage() {
                               </Tag>
                             ))}
                           </Space>
-                          {errors.length ? <Alert type="warning" showIcon message={errors.join("；")} /> : null}
+                          {errors.length ? <Alert type="warning" showIcon title={errors.join("；")} /> : null}
                           <Flex justify="space-between" align="center" gap={8} wrap="wrap">
                             <Button
                               size="small"

@@ -380,7 +380,7 @@ export function ExperimentsPage() {
   const hasFilters = Boolean(experimentKeyword || chapterId || statusFilter);
 
   return (
-    <Space direction="vertical" size={18} className="full">
+    <Space orientation="vertical" size={18} className="full">
       <PageTitle
         title="实验管理"
         description="管理实验元信息、理论章节与发布状态；视频素材库作为独立模块维护。"
@@ -391,7 +391,7 @@ export function ExperimentsPage() {
         }
       />
       <Card className="toolbar-card">
-        <Space direction="vertical" size={14} className="full">
+        <Space orientation="vertical" size={14} className="full">
           <Flex justify="space-between" align="center" gap={14} wrap="wrap">
             <Space size={12} wrap className="experiment-filter-controls">
               <Text className="filter-group-label">筛选范围</Text>
@@ -461,7 +461,7 @@ export function ExperimentsPage() {
               {
                 title: "实验",
                 render: (_: unknown, row: Experiment) => (
-                  <Space direction="vertical" size={2}>
+                  <Space orientation="vertical" size={2}>
                     <Text strong>{row.title}</Text>
                     <Text type="secondary">{row.summary}</Text>
                   </Space>
@@ -505,11 +505,11 @@ export function ExperimentsPage() {
         title={currentExperiment ? `编辑实验：${currentExperiment.title}` : "编辑实验"}
         open={Boolean(selected)}
         onClose={() => setSelected(null)}
-        width={1180}
+        size={1180}
         className="experiment-editor-drawer"
       >
         <QueryState loading={selectedExperiment.isLoading} error={selectedExperiment.error} empty={!currentExperiment}>
-          <Space direction="vertical" size={16} className="full">
+          <Space orientation="vertical" size={16} className="full">
             {currentExperiment ? (
               <div className="experiment-editor-summary">
                 <Flex justify="space-between" gap={18} wrap="wrap" align="center">
@@ -535,7 +535,7 @@ export function ExperimentsPage() {
             ) : null}
 
             <div className="experiment-editor-grid">
-              <Space direction="vertical" size={16} className="full">
+              <Space orientation="vertical" size={16} className="full">
                 <Card title="基础信息" className="experiment-basic-card">
                   <Form form={form} layout="vertical" onFinish={(values) => save.mutate(values)}>
                     <Form.Item name="title" label="实验名称" rules={[{ required: true, message: "请输入实验名称" }]}>
@@ -593,7 +593,7 @@ export function ExperimentsPage() {
                 }
                 className="video-reference-card"
               >
-                <Space direction="vertical" size={14} className="full">
+                <Space orientation="vertical" size={14} className="full">
                   <Flex justify="space-between" align="center" gap={12} wrap="wrap" className="video-reference-toolbar">
                     <Segmented
                       value={videoPointFilter}
@@ -775,11 +775,11 @@ export function ExperimentsPage() {
           </Button>,
         ]}
       >
-        <Space direction="vertical" size={14} className="full">
+        <Space orientation="vertical" size={14} className="full">
           <Alert
             type="info"
             showIcon
-            message="这里不会上传新视频，只从视频资源库引用已上传素材。保存后默认是草稿引用，需要发布后学生端才可见。"
+            title="这里不会上传新视频，只从视频资源库引用已上传素材。保存后默认是草稿引用，需要发布后学生端才可见。"
           />
           <Flex justify="space-between" align="center" gap={12} wrap="wrap">
             <Input.Search
@@ -811,7 +811,7 @@ export function ExperimentsPage() {
                       <div className="video-file-mark">
                         <VideoCameraOutlined />
                       </div>
-                      <Space direction="vertical" size={1}>
+                      <Space orientation="vertical" size={1}>
                         <Text strong>{asset.title}</Text>
                         <Text type="secondary">{asset.original_file_name}</Text>
                       </Space>
@@ -866,7 +866,7 @@ export function ExperimentsPage() {
         footer={null}
         onCancel={() => setPreviewTarget(null)}
       >
-        <Space direction="vertical" size={14} className="full">
+        <Space orientation="vertical" size={14} className="full">
           <Text type="secondary">{previewTarget?.original_file_name}</Text>
           <div className="experiment-video-preview-stage">
             {previewLoading ? (

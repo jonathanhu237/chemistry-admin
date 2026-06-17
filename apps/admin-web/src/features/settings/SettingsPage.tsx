@@ -132,11 +132,11 @@ export function SettingsPage() {
   const canEditAiFeatures = Boolean(aiConfig.data?.can_edit);
 
   return (
-    <Space direction="vertical" size={18} className="full">
+    <Space orientation="vertical" size={18} className="full">
       <PageTitle title="系统设置" description="控制全体 H5/手机学习端功能、学生 AI 能力，以及 OpenAI API 接入配置。" />
       <QueryState loading={platformSettings.isLoading} error={platformSettings.error}>
         <Form form={form} layout="vertical" onFinish={(values) => save.mutate(values as LearningBehaviorSettings)}>
-          <Space direction="vertical" size={18} className="full">
+          <Space orientation="vertical" size={18} className="full">
             {!canEdit ? <Alert type="info" showIcon title="当前账号可查看全局学习端设置，只有管理员可以修改。" /> : null}
             <Card title="测试流程">
               <div className="settings-grid">

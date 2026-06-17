@@ -170,7 +170,7 @@ export function FeedbackPage() {
   ];
 
   return (
-    <Space direction="vertical" size={18} className="full">
+    <Space orientation="vertical" size={18} className="full">
       <PageTitle title="反馈管理" description="查看学生从 H5/手机学习端提交的课程、实验、AI 和系统反馈。" />
 
       <div className="stat-grid">
@@ -244,7 +244,7 @@ export function FeedbackPage() {
                 title: "学生",
                 width: 180,
                 render: (_: unknown, row: FeedbackItem) => (
-                  <Space direction="vertical" size={0}>
+                  <Space orientation="vertical" size={0}>
                     <Text strong>{row.student_name_snapshot || row.student_id}</Text>
                     {row.student_name_snapshot ? <Text type="secondary">{row.student_id}</Text> : null}
                   </Space>
@@ -294,7 +294,7 @@ export function FeedbackPage() {
       <Drawer
         title="反馈详情"
         open={Boolean(selectedFeedbackId)}
-        width={720}
+        size={720}
         onClose={() => {
           setSelectedFeedbackId(undefined);
           setDraftNote("");
@@ -302,7 +302,7 @@ export function FeedbackPage() {
       >
         <QueryState loading={feedbackDetail.isLoading} error={feedbackDetail.error} empty={!activeFeedback}>
           {activeFeedback ? (
-            <Space direction="vertical" size={16} className="full">
+            <Space orientation="vertical" size={16} className="full">
               <div className="drawer-section feedback-detail-summary">
                 <Flex justify="space-between" align="flex-start" gap={14}>
                   <div>
@@ -337,7 +337,7 @@ export function FeedbackPage() {
               </div>
 
               <div className="drawer-section">
-                <Space direction="vertical" size={12} className="full">
+                <Space orientation="vertical" size={12} className="full">
                   <Text strong>处理记录</Text>
                   <Select
                     value={draftStatus}

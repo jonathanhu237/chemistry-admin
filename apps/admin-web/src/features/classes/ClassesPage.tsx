@@ -269,7 +269,7 @@ export function ClassesPage() {
   };
 
   return (
-    <Space direction="vertical" size={18} className="full">
+    <Space orientation="vertical" size={18} className="full">
       <PageTitle title="班级与学生" description="一个班级一张卡片；多个班级可以同时使用，点击卡片后管理班级名单。" />
       <QueryState loading={classes.isLoading} error={classes.error}>
         <div className="class-card-grid">
@@ -322,10 +322,10 @@ export function ClassesPage() {
           setSettingsOpen(false);
           setImportOpen(false);
         }}
-        width={980}
+        size={980}
       >
         {selectedClass ? (
-          <Space direction="vertical" size={18} className="full">
+          <Space orientation="vertical" size={18} className="full">
             <div className="class-detail-hero">
               <div className="class-detail-copy">
                 <Text className="eyebrow">班级管理</Text>
@@ -452,7 +452,7 @@ export function ClassesPage() {
         onOk={() => void saveClassConfiguration()}
       >
         <QueryState loading={registration.isLoading} error={registration.error}>
-          <Space direction="vertical" size={18} className="full">
+          <Space orientation="vertical" size={18} className="full">
             <div className="modal-section">
               <Text strong>班级基本信息</Text>
               <Text type="secondary" className="block-text">
@@ -564,7 +564,7 @@ export function ClassesPage() {
         }}
         onOk={() => void importRoster()}
       >
-        <Space direction="vertical" size={16} className="full">
+        <Space orientation="vertical" size={16} className="full">
           <Text type="secondary">上传 CSV/XLSX。普通导入适合补充名单，覆盖导入适合用一份新名单替换当前名单。</Text>
           <div className="choice-grid two">
             <button

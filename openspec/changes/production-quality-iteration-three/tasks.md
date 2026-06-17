@@ -7,11 +7,11 @@
 
 ## 2. Frontend Warning And 404 Cleanup
 
-- [ ] 2.1 Locate all call sites that emit known Ant Design 6 deprecation warnings: `Space.direction`, `Tooltip.overlayClassName`, `Alert.message`, `Spin.tip`, and `Drawer.width`.
-- [ ] 2.2 Update those call sites to the current Ant Design props while preserving layout and behavior.
-- [ ] 2.3 Diagnose the browser-smoke 404 request by URL, method, status, and owning page.
-- [ ] 2.4 Fix the 404 if it is caused by a missing committed static asset, bad public path, missing favicon, thumbnail URL, or broken route.
-- [ ] 2.5 Run frontend typecheck, tests, build, and browser smoke to confirm representative pages load without the known deprecation warnings.
+- [x] 2.1 Locate all call sites that emit known Ant Design 6 deprecation warnings: `Space.direction`, `Tooltip.overlayClassName`, `Alert.message`, `Spin.tip`, and `Drawer.width`.
+- [x] 2.2 Update those call sites to the current Ant Design props while preserving layout and behavior.
+- [x] 2.3 Diagnose the browser-smoke 404 request by URL, method, status, and owning page.
+- [x] 2.4 Fix the 404 if it is caused by a missing committed static asset, bad public path, missing favicon, thumbnail URL, or broken route.
+- [x] 2.5 Run frontend typecheck, tests, build, and browser smoke to confirm representative pages load without the known deprecation warnings.
 
 ## 3. Repeatable E2E Smoke
 

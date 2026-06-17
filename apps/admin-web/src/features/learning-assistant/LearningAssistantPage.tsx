@@ -775,7 +775,7 @@ export function LearningAssistantPage() {
   ];
 
   return (
-    <Space direction="vertical" size={18} className="full">
+    <Space orientation="vertical" size={18} className="full">
       <PageTitle
         title="学习助手"
         description="模拟学生学习页 chat，验证课程范围、实验安全、测验保护和来源证据策略。"
@@ -911,7 +911,7 @@ export function LearningAssistantPage() {
                     </Text>
                   </div>
                   {experiments.isLoading ? (
-                    <Spin tip="正在读取本章实验点位" />
+                    <Spin description="正在读取本章实验点位" />
                   ) : starterPointTotal ? (
                     <>
                       <div className="assistant-starter-grid">
@@ -1100,7 +1100,7 @@ export function LearningAssistantPage() {
           className="learning-assistant-card learning-assistant-inspector"
         >
           {selectedTurn && response ? (
-            <Space direction="vertical" size={14} className="full">
+            <Space orientation="vertical" size={14} className="full">
               <Space wrap>
                 <Tag color="#005826">{policyLabel}</Tag>
                 <Tooltip title={response.mode}>

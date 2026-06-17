@@ -431,7 +431,7 @@ function ResourceChapterWorkbench({ group }: { group?: LearningResourceOverview[
                   <Text strong>{unit.unit_title}</Text>
                   <div className="resource-kp-list">
                     {unit.knowledge_points.slice(0, 4).map((point) => (
-                      <Tooltip key={point.knowledge_point_id} title={point.content} placement="right" overlayClassName="resource-kp-tooltip">
+                      <Tooltip key={point.knowledge_point_id} title={point.content} placement="right" classNames={{ root: "resource-kp-tooltip" }}>
                         <div className="resource-kp-node">
                           <span>{point.content}</span>
                         </div>
@@ -486,7 +486,7 @@ function ResourceChapterWorkbench({ group }: { group?: LearningResourceOverview[
                   <strong>{pendingVideo}</strong>
                 </div>
               </div>
-              {!group.media_count ? <Alert type="warning" showIcon message="本章节实验还没有绑定视频资源" /> : null}
+              {!group.media_count ? <Alert type="warning" showIcon title="本章节实验还没有绑定视频资源" /> : null}
               <div className="resource-experiment-list">
                 {group.experiments.length ? (
                   group.experiments.map((experiment) => (
@@ -659,7 +659,7 @@ function ExperimentKnowledgeFrameworkPanel({ framework }: { framework?: Learning
         <Alert
           type="info"
           showIcon
-          message="实验教材知识框架尚未导入"
+          title="实验教材知识框架尚未导入"
           description="导入无机化学实验教材的标准分块后，这里会展示实验基本知识、基本操作、元素性质实验和通识内容。"
         />
       </section>
@@ -788,7 +788,7 @@ function ExperimentKnowledgeFrameworkPanel({ framework }: { framework?: Learning
                     className="experiment-framework-support-alert"
                     type="info"
                     showIcon
-                    message="本章暂无正式实验引用"
+                    title="本章暂无正式实验引用"
                     description="本章属于实验通识、基本操作无需关联实验。"
                   />
                 )}
@@ -888,7 +888,7 @@ export function LearningResourcesPage() {
   const activeStudents = Number(classesStudents?.active_student_count || 0);
 
   return (
-    <Space direction="vertical" size={18} className="full">
+    <Space orientation="vertical" size={18} className="full">
       <PageTitle
         title="资源总览"
         description="统一查看知识框架、智能检索事实资源、实验视频、题库与班级学生的建设状态。"

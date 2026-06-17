@@ -62,7 +62,7 @@ export function AnalyticsPage() {
         render: (_: unknown, row: AnalyticsDashboard["matrix"][number]) => {
           const state = row.experiments[experiment.id];
           return (
-            <Space direction="vertical" size={2} className="full">
+            <Space orientation="vertical" size={2} className="full">
               {statusTag(state?.status)}
               <Progress percent={Math.round(state?.completion_percent || 0)} size="small" />
               <Text type="secondary">{state?.best_score ?? "-"} 分</Text>
@@ -74,7 +74,7 @@ export function AnalyticsPage() {
   }, [dashboard.data?.experiments]);
 
   return (
-    <Space direction="vertical" size={18} className="full">
+    <Space orientation="vertical" size={18} className="full">
       <PageTitle
         title="学情分析"
         description="按班级查看实验进度、答题情况、个人路径和薄弱点。"
@@ -120,7 +120,7 @@ export function AnalyticsPage() {
         </Card>
         <div className="two-column">
           <Card title="薄弱点">
-            <Space direction="vertical" size={14} className="full">
+            <Space orientation="vertical" size={14} className="full">
               <Table
                 rowKey={(row) => row.point_key}
                 size="small"
@@ -131,7 +131,7 @@ export function AnalyticsPage() {
                   {
                     title: "实验点位",
                     render: (_: unknown, row) => (
-                      <Space direction="vertical" size={2}>
+                      <Space orientation="vertical" size={2}>
                         <Text strong>{row.point_title}</Text>
                         <Text type="secondary">
                           {row.experiment_code || ""} {row.experiment_title || ""}
@@ -179,7 +179,7 @@ export function AnalyticsPage() {
           <Card title="学生路径">
             {studentId ? (
               <QueryState loading={studentReport.isLoading} error={studentReport.error}>
-                <Space direction="vertical" size={14} className="full">
+                <Space orientation="vertical" size={14} className="full">
                   <Space wrap>
                     <Tag color="blue">学生 {String(studentReport.data?.student?.student_name || studentId)}</Tag>
                     <Tag>{studentReport.data?.attempts?.length || 0} 次答题</Tag>
