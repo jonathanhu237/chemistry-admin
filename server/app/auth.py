@@ -355,7 +355,6 @@ def student_login(payload: StudentLoginRequest) -> LoginResponse:
     return _issue_login_response(user)
 
 
-@router.post("/student/activate", response_model=LoginResponse)
 async def activate_student(payload: StudentActivateRequest) -> LoginResponse:
     normalized_student_id = payload.student_id.strip().upper()
     with db_session() as session:
@@ -516,7 +515,6 @@ async def activate_student(payload: StudentActivateRequest) -> LoginResponse:
     return _issue_login_response(user)
 
 
-@router.post("/student/register", response_model=LoginResponse)
 async def register_student(payload: StudentActivateRequest) -> LoginResponse:
     normalized_student_id = payload.student_id.strip().upper()
     with db_session() as session:

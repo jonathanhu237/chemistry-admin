@@ -29,6 +29,8 @@ Install backend dependencies:
 python -m pip install -r requirements.txt
 ```
 
+Use Node.js `^20.19.0 || >=22.12.0` for the frontend workspaces. The repository includes `.nvmrc` for teams that use nvm-compatible tooling.
+
 Install frontend dependencies:
 
 ```powershell
@@ -137,16 +139,19 @@ For focused frontend validation:
 ```powershell
 Set-Location apps/admin-web
 npm run typecheck
+npm test
 npm run build
 Set-Location ../student-web
 npm run typecheck
 npm run build
 ```
 
+The student H5 currently has no separate test script; its focused validation is typecheck plus build.
+
 Validate OpenSpec:
 
 ```powershell
-openspec validate extract-admin-management-repo --strict
+openspec validate production-hardening-iteration-two --strict
 ```
 
 ## GitHub Publishing
