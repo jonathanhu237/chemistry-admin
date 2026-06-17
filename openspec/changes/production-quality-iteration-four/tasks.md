@@ -7,17 +7,17 @@
 
 ## 2. Frontend Feature Decomposition
 
-- [ ] 2.1 Select one low-risk feature slice from the largest frontend modules.
-- [ ] 2.2 Extract pure helpers, display tags, or presentational subcomponents into feature-local modules.
-- [ ] 2.3 Preserve existing exports, route paths, query keys, mutation behavior, and visible workflows.
-- [ ] 2.4 Update the frontend split map to reflect moved modules and remaining hotspots.
+- [x] 2.1 Select one low-risk feature slice from the largest frontend modules.
+- [x] 2.2 Extract pure helpers, display tags, or presentational subcomponents into feature-local modules.
+- [x] 2.3 Preserve existing exports, route paths, query keys, mutation behavior, and visible workflows.
+- [x] 2.4 Update the frontend split map to reflect moved modules and remaining hotspots.
 
 ## 3. Bundle And Lazy-Load Review
 
-- [ ] 3.1 Run frontend build and build chunk report after the extraction.
-- [ ] 3.2 Confirm route-level lazy loading still isolates heavy feature chunks.
-- [ ] 3.3 Document any remaining large vendor chunks as known owners rather than regressions.
-- [ ] 3.4 Avoid adding new eager imports of charts, markdown/math, upload, or other heavy feature-only dependencies into the app shell.
+- [x] 3.1 Run frontend build and build chunk report after the extraction.
+- [x] 3.2 Confirm route-level lazy loading still isolates heavy feature chunks.
+- [x] 3.3 Document any remaining large vendor chunks as known owners rather than regressions.
+- [x] 3.4 Avoid adding new eager imports of charts, markdown/math, upload, or other heavy feature-only dependencies into the app shell.
 
 ## 4. Validation And Handoff
 

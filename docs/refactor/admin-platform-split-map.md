@@ -98,6 +98,7 @@ Current frontend extraction status:
 - Done: experiments page -> `src/features/experiments/ExperimentsPage.tsx`, lazy-loaded from the `/experiments` route.
 - Done: shared experiment hooks -> `src/features/experiments/experimentHooks.ts`, reused by experiments and remaining learning-assistant code.
 - Done: question bank page and AI workbench UI -> `src/features/question-bank/QuestionBanksPage.tsx`, lazy-loaded from the `/question-banks` route.
+- Done: question bank display helpers -> `src/features/question-bank/questionBankDisplay.tsx`, covering question type labels, evidence/status tags, point extraction, candidate payload display helpers, and workbench runtime gate display state.
 - Done: learning assistant page -> `src/features/learning-assistant/LearningAssistantPage.tsx`, lazy-loaded from the `/learning-assistant` route with assistant markdown/KaTeX rendering isolated to the feature.
 - Done: global CSS split -> feature CSS files listed above; Vite emits feature CSS chunks for the lazy pages.
 
