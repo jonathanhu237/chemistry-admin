@@ -35,6 +35,7 @@ def _student_fallback(path: str) -> FileResponse:
         "profile",
         "chapter/halogens-17",
         "point/EXP_19_1_01",
+        "video-library",
         "ai/chat",
         "assessment/session/posttest-session",
         "assessment/report/posttest-session",

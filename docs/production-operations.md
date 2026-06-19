@@ -52,6 +52,10 @@ Production deployments must set:
 - `FRONTEND_ALLOWED_ORIGINS`
 - `AUTH_SECRET_KEY` with a long random value
 - `AGENT_LLM_PROVIDER=disabled` when no LLM provider is configured, or provider credentials/model when enabled
+- `VIDEO_LIBRARY_SEARCH_ENABLED=true` for the student H5 experiment video library search entry
+- `VIDEO_LIBRARY_SEARCH_BACKEND=local`, `disabled`, or `elasticsearch`; local is the deterministic fallback for development and test runs
+- `VIDEO_LIBRARY_SEARCH_URL`, `VIDEO_LIBRARY_SEARCH_INDEX`, and `VIDEO_LIBRARY_SEARCH_TIMEOUT_SECONDS` when `VIDEO_LIBRARY_SEARCH_BACKEND=elasticsearch`
+- `VIDEO_LIBRARY_SEARCH_LOCAL_FALLBACK=true` if Elasticsearch outages should fall back to student-visible experiment metadata
 
 Do not commit real `.env` files or secrets.
 
@@ -118,7 +122,7 @@ python scripts/validate_production_readiness.py --install-frontend
 ```
 
 The command checks protected resources, OpenSpec strict validation, backend import smoke, backend tests, admin frontend typecheck/tests/build, student H5 typecheck/build, and the admin build chunk report.
-During the student H5 integration pass, the default OpenSpec target is `integrate-student-h5-platform`; use `--change <name>` to validate a different active or historical change.
+The default OpenSpec target is `student-h5-video-library-search-entry`; use `--change <name>` to validate a different active or historical change.
 The admin frontend stage also runs `npm run build:report` after `npm run build` so large production chunks stay classified by owner.
 
 For backend/resource-only environments:
@@ -150,6 +154,8 @@ If `E2E_ADMIN_PASSWORD` is not set, the script prepares a disposable local smoke
 ```powershell
 python scripts/validate_production_readiness.py --run-e2e
 ```
+
+The student H5 mobile route-stack QA covers direct root routes, nested detail routes, and the video library detail route `/video-library` when run with a student account or `STUDENT_H5_QA_MOCK=1`.
 
 ## Local Smoke Tests
 
@@ -233,7 +239,7 @@ Before declaring a phase production-ready, run:
 
 ```powershell
 python scripts/validate_production_readiness.py --install-frontend
-openspec validate integrate-student-h5-platform --strict
+openspec validate student-h5-video-library-search-entry --strict
 git status --short
 ```
 

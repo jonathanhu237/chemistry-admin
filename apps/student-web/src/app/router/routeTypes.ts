@@ -11,6 +11,7 @@ export type StudentDetailSource =
   | "chapter"
   | "element"
   | "point"
+  | "video-library"
   | "assessment-session"
   | "assessment-report"
   | "feedback";
@@ -25,6 +26,7 @@ export type StudentRouteSearch = {
   chapterView?: ChapterLearningView;
   pointKey?: string;
   pointTitle?: string;
+  q?: string;
 };
 
 export type StoredPosttestSession = StudentPosttestResponse;
@@ -47,5 +49,6 @@ export function parseStudentRouteSearch(search: Record<string, unknown>): Studen
     chapterView: chapterView === "facts" || chapterView === "experiments" ? chapterView : undefined,
     pointKey: optionalString(search.pointKey),
     pointTitle: optionalString(search.pointTitle),
+    q: optionalString(search.q),
   };
 }

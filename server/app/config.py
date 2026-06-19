@@ -86,6 +86,12 @@ class Settings:
     rag_rerank_top_k: int = 9
     rag_final_top_k: int = 5
     chemistry_rag_root: Path = Path("E:/chemistry-rag") if os.name == "nt" else Path("/chemistry-rag")
+    video_library_search_enabled: bool = True
+    video_library_search_backend: str = "local"
+    video_library_search_url: str = ""
+    video_library_search_index: str = "student-video-library"
+    video_library_search_timeout_seconds: float = 3.0
+    video_library_search_local_fallback: bool = True
     admin_web_dist: Path = ROOT / "apps" / "admin-web" / "dist"
     student_web_dist: Path = ROOT / "apps" / "student-web" / "dist"
 
@@ -97,6 +103,8 @@ class Settings:
         errors: list[str] = []
         if self.data_backend not in {"json", "postgres"}:
             errors.append("DATA_BACKEND must be json or postgres")
+        if self.video_library_search_backend not in {"local", "elasticsearch", "disabled"}:
+            errors.append("VIDEO_LIBRARY_SEARCH_BACKEND must be local, elasticsearch, or disabled")
         if self.is_production:
             if self.data_backend != "postgres":
                 errors.append("DATA_BACKEND must be postgres in production")
@@ -165,6 +173,27 @@ def get_settings() -> Settings:
         rag_rerank_top_k=_get_int("RAG_RERANK_TOP_K", Settings.rag_rerank_top_k),
         rag_final_top_k=_get_int("RAG_FINAL_TOP_K", Settings.rag_final_top_k),
         chemistry_rag_root=Path(_getenv("CHEMISTRY_RAG_ROOT", str(Settings.chemistry_rag_root))),
+        video_library_search_enabled=_get_bool(
+            "VIDEO_LIBRARY_SEARCH_ENABLED",
+            Settings.video_library_search_enabled,
+        ),
+        video_library_search_backend=_getenv(
+            "VIDEO_LIBRARY_SEARCH_BACKEND",
+            Settings.video_library_search_backend,
+        ).lower(),
+        video_library_search_url=_getenv("VIDEO_LIBRARY_SEARCH_URL").rstrip("/"),
+        video_library_search_index=_getenv(
+            "VIDEO_LIBRARY_SEARCH_INDEX",
+            Settings.video_library_search_index,
+        ),
+        video_library_search_timeout_seconds=_get_float(
+            "VIDEO_LIBRARY_SEARCH_TIMEOUT_SECONDS",
+            Settings.video_library_search_timeout_seconds,
+        ),
+        video_library_search_local_fallback=_get_bool(
+            "VIDEO_LIBRARY_SEARCH_LOCAL_FALLBACK",
+            Settings.video_library_search_local_fallback,
+        ),
         admin_web_dist=Path(_getenv("ADMIN_WEB_DIST", str(Settings.admin_web_dist))),
         student_web_dist=Path(_getenv("STUDENT_WEB_DIST", str(Settings.student_web_dist))),
     )

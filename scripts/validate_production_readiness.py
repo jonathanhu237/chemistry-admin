@@ -17,7 +17,7 @@ FRONTENDS = [
 ]
 ADMIN_FRONTEND_DIR = ROOT / "apps" / "admin-web"
 STUDENT_FRONTEND_DIR = ROOT / "apps" / "student-web"
-DEFAULT_CHANGE = "student-h5-router-tab-page-architecture"
+DEFAULT_CHANGE = "student-h5-video-library-search-entry"
 
 
 @dataclass

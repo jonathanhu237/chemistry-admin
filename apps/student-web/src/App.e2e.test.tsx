@@ -13,6 +13,7 @@ import type {
   StudentPosttestReport,
   StudentPosttestResponse,
   StudentPretestResponse,
+  StudentVideoLibrarySearchResponse,
 } from "./api";
 
 const apiMocks = vi.hoisted(() => ({
@@ -28,6 +29,7 @@ const apiMocks = vi.hoisted(() => ({
   getStudentLearningPage: vi.fn(),
   getStudentExperimentGroup: vi.fn(),
   getStudentExperimentDetail: vi.fn(),
+  searchStudentVideoLibrary: vi.fn(),
   startStudentPosttest: vi.fn(),
   submitStudentPosttest: vi.fn(),
   generatePosttestAiSummary: vi.fn(),
@@ -52,6 +54,7 @@ vi.mock("./api", () => ({
   getStudentLearningPage: apiMocks.getStudentLearningPage,
   getStudentExperimentGroup: apiMocks.getStudentExperimentGroup,
   getStudentExperimentDetail: apiMocks.getStudentExperimentDetail,
+  searchStudentVideoLibrary: apiMocks.searchStudentVideoLibrary,
   startStudentPosttest: apiMocks.startStudentPosttest,
   submitStudentPosttest: apiMocks.submitStudentPosttest,
   generatePosttestAiSummary: apiMocks.generatePosttestAiSummary,
@@ -289,6 +292,102 @@ const experimentDetail: StudentExperimentDetailResponse = {
   videos: [],
 };
 
+const videoLibraryResponse: StudentVideoLibrarySearchResponse = {
+  query: "",
+  status: "ok",
+  backend: "local",
+  message: "",
+  total: 2,
+  browse: {
+    recommended: [
+      {
+        id: "video_point:EXP_19_1_01:candidate:0",
+        type: "video_point",
+        title: "Orange layer observation",
+        subtitle: "Halogen displacement",
+        snippet: "Chlorine water + KBr + CCl4",
+        score: 8,
+        badges: ["Halogens", "Video point"],
+        action_label: "View point",
+        target: {
+          kind: "point_detail",
+          route: "/point/EXP_19_1_01",
+          experiment_id: "EXP_19_1_01",
+          profile_id: "halogens-17",
+          chapter_id: "CH17",
+          property_key: "oxidation",
+          property_title: "Oxidation",
+          element_symbol: "Cl",
+          point_key: "halogen-displacement",
+          point_title: "Orange layer observation",
+        },
+      },
+    ],
+    recent: [],
+    chips: [
+      { kind: "phenomenon", label: "orange layer", query: "orange" },
+      { kind: "reagent", label: "CCl4", query: "CCl4" },
+    ],
+  },
+  groups: [
+    {
+      key: "video_points",
+      title: "Video points",
+      summary: "Open experiment observation points.",
+      items: [
+        {
+          id: "video_point:EXP_19_1_01:candidate:0",
+          type: "video_point",
+          title: "Orange layer observation",
+          subtitle: "Halogen displacement",
+          snippet: "Chlorine water + KBr + CCl4",
+          score: 8,
+          badges: ["Halogens", "Video point"],
+          action_label: "View point",
+          target: {
+            kind: "point_detail",
+            route: "/point/EXP_19_1_01",
+            experiment_id: "EXP_19_1_01",
+            profile_id: "halogens-17",
+            chapter_id: "CH17",
+            property_key: "oxidation",
+            property_title: "Oxidation",
+            element_symbol: "Cl",
+            point_key: "halogen-displacement",
+            point_title: "Orange layer observation",
+          },
+        },
+      ],
+    },
+    {
+      key: "ai",
+      title: "AI explanation",
+      summary: "Ask with context.",
+      items: [
+        {
+          id: "ai_prompt:orange",
+          type: "ai_prompt",
+          title: "Explain orange layer",
+          subtitle: "AI learning assistant",
+          snippet: "Explain the observed orange CCl4 layer.",
+          score: 1,
+          badges: ["AI"],
+          action_label: "Ask AI",
+          target: {
+            kind: "ai_chat",
+            route: "/ai/chat",
+            experiment_id: "EXP_19_1_01",
+            chapter_id: "CH17",
+            context_title: "Explain orange layer",
+            context_summary: "Explain the observed orange CCl4 layer.",
+            prompt: "Why does CCl4 become orange?",
+          },
+        },
+      ],
+    },
+  ],
+};
+
 const posttestQuestions: PublicPosttestQuestion[] = [
   {
     id: "post-q-1",
@@ -398,6 +497,7 @@ describe("student app route stack", () => {
     apiMocks.getStudentLearningPage.mockResolvedValue(learningPage);
     apiMocks.getStudentExperimentGroup.mockResolvedValue(experimentGroup);
     apiMocks.getStudentExperimentDetail.mockResolvedValue(experimentDetail);
+    apiMocks.searchStudentVideoLibrary.mockResolvedValue(videoLibraryResponse);
     apiMocks.startStudentPosttest.mockResolvedValue(posttestResponse);
     apiMocks.submitStudentPosttest.mockResolvedValue({ status: "completed", report });
     apiMocks.generatePosttestAiSummary.mockResolvedValue({ text: "### Study summary\n\n- Review **halogens**.", source: "ai", mode: "test", cached: true });
@@ -422,6 +522,23 @@ describe("student app route stack", () => {
       "assessment",
       "profile",
     ]);
+    await waitFor(() => expect(window.location.pathname).toBe("/home"));
+    expect(activeRoot()).toBe("home");
+
+    fireEvent.click(screen.getByText("实验视频库").closest("button")!);
+    await waitFor(() => expect(window.location.pathname).toBe("/video-library"));
+    expectBottomNavHidden();
+    await waitFor(() => expect(apiMocks.searchStudentVideoLibrary).toHaveBeenCalledWith(""));
+    expect(screen.getByRole("search")).toBeInTheDocument();
+    fireEvent.change(screen.getByLabelText("搜索实验视频库"), { target: { value: "orange" } });
+    await waitFor(() => expect(apiMocks.searchStudentVideoLibrary).toHaveBeenLastCalledWith("orange"));
+    fireEvent.click(document.querySelector<HTMLButtonElement>(".video-library-results .video-result-card")!);
+    await waitFor(() => expect(window.location.pathname).toBe("/point/EXP_19_1_01"));
+    expectBottomNavHidden();
+    act(() => window.history.back());
+    await waitFor(() => expect(window.location.pathname).toBe("/video-library"));
+    expectBottomNavHidden();
+    act(() => window.history.back());
     await waitFor(() => expect(window.location.pathname).toBe("/home"));
     expect(activeRoot()).toBe("home");
 
@@ -513,6 +630,12 @@ describe("student app route stack", () => {
     await waitFor(() => expect(window.location.pathname).toBe("/ai/chat"));
     expectBottomNavHidden();
     expect(document.querySelector(".ai-chat-panel")).not.toBeNull();
+    cleanup();
+
+    await renderAuthenticatedApp("/video-library");
+    await waitFor(() => expect(window.location.pathname).toBe("/video-library"));
+    expectBottomNavHidden();
+    await waitFor(() => expect(document.querySelector(".video-library-page")).not.toBeNull());
     cleanup();
 
     await renderAuthenticatedApp("/chapter/halogens-17/element/Cl");

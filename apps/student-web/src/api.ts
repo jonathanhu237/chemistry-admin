@@ -249,6 +249,73 @@ export type StudentLearningPageResponse = {
   active_profile?: StudentLearningProfile | null;
 };
 
+export type VideoLibraryResultType = "video_point" | "experiment" | "chapter_experiment" | "knowledge_point" | "ai_prompt";
+export type VideoLibraryTargetKind = "point_detail" | "chapter_detail" | "ai_chat";
+export type VideoLibrarySearchStatus = "ok" | "fallback" | "disabled" | "empty" | "error";
+export type VideoLibrarySearchBackend = "local" | "elasticsearch" | "disabled";
+export type VideoLibraryBrowseChipKind = "phenomenon" | "reagent" | "chapter" | "element_family" | "knowledge";
+
+export type StudentVideoLibraryRouteTarget = {
+  kind: VideoLibraryTargetKind;
+  route: string;
+  experiment_id?: string | null;
+  profile_id?: string | null;
+  chapter_id?: string | null;
+  property_key?: string | null;
+  property_title?: string | null;
+  element_symbol?: string | null;
+  point_key?: string | null;
+  point_title?: string | null;
+  context_title?: string | null;
+  context_summary?: string | null;
+  prompt?: string | null;
+};
+
+export type StudentVideoLibraryResultItem = {
+  id: string;
+  type: VideoLibraryResultType;
+  title: string;
+  subtitle: string;
+  snippet: string;
+  score: number;
+  badges: string[];
+  action_label: string;
+  target?: StudentVideoLibraryRouteTarget | null;
+  disabled_reason?: string | null;
+};
+
+export type StudentVideoLibraryResultGroup = {
+  key: string;
+  title: string;
+  summary: string;
+  items: StudentVideoLibraryResultItem[];
+};
+
+export type StudentVideoLibraryBrowseChip = {
+  kind: VideoLibraryBrowseChipKind;
+  label: string;
+  query: string;
+  profile_id?: string | null;
+  chapter_id?: string | null;
+  element_symbol?: string | null;
+};
+
+export type StudentVideoLibraryBrowseState = {
+  recommended: StudentVideoLibraryResultItem[];
+  recent: StudentVideoLibraryResultItem[];
+  chips: StudentVideoLibraryBrowseChip[];
+};
+
+export type StudentVideoLibrarySearchResponse = {
+  query: string;
+  status: VideoLibrarySearchStatus;
+  backend: VideoLibrarySearchBackend;
+  message: string;
+  total: number;
+  groups: StudentVideoLibraryResultGroup[];
+  browse: StudentVideoLibraryBrowseState;
+};
+
 export type PosttestExperimentSummary = {
   id: string;
   code: string;
@@ -605,6 +672,12 @@ export function getStudentExperimentGroup(parentCode: string): Promise<StudentEx
 
 export function getStudentExperimentDetail(experimentId: string): Promise<StudentExperimentDetailResponse> {
   return api<StudentExperimentDetailResponse>(`/api/student/experiments/${encodeURIComponent(experimentId)}`);
+}
+
+export function searchStudentVideoLibrary(query = "", limit = 24): Promise<StudentVideoLibrarySearchResponse> {
+  const params = new URLSearchParams({ domain: "experiment_video", limit: String(limit) });
+  if (query.trim()) params.set("q", query.trim());
+  return api<StudentVideoLibrarySearchResponse>(`/api/student/video-library/search?${params.toString()}`);
 }
 
 export function startStudentPosttest(): Promise<StudentPosttestResponse> {

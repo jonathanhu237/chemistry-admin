@@ -88,6 +88,22 @@ export function navigateToPoint(
   });
 }
 
+export function navigateToVideoLibrary(
+  navigate: NavigateLike,
+  options: {
+    from?: StudentDetailSource;
+    q?: string | null;
+  } = {},
+): void {
+  void navigate({
+    to: "/video-library",
+    search: compactSearch({
+      from: options.from || "home",
+      q: options.q || "",
+    }),
+  });
+}
+
 export function navigateToAiChat(navigate: NavigateLike, context: AssistantContext, from: StudentDetailSource): void {
   const contextKey = saveAssistantContext(context);
   void navigate({

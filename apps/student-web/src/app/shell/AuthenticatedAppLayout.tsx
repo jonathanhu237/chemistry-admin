@@ -3,7 +3,7 @@ import { Outlet, useLocation } from "@tanstack/react-router";
 import { assistantEnabled, defaultStudentAppConfig, feedbackEnabled } from "../appConfig";
 import { errorMessage, getStudentAppConfig, startStudentPosttest, type StudentAppConfigResponse } from "../../api";
 import { storePosttestSession } from "../router/assessmentSessionStore";
-import { rootIdForPath } from "../router/routeVisibility";
+import { rootIdForPath, routeRoleForPath } from "../router/routeVisibility";
 import type { StudentRootRouteId } from "../router/routeTypes";
 import { StudentRuntimeProvider, useStudentShellBase } from "./studentAppContext";
 import { StudentAppHeader } from "./StudentAppHeader";
@@ -21,7 +21,8 @@ export function AuthenticatedAppLayout() {
   const baseContext = useStudentShellBase();
   const location = useLocation();
   const activeRoot = rootIdForPath(location.pathname);
-  const isRootRoute = activeRoot !== null;
+  const routeRole = routeRoleForPath(location.pathname);
+  const isRootRoute = routeRole === "root";
   const [appConfig, setAppConfig] = useState<StudentAppConfigResponse>(defaultStudentAppConfig);
   const [configError, setConfigError] = useState("");
   const [posttestLoading, setPosttestLoading] = useState(false);

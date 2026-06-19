@@ -190,6 +190,76 @@ const mockExperimentGroup = {
   experiments: [mockLearningPoint],
 };
 
+const mockVideoLibrary = {
+  query: "",
+  status: "ok",
+  backend: "local",
+  message: "",
+  total: 1,
+  browse: {
+    recommended: [
+      {
+        id: "video_point:EXP_19_1_01:candidate:0",
+        type: "video_point",
+        title: "Orange layer observation",
+        subtitle: "Halogen displacement",
+        snippet: "Chlorine water + KBr + CCl4",
+        score: 8,
+        badges: ["Halogens", "Video point"],
+        action_label: "View point",
+        target: {
+          kind: "point_detail",
+          route: "/point/EXP_19_1_01",
+          experiment_id: "EXP_19_1_01",
+          profile_id: "halogens-17",
+          chapter_id: "CH17",
+          property_key: "oxidation",
+          property_title: "Oxidation",
+          element_symbol: "Cl",
+          point_key: "halogen-displacement",
+          point_title: "Orange layer observation",
+        },
+      },
+    ],
+    recent: [],
+    chips: [
+      { kind: "phenomenon", label: "orange layer", query: "orange" },
+      { kind: "reagent", label: "CCl4", query: "CCl4" },
+    ],
+  },
+  groups: [
+    {
+      key: "video_points",
+      title: "Video points",
+      summary: "Open experiment observation points.",
+      items: [
+        {
+          id: "video_point:EXP_19_1_01:candidate:0",
+          type: "video_point",
+          title: "Orange layer observation",
+          subtitle: "Halogen displacement",
+          snippet: "Chlorine water + KBr + CCl4",
+          score: 8,
+          badges: ["Halogens", "Video point"],
+          action_label: "View point",
+          target: {
+            kind: "point_detail",
+            route: "/point/EXP_19_1_01",
+            experiment_id: "EXP_19_1_01",
+            profile_id: "halogens-17",
+            chapter_id: "CH17",
+            property_key: "oxidation",
+            property_title: "Oxidation",
+            element_symbol: "Cl",
+            point_key: "halogen-displacement",
+            point_title: "Orange layer observation",
+          },
+        },
+      ],
+    },
+  ],
+};
+
 const mockPosttest = {
   status: "in_progress",
   session_id: "mobile-qa-posttest",
@@ -505,6 +575,7 @@ async function installMockApi(page) {
   await page.route("**/api/student/learning-home", (route) => route.fulfill(jsonResponse(mockLearningHome)));
   await page.route("**/api/student/learning-page**", (route) => route.fulfill(jsonResponse(mockLearningPage)));
   await page.route("**/api/student/experiment-groups/19-1", (route) => route.fulfill(jsonResponse(mockExperimentGroup)));
+  await page.route("**/api/student/video-library/search**", (route) => route.fulfill(jsonResponse(mockVideoLibrary)));
   await page.route("**/api/student/experiments/EXP_19_1_01", (route) =>
     route.fulfill(
       jsonResponse({
@@ -636,6 +707,25 @@ async function checkAuthenticatedFlows(page, viewportName) {
     await expectRootNav(page, root, viewportName + ': root /' + root);
   }
 
+  await clickRoot(page, 'home');
+  await page.locator('.video-library-entry').first().click();
+  await page.waitForURL(/\/video-library/, { timeout: 10000 });
+  await expectBottomNavHidden(page, viewportName + ': video library detail');
+  await page.locator('.video-library-page').first().waitFor({ state: 'visible', timeout: 10000 });
+  await assertNoHorizontalOverflow(page, viewportName + ': video library default');
+  await page.locator('.video-library-search input').first().fill('orange');
+  await page.locator('.video-library-results .video-result-card').first().waitFor({ state: 'visible', timeout: 10000 });
+  await assertNoHorizontalOverflow(page, viewportName + ': video library results');
+  await page.locator('.video-library-results .video-result-card').first().click();
+  await page.waitForURL(/\/point\/EXP_19_1_01/, { timeout: 10000 });
+  await expectBottomNavHidden(page, viewportName + ': video-library result point detail');
+  await page.goBack({ waitUntil: 'networkidle' });
+  await page.waitForURL(/\/video-library/, { timeout: 10000 });
+  await expectBottomNavHidden(page, viewportName + ': back to video library');
+  await page.goBack({ waitUntil: 'networkidle' });
+  await page.waitForURL(/\/home/, { timeout: 10000 });
+  await expectRootNav(page, 'home', viewportName + ': back to home from video library');
+
   await clickRoot(page, 'learn');
   await page.locator('.periodic-grid').first().waitFor({ state: 'visible', timeout: 10000 });
   await page.locator('.chapter-entry-card').first().click();
@@ -739,6 +829,7 @@ async function checkAuthenticatedFlows(page, viewportName) {
     { path: '/chapter/halogens-17', detail: true, selector: '.chapter-element-summary' },
     { path: '/chapter/halogens-17/element/Cl', detail: true, selector: '.atom-model-card' },
     { path: '/point/EXP_19_1_01', detail: true, selector: '.experiment-detail-card' },
+    { path: '/video-library', detail: true, selector: '.video-library-page' },
     { path: '/ai/chat', detail: true, selector: '.ai-chat-panel' },
     { path: '/assessment/session/mobile-qa-posttest', detail: true, selector: '.assessment-panel' },
     { path: '/assessment/report/mobile-qa-posttest', detail: true, selector: '.summary-hero' },

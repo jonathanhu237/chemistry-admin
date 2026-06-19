@@ -8,7 +8,11 @@ export const rootPathById: Record<StudentRootRouteId, string> = {
   profile: "/profile",
 };
 
+export type StudentRouteRole = "root" | "detail" | "redirect";
+
 const rootIds = Object.keys(rootPathById) as StudentRootRouteId[];
+
+export const studentRootRouteIds = rootIds;
 
 export function rootIdForPath(pathname: string): StudentRootRouteId | null {
   return rootIds.find((id) => rootPathById[id] === pathname) || null;
@@ -20,6 +24,11 @@ export function isRootRoutePath(pathname: string): boolean {
 
 export function isDetailRoutePath(pathname: string): boolean {
   return !isRootRoutePath(pathname) && pathname !== "/";
+}
+
+export function routeRoleForPath(pathname: string): StudentRouteRole {
+  if (pathname === "/") return "redirect";
+  return isRootRoutePath(pathname) ? "root" : "detail";
 }
 
 export function fallbackRootPath(source?: string | null): string {

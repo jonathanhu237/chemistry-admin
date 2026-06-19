@@ -12,6 +12,7 @@ import { AssessmentSessionPage } from "../../routes/assessment/AssessmentSession
 import { AssessmentReportPage } from "../../routes/assessment/AssessmentReportPage";
 import { ProfileRootPage } from "../../routes/profile/ProfileRootPage";
 import { FeedbackPage } from "../../routes/profile/FeedbackPage";
+import { VideoLibraryPage } from "../../routes/video-library/VideoLibraryPage";
 import { parseStudentRouteSearch } from "./routeTypes";
 
 export type StudentRouterContext = Record<string, never>;
@@ -64,6 +65,13 @@ const pointRoute = createRoute({
   path: "/point/$experimentId",
   validateSearch: parseStudentRouteSearch,
   component: ExperimentPointPage,
+});
+
+const videoLibraryRoute = createRoute({
+  getParentRoute: () => authenticatedRoute,
+  path: "/video-library",
+  validateSearch: parseStudentRouteSearch,
+  component: VideoLibraryPage,
 });
 
 const aiRoute = createRoute({
@@ -120,6 +128,7 @@ const routeTree = rootRoute.addChildren([
     chapterRoute,
     elementRoute,
     pointRoute,
+    videoLibraryRoute,
     aiRoute,
     aiChatRoute,
     assessmentRootRoute,

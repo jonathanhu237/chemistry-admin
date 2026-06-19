@@ -1,8 +1,8 @@
 import { useEffect, useMemo, useState } from "react";
 import { useNavigate } from "@tanstack/react-router";
-import { BookOpenCheck, ClipboardList, FlaskConical, LoaderCircle, MessageCircle, Sparkles } from "lucide-react";
+import { BookOpenCheck, ClipboardList, FlaskConical, LoaderCircle, MessageCircle, Search, Sparkles } from "lucide-react";
 import { errorMessage, getStudentLearningHome, getStudentLearningPage, type StudentLearningHomeResponse, type StudentLearningPageResponse } from "../../api";
-import { navigateToAiChat, navigateToAssessmentSession, navigateToChapter, navigateToRoot } from "../../app/router/navigation";
+import { navigateToAiChat, navigateToAssessmentSession, navigateToChapter, navigateToRoot, navigateToVideoLibrary } from "../../app/router/navigation";
 import { defaultAssistantContext } from "../../features/assistant/assistantContext";
 import { formatChapterEntryTitle } from "../../features/learning/learningFormat";
 import { MobileButton, MobileEmptyState } from "../../mobile/primitives";
@@ -85,6 +85,11 @@ export function HomeRootPage() {
               <FlaskConical size={20} />
               <span>周期表</span>
               <strong>按元素族学习</strong>
+            </button>
+            <button type="button" className="home-action-card video-library-entry" onClick={() => navigateToVideoLibrary(navigate, { from: "home" })}>
+              <Search size={20} />
+              <span>实验视频库</span>
+              <strong>搜现象、试剂、点位</strong>
             </button>
             <button type="button" className="home-action-card" disabled={!canUseAssistant} onClick={() => navigateToAiChat(navigate, defaultAssistantContext(), "home")}>
               <MessageCircle size={20} />
