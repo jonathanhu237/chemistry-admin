@@ -2,17 +2,13 @@ import { useState } from "react";
 import { App as AntApp, Button, Card, Form, Input, Space, Typography } from "antd";
 import { useLocation, useNavigate } from "react-router-dom";
 
-import { api, setAuthToken } from "../../api";
-import type { User } from "../../api";
+import type { LoginResponse } from "../../api/auth";
+import { setAuthToken } from "../../api/auth";
+import { api } from "../../api/http";
 import { errorMessage } from "../../lib/errors";
 
 const { Text, Title } = Typography;
 const sysuLogoSrc = `${import.meta.env.BASE_URL}sysu-logo.svg`;
-
-type LoginResponse = {
-  access_token: string;
-  user: User;
-};
 
 export function LoginPage() {
   const navigate = useNavigate();

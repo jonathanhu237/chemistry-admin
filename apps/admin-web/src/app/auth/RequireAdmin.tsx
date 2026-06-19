@@ -3,7 +3,7 @@ import { Spin } from "antd";
 import { useQueryClient } from "@tanstack/react-query";
 import { Navigate, useLocation, useNavigate } from "react-router-dom";
 
-import { getAuthToken, setAuthToken } from "../../api";
+import { getAuthToken, setAuthToken } from "../../api/auth";
 import { AdminShell } from "../shell/AdminShell";
 import { useAdminSession } from "./useAdminSession";
 

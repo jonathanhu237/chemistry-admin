@@ -1,6 +1,6 @@
 import { Tag } from "antd";
 
-import type { MediaAsset } from "../../api";
+import type { MediaAsset } from "../../api/media";
 
 export type VideoUploadStage =
   | "idle"

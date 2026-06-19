@@ -15,13 +15,13 @@ import {
   Typography,
 } from "antd";
 
-import { api, putJson } from "../../api";
 import type {
   AIConfiguration,
   AIConfigurationUpdate,
   LearningBehaviorSettings,
   PlatformSettingsResponse,
-} from "../../api";
+} from "../../api/settings";
+import { api, putJson } from "../../api/http";
 import { PageTitle } from "../../components/PageTitle";
 import { QueryState } from "../../components/QueryState";
 import "./settings.css";

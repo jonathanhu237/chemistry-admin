@@ -12,11 +12,12 @@ import {
 import { CheckCircleOutlined, SafetyCertificateOutlined } from "@ant-design/icons";
 import dayjs from "dayjs";
 
-import { api } from "../../api";
-import type { AIConfiguration, LearningAssistantRuntime } from "../../api";
+import type { LearningAssistantRuntime } from "../../api/learningAssistant";
+import type { AIConfiguration } from "../../api/settings";
+import { api } from "../../api/http";
 import { PageTitle } from "../../components/PageTitle";
 import { QueryState } from "../../components/QueryState";
-import { formatMemoryMb, formatRuntimeSeconds, formatTraceMs, warmupStatusLabel } from "../learning-assistant/runtimeFormat";
+import { formatMemoryMb, formatRuntimeSeconds, formatTraceMs, warmupStatusLabel } from "../../lib/runtimeFormat";
 import "./ai-config.css";
 
 const { Text, Title } = Typography;

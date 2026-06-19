@@ -1,10 +1,10 @@
 import { Tag } from "antd";
 
+import type { LearningAssistantRuntime } from "../../api/learningAssistant";
 import type {
-  LearningAssistantRuntime,
   Question,
   QuestionWorkbenchCandidate,
-} from "../../api";
+} from "../../api/questionBank";
 import { statusTag } from "../../lib/status";
 
 export function questionTypeLabel(type?: string) {

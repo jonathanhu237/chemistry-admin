@@ -1,7 +1,7 @@
 import { Layout } from "antd";
 import { useEffect, useState } from "react";
 
-import type { User } from "../../api";
+import type { User } from "../../api/auth";
 import { AdminHeader } from "./AdminHeader";
 import { AdminRouteOutlet } from "./AdminRouteOutlet";
 import { AdminSidebar } from "./AdminSidebar";

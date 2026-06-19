@@ -30,15 +30,18 @@ import {
 } from "@ant-design/icons";
 import dayjs from "dayjs";
 
-import { api, apiBase, getAuthToken, postJsonStream } from "../../api";
-import type { AIConfiguration, Experiment, LearningAssistantAskRequest, LearningAssistantResponse, LearningAssistantRuntime, LearningAssistantSource } from "../../api";
+import type { Experiment } from "../../api/experiments";
+import type { AIConfiguration } from "../../api/settings";
+import type { LearningAssistantAskRequest, LearningAssistantResponse, LearningAssistantRuntime, LearningAssistantSource } from "../../api/learningAssistant";
+import { getAuthToken } from "../../api/auth";
+import { api, apiBase, postJsonStream } from "../../api/http";
 import { AIGlowButton } from "../../components/AIGlowButton";
 import { PageTitle } from "../../components/PageTitle";
 import { QueryState } from "../../components/QueryState";
-import { useChapters, useExperiments } from "../experiments/experimentHooks";
-import { experimentVideoCandidates, formatChapterTitle, isGeneralResourceTitle } from "../resources/resourceUtils";
+import { useAdminChapters as useChapters, useAdminExperiments as useExperiments } from "../../lib/adminCatalogHooks";
+import { experimentVideoCandidates, formatChapterTitle, isGeneralResourceTitle } from "../../lib/resourceUtils";
 import { errorMessage } from "../../lib/errors";
-import { formatMemoryMb, formatRuntimeSeconds, formatTraceMs, warmupStatusLabel } from "./runtimeFormat";
+import { formatMemoryMb, formatRuntimeSeconds, formatTraceMs, warmupStatusLabel } from "../../lib/runtimeFormat";
 import "./learning-assistant.css";
 
 const { Text, Title } = Typography;

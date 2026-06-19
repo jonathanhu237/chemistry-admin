@@ -17,7 +17,7 @@ FRONTENDS = [
 ]
 ADMIN_FRONTEND_DIR = ROOT / "apps" / "admin-web"
 STUDENT_FRONTEND_DIR = ROOT / "apps" / "student-web"
-DEFAULT_CHANGE = "split-frontend-deployment-admin-shell"
+DEFAULT_CHANGE = "split-admin-api-and-experiments-feature"
 
 
 @dataclass
@@ -175,6 +175,9 @@ def _stages(args: argparse.Namespace) -> list[Stage]:
 
     stages.extend(_frontend_dependencies_stage(args))
     if not args.skip_frontend:
+        stages.append(
+            Stage("admin frontend import boundaries", [_npm(), "run", "validate:boundaries"], cwd=ADMIN_FRONTEND_DIR)
+        )
         for name, frontend_dir, has_tests in FRONTENDS:
             stages.append(Stage(f"{name} typecheck", [_npm(), "run", "typecheck"], cwd=frontend_dir))
             if has_tests:

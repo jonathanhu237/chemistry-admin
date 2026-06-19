@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 
-import { api } from "../../api";
-import type { User } from "../../api";
+import type { User } from "../../api/auth";
+import { api } from "../../api/http";
 
 export function useAdminSession(token: string) {
   return useQuery({

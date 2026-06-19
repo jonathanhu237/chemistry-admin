@@ -1,6 +1,7 @@
 import dayjs from "dayjs";
 
-import type { Experiment, MediaAsset } from "../../api";
+import type { Experiment } from "../api/experiments";
+import type { MediaAsset } from "../api/media";
 
 export type TheoryChapter = {
   chapter_id: string;

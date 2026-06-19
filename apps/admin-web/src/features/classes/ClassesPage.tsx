@@ -31,8 +31,8 @@ import {
   TeamOutlined,
 } from "@ant-design/icons";
 
-import { api, patchJson, postJson, putJson } from "../../api";
-import type { ClassItem, RegistrationSettings, RosterImportResult, RosterStudent } from "../../api";
+import type { ClassItem, RegistrationSettings, RosterImportResult, RosterStudent } from "../../api/classes";
+import { api, patchJson, postJson, putJson } from "../../api/http";
 import { PageTitle } from "../../components/PageTitle";
 import { QueryState } from "../../components/QueryState";
 import { errorMessage } from "../../lib/errors";

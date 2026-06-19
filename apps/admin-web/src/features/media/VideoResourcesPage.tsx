@@ -38,12 +38,15 @@ import {
 } from "@ant-design/icons";
 import type Uppy from "@uppy/core";
 
-import { api, apiBase, formatBytes, getAuthToken, patchJson, postJson } from "../../api";
-import type { ApiList, MediaAsset, MediaDuplicatePrecheck } from "../../api";
+import type { ApiList } from "../../api/common";
+import type { MediaAsset, MediaDuplicatePrecheck } from "../../api/media";
+import { getAuthToken } from "../../api/auth";
+import { api, apiBase, patchJson, postJson } from "../../api/http";
 import { AuthenticatedImage } from "../../components/AuthenticatedImage";
 import { PageTitle } from "../../components/PageTitle";
 import { QueryState } from "../../components/QueryState";
 import { errorMessage } from "../../lib/errors";
+import { formatBytes } from "../../lib/format";
 import {
   computeVideoFileSha256,
   duplicateDecisionLabels,
@@ -67,7 +70,7 @@ import {
   videoTitleFromFile,
 } from "./mediaHelpers";
 import type { VideoUploadQueueItem, VideoUploadStage, VideoUploadState } from "./mediaHelpers";
-import { isPreviewableVideo, mediaAssetTime, mediaAssetType } from "../resources/resourceUtils";
+import { isPreviewableVideo, mediaAssetTime, mediaAssetType } from "../../lib/resourceUtils";
 import "./media.css";
 
 const { Text, Title } = Typography;

@@ -1,5 +1,4 @@
 import { useEffect, useMemo, useState } from "react";
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import {
   Alert,
   App as AntApp,
@@ -42,119 +41,47 @@ import {
   VideoCameraOutlined,
 } from "@ant-design/icons";
 
-import { api, apiBase, formatBytes, getAuthToken, patchJson, postJson, putJson } from "../../api";
-import type { ApiList, Experiment, ExperimentVideoPoint, ExperimentVideoPointResource, ExperimentVideoPointsResponse, MediaAsset } from "../../api";
+import type { Experiment, ExperimentVideoPoint, ExperimentVideoPointResource } from "../../api/experiments";
+import type { MediaAsset } from "../../api/media";
+import { apiBase } from "../../api/http";
 import { AuthenticatedImage } from "../../components/AuthenticatedImage";
 import { PageTitle } from "../../components/PageTitle";
 import { QueryState } from "../../components/QueryState";
 import { errorMessage } from "../../lib/errors";
+import { formatBytes } from "../../lib/format";
 import { statusTag } from "../../lib/status";
-import { useChapters, useExperiments } from "./experimentHooks";
-import { experimentVideoCandidates, formatChapterTitle, isPreviewableVideo, mediaAssetType, theoryChapters } from "../resources/resourceUtils";
+import { filterVideoPointsForAdmin, videoPointFilterOptions } from "./experimentFilters";
+import type { VideoPointFilter } from "./experimentFilters";
+import { ExperimentBasicForm } from "./experimentDetail/ExperimentBasicForm";
+import { ExperimentDetailDrawer } from "./experimentDetail/ExperimentDetailDrawer";
+import { ExperimentListSection } from "./experimentList/ExperimentListSection";
+import {
+  useBindPointResourcesMutation,
+  useChangePointPublicationMutation,
+  useChapters,
+  useCreateExperimentMutation,
+  useExperimentMediaAssets,
+  useExperiments,
+  useExperimentVideoPoints,
+  usePointResourceActionMutations,
+  useSaveExperimentMutation,
+  useSavePointContentMutation,
+  useSelectedExperiment,
+} from "./experimentHooks";
+import { hydratePointContentFormValues } from "./pointContent/pointContentMapper";
+import type { PointContentFormValues } from "./pointContent/pointContentMapper";
+import { PointContentModal } from "./pointContent/PointContentModal";
+import { VideoBindingModal } from "./videoBindings/VideoBindingModal";
+import type { VideoPreviewTarget } from "./videoBindings/VideoBindingModal";
+import { VideoPointResourcesPanel } from "./videoBindings/VideoPointResourcesPanel";
+import { VideoPreviewModal } from "./videoBindings/VideoPreviewModal";
+import { experimentVideoCandidates, formatChapterTitle, theoryChapters } from "../../lib/resourceUtils";
 import "./experiments.css";
 
 const { Text, Title } = Typography;
 
-type VideoPreviewTarget = {
-  id: string;
-  title: string;
-  original_file_name: string;
-  mime_type?: string | null;
-  upload_status?: string | null;
-};
-
-export type VideoPointFilter = "all" | "empty" | "referenced" | "published" | "missing_content" | "draft_content" | "published_content" | "unpublished_video" | "sync_error";
-
-export type PointContentFormValues = {
-  point_title: string;
-  principle_mode: "equation" | "text";
-  principle_equation?: string;
-  principle_text?: string;
-  phenomenon_explanation?: string;
-  safety_note?: string;
-  links?: Array<{
-    target?: string;
-    relation_type?: "manual" | "default_override";
-    hidden?: boolean;
-    sort_order?: number;
-    label?: string;
-  }>;
-};
-
-const videoPointFilterOptions: Array<{ value: VideoPointFilter; label: string }> = [
-  { value: "all", label: "全部" },
-  { value: "empty", label: "无视频" },
-  { value: "referenced", label: "有视频" },
-  { value: "published", label: "已发布视频" },
-  { value: "missing_content", label: "缺内容" },
-  { value: "draft_content", label: "草稿内容" },
-  { value: "published_content", label: "已发布内容" },
-  { value: "unpublished_video", label: "视频未发布" },
-  { value: "sync_error", label: "索引异常" },
-];
-
-type PointRelatedLinkPayload = {
-  target_experiment_id: string;
-  target_point_key: string;
-  relation_type: "manual" | "default_override";
-  hidden: boolean;
-  sort_order: number;
-  label: string | null;
-};
-
-function isPointRelatedLinkPayload(value: PointRelatedLinkPayload | null): value is PointRelatedLinkPayload {
-  return value !== null;
-}
-
-export function buildPointContentRequest(values: PointContentFormValues): Record<string, unknown> {
-  const principleMode = values.principle_mode || "text";
-  return {
-    point_title: values.point_title,
-    principle_mode: principleMode,
-    principle_equation: principleMode === "equation" ? values.principle_equation || "" : "",
-    principle_text: principleMode === "text" ? values.principle_text || "" : "",
-    phenomenon_explanation: values.phenomenon_explanation || "",
-    safety_note: values.safety_note || "",
-  };
-}
-
-export function buildPointRelatedLinksRequest(values: PointContentFormValues): { links: PointRelatedLinkPayload[] } {
-  const links = (values.links || [])
-    .map((link, index): PointRelatedLinkPayload | null => {
-      const [targetExperimentId, targetPointKey] = String(link.target || "").split("::");
-      if (!targetExperimentId || !targetPointKey) return null;
-      return {
-        target_experiment_id: targetExperimentId,
-        target_point_key: targetPointKey,
-        relation_type: link.relation_type || "manual",
-        hidden: Boolean(link.hidden),
-        sort_order: link.sort_order || index + 1,
-        label: link.label || null,
-      };
-    })
-    .filter(isPointRelatedLinkPayload);
-  return { links };
-}
-
-export function buildPointPublicationRequest(action: "publish" | "unpublish" | "archive"): { action: "publish" | "unpublish" | "archive" } {
-  return { action };
-}
-
-export function filterVideoPointsForAdmin(points: ExperimentVideoPoint[], filter: VideoPointFilter): ExperimentVideoPoint[] {
-  if (filter === "empty") return points.filter((point) => point.resource_count === 0);
-  if (filter === "referenced") return points.filter((point) => point.resource_count > 0);
-  if (filter === "published") return points.filter((point) => point.published_count > 0);
-  if (filter === "missing_content") return points.filter((point) => !point.content || point.content.content_status === "missing");
-  if (filter === "draft_content") return points.filter((point) => point.content?.content_status === "draft");
-  if (filter === "published_content") return points.filter((point) => point.content?.content_status === "published");
-  if (filter === "unpublished_video") return points.filter((point) => point.resource_count > 0 && point.published_count === 0);
-  if (filter === "sync_error") return points.filter((point) => point.index_state?.sync_status === "failed");
-  return points;
-}
-
 export function ExperimentsPage() {
   const { message } = AntApp.useApp();
-  const queryClient = useQueryClient();
   const chapters = useChapters();
   const [experimentKeyword, setExperimentKeyword] = useState("");
   const [chapterId, setChapterId] = useState<string>();
@@ -170,9 +97,6 @@ export function ExperimentsPage() {
   const [assetKeyword, setAssetKeyword] = useState("");
   const [selectedAssetIds, setSelectedAssetIds] = useState<string[]>([]);
   const [previewTarget, setPreviewTarget] = useState<VideoPreviewTarget | null>(null);
-  const [previewUrl, setPreviewUrl] = useState<string>();
-  const [previewLoading, setPreviewLoading] = useState(false);
-  const [previewError, setPreviewError] = useState("");
   const [pendingVideoBindingAction, setPendingVideoBindingAction] = useState<{
     bindingId: string;
     action: "publish" | "unpublish" | "delete";
@@ -182,23 +106,11 @@ export function ExperimentsPage() {
   if (statusFilter) searchParams.set("status_filter", statusFilter);
   const params = searchParams.toString() ? `?${searchParams.toString()}` : "";
   const experiments = useExperiments(params);
-  const selectedExperiment = useQuery({
-    queryKey: ["admin-experiment", selected?.id],
-    queryFn: () => api<Experiment>(`/api/admin/experiments/${selected?.id}`),
-    enabled: Boolean(selected?.id),
-  });
+  const selectedExperiment = useSelectedExperiment(selected?.id);
   const currentExperiment = selectedExperiment.data || selected;
   const currentExperimentId = currentExperiment?.id;
-  const experimentVideoPoints = useQuery({
-    queryKey: ["experiment-video-points", currentExperimentId],
-    queryFn: () => api<ExperimentVideoPointsResponse>(`/api/admin/experiments/${currentExperimentId}/video-points`),
-    enabled: Boolean(currentExperimentId),
-  });
-  const mediaAssets = useQuery({
-    queryKey: ["media-assets"],
-    queryFn: () => api<ApiList<MediaAsset>>("/api/admin/media/assets?limit=200"),
-    enabled: Boolean(referencePoint),
-  });
+  const experimentVideoPoints = useExperimentVideoPoints(currentExperimentId);
+  const mediaAssets = useExperimentMediaAssets(Boolean(referencePoint));
   const currentMetadata = (currentExperiment?.metadata || {}) as Record<string, unknown>;
   const videoCandidates = experimentVideoCandidates(currentExperiment);
   const videoPointItems = useMemo(() => experimentVideoPoints.data?.points || [], [experimentVideoPoints.data?.points]);
@@ -261,21 +173,7 @@ export function ExperimentsPage() {
       pointContentForm.resetFields();
       return;
     }
-    pointContentForm.setFieldsValue({
-      point_title: contentPoint.point_title,
-      principle_mode: contentPoint.content?.principle_mode || "text",
-      principle_equation: contentPoint.content?.principle_equation || "",
-      principle_text: contentPoint.content?.principle_text || "",
-      phenomenon_explanation: contentPoint.content?.phenomenon_explanation || "",
-      safety_note: contentPoint.content?.safety_note || "",
-      links: (contentPoint.related_links || []).map((link, index) => ({
-        target: `${link.target_experiment_id}::${link.target_point_key}`,
-        relation_type: link.relation_type === "default_override" ? "default_override" : "manual",
-        hidden: Boolean(link.hidden),
-        sort_order: link.sort_order || index + 1,
-        label: link.label || "",
-      })),
-    });
+    pointContentForm.setFieldsValue(hydratePointContentFormValues(contentPoint));
   }, [contentPoint, pointContentForm]);
 
   useEffect(() => {
@@ -284,77 +182,13 @@ export function ExperimentsPage() {
     if (updated && updated !== contentPoint) setContentPoint(updated);
   }, [contentPoint, videoPointItems]);
 
-  useEffect(() => {
-    let objectUrl: string | undefined;
-    let cancelled = false;
-    setPreviewUrl(undefined);
-    setPreviewError("");
-    setPreviewLoading(false);
-    if (!previewTarget || previewTarget.upload_status !== "ready") {
-      return undefined;
-    }
-    setPreviewLoading(true);
-    const headers = new Headers();
-    const token = getAuthToken();
-    if (token) {
-      headers.set("Authorization", `Bearer ${token}`);
-    }
-    void fetch(`${apiBase}/api/admin/media/assets/${previewTarget.id}/file`, { headers })
-      .then(async (response) => {
-        if (!response.ok) {
-          throw new Error(response.status === 409 ? "视频还未就绪，暂不能预览" : "视频预览加载失败");
-        }
-        return response.blob();
-      })
-      .then((blob) => {
-        if (cancelled) return;
-        objectUrl = URL.createObjectURL(blob);
-        setPreviewUrl(objectUrl);
-      })
-      .catch((error) => {
-        if (!cancelled) setPreviewError(errorMessage(error));
-      })
-      .finally(() => {
-        if (!cancelled) setPreviewLoading(false);
-      });
-    return () => {
-      cancelled = true;
-      if (objectUrl) URL.revokeObjectURL(objectUrl);
-    };
-  }, [previewTarget]);
-
-  const invalidateExperimentData = (experimentId?: string) => {
-    void queryClient.invalidateQueries({ queryKey: ["admin-experiments"] });
-    void queryClient.invalidateQueries({ queryKey: ["question-banks"] });
-    if (experimentId) {
-      void queryClient.invalidateQueries({ queryKey: ["admin-experiment", experimentId] });
-    }
-  };
-
-  const invalidateVideoReferenceData = (experimentId?: string) => {
-    invalidateExperimentData(experimentId);
-    if (experimentId) {
-      void queryClient.invalidateQueries({ queryKey: ["experiment-video-points", experimentId] });
-    }
-    void queryClient.invalidateQueries({ queryKey: ["media-assets"] });
-  };
-
-  const createExperiment = useMutation({
-    mutationFn: (values: { title: string; summary?: string; status: string; chapter_ids: string[] }) =>
-      postJson<Experiment>("/api/admin/experiments", {
-        title: values.title,
-        summary: values.summary,
-        status: values.status || "draft",
-        chapter_ids: values.chapter_ids || [],
-      }),
-    onSuccess: (experiment) => {
-      message.success("实验已创建");
+  const createExperiment = useCreateExperimentMutation({
+    message,
+    onCreated: (experiment) => {
       setCreateOpen(false);
       createForm.resetFields();
       setSelected(experiment);
-      invalidateExperimentData(experiment.id);
     },
-    onError: (error) => message.error(errorMessage(error)),
   });
   const submitCreateExperiment = async (status: "draft" | "published") => {
     try {
@@ -365,137 +199,39 @@ export function ExperimentsPage() {
     }
   };
 
-  const save = useMutation({
-    mutationFn: (values: { title: string; summary?: string; status: string; chapter_ids: string[] }) =>
-      patchJson<Experiment>(`/api/admin/experiments/${currentExperiment?.id}`, {
-        title: values.title,
-        summary: values.summary,
-        status: values.status,
-        chapter_ids: values.chapter_ids || [],
-      }),
-    onSuccess: (experiment) => {
-      message.success("实验已保存");
-      setSelected(experiment);
-      invalidateExperimentData(experiment.id);
-    },
-    onError: (error) => message.error(errorMessage(error)),
+  const save = useSaveExperimentMutation({
+    experimentId: currentExperiment?.id,
+    message,
+    onSaved: setSelected,
   });
 
-  const addPointResources = useMutation({
-    mutationFn: async () => {
-      if (!currentExperimentId || !referencePoint) {
-        throw new Error("请选择实验点位");
-      }
-      if (!selectedAssetIds.length) {
-        throw new Error("请选择要引用的视频资源");
-      }
-      return Promise.all(
-        selectedAssetIds.map((assetId) => {
-          const asset = referenceAssetMap.get(assetId);
-          return postJson<Record<string, unknown>>(
-            `/api/admin/experiments/${currentExperimentId}/video-points/${encodeURIComponent(referencePoint.point_key)}/resources`,
-            {
-              media_asset_id: assetId,
-              title: asset?.title || referencePoint.point_title,
-              status: "draft",
-            },
-          );
-        }),
-      );
-    },
-    onSuccess: () => {
-      message.success("视频已引用到点位");
-      const experimentId = currentExperimentId;
+  const addPointResources = useBindPointResourcesMutation({
+    message,
+    onBound: () => {
       setReferencePoint(null);
       setSelectedAssetIds([]);
       setAssetKeyword("");
-      invalidateVideoReferenceData(experimentId);
     },
-    onError: (error) => message.error(errorMessage(error)),
   });
 
-  const publishPointResource = useMutation({
-    mutationFn: (resource: ExperimentVideoPointResource) =>
-      postJson<Record<string, unknown>>(`/api/admin/media/bindings/${resource.binding_id}/publish`, {}),
-    onMutate: (resource) => {
-      setPendingVideoBindingAction({ bindingId: resource.binding_id, action: "publish" });
-    },
-    onSuccess: (_, resource) => {
-      message.success("视频引用已发布");
-      invalidateVideoReferenceData(resource.experiment_id);
-    },
-    onError: (error) => message.error(errorMessage(error)),
-    onSettled: () => setPendingVideoBindingAction(null),
+  const { publishPointResource, unpublishPointResource, deletePointResource } = usePointResourceActionMutations({
+    message,
+    onActionStart: (resource, action) => setPendingVideoBindingAction({ bindingId: resource.binding_id, action }),
+    onActionSettled: () => setPendingVideoBindingAction(null),
   });
 
-  const unpublishPointResource = useMutation({
-    mutationFn: (resource: ExperimentVideoPointResource) =>
-      postJson<Record<string, unknown>>(`/api/admin/media/bindings/${resource.binding_id}/unpublish`, {}),
-    onMutate: (resource) => {
-      setPendingVideoBindingAction({ bindingId: resource.binding_id, action: "unpublish" });
-    },
-    onSuccess: (_, resource) => {
-      message.success("视频引用已取消发布");
-      invalidateVideoReferenceData(resource.experiment_id);
-    },
-    onError: (error) => message.error(errorMessage(error)),
-    onSettled: () => setPendingVideoBindingAction(null),
+  const savePointContent = useSavePointContentMutation({
+    experimentId: currentExperimentId,
+    point: contentPoint,
+    message,
+    onSaved: setContentPoint,
   });
 
-  const deletePointResource = useMutation({
-    mutationFn: (resource: ExperimentVideoPointResource) =>
-      api<Record<string, unknown>>(`/api/admin/media/bindings/${resource.binding_id}`, { method: "DELETE" }),
-    onMutate: (resource) => {
-      setPendingVideoBindingAction({ bindingId: resource.binding_id, action: "delete" });
-    },
-    onSuccess: (_, resource) => {
-      message.success("视频引用已移除");
-      invalidateVideoReferenceData(resource.experiment_id);
-    },
-    onError: (error) => message.error(errorMessage(error)),
-    onSettled: () => setPendingVideoBindingAction(null),
-  });
-
-  const savePointContent = useMutation({
-    mutationFn: async (values: PointContentFormValues) => {
-      if (!currentExperimentId || !contentPoint) {
-        throw new Error("请选择实验点位");
-      }
-      await putJson<ExperimentVideoPointsResponse>(
-        `/api/admin/experiments/${currentExperimentId}/video-points/${encodeURIComponent(contentPoint.point_key)}/content`,
-        buildPointContentRequest(values),
-      );
-      return putJson<ExperimentVideoPointsResponse>(
-        `/api/admin/experiments/${currentExperimentId}/video-points/${encodeURIComponent(contentPoint.point_key)}/related-links`,
-        buildPointRelatedLinksRequest(values),
-      );
-    },
-    onSuccess: (payload) => {
-      message.success("点位内容已保存");
-      const updated = payload.points.find((point) => point.point_key === contentPoint?.point_key) || null;
-      setContentPoint(updated);
-      invalidateVideoReferenceData(currentExperimentId);
-    },
-    onError: (error) => message.error(errorMessage(error)),
-  });
-
-  const changePointPublication = useMutation({
-    mutationFn: (action: "publish" | "unpublish" | "archive") => {
-      if (!currentExperimentId || !contentPoint) {
-        throw new Error("请选择实验点位");
-      }
-      return postJson<ExperimentVideoPointsResponse>(
-        `/api/admin/experiments/${currentExperimentId}/video-points/${encodeURIComponent(contentPoint.point_key)}/publication`,
-        buildPointPublicationRequest(action),
-      );
-    },
-    onSuccess: (payload) => {
-      message.success("点位发布状态已更新");
-      const updated = payload.points.find((point) => point.point_key === contentPoint?.point_key) || null;
-      setContentPoint(updated);
-      invalidateVideoReferenceData(currentExperimentId);
-    },
-    onError: (error) => message.error(errorMessage(error)),
+  const changePointPublication = useChangePointPublicationMutation({
+    experimentId: currentExperimentId,
+    point: contentPoint,
+    message,
+    onChanged: setContentPoint,
   });
 
   const isVideoBindingActionPending = (resource: ExperimentVideoPointResource, action: "publish" | "unpublish" | "delete") =>
@@ -556,125 +292,34 @@ export function ExperimentsPage() {
           </Button>
         }
       />
-      <Card className="toolbar-card">
-        <Space orientation="vertical" size={14} className="full">
-          <Flex justify="space-between" align="center" gap={14} wrap="wrap">
-            <Space size={12} wrap className="experiment-filter-controls">
-              <Text className="filter-group-label">筛选范围</Text>
-              <Select
-                allowClear
-                placeholder="全部章节"
-                style={{ width: 300 }}
-                value={chapterId}
-                onChange={setChapterId}
-                options={chapterOptions}
-              />
-              <Select
-                allowClear
-                placeholder="全部状态"
-                style={{ width: 160 }}
-                value={statusFilter}
-                onChange={setStatusFilter}
-                options={[
-                  { value: "draft", label: "草稿" },
-                  { value: "published", label: "已发布" },
-                  { value: "archived", label: "已归档" },
-                ]}
-              />
-            </Space>
-            <Input.Search
-              allowClear
-              placeholder="搜索实验名称"
-              value={experimentKeyword}
-              onChange={(event) => setExperimentKeyword(event.target.value)}
-              style={{ width: 320 }}
-            />
-          </Flex>
-          <Flex justify="space-between" align="center" gap={14} wrap="wrap">
-            <Space size={8} wrap className="experiment-filter-summary">
-              {experiments.isLoading ? (
-                <Text type="secondary">正在加载实验...</Text>
-              ) : (
-                <>
-                  <Text type="secondary">当前范围共 {statusSummary.total} 个实验</Text>
-                  <Tag>草稿 {statusSummary.draft}</Tag>
-                  <Tag color="green">已发布 {statusSummary.published}</Tag>
-                  <Tag>已归档 {statusSummary.archived}</Tag>
-                  {experimentKeyword.trim() ? <Tag color="blue">搜索结果 {filteredExperiments.length}</Tag> : null}
-                </>
-              )}
-            </Space>
-            <Button
-              disabled={!hasFilters}
-              onClick={() => {
-                setExperimentKeyword("");
-                setChapterId(undefined);
-                setStatusFilter(undefined);
-              }}
-            >
-              重置筛选
-            </Button>
-          </Flex>
-        </Space>
-      </Card>
-      <Card>
-        <QueryState loading={experiments.isLoading} error={experiments.error} empty={!filteredExperiments.length}>
-          <Table
-            rowKey="id"
-            dataSource={filteredExperiments}
-            columns={[
-              { title: "序号", dataIndex: "display_order", width: 88 },
-              {
-                title: "实验",
-                render: (_: unknown, row: Experiment) => (
-                  <Space orientation="vertical" size={2}>
-                    <Text strong>{row.title}</Text>
-                    <Text type="secondary">{row.summary}</Text>
-                  </Space>
-                ),
-              },
-              {
-                title: "理论章节",
-                render: (_: unknown, row: Experiment) => (
-                  <Space wrap>
-                    {row.chapter_bindings.map((binding) => (
-                      <Tag key={binding.chapter_id}>
-                        {formatChapterTitle(binding.chapter_title || chapterTitleById.get(binding.chapter_id), binding.chapter_id)}
-                      </Tag>
-                    ))}
-                  </Space>
-                ),
-              },
-              {
-                title: "资源",
-                width: 170,
-                render: (_: unknown, row: Experiment) => (
-                  <Space size={6} wrap>
-                    <Tag>点位 {experimentVideoCandidates(row).length}</Tag>
-                    <Tag color={row.media_resources.length ? "#356f9c" : "default"}>视频 {row.media_resources.length}</Tag>
-                  </Space>
-                ),
-              },
-              { title: "状态", width: 110, render: (_: unknown, row: Experiment) => statusTag(row.status) },
-              {
-                title: "操作",
-                width: 90,
-                render: (_: unknown, row: Experiment) => (
-                  <Button onClick={() => setSelected(row)}>编辑</Button>
-                ),
-              },
-            ]}
-          />
-        </QueryState>
-      </Card>
-      <Drawer
-        title={currentExperiment ? `编辑实验：${currentExperiment.title}` : "编辑实验"}
+      <ExperimentListSection
+        loading={experiments.isLoading}
+        error={experiments.error}
+        filteredExperiments={filteredExperiments}
+        statusSummary={statusSummary}
+        experimentKeyword={experimentKeyword}
+        chapterId={chapterId}
+        statusFilter={statusFilter}
+        chapterOptions={chapterOptions}
+        chapterTitleById={chapterTitleById}
+        hasFilters={hasFilters}
+        onKeywordChange={setExperimentKeyword}
+        onChapterChange={setChapterId}
+        onStatusChange={setStatusFilter}
+        onResetFilters={() => {
+          setExperimentKeyword("");
+          setChapterId(undefined);
+          setStatusFilter(undefined);
+        }}
+        onSelectExperiment={setSelected}
+      />
+      <ExperimentDetailDrawer
         open={Boolean(selected)}
+        currentExperiment={currentExperiment}
+        loading={selectedExperiment.isLoading}
+        error={selectedExperiment.error}
         onClose={() => setSelected(null)}
-        size={1180}
-        className="experiment-editor-drawer"
       >
-        <QueryState loading={selectedExperiment.isLoading} error={selectedExperiment.error} empty={!currentExperiment}>
           <Space orientation="vertical" size={16} className="full">
             {currentExperiment ? (
               <div className="experiment-editor-summary">
@@ -702,33 +347,7 @@ export function ExperimentsPage() {
 
             <div className="experiment-editor-grid">
               <Space orientation="vertical" size={16} className="full">
-                <Card title="基础信息" className="experiment-basic-card">
-                  <Form form={form} layout="vertical" onFinish={(values) => save.mutate(values)}>
-                    <Form.Item name="title" label="实验名称" rules={[{ required: true, message: "请输入实验名称" }]}>
-                      <Input />
-                    </Form.Item>
-                    <Form.Item name="summary" label="实验说明">
-                      <Input.TextArea rows={4} maxLength={300} showCount className="fixed-textarea" />
-                    </Form.Item>
-                    <div className="compact-form-grid">
-                      <Form.Item name="status" label="发布状态" rules={[{ required: true }]}>
-                        <Select
-                          options={[
-                            { value: "draft", label: "草稿" },
-                            { value: "published", label: "已发布" },
-                            { value: "archived", label: "已归档" },
-                          ]}
-                        />
-                      </Form.Item>
-                      <Form.Item name="chapter_ids" label="理论章节" rules={[{ required: true, message: "请选择至少一个章节" }]}>
-                        <Select mode="multiple" options={chapterOptions} placeholder="选择章节" maxTagCount="responsive" />
-                      </Form.Item>
-                    </div>
-                    <Button type="primary" htmlType="submit" loading={save.isPending}>
-                      保存实验信息
-                    </Button>
-                  </Form>
-                </Card>
+                <ExperimentBasicForm form={form} save={save} chapterOptions={chapterOptions} />
 
                 <Card title="来源上下文" className="experiment-context-card">
                   {parentTitle || moduleTitle ? (
@@ -746,426 +365,62 @@ export function ExperimentsPage() {
                 </Card>
               </Space>
 
-              <Card
-                title={
-                  <Flex justify="space-between" align="center" gap={12} wrap="wrap">
-                    <span>点位视频引用</span>
-                    <Space size={6} wrap>
-                      <Tag>点位 {videoPointCount}</Tag>
-                      <Tag color={resourceCount ? "blue" : "default"}>已引用 {resourceCount}</Tag>
-                      <Tag color={publishedResourceCount ? "green" : "default"}>已发布 {publishedResourceCount}</Tag>
-                    </Space>
-                  </Flex>
-                }
-                className="video-reference-card"
-              >
-                <Space orientation="vertical" size={14} className="full">
-                  <Flex justify="space-between" align="center" gap={12} wrap="wrap" className="video-reference-toolbar">
-                    <Segmented
-                      value={videoPointFilter}
-                      onChange={(value) => setVideoPointFilter(value as VideoPointFilter)}
-                      options={videoPointFilterOptions}
-                    />
-                    <Text type="secondary">从视频资源库选择已上传视频，引用到具体候选点。</Text>
-                  </Flex>
+              <VideoPointResourcesPanel
+                videoPointCount={videoPointCount}
+                resourceCount={resourceCount}
+                publishedResourceCount={publishedResourceCount}
+                videoPointFilter={videoPointFilter}
+                videoPointItems={videoPointItems}
+                filteredVideoPoints={filteredVideoPoints}
+                loading={experimentVideoPoints.isLoading}
+                error={experimentVideoPoints.error}
+                publishPointResource={publishPointResource}
+                unpublishPointResource={unpublishPointResource}
+                deletePointResource={deletePointResource}
+                isVideoBindingActionPending={isVideoBindingActionPending}
+                isVideoBindingBusy={isVideoBindingBusy}
+                onFilterChange={setVideoPointFilter}
+                onEditContent={setContentPoint}
+                onBindVideo={setReferencePoint}
+                onPreview={setPreviewTarget}
+              />
 
-                  {experimentVideoPoints.isLoading ? (
-                    <div className="center-panel">
-                      <Spin />
-                    </div>
-                  ) : experimentVideoPoints.error ? (
-                    <Alert type="error" showIcon title="点位视频加载失败" description={errorMessage(experimentVideoPoints.error)} />
-                  ) : !videoPointItems.length ? (
-                    <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description="暂无候选视频点位" />
-                  ) : !filteredVideoPoints.length ? (
-                    <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description="当前筛选下没有点位" />
-                  ) : (
-                    <div className="video-point-list">
-                      {filteredVideoPoints.map((point) => {
-                        const pointIndex = videoPointItems.findIndex((item) => item.point_key === point.point_key) + 1;
-                        return (
-                          <div className="video-point-card" key={point.point_key}>
-                            <Flex justify="space-between" align="start" gap={12} wrap="wrap" className="video-point-header">
-                              <Space size={12} align="start" className="video-point-heading">
-                                <span className="video-point-index">{pointIndex}</span>
-                                <div className="video-point-title">
-                                  <Text strong>{point.point_title}</Text>
-                                  <Space size={6} wrap>
-                                    <Tag color={point.content?.content_status === "published" ? "green" : point.content?.content_status === "draft" ? "orange" : "default"}>
-                                      内容 {point.content?.content_status || "missing"}
-                                    </Tag>
-                                    <Tag color={point.validation?.complete ? "green" : "red"}>
-                                      {point.validation?.complete ? "完整" : `缺 ${point.validation?.errors.length || 0}`}
-                                    </Tag>
-                                    <Tag color={point.index_state?.sync_status === "failed" ? "red" : point.index_state?.sync_status === "synced" ? "green" : "blue"}>
-                                      索引 {point.index_state?.sync_status || "pending"}
-                                    </Tag>
-                                    <Tag color={point.resource_count ? "blue" : "default"}>已引用 {point.resource_count}</Tag>
-                                    <Tag color={point.published_count ? "green" : "default"}>已发布 {point.published_count}</Tag>
-                                  </Space>
-                                </div>
-                              </Space>
-                              <Space size={8} wrap>
-                                <Button icon={<EditOutlined />} onClick={() => setContentPoint(point)}>
-                                  编辑内容
-                                </Button>
-                                <Button type={point.resource_count ? "default" : "primary"} icon={<PlusOutlined />} onClick={() => setReferencePoint(point)}>
-                                引用视频
-                                </Button>
-                              </Space>
-                            </Flex>
-
-                            <div className="point-content-summary">
-                              <Text type="secondary">
-                                {point.content?.principle_mode === "equation"
-                                  ? point.content?.principle_equation || "未填写方程式原理"
-                                  : point.content?.principle_text || "未填写文字原理"}
-                              </Text>
-                              <Text type="secondary">{point.content?.phenomenon_explanation || "未填写现象解释"}</Text>
-                            </div>
-
-                            {point.resources.length ? (
-                              <div className="video-point-resources">
-                                {point.resources.map((resource) => {
-                                  const resourceTitle =
-                                    resource.media_title || resource.title || resource.binding_title || resource.original_file_name;
-                                  const thumbnailSrc = resource.thumbnail_relative_path
-                                    ? `${apiBase}/api/admin/media/assets/${resource.media_id}/thumbnail`
-                                    : null;
-                                  const resourceBusy = isVideoBindingBusy(resource);
-                                  const openResourcePreview = () =>
-                                    setPreviewTarget({
-                                      id: resource.media_id,
-                                      title: resource.media_title || resourceTitle,
-                                      original_file_name: resource.original_file_name,
-                                      mime_type: resource.mime_type,
-                                      upload_status: resource.upload_status,
-                                    });
-                                  return (
-                                  <div className="video-point-resource" key={resource.binding_id}>
-                                    <button
-                                      type="button"
-                                      className={thumbnailSrc ? "video-resource-thumb has-image" : "video-resource-thumb"}
-                                      disabled={resource.upload_status !== "ready"}
-                                      aria-label={`预览视频：${resourceTitle}`}
-                                      title={resource.upload_status === "ready" ? "预览视频" : "视频未就绪，暂不能预览"}
-                                      onClick={openResourcePreview}
-                                    >
-                                      <AuthenticatedImage src={thumbnailSrc} alt={resourceTitle} className="video-resource-thumb-image" />
-                                      <div className="video-resource-thumb-fallback">
-                                        <VideoCameraOutlined />
-                                      </div>
-                                      {resource.upload_status === "ready" ? (
-                                        <span className="video-resource-thumb-play">
-                                          <PlayCircleOutlined />
-                                        </span>
-                                      ) : null}
-                                    </button>
-                                    <div className="video-point-resource-main">
-                                      <Text strong className="video-point-resource-title">
-                                        {resourceTitle}
-                                      </Text>
-                                      <Text type="secondary" className="video-point-resource-file">
-                                        {resource.original_file_name}
-                                      </Text>
-                                      <Space size={6} wrap>
-                                        {statusTag(resource.upload_status)}
-                                        {statusTag(resource.binding_status)}
-                                        <Text type="secondary">{formatBytes(resource.file_size_bytes)}</Text>
-                                      </Space>
-                                    </div>
-                                    <Space size={8} wrap className="video-point-resource-actions">
-                                      {resource.binding_status === "published" ? (
-                                        <Button
-                                          size="small"
-                                          icon={<PauseCircleOutlined />}
-                                          disabled={resourceBusy}
-                                          loading={isVideoBindingActionPending(resource, "unpublish")}
-                                          onClick={() => unpublishPointResource.mutate(resource)}
-                                        >
-                                          取消发布
-                                        </Button>
-                                      ) : (
-                                        <Button
-                                          size="small"
-                                          type="primary"
-                                          icon={<CheckCircleOutlined />}
-                                          disabled={resource.upload_status !== "ready" || resourceBusy}
-                                          loading={isVideoBindingActionPending(resource, "publish")}
-                                          onClick={() => publishPointResource.mutate(resource)}
-                                        >
-                                          发布引用
-                                        </Button>
-                                      )}
-                                      <Popconfirm
-                                        title="移除视频引用？"
-                                        description="只删除本实验点位和该视频的引用关系，不删除视频资源库素材。"
-                                        okText="移除"
-                                        cancelText="取消"
-                                        okButtonProps={{ danger: true }}
-                                        onConfirm={() => deletePointResource.mutate(resource)}
-                                      >
-                                        <Button
-                                          size="small"
-                                          danger
-                                          icon={<DeleteOutlined />}
-                                          disabled={resourceBusy}
-                                          loading={isVideoBindingActionPending(resource, "delete")}
-                                        >
-                                          移除引用
-                                        </Button>
-                                      </Popconfirm>
-                                    </Space>
-                                  </div>
-                                  );
-                                })}
-                              </div>
-                            ) : (
-                              <button type="button" className="video-point-empty" onClick={() => setReferencePoint(point)}>
-                                <PlusOutlined />
-                                <span>还没有引用视频</span>
-                                <Text type="secondary">点击从视频资源库选择素材</Text>
-                              </button>
-                            )}
-                          </div>
-                        );
-                      })}
-                    </div>
-                  )}
-                </Space>
-              </Card>
             </div>
           </Space>
-        </QueryState>
-      </Drawer>
+      </ExperimentDetailDrawer>
 
-      <Modal
-        title={contentPoint ? `编辑点位：${contentPoint.point_title}` : "编辑点位内容"}
-        open={Boolean(contentPoint)}
-        width={860}
-        onCancel={() => setContentPoint(null)}
-        footer={[
-          <Button key="cancel" onClick={() => setContentPoint(null)}>
-            关闭
-          </Button>,
-          <Button key="archive" danger disabled={!contentPoint} loading={changePointPublication.isPending} onClick={() => changePointPublication.mutate("archive")}>
-            归档内容
-          </Button>,
-          <Button key="unpublish" disabled={!contentPoint} loading={changePointPublication.isPending} onClick={() => changePointPublication.mutate("unpublish")}>
-            撤回发布
-          </Button>,
-          <Button key="save" loading={savePointContent.isPending} onClick={() => pointContentForm.submit()}>
-            保存草稿
-          </Button>,
-          <Button key="publish" type="primary" disabled={!contentPoint} loading={changePointPublication.isPending} onClick={() => changePointPublication.mutate("publish")}>
-            发布并同步搜索
-          </Button>,
-        ]}
-      >
-        <Form form={pointContentForm} layout="vertical" onFinish={(values) => savePointContent.mutate(values)}>
-          <Space orientation="vertical" size={14} className="full">
-            {contentPoint?.validation?.errors.length ? (
-              <Alert
-                type="warning"
-                showIcon
-                title="发布前需要补齐内容"
-                description={contentPoint.validation.errors.join("；")}
-              />
-            ) : null}
-            <Form.Item name="point_title" label="点位标题" rules={[{ required: true, message: "请输入点位标题" }]}>
-              <Input maxLength={200} />
-            </Form.Item>
-            <Form.Item name="principle_mode" label="实验原理类型" rules={[{ required: true }]}>
-              <Segmented
-                options={[
-                  { value: "equation", label: "化学方程式" },
-                  { value: "text", label: "文字描述" },
-                ]}
-              />
-            </Form.Item>
-            <Form.Item noStyle shouldUpdate={(prev, next) => prev.principle_mode !== next.principle_mode}>
-              {({ getFieldValue }) =>
-                getFieldValue("principle_mode") === "equation" ? (
-                  <Form.Item name="principle_equation" label="化学方程式" rules={[{ required: true, message: "请输入化学方程式" }]}>
-                    <Input placeholder="Na2S2O3 + 2 HCl = 2 NaCl + S↓ + SO2↑ + H2O" />
-                  </Form.Item>
-                ) : (
-                  <Form.Item name="principle_text" label="原理文字描述" rules={[{ required: true, message: "请输入原理文字描述" }]}>
-                    <Input.TextArea rows={3} maxLength={500} showCount className="fixed-textarea" />
-                  </Form.Item>
-                )
-              }
-            </Form.Item>
-            <Form.Item name="phenomenon_explanation" label="现象解释" rules={[{ required: true, message: "请输入现象解释" }]}>
-              <Input.TextArea rows={4} maxLength={800} showCount className="fixed-textarea" />
-            </Form.Item>
-            <Form.Item name="safety_note" label="安全提示" rules={[{ required: true, message: "请输入安全提示" }]}>
-              <Input.TextArea rows={4} maxLength={800} showCount className="fixed-textarea" />
-            </Form.Item>
-            <Divider>相关实验链接</Divider>
-            <Form.List name="links">
-              {(fields, { add, remove }) => (
-                <Space orientation="vertical" size={10} className="full">
-                  {fields.map((field) => (
-                    <div className="related-link-editor-row" key={field.key}>
-                      <Form.Item name={[field.name, "target"]} rules={[{ required: true, message: "请选择目标点位" }]}>
-                        <Select options={pointTargetOptions} placeholder="选择当前实验的相邻或相关点位" />
-                      </Form.Item>
-                      <Form.Item name={[field.name, "relation_type"]}>
-                        <Select
-                          options={[
-                            { value: "manual", label: "人工链接" },
-                            { value: "default_override", label: "默认链接覆盖" },
-                          ]}
-                        />
-                      </Form.Item>
-                      <Form.Item name={[field.name, "sort_order"]}>
-                        <InputNumber min={1} />
-                      </Form.Item>
-                      <Form.Item name={[field.name, "hidden"]} valuePropName="checked">
-                        <Checkbox>隐藏</Checkbox>
-                      </Form.Item>
-                      <Button danger icon={<DeleteOutlined />} onClick={() => remove(field.name)}>
-                        删除
-                      </Button>
-                    </div>
-                  ))}
-                  <Button icon={<PlusOutlined />} onClick={() => add({ relation_type: "manual", hidden: false, sort_order: fields.length + 1 })}>
-                    添加相关点位
-                  </Button>
-                </Space>
-              )}
-            </Form.List>
-          </Space>
-        </Form>
-      </Modal>
+      <PointContentModal
+        contentPoint={contentPoint}
+        form={pointContentForm}
+        pointTargetOptions={pointTargetOptions}
+        savePointContent={savePointContent}
+        changePointPublication={changePointPublication}
+        onClose={() => setContentPoint(null)}
+      />
 
-      <Modal
-        title={referencePoint ? `为「${referencePoint.point_title}」引用视频` : "引用视频"}
-        open={Boolean(referencePoint)}
-        width={980}
-        onCancel={() => setReferencePoint(null)}
-        footer={[
-          <Button key="cancel" onClick={() => setReferencePoint(null)}>
-            取消
-          </Button>,
-          <Button
-            key="save"
-            type="primary"
-            loading={addPointResources.isPending}
-            disabled={!selectedAssetIds.length}
-            onClick={() => addPointResources.mutate()}
-          >
-            保存引用
-          </Button>,
-        ]}
-      >
-        <Space orientation="vertical" size={14} className="full">
-          <Alert
-            type="info"
-            showIcon
-            title="这里不会上传新视频，只从视频资源库引用已上传素材。保存后默认是草稿引用，需要发布后学生端才可见。"
-          />
-          <Flex justify="space-between" align="center" gap={12} wrap="wrap">
-            <Input.Search
-              allowClear
-              placeholder="搜索视频标题或文件名"
-              value={assetKeyword}
-              onChange={(event) => setAssetKeyword(event.target.value)}
-              style={{ width: 360 }}
-            />
-            <Text type="secondary">已选择 {selectedAssetIds.length} 个视频</Text>
-          </Flex>
-          <QueryState loading={mediaAssets.isLoading} error={mediaAssets.error} empty={!referenceAssets.length}>
-            <Table
-              rowKey="id"
-              dataSource={filteredReferenceAssets}
-              pagination={{ pageSize: 6, showSizeChanger: false }}
-              rowSelection={{
-                selectedRowKeys: selectedAssetIds,
-                onChange: (keys) => setSelectedAssetIds(keys.map(String)),
-                getCheckboxProps: (asset: MediaAsset) => ({
-                  disabled: !isPreviewableVideo(asset) || referencedAssetIds.has(asset.id),
-                }),
-              }}
-              columns={[
-                {
-                  title: "视频资源",
-                  render: (_: unknown, asset: MediaAsset) => (
-                    <Space size={10} align="start" className="video-asset-name">
-                      <div className="video-file-mark">
-                        <VideoCameraOutlined />
-                      </div>
-                      <Space orientation="vertical" size={1}>
-                        <Text strong>{asset.title}</Text>
-                        <Text type="secondary">{asset.original_file_name}</Text>
-                      </Space>
-                    </Space>
-                  ),
-                },
-                { title: "类型", width: 90, render: (_: unknown, asset: MediaAsset) => mediaAssetType(asset) },
-                { title: "大小", width: 100, render: (_: unknown, asset: MediaAsset) => formatBytes(asset.file_size_bytes) },
-                { title: "状态", width: 100, render: (_: unknown, asset: MediaAsset) => statusTag(asset.upload_status) },
-                {
-                  title: "引用状态",
-                  width: 130,
-                  render: (_: unknown, asset: MediaAsset) => {
-                    if (currentPointAssetIds.has(asset.id)) return <Tag color="green">已在此点位</Tag>;
-                    if (referencedAssetIds.has(asset.id)) return <Tag>已被本实验引用</Tag>;
-                    if (!isPreviewableVideo(asset)) return <Tag>不可引用</Tag>;
-                    return <Tag color="blue">可引用</Tag>;
-                  },
-                },
-                {
-                  title: "操作",
-                  width: 100,
-                  render: (_: unknown, asset: MediaAsset) => (
-                    <Button
-                      size="small"
-                      icon={<EyeOutlined />}
-                      disabled={!isPreviewableVideo(asset)}
-                      onClick={() =>
-                        setPreviewTarget({
-                          id: asset.id,
-                          title: asset.title,
-                          original_file_name: asset.original_file_name,
-                          mime_type: asset.mime_type,
-                          upload_status: asset.upload_status,
-                        })
-                      }
-                    >
-                      预览
-                    </Button>
-                  ),
-                },
-              ]}
-            />
-          </QueryState>
-        </Space>
-      </Modal>
+      <VideoBindingModal
+        referencePoint={referencePoint}
+        currentExperimentId={currentExperimentId}
+        assets={referenceAssets}
+        filteredAssets={filteredReferenceAssets}
+        loading={mediaAssets.isLoading}
+        error={mediaAssets.error}
+        assetKeyword={assetKeyword}
+        selectedAssetIds={selectedAssetIds}
+        referencedAssetIds={referencedAssetIds}
+        currentPointAssetIds={currentPointAssetIds}
+        referenceAssetMap={referenceAssetMap}
+        addPointResources={addPointResources}
+        onKeywordChange={setAssetKeyword}
+        onSelectedAssetIdsChange={setSelectedAssetIds}
+        onPreview={setPreviewTarget}
+        onClose={() => setReferencePoint(null)}
+      />
 
-      <Modal
-        title={previewTarget?.title || "视频预览"}
-        open={Boolean(previewTarget)}
-        width={860}
-        footer={null}
-        onCancel={() => setPreviewTarget(null)}
-      >
-        <Space orientation="vertical" size={14} className="full">
-          <Text type="secondary">{previewTarget?.original_file_name}</Text>
-          <div className="experiment-video-preview-stage">
-            {previewLoading ? (
-              <Spin />
-            ) : previewError ? (
-              <Alert type="error" showIcon title="预览失败" description={previewError} />
-            ) : previewUrl ? (
-              <video src={previewUrl} controls className="video-preview-player" />
-            ) : (
-              <Text type="secondary">正在准备预览...</Text>
-            )}
-          </div>
-        </Space>
-      </Modal>
+      <VideoPreviewModal
+        previewTarget={previewTarget}
+        onClose={() => setPreviewTarget(null)}
+      />
 
       <Modal
         title="新建实验"

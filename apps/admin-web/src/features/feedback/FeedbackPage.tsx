@@ -22,9 +22,8 @@ import {
 } from "antd";
 import dayjs from "dayjs";
 
-import { api, apiBase, getAuthToken, patchJson } from "../../api";
+import type { ClassItem } from "../../api/classes";
 import type {
-  ClassItem,
   FeedbackAttachmentItem,
   FeedbackItem,
   FeedbackListResponse,
@@ -32,7 +31,9 @@ import type {
   FeedbackSummary,
   FeedbackType,
   FeedbackUpdate,
-} from "../../api";
+} from "../../api/feedback";
+import { getAuthToken } from "../../api/auth";
+import { api, apiBase, patchJson } from "../../api/http";
 import { PageTitle } from "../../components/PageTitle";
 import { QueryState } from "../../components/QueryState";
 import "./feedback.css";

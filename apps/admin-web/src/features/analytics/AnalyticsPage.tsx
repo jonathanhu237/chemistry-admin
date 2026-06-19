@@ -6,19 +6,20 @@ import { App as AntApp, Button, Card, Drawer, Empty, Popover, Select, Space, Sta
 import type { TableColumnsType } from "antd";
 import dayjs from "dayjs";
 
-import { api, apiBase, getAuthToken } from "../../api";
+import type { ClassItem } from "../../api/classes";
+import type { Experiment } from "../../api/experiments";
 import type {
   AnalyticsDashboard,
   AnalyticsExperimentGroup,
   AnalyticsExperimentGroupState,
   AnalyticsExperimentState,
-  ClassItem,
-  Experiment,
   StudentAttempt,
   StudentReport,
   TeacherLatestPosttestReport,
   TeacherReportAiContent,
-} from "../../api";
+} from "../../api/analytics";
+import { getAuthToken } from "../../api/auth";
+import { api, apiBase } from "../../api/http";
 import { PageTitle } from "../../components/PageTitle";
 import { QueryState } from "../../components/QueryState";
 

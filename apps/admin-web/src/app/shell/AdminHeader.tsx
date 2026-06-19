@@ -1,7 +1,7 @@
 import { Badge, Button, Layout, Space, Typography } from "antd";
 import { LogoutOutlined } from "@ant-design/icons";
 
-import type { User } from "../../api";
+import type { User } from "../../api/auth";
 
 const { Header } = Layout;
 const { Text } = Typography;

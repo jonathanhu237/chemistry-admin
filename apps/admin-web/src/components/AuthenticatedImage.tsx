@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import { getAuthToken } from "../api";
+import { getAuthToken } from "../api/auth";
 
 export function AuthenticatedImage({ src, alt, className }: { src?: string | null; alt: string; className?: string }) {
   const [objectUrl, setObjectUrl] = useState<string>();

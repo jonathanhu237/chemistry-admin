@@ -97,13 +97,32 @@ Rules:
 - The admin frontend is deployed at its service root. Canonical admin routes are `/login`, `/overview`, `/classes`, `/experiments`, `/videos`, `/question-banks`, `/analytics`, `/feedback`, `/learning-assistant`, `/settings`, and `/ai-config`.
 - Feature pages should split into page orchestration, hooks, panels, forms, tables, adapters, and display helpers when they grow.
 - Cross-feature components must not import feature-specific API clients or data types.
-- Shared request primitives may remain central, but feature/domain schemas and endpoint helpers should not keep expanding one global `api/index.ts`.
+- Shared request primitives live in `api/http.ts`; auth/session token ownership lives in `api/auth.ts`; common response envelopes live in `api/common.ts`.
+- Domain schemas and endpoint helpers live in explicit modules such as `api/classes.ts`, `api/settings.ts`, `api/feedback.ts`, `api/analytics.ts`, `api/resources.ts`, `api/learningAssistant.ts`, `api/media.ts`, `api/questionBank.ts`, and `api/experiments.ts`.
+- The deleted `api/index.ts` barrel must not return as a compatibility layer. Admin source imports must reference concrete `api/*` modules.
 - Shell, auth, navigation, route registry, or top-level lazy-route changes require admin e2e smoke.
+
+Current experiment feature baseline:
+
+```text
+apps/admin-web/src/features/experiments/
+  ExperimentsPage.tsx        route-level composition only
+  experimentHooks.ts         React Query queries, mutations, and invalidation
+  experimentFilters.ts       pure point filtering helpers
+  experimentList/            filters and list table
+  experimentDetail/          detail drawer and basic form
+  pointContent/              point-content modal, related links, request mappers, tests
+  videoBindings/             point video resources, binding modal, preview modal
+```
+
+Cross-feature helper baseline:
+
+- Reusable resource/catalog display helpers live in `apps/admin-web/src/lib/resourceUtils.ts`, not inside a sibling feature folder.
+- Feature pages should not import sibling feature private UI/helper modules. Promote stable cross-feature helpers to `lib/` or a shared component owner first.
 
 Current follow-up debt:
 
-- `apps/admin-web/src/api/index.ts` is a split candidate.
-- Large feature pages such as learning assistant, experiments, question bank, media resources, and analytics should be decomposed inside their feature folders.
+- Large feature pages such as learning assistant, question bank, media resources, and analytics should be decomposed inside their feature folders.
 - `apps/admin-web/src/styles.css` and large feature CSS files should be reduced toward explicit style ownership.
 
 ## Backend
@@ -149,11 +168,11 @@ Default gates by surface:
 - Backend package ownership: `python scripts/validate_backend_architecture.py` and backend tests.
 - Backend service graph or required service changes: Compose smoke through `python scripts/validate_production_readiness.py --run-compose-smoke`, covering `backend`, `student-web`, `admin-web`, `postgres`, `elasticsearch`, `tusd`, and `video-worker`.
 - Student H5 routing/shell/layout: typecheck, tests, build, and `npm run qa:mobile`.
-- Admin shell/routing/top-level pages: typecheck, tests, build, chunk report, and `npm run e2e:smoke`.
+- Admin shell/routing/top-level pages: import-boundary validation, typecheck, tests, build, chunk report, and `npm run e2e:smoke`.
 - Multi-surface structural changes: full production readiness with e2e when the local runtime prerequisites are available.
 
 Elasticsearch/IK is part of the application contract for student video-library search. Local fallback must not hide production search failures in production-like validation.
 
 ## Frontend Boundary Validation Direction
 
-When the frontend refactor begins, start with lightweight custom validation scripts that check path ownership and forbidden import directions. Consider ESLint import rules or TypeScript project references only after the final module shape stabilizes.
+The admin frontend owns a lightweight path-boundary check through `npm run validate:boundaries`. It fails on legacy directory imports that resolve to the removed `api/index.ts`, on React imports inside `src/api/*`, and on feature imports from API modules. Consider ESLint import rules or TypeScript project references only after the final module shape stabilizes.

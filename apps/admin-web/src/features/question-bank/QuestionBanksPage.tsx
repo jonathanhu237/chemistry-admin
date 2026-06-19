@@ -38,23 +38,22 @@ import {
   SafetyCertificateOutlined,
 } from "@ant-design/icons";
 
-import { api, patchJson, postJson, postJsonStream } from "../../api";
+import type { ApiList } from "../../api/common";
+import type { Experiment, ExperimentVideoPointsResponse } from "../../api/experiments";
+import type { LearningAssistantRuntime } from "../../api/learningAssistant";
 import type {
-  ApiList,
-  Experiment,
-  ExperimentVideoPointsResponse,
-  LearningAssistantRuntime,
   PointAwareSuggestionResponse,
   Question,
   QuestionBankSummary,
   QuestionDraft,
   QuestionWorkbenchCandidate,
   QuestionWorkbenchSession,
-} from "../../api";
+} from "../../api/questionBank";
+import { api, patchJson, postJson, postJsonStream } from "../../api/http";
 import { PageTitle } from "../../components/PageTitle";
 import { QueryState } from "../../components/QueryState";
-import { useExperiments } from "../experiments/experimentHooks";
-import { experimentVideoPointCount } from "../resources/resourceUtils";
+import { useAdminExperiments as useExperiments } from "../../lib/adminCatalogHooks";
+import { experimentVideoPointCount } from "../../lib/resourceUtils";
 import { errorMessage } from "../../lib/errors";
 import { optionDiagnosticRoleLabel } from "../../lib/status";
 import {

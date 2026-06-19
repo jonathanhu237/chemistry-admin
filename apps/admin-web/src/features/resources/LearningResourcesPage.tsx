@@ -4,12 +4,12 @@ import { useQuery } from "@tanstack/react-query";
 import { Alert, Card, Empty, Flex, Progress, Segmented, Space, Statistic, Tag, Tooltip, Typography } from "antd";
 import { DatabaseOutlined, ExperimentOutlined, QuestionCircleOutlined, TeamOutlined } from "@ant-design/icons";
 
-import { api } from "../../api";
-import type { LearningResourceOverview } from "../../api";
+import type { LearningResourceOverview } from "../../api/resources";
+import { api } from "../../api/http";
 import { PageTitle } from "../../components/PageTitle";
 import { QueryState } from "../../components/QueryState";
 import { statusColor, statusLabel } from "../../lib/status";
-import { areaMeta, countValue, questionTypeSummary, resourcePercent, shortResourceTitle } from "./resourceUtils";
+import { areaMeta, countValue, questionTypeSummary, resourcePercent, shortResourceTitle } from "../../lib/resourceUtils";
 import "./resources.css";
 
 const { Text, Title } = Typography;

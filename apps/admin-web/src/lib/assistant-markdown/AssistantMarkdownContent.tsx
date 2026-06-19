@@ -9,7 +9,8 @@ import "katex/dist/katex.min.css";
 import "katex/contrib/mhchem";
 import { Typography } from "antd";
 
-import { apiBase, getAuthToken } from "../../api";
+import { getAuthToken } from "../../api/auth";
+import { apiBase } from "../../api/http";
 
 const assistantFencedBlockPattern = /(```[\s\S]*?```)/;
 const assistantMathSpanPattern = /(\$\$[\s\S]*?\$\$|\$(?:\\.|[^$])+\$)/;
