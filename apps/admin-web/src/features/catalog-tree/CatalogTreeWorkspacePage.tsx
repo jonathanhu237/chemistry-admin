@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
-import { App as AntApp, Button, Flex, Form, Input, Modal, Radio, Select, Space, Tag, Typography } from "antd";
-import { ReloadOutlined, SearchOutlined } from "@ant-design/icons";
+import { App as AntApp, Button, Dropdown, Flex, Form, Input, Modal, Radio, Space, Tag, Typography } from "antd";
+import { DownOutlined, ReloadOutlined, SearchOutlined } from "@ant-design/icons";
 import { FlaskConical, Folder } from "lucide-react";
 
 import type { CatalogNodeCard, CatalogNodeKind } from "../../api/catalogTree";
@@ -14,7 +14,7 @@ import { buildCatalogNodeCreatePayload, catalogNodeKindLabel } from "./catalogTr
 import type { CatalogNodeFormValues } from "./catalogTreeMappers";
 import "./catalogTree.css";
 
-const { Text, Title } = Typography;
+const { Text } = Typography;
 
 type CreateIntent = {
   parentId?: string | null;
@@ -70,9 +70,14 @@ export function CatalogTreeWorkspacePage() {
     value: chapter.chapter_id,
     label: formatChapterTitle(chapter.chapter_title, chapter.chapter_id),
   }));
+  const chapterMenuItems = chapterOptions.map((chapter) => ({
+    key: chapter.value,
+    label: chapter.label,
+  }));
   const rootItems = roots.data?.nodes || [];
   const siblingItems = selectedDetail.data?.node.parent_id ? selectedSiblingChildren.data?.children || [] : rootItems;
   const currentChapter = chapters.data?.find((chapter) => chapter.chapter_id === chapterId);
+  const currentChapterLabel = currentChapter ? formatChapterTitle(currentChapter.chapter_title, currentChapter.chapter_id) : "未选择章节";
   const selectedValidation = selectedDetail.data?.validation;
   const validationSummary = useMemo(() => {
     if (!selectedValidation) return null;
@@ -120,20 +125,30 @@ export function CatalogTreeWorkspacePage() {
       <div className="catalog-workspace-grid">
         <aside className="catalog-tree-panel">
           <Flex align="center" justify="space-between" className="catalog-panel-heading">
-            <div>
+            <div className="catalog-chapter-heading-copy">
               <Text type="secondary">当前章节</Text>
-              <Title level={4}>{currentChapter ? formatChapterTitle(currentChapter.chapter_title, currentChapter.chapter_id) : "未选择"}</Title>
+              <Dropdown
+                trigger={["click"]}
+                disabled={chapters.isLoading || !chapterMenuItems.length}
+                menu={{
+                  items: chapterMenuItems,
+                  selectedKeys: chapterId ? [chapterId] : [],
+                  onClick: ({ key }) => setChapterId(String(key)),
+                }}
+              >
+                <button
+                  type="button"
+                  className="catalog-chapter-switcher"
+                  aria-label="切换当前章节"
+                  title={chapters.isLoading ? "章节加载中" : "切换当前章节"}
+                >
+                  <span>{currentChapterLabel}</span>
+                  <DownOutlined />
+                </button>
+              </Dropdown>
             </div>
           </Flex>
-          <div className="catalog-tree-filterbar">
-            <Select
-              className="catalog-chapter-select"
-              value={chapterId}
-              onChange={setChapterId}
-              loading={chapters.isLoading}
-              options={chapterOptions}
-              placeholder="选择章节"
-            />
+          <div className="catalog-tree-filterbar catalog-tree-searchbar">
             <Input
               prefix={<SearchOutlined />}
               value={searchText}

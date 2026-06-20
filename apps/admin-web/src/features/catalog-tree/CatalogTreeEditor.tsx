@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
-import { Empty, Form, Tabs, type TabsProps } from "antd";
+import { Form, Tabs, Typography, type TabsProps } from "antd";
+import { FlaskConical, Folder } from "lucide-react";
 
 import type { CatalogNodeCard, CatalogNodeDetail, CatalogNodeKind } from "../../api/catalogTree";
 import { QueryState } from "../../components/QueryState";
@@ -22,6 +23,8 @@ import {
   type CatalogPointContentFormValues,
   type CatalogRelatedLinksFormValues,
 } from "./catalogTreeMappers";
+
+const { Text, Title } = Typography;
 
 export const directoryCatalogEditorTabKeys = ["content", "student-card", "publish", "advanced"] as const;
 export const pointCatalogEditorTabKeys = ["content", "video", "related", "student-card", "publish", "advanced"] as const;
@@ -110,9 +113,22 @@ export function CatalogTreeEditor({
 
   if (!detail && !loading && !error) {
     return (
-      <div className="catalog-editor-empty">
+      <div className="catalog-editor catalog-editor-empty">
         {formAnchors}
-        <Empty description="请选择左侧目录或点位" />
+        <div className="catalog-editor-empty-state">
+          <div className="catalog-editor-empty-mark" aria-hidden="true">
+            <Folder size={28} />
+            <FlaskConical size={20} />
+          </div>
+          <div className="catalog-editor-empty-copy">
+            <Title level={4}>请选择左侧目录或点位</Title>
+            <Text type="secondary">目录负责组织学生导航，点位负责维护学习内容、视频绑定与发布检查。</Text>
+          </div>
+          <div className="catalog-editor-empty-hints" aria-hidden="true">
+            <span>目录</span>
+            <span>点位</span>
+          </div>
+        </div>
       </div>
     );
   }
@@ -206,7 +222,7 @@ export function CatalogTreeEditor({
   return (
     <QueryState loading={Boolean(loading)} error={error} empty={!detail}>
       {detail && node ? (
-        <div className="catalog-editor">
+        <div className="catalog-editor catalog-editor-selected">
           {formAnchors}
           <CatalogEditorHeader detail={detail} mutations={mutations} />
           <Tabs

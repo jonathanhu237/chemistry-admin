@@ -9,7 +9,7 @@ import {
   type CatalogPointContentFormValues,
 } from "./catalogTreeMappers";
 
-const { Text, Title } = Typography;
+const { Text } = Typography;
 
 export function CatalogNodeContentPanel({
   detail,
@@ -31,12 +31,10 @@ export function CatalogNodeContentPanel({
   if (node.node_kind === "directory") {
     return (
       <section className="catalog-editor-section catalog-editor-panel-section">
-        <Flex align="center" justify="space-between" gap={12}>
-          <div>
-            <Title level={4}>目录内容</Title>
-            <Text type="secondary">目录负责学生端导航与分类，不承载点位知识或视频绑定。</Text>
-          </div>
-        </Flex>
+        <div className="catalog-editor-section-intro">
+          <Text strong>基础信息</Text>
+          <Text type="secondary">目录负责学生端导航与分类，不承载点位知识或视频绑定。</Text>
+        </div>
         <Form
           form={nodeForm}
           layout="vertical"
@@ -69,9 +67,9 @@ export function CatalogNodeContentPanel({
 
   return (
     <section className="catalog-editor-section catalog-editor-panel-section">
-      <Flex align="center" justify="space-between" gap={12}>
-        <div>
-          <Title level={4}>点位内容</Title>
+      <Flex className="catalog-editor-section-heading" align="center" justify="space-between" gap={12}>
+        <div className="catalog-editor-section-intro">
+          <Text strong>知识字段</Text>
           <Text type="secondary">默认只显示老师最常维护的点位知识字段。</Text>
         </div>
         <Space wrap>
