@@ -7,7 +7,7 @@ from fastapi.responses import FileResponse
 from pydantic import BaseModel, Field
 from sqlalchemy import text
 
-from server.app.auth import AuthUser, get_user_from_access_token, require_roles
+from server.app.auth import AuthUser, get_user_from_access_token, is_teacher_console_role, require_roles, require_teacher_console_user
 from server.app.infrastructure.settings import get_settings
 from server.app.infrastructure.database import db_session
 from server.app.domains.media.assets import (
@@ -157,7 +157,7 @@ async def admin_stream_media_asset_file(
     access_token: str = Query(min_length=1),
 ) -> FileResponse:
     user = get_user_from_access_token(access_token)
-    if user.role not in {"admin", "teacher"}:
+    if not is_teacher_console_role(user.role):
         raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Insufficient permissions")
     return _media_asset_file_response(asset_id)
 
@@ -196,7 +196,7 @@ async def admin_get_media_asset_thumbnail(
 @router.post("/media/assets/{asset_id}/retry-processing")
 async def admin_retry_media_asset_processing(
     asset_id: str = Path(min_length=1),
-    user: AuthUser = Depends(require_roles("admin")),
+    user: AuthUser = Depends(require_teacher_console_user),
 ) -> dict[str, Any]:
     try:
         return retry_media_processing(asset_id)

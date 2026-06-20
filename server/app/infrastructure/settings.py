@@ -53,7 +53,7 @@ def _split_csv(value: str) -> list[str]:
 class Settings:
     app_env: str = "development"
     data_backend: str = "json"
-    database_url: str = "postgresql+psycopg://chemistry:chemistry@localhost:5432/chemistry_exam"
+    database_url: str = "postgresql+psycopg://chemistry:chemistry@127.0.0.1:15432/chemistry_exam"
     run_db_check_on_startup: bool = False
     media_root: Path = ROOT / "data" / "media"
     api_public_base_url: str = "http://127.0.0.1:8000"
@@ -72,6 +72,7 @@ class Settings:
     video_similarity_threshold: float = 0.86
     auth_secret_key: str = "dev-only-secret"
     access_token_expire_minutes: int = 720
+    web_admin_access_token: str = ""
     max_media_upload_mb: int = 1024
     agent_llm_provider: str = "disabled"
     agent_llm_base_url: str = ""
@@ -117,6 +118,12 @@ class Settings:
                 errors.append("API_PUBLIC_BASE_URL is required in production")
             if not _getenv("AUTH_SECRET_KEY") or self.auth_secret_key in {"", "dev-only-secret", "dev-only-change-me"}:
                 errors.append("AUTH_SECRET_KEY must be set to a non-development value in production")
+            if (
+                not _getenv("WEB_ADMIN_ACCESS_TOKEN")
+                or len(self.web_admin_access_token) < 32
+                or self.web_admin_access_token.startswith("dev-only-")
+            ):
+                errors.append("WEB_ADMIN_ACCESS_TOKEN must be set to a long non-development value in production")
             if not _getenv("AGENT_LLM_PROVIDER"):
                 errors.append("AGENT_LLM_PROVIDER must be explicit in production, use disabled when no LLM is configured")
             if self.agent_llm_provider and self.agent_llm_provider != "disabled":
@@ -167,6 +174,7 @@ def get_settings() -> Settings:
         video_similarity_threshold=_get_float("VIDEO_SIMILARITY_THRESHOLD", Settings.video_similarity_threshold),
         auth_secret_key=_getenv("AUTH_SECRET_KEY", Settings.auth_secret_key),
         access_token_expire_minutes=_get_int("ACCESS_TOKEN_EXPIRE_MINUTES", Settings.access_token_expire_minutes),
+        web_admin_access_token=_getenv("WEB_ADMIN_ACCESS_TOKEN", Settings.web_admin_access_token),
         max_media_upload_mb=_get_int("MAX_MEDIA_UPLOAD_MB", Settings.max_media_upload_mb),
         agent_llm_provider=_getenv("AGENT_LLM_PROVIDER", Settings.agent_llm_provider).lower(),
         agent_llm_base_url=_getenv("AGENT_LLM_BASE_URL"),

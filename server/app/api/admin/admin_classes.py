@@ -4,7 +4,7 @@ from typing import Any
 
 from fastapi import APIRouter, Depends, File, Form, Path, UploadFile
 
-from server.app.auth import AuthUser, require_roles
+from server.app.auth import AuthUser, require_roles, require_teacher_console_user
 from server.app.domains.roster.classes import (
     ClassCreateRequest,
     ClassResponse,
@@ -104,7 +104,7 @@ async def admin_update_class(
 async def admin_assign_teacher_to_class(
     payload: TeacherClassAssignRequest,
     class_id: str = Path(min_length=1),
-    user: AuthUser = Depends(require_roles("admin")),
+    user: AuthUser = Depends(require_teacher_console_user),
 ) -> dict[str, bool]:
     return assign_teacher_to_class(payload, class_id)
 
