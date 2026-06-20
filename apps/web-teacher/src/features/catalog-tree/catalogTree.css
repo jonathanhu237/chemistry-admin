@@ -1056,6 +1056,31 @@
   gap: 10px;
 }
 
+.catalog-job-actions {
+  align-items: center;
+}
+
+.catalog-job-state {
+  margin-top: 4px;
+}
+
+.catalog-job-list {
+  display: grid;
+  gap: 6px;
+}
+
+.catalog-job-row {
+  display: grid;
+  grid-template-columns: minmax(160px, 1fr) auto auto minmax(180px, 1.2fr);
+  align-items: center;
+  gap: 8px;
+  min-height: 30px;
+  padding: 6px 8px;
+  border: 1px solid var(--sysu-line);
+  border-radius: 6px;
+  background: var(--sysu-panel);
+}
+
 .catalog-validation-node-list > div {
   display: grid;
   gap: 4px;

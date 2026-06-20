@@ -36,6 +36,19 @@ AI-generated chunks/evidence and student search documents remain separate consum
 - Accepted question evidence must be freshly generated against catalog node ids or deterministic catalog seed keys; old `experiment_video_point_evidence` point bindings are retired.
 - This change migrates point identity to stable catalog node ids; it does not make point content a RAG chunk source.
 
+## Point Jobs And Evidence Refresh
+
+Catalog point ES sync and catalog-node evidence refresh are coordinated through PostgreSQL tables, not Redis/Rabbit/Celery in the first implementation:
+
+- `experiment_catalog_point_jobs` is the job/outbox record for ES upsert/delete and RAG evidence refresh/delete work. Open pending/running jobs are idempotent by node id, job type, and payload.
+- `experiment_catalog_point_search_index_state` remains the teacher-visible ES projection state; ES jobs update it after indexing or delete attempts.
+- `experiment_catalog_point_evidence_state` records missing, pending, running, succeeded, failed, stale, disabled, and unavailable evidence states.
+- `experiment_catalog_point_evidence_bindings` stores selected catalog-node chunk bindings against `node_id` and canonical `source_chunks.id`; it never owns or deletes canonical chunks or embeddings.
+- Point content edits, publication changes, moves, video binding changes, and related-point changes mark evidence stale and may enqueue refresh when `CATALOG_POINT_EVIDENCE_AUTO_REFRESH=true`.
+- RAG evidence refresh uses structured catalog point context and the configured BGE/RAG runtime. BGE unavailable or timeout failures are recorded on the job and evidence state while teacher saves remain committed.
+
+An external broker is justified only when throughput, distributed scheduling, or operational isolation requires it. The public job-state and manual trigger API should remain stable if that happens later.
+
 The committed catalog seed is regenerated from `docs/实验目录_整理版.md`. The 30 examples in `docs/30点位例子.txt` are mapped to concrete leaf point nodes through semantic title/path/reagent matching, with reviewed overrides recorded for ambiguous candidates.
 
 ## Deployment Requirements

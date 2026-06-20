@@ -6,6 +6,7 @@ from sqlalchemy import text
 
 from server.app.catalog_tree_schemas import CatalogPointMediaBindRequest
 from server.app.domains.catalog_tree.common import clean, dump_model, get_node, json_dump, point_capable
+from server.app.domains.catalog_tree.jobs import mark_point_evidence_stale
 from server.app.domains.catalog_tree.search_documents import queue_index_state
 from server.app.domains.errors import DomainHTTPException as HTTPException, domain_status as status
 from server.app.infrastructure.database import db_session
@@ -135,6 +136,7 @@ def bind_existing_media(*, node_id: str, payload: CatalogPointMediaBindRequest, 
             },
         ).mappings().one()
         queue_index_state(session, node_id=node_id, action="upsert" if node["status"] == "published" else "delete")
+        mark_point_evidence_stale(session, node_id=node_id, reason="point_video_binding_changed")
     from server.app.domains.catalog_tree.nodes import get_node_detail
 
     return {"binding_id": str(row["id"]), "detail": get_node_detail(node_id=node_id)}
@@ -187,6 +189,7 @@ def set_media_binding_status(*, binding_id: str, action: str, user: Any) -> dict
                 {"binding_id": binding_id, "status": status_value, "user_id": user.id},
             )
         queue_index_state(session, node_id=node_id, action="upsert")
+        mark_point_evidence_stale(session, node_id=node_id, reason=f"point_video_binding_{action}")
     from server.app.domains.catalog_tree.nodes import get_node_detail
 
     return get_node_detail(node_id=node_id)

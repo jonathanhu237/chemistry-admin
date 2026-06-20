@@ -31,6 +31,7 @@ from server.app.domains.catalog_tree.common import (
     validate_node_payload,
 )
 from server.app.domains.catalog_tree.directories import create_node_params, update_node_params
+from server.app.domains.catalog_tree.jobs import get_point_job_state, mark_point_evidence_stale, mark_subtree_evidence_stale
 from server.app.domains.catalog_tree.search_documents import queue_index_state, queue_subtree_point_indexes, search_preview_for_node
 from server.app.domains.errors import DomainHTTPException as HTTPException, domain_status as status
 from server.app.infrastructure.database import db_session
@@ -136,6 +137,7 @@ def get_node_detail(*, node_id: str) -> dict[str, Any]:
         media = media_bindings(session, node_id) if point_capable(node) else []
         related = related_links(session, node_id, include_hidden=True, include_defaults=True) if point_capable(node) else []
         validation = validate_selected_node(session, node_id=node_id)
+        job_state = get_point_job_state(session, node_id=node_id) if point_capable(node) else None
         return {
             "node": node_card(node, validation=validation, include_teacher_note=True),
             "breadcrumbs": breadcrumbs(session, node_id),
@@ -146,6 +148,7 @@ def get_node_detail(*, node_id: str) -> dict[str, Any]:
             "validation": validation,
             "search_preview": search_preview_for_node(session, node_id=node_id),
             "index_state": node.get("index_state"),
+            "job_state": job_state,
         }
 
 
@@ -245,8 +248,10 @@ def update_node(*, node_id: str, payload: CatalogNodeUpdateRequest, user: Any) -
         )
         if new_kind == "point" or node["node_kind"] == "point":
             queue_index_state(session, node_id=node_id, action="upsert" if node["status"] == "published" else "delete")
+            mark_point_evidence_stale(session, node_id=node_id, reason="point_node_metadata_edited")
         else:
             queue_subtree_point_indexes(session, node_id=node_id)
+            mark_subtree_evidence_stale(session, node_id=node_id, reason="directory_context_edited")
     return get_node_detail(node_id=node_id)
 
 
@@ -274,6 +279,7 @@ def move_node(*, node_id: str, payload: CatalogNodeMoveRequest, user: Any) -> di
         )
         _normalize_sibling_orders(session, chapter_id=node["chapter_id"], parent_id=parent_id)
         queue_subtree_point_indexes(session, node_id=node_id)
+        mark_subtree_evidence_stale(session, node_id=node_id, reason="catalog_path_moved")
     return get_node_detail(node_id=node_id)
 
 
@@ -310,6 +316,7 @@ def reorder_siblings(*, payload: CatalogNodeReorderRequest, user: Any) -> dict[s
         _normalize_sibling_orders(session, chapter_id=str(chapter_id), parent_id=str(parent_id) if parent_id else None)
         for changed_node_id in node_ids:
             queue_subtree_point_indexes(session, node_id=changed_node_id)
+            mark_subtree_evidence_stale(session, node_id=changed_node_id, reason="catalog_order_changed")
     return {"updated": len(items)}
 
 
@@ -372,6 +379,7 @@ def set_node_status(*, node_id: str, payload: CatalogNodeStatusRequest, user: An
                 node_id=changed_node_id,
                 action="delete" if action in {"unpublish", "archive"} else "upsert",
             )
+            mark_subtree_evidence_stale(session, node_id=changed_node_id, reason=f"node_status_{action}")
     return get_node_detail(node_id=node_id)
 
 

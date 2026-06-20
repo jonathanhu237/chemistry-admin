@@ -108,10 +108,11 @@ def test_catalog_point_index_queue_uses_stable_node_id() -> None:
 
     _queue_index_state(session, node_id="cat-point-1", action="upsert")
 
-    assert session.calls == [
-        {
-            "node_id": "cat-point-1",
-            "desired_action": "upsert",
-            "last_error": None,
-        }
-    ]
+    assert session.calls[0] == {
+        "node_id": "cat-point-1",
+        "desired_action": "upsert",
+        "last_error": None,
+    }
+    assert session.calls[1]["node_id"] == "cat-point-1"
+    assert session.calls[1]["job_type"] == "es_upsert"
+    assert session.calls[1]["trigger_source"] == "automatic"

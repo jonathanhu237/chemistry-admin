@@ -86,6 +86,7 @@ class Settings:
     rag_vector_top_k: int = 24
     rag_rerank_top_k: int = 9
     rag_final_top_k: int = 5
+    catalog_point_evidence_auto_refresh: bool = False
     chemistry_rag_root: Path = Path("E:/chemistry-rag") if os.name == "nt" else Path("/chemistry-rag")
     video_library_search_enabled: bool = True
     video_library_search_backend: str = "local"
@@ -188,6 +189,10 @@ def get_settings() -> Settings:
         rag_vector_top_k=_get_int("RAG_VECTOR_TOP_K", Settings.rag_vector_top_k),
         rag_rerank_top_k=_get_int("RAG_RERANK_TOP_K", Settings.rag_rerank_top_k),
         rag_final_top_k=_get_int("RAG_FINAL_TOP_K", Settings.rag_final_top_k),
+        catalog_point_evidence_auto_refresh=_get_bool(
+            "CATALOG_POINT_EVIDENCE_AUTO_REFRESH",
+            Settings.catalog_point_evidence_auto_refresh,
+        ),
         chemistry_rag_root=Path(_getenv("CHEMISTRY_RAG_ROOT", str(Settings.chemistry_rag_root))),
         video_library_search_enabled=_get_bool(
             "VIDEO_LIBRARY_SEARCH_ENABLED",

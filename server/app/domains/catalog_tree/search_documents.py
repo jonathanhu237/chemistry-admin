@@ -16,7 +16,15 @@ from server.app.domains.catalog_tree.common import (
 from server.app.domains.catalog_tree.equations import reaction_derived_terms, reaction_principle_text
 
 
-def queue_index_state(session: Any, *, node_id: str, action: str = "upsert", last_error: str | None = None) -> None:
+def queue_index_state(
+    session: Any,
+    *,
+    node_id: str,
+    action: str = "upsert",
+    last_error: str | None = None,
+    trigger_source: str = "automatic",
+) -> None:
+    desired_action = "delete" if action == "delete" else "upsert"
     session.execute(
         text(
             """
@@ -34,8 +42,11 @@ def queue_index_state(session: Any, *, node_id: str, action: str = "upsert", las
               updated_at = now()
             """
         ),
-        {"node_id": node_id, "desired_action": action, "last_error": last_error},
+        {"node_id": node_id, "desired_action": desired_action, "last_error": last_error},
     )
+    from server.app.domains.catalog_tree.jobs import queue_es_sync_job
+
+    queue_es_sync_job(session, node_id=node_id, action=desired_action, trigger_source=trigger_source)
 
 
 def queue_subtree_point_indexes(session: Any, *, node_id: str, action: str = "upsert") -> None:

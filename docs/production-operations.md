@@ -349,6 +349,8 @@ python scripts/validate_video_library_search.py
 
 If the ES volume is corrupted or intentionally cleared, keep PostgreSQL and protected seed data intact, recreate the index, and run the rebuild command. Do not delete `source_chunks`, `chunk_embeddings`, or `data/seed/canonical_rag/**`; those canonical corpus resources remain valid. Old `experiment_video_point_evidence` rows and `data/seed/point_evidence/manual_reviewed_point_evidence.jsonl` are retired point-to-chunk bindings and must not be treated as current AI/question-bank evidence.
 
+Catalog point ES sync and catalog-node evidence refresh use PostgreSQL-backed jobs in `experiment_catalog_point_jobs`. `experiment_catalog_point_search_index_state` is the ES projection status; `experiment_catalog_point_evidence_state` and `experiment_catalog_point_evidence_bindings` are the fallback/static evidence status and selected chunk bindings. These job tables may be retried or cleared with catalog-node awareness, but canonical `source_chunks`, `chunk_embeddings`, source documents, and the authoritative catalog seed remain protected data. Redis/Rabbit/Celery/RQ should be introduced only after throughput or distributed scheduling requirements justify changing the worker backend.
+
 ## Search Rollback Notes
 
 If the point editor or search projection must be rolled back during a release:

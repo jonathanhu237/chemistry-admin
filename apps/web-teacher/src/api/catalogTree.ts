@@ -57,6 +57,52 @@ export type CatalogIndexState = {
   updated_at?: string | null;
 };
 
+export type CatalogPointJobStatus = "pending" | "running" | "succeeded" | "failed" | "disabled" | "unavailable";
+export type CatalogPointEvidenceStatus = "missing" | "pending" | "running" | "succeeded" | "failed" | "stale" | "disabled" | "unavailable";
+export type CatalogPointJobAction = "es-refresh" | "es-delete" | "rag-refresh" | "rag-delete" | "retry";
+
+export type CatalogPointJob = {
+  id: string;
+  node_id: string;
+  job_type: "es_upsert" | "es_delete" | "rag_evidence_refresh" | "rag_evidence_delete" | string;
+  trigger_source: "automatic" | "manual" | "retry" | "system" | string;
+  status: CatalogPointJobStatus;
+  attempts: number;
+  max_attempts: number;
+  payload?: Record<string, unknown>;
+  result?: Record<string, unknown>;
+  latest_error?: string | null;
+  worker_id?: string | null;
+  run_after?: string | null;
+  started_at?: string | null;
+  finished_at?: string | null;
+  created_at?: string | null;
+  updated_at?: string | null;
+};
+
+export type CatalogPointEvidenceState = {
+  node_id: string;
+  evidence_status: CatalogPointEvidenceStatus;
+  source_mode: string;
+  trigger_policy: string;
+  selected_chunk_ids: string[];
+  source_refs: Array<Record<string, unknown>>;
+  diagnostics: Record<string, unknown>;
+  stale_reason?: string | null;
+  latest_error?: string | null;
+  refreshed_at?: string | null;
+  stale_at?: string | null;
+  last_attempted_at?: string | null;
+  updated_at?: string | null;
+};
+
+export type CatalogPointJobState = {
+  node_id: string;
+  es_state?: CatalogIndexState | null;
+  evidence_state: CatalogPointEvidenceState;
+  recent_jobs: CatalogPointJob[];
+};
+
 export type CatalogReactionEquationInput = {
   raw_text: string;
   row_order?: number | null;
@@ -165,6 +211,7 @@ export type CatalogNodeDetail = {
   validation: CatalogValidation;
   search_preview?: CatalogSearchPreview | null;
   index_state?: CatalogIndexState | null;
+  job_state?: CatalogPointJobState | null;
 };
 
 export type CatalogRootsResponse = {
@@ -313,6 +360,14 @@ export function saveCatalogRelatedLinks(nodeId: string, payload: CatalogRelatedL
 export function validateCatalogNode(nodeId: string, includeSubtree = false): Promise<CatalogValidation> {
   const suffix = includeSubtree ? "?include_subtree=true" : "";
   return api<CatalogValidation>(`/api/admin/catalog/nodes/${encodeURIComponent(nodeId)}/validation${suffix}`);
+}
+
+export function getCatalogPointJobState(nodeId: string): Promise<CatalogPointJobState> {
+  return api<CatalogPointJobState>(`/api/admin/catalog/nodes/${encodeURIComponent(nodeId)}/job-state`);
+}
+
+export function triggerCatalogPointJob(nodeId: string, action: CatalogPointJobAction): Promise<CatalogPointJobState> {
+  return postJson<CatalogPointJobState>(`/api/admin/catalog/nodes/${encodeURIComponent(nodeId)}/jobs/${action}`, {});
 }
 
 export function searchCatalogNodes(query: string, chapterId?: string | null, limit = 80): Promise<CatalogSearchResponse> {

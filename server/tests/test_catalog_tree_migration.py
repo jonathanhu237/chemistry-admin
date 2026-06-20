@@ -6,6 +6,7 @@ from pathlib import Path
 MIGRATION = Path("server/migrations/020_experiment_catalog_tree.sql")
 SEPARATE_NODE_KIND_MIGRATION = Path("server/migrations/021_separate_catalog_directory_point_nodes.sql")
 REACTION_EQUATION_MIGRATION = Path("server/migrations/023_catalog_point_reaction_equations.sql")
+POINT_JOBS_MIGRATION = Path("server/migrations/024_catalog_point_jobs.sql")
 
 
 def _sql() -> str:
@@ -18,6 +19,10 @@ def _separate_sql() -> str:
 
 def _reaction_equation_sql() -> str:
     return REACTION_EQUATION_MIGRATION.read_text(encoding="utf-8")
+
+
+def _point_jobs_sql() -> str:
+    return POINT_JOBS_MIGRATION.read_text(encoding="utf-8")
 
 
 def test_catalog_tree_migration_uses_deterministic_legacy_identity_mapping() -> None:
@@ -119,3 +124,18 @@ def test_reaction_equation_migration_preserves_legacy_single_equations() -> None
     assert "btrim(principle_equation)" in sql
     assert "principle_mode = 'equation'" in sql
     assert "ON CONFLICT (node_id, row_order) DO NOTHING" in sql
+
+
+def test_catalog_point_jobs_migration_uses_postgres_outbox_and_catalog_node_evidence() -> None:
+    sql = _point_jobs_sql()
+
+    assert "CREATE TABLE IF NOT EXISTS experiment_catalog_point_jobs" in sql
+    assert "node_id text NOT NULL REFERENCES experiment_catalog_nodes(id) ON DELETE CASCADE" in sql
+    assert "job_type IN ('es_upsert', 'es_delete', 'rag_evidence_refresh', 'rag_evidence_delete')" in sql
+    assert "trigger_source IN ('automatic', 'manual', 'retry', 'system')" in sql
+    assert "idx_experiment_catalog_point_jobs_open_idempotency" in sql
+    assert "WHERE status IN ('pending', 'running')" in sql
+    assert "CREATE TABLE IF NOT EXISTS experiment_catalog_point_evidence_state" in sql
+    assert "evidence_status IN ('missing', 'pending', 'running', 'succeeded', 'failed', 'stale', 'disabled', 'unavailable')" in sql
+    assert "CREATE TABLE IF NOT EXISTS experiment_catalog_point_evidence_bindings" in sql
+    assert "chunk_id text NOT NULL REFERENCES source_chunks(id) ON DELETE RESTRICT" in sql

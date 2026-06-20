@@ -25,6 +25,8 @@ def test_catalog_tree_routes_are_registered_once() -> None:
     assert_route("/api/admin/catalog/media-bindings/{binding_id}/{action}", "POST")
     assert_route("/api/admin/catalog/nodes/{node_id}/related-links", "PUT")
     assert_route("/api/admin/catalog/nodes/{node_id}/validation", "GET")
+    assert_route("/api/admin/catalog/nodes/{node_id}/job-state", "GET")
+    assert_route("/api/admin/catalog/nodes/{node_id}/jobs/{action}", "POST")
     assert_route("/api/admin/catalog/search", "GET")
 
 

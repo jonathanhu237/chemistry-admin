@@ -15,6 +15,7 @@ import {
   saveCatalogPointContent,
   saveCatalogRelatedLinks,
   searchCatalogNodes,
+  triggerCatalogPointJob,
   updateCatalogNode,
   validateCatalogNode,
 } from "../../api/catalogTree";
@@ -22,6 +23,7 @@ import type {
   CatalogNodeCreatePayload,
   CatalogNodeDetail,
   CatalogNodeMovePayload,
+  CatalogPointJobAction,
   CatalogNodeUpdatePayload,
   CatalogPointContentPayload,
   CatalogRelatedLinksPayload,
@@ -109,6 +111,7 @@ export function useCatalogInvalidation() {
 
 export function useCatalogMutations(message: MessageApi) {
   const { invalidateCatalog } = useCatalogInvalidation();
+  const queryClient = useQueryClient();
 
   const createNode = useMutation({
     mutationFn: (payload: CatalogNodeCreatePayload) => createCatalogNode(payload),
@@ -232,6 +235,21 @@ export function useCatalogMutations(message: MessageApi) {
     onError: (error) => message.error(errorMessage(error)),
   });
 
+  const triggerPointJob = useMutation({
+    mutationFn: ({ nodeId, action }: { nodeId: string; action: CatalogPointJobAction }) => triggerCatalogPointJob(nodeId, action),
+    onSuccess: (state, variables) => {
+      message.success("点位同步任务已更新");
+      void queryClient.invalidateQueries({ queryKey: ["catalog-node", variables.nodeId] });
+      void queryClient.invalidateQueries({ queryKey: ["catalog-validation", variables.nodeId] });
+      void queryClient.invalidateQueries({ queryKey: ["catalog-search"] });
+      if (state.es_state?.sync_status === "synced") {
+        void queryClient.invalidateQueries({ queryKey: ["catalog-roots"] });
+        void queryClient.invalidateQueries({ queryKey: ["catalog-children"] });
+      }
+    },
+    onError: (error) => message.error(errorMessage(error)),
+  });
+
   return {
     createNode,
     updateNode,
@@ -243,6 +261,7 @@ export function useCatalogMutations(message: MessageApi) {
     saveRelatedLinks,
     bindMedia,
     changeMediaStatus,
+    triggerPointJob,
   };
 }
 

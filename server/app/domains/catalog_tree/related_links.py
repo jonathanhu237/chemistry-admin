@@ -6,6 +6,7 @@ from sqlalchemy import text
 
 from server.app.catalog_tree_schemas import CatalogPointRelatedLinksRequest
 from server.app.domains.catalog_tree.common import clean, dump_model, get_node, json_dump, point_capable
+from server.app.domains.catalog_tree.jobs import mark_point_evidence_stale
 from server.app.domains.catalog_tree.search_documents import queue_index_state
 from server.app.domains.errors import DomainHTTPException as HTTPException, domain_status as status
 from server.app.infrastructure.database import db_session
@@ -142,6 +143,7 @@ def replace_related_links(*, node_id: str, payload: CatalogPointRelatedLinksRequ
                 },
             )
         queue_index_state(session, node_id=node_id, action="upsert" if source["status"] == "published" else "delete")
+        mark_point_evidence_stale(session, node_id=node_id, reason="related_point_context_changed")
     from server.app.domains.catalog_tree.nodes import get_node_detail
 
     return get_node_detail(node_id=node_id)

@@ -19,6 +19,7 @@ from server.app.catalog_tree_schemas import (
     CatalogPointRelatedLinksRequest,
 )
 from server.app.domains.catalog_tree.equations import normalize_reaction_equations
+from server.app.domains.catalog_tree.jobs import catalog_point_job_state, trigger_catalog_point_job
 from server.app.domains.catalog_tree.tree import (
     bind_existing_media,
     create_node,
@@ -176,6 +177,23 @@ async def admin_catalog_validate_node(
 ) -> dict[str, Any]:
     with db_session() as session:
         return validate_selected_node(session, node_id=node_id, include_subtree=include_subtree)
+
+
+@router.get("/nodes/{node_id}/job-state")
+async def admin_catalog_point_job_state(
+    node_id: str = Path(min_length=1),
+    user: AuthUser = Depends(require_teacher_console_user),
+) -> dict[str, Any]:
+    return catalog_point_job_state(node_id=node_id)
+
+
+@router.post("/nodes/{node_id}/jobs/{action}")
+async def admin_catalog_trigger_point_job(
+    node_id: str = Path(min_length=1),
+    action: str = Path(pattern="^(es-refresh|es-delete|rag-refresh|rag-delete|retry)$"),
+    user: AuthUser = Depends(require_teacher_console_user),
+) -> dict[str, Any]:
+    return trigger_catalog_point_job(node_id=node_id, action=action, user=user)
 
 
 @router.get("/search")

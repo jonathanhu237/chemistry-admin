@@ -130,6 +130,18 @@
     },
     {
       "method": "GET",
+      "path": "/api/admin/catalog/nodes/{node_id}/job-state",
+      "name": "admin_catalog_point_job_state",
+      "owner": "admin-api"
+    },
+    {
+      "method": "POST",
+      "path": "/api/admin/catalog/nodes/{node_id}/jobs/{action}",
+      "name": "admin_catalog_trigger_point_job",
+      "owner": "admin-api"
+    },
+    {
+      "method": "GET",
       "path": "/api/admin/catalog/search",
       "name": "admin_catalog_search",
       "owner": "admin-api"

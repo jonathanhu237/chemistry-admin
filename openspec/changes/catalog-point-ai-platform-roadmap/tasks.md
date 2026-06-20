@@ -59,19 +59,19 @@
 
 ## 5. Catalog Point ES And RAG Evidence Jobs
 
-- [ ] 5.1 Design a Postgres-backed job/outbox model for catalog point job type, node id, trigger source, status, attempts, payload, result, errors, and timestamps.
-- [ ] 5.2 Add backend job creation helpers with idempotency for repeated equivalent ES and RAG evidence requests.
-- [ ] 5.3 Expose API endpoints to read point ES state, evidence state, and recent jobs.
-- [ ] 5.4 Expose API endpoints to manually trigger ES refresh, ES delete/disable, RAG evidence refresh, retry, and delete where appropriate.
-- [ ] 5.5 Connect publish, unpublish, archive, delete, move, and student-searchable content edits to ES upsert/delete jobs.
-- [ ] 5.6 Connect point context edits to evidence stale marking or automatic RAG refresh according to configured trigger policy.
-- [ ] 5.7 Implement worker claiming with database locking or equivalent safeguards so jobs are not executed concurrently by multiple workers.
-- [ ] 5.8 Reuse existing ES document builder so ES jobs index backend-owned normalized point content.
-- [ ] 5.9 Adapt the retired GPU/BGE rerank strategy to catalog-node evidence refresh using catalog node id or stable seed key.
-- [ ] 5.10 Ensure BGE unavailable/timeout failures leave teacher saves intact and record diagnostic job errors.
-- [ ] 5.11 Add job status display hooks for pending, running, succeeded, failed, stale, disabled, and unavailable states.
-- [ ] 5.12 Add tests for idempotent job creation, worker claiming, ES upsert/delete, stale evidence marking, manual retry, and BGE failure diagnostics.
-- [ ] 5.13 Document why the first implementation uses Postgres-backed jobs and what conditions would justify Redis/Rabbit/Celery/RQ later.
+- [x] 5.1 Design a Postgres-backed job/outbox model for catalog point job type, node id, trigger source, status, attempts, payload, result, errors, and timestamps.
+- [x] 5.2 Add backend job creation helpers with idempotency for repeated equivalent ES and RAG evidence requests.
+- [x] 5.3 Expose API endpoints to read point ES state, evidence state, and recent jobs.
+- [x] 5.4 Expose API endpoints to manually trigger ES refresh, ES delete/disable, RAG evidence refresh, retry, and delete where appropriate.
+- [x] 5.5 Connect publish, unpublish, archive, delete, move, and student-searchable content edits to ES upsert/delete jobs.
+- [x] 5.6 Connect point context edits to evidence stale marking or automatic RAG refresh according to configured trigger policy.
+- [x] 5.7 Implement worker claiming with database locking or equivalent safeguards so jobs are not executed concurrently by multiple workers.
+- [x] 5.8 Reuse existing ES document builder so ES jobs index backend-owned normalized point content.
+- [x] 5.9 Adapt the retired GPU/BGE rerank strategy to catalog-node evidence refresh using catalog node id or stable seed key.
+- [x] 5.10 Ensure BGE unavailable/timeout failures leave teacher saves intact and record diagnostic job errors.
+- [x] 5.11 Add job status display hooks for pending, running, succeeded, failed, stale, disabled, and unavailable states.
+- [x] 5.12 Add tests for idempotent job creation, worker claiming, ES upsert/delete, stale evidence marking, manual retry, and BGE failure diagnostics.
+- [x] 5.13 Document why the first implementation uses Postgres-backed jobs and what conditions would justify Redis/Rabbit/Celery/RQ later.
 
 ## 6. Point AI Context Workbench
 
