@@ -60,17 +60,25 @@ The platform SHALL treat the Docker Compose application as one production-like m
 - **THEN** every required service image MUST be buildable or pullable from its declared source
 - **AND** an Elasticsearch replacement image MUST prove IK analyzer support, including the `ik_max_word` tokenizer, before the stack can pass readiness.
 
-#### Scenario: Host port conflicts exist
-- **GIVEN** a developer machine already uses a common host port such as `5432`
+#### Scenario: Host Postgres port is fixed for the Compose stack
+- **GIVEN** a developer machine may already use the common local Postgres host port `5432`
 - **WHEN** the production-like Compose stack starts
 - **THEN** container-to-container service discovery MUST still use stable Compose network names such as `postgres:5432` and `elasticsearch:9200`
-- **AND** host port bindings MUST be configurable so a local host-port conflict does not prevent the required application stack from starting.
+- **AND** the PostgreSQL host binding MUST default to `127.0.0.1:15432`
+- **AND** local deployment scripts and host-side validation defaults MUST connect to Postgres on `127.0.0.1:15432`.
 
 #### Scenario: Compose stack smoke validation runs
 - **WHEN** production readiness validation is asked to validate the real Compose application stack
 - **THEN** it MUST start or verify the required Compose services, verify backend health, verify PostgreSQL reachability, verify Elasticsearch cluster health, and verify IK analyzer behavior through an Elasticsearch analyzer request
 - **AND** it MUST apply migrations and rebuild or validate the student video-library search index with production fallback disabled
 - **AND** it MUST fail if any required default service is missing, unhealthy, misconfigured, or silently replaced by deterministic local search fallback.
+
+#### Scenario: Local development rebuilds are service scoped
+- **GIVEN** a developer changes code or configuration owned by one Compose service
+- **WHEN** they update the local Docker Compose runtime during ordinary development
+- **THEN** documentation and examples MUST direct them to rebuild and recreate only the affected service or services, such as `docker compose up -d --build backend`, `docker compose up -d --build web-teacher`, `docker compose up -d --build web-student`, `docker compose up -d --build web-admin`, `docker compose up -d --build video-worker`, or `docker compose --profile rag up -d --build bge-rag`
+- **AND** full-stack image rebuilds MUST be reserved for initial setup, shared base-image or Compose-topology changes, multi-service dependency changes, release smoke checks, or explicitly requested full validation
+- **AND** Docker build cache deletion commands, no-cache rebuilds, and system-wide prune commands MUST NOT be part of routine development startup; they may be used only as documented recovery steps for cache corruption or disk pressure after service-scoped restart or rebuild has been tried.
 
 #### Scenario: Development servers are used
 - **WHEN** a developer runs Vite development servers for local UI work

@@ -103,3 +103,10 @@ Production hardening SHALL document and validate the operational basics needed f
 - **GIVEN** a maintainer prepares a deployment or local production-like run
 - **WHEN** they inspect repository documentation and examples
 - **THEN** they can find environment variable examples, Docker service expectations, health checks, backup/restore notes, and validation commands
+
+#### Scenario: Local development rebuilds are service scoped
+- **GIVEN** a developer changes code or configuration owned by one Compose service
+- **WHEN** they update the local Docker Compose runtime during ordinary development
+- **THEN** documentation and examples MUST direct them to rebuild and recreate only the affected service or services, such as `docker compose up -d --build backend`, `docker compose up -d --build web-teacher`, `docker compose up -d --build web-student`, `docker compose up -d --build web-admin`, `docker compose up -d --build video-worker`, or `docker compose --profile rag up -d --build bge-rag`
+- **AND** full-stack image rebuilds MUST be reserved for initial setup, shared base-image or Compose-topology changes, multi-service dependency changes, release smoke checks, or explicitly requested full validation
+- **AND** Docker build cache deletion commands, no-cache rebuilds, and system-wide prune commands MUST NOT be part of routine development startup; they may be used only as documented recovery steps for cache corruption or disk pressure after service-scoped restart or rebuild has been tried.

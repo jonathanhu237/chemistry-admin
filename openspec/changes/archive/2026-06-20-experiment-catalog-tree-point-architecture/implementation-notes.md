@@ -3,7 +3,7 @@
 - Branch at start: `main`.
 - Worktree at start: code was clean except the untracked OpenSpec change directory `openspec/changes/experiment-catalog-tree-point-architecture/`.
 - Docker Compose services were already running and healthy for `postgres`, `elasticsearch`, `backend`, `student-web`, `admin-web`, `tusd`, and `video-worker`; `bge-rag` was also running under its profile.
-- Initial readiness without compose smoke failed because local validation used the default `localhost:5432` database URL while Compose exposes Postgres on `127.0.0.1:15432`.
+- Initial readiness without compose smoke failed because local validation used the old default local Postgres port while Compose exposes Postgres on `127.0.0.1:15432`.
 - Baseline readiness passed with compose host env via:
 
 ```bash
