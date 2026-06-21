@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Button, Form, Input, Radio, Space, Tag, Typography, type FormInstance } from "antd";
-import { RobotOutlined, SaveOutlined } from "@ant-design/icons";
+import { CheckCircleOutlined, ExclamationCircleOutlined, LoadingOutlined, RobotOutlined } from "@ant-design/icons";
 import { Editor as MonacoEditor, loader, type BeforeMount } from "@monaco-editor/react";
 import * as monaco from "monaco-editor/esm/vs/editor/editor.api.js";
 import type { editor } from "monaco-editor/esm/vs/editor/editor.api.js";
@@ -23,14 +23,52 @@ import {
   buildEquationReviewModel,
   type CatalogEquationReviewCandidate,
 } from "./catalogEquationReview";
+import { catalogPathLabel } from "./catalogPath";
 
-const { Text } = Typography;
+const { Text, Title } = Typography;
 
 loader.config({ monaco });
 
 const CHEM_REACTION_LANGUAGE = "chem-reaction";
 const CHEM_REACTION_THEME = "chem-reaction-light";
+const CONTENT_AUTOSAVE_DELAY_MS = 900;
 let chemReactionEditorConfigured = false;
+
+type ContentAutoSaveStatus = "saved" | "dirty" | "saving" | "error";
+
+function contentAutoSaveLabel(status: ContentAutoSaveStatus): string {
+  if (status === "saving") return "正在保存";
+  if (status === "dirty") return "有未保存更改";
+  if (status === "error") return "保存失败";
+  return "已保存";
+}
+
+function contentAutoSaveTitle(status: ContentAutoSaveStatus, error: string): string {
+  if (status === "saving") return "正在自动保存当前内容";
+  if (status === "dirty") return "停止输入后会自动保存";
+  if (status === "error") return error || "保存失败，请继续编辑或稍后重试";
+  return "所有更改已保存";
+}
+
+function contentAutoSaveIcon(status: ContentAutoSaveStatus) {
+  if (status === "saving") return <LoadingOutlined />;
+  if (status === "error") return <ExclamationCircleOutlined />;
+  return <CheckCircleOutlined />;
+}
+
+function contentAutoSaveDisplayLabel(status: ContentAutoSaveStatus): string {
+  if (status === "saving") return "正在保存";
+  if (status === "dirty") return "有未保存更改";
+  if (status === "error") return "保存失败";
+  return "已保存";
+}
+
+function contentAutoSaveDisplayTitle(status: ContentAutoSaveStatus, error: string): string {
+  if (status === "saving") return "正在自动保存当前内容";
+  if (status === "dirty") return "停止输入后会自动保存";
+  if (status === "error") return error || "保存失败，请继续编辑或稍后重试";
+  return "所有更改已保存";
+}
 
 const chemReactionEditorOptions: editor.IStandaloneEditorConstructionOptions = {
   automaticLayout: true,
@@ -192,7 +230,7 @@ export function CatalogNodeContentPanel({
   pointForm: FormInstance<CatalogPointContentFormValues>;
   principleMode?: string;
   mutations: CatalogMutations;
-  onSavePointContent: (values: CatalogPointContentFormValues) => Promise<void>;
+  onSavePointContent: (values: CatalogPointContentFormValues, options?: { silent?: boolean }) => Promise<void>;
   variant?: "panel" | "task";
 }) {
   const { node } = detail;
@@ -204,8 +242,75 @@ export function CatalogNodeContentPanel({
   const [assistMessage, setAssistMessage] = useState("");
   const [assistDrafts, setAssistDrafts] = useState<CatalogEquationAssistDraft[]>([]);
   const previewSeq = useRef(0);
+  const autoSaveTimerRef = useRef<number | null>(null);
+  const autoSaveVersionRef = useRef(0);
+  const [autoSaveStatus, setAutoSaveStatus] = useState<ContentAutoSaveStatus>("saved");
+  const [autoSaveError, setAutoSaveError] = useState("");
   const reviewModel = useMemo(() => buildEquationReviewModel(equationPreview, assistDrafts), [equationPreview, assistDrafts]);
   const hasEquationInput = Boolean(equationText.trim());
+  const autoSavePill = (
+    <span className={`catalog-autosave-status is-${autoSaveStatus}`} title={contentAutoSaveDisplayTitle(autoSaveStatus, autoSaveError)}>
+      {contentAutoSaveIcon(autoSaveStatus)}
+      {contentAutoSaveDisplayLabel(autoSaveStatus)}
+    </span>
+  );
+
+  const clearAutoSaveTimer = () => {
+    if (autoSaveTimerRef.current !== null) {
+      window.clearTimeout(autoSaveTimerRef.current);
+      autoSaveTimerRef.current = null;
+    }
+  };
+
+  const runAutoSave = async (version: number) => {
+    if (version !== autoSaveVersionRef.current) return;
+    setAutoSaveStatus("saving");
+    setAutoSaveError("");
+    try {
+      if (node.node_kind === "directory") {
+        const values = {
+          ...nodeForm.getFieldsValue(true),
+          node_kind: node.node_kind,
+        } as CatalogNodeFormValues;
+        if (!values.title?.trim()) {
+          if (version === autoSaveVersionRef.current) setAutoSaveStatus("dirty");
+          return;
+        }
+        await mutations.updateNode.mutateAsync({ nodeId: node.node_id, payload: buildCatalogNodeUpdatePayload(values), silent: true });
+      } else {
+        const values = pointForm.getFieldsValue(true) as CatalogPointContentFormValues;
+        const pointTitle = values.point_title || detail.point_content?.point_title || detail.node.title;
+        await onSavePointContent({ ...values, point_title: pointTitle, principle_mode: values.principle_mode || "text" }, { silent: true });
+      }
+      if (version === autoSaveVersionRef.current) setAutoSaveStatus("saved");
+    } catch (error) {
+      if (version === autoSaveVersionRef.current) {
+        setAutoSaveError(error instanceof Error ? error.message : "保存失败");
+        setAutoSaveStatus("error");
+      }
+    }
+  };
+
+  const scheduleAutoSave = () => {
+    clearAutoSaveTimer();
+    autoSaveVersionRef.current += 1;
+    const version = autoSaveVersionRef.current;
+    setAutoSaveStatus("dirty");
+    setAutoSaveError("");
+    autoSaveTimerRef.current = window.setTimeout(() => {
+      autoSaveTimerRef.current = null;
+      void runAutoSave(version);
+    }, CONTENT_AUTOSAVE_DELAY_MS);
+  };
+
+  useEffect(() => {
+    clearAutoSaveTimer();
+    autoSaveVersionRef.current += 1;
+    setAutoSaveStatus("saved");
+    setAutoSaveError("");
+    return clearAutoSaveTimer;
+  }, [node.node_id, variant]);
+
   const requestPreview = async (textValue: string, seq: number) => {
     const rows = splitEquationText(textValue).map((rawText, index) => ({ raw_text: rawText, row_order: index + 1 }));
     if (!rows.length) {
@@ -261,10 +366,12 @@ export function CatalogNodeContentPanel({
       const currentLine = currentEquationLine(equationText, candidate.row_order);
       const replacementWithAnnotation = preserveInlineAnnotationSuffix(currentLine, replacement);
       pointForm.setFieldValue("reaction_equations_text", replaceEquationLine(equationText, candidate.row_order, replacementWithAnnotation));
+      scheduleAutoSave();
       return;
     }
     const current = equationText.trim();
     pointForm.setFieldValue("reaction_equations_text", [current, replacement].filter(Boolean).join("\n"));
+    scheduleAutoSave();
   };
 
   const runEquationAssist = async () => {
@@ -276,7 +383,7 @@ export function CatalogNodeContentPanel({
         mode: "suggest",
         multiline_text: equationText,
         point_title: pointForm.getFieldValue("point_title") || detail.point_content?.point_title || detail.node.title,
-        catalog_path_text: detail.breadcrumbs.map((item) => item.title).join(" / "),
+        catalog_path_text: catalogPathLabel(detail.breadcrumbs, detail.node.chapter_id),
         phenomenon_explanation: pointForm.getFieldValue("phenomenon_explanation") || "",
         safety_note: pointForm.getFieldValue("safety_note") || "",
       });
@@ -292,14 +399,20 @@ export function CatalogNodeContentPanel({
   if (node.node_kind === "directory") {
     return (
       <section className="catalog-editor-section catalog-editor-panel-section">
-        <div className="catalog-editor-section-intro">
-          <Text strong>基础信息</Text>
-          <Text type="secondary">目录负责学生端导航与分类，不承载点位知识或视频绑定。</Text>
+        <div className="catalog-panel-title-row catalog-content-title-row">
+          <div>
+            <Title level={4}>基础信息</Title>
+            <Text type="secondary">目录负责学生端导航与分类，不承载点位知识或视频绑定。</Text>
+          </div>
+          <div className="catalog-content-autosave-actions">{autoSavePill}</div>
         </div>
+        <Text className="catalog-content-sync-note" type="secondary">
+          内容会自动保存；ES/RAG 会在停止编辑约 30 秒后合并同步，连续编辑时 3 分钟内至少同步一次。
+        </Text>
         <Form
           form={nodeForm}
           layout="vertical"
-          onFinish={(values) => mutations.updateNode.mutate({ nodeId: node.node_id, payload: buildCatalogNodeUpdatePayload(values) })}
+          onValuesChange={scheduleAutoSave}
         >
           <Form.Item name="node_kind" hidden>
             <Input />
@@ -310,9 +423,6 @@ export function CatalogNodeContentPanel({
           <Form.Item name="teacher_note" label="教学备注" extra="仅教师端可见，不进入学生端、学生搜索或题目证据链。">
             <Input.TextArea className="catalog-teacher-note" autoSize={{ minRows: 2, maxRows: 5 }} />
           </Form.Item>
-          <Button type="primary" htmlType="submit" icon={<SaveOutlined />} loading={mutations.updateNode.isPending}>
-            保存目录内容
-          </Button>
         </Form>
       </section>
     );
@@ -320,13 +430,14 @@ export function CatalogNodeContentPanel({
 
   return (
     <section className={`catalog-editor-section catalog-editor-panel-section ${variant === "task" ? "is-task-window" : ""}`}>
-      <div className="catalog-editor-section-heading">
-        <div className="catalog-editor-section-intro">
-          <Text strong>内容</Text>
-          <Text type="secondary">维护教师备注、实验原理、现象解释和安全提示。</Text>
+      <div className="catalog-panel-title-row catalog-content-title-row">
+        <div>
+          <Title level={4}>内容</Title>
+          <Text type="secondary">维护教师备注、实验原理、现象解释和安全提示。 编辑内容会自动保存；停止编辑 30 秒或连续编辑 3 分钟进行资源同步。</Text>
         </div>
+        <div className="catalog-content-autosave-actions">{autoSavePill}</div>
       </div>
-      <Form form={pointForm} layout="vertical" onFinish={onSavePointContent}>
+      <Form form={pointForm} layout="vertical" onValuesChange={scheduleAutoSave}>
         <Form.Item name="point_title" hidden>
           <Input type="hidden" />
         </Form.Item>
@@ -498,14 +609,6 @@ export function CatalogNodeContentPanel({
         <Form.Item name="safety_note" label="安全提示" rules={[{ required: true, message: "请输入安全提示" }]}>
           <Input.TextArea autoSize={{ minRows: 2, maxRows: 5 }} />
         </Form.Item>
-        <Button
-          type="primary"
-          htmlType="submit"
-          icon={<SaveOutlined />}
-          loading={mutations.savePointContent.isPending || mutations.updateNode.isPending}
-        >
-          保存点位内容
-        </Button>
       </Form>
     </section>
   );

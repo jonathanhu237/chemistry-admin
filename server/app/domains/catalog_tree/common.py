@@ -1007,8 +1007,33 @@ def breadcrumbs(session: Any, node_id: str) -> list[dict[str, Any]]:
     return [dict(row) for row in rows]
 
 
+def catalog_path_titles_with_chapter(
+    node: dict[str, Any],
+    path: list[dict[str, Any]],
+    *,
+    include_point: bool = True,
+) -> list[str]:
+    chapter_title = clean(node.get("chapter_title")) or clean(node.get("chapter_id"))
+    titles: list[str] = []
+    if chapter_title:
+        titles.append(chapter_title)
+    for item in path:
+        if not include_point and item.get("node_kind") == "point":
+            continue
+        title = clean(item.get("title"))
+        if title and title != chapter_title:
+            titles.append(title)
+    return titles
+
+
 def catalog_path_text(session: Any, node_id: str) -> str:
-    return " / ".join(item["title"] for item in breadcrumbs(session, node_id) if item.get("title"))
+    node = get_node(session, node_id, include_archived=True)
+    return " / ".join(catalog_path_titles_with_chapter(node, breadcrumbs(session, node_id)))
+
+
+def catalog_directory_path_text(session: Any, node_id: str) -> str:
+    node = get_node(session, node_id, include_archived=True)
+    return " / ".join(catalog_path_titles_with_chapter(node, breadcrumbs(session, node_id), include_point=False))
 
 
 def published_path_available(session: Any, node_id: str) -> bool:

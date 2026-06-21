@@ -5,7 +5,14 @@ from typing import Any
 
 from sqlalchemy import text
 
-from server.app.domains.catalog_tree.common import breadcrumbs, clean, get_content, get_node, point_capable
+from server.app.domains.catalog_tree.common import (
+    breadcrumbs,
+    catalog_path_titles_with_chapter,
+    clean,
+    get_content,
+    get_node,
+    point_capable,
+)
 from server.app.domains.catalog_tree.jobs import (
     _catalog_point_context as build_catalog_point_context,
     _catalog_point_queries as build_catalog_point_queries,
@@ -31,6 +38,7 @@ def catalog_point_ai_context(*, node_id: str) -> dict[str, Any]:
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="AI context is only available for catalog point nodes")
         content = get_content(session, node_id)
         path = breadcrumbs(session, node_id)
+        path_titles = catalog_path_titles_with_chapter(node, path)
         videos = student_videos(session, node_id)
         related = related_links(session, node_id, include_hidden=True, include_defaults=True)
         job_state = get_point_job_state(session, node_id=node_id)
@@ -45,7 +53,7 @@ def catalog_point_ai_context(*, node_id: str) -> dict[str, Any]:
         "canonical_point_id": node.get("canonical_point_id") or node_id,
         "point_title": point_title,
         "catalog_path": path,
-        "catalog_path_text": " / ".join(item.get("title") or "" for item in path if item.get("title")),
+        "catalog_path_text": " / ".join(path_titles),
         "publication_state": {
             "node_status": node.get("status") or "draft",
             "content_status": (content or {}).get("content_status") or "missing",
@@ -230,6 +238,7 @@ def catalog_point_static_evidence_package(*, point_node_id: str) -> dict[str, An
         if not point_capable(node):
             return {}
         path = breadcrumbs(session, point_node_id)
+        path_titles = catalog_path_titles_with_chapter(node, path)
         content = get_content(session, point_node_id) or {}
         payload = build_static_evidence_payload(session, node_id=point_node_id)
     bindings = payload.get("bindings") or []
@@ -241,7 +250,7 @@ def catalog_point_static_evidence_package(*, point_node_id: str) -> dict[str, An
         "placement_node_id": point_node_id,
         "canonical_point_id": node.get("canonical_point_id") or point_node_id,
         "point_title": clean(content.get("point_title")) or clean(node.get("title")),
-        "catalog_path": [item.get("title") for item in path if item.get("title")],
+        "catalog_path": path_titles,
         "chunk_ids": [str(item.get("chunk_id")) for item in bindings if item.get("chunk_id")],
         "chunk_roles": {str(item.get("chunk_id")): item.get("evidence_role") for item in bindings if item.get("chunk_id")},
         "static_fallback_missing": bool(payload.get("static_fallback_missing")),

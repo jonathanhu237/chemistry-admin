@@ -1,11 +1,10 @@
-import { useEffect, useState, type ReactNode } from "react";
-import { Button, Dropdown, Input, Modal, Space, Tag, Typography } from "antd";
+import { useEffect, useRef, useState, type ReactNode } from "react";
+import { Button, Dropdown, Input, Modal, Popover, Space, Tag, Typography, type InputRef } from "antd";
 import { CheckCircleOutlined, DeleteOutlined, EditOutlined, MoreOutlined, StopOutlined } from "@ant-design/icons";
 import { AlertTriangle, CircleCheck, CircleDashed, FlaskConical, Folder, Link2, ListTree, Video } from "lucide-react";
 
 import type { CatalogNodeDetail } from "../../api/catalogTree";
 import {
-  catalogStatusDotClass,
   catalogStatusLabel,
   catalogNodePrimaryStateClass,
   catalogNodeStatusTooltip,
@@ -15,8 +14,10 @@ import {
   resolveCatalogNodeStatus,
 } from "./catalogTreeMappers";
 import type { CatalogMutations } from "./catalogTreeHooks";
+import { catalogDirectoryPathLabel, catalogPathLabel } from "./catalogPath";
 
 const { Text, Title } = Typography;
+const TITLE_MAX_LENGTH = 64;
 
 type SummaryTone = "ok" | "warning" | "error" | "muted" | "published" | "draft" | "archived";
 
@@ -29,6 +30,8 @@ type SummaryItem = {
   tone?: SummaryTone;
   emphasis?: boolean;
 };
+
+type CatalogPointPlacement = NonNullable<CatalogNodeDetail["placements"]>[number];
 
 export type CatalogHeaderDiagnosticsKey = "node-status" | "ai-context" | "advanced";
 
@@ -92,7 +95,6 @@ function buildDirectorySummaryItems(detail: CatalogNodeDetail): SummaryItem[] {
       tone: pointCount > 0 ? "muted" : "warning",
       emphasis: pointCount === 0,
     },
-    nodeStatusSummary(detail),
     {
       key: "visibility",
       icon: publicationIcon(node.status),
@@ -137,8 +139,31 @@ function buildPointSummaryItems(detail: CatalogNodeDetail): SummaryItem[] {
       note: relatedCount > 0 ? "可串联学习" : "可选补充",
       tone: relatedCount > 0 ? "muted" : "muted",
     },
-    nodeStatusSummary(detail),
   ];
+}
+
+function placementDirectoryPath(placement: CatalogPointPlacement): string {
+  return catalogDirectoryPathLabel(placement.breadcrumbs || [], placement.chapter_id) || placement.title;
+}
+
+function sharedPlacementPopover(detail: CatalogNodeDetail): ReactNode {
+  const placements = detail.placements || [];
+  const currentNodeId = detail.node.node_id;
+  const otherPlacements = placements.filter((placement) => placement.node_id !== currentNodeId);
+  if (otherPlacements.length === 0) {
+    const count = detail.canonical_point?.active_placement_count ?? detail.node.active_placement_count ?? 0;
+    return <span>同一实验共出现在 {count} 个目录位置。</span>;
+  }
+  return (
+    <div className="catalog-shared-placement-popover">
+      <Text type="secondary">同一实验还出现在：</Text>
+      <ul>
+        {otherPlacements.map((placement) => (
+          <li key={placement.node_id}>{placementDirectoryPath(placement)}</li>
+        ))}
+      </ul>
+    </div>
+  );
 }
 
 export function CatalogEditorHeader({
@@ -150,7 +175,7 @@ export function CatalogEditorHeader({
   onOpenContentTask,
   onOpenVideoPicker,
   onPublishPointContent,
-  onSavePointTitle,
+  onSaveTitle,
 }: {
   detail: CatalogNodeDetail;
   mutations: CatalogMutations;
@@ -160,22 +185,32 @@ export function CatalogEditorHeader({
   onOpenContentTask?: () => void;
   onOpenVideoPicker?: () => void;
   onPublishPointContent?: () => void;
-  onSavePointTitle?: (title: string) => Promise<void> | void;
+  onSaveTitle?: (title: string) => Promise<void> | void;
 }) {
   const { node } = detail;
   const pointCapable = isPointCapable(node.node_kind);
   const title = pointCapable ? displayCatalogPointTitle(detail) : node.title;
   const nodeStatus = resolveCatalogNodeStatus(detail);
   const summaryItems = pointCapable ? buildPointSummaryItems(detail) : buildDirectorySummaryItems(detail);
+  const nodeStatusItem = nodeStatusSummary(detail);
   const primaryAction = catalogHeaderPrimaryAction(detail);
   const activePlacementCount = detail.canonical_point?.active_placement_count ?? node.active_placement_count ?? 0;
-  const [titleEditorOpen, setTitleEditorOpen] = useState(false);
-  const [draftTitle, setDraftTitle] = useState(title);
+  const showSharedExperimentTag = pointCapable && activePlacementCount > 1;
+  const [titleEditing, setTitleEditing] = useState(false);
+  const [draftTitle, setDraftTitle] = useState(title.slice(0, TITLE_MAX_LENGTH));
   const [titleSaving, setTitleSaving] = useState(false);
+  const titleInputRef = useRef<InputRef>(null);
+  const titleCommitRef = useRef(false);
 
   useEffect(() => {
-    setDraftTitle(title);
-  }, [title]);
+    if (!titleEditing) setDraftTitle(title.slice(0, TITLE_MAX_LENGTH));
+  }, [title, titleEditing]);
+
+  useEffect(() => {
+    if (!titleEditing) return;
+    const timer = window.setTimeout(() => titleInputRef.current?.focus({ cursor: "all" }), 0);
+    return () => window.clearTimeout(timer);
+  }, [titleEditing]);
 
   const confirmStatusAction = (action: "unpublish" | "archive") => {
     Modal.confirm({
@@ -215,18 +250,33 @@ export function CatalogEditorHeader({
     }
   };
 
-  const handleSaveTitle = async () => {
-    const nextTitle = draftTitle.trim();
+  const startTitleEdit = () => {
+    setDraftTitle(title.slice(0, TITLE_MAX_LENGTH));
+    setTitleEditing(true);
+  };
+
+  const cancelTitleEdit = () => {
+    setDraftTitle(title.slice(0, TITLE_MAX_LENGTH));
+    setTitleEditing(false);
+  };
+
+  const commitTitleEdit = async () => {
+    if (titleCommitRef.current) return;
+    const nextTitle = draftTitle.trim().slice(0, TITLE_MAX_LENGTH);
     if (!nextTitle || nextTitle === title) {
-      setTitleEditorOpen(false);
+      cancelTitleEdit();
       return;
     }
+    titleCommitRef.current = true;
     setTitleSaving(true);
     try {
-      await onSavePointTitle?.(nextTitle);
-      setTitleEditorOpen(false);
+      await onSaveTitle?.(nextTitle);
+      setTitleEditing(false);
+    } catch {
+      setDraftTitle(nextTitle);
     } finally {
       setTitleSaving(false);
+      titleCommitRef.current = false;
     }
   };
 
@@ -244,36 +294,55 @@ export function CatalogEditorHeader({
     <div className="catalog-editor-header">
       <div className="catalog-editor-summary-top">
         <div className="catalog-editor-title-block">
-          <span
-            className={`catalog-editor-title-status ${catalogNodePrimaryStateClass(nodeStatus.primary_state) || catalogStatusDotClass(node.status)}`}
-            aria-hidden="true"
-          />
           <span className={`catalog-editor-kind-icon ${pointCapable ? "is-point" : "is-directory"}`} aria-hidden="true">
             {pointCapable ? <FlaskConical size={20} /> : <Folder size={20} />}
           </span>
           <div className="catalog-editor-title-copy">
             <div className="catalog-editor-title-row">
-              <Title level={3}>{title}</Title>
-              {pointCapable ? (
-                <Button
-                  className="catalog-editor-title-edit"
-                  type="text"
-                  size="small"
-                  icon={<EditOutlined />}
-                  aria-label="编辑点位名"
-                  onClick={() => setTitleEditorOpen(true)}
+              {titleEditing ? (
+                <Input
+                  ref={titleInputRef}
+                  className="catalog-editor-title-input"
+                  value={draftTitle}
+                  maxLength={TITLE_MAX_LENGTH}
+                  disabled={titleSaving}
+                  aria-label={pointCapable ? "编辑点位名" : "编辑目录标题"}
+                  onBlur={() => void commitTitleEdit()}
+                  onChange={(event) => setDraftTitle(event.target.value.slice(0, TITLE_MAX_LENGTH))}
+                  onPressEnter={() => titleInputRef.current?.blur()}
+                  onKeyDown={(event) => {
+                    if (event.key === "Escape") {
+                      event.preventDefault();
+                      cancelTitleEdit();
+                    }
+                  }}
                 />
-              ) : null}
+              ) : (
+                <>
+                  <Title level={3}>{title}</Title>
+                  <Button
+                    className="catalog-editor-title-edit"
+                    type="text"
+                    size="small"
+                    icon={<EditOutlined />}
+                    aria-label={pointCapable ? "编辑点位名" : "编辑目录标题"}
+                    onClick={startTitleEdit}
+                  />
+                </>
+              )}
             </div>
-            <Text type="secondary">
-              {pointCapable ? "实验点位" : "目录分组"} · {detail.breadcrumbs.map((item) => item.title).join(" / ")}
-            </Text>
-            {pointCapable ? (
-              <div className="catalog-editor-identity-note">
-                <Tag color="green">多目录共享实验</Tag>
-                <span>{activePlacementCount > 1 ? `已复用到 ${activePlacementCount} 个目录位置` : "当前点位内容、视频和相关实验属于同一个共享实验"}</span>
-              </div>
-            ) : null}
+            <div className="catalog-editor-path-line">
+              {showSharedExperimentTag ? (
+                <Popover content={sharedPlacementPopover(detail)} trigger={["hover", "focus"]} placement="bottomLeft">
+                  <Tag className="catalog-shared-experiment-tag" color="green" tabIndex={0}>
+                    多目录共享实验
+                  </Tag>
+                </Popover>
+              ) : null}
+              <Text type="secondary">
+                {pointCapable ? "实验点位" : "目录分组"} · {catalogPathLabel(detail.breadcrumbs, node.chapter_id)}
+              </Text>
+            </div>
           </div>
         </div>
         <Space wrap className="catalog-editor-header-actions">
@@ -313,30 +382,35 @@ export function CatalogEditorHeader({
           </Dropdown>
         </Space>
       </div>
-      <Modal
-        title="编辑点位名"
-        open={titleEditorOpen}
-        okText="保存"
-        confirmLoading={titleSaving}
-        onOk={handleSaveTitle}
-        onCancel={() => setTitleEditorOpen(false)}
-        destroyOnHidden
-      >
-        <Input value={draftTitle} onChange={(event) => setDraftTitle(event.target.value)} placeholder="请输入点位名" autoFocus />
-      </Modal>
-      <div className="catalog-editor-summary-grid" aria-label="节点概览">
-        {summaryItems.map((item) => (
-          <div className={`catalog-editor-summary-item ${item.tone ? `is-${item.tone}` : ""} ${item.emphasis ? "is-emphasis" : ""}`} key={item.key}>
-            <span className="catalog-editor-summary-icon" aria-hidden="true">
-              {item.icon}
-            </span>
-            <div>
-              <span>{item.label}</span>
-              <strong>{item.value}</strong>
-              {item.note ? <small>{item.note}</small> : null}
+      <div className="catalog-editor-summary-layout" aria-label="节点概览">
+        <div className="catalog-editor-summary-grid" aria-label={pointCapable ? "维护概览" : "目录概览"}>
+          {summaryItems.map((item) => (
+            <div className={`catalog-editor-summary-item ${item.tone ? `is-${item.tone}` : ""} ${item.emphasis ? "is-emphasis" : ""}`} key={item.key}>
+              <span className="catalog-editor-summary-icon" aria-hidden="true">
+                {item.icon}
+              </span>
+              <div>
+                <span>{item.label}</span>
+                <strong>{item.value}</strong>
+                {item.note ? <small>{item.note}</small> : null}
+              </div>
             </div>
+          ))}
+        </div>
+        <div
+          className={`catalog-editor-summary-item catalog-editor-summary-status ${nodeStatusItem.tone ? `is-${nodeStatusItem.tone}` : ""} ${
+            nodeStatusItem.emphasis ? "is-emphasis" : ""
+          }`}
+        >
+          <span className="catalog-editor-summary-icon" aria-hidden="true">
+            {nodeStatusItem.icon}
+          </span>
+          <div>
+            <span>{nodeStatusItem.label}</span>
+            <strong>{nodeStatusItem.value}</strong>
+            {nodeStatusItem.note ? <small>{nodeStatusItem.note}</small> : null}
           </div>
-        ))}
+        </div>
       </div>
     </div>
   );

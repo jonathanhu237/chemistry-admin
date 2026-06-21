@@ -32,18 +32,6 @@ function relatedLinkTitle(link: CatalogRelatedLinkFormItem): string {
   return link.target_title?.trim() || link.target_node_id || "未命名实验";
 }
 
-function relatedLinkSourceLabel(link: CatalogRelatedLinkFormItem): string {
-  if (link.relation_type === "generated_default") return String(link.metadata?.default_scope_label || "同目录默认");
-  if (link.relation_type === "default_override") return "已调整默认";
-  return "手动添加";
-}
-
-function relatedLinkSourceColor(link: CatalogRelatedLinkFormItem): string {
-  if (link.relation_type === "generated_default") return "green";
-  if (link.relation_type === "default_override") return "gold";
-  return "blue";
-}
-
 function uniqueRelatedLinks(links: CatalogRelatedLinkFormItem[]): CatalogRelatedLinkFormItem[] {
   const seen = new Set<string>();
   return links.filter((link) => {
@@ -394,7 +382,7 @@ export function CatalogRelatedLinksPanel({
   }
 
   return (
-    <section className="catalog-editor-section catalog-editor-panel-section">
+    <section className="catalog-editor-section catalog-editor-panel-section catalog-related-panel-section">
       <div className="catalog-panel-title-row catalog-related-title-row">
         <div>
           <Title level={4}>相关实验</Title>
@@ -413,100 +401,106 @@ export function CatalogRelatedLinksPanel({
         <Form.List name="links">
           {(fields) => (
             <div className="catalog-related-builder">
-              <div className="catalog-related-list">
-                {fields.length ? (
-                  fields.map((field, index) => {
-                    const link = links[index] || {};
-                    const title = relatedLinkTitle(link);
-                    return (
-                      <div
-                        className={[
-                          "catalog-related-row",
-                          dragIndex === index ? "is-dragging" : "",
-                          dropIndex === index && dragIndex !== index ? "is-drop-before" : "",
-                          dropIndex === index + 1 && dragIndex !== index ? "is-drop-after" : "",
-                        ]
-                          .filter(Boolean)
-                          .join(" ")}
-                        draggable={!saving}
-                        key={field.key}
-                        tabIndex={0}
-                        title={title}
-                        onDragStart={(event) => beginRowDrag(event, index, link)}
-                        onDragOver={(event) => {
-                          event.preventDefault();
-                          event.dataTransfer.dropEffect = "move";
-                          setDropIndex(resolveDropIndex(event, index));
-                        }}
-                        onDrop={(event) => dropRow(event, index)}
-                        onDragEnd={() => {
-                          setDragIndex(null);
-                          setDropIndex(null);
-                        }}
-                      >
-                        <Form.Item name={[field.name, "target_node_id"]} hidden>
-                          <Input />
-                        </Form.Item>
-                        <Form.Item name={[field.name, "target_title"]} hidden>
-                          <Input />
-                        </Form.Item>
-                        <Form.Item name={[field.name, "relation_type"]} hidden>
-                          <Input />
-                        </Form.Item>
-                        <Form.Item name={[field.name, "source"]} hidden>
-                          <Input />
-                        </Form.Item>
-                        <Form.Item name={[field.name, "sort_order"]} hidden>
-                          <Input />
-                        </Form.Item>
-
-                        <span className="catalog-related-row-index" aria-label={`Order ${index + 1}`}>
-                          {relatedLinkOrderLabel(index)}
-                        </span>
-                        <div className="catalog-related-row-copy">
-                          <strong>{title}</strong>
-                        </div>
-                        <Tag className="catalog-related-source-tag" color={relatedLinkSourceColor(link)}>
-                          {relatedLinkSourceLabel(link)}
-                        </Tag>
-                        <Dropdown
-                          trigger={["click"]}
-                          menu={{
-                            items: relatedRowMenuItems(index),
-                            onClick: ({ key }) => handleRelatedRowMenu(index, String(key)),
+              <div className="catalog-related-table" role="table" aria-label="相关实验列表">
+                <div className="catalog-related-table-head" role="row">
+                  <span>顺序</span>
+                  <span>相关实验</span>
+                </div>
+                <div className="catalog-related-list" role="rowgroup">
+                  {fields.length ? (
+                    fields.map((field, index) => {
+                      const link = links[index] || {};
+                      const title = relatedLinkTitle(link);
+                      return (
+                        <div
+                          className={[
+                            "catalog-related-row",
+                            dragIndex === index ? "is-dragging" : "",
+                            dropIndex === index && dragIndex !== index ? "is-drop-before" : "",
+                            dropIndex === index + 1 && dragIndex !== index ? "is-drop-after" : "",
+                          ]
+                            .filter(Boolean)
+                            .join(" ")}
+                          draggable={!saving}
+                          key={field.key}
+                          role="row"
+                          tabIndex={0}
+                          title={title}
+                          onDragStart={(event) => beginRowDrag(event, index, link)}
+                          onDragOver={(event) => {
+                            event.preventDefault();
+                            event.dataTransfer.dropEffect = "move";
+                            setDropIndex(resolveDropIndex(event, index));
+                          }}
+                          onDrop={(event) => dropRow(event, index)}
+                          onDragEnd={() => {
+                            setDragIndex(null);
+                            setDropIndex(null);
                           }}
                         >
-                          <Button
-                            className="catalog-related-row-menu"
-                            size="small"
-                            type="text"
-                            icon={<MoreHorizontal size={16} />}
-                            aria-label="相关实验更多操作"
-                            onClick={(event) => event.stopPropagation()}
-                          />
-                        </Dropdown>
-                      </div>
-                    );
-                  })
-                ) : (
-                  <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description="当前使用系统默认同目录相关实验。" />
-                )}
-              </div>
+                          <Form.Item name={[field.name, "target_node_id"]} hidden>
+                            <Input />
+                          </Form.Item>
+                          <Form.Item name={[field.name, "target_title"]} hidden>
+                            <Input />
+                          </Form.Item>
+                          <Form.Item name={[field.name, "relation_type"]} hidden>
+                            <Input />
+                          </Form.Item>
+                          <Form.Item name={[field.name, "source"]} hidden>
+                            <Input />
+                          </Form.Item>
+                          <Form.Item name={[field.name, "sort_order"]} hidden>
+                            <Input />
+                          </Form.Item>
 
-              <button
-                type="button"
-                className="catalog-related-add-slot"
-                disabled={saving}
-                onClick={() => setPickerOpen(true)}
-              >
-                <span className="catalog-related-add-icon">
-                  <Plus size={17} />
-                </span>
-                <span>
-                  <strong>添加相关实验</strong>
-                  <small>从目录树选择实验，添加后自动保存</small>
-                </span>
-              </button>
+                          <span className="catalog-related-row-index" aria-label={`Order ${index + 1}`}>
+                            {relatedLinkOrderLabel(index)}
+                          </span>
+                          <div className="catalog-related-row-copy">
+                            <strong>{title}</strong>
+                          </div>
+                          <Dropdown
+                            trigger={["click"]}
+                            menu={{
+                              items: relatedRowMenuItems(index),
+                              onClick: ({ key }) => handleRelatedRowMenu(index, String(key)),
+                            }}
+                          >
+                            <Button
+                              className="catalog-related-row-menu"
+                              size="small"
+                              type="text"
+                              icon={<MoreHorizontal size={16} />}
+                              aria-label="相关实验更多操作"
+                              onClick={(event) => event.stopPropagation()}
+                            />
+                          </Dropdown>
+                        </div>
+                      );
+                    })
+                  ) : (
+                    <div className="catalog-related-empty">
+                      <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description="当前使用系统默认同目录相关实验。" />
+                    </div>
+                  )}
+                </div>
+
+                <button
+                  type="button"
+                  className="catalog-related-add-slot"
+                  disabled={saving}
+                  onClick={() => setPickerOpen(true)}
+                >
+                  <span className="catalog-related-add-icon">
+                    <Plus size={17} />
+                  </span>
+                  <span>
+                    <strong>添加相关实验</strong>
+                    <small>从目录树选择实验，添加后自动保存</small>
+                  </span>
+                </button>
+              </div>
             </div>
           )}
         </Form.List>

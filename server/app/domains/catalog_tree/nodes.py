@@ -691,6 +691,8 @@ def update_node(*, node_id: str, payload: CatalogNodeUpdateRequest, user: Any) -
         if isinstance(data.get("metadata"), dict):
             metadata = {**metadata, **data["metadata"]}
         card = update_node_params(data, node, kind=new_kind)
+        title_changed = title != node["title"]
+        kind_changed = new_kind != node["node_kind"]
         session.execute(
             text(
                 """
@@ -735,11 +737,14 @@ def update_node(*, node_id: str, payload: CatalogNodeUpdateRequest, user: Any) -
                 },
             )
         if new_kind == "point" or node["node_kind"] == "point":
-            queue_index_state(session, node_id=node_id, action="upsert" if node["status"] == "published" else "delete")
-            mark_point_evidence_stale(session, node_id=node_id, reason="point_node_metadata_edited")
+            if title_changed or kind_changed:
+                if node["status"] == "published":
+                    queue_index_state(session, node_id=node_id, action="upsert", soft=True)
+                mark_point_evidence_stale(session, node_id=node_id, reason="point_node_metadata_edited")
         else:
-            queue_subtree_point_indexes(session, node_id=node_id)
-            mark_subtree_evidence_stale(session, node_id=node_id, reason="directory_context_edited")
+            if title_changed or kind_changed:
+                queue_subtree_point_indexes(session, node_id=node_id, soft=True)
+                mark_subtree_evidence_stale(session, node_id=node_id, reason="directory_context_edited")
     return get_node_detail(node_id=node_id)
 
 
@@ -766,7 +771,7 @@ def move_node(*, node_id: str, payload: CatalogNodeMoveRequest, user: Any) -> di
             {"node_id": node_id, "parent_id": parent_id, "display_order": display_order, "user_id": user.id},
         )
         _normalize_sibling_orders(session, chapter_id=node["chapter_id"], parent_id=parent_id)
-        queue_subtree_point_indexes(session, node_id=node_id)
+        queue_subtree_point_indexes(session, node_id=node_id, soft=True)
         mark_subtree_evidence_stale(session, node_id=node_id, reason="catalog_path_moved")
     return get_node_detail(node_id=node_id)
 
@@ -803,7 +808,7 @@ def reorder_siblings(*, payload: CatalogNodeReorderRequest, user: Any) -> dict[s
         chapter_id, parent_id = next(iter(parents))
         _normalize_sibling_orders(session, chapter_id=str(chapter_id), parent_id=str(parent_id) if parent_id else None)
         for changed_node_id in node_ids:
-            queue_subtree_point_indexes(session, node_id=changed_node_id)
+            queue_subtree_point_indexes(session, node_id=changed_node_id, soft=True)
             mark_subtree_evidence_stale(session, node_id=changed_node_id, reason="catalog_order_changed")
     return {"updated": len(items)}
 

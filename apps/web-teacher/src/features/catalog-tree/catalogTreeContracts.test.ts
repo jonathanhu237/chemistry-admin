@@ -152,10 +152,15 @@ describe("catalog tree UI contracts", () => {
     expect(videoPanelSource).toContain("getMediaAssetThumbnailUrl");
     expect(videoPanelSource).toContain("formatBytes");
     expect(videoPanelSource).toContain("catalog-video-shortcut-card");
+    expect(videoPanelSource).toContain("catalog-video-panel-section");
     expect(videoPanelSource).toContain("视频资源入口");
     expect(videoPanelSource).toContain("CatalogVideoPicker");
     expect(videoPanelSource).toContain("CurrentVideoSlot");
     expect(videoPanelSource).toContain("catalog-video-empty-slot");
+    expect(videoPanelSource).toContain("is-blocked");
+    expect(videoPanelSource).toContain("先完善学习内容");
+    expect(videoPanelSource).toContain("catalog-video-inline-link");
+    expect(videoPanelSource).toContain("onOpenContentTask");
     expect(videoPanelSource).toContain("catalog-video-current");
     expect(videoPanelSource).toContain("catalog-video-play-card");
     expect(videoPanelSource).toContain("catalog-video-current-facts");
@@ -195,6 +200,7 @@ describe("catalog tree UI contracts", () => {
     expect(videoPanelSource).not.toContain('action: "unpublish"');
     expect(videoPanelSource).not.toContain("catalog-video-current-meta");
     expect(videoPanelSource).not.toContain('<Text type="secondary" title={binding.original_file_name}>');
+    expect(videoPanelSource).not.toContain("请先补全点位学习内容，再绑定实验视频。");
     expect(videoPanelSource).not.toContain("素材就绪");
     expect(videoPanelSource).not.toContain("取消发布");
     expect(editorSource).not.toContain("shortcut_target_node_id");
@@ -212,8 +218,17 @@ describe("catalog tree UI contracts", () => {
     expect(catalogTreeApiSource).toContain("playback_video_codec?: string | null");
     expect(catalogTreeApiSource).toContain("playback_audio_codec?: string | null");
     expect(catalogTreeCssSource).toContain(".catalog-video-empty-slot");
+    expect(catalogTreeCssSource).toContain(".catalog-video-panel-section");
+    expect(catalogTreeCssSource).toContain("--catalog-video-card-target-height");
+    expect(catalogTreeCssSource).toContain(".catalog-video-empty-slot.is-blocked");
+    expect(catalogTreeCssSource).toContain(".catalog-video-inline-link");
     expect(catalogTreeCssSource).toContain(".catalog-video-current");
     expect(catalogTreeCssSource).toContain(".catalog-video-play-card");
+    expect(catalogTreeCssSource).toMatch(/\.catalog-video-empty-slot\s*\{[\s\S]*min-height: var\(--catalog-video-card-target-height\);/);
+    expect(catalogTreeCssSource).toMatch(/\.catalog-video-empty-slot\s*\{[\s\S]*justify-content: center;/);
+    expect(catalogTreeCssSource).toContain("button.catalog-video-empty-slot:hover");
+    expect(catalogTreeCssSource).toMatch(/\.catalog-video-empty-copy strong\s*\{[\s\S]*font-size: 23px;/);
+    expect(catalogTreeCssSource).toMatch(/\.catalog-video-current\s*\{[\s\S]*min-height: var\(--catalog-video-card-target-height\);/);
     expect(catalogTreeCssSource).toContain(".catalog-video-current-facts");
     expect(catalogTreeCssSource).toContain(".catalog-video-current-fact");
     expect(catalogTreeCssSource).toMatch(/\.catalog-video-current-side\s*\{[\s\S]*grid-template-rows: auto 1fr auto;/);
@@ -235,11 +250,10 @@ describe("catalog tree UI contracts", () => {
 
     expect(relatedPanelSource).toContain("同一直接父目录下的其他实验");
     expect(relatedPanelSource).toContain("重置为同目录默认");
-    expect(relatedPanelSource).toContain("手动添加");
-    expect(relatedPanelSource).toContain("已调整默认");
     expect(relatedPanelSource).toContain("catalog-related-row");
+    expect(relatedPanelSource).toContain("catalog-related-table");
+    expect(relatedPanelSource).toContain("catalog-related-table-head");
     expect(relatedPanelSource).toContain("catalog-related-row-index");
-    expect(relatedPanelSource).toContain("catalog-related-source-tag");
     expect(relatedPanelSource).toContain("catalog-related-drag-preview");
     expect(relatedPanelSource).toContain("is-drop-before");
     expect(relatedPanelSource).toContain("is-drop-after");
@@ -250,6 +264,10 @@ describe("catalog tree UI contracts", () => {
     expect(relatedPanelSource).toContain("buildCatalogRelatedLinksPayload({ links: normalized })");
     expect(relatedPanelSource).toContain("setLinks([], true)");
     expect(relatedPanelSource).toContain("MoreHorizontal");
+    expect(relatedPanelSource).toContain("catalog-related-panel-section");
+    expect(relatedPanelSource).not.toContain("<span>来源</span>");
+    expect(relatedPanelSource).not.toContain("<span>操作</span>");
+    expect(relatedPanelSource).not.toContain("catalog-related-source-tag");
     expect(relatedPanelSource).not.toContain("catalog-related-card");
     expect(relatedPanelSource).not.toContain("catalog-related-drag-handle");
     expect(relatedPanelSource).not.toContain("catalog-related-search");
@@ -269,8 +287,12 @@ describe("catalog tree UI contracts", () => {
     expect(relatedPanelSource).not.toContain("添加相关链接");
     expect(relatedPanelSource).not.toContain('label="关系"');
     expect(catalogTreeCssSource).toContain(".catalog-related-row");
+    expect(catalogTreeCssSource).toContain(".catalog-related-table");
+    expect(catalogTreeCssSource).toContain(".catalog-related-table-head");
+    expect(catalogTreeCssSource).toContain(".catalog-related-panel-section");
+    expect(catalogTreeCssSource).toContain(".catalog-related-row:nth-child(odd)");
     expect(catalogTreeCssSource).toContain(".catalog-related-row-index");
-    expect(catalogTreeCssSource).toContain(".catalog-related-source-tag");
+    expect(catalogTreeCssSource).not.toContain(".catalog-related-source-tag");
     expect(catalogTreeCssSource).toContain(".catalog-related-row.is-drop-before::before");
     expect(catalogTreeCssSource).toContain(".catalog-related-row.is-drop-after::after");
     expect(catalogTreeCssSource).toContain(".catalog-related-drag-preview");
@@ -403,6 +425,16 @@ describe("catalog tree UI contracts", () => {
     expect(editorHeaderSource).not.toContain("{node.status}</Tag>");
     expect(editorHeaderSource).toContain("pointContentStatusLabel(contentStatus)");
     expect(contentPanelSource).not.toContain("{detail.point_content?.content_status ||");
+  });
+
+  it("keeps autosave labels scoped to backend persistence and explains delayed ES/RAG sync", () => {
+    expect(contentPanelSource).toContain("contentAutoSaveDisplayLabel");
+    expect(contentPanelSource).toContain("正在保存");
+    expect(contentPanelSource).toContain("已保存");
+    expect(contentPanelSource).toContain("保存失败");
+    expect(contentPanelSource).toContain("维护教师备注、实验原理、现象解释和安全提示。 编辑内容会自动保存；停止编辑 30 秒或连续编辑 3 分钟进行资源同步。");
+    expect(contentPanelSource).not.toContain("保存点位内容");
+    expect(contentPanelSource).not.toContain("保存目录内容");
   });
 
   it("gates directory-only editor queries and tabs", () => {

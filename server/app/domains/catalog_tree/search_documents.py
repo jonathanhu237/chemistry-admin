@@ -7,6 +7,7 @@ from sqlalchemy import text
 from server.app.chemistry_search import chemistry_terms_for_document, formula_pair_terms
 from server.app.domains.catalog_tree.common import (
     breadcrumbs,
+    catalog_path_titles_with_chapter,
     clean,
     get_content,
     get_node,
@@ -14,6 +15,15 @@ from server.app.domains.catalog_tree.common import (
     published_path_available,
 )
 from server.app.domains.catalog_tree.equations import reaction_derived_terms, reaction_principle_text
+
+SEARCH_DOCUMENT_HASH_IGNORED_FIELDS = {"updated_at"}
+
+
+def student_search_document_sync_hash(document: dict[str, Any]) -> str:
+    from server.app.domains.video_library.index_client import document_hash
+
+    stable_document = {key: value for key, value in document.items() if key not in SEARCH_DOCUMENT_HASH_IGNORED_FIELDS}
+    return document_hash(stable_document)
 
 
 def queue_index_state(
@@ -23,6 +33,7 @@ def queue_index_state(
     action: str = "upsert",
     last_error: str | None = None,
     trigger_source: str = "automatic",
+    soft: bool = False,
 ) -> None:
     desired_action = "delete" if action == "delete" else "upsert"
     canonical_point_id = None
@@ -59,10 +70,10 @@ def queue_index_state(
     )
     from server.app.domains.catalog_tree.jobs import queue_es_sync_job
 
-    queue_es_sync_job(session, node_id=node_id, action=desired_action, trigger_source=trigger_source)
+    queue_es_sync_job(session, node_id=node_id, action=desired_action, trigger_source=trigger_source, soft=soft)
 
 
-def queue_subtree_point_indexes(session: Any, *, node_id: str, action: str = "upsert") -> None:
+def queue_subtree_point_indexes(session: Any, *, node_id: str, action: str = "upsert", soft: bool = False) -> None:
     rows = (
         session.execute(
             text(
@@ -85,7 +96,7 @@ def queue_subtree_point_indexes(session: Any, *, node_id: str, action: str = "up
         .all()
     )
     for point_node_id in rows:
-        queue_index_state(session, node_id=str(point_node_id), action=action)
+        queue_index_state(session, node_id=str(point_node_id), action=action, soft=soft)
 
 
 def _ancestor_directory_context(session: Any, node_id: str) -> list[dict[str, Any]]:
@@ -140,7 +151,8 @@ def student_search_document_for_node(session: Any, *, node_id: str, require_publ
     from server.app.domains.catalog_tree.related_links import related_links
 
     path = breadcrumbs(session, node["node_id"])
-    path_text = " / ".join(item["title"] for item in path)
+    path_titles = catalog_path_titles_with_chapter(node, path)
+    path_text = " / ".join(path_titles)
     directory_context = _ancestor_directory_context(session, node["node_id"])
     category_text = " ".join(
         clean(value)
@@ -219,8 +231,8 @@ def student_search_document_for_node(session: Any, *, node_id: str, require_publ
         "placement_node_id": node["node_id"],
         "canonical_point_id": node.get("canonical_point_id"),
         "chapter_id": node["chapter_id"],
-        "chapter_path": [path[0]["title"]] if path else [],
-        "catalog_path": [item["title"] for item in path],
+        "chapter_path": [node["chapter_title"]] if node.get("chapter_title") else [node["chapter_id"]],
+        "catalog_path": path_titles,
         "category_text": category_text,
         "title": clean(content_for_search.get("point_title")) or node["title"],
         "subtitle": path_text,

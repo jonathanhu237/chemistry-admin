@@ -150,6 +150,12 @@ The admin frontend SHALL implement selected-node title-card and tab-view refinem
 - **THEN** the change MUST remain localized to catalog editor components and catalog-tree styles
 - **AND** it MUST reuse existing selected-node data, derived counts, publication state, and action handlers.
 
+#### Scenario: Developer changes the selected-node status plaque
+- **WHEN** a developer changes the right-aligned node status plaque in the selected-node header
+- **THEN** the implementation MUST keep status rendering inside catalog-tree owned header components and styles
+- **AND** it MUST preserve the existing status summary data shape rather than adding a new backend contract
+- **AND** focused verification MUST check that the plaque remains visually distinct from maintenance summary cards without stretching them.
+
 #### Scenario: Developer changes editor panel switching presentation
 - **WHEN** a developer updates the selected-node panel switcher styling
 - **THEN** the change MUST preserve the existing tab item filtering and active-tab behavior
@@ -516,4 +522,3 @@ The admin frontend SHALL verify the monitoring UX with type, build, behavior, an
 - **WHEN** the production build is inspected after the refactor
 - **THEN** the monitoring route and chart dependencies MUST remain behind the existing lazy route boundary
 - **AND** unrelated teacher routes MUST NOT newly import monitoring-only modules eagerly.
-

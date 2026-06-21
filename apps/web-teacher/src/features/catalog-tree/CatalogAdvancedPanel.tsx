@@ -103,7 +103,7 @@ export function CatalogAdvancedPanel({
           type="warning"
           showIcon
           title="点位名称与节点标题不一致"
-          description="保存点位内容时会以点位名称同步节点标题。"
+          description="内容自动保存时会以点位名称同步节点标题。"
         />
       ) : null}
       <div className="catalog-form-grid">

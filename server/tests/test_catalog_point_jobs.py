@@ -1,9 +1,11 @@
 from __future__ import annotations
 
 import inspect
+from contextlib import contextmanager
 from typing import Any
 
 from server.app.domains.catalog_tree import jobs
+from server.app.domains.catalog_tree.search_documents import student_search_document_sync_hash
 
 
 class _Result:
@@ -85,6 +87,32 @@ def test_queue_es_sync_job_records_desired_action_and_catalog_node_identity() ->
     assert '"desired_action": "delete"' in params["payload"]
 
 
+def test_queue_es_soft_sync_job_coalesces_with_quiet_window_and_max_wait() -> None:
+    session = _FakeSession()
+
+    jobs.queue_es_sync_job(session, node_id="cat-point-1", action="upsert", trigger_source="automatic", soft=True)
+
+    call = _call_with_param(session, "job_type", "es_upsert")
+    params = call["params"]
+    assert "LEAST(" in call["sql"]
+    assert "experiment_catalog_point_jobs.created_at + (:max_coalesce_seconds * INTERVAL '1 second')" in call["sql"]
+    assert params["idempotency_key"] == "catalog-point:cat-point-1:es_upsert:soft"
+    assert params["run_after_seconds"] == jobs.SOFT_ES_SYNC_QUIET_SECONDS == 30
+    assert params["max_coalesce_seconds"] == jobs.SOFT_ES_SYNC_MAX_WAIT_SECONDS == 180
+    assert params["coalesce_with_open_job"] is True
+    assert '"sync_mode": "soft"' in params["payload"]
+
+
+def test_queue_es_hard_delete_runs_immediately() -> None:
+    session = _FakeSession()
+
+    jobs.queue_es_sync_job(session, node_id="cat-point-1", action="delete", trigger_source="manual")
+
+    params = _call_with_param(session, "job_type", "es_delete")["params"]
+    assert params["run_after_seconds"] == 0
+    assert params["coalesce_with_open_job"] is False
+
+
 def test_mark_point_evidence_stale_does_not_block_or_auto_refresh_by_default(monkeypatch) -> None:
     session = _FakeSession()
 
@@ -163,3 +191,86 @@ def test_rag_runtime_gate_requires_configured_hybrid_bge() -> None:
     assert gate["healthy"] is False
     assert gate["status"] == "unavailable"
     assert gate["reason_code"] == "hybrid_bge_disabled"
+
+
+class _FakeDbSession:
+    def __init__(self, document_hash: str | None = None) -> None:
+        self.document_hash = document_hash
+
+    def execute(self, statement: Any, params: dict[str, Any] | None = None) -> _Result:
+        if "SELECT document_hash FROM experiment_catalog_point_search_index_state" in str(statement):
+            return _Result({"document_hash": self.document_hash} if self.document_hash else None)
+        return _Result()
+
+
+@contextmanager
+def _fake_db_session(document_hash: str | None = None):
+    yield _FakeDbSession(document_hash=document_hash)
+
+
+class _FakeIndexClient:
+    def __init__(self) -> None:
+        self.calls: list[tuple[str, Any]] = []
+
+    def ensure_index(self, analyzer: str | None = None) -> None:
+        self.calls.append(("ensure_index", analyzer))
+
+    def upsert_document(self, document: dict[str, Any]) -> None:
+        self.calls.append(("upsert", document))
+
+    def delete_document(self, document_id: str) -> None:
+        self.calls.append(("delete", document_id))
+
+
+def test_process_es_job_skips_upsert_when_document_hash_is_unchanged(monkeypatch) -> None:
+    document = {"id": "cat-point-1", "title": "氯水 + KI", "updated_at": "2026-06-22T00:00:00"}
+    sync_hash = student_search_document_sync_hash(document)
+    client = _FakeIndexClient()
+    marks: list[dict[str, Any]] = []
+
+    monkeypatch.setattr(jobs, "db_session", lambda: _fake_db_session(sync_hash))
+    monkeypatch.setattr("server.app.domains.catalog_tree.search_documents.student_search_document_for_node", lambda *_args, **_kwargs: document)
+    monkeypatch.setattr("server.app.domains.video_library.index_client.configured_index_client", lambda: client)
+    monkeypatch.setattr(jobs, "_mark_es_state_success", lambda **kwargs: marks.append(kwargs))
+
+    result = jobs._process_es_job(jobs.CatalogPointJob(id="job-1", node_id="cat-point-1", job_type="es_upsert", attempts=1, payload={}))
+
+    assert result["no_op"] is True
+    assert client.calls == []
+    assert marks == [{"node_id": "cat-point-1", "action": "upsert", "document_hash": sync_hash, "indexed": False}]
+
+
+def test_process_es_job_upserts_when_document_hash_changes(monkeypatch) -> None:
+    document = {"id": "cat-point-1", "title": "氯水 + KI", "updated_at": "2026-06-22T00:00:00"}
+    sync_hash = student_search_document_sync_hash(document)
+    client = _FakeIndexClient()
+    marks: list[dict[str, Any]] = []
+    settings = type("Settings", (), {"video_library_search_analyzer": "ik_max_word"})()
+
+    monkeypatch.setattr(jobs, "db_session", lambda: _fake_db_session("old-hash"))
+    monkeypatch.setattr("server.app.domains.catalog_tree.search_documents.student_search_document_for_node", lambda *_args, **_kwargs: document)
+    monkeypatch.setattr("server.app.domains.video_library.index_client.configured_index_client", lambda: client)
+    monkeypatch.setattr(jobs, "get_settings", lambda: settings)
+    monkeypatch.setattr(jobs, "_mark_es_state_success", lambda **kwargs: marks.append(kwargs))
+
+    result = jobs._process_es_job(jobs.CatalogPointJob(id="job-1", node_id="cat-point-1", job_type="es_upsert", attempts=1, payload={}))
+
+    assert result["document_hash"] == sync_hash
+    assert client.calls == [("ensure_index", "ik_max_word"), ("upsert", document)]
+    assert marks == [{"node_id": "cat-point-1", "action": "upsert", "document_hash": sync_hash, "analyzer_version": "ik_max_word"}]
+
+
+def test_process_es_job_deletes_when_upsert_target_is_no_longer_searchable(monkeypatch) -> None:
+    client = _FakeIndexClient()
+    marks: list[dict[str, Any]] = []
+
+    monkeypatch.setattr(jobs, "db_session", lambda: _fake_db_session("old-hash"))
+    monkeypatch.setattr("server.app.domains.catalog_tree.search_documents.student_search_document_for_node", lambda *_args, **_kwargs: None)
+    monkeypatch.setattr("server.app.domains.video_library.index_client.configured_index_client", lambda: client)
+    monkeypatch.setattr(jobs, "_mark_es_state_success", lambda **kwargs: marks.append(kwargs))
+
+    result = jobs._process_es_job(jobs.CatalogPointJob(id="job-1", node_id="cat-point-1", job_type="es_upsert", attempts=1, payload={}))
+
+    assert result["reason"] == "point_not_searchable"
+    assert client.calls == [("delete", "cat-point-1")]
+    assert marks == [{"node_id": "cat-point-1", "action": "delete", "document_hash": "not_searchable"}]

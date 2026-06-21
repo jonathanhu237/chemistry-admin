@@ -14,6 +14,40 @@ from server.app.domains.errors import DomainHTTPException as HTTPException, doma
 from server.app.infrastructure.database import db_session
 
 
+def _reaction_signature(rows: list[dict[str, Any]] | None) -> list[dict[str, Any]]:
+    result: list[dict[str, Any]] = []
+    for index, row in enumerate(rows or [], start=1):
+        result.append(
+            {
+                "row_order": int(row.get("row_order") or index),
+                "raw_text": clean(row.get("raw_text")),
+                "display_text": clean(row.get("display_text")),
+                "annotation_text": clean(row.get("annotation_text")),
+                "validation_status": clean(row.get("validation_status")),
+                "formulae": sorted(str(value) for value in (row.get("formulae") or []) if clean(value)),
+                "reactants": sorted(str(value) for value in (row.get("reactants") or []) if clean(value)),
+                "products": sorted(str(value) for value in (row.get("products") or []) if clean(value)),
+                "reaction_features": sorted(str(value) for value in (row.get("reaction_features") or []) if clean(value)),
+                "condition_tags": sorted(str(value) for value in (row.get("condition_tags") or []) if clean(value)),
+            }
+        )
+    return result
+
+
+def _searchable_content_signature(content: dict[str, Any] | None) -> dict[str, Any]:
+    content = content or {}
+    mode = clean(content.get("principle_mode") or "text")
+    return {
+        "point_title": clean(content.get("point_title")),
+        "principle_mode": mode,
+        "principle_equation": clean(content.get("principle_equation")) if mode == "equation" else "",
+        "principle_text": clean(content.get("principle_text")) if mode == "text" else "",
+        "reaction_equations": _reaction_signature(content.get("reaction_equations") if mode == "equation" else []),
+        "phenomenon_explanation": clean(content.get("phenomenon_explanation")),
+        "safety_note": clean(content.get("safety_note")),
+    }
+
+
 def save_point_content(*, node_id: str, payload: CatalogPointContentRequest, user: Any) -> dict[str, Any]:
     data = dump_model(payload)
     with db_session() as session:
@@ -23,6 +57,7 @@ def save_point_content(*, node_id: str, payload: CatalogPointContentRequest, use
         if node.get("has_children"):
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Point nodes cannot have children")
         canonical_point_id = canonical_point_id_for_node(session, node_id)
+        existing_content = get_content(session, node_id)
         mode = clean(data.get("principle_mode") or "text")
         principle_equation = clean(data.get("principle_equation"))
         principle_text = clean(data.get("principle_text"))
@@ -38,6 +73,17 @@ def save_point_content(*, node_id: str, payload: CatalogPointContentRequest, use
         else:
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Principle mode must be equation or text")
         point_title = clean(data.get("point_title"))
+        next_content_for_signature = {
+            "point_title": point_title,
+            "principle_mode": mode,
+            "principle_equation": principle_equation,
+            "principle_text": principle_text,
+            "reaction_equations": normalized_equations,
+            "phenomenon_explanation": clean(data.get("phenomenon_explanation")),
+            "safety_note": clean(data.get("safety_note")),
+        }
+        searchable_content_changed = _searchable_content_signature(existing_content) != _searchable_content_signature(next_content_for_signature)
+        next_content_status = "published" if (existing_content or {}).get("content_status") == "published" else "draft"
         result = session.execute(
             text(
                 """
@@ -49,7 +95,10 @@ def save_point_content(*, node_id: str, payload: CatalogPointContentRequest, use
                   principle_text = :principle_text,
                   phenomenon_explanation = :phenomenon_explanation,
                   safety_note = :safety_note,
-                  content_status = 'draft',
+                  content_status = CASE
+                    WHEN experiment_catalog_point_content.content_status = 'published' THEN 'published'
+                    ELSE 'draft'
+                  END,
                   canonical_point_id = :canonical_point_id,
                   updated_by = CAST(:user_id AS uuid),
                   metadata = experiment_catalog_point_content.metadata || CAST(:metadata AS jsonb),
@@ -129,9 +178,11 @@ def save_point_content(*, node_id: str, payload: CatalogPointContentRequest, use
             ),
             {"canonical_point_id": canonical_point_id, "title": point_title, "user_id": user.id},
         )
-        for placement_node_id in active_placement_ids_for_canonical_point(session, canonical_point_id):
-            queue_index_state(session, node_id=placement_node_id, action="delete")
-        mark_point_evidence_stale(session, node_id=node_id, reason="point_content_edited")
+        if searchable_content_changed:
+            if next_content_status == "published":
+                for placement_node_id in active_placement_ids_for_canonical_point(session, canonical_point_id):
+                    queue_index_state(session, node_id=placement_node_id, action="upsert", soft=True)
+            mark_point_evidence_stale(session, node_id=node_id, reason="point_content_edited")
     from server.app.domains.catalog_tree.nodes import get_node_detail
 
     return get_node_detail(node_id=node_id)

@@ -211,8 +211,9 @@ def replace_related_links(*, node_id: str, payload: CatalogPointRelatedLinksRequ
                     "user_id": user.id,
                 },
             )
-        for placement_node_id in active_placement_ids_for_canonical_point(session, source_canonical_point_id):
-            queue_index_state(session, node_id=placement_node_id, action="upsert" if source["status"] == "published" else "delete")
+        if source["status"] == "published":
+            for placement_node_id in active_placement_ids_for_canonical_point(session, source_canonical_point_id):
+                queue_index_state(session, node_id=placement_node_id, action="upsert", soft=True)
         mark_point_evidence_stale(session, node_id=node_id, reason="related_point_context_changed")
     from server.app.domains.catalog_tree.nodes import get_node_detail
 

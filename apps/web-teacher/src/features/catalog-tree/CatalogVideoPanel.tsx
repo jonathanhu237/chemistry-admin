@@ -162,23 +162,43 @@ function CurrentVideoSlot({
   binding,
   canBindVideo,
   onOpenPicker,
+  onOpenContentTask,
   onRemove,
   removing,
 }: {
   binding?: CatalogMediaBinding | null;
   canBindVideo: boolean;
   onOpenPicker: () => void;
+  onOpenContentTask?: () => void;
   onRemove: () => void;
   removing: boolean;
 }) {
   const [previewOpen, setPreviewOpen] = useState(false);
 
   if (!binding) {
+    if (!canBindVideo) {
+      return (
+        <div className="catalog-video-empty-slot is-blocked" role="status">
+          <span className="catalog-video-empty-icon" aria-hidden="true">
+            <VideoCameraOutlined />
+          </span>
+          <span className="catalog-video-empty-copy">
+            <strong>先完善学习内容</strong>
+            <small>补全学习字段后即可绑定实验视频。</small>
+            {onOpenContentTask ? (
+              <button type="button" className="catalog-video-inline-link" onClick={onOpenContentTask}>
+                编辑内容
+              </button>
+            ) : null}
+          </span>
+        </div>
+      );
+    }
+
     return (
       <button
         type="button"
         className="catalog-video-empty-slot"
-        disabled={!canBindVideo}
         onClick={onOpenPicker}
       >
         <span className="catalog-video-empty-icon" aria-hidden="true">
@@ -186,7 +206,7 @@ function CurrentVideoSlot({
         </span>
         <span className="catalog-video-empty-copy">
           <strong>选择视频素材</strong>
-          <small>{canBindVideo ? "从视频资源中选择一个已就绪视频，选择后自动绑定" : "请先补全点位内容后再绑定视频"}</small>
+          <small>从视频资源中选择一个已就绪视频，选择后自动绑定</small>
         </span>
       </button>
     );
@@ -357,6 +377,7 @@ export function CatalogVideoPanel({
   canBindVideo,
   pickerOpen,
   onPickerOpenChange,
+  onOpenContentTask,
 }: {
   detail: CatalogNodeDetail;
   mediaAssets: UseQueryResult<ApiList<MediaAsset>>;
@@ -364,6 +385,7 @@ export function CatalogVideoPanel({
   canBindVideo: boolean;
   pickerOpen?: boolean;
   onPickerOpenChange?: (open: boolean) => void;
+  onOpenContentTask?: () => void;
 }) {
   const { node } = detail;
   const [internalPickerOpen, setInternalPickerOpen] = useState(false);
@@ -404,7 +426,7 @@ export function CatalogVideoPanel({
   };
 
   return (
-    <section className="catalog-editor-section catalog-editor-panel-section">
+    <section className="catalog-editor-section catalog-editor-panel-section catalog-video-panel-section">
       <div className="catalog-video-panel-heading">
         <div>
           <Title level={4}>视频绑定</Title>
@@ -421,11 +443,11 @@ export function CatalogVideoPanel({
           <ArrowRightOutlined />
         </a>
       </div>
-      {!canBindVideo ? <Text type="secondary">请先补全点位学习内容，再绑定实验视频。</Text> : null}
       <CurrentVideoSlot
         binding={currentVideo}
         canBindVideo={canBindVideo}
         onOpenPicker={() => setPickerOpen(true)}
+        onOpenContentTask={onOpenContentTask}
         onRemove={removeVideo}
         removing={mutations.changeMediaStatus.isPending}
       />

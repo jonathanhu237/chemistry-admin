@@ -9,7 +9,14 @@ from typing import Any
 from sqlalchemy import text
 
 from server.app.domains.assistant.rag_sources import _source_evidence_payload, _source_from_chunk
-from server.app.domains.catalog_tree.common import breadcrumbs, clean, get_content, get_node, point_capable
+from server.app.domains.catalog_tree.common import (
+    breadcrumbs,
+    catalog_path_titles_with_chapter,
+    clean,
+    get_content,
+    get_node,
+    point_capable,
+)
 from server.app.domains.catalog_tree.equations import reaction_derived_terms, reaction_principle_text, reaction_row_display_text
 from server.app.domains.errors import DomainHTTPException as HTTPException, domain_status as status
 from server.app.hybrid_rag import retrieve_hybrid_context
@@ -23,6 +30,8 @@ from server.app.schemas import AgentAskRequest
 JOB_TYPES = {"es_upsert", "es_delete", "rag_evidence_refresh", "rag_evidence_delete"}
 TRIGGER_SOURCES = {"automatic", "manual", "retry", "system"}
 JOB_STATUSES = {"pending", "running", "succeeded", "failed", "disabled", "unavailable"}
+SOFT_ES_SYNC_QUIET_SECONDS = 30
+SOFT_ES_SYNC_MAX_WAIT_SECONDS = 180
 
 
 class CatalogPointJobUnavailable(RuntimeError):
@@ -154,12 +163,17 @@ def enqueue_point_job(
     payload: dict[str, Any] | None = None,
     idempotency_key: str | None = None,
     max_attempts: int = 3,
+    run_after_seconds: int = 0,
+    coalesce_with_open_job: bool = False,
+    max_coalesce_seconds: int | None = None,
 ) -> dict[str, Any]:
     if job_type not in JOB_TYPES:
         raise ValueError(f"Unsupported catalog point job type: {job_type}")
     if trigger_source not in TRIGGER_SOURCES:
         raise ValueError(f"Unsupported catalog point trigger source: {trigger_source}")
     payload = payload or {}
+    run_after_seconds = max(0, int(run_after_seconds or 0))
+    max_coalesce_seconds = max(run_after_seconds, int(max_coalesce_seconds or run_after_seconds or 0))
     identity = _point_identity(session, node_id)
     idempotency_key = idempotency_key or f"catalog-point:{node_id}:{job_type}:{_payload_key(payload)}"
     result = session.execute(
@@ -171,7 +185,9 @@ def enqueue_point_job(
             )
             VALUES (
               :node_id, :placement_node_id, :canonical_point_id, :job_type, :trigger_source, 'pending', 0, :max_attempts,
-              :idempotency_key, CAST(:payload AS jsonb), '{}'::jsonb, NULL, now(), now()
+              :idempotency_key, CAST(:payload AS jsonb), '{}'::jsonb, NULL,
+              now() + (:run_after_seconds * INTERVAL '1 second'),
+              now()
             )
             ON CONFLICT (idempotency_key) WHERE status IN ('pending', 'running') DO UPDATE SET
               trigger_source = CASE
@@ -183,6 +199,13 @@ def enqueue_point_job(
               payload = experiment_catalog_point_jobs.payload || EXCLUDED.payload,
               placement_node_id = EXCLUDED.placement_node_id,
               canonical_point_id = EXCLUDED.canonical_point_id,
+              run_after = CASE
+                WHEN :coalesce_with_open_job THEN LEAST(
+                  now() + (:run_after_seconds * INTERVAL '1 second'),
+                  experiment_catalog_point_jobs.created_at + (:max_coalesce_seconds * INTERVAL '1 second')
+                )
+                ELSE EXCLUDED.run_after
+              END,
               updated_at = now()
             RETURNING id, node_id, job_type, trigger_source, status, attempts, max_attempts,
                       payload, result, latest_error, worker_id, run_after, started_at,
@@ -197,6 +220,9 @@ def enqueue_point_job(
             "trigger_source": trigger_source,
             "max_attempts": max(1, int(max_attempts)),
             "idempotency_key": idempotency_key,
+            "run_after_seconds": run_after_seconds,
+            "coalesce_with_open_job": bool(coalesce_with_open_job),
+            "max_coalesce_seconds": max_coalesce_seconds,
             "payload": _json_param({
                 "placement_node_id": identity["placement_node_id"],
                 "canonical_point_id": identity["canonical_point_id"],
@@ -214,15 +240,26 @@ def queue_es_sync_job(
     action: str,
     trigger_source: str = "automatic",
     payload: dict[str, Any] | None = None,
+    soft: bool = False,
 ) -> dict[str, Any]:
     desired_action = "delete" if action == "delete" else "upsert"
     job_type = "es_delete" if desired_action == "delete" else "es_upsert"
+    soft_upsert = bool(soft and desired_action == "upsert")
+    idempotency_key = f"catalog-point:{node_id}:{job_type}:soft" if soft_upsert else None
     return enqueue_point_job(
         session,
         node_id=node_id,
         job_type=job_type,
         trigger_source=trigger_source,
-        payload={"desired_action": desired_action, **(payload or {})},
+        payload={
+            "desired_action": desired_action,
+            **({"sync_mode": "soft", "quiet_seconds": SOFT_ES_SYNC_QUIET_SECONDS, "max_wait_seconds": SOFT_ES_SYNC_MAX_WAIT_SECONDS} if soft_upsert else {}),
+            **(payload or {}),
+        },
+        idempotency_key=idempotency_key,
+        run_after_seconds=SOFT_ES_SYNC_QUIET_SECONDS if soft_upsert else 0,
+        coalesce_with_open_job=soft_upsert,
+        max_coalesce_seconds=SOFT_ES_SYNC_MAX_WAIT_SECONDS if soft_upsert else 0,
     )
 
 
@@ -687,8 +724,8 @@ def process_point_job(job: CatalogPointJob) -> None:
 
 
 def _process_es_job(job: CatalogPointJob) -> dict[str, Any]:
-    from server.app.domains.catalog_tree.search_documents import student_search_document_for_node
-    from server.app.domains.video_library.index_client import configured_index_client, document_hash
+    from server.app.domains.catalog_tree.search_documents import student_search_document_for_node, student_search_document_sync_hash
+    from server.app.domains.video_library.index_client import configured_index_client
 
     action = "delete" if job.job_type == "es_delete" else "upsert"
     client = configured_index_client()
@@ -699,20 +736,41 @@ def _process_es_job(job: CatalogPointJob) -> dict[str, Any]:
         client.delete_document(job.node_id)
         _mark_es_state_success(node_id=job.node_id, action="delete", document_hash="deleted")
         return {"job_status": "succeeded", "action": "delete", "document_id": job.node_id}
+    indexed_hash = None
     with db_session() as session:
         document = student_search_document_for_node(session, node_id=job.node_id, require_published=True)
+        state = (
+            session.execute(
+                text("SELECT document_hash FROM experiment_catalog_point_search_index_state WHERE node_id = :node_id"),
+                {"node_id": job.node_id},
+            )
+            .mappings()
+            .first()
+        )
+        indexed_hash = str(state["document_hash"]) if state and state.get("document_hash") else None
     if not document:
         client.delete_document(job.node_id)
         _mark_es_state_success(node_id=job.node_id, action="delete", document_hash="not_searchable")
         return {"job_status": "succeeded", "action": "delete", "document_id": job.node_id, "reason": "point_not_searchable"}
-    client.ensure_index(analyzer=get_settings().video_library_search_analyzer)
+    payload_hash = student_search_document_sync_hash(document)
+    if indexed_hash == payload_hash:
+        _mark_es_state_success(node_id=job.node_id, action="upsert", document_hash=payload_hash, indexed=False)
+        return {
+            "job_status": "succeeded",
+            "action": "upsert",
+            "document_id": document["id"],
+            "document_hash": payload_hash,
+            "no_op": True,
+            "reason": "document_hash_unchanged",
+        }
+    analyzer_version = get_settings().video_library_search_analyzer
+    client.ensure_index(analyzer=analyzer_version)
     client.upsert_document(document)
-    payload_hash = document_hash(document)
-    _mark_es_state_success(node_id=job.node_id, action="upsert", document_hash=payload_hash)
+    _mark_es_state_success(node_id=job.node_id, action="upsert", document_hash=payload_hash, analyzer_version=analyzer_version)
     return {"job_status": "succeeded", "action": "upsert", "document_id": document["id"], "document_hash": payload_hash}
 
 
-def _mark_es_state_success(*, node_id: str, action: str, document_hash: str) -> None:
+def _mark_es_state_success(*, node_id: str, action: str, document_hash: str, indexed: bool = True, analyzer_version: str | None = None) -> None:
     with db_session() as session:
         identity = _point_identity(session, node_id)
         session.execute(
@@ -720,11 +778,11 @@ def _mark_es_state_success(*, node_id: str, action: str, document_hash: str) -> 
                 """
                 INSERT INTO experiment_catalog_point_search_index_state (
                   node_id, placement_node_id, canonical_point_id, document_id, desired_action, sync_status, attempts,
-                  document_hash, last_error, indexed_at, last_attempted_at, updated_at
+                  document_hash, last_error, indexed_at, last_attempted_at, analyzer_version, updated_at
                 )
                 VALUES (
                   :node_id, :placement_node_id, :canonical_point_id, :node_id, :action, 'synced', 1,
-                  :document_hash, NULL, now(), now(), now()
+                  :document_hash, NULL, now(), now(), :analyzer_version, now()
                 )
                 ON CONFLICT (node_id) DO UPDATE SET
                   placement_node_id = EXCLUDED.placement_node_id,
@@ -735,8 +793,9 @@ def _mark_es_state_success(*, node_id: str, action: str, document_hash: str) -> 
                   attempts = experiment_catalog_point_search_index_state.attempts + 1,
                   document_hash = EXCLUDED.document_hash,
                   last_error = NULL,
-                  indexed_at = now(),
+                  indexed_at = CASE WHEN :indexed THEN now() ELSE experiment_catalog_point_search_index_state.indexed_at END,
                   last_attempted_at = now(),
+                  analyzer_version = COALESCE(EXCLUDED.analyzer_version, experiment_catalog_point_search_index_state.analyzer_version),
                   updated_at = now()
                 """
             ),
@@ -746,6 +805,8 @@ def _mark_es_state_success(*, node_id: str, action: str, document_hash: str) -> 
                 "canonical_point_id": identity["canonical_point_id"],
                 "action": action,
                 "document_hash": document_hash,
+                "indexed": bool(indexed),
+                "analyzer_version": analyzer_version,
             },
         )
 
@@ -959,6 +1020,7 @@ def _catalog_point_context(session: Any, *, node_id: str) -> dict[str, Any]:
     if not content:
         raise RuntimeError("Catalog-node evidence refresh requires saved point content")
     path = breadcrumbs(session, node_id)
+    path_titles = catalog_path_titles_with_chapter(node, path)
     video_readiness = student_video_readiness(session, node_id)
     related = related_links(session, node_id, include_hidden=False, include_defaults=True)
     principle = reaction_principle_text(content) if content.get("principle_mode") == "equation" else clean(content.get("principle_text"))
@@ -975,7 +1037,7 @@ def _catalog_point_context(session: Any, *, node_id: str) -> dict[str, Any]:
         key
         for key, value in {
             "title": content.get("point_title") or node.get("title"),
-            "catalog_path": [item["title"] for item in path],
+            "catalog_path": path_titles,
             "normalized_equations": content.get("reaction_equations") or [],
             "phenomenon_explanation": content.get("phenomenon_explanation"),
             "safety_note": content.get("safety_note"),
@@ -990,7 +1052,7 @@ def _catalog_point_context(session: Any, *, node_id: str) -> dict[str, Any]:
         "canonical_point_id": node.get("canonical_point_id") or node_id,
         "chapter_id": node.get("chapter_id"),
         "title": clean(content.get("point_title")) or node.get("title"),
-        "catalog_path": [item["title"] for item in path],
+        "catalog_path": path_titles,
         "principle": principle,
         "normalized_equations": content.get("reaction_equations") or [],
         "phenomenon_explanation": clean(content.get("phenomenon_explanation")),

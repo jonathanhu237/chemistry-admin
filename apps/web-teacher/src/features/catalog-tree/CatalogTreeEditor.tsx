@@ -104,7 +104,7 @@ export function CatalogTreeEditor({
     }
   }, [diagnosticsPanel, pointCapable]);
 
-  const savePointContent = async (values: CatalogPointContentFormValues) => {
+  const savePointContent = async (values: CatalogPointContentFormValues, options: { silent?: boolean } = {}) => {
     if (!node) return;
     const pointTitle = values.point_title.trim();
     if (pointTitle && pointTitle !== node.title) {
@@ -114,9 +114,9 @@ export function CatalogTreeEditor({
         title: pointTitle,
         node_kind: node.node_kind,
       };
-      await mutations.updateNode.mutateAsync({ nodeId: node.node_id, payload: buildCatalogNodeUpdatePayload(currentNodeValues) });
+      await mutations.updateNode.mutateAsync({ nodeId: node.node_id, payload: buildCatalogNodeUpdatePayload(currentNodeValues), silent: options.silent });
     }
-    await mutations.savePointContent.mutateAsync({ nodeId: node.node_id, payload: buildCatalogPointContentPayload(values) });
+    await mutations.savePointContent.mutateAsync({ nodeId: node.node_id, payload: buildCatalogPointContentPayload(values), silent: options.silent });
   };
 
   const contentValuesForTask = () => {
@@ -149,10 +149,9 @@ export function CatalogTreeEditor({
     return () => window.clearTimeout(timeout);
   }, [contentTaskOpen, taskPointForm]);
 
-  const saveTaskPointContent = async (values: CatalogPointContentFormValues) => {
-    await savePointContent(values);
+  const saveTaskPointContent = async (values: CatalogPointContentFormValues, options?: { silent?: boolean }) => {
+    await savePointContent(values, options);
     pointForm.setFieldsValue(values);
-    setContentTaskOpen(false);
   };
 
   const publishPointContentFromHeader = () => {
@@ -171,6 +170,26 @@ export function CatalogTreeEditor({
     };
     pointForm.setFieldsValue({ point_title: nextTitle });
     await savePointContent(nextValues);
+  };
+
+  const saveDirectoryTitleFromHeader = async (nextTitle: string) => {
+    if (!node) return;
+    const nextValues = {
+      ...hydrateCatalogNodeForm(detail),
+      ...nodeForm.getFieldsValue(true),
+      title: nextTitle,
+      node_kind: node.node_kind,
+    };
+    nodeForm.setFieldsValue({ title: nextTitle });
+    await mutations.updateNode.mutateAsync({ nodeId: node.node_id, payload: buildCatalogNodeUpdatePayload(nextValues) });
+  };
+
+  const saveTitleFromHeader = async (nextTitle: string) => {
+    if (pointCapable) {
+      await savePointTitleFromHeader(nextTitle);
+      return;
+    }
+    await saveDirectoryTitleFromHeader(nextTitle);
   };
 
   const formAnchors = (
@@ -259,6 +278,7 @@ export function CatalogTreeEditor({
             canBindVideo={canBindVideo}
             pickerOpen={videoPickerOpen}
             onPickerOpenChange={setVideoPickerOpen}
+            onOpenContentTask={openContentTask}
           />
       ),
     },
@@ -312,7 +332,7 @@ export function CatalogTreeEditor({
               setVideoPickerOpen(true);
             }}
             onPublishPointContent={publishPointContentFromHeader}
-            onSavePointTitle={savePointTitleFromHeader}
+            onSaveTitle={saveTitleFromHeader}
           />
           <Tabs
             className="catalog-editor-tabs"

@@ -146,9 +146,9 @@ export function useCatalogMutations(message: MessageApi) {
   });
 
   const updateNode = useMutation({
-    mutationFn: ({ nodeId, payload }: { nodeId: string; payload: CatalogNodeUpdatePayload }) => updateCatalogNode(nodeId, payload),
-    onSuccess: (detail) => {
-      message.success("节点信息已保存");
+    mutationFn: ({ nodeId, payload }: { nodeId: string; payload: CatalogNodeUpdatePayload; silent?: boolean }) => updateCatalogNode(nodeId, payload),
+    onSuccess: (detail, variables) => {
+      if (!variables.silent) message.success("节点信息已保存");
       invalidateCatalog(detail);
     },
     onError: (error) => message.error(errorMessage(error)),
@@ -195,9 +195,9 @@ export function useCatalogMutations(message: MessageApi) {
   });
 
   const savePointContent = useMutation({
-    mutationFn: ({ nodeId, payload }: { nodeId: string; payload: CatalogPointContentPayload }) => saveCatalogPointContent(nodeId, payload),
-    onSuccess: (detail) => {
-      message.success("点位内容已保存为草稿");
+    mutationFn: ({ nodeId, payload }: { nodeId: string; payload: CatalogPointContentPayload; silent?: boolean }) => saveCatalogPointContent(nodeId, payload),
+    onSuccess: (detail, variables) => {
+      if (!variables.silent) message.success("点位内容已保存为草稿");
       invalidateCatalog(detail);
     },
     onError: (error) => message.error(errorMessage(error)),
