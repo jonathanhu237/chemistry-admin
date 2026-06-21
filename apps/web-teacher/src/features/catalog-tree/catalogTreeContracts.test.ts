@@ -99,7 +99,10 @@ describe("catalog tree UI contracts", () => {
     expect(contentPanelSource).toContain("catalog-equation-preview-pane");
     expect(contentPanelSource).toContain("catalog-equation-input-pane");
     expect(contentPanelSource).toContain("catalog-equation-code-editor");
-    expect(contentPanelSource).toContain("catalog-equation-code-gutter");
+    expect(contentPanelSource).toContain("MonacoEditor");
+    expect(contentPanelSource).toContain("CHEM_REACTION_LANGUAGE");
+    expect(contentPanelSource).toContain("CHEM_REACTION_THEME");
+    expect(contentPanelSource).toContain("configureChemReactionEditor");
     expect(contentPanelSource).toContain("applyCandidate(candidate)");
     expect(contentPanelSource).toContain("catalog-equation-apply-button");
     expect(contentPanelSource).not.toContain("runEquationAssist(equation.row_order)");

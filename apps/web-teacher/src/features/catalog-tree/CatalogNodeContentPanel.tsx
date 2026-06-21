@@ -1,6 +1,9 @@
-import { useEffect, useMemo, useRef, useState, type ChangeEvent, type UIEvent } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Alert, Button, Flex, Form, Input, Radio, Space, Tag, Typography, type FormInstance } from "antd";
 import { CheckCircleOutlined, RobotOutlined, SaveOutlined } from "@ant-design/icons";
+import { Editor as MonacoEditor, loader, type BeforeMount } from "@monaco-editor/react";
+import * as monaco from "monaco-editor/esm/vs/editor/editor.api.js";
+import type { editor } from "monaco-editor/esm/vs/editor/editor.api.js";
 
 import {
   assistCatalogReactionEquations,
@@ -22,6 +25,86 @@ import {
 } from "./catalogEquationReview";
 
 const { Text } = Typography;
+
+loader.config({ monaco });
+
+const CHEM_REACTION_LANGUAGE = "chem-reaction";
+const CHEM_REACTION_THEME = "chem-reaction-light";
+let chemReactionEditorConfigured = false;
+
+const chemReactionEditorOptions: editor.IStandaloneEditorConstructionOptions = {
+  automaticLayout: true,
+  minimap: { enabled: false },
+  fontFamily: '"SFMono-Regular", Consolas, "Liberation Mono", monospace',
+  fontSize: 14,
+  fontWeight: "600",
+  lineHeight: 24,
+  lineNumbers: "on",
+  lineNumbersMinChars: 2,
+  lineDecorationsWidth: 10,
+  glyphMargin: false,
+  folding: false,
+  overviewRulerLanes: 0,
+  hideCursorInOverviewRuler: true,
+  renderLineHighlight: "none",
+  scrollBeyondLastLine: false,
+  wordWrap: "off",
+  tabSize: 2,
+  insertSpaces: true,
+  quickSuggestions: false,
+  suggestOnTriggerCharacters: false,
+  padding: { top: 12, bottom: 12 },
+  scrollbar: {
+    horizontalScrollbarSize: 10,
+    verticalScrollbarSize: 10,
+    alwaysConsumeMouseWheel: false,
+  },
+};
+
+const configureChemReactionEditor: BeforeMount = (monaco) => {
+  if (chemReactionEditorConfigured) return;
+  chemReactionEditorConfigured = true;
+  monaco.languages.register({ id: CHEM_REACTION_LANGUAGE });
+  monaco.languages.setMonarchTokensProvider(CHEM_REACTION_LANGUAGE, {
+    tokenizer: {
+      root: [
+        [/\/\/.*$/, "chem-comment"],
+        [/(?:->|→|=>|=|⇌|↔)/, "chem-arrow"],
+        [/[+]/, "chem-operator"],
+        [/[()[\]{}]/, "chem-bracket"],
+        [/\b(?:aq|s|l|g|Δ|hv|light|heat)\b/, "chem-condition"],
+        [/\b\d+(?:\.\d+)?\b/, "chem-number"],
+        [/\b(?:酸性|碱性|中性|过量|少量|浓|稀|加热|催化剂|水溶液|饱和)\b/, "chem-condition"],
+        [/\b[A-Z][a-z]?(?:\d+)?(?:[A-Z][a-z]?(?:\d+)?)*(?:[+-])?\b/, "chem-species"],
+        [/[\u4e00-\u9fa5]+/, "chem-text"],
+      ],
+    },
+  });
+  monaco.editor.defineTheme(CHEM_REACTION_THEME, {
+    base: "vs",
+    inherit: true,
+    rules: [
+      { token: "chem-species", foreground: "005826", fontStyle: "bold" },
+      { token: "chem-arrow", foreground: "1f5f8f", fontStyle: "bold" },
+      { token: "chem-operator", foreground: "7a4f00", fontStyle: "bold" },
+      { token: "chem-number", foreground: "8a3ffc", fontStyle: "bold" },
+      { token: "chem-bracket", foreground: "6b7280" },
+      { token: "chem-condition", foreground: "b35c00", fontStyle: "bold" },
+      { token: "chem-comment", foreground: "6a737d", fontStyle: "italic" },
+      { token: "chem-text", foreground: "0f4c81" },
+    ],
+    colors: {
+      "editor.background": "#fbfdfc",
+      "editorLineNumber.foreground": "#8da39a",
+      "editorLineNumber.activeForeground": "#005826",
+      "editorCursor.foreground": "#005826",
+      "editor.selectionBackground": "#cfe5d8",
+      "editor.inactiveSelectionBackground": "#e9f2ed",
+      "editor.lineHighlightBackground": "#00000000",
+      "editorGutter.background": "#f3f7f5",
+    },
+  });
+};
 
 function pointContentStatusLabel(status?: string | null): string {
   if (status === "published") return "已发布";
@@ -76,35 +159,27 @@ function CatalogEquationCodeEditor({
   placeholder,
 }: {
   value?: string;
-  onChange?: (event: ChangeEvent<HTMLTextAreaElement>) => void;
+  onChange?: (value: string) => void;
   placeholder?: string;
 }) {
-  const [scrollTop, setScrollTop] = useState(0);
   const lineCount = value ? value.split(/\r?\n/).length : 1;
   const visibleLineCount = Math.max(4, lineCount);
-  const rows = Math.min(12, visibleLineCount);
-  const lineNumbers = Array.from({ length: visibleLineCount }, (_, index) => index + 1);
+  const editorHeight = Math.min(312, Math.max(124, visibleLineCount * 24 + 28));
 
   return (
-    <div className="catalog-equation-code-editor">
-      <div className="catalog-equation-code-gutter" aria-hidden="true">
-        <div className="catalog-equation-code-gutter-inner" style={{ transform: `translateY(-${scrollTop}px)` }}>
-          {lineNumbers.map((lineNumber) => (
-            <span key={lineNumber}>{lineNumber}</span>
-          ))}
-        </div>
-      </div>
-      <textarea
-        className="catalog-equation-code-input"
+    <div className="catalog-equation-code-editor catalog-equation-monaco-editor">
+      {!value ? <div className="catalog-equation-monaco-placeholder">{placeholder}</div> : null}
+      <MonacoEditor
+        className="catalog-equation-monaco"
+        height={editorHeight}
+        language={CHEM_REACTION_LANGUAGE}
+        theme={CHEM_REACTION_THEME}
         value={value}
-        onChange={onChange}
-        onScroll={(event: UIEvent<HTMLTextAreaElement>) => setScrollTop(event.currentTarget.scrollTop)}
-        placeholder={placeholder}
-        rows={rows}
-        spellCheck={false}
-        autoCapitalize="off"
-        autoCorrect="off"
-        aria-label="实验反应式输入"
+        beforeMount={configureChemReactionEditor}
+        onChange={(nextValue) => onChange?.(nextValue ?? "")}
+        options={chemReactionEditorOptions}
+        loading={<div className="catalog-equation-monaco-loading">正在加载反应式编辑器...</div>}
+        wrapperProps={{ "aria-label": "实验反应式输入" }}
       />
     </div>
   );
@@ -314,13 +389,10 @@ export function CatalogNodeContentPanel({
         {principleMode === "equation" ? (
           <div className="catalog-equation-natural-editor">
             <div className="catalog-equation-inline-help">
-              条件、过量、酸碱环境或补充说明请写在同一行的 <code>//</code> 后面；一行仍然只代表一个方程式。
-            </div>
-            <div className="catalog-equation-natural-header">
-              <div className="catalog-equation-natural-copy">
-                <Text strong>实验反应式</Text>
-                <Text type="secondary">直接输入或粘贴反应式，一行一个；左侧按当前输入渲染，需要时再让 AI 校对。</Text>
-              </div>
+              <Text strong>实验反应式</Text>
+              <span>
+                直接输入或粘贴反应式，一行一个；条件、过量、酸碱环境或补充说明写在同一行的 <code>//</code> 后面。
+              </span>
             </div>
             <div className="catalog-equation-workbench">
               <section className="catalog-equation-pane catalog-equation-preview-pane">

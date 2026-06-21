@@ -59,6 +59,13 @@ const vendorChunks: Array<{ name: string; patterns: string[] }> = [
     ],
   },
   {
+    name: "monaco-vendor",
+    patterns: [
+      "/node_modules/monaco-editor/",
+      "/node_modules/@monaco-editor/",
+    ],
+  },
+  {
     name: "date-vendor",
     patterns: [
       "/node_modules/dayjs/",
