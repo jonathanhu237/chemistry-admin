@@ -35,7 +35,17 @@ def media_bindings(session: Any, node_id: str) -> list[dict[str, Any]]:
                        mb.metadata,
                        ma.original_file_name,
                        ma.mime_type,
-                       COALESCE(ma.playback_mime_type, ma.mime_type) AS playback_mime_type,
+                       COALESCE(playback.mime_type, ma.playback_mime_type, ma.mime_type) AS playback_mime_type,
+                       ma.file_size_bytes AS source_file_size_bytes,
+                       COALESCE(playback.file_size_bytes, ma.file_size_bytes) AS playback_file_size_bytes,
+                       COALESCE(playback.width, ma.width) AS playback_width,
+                       COALESCE(playback.height, ma.height) AS playback_height,
+                       COALESCE(playback.duration_seconds, ma.duration_seconds) AS playback_duration_seconds,
+                       COALESCE(playback.fps, ma.fps) AS playback_fps,
+                       COALESCE(playback.bitrate, ma.bitrate) AS playback_bitrate,
+                       COALESCE(playback.video_codec, ma.video_codec) AS playback_video_codec,
+                       COALESCE(playback.audio_codec, ma.audio_codec) AS playback_audio_codec,
+                       playback.kind AS playback_rendition_kind,
                        ma.upload_status,
                        ma.processing_phase,
                        ma.processing_progress,
@@ -45,10 +55,30 @@ def media_bindings(session: Any, node_id: str) -> list[dict[str, Any]]:
                        ma.updated_at
                 FROM experiment_catalog_point_media_bindings mb
                 JOIN media_assets ma ON ma.id = mb.media_asset_id
+                LEFT JOIN LATERAL (
+                  SELECT mr.kind,
+                         mr.mime_type,
+                         mr.file_size_bytes,
+                         mr.width,
+                         mr.height,
+                         mr.duration_seconds,
+                         mr.fps,
+                         mr.bitrate,
+                         mr.video_codec,
+                         mr.audio_codec
+                  FROM media_renditions mr
+                  WHERE mr.media_asset_id = ma.id
+                    AND mr.status = 'ready'
+                  ORDER BY CASE WHEN mr.kind = 'learning' THEN 0 ELSE 1 END,
+                           mr.created_at DESC,
+                           mr.id
+                  LIMIT 1
+                ) playback ON TRUE
                 JOIN experiment_catalog_nodes n ON n.id = :node_id
                 WHERE ((n.canonical_point_id IS NOT NULL AND mb.canonical_point_id = n.canonical_point_id)
                     OR mb.node_id = :node_id)
                   AND mb.binding_status <> 'archived'
+                  AND COALESCE(ma.lifecycle_status, 'active') = 'active'
                 ORDER BY mb.display_order, mb.created_at
                 LIMIT 1
                 """
@@ -77,6 +107,7 @@ def student_videos(session: Any, node_id: str) -> list[dict[str, Any]]:
                     OR mb.node_id = :node_id)
                   AND mb.binding_status <> 'archived'
                   AND ma.upload_status = 'ready'
+                  AND COALESCE(ma.lifecycle_status, 'active') = 'active'
                 ORDER BY mb.display_order, mb.created_at
                 LIMIT 1
                 """
@@ -98,6 +129,29 @@ def student_videos(session: Any, node_id: str) -> list[dict[str, Any]]:
     ]
 
 
+def student_video_readiness(session: Any, node_id: str) -> dict[str, Any]:
+    count = int(
+        session.execute(
+            text(
+                """
+                SELECT COUNT(*)
+                FROM experiment_catalog_point_media_bindings mb
+                JOIN media_assets ma ON ma.id = mb.media_asset_id
+                JOIN experiment_catalog_nodes n ON n.id = :node_id
+                WHERE ((n.canonical_point_id IS NOT NULL AND mb.canonical_point_id = n.canonical_point_id)
+                    OR mb.node_id = :node_id)
+                  AND mb.binding_status <> 'archived'
+                  AND ma.upload_status = 'ready'
+                  AND COALESCE(ma.lifecycle_status, 'active') = 'active'
+                """
+            ),
+            {"node_id": node_id},
+        ).scalar_one()
+        or 0
+    )
+    return {"has_video": count > 0, "video_count": count}
+
+
 def bind_existing_media(*, node_id: str, payload: CatalogPointMediaBindRequest, user: Any) -> dict[str, Any]:
     data = dump_model(payload)
     with db_session() as session:
@@ -106,7 +160,14 @@ def bind_existing_media(*, node_id: str, payload: CatalogPointMediaBindRequest, 
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Directory nodes cannot bind videos")
         canonical_point_id = canonical_point_id_for_node(session, node_id)
         asset_exists = session.execute(
-            text("SELECT 1 FROM media_assets WHERE id = CAST(:asset_id AS uuid)"),
+            text(
+                """
+                SELECT 1
+                FROM media_assets
+                WHERE id = CAST(:asset_id AS uuid)
+                  AND COALESCE(lifecycle_status, 'active') = 'active'
+                """
+            ),
             {"asset_id": clean(data.get("media_asset_id"))},
         ).first()
         if not asset_exists:
