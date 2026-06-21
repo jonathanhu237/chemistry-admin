@@ -226,7 +226,7 @@ export function catalogStatusDotClass(status: string): string {
   return "is-draft";
 }
 
-export type CatalogStatusFilter = "all" | "actionable" | "needs_content" | "needs_video" | "published" | "sync_attention";
+export type CatalogStatusFilter = "all" | "actionable" | "needs_content" | "needs_video" | "published" | "unpublished" | "sync_attention";
 
 export const catalogStatusFilterOptions: Array<{ value: CatalogStatusFilter; label: string }> = [
   { value: "all", label: "全部" },
@@ -234,6 +234,7 @@ export const catalogStatusFilterOptions: Array<{ value: CatalogStatusFilter; lab
   { value: "needs_content", label: "缺内容" },
   { value: "needs_video", label: "缺视频" },
   { value: "published", label: "已发布" },
+  { value: "unpublished", label: "未发布" },
   { value: "sync_attention", label: "同步异常" },
 ];
 
@@ -327,7 +328,8 @@ export type CatalogHeaderPrimaryActionKey =
   | "publish-content"
   | "bind-video"
   | "publish-placement"
-  | "view-sync";
+  | "view-sync"
+  | "preview-student";
 
 export type CatalogHeaderPrimaryAction = {
   key: CatalogHeaderPrimaryActionKey;
@@ -367,7 +369,7 @@ export function catalogHeaderPrimaryAction(detail: CatalogNodeDetail): CatalogHe
     ) {
       return { key: "view-sync", label: "查看同步", tone: "warning" };
     }
-    return null;
+    return { key: "preview-student", label: "预览学生端", tone: "primary" };
   }
 
   if (["needs_content", "needs_video", "sync_attention"].includes(primaryState)) {
@@ -376,7 +378,7 @@ export function catalogHeaderPrimaryAction(detail: CatalogNodeDetail): CatalogHe
   if (node.status !== "published") {
     return { key: "publish-placement", label: "发布目录", tone: "primary" };
   }
-  return null;
+  return { key: "preview-student", label: "预览学生端", tone: "primary" };
 }
 
 export function catalogNodeActionCount(node: CatalogNodeCard): number {
@@ -404,6 +406,7 @@ export function matchesCatalogNodeStatusFilter(node: CatalogNodeCard, filter: Ca
   const state = status.primary_state;
   const counts = status.core_readiness.descendant_status_counts || {};
   if (filter === "published") return state === "published";
+  if (filter === "unpublished") return state === "draft" || state === "ready" || Number(counts.draft || 0) > 0 || Number(counts.ready || 0) > 0;
   if (filter === "needs_content") return state === "needs_content" || Number(counts.needs_content || 0) > 0;
   if (filter === "needs_video") return state === "needs_video" || Number(counts.needs_video || 0) > 0;
   if (filter === "sync_attention") {

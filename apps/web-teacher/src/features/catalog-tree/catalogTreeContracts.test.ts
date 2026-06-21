@@ -22,6 +22,11 @@ describe("catalog tree UI contracts", () => {
     expect(editorSource).toContain('key: "content"');
     expect(editorSource).toContain('key: "video"');
     expect(editorSource).toContain('key: "related"');
+    expect(editorSource).toContain('label: "知识内容"');
+    expect(editorSource).toContain('label: "实验视频"');
+    expect(editorSource).toContain('label: "相关实验"');
+    expect(editorSource).not.toContain('label: "内容"');
+    expect(editorSource).not.toContain('label: "视频"');
     expect(editorSource).not.toContain('key: "student-card"');
     expect(editorSource).not.toContain('label: "学生卡片"');
     expect(editorSource).toContain("setDiagnosticsPanel");
@@ -55,6 +60,8 @@ describe("catalog tree UI contracts", () => {
     expect(editorSource).toContain("pickerOpen={videoPickerOpen}");
     expect(contentPanelSource).toContain('name="teacher_note"');
     expect(contentPanelSource).toContain('label="教学备注"');
+    expect(contentPanelSource).toContain('name="title" hidden');
+    expect(contentPanelSource).not.toContain('label="目录标题"');
     expect(contentPanelSource).not.toContain("管理摘要");
     expect(workspaceSource).not.toContain('label="摘要"');
     expect(workspaceSource).not.toContain('name="student_description"');
@@ -81,14 +88,21 @@ describe("catalog tree UI contracts", () => {
     expect(editorSource).toContain("catalog-editor-empty-state");
     expect(editorSource).toContain("<CatalogEditorHeader");
     expect(editorSource).toContain('className="catalog-editor-tabs"');
+    expect(editorSource).toContain('className="catalog-editor-direct-panel"');
   });
 
-  it("resets tree open and loaded state at chapter boundaries", () => {
+  it("resets tree open and loaded state at chapter boundaries and workspace resets", () => {
     expect(treeSource).toContain("previousTreeScopeKeyRef");
+    expect(treeSource).toContain("previousResetVersionRef");
     expect(treeSource).toContain("loadingDirectoryIdsRef.current.clear()");
     expect(treeSource).toContain("node.chapter_id === treeScopeKey");
-    expect(treeSource).toContain("scopeChanged ? [] : previous");
-    expect(treeSource).toContain("key={treeScopeKey}");
+    expect(treeSource).toContain("scopeChanged || resetChanged ? [] : previous");
+    expect(treeSource).toContain('key={`${treeScopeKey}:${resetVersion}`}');
+    expect(workspaceSource).toContain("workspaceResetVersion");
+    expect(workspaceSource).toContain("setWorkspaceResetVersion");
+    expect(workspaceSource).toContain("resetVersion={workspaceResetVersion}");
+    const resetWorkspaceBody = workspaceSource.slice(workspaceSource.indexOf("const resetWorkspace = () => {"), workspaceSource.indexOf("const openCreate"));
+    expect(resetWorkspaceBody).not.toContain("setChapterId");
   });
 
   it("keeps operational/debug fields out of default content panels", () => {
@@ -153,6 +167,7 @@ describe("catalog tree UI contracts", () => {
     expect(videoPanelSource).toContain("formatBytes");
     expect(videoPanelSource).toContain("catalog-video-shortcut-card");
     expect(videoPanelSource).toContain("catalog-video-panel-section");
+    expect(videoPanelSource).toContain("实验视频");
     expect(videoPanelSource).toContain("视频资源入口");
     expect(videoPanelSource).toContain("CatalogVideoPicker");
     expect(videoPanelSource).toContain("CurrentVideoSlot");
@@ -432,7 +447,11 @@ describe("catalog tree UI contracts", () => {
     expect(contentPanelSource).toContain("正在保存");
     expect(contentPanelSource).toContain("已保存");
     expect(contentPanelSource).toContain("保存失败");
+    expect(contentPanelSource).toContain("目录信息");
+    expect(contentPanelSource).toContain("目录负责学生端导航与分类，不承载点位知识或视频绑定。编辑内容会自动保存；停止编辑 30 秒或连续编辑 3 分钟进行资源同步。");
+    expect(contentPanelSource).toContain("知识内容");
     expect(contentPanelSource).toContain("维护教师备注、实验原理、现象解释和安全提示。 编辑内容会自动保存；停止编辑 30 秒或连续编辑 3 分钟进行资源同步。");
+    expect(contentPanelSource).not.toContain("基础信息");
     expect(contentPanelSource).not.toContain("保存点位内容");
     expect(contentPanelSource).not.toContain("保存目录内容");
   });

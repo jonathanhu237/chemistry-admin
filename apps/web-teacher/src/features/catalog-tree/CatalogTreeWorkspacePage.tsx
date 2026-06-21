@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
-import { App as AntApp, Button, Dropdown, Flex, Form, Input, Modal, Radio, Select, Space, Tag, Typography } from "antd";
-import { DownOutlined, ReloadOutlined, SearchOutlined } from "@ant-design/icons";
-import { ChevronDown, ChevronRight, FlaskConical, Folder, FolderOpen } from "lucide-react";
+import { App as AntApp, Button, Dropdown, Flex, Form, Input, Modal, Radio, Select, Tag, Typography } from "antd";
+import { DownOutlined, SearchOutlined } from "@ant-design/icons";
+import { ChevronDown, ChevronRight, FlaskConical, Folder, FolderOpen, RotateCcw } from "lucide-react";
 
 import { listCatalogChildren, type CatalogNodeCard, type CatalogNodeKind } from "../../api/catalogTree";
 import { PageTitle } from "../../components/PageTitle";
@@ -13,10 +13,8 @@ import { CatalogTreeNodeList } from "./CatalogTreeNodeList";
 import {
   buildCatalogNodeCreatePayload,
   catalogNodeKindLabel,
-  catalogNodePrimaryStateLabel,
   catalogStatusFilterOptions,
   matchesCatalogNodeStatusFilter,
-  resolveCatalogNodeStatus,
 } from "./catalogTreeMappers";
 import type { CatalogNodeFormValues, CatalogStatusFilter } from "./catalogTreeMappers";
 import "./catalogTree.css";
@@ -192,6 +190,7 @@ export function CatalogTreeWorkspacePage() {
   const [copyIntent, setCopyIntent] = useState<CopyIntent | null>(null);
   const [copyChapterId, setCopyChapterId] = useState<string>();
   const [copyParentId, setCopyParentId] = useState<string | null>(null);
+  const [workspaceResetVersion, setWorkspaceResetVersion] = useState(0);
   const [createForm] = Form.useForm<CatalogNodeFormValues>();
   const [copyForm] = Form.useForm<CopyFormValues>();
   const chapters = useCatalogChapters();
@@ -258,18 +257,21 @@ export function CatalogTreeWorkspacePage() {
   const siblingItems = selectedDetail.data?.node.parent_id ? selectedSiblingChildren.data?.children || [] : rootItems;
   const currentChapter = chapters.data?.find((chapter) => chapter.chapter_id === chapterId);
   const currentChapterLabel = currentChapter ? formatChapterTitle(currentChapter.chapter_title, currentChapter.chapter_id) : "未选择章节";
-  const nodeStatusSummary = useMemo(() => {
-    if (!selectedDetail.data) return null;
-    const status = resolveCatalogNodeStatus(selectedDetail.data);
-    const color = status.primary_state === "blocked"
-      ? "red"
-      : ["needs_content", "needs_video", "sync_attention"].includes(status.primary_state)
-        ? "gold"
-        : status.primary_state === "published"
-          ? "green"
-          : "default";
-    return <Tag color={color}>{status.primary_label || catalogNodePrimaryStateLabel(status.primary_state)}</Tag>;
-  }, [selectedDetail.data]);
+
+  const resetWorkspace = () => {
+    setSelectedNodeId(null);
+    setSearchText("");
+    setStatusFilter("all");
+    setReuseSearchText("");
+    setCopySourceSearchText("");
+    setCreateIntent(null);
+    setCopyIntent(null);
+    setCopyChapterId(undefined);
+    setCopyParentId(null);
+    createForm.resetFields();
+    copyForm.resetFields();
+    setWorkspaceResetVersion((version) => version + 1);
+  };
 
   const openCreate = (kind: CatalogNodeKind, parentId?: string | null) => {
     if (!chapterId) return;
@@ -393,12 +395,9 @@ export function CatalogTreeWorkspacePage() {
         title="章节目录与点位工作台"
         description="在当前章节下维护多级目录和视频点位，目录负责分组导航，点位负责学习内容。"
         extra={
-          <Space wrap>
-            {nodeStatusSummary}
-            <Button icon={<ReloadOutlined />} onClick={() => roots.refetch()}>
-              刷新
-            </Button>
-          </Space>
+          <Button icon={<RotateCcw size={16} />} onClick={resetWorkspace}>
+            重置工作台
+          </Button>
         }
       />
 
@@ -468,6 +467,7 @@ export function CatalogTreeWorkspacePage() {
           <CatalogTreeNodeList
             nodes={rootItems}
             treeScopeKey={chapterId || ""}
+            resetVersion={workspaceResetVersion}
             selectedNodeId={selectedNodeId}
             loading={roots.isLoading}
             error={roots.error}

@@ -842,6 +842,7 @@
   color: var(--sysu-primary);
   display: grid;
   place-items: center;
+  transform: translateY(2px);
 }
 
 .catalog-editor-kind-icon.is-point {
@@ -878,7 +879,9 @@
 }
 
 .catalog-editor-title-edit.ant-btn .anticon {
+  display: inline-flex;
   font-size: 17px;
+  transform: translateY(1px);
 }
 
 .catalog-editor-title-edit.ant-btn:hover,
@@ -1307,6 +1310,14 @@
 
 .catalog-editor-tabs > .ant-tabs-content-holder {
   min-width: 0;
+}
+
+.catalog-editor-direct-panel {
+  min-width: 0;
+  border: 1px solid var(--sysu-line);
+  border-radius: 8px;
+  background: #fff;
+  overflow: hidden;
 }
 
 .catalog-editor-section {

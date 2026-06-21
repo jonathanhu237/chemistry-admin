@@ -401,14 +401,11 @@ export function CatalogNodeContentPanel({
       <section className="catalog-editor-section catalog-editor-panel-section">
         <div className="catalog-panel-title-row catalog-content-title-row">
           <div>
-            <Title level={4}>基础信息</Title>
-            <Text type="secondary">目录负责学生端导航与分类，不承载点位知识或视频绑定。</Text>
+            <Title level={4}>目录信息</Title>
+            <Text type="secondary">目录负责学生端导航与分类，不承载点位知识或视频绑定。编辑内容会自动保存；停止编辑 30 秒或连续编辑 3 分钟进行资源同步。</Text>
           </div>
           <div className="catalog-content-autosave-actions">{autoSavePill}</div>
         </div>
-        <Text className="catalog-content-sync-note" type="secondary">
-          内容会自动保存；ES/RAG 会在停止编辑约 30 秒后合并同步，连续编辑时 3 分钟内至少同步一次。
-        </Text>
         <Form
           form={nodeForm}
           layout="vertical"
@@ -417,8 +414,8 @@ export function CatalogNodeContentPanel({
           <Form.Item name="node_kind" hidden>
             <Input />
           </Form.Item>
-          <Form.Item name="title" label="目录标题" rules={[{ required: true, message: "请输入目录标题" }]}>
-            <Input />
+          <Form.Item name="title" hidden>
+            <Input type="hidden" />
           </Form.Item>
           <Form.Item name="teacher_note" label="教学备注" extra="仅教师端可见，不进入学生端、学生搜索或题目证据链。">
             <Input.TextArea className="catalog-teacher-note" autoSize={{ minRows: 2, maxRows: 5 }} />
@@ -432,7 +429,7 @@ export function CatalogNodeContentPanel({
     <section className={`catalog-editor-section catalog-editor-panel-section ${variant === "task" ? "is-task-window" : ""}`}>
       <div className="catalog-panel-title-row catalog-content-title-row">
         <div>
-          <Title level={4}>内容</Title>
+          <Title level={4}>知识内容</Title>
           <Text type="secondary">维护教师备注、实验原理、现象解释和安全提示。 编辑内容会自动保存；停止编辑 30 秒或连续编辑 3 分钟进行资源同步。</Text>
         </div>
         <div className="catalog-content-autosave-actions">{autoSavePill}</div>

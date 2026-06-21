@@ -123,14 +123,16 @@ The right editor SHALL show primary authoring panels based on whether the select
 
 #### Scenario: Directory node is selected
 - **WHEN** a directory node is selected
-- **THEN** the editor MUST show only the `内容` primary authoring panel for that directory
-- **AND** the directory primary panel MUST focus on directory title and teacher-only teaching note where applicable
+- **THEN** the editor MUST show a direct `目录信息` authoring surface without a tab selector
+- **AND** the directory surface MUST explain that directories provide student navigation and classification, and do not own point knowledge content or video binding
+- **AND** directory title editing MUST remain in the selected-node header instead of appearing as a duplicate content-body field
+- **AND** the directory primary surface MUST focus on teacher-only teaching note where applicable
 - **AND** it MUST NOT show point principle, video binding, related point links, assessment, search-document controls, node status diagnostics, AI context diagnostics, advanced debug controls, or student-card presentation controls as primary tabs.
 
 #### Scenario: Point node is selected
 - **WHEN** a point node is selected
-- **THEN** the editor MUST show exactly the primary configuration tabs `内容`, `视频`, and `相关实验`
-- **AND** those tabs MUST respectively own point learning content, the one experiment-video binding, and the ordered related-experiment learning list
+- **THEN** the editor MUST show exactly the primary configuration tabs `知识内容`, `实验视频`, and `相关实验`
+- **AND** those tabs MUST respectively own point knowledge content, the one experiment-video binding, and the ordered related-experiment learning list
 - **AND** the editor MUST NOT show `学生卡片`, `节点状态`, `AI 上下文`, or `高级` as primary configuration tabs.
 
 #### Scenario: Removed node type is selected
@@ -794,7 +796,8 @@ The right editor SHALL present selected-node editing as a focused workspace with
 
 #### Scenario: Directory node default editor opens
 - **WHEN** a teacher selects a directory node
-- **THEN** the default editor view MUST prioritize directory title and teacher-only note where applicable
+- **THEN** the default editor view MUST prioritize `目录信息` guidance and teacher-only note where applicable
+- **AND** directory title editing MUST be available from selected-node header identity controls and MUST NOT be duplicated as a routine content-body input
 - **AND** it MUST NOT show point principle, video binding, related experiment links, assessment, search-document controls, student-card description, card image, card icon, card accent, or card layout as directory-owned fields.
 
 #### Scenario: Teacher needs less-common metadata

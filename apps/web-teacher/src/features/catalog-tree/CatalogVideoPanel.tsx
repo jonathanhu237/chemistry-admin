@@ -403,7 +403,7 @@ export function CatalogVideoPanel({
   if (!isPointCapable(node.node_kind)) {
     return (
       <section className="catalog-editor-section catalog-editor-panel-section">
-        <Title level={4}>视频绑定</Title>
+        <Title level={4}>实验视频</Title>
         <Text type="secondary">目录节点不绑定视频，请选择点位节点维护视频素材。</Text>
       </section>
     );
@@ -429,7 +429,7 @@ export function CatalogVideoPanel({
     <section className="catalog-editor-section catalog-editor-panel-section catalog-video-panel-section">
       <div className="catalog-video-panel-heading">
         <div>
-          <Title level={4}>视频绑定</Title>
+          <Title level={4}>实验视频</Title>
           <Text type="secondary">当前视频会出现在学生学习卡片中；新视频请先到视频资源页上传处理。</Text>
         </div>
         <a className="catalog-video-shortcut-card" href="/videos">

@@ -194,6 +194,7 @@ export function CatalogEditorHeader({
   const summaryItems = pointCapable ? buildPointSummaryItems(detail) : buildDirectorySummaryItems(detail);
   const nodeStatusItem = nodeStatusSummary(detail);
   const primaryAction = catalogHeaderPrimaryAction(detail);
+  const canEditTitle = Boolean(onSaveTitle);
   const activePlacementCount = detail.canonical_point?.active_placement_count ?? node.active_placement_count ?? 0;
   const showSharedExperimentTag = pointCapable && activePlacementCount > 1;
   const [titleEditing, setTitleEditing] = useState(false);
@@ -245,12 +246,17 @@ export function CatalogEditorHeader({
       onOpenVideoPicker?.();
       return;
     }
+    if (primaryAction.key === "preview-student") {
+      onPreviewLearningCard?.();
+      return;
+    }
     if (primaryAction.key === "publish-placement") {
       mutations.changeNodeStatus.mutate({ nodeId: node.node_id, action: "publish", includeSubtree: false });
     }
   };
 
   const startTitleEdit = () => {
+    if (!canEditTitle) return;
     setDraftTitle(title.slice(0, TITLE_MAX_LENGTH));
     setTitleEditing(true);
   };
@@ -320,14 +326,16 @@ export function CatalogEditorHeader({
               ) : (
                 <>
                   <Title level={3}>{title}</Title>
-                  <Button
-                    className="catalog-editor-title-edit"
-                    type="text"
-                    size="small"
-                    icon={<EditOutlined />}
-                    aria-label={pointCapable ? "编辑点位名" : "编辑目录标题"}
-                    onClick={startTitleEdit}
-                  />
+                  {canEditTitle ? (
+                    <Button
+                      className="catalog-editor-title-edit"
+                      type="text"
+                      size="small"
+                      icon={<EditOutlined />}
+                      aria-label={pointCapable ? "编辑点位名" : "编辑目录标题"}
+                      onClick={startTitleEdit}
+                    />
+                  ) : null}
                 </>
               )}
             </div>
@@ -352,7 +360,11 @@ export function CatalogEditorHeader({
               danger={primaryAction.tone === "danger"}
               icon={primaryAction.key === "publish-content" || primaryAction.key === "publish-placement" ? <CheckCircleOutlined /> : undefined}
               onClick={handlePrimaryAction}
-              loading={mutations.changeNodeStatus.isPending || mutations.changePointPublication.isPending}
+              loading={
+                mutations.changeNodeStatus.isPending ||
+                mutations.changePointPublication.isPending ||
+                (primaryAction.key === "preview-student" && Boolean(previewLoading))
+              }
             >
               {primaryAction.label}
             </Button>

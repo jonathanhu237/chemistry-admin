@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { App as AntApp, Button, Dropdown, Flex, Spin, Typography, type MenuProps } from "antd";
+import { App as AntApp, Button, Dropdown, Flex, Spin, Tooltip, Typography, type MenuProps } from "antd";
 import { Tree, type DragPreviewProps, type MoveHandler, type NodeRendererProps, type TreeApi } from "react-arborist";
-import { Copy, Folder, FlaskConical, Plus } from "lucide-react";
+import { Copy, Folder, FlaskConical, Plus, RefreshCw } from "lucide-react";
 
 import { listCatalogChildren, type CatalogNodeCard, type CatalogNodeMovePayload } from "../../api/catalogTree";
 import { QueryState } from "../../components/QueryState";
@@ -89,6 +89,7 @@ export function CatalogTreeNodeList({
   onRefreshRoots,
   onChangeStatus,
   statusFilter = "all",
+  resetVersion = 0,
   refreshedChildrenParentId,
   refreshedChildren,
 }: {
@@ -107,27 +108,32 @@ export function CatalogTreeNodeList({
   onRefreshRoots?: () => Promise<unknown> | unknown;
   onChangeStatus: (node: CatalogNodeCard, action: "archive" | "restore" | "publish" | "unpublish") => void;
   statusFilter?: CatalogStatusFilter;
+  resetVersion?: number;
   refreshedChildrenParentId?: string | null;
   refreshedChildren?: CatalogNodeCard[];
 }) {
   const { message } = AntApp.useApp();
   const [treeData, setTreeData] = useState<CatalogTreeDataNode[]>([]);
   const [loadingDirectoryIds, setLoadingDirectoryIds] = useState<Set<string>>(() => new Set());
+  const [refreshingTree, setRefreshingTree] = useState(false);
   const loadingDirectoryIdsRef = useRef<Set<string>>(new Set());
   const previousTreeScopeKeyRef = useRef(treeScopeKey);
+  const previousResetVersionRef = useRef(resetVersion);
   const [treeBoxRef, treeBoxSize] = useElementSize<HTMLDivElement>();
   const arboristRef = useRef<TreeApi<CatalogArboristNode> | null>(null);
 
   useEffect(() => {
     const scopeChanged = previousTreeScopeKeyRef.current !== treeScopeKey;
-    if (scopeChanged) {
+    const resetChanged = previousResetVersionRef.current !== resetVersion;
+    if (scopeChanged || resetChanged) {
       previousTreeScopeKeyRef.current = treeScopeKey;
+      previousResetVersionRef.current = resetVersion;
       loadingDirectoryIdsRef.current.clear();
       setLoadingDirectoryIds(new Set());
     }
     const scopedNodes = nodes.filter((node) => node.chapter_id === treeScopeKey);
-    setTreeData((previous) => mergeCatalogTreeData(scopedNodes, scopeChanged ? [] : previous));
-  }, [nodes, treeScopeKey]);
+    setTreeData((previous) => mergeCatalogTreeData(scopedNodes, scopeChanged || resetChanged ? [] : previous));
+  }, [nodes, resetVersion, treeScopeKey]);
 
   useEffect(() => {
     if (!refreshedChildrenParentId || !refreshedChildren) return;
@@ -262,6 +268,24 @@ export function CatalogTreeNodeList({
   const dragPreviewNodesById = useMemo(() => collectCatalogTreeNodes(treeData), [treeData]);
   const visibleTreeData = useMemo(() => filterCatalogTreeNodes(treeData, statusFilter), [statusFilter, treeData]);
 
+  const refreshCatalogTree = useCallback(async () => {
+    if (!onRefreshRoots || refreshingTree) return;
+    const loadedDirectoryIds = Array.from(collectCatalogTreeNodes(treeData).values())
+      .filter((node) => node.kind === "directory" && node.loaded)
+      .map((node) => node.id);
+    setRefreshingTree(true);
+    try {
+      await onRefreshRoots();
+      for (const nodeId of loadedDirectoryIds) {
+        await loadDirectory(nodeId, { force: true });
+      }
+    } catch (caught) {
+      message.error(`目录树刷新失败：${errorMessage(caught)}`);
+    } finally {
+      setRefreshingTree(false);
+    }
+  }, [loadDirectory, message, onRefreshRoots, refreshingTree, treeData]);
+
   const NodeRenderer = useMemo(
     () =>
       function CatalogTreeNodeRenderer(props: NodeRendererProps<CatalogArboristNode>) {
@@ -291,30 +315,43 @@ export function CatalogTreeNodeList({
     <div className="catalog-tree-list">
       <Flex align="center" justify="space-between" className="catalog-tree-list-header">
         <Text strong>章节目录树</Text>
-        <Dropdown
-          trigger={["click"]}
-          menu={{
-            items: addRootItems,
-            onClick: ({ key }) => {
-              if (key === "copy-directory") {
-                onCopyInto(null, "directory");
-                return;
-              }
-              if (key === "copy-point") {
-                onCopyInto(null, "point");
-                return;
-              }
-              onAddRoot(key as CatalogNodeCard["node_kind"]);
-            },
-          }}
-        >
-          <Button size="small" type="text" icon={<Plus size={17} />} aria-label="添加到本章" title="添加到本章" />
-        </Dropdown>
+        <Flex align="center" gap={4}>
+          <Tooltip title="刷新目录树">
+            <Button
+              size="small"
+              type="text"
+              icon={<RefreshCw size={16} />}
+              aria-label="刷新目录树"
+              loading={refreshingTree}
+              disabled={!onRefreshRoots}
+              onClick={() => void refreshCatalogTree()}
+            />
+          </Tooltip>
+          <Dropdown
+            trigger={["click"]}
+            menu={{
+              items: addRootItems,
+              onClick: ({ key }) => {
+                if (key === "copy-directory") {
+                  onCopyInto(null, "directory");
+                  return;
+                }
+                if (key === "copy-point") {
+                  onCopyInto(null, "point");
+                  return;
+                }
+                onAddRoot(key as CatalogNodeCard["node_kind"]);
+              },
+            }}
+          >
+            <Button size="small" type="text" icon={<Plus size={17} />} aria-label="添加到本章" title="添加到本章" />
+          </Dropdown>
+        </Flex>
       </Flex>
       <QueryState loading={Boolean(loading)} error={error} empty={!nodes.length || !visibleTreeData.length}>
         <div ref={treeBoxRef} className="catalog-arborist-shell">
           <Tree<CatalogArboristNode>
-            key={treeScopeKey}
+            key={`${treeScopeKey}:${resetVersion}`}
             ref={arboristRef}
             aria-label="章节目录树"
             className="catalog-arborist-tree"

@@ -250,25 +250,26 @@ export function CatalogTreeEditor({
   }
 
   const visibleTabKeys = catalogEditorTabKeysForNode(node?.node_kind);
+  const contentPanel = (
+    <CatalogNodeContentPanel
+      detail={detail}
+      nodeForm={nodeForm}
+      pointForm={pointForm}
+      principleMode={principleMode}
+      mutations={mutations}
+      onSavePointContent={savePointContent}
+    />
+  );
   const allTabItems: NonNullable<TabsProps["items"]> = [
     {
       key: "content",
-      label: "内容",
+      label: "知识内容",
       forceRender: true,
-      children: (
-        <CatalogNodeContentPanel
-          detail={detail}
-          nodeForm={nodeForm}
-          pointForm={pointForm}
-          principleMode={principleMode}
-          mutations={mutations}
-          onSavePointContent={savePointContent}
-        />
-      ),
+      children: contentPanel,
     },
     {
       key: "video",
-      label: "视频",
+      label: "实验视频",
       forceRender: true,
       children: (
           <CatalogVideoPanel
@@ -334,13 +335,17 @@ export function CatalogTreeEditor({
             onPublishPointContent={publishPointContentFromHeader}
             onSaveTitle={saveTitleFromHeader}
           />
-          <Tabs
-            className="catalog-editor-tabs"
-            activeKey={activeTab}
-            onChange={(key) => setActiveTab(key as CatalogEditorTabKey)}
-            destroyOnHidden={false}
-            items={tabItems}
-          />
+          {pointCapable ? (
+            <Tabs
+              className="catalog-editor-tabs"
+              activeKey={activeTab}
+              onChange={(key) => setActiveTab(key as CatalogEditorTabKey)}
+              destroyOnHidden={false}
+              items={tabItems}
+            />
+          ) : (
+            <div className="catalog-editor-direct-panel">{contentPanel}</div>
+          )}
           <Modal
             title={diagnosticsTitle}
             open={Boolean(diagnosticsPanel)}

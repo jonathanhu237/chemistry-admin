@@ -41,3 +41,4 @@
 - [x] 6.4 Add ES worker tests for current-document rebuild, hash no-op, hash change upsert, and delete behavior when visibility is removed.
 - [x] 6.5 Add frontend tests or contract checks for autosave labels, removal of manual save buttons, and the 30 second/3 minute sync explanation.
 - [x] 6.6 Run focused backend pytest, teacher frontend typecheck/tests, and `openspec validate decouple-catalog-autosave-es-sync --strict`.
+- [x] 6.7 Run real Docker e2e against backend, Postgres, and Elasticsearch with a temporary published catalog point; verify soft autosave upsert scheduling, 30 second quiet window, 3 minute coalescing bound, teacher-note-only no-op, ES worker success, and zero leftover temporary DB/ES resources after cleanup.

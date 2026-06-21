@@ -161,6 +161,11 @@ The admin frontend SHALL implement selected-node title-card and tab-view refinem
 - **THEN** the change MUST preserve the existing tab item filtering and active-tab behavior
 - **AND** it MUST NOT require route shell, backend API, or global design-system rewrites.
 
+#### Scenario: Developer changes catalog authoring panel labels or directory surface
+- **WHEN** a developer changes the selected-node authoring labels or the directory-only editor surface
+- **THEN** point tab labels and directory direct-panel behavior MUST remain localized to catalog-tree editor, panel, and feature CSS modules
+- **AND** directory title editing MUST continue to use the selected-node header identity controls rather than a duplicate routine content-body field.
+
 #### Scenario: Developer verifies the refined editor presentation
 - **WHEN** the title-card and tab-view refinements are implemented
 - **THEN** focused verification MUST cover at least one selected directory or point state

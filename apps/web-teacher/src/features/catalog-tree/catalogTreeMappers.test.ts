@@ -9,6 +9,7 @@ import {
   catalogNodeActionCount,
   catalogStatusColor,
   catalogStatusDotClass,
+  catalogStatusFilterOptions,
   catalogNodePrimaryStateClass,
   catalogNodeStatusTooltip,
   catalogStatusLabel,
@@ -279,6 +280,18 @@ describe("catalog tree mappers", () => {
     expect(catalogStatusColor("draft")).toBe("default");
   });
 
+  it("keeps published and unpublished filters paired in the sidebar", () => {
+    expect(catalogStatusFilterOptions.map((option) => option.label)).toEqual([
+      "全部",
+      "待处理",
+      "缺内容",
+      "缺视频",
+      "已发布",
+      "未发布",
+      "同步异常",
+    ]);
+  });
+
   it("uses backend node status as the authoritative tree status", () => {
     const detail = {
       node: {
@@ -327,7 +340,7 @@ describe("catalog tree mappers", () => {
       },
     } as unknown as CatalogNodeDetail;
 
-    expect(catalogHeaderPrimaryAction(baseDetail)).toBeNull();
+    expect(catalogHeaderPrimaryAction(baseDetail)).toMatchObject({ key: "preview-student", label: "预览学生端" });
     expect(
       catalogHeaderPrimaryAction({
         ...baseDetail,
@@ -368,6 +381,28 @@ describe("catalog tree mappers", () => {
         },
       }),
     ).toMatchObject({ key: "bind-video", label: "绑定视频" });
+  });
+
+  it("uses student preview as the selected directory fallback primary action", () => {
+    const detail = {
+      node: {
+        node_id: "cat-dir-1",
+        title: "四、氯的歧化反应",
+        node_kind: "directory",
+        status: "published",
+        node_status: {
+          primary_state: "published",
+          primary_label: "已发布",
+          primary_reason: "目录已发布",
+          core_readiness: { content_fields: "not_applicable", video: "not_applicable", missing_fields: [] },
+          visibility: { placement: "published", shared_content: "not_applicable", student_available: true },
+          async_consumption: { search_index: "idle", ai_evidence: "idle" },
+          conditions: [],
+        },
+      },
+    } as unknown as CatalogNodeDetail;
+
+    expect(catalogHeaderPrimaryAction(detail)).toMatchObject({ key: "preview-student", label: "预览学生端" });
   });
 
   it("falls back to binary video readiness when node_status is absent", () => {
@@ -434,5 +469,49 @@ describe("catalog tree mappers", () => {
     expect(matchesCatalogNodeStatusFilter(directory, "needs_video")).toBe(false);
     expect(matchesCatalogNodeStatusFilter(directory, "sync_attention")).toBe(true);
     expect(catalogNodeActionCount(directory)).toBe(3);
+  });
+
+  it("matches unpublished filter for draft, ready, and aggregate unpublished states", () => {
+    const draftNode = {
+      node_id: "cat-draft",
+      title: "Draft directory",
+      node_kind: "directory",
+      status: "draft",
+      validation: { ok: true, errors: [], warnings: [] },
+    } as never;
+    const readyNode = {
+      node_id: "cat-ready",
+      title: "Ready point",
+      node_kind: "point",
+      status: "draft",
+      has_point_content: true,
+      media_count: 1,
+      validation: { ok: true, errors: [], warnings: [] },
+    } as never;
+    const aggregateNode = {
+      node_id: "cat-aggregate",
+      title: "Published directory with draft descendants",
+      node_kind: "directory",
+      status: "published",
+      node_status: {
+        primary_state: "published",
+        primary_label: "已发布",
+        primary_reason: "目录已发布",
+        core_readiness: {
+          content_fields: "not_applicable",
+          video: "not_applicable",
+          missing_fields: [],
+          descendant_status_counts: { draft: 1 },
+        },
+        visibility: { placement: "published", shared_content: "not_applicable", student_available: true },
+        async_consumption: { search_index: "not_applicable", ai_evidence: "not_applicable" },
+        conditions: [],
+      },
+    } as never;
+
+    expect(matchesCatalogNodeStatusFilter(draftNode, "unpublished")).toBe(true);
+    expect(matchesCatalogNodeStatusFilter(readyNode, "unpublished")).toBe(true);
+    expect(matchesCatalogNodeStatusFilter(aggregateNode, "unpublished")).toBe(true);
+    expect(matchesCatalogNodeStatusFilter(aggregateNode, "published")).toBe(true);
   });
 });
