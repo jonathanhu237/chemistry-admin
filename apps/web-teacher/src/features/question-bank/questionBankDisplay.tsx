@@ -7,6 +7,31 @@ import type {
 } from "../../api/questionBank";
 import { statusTag } from "../../lib/status";
 
+export type DisplayQuestionPoint = {
+  point_node_id: string;
+  source_placement_node_id: string;
+  canonical_point_id: string;
+  point_key: string;
+  point_title: string;
+};
+
+function pointDisplayTitle(point: {
+  point_title?: string;
+  point_key?: string;
+  canonical_point_id?: string;
+  source_placement_node_id?: string;
+  point_node_id?: string;
+}) {
+  return (
+    point.point_title ||
+    point.point_key ||
+    point.canonical_point_id ||
+    point.source_placement_node_id ||
+    point.point_node_id ||
+    ""
+  );
+}
+
 export function questionTypeLabel(type?: string) {
   if (type === "single_choice") return "??";
   if (type === "true_false") return "??";
@@ -43,30 +68,44 @@ export function sourceRefLabel(ref: Record<string, unknown>) {
   return `${file}${page}${section}`;
 }
 
-export function questionPoints(question: Question) {
+export function questionPoints(question: Question): DisplayQuestionPoint[] {
   const points = question.metadata?.primary_points || [];
   if (points.length) {
     return points
       .map((point) => ({
         point_node_id: String(point.point_node_id || "").trim(),
+        source_placement_node_id: String(point.source_placement_node_id || point.point_node_id || "").trim(),
+        canonical_point_id: String(point.canonical_point_id || "").trim(),
         point_key: String(point.point_key || "").trim(),
-        point_title: String(point.point_title || point.point_key || point.point_node_id || "").trim(),
+        point_title: pointDisplayTitle(point).trim(),
       }))
-      .filter((point) => point.point_node_id || point.point_key || point.point_title);
+      .filter((point) => point.point_node_id || point.source_placement_node_id || point.canonical_point_id || point.point_key || point.point_title);
   }
   const nodeIds = question.metadata?.primary_point_node_ids || [];
   if (nodeIds.length) {
     return nodeIds
-      .map((id) => ({ point_node_id: String(id), point_key: "", point_title: String(id) }))
+      .map((id) => ({
+        point_node_id: String(id),
+        source_placement_node_id: String(id),
+        canonical_point_id: "",
+        point_key: "",
+        point_title: String(id),
+      }))
       .filter((point) => point.point_node_id);
   }
+  const canonicalIds = question.metadata?.primary_canonical_point_ids || [];
+  if (canonicalIds.length) {
+    return canonicalIds
+      .map((id) => ({ point_node_id: "", source_placement_node_id: "", canonical_point_id: String(id), point_key: "", point_title: String(id) }))
+      .filter((point) => point.canonical_point_id);
+  }
   return (question.metadata?.primary_point_keys || [])
-    .map((key) => ({ point_node_id: "", point_key: String(key), point_title: String(key) }))
+    .map((key) => ({ point_node_id: "", source_placement_node_id: "", canonical_point_id: "", point_key: String(key), point_title: String(key) }))
     .filter((point) => point.point_key);
 }
 
 export function questionPointTitles(question: Question) {
-  return questionPoints(question).map((point) => point.point_title || point.point_key || point.point_node_id).filter(Boolean);
+  return questionPoints(question).map(pointDisplayTitle).filter(Boolean);
 }
 
 export function candidatePayload(candidate: QuestionWorkbenchCandidate) {
@@ -81,26 +120,40 @@ export function candidateQuestionType(candidate: QuestionWorkbenchCandidate) {
   return String(candidatePayload(candidate).question_type || "");
 }
 
-export function candidateQuestionPoints(candidate: QuestionWorkbenchCandidate) {
+export function candidateQuestionPoints(candidate: QuestionWorkbenchCandidate): DisplayQuestionPoint[] {
   const metadata = candidatePayload(candidate).metadata || {};
   const points = Array.isArray(metadata.primary_points) ? metadata.primary_points : [];
   if (points.length) {
     return points
       .map((point) => ({
         point_node_id: String(point?.point_node_id || "").trim(),
+        source_placement_node_id: String(point?.source_placement_node_id || point?.point_node_id || "").trim(),
+        canonical_point_id: String(point?.canonical_point_id || "").trim(),
         point_key: String(point?.point_key || "").trim(),
-        point_title: String(point?.point_title || point?.point_key || point?.point_node_id || "").trim(),
+        point_title: pointDisplayTitle(point || {}).trim(),
       }))
-      .filter((point) => point.point_node_id || point.point_key || point.point_title);
+      .filter((point) => point.point_node_id || point.source_placement_node_id || point.canonical_point_id || point.point_key || point.point_title);
   }
   const nodeIds = Array.isArray(metadata.primary_point_node_ids) ? metadata.primary_point_node_ids : [];
   if (nodeIds.length) {
     return nodeIds
-      .map((id) => ({ point_node_id: String(id), point_key: "", point_title: String(id) }))
+      .map((id) => ({
+        point_node_id: String(id),
+        source_placement_node_id: String(id),
+        canonical_point_id: "",
+        point_key: "",
+        point_title: String(id),
+      }))
       .filter((point) => point.point_node_id);
   }
+  const canonicalIds = Array.isArray(metadata.primary_canonical_point_ids) ? metadata.primary_canonical_point_ids : [];
+  if (canonicalIds.length) {
+    return canonicalIds
+      .map((id) => ({ point_node_id: "", source_placement_node_id: "", canonical_point_id: String(id), point_key: "", point_title: String(id) }))
+      .filter((point) => point.canonical_point_id);
+  }
   const keys = Array.isArray(metadata.primary_point_keys) ? metadata.primary_point_keys : [];
-  return keys.map((key) => ({ point_node_id: "", point_key: String(key), point_title: String(key) })).filter((point) => point.point_key);
+  return keys.map((key) => ({ point_node_id: "", source_placement_node_id: "", canonical_point_id: "", point_key: String(key), point_title: String(key) })).filter((point) => point.point_key);
 }
 
 export function candidateValidationErrors(candidate: QuestionWorkbenchCandidate) {
@@ -114,7 +167,13 @@ export function candidateValidationErrors(candidate: QuestionWorkbenchCandidate)
 export function questionHasAnyPoint(question: Question, pointKeys: string[]) {
   if (!pointKeys.length) return true;
   const selected = new Set(pointKeys);
-  return questionPoints(question).some((point) => selected.has(point.point_node_id) || selected.has(point.point_key));
+  return questionPoints(question).some(
+    (point) =>
+      selected.has(point.point_node_id) ||
+      selected.has(point.source_placement_node_id) ||
+      selected.has(point.canonical_point_id) ||
+      selected.has(point.point_key),
+  );
 }
 
 export function evidenceStatusTag(question: Question) {

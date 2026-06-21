@@ -7,6 +7,7 @@ MIGRATION = Path("server/migrations/020_experiment_catalog_tree.sql")
 SEPARATE_NODE_KIND_MIGRATION = Path("server/migrations/021_separate_catalog_directory_point_nodes.sql")
 REACTION_EQUATION_MIGRATION = Path("server/migrations/023_catalog_point_reaction_equations.sql")
 POINT_JOBS_MIGRATION = Path("server/migrations/024_catalog_point_jobs.sql")
+POINT_PLACEMENTS_MIGRATION = Path("server/migrations/025_catalog_point_placements.sql")
 
 
 def _sql() -> str:
@@ -23,6 +24,10 @@ def _reaction_equation_sql() -> str:
 
 def _point_jobs_sql() -> str:
     return POINT_JOBS_MIGRATION.read_text(encoding="utf-8")
+
+
+def _point_placements_sql() -> str:
+    return POINT_PLACEMENTS_MIGRATION.read_text(encoding="utf-8")
 
 
 def test_catalog_tree_migration_uses_deterministic_legacy_identity_mapping() -> None:
@@ -139,3 +144,26 @@ def test_catalog_point_jobs_migration_uses_postgres_outbox_and_catalog_node_evid
     assert "evidence_status IN ('missing', 'pending', 'running', 'succeeded', 'failed', 'stale', 'disabled', 'unavailable')" in sql
     assert "CREATE TABLE IF NOT EXISTS experiment_catalog_point_evidence_bindings" in sql
     assert "chunk_id text NOT NULL REFERENCES source_chunks(id) ON DELETE RESTRICT" in sql
+
+
+def test_catalog_point_placements_migration_adds_canonical_identity_and_resource_bridges() -> None:
+    sql = _point_placements_sql()
+
+    assert "CREATE TABLE IF NOT EXISTS experiment_catalog_points" in sql
+    assert "ADD COLUMN IF NOT EXISTS canonical_point_id text REFERENCES experiment_catalog_points" in sql
+    assert "row_number() OVER" in sql
+    assert "PARTITION BY canonical_point_id" in sql
+    assert "experiment_catalog_point_identity_map" in sql
+    assert "grouping_decision" in sql
+    assert "'question_reference_rows'" in sql
+    assert "ALTER TABLE experiment_questions" in sql
+    assert "primary_canonical_point_ids text[] NOT NULL DEFAULT '{}'" in sql
+    assert "source_placement_node_ids text[] NOT NULL DEFAULT '{}'" in sql
+    assert "ALTER TABLE experiment_question_attempts" in sql
+    assert "canonical_point_id text REFERENCES experiment_catalog_points" in sql
+    assert "ALTER TABLE student_posttest_sessions" in sql
+    assert "canonical_point_ids jsonb NOT NULL DEFAULT '[]'::jsonb" in sql
+    assert "idx_experiment_catalog_nodes_canonical_point" in sql
+    assert "idx_experiment_catalog_point_placement_parent_canonical" in sql
+    assert "node_kind = 'point' AND canonical_point_id IS NOT NULL" in sql
+    assert "node_kind = 'directory' AND canonical_point_id IS NULL" in sql

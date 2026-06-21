@@ -85,6 +85,8 @@ def student_point_detail(*, node_id: str) -> dict[str, Any]:
             raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Point node not available")
         if not point_capable(node):
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Catalog node is not a point")
+        if node.get("canonical_point_status") == "archived":
+            raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Point node not available")
         content = get_content(session, node["node_id"])
         if not content or content.get("content_status") != "published":
             raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Point content not available")
@@ -93,8 +95,10 @@ def student_point_detail(*, node_id: str) -> dict[str, Any]:
         related = related_links(session, node["node_id"], include_hidden=False, include_defaults=True)
         return {
             "node_id": node["node_id"],
-            "canonical_node_id": node["node_id"],
+            "canonical_node_id": node.get("canonical_point_id") or node["node_id"],
             "source_node_id": None,
+            "placement_node_id": node["node_id"],
+            "canonical_point_id": node.get("canonical_point_id") or node["node_id"],
             "chapter_id": node["chapter_id"],
             "title": content.get("point_title") or node["title"],
             "summary": node.get("summary") or "",
@@ -112,6 +116,8 @@ def student_point_detail(*, node_id: str) -> dict[str, Any]:
             "related_points": [
                 {
                     "node_id": link["target_node_id"],
+                    "placement_node_id": link.get("target_placement_node_id") or link["target_node_id"],
+                    "canonical_point_id": link.get("target_canonical_point_id"),
                     "title": link["target_title"],
                     "relation_type": link["relation_type"],
                     "source_node_id": node_id,
@@ -121,6 +127,8 @@ def student_point_detail(*, node_id: str) -> dict[str, Any]:
             ],
             "assessment_context": {
                 "point_node_id": node["node_id"],
+                "placement_node_id": node["node_id"],
+                "canonical_point_id": node.get("canonical_point_id") or node["node_id"],
                 "chapter_id": node["chapter_id"],
                 "source_node_id": None,
                 "catalog_path": path,

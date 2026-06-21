@@ -32,6 +32,8 @@ export type SourceRef = {
 
 export type QuestionPoint = {
   point_node_id?: string;
+  source_placement_node_id?: string;
+  canonical_point_id?: string;
   point_key?: string;
   point_title?: string;
 };
@@ -40,6 +42,8 @@ export type QuestionOptionLink = {
   label?: string;
   role?: string;
   point_node_id?: string;
+  source_placement_node_id?: string;
+  canonical_point_id?: string;
   point_key?: string;
   point_title?: string;
   diagnostic_note?: string;
@@ -68,6 +72,8 @@ export type Question = {
     point_aware_question_bank?: boolean;
     suggestion_intent?: "add_questions" | "repair_question" | string;
     primary_point_node_ids?: string[];
+    primary_canonical_point_ids?: string[];
+    source_placement_node_ids?: string[];
     primary_point_keys?: string[];
     primary_points?: QuestionPoint[];
     secondary_point_node_ids?: string[];
@@ -84,6 +90,8 @@ export type Question = {
       evidence_contract?: string;
       evidence_source?: string;
       target_point_node_ids?: string[];
+      target_canonical_point_ids?: string[];
+      source_placement_node_ids?: string[];
       canonical_chunk_ids?: string[];
       supporting_theory_chunk_ids?: string[];
       reviewer_note?: string;
@@ -94,6 +102,8 @@ export type Question = {
       evidence_contract?: string;
       evidence_source?: string;
       target_point_node_ids?: string[];
+      target_canonical_point_ids?: string[];
+      source_placement_node_ids?: string[];
       source_ref_count?: number;
       [key: string]: unknown;
     };
@@ -179,6 +189,8 @@ export type PointAwareSuggestionRequest = {
   question_id?: string | null;
   point_node_id?: string | null;
   point_node_ids?: string[];
+  primary_canonical_point_ids?: string[];
+  source_placement_node_ids?: string[];
   point_key?: string | null;
   point_keys?: string[];
   question_types?: Question["question_type"][];
@@ -234,6 +246,8 @@ export type QuestionWorkbenchSession = {
   experiment_code?: string;
   experiment_title?: string;
   point_node_id?: string | null;
+  source_placement_node_id?: string | null;
+  canonical_point_id?: string | null;
   point_key?: string | null;
   question_id?: string | null;
   original_question_snapshot?: Partial<Question> & Record<string, unknown>;
@@ -247,6 +261,8 @@ export type QuestionWorkbenchSession = {
     selected_point?: QuestionPoint | null;
     target_points?: QuestionPoint[];
     target_point_node_ids?: string[];
+    target_canonical_point_ids?: string[];
+    source_placement_node_ids?: string[];
     target_point_keys?: string[];
     catalog_point_contexts?: Array<Record<string, unknown>>;
     source_refs?: SourceRef[];

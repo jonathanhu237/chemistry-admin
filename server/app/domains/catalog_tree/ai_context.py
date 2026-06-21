@@ -41,6 +41,8 @@ def catalog_point_ai_context(*, node_id: str) -> dict[str, Any]:
     return {
         "teacher_only": True,
         "node_id": node_id,
+        "placement_node_id": node_id,
+        "canonical_point_id": node.get("canonical_point_id") or node_id,
         "point_title": point_title,
         "catalog_path": path,
         "catalog_path_text": " / ".join(item.get("title") or "" for item in path if item.get("title")),
@@ -236,6 +238,8 @@ def catalog_point_static_evidence_package(*, point_node_id: str) -> dict[str, An
         "evidence_source": "catalog_node_static_evidence",
         "static_evidence_role": "fallback_or_supplemental",
         "point_node_id": point_node_id,
+        "placement_node_id": point_node_id,
+        "canonical_point_id": node.get("canonical_point_id") or point_node_id,
         "point_title": clean(content.get("point_title")) or clean(node.get("title")),
         "catalog_path": [item.get("title") for item in path if item.get("title")],
         "chunk_ids": [str(item.get("chunk_id")) for item in bindings if item.get("chunk_id")],
@@ -352,11 +356,22 @@ def _evidence_state(session: Any, *, node_id: str) -> dict[str, Any]:
         session.execute(
             text(
                 """
-                SELECT node_id, evidence_status, source_mode, trigger_policy,
-                       selected_chunk_ids, source_refs, diagnostics, stale_reason,
-                       latest_error, refreshed_at, stale_at, last_attempted_at, updated_at
-                FROM experiment_catalog_point_evidence_state
-                WHERE node_id = :node_id
+                WITH source AS (
+                  SELECT id, canonical_point_id
+                  FROM experiment_catalog_nodes
+                  WHERE id = :node_id
+                )
+                SELECT es.node_id, es.canonical_point_id, es.source_placement_node_id,
+                       es.evidence_status, es.source_mode, es.trigger_policy,
+                       es.selected_chunk_ids, es.source_refs, es.diagnostics, es.stale_reason,
+                       es.latest_error, es.refreshed_at, es.stale_at, es.last_attempted_at, es.updated_at
+                FROM experiment_catalog_point_evidence_state es
+                JOIN source ON true
+                WHERE es.node_id = :node_id
+                   OR (source.canonical_point_id IS NOT NULL AND es.canonical_point_id = source.canonical_point_id)
+                ORDER BY CASE WHEN es.canonical_point_id = source.canonical_point_id THEN 0 ELSE 1 END,
+                         es.updated_at DESC
+                LIMIT 1
                 """
             ),
             {"node_id": node_id},
@@ -367,6 +382,8 @@ def _evidence_state(session: Any, *, node_id: str) -> dict[str, Any]:
     if not row:
         return {
             "node_id": node_id,
+            "canonical_point_id": node_id,
+            "source_placement_node_id": node_id,
             "evidence_status": "missing",
             "source_mode": "none",
             "trigger_policy": "stale_until_manual_refresh",
@@ -394,8 +411,15 @@ def _evidence_binding_rows(session: Any, *, node_id: str) -> list[dict[str, Any]
         session.execute(
             text(
                 """
+                WITH source AS (
+                  SELECT id, canonical_point_id
+                  FROM experiment_catalog_nodes
+                  WHERE id = :node_id
+                )
                 SELECT b.id::text AS binding_id,
                        b.node_id,
+                       b.canonical_point_id,
+                       b.source_placement_node_id,
                        b.chunk_id,
                        b.evidence_role,
                        b.selection_status,
@@ -420,9 +444,11 @@ def _evidence_binding_rows(session: Any, *, node_id: str) -> list[dict[str, Any]
                        sd.type AS document_type,
                        sd.metadata AS document_metadata
                 FROM experiment_catalog_point_evidence_bindings b
+                JOIN source ON true
                 LEFT JOIN source_chunks sc ON sc.id = b.chunk_id
                 LEFT JOIN source_documents sd ON sd.id = sc.document_id
                 WHERE b.node_id = :node_id
+                   OR (source.canonical_point_id IS NOT NULL AND b.canonical_point_id = source.canonical_point_id)
                 ORDER BY b.freshness_status = 'fresh' DESC,
                          b.selection_status = 'selected' DESC,
                          b.rank,

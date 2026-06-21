@@ -167,6 +167,10 @@ export type StudentCatalogBreadcrumb = {
 
 export type StudentCatalogNodeCard = {
   node_id: string;
+  placement_node_id?: string | null;
+  canonical_point_id?: string | null;
+  canonical_point_title?: string | null;
+  canonical_point_status?: string | null;
   chapter_id: string;
   parent_id?: string | null;
   node_kind: StudentCatalogNodeKind;
@@ -186,6 +190,7 @@ export type StudentCatalogNodeCard = {
   has_point_content: boolean;
   media_count: number;
   published_media_count: number;
+  active_placement_count?: number;
   validation?: Record<string, unknown>;
   index_state?: Record<string, unknown> | null;
 };
@@ -212,6 +217,8 @@ export type StudentPointVideo = {
 
 export type StudentRelatedPoint = {
   node_id: string;
+  placement_node_id?: string | null;
+  canonical_point_id?: string | null;
   title: string;
   relation_type?: string | null;
   source_node_id?: string | null;
@@ -229,6 +236,8 @@ export type StudentPointDetailResponse = {
   node_id: string;
   canonical_node_id: string;
   source_node_id?: string | null;
+  placement_node_id: string;
+  canonical_point_id: string;
   chapter_id: string;
   title: string;
   summary: string;
@@ -246,6 +255,8 @@ export type StudentPointDetailResponse = {
   related_points: StudentRelatedPoint[];
   assessment_context: {
     point_node_id: string;
+    placement_node_id: string;
+    canonical_point_id: string;
     chapter_id: string;
     source_node_id?: string | null;
     catalog_path: StudentCatalogBreadcrumb[];
@@ -295,6 +306,8 @@ export type StudentVideoLibraryRouteTarget = {
   kind: VideoLibraryTargetKind;
   route: string;
   node_id?: string | null;
+  placement_node_id?: string | null;
+  canonical_point_id?: string | null;
   source_node_id?: string | null;
   profile_id?: string | null;
   chapter_id?: string | null;

@@ -14,6 +14,7 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from server.app.domains.catalog_tree.catalog_seed import (
+    CANONICAL_POINT_GROUPS_SEED_PATH,
     CATALOG_SEED_VALIDATION_REPORT_PATH,
     CATALOG_TREE_SEED_PATH,
     EXPECTED_CATALOG_COUNTS,
@@ -84,6 +85,14 @@ EXAMPLE_MAPPINGS: tuple[ExampleMapping, ...] = (
 
 def _slug_hash(value: str) -> str:
     return hashlib.sha1(value.encode("utf-8")).hexdigest()[:16]
+
+
+def _canonical_point_id_from_title(title: str) -> str:
+    return f"cat-canon-title-{_slug_hash(title)[:12]}"
+
+
+def _canonical_point_id_from_seed(seed_key: str) -> str:
+    return f"cat-canon-seed-{_slug_hash(seed_key)[:12]}"
 
 
 def _chapter_title(chapter_number: int, title: str) -> str:
@@ -187,6 +196,102 @@ def parse_catalog_outline(path: Path) -> list[dict[str, Any]]:
         if node["node_kind"] == "unknown":
             node["node_kind"] = "directory" if node["seed_key"] in parent_keys else "point"
     return nodes
+
+
+def build_canonical_point_groups(nodes: list[dict[str, Any]]) -> dict[str, Any]:
+    points = [node for node in nodes if node.get("node_kind") == "point"]
+    by_title: dict[str, list[dict[str, Any]]] = {}
+    for node in points:
+        by_title.setdefault(str(node.get("title") or "").strip(), []).append(node)
+    duplicate_groups = {
+        title: rows
+        for title, rows in by_title.items()
+        if len(rows) > 1
+    }
+    groups: list[dict[str, Any]] = []
+    canonical_points: list[dict[str, Any]] = []
+    for title, rows in sorted(by_title.items(), key=lambda item: (item[0], len(item[1]))):
+        if not title:
+            continue
+        if len(rows) > 1:
+            canonical_point_id = _canonical_point_id_from_title(title)
+            grouping_decision = "reviewed_exact_duplicate_title"
+        else:
+            canonical_point_id = _canonical_point_id_from_seed(str(rows[0]["seed_key"]))
+            grouping_decision = "singleton_point_node"
+        for row in rows:
+            row["placement_node_id"] = row["seed_key"]
+            row["canonical_point_id"] = canonical_point_id
+            row["canonical_point_title"] = title
+            row["placement_kind"] = "catalog_point_placement"
+        placement_seed_keys = [str(row["seed_key"]) for row in rows]
+        canonical_points.append(
+            {
+                "canonical_point_id": canonical_point_id,
+                "title": title,
+                "summary": "",
+                "status": "published",
+                "grouping_decision": grouping_decision,
+                "placement_seed_keys": placement_seed_keys,
+                "placement_paths": [" / ".join(str(part) for part in row.get("path_titles") or []) for row in rows],
+                "source_doc": OUTLINE_SOURCE_LABEL,
+                "metadata": {
+                    "catalog_outline_seed": True,
+                    "grouping_decision": grouping_decision,
+                },
+            }
+        )
+        if len(rows) > 1:
+            groups.append(
+                {
+                    "canonical_point_id": canonical_point_id,
+                    "title": title,
+                    "review_status": "reviewed_current_outline_duplicate",
+                    "grouping_decision": grouping_decision,
+                    "placement_count": len(rows),
+                    "placement_seed_keys": placement_seed_keys,
+                    "placement_paths": [" / ".join(str(part) for part in row.get("path_titles") or []) for row in rows],
+                }
+            )
+    hypochlorite = [
+        node
+        for node in points
+        if node.get("title") in {"NaClO + MnSO₄", "NaClO + 品红溶液"}
+        and tuple(node.get("path_titles") or [])[:3]
+        == ("第13章 卤族元素", "五、卤素含氧酸盐的氧化性", "次氯酸盐的氧化性")
+    ]
+    return {
+        "metadata": {
+            "artifact_type": "experiment_catalog_canonical_point_groups",
+            "version": "catalog-outline-canonical-groups-v1",
+            "source_doc": OUTLINE_SOURCE_LABEL,
+            "grouping_policy": "Current outline exact duplicate leaf titles are reviewed as the same canonical experiment; singletons remain independent.",
+            "non_goals": [
+                "No shortcut/reference node kinds.",
+                "No fuzzy or formula-only automatic merge.",
+            ],
+        },
+        "counts": {
+            "point_placements": len(points),
+            "canonical_points": len(canonical_points),
+            "duplicate_group_count": len(groups),
+            "duplicate_placement_surplus": sum(group["placement_count"] - 1 for group in groups),
+            "ambiguous_duplicate_count": 0,
+        },
+        "groups": groups,
+        "distinct_exceptions": [
+            {
+                "title": node.get("title"),
+                "placement_seed_key": node.get("seed_key"),
+                "canonical_point_id": node.get("canonical_point_id"),
+                "path": " / ".join(str(part) for part in node.get("path_titles") or []),
+                "reason": "Reviewed hypochlorite sibling correction: NaClO + MnSO4 and NaClO + 品红溶液 are different experiments.",
+            }
+            for node in hypochlorite
+        ],
+        "ambiguous_groups": [],
+        "canonical_points": canonical_points,
+    }
 
 
 def _parse_example_blocks(path: Path) -> dict[int, dict[str, Any]]:
@@ -427,6 +532,7 @@ def build_point_content_examples(nodes: list[dict[str, Any]], example_source: Pa
                 "example_title": mapping.example_title,
                 "example_title_from_source": block["example_title_from_source"],
                 "target_seed_key": target["seed_key"],
+                "target_canonical_point_id": target.get("canonical_point_id"),
                 "target_path_titles": list(mapping.target_path),
                 "target_path": target_path_text,
                 "principle_mode": "text",
@@ -455,26 +561,31 @@ def generate_catalog_seed(
     outline_path: Path = OUTLINE_SOURCE,
     example_path: Path = EXAMPLE_SOURCE,
     catalog_path: Path = CATALOG_TREE_SEED_PATH,
+    groups_path: Path = CANONICAL_POINT_GROUPS_SEED_PATH,
     examples_path: Path = POINT_CONTENT_EXAMPLES_SEED_PATH,
     report_path: Path = CATALOG_SEED_VALIDATION_REPORT_PATH,
 ) -> dict[str, Any]:
     nodes = parse_catalog_outline(outline_path)
+    grouping = build_canonical_point_groups(nodes)
+    canonical_points = grouping["canonical_points"]
     examples = build_point_content_examples(nodes, example_path)
     validation = validate_catalog_seed(nodes, examples)
     catalog_payload = {
         "metadata": {
             "artifact_type": "experiment_catalog_outline_seed",
-            "version": "catalog-outline-v1",
+            "version": "catalog-outline-v2-canonical-placements",
             "source_doc": OUTLINE_SOURCE_LABEL,
             "expected_counts": EXPECTED_CATALOG_COUNTS,
-            "classification": "## headings and non-leaf bullets are directories; leaf bullets are point nodes.",
+            "classification": "## headings and non-leaf bullets are directories; leaf bullets are point placements targeting canonical experiment points.",
+            "canonical_grouping_seed": groups_path.relative_to(ROOT).as_posix(),
         },
+        "canonical_points": canonical_points,
         "nodes": nodes,
     }
     examples_payload = {
         "metadata": {
             "artifact_type": "experiment_catalog_point_content_examples",
-            "version": "catalog-outline-30-examples-v1",
+            "version": "catalog-outline-30-examples-v2-canonical-placements",
             "source_doc": EXAMPLE_SOURCE_LABEL,
             "mapping_source": "openspec/changes/catalog-point-ai-platform-roadmap/design.md",
             "mapping_method": "semantic title/path/reagent scoring with reviewed target-path overrides for ties",
@@ -485,9 +596,14 @@ def generate_catalog_seed(
     report = {
         **validation,
         "catalog_seed": catalog_path.relative_to(ROOT).as_posix(),
+        "canonical_point_groups_seed": groups_path.relative_to(ROOT).as_posix(),
         "point_content_examples_seed": examples_path.relative_to(ROOT).as_posix(),
+        "canonical_grouping": grouping["counts"],
+        "reviewed_duplicate_groups": grouping["groups"],
+        "ambiguous_duplicate_groups": grouping["ambiguous_groups"],
     }
     write_json(catalog_path, catalog_payload)
+    write_json(groups_path, grouping)
     write_json(examples_path, examples_payload)
     write_json(report_path, report)
     return report
@@ -498,6 +614,7 @@ def main() -> None:
     parser.add_argument("--outline", type=Path, default=OUTLINE_SOURCE)
     parser.add_argument("--examples", type=Path, default=EXAMPLE_SOURCE)
     parser.add_argument("--catalog-output", type=Path, default=CATALOG_TREE_SEED_PATH)
+    parser.add_argument("--groups-output", type=Path, default=CANONICAL_POINT_GROUPS_SEED_PATH)
     parser.add_argument("--examples-output", type=Path, default=POINT_CONTENT_EXAMPLES_SEED_PATH)
     parser.add_argument("--report", type=Path, default=CATALOG_SEED_VALIDATION_REPORT_PATH)
     args = parser.parse_args()
@@ -506,6 +623,7 @@ def main() -> None:
         outline_path=args.outline,
         example_path=args.examples,
         catalog_path=args.catalog_output,
+        groups_path=args.groups_output,
         examples_path=args.examples_output,
         report_path=args.report,
     )

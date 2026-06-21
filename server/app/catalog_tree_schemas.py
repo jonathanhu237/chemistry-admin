@@ -20,6 +20,7 @@ class CatalogNodeCreateRequest(BaseModel):
     card_layout: str | None = Field(default="default", max_length=40)
     card_presentation: dict[str, Any] = Field(default_factory=dict)
     point_card_presentation: dict[str, Any] = Field(default_factory=dict)
+    canonical_point_id: str | None = None
     metadata: dict[str, Any] = Field(default_factory=dict)
 
 
@@ -67,6 +68,7 @@ class CatalogReactionEquationInput(BaseModel):
 class CatalogReactionEquationNormalized(BaseModel):
     id: str | None = None
     node_id: str | None = None
+    canonical_point_id: str | None = None
     row_order: int = 0
     raw_text: str
     canonical_display: str = ""
@@ -84,15 +86,51 @@ class CatalogReactionEquationNormalized(BaseModel):
     parser_version: str = "basic-v1"
     migrated_from_principle_equation: bool = False
     metadata: dict[str, Any] = Field(default_factory=dict)
+    suggested_display: str | None = None
+    suggested_mhchem: str | None = None
+    suggestion_reason: str | None = None
+    corrections: list[str] = Field(default_factory=list)
 
 
 class CatalogEquationPreviewRequest(BaseModel):
     equations: list[CatalogReactionEquationInput] = Field(default_factory=list)
+    multiline_text: str | None = Field(default=None, max_length=5000)
 
 
 class CatalogEquationPreviewResponse(BaseModel):
     ok: bool
     equations: list[CatalogReactionEquationNormalized] = Field(default_factory=list)
+
+
+class CatalogEquationAssistRequest(BaseModel):
+    mode: str = Field(default="suggest", pattern="^(suggest|fix|generate|balance)$")
+    multiline_text: str | None = Field(default=None, max_length=5000)
+    equations: list[CatalogReactionEquationInput] = Field(default_factory=list)
+    point_title: str | None = Field(default=None, max_length=200)
+    catalog_path_text: str | None = None
+    phenomenon_explanation: str | None = None
+    safety_note: str | None = None
+
+
+class CatalogEquationAssistDraft(BaseModel):
+    draft_text: str
+    source: str = "deterministic"
+    rationale: str = ""
+    row_order: int | None = None
+    replacement_text: str | None = None
+    canonical_display: str = ""
+    canonical_mhchem: str | None = None
+    validation_status: str = Field(default="warning", pattern="^(valid|warning|invalid)$")
+    warnings: list[str] = Field(default_factory=list)
+    errors: list[str] = Field(default_factory=list)
+    formulae: list[str] = Field(default_factory=list)
+    supplemental: bool = False
+
+
+class CatalogEquationAssistResponse(BaseModel):
+    available: bool
+    reason: str | None = None
+    drafts: list[CatalogEquationAssistDraft] = Field(default_factory=list)
 
 
 class CatalogPointContentRequest(BaseModel):
@@ -140,6 +178,10 @@ class CatalogBreadcrumb(BaseModel):
 
 class CatalogNodeCard(BaseModel):
     node_id: str
+    placement_node_id: str | None = None
+    canonical_point_id: str | None = None
+    canonical_point_title: str | None = None
+    canonical_point_status: str | None = None
     chapter_id: str
     parent_id: str | None = None
     node_kind: str
@@ -161,6 +203,7 @@ class CatalogNodeCard(BaseModel):
     has_point_content: bool = False
     media_count: int = 0
     published_media_count: int = 0
+    active_placement_count: int = 0
     validation: dict[str, Any] = Field(default_factory=dict)
     index_state: dict[str, Any] | None = None
 
@@ -187,6 +230,8 @@ class StudentPointVideo(BaseModel):
 
 class StudentRelatedPoint(BaseModel):
     node_id: str
+    placement_node_id: str | None = None
+    canonical_point_id: str | None = None
     title: str
     relation_type: str | None = None
     source_node_id: str | None = None
@@ -194,6 +239,8 @@ class StudentRelatedPoint(BaseModel):
 
 class StudentPointAssessmentContext(BaseModel):
     point_node_id: str
+    placement_node_id: str
+    canonical_point_id: str
     chapter_id: str
     source_node_id: str | None = None
     catalog_path: list[CatalogBreadcrumb] = Field(default_factory=list)
@@ -203,6 +250,8 @@ class StudentPointDetailResponse(BaseModel):
     node_id: str
     canonical_node_id: str
     source_node_id: str | None = None
+    placement_node_id: str
+    canonical_point_id: str
     chapter_id: str
     title: str
     summary: str = ""

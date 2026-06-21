@@ -86,6 +86,8 @@ def _public_job(row: dict[str, Any]) -> dict[str, Any]:
 def _default_evidence_state(node_id: str) -> dict[str, Any]:
     return {
         "node_id": node_id,
+        "placement_node_id": node_id,
+        "canonical_point_id": node_id,
         "evidence_status": "missing",
         "source_mode": "none",
         "trigger_policy": "stale_until_manual_refresh",
@@ -98,6 +100,48 @@ def _default_evidence_state(node_id: str) -> dict[str, Any]:
         "stale_at": None,
         "last_attempted_at": None,
         "updated_at": None,
+    }
+
+
+def _point_identity(session: Any, node_id: str) -> dict[str, str]:
+    row = (
+        session.execute(
+            text(
+                """
+                SELECT id AS placement_node_id, canonical_point_id
+                FROM experiment_catalog_nodes
+                WHERE id = :node_id
+                  AND node_kind = 'point'
+                """
+            ),
+            {"node_id": node_id},
+        )
+        .mappings()
+        .first()
+    )
+    canonical_point_id = str(row["canonical_point_id"]) if row and row.get("canonical_point_id") else node_id
+    owner = (
+        session.execute(
+            text(
+                """
+                SELECT id
+                FROM experiment_catalog_nodes
+                WHERE canonical_point_id = :canonical_point_id
+                  AND node_kind = 'point'
+                  AND status <> 'archived'
+                ORDER BY status = 'published' DESC, chapter_id, parent_id NULLS FIRST, display_order, id
+                LIMIT 1
+                """
+            ),
+            {"canonical_point_id": canonical_point_id},
+        )
+        .scalars()
+        .first()
+    )
+    return {
+        "placement_node_id": node_id,
+        "canonical_point_id": canonical_point_id,
+        "owner_node_id": str(owner or node_id),
     }
 
 
@@ -116,16 +160,17 @@ def enqueue_point_job(
     if trigger_source not in TRIGGER_SOURCES:
         raise ValueError(f"Unsupported catalog point trigger source: {trigger_source}")
     payload = payload or {}
+    identity = _point_identity(session, node_id)
     idempotency_key = idempotency_key or f"catalog-point:{node_id}:{job_type}:{_payload_key(payload)}"
     result = session.execute(
         text(
             """
             INSERT INTO experiment_catalog_point_jobs (
-              node_id, job_type, trigger_source, status, attempts, max_attempts,
+              node_id, placement_node_id, canonical_point_id, job_type, trigger_source, status, attempts, max_attempts,
               idempotency_key, payload, result, latest_error, run_after, updated_at
             )
             VALUES (
-              :node_id, :job_type, :trigger_source, 'pending', 0, :max_attempts,
+              :node_id, :placement_node_id, :canonical_point_id, :job_type, :trigger_source, 'pending', 0, :max_attempts,
               :idempotency_key, CAST(:payload AS jsonb), '{}'::jsonb, NULL, now(), now()
             )
             ON CONFLICT (idempotency_key) WHERE status IN ('pending', 'running') DO UPDATE SET
@@ -136,6 +181,8 @@ def enqueue_point_job(
                 ELSE experiment_catalog_point_jobs.trigger_source
               END,
               payload = experiment_catalog_point_jobs.payload || EXCLUDED.payload,
+              placement_node_id = EXCLUDED.placement_node_id,
+              canonical_point_id = EXCLUDED.canonical_point_id,
               updated_at = now()
             RETURNING id, node_id, job_type, trigger_source, status, attempts, max_attempts,
                       payload, result, latest_error, worker_id, run_after, started_at,
@@ -144,11 +191,17 @@ def enqueue_point_job(
         ),
         {
             "node_id": node_id,
+            "placement_node_id": identity["placement_node_id"],
+            "canonical_point_id": identity["canonical_point_id"],
             "job_type": job_type,
             "trigger_source": trigger_source,
             "max_attempts": max(1, int(max_attempts)),
             "idempotency_key": idempotency_key,
-            "payload": _json_param(payload),
+            "payload": _json_param({
+                "placement_node_id": identity["placement_node_id"],
+                "canonical_point_id": identity["canonical_point_id"],
+                **payload,
+            }),
         },
     )
     return _public_job(_result_one(result))
@@ -187,16 +240,18 @@ def _upsert_evidence_state(
     latest_error: str | None = None,
     refreshed: bool = False,
 ) -> None:
+    identity = _point_identity(session, node_id)
+    owner_node_id = identity["owner_node_id"]
     session.execute(
         text(
             """
             INSERT INTO experiment_catalog_point_evidence_state (
-              node_id, evidence_status, source_mode, trigger_policy, selected_chunk_ids,
+              node_id, canonical_point_id, source_placement_node_id, evidence_status, source_mode, trigger_policy, selected_chunk_ids,
               source_refs, diagnostics, stale_reason, latest_error, refreshed_at,
               stale_at, last_attempted_at, updated_at
             )
             VALUES (
-              :node_id, :evidence_status, :source_mode, :trigger_policy, :selected_chunk_ids,
+              :node_id, :canonical_point_id, :source_placement_node_id, :evidence_status, :source_mode, :trigger_policy, :selected_chunk_ids,
               CAST(:source_refs AS jsonb), CAST(:diagnostics AS jsonb), :stale_reason,
               :latest_error,
               CASE WHEN :refreshed THEN now() ELSE NULL END,
@@ -205,6 +260,8 @@ def _upsert_evidence_state(
               now()
             )
             ON CONFLICT (node_id) DO UPDATE SET
+              canonical_point_id = EXCLUDED.canonical_point_id,
+              source_placement_node_id = EXCLUDED.source_placement_node_id,
               evidence_status = EXCLUDED.evidence_status,
               source_mode = EXCLUDED.source_mode,
               trigger_policy = EXCLUDED.trigger_policy,
@@ -223,7 +280,9 @@ def _upsert_evidence_state(
             """
         ),
         {
-            "node_id": node_id,
+            "node_id": owner_node_id,
+            "canonical_point_id": identity["canonical_point_id"],
+            "source_placement_node_id": identity["placement_node_id"],
             "evidence_status": evidence_status,
             "source_mode": source_mode,
             "trigger_policy": trigger_policy,
@@ -338,6 +397,7 @@ def queue_rag_evidence_delete_job(
 
 
 def get_point_job_state(session: Any, *, node_id: str) -> dict[str, Any]:
+    identity = _point_identity(session, node_id)
     es_state = _as_dict(
         session.execute(
             text(
@@ -358,14 +418,18 @@ def get_point_job_state(session: Any, *, node_id: str) -> dict[str, Any]:
         session.execute(
             text(
                 """
-                SELECT node_id, evidence_status, source_mode, trigger_policy,
+                SELECT node_id, canonical_point_id, source_placement_node_id, evidence_status, source_mode, trigger_policy,
                        selected_chunk_ids, source_refs, diagnostics, stale_reason,
                        latest_error, refreshed_at, stale_at, last_attempted_at, updated_at
                 FROM experiment_catalog_point_evidence_state
-                WHERE node_id = :node_id
+                WHERE canonical_point_id = :canonical_point_id
+                   OR node_id = :node_id
+                ORDER BY CASE WHEN canonical_point_id = :canonical_point_id THEN 0 ELSE 1 END,
+                         updated_at DESC
+                LIMIT 1
                 """
             ),
-            {"node_id": node_id},
+            {"node_id": node_id, "canonical_point_id": identity["canonical_point_id"]},
         )
         .mappings()
         .first()
@@ -391,6 +455,8 @@ def get_point_job_state(session: Any, *, node_id: str) -> dict[str, Any]:
     ]
     return {
         "node_id": node_id,
+        "placement_node_id": identity["placement_node_id"],
+        "canonical_point_id": identity["canonical_point_id"],
         "es_state": es_state or None,
         "evidence_state": evidence_state,
         "recent_jobs": jobs,
@@ -648,18 +714,21 @@ def _process_es_job(job: CatalogPointJob) -> dict[str, Any]:
 
 def _mark_es_state_success(*, node_id: str, action: str, document_hash: str) -> None:
     with db_session() as session:
+        identity = _point_identity(session, node_id)
         session.execute(
             text(
                 """
                 INSERT INTO experiment_catalog_point_search_index_state (
-                  node_id, document_id, desired_action, sync_status, attempts,
+                  node_id, placement_node_id, canonical_point_id, document_id, desired_action, sync_status, attempts,
                   document_hash, last_error, indexed_at, last_attempted_at, updated_at
                 )
                 VALUES (
-                  :node_id, :node_id, :action, 'synced', 1,
+                  :node_id, :placement_node_id, :canonical_point_id, :node_id, :action, 'synced', 1,
                   :document_hash, NULL, now(), now(), now()
                 )
                 ON CONFLICT (node_id) DO UPDATE SET
+                  placement_node_id = EXCLUDED.placement_node_id,
+                  canonical_point_id = EXCLUDED.canonical_point_id,
                   document_id = EXCLUDED.document_id,
                   desired_action = EXCLUDED.desired_action,
                   sync_status = 'synced',
@@ -671,24 +740,33 @@ def _mark_es_state_success(*, node_id: str, action: str, document_hash: str) -> 
                   updated_at = now()
                 """
             ),
-            {"node_id": node_id, "action": action, "document_hash": document_hash},
+            {
+                "node_id": node_id,
+                "placement_node_id": identity["placement_node_id"],
+                "canonical_point_id": identity["canonical_point_id"],
+                "action": action,
+                "document_hash": document_hash,
+            },
         )
 
 
 def _mark_es_state_failure(*, node_id: str, action: str, error: str) -> None:
     with db_session() as session:
+        identity = _point_identity(session, node_id)
         session.execute(
             text(
                 """
                 INSERT INTO experiment_catalog_point_search_index_state (
-                  node_id, document_id, desired_action, sync_status, attempts,
+                  node_id, placement_node_id, canonical_point_id, document_id, desired_action, sync_status, attempts,
                   last_error, last_attempted_at, updated_at
                 )
                 VALUES (
-                  :node_id, :node_id, :action, 'failed', 1,
+                  :node_id, :placement_node_id, :canonical_point_id, :node_id, :action, 'failed', 1,
                   :error, now(), now()
                 )
                 ON CONFLICT (node_id) DO UPDATE SET
+                  placement_node_id = EXCLUDED.placement_node_id,
+                  canonical_point_id = EXCLUDED.canonical_point_id,
                   desired_action = EXCLUDED.desired_action,
                   sync_status = 'failed',
                   attempts = experiment_catalog_point_search_index_state.attempts + 1,
@@ -697,24 +775,33 @@ def _mark_es_state_failure(*, node_id: str, action: str, error: str) -> None:
                   updated_at = now()
                 """
             ),
-            {"node_id": node_id, "action": action, "error": error[:1000]},
+            {
+                "node_id": node_id,
+                "placement_node_id": identity["placement_node_id"],
+                "canonical_point_id": identity["canonical_point_id"],
+                "action": action,
+                "error": error[:1000],
+            },
         )
 
 
 def _mark_es_state_disabled(*, node_id: str, action: str, reason: str) -> None:
     with db_session() as session:
+        identity = _point_identity(session, node_id)
         session.execute(
             text(
                 """
                 INSERT INTO experiment_catalog_point_search_index_state (
-                  node_id, document_id, desired_action, sync_status, attempts,
+                  node_id, placement_node_id, canonical_point_id, document_id, desired_action, sync_status, attempts,
                   last_error, last_attempted_at, updated_at
                 )
                 VALUES (
-                  :node_id, :node_id, :action, 'disabled', 0,
+                  :node_id, :placement_node_id, :canonical_point_id, :node_id, :action, 'disabled', 0,
                   :reason, now(), now()
                 )
                 ON CONFLICT (node_id) DO UPDATE SET
+                  placement_node_id = EXCLUDED.placement_node_id,
+                  canonical_point_id = EXCLUDED.canonical_point_id,
                   desired_action = EXCLUDED.desired_action,
                   sync_status = 'disabled',
                   last_error = EXCLUDED.last_error,
@@ -722,13 +809,29 @@ def _mark_es_state_disabled(*, node_id: str, action: str, reason: str) -> None:
                   updated_at = now()
                 """
             ),
-            {"node_id": node_id, "action": action, "reason": reason[:1000]},
+            {
+                "node_id": node_id,
+                "placement_node_id": identity["placement_node_id"],
+                "canonical_point_id": identity["canonical_point_id"],
+                "action": action,
+                "reason": reason[:1000],
+            },
         )
 
 
 def _process_rag_evidence_delete(job: CatalogPointJob) -> dict[str, Any]:
     with db_session() as session:
-        session.execute(text("DELETE FROM experiment_catalog_point_evidence_bindings WHERE node_id = :node_id"), {"node_id": job.node_id})
+        identity = _point_identity(session, job.node_id)
+        session.execute(
+            text(
+                """
+                DELETE FROM experiment_catalog_point_evidence_bindings
+                WHERE canonical_point_id = :canonical_point_id
+                   OR node_id = :node_id
+                """
+            ),
+            {"node_id": job.node_id, "canonical_point_id": identity["canonical_point_id"]},
+        )
         _upsert_evidence_state(
             session,
             node_id=job.node_id,
@@ -801,9 +904,13 @@ def _process_rag_evidence_refresh(job: CatalogPointJob) -> dict[str, Any]:
         "catalog_node_ids": [job.node_id],
     }
     with db_session() as session:
+        identity = _point_identity(session, job.node_id)
         _replace_evidence_bindings(
             session,
             node_id=job.node_id,
+            canonical_point_id=identity["canonical_point_id"],
+            source_placement_node_id=identity["placement_node_id"],
+            owner_node_id=identity["owner_node_id"],
             source_refs=source_refs,
             trace=result.trace,
         )
@@ -876,6 +983,8 @@ def _catalog_point_context(session: Any, *, node_id: str) -> dict[str, Any]:
     ]
     return {
         "node_id": node_id,
+        "placement_node_id": node_id,
+        "canonical_point_id": node.get("canonical_point_id") or node_id,
         "chapter_id": node.get("chapter_id"),
         "title": clean(content.get("point_title")) or node.get("title"),
         "catalog_path": [item["title"] for item in path],
@@ -1031,6 +1140,9 @@ def _replace_evidence_bindings(
     session: Any,
     *,
     node_id: str,
+    canonical_point_id: str,
+    source_placement_node_id: str,
+    owner_node_id: str,
     source_refs: list[dict[str, Any]],
     trace: dict[str, Any],
 ) -> None:
@@ -1046,10 +1158,11 @@ def _replace_evidence_bindings(
             SET freshness_status = 'stale',
                 selection_status = CASE WHEN selection_status = 'selected' THEN 'stale' ELSE selection_status END,
                 updated_at = now()
-            WHERE node_id = :node_id
+            WHERE canonical_point_id = :canonical_point_id
+               OR node_id = :node_id
             """
         ),
-        {"node_id": node_id},
+        {"node_id": node_id, "canonical_point_id": canonical_point_id},
     )
     for rank, ref in enumerate(source_refs, start=1):
         chunk_id = str(ref.get("chunk_id") or "").strip()
@@ -1060,15 +1173,19 @@ def _replace_evidence_bindings(
             text(
                 """
                 INSERT INTO experiment_catalog_point_evidence_bindings (
-                  node_id, chunk_id, evidence_role, selection_status, freshness_status,
+                  node_id, canonical_point_id, source_placement_node_id,
+                  chunk_id, evidence_role, selection_status, freshness_status,
                   rank, score, rerank_score, source_metadata, diagnostics, updated_at
                 )
                 VALUES (
-                  :node_id, :chunk_id, 'dynamic_rag', 'selected', 'fresh',
+                  :node_id, :canonical_point_id, :source_placement_node_id,
+                  :chunk_id, 'dynamic_rag', 'selected', 'fresh',
                   :rank, :score, :rerank_score, CAST(:source_metadata AS jsonb),
                   CAST(:diagnostics AS jsonb), now()
                 )
                 ON CONFLICT (node_id, chunk_id, evidence_role) DO UPDATE SET
+                  canonical_point_id = EXCLUDED.canonical_point_id,
+                  source_placement_node_id = EXCLUDED.source_placement_node_id,
                   selection_status = 'selected',
                   freshness_status = 'fresh',
                   rank = EXCLUDED.rank,
@@ -1080,7 +1197,9 @@ def _replace_evidence_bindings(
                 """
             ),
             {
-                "node_id": node_id,
+                "node_id": owner_node_id,
+                "canonical_point_id": canonical_point_id,
+                "source_placement_node_id": source_placement_node_id,
                 "chunk_id": chunk_id,
                 "rank": rank,
                 "score": candidate.get("score"),

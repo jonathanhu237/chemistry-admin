@@ -26,6 +26,7 @@ export type CatalogNodeFormValues = {
   point_card_icon_key?: string;
   point_card_accent?: string;
   point_card_emphasis?: boolean;
+  canonical_point_id?: string;
 };
 
 export type CatalogPointContentFormValues = {
@@ -33,6 +34,7 @@ export type CatalogPointContentFormValues = {
   teacher_note?: string;
   principle_mode: CatalogPrincipleMode;
   principle_equation?: string;
+  reaction_equations_text?: string;
   reaction_equations?: CatalogReactionEquationInput[];
   principle_text?: string;
   phenomenon_explanation?: string;
@@ -72,6 +74,7 @@ export function hydrateCatalogNodeForm(detail: CatalogNodeDetail | null | undefi
     point_card_icon_key: String(node?.point_card_presentation?.icon_key || ""),
     point_card_accent: String(node?.point_card_presentation?.accent || ""),
     point_card_emphasis: Boolean(node?.point_card_presentation?.emphasis),
+    canonical_point_id: node?.canonical_point_id || "",
   };
 }
 
@@ -97,6 +100,7 @@ export function buildCatalogNodeCreatePayload(values: CatalogNodeFormValues, cha
     card_layout: values.card_layout || "default",
     card_presentation: values.node_kind === "directory" ? {} : {},
     point_card_presentation: values.node_kind === "point" ? pointCard : {},
+    canonical_point_id: values.node_kind === "point" ? values.canonical_point_id?.trim() || null : null,
   };
 }
 
@@ -139,6 +143,7 @@ export function hydrateCatalogPointContentForm(detail: CatalogNodeDetail | null 
     teacher_note: content?.teacher_note || "",
     principle_mode: content?.principle_mode || "text",
     principle_equation: content?.principle_equation || "",
+    reaction_equations_text: reactionEquations.map((equation) => equation.raw_text).filter(Boolean).join("\n"),
     reaction_equations: reactionEquations,
     principle_text: content?.principle_text || "",
     phenomenon_explanation: content?.phenomenon_explanation || "",
@@ -158,7 +163,11 @@ export function hasDivergentPointTitle(detail: CatalogNodeDetail | null | undefi
 
 export function buildCatalogPointContentPayload(values: CatalogPointContentFormValues): CatalogPointContentPayload {
   const principleMode = values.principle_mode || "text";
-  const reactionEquations = (values.reaction_equations || [])
+  const rowsFromText = (values.reaction_equations_text || "")
+    .split(/\r?\n/)
+    .map((rawText, index) => ({ raw_text: rawText.trim(), row_order: index + 1, metadata: {} }))
+    .filter((equation) => equation.raw_text);
+  const reactionEquations = (rowsFromText.length ? rowsFromText : values.reaction_equations || [])
     .map((equation, index) => ({
       raw_text: equation.raw_text?.trim() || "",
       row_order: index + 1,

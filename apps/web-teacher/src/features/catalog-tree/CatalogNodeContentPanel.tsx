@@ -1,8 +1,14 @@
-import { useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Alert, Button, Flex, Form, Input, Radio, Space, Tag, Typography, type FormInstance } from "antd";
-import { ArrowDownOutlined, ArrowUpOutlined, CheckCircleOutlined, DeleteOutlined, EyeOutlined, PlusOutlined, SaveOutlined } from "@ant-design/icons";
+import { CheckCircleOutlined, ReloadOutlined, RobotOutlined, SaveOutlined } from "@ant-design/icons";
 
-import { previewCatalogReactionEquations, type CatalogEquationPreviewResponse, type CatalogNodeDetail } from "../../api/catalogTree";
+import {
+  assistCatalogReactionEquations,
+  previewCatalogReactionEquations,
+  type CatalogEquationAssistDraft,
+  type CatalogEquationPreviewResponse,
+  type CatalogNodeDetail,
+} from "../../api/catalogTree";
 import { AssistantMarkdownContent } from "../../lib/assistant-markdown";
 import type { CatalogMutations } from "./catalogTreeHooks";
 import {
@@ -10,8 +16,47 @@ import {
   type CatalogNodeFormValues,
   type CatalogPointContentFormValues,
 } from "./catalogTreeMappers";
+import {
+  buildEquationReviewModel,
+  type CatalogEquationReviewCandidate,
+} from "./catalogEquationReview";
 
 const { Text } = Typography;
+
+const equationStatusMeta: Record<CatalogEquationPreviewResponse["equations"][number]["validation_status"], { label: string; color: string }> = {
+  valid: { label: "已识别", color: "green" },
+  warning: { label: "需确认", color: "gold" },
+  invalid: { label: "需修改", color: "red" },
+};
+
+function pointContentStatusLabel(status?: string | null): string {
+  if (status === "published") return "已发布";
+  if (status === "draft") return "草稿";
+  if (status === "missing") return "未配置";
+  return "未配置";
+}
+
+function splitEquationText(value: string): string[] {
+  return value
+    .split(/\r?\n/)
+    .map((line) => line.trim())
+    .filter(Boolean);
+}
+
+function replaceEquationLine(value: string, rowOrder: number, replacement: string): string {
+  const lines = value.split(/\r?\n/);
+  const nonEmptyIndexes = lines
+    .map((line, index) => ({ line, index }))
+    .filter((item) => item.line.trim())
+    .map((item) => item.index);
+  const targetIndex = nonEmptyIndexes[rowOrder - 1] ?? lines.length;
+  if (targetIndex >= lines.length) {
+    return [...lines, replacement].join("\n").trim();
+  }
+  const next = [...lines];
+  next[targetIndex] = replacement;
+  return next.join("\n");
+}
 
 export function CatalogNodeContentPanel({
   detail,
@@ -29,34 +74,122 @@ export function CatalogNodeContentPanel({
   onSavePointContent: (values: CatalogPointContentFormValues) => Promise<void>;
 }) {
   const { node } = detail;
+  const equationText = Form.useWatch("reaction_equations_text", pointForm) || "";
   const [equationPreview, setEquationPreview] = useState<CatalogEquationPreviewResponse | null>(null);
   const [previewLoading, setPreviewLoading] = useState(false);
   const [previewError, setPreviewError] = useState("");
+  const [assistLoading, setAssistLoading] = useState(false);
+  const [assistLoadingRow, setAssistLoadingRow] = useState<number | null>(null);
+  const [assistMessage, setAssistMessage] = useState("");
+  const [assistDrafts, setAssistDrafts] = useState<CatalogEquationAssistDraft[]>([]);
+  const previewSeq = useRef(0);
+  const reviewModel = useMemo(() => buildEquationReviewModel(equationPreview, assistDrafts), [equationPreview, assistDrafts]);
+  const hasEquationInput = Boolean(equationText.trim());
+  const activePlacementCount = detail.canonical_point?.active_placement_count ?? node.active_placement_count ?? 0;
+  const reusedPlacements = (detail.placements || []).filter((placement) => placement.node_id !== node.node_id);
 
-  const equationRows = () => pointForm.getFieldValue("reaction_equations") || [];
-  const appendEquationSnippet = (snippet: string) => {
-    const rows = equationRows();
+  const requestPreview = async (textValue: string, seq: number) => {
+    const rows = splitEquationText(textValue).map((rawText, index) => ({ raw_text: rawText, row_order: index + 1 }));
     if (!rows.length) {
-      pointForm.setFieldValue("reaction_equations", [{ raw_text: snippet, row_order: 1 }]);
+      setEquationPreview(null);
+      setPreviewLoading(false);
+      setPreviewError("");
       return;
     }
-    const lastIndex = rows.length - 1;
-    const current = String(rows[lastIndex]?.raw_text || "");
-    pointForm.setFieldValue(["reaction_equations", lastIndex, "raw_text"], `${current}${snippet}`);
-  };
-  const previewEquations = async () => {
     setPreviewLoading(true);
     setPreviewError("");
     try {
-      const rows = equationRows().map((row: { raw_text?: string }, index: number) => ({
-        raw_text: String(row?.raw_text || "").trim(),
-        row_order: index + 1,
-      }));
-      setEquationPreview(await previewCatalogReactionEquations(rows));
+      const response = await previewCatalogReactionEquations(rows, textValue);
+      if (seq === previewSeq.current) {
+        setEquationPreview(response);
+      }
     } catch (error) {
-      setPreviewError(error instanceof Error ? error.message : "后端预览失败");
+      if (seq === previewSeq.current) {
+        setPreviewError(error instanceof Error ? error.message : "实时检查失败，请稍后重试。");
+      }
     } finally {
+      if (seq === previewSeq.current) {
+        setPreviewLoading(false);
+      }
+    }
+  };
+
+  useEffect(() => {
+    if (principleMode !== "equation") return;
+    const seq = previewSeq.current + 1;
+    previewSeq.current = seq;
+    const textValue = equationText.trim();
+    if (!textValue) {
+      setEquationPreview(null);
       setPreviewLoading(false);
+      setPreviewError("");
+      return;
+    }
+    const timer = window.setTimeout(() => {
+      void requestPreview(textValue, seq);
+    }, 500);
+    return () => window.clearTimeout(timer);
+  }, [equationText, principleMode]);
+
+  useEffect(() => {
+    setAssistMessage("");
+    setAssistDrafts([]);
+  }, [equationText]);
+
+  const refreshPreview = () => {
+    const seq = previewSeq.current + 1;
+    previewSeq.current = seq;
+    void requestPreview(equationText.trim(), seq);
+  };
+
+  const applyCandidate = (candidate: CatalogEquationReviewCandidate) => {
+    const replacement = candidate.replacement_text || candidate.draft_text || candidate.canonical_display;
+    if (!replacement) return;
+    if (candidate.row_order) {
+      pointForm.setFieldValue("reaction_equations_text", replaceEquationLine(equationText, candidate.row_order, replacement));
+      return;
+    }
+    const current = equationText.trim();
+    pointForm.setFieldValue("reaction_equations_text", [current, replacement].filter(Boolean).join("\n"));
+  };
+  const mergeRowAssistDrafts = (incoming: CatalogEquationAssistDraft[], rowOrder?: number) => {
+    if (!rowOrder) {
+      setAssistDrafts(incoming);
+      return;
+    }
+    setAssistDrafts((current) => [
+      ...current.filter((draft) => draft.row_order !== rowOrder),
+      ...incoming.filter((draft) => !draft.row_order || draft.row_order === rowOrder),
+    ]);
+  };
+
+  const runEquationAssist = async (rowOrder?: number) => {
+    if (rowOrder) {
+      setAssistLoadingRow(rowOrder);
+    } else {
+      setAssistLoading(true);
+    }
+    setAssistMessage("");
+    if (!rowOrder) setAssistDrafts([]);
+    try {
+      const response = await assistCatalogReactionEquations({
+        mode: "suggest",
+        multiline_text: equationText,
+        point_title: pointForm.getFieldValue("point_title") || detail.point_content?.point_title || detail.node.title,
+        catalog_path_text: detail.breadcrumbs.map((item) => item.title).join(" / "),
+        phenomenon_explanation: pointForm.getFieldValue("phenomenon_explanation") || "",
+        safety_note: pointForm.getFieldValue("safety_note") || "",
+      });
+      setAssistMessage(response.reason || "");
+      mergeRowAssistDrafts(response.drafts || [], rowOrder);
+    } catch (error) {
+      setAssistMessage(error instanceof Error ? error.message : "助手暂时不可用。");
+    } finally {
+      if (rowOrder) {
+        setAssistLoadingRow(null);
+      } else {
+        setAssistLoading(false);
+      }
     }
   };
 
@@ -78,11 +211,7 @@ export function CatalogNodeContentPanel({
           <Form.Item name="title" label="目录标题" rules={[{ required: true, message: "请输入目录标题" }]}>
             <Input />
           </Form.Item>
-          <Form.Item
-            name="teacher_note"
-            label="教学备注"
-            extra="仅教师端可见，不进入学生端、学生搜索或题目证据链。"
-          >
+          <Form.Item name="teacher_note" label="教学备注" extra="仅教师端可见，不进入学生端、学生搜索或题目证据链。">
             <Input.TextArea className="catalog-teacher-note" autoSize={{ minRows: 2, maxRows: 5 }} />
           </Form.Item>
           <Alert type="info" showIcon title="学生可见描述和卡片样式在“学生卡片”面板维护。" />
@@ -103,7 +232,7 @@ export function CatalogNodeContentPanel({
         </div>
         <Space wrap>
           <Tag color={detail.point_content?.content_status === "published" ? "green" : "gold"}>
-            {detail.point_content?.content_status || "missing"}
+            {pointContentStatusLabel(detail.point_content?.content_status)}
           </Tag>
           <Button
             icon={<CheckCircleOutlined />}
@@ -115,14 +244,37 @@ export function CatalogNodeContentPanel({
         </Space>
       </Flex>
       <Form form={pointForm} layout="vertical" onFinish={onSavePointContent}>
+        <div className="catalog-field-scope-note">
+          <Tag color="green">共享实验字段</Tag>
+          <Text type="secondary">点位名、原理、现象、安全说明、视频和相关实验按同一个实验保存。</Text>
+        </div>
+        {activePlacementCount > 1 ? (
+          <Alert
+            className="catalog-shared-content-alert"
+            type="warning"
+            showIcon
+            message={`此实验已同步到 ${activePlacementCount} 个目录位置`}
+            description={
+              <div className="catalog-shared-content-copy">
+                <span>实验内容、视频、AI 证据和相关实验会在所有位置同步更新。</span>
+                {reusedPlacements.length ? (
+                  <div className="catalog-shared-placement-list">
+                    {reusedPlacements.slice(0, 5).map((placement) => (
+                      <Tag key={placement.node_id}>
+                        {(placement.breadcrumbs || []).map((item) => item.title).join(" / ") || placement.title}
+                      </Tag>
+                    ))}
+                    {reusedPlacements.length > 5 ? <Tag>+{reusedPlacements.length - 5}</Tag> : null}
+                  </div>
+                ) : null}
+              </div>
+            }
+          />
+        ) : null}
         <Form.Item name="point_title" label="点位名" rules={[{ required: true, message: "请输入点位名" }]}>
           <Input />
         </Form.Item>
-        <Form.Item
-          name="teacher_note"
-          label="教学备注"
-          extra="仅教师端可见，不进入学生端、学生搜索或题目证据链。"
-        >
+        <Form.Item name="teacher_note" label="教学备注" extra="仅教师端可见，不进入学生端、学生搜索或题目证据链。">
           <Input.TextArea className="catalog-teacher-note" autoSize={{ minRows: 2, maxRows: 5 }} />
         </Form.Item>
         <Form.Item name="principle_mode" label="实验原理形式" rules={[{ required: true }]}>
@@ -132,85 +284,161 @@ export function CatalogNodeContentPanel({
           </Radio.Group>
         </Form.Item>
         {principleMode === "equation" ? (
-          <div className="catalog-equation-editor">
-            <div className="catalog-equation-toolbar">
-              <Text strong>化学方程式</Text>
+          <div className="catalog-equation-natural-editor">
+            <div className="catalog-equation-natural-header">
+              <div className="catalog-equation-natural-copy">
+                <Text strong>实验反应式</Text>
+                <Text type="secondary">直接输入或粘贴反应式，一行一个；系统会自动识别、纠错并提示配平建议。</Text>
+              </div>
+            </div>
+            <Form.Item name="reaction_equations_text" rules={[{ required: true, message: "请输入实验反应式，或切换为文字描述" }]}>
+              <Input.TextArea
+                className="catalog-equation-natural-input"
+                autoSize={{ minRows: 4, maxRows: 10 }}
+                placeholder={"例如：CL2+H2=HCL\nCl2 + 2KBr -> 2KCl + Br2\n氯气 + 氢气 = 氯化氢"}
+              />
+            </Form.Item>
+            <div className="catalog-equation-natural-actions">
+              <div className="catalog-equation-natural-action-copy">
+                <Text type="secondary">先看系统理解；需要进一步修正或补全时，再让 AI 基于这些结果给建议。</Text>
+              </div>
               <Space wrap>
-                {[" + ", " = ", " → ", " ⇌ ", "(aq)", "(s)", "(g)", "↑", "↓", "H+", "OH-", "H2O"].map((snippet) => (
-                  <Button key={snippet} size="small" onClick={() => appendEquationSnippet(snippet)}>
-                    {snippet}
-                  </Button>
-                ))}
-                <Button icon={<EyeOutlined />} loading={previewLoading} onClick={previewEquations}>
-                  后端预览
+                <Button type="primary" icon={<RobotOutlined />} loading={assistLoading} onClick={() => void runEquationAssist()}>
+                  AI 建议
+                  {/*
+                  {hasEquationInput ? "AI 校对全部" : "AI 生成候选"}
+                  */}
+                </Button>
+                <Button icon={<ReloadOutlined />} loading={previewLoading} onClick={refreshPreview}>
+                  重新检查
                 </Button>
               </Space>
             </div>
-            <Form.List name="reaction_equations">
-              {(fields, { add, remove, move }) => (
-                <div className="catalog-equation-list">
-                  {fields.map((field, index) => (
-                    <div className="catalog-equation-row" key={field.key}>
-                      <Form.Item
-                        {...field}
-                        name={[field.name, "raw_text"]}
-                        rules={[{ required: true, message: "请输入化学方程式，或删除该行" }]}
-                      >
-                        <Input placeholder="例如：Cl2 + 2 KBr = 2 KCl + Br2" />
-                      </Form.Item>
-                      <Space.Compact>
-                        <Button aria-label="上移方程式" title="上移" icon={<ArrowUpOutlined />} disabled={index === 0} onClick={() => move(index, index - 1)} />
-                        <Button
-                          aria-label="下移方程式"
-                          title="下移"
-                          icon={<ArrowDownOutlined />}
-                          disabled={index === fields.length - 1}
-                          onClick={() => move(index, index + 1)}
-                        />
-                        <Button danger aria-label="删除方程式" title="删除" icon={<DeleteOutlined />} onClick={() => remove(field.name)} />
-                      </Space.Compact>
-                    </div>
-                  ))}
-                  <Button icon={<PlusOutlined />} onClick={() => add({ raw_text: "", row_order: fields.length + 1 })}>
-                    添加方程式
-                  </Button>
+            {previewError ? <div className="catalog-equation-natural-feedback is-error">{previewError}</div> : null}
+            {previewLoading ? <div className="catalog-equation-natural-feedback">正在识别反应式...</div> : null}
+            {reviewModel.rows.length || reviewModel.supplementalCandidates.length ? (
+              <div className="catalog-equation-natural-preview">
+                <div className="catalog-equation-natural-preview-title">
+                  <Text strong>系统理解为</Text>
+                  <Space wrap>
+                    <Text type="secondary">保存时仍以当前输入为准，后端会重新规范化。</Text>
+                    {reviewModel.rows.some((row) => row.candidates.length) ? (
+                      <Button size="small" type="primary" onClick={() => reviewModel.rows.forEach((row) => row.candidates[0] && applyCandidate(row.candidates[0]))}>
+                        采用全部
+                      </Button>
+                    ) : null}
+                  </Space>
                 </div>
-              )}
-            </Form.List>
-            {previewError ? <Alert type="error" showIcon message={previewError} /> : null}
-            {equationPreview ? (
-              <div className="catalog-equation-preview">
-                {equationPreview.equations.length ? (
-                  equationPreview.equations.map((equation) => (
-                    <Alert
-                      key={`${equation.row_order}-${equation.raw_text}`}
-                      type={equation.validation_status === "invalid" ? "error" : equation.validation_status === "warning" ? "warning" : "success"}
-                      showIcon
-                      message={
-                        equation.canonical_mhchem ? (
-                          <AssistantMarkdownContent text={`$${equation.canonical_mhchem}$`} inline />
-                        ) : (
-                          equation.raw_text
-                        )
-                      }
-                      description={
-                        <Space direction="vertical" size={4}>
-                          <Text type="secondary">后端状态：{equation.validation_status}</Text>
-                          {equation.formulae.length ? <Text type="secondary">公式：{equation.formulae.join(", ")}</Text> : null}
-                          {[...equation.warnings, ...equation.errors].map((item) => (
-                            <Text key={item} type={equation.errors.includes(item) ? "danger" : "secondary"}>
-                              {item}
-                            </Text>
-                          ))}
-                        </Space>
-                      }
-                    />
-                  ))
-                ) : (
-                  <Alert type="info" showIcon message="暂无可预览方程式" />
-                )}
+                {reviewModel.rows.map(({ equation, candidates }) => {
+                  const status = equationStatusMeta[equation.validation_status];
+                  const messages = [...(equation.corrections || []), ...equation.warnings, ...equation.errors];
+                  const hasDetails = Boolean(messages.length || equation.formulae.length);
+                  return (
+                    <div className={`catalog-equation-natural-row is-${equation.validation_status}`} key={`${equation.row_order}-${equation.raw_text}`}>
+                      <span className="catalog-equation-natural-index">{equation.row_order}</span>
+                      <div className="catalog-equation-natural-result">
+                        <div className="catalog-equation-natural-result-line">
+                          <div className="catalog-equation-natural-rendered">
+                            {equation.canonical_mhchem ? (
+                              <AssistantMarkdownContent text={`$${equation.canonical_mhchem}$`} inline />
+                            ) : (
+                              equation.canonical_display || equation.raw_text
+                            )}
+                          </div>
+                          <Space wrap size={8}>
+                            <Tag color={status.color}>{status.label}</Tag>
+                            {equation.validation_status !== "valid" ? (
+                              <Button
+                                size="small"
+                                icon={<RobotOutlined />}
+                                loading={assistLoadingRow === equation.row_order}
+                                onClick={() => void runEquationAssist(equation.row_order)}
+                              >
+                                让 AI 修这行
+                              </Button>
+                            ) : null}
+                          </Space>
+                        </div>
+                        {candidates.length ? (
+                          <div className="catalog-equation-natural-candidates">
+                            <Text className="catalog-equation-natural-candidates-title" type="secondary">推荐采用</Text>
+                            {candidates.map((candidate) => (
+                              <div className="catalog-equation-natural-candidate" key={candidate.key}>
+                                <Tag color={candidate.sources.includes("ai") ? "green" : "blue"}>{candidate.sourceLabel}</Tag>
+                                <div className="catalog-equation-natural-candidate-body">
+                                  <div className="catalog-equation-natural-rendered">
+                                    {candidate.canonical_mhchem ? (
+                                      <AssistantMarkdownContent text={`$${candidate.canonical_mhchem}$`} inline />
+                                    ) : (
+                                      candidate.canonical_display
+                                    )}
+                                  </div>
+                                  {candidate.rationale || candidate.formulae.length || candidate.warnings.length || candidate.errors.length ? (
+                                    <details className="catalog-equation-natural-details">
+                                      <summary>查看详情</summary>
+                                      {candidate.rationale ? <Text type="secondary">{candidate.rationale}</Text> : null}
+                                      {candidate.formulae.length ? <Text type="secondary">识别到：{candidate.formulae.join("、")}</Text> : null}
+                                      {[...candidate.warnings, ...candidate.errors].map((item) => (
+                                        <Text key={item} type={candidate.errors.includes(item) ? "danger" : "secondary"}>
+                                          {item}
+                                        </Text>
+                                      ))}
+                                      <Text type="secondary">替换文本：{candidate.replacement_text}</Text>
+                                    </details>
+                                  ) : null}
+                                </div>
+                                <Button size="small" type="primary" onClick={() => applyCandidate(candidate)}>
+                                  采用这个反应式
+                                </Button>
+                              </div>
+                            ))}
+                          </div>
+                        ) : null}
+                        {hasDetails ? (
+                          <details className="catalog-equation-natural-details">
+                            <summary>查看识别详情</summary>
+                            {equation.formulae.length ? <Text type="secondary">识别到：{equation.formulae.join("、")}</Text> : null}
+                            {messages.map((item) => (
+                              <Text key={item} type={equation.errors.includes(item) ? "danger" : "secondary"}>
+                                {item}
+                              </Text>
+                            ))}
+                          </details>
+                        ) : null}
+                      </div>
+                    </div>
+                  );
+                })}
+                {reviewModel.supplementalCandidates.length ? (
+                  <div className="catalog-equation-natural-supplemental">
+                    <Text strong>候选补充反应式</Text>
+                    {reviewModel.supplementalCandidates.map((candidate) => (
+                      <div className="catalog-equation-natural-candidate" key={candidate.key}>
+                        <Tag color="green">{candidate.sourceLabel}</Tag>
+                        <div className="catalog-equation-natural-candidate-body">
+                          <div className="catalog-equation-natural-rendered">
+                            {candidate.canonical_mhchem ? <AssistantMarkdownContent text={`$${candidate.canonical_mhchem}$`} inline /> : candidate.canonical_display}
+                          </div>
+                          {candidate.rationale ? <Text type="secondary">{candidate.rationale}</Text> : null}
+                        </div>
+                        <Button size="small" type="primary" onClick={() => applyCandidate(candidate)}>
+                          采用这个反应式
+                        </Button>
+                      </div>
+                    ))}
+                  </div>
+                ) : null}
+              </div>
+            ) : !hasEquationInput ? (
+              <div className="catalog-equation-natural-empty">
+                <Text strong>还没有反应式</Text>
+                <Text type="secondary">AI 可以根据当前点位内容生成候选反应式，生成后仍需老师采纳。</Text>
+                <Button type="primary" icon={<RobotOutlined />} loading={assistLoading} onClick={() => void runEquationAssist()}>
+                  AI 生成候选
+                </Button>
               </div>
             ) : null}
+            {assistMessage ? <div className="catalog-equation-natural-feedback">{assistMessage}</div> : null}
           </div>
         ) : (
           <Form.Item name="principle_text" label="文字原理" rules={[{ required: true, message: "请输入文字原理" }]}>

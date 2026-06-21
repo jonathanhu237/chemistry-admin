@@ -19,6 +19,8 @@ def test_directory_category_text_matches_descendant_point_without_directory_docu
         point_rows=[
             {
                 "node_id": "cat-point-halogen",
+                "placement_node_id": "cat-point-halogen",
+                "canonical_point_id": "cat-canon-halogen",
                 "chapter_id": "CH17",
                 "chapter_title": "Halogen chapter",
                 "node_title": "Orange layer observation",
@@ -51,5 +53,9 @@ def test_directory_category_text_matches_descendant_point_without_directory_docu
     assert matches[0].result_type == "video_point"
     assert matches[0].target is not None
     assert matches[0].target.kind == "point_detail"
+    assert matches[0].target.placement_node_id == "cat-point-halogen"
+    assert matches[0].target.canonical_point_id == "cat-canon-halogen"
     assert matches[0].index_source is not None
+    assert matches[0].index_source["placement_node_id"] == "cat-point-halogen"
+    assert matches[0].index_source["canonical_point_id"] == "cat-canon-halogen"
     assert "Directory category for displacement verification" in matches[0].index_source["category_text"]

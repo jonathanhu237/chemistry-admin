@@ -120,17 +120,18 @@ Frontend host bindings default to `127.0.0.1:5173` for `web-student`, `127.0.0.1
 
 Student video-library search is a PostgreSQL-to-Elasticsearch projection. PostgreSQL catalog point tables are the fact source:
 
-- `experiment_catalog_nodes`: stable chapter catalog hierarchy, directory category/card metadata, and point-only `node_id` identities
-- `experiment_catalog_point_content`: teacher-authored point title, teacher-only note, principle, phenomenon explanation, safety note, and publication audit
-- `experiment_catalog_point_related_links`: manual related point links and hidden default overrides keyed by `source_node_id` and `target_node_id`
-- `experiment_catalog_point_media_bindings`: point-node video bindings
-- `experiment_catalog_point_search_index_state`: retryable desired search actions and sync status
+- `experiment_catalog_points`: canonical experiment point identity shared by one or more catalog point placements
+- `experiment_catalog_nodes`: stable chapter catalog hierarchy, directory category/card metadata, and point-placement `node_id` values targeting `canonical_point_id`
+- `experiment_catalog_point_content`: teacher-authored point title, teacher-only note, principle, phenomenon explanation, safety note, and publication audit keyed by canonical point identity with placement context
+- `experiment_catalog_point_related_links`: manual related point links and hidden default overrides stored by canonical source/target point identity with placement display resolution
+- `experiment_catalog_point_media_bindings`: video bindings keyed by canonical point identity with source placement context
+- `experiment_catalog_point_search_index_state`: retryable desired search actions and sync status for placement documents
 
-Elasticsearch stores derived published point documents only. Directory nodes contribute ancestor category text to descendant point documents but never become standalone results. Teacher-only notes, raw media-library uploads that are not bound to published points, `source_chunks`, and `experiment_video_point_evidence` must stay out of the student video-library index. Do not edit ES documents by hand and do not treat ES hit sources as student page content.
+Elasticsearch stores derived published placement documents only. Directory nodes contribute ancestor category text to descendant point documents but never become standalone results. A canonical experiment with multiple published placements produces multiple ES documents that share `canonical_point_id` and differ by `placement_node_id`, chapter, and path. Teacher-only notes, raw media-library uploads that are not bound to published points, `source_chunks`, and `experiment_video_point_evidence` must stay out of the student video-library index. Do not edit ES documents by hand and do not treat ES hit sources as student page content.
 
-The current catalog seed comes from `docs/实验目录_整理版.md`: 569 catalog nodes, 176 directory nodes, and 393 point nodes. Chapter 21 has no seeded catalog content. The 30 smoke examples in `docs/30点位例子.txt` are imported as published point content for semantically matched catalog point nodes and can be indexed without legacy AI evidence. Each example records a `semantic_mapping` report with title/path/reagent evidence, top candidates, reviewed override details when candidates are ambiguous, and known wording corrections such as `NaClO + 品红溶液`.
+The current catalog seed comes from `docs/实验目录_整理版.md`: 569 visible catalog nodes, 176 directory nodes, 393 point placements, and 357 canonical experiment points. Chapter 21 has no seeded catalog content. Reviewed exact duplicate leaves such as `Na2SiO3 + CO2`, `Al2(SO4)3 + NH3·H2O + NaOH`, and `BeSO4 + NH3·H2O + NaOH` are represented as multiple placements targeting one canonical point. The corrected sibling points `NaClO + MnSO₄` and `NaClO + 品红溶液` remain distinct canonical points. The 30 smoke examples in `docs/30点位例子.txt` are imported as published point content for semantically matched catalog point placements and canonical points, and can be indexed without legacy AI evidence. Each example records a `semantic_mapping` report with title/path/reagent evidence, top candidates, reviewed override details when candidates are ambiguous, and known wording corrections such as `NaClO + 品红溶液`.
 
-Catalog authoring only binds existing media assets to point nodes. New uploads are owned by the media library workflow and then selected from the catalog editor after processing.
+Catalog authoring only binds existing media assets to canonical experiment points through the selected placement. New uploads are owned by the media library workflow and then selected from the catalog editor after processing.
 
 Bootstrap or rebuild the search index from PostgreSQL:
 
@@ -314,8 +315,9 @@ Expected protected baseline counts:
 
 - 77 formal experiments
 - 11 chapters, 133 units, 385 knowledge points
-- 569 catalog nodes: 176 directories and 393 points
-- 30 semantically mapped published catalog point-content smoke examples and queued search documents
+- 569 catalog nodes: 176 directories and 393 point placements
+- 357 canonical experiment points
+- 30 semantically mapped published catalog point-content smoke examples; ES rebuild may produce more than 30 placement documents when a sampled canonical point has multiple active placements
 - 0 question banks and 0 questions
 - 3637 canonical chunks and embeddings
 - 0 legacy point evidence bindings

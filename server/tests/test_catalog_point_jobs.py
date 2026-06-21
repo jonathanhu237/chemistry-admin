@@ -47,6 +47,10 @@ class _FakeSession:
         return _Result()
 
 
+def _call_with_param(session: _FakeSession, key: str, value: Any) -> dict[str, Any]:
+    return next(call for call in session.calls if call["params"].get(key) == value)
+
+
 def test_enqueue_point_job_is_idempotent_for_open_equivalent_work() -> None:
     session = _FakeSession()
 
@@ -60,9 +64,11 @@ def test_enqueue_point_job_is_idempotent_for_open_equivalent_work() -> None:
 
     assert row["node_id"] == "cat-point-1"
     assert row["job_type"] == "rag_evidence_refresh"
-    sql = session.calls[0]["sql"]
-    assert "ON CONFLICT (idempotency_key) WHERE status IN ('pending', 'running')" in sql
-    assert session.calls[0]["params"]["idempotency_key"].startswith("catalog-point:cat-point-1:rag_evidence_refresh:")
+    insert_call = _call_with_param(session, "job_type", "rag_evidence_refresh")
+    assert "ON CONFLICT (idempotency_key) WHERE status IN ('pending', 'running')" in insert_call["sql"]
+    assert insert_call["params"]["idempotency_key"].startswith("catalog-point:cat-point-1:rag_evidence_refresh:")
+    assert insert_call["params"]["placement_node_id"] == "cat-point-1"
+    assert insert_call["params"]["canonical_point_id"] == "cat-point-1"
 
 
 def test_queue_es_sync_job_records_desired_action_and_catalog_node_identity() -> None:
@@ -70,9 +76,11 @@ def test_queue_es_sync_job_records_desired_action_and_catalog_node_identity() ->
 
     jobs.queue_es_sync_job(session, node_id="cat-point-1", action="delete", trigger_source="automatic")
 
-    params = session.calls[0]["params"]
+    params = _call_with_param(session, "job_type", "es_delete")["params"]
     assert params["node_id"] == "cat-point-1"
     assert params["job_type"] == "es_delete"
+    assert params["placement_node_id"] == "cat-point-1"
+    assert params["canonical_point_id"] == "cat-point-1"
     assert params["trigger_source"] == "automatic"
     assert '"desired_action": "delete"' in params["payload"]
 
@@ -84,10 +92,11 @@ def test_mark_point_evidence_stale_does_not_block_or_auto_refresh_by_default(mon
 
     jobs.mark_point_evidence_stale(session, node_id="cat-point-1", reason="point_content_edited")
 
-    assert len(session.calls) == 1
-    assert session.calls[0]["params"]["node_id"] == "cat-point-1"
-    assert session.calls[0]["params"]["evidence_status"] == "stale"
-    assert session.calls[0]["params"]["stale_reason"] == "point_content_edited"
+    stale_call = _call_with_param(session, "evidence_status", "stale")["params"]
+    assert stale_call["node_id"] == "cat-point-1"
+    assert stale_call["canonical_point_id"] == "cat-point-1"
+    assert stale_call["source_placement_node_id"] == "cat-point-1"
+    assert stale_call["stale_reason"] == "point_content_edited"
 
 
 def test_worker_claim_uses_database_locking_to_avoid_duplicate_execution() -> None:

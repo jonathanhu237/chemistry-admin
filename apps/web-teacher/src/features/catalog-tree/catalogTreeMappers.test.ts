@@ -46,6 +46,7 @@ describe("catalog tree mappers", () => {
       card_layout: "compact",
       card_presentation: {},
       point_card_presentation: {},
+      canonical_point_id: null,
     });
   });
 
@@ -99,10 +100,8 @@ describe("catalog tree mappers", () => {
         point_title: "Sodium thiosulfate and acid",
         teacher_note: "teacher-only note",
         principle_mode: "equation",
-        reaction_equations: [
-          { raw_text: "Na2S2O3 + 2HCl = 2NaCl + S + SO2 + H2O" },
-          { raw_text: "SO2 + I2 + 2H2O = H2SO4 + 2HI" },
-        ],
+        reaction_equations_text: " Na2S2O3 + 2HCl = 2NaCl + S + SO2 + H2O \n\n SO2 + I2 + 2H2O = H2SO4 + 2HI ",
+        reaction_equations: [{ raw_text: "stale preview row should not win" }],
         principle_text: "hidden by mode",
         phenomenon_explanation: "Sulfur precipitate appears.",
         safety_note: "Use ventilation.",
@@ -154,9 +153,29 @@ describe("catalog tree mappers", () => {
       },
     } as unknown as CatalogNodeDetail;
 
-    expect(hydrateCatalogPointContentForm(detail).reaction_equations).toEqual([
+    const values = hydrateCatalogPointContentForm(detail);
+
+    expect(values.reaction_equations_text).toBe("Cl2 + 2 KBr = 2 KCl + Br2");
+    expect(values.reaction_equations).toEqual([
       { raw_text: "Cl2 + 2 KBr = 2 KCl + Br2", row_order: 1 },
     ]);
+  });
+
+  it("hydrates stored equation rows into multiline text in display order", () => {
+    const detail = {
+      node: { title: "Multi equation point", node_kind: "point" },
+      point_content: {
+        point_title: "Multi equation point",
+        principle_mode: "equation",
+        principle_equation: "",
+        reaction_equations: [
+          { raw_text: "Cl2 + H2 = HCl", row_order: 1 },
+          { raw_text: "Cl2 + 2KBr = 2KCl + Br2", row_order: 2 },
+        ],
+      },
+    } as unknown as CatalogNodeDetail;
+
+    expect(hydrateCatalogPointContentForm(detail).reaction_equations_text).toBe("Cl2 + H2 = HCl\nCl2 + 2KBr = 2KCl + Br2");
   });
 
   it("uses one visible point title and detects divergent stored titles", () => {

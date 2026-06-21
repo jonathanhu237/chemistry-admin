@@ -16,6 +16,7 @@ from server.app.experiment_admin_schemas import GenerationRequest
 from server.app.domains.platform.settings import effective_ai_settings
 from server.app.domains.catalog.experiments import _ensure_experiment
 from server.app.domains.questions.bank import _json, _json_array, _validate_question_payload
+from server.app.domains.questions.point_identity import point_canonical_id, point_placement_id, string_list, unique_strings
 
 OBJECTIVE_TYPES = {"single_choice", "true_false", "fill_blank"}
 
@@ -245,10 +246,15 @@ def _target_points_from_catalog_nodes(session: Any, node_ids: list[str]) -> list
         for row in session.execute(
             text(
                 """
-                SELECT n.id AS point_node_id, n.title AS point_title, n.chapter_id,
-                       c.point_title AS authored_point_title
+                SELECT n.id AS point_node_id,
+                       n.canonical_point_id,
+                       n.title AS point_title,
+                       n.chapter_id,
+                       COALESCE(c.point_title, cp.title) AS authored_point_title
                 FROM experiment_catalog_nodes n
-                LEFT JOIN experiment_catalog_point_content c ON c.node_id = n.id
+                LEFT JOIN experiment_catalog_points cp ON cp.id = n.canonical_point_id
+                LEFT JOIN experiment_catalog_point_content c
+                  ON c.canonical_point_id = n.canonical_point_id OR c.node_id = n.id
                 WHERE n.id = ANY(:node_ids)
                   AND n.node_kind = 'point'
                   AND n.status <> 'archived'
@@ -270,6 +276,8 @@ def _target_points_from_catalog_nodes(session: Any, node_ids: list[str]) -> list
         {
             "point_node_id": node_id,
             "point_id": node_id,
+            "source_placement_node_id": node_id,
+            "canonical_point_id": str(by_id[node_id].get("canonical_point_id") or ""),
             "point_key": "",
             "point_title": str(by_id[node_id].get("authored_point_title") or by_id[node_id].get("point_title") or node_id),
             "chapter_id": str(by_id[node_id].get("chapter_id") or ""),
@@ -279,13 +287,11 @@ def _target_points_from_catalog_nodes(session: Any, node_ids: list[str]) -> list
 
 
 def _target_point_node_ids(target_points: list[dict[str, Any]] | None) -> list[str]:
-    return _as_string_list(
-        [
-            point.get("point_node_id") or point.get("point_id") or point.get("node_id")
-            for point in (target_points or [])
-            if isinstance(point, dict)
-        ]
-    )
+    return _as_string_list([point_placement_id(point) for point in (target_points or []) if isinstance(point, dict)])
+
+
+def _target_canonical_point_ids(target_points: list[dict[str, Any]] | None) -> list[str]:
+    return unique_strings([point_canonical_id(point) for point in (target_points or []) if isinstance(point, dict)])
 
 
 def catalog_point_generation_contexts(session: Any, *, target_points: list[dict[str, Any]] | None) -> list[dict[str, Any]]:
@@ -315,6 +321,9 @@ def catalog_point_generation_contexts(session: Any, *, target_points: list[dict[
         contexts.append(
             {
                 "catalog_node_id": node_id,
+                "placement_node_id": node_id,
+                "source_placement_node_id": node_id,
+                "canonical_point_id": point_canonical_id(point),
                 "chapter_id": context.get("chapter_id"),
                 "point_title": context.get("title") or point.get("point_title") or node_id,
                 "catalog_path": context.get("catalog_path") or [],
@@ -373,11 +382,15 @@ def _catalog_node_evidence_package(
         item = dict(ref)
         if node_ids and not item.get("point_node_id") and not item.get("point_node_ids"):
             item["point_node_ids"] = node_ids
+        canonical_ids = _target_canonical_point_ids(target_points)
+        if canonical_ids and not item.get("canonical_point_id") and not item.get("canonical_point_ids"):
+            item["canonical_point_ids"] = canonical_ids
         normalized_source_refs.append(item)
     diagnostics_payload = {
         "source_strategy": "catalog_node_evidence",
         "source_mode": source_mode,
         "target_point_node_ids": node_ids,
+        "target_canonical_point_ids": _target_canonical_point_ids(target_points),
         "catalog_node_ids": node_ids,
         **(diagnostics or {}),
     }
@@ -390,6 +403,7 @@ def _catalog_node_evidence_package(
         "freshness_status": freshness,
         "evidence_status": evidence_status,
         "target_point_node_ids": node_ids,
+        "target_canonical_point_ids": _target_canonical_point_ids(target_points),
         "catalog_node_ids": node_ids,
         "source_refs": normalized_source_refs,
         "source_count": len(normalized_source_refs),
@@ -497,6 +511,7 @@ def _source_audit_for_generation(
     source_refs: list[dict[str, Any]],
     evidence_package: dict[str, Any],
     target_point_node_ids: list[str],
+    target_canonical_point_ids: list[str] | None = None,
 ) -> dict[str, Any]:
     chunk_ids = _question_source_chunk_ids(source_refs)
     return {
@@ -506,6 +521,8 @@ def _source_audit_for_generation(
         "evidence_contract": "catalog_node_evidence",
         "evidence_source": evidence_package.get("source_mode") or "catalog_node_evidence",
         "target_point_node_ids": target_point_node_ids,
+        "target_canonical_point_ids": target_canonical_point_ids or [],
+        "source_placement_node_ids": target_point_node_ids,
         "reviewer_note": "Generated draft; teacher must verify catalog-node evidence before publication.",
     }
 
@@ -534,10 +551,20 @@ def question_payload_has_catalog_evidence_lineage(
             or []
         )
     )
+    payload_canonical_ids = set(
+        _as_string_list(
+            payload.get("primary_canonical_point_ids")
+            or metadata.get("primary_canonical_point_ids")
+            or metadata.get("target_canonical_point_ids")
+            or source_audit.get("target_canonical_point_ids")
+            or lineage.get("target_canonical_point_ids")
+            or []
+        )
+    )
     requested = set(_as_string_list(target_point_node_ids or []))
     if requested and not requested.issubset(payload_node_ids):
         return False
-    if not payload_node_ids:
+    if not payload_node_ids and not payload_canonical_ids:
         return False
     return bool(source_audit.get("canonical_chunk_ids") or payload.get("source_refs") or lineage.get("source_refs"))
 
@@ -550,13 +577,18 @@ def attach_generation_lineage(
     generation_id: str | None = None,
 ) -> dict[str, Any]:
     target_node_ids = _target_point_node_ids(target_points)
+    target_canonical_ids = _target_canonical_point_ids(target_points)
     source_refs = list(evidence_package.get("source_refs") or payload.get("source_refs") or [])
     metadata = dict(payload.get("metadata") if isinstance(payload.get("metadata"), dict) else {})
     metadata["primary_point_node_ids"] = _as_string_list(metadata.get("primary_point_node_ids") or target_node_ids)
+    metadata["source_placement_node_ids"] = _as_string_list(metadata.get("source_placement_node_ids") or target_node_ids)
+    metadata["primary_canonical_point_ids"] = _as_string_list(metadata.get("primary_canonical_point_ids") or target_canonical_ids)
     if target_points:
         metadata["primary_points"] = [
             {
-                "point_node_id": point.get("point_node_id") or point.get("point_id") or point.get("node_id"),
+                "point_node_id": point_placement_id(point),
+                "source_placement_node_id": point_placement_id(point),
+                "canonical_point_id": point_canonical_id(point),
                 "point_key": point.get("point_key") or "",
                 "point_title": point.get("point_title") or point.get("title") or point.get("point_node_id"),
             }
@@ -571,6 +603,7 @@ def attach_generation_lineage(
             source_refs=source_refs,
             evidence_package=evidence_package,
             target_point_node_ids=target_node_ids,
+            target_canonical_point_ids=target_canonical_ids,
         ),
     }
     metadata["source_audit"] = source_audit
@@ -579,11 +612,15 @@ def attach_generation_lineage(
         "evidence_contract": "catalog_node_evidence",
         "evidence_source": evidence_package.get("source_mode") or "catalog_node_evidence",
         "target_point_node_ids": target_node_ids,
+        "target_canonical_point_ids": target_canonical_ids,
+        "source_placement_node_ids": target_node_ids,
         "source_ref_count": len(source_refs),
     }
     return {
         **payload,
         "primary_point_node_ids": _as_string_list(payload.get("primary_point_node_ids") or target_node_ids),
+        "source_placement_node_ids": _as_string_list(payload.get("source_placement_node_ids") or target_node_ids),
+        "primary_canonical_point_ids": _as_string_list(payload.get("primary_canonical_point_ids") or target_canonical_ids),
         "source_refs": source_refs,
         "source_chunk_ids": _question_source_chunk_ids(source_refs, source_audit),
         "metadata": metadata,

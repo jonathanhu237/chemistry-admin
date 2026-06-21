@@ -1,12 +1,15 @@
 from __future__ import annotations
 
+import json
 from typing import Any
 
 import pytest
 
 from server.app.domains.questions import bank as question_bank_domain
 from server.app.domains.catalog_tree.catalog_seed import (
+    CANONICAL_POINT_GROUPS_SEED_PATH,
     load_catalog_seed,
+    load_canonical_point_seed,
     load_point_content_examples,
     reset_legacy_experiment_seed_data,
     validate_catalog_seed,
@@ -26,9 +29,14 @@ def test_catalog_outline_seed_matches_required_counts_and_corrected_siblings() -
     assert result["counts"]["total_nodes"] == 569
     assert result["counts"]["directory_nodes"] == 176
     assert result["counts"]["point_nodes"] == 393
+    assert result["counts"]["point_placements"] == 393
+    assert result["counts"]["canonical_points"] == 357
+    assert result["counts"]["duplicate_group_count"] == 32
+    assert result["counts"]["duplicate_placement_surplus"] == 36
     assert result["counts"]["chapter_21_nodes"] == 0
     assert result["counts"]["point_content_examples"] == 30
     assert result["counts"]["unique_target_seed_keys"] == 30
+    assert result["counts"]["unique_target_canonical_point_ids"] == 30
     assert result["counts"]["semantic_mapped_examples"] == 30
     assert result["counts"]["corrected_wording_examples"] == 1
     assert result["corrected_hypochlorite_points"] == ["NaClO + MnSO₄", "NaClO + 品红溶液"]
@@ -36,6 +44,34 @@ def test_catalog_outline_seed_matches_required_counts_and_corrected_siblings() -
     assert all(example.get("semantic_mapping", {}).get("top_candidates") for example in examples)
     corrected = next(example for example in examples if example["example_number"] == 21)
     assert corrected["semantic_mapping"]["wording_correction"]["corrected"] == "NaClO + 品红溶液"
+
+
+def test_catalog_seed_reviewed_duplicate_groups_share_canonical_points() -> None:
+    canonical_points = load_canonical_point_seed()
+    grouping_seed = json.loads(CANONICAL_POINT_GROUPS_SEED_PATH.read_text(encoding="utf-8-sig"))
+    nodes = [node for node in load_catalog_seed() if node["node_kind"] == "point"]
+    by_title: dict[str, list[dict[str, Any]]] = {}
+    for node in nodes:
+        by_title.setdefault(node["title"], []).append(node)
+
+    assert grouping_seed["counts"]["canonical_points"] == 357
+    assert grouping_seed["counts"]["duplicate_group_count"] == 32
+    assert grouping_seed["counts"]["ambiguous_duplicate_count"] == 0
+    assert len(canonical_points) == 357
+
+    reviewed_groups = {group["title"]: group for group in grouping_seed["groups"]}
+    assert reviewed_groups["Na2SiO3 + CO2"]["placement_count"] == 2
+    assert reviewed_groups["Al2(SO4)3 + NH3·H2O + NaOH"]["placement_count"] == 4
+    assert reviewed_groups["BeSO4 + NH3·H2O + NaOH"]["placement_count"] == 4
+
+    for title in ["Na2SiO3 + CO2", "Al2(SO4)3 + NH3·H2O + NaOH", "BeSO4 + NH3·H2O + NaOH"]:
+        rows = by_title[title]
+        assert len(rows) == reviewed_groups[title]["placement_count"]
+        assert {row["canonical_point_id"] for row in rows} == {reviewed_groups[title]["canonical_point_id"]}
+
+    hypochlorite_rows = by_title["NaClO + MnSO₄"] + by_title["NaClO + 品红溶液"]
+    assert len(hypochlorite_rows) == 2
+    assert len({row["canonical_point_id"] for row in hypochlorite_rows}) == 2
 
 
 def test_catalog_seed_validation_rejects_legacy_identity_and_missing_mapping_report() -> None:
@@ -294,6 +330,8 @@ def test_thirty_seed_examples_build_search_documents_without_legacy_ai_evidence(
         point_rows.append(
             {
                 "node_id": example["target_seed_key"],
+                "placement_node_id": example["target_seed_key"],
+                "canonical_point_id": example["target_canonical_point_id"],
                 "chapter_id": target["chapter_id"],
                 "chapter_title": path_titles[0],
                 "node_title": path_titles[-1],
@@ -316,6 +354,8 @@ def test_thirty_seed_examples_build_search_documents_without_legacy_ai_evidence(
 
     assert len(documents) == 30
     assert all(document.target and document.target.node_id for document in documents)
+    assert all(document.target and document.target.placement_node_id for document in documents)
+    assert all(document.target and document.target.canonical_point_id for document in documents)
     assert "source_chunks" not in search_text
     assert "experiment_video_point_evidence" not in search_text
     assert any("焰色反应" in document.search_text for document in documents)

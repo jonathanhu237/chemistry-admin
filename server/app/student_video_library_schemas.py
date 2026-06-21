@@ -28,6 +28,8 @@ class StudentVideoLibraryRouteTarget(BaseModel):
     kind: VideoLibraryTargetKind
     route: str
     node_id: str | None = None
+    placement_node_id: str | None = None
+    canonical_point_id: str | None = None
     source_node_id: str | None = None
     profile_id: str | None = None
     chapter_id: str | None = None

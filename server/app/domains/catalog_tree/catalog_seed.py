@@ -11,6 +11,7 @@ from server.app.infrastructure.settings import ROOT
 
 CATALOG_SEED_DIR = ROOT / "data" / "seed" / "experiment_catalog"
 CATALOG_TREE_SEED_PATH = CATALOG_SEED_DIR / "catalog_tree.json"
+CANONICAL_POINT_GROUPS_SEED_PATH = CATALOG_SEED_DIR / "canonical_point_groups.json"
 POINT_CONTENT_EXAMPLES_SEED_PATH = CATALOG_SEED_DIR / "point_content_examples.json"
 CATALOG_SEED_VALIDATION_REPORT_PATH = (
     ROOT / "data" / "seed" / "import_reports" / "catalog_outline_seed_validation_report.json"
@@ -20,6 +21,10 @@ EXPECTED_CATALOG_COUNTS = {
     "total_nodes": 569,
     "directory_nodes": 176,
     "point_nodes": 393,
+    "point_placements": 393,
+    "canonical_points": 357,
+    "duplicate_group_count": 32,
+    "duplicate_placement_surplus": 36,
     "chapter_21_nodes": 0,
     "point_content_examples": 30,
 }
@@ -59,6 +64,34 @@ def load_catalog_seed(path: Path = CATALOG_TREE_SEED_PATH) -> list[dict[str, Any
     return [dict(item) for item in nodes if isinstance(item, dict)]
 
 
+def load_canonical_point_seed(path: Path = CATALOG_TREE_SEED_PATH) -> list[dict[str, Any]]:
+    data = _read_json(path)
+    canonical_points = data.get("canonical_points")
+    if isinstance(canonical_points, list):
+        return [dict(item) for item in canonical_points if isinstance(item, dict)]
+    nodes = [dict(item) for item in data.get("nodes") or [] if isinstance(item, dict)]
+    by_canonical: dict[str, dict[str, Any]] = {}
+    for node in nodes:
+        if node.get("node_kind") != "point":
+            continue
+        canonical_point_id = str(node.get("canonical_point_id") or "").strip()
+        if not canonical_point_id:
+            continue
+        by_canonical.setdefault(
+            canonical_point_id,
+            {
+                "canonical_point_id": canonical_point_id,
+                "title": node.get("title") or "",
+                "summary": "",
+                "status": "published",
+                "placement_seed_keys": [],
+                "metadata": {"derived_from": "legacy_catalog_tree_nodes"},
+            },
+        )
+        by_canonical[canonical_point_id]["placement_seed_keys"].append(node.get("seed_key"))
+    return list(by_canonical.values())
+
+
 def load_point_content_examples(path: Path = POINT_CONTENT_EXAMPLES_SEED_PATH) -> list[dict[str, Any]]:
     data = _read_json(path)
     examples = data.get("examples")
@@ -75,6 +108,7 @@ def validate_catalog_seed(
     by_key: dict[str, dict[str, Any]] = {}
     child_counts: dict[str, int] = {}
     path_to_nodes: dict[str, list[dict[str, Any]]] = {}
+    point_nodes: list[dict[str, Any]] = []
 
     for index, node in enumerate(nodes, start=1):
         seed_key = str(node.get("seed_key") or "").strip()
@@ -89,6 +123,13 @@ def validate_catalog_seed(
         by_key[seed_key] = node
         if node_kind not in {"directory", "point"}:
             errors.append(f"{seed_key}: invalid node_kind {node_kind!r}")
+        if node_kind == "point":
+            point_nodes.append(node)
+            canonical_point_id = str(node.get("canonical_point_id") or "").strip()
+            if not canonical_point_id:
+                errors.append(f"{seed_key}: point placement requires canonical_point_id")
+        elif str(node.get("canonical_point_id") or "").strip():
+            errors.append(f"{seed_key}: directory node must not have canonical_point_id")
         if not isinstance(path_titles, list) or not path_titles:
             errors.append(f"{seed_key}: path_titles must be a non-empty list")
         else:
@@ -104,7 +145,17 @@ def validate_catalog_seed(
             errors.append(f"{seed_key}: point node has children")
 
     directory_nodes = [node for node in nodes if node.get("node_kind") == "directory"]
-    point_nodes = [node for node in nodes if node.get("node_kind") == "point"]
+    canonical_ids = [str(node.get("canonical_point_id") or "").strip() for node in point_nodes]
+    canonical_ids = [canonical_point_id for canonical_point_id in canonical_ids if canonical_point_id]
+    title_groups: dict[str, list[dict[str, Any]]] = {}
+    for node in point_nodes:
+        title_groups.setdefault(str(node.get("title") or ""), []).append(node)
+    duplicate_groups = {title: rows for title, rows in title_groups.items() if len(rows) > 1}
+    duplicate_placement_surplus = sum(len(rows) - 1 for rows in duplicate_groups.values())
+    for title, rows in duplicate_groups.items():
+        grouped_canonical_ids = {str(row.get("canonical_point_id") or "").strip() for row in rows}
+        if len(grouped_canonical_ids) != 1:
+            errors.append(f"duplicate placement title {title!r} must resolve to one reviewed canonical_point_id")
     chapter_21_nodes = [node for node in nodes if int(node.get("chapter_number") or 0) == 21]
     placeholder_nodes = [
         node
@@ -117,10 +168,23 @@ def validate_catalog_seed(
         "total_nodes": len(nodes),
         "directory_nodes": len(directory_nodes),
         "point_nodes": len(point_nodes),
+        "point_placements": len(point_nodes),
+        "canonical_points": len(set(canonical_ids)),
+        "duplicate_group_count": len(duplicate_groups),
+        "duplicate_placement_surplus": duplicate_placement_surplus,
         "chapter_21_nodes": len(chapter_21_nodes),
         "placeholder_nodes": len(placeholder_nodes),
     }
-    for key in ["total_nodes", "directory_nodes", "point_nodes", "chapter_21_nodes"]:
+    for key in [
+        "total_nodes",
+        "directory_nodes",
+        "point_nodes",
+        "point_placements",
+        "canonical_points",
+        "duplicate_group_count",
+        "duplicate_placement_surplus",
+        "chapter_21_nodes",
+    ]:
         expected = EXPECTED_CATALOG_COUNTS[key]
         if counts[key] != expected:
             errors.append(f"{key}: expected {expected}, got {counts[key]}")
@@ -136,13 +200,22 @@ def validate_catalog_seed(
     missing_hypochlorite = sorted(CORRECTED_HYPOCHLORITE_POINTS - hypochlorite_titles)
     if missing_hypochlorite:
         errors.append("missing corrected hypochlorite point(s): " + ", ".join(missing_hypochlorite))
+    hypochlorite_canonical_ids = {
+        str(node.get("canonical_point_id") or "").strip()
+        for node in hypochlorite_nodes
+        if str(node.get("title") or "") in CORRECTED_HYPOCHLORITE_POINTS
+    }
+    if len(hypochlorite_canonical_ids) != len(CORRECTED_HYPOCHLORITE_POINTS):
+        errors.append("corrected hypochlorite sibling points must target distinct canonical experiments")
 
     example_counts: dict[str, int] = {
         "point_content_examples": 0,
         "unique_target_seed_keys": 0,
+        "unique_target_canonical_point_ids": 0,
     }
     if examples is not None:
         target_seed_keys: list[str] = []
+        target_canonical_point_ids: list[str] = []
         semantic_mapped_examples = 0
         reviewed_override_examples = 0
         ambiguous_example_mappings = 0
@@ -156,11 +229,18 @@ def validate_catalog_seed(
                 errors.append(f"examples[{index}]: target_seed_key is required")
                 continue
             target_seed_keys.append(target_seed_key)
+            target_canonical_point_id = str(example.get("target_canonical_point_id") or "").strip()
+            if not target_canonical_point_id:
+                errors.append(f"examples[{index}]: target_canonical_point_id is required")
+            else:
+                target_canonical_point_ids.append(target_canonical_point_id)
             target = by_key.get(target_seed_key)
             if not target:
                 errors.append(f"examples[{index}]: target seed key does not resolve: {target_seed_key}")
             elif target.get("node_kind") != "point":
                 errors.append(f"examples[{index}]: target must resolve to a point node: {target_seed_key}")
+            elif target_canonical_point_id and target_canonical_point_id != str(target.get("canonical_point_id") or ""):
+                errors.append(f"examples[{index}]: target_canonical_point_id does not match target placement")
             target_path_titles = example.get("target_path_titles") or []
             if target and list(target.get("path_titles") or []) != list(target_path_titles):
                 errors.append(f"examples[{index}]: target path does not match catalog seed")
@@ -199,6 +279,7 @@ def validate_catalog_seed(
         example_counts = {
             "point_content_examples": len(examples),
             "unique_target_seed_keys": len(set(target_seed_keys)),
+            "unique_target_canonical_point_ids": len(set(target_canonical_point_ids)),
             "semantic_mapped_examples": semantic_mapped_examples,
             "reviewed_override_examples": reviewed_override_examples,
             "ambiguous_example_mappings": ambiguous_example_mappings,
@@ -210,6 +291,8 @@ def validate_catalog_seed(
             )
         if len(set(target_seed_keys)) != len(target_seed_keys):
             errors.append("point content examples must target unique catalog point nodes")
+        if len(set(target_canonical_point_ids)) != len(target_canonical_point_ids):
+            errors.append("point content examples must target unique canonical point ids")
 
     return {
         "ok": not errors,
@@ -247,11 +330,17 @@ def reset_legacy_experiment_seed_data(session: Any) -> dict[str, int]:
         ("question_imports", "DELETE FROM experiment_question_imports"),
         ("legacy_point_evidence", "DELETE FROM experiment_video_point_evidence"),
         ("catalog_search_state", "DELETE FROM experiment_catalog_point_search_index_state"),
+        ("catalog_point_jobs", "DELETE FROM experiment_catalog_point_jobs"),
+        ("catalog_point_evidence_bindings", "DELETE FROM experiment_catalog_point_evidence_bindings"),
+        ("catalog_point_evidence_state", "DELETE FROM experiment_catalog_point_evidence_state"),
         ("catalog_media_bindings", "DELETE FROM experiment_catalog_point_media_bindings"),
         ("catalog_related_links", "DELETE FROM experiment_catalog_point_related_links"),
+        ("catalog_reaction_equations", "DELETE FROM experiment_catalog_point_reaction_equations"),
         ("catalog_point_content", "DELETE FROM experiment_catalog_point_content"),
         ("catalog_legacy_identity_map", "DELETE FROM experiment_catalog_legacy_identity_map"),
+        ("catalog_point_identity_map", "DELETE FROM experiment_catalog_point_identity_map"),
         ("catalog_nodes", "DELETE FROM experiment_catalog_nodes"),
+        ("catalog_points", "DELETE FROM experiment_catalog_points"),
         (
             "legacy_video_point_search_state",
             "DELETE FROM experiment_video_point_search_index_state",
@@ -283,10 +372,12 @@ def import_catalog_seed(
     session: Any,
     *,
     nodes: list[dict[str, Any]] | None = None,
+    canonical_points: list[dict[str, Any]] | None = None,
     examples: list[dict[str, Any]] | None = None,
     reset: bool = True,
 ) -> dict[str, Any]:
     nodes = nodes or load_catalog_seed()
+    canonical_points = canonical_points or load_canonical_point_seed()
     examples = examples or load_point_content_examples()
     validation = validate_catalog_seed(nodes, examples)
     if not validation["ok"]:
@@ -294,14 +385,55 @@ def import_catalog_seed(
 
     reset_report = reset_legacy_experiment_seed_data(session) if reset else {}
     imported_nodes = 0
+    imported_canonical_points = 0
     imported_examples = 0
     queued_search_documents = 0
     now = datetime.now(timezone.utc).isoformat()
+
+    for point in canonical_points:
+        placement_seed_keys = point.get("placement_seed_keys") if isinstance(point.get("placement_seed_keys"), list) else []
+        metadata = {
+            "catalog_outline_seed": True,
+            "source_doc": point.get("source_doc") or "docs/实验目录_整理版.md",
+            "placement_seed_keys": placement_seed_keys,
+            "grouping_decision": point.get("grouping_decision") or "singleton_point_node",
+            "imported_at": now,
+            **(point.get("metadata") if isinstance(point.get("metadata"), dict) else {}),
+        }
+        session.execute(
+            text(
+                """
+                INSERT INTO experiment_catalog_points (
+                  id, title, summary, status, metadata, published_at, updated_at
+                )
+                VALUES (
+                  :id, :title, :summary, 'published', CAST(:metadata AS jsonb), now(), now()
+                )
+                ON CONFLICT (id) DO UPDATE SET
+                  title = EXCLUDED.title,
+                  summary = EXCLUDED.summary,
+                  status = EXCLUDED.status,
+                  metadata = EXCLUDED.metadata,
+                  published_at = COALESCE(experiment_catalog_points.published_at, EXCLUDED.published_at),
+                  archived_at = NULL,
+                  updated_at = now()
+                """
+            ),
+            {
+                "id": point["canonical_point_id"],
+                "title": point["title"],
+                "summary": point.get("summary") or "",
+                "metadata": _json(metadata),
+            },
+        )
+        imported_canonical_points += 1
 
     for node in nodes:
         metadata = {
             "catalog_outline_seed": True,
             "seed_key": node["seed_key"],
+            "placement_node_id": node["seed_key"],
+            "canonical_point_id": node.get("canonical_point_id"),
             "source_doc": node.get("source_doc"),
             "source_line": node.get("source_line"),
             "path_titles": node.get("path_titles") or [],
@@ -312,11 +444,11 @@ def import_catalog_seed(
                 """
                 INSERT INTO experiment_catalog_nodes (
                   id, chapter_id, parent_id, node_kind, title, summary, status, display_order,
-                  metadata, published_at, updated_at
+                  canonical_point_id, metadata, published_at, updated_at
                 )
                 VALUES (
                   :id, :chapter_id, :parent_id, :node_kind, :title, '', 'published', :display_order,
-                  CAST(:metadata AS jsonb), now(), now()
+                  :canonical_point_id, CAST(:metadata AS jsonb), now(), now()
                 )
                 ON CONFLICT (id) DO UPDATE SET
                   chapter_id = EXCLUDED.chapter_id,
@@ -325,6 +457,7 @@ def import_catalog_seed(
                   title = EXCLUDED.title,
                   status = EXCLUDED.status,
                   display_order = EXCLUDED.display_order,
+                  canonical_point_id = EXCLUDED.canonical_point_id,
                   metadata = EXCLUDED.metadata,
                   published_at = COALESCE(experiment_catalog_nodes.published_at, EXCLUDED.published_at),
                   updated_at = now()
@@ -337,6 +470,7 @@ def import_catalog_seed(
                 "node_kind": node["node_kind"],
                 "title": node["title"],
                 "display_order": int(node.get("display_order") or 0),
+                "canonical_point_id": node.get("canonical_point_id") if node.get("node_kind") == "point" else None,
                 "metadata": _json(metadata),
             },
         )
@@ -346,6 +480,8 @@ def import_catalog_seed(
         metadata = {
             "catalog_outline_point_content_seed": True,
             "example_number": example.get("example_number"),
+            "target_seed_key": example.get("target_seed_key"),
+            "target_canonical_point_id": example.get("target_canonical_point_id"),
             "source_doc": example.get("source_doc"),
             "source_line_start": example.get("source_line_start"),
             "source_line_end": example.get("source_line_end"),
@@ -356,15 +492,16 @@ def import_catalog_seed(
             text(
                 """
                 INSERT INTO experiment_catalog_point_content (
-                  node_id, point_title, teacher_note, principle_mode, principle_equation, principle_text,
+                  node_id, canonical_point_id, point_title, teacher_note, principle_mode, principle_equation, principle_text,
                   phenomenon_explanation, safety_note, content_status, published_at, metadata, updated_at
                 )
                 VALUES (
-                  :node_id, :point_title, '', 'text', NULL, :principle_text,
+                  :node_id, :canonical_point_id, :point_title, '', 'text', NULL, :principle_text,
                   :phenomenon_explanation, :safety_note, 'published', now(),
                   CAST(:metadata AS jsonb), now()
                 )
                 ON CONFLICT (node_id) DO UPDATE SET
+                  canonical_point_id = EXCLUDED.canonical_point_id,
                   point_title = EXCLUDED.point_title,
                   teacher_note = EXCLUDED.teacher_note,
                   principle_mode = EXCLUDED.principle_mode,
@@ -380,6 +517,7 @@ def import_catalog_seed(
             ),
             {
                 "node_id": example["target_seed_key"],
+                "canonical_point_id": example["target_canonical_point_id"],
                 "point_title": (example.get("target_path_titles") or [example.get("example_title")])[-1],
                 "principle_text": example["principle_text"],
                 "phenomenon_explanation": example["phenomenon_explanation"],
@@ -392,10 +530,12 @@ def import_catalog_seed(
             text(
                 """
                 INSERT INTO experiment_catalog_point_search_index_state (
-                  node_id, document_id, desired_action, sync_status, attempts, updated_at
+                  node_id, placement_node_id, canonical_point_id, document_id, desired_action, sync_status, attempts, updated_at
                 )
-                VALUES (:node_id, :node_id, 'upsert', 'pending', 0, now())
+                VALUES (:node_id, :node_id, :canonical_point_id, :node_id, 'upsert', 'pending', 0, now())
                 ON CONFLICT (node_id) DO UPDATE SET
+                  placement_node_id = EXCLUDED.placement_node_id,
+                  canonical_point_id = EXCLUDED.canonical_point_id,
                   document_id = EXCLUDED.document_id,
                   desired_action = 'upsert',
                   sync_status = 'pending',
@@ -404,7 +544,7 @@ def import_catalog_seed(
                   updated_at = now()
                 """
             ),
-            {"node_id": example["target_seed_key"]},
+            {"node_id": example["target_seed_key"], "canonical_point_id": example["target_canonical_point_id"]},
         )
         queued_search_documents += 1
 
@@ -412,9 +552,15 @@ def import_catalog_seed(
         "imported_at": now,
         "reset": bool(reset),
         "reset_report": reset_report,
+        "canonical_points": imported_canonical_points,
         "catalog_nodes": imported_nodes,
         "directory_nodes": validation["counts"]["directory_nodes"],
         "point_nodes": validation["counts"]["point_nodes"],
+        "point_placements": validation["counts"]["point_placements"],
+        "canonical_point_count": validation["counts"]["canonical_points"],
+        "duplicate_group_count": validation["counts"]["duplicate_group_count"],
+        "duplicate_placement_surplus": validation["counts"]["duplicate_placement_surplus"],
+        "ambiguous_duplicate_count": 0,
         "point_content_examples": imported_examples,
         "queued_search_documents": queued_search_documents,
         "validation": validation,

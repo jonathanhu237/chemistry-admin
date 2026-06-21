@@ -17,6 +17,7 @@ from server.app.experiment_admin_schemas import (
 )
 from server.app.domains.platform.settings import ai_feature_enabled
 from server.app.domains.catalog.experiments import _ensure_experiment, _list_experiments
+from server.app.domains.questions.point_identity import collect_question_point_identity, normalize_question_point_identity
 
 QUESTION_TYPE_ORDER = ("single_choice", "true_false", "fill_blank")
 OBJECTIVE_TYPES = set(QUESTION_TYPE_ORDER)
@@ -51,15 +52,15 @@ def _unique_strings(*groups: Any) -> list[str]:
 
 
 def _point_node_ids_from_payload(payload: dict[str, Any], metadata: dict[str, Any]) -> list[str]:
-    primary_points = metadata.get("primary_points") if isinstance(metadata.get("primary_points"), list) else []
-    option_links = metadata.get("option_links") if isinstance(metadata.get("option_links"), list) else []
-    return _unique_strings(
-        payload.get("primary_point_node_ids"),
-        metadata.get("primary_point_node_ids"),
-        metadata.get("point_node_ids"),
-        [point.get("point_node_id") or point.get("point_id") or point.get("node_id") for point in primary_points if isinstance(point, dict)],
-        [link.get("point_node_id") or link.get("point_id") or link.get("node_id") for link in option_links if isinstance(link, dict)],
-    )
+    return collect_question_point_identity(payload, metadata)["placement_node_ids"]
+
+
+def _canonical_point_ids_from_payload(payload: dict[str, Any], metadata: dict[str, Any]) -> list[str]:
+    return collect_question_point_identity(payload, metadata)["canonical_point_ids"]
+
+
+def _source_placement_node_ids_from_payload(payload: dict[str, Any], metadata: dict[str, Any]) -> list[str]:
+    return collect_question_point_identity(payload, metadata)["source_placement_node_ids"]
 
 
 def _zero_type_counts() -> dict[str, int]:
@@ -79,6 +80,10 @@ def _payload_point_node_ids(payload: dict[str, Any]) -> list[str]:
     return _point_node_ids_from_payload(payload, _metadata(payload.get("metadata")))
 
 
+def _payload_canonical_point_ids(payload: dict[str, Any]) -> list[str]:
+    return _canonical_point_ids_from_payload(payload, _metadata(payload.get("metadata")))
+
+
 def _question_evidence_source(metadata: dict[str, Any]) -> str:
     source_audit = metadata.get("source_audit") if isinstance(metadata.get("source_audit"), dict) else {}
     lineage = metadata.get("evidence_lineage") if isinstance(metadata.get("evidence_lineage"), dict) else {}
@@ -96,6 +101,8 @@ def _empty_point_audit(point_node_id: str, row: dict[str, Any] | None = None) ->
     row = row or {}
     return {
         "point_node_id": point_node_id,
+        "canonical_point_id": row.get("canonical_point_id") or point_node_id,
+        "source_placement_node_ids": row.get("source_placement_node_ids") or [],
         "point_title": row.get("point_title") or point_node_id,
         "chapter_id": row.get("chapter_id") or "",
         "directory_id": row.get("directory_id") or "",
@@ -146,26 +153,47 @@ def _question_generation_audit(session: Any, *, chapter_id: str | None = None) -
         point_params["chapter_id"] = chapter_id
     point_query = text(
         f"""
-        SELECT n.id AS point_node_id,
-               n.chapter_id,
-               n.title AS point_title,
-               parent.id AS directory_id,
-               parent.title AS directory_title,
+        SELECT cp.id AS canonical_point_id,
+               (
+                 array_agg(n.id ORDER BY n.chapter_id, parent.display_order NULLS FIRST, n.display_order, n.id)
+               )[1] AS point_node_id,
+               (
+                 array_agg(n.chapter_id ORDER BY n.chapter_id, parent.display_order NULLS FIRST, n.display_order, n.id)
+               )[1] AS chapter_id,
+               COALESCE(cp.title, (
+                 array_agg(n.title ORDER BY n.chapter_id, parent.display_order NULLS FIRST, n.display_order, n.id)
+               )[1]) AS point_title,
+               (
+                 array_agg(parent.id ORDER BY n.chapter_id, parent.display_order NULLS FIRST, n.display_order, n.id)
+               )[1] AS directory_id,
+               (
+                 array_agg(parent.title ORDER BY n.chapter_id, parent.display_order NULLS FIRST, n.display_order, n.id)
+               )[1] AS directory_title,
+               array_agg(n.id ORDER BY n.chapter_id, parent.display_order NULLS FIRST, n.display_order, n.id) AS source_placement_node_ids,
                COALESCE(state.evidence_status, 'missing') AS evidence_status,
                COALESCE(state.source_mode, 'none') AS evidence_source_mode
         FROM experiment_catalog_nodes n
+        JOIN experiment_catalog_points cp ON cp.id = n.canonical_point_id
         LEFT JOIN experiment_catalog_nodes parent ON parent.id = n.parent_id
-        LEFT JOIN experiment_catalog_point_evidence_state state ON state.node_id = n.id
-        WHERE n.node_kind = 'point'
+        LEFT JOIN LATERAL (
+          SELECT evidence_status, source_mode
+          FROM experiment_catalog_point_evidence_state state
+          WHERE state.canonical_point_id = cp.id OR state.node_id = n.id
+          ORDER BY state.updated_at DESC
+          LIMIT 1
+        ) state ON true
+        WHERE cp.status <> 'archived'
+          AND n.node_kind = 'point'
           AND n.status <> 'archived'
           {point_filter}
-        ORDER BY n.chapter_id, parent.display_order NULLS FIRST, n.display_order, n.id
+        GROUP BY cp.id, cp.title, state.evidence_status, state.source_mode
+        ORDER BY chapter_id, directory_id NULLS FIRST, point_node_id
         """
     )
     point_result = session.execute(point_query, point_params) if point_params else session.execute(point_query)
     point_rows = [dict(row) for row in point_result.mappings().all()]
     points = {
-        str(row["point_node_id"]): _empty_point_audit(str(row["point_node_id"]), row)
+        str(row.get("canonical_point_id") or row["point_node_id"]): _empty_point_audit(str(row["point_node_id"]), row)
         for row in point_rows
     }
     chapters: dict[str, dict[str, Any]] = {}
@@ -190,7 +218,8 @@ def _question_generation_audit(session: Any, *, chapter_id: str | None = None) -
         for row in session.execute(
             text(
                 """
-                SELECT question_type, status, primary_point_node_ids, metadata
+                SELECT question_type, status, primary_point_node_ids, primary_canonical_point_ids,
+                       source_placement_node_ids, metadata
                 FROM experiment_questions
                 WHERE status <> 'archived'
                 """
@@ -208,8 +237,13 @@ def _question_generation_audit(session: Any, *, chapter_id: str | None = None) -
         source = _question_evidence_source(metadata)
         _inc_count(question_type_counts, q_type)
         _inc_count(evidence_source_counts, source)
-        payload = {"primary_point_node_ids": row.get("primary_point_node_ids") or [], "metadata": metadata}
-        for point_id in _payload_point_node_ids(payload):
+        payload = {
+            "primary_point_node_ids": row.get("primary_point_node_ids") or [],
+            "primary_canonical_point_ids": row.get("primary_canonical_point_ids") or [],
+            "source_placement_node_ids": row.get("source_placement_node_ids") or [],
+            "metadata": metadata,
+        }
+        for point_id in _payload_canonical_point_ids(payload) or _payload_point_node_ids(payload):
             point = points.setdefault(point_id, _empty_point_audit(point_id))
             _inc_count(point["question_type_counts"], q_type)
             _inc_count(point["evidence_source_counts"], source)
@@ -241,7 +275,7 @@ def _question_generation_audit(session: Any, *, chapter_id: str | None = None) -
         q_type = str(payload.get("question_type") or "unknown")
         _inc_count(draft_status_counts, draft_status)
         _inc_count(draft_question_type_counts, q_type)
-        for point_id in _payload_point_node_ids(payload):
+        for point_id in _payload_canonical_point_ids(payload) or _payload_point_node_ids(payload):
             point = points.setdefault(point_id, _empty_point_audit(point_id))
             if draft_status == "draft":
                 point["draft_count"] += 1
@@ -297,6 +331,8 @@ def _question_generation_audit(session: Any, *, chapter_id: str | None = None) -
     unresolved_points = [
         {
             "point_node_id": point["point_node_id"],
+            "canonical_point_id": point.get("canonical_point_id"),
+            "source_placement_node_ids": point.get("source_placement_node_ids") or [],
             "point_title": point.get("point_title"),
             "chapter_id": point.get("chapter_id"),
             "directory_id": point.get("directory_id"),
@@ -371,8 +407,14 @@ def _validate_question_payload(payload: dict[str, Any]) -> tuple[dict[str, Any] 
         return None, errors
     metadata = dict(payload.get("metadata") if isinstance(payload.get("metadata"), dict) else {})
     primary_point_node_ids = _point_node_ids_from_payload(payload, metadata)
+    primary_canonical_point_ids = _canonical_point_ids_from_payload(payload, metadata)
+    source_placement_node_ids = _source_placement_node_ids_from_payload(payload, metadata)
     if primary_point_node_ids:
         metadata["primary_point_node_ids"] = primary_point_node_ids
+    if primary_canonical_point_ids:
+        metadata["primary_canonical_point_ids"] = primary_canonical_point_ids
+    if source_placement_node_ids:
+        metadata["source_placement_node_ids"] = source_placement_node_ids
     normalized = {
         "question_type": question_type,
         "stem": stem,
@@ -385,6 +427,8 @@ def _validate_question_payload(payload: dict[str, Any]) -> tuple[dict[str, Any] 
         "source_chunk_ids": list(payload.get("source_chunk_ids") or []),
         "source_refs": list(payload.get("source_refs") or []),
         "primary_point_node_ids": primary_point_node_ids,
+        "primary_canonical_point_ids": primary_canonical_point_ids,
+        "source_placement_node_ids": source_placement_node_ids,
         "metadata": metadata,
         "status": payload.get("status") or "draft",
     }
@@ -433,6 +477,7 @@ def _insert_question(
     normalized, errors = _validate_question_payload(payload)
     if errors or normalized is None:
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail={"errors": errors})
+    normalized = normalize_question_point_identity(session, normalized)
     bank_id = _ensure_question_bank(session, experiment_id, bank_kind, actor_user_id)
     row = (
         session.execute(
@@ -441,7 +486,8 @@ def _insert_question(
                 INSERT INTO experiment_questions (
                   bank_id, experiment_id, generation_id, question_type, stem, options, answer,
                   explanation, difficulty, related_chapter_ids, related_knowledge_point_ids,
-                  source_chunk_ids, source_refs, primary_point_node_ids, status, metadata,
+                  source_chunk_ids, source_refs, primary_point_node_ids, primary_canonical_point_ids,
+                  source_placement_node_ids, status, metadata,
                   created_by, published_by, published_at, updated_at
                 )
                 VALUES (
@@ -449,6 +495,7 @@ def _insert_question(
                   :question_type, :stem, CAST(:options AS jsonb), CAST(:answer AS jsonb),
                   :explanation, :difficulty, :related_chapter_ids, :related_knowledge_point_ids,
                   :source_chunk_ids, CAST(:source_refs AS jsonb), :primary_point_node_ids,
+                  :primary_canonical_point_ids, :source_placement_node_ids,
                   :status, CAST(:metadata AS jsonb),
                   CAST(:created_by AS uuid),
                   CASE WHEN :status = 'published' THEN CAST(:created_by AS uuid) ELSE NULL END,
@@ -473,6 +520,8 @@ def _insert_question(
                 "source_chunk_ids": normalized["source_chunk_ids"],
                 "source_refs": _json_array(normalized["source_refs"]),
                 "primary_point_node_ids": normalized["primary_point_node_ids"],
+                "primary_canonical_point_ids": normalized["primary_canonical_point_ids"],
+                "source_placement_node_ids": normalized["source_placement_node_ids"],
                 "status": normalized["status"],
                 "metadata": _json(normalized["metadata"]),
                 "created_by": actor_user_id,
@@ -796,6 +845,9 @@ def _list_question_bank_question_rows(session: Any) -> list[dict[str, Any]]:
                        q.related_knowledge_point_ids,
                        q.source_chunk_ids,
                        q.source_refs,
+                       q.primary_point_node_ids,
+                       q.primary_canonical_point_ids,
+                       q.source_placement_node_ids,
                        q.status,
                        q.metadata,
                        q.created_at,
@@ -1037,6 +1089,7 @@ def update_question(
         normalized, errors = _validate_question_payload(merged)
         if errors or normalized is None:
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail={"errors": errors})
+        normalized = normalize_question_point_identity(session, normalized)
         row = (
             session.execute(
                 text(
@@ -1052,6 +1105,8 @@ def update_question(
                         source_chunk_ids = :source_chunk_ids,
                         source_refs = CAST(:source_refs AS jsonb),
                         primary_point_node_ids = :primary_point_node_ids,
+                        primary_canonical_point_ids = :primary_canonical_point_ids,
+                        source_placement_node_ids = :source_placement_node_ids,
                         metadata = CAST(:metadata AS jsonb),
                         status = :status,
                         published_by = CASE WHEN :status = 'published' THEN CAST(:actor AS uuid) ELSE published_by END,
@@ -1073,6 +1128,8 @@ def update_question(
                     "source_chunk_ids": normalized["source_chunk_ids"],
                     "source_refs": _json_array(normalized["source_refs"]),
                     "primary_point_node_ids": normalized["primary_point_node_ids"],
+                    "primary_canonical_point_ids": normalized["primary_canonical_point_ids"],
+                    "source_placement_node_ids": normalized["source_placement_node_ids"],
                     "metadata": _json(normalized["metadata"]),
                     "status": normalized["status"],
                     "actor": user.id,

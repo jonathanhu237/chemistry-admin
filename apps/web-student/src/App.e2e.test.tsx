@@ -343,6 +343,8 @@ const catalogPointDetail: StudentPointDetailResponse = {
   node_id: "cat-point-halogen",
   canonical_node_id: "cat-point-halogen",
   source_node_id: null,
+  placement_node_id: "cat-point-halogen",
+  canonical_point_id: "cat-canon-halogen",
   chapter_id: "CH17",
   title: "Orange layer observation",
   summary: "Chlorine displaces bromide in the organic layer.",
@@ -387,6 +389,8 @@ const catalogPointDetail: StudentPointDetailResponse = {
   ],
   assessment_context: {
     point_node_id: "cat-point-halogen",
+    placement_node_id: "cat-point-halogen",
+    canonical_point_id: "cat-canon-halogen",
     chapter_id: "CH17",
     source_node_id: null,
     catalog_path: [

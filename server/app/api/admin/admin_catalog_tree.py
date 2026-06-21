@@ -6,6 +6,8 @@ from fastapi import APIRouter, Depends, Path, Query
 
 from server.app.auth import AuthUser, require_teacher_console_user
 from server.app.catalog_tree_schemas import (
+    CatalogEquationAssistRequest,
+    CatalogEquationAssistResponse,
     CatalogEquationPreviewRequest,
     CatalogEquationPreviewResponse,
     CatalogNodeCreateRequest,
@@ -18,7 +20,7 @@ from server.app.catalog_tree_schemas import (
     CatalogPointPublicationRequest,
     CatalogPointRelatedLinksRequest,
 )
-from server.app.domains.catalog_tree.equations import normalize_reaction_equations
+from server.app.domains.catalog_tree.equations import assist_reaction_equations, equation_rows_from_inputs, normalize_reaction_equations
 from server.app.domains.catalog_tree.ai_context import catalog_point_ai_context, catalog_point_rag_probe
 from server.app.domains.catalog_tree.jobs import catalog_point_job_state, trigger_catalog_point_job
 from server.app.domains.catalog_tree.tree import (
@@ -127,11 +129,19 @@ async def admin_catalog_preview_equations(
     payload: CatalogEquationPreviewRequest,
     user: AuthUser = Depends(require_teacher_console_user),
 ) -> CatalogEquationPreviewResponse:
-    equations = normalize_reaction_equations(payload.equations)
+    equations = normalize_reaction_equations(equation_rows_from_inputs(payload.equations, payload.multiline_text))
     return CatalogEquationPreviewResponse(
         ok=all(row["validation_status"] != "invalid" for row in equations),
         equations=equations,
     )
+
+
+@router.post("/equations/assist", response_model=CatalogEquationAssistResponse)
+async def admin_catalog_assist_equations(
+    payload: CatalogEquationAssistRequest,
+    user: AuthUser = Depends(require_teacher_console_user),
+) -> CatalogEquationAssistResponse:
+    return CatalogEquationAssistResponse(**assist_reaction_equations(payload))
 
 
 @router.post("/nodes/{node_id}/point-content/publication")

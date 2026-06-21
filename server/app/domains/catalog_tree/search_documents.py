@@ -25,16 +25,29 @@ def queue_index_state(
     trigger_source: str = "automatic",
 ) -> None:
     desired_action = "delete" if action == "delete" else "upsert"
+    canonical_point_id = None
+    row = (
+        session.execute(
+            text("SELECT canonical_point_id FROM experiment_catalog_nodes WHERE id = :node_id"),
+            {"node_id": node_id},
+        )
+        .mappings()
+        .first()
+    )
+    if row and row.get("canonical_point_id"):
+        canonical_point_id = str(row["canonical_point_id"])
     session.execute(
         text(
             """
             INSERT INTO experiment_catalog_point_search_index_state (
-              node_id, document_id, desired_action, sync_status, attempts, last_error, updated_at
+              node_id, placement_node_id, canonical_point_id, document_id, desired_action, sync_status, attempts, last_error, updated_at
             )
             VALUES (
-              :node_id, :node_id, :desired_action, 'pending', 0, :last_error, now()
+              :node_id, :node_id, :canonical_point_id, :node_id, :desired_action, 'pending', 0, :last_error, now()
             )
             ON CONFLICT (node_id) DO UPDATE SET
+              placement_node_id = EXCLUDED.placement_node_id,
+              canonical_point_id = EXCLUDED.canonical_point_id,
               document_id = EXCLUDED.document_id,
               desired_action = EXCLUDED.desired_action,
               sync_status = 'pending',
@@ -42,7 +55,7 @@ def queue_index_state(
               updated_at = now()
             """
         ),
-        {"node_id": node_id, "desired_action": desired_action, "last_error": last_error},
+        {"node_id": node_id, "canonical_point_id": canonical_point_id, "desired_action": desired_action, "last_error": last_error},
     )
     from server.app.domains.catalog_tree.jobs import queue_es_sync_job
 
@@ -172,6 +185,8 @@ def student_search_document_for_node(session: Any, *, node_id: str, require_publ
         "id": node["node_id"],
         "result_type": "video_point",
         "node_id": node["node_id"],
+        "placement_node_id": node["node_id"],
+        "canonical_point_id": node.get("canonical_point_id"),
         "chapter_id": node["chapter_id"],
         "chapter_path": [path[0]["title"]] if path else [],
         "catalog_path": [item["title"] for item in path],
@@ -195,6 +210,8 @@ def student_search_document_for_node(session: Any, *, node_id: str, require_publ
             "kind": "point_detail",
             "route": f"/point/{node['node_id']}",
             "node_id": node["node_id"],
+            "placement_node_id": node["node_id"],
+            "canonical_point_id": node.get("canonical_point_id"),
             "chapter_id": node["chapter_id"],
             "context_title": clean(content.get("point_title")) or node["title"],
             "context_summary": phenomenon or principle,

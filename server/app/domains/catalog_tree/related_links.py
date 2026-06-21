@@ -5,7 +5,15 @@ from typing import Any
 from sqlalchemy import text
 
 from server.app.catalog_tree_schemas import CatalogPointRelatedLinksRequest
-from server.app.domains.catalog_tree.common import clean, dump_model, get_node, json_dump, point_capable
+from server.app.domains.catalog_tree.common import (
+    active_placement_ids_for_canonical_point,
+    canonical_point_id_for_node,
+    clean,
+    dump_model,
+    get_node,
+    json_dump,
+    point_capable,
+)
 from server.app.domains.catalog_tree.jobs import mark_point_evidence_stale
 from server.app.domains.catalog_tree.search_documents import queue_index_state
 from server.app.domains.errors import DomainHTTPException as HTTPException, domain_status as status
@@ -18,17 +26,48 @@ def related_links(session: Any, node_id: str, *, include_hidden: bool, include_d
         session.execute(
             text(
                 f"""
-                SELECT l.id, l.source_node_id, l.target_node_id, l.relation_type, l.hidden,
-                       l.sort_order, l.label, l.metadata, target.title AS target_title,
-                       target.status AS target_status, target.node_kind AS target_kind
+                WITH source AS (
+                  SELECT id, chapter_id, canonical_point_id
+                  FROM experiment_catalog_nodes
+                  WHERE id = :node_id
+                )
+                SELECT l.id,
+                       COALESCE(l.source_placement_node_id, l.source_node_id) AS source_node_id,
+                       COALESCE(target_placement.id, l.target_placement_node_id, l.target_node_id) AS target_node_id,
+                       COALESCE(l.source_canonical_point_id, source.canonical_point_id) AS source_canonical_point_id,
+                       COALESCE(l.target_canonical_point_id, target_node.canonical_point_id) AS target_canonical_point_id,
+                       l.relation_type, l.hidden,
+                       l.sort_order, l.label, l.metadata,
+                       COALESCE(target_point.title, target_placement.title, target_node.title) AS target_title,
+                       COALESCE(target_placement.status, target_node.status) AS target_status,
+                       COALESCE(target_placement.node_kind, target_node.node_kind) AS target_kind
                 FROM experiment_catalog_point_related_links l
-                JOIN experiment_catalog_nodes target ON target.id = l.target_node_id
-                WHERE l.source_node_id = :node_id
+                JOIN source ON true
+                LEFT JOIN experiment_catalog_nodes target_node ON target_node.id = l.target_node_id
+                LEFT JOIN experiment_catalog_points target_point
+                  ON target_point.id = COALESCE(l.target_canonical_point_id, target_node.canonical_point_id)
+                LEFT JOIN LATERAL (
+                  SELECT placement.id, placement.title, placement.status, placement.node_kind, placement.chapter_id
+                  FROM experiment_catalog_nodes placement
+                  WHERE placement.canonical_point_id = COALESCE(l.target_canonical_point_id, target_node.canonical_point_id)
+                    AND placement.node_kind = 'point'
+                    AND (:include_hidden OR placement.status = 'published')
+                  ORDER BY CASE WHEN placement.chapter_id = source.chapter_id THEN 0 ELSE 1 END,
+                           placement.status = 'published' DESC,
+                           placement.display_order,
+                           placement.id
+                  LIMIT 1
+                ) target_placement ON true
+                WHERE (
+                    l.source_node_id = :node_id
+                    OR l.source_placement_node_id = :node_id
+                    OR (source.canonical_point_id IS NOT NULL AND l.source_canonical_point_id = source.canonical_point_id)
+                  )
                   {hidden_clause}
                 ORDER BY l.sort_order, l.created_at
                 """
             ),
-            {"node_id": node_id},
+            {"node_id": node_id, "include_hidden": include_hidden},
         )
         .mappings()
         .all()
@@ -38,6 +77,9 @@ def related_links(session: Any, node_id: str, *, include_hidden: bool, include_d
             "id": str(row["id"]),
             "source_node_id": row["source_node_id"],
             "target_node_id": row["target_node_id"],
+            "source_canonical_point_id": row["source_canonical_point_id"],
+            "target_canonical_point_id": row["target_canonical_point_id"],
+            "target_placement_node_id": row["target_node_id"],
             "target_title": row["label"] or row["target_title"],
             "relation_type": row["relation_type"],
             "hidden": bool(row["hidden"]),
@@ -99,29 +141,45 @@ def replace_related_links(*, node_id: str, payload: CatalogPointRelatedLinksRequ
         source = get_node(session, node_id)
         if not point_capable(source):
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Directory nodes cannot own related point links")
+        source_canonical_point_id = canonical_point_id_for_node(session, node_id)
         for link in links:
             target = get_node(session, clean(link.get("target_node_id")), include_archived=False)
             if not point_capable(target):
                 raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Related link target must be a point")
-            if target["node_id"] == node_id:
+            if target["node_id"] == node_id or target.get("canonical_point_id") == source_canonical_point_id:
                 raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Related link cannot target itself")
         session.execute(
-            text("DELETE FROM experiment_catalog_point_related_links WHERE source_node_id = :node_id"),
-            {"node_id": node_id},
+            text(
+                """
+                DELETE FROM experiment_catalog_point_related_links
+                WHERE source_node_id = :node_id
+                   OR source_placement_node_id = :node_id
+                   OR source_canonical_point_id = :source_canonical_point_id
+                """
+            ),
+            {"node_id": node_id, "source_canonical_point_id": source_canonical_point_id},
         )
         for index, link in enumerate(links):
+            target = get_node(session, clean(link.get("target_node_id")), include_archived=False)
+            target_canonical_point_id = canonical_point_id_for_node(session, target["node_id"])
             session.execute(
                 text(
                     """
                     INSERT INTO experiment_catalog_point_related_links (
-                      source_node_id, target_node_id, relation_type, hidden, sort_order, label,
+                      source_node_id, target_node_id, source_canonical_point_id, target_canonical_point_id,
+                      source_placement_node_id, target_placement_node_id, relation_type, hidden, sort_order, label,
                       metadata, created_by, updated_by, updated_at
                     )
                     VALUES (
+                      :source_node_id, :target_node_id, :source_canonical_point_id, :target_canonical_point_id,
                       :source_node_id, :target_node_id, :relation_type, :hidden, :sort_order, :label,
                       CAST(:metadata AS jsonb), CAST(:user_id AS uuid), CAST(:user_id AS uuid), now()
                     )
                     ON CONFLICT (source_node_id, target_node_id) DO UPDATE SET
+                      source_canonical_point_id = EXCLUDED.source_canonical_point_id,
+                      target_canonical_point_id = EXCLUDED.target_canonical_point_id,
+                      source_placement_node_id = EXCLUDED.source_placement_node_id,
+                      target_placement_node_id = EXCLUDED.target_placement_node_id,
                       relation_type = EXCLUDED.relation_type,
                       hidden = EXCLUDED.hidden,
                       sort_order = EXCLUDED.sort_order,
@@ -133,7 +191,9 @@ def replace_related_links(*, node_id: str, payload: CatalogPointRelatedLinksRequ
                 ),
                 {
                     "source_node_id": node_id,
-                    "target_node_id": clean(link.get("target_node_id")),
+                    "target_node_id": target["node_id"],
+                    "source_canonical_point_id": source_canonical_point_id,
+                    "target_canonical_point_id": target_canonical_point_id,
                     "relation_type": clean(link.get("relation_type") or "manual"),
                     "hidden": bool(link.get("hidden")),
                     "sort_order": int(link.get("sort_order") or index + 1),
@@ -142,7 +202,8 @@ def replace_related_links(*, node_id: str, payload: CatalogPointRelatedLinksRequ
                     "user_id": user.id,
                 },
             )
-        queue_index_state(session, node_id=node_id, action="upsert" if source["status"] == "published" else "delete")
+        for placement_node_id in active_placement_ids_for_canonical_point(session, source_canonical_point_id):
+            queue_index_state(session, node_id=placement_node_id, action="upsert" if source["status"] == "published" else "delete")
         mark_point_evidence_stale(session, node_id=node_id, reason="related_point_context_changed")
     from server.app.domains.catalog_tree.nodes import get_node_detail
 

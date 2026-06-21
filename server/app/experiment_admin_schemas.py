@@ -8,6 +8,8 @@ from pydantic import BaseModel, Field
 class QuestionRequest(BaseModel):
     experiment_id: str = Field(min_length=1)
     primary_point_node_ids: list[str] = Field(default_factory=list)
+    primary_canonical_point_ids: list[str] = Field(default_factory=list)
+    source_placement_node_ids: list[str] = Field(default_factory=list)
     question_type: str = Field(pattern="^(single_choice|true_false|fill_blank)$")
     stem: str = Field(min_length=1)
     options: list[Any] = Field(default_factory=list)
@@ -25,6 +27,8 @@ class QuestionRequest(BaseModel):
 
 class QuestionUpdateRequest(BaseModel):
     primary_point_node_ids: list[str] | None = None
+    primary_canonical_point_ids: list[str] | None = None
+    source_placement_node_ids: list[str] | None = None
     stem: str | None = Field(default=None, min_length=1)
     options: list[Any] | None = None
     answer: Any | None = None

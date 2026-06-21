@@ -63,6 +63,7 @@ function collectCatalogTreeNodes(nodes: CatalogTreeDataNode[], map = new Map<str
 
 export function CatalogTreeNodeList({
   nodes,
+  treeScopeKey,
   selectedNodeId,
   loading,
   error,
@@ -75,6 +76,7 @@ export function CatalogTreeNodeList({
   onChangeStatus,
 }: {
   nodes: CatalogNodeCard[];
+  treeScopeKey: string;
   selectedNodeId?: string | null;
   loading?: boolean;
   error?: unknown;
@@ -90,12 +92,20 @@ export function CatalogTreeNodeList({
   const [treeData, setTreeData] = useState<CatalogTreeDataNode[]>([]);
   const [loadingDirectoryIds, setLoadingDirectoryIds] = useState<Set<string>>(() => new Set());
   const loadingDirectoryIdsRef = useRef<Set<string>>(new Set());
+  const previousTreeScopeKeyRef = useRef(treeScopeKey);
   const [treeBoxRef, treeBoxSize] = useElementSize<HTMLDivElement>();
   const arboristRef = useRef<TreeApi<CatalogArboristNode> | null>(null);
 
   useEffect(() => {
-    setTreeData((previous) => mergeCatalogTreeData(nodes, previous));
-  }, [nodes]);
+    const scopeChanged = previousTreeScopeKeyRef.current !== treeScopeKey;
+    if (scopeChanged) {
+      previousTreeScopeKeyRef.current = treeScopeKey;
+      loadingDirectoryIdsRef.current.clear();
+      setLoadingDirectoryIds(new Set());
+    }
+    const scopedNodes = nodes.filter((node) => node.chapter_id === treeScopeKey);
+    setTreeData((previous) => mergeCatalogTreeData(scopedNodes, scopeChanged ? [] : previous));
+  }, [nodes, treeScopeKey]);
 
   const addRootItems: MenuProps["items"] = useMemo(
     () => [
@@ -250,6 +260,7 @@ export function CatalogTreeNodeList({
       <QueryState loading={Boolean(loading)} error={error} empty={!nodes.length}>
         <div ref={treeBoxRef} className="catalog-arborist-shell">
           <Tree<CatalogArboristNode>
+            key={treeScopeKey}
             ref={arboristRef}
             aria-label="章节目录树"
             className="catalog-arborist-tree"

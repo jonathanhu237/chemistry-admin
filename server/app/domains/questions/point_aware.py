@@ -18,6 +18,7 @@ from server.app.domains.catalog.experiments import (
     _list_experiment_video_resources,
 )
 from server.app.domains.questions.bank import _json, _json_array, _validate_question_payload
+from server.app.domains.questions.point_identity import point_canonical_id, point_placement_id, unique_strings
 from server.app.domains.questions.generation import (
     CATALOG_NODE_EVIDENCE_REQUIRED_DETAIL,
     OBJECTIVE_TYPES,
@@ -36,9 +37,11 @@ def _clean_text(value: Any) -> str:
 
 
 def _point_node_id(point: dict[str, Any] | None) -> str:
-    if not isinstance(point, dict):
-        return ""
-    return _clean_text(point.get("point_node_id") or point.get("point_id") or point.get("node_id"))
+    return point_placement_id(point)
+
+
+def _canonical_point_id(point: dict[str, Any] | None) -> str:
+    return point_canonical_id(point)
 
 
 def _source_audit_for_suggestion(
@@ -73,6 +76,8 @@ def _point_from_metadata(metadata: Any) -> dict[str, str] | None:
                     "point_key": str(point.get("point_key") or "").strip(),
                     "point_title": str(point.get("point_title") or point.get("point_key") or "").strip(),
                     "point_node_id": _point_node_id(point),
+                    "source_placement_node_id": _point_node_id(point),
+                    "canonical_point_id": _canonical_point_id(point),
                 }
     node_ids = metadata.get("primary_point_node_ids") or metadata.get("point_node_ids") or []
     if isinstance(node_ids, list) and node_ids:
@@ -100,7 +105,15 @@ def _points_from_metadata(metadata: Any) -> list[dict[str, str]]:
             title = str(point.get("point_title") or key).strip()
             node_id = _point_node_id(point)
             if key or title or node_id:
-                output.append({"point_key": key or title, "point_title": title or key or node_id, "point_node_id": node_id})
+                output.append(
+                    {
+                        "point_key": key or title,
+                        "point_title": title or key or node_id,
+                        "point_node_id": node_id,
+                        "source_placement_node_id": node_id,
+                        "canonical_point_id": _canonical_point_id(point),
+                    }
+                )
     if output:
         return output
     node_ids = metadata.get("primary_point_node_ids") or metadata.get("point_node_ids") or []
@@ -151,10 +164,13 @@ def _unique_point_node_ids(*groups: Any) -> list[str]:
 def _point_payload(point: dict[str, Any]) -> dict[str, str]:
     point_key = _clean_text(point.get("point_key"))
     point_title = _clean_text(point.get("point_title") or point.get("title") or point_key or _point_node_id(point))
+    placement_id = _point_node_id(point)
     return {
         "point_key": point_key,
         "point_title": point_title,
-        "point_node_id": _point_node_id(point),
+        "point_node_id": placement_id,
+        "source_placement_node_id": placement_id,
+        "canonical_point_id": _canonical_point_id(point),
     }
 
 
@@ -170,9 +186,11 @@ def _attach_catalog_point_nodes(session: Any, *, experiment_id: str, points: lis
             for row in session.execute(
                 text(
                     """
-                    SELECT lm.legacy_point_key, lm.catalog_node_id, n.title, n.chapter_id
+                    SELECT lm.legacy_point_key, lm.catalog_node_id, n.canonical_point_id,
+                           COALESCE(cp.title, n.title) AS title, n.chapter_id
                     FROM experiment_catalog_legacy_identity_map lm
                     JOIN experiment_catalog_nodes n ON n.id = lm.catalog_node_id
+                    LEFT JOIN experiment_catalog_points cp ON cp.id = n.canonical_point_id
                     WHERE lm.legacy_kind = 'point'
                       AND lm.legacy_experiment_id = :experiment_id
                       AND lm.legacy_point_key = ANY(:point_keys)
@@ -190,10 +208,12 @@ def _attach_catalog_point_nodes(session: Any, *, experiment_id: str, points: lis
             for row in session.execute(
                 text(
                     """
-                    SELECT id AS catalog_node_id, title, chapter_id
-                    FROM experiment_catalog_nodes
-                    WHERE id = ANY(:node_ids)
-                      AND node_kind = 'point'
+                    SELECT n.id AS catalog_node_id, n.canonical_point_id,
+                           COALESCE(cp.title, n.title) AS title, n.chapter_id
+                    FROM experiment_catalog_nodes n
+                    LEFT JOIN experiment_catalog_points cp ON cp.id = n.canonical_point_id
+                    WHERE n.id = ANY(:node_ids)
+                      AND n.node_kind = 'point'
                     """
                 ),
                 {"node_ids": requested_node_ids},
@@ -214,6 +234,8 @@ def _attach_catalog_point_nodes(session: Any, *, experiment_id: str, points: lis
                     **point,
                     "point_node_id": node_id,
                     "point_id": node_id,
+                    "source_placement_node_id": node_id,
+                    "canonical_point_id": _clean_text(mapped.get("canonical_point_id")),
                     "point_title": _clean_text(point.get("point_title") or mapped.get("title") or node_id),
                     "chapter_id": _clean_text(mapped.get("chapter_id")),
                 }
@@ -242,6 +264,8 @@ def _select_suggestion_points(
                     "point_key": "" if key.startswith("cat-") else key,
                     "point_title": key,
                     "point_node_id": key if key.startswith("cat-") else "",
+                    "source_placement_node_id": key if key.startswith("cat-") else "",
+                    "canonical_point_id": "",
                 }
             )
     if selected:
@@ -290,6 +314,8 @@ def _default_option_links(options: list[Any], point: dict[str, str] | None) -> l
                     "role": "correct_evidence",
                     "point_key": point.get("point_key") if point else None,
                     "point_node_id": _point_node_id(point),
+                    "source_placement_node_id": _point_node_id(point),
+                    "canonical_point_id": _canonical_point_id(point),
                     "point_title": point.get("point_title") if point else None,
                     "diagnostic_note": "Correct option tied to the selected experiment point.",
                 }
@@ -332,11 +358,23 @@ def _with_point_aware_metadata(
         request.point_node_id,
         point,
     )
+    primary_canonical_point_ids = unique_strings(
+        row.get("primary_canonical_point_ids"),
+        existing_metadata.get("primary_canonical_point_ids"),
+        _canonical_point_id(point),
+    )
+    source_placement_node_ids = unique_strings(
+        row.get("source_placement_node_ids"),
+        existing_metadata.get("source_placement_node_ids"),
+        primary_point_node_ids,
+    )
     primary_points = [
         {
             "point_key": point["point_key"],
             "point_title": point.get("point_title") or point["point_key"],
             "point_node_id": _point_node_id(point),
+            "source_placement_node_id": _point_node_id(point),
+            "canonical_point_id": _canonical_point_id(point),
         }
         for point in ([point] if point and point.get("point_key") else [])
     ]
@@ -361,6 +399,8 @@ def _with_point_aware_metadata(
                 link_key = _clean_text(link_payload.get("point_key"))
                 if not link_key or link_key == _clean_text(point.get("point_key")):
                     link_payload["point_node_id"] = _point_node_id(point) or None
+                    link_payload["source_placement_node_id"] = _point_node_id(point) or None
+                    link_payload["canonical_point_id"] = _canonical_point_id(point) or None
             normalized_links.append(link_payload)
         option_links = normalized_links
     metadata = {
@@ -369,6 +409,8 @@ def _with_point_aware_metadata(
         "suggestion_intent": request.intent,
         "primary_point_keys": primary_point_keys,
         "primary_point_node_ids": primary_point_node_ids,
+        "primary_canonical_point_ids": primary_canonical_point_ids,
+        "source_placement_node_ids": source_placement_node_ids,
         "primary_points": primary_points,
         "secondary_point_keys": list(row.get("secondary_point_keys") or existing_metadata.get("secondary_point_keys") or []),
         "coverage_tags": list(row.get("coverage_tags") or existing_metadata.get("coverage_tags") or target_metadata.get("coverage_tags") or []),
@@ -567,6 +609,7 @@ def create_point_aware_suggestions(
         selected_point = selected_points[0] if selected_points else None
         target_point_keys = _unique_point_keys([point.get("point_key") for point in selected_points], payload.point_key)
         target_point_node_ids = _unique_point_node_ids(selected_points, payload.point_node_ids, payload.point_node_id)
+        target_canonical_point_ids = unique_strings([_canonical_point_id(point) for point in selected_points])
         if not target_point_node_ids:
             raise HTTPException(
                 status_code=status.HTTP_409_CONFLICT,
@@ -649,6 +692,9 @@ def create_point_aware_suggestions(
                             "point_keys": target_point_keys,
                             "point_node_id": _point_node_id(selected_point),
                             "point_node_ids": target_point_node_ids,
+                            "source_placement_node_ids": target_point_node_ids,
+                            "canonical_point_id": _canonical_point_id(selected_point),
+                            "primary_canonical_point_ids": target_canonical_point_ids,
                             "catalog_point_contexts": point_contexts,
                             "question_id": payload.question_id,
                             "rag_gate": rag_gate,
@@ -716,5 +762,7 @@ def create_point_aware_suggestions(
             "point": selected_point,
             "points": selected_points,
             "point_node_ids": target_point_node_ids,
+            "source_placement_node_ids": target_point_node_ids,
+            "primary_canonical_point_ids": target_canonical_point_ids,
         },
     }

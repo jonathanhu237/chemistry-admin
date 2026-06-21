@@ -4,6 +4,7 @@ import hashlib
 import json
 import urllib.error
 import urllib.request
+from datetime import date, datetime
 from typing import Any
 
 from sqlalchemy import text
@@ -24,8 +25,14 @@ ANALYZER_ASSET_FILES = [
 ]
 
 
-def _json_bytes(value: Any) -> bytes:
-    return json.dumps(value, ensure_ascii=False, sort_keys=True, default=str).encode("utf-8")
+def _json_default(value: Any) -> str:
+    if isinstance(value, (date, datetime)):
+        return value.isoformat()
+    return str(value)
+
+
+def _json_bytes(value: Any, *, sort_keys: bool = True) -> bytes:
+    return json.dumps(value, ensure_ascii=False, sort_keys=sort_keys, default=_json_default).encode("utf-8")
 
 
 def document_hash(document: dict[str, Any]) -> str:
@@ -121,6 +128,8 @@ def video_library_index_mapping(
                 "id": {"type": "keyword"},
                 "result_type": {"type": "keyword"},
                 "node_id": {"type": "keyword"},
+                "placement_node_id": {"type": "keyword"},
+                "canonical_point_id": {"type": "keyword"},
                 "chapter_id": {"type": "keyword"},
                 "chapter_ids": {"type": "keyword"},
                 "catalog_path": {"type": "text", "analyzer": "chemistry_ik", "search_analyzer": search_analyzer},
@@ -153,7 +162,7 @@ class VideoLibraryIndexClient:
         self.timeout = timeout
 
     def request(self, method: str, path: str, payload: Any | None = None) -> Any:
-        data = None if payload is None else json.dumps(payload, ensure_ascii=False).encode("utf-8")
+        data = None if payload is None else _json_bytes(payload, sort_keys=False)
         request = urllib.request.Request(
             f"{self.base_url}{path}",
             data=data,
@@ -266,18 +275,25 @@ def video_library_index_diagnostics() -> dict[str, Any]:
 
 def mark_index_sync_success(*, node_id: str, document_id: str, payload_hash: str) -> None:
     with db_session() as session:
+        row = session.execute(
+            text("SELECT canonical_point_id FROM experiment_catalog_nodes WHERE id = :node_id"),
+            {"node_id": node_id},
+        ).mappings().first()
+        canonical_point_id = str(row["canonical_point_id"]) if row and row.get("canonical_point_id") else None
         session.execute(
             text(
                 """
                 INSERT INTO experiment_catalog_point_search_index_state (
-                  node_id, document_id, desired_action, sync_status,
+                  node_id, placement_node_id, canonical_point_id, document_id, desired_action, sync_status,
                   attempts, document_hash, last_error, indexed_at, last_attempted_at, updated_at
                 )
                 VALUES (
-                  :node_id, :document_id, 'upsert', 'synced',
+                  :node_id, :node_id, :canonical_point_id, :document_id, 'upsert', 'synced',
                   1, :document_hash, NULL, now(), now(), now()
                 )
                 ON CONFLICT (node_id) DO UPDATE SET
+                  placement_node_id = EXCLUDED.placement_node_id,
+                  canonical_point_id = EXCLUDED.canonical_point_id,
                   document_id = EXCLUDED.document_id,
                   sync_status = 'synced',
                   attempts = experiment_catalog_point_search_index_state.attempts + 1,
@@ -290,6 +306,7 @@ def mark_index_sync_success(*, node_id: str, document_id: str, payload_hash: str
             ),
             {
                 "node_id": node_id,
+                "canonical_point_id": canonical_point_id,
                 "document_id": document_id,
                 "document_hash": payload_hash,
             },
@@ -298,18 +315,25 @@ def mark_index_sync_success(*, node_id: str, document_id: str, payload_hash: str
 
 def mark_index_sync_failure(*, node_id: str, document_id: str, action: str, error: str) -> None:
     with db_session() as session:
+        row = session.execute(
+            text("SELECT canonical_point_id FROM experiment_catalog_nodes WHERE id = :node_id"),
+            {"node_id": node_id},
+        ).mappings().first()
+        canonical_point_id = str(row["canonical_point_id"]) if row and row.get("canonical_point_id") else None
         session.execute(
             text(
                 """
                 INSERT INTO experiment_catalog_point_search_index_state (
-                  node_id, document_id, desired_action, sync_status,
+                  node_id, placement_node_id, canonical_point_id, document_id, desired_action, sync_status,
                   attempts, last_error, last_attempted_at, updated_at
                 )
                 VALUES (
-                  :node_id, :document_id, :action, 'failed',
+                  :node_id, :node_id, :canonical_point_id, :document_id, :action, 'failed',
                   1, :error, now(), now()
                 )
                 ON CONFLICT (node_id) DO UPDATE SET
+                  placement_node_id = EXCLUDED.placement_node_id,
+                  canonical_point_id = EXCLUDED.canonical_point_id,
                   document_id = EXCLUDED.document_id,
                   desired_action = EXCLUDED.desired_action,
                   sync_status = 'failed',
@@ -321,6 +345,7 @@ def mark_index_sync_failure(*, node_id: str, document_id: str, action: str, erro
             ),
             {
                 "node_id": node_id,
+                "canonical_point_id": canonical_point_id,
                 "document_id": document_id,
                 "action": action,
                 "error": error[:1000],

@@ -85,6 +85,14 @@ export function CatalogAdvancedPanel({
         <Text type="secondary">节点、搜索索引和证据任务</Text>
       </div>
       <Descriptions size="small" column={2} bordered>
+        {node.node_kind === "point" ? (
+          <>
+            <Descriptions.Item label="位置节点">{node.placement_node_id || node.node_id}</Descriptions.Item>
+            <Descriptions.Item label="共享实验">{node.canonical_point_id || "-"}</Descriptions.Item>
+            <Descriptions.Item label="共享位置数">{detail.canonical_point?.active_placement_count ?? node.active_placement_count ?? 0}</Descriptions.Item>
+            <Descriptions.Item label="共享实验状态">{displayLabel(detail.canonical_point?.status || node.canonical_point_status)}</Descriptions.Item>
+          </>
+        ) : null}
         <Descriptions.Item label="节点 ID">{node.node_id}</Descriptions.Item>
         <Descriptions.Item label="父节点">{node.parent_id || "根节点"}</Descriptions.Item>
         <Descriptions.Item label="显示顺序">{node.display_order}</Descriptions.Item>
@@ -114,7 +122,11 @@ export function CatalogAdvancedPanel({
       <div className="catalog-index-diagnostics">
         <div className="catalog-panel-title-row">
           <Title level={5}>搜索与证据任务</Title>
-          {detail.index_state ? <Tag color={syncTagColor(detail.index_state.sync_status)}>{displayLabel(detail.index_state.sync_status)}</Tag> : <Tag>未入队</Tag>}
+          <Space size={6} wrap>
+            {node.node_kind === "point" ? <Tag color="cyan">placement: {node.placement_node_id || node.node_id}</Tag> : null}
+            {node.node_kind === "point" ? <Tag color="blue">canonical: {node.canonical_point_id || "-"}</Tag> : null}
+            {detail.index_state ? <Tag color={syncTagColor(detail.index_state.sync_status)}>{displayLabel(detail.index_state.sync_status)}</Tag> : <Tag>未入队</Tag>}
+          </Space>
         </div>
         <Space wrap className="catalog-job-actions">
           <Button

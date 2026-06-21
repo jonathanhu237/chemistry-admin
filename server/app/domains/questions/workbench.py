@@ -29,6 +29,7 @@ from server.app.domains.catalog.experiments import (
 )
 from server.app.domains.questions.point_aware import (
     _attach_catalog_point_nodes,
+    _canonical_point_id,
     _local_point_aware_suggestions,
     _point_node_id,
     _select_suggestion_points,
@@ -212,6 +213,11 @@ def _workbench_context(
     normalized_points = target_points or ([point] if point else [])
     target_point_keys = [item["point_key"] for item in normalized_points if item.get("point_key")]
     target_point_node_ids = _unique_point_node_ids(normalized_points)
+    target_canonical_point_ids = [
+        item
+        for item in dict.fromkeys(_canonical_point_id(item) for item in normalized_points).keys()
+        if item
+    ]
     package = evidence_package or {
         "mode": "canonical_evidence",
         "source_refs": source_refs,
@@ -233,6 +239,8 @@ def _workbench_context(
         "target_points": normalized_points,
         "target_point_keys": target_point_keys,
         "target_point_node_ids": target_point_node_ids,
+        "source_placement_node_ids": target_point_node_ids,
+        "target_canonical_point_ids": target_canonical_point_ids,
         "original_question": _question_snapshot(target_question),
         "source_refs": source_refs,
         "rag_gate": rag_gate or {},
@@ -261,8 +269,18 @@ def _teacher_point_content_context(
                     """
                     SELECT point_title, principle_mode, principle_equation, principle_text,
                            phenomenon_explanation, safety_note, content_status, updated_at
-                    FROM experiment_catalog_point_content
-                    WHERE node_id = :node_id
+                    FROM experiment_catalog_nodes n
+                    JOIN experiment_catalog_point_content pc
+                      ON (
+                        n.canonical_point_id IS NOT NULL
+                        AND pc.canonical_point_id = n.canonical_point_id
+                      )
+                      OR pc.node_id = n.id
+                    WHERE n.id = :node_id
+                    ORDER BY
+                      CASE WHEN pc.canonical_point_id = n.canonical_point_id THEN 0 ELSE 1 END,
+                      pc.updated_at DESC
+                    LIMIT 1
                     """
                 ),
                 {"node_id": point_node_id},
@@ -308,7 +326,8 @@ def _question_coverage_for_context(
         for row in session.execute(
             text(
                 """
-                SELECT question_type, status, metadata, primary_point_node_ids
+                SELECT question_type, status, metadata, primary_point_node_ids,
+                       primary_canonical_point_ids, source_placement_node_ids
                 FROM experiment_questions
                 WHERE experiment_id = :experiment_id
                 """
@@ -324,7 +343,13 @@ def _question_coverage_for_context(
         type_counts[str(row.get("question_type") or "")] = type_counts.get(str(row.get("question_type") or ""), 0) + 1
         metadata = row.get("metadata") if isinstance(row.get("metadata"), dict) else {}
         point_keys = metadata.get("primary_point_keys") if isinstance(metadata, dict) else []
-        point_node_ids = row.get("primary_point_node_ids") or metadata.get("primary_point_node_ids") or []
+        point_node_ids = (
+            row.get("source_placement_node_ids")
+            or row.get("primary_point_node_ids")
+            or metadata.get("source_placement_node_ids")
+            or metadata.get("primary_point_node_ids")
+            or []
+        )
         if point_node_id and isinstance(point_node_ids, list) and point_node_id in point_node_ids:
             point_question_count += 1
             continue
@@ -612,6 +637,11 @@ def _create_or_reopen_workbench_session(
     point_key = selected_point.get("point_key") if selected_point else request.point_key
     point_node_id = _point_node_id(selected_point) or str(request.point_node_id or "").strip()
     target_point_node_ids = _unique_point_node_ids(selected_points, point_node_id)
+    target_canonical_point_ids = [
+        item
+        for item in dict.fromkeys(_canonical_point_id(point) for point in selected_points).keys()
+        if item
+    ]
     if not target_point_node_ids:
         raise HTTPException(
             status_code=status.HTTP_409_CONFLICT,
@@ -778,10 +808,21 @@ def _workbench_candidate_validation_errors(
 ) -> list[str]:
     errors: list[str] = []
     metadata = payload.get("metadata") if isinstance(payload.get("metadata"), dict) else {}
-    point_node_ids = payload.get("primary_point_node_ids") or metadata.get("primary_point_node_ids") or []
+    point_node_ids = (
+        payload.get("source_placement_node_ids")
+        or payload.get("primary_point_node_ids")
+        or metadata.get("source_placement_node_ids")
+        or metadata.get("primary_point_node_ids")
+        or []
+    )
+    canonical_point_ids = (
+        payload.get("primary_canonical_point_ids")
+        or metadata.get("primary_canonical_point_ids")
+        or []
+    )
     normalized_point_node_ids = _unique_point_node_ids(point_node_ids)
-    if not normalized_point_node_ids:
-        errors.append("primary_point_node_ids are required")
+    if not normalized_point_node_ids and not canonical_point_ids:
+        errors.append("canonical point ids or source placement node ids are required")
     source_audit = metadata.get("source_audit") if isinstance(metadata, dict) else None
     if not isinstance(source_audit, dict):
         errors.append("source_audit is required")
@@ -926,6 +967,15 @@ def send_question_workbench_message(*, payload: WorkbenchMessageRequest, session
                 "point_key": str(point.get("point_key") or "").strip(),
                 "point_title": str(point.get("point_title") or point.get("point_key") or "").strip(),
                 "point_node_id": str(point.get("point_node_id") or point.get("point_id") or point.get("node_id") or "").strip(),
+                "source_placement_node_id": str(
+                    point.get("source_placement_node_id")
+                    or point.get("placement_node_id")
+                    or point.get("point_node_id")
+                    or point.get("point_id")
+                    or point.get("node_id")
+                    or ""
+                ).strip(),
+                "canonical_point_id": str(point.get("canonical_point_id") or "").strip(),
             }
             for point in raw_target_points
             if isinstance(point, dict) and (point.get("point_key") or point.get("point_title") or point.get("point_node_id"))
@@ -939,6 +989,7 @@ def send_question_workbench_message(*, payload: WorkbenchMessageRequest, session
         )
         target_point_node_ids = _unique_point_node_ids(
             context_snapshot.get("target_point_node_ids"),
+            context_snapshot.get("source_placement_node_ids"),
             workbench.get("point_node_ids") if isinstance(workbench.get("point_node_ids"), list) else [],
             target_points,
         )
@@ -947,6 +998,16 @@ def send_question_workbench_message(*, payload: WorkbenchMessageRequest, session
         if target_points:
             target_points = _attach_catalog_point_nodes(session, experiment_id=str(workbench["experiment_id"]), points=target_points)
             target_point_node_ids = _unique_point_node_ids(target_point_node_ids, target_points)
+        target_canonical_point_ids = [
+            item
+            for item in dict.fromkeys(
+                [
+                    *(context_snapshot.get("target_canonical_point_ids") or []),
+                    *[_canonical_point_id(point) for point in target_points],
+                ]
+            ).keys()
+            if item
+        ]
         selected_point = selected_point or (target_points[0] if target_points else None)
 
         user_turn = _insert_workbench_turn(
@@ -959,6 +1020,8 @@ def send_question_workbench_message(*, payload: WorkbenchMessageRequest, session
                 "count": payload.count,
                 "point_keys": target_point_keys,
                 "point_node_ids": target_point_node_ids,
+                "source_placement_node_ids": target_point_node_ids,
+                "canonical_point_ids": target_canonical_point_ids,
             },
         )
         if not target_point_node_ids:
@@ -987,6 +1050,8 @@ def send_question_workbench_message(*, payload: WorkbenchMessageRequest, session
                             "target_points": target_points,
                             "target_point_keys": target_point_keys,
                             "target_point_node_ids": [],
+                            "source_placement_node_ids": [],
+                            "target_canonical_point_ids": target_canonical_point_ids,
                             "last_prompt": payload.prompt,
                         }
                     ),
@@ -1058,6 +1123,8 @@ def send_question_workbench_message(*, payload: WorkbenchMessageRequest, session
                             "target_points": target_points,
                             "target_point_keys": target_point_keys,
                             "target_point_node_ids": target_point_node_ids,
+                            "source_placement_node_ids": target_point_node_ids,
+                            "target_canonical_point_ids": target_canonical_point_ids,
                             "rag_gate": rag_gate,
                             "evidence_package": {
                                 "mode": evidence_package.get("mode") or "hybrid_bge_rag",
@@ -1082,6 +1149,8 @@ def send_question_workbench_message(*, payload: WorkbenchMessageRequest, session
             "target_points": target_points,
             "target_point_keys": target_point_keys,
             "target_point_node_ids": target_point_node_ids,
+            "source_placement_node_ids": target_point_node_ids,
+            "target_canonical_point_ids": target_canonical_point_ids,
             "source_refs": source_refs,
             "rag_gate": rag_gate,
             "evidence_package": evidence_package,
@@ -1187,6 +1256,9 @@ def send_question_workbench_message(*, payload: WorkbenchMessageRequest, session
                                 "point_keys": target_point_keys,
                                 "point_node_id": _point_node_id(selected_point),
                                 "point_node_ids": target_point_node_ids,
+                                "source_placement_node_ids": target_point_node_ids,
+                                "canonical_point_id": _canonical_point_id(selected_point),
+                                "primary_canonical_point_ids": target_canonical_point_ids,
                                 "catalog_point_contexts": point_contexts,
                                 "question_id": suggestion_request.question_id,
                                 "rag_gate": rag_gate,

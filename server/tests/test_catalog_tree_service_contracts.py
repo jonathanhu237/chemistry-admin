@@ -200,7 +200,8 @@ def test_video_library_search_contract_is_point_only_with_directory_category_tex
     catalog_search_source = (CATALOG_DIR / "search_documents.py").read_text(encoding="utf-8")
 
     assert "WHERE n.node_kind = 'point'" in search_source
-    assert "AND target.node_kind = 'point'" in search_source
+    assert "canonical_point_id" in search_source
+    assert "placement_node_id" in search_source
     assert "directory_context" in search_source
     assert '"category_text": category_text' in search_source
     assert "teacher_note" not in search_source
@@ -208,6 +209,8 @@ def test_video_library_search_contract_is_point_only_with_directory_category_tex
     assert "experiment_video_point_evidence" not in search_source
 
     assert "SELECT id FROM subtree WHERE node_kind = 'point'" in catalog_search_source
+    assert "canonical_point_id" in catalog_search_source
+    assert "placement_node_id" in catalog_search_source
     assert '"category_text": category_text' in catalog_search_source
     assert "teacher_note" not in catalog_search_source
 
@@ -234,3 +237,27 @@ def test_catalog_tree_facade_stays_slim_and_boundaries_are_named() -> None:
     for filename, symbol in expected_modules.items():
         source = (CATALOG_DIR / filename).read_text(encoding="utf-8")
         assert symbol in source
+
+
+def test_catalog_point_placement_backend_contracts_are_explicit() -> None:
+    nodes_source = (CATALOG_DIR / "nodes.py").read_text(encoding="utf-8")
+    points_source = (CATALOG_DIR / "points.py").read_text(encoding="utf-8")
+    common_source = (CATALOG_DIR / "common.py").read_text(encoding="utf-8")
+
+    assert "INSERT INTO experiment_catalog_points" in nodes_source
+    assert 'canonical_point_id = clean(data.get("canonical_point_id")) or None' in nodes_source
+    assert "Canonical experiment point not found" in nodes_source
+    assert "active_placements_for_canonical_point" in nodes_source
+    assert "Archiving the final placement requires an explicit canonical archive decision" in nodes_source
+    assert "queue_subtree_point_indexes(session, node_id=node_id)" in nodes_source
+    assert 'reason="catalog_path_moved"' in nodes_source
+
+    assert "canonical_point_id_for_node(session, node_id)" in points_source
+    assert "WHERE canonical_point_id = :canonical_point_id" in points_source
+    assert "OR node_id = :node_id" in points_source
+    assert "WHERE canonical_point_id = :canonical_point_id\n                  AND node_kind = 'point'" in points_source
+    assert "active_placement_ids_for_canonical_point(session, canonical_point_id)" in points_source
+
+    assert "def active_placements_for_canonical_point" in common_source
+    assert "def active_placement_ids_for_canonical_point" in common_source
+    assert "Point placement must target a canonical experiment point" in common_source

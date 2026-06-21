@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from contextlib import contextmanager
+from datetime import datetime, timezone
 from typing import Any
 import urllib.error
 
@@ -12,6 +13,8 @@ from server.app.infrastructure.settings import Settings
 from server.app.api.student import student_video_library
 from server.app.domains.video_library.index_client import (
     ANALYZER_ASSET_ROOT,
+    VideoLibraryIndexClient,
+    document_hash,
     video_library_analyzer_assets,
     video_library_index_mapping,
 )
@@ -223,6 +226,40 @@ def test_video_library_es_mapping_uses_chemistry_ik_stopwords_and_synonyms() -> 
         field_mapping = mapping["mappings"]["properties"][field]
         assert field_mapping["analyzer"] == "chemistry_ik"
         assert field_mapping["search_analyzer"] == "chemistry_ik_search"
+
+
+def test_video_library_index_client_serializes_datetime_payloads(monkeypatch: pytest.MonkeyPatch) -> None:
+    captured: dict[str, Any] = {}
+
+    class _Response:
+        def __enter__(self) -> "_Response":
+            return self
+
+        def __exit__(self, *_args: object) -> None:
+            return None
+
+        def read(self) -> bytes:
+            return b'{"result":"updated"}'
+
+    def fake_urlopen(request: Any, timeout: float) -> _Response:
+        captured["timeout"] = timeout
+        captured["data"] = request.data.decode("utf-8")
+        return _Response()
+
+    payload = {
+        "id": "cat-point-1",
+        "node_id": "cat-point-1",
+        "updated_at": datetime(2026, 6, 21, 3, 16, tzinfo=timezone.utc),
+    }
+
+    monkeypatch.setattr("server.app.domains.video_library.index_client.urllib.request.urlopen", fake_urlopen)
+
+    client = VideoLibraryIndexClient(base_url="http://search:9200", index="student-video-library", timeout=1.5)
+    client.upsert_document(payload)
+
+    assert document_hash(payload)
+    assert captured["timeout"] == 1.5
+    assert '"updated_at": "2026-06-21T03:16:00+00:00"' in captured["data"]
 
 
 def test_es_ik_analyzer_assets_cover_required_chemistry_smoke_terms() -> None:

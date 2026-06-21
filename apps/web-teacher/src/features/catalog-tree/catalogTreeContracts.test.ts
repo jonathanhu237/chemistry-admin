@@ -55,11 +55,20 @@ describe("catalog tree UI contracts", () => {
     expect(workspaceSource).toContain('className="catalog-chapter-switcher"');
     expect(workspaceSource).toContain("setSelectedNodeId(null);");
     expect(workspaceSource).toContain("}, [chapterId]);");
+    expect(workspaceSource).toContain('treeScopeKey={chapterId || ""}');
     expect(workspaceSource).not.toContain("chapter-select");
     expect(workspaceSource).not.toMatch(/import\s*\{[^}]*\bSelect\b[^}]*\}\s*from\s*"antd"/);
     expect(editorSource).toContain("catalog-editor-empty-state");
     expect(editorSource).toContain("<CatalogEditorHeader");
     expect(editorSource).toContain('className="catalog-editor-tabs"');
+  });
+
+  it("resets tree open and loaded state at chapter boundaries", () => {
+    expect(treeSource).toContain("previousTreeScopeKeyRef");
+    expect(treeSource).toContain("loadingDirectoryIdsRef.current.clear()");
+    expect(treeSource).toContain("node.chapter_id === treeScopeKey");
+    expect(treeSource).toContain("scopeChanged ? [] : previous");
+    expect(treeSource).toContain("key={treeScopeKey}");
   });
 
   it("keeps operational/debug fields out of default content panels", () => {
@@ -71,6 +80,29 @@ describe("catalog tree UI contracts", () => {
     expect(advancedPanelSource).toContain("search_preview");
   });
 
+  it("uses a Chinese natural multiline equation authoring workflow", () => {
+    expect(contentPanelSource).toContain('name="reaction_equations_text"');
+    expect(contentPanelSource).toContain("buildEquationReviewModel");
+    expect(contentPanelSource).toContain("catalog-equation-natural-actions");
+    expect(contentPanelSource).toContain("catalog-equation-natural-candidate");
+    expect(contentPanelSource).toContain("catalog-equation-natural-supplemental");
+    expect(contentPanelSource).toContain("catalog-equation-natural-empty");
+    expect(contentPanelSource).toContain("applyCandidate(candidate)");
+    expect(contentPanelSource).toContain("runEquationAssist(equation.row_order)");
+    expect(contentPanelSource).toContain('mode: "suggest"');
+    expect(contentPanelSource).toContain("previewSeq.current");
+    expect(contentPanelSource).toContain("setTimeout");
+    expect(contentPanelSource).toContain("500");
+    expect(contentPanelSource).toContain("previewCatalogReactionEquations(rows, textValue)");
+    expect(contentPanelSource).toContain("assistCatalogReactionEquations");
+    expect(contentPanelSource).toContain("catalog-equation-natural-editor");
+    expect(contentPanelSource).not.toContain("assistAvailable");
+    expect(contentPanelSource).not.toContain("applyDrafts");
+    expect(contentPanelSource).not.toContain("assistDrafts.length ?");
+    expect(contentPanelSource).not.toContain("catalog-equation-card");
+    expect(contentPanelSource).not.toContain("catalog-equation-symbol-popover");
+    expect(contentPanelSource).not.toContain("catalog-equation-toolbar");
+  });
   it("keeps the video panel as existing-media binding only", () => {
     expect(videoPanelSource).toContain("mutations.bindMedia.mutate");
     expect(videoPanelSource).toContain("getMediaAssetFileUrl");
@@ -137,11 +169,16 @@ describe("catalog tree UI contracts", () => {
     expect(treeSource).toContain("新建点位");
     expect(treeSource).not.toContain("新建根目录");
     expect(treeSource).not.toContain("新建根点位");
+    expect(workspaceSource).toContain("复用已有实验");
+    expect(workspaceSource).toContain("同步添加到当前目录");
+    expect(workspaceSource).toContain("canonical_point_id");
   });
 
   it("renders editor status labels in Chinese instead of backend enum text", () => {
     expect(editorHeaderSource).toContain("catalogStatusLabel(node.status)");
     expect(editorHeaderSource).not.toContain("{node.status}</Tag>");
+    expect(contentPanelSource).toContain("pointContentStatusLabel(detail.point_content?.content_status)");
+    expect(contentPanelSource).not.toContain("{detail.point_content?.content_status ||");
   });
 
   it("gates directory-only editor queries and tabs", () => {

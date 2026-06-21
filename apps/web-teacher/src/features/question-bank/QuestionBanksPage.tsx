@@ -96,6 +96,8 @@ type QuestionPointOption = {
   value: string;
   label: string;
   point_node_id?: string;
+  source_placement_node_id?: string;
+  canonical_point_id?: string;
   point_key?: string;
 };
 
@@ -210,12 +212,14 @@ export function QuestionBanksPage() {
     const byId = new Map<string, QuestionPointOption>();
     for (const question of questions.data?.items || []) {
       for (const point of questionPoints(question)) {
-        const value = point.point_node_id || point.point_key || point.point_title;
+        const value = point.source_placement_node_id || point.point_node_id || point.canonical_point_id || point.point_key || point.point_title;
         if (!value || byId.has(value)) continue;
         byId.set(value, {
           value,
-          label: point.point_title || point.point_key || point.point_node_id || value,
+          label: point.point_title || point.point_key || point.canonical_point_id || point.source_placement_node_id || point.point_node_id || value,
           point_node_id: point.point_node_id || undefined,
+          source_placement_node_id: point.source_placement_node_id || point.point_node_id || undefined,
+          canonical_point_id: point.canonical_point_id || undefined,
           point_key: point.point_key || undefined,
         });
       }
@@ -250,6 +254,8 @@ export function QuestionBanksPage() {
           const option = pointOptionByValue.get(key);
           return {
             point_node_id: option?.point_node_id,
+            source_placement_node_id: option?.source_placement_node_id,
+            canonical_point_id: option?.canonical_point_id,
             point_key: option?.point_key || (!option?.point_node_id ? key : ""),
             point_title: option?.label || key,
           };
@@ -268,7 +274,7 @@ export function QuestionBanksPage() {
       ? "已读取当前实验和点位的来源片段，可以继续用提示细化 AI 建议。"
       : workbenchGateLabel;
   const createTargetPointOptions = pointKeys.map((key) => pointOptionByValue.get(key)).filter(Boolean) as QuestionPointOption[];
-  const createTargetPointNodeIds = createTargetPointOptions.map((point) => point.point_node_id).filter(Boolean) as string[];
+  const createTargetPointNodeIds = createTargetPointOptions.map((point) => point.source_placement_node_id || point.point_node_id).filter(Boolean) as string[];
   const createTargetPointKeys = createTargetPointOptions.map((point) => point.point_key).filter(Boolean) as string[];
   const createTargetPointLabel = createTargetPointOptions.length
     ? `围绕 ${createTargetPointOptions.length} 个点位出题`
@@ -308,6 +314,8 @@ export function QuestionBanksPage() {
         mode: "create",
         experiment_id: experimentId,
         point_node_id: primaryPoint?.point_node_id || null,
+        source_placement_node_id: primaryPoint?.source_placement_node_id || null,
+        canonical_point_id: primaryPoint?.canonical_point_id || null,
         point_node_ids: createTargetPointNodeIds,
         point_key: primaryPoint?.point_key || null,
         point_keys: createTargetPointKeys,
@@ -321,14 +329,16 @@ export function QuestionBanksPage() {
       return;
     }
     const selectedQuestionPoints = questionPoints(question);
-    const questionPointValues = selectedQuestionPoints.map((point) => point.point_node_id || point.point_key).filter(Boolean) as string[];
-    const questionPointNodeIds = selectedQuestionPoints.map((point) => point.point_node_id).filter(Boolean) as string[];
+    const questionPointValues = selectedQuestionPoints
+      .map((point) => point.source_placement_node_id || point.point_node_id || point.canonical_point_id || point.point_key)
+      .filter(Boolean) as string[];
+    const questionPointNodeIds = selectedQuestionPoints.map((point) => point.source_placement_node_id || point.point_node_id).filter(Boolean) as string[];
     const questionPointKeys = selectedQuestionPoints.map((point) => point.point_key).filter(Boolean) as string[];
     const primaryPoint = selectedQuestionPoints[0];
     setAssistantIntent("repair_question");
     setAssistantQuestion(question);
     setWorkbenchOpen(false);
-    setAssistantPointKey(primaryPoint?.point_node_id || primaryPoint?.point_key);
+    setAssistantPointKey(primaryPoint?.source_placement_node_id || primaryPoint?.point_node_id || primaryPoint?.point_key);
     setAssistantPointKeys(questionPointValues);
     setWorkbenchPrompt("请基于当前实验点位、来源证据和选项诊断链接，给出一版更清晰、更可诊断的修正题。");
     setWorkbenchQuestionTypes([question.question_type]);
@@ -337,7 +347,9 @@ export function QuestionBanksPage() {
       mode: "repair",
       experiment_id: question.experiment_id,
       question_id: question.id,
-      point_node_id: primaryPoint?.point_node_id || null,
+      point_node_id: primaryPoint?.source_placement_node_id || primaryPoint?.point_node_id || null,
+      source_placement_node_id: primaryPoint?.source_placement_node_id || null,
+      canonical_point_id: primaryPoint?.canonical_point_id || null,
       point_node_ids: questionPointNodeIds,
       point_key: primaryPoint?.point_key || null,
       point_keys: questionPointKeys,
@@ -356,6 +368,8 @@ export function QuestionBanksPage() {
       experiment_id: string;
       question_id?: string | null;
       point_node_id?: string | null;
+      source_placement_node_id?: string | null;
+      canonical_point_id?: string | null;
       point_node_ids?: string[];
       point_key?: string | null;
       point_keys?: string[];

@@ -13,9 +13,11 @@ from server.app.catalog_tree_schemas import (
 )
 from server.app.domains.catalog_tree.common import (
     NODE_KINDS,
+    active_placements_for_canonical_point,
     assert_kind_transition,
     assert_parent_valid,
     breadcrumbs,
+    canonical_point_id_for_node,
     clean,
     content_publication_errors,
     dump_model,
@@ -23,6 +25,7 @@ from server.app.domains.catalog_tree.common import (
     get_node,
     json_dump,
     max_child_order,
+    new_canonical_point_id,
     new_node_id,
     node_card,
     node_select,
@@ -138,8 +141,28 @@ def get_node_detail(*, node_id: str) -> dict[str, Any]:
         related = related_links(session, node_id, include_hidden=True, include_defaults=True) if point_capable(node) else []
         validation = validate_selected_node(session, node_id=node_id)
         job_state = get_point_job_state(session, node_id=node_id) if point_capable(node) else None
+        placements = (
+            [
+                {
+                    **node_card(placement, include_teacher_note=True),
+                    "breadcrumbs": breadcrumbs(session, placement["node_id"]),
+                }
+                for placement in active_placements_for_canonical_point(session, str(node.get("canonical_point_id")))
+            ]
+            if point_capable(node) and node.get("canonical_point_id")
+            else []
+        )
         return {
             "node": node_card(node, validation=validation, include_teacher_note=True),
+            "canonical_point": {
+                "canonical_point_id": node.get("canonical_point_id"),
+                "title": node.get("canonical_point_title") or node.get("title"),
+                "status": node.get("canonical_point_status"),
+                "active_placement_count": len(placements),
+            }
+            if point_capable(node)
+            else None,
+            "placements": placements,
             "breadcrumbs": breadcrumbs(session, node_id),
             "children": children,
             "point_content": content,
@@ -169,6 +192,45 @@ def create_node(*, payload: CatalogNodeCreateRequest, user: Any) -> dict[str, An
         assert_parent_valid(session, chapter_id=chapter_id, parent_id=parent_id)
         display_order = max_child_order(session, chapter_id=chapter_id, parent_id=parent_id) + 1
         card = create_node_params(data, kind=kind)
+        canonical_point_id = clean(data.get("canonical_point_id")) or None
+        if kind == "point":
+            if canonical_point_id:
+                canonical = session.execute(
+                    text(
+                        """
+                        SELECT id, title, status
+                        FROM experiment_catalog_points
+                        WHERE id = :canonical_point_id
+                          AND status <> 'archived'
+                        """
+                    ),
+                    {"canonical_point_id": canonical_point_id},
+                ).mappings().first()
+                if not canonical:
+                    raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Canonical experiment point not found")
+                title = clean(canonical["title"]) or title
+            else:
+                canonical_point_id = new_canonical_point_id()
+                session.execute(
+                    text(
+                        """
+                        INSERT INTO experiment_catalog_points (
+                          id, title, summary, status, metadata, created_by, updated_by, updated_at
+                        )
+                        VALUES (
+                          :id, :title, :summary, 'draft', CAST(:metadata AS jsonb),
+                          CAST(:user_id AS uuid), CAST(:user_id AS uuid), now()
+                        )
+                        """
+                    ),
+                    {
+                        "id": canonical_point_id,
+                        "title": title,
+                        "summary": clean(data.get("summary")),
+                        "metadata": json_dump({"created_from": "catalog_point_placement"}),
+                        "user_id": user.id,
+                    },
+                )
         session.execute(
             text(
                 """
@@ -176,13 +238,13 @@ def create_node(*, payload: CatalogNodeCreateRequest, user: Any) -> dict[str, An
                   id, chapter_id, parent_id, node_kind, title, summary, teacher_note,
                   student_description, card_image_asset_id, card_icon_key, card_accent,
                   card_layout, card_presentation, point_card_presentation, status,
-                  display_order, metadata, created_by, updated_by, updated_at
+                  display_order, canonical_point_id, metadata, created_by, updated_by, updated_at
                 )
                 VALUES (
                   :id, :chapter_id, :parent_id, :node_kind, :title, :summary, :teacher_note,
                   :student_description, CAST(:card_image_asset_id AS uuid), :card_icon_key, :card_accent,
                   :card_layout, CAST(:card_presentation AS jsonb), CAST(:point_card_presentation AS jsonb), 'draft',
-                  :display_order, CAST(:metadata AS jsonb), CAST(:user_id AS uuid), CAST(:user_id AS uuid), now()
+                  :display_order, :canonical_point_id, CAST(:metadata AS jsonb), CAST(:user_id AS uuid), CAST(:user_id AS uuid), now()
                 )
                 """
             ),
@@ -193,6 +255,7 @@ def create_node(*, payload: CatalogNodeCreateRequest, user: Any) -> dict[str, An
                 "node_kind": kind,
                 "title": title,
                 "display_order": display_order,
+                "canonical_point_id": canonical_point_id if kind == "point" else None,
                 "metadata": json_dump(data.get("metadata") if isinstance(data.get("metadata"), dict) else {}),
                 "user_id": user.id,
                 **card,
@@ -246,6 +309,26 @@ def update_node(*, node_id: str, payload: CatalogNodeUpdateRequest, user: Any) -
                 **card,
             },
         )
+        if point_capable(node):
+            canonical_point_id = canonical_point_id_for_node(session, node_id)
+            session.execute(
+                text(
+                    """
+                    UPDATE experiment_catalog_points
+                    SET title = :title,
+                        summary = :summary,
+                        updated_by = CAST(:user_id AS uuid),
+                        updated_at = now()
+                    WHERE id = :canonical_point_id
+                    """
+                ),
+                {
+                    "canonical_point_id": canonical_point_id,
+                    "title": title,
+                    "summary": clean(data.get("summary")) if data.get("summary") is not None else clean(node.get("summary")),
+                    "user_id": user.id,
+                },
+            )
         if new_kind == "point" or node["node_kind"] == "point":
             queue_index_state(session, node_id=node_id, action="upsert" if node["status"] == "published" else "delete")
             mark_point_evidence_stale(session, node_id=node_id, reason="point_node_metadata_edited")
@@ -353,6 +436,52 @@ def set_node_status(*, node_id: str, payload: CatalogNodeStatusRequest, user: An
             new_status = "draft"
             published_at_sql = "published_at = NULL,"
         elif action == "archive":
+            final_placement_rows = (
+                session.execute(
+                    text(
+                        """
+                        WITH selected_points AS (
+                          SELECT id, canonical_point_id
+                          FROM experiment_catalog_nodes
+                          WHERE id = ANY(:node_ids)
+                            AND node_kind = 'point'
+                            AND canonical_point_id IS NOT NULL
+                            AND status <> 'archived'
+                        ),
+                        selected_counts AS (
+                          SELECT canonical_point_id, COUNT(*) AS selected_count, MIN(id) AS sample_placement_node_id
+                          FROM selected_points
+                          GROUP BY canonical_point_id
+                        ),
+                        active_counts AS (
+                          SELECT n.canonical_point_id, COUNT(*) AS active_count
+                          FROM experiment_catalog_nodes n
+                          JOIN selected_counts sc ON sc.canonical_point_id = n.canonical_point_id
+                          WHERE n.node_kind = 'point'
+                            AND n.status <> 'archived'
+                          GROUP BY n.canonical_point_id
+                        )
+                        SELECT sc.canonical_point_id, sc.sample_placement_node_id, sc.selected_count, ac.active_count
+                        FROM selected_counts sc
+                        JOIN active_counts ac ON ac.canonical_point_id = sc.canonical_point_id
+                        WHERE sc.selected_count >= ac.active_count
+                        ORDER BY sc.canonical_point_id
+                        LIMIT 5
+                        """
+                    ),
+                    {"node_ids": node_ids},
+                )
+                .mappings()
+                .all()
+            )
+            if final_placement_rows:
+                raise HTTPException(
+                    status_code=status.HTTP_409_CONFLICT,
+                    detail={
+                        "message": "Archiving the final placement requires an explicit canonical archive decision",
+                        "blocked_canonical_points": [dict(row) for row in final_placement_rows],
+                    },
+                )
             new_status = "archived"
             published_at_sql = "published_at = NULL,"
         elif action == "restore":
@@ -433,6 +562,7 @@ def search_catalog_nodes(*, query: str, chapter_id: str | None = None, limit: in
                     node_select(
                         f"""
                         LEFT JOIN experiment_catalog_point_content pc ON pc.node_id = n.id
+                          OR (n.canonical_point_id IS NOT NULL AND pc.canonical_point_id = n.canonical_point_id)
                         LEFT JOIN experiment_catalog_legacy_identity_map legacy ON legacy.catalog_node_id = n.id
                         WHERE {where}
                           AND (

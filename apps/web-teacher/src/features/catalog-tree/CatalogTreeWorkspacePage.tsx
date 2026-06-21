@@ -32,6 +32,7 @@ export function CatalogTreeWorkspacePage() {
   const [chapterId, setChapterId] = useState<string>();
   const [selectedNodeId, setSelectedNodeId] = useState<string | null>(null);
   const [searchText, setSearchText] = useState("");
+  const [reuseSearchText, setReuseSearchText] = useState("");
   const [createIntent, setCreateIntent] = useState<CreateIntent | null>(null);
   const [createForm] = Form.useForm<CatalogNodeFormValues>();
   const chapters = useCatalogChapters();
@@ -40,6 +41,11 @@ export function CatalogTreeWorkspacePage() {
   const selectedParentId = selectedDetail.data?.node.parent_id || undefined;
   const selectedSiblingChildren = useCatalogChildren(selectedParentId, Boolean(selectedParentId));
   const search = useCatalogSearch(searchText, chapterId, searchText.trim().length >= 2);
+  const reuseSearch = useCatalogSearch(
+    reuseSearchText,
+    null,
+    Boolean(createIntent?.kind === "point" && reuseSearchText.trim().length >= 2),
+  );
   const mutations = useCatalogMutations(message);
 
   useEffect(() => {
@@ -58,6 +64,7 @@ export function CatalogTreeWorkspacePage() {
         title: "",
         summary: "",
         node_kind: createIntent.kind,
+        canonical_point_id: "",
         student_description: "",
         teacher_note: "",
         card_layout: "default",
@@ -88,6 +95,7 @@ export function CatalogTreeWorkspacePage() {
 
   const openCreate = (kind: CatalogNodeKind, parentId?: string | null) => {
     if (!chapterId) return;
+    setReuseSearchText("");
     setCreateIntent({ chapterId, parentId: parentId || null, kind });
   };
 
@@ -105,6 +113,13 @@ export function CatalogTreeWorkspacePage() {
   const selectNode = (node: CatalogNodeCard) => {
     if (node.chapter_id !== chapterId) setChapterId(node.chapter_id);
     setSelectedNodeId(node.node_id);
+  };
+  const reusablePointResults = (reuseSearch.data?.items || []).filter((item) => item.node_kind === "point" && item.canonical_point_id);
+  const selectReusablePoint = (item: CatalogNodeCard) => {
+    createForm.setFieldsValue({
+      title: item.canonical_point_title || item.title,
+      canonical_point_id: item.canonical_point_id || "",
+    });
   };
 
   return (
@@ -178,6 +193,7 @@ export function CatalogTreeWorkspacePage() {
           ) : null}
           <CatalogTreeNodeList
             nodes={rootItems}
+            treeScopeKey={chapterId || ""}
             selectedNodeId={selectedNodeId}
             loading={roots.isLoading}
             error={roots.error}
@@ -221,6 +237,55 @@ export function CatalogTreeWorkspacePage() {
               <Radio.Button value="directory">目录</Radio.Button>
               <Radio.Button value="point">点位</Radio.Button>
             </Radio.Group>
+          </Form.Item>
+          <Form.Item
+            noStyle
+            shouldUpdate={(previous, current) => previous.node_kind !== current.node_kind}
+          >
+            {({ getFieldValue }) =>
+              getFieldValue("node_kind") === "point" ? (
+                <>
+                  <div className="catalog-reuse-picker">
+                    <div className="catalog-reuse-picker-copy">
+                      <Text strong>复用已有实验</Text>
+                      <Text type="secondary">搜索已有点位，选择后会把同一个实验同步添加到当前目录。</Text>
+                    </div>
+                    <Input.Search
+                      value={reuseSearchText}
+                      onChange={(event) => setReuseSearchText(event.target.value)}
+                      onSearch={setReuseSearchText}
+                      placeholder="搜索已有实验名称或目录路径"
+                      allowClear
+                    />
+                    {reuseSearchText.trim().length >= 2 ? (
+                      <QueryState loading={reuseSearch.isFetching} error={reuseSearch.error} empty={!reusablePointResults.length}>
+                        <div className="catalog-reuse-result-list">
+                          {reusablePointResults.slice(0, 8).map((item) => (
+                            <button
+                              key={item.node_id}
+                              type="button"
+                              className="catalog-reuse-result-button"
+                              onClick={() => selectReusablePoint(item)}
+                            >
+                              <span>{item.canonical_point_title || item.title}</span>
+                              <Text type="secondary">{item.chapter_id}</Text>
+                              <Tag>{item.active_placement_count ? `${item.active_placement_count} 个位置` : "单位置"}</Tag>
+                            </button>
+                          ))}
+                        </div>
+                      </QueryState>
+                    ) : null}
+                  </div>
+                  <Form.Item
+                    name="canonical_point_id"
+                    label="同步实验 ID（可选）"
+                    extra="留空会创建一个新实验；选择或填写已有实验 ID 会把同一个实验添加到当前目录。"
+                  >
+                    <Input placeholder="cat-canon-..." />
+                  </Form.Item>
+                </>
+              ) : null
+            }
           </Form.Item>
           <Form.Item
             name="teacher_note"

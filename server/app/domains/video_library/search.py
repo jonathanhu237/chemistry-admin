@@ -146,6 +146,8 @@ def _load_published_point_rows(session: Any) -> list[dict[str, Any]]:
                 """
                 SELECT
                   n.id AS node_id,
+                  n.id AS placement_node_id,
+                  n.canonical_point_id,
                   n.chapter_id,
                   c.chapter_title,
                   n.title AS node_title,
@@ -216,31 +218,54 @@ def _load_published_point_rows(session: Any) -> list[dict[str, Any]]:
                     )
                     FROM experiment_catalog_point_media_bindings mb
                     JOIN media_assets ma ON ma.id = mb.media_asset_id
-                    WHERE mb.node_id = n.id
+                    WHERE ((n.canonical_point_id IS NOT NULL AND mb.canonical_point_id = n.canonical_point_id)
+                        OR mb.node_id = n.id)
                       AND ma.upload_status = 'ready'
                       AND mb.binding_status = 'published'
                   ), '[]'::jsonb) AS videos,
                   COALESCE((
                     SELECT jsonb_agg(
                       jsonb_build_object(
-                        'node_id', target.id,
-                        'title', COALESCE(l.label, target.title),
+                        'node_id', COALESCE(target_placement.id, target.id),
+                        'placement_node_id', COALESCE(target_placement.id, target.id),
+                        'canonical_point_id', COALESCE(l.target_canonical_point_id, target.canonical_point_id),
+                        'title', COALESCE(l.label, target_point.title, target_placement.title, target.title),
                         'relation_type', l.relation_type
                       )
                       ORDER BY l.sort_order, l.created_at
                     )
                     FROM experiment_catalog_point_related_links l
-                    JOIN experiment_catalog_nodes target ON target.id = l.target_node_id
-                    WHERE l.source_node_id = n.id
+                    LEFT JOIN experiment_catalog_nodes target ON target.id = l.target_node_id
+                    LEFT JOIN experiment_catalog_points target_point
+                      ON target_point.id = COALESCE(l.target_canonical_point_id, target.canonical_point_id)
+                    LEFT JOIN LATERAL (
+                      SELECT placement.id, placement.title, placement.status
+                      FROM experiment_catalog_nodes placement
+                      WHERE placement.canonical_point_id = COALESCE(l.target_canonical_point_id, target.canonical_point_id)
+                        AND placement.node_kind = 'point'
+                        AND placement.status = 'published'
+                      ORDER BY CASE WHEN placement.chapter_id = n.chapter_id THEN 0 ELSE 1 END,
+                               placement.display_order,
+                               placement.id
+                      LIMIT 1
+                    ) target_placement ON true
+                    WHERE (
+                        l.source_node_id = n.id
+                        OR l.source_placement_node_id = n.id
+                        OR (n.canonical_point_id IS NOT NULL AND l.source_canonical_point_id = n.canonical_point_id)
+                      )
                       AND l.hidden = false
-                      AND target.status = 'published'
-                      AND target.node_kind = 'point'
+                      AND COALESCE(target_placement.status, target.status) = 'published'
                   ), '[]'::jsonb) AS related_links
                 FROM experiment_catalog_nodes n
                 JOIN chapters c ON c.id = n.chapter_id
-                JOIN experiment_catalog_point_content pc ON pc.node_id = n.id
+                JOIN experiment_catalog_points cp ON cp.id = n.canonical_point_id
+                JOIN experiment_catalog_point_content pc
+                  ON pc.canonical_point_id = n.canonical_point_id
+                  OR pc.node_id = n.id
                 WHERE n.node_kind = 'point'
                   AND n.status = 'published'
+                  AND cp.status = 'published'
                   AND pc.content_status = 'published'
                   AND (
                     WITH RECURSIVE path AS (
@@ -267,6 +292,8 @@ def _load_published_point_rows(session: Any) -> list[dict[str, Any]]:
 
 def _point_document(row: dict[str, Any], profiles: list[dict[str, Any]]) -> VideoLibraryDocument | None:
     node_id = _clean_text(row.get("node_id"))
+    placement_node_id = _clean_text(row.get("placement_node_id")) or node_id
+    canonical_point_id = _clean_text(row.get("canonical_point_id"))
     chapter_id = _clean_text(row.get("chapter_id"))
     profile = _profile_context_for_chapter(chapter_id, profiles)
     point_title = _clean_text(row.get("point_title"))
@@ -296,8 +323,11 @@ def _point_document(row: dict[str, Any], profiles: list[dict[str, Any]]) -> Vide
         return None
     target = StudentVideoLibraryRouteTarget(
         kind="point_detail",
-        route=f"/point/{node_id}",
-        node_id=node_id,
+        route=f"/point/{placement_node_id}",
+        node_id=placement_node_id,
+        placement_node_id=placement_node_id,
+        source_node_id=placement_node_id,
+        canonical_point_id=canonical_point_id or None,
         profile_id=_clean_text(profile.get("profile_id")) if profile else None,
         chapter_id=chapter_id or None,
         catalog_path=catalog_path,
@@ -326,7 +356,9 @@ def _point_document(row: dict[str, Any], profiles: list[dict[str, Any]]) -> Vide
     index_source = {
         "id": document_id,
         "result_type": "video_point",
-        "node_id": node_id,
+        "node_id": placement_node_id,
+        "placement_node_id": placement_node_id,
+        "canonical_point_id": canonical_point_id,
         "chapter_id": row.get("chapter_id"),
         "chapter_ids": [row.get("chapter_id")],
         "catalog_path": catalog_path,

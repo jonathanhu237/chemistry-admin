@@ -22,6 +22,10 @@ export type CatalogBreadcrumb = {
 
 export type CatalogNodeCard = {
   node_id: string;
+  placement_node_id?: string | null;
+  canonical_point_id?: string | null;
+  canonical_point_title?: string | null;
+  canonical_point_status?: string | null;
   chapter_id: string;
   parent_id?: string | null;
   node_kind: CatalogNodeKind;
@@ -43,6 +47,7 @@ export type CatalogNodeCard = {
   has_point_content: boolean;
   media_count: number;
   published_media_count: number;
+  active_placement_count?: number;
   validation: CatalogValidation;
   index_state?: CatalogIndexState | null;
 };
@@ -64,6 +69,8 @@ export type CatalogPointJobAction = "es-refresh" | "es-delete" | "rag-refresh" |
 export type CatalogPointJob = {
   id: string;
   node_id: string;
+  placement_node_id?: string | null;
+  canonical_point_id?: string | null;
   job_type: "es_upsert" | "es_delete" | "rag_evidence_refresh" | "rag_evidence_delete" | string;
   trigger_source: "automatic" | "manual" | "retry" | "system" | string;
   status: CatalogPointJobStatus;
@@ -82,6 +89,8 @@ export type CatalogPointJob = {
 
 export type CatalogPointEvidenceState = {
   node_id: string;
+  source_placement_node_id?: string | null;
+  canonical_point_id?: string | null;
   evidence_status: CatalogPointEvidenceStatus;
   source_mode: string;
   trigger_policy: string;
@@ -98,6 +107,8 @@ export type CatalogPointEvidenceState = {
 
 export type CatalogPointJobState = {
   node_id: string;
+  placement_node_id?: string | null;
+  canonical_point_id?: string | null;
   es_state?: CatalogIndexState | null;
   evidence_state: CatalogPointEvidenceState;
   recent_jobs: CatalogPointJob[];
@@ -206,6 +217,7 @@ export type CatalogReactionEquationInput = {
 export type CatalogReactionEquationNormalized = {
   id?: string | null;
   node_id?: string | null;
+  canonical_point_id?: string | null;
   row_order: number;
   raw_text: string;
   canonical_display: string;
@@ -223,6 +235,10 @@ export type CatalogReactionEquationNormalized = {
   parser_version: string;
   migrated_from_principle_equation: boolean;
   metadata?: Record<string, unknown>;
+  suggested_display?: string | null;
+  suggested_mhchem?: string | null;
+  suggestion_reason?: string | null;
+  corrections?: string[];
 };
 
 export type CatalogEquationPreviewResponse = {
@@ -230,8 +246,30 @@ export type CatalogEquationPreviewResponse = {
   equations: CatalogReactionEquationNormalized[];
 };
 
+export type CatalogEquationAssistDraft = {
+  draft_text: string;
+  source: string;
+  rationale: string;
+  row_order?: number | null;
+  replacement_text?: string | null;
+  canonical_display?: string;
+  canonical_mhchem?: string | null;
+  validation_status?: "valid" | "warning" | "invalid";
+  warnings?: string[];
+  errors?: string[];
+  formulae?: string[];
+  supplemental?: boolean;
+};
+
+export type CatalogEquationAssistResponse = {
+  available: boolean;
+  reason?: string | null;
+  drafts: CatalogEquationAssistDraft[];
+};
+
 export type CatalogPointContent = {
   node_id: string;
+  canonical_point_id?: string | null;
   point_title: string;
   teacher_note?: string | null;
   principle_mode: CatalogPrincipleMode;
@@ -249,6 +287,8 @@ export type CatalogPointContent = {
 export type CatalogMediaBinding = {
   binding_id: string;
   node_id: string;
+  source_placement_node_id?: string | null;
+  canonical_point_id?: string | null;
   media_id: string;
   title: string;
   binding_status: "draft" | "published" | "archived" | string;
@@ -271,6 +311,9 @@ export type CatalogRelatedLink = {
   id?: string | null;
   source_node_id: string;
   target_node_id: string;
+  source_canonical_point_id?: string | null;
+  target_canonical_point_id?: string | null;
+  target_placement_node_id?: string | null;
   target_title: string;
   relation_type: "manual" | "default_override" | "generated_default" | string;
   hidden: boolean;
@@ -296,6 +339,13 @@ export type CatalogSearchPreview = {
 
 export type CatalogNodeDetail = {
   node: CatalogNodeCard;
+  canonical_point?: {
+    canonical_point_id?: string | null;
+    title?: string | null;
+    status?: string | null;
+    active_placement_count?: number;
+  } | null;
+  placements?: Array<CatalogNodeCard & { breadcrumbs?: CatalogBreadcrumb[] }>;
   breadcrumbs: CatalogBreadcrumb[];
   children: CatalogNodeCard[];
   point_content?: CatalogPointContent | null;
@@ -337,6 +387,7 @@ export type CatalogNodeCreatePayload = {
   card_layout?: string | null;
   card_presentation?: Record<string, unknown>;
   point_card_presentation?: Record<string, unknown>;
+  canonical_point_id?: string | null;
   metadata?: Record<string, unknown>;
 };
 
@@ -424,8 +475,23 @@ export function saveCatalogPointContent(nodeId: string, payload: CatalogPointCon
   return putJson<CatalogNodeDetail>(`/api/admin/catalog/nodes/${encodeURIComponent(nodeId)}/point-content`, payload);
 }
 
-export function previewCatalogReactionEquations(equations: CatalogReactionEquationInput[]): Promise<CatalogEquationPreviewResponse> {
-  return postJson<CatalogEquationPreviewResponse>("/api/admin/catalog/equations/preview", { equations });
+export function previewCatalogReactionEquations(
+  equations: CatalogReactionEquationInput[],
+  multilineText?: string,
+): Promise<CatalogEquationPreviewResponse> {
+  return postJson<CatalogEquationPreviewResponse>("/api/admin/catalog/equations/preview", { equations, multiline_text: multilineText });
+}
+
+export function assistCatalogReactionEquations(payload: {
+  mode: "suggest" | "fix" | "generate" | "balance";
+  multiline_text?: string;
+  equations?: CatalogReactionEquationInput[];
+  point_title?: string;
+  catalog_path_text?: string;
+  phenomenon_explanation?: string;
+  safety_note?: string;
+}): Promise<CatalogEquationAssistResponse> {
+  return postJson<CatalogEquationAssistResponse>("/api/admin/catalog/equations/assist", payload);
 }
 
 export function changeCatalogPointContentPublication(

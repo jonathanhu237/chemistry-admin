@@ -30,6 +30,10 @@ def new_node_id() -> str:
     return f"cat-node-{uuid.uuid4().hex}"
 
 
+def new_canonical_point_id() -> str:
+    return f"cat-canon-{uuid.uuid4().hex}"
+
+
 def point_capable(node: dict[str, Any]) -> bool:
     return str(node.get("node_kind") or "") in POINT_KINDS
 
@@ -60,6 +64,9 @@ def node_select(where_clause: str) -> str:
           n.card_layout,
           n.card_presentation,
           n.point_card_presentation,
+          n.canonical_point_id,
+          cp.title AS canonical_point_title,
+          cp.status AS canonical_point_status,
           n.status,
           n.display_order,
           n.metadata,
@@ -91,21 +98,35 @@ def node_select(where_clause: str) -> str:
           END AS descendant_point_count,
           EXISTS (
             SELECT 1 FROM experiment_catalog_point_content pc
-            WHERE pc.node_id = n.id
+            WHERE (n.canonical_point_id IS NOT NULL AND pc.canonical_point_id = n.canonical_point_id)
+               OR pc.node_id = n.id
           ) AS has_point_content,
           (
             SELECT COUNT(*)
             FROM experiment_catalog_point_media_bindings mb
-            WHERE mb.node_id = n.id AND mb.binding_status <> 'archived'
+            WHERE ((n.canonical_point_id IS NOT NULL AND mb.canonical_point_id = n.canonical_point_id)
+                OR mb.node_id = n.id)
+              AND mb.binding_status <> 'archived'
           ) AS media_count,
           (
             SELECT COUNT(*)
             FROM experiment_catalog_point_media_bindings mb
             JOIN media_assets ma ON ma.id = mb.media_asset_id
-            WHERE mb.node_id = n.id
+            WHERE ((n.canonical_point_id IS NOT NULL AND mb.canonical_point_id = n.canonical_point_id)
+                OR mb.node_id = n.id)
               AND mb.binding_status = 'published'
               AND ma.upload_status = 'ready'
           ) AS published_media_count,
+          CASE
+            WHEN n.node_kind = 'point' AND n.canonical_point_id IS NOT NULL THEN (
+              SELECT COUNT(*)
+              FROM experiment_catalog_nodes placement
+              WHERE placement.canonical_point_id = n.canonical_point_id
+                AND placement.node_kind = 'point'
+                AND placement.status <> 'archived'
+            )
+            ELSE 0
+          END AS active_placement_count,
           (
             SELECT to_jsonb(s)
             FROM experiment_catalog_point_search_index_state s
@@ -113,6 +134,7 @@ def node_select(where_clause: str) -> str:
           ) AS index_state
         FROM experiment_catalog_nodes n
         JOIN chapters c ON c.id = n.chapter_id
+        LEFT JOIN experiment_catalog_points cp ON cp.id = n.canonical_point_id
         {where_clause}
     """
 
@@ -123,6 +145,7 @@ def row_dict(row: Any) -> dict[str, Any]:
     item["descendant_point_count"] = int(item.get("descendant_point_count") or 0)
     item["media_count"] = int(item.get("media_count") or 0)
     item["published_media_count"] = int(item.get("published_media_count") or 0)
+    item["active_placement_count"] = int(item.get("active_placement_count") or 0)
     if item.get("card_image_asset_id") is not None:
         item["card_image_asset_id"] = str(item["card_image_asset_id"])
     for key in ("metadata", "card_presentation", "point_card_presentation"):
@@ -154,6 +177,10 @@ def node_card(
         "card_layout": node.get("card_layout") or "default",
         "card_presentation": node.get("card_presentation") if isinstance(node.get("card_presentation"), dict) else {},
         "point_card_presentation": node.get("point_card_presentation") if isinstance(node.get("point_card_presentation"), dict) else {},
+        "placement_node_id": node["node_id"] if kind == "point" else None,
+        "canonical_point_id": node.get("canonical_point_id") if kind == "point" else None,
+        "canonical_point_title": node.get("canonical_point_title") if kind == "point" else None,
+        "canonical_point_status": node.get("canonical_point_status") if kind == "point" else None,
         "status": node.get("status") or "draft",
         "display_order": int(node.get("display_order") or 0),
         "actions": actions_for_kind(kind),
@@ -162,6 +189,7 @@ def node_card(
         "has_point_content": bool(node.get("has_point_content")),
         "media_count": int(node.get("media_count") or 0),
         "published_media_count": int(node.get("published_media_count") or 0),
+        "active_placement_count": int(node.get("active_placement_count") or 0) if kind == "point" else 0,
         "validation": validation if validation is not None else validate_node_payload(node),
         "index_state": node.get("index_state"),
     }
@@ -185,17 +213,90 @@ def get_node(session: Any, node_id: str, *, include_archived: bool = True) -> di
     return row_dict(row)
 
 
+def canonical_point_id_for_node(session: Any, node_id: str) -> str:
+    row = (
+        session.execute(
+            text(
+                """
+                SELECT canonical_point_id
+                FROM experiment_catalog_nodes
+                WHERE id = :node_id
+                  AND node_kind = 'point'
+                """
+            ),
+            {"node_id": node_id},
+        )
+        .mappings()
+        .first()
+    )
+    if not row or not row.get("canonical_point_id"):
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Catalog point placement has no canonical experiment point")
+    return str(row["canonical_point_id"])
+
+
+def active_placement_ids_for_canonical_point(session: Any, canonical_point_id: str) -> list[str]:
+    return [
+        str(row)
+        for row in session.execute(
+            text(
+                """
+                SELECT id
+                FROM experiment_catalog_nodes
+                WHERE canonical_point_id = :canonical_point_id
+                  AND node_kind = 'point'
+                  AND status <> 'archived'
+                ORDER BY chapter_id, parent_id NULLS FIRST, display_order, id
+                """
+            ),
+            {"canonical_point_id": canonical_point_id},
+        )
+        .scalars()
+        .all()
+    ]
+
+
+def active_placements_for_canonical_point(session: Any, canonical_point_id: str) -> list[dict[str, Any]]:
+    rows = (
+        session.execute(
+            text(node_select(
+                """
+                WHERE n.canonical_point_id = :canonical_point_id
+                  AND n.node_kind = 'point'
+                  AND n.status <> 'archived'
+                ORDER BY n.chapter_id, n.parent_id NULLS FIRST, n.display_order, n.id
+                """
+            )),
+            {"canonical_point_id": canonical_point_id},
+        )
+        .mappings()
+        .all()
+    )
+    return [row_dict(row) for row in rows]
+
+
 def get_content(session: Any, node_id: str) -> dict[str, Any] | None:
     row = (
         session.execute(
             text(
                 """
-                SELECT node_id, point_title, teacher_note, principle_mode, principle_equation,
+                SELECT pc.node_id, pc.canonical_point_id, pc.point_title, pc.teacher_note,
+                       pc.principle_mode, pc.principle_equation,
                        principle_text, phenomenon_explanation, safety_note, content_status,
-                       published_at, published_by, created_by, updated_by, metadata,
-                       created_at, updated_at
-                FROM experiment_catalog_point_content
-                WHERE node_id = :node_id
+                       pc.published_at, pc.published_by, pc.created_by, pc.updated_by, pc.metadata,
+                       pc.created_at, pc.updated_at
+                FROM experiment_catalog_nodes n
+                JOIN experiment_catalog_point_content pc
+                  ON (
+                    n.canonical_point_id IS NOT NULL
+                    AND pc.canonical_point_id = n.canonical_point_id
+                  )
+                  OR pc.node_id = n.id
+                WHERE n.id = :node_id
+                ORDER BY
+                  CASE WHEN pc.canonical_point_id = n.canonical_point_id THEN 0 ELSE 1 END,
+                  CASE pc.content_status WHEN 'published' THEN 0 WHEN 'draft' THEN 1 ELSE 2 END,
+                  pc.updated_at DESC
+                LIMIT 1
                 """
             ),
             {"node_id": node_id},
@@ -218,10 +319,12 @@ def content_publication_errors(node: dict[str, Any], content: dict[str, Any] | N
         errors.append("Node title is required")
     if not point_capable(node):
         return errors
+    if not clean(node.get("canonical_point_id")):
+        errors.append("Point placement must target a canonical experiment before publishing")
     if node.get("has_children"):
         errors.append("Point nodes cannot have children")
     if not content:
-        errors.append("Point content must be saved before publishing")
+        errors.append("Canonical point content must be saved before publishing")
         return errors
     mode = clean(content.get("principle_mode") or "text")
     equation = clean(content.get("principle_equation"))
@@ -255,12 +358,14 @@ def validate_node_payload(node: dict[str, Any], content: dict[str, Any] | None =
         if not node.get("has_children"):
             warnings.append("Directory has no children")
     if kind == "point":
+        if not clean(node.get("canonical_point_id")):
+            errors.append("Point placement must target a canonical experiment point")
         if node.get("has_children"):
             errors.append("Point nodes cannot have children")
         if content and content.get("content_status") in {"draft", "archived"}:
-            warnings.append("Point content is not published")
+            warnings.append("Canonical point content is not published")
         elif not content:
-            warnings.append("Point content has not been saved")
+            warnings.append("Canonical point content has not been saved")
     return {"ok": not errors, "errors": errors, "warnings": warnings}
 
 
@@ -382,7 +487,17 @@ def has_point_resources(session: Any, node_id: str) -> bool:
                 SELECT EXISTS (
                   SELECT 1 FROM experiment_catalog_point_content WHERE node_id = :node_id
                   UNION ALL
+                  SELECT 1
+                  FROM experiment_catalog_point_content pc
+                  JOIN experiment_catalog_nodes n ON n.canonical_point_id = pc.canonical_point_id
+                  WHERE n.id = :node_id
+                  UNION ALL
                   SELECT 1 FROM experiment_catalog_point_media_bindings WHERE node_id = :node_id AND binding_status <> 'archived'
+                  UNION ALL
+                  SELECT 1
+                  FROM experiment_catalog_point_media_bindings mb
+                  JOIN experiment_catalog_nodes n ON n.canonical_point_id = mb.canonical_point_id
+                  WHERE n.id = :node_id AND mb.binding_status <> 'archived'
                   UNION ALL
                   SELECT 1 FROM experiment_catalog_point_related_links WHERE source_node_id = :node_id
                 )

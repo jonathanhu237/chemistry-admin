@@ -78,6 +78,53 @@ def main() -> None:
                     """
                 )
             ).mappings().one()
+            canonical_row = session.execute(
+                text(
+                    """
+                    SELECT
+                      (SELECT COUNT(*) FROM experiment_catalog_points WHERE status <> 'archived') AS canonical_point_count,
+                      COUNT(*) FILTER (
+                        WHERE n.status <> 'archived'
+                          AND n.node_kind = 'point'
+                          AND n.canonical_point_id IS NULL
+                      ) AS point_without_canonical_count,
+                      COUNT(*) FILTER (
+                        WHERE n.status <> 'archived'
+                          AND n.node_kind = 'directory'
+                          AND n.canonical_point_id IS NOT NULL
+                      ) AS directory_with_canonical_count,
+                      COUNT(*) FILTER (
+                        WHERE n.status <> 'archived'
+                          AND n.node_kind = 'point'
+                          AND n.canonical_point_id IS NOT NULL
+                          AND cp.id IS NULL
+                      ) AS missing_canonical_target_count,
+                      (
+                        SELECT COUNT(*)
+                        FROM experiment_catalog_points canon
+                        WHERE canon.status <> 'archived'
+                          AND NOT EXISTS (
+                            SELECT 1
+                            FROM experiment_catalog_nodes placement
+                            WHERE placement.canonical_point_id = canon.id
+                              AND placement.node_kind = 'point'
+                              AND placement.status <> 'archived'
+                          )
+                      ) AS orphan_canonical_point_count
+                    FROM experiment_catalog_nodes n
+                    LEFT JOIN experiment_catalog_points cp ON cp.id = n.canonical_point_id
+                    """
+                )
+            ).mappings().one()
+            evidence_identity_row = session.execute(
+                text(
+                    """
+                    SELECT
+                      (SELECT COUNT(*) FROM experiment_catalog_point_evidence_state WHERE canonical_point_id IS NULL) AS evidence_state_without_canonical_count,
+                      (SELECT COUNT(*) FROM experiment_catalog_point_evidence_bindings WHERE canonical_point_id IS NULL) AS evidence_binding_without_canonical_count
+                    """
+                )
+            ).mappings().one()
             corrected_rows = [
                 dict(item)
                 for item in session.execute(
@@ -140,6 +187,13 @@ def main() -> None:
     unique_example_node_count = int(example_row["unique_example_node_count"] or 0)
     published_example_content_count = int(example_row["published_example_content_count"] or 0)
     queued_example_search_count = int(example_row["queued_example_search_count"] or 0)
+    canonical_point_count = int(canonical_row["canonical_point_count"] or 0)
+    point_without_canonical_count = int(canonical_row["point_without_canonical_count"] or 0)
+    directory_with_canonical_count = int(canonical_row["directory_with_canonical_count"] or 0)
+    missing_canonical_target_count = int(canonical_row["missing_canonical_target_count"] or 0)
+    orphan_canonical_point_count = int(canonical_row["orphan_canonical_point_count"] or 0)
+    evidence_state_without_canonical_count = int(evidence_identity_row["evidence_state_without_canonical_count"] or 0)
+    evidence_binding_without_canonical_count = int(evidence_identity_row["evidence_binding_without_canonical_count"] or 0)
     corrected_titles = {str(item["title"]) for item in corrected_rows}
     corrected_parent_ids = {str(item["parent_id"]) for item in corrected_rows}
     errors: list[str] = []
@@ -149,6 +203,20 @@ def main() -> None:
         errors.append(f"directory node count mismatch: expected 176, got {directory_node_count}")
     if point_node_count != 393:
         errors.append(f"point node count mismatch: expected 393, got {point_node_count}")
+    if canonical_point_count != 357:
+        errors.append(f"canonical point count mismatch: expected 357, got {canonical_point_count}")
+    if point_without_canonical_count:
+        errors.append(f"point placements without canonical point: {point_without_canonical_count}")
+    if directory_with_canonical_count:
+        errors.append(f"directory nodes with canonical point: {directory_with_canonical_count}")
+    if missing_canonical_target_count:
+        errors.append(f"point placements targeting missing canonical point: {missing_canonical_target_count}")
+    if orphan_canonical_point_count:
+        errors.append(f"active canonical points without active placements: {orphan_canonical_point_count}")
+    if evidence_state_without_canonical_count:
+        errors.append(f"evidence state rows without canonical point: {evidence_state_without_canonical_count}")
+    if evidence_binding_without_canonical_count:
+        errors.append(f"evidence binding rows without canonical point: {evidence_binding_without_canonical_count}")
     if chapter_21_node_count:
         errors.append(f"chapter 21 should be empty, got {chapter_21_node_count} node(s)")
     if point_children:
@@ -184,6 +252,13 @@ def main() -> None:
         "catalog_node_count": catalog_node_count,
         "directory_node_count": directory_node_count,
         "point_node_count": point_node_count,
+        "canonical_point_count": canonical_point_count,
+        "point_without_canonical_count": point_without_canonical_count,
+        "directory_with_canonical_count": directory_with_canonical_count,
+        "missing_canonical_target_count": missing_canonical_target_count,
+        "orphan_canonical_point_count": orphan_canonical_point_count,
+        "evidence_state_without_canonical_count": evidence_state_without_canonical_count,
+        "evidence_binding_without_canonical_count": evidence_binding_without_canonical_count,
         "point_content_count": point_content_count,
         "chapter_21_node_count": chapter_21_node_count,
         "point_children": point_children,

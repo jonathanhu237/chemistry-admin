@@ -28,6 +28,14 @@ export function CatalogPublishChecksPanel({
       ) : (
         <Alert type="success" showIcon title="当前节点可发布" />
       )}
+      {detail.node.node_kind === "point" ? (
+        <Alert
+          type="info"
+          showIcon
+          title="位置节点与共享实验"
+          description={`位置节点 ${detail.node.placement_node_id || detail.node.node_id}；共享实验 ${detail.node.canonical_point_id || "-"}。目录/路径发布问题属于位置节点，实验内容、视频、AI 证据问题属于共享实验。`}
+        />
+      ) : null}
       {activeValidation.warnings?.length ? (
         <>
           <Divider />
@@ -41,7 +49,7 @@ export function CatalogPublishChecksPanel({
             {activeValidation.nodes.map((item) => (
               <div key={item.node_id}>
                 <strong>{item.title}</strong>
-                <span>{[...item.errors, ...item.warnings].join("；") || "ok"}</span>
+                <span>{`${item.node_id}: ${[...item.errors, ...item.warnings].join("；") || "ok"}`}</span>
               </div>
             ))}
           </div>

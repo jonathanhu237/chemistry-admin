@@ -8,6 +8,6 @@ describe("catalog editor tab filtering", () => {
   });
 
   it("keeps video and related panels for points", () => {
-    expect(catalogEditorTabKeysForNode("point")).toEqual(["content", "video", "related", "student-card", "publish", "advanced"]);
+    expect(catalogEditorTabKeysForNode("point")).toEqual(["content", "video", "related", "student-card", "ai-context", "publish", "advanced"]);
   });
 });
