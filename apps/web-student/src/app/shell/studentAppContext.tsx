@@ -9,6 +9,8 @@ export type StudentShellBaseContextValue = {
 export type StudentRuntimeContextValue = StudentShellBaseContextValue & {
   appConfig: StudentAppConfigResponse;
   configError: string;
+  previewMode: boolean;
+  previewPolicy: StudentAppConfigResponse["preview_policy"];
   canUseAssistant: boolean;
   canUseFeedback: boolean;
   startAssessmentSession: () => Promise<StudentPosttestResponse | null>;

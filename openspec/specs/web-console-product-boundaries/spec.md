@@ -14,9 +14,14 @@ The platform SHALL expose three independent web consoles named `web-admin`, `web
 
 #### Scenario: Product ownership is unambiguous
 - **WHEN** a maintainer inspects frontend packages, Compose services, or documentation
-- **THEN** `web-teacher` MUST identify the teacher console that owns experiment, question-bank, AI, settings, class, resource, analytics, feedback, and learning-assistant workflows
-- **AND** `web-admin` MUST identify the platform operations console for teacher-account management only
+- **THEN** `web-teacher` MUST identify the teacher console that owns experiment, question-bank, AI, settings, class, resource, analytics, feedback, learning-assistant, and student-preview shell workflows
+- **AND** `web-admin` MUST identify the platform operations console for teacher-account management and teacher-preview infrastructure governance
 - **AND** `web-student` MUST identify the student H5 frontend.
+
+#### Scenario: Preview governance does not duplicate teacher workflows
+- **WHEN** `web-admin` manages hidden preview classes or preview test students
+- **THEN** it MUST expose only operational governance actions such as list, inspect, reset, disable, restore, or audit
+- **AND** it MUST NOT duplicate teacher catalog, class instruction, question-bank, analytics, feedback, learning-assistant, or student learning workflows.
 
 ### Requirement: Console access boundaries are separated
 The backend and frontend guards SHALL enforce access boundaries for the three web consoles.

@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Outlet, useLocation } from "@tanstack/react-router";
-import { assistantEnabled, defaultStudentAppConfig, feedbackEnabled } from "../appConfig";
+import { LockKeyhole } from "lucide-react";
+import { assistantEnabled, defaultStudentAppConfig, feedbackEnabled, previewRouteBlocked } from "../appConfig";
 import { errorMessage, getStudentAppConfig, startStudentPosttest, type StudentAppConfigResponse } from "../../api";
 import { storePosttestSession } from "../router/assessmentSessionStore";
 import { rootIdForPath, routeRoleForPath } from "../router/routeVisibility";
@@ -8,6 +9,8 @@ import type { StudentRootRouteId } from "../router/routeTypes";
 import { StudentRuntimeProvider, useStudentShellBase } from "./studentAppContext";
 import { StudentAppHeader } from "./StudentAppHeader";
 import { StudentBottomNav } from "./StudentBottomNav";
+import { PreviewInputRuntime } from "../preview/input/PreviewInputRuntime";
+import { MobileEmptyState } from "../../mobile/primitives";
 
 const rootHeaderMeta: Record<StudentRootRouteId, { title: string; subtitle: string }> = {
   home: { title: "首页", subtitle: "今日学习" },
@@ -29,7 +32,8 @@ export function AuthenticatedAppLayout() {
   const [posttestError, setPosttestError] = useState("");
   const [navCompressed, setNavCompressed] = useState(false);
   const lastScrollY = useRef(0);
-  const idleTimer = useRef<number | null>(null);
+  const routeBlocked = previewRouteBlocked(appConfig, location.pathname);
+  const previewMode = Boolean(baseContext.user.preview_mode || appConfig.preview_mode);
 
   useEffect(() => {
     let cancelled = false;
@@ -67,20 +71,17 @@ export function AuthenticatedAppLayout() {
     const handleScroll = () => {
       const nextScrollY = window.scrollY;
       const delta = nextScrollY - lastScrollY.current;
-      if (idleTimer.current) window.clearTimeout(idleTimer.current);
       if (nextScrollY < 64 || delta < -14) {
         setNavCompressed(false);
       } else if (delta > 18 && nextScrollY > 128) {
         setNavCompressed(true);
       }
-      idleTimer.current = window.setTimeout(() => setNavCompressed(false), 1800);
       lastScrollY.current = nextScrollY;
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => {
       window.removeEventListener("scroll", handleScroll);
-      if (idleTimer.current) window.clearTimeout(idleTimer.current);
     };
   }, [isRootRoute, location.pathname]);
 
@@ -104,13 +105,15 @@ export function AuthenticatedAppLayout() {
       ...baseContext,
       appConfig,
       configError,
+      previewMode,
+      previewPolicy: appConfig.preview_policy,
       canUseAssistant: assistantEnabled(appConfig.features),
       canUseFeedback: feedbackEnabled(appConfig.features),
       startAssessmentSession,
       posttestLoading,
       posttestError,
     }),
-    [appConfig, baseContext, configError, posttestError, posttestLoading, startAssessmentSession],
+    [appConfig, baseContext, configError, posttestError, posttestLoading, previewMode, startAssessmentSession],
   );
 
   const headerMeta = activeRoot ? rootHeaderMeta[activeRoot] : null;
@@ -130,9 +133,18 @@ export function AuthenticatedAppLayout() {
         {headerMeta ? <StudentAppHeader title={headerMeta.title} subtitle={headerMeta.subtitle} /> : null}
         {configError ? <div className="form-hint app-config-hint">配置刷新失败，当前页面会继续使用上一次配置：{configError}</div> : null}
         <div className="student-route-content">
-          <Outlet />
+          {routeBlocked ? (
+            <section className="learning-panel">
+              <MobileEmptyState className="empty-learning-card" icon={<LockKeyhole size={20} />}>
+                <span>{appConfig.preview_policy?.message || "This feature is unavailable in teacher preview mode."}</span>
+              </MobileEmptyState>
+            </section>
+          ) : (
+            <Outlet />
+          )}
         </div>
         {activeRoot ? <StudentBottomNav activeRoot={activeRoot} /> : null}
+        <PreviewInputRuntime />
       </section>
     </StudentRuntimeProvider>
   );

@@ -6,6 +6,38 @@ The new requirement is broader: teachers need a page in the teacher console that
 
 The key architectural constraint is that the teacher preview must not become a second student frontend. If student pages, styles, routes, or interaction logic change in `web-student`, the teacher preview must reflect those changes automatically. Any preview-only differences must be introduced through a small preview runtime layer, backend policy, route guards, and API write guards rather than component forks.
 
+## Research Context: DevTools-Like Means External Control, Not Page Forks
+
+Chrome DevTools Device Mode is useful as an architectural analogy, but not as a literal embeddable dependency. DevTools itself is an external control surface. It talks to Chromium through Chrome DevTools Protocol domains such as Emulation, Network, Runtime, and Page; the inspected webpage does not import DevTools UI components or carry page-local business branches for every emulated condition.
+
+Relevant external patterns from the research:
+
+- Chrome DevTools Protocol defines a remote debugging and instrumentation boundary between tooling and the page. Device emulation is expressed through browser-level commands such as device metrics, touch emulation, user agent, media, geolocation, orientation, CPU, and network controls.
+- Chrome Device Mode documentation describes the feature as an approximation of mobile user experience rather than a real mobile runtime. It changes the environment around the page; it does not fork the application.
+- Puppeteer `page.emulate()` and Playwright device descriptors follow the same principle: a device profile is applied to the browser context through viewport, user agent, screen size, device scale factor, mobile mode, and touch support. The application under test remains the same app.
+- The DevTools frontend is open source, but it is a debugger UI coupled to Chromium protocol/backend assumptions. It is not a clean library for a teacher product surface and would introduce the wrong mental model for this feature.
+
+The translation for this product is:
+
+```text
+web-teacher preview shell
+  owns device chrome, preset, orientation, zoom, refresh, iframe lifecycle
+        |
+        v
+iframe boundary
+  runs the real web-student SPA
+        |
+        v
+web-student preview sandbox adapter
+  owns preview identity projection, capability decisions, mutation interception
+        |
+        v
+backend preview policy and write guards
+  owns security, isolation, hidden preview class/test-student state
+```
+
+The iframe/device shell is our replacement for browser-level DevTools control. The preview sandbox adapter is our replacement for CDP-style environment policy that cannot be injected from the browser in a normal web app. Student business pages should consume semantic adapters, not know the raw preview details.
+
 ## Goals / Non-Goals
 
 **Goals:**
@@ -13,7 +45,7 @@ The key architectural constraint is that the teacher preview must not become a s
 - Provide a teacher-console full student H5 preview that uses the real `web-student` SPA inside a phone-sized iframe shell.
 - Give every teacher one system-managed hidden preview class and one default test student account/session.
 - Keep hidden preview classes invisible in ordinary teacher class/roster workflows while making them visible and manageable in `web-admin`.
-- Support future preview-only differences, such as blocking feedback or synthetic-success write responses, without copying student pages or sprinkling page-local preview branches.
+- Support future preview-only differences, such as allowing feedback form interaction while blocking real submit side effects, without copying student pages or sprinkling page-local preview branches.
 - Keep preview implementation route-owned and feature-local so teacher shell, student shell, backend routers, and web-admin remain maintainable.
 - Preserve existing point-preview behavior where practical by extracting reusable device-shell primitives instead of duplicating device preset code.
 
@@ -103,22 +135,41 @@ The student app will get a thin preview runtime extension point. That layer may 
 - `previewMode` and `previewPolicy` in student runtime context
 - centralized route guard/visibility helpers
 - centralized API behavior for preview media/auth and unsupported writes
+- a preview sandbox adapter that exposes semantic view models and commands to pages
 
 Future differences must follow this priority order:
 
 1. Backend preview policy or endpoint guard.
 2. Student app-config feature flags and preview policy.
 3. Central route guard or navigation visibility helper.
-4. Shared shell/entry component behavior.
-5. Page-local preview logic only when the difference cannot be expressed centrally, with explicit tests and review.
+4. Preview sandbox adapter view models and command guards.
+5. Shared shell/entry component behavior.
+6. Page-local preview logic only when the difference cannot be expressed centrally, with explicit tests, documentation, and a follow-up plan to remove it if an adapter abstraction becomes possible.
 
 Examples:
 
-- Feedback hidden in preview: `app-config` disables the entry; direct route is guarded; backend rejects or returns controlled synthetic behavior.
+- Preview profile identity: the page asks the preview sandbox adapter for the display profile. The adapter returns `00000000`, `施测平`, and `数智一班` in teacher preview mode, while normal student sessions receive the real user profile.
+- Feedback in preview: the normal profile entry and feedback page remain usable for visual/interaction review; submit goes through a feedback command guard. The guard opens a preview-only dialog before a normal feedback API write is attempted, and the backend still rejects preview feedback writes as a guardrail.
 - Assessment allowed for interaction only: test-student session may create preview/test-owned state; the data is excluded from normal analytics.
 - Password/profile account mutation blocked: backend rejects preview claims and the student route shows a controlled unavailable state.
 
 This design accepts a small, intentional preview runtime hook in `web-student`. It rejects widespread page-local `if preview` checks and any teacher-side copy of student page UI.
+
+### Decision 4.1: The preview sandbox adapter is the student-side isolation boundary
+
+The project should treat `web-student/src/app/preview/*` or an equivalent package-local module as the only student-side place where teacher-preview product decisions are encoded. Student routes and feature components may call adapter hooks/functions, but they should not directly branch on `previewMode`, `user.preview_mode`, `previewPolicy`, preview purpose strings, or hard-coded preview identity values.
+
+Recommended adapter surface:
+
+- `isTeacherStudentPreview(runtime)` returns whether the current session is the teacher-owned student preview.
+- `getStudentProfilePresentation(runtime)` returns the visible profile identity for the profile page.
+- `getFeedbackCapability(runtime)` returns whether the feedback entry/form should be visible and whether submit must be intercepted.
+- `createFeedbackSubmitCommand(runtime, submitRealFeedback)` or equivalent command guard centralizes preview submit behavior.
+- `getPreviewBlockedDialog(kind)` returns stable copy and tone for preview-only blocked writes.
+
+The adapter does not render teacher UI, import `web-teacher`, or call teacher endpoints. It only translates preview runtime/policy into student-app presentation and command decisions. This keeps preview product differences explicit and testable while preserving the normal student pages as canonical.
+
+Current implementation note: the first pass introduced a small number of page-local preview branches in profile and feedback pages. The boundary-hardening follow-up moves those teacher-preview branches into the preview sandbox adapter and adds source checks that prevent new raw preview branches from spreading into student pages.
 
 ### Decision 5: Web-admin governs preview infrastructure
 
@@ -156,6 +207,7 @@ This explicit verification is important because the easiest implementation short
 
 - [Risk] Preview sessions accidentally pollute normal analytics or teacher dashboards. -> Mitigation: classify preview classes/students and preview token claims; exclude them from normal class/analytics queries; add backend tests for exclusions.
 - [Risk] Future feature blocking becomes scattered across student pages. -> Mitigation: require preview policy, app-config, route guard, and backend guard first; only allow page-local exceptions with tests.
+- [Risk] Preview product behavior slowly leaks into normal student components through repeated `previewMode` checks. -> Mitigation: introduce a preview sandbox adapter, forbid raw preview checks in student route/feature modules, and add source-boundary tests.
 - [Risk] Iframe origin/CSP settings block local or deployed preview. -> Mitigation: define explicit environment variables for student app base URL and allowed frame origins; test local ports and production-like origins.
 - [Risk] Student app auth storage conflicts with a teacher's real student login in the same browser. -> Mitigation: use a preview-specific token key or clearly scoped bootstrap/session handling if normal localStorage would overwrite real student sessions.
 - [Risk] Hidden preview class lifecycle creates orphan records. -> Mitigation: make ensure/reset idempotent, store owner metadata, expose web-admin cleanup/reset actions, and add unique constraints for one active preview class/test student per teacher.
@@ -181,4 +233,12 @@ Rollback is safe if feature-gated: disable the teacher preview route and session
 
 - Exact schema names for class/account classification can be chosen during implementation, but they must be explicit and queryable rather than hidden in opaque JSON only.
 - Whether preview auth should reuse the normal student localStorage token key or use a preview-specific token key depends on how often teachers may also open `web-student` directly in the same browser.
-- The first implementation can block or disable feedback/real account mutation broadly; later changes can refine individual preview policies once product needs are clearer.
+- The current implementation keeps feedback entry/page available in preview, fixes the displayed preview profile identity for teacher guidance, and blocks real feedback submission through frontend interception plus backend write guards.
+
+## Implementation Notes
+
+- `web-teacher` owns only the device shell, toolbar, iframe lifecycle, and preview-session request. It does not import or recreate `web-student` route pages, feature components, CSS files, or router internals.
+- `web-student` preview-specific behavior should be centralized in the `/preview/session` bootstrap, preview token helpers, app-config/runtime policy, shared authenticated layout route guard, and preview sandbox adapter.
+- The profile page must use a preview-only display identity (`00000000`, `施测平`, `数智一班`) while preserving the underlying teacher-owned preview student session and backend claims. The source of that presentation decision should be the preview sandbox adapter.
+- The feedback page remains the normal student feedback route in preview mode. Its submit behavior should flow through a preview-aware command guard that opens a preview-only dialog and does not call the feedback API, while the backend still returns a controlled rejection for direct preview feedback writes.
+- No teacher student-preview profile or feedback branch should remain in ordinary student route/feature modules. The remaining `previewMode` usage in catalog point-preview components belongs to the pre-existing point preview surface, is covered by source-boundary allowlisting, and must not be used as a precedent for teacher-preview product branching.

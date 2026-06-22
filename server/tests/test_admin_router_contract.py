@@ -59,6 +59,7 @@ ADMIN_ROUTE_CONTRACTS = [
     ("POST", "/api/admin/media/bindings/{binding_id}/publish"),
     ("POST", "/api/admin/media/bindings/{binding_id}/unpublish"),
     ("DELETE", "/api/admin/media/bindings/{binding_id}"),
+    ("POST", "/api/admin/student-preview/session"),
 ]
 
 

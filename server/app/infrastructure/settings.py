@@ -73,6 +73,10 @@ class Settings:
     auth_secret_key: str = "dev-only-secret"
     access_token_expire_minutes: int = 720
     web_admin_access_token: str = ""
+    student_preview_app_base_url: str = "http://127.0.0.1:5173"
+    student_preview_allowed_origins: tuple[str, ...] = ("http://127.0.0.1:5173", "http://localhost:5173")
+    student_preview_ticket_expire_minutes: int = 10
+    student_preview_session_expire_minutes: int = 240
     max_media_upload_mb: int = 1024
     agent_llm_provider: str = "disabled"
     agent_llm_base_url: str = ""
@@ -185,6 +189,27 @@ def get_settings() -> Settings:
         auth_secret_key=_getenv("AUTH_SECRET_KEY", Settings.auth_secret_key),
         access_token_expire_minutes=_get_int("ACCESS_TOKEN_EXPIRE_MINUTES", Settings.access_token_expire_minutes),
         web_admin_access_token=_getenv("WEB_ADMIN_ACCESS_TOKEN", Settings.web_admin_access_token),
+        student_preview_app_base_url=_getenv(
+            "STUDENT_PREVIEW_APP_BASE_URL",
+            Settings.student_preview_app_base_url,
+        ).rstrip("/"),
+        student_preview_allowed_origins=tuple(
+            _split_csv(
+                _getenv(
+                    "STUDENT_PREVIEW_ALLOWED_ORIGINS",
+                    ",".join(Settings.student_preview_allowed_origins),
+                )
+            )
+            or list(Settings.student_preview_allowed_origins)
+        ),
+        student_preview_ticket_expire_minutes=_get_int(
+            "STUDENT_PREVIEW_TICKET_EXPIRE_MINUTES",
+            Settings.student_preview_ticket_expire_minutes,
+        ),
+        student_preview_session_expire_minutes=_get_int(
+            "STUDENT_PREVIEW_SESSION_EXPIRE_MINUTES",
+            Settings.student_preview_session_expire_minutes,
+        ),
         max_media_upload_mb=_get_int("MAX_MEDIA_UPLOAD_MB", Settings.max_media_upload_mb),
         agent_llm_provider=_getenv("AGENT_LLM_PROVIDER", Settings.agent_llm_provider).lower(),
         agent_llm_base_url=_getenv("AGENT_LLM_BASE_URL"),

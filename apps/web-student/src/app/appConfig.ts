@@ -7,6 +7,8 @@ export const defaultStudentAppConfig: StudentAppConfigResponse = {
     student_ai_assistant_enabled: true,
     rag_access_enabled: true,
   },
+  preview_mode: false,
+  preview_policy: null,
 };
 
 export function assistantEnabled(features: StudentAppFeatureFlags): boolean {
@@ -15,4 +17,8 @@ export function assistantEnabled(features: StudentAppFeatureFlags): boolean {
 
 export function feedbackEnabled(features: StudentAppFeatureFlags): boolean {
   return features.feedback_enabled;
+}
+
+export function previewRouteBlocked(config: StudentAppConfigResponse, pathname: string): boolean {
+  return Boolean(config.preview_mode && config.preview_policy?.blocked_routes?.includes(pathname));
 }

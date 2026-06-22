@@ -36,18 +36,32 @@ type CatalogPointPlacement = NonNullable<CatalogNodeDetail["placements"]>[number
 
 export type CatalogHeaderDiagnosticsKey = "node-status" | "ai-context" | "advanced";
 
-function pointContentStatusLabel(status?: string | null): string {
-  if (status === "published") return "已发布";
-  if (status === "archived") return "已归档";
-  if (status === "draft") return "待发布";
-  return "待补充";
-}
+function pointContentSummary(detail: CatalogNodeDetail): Pick<SummaryItem, "value" | "note" | "tone" | "emphasis"> {
+  const status = resolveCatalogNodeStatus(detail);
+  const contentStatus = detail.point_content?.content_status;
+  const missingLabels = status.core_readiness.missing_field_labels || status.core_readiness.missing_fields || [];
 
-function pointContentTone(status?: string | null): SummaryTone {
-  if (status === "published") return "ok";
-  if (status === "archived") return "archived";
-  if (status === "draft") return "ready";
-  return "warning";
+  if (contentStatus === "archived") {
+    return { value: "已归档", note: "学习字段", tone: "archived", emphasis: true };
+  }
+  if (status.core_readiness.content_fields === "missing" || status.primary_state === "needs_content") {
+    return {
+      value: "待补充",
+      note: missingLabels.length ? `缺${missingLabels.join("、")}` : detail.point_content ? "学习字段未完整" : "需手动添加",
+      tone: "warning",
+      emphasis: true,
+    };
+  }
+  if (status.core_readiness.video === "absent" || status.primary_state === "needs_video") {
+    return { value: "已补齐", note: "等待视频", tone: "ready", emphasis: false };
+  }
+  if (contentStatus === "published") {
+    return { value: "已发布", note: "学习字段", tone: "ok", emphasis: false };
+  }
+  if (contentStatus === "draft") {
+    return { value: "待发布", note: "学习字段", tone: "ready", emphasis: false };
+  }
+  return { value: "待补充", note: "需手动添加", tone: "warning", emphasis: true };
 }
 
 function publicationIcon(status?: string | null): ReactNode {
@@ -129,7 +143,7 @@ function buildDirectorySummaryItems(detail: CatalogNodeDetail): SummaryItem[] {
 }
 
 function buildPointSummaryItems(detail: CatalogNodeDetail): SummaryItem[] {
-  const contentStatus = detail.point_content?.content_status;
+  const contentSummary = pointContentSummary(detail);
   const hasVideo = resolveCatalogNodeStatus(detail).core_readiness.video === "present";
   const relatedCount = detail.related_links.filter((link) => !link.hidden).length;
 
@@ -138,10 +152,7 @@ function buildPointSummaryItems(detail: CatalogNodeDetail): SummaryItem[] {
       key: "content",
       icon: <FileText size={16} />,
       label: "学习内容",
-      value: pointContentStatusLabel(contentStatus),
-      note: detail.point_content ? "学习字段" : "需手动添加",
-      tone: pointContentTone(contentStatus),
-      emphasis: contentStatus !== "published" && contentStatus !== "draft",
+      ...contentSummary,
     },
     {
       key: "video",

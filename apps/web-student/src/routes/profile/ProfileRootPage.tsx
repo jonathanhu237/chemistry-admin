@@ -1,12 +1,15 @@
 import { useNavigate } from "@tanstack/react-router";
 import { ClipboardList, LogOut, MessageSquarePlus, UserRound } from "lucide-react";
+import { getFeedbackCapability, getStudentProfilePresentation } from "../../app/preview/previewSandbox";
 import { navigateToFeedback } from "../../app/router/navigation";
 import { useStudentRuntime } from "../../app/shell/studentAppContext";
 import { MobileButton, MobileEmptyState } from "../../mobile/primitives";
 
 export function ProfileRootPage() {
   const navigate = useNavigate();
-  const { user, canUseFeedback, onLogout } = useStudentRuntime();
+  const runtime = useStudentRuntime();
+  const profile = getStudentProfilePresentation(runtime);
+  const feedbackCapability = getFeedbackCapability(runtime);
 
   return (
     <section className="learning-panel profile-tab-panel" aria-label="我的">
@@ -15,12 +18,12 @@ export function ProfileRootPage() {
           <UserRound size={20} />
         </span>
         <div>
-          <p>{user.student_id || user.username}</p>
-          <h2>{user.display_name}</h2>
-          {user.class_name ? <small>{user.class_name}</small> : null}
+          <p>{profile.studentId}</p>
+          <h2>{profile.displayName}</h2>
+          {profile.className ? <small>{profile.className}</small> : null}
         </div>
       </section>
-      {canUseFeedback ? (
+      {feedbackCapability.canOpenEntry ? (
         <button className="profile-entry-card" type="button" onClick={() => navigateToFeedback(navigate, "profile")}>
           <MessageSquarePlus size={20} />
           <span>
@@ -33,7 +36,7 @@ export function ProfileRootPage() {
           <span>反馈入口已关闭</span>
         </MobileEmptyState>
       )}
-      <MobileButton className="secondary-action full profile-logout-action" type="button" variant="secondary" onClick={onLogout}>
+      <MobileButton className="secondary-action full profile-logout-action" type="button" variant="secondary" onClick={runtime.onLogout}>
         <LogOut size={18} />
         <span>退出登录</span>
       </MobileButton>

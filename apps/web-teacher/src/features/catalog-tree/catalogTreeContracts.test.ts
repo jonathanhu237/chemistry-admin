@@ -7,6 +7,7 @@ import editorHeaderSource from "./CatalogEditorHeader.tsx?raw";
 import contentPanelSource from "./CatalogNodeContentPanel.tsx?raw";
 import nodeStatusPanelSource from "./CatalogNodeStatusPanel.tsx?raw";
 import previewWindowSource from "./CatalogPointPreviewWindow.tsx?raw";
+import devicePreviewSource from "../device-preview/DevicePreviewFrame.tsx?raw";
 import editorSource from "./CatalogTreeEditor.tsx?raw";
 import rowSource from "./CatalogTreeRow.tsx?raw";
 import treeDataSource from "./catalogTreeData.ts?raw";
@@ -44,8 +45,9 @@ describe("catalog tree UI contracts", () => {
     expect(editorHeaderSource).toContain("onOpenContentTask");
     expect(editorHeaderSource).toContain("onOpenVideoPicker");
     expect(editorHeaderSource).not.toContain("预览学习卡片");
-    expect(previewWindowSource).toContain("react-device-mockup");
-    expect(previewWindowSource).toContain("iPhone 15 Pro");
+    expect(devicePreviewSource).toContain("react-device-mockup");
+    expect(devicePreviewSource).toContain("iPhone 15 Pro");
+    expect(previewWindowSource).toContain("DeviceFrame");
     expect(previewWindowSource).toContain("iframe");
     expect(aiContextPanelSource).toContain("静态兜底证据");
     expect(aiContextPanelSource).toContain("静态证据状态流");
@@ -191,6 +193,8 @@ describe("catalog tree UI contracts", () => {
     expect(contentPanelSource).toContain("catalog-missing-fields-guide");
     expect(contentPanelSource).toContain("focusMissingField");
     expect(contentPanelSource).toContain("fieldTargetRefs");
+    expect(contentPanelSource).toContain("equationEditorRef.current?.focus()");
+    expect(contentPanelSource).toContain("onMount={(editorInstance)");
     expect(contentPanelSource).toContain("还缺");
     expect(contentPanelSource).toContain("catalogMissingLearningFieldLabels[fieldKey]");
     expect(contentPanelSource).toContain("RequiredFieldLabel");
@@ -547,7 +551,7 @@ describe("catalog tree UI contracts", () => {
   it("renders editor status labels in Chinese instead of backend enum text", () => {
     expect(editorHeaderSource).toContain("catalogStatusLabel(node.status)");
     expect(editorHeaderSource).not.toContain("{node.status}</Tag>");
-    expect(editorHeaderSource).toContain("pointContentStatusLabel(contentStatus)");
+    expect(editorHeaderSource).toContain("pointContentSummary(detail)");
     expect(contentPanelSource).not.toContain("{detail.point_content?.content_status ||");
   });
 

@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { LoaderCircle } from "lucide-react";
 import logoUrl from "./assets/sysu-logo.svg";
 import { StudentPreviewRouterProvider, StudentRouterProvider } from "./app/router/StudentRouterProvider";
+import { storePreviewInputHandshake } from "./app/preview/input/previewInputProtocol";
 import type { ViewState } from "./app/router/routeTypes";
 import { LoginPanel } from "./features/auth/LoginPanel";
 import { PasswordPanel } from "./features/auth/PasswordPanel";
@@ -11,10 +12,14 @@ import { PretestErrorPanel, TEMP_PRETEST_SKIP_BARRIER, TEMP_PRETEST_SKIP_TITLE }
 import {
   AuthUser,
   LoginResponse,
+  clearPreviewAuthToken,
   errorMessage,
+  exchangeStudentPreviewTicket,
   getAuthToken,
+  isPreviewAuthSession,
   loadCurrentUser,
   logout,
+  setPreviewAuthToken,
   setAuthToken,
   startStudentPretest,
   submitStudentPretest,
@@ -24,18 +29,71 @@ function App() {
   const [user, setUser] = useState<AuthUser | null>(null);
   const [checking, setChecking] = useState(true);
   const [sessionError, setSessionError] = useState("");
+  const [previewRuntime, setPreviewRuntime] = useState(() => isPreviewAuthSession());
   const [pretest, setPretest] = useState<Awaited<ReturnType<typeof startStudentPretest>> | null>(null);
   const [pretestLoading, setPretestLoading] = useState(false);
   const [pretestError, setPretestError] = useState("");
   const [pretestSkipped, setPretestSkipped] = useState(false);
-  const previewRoute = typeof window !== "undefined" && window.location.pathname.startsWith("/preview/catalog/points/");
+  const previewCatalogRoute = typeof window !== "undefined" && window.location.pathname.startsWith("/preview/catalog/points/");
+  const previewSessionRoute = typeof window !== "undefined" && window.location.pathname.startsWith("/preview/session");
 
   useEffect(() => {
-    if (previewRoute) {
+    if (!previewSessionRoute) return;
+    const ticket = new URLSearchParams(window.location.search).get("ticket") || "";
+    const frameId = new URLSearchParams(window.location.search).get("previewFrameId") || "";
+    const teacherOrigin = new URLSearchParams(window.location.search).get("previewTeacherOrigin") || "";
+    if (!ticket) {
+      setSessionError("Preview ticket is missing.");
+      setChecking(false);
+      return;
+    }
+    storePreviewInputHandshake(frameId, teacherOrigin);
+    let cancelled = false;
+    setChecking(true);
+    exchangeStudentPreviewTicket(ticket)
+      .then((response) => {
+        if (cancelled) return;
+        if (!isStudent(response)) {
+          setSessionError("Preview session did not return a student account.");
+          setChecking(false);
+          return;
+        }
+        setSessionError("");
+        setPreviewAuthToken(response.access_token);
+        setPreviewRuntime(true);
+        setUser(response.user);
+        setPretestSkipped(true);
+        window.history.replaceState({}, "", "/home");
+      })
+      .catch((requestError) => {
+        if (!cancelled) {
+          clearPreviewAuthToken();
+          setPreviewRuntime(false);
+          setSessionError(errorMessage(requestError));
+        }
+      })
+      .finally(() => {
+        if (!cancelled) setChecking(false);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [previewSessionRoute]);
+
+  useEffect(() => {
+    if (previewCatalogRoute) {
+      setChecking(false);
+      return;
+    }
+    if (previewSessionRoute) {
+      return;
+    }
+    if ((previewRuntime || isPreviewAuthSession()) && user) {
       setChecking(false);
       return;
     }
     if (!getAuthToken()) {
+      setPreviewRuntime(false);
       setChecking(false);
       return;
     }
@@ -46,13 +104,15 @@ function App() {
           setSessionError("请使用学生账号登录");
           return;
         }
+        setPreviewRuntime(Boolean(currentUser.preview_mode));
         setUser(currentUser);
       })
       .catch(() => {
         setAuthToken("");
+        setPreviewRuntime(false);
       })
       .finally(() => setChecking(false));
-  }, [previewRoute]);
+  }, [previewCatalogRoute, previewRuntime, previewSessionRoute, user]);
 
   useEffect(() => {
     if (!user || user.must_change_password) {
@@ -60,6 +120,14 @@ function App() {
       setPretestLoading(false);
       setPretestError("");
       setPretestSkipped(false);
+      return;
+    }
+
+    if (previewRuntime || user.preview_mode) {
+      setPretest(null);
+      setPretestLoading(false);
+      setPretestError("");
+      setPretestSkipped(true);
       return;
     }
 
@@ -91,18 +159,19 @@ function App() {
     return () => {
       cancelled = true;
     };
-  }, [user?.id, user?.must_change_password, user?.password_version]);
+  }, [previewRuntime, user?.id, user?.must_change_password, user?.password_version, user?.preview_mode]);
 
   const view: ViewState = useMemo(() => {
     if (checking) return "checking";
     if (!user) return "login";
     if (user.must_change_password) return "password";
+    if (previewRuntime || user.preview_mode) return "home";
     if (pretestLoading && !pretest) return "pretest-loading";
     if (pretestError && !pretestSkipped) return "pretest-error";
     if (pretest?.status === "in_progress" && pretest.stage && pretest.questions.length) return "pretest";
     if (pretestLoading) return "pretest-loading";
     return "home";
-  }, [checking, pretest, pretestError, pretestLoading, pretestSkipped, user]);
+  }, [checking, pretest, pretestError, pretestLoading, pretestSkipped, previewRuntime, user]);
 
   const acceptLogin = (response: LoginResponse) => {
     if (!isStudent(response)) {
@@ -111,6 +180,7 @@ function App() {
       return;
     }
     setSessionError("");
+    setPreviewRuntime(false);
     setAuthToken(response.access_token);
     setUser(response.user);
   };
@@ -120,6 +190,7 @@ function App() {
     setPretest(null);
     setPretestError("");
     setPretestSkipped(false);
+    setPreviewRuntime(false);
     setUser(null);
   };
 
@@ -140,10 +211,18 @@ function App() {
     }
   };
 
-  if (previewRoute) {
+  if (previewCatalogRoute) {
     return (
       <main className="app-shell learning-shell preview-shell">
         <StudentPreviewRouterProvider />
+      </main>
+    );
+  }
+
+  if (previewSessionRoute && (checking || sessionError)) {
+    return (
+      <main className="app-shell">
+        {sessionError ? <PreviewSessionErrorPanel message={sessionError} /> : <LoadingPanel text="Loading preview session..." />}
       </main>
     );
   }
@@ -190,6 +269,14 @@ function LoadingPanel({ text }: { text: string }) {
     <section className="auth-panel compact-panel" aria-live="polite">
       <LoaderCircle className="spin" size={24} />
       <p>{text}</p>
+    </section>
+  );
+}
+
+function PreviewSessionErrorPanel({ message }: { message: string }) {
+  return (
+    <section className="auth-panel compact-panel" aria-live="polite">
+      <p>{message}</p>
     </section>
   );
 }

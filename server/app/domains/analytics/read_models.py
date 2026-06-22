@@ -10,6 +10,7 @@ from server.app.domains.errors import DomainHTTPException as HTTPException, doma
 from sqlalchemy import text
 
 from server.app.domains.platform.roles import is_teacher_console_role
+from server.app.domains.preview.student_device_preview import TEACHER_PREVIEW_ACCOUNT_PURPOSE, TEACHER_PREVIEW_CLASS_PURPOSE
 from server.app.infrastructure.database import db_session
 from server.app.mastery import DEFAULT_EXPERIMENT_MASTERY_SCORE
 
@@ -140,7 +141,27 @@ def _teacher_can_access_class(user: Any, class_id: str) -> bool:
         ).first()
     return row is not None
 
+def _is_teacher_preview_class(class_id: str) -> bool:
+    with db_session() as session:
+        row = (
+            session.execute(
+                text(
+                    """
+                    SELECT COALESCE(class_purpose, 'instructional') = :preview_purpose AS is_preview
+                    FROM classes
+                    WHERE id = :class_id
+                    """
+                ),
+                {"class_id": class_id, "preview_purpose": TEACHER_PREVIEW_CLASS_PURPOSE},
+            )
+            .mappings()
+            .first()
+        )
+    return bool(row and row["is_preview"])
+
 def _require_class_access(class_id: str, user: Any) -> None:
+    if _is_teacher_preview_class(class_id):
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Class not found")
     if not _teacher_can_access_class(user, class_id):
         raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="No access to this class")
 
@@ -326,16 +347,18 @@ def _class_students(session: Any, class_id: str) -> list[dict[str, Any]]:
                 FROM roster_entries re
                 WHERE re.class_id = :class_id
                   AND re.status <> 'disabled'
+                  AND COALESCE(re.entry_purpose, 'instructional') <> :preview_account_purpose
                 UNION
                 SELECT sp.student_id, sp.student_name, au.status, sp.class_id
                 FROM student_profiles sp
                 JOIN app_users au ON au.id = sp.user_id
                 WHERE sp.class_id = :class_id
                   AND au.status <> 'disabled'
+                  AND COALESCE(sp.profile_purpose, 'instructional') <> :preview_account_purpose
                 ORDER BY student_id
                 """
             ),
-            {"class_id": class_id},
+            {"class_id": class_id, "preview_account_purpose": TEACHER_PREVIEW_ACCOUNT_PURPOSE},
         )
         .mappings()
         .all()
@@ -649,16 +672,22 @@ def get_student_report(
                     LEFT JOIN classes c ON c.id = sp.class_id
                     WHERE sp.student_id = :student_id
                       AND sp.class_id = :class_id
+                      AND COALESCE(sp.profile_purpose, 'instructional') <> :preview_account_purpose
                     UNION
                     SELECT re.student_id, re.student_name, re.class_id, c.class_name
                     FROM roster_entries re
                     LEFT JOIN classes c ON c.id = re.class_id
                     WHERE re.student_id = :student_id
                       AND re.class_id = :class_id
+                      AND COALESCE(re.entry_purpose, 'instructional') <> :preview_account_purpose
                     LIMIT 1
                     """
                 ),
-                {"student_id": student_id, "class_id": class_id},
+                {
+                    "student_id": student_id,
+                    "class_id": class_id,
+                    "preview_account_purpose": TEACHER_PREVIEW_ACCOUNT_PURPOSE,
+                },
             )
             .mappings()
             .first()

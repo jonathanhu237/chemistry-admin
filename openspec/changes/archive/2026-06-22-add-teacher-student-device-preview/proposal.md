@@ -11,6 +11,7 @@ This change introduces a DevTools-like phone preview shell that embeds the real 
 - Add teacher-preview session APIs that create or reuse one default hidden preview class and one default test student per teacher, then issue a short-lived bootstrap ticket for the student app.
 - Add a student preview bootstrap route that exchanges the ticket for a preview student session and then runs the normal student router and shell.
 - Add preview-mode policy plumbing so future differences from the real student frontend are expressed through backend policy, app-config feature gates, route guards, and API write guards instead of page-by-page preview forks.
+- Add a student-side preview sandbox adapter boundary so teacher-preview presentation and write-interaction differences are centralized instead of hard-coded in ordinary student pages.
 - Allow web-admin to view, audit, reset, and manage hidden preview classes/test students while keeping those classes invisible to ordinary teacher class workflows.
 - Keep student-side writes isolated to preview/test-student behavior and make sensitive or unsupported features blockable without mutating normal student data or teacher-authored content.
 - Preserve and eventually supersede the existing point-level preview path by reusing the same device shell and real-student-page principle where possible.
@@ -36,7 +37,7 @@ This change introduces a DevTools-like phone preview shell that embeds the real 
   - Existing `CatalogPointPreviewWindow` device preset/frame logic may be extracted or shared through a teacher-owned preview module rather than copied.
 - Affected student frontend:
   - `apps/web-student/src/App.tsx`, router configuration, and API/auth helpers for preview bootstrap and preview-runtime context.
-  - Student pages remain canonical; changes should be limited to runtime extension points, route guards, app-config/policy handling, and shared API behavior.
+  - Student pages remain canonical; changes should be limited to runtime extension points, route guards, app-config/policy handling, preview sandbox adapters, and shared API/command behavior.
 - Affected backend:
   - New teacher-preview session service and router under teacher/admin API ownership.
   - New web-admin governance endpoints under the platform web-admin router namespace.

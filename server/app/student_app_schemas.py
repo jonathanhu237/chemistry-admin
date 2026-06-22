@@ -12,6 +12,8 @@ class StudentAppFeatureFlags(BaseModel):
 
 class StudentAppConfigResponse(BaseModel):
     features: StudentAppFeatureFlags
+    preview_mode: bool = False
+    preview_policy: dict | None = None
 
 
 class StudentFeedbackSubmitRequest(BaseModel):

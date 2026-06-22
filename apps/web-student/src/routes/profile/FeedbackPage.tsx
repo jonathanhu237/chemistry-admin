@@ -1,6 +1,7 @@
 import { useSearch } from "@tanstack/react-router";
 import { DetailPageFrame } from "../../app/shell/DetailPageFrame";
 import type { StudentRouteSearch } from "../../app/router/routeTypes";
+import { getFeedbackCapability } from "../../app/preview/previewSandbox";
 import { useStudentRuntime } from "../../app/shell/studentAppContext";
 import { StudentFeedbackForm } from "../../features/feedback/StudentFeedbackForm";
 import { ClipboardList } from "lucide-react";
@@ -8,10 +9,11 @@ import { MobileEmptyState } from "../../mobile/primitives";
 
 export function FeedbackPage() {
   const search = useSearch({ strict: false }) as StudentRouteSearch;
-  const { canUseFeedback } = useStudentRuntime();
+  const runtime = useStudentRuntime();
+  const feedbackCapability = getFeedbackCapability(runtime);
   return (
     <DetailPageFrame title="提交反馈" source={search.from || "profile"}>
-      {canUseFeedback ? (
+      {feedbackCapability.canOpenForm ? (
         <section className="learning-panel feedback-detail-page">
           <StudentFeedbackForm
             context={{

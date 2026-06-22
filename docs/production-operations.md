@@ -64,6 +64,9 @@ Production deployments must set:
 - `MEDIA_ROOT`
 - `API_PUBLIC_BASE_URL`
 - `FRONTEND_ALLOWED_ORIGINS`
+- `STUDENT_PREVIEW_APP_BASE_URL` pointing to the student H5 origin used inside teacher device preview if it differs from the default student service origin
+- `STUDENT_PREVIEW_ALLOWED_ORIGINS` listing the student H5 origins allowed to exchange preview tickets
+- `STUDENT_PREVIEW_TICKET_EXPIRE_MINUTES` and `STUDENT_PREVIEW_SESSION_EXPIRE_MINUTES` for bootstrap ticket and preview student session lifetimes
 - `AUTH_SECRET_KEY` with a long random value
 - `WEB_ADMIN_ACCESS_TOKEN` with a long random value used to open `web-admin`
 - `AGENT_LLM_PROVIDER=disabled` when no LLM provider is configured, or provider credentials/model when enabled
@@ -118,6 +121,8 @@ The backend depends on the PostgreSQL and Elasticsearch health checks. The front
 The Compose Postgres service is available to other containers as `postgres:5432`. Its host binding defaults to `127.0.0.1:15432` to avoid collisions with a developer's local Postgres. Host-side scripts and validation defaults should use `postgresql+psycopg://chemistry:chemistry@127.0.0.1:15432/chemistry_exam`. Override `POSTGRES_HOST_PORT` only when the host port is known to be free.
 
 Frontend host bindings default to `127.0.0.1:5173` for `web-student`, `127.0.0.1:5174` for `web-teacher`, and `127.0.0.1:5175` for `web-admin`. Override `WEB_STUDENT_HOST_PORT`, `WEB_TEACHER_HOST_PORT`, or `WEB_ADMIN_HOST_PORT` only when the host port is already occupied. Rollback for this topology uses git or deployment rollback; do not restore backend SPA fallbacks as a compatibility layer.
+
+Teacher student-device preview loads the real `web-student` app in an iframe owned by `web-teacher`. In production-like deployments, keep `STUDENT_PREVIEW_APP_BASE_URL`, `STUDENT_PREVIEW_ALLOWED_ORIGINS`, and the student frontend `frame-ancestors` policy aligned so only the expected teacher origin can embed the student app.
 
 ## Student Video-Library Search Operations
 

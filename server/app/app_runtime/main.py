@@ -28,9 +28,12 @@ from server.app.api.admin.admin_question_drafts import router as admin_question_
 from server.app.api.admin.admin_question_generation import router as admin_question_generation_router
 from server.app.api.admin.admin_question_workbench import router as admin_question_workbench_router
 from server.app.api.admin.admin_point_aware_questions import router as admin_point_aware_questions_router
+from server.app.api.admin.admin_student_preview import router as admin_student_preview_router
+from server.app.api.web_admin.student_preview import router as web_admin_student_preview_router
 from server.app.api.web_admin.teacher_accounts import router as web_admin_teacher_accounts_router
 from server.app.api.student.student_catalog import router as student_catalog_router
 from server.app.api.preview.catalog_preview import router as catalog_preview_router
+from server.app.api.preview.student_session import router as student_preview_session_router
 from server.app.api.student.student_experiment_questions import router as student_experiment_questions_router
 from server.app.api.student.student_assistant import router as student_assistant_router
 from server.app.api.student.student_learning import router as student_learning_router
@@ -45,6 +48,12 @@ settings.validate_startup()
 repositories = get_repositories()
 
 
+def _cors_origins() -> list[str]:
+    if "*" in settings.frontend_allowed_origins:
+        return ["*"]
+    return sorted({*settings.frontend_allowed_origins, *settings.student_preview_allowed_origins})
+
+
 @asynccontextmanager
 async def lifespan(_app: FastAPI) -> AsyncIterator[None]:
     if settings.run_db_check_on_startup:
@@ -57,8 +66,8 @@ app = FastAPI(title="SYSU Chemistry Admin Service", version="0.1.0", lifespan=li
 app.add_exception_handler(DomainHTTPException, domain_http_exception_handler)
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=list(settings.frontend_allowed_origins),
-    allow_credentials=settings.frontend_allowed_origins != ("*",),
+    allow_origins=_cors_origins(),
+    allow_credentials="*" not in _cors_origins(),
     allow_methods=["*"],
     allow_headers=["*"],
 )
@@ -79,9 +88,12 @@ app.include_router(admin_question_drafts_router)
 app.include_router(admin_question_generation_router)
 app.include_router(admin_question_workbench_router)
 app.include_router(admin_point_aware_questions_router)
+app.include_router(admin_student_preview_router)
 app.include_router(web_admin_teacher_accounts_router)
+app.include_router(web_admin_student_preview_router)
 app.include_router(student_catalog_router)
 app.include_router(catalog_preview_router)
+app.include_router(student_preview_session_router)
 app.include_router(student_experiment_questions_router)
 app.include_router(student_assistant_router)
 app.include_router(student_learning_router)

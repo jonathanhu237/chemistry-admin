@@ -54,6 +54,11 @@ class AuthUser(BaseModel):
     student_id: str | None = None
     class_id: str | None = None
     class_name: str | None = None
+    preview_mode: bool = False
+    preview_purpose: str | None = None
+    preview_teacher_user_id: str | None = None
+    preview_class_id: str | None = None
+    preview_student_id: str | None = None
 
 
 class LoginResponse(BaseModel):
@@ -583,6 +588,12 @@ def get_user_from_access_token(access_token: str) -> AuthUser:
         raise _auth_error("Session is no longer active")
 
     user = _user_from_row(dict(row))
+    if claims.get("preview") or claims.get("preview_purpose"):
+        user.preview_mode = True
+        user.preview_purpose = claims.get("preview_purpose") or claims.get("purpose")
+        user.preview_teacher_user_id = claims.get("teacher_user_id")
+        user.preview_class_id = claims.get("preview_class_id") or user.class_id
+        user.preview_student_id = claims.get("preview_student_id") or user.student_id
     if user.status != "active" or user.password_version != int(claims.get("password_version") or 0):
         raise _auth_error("User session is no longer valid")
     return user
@@ -695,6 +706,8 @@ def change_student_password(
 ) -> LoginResponse:
     if user.role != "student":
         raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Student account required")
+    if user.preview_mode:
+        raise HTTPException(status_code=status.HTTP_409_CONFLICT, detail="Preview student account mutation is disabled")
     with db_session() as session:
         row = (
             session.execute(

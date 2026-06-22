@@ -9,6 +9,21 @@ export type AuthUser = {
   student_id?: string | null;
   class_id?: string | null;
   class_name?: string | null;
+  preview_mode?: boolean;
+  preview_purpose?: string | null;
+  preview_teacher_user_id?: string | null;
+  preview_class_id?: string | null;
+  preview_student_id?: string | null;
+};
+
+export type StudentPreviewPolicy = {
+  feedback_enabled: boolean;
+  account_mutation_enabled: boolean;
+  assessment_enabled: boolean;
+  assistant_enabled: boolean;
+  analytics_side_effects_enabled: boolean;
+  blocked_routes: string[];
+  message: string;
 };
 
 export type LoginResponse = {
@@ -16,6 +31,7 @@ export type LoginResponse = {
   token_type: "bearer";
   expires_at: string;
   user: AuthUser;
+  preview_policy?: StudentPreviewPolicy;
 };
 
 export type StudentAppFeatureFlags = {
@@ -27,6 +43,8 @@ export type StudentAppFeatureFlags = {
 
 export type StudentAppConfigResponse = {
   features: StudentAppFeatureFlags;
+  preview_mode?: boolean;
+  preview_policy?: StudentPreviewPolicy | null;
 };
 
 export type PretestQuestionOption = {
@@ -535,19 +553,83 @@ export type StudentFeedbackItem = {
 
 export const apiBase = (import.meta.env.VITE_API_BASE_URL || "").replace(/\/$/, "");
 const tokenKey = "chem_student_token";
+const previewTokenKey = "chem_student_preview_token";
+const previewModeKey = "chem_student_preview_active";
 
-let authToken = localStorage.getItem(tokenKey) || "";
+type AuthTokenMode = "normal" | "preview";
+
+function browserStorage(): Storage | null {
+  try {
+    return globalThis.localStorage ?? null;
+  } catch {
+    return null;
+  }
+}
+
+function browserSessionStorage(): Storage | null {
+  try {
+    return globalThis.sessionStorage ?? null;
+  } catch {
+    return null;
+  }
+}
+
+function readInitialAuth(): { token: string; mode: AuthTokenMode } {
+  const session = browserSessionStorage();
+  const previewToken = session?.getItem(previewTokenKey) || "";
+  if (previewToken && session?.getItem(previewModeKey) === "true") {
+    return { token: previewToken, mode: "preview" };
+  }
+  return { token: browserStorage()?.getItem(tokenKey) || "", mode: "normal" };
+}
+
+const initialAuth = readInitialAuth();
+let authToken = initialAuth.token;
+let authTokenMode: AuthTokenMode = initialAuth.mode;
 
 export function getAuthToken(): string {
   return authToken;
 }
 
-export function setAuthToken(token: string): void {
+export function isPreviewAuthSession(): boolean {
+  return authTokenMode === "preview";
+}
+
+export function setAuthToken(token: string, mode: AuthTokenMode = token ? "normal" : authTokenMode): void {
   authToken = token;
+  authTokenMode = mode;
+  const storage = browserStorage();
+  const session = browserSessionStorage();
+  if (mode === "preview") {
+    if (token) {
+      session?.setItem(previewTokenKey, token);
+      session?.setItem(previewModeKey, "true");
+    } else {
+      session?.removeItem(previewTokenKey);
+      session?.removeItem(previewModeKey);
+    }
+    return;
+  }
+  session?.removeItem(previewTokenKey);
+  session?.removeItem(previewModeKey);
   if (token) {
-    localStorage.setItem(tokenKey, token);
+    storage?.setItem(tokenKey, token);
   } else {
-    localStorage.removeItem(tokenKey);
+    storage?.removeItem(tokenKey);
+  }
+}
+
+export function setPreviewAuthToken(token: string): void {
+  setAuthToken(token, "preview");
+}
+
+export function clearPreviewAuthToken(): void {
+  const session = browserSessionStorage();
+  session?.removeItem(previewTokenKey);
+  session?.removeItem(previewModeKey);
+  if (authTokenMode === "preview") {
+    authToken = browserStorage()?.getItem(tokenKey) || "";
+    authTokenMode = "normal";
   }
 }
 
@@ -681,6 +763,10 @@ export function studentLogin(studentId: string, password: string): Promise<Login
     student_id: studentId,
     password,
   });
+}
+
+export function exchangeStudentPreviewTicket(ticket: string): Promise<LoginResponse> {
+  return postJson<LoginResponse>("/api/preview/student-session/exchange", { ticket });
 }
 
 export function changeStudentPassword(newPassword: string, currentPassword?: string): Promise<LoginResponse> {

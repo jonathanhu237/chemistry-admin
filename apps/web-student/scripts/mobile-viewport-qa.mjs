@@ -903,6 +903,13 @@ async function checkAuthenticatedFlows(page, viewportName) {
 
   await clickRoot(page, 'learn');
   await page.locator('.periodic-grid').first().waitFor({ state: 'visible', timeout: 10000 });
+  const rootChapterEntryCount = await page.locator('.chapter-entry-card').count();
+  if (rootChapterEntryCount > 0) {
+    throw new Error(viewportName + ': learning root should not render selected-area chapter cards');
+  }
+  await page.locator('.area-legend button').first().click();
+  await page.waitForURL(/\/learn\/area\/p/, { timeout: 10000 });
+  await expectBottomNavHidden(page, viewportName + ': selected area detail');
   await page.locator('.chapter-entry-card').first().click();
   await page.waitForURL(/\/chapter\/halogens-17/, { timeout: 10000 });
   await expectBottomNavHidden(page, viewportName + ': chapter detail');
@@ -1001,6 +1008,7 @@ async function checkAuthenticatedFlows(page, viewportName) {
   const directRoutes = [
     { path: '/home', root: 'home', selector: '.home-root-page' },
     { path: '/learn', root: 'learn', selector: '.periodic-grid' },
+    { path: '/learn/area/p', detail: true, selector: '.chapter-card-panel' },
     { path: '/ai', root: 'ai', selector: '.assistant-intro-card' },
     { path: '/assessment', root: 'assessment', selector: '.assessment-home-panel' },
     { path: '/profile', root: 'profile', selector: '.profile-card' },

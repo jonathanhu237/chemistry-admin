@@ -5,6 +5,7 @@ import {
   BookOutlined,
   ExperimentOutlined,
   MessageOutlined,
+  MobileOutlined,
   QuestionCircleOutlined,
   SafetyCertificateOutlined,
   SettingOutlined,
@@ -52,6 +53,10 @@ const LearningAssistantPage = lazy(async () => {
   const module = await import("../features/learning-assistant/LearningAssistantPage");
   return { default: module.LearningAssistantPage };
 });
+const StudentDevicePreviewPage = lazy(async () => {
+  const module = await import("../features/student-preview/StudentDevicePreviewPage");
+  return { default: module.StudentDevicePreviewPage };
+});
 
 export type AdminRole = "admin" | "teacher" | "student" | "platform_admin";
 
@@ -83,6 +88,7 @@ export const adminRoutes: AdminRouteDefinition[] = [
     Component: LearningAssistantPage,
     nav: { icon: <SafetyCertificateOutlined />, label: "学习助手" },
   },
+  { path: "/student-preview", Component: StudentDevicePreviewPage, nav: { icon: <MobileOutlined />, label: "学生预览" } },
   { path: "/settings", Component: SettingsPage, nav: { icon: <SettingOutlined />, label: "系统设置" } },
   { path: "/ai-config", Component: AIConfigurationPage, nav: { icon: <ApiOutlined />, label: "智能监控" } },
 ];

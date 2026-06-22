@@ -391,6 +391,20 @@ describe("catalog tree mappers", () => {
         },
       }),
     ).toMatchObject({ key: "bind-video", label: "绑定视频" });
+    expect(
+      catalogHeaderPrimaryAction({
+        ...baseDetail,
+        node: {
+          ...baseDetail.node,
+          node_status: {
+            ...baseDetail.node.node_status!,
+            primary_state: "needs_video",
+            core_readiness: { content_fields: "complete", video: "absent", missing_fields: [] },
+            visibility: { placement: "published", shared_content: "draft", student_available: false },
+          },
+        },
+      }),
+    ).toMatchObject({ key: "bind-video", label: "绑定视频" });
   });
 
   it("uses student preview as the selected directory fallback primary action", () => {

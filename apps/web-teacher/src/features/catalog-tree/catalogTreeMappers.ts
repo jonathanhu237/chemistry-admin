@@ -395,11 +395,11 @@ export function catalogHeaderPrimaryAction(detail: CatalogNodeDetail): CatalogHe
     if (status.core_readiness.content_fields === "missing" || primaryState === "needs_content") {
       return { key: "edit-content", label: "编辑内容", tone: "primary" };
     }
-    if (status.visibility.shared_content !== "published") {
-      return { key: "publish-content", label: "发布学习内容", tone: "primary" };
-    }
     if (status.core_readiness.video === "absent" || primaryState === "needs_video") {
       return { key: "bind-video", label: "绑定视频", tone: "primary" };
+    }
+    if (status.visibility.shared_content !== "published") {
+      return { key: "publish-content", label: "发布学习内容", tone: "primary" };
     }
     if (status.visibility.placement !== "published") {
       return { key: "publish-placement", label: "发布到学生端", tone: "primary" };

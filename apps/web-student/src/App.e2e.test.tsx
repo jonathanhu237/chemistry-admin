@@ -21,6 +21,7 @@ import type {
 const apiMocks = vi.hoisted(() => ({
   authToken: "student-token",
   studentLogin: vi.fn(),
+  exchangeStudentPreviewTicket: vi.fn(),
   changeStudentPassword: vi.fn(),
   loadCurrentUser: vi.fn(),
   logout: vi.fn(),
@@ -44,10 +45,18 @@ const apiMocks = vi.hoisted(() => ({
 
 vi.mock("./api", () => ({
   getAuthToken: () => apiMocks.authToken,
+  isPreviewAuthSession: () => false,
   setAuthToken: (token: string) => {
     apiMocks.authToken = token;
   },
+  setPreviewAuthToken: (token: string) => {
+    apiMocks.authToken = token;
+  },
+  clearPreviewAuthToken: () => {
+    apiMocks.authToken = "";
+  },
   studentLogin: apiMocks.studentLogin,
+  exchangeStudentPreviewTicket: apiMocks.exchangeStudentPreviewTicket,
   changeStudentPassword: apiMocks.changeStudentPassword,
   loadCurrentUser: apiMocks.loadCurrentUser,
   logout: apiMocks.logout,
@@ -598,6 +607,21 @@ describe("student app route stack", () => {
     window.sessionStorage.clear();
     window.history.replaceState({}, "", "/");
     Object.defineProperty(window, "scrollTo", { value: vi.fn(), writable: true });
+    apiMocks.exchangeStudentPreviewTicket.mockResolvedValue({
+      access_token: "preview-student-token",
+      token_type: "bearer",
+      expires_at: "2030-01-01T00:00:00Z",
+      user: { ...user, preview_mode: true, preview_purpose: "teacher_student_device_preview" },
+      preview_policy: {
+        feedback_enabled: true,
+        account_mutation_enabled: false,
+        assessment_enabled: true,
+        assistant_enabled: true,
+        analytics_side_effects_enabled: false,
+        blocked_routes: [],
+        message: "预览模式可以体验学生端流程，但不会提交真实反馈或账号变更。",
+      },
+    });
     apiMocks.loadCurrentUser.mockResolvedValue(user);
     apiMocks.logout.mockResolvedValue(undefined);
     apiMocks.startStudentPretest.mockResolvedValue(completedPretestResponse);
@@ -658,6 +682,11 @@ describe("student app route stack", () => {
 
     await clickRoot("learn");
     expect(document.querySelector(".periodic-grid")).not.toBeNull();
+    expect(document.querySelector(".chapter-entry-card")).toBeNull();
+    fireEvent.click(document.querySelector<HTMLButtonElement>(".area-legend button")!);
+    await waitFor(() => expect(window.location.pathname).toBe("/learn/area/p"));
+    expectBottomNavHidden();
+    await waitFor(() => expect(document.querySelector(".chapter-entry-card.recommended")).not.toBeNull());
     fireEvent.click(document.querySelector<HTMLButtonElement>(".chapter-entry-card.recommended")!);
     await waitFor(() => expect(window.location.pathname).toBe("/chapter/halogens-17"));
     expectBottomNavHidden();
@@ -776,10 +805,112 @@ describe("student app route stack", () => {
     expect(apiMocks.submitStudentFeedback).not.toHaveBeenCalled();
   });
 
+  it("bootstraps a full teacher preview session without overwriting normal login flow", async () => {
+    window.history.replaceState({}, "", "/preview/session?ticket=teacher-ticket");
+    render(<App />);
+
+    await waitFor(() => expect(apiMocks.exchangeStudentPreviewTicket).toHaveBeenCalledWith("teacher-ticket"));
+    await waitFor(() => expect(window.location.pathname).toBe("/home"));
+    await waitFor(() => expect(document.querySelector(".student-app-shell")).not.toBeNull());
+    expect(apiMocks.authToken).toBe("preview-student-token");
+    expect(apiMocks.loadCurrentUser).not.toHaveBeenCalled();
+    expect(apiMocks.startStudentPretest).not.toHaveBeenCalled();
+  });
+
+  it("keeps preview profile friendly and intercepts feedback submit without hiding the form", async () => {
+    apiMocks.loadCurrentUser.mockResolvedValue({
+      ...user,
+      username: "preview_student_teacher",
+      display_name: "Preview Student - Teacher",
+      student_id: "TPV_STUDENT_46DB7A5A3B0B4B02A9EF788DB1A237",
+      class_name: "Preview Class - Teacher",
+      preview_mode: true,
+      preview_purpose: "teacher_student_device_preview",
+    });
+    apiMocks.getStudentAppConfig.mockResolvedValue({
+      features: {
+        ai_assistant_enabled: true,
+        feedback_enabled: false,
+        student_ai_assistant_enabled: true,
+        rag_access_enabled: true,
+      },
+      preview_mode: true,
+      preview_policy: {
+        feedback_enabled: true,
+        account_mutation_enabled: false,
+        assessment_enabled: true,
+        assistant_enabled: true,
+        analytics_side_effects_enabled: false,
+        blocked_routes: [],
+        message: "预览模式可以体验学生端流程，但不会提交真实反馈或账号变更。",
+      },
+    } satisfies StudentAppConfigResponse);
+
+    await renderAuthenticatedApp("/profile");
+
+    expect(screen.getByText("00000000")).toBeInTheDocument();
+    expect(screen.getByText("施测平")).toBeInTheDocument();
+    expect(screen.getByText("数智一班")).toBeInTheDocument();
+    expect(screen.queryByText("反馈入口已关闭")).not.toBeInTheDocument();
+
+    fireEvent.click(screen.getByText("提交反馈").closest("button")!);
+    await waitFor(() => expect(window.location.pathname).toBe("/feedback/new"));
+    expect(await screen.findByRole("form", { name: "学生端反馈" })).toBeInTheDocument();
+
+    fireEvent.change(screen.getByPlaceholderText("描述你遇到的问题或建议，可以配一张截图"), {
+      target: { value: "预览里填写一条反馈" },
+    });
+    const submitButton = screen.getByRole("button", { name: "提交反馈" });
+    await waitFor(() => expect(submitButton).toBeEnabled());
+    fireEvent.click(submitButton);
+
+    expect(apiMocks.submitStudentFeedback).not.toHaveBeenCalled();
+    await waitFor(() =>
+      expect(screen.getByRole("dialog", { name: "预览模式提示" })).toHaveTextContent("预览模式不能提交反馈"),
+    );
+  });
+
+  it("keeps normal student profile and feedback submit on the real student path", async () => {
+    await renderAuthenticatedApp("/profile");
+
+    expect(screen.getByText("20249999")).toBeInTheDocument();
+    expect(screen.getByText("Route Stack Student")).toBeInTheDocument();
+    expect(screen.getByText("Class E2E")).toBeInTheDocument();
+    expect(screen.queryByText("00000000")).not.toBeInTheDocument();
+    expect(screen.queryByText("施测平")).not.toBeInTheDocument();
+    expect(screen.queryByText("数智一班")).not.toBeInTheDocument();
+
+    fireEvent.click(screen.getByText("提交反馈").closest("button")!);
+    await waitFor(() => expect(window.location.pathname).toBe("/feedback/new"));
+    fireEvent.change(screen.getByPlaceholderText("描述你遇到的问题或建议，可以配一张截图"), {
+      target: { value: "正常学生反馈提交" },
+    });
+    const submitButton = screen.getByRole("button", { name: "提交反馈" });
+    await waitFor(() => expect(submitButton).toBeEnabled());
+    fireEvent.click(submitButton);
+
+    await waitFor(() => expect(apiMocks.submitStudentFeedback).toHaveBeenCalledTimes(1));
+    expect(apiMocks.submitStudentFeedback).toHaveBeenCalledWith(
+      expect.objectContaining({
+        content: "正常学生反馈提交",
+        page_path: "/feedback/new",
+      }),
+    );
+    expect(screen.queryByRole("dialog", { name: "预览模式提示" })).not.toBeInTheDocument();
+  });
+
   it("serves direct root and detail client routes with route-level navigation visibility", async () => {
     await renderAuthenticatedApp("/learn");
     await waitFor(() => expect(window.location.pathname).toBe("/learn"));
     expect(activeRoot()).toBe("learn");
+    expect(document.querySelector(".periodic-grid")).not.toBeNull();
+    expect(document.querySelector(".chapter-entry-card")).toBeNull();
+    cleanup();
+
+    await renderAuthenticatedApp("/learn/area/p");
+    await waitFor(() => expect(window.location.pathname).toBe("/learn/area/p"));
+    expectBottomNavHidden();
+    await waitFor(() => expect(document.querySelector(".chapter-card-panel")).not.toBeNull());
     cleanup();
 
     await renderAuthenticatedApp("/ai/chat");

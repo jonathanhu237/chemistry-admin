@@ -15,6 +15,23 @@ export type WebAdminSession = {
   ok: boolean;
 };
 
+export type PreviewInfrastructure = {
+  teacher_user_id: string;
+  teacher_username?: string | null;
+  teacher_display_name?: string | null;
+  class_id: string;
+  class_name: string;
+  class_status: string;
+  student_id: string;
+  student_name: string;
+  student_status: string;
+  student_user_id?: string | null;
+  user_status?: string | null;
+  created_at?: string | null;
+  updated_at?: string | null;
+  last_session_at?: string | null;
+};
+
 export class ApiError extends Error {
   status: number;
   detail: unknown;
@@ -159,5 +176,33 @@ export function enableTeacherAccount(accountId: string): Promise<TeacherAccount>
 export function deleteTeacherAccount(accountId: string): Promise<TeacherAccount> {
   return api<TeacherAccount>(`/api/web-admin/teacher-accounts/${encodeURIComponent(accountId)}`, {
     method: "DELETE",
+  });
+}
+
+export function listPreviewInfrastructure(): Promise<PreviewInfrastructure[]> {
+  return api<PreviewInfrastructure[]>("/api/web-admin/student-preview/classes");
+}
+
+export function ensurePreviewInfrastructure(teacherUserId: string): Promise<PreviewInfrastructure> {
+  return api<PreviewInfrastructure>(`/api/web-admin/student-preview/classes/${encodeURIComponent(teacherUserId)}/ensure`, {
+    method: "POST",
+  });
+}
+
+export function resetPreviewInfrastructure(teacherUserId: string): Promise<PreviewInfrastructure> {
+  return api<PreviewInfrastructure>(`/api/web-admin/student-preview/classes/${encodeURIComponent(teacherUserId)}/reset`, {
+    method: "POST",
+  });
+}
+
+export function disablePreviewInfrastructure(teacherUserId: string): Promise<PreviewInfrastructure> {
+  return api<PreviewInfrastructure>(`/api/web-admin/student-preview/classes/${encodeURIComponent(teacherUserId)}/disable`, {
+    method: "POST",
+  });
+}
+
+export function restorePreviewInfrastructure(teacherUserId: string): Promise<PreviewInfrastructure> {
+  return api<PreviewInfrastructure>(`/api/web-admin/student-preview/classes/${encodeURIComponent(teacherUserId)}/restore`, {
+    method: "POST",
   });
 }

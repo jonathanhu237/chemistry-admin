@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
+import { forwardRef, useEffect, useImperativeHandle, useMemo, useRef, useState, type ReactNode } from "react";
 import { Button, Form, Input, Modal, Radio, Space, Tag, Typography, type FormInstance } from "antd";
 import { CheckCircleOutlined, ExclamationCircleOutlined, LoadingOutlined, RobotOutlined } from "@ant-design/icons";
 import { Editor as MonacoEditor, loader, type BeforeMount } from "@monaco-editor/react";
@@ -198,18 +198,27 @@ function RequiredFieldLabel({ children }: { children: string }) {
   );
 }
 
-function CatalogEquationCodeEditor({
-  value = "",
-  onChange,
-  placeholder,
-}: {
+type CatalogEquationCodeEditorHandle = {
+  focus: () => void;
+};
+
+const CatalogEquationCodeEditor = forwardRef<CatalogEquationCodeEditorHandle, {
   value?: string;
   onChange?: (value: string) => void;
   placeholder?: ReactNode;
-}) {
+}>(function CatalogEquationCodeEditor({
+  value = "",
+  onChange,
+  placeholder,
+}, ref) {
+  const editorRef = useRef<editor.IStandaloneCodeEditor | null>(null);
   const lineCount = value ? value.split(/\r?\n/).length : 1;
   const visibleLineCount = Math.max(4, lineCount);
   const editorHeight = Math.min(312, Math.max(124, visibleLineCount * 24 + 28));
+
+  useImperativeHandle(ref, () => ({
+    focus: () => editorRef.current?.focus(),
+  }));
 
   return (
     <div className="catalog-equation-code-editor catalog-equation-monaco-editor">
@@ -221,6 +230,9 @@ function CatalogEquationCodeEditor({
         theme={CHEM_REACTION_THEME}
         value={value}
         beforeMount={configureChemReactionEditor}
+        onMount={(editorInstance) => {
+          editorRef.current = editorInstance;
+        }}
         onChange={(nextValue) => onChange?.(nextValue ?? "")}
         options={chemReactionEditorOptions}
         loading={<div className="catalog-equation-monaco-loading">正在加载反应式编辑器...</div>}
@@ -228,7 +240,7 @@ function CatalogEquationCodeEditor({
       />
     </div>
   );
-}
+});
 
 export function CatalogNodeContentPanel({
   detail,
@@ -283,6 +295,7 @@ export function CatalogNodeContentPanel({
     phenomenon: useRef<HTMLDivElement | null>(null),
     safety: useRef<HTMLDivElement | null>(null),
   };
+  const equationEditorRef = useRef<CatalogEquationCodeEditorHandle | null>(null);
   const autoSavePill = (
     <span className={`catalog-autosave-status is-${autoSaveStatus}`} title={contentAutoSaveDisplayTitle(autoSaveStatus, autoSaveError)}>
       {contentAutoSaveIcon(autoSaveStatus)}
@@ -302,6 +315,14 @@ export function CatalogNodeContentPanel({
     if (!target) return;
     target.scrollIntoView({ behavior: "smooth", block: "center" });
     window.setTimeout(() => {
+      if (fieldKey === "principle") {
+        if (activePrincipleMode === "equation") {
+          equationEditorRef.current?.focus();
+          return;
+        }
+        target.querySelector<HTMLTextAreaElement>("textarea")?.focus();
+        return;
+      }
       const focusable = target.querySelector<HTMLElement>("textarea, input, button, [tabindex]:not([tabindex='-1'])");
       focusable?.focus();
     }, 160);
@@ -599,6 +620,7 @@ export function CatalogNodeContentPanel({
                   </div>
                   <Form.Item name="reaction_equations_text" rules={[{ required: true, message: "请输入实验反应式，或切换为文字描述" }]}>
                     <CatalogEquationCodeEditor
+                      ref={equationEditorRef}
                       placeholder={
                         [
                           <span className="catalog-equation-placeholder-label" key="label">例：</span>,

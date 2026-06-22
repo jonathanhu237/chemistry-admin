@@ -43,6 +43,13 @@ The platform SHALL create or reuse one default hidden preview class and one defa
 - **THEN** the backend MUST exchange the ticket for a student-compatible preview session
 - **AND** the session identity MUST include preview claims identifying the teacher owner, preview class, preview student, and preview purpose.
 
+#### Scenario: Teacher sees a stable preview profile identity
+- **WHEN** the student app is running in teacher student-preview mode and renders the profile page
+- **THEN** the visible student id MUST be `00000000`
+- **AND** the visible student name MUST be `施测平`
+- **AND** the visible class name MUST be `数智一班`
+- **AND** the underlying preview session claims MUST still identify the teacher-owned hidden preview class and test student.
+
 #### Scenario: Preview ticket is invalid or expired
 - **WHEN** the student frontend attempts to exchange an invalid, reused, or expired preview ticket
 - **THEN** the backend MUST reject the exchange
@@ -69,7 +76,38 @@ The preview implementation SHALL reuse the existing student frontend and limit p
 #### Scenario: Preview-only component difference is unavoidable
 - **WHEN** a preview difference cannot be expressed through backend policy, app-config, route guard, or shared shell behavior
 - **THEN** the page-local preview behavior MUST be narrowly scoped
-- **AND** it MUST have focused test coverage proving normal student behavior is unchanged.
+- **AND** it MUST have focused test coverage proving normal student behavior is unchanged
+- **AND** it MUST be documented as an accepted temporary exception with a follow-up path to move the decision into the preview sandbox adapter when feasible.
+
+### Requirement: Preview sandbox adapter isolates student-side specialization
+The student frontend SHALL contain teacher-preview presentation and interaction differences behind a dedicated preview sandbox adapter rather than scattering raw preview checks through student pages.
+
+#### Scenario: Student page needs preview-aware presentation data
+- **WHEN** a student route or feature component needs data that differs in teacher preview mode
+- **THEN** it MUST request that data from a preview adapter, view-model helper, or capability hook owned by `web-student` app/runtime code
+- **AND** it MUST NOT hard-code preview identities, preview purpose strings, or teacher-preview account details in the page component.
+
+#### Scenario: Profile page renders a teacher preview identity
+- **WHEN** the profile page renders in teacher student-preview mode
+- **THEN** the visible profile identity MUST come from the preview sandbox adapter
+- **AND** the profile page MUST NOT directly branch on raw `previewMode`, `user.preview_mode`, or `previewPolicy` to choose `00000000`, `施测平`, or `数智一班`.
+
+#### Scenario: Feedback submit is preview-aware
+- **WHEN** the feedback form submit action runs in any student session
+- **THEN** the action MUST pass through a preview-aware command guard or equivalent adapter boundary
+- **AND** normal student sessions MUST call the real feedback submit API
+- **AND** teacher preview sessions MUST show the controlled preview dialog before a real feedback write is attempted
+- **AND** the form component MUST NOT own the raw preview-policy branching that decides whether the API call is allowed.
+
+#### Scenario: Developer adds a new preview-only behavior
+- **WHEN** a future preview-only behavior is required for a student route, widget, or write action
+- **THEN** the developer MUST first add or extend a preview adapter capability
+- **AND** direct page-local preview checks MUST be rejected unless the change documents why backend policy, app-config, route guard, or adapter capabilities cannot express the behavior.
+
+#### Scenario: Source boundary checks run for student preview logic
+- **WHEN** frontend boundary tests or source checks run
+- **THEN** they MUST allow raw preview session checks in bootstrap, auth/token helpers, app-config/runtime context, route guards, and the preview adapter
+- **AND** they MUST flag raw preview checks in ordinary student route pages and feature components unless the file is explicitly documented as a temporary exception.
 
 ### Requirement: Preview policy governs unsupported or modified features
 Preview-specific feature differences SHALL be expressed by backend policy and enforced consistently by student app-config, route guards, and backend endpoint guards.
@@ -83,6 +121,12 @@ Preview-specific feature differences SHALL be expressed by backend policy and en
 - **WHEN** a preview session calls a student write endpoint that is not allowed in preview mode
 - **THEN** the backend MUST reject the request or return a controlled preview-only response according to policy
 - **AND** it MUST NOT create normal student feedback, normal learning analytics, normal assessment records, or normal account mutation side effects.
+
+#### Scenario: Preview feedback can be filled but not submitted
+- **WHEN** a preview session opens the profile feedback entry or `/feedback/new`
+- **THEN** the normal student feedback form MUST remain visible and editable for teacher visual guidance
+- **AND** submitting the form MUST show a controlled preview-mode dialog before a normal feedback API write is attempted
+- **AND** direct preview calls to the feedback write endpoint MUST still be rejected by the backend.
 
 #### Scenario: Preview request calls an allowed interaction endpoint
 - **WHEN** a preview session uses an allowed interaction endpoint for visual or interaction review

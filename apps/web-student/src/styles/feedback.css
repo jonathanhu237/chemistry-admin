@@ -140,3 +140,65 @@
   border-color: var(--green-2);
   box-shadow: 0 0 0 3px rgba(0, 88, 38, 0.1);
 }
+
+.feedback-preview-dialog-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: var(--mobile-z-modal, 60);
+  display: grid;
+  place-items: center;
+  padding: 18px;
+  background: rgba(7, 28, 18, 0.34);
+}
+
+.feedback-preview-dialog {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 11px 12px;
+  width: min(100%, 330px);
+  border: 1px solid rgba(0, 88, 38, 0.18);
+  border-radius: 8px;
+  padding: 15px;
+  background: rgba(255, 253, 246, 0.98);
+  box-shadow: 0 18px 44px rgba(7, 28, 18, 0.25);
+}
+
+.feedback-preview-dialog-icon {
+  display: inline-grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  color: var(--green);
+  background: rgba(0, 88, 38, 0.1);
+}
+
+.feedback-preview-dialog h3,
+.feedback-preview-dialog p {
+  margin: 0;
+}
+
+.feedback-preview-dialog h3 {
+  color: var(--ink);
+  font-size: 17px;
+  line-height: 1.25;
+}
+
+.feedback-preview-dialog p {
+  margin-top: 5px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.feedback-preview-dialog button {
+  grid-column: 1 / -1;
+  min-height: 40px;
+  border: 0;
+  border-radius: 8px;
+  color: #ffffff;
+  background: var(--green);
+  font-size: 14px;
+  font-weight: 900;
+  cursor: pointer;
+}

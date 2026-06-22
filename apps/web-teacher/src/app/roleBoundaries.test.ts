@@ -15,6 +15,7 @@ const teacherWorkflowPaths = [
   "/analytics",
   "/feedback",
   "/learning-assistant",
+  "/student-preview",
   "/settings",
   "/ai-config",
 ];

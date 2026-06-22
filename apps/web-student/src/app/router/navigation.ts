@@ -1,4 +1,5 @@
 import type { AssistantContext } from "../../features/assistant/assistantContext";
+import type { AreaId } from "../../features/periodic-table/periodicHelpers";
 import { saveAssistantContext } from "./assistantContextStore";
 import { rootPathById } from "./routeVisibility";
 import type { StudentDetailSource } from "./routeTypes";
@@ -21,6 +22,22 @@ function compactSearch(search: Record<string, unknown>): Record<string, string> 
 export function navigateToRoot(navigate: NavigateLike, root: keyof typeof rootPathById): void {
   void navigate({ to: rootPathById[root] });
   window.requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: "auto" }));
+}
+
+export function navigateToLearningArea(
+  navigate: NavigateLike,
+  areaId: AreaId,
+  options: {
+    from?: StudentDetailSource;
+  } = {},
+): void {
+  void navigate({
+    to: "/learn/area/$areaId",
+    params: { areaId },
+    search: compactSearch({
+      from: options.from || "learn",
+    }),
+  });
 }
 
 export function navigateToChapter(

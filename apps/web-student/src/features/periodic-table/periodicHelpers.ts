@@ -150,7 +150,7 @@ export function elementTileStyle(element: StudentLearningElementBadge): CSSPrope
 }
 
 export function normalizeAreaId(value: string | null | undefined): AreaId | null {
-  if (value === "p" || value === "s" || value === "d" || value === "ds" || value === "f") return value;
+  if (value === "p" || value === "s" || value === "d" || value === "ds" || value === "f" || value === "integrated") return value;
   return null;
 }
 

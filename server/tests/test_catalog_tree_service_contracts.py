@@ -190,6 +190,7 @@ def test_catalog_node_select_counts_non_archived_descendant_points_recursively()
     assert "dpc.content_id IS NULL" in query
     assert "AND (dt.status <> 'published' OR COALESCE(dpc.content_status, 'missing') <> 'published')" not in query
     assert "AND COALESCE(dpc.content_status, 'missing') = 'published'" not in query
+    assert "AND COALESCE(dmb.media_count, 0) > 0" in query
 
 
 def test_catalog_node_status_is_in_all_teacher_read_payload_contracts() -> None:
@@ -257,6 +258,20 @@ def test_node_status_prioritizes_missing_video_over_publication() -> None:
     assert card["node_status"]["core_readiness"]["video"] == "absent"
     assert card["node_status"]["core_readiness"]["video_label"] == "无视频"
     assert card["node_status"]["visibility"]["student_available"] is True
+
+
+def test_node_status_prioritizes_missing_video_before_unpublished_content() -> None:
+    card = node_card(
+        _point_node(media_count=0, published_media_count=0),
+        content=_complete_content(content_status="draft"),
+        validation={"ok": True, "errors": [], "warnings": []},
+    )
+
+    assert card["node_status"]["primary_state"] == "needs_video"
+    assert card["node_status"]["primary_reason"] == "无视频"
+    assert card["node_status"]["visibility"]["shared_content"] == "draft"
+    assert any(condition["key"] == "experiment_video_missing" for condition in card["node_status"]["conditions"])
+    assert any(condition["key"] == "shared_content_not_published" for condition in card["node_status"]["conditions"])
 
 
 def test_node_status_prioritizes_missing_content_before_missing_video() -> None:

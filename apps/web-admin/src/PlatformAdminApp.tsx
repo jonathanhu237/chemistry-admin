@@ -25,6 +25,7 @@ import {
   EditOutlined,
   KeyOutlined,
   LogoutOutlined,
+  MobileOutlined,
   PlusOutlined,
   ReloadOutlined,
   SafetyCertificateOutlined,
@@ -38,15 +39,21 @@ import dayjs from "dayjs";
 import {
   createTeacherAccount,
   deleteTeacherAccount,
+  disablePreviewInfrastructure,
   disableTeacherAccount,
   enableTeacherAccount,
+  ensurePreviewInfrastructure,
   errorMessage,
   getAuthToken,
+  listPreviewInfrastructure,
   listTeacherAccounts,
   patchTeacherAccount,
+  resetPreviewInfrastructure,
+  restorePreviewInfrastructure,
   resetTeacherPassword,
   setAuthToken,
   verifyWebAdminSession,
+  type PreviewInfrastructure,
   type TeacherAccount,
 } from "./api";
 
@@ -85,6 +92,12 @@ function statusTag(status: TeacherAccount["status"]) {
 
 function roleTag(role: TeacherAccount["role"]) {
   return role === "admin" ? <Tag color="cyan">完整教师权限</Tag> : <Tag color="gold">历史教师角色</Tag>;
+}
+
+function previewStatusTag(statusValue?: string | null) {
+  if (statusValue === "active") return <Tag color="green">active</Tag>;
+  if (statusValue === "disabled" || statusValue === "archived") return <Tag color="default">{statusValue}</Tag>;
+  return <Tag>{statusValue || "-"}</Tag>;
 }
 
 function LoginScreen({ onLoggedIn }: { onLoggedIn: () => void }) {
@@ -535,7 +548,222 @@ function TeacherAccountWorkbench() {
   );
 }
 
+function PreviewInfrastructureWorkbench() {
+  const { message, modal } = AntApp.useApp();
+  const queryClient = useQueryClient();
+  const [teacherId, setTeacherId] = useState<string>();
+
+  const previewQuery = useQuery({
+    queryKey: ["preview-infrastructure"],
+    queryFn: listPreviewInfrastructure,
+  });
+  const accountsQuery = useQuery({
+    queryKey: ["teacher-accounts"],
+    queryFn: listTeacherAccounts,
+  });
+
+  const invalidate = () => {
+    queryClient.invalidateQueries({ queryKey: ["preview-infrastructure"] });
+    queryClient.invalidateQueries({ queryKey: ["teacher-accounts"] });
+  };
+
+  const actionMutation = useMutation({
+    mutationFn: ({ action, id }: { action: "ensure" | "reset" | "disable" | "restore"; id: string }) => {
+      if (action === "ensure") return ensurePreviewInfrastructure(id);
+      if (action === "reset") return resetPreviewInfrastructure(id);
+      if (action === "disable") return disablePreviewInfrastructure(id);
+      return restorePreviewInfrastructure(id);
+    },
+    onSuccess: () => {
+      message.success("Preview infrastructure updated");
+      invalidate();
+    },
+    onError: (error) => message.error(errorMessage(error)),
+  });
+
+  const teacherOptions = (accountsQuery.data || [])
+    .filter((account) => account.status === "active")
+    .map((account) => ({
+      value: account.id,
+      label: `${account.display_name} (${account.username})`,
+    }));
+
+  const previewRows = previewQuery.data || [];
+  const activeCount = previewRows.filter((item) => item.class_status === "active" && item.user_status === "active").length;
+  const disabledCount = previewRows.filter((item) => item.class_status !== "active" || item.user_status !== "active").length;
+
+  const columns: ColumnsType<PreviewInfrastructure> = [
+    {
+      title: "Teacher",
+      key: "teacher",
+      width: 220,
+      render: (_, item) => (
+        <Space direction="vertical" size={0} className="account-cell">
+          <Text strong>{item.teacher_display_name || item.teacher_username || item.teacher_user_id}</Text>
+          <Text type="secondary" className="account-id">
+            {item.teacher_user_id}
+          </Text>
+        </Space>
+      ),
+    },
+    {
+      title: "Preview class",
+      key: "class",
+      width: 220,
+      render: (_, item) => (
+        <Space direction="vertical" size={0}>
+          <Text>{item.class_name}</Text>
+          <Text type="secondary">{item.class_id}</Text>
+        </Space>
+      ),
+    },
+    {
+      title: "Class status",
+      dataIndex: "class_status",
+      width: 120,
+      render: previewStatusTag,
+    },
+    {
+      title: "Test student",
+      key: "student",
+      width: 220,
+      render: (_, item) => (
+        <Space direction="vertical" size={0}>
+          <Text>{item.student_name}</Text>
+          <Text type="secondary">{item.student_id}</Text>
+        </Space>
+      ),
+    },
+    {
+      title: "Student status",
+      dataIndex: "user_status",
+      width: 130,
+      render: previewStatusTag,
+    },
+    {
+      title: "Last session",
+      dataIndex: "last_session_at",
+      width: 150,
+      render: formatDate,
+    },
+    {
+      title: "Updated",
+      dataIndex: "updated_at",
+      width: 150,
+      render: formatDate,
+    },
+    {
+      title: "Actions",
+      key: "actions",
+      fixed: "right",
+      width: 260,
+      render: (_, item) => (
+        <Space>
+          <Button
+            icon={<ReloadOutlined />}
+            loading={actionMutation.isPending && actionMutation.variables?.id === item.teacher_user_id}
+            onClick={() =>
+              modal.confirm({
+                title: "Reset preview student",
+                content: "This revokes preview sessions and clears test-student preview learning state only.",
+                okText: "Reset",
+                cancelText: "Cancel",
+                onOk: () => actionMutation.mutateAsync({ action: "reset", id: item.teacher_user_id }),
+              })
+            }
+          >
+            Reset
+          </Button>
+          {item.class_status === "active" && item.user_status === "active" ? (
+            <Button
+              danger
+              icon={<StopOutlined />}
+              onClick={() => actionMutation.mutate({ action: "disable", id: item.teacher_user_id })}
+            >
+              Disable
+            </Button>
+          ) : (
+            <Button icon={<CheckCircleOutlined />} onClick={() => actionMutation.mutate({ action: "restore", id: item.teacher_user_id })}>
+              Restore
+            </Button>
+          )}
+        </Space>
+      ),
+    },
+  ];
+
+  return (
+    <>
+      <section className="metrics-strip">
+        <Card>
+          <Statistic title="Preview records" value={previewRows.length} prefix={<MobileOutlined />} />
+        </Card>
+        <Card>
+          <Statistic title="Active" value={activeCount} valueStyle={{ color: "#005826" }} />
+        </Card>
+        <Card>
+          <Statistic title="Disabled" value={disabledCount} />
+        </Card>
+      </section>
+
+      <section className="workbench-section">
+        <div className="toolbar">
+          <Space>
+            <Select
+              showSearch
+              allowClear
+              className="preview-teacher-select"
+              placeholder="Select teacher to ensure preview"
+              value={teacherId}
+              options={teacherOptions}
+              loading={accountsQuery.isLoading}
+              optionFilterProp="label"
+              onChange={setTeacherId}
+            />
+            <Button
+              type="primary"
+              icon={<PlusOutlined />}
+              disabled={!teacherId}
+              loading={actionMutation.isPending && actionMutation.variables?.action === "ensure"}
+              onClick={() => teacherId && actionMutation.mutate({ action: "ensure", id: teacherId })}
+            >
+              Ensure preview student
+            </Button>
+          </Space>
+          <Button icon={<ReloadOutlined />} onClick={() => previewQuery.refetch()} loading={previewQuery.isFetching}>
+            Refresh
+          </Button>
+        </div>
+        <Table<PreviewInfrastructure>
+          rowKey="teacher_user_id"
+          columns={columns}
+          dataSource={previewRows}
+          loading={previewQuery.isLoading}
+          scroll={{ x: 1450 }}
+          pagination={{ pageSize: 10, showSizeChanger: false }}
+          locale={{
+            emptyText: previewQuery.isError ? (
+              <Result
+                status="error"
+                title="Preview infrastructure failed to load"
+                subTitle={errorMessage(previewQuery.error)}
+                extra={<Button onClick={() => previewQuery.refetch()}>Retry</Button>}
+              />
+            ) : (
+              <Empty description="No preview infrastructure records yet" />
+            ),
+          }}
+        />
+      </section>
+    </>
+  );
+}
+
+type AdminModule = "teachers" | "preview";
+
 function AdminWorkspace({ onLogout }: { onLogout: () => void }) {
+  const [activeModule, setActiveModule] = useState<AdminModule>("teachers");
+
   return (
     <Layout className="admin-layout">
       <Sider width={248} className="admin-sider">
@@ -550,10 +778,22 @@ function AdminWorkspace({ onLogout }: { onLogout: () => void }) {
             </Text>
           </div>
         </div>
-        <div className="sider-menu-item active">
+        <button
+          type="button"
+          className={`sider-menu-item ${activeModule === "teachers" ? "active" : ""}`}
+          onClick={() => setActiveModule("teachers")}
+        >
           <TeamOutlined />
           <span>教师账号</span>
-        </div>
+        </button>
+        <button
+          type="button"
+          className={`sider-menu-item ${activeModule === "preview" ? "active" : ""}`}
+          onClick={() => setActiveModule("preview")}
+        >
+          <MobileOutlined />
+          <span>Student Preview</span>
+        </button>
       </Sider>
       <Layout>
         <Header className="admin-header">
@@ -566,7 +806,7 @@ function AdminWorkspace({ onLogout }: { onLogout: () => void }) {
           </Button>
         </Header>
         <Content className="admin-content">
-          <TeacherAccountWorkbench />
+          {activeModule === "teachers" ? <TeacherAccountWorkbench /> : <PreviewInfrastructureWorkbench />}
         </Content>
       </Layout>
     </Layout>

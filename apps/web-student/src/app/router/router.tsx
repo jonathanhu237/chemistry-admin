@@ -2,6 +2,7 @@ import { Navigate, Outlet, createRootRouteWithContext, createRoute, createRouter
 import { AuthenticatedAppLayout } from "../shell/AuthenticatedAppLayout";
 import { HomeRootPage } from "../../routes/home/HomeRootPage";
 import { LearnRootPage } from "../../routes/learn/LearnRootPage";
+import { LearningAreaPage } from "../../routes/learn/LearningAreaPage";
 import { ChapterStudyPage } from "../../routes/learn/ChapterStudyPage";
 import { CatalogDirectoryPage } from "../../routes/learn/CatalogDirectoryPage";
 import { ElementDetailPage } from "../../routes/learn/ElementDetailPage";
@@ -46,6 +47,13 @@ const learnRoute = createRoute({
   getParentRoute: () => authenticatedRoute,
   path: "/learn",
   component: LearnRootPage,
+});
+
+const learningAreaRoute = createRoute({
+  getParentRoute: () => authenticatedRoute,
+  path: "/learn/area/$areaId",
+  validateSearch: parseStudentRouteSearch,
+  component: LearningAreaPage,
 });
 
 const chapterRoute = createRoute({
@@ -141,6 +149,7 @@ const routeTree = rootRoute.addChildren([
     indexRoute,
     homeRoute,
     learnRoute,
+    learningAreaRoute,
     chapterRoute,
     elementRoute,
     catalogNodeRoute,

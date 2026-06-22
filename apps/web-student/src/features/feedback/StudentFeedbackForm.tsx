@@ -1,10 +1,13 @@
 import { FormEvent, useEffect, useRef, useState } from "react";
-import { LoaderCircle, Paperclip, Send, Trash2 } from "lucide-react";
+import { LoaderCircle, Paperclip, Send, ShieldAlert, Trash2 } from "lucide-react";
 import { errorMessage, submitStudentFeedback } from "../../api";
+import { executeFeedbackSubmitCommand, type PreviewBlockedDialog } from "../../app/preview/previewSandbox";
+import { useStudentRuntime } from "../../app/shell/studentAppContext";
 import { MobileButton, MobileTextArea } from "../../mobile/primitives";
 import { feedbackTypes, type FeedbackContext } from "./feedbackTypes";
 
 export function StudentFeedbackForm({ context }: { context: FeedbackContext }) {
+  const runtime = useStudentRuntime();
   const [feedbackType, setFeedbackType] = useState("content");
   const [content, setContent] = useState("");
   const [attachment, setAttachment] = useState<File | null>(null);
@@ -12,11 +15,13 @@ export function StudentFeedbackForm({ context }: { context: FeedbackContext }) {
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
+  const [previewDialog, setPreviewDialog] = useState<PreviewBlockedDialog | null>(null);
   const fileInputRef = useRef<HTMLInputElement | null>(null);
 
   useEffect(() => {
     setMessage("");
     setError("");
+    setPreviewDialog(null);
   }, [context.pagePath, context.experimentId, context.pointNodeId]);
 
   const selectAttachment = (file: File | null) => {
@@ -51,26 +56,32 @@ export function StudentFeedbackForm({ context }: { context: FeedbackContext }) {
     event.preventDefault();
     const trimmed = content.trim();
     if (!trimmed || attachmentError || loading) return;
-    setLoading(true);
     setMessage("");
     setError("");
     try {
-      await submitStudentFeedback({
-        feedback_type: feedbackType,
-        content: trimmed,
-        chapter_id: context.chapterId,
-        experiment_id: context.experimentId,
-        point_node_id: context.pointNodeId,
-        catalog_path: context.catalogPath,
-        page_path: context.pagePath,
-        metadata: {
-          ...context.metadata,
-          context_title: context.contextTitle,
-          viewport: { width: window.innerWidth, height: window.innerHeight },
-          user_agent: window.navigator.userAgent,
-        },
-        attachment,
+      const commandResult = await executeFeedbackSubmitCommand(runtime, async () => {
+        setLoading(true);
+        await submitStudentFeedback({
+          feedback_type: feedbackType,
+          content: trimmed,
+          chapter_id: context.chapterId,
+          experiment_id: context.experimentId,
+          point_node_id: context.pointNodeId,
+          catalog_path: context.catalogPath,
+          page_path: context.pagePath,
+          metadata: {
+            ...context.metadata,
+            context_title: context.contextTitle,
+            viewport: { width: window.innerWidth, height: window.innerHeight },
+            user_agent: window.navigator.userAgent,
+          },
+          attachment,
+        });
       });
+      if (commandResult.kind === "blocked") {
+        setPreviewDialog(commandResult.dialog);
+        return;
+      }
       setContent("");
       clearAttachment();
       setMessage("已收到反馈，老师后台可以看到。");
@@ -129,6 +140,22 @@ export function StudentFeedbackForm({ context }: { context: FeedbackContext }) {
       {attachmentError ? <div className="form-error">{attachmentError}</div> : null}
       {message ? <div className="form-hint feedback-success">{message}</div> : null}
       {error ? <div className="form-error">{error}</div> : null}
+      {previewDialog ? (
+        <div className="feedback-preview-dialog-backdrop" role="presentation">
+          <section className="feedback-preview-dialog" role="dialog" aria-modal="true" aria-label={previewDialog.ariaLabel}>
+            <span className="feedback-preview-dialog-icon">
+              <ShieldAlert size={22} />
+            </span>
+            <div>
+              <h3>{previewDialog.title}</h3>
+              <p>{previewDialog.body}</p>
+            </div>
+            <button type="button" onClick={() => setPreviewDialog(null)}>
+              {previewDialog.actionLabel}
+            </button>
+          </section>
+        </div>
+      ) : null}
       <MobileButton className="primary-action" type="submit" loading={loading} disabled={!content.trim() || Boolean(attachmentError)}>
         {loading ? <LoaderCircle className="spin" size={18} /> : <Send size={18} />}
         <span>{loading ? "正在提交" : "提交反馈"}</span>

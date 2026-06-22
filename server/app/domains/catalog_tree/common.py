@@ -210,7 +210,6 @@ def node_select(where_clause: str) -> str:
                   WHERE dt.node_kind = 'point'
                     AND dt.canonical_point_id IS NOT NULL
                     AND dpc.content_id IS NOT NULL
-                    AND COALESCE(dpc.content_status, '') = 'published'
                     AND NOT (
                       CASE
                         WHEN COALESCE(NULLIF(trim(dpc.principle_mode), ''), 'text') = 'equation'
@@ -238,11 +237,11 @@ def node_select(where_clause: str) -> str:
                       OR COALESCE(NULLIF(trim(dpc.phenomenon_explanation), ''), '') = ''
                       OR COALESCE(NULLIF(trim(dpc.safety_note), ''), '') = ''
                     )
+                    AND COALESCE(dmb.media_count, 0) > 0
                     AND (
                       COALESCE(dpc.content_status, '') <> 'published'
                       OR (
                         COALESCE(dpc.content_status, '') = 'published'
-                        AND COALESCE(dmb.media_count, 0) > 0
                         AND dt.status <> 'published'
                       )
                     )
@@ -825,12 +824,12 @@ def catalog_node_status_summary(
     elif missing_fields:
         primary_state = "needs_content"
         primary_reason = f"缺少{ '、'.join(missing_fields) }"
-    elif shared_content_state != "published":
-        primary_state = "ready"
-        primary_reason = "学习内容完整，等待发布学习内容"
     elif not video_present:
         primary_state = "needs_video"
         primary_reason = "无视频"
+    elif shared_content_state != "published":
+        primary_state = "ready"
+        primary_reason = "学习内容完整，等待发布学习内容"
     elif placement_state != "published":
         primary_state = "ready"
         primary_reason = "内容和视频完整，等待发布目录位置"
