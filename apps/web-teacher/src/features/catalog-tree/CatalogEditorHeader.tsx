@@ -1,9 +1,10 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { Button, Dropdown, Input, Modal, Popover, Space, Tag, Typography, type InputRef } from "antd";
 import { CheckCircleOutlined, DeleteOutlined, EditOutlined, MoreOutlined, StopOutlined } from "@ant-design/icons";
-import { AlertTriangle, CircleCheck, CircleDashed, FlaskConical, Folder, Link2, ListTree, Video } from "lucide-react";
+import { Archive, CircleAlert, CircleCheck, CircleX, FileText, FlaskConical, Folder, Link2, ListTree, RefreshCw, TriangleAlert, Video } from "lucide-react";
 
 import type { CatalogNodeDetail } from "../../api/catalogTree";
+import { CatalogStatusCompositeWarningIcon } from "./CatalogStatusCompositeWarningIcon";
 import {
   catalogStatusLabel,
   catalogNodePrimaryStateClass,
@@ -19,7 +20,7 @@ import { catalogDirectoryPathLabel, catalogPathLabel } from "./catalogPath";
 const { Text, Title } = Typography;
 const TITLE_MAX_LENGTH = 64;
 
-type SummaryTone = "ok" | "warning" | "error" | "muted" | "published" | "draft" | "archived";
+type SummaryTone = "ok" | "warning" | "error" | "sync" | "ready" | "muted" | "published" | "draft" | "archived";
 
 type SummaryItem = {
   key: string;
@@ -38,21 +39,41 @@ export type CatalogHeaderDiagnosticsKey = "node-status" | "ai-context" | "advanc
 function pointContentStatusLabel(status?: string | null): string {
   if (status === "published") return "已发布";
   if (status === "archived") return "已归档";
-  if (status === "draft") return "草稿";
+  if (status === "draft") return "待发布";
   return "待补充";
 }
 
 function pointContentTone(status?: string | null): SummaryTone {
   if (status === "published") return "ok";
   if (status === "archived") return "archived";
-  if (status === "draft") return "draft";
+  if (status === "draft") return "ready";
   return "warning";
 }
 
 function publicationIcon(status?: string | null): ReactNode {
   if (status === "published") return <CircleCheck size={16} />;
-  if (status === "draft") return <CircleDashed size={16} />;
-  return <AlertTriangle size={16} />;
+  if (status === "draft") return <CircleAlert size={16} />;
+  if (status === "archived") return <Archive size={16} />;
+  return <TriangleAlert size={16} />;
+}
+
+function nodeStatusIcon(state: string): ReactNode {
+  if (state === "blocked") return <CircleX size={16} />;
+  if (state === "sync_attention") return <RefreshCw size={16} />;
+  if (state === "needs_content") return <CatalogStatusCompositeWarningIcon kind="content" size={22} strokeWidth={1.85} />;
+  if (state === "needs_video") return <CatalogStatusCompositeWarningIcon kind="video" size={22} strokeWidth={1.85} />;
+  if (state === "ready" || state === "draft") return <CircleAlert size={16} />;
+  if (state === "archived") return <Archive size={16} />;
+  return <CircleCheck size={16} />;
+}
+
+function nodeStatusTone(state: string): SummaryTone {
+  if (state === "blocked") return "error";
+  if (state === "sync_attention") return "sync";
+  if (state === "needs_content" || state === "needs_video") return "warning";
+  if (state === "ready" || state === "draft") return "ready";
+  if (state === "archived") return "archived";
+  return "ok";
 }
 
 function statusNote(status: string): string {
@@ -67,11 +88,11 @@ function nodeStatusSummary(detail: CatalogNodeDetail): SummaryItem {
   const isAttention = isError || ["needs_content", "needs_video", "sync_attention"].includes(status.primary_state);
   return {
     key: "node-status",
-    icon: isAttention ? <AlertTriangle size={16} /> : <CircleCheck size={16} />,
+    icon: nodeStatusIcon(status.primary_state),
     label: "节点状态",
     value: status.primary_label || status.primary_state,
     note: status.primary_reason || catalogNodeStatusTooltip(detail),
-    tone: isError ? "error" : isAttention ? "warning" : status.primary_state === "archived" ? "archived" : status.primary_state === "draft" ? "draft" : "ok",
+    tone: nodeStatusTone(status.primary_state),
     emphasis: isAttention,
   };
 }
@@ -115,10 +136,10 @@ function buildPointSummaryItems(detail: CatalogNodeDetail): SummaryItem[] {
   return [
     {
       key: "content",
-      icon: publicationIcon(contentStatus),
+      icon: <FileText size={16} />,
       label: "学习内容",
       value: pointContentStatusLabel(contentStatus),
-      note: detail.point_content ? "学习字段" : "待维护",
+      note: detail.point_content ? "学习字段" : "需手动添加",
       tone: pointContentTone(contentStatus),
       emphasis: contentStatus !== "published" && contentStatus !== "draft",
     },
@@ -136,7 +157,7 @@ function buildPointSummaryItems(detail: CatalogNodeDetail): SummaryItem[] {
       icon: <Link2 size={16} />,
       label: "相关实验",
       value: relatedCount > 0 ? `${relatedCount} 个` : "无",
-      note: relatedCount > 0 ? "可串联学习" : "可选补充",
+      note: relatedCount > 0 ? "可串联学习" : "可手动添加",
       tone: relatedCount > 0 ? "muted" : "muted",
     },
   ];

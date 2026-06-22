@@ -2,8 +2,8 @@ import { useMemo, useState } from "react";
 import { Button, Empty, Input, Modal, Popconfirm, Tag, Typography } from "antd";
 import {
   ArrowRightOutlined,
-  DeleteOutlined,
   EyeOutlined,
+  LinkOutlined,
   PlayCircleFilled,
   SearchOutlined,
   SwapOutlined,
@@ -246,9 +246,9 @@ function CurrentVideoSlot({
             <Button className="catalog-video-card-action" icon={<SwapOutlined />} onClick={onOpenPicker} disabled={!canBindVideo}>
               更换视频
             </Button>
-            <Popconfirm title="删除当前视频绑定？" onConfirm={onRemove}>
-              <Button className="catalog-video-card-action is-danger" danger icon={<DeleteOutlined />} loading={removing}>
-                删除
+            <Popconfirm title="解绑当前视频？" onConfirm={onRemove}>
+              <Button className="catalog-video-card-action is-danger" danger icon={<LinkOutlined />} loading={removing}>
+                解绑视频
               </Button>
             </Popconfirm>
           </div>

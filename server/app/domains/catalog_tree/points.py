@@ -10,6 +10,7 @@ from server.app.domains.catalog_tree.common import active_placement_ids_for_cano
 from server.app.domains.catalog_tree.equations import normalize_reaction_equations, replace_reaction_equations
 from server.app.domains.catalog_tree.jobs import mark_point_evidence_stale
 from server.app.domains.catalog_tree.search_documents import queue_index_state
+from server.app.domains.catalog_tree.teacher_search import queue_teacher_index_state
 from server.app.domains.errors import DomainHTTPException as HTTPException, domain_status as status
 from server.app.infrastructure.database import db_session
 
@@ -179,6 +180,8 @@ def save_point_content(*, node_id: str, payload: CatalogPointContentRequest, use
             {"canonical_point_id": canonical_point_id, "title": point_title, "user_id": user.id},
         )
         if searchable_content_changed:
+            for placement_node_id in active_placement_ids_for_canonical_point(session, canonical_point_id):
+                queue_teacher_index_state(session, node_id=placement_node_id, action="upsert", soft=True)
             if next_content_status == "published":
                 for placement_node_id in active_placement_ids_for_canonical_point(session, canonical_point_id):
                     queue_index_state(session, node_id=placement_node_id, action="upsert", soft=True)
@@ -214,6 +217,9 @@ def set_point_content_publication(*, node_id: str, payload: CatalogPointPublicat
             node_published_sql = "published_at = NULL,"
         else:
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Unsupported publication action")
+        affected_placement_node_ids = active_placement_ids_for_canonical_point(session, canonical_point_id)
+        if node_id not in affected_placement_node_ids:
+            affected_placement_node_ids = [node_id, *affected_placement_node_ids]
         session.execute(
             text(
                 f"""
@@ -254,8 +260,13 @@ def set_point_content_publication(*, node_id: str, payload: CatalogPointPublicat
             ),
             {"node_id": node_id, "status": node_status, "user_id": user.id},
         )
-        for placement_node_id in active_placement_ids_for_canonical_point(session, canonical_point_id):
+        for placement_node_id in affected_placement_node_ids:
             queue_index_state(session, node_id=placement_node_id, action=action)
+            queue_teacher_index_state(
+                session,
+                node_id=placement_node_id,
+                action="delete" if payload.action == "archive" else "upsert",
+            )
         mark_point_evidence_stale(session, node_id=node_id, reason=f"point_content_{payload.action}")
     from server.app.domains.catalog_tree.nodes import get_node_detail
 

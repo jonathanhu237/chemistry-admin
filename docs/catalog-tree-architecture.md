@@ -37,7 +37,9 @@ Student point detail exposes only published, student-visible content: principle,
 
 ## Search And Evidence Boundary
 
-Student video-library search is an Elasticsearch projection from published point placements. Search documents are one document per published placement, derived from canonical point title/content/media plus the placement chapter/path and ancestor directory title/description as category context. Directory nodes never appear as standalone results. Search documents must exclude teacher-only notes, raw media-library-only uploads, `source_chunks`, and `experiment_video_point_evidence`.
+Student video-library search is an Elasticsearch projection from published point placements. Search documents are one document per published placement, derived from canonical point title/content/media plus the placement chapter/path and ancestor directory title/description as category context. Directory nodes never appear as standalone student results. Student search documents must exclude teacher-only notes, raw media-library-only uploads, `source_chunks`, and `experiment_video_point_evidence`.
+
+Teacher catalog search is a separate Elasticsearch projection for authoring. It indexes active directory nodes and point placements, including draft/unpublished content, teacher notes, legacy identifiers, status facets, path context, and chemistry-derived formula/alias fields. Teacher search state is stored in `experiment_catalog_teacher_search_index_state` and is independent from the student video-library projection state.
 
 AI-generated chunks/evidence and student search documents remain separate consumers:
 
@@ -49,8 +51,8 @@ AI-generated chunks/evidence and student search documents remain separate consum
 
 Catalog point ES sync and catalog-node evidence refresh are coordinated through PostgreSQL tables, not Redis/Rabbit/Celery in the first implementation:
 
-- `experiment_catalog_point_jobs` is the job/outbox record for ES upsert/delete and RAG evidence refresh/delete work. Open pending/running jobs are idempotent by placement node id, job type, and payload, while storing `canonical_point_id`.
-- `experiment_catalog_point_search_index_state` remains the teacher-visible ES projection state for placement documents; ES jobs update it after indexing or delete attempts.
+- `experiment_catalog_point_jobs` is the job/outbox record for student ES upsert/delete, teacher catalog search upsert/delete, and RAG evidence refresh/delete work. Open pending/running jobs are idempotent by placement node id, job type, and payload, while storing `canonical_point_id` when a point placement owns one.
+- `experiment_catalog_point_search_index_state` stores the student video-library ES projection state for placement documents; `experiment_catalog_teacher_search_index_state` stores the teacher catalog search projection state for directory and point documents.
 - `experiment_catalog_point_evidence_state` records missing, pending, running, succeeded, failed, stale, disabled, and unavailable evidence states.
 - `experiment_catalog_point_evidence_bindings` stores selected chunk bindings against `canonical_point_id` and canonical `source_chunks.id`; it never owns or deletes canonical chunks or embeddings. `source_placement_node_id` records where the refresh was triggered.
 - Point content edits, publication changes, moves, video binding changes, and related-point changes mark evidence stale and may enqueue refresh when `CATALOG_POINT_EVIDENCE_AUTO_REFRESH=true`.

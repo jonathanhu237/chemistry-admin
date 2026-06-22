@@ -97,6 +97,13 @@ class Settings:
     video_library_search_timeout_seconds: float = 3.0
     video_library_search_local_fallback: bool = True
     video_library_search_require_es_in_production: bool = True
+    teacher_catalog_search_enabled: bool = True
+    teacher_catalog_search_backend: str = "elasticsearch"
+    teacher_catalog_search_url: str = ""
+    teacher_catalog_search_index: str = "teacher-catalog-admin-search"
+    teacher_catalog_search_analyzer: str = "ik_max_word"
+    teacher_catalog_search_timeout_seconds: float = 3.0
+    teacher_catalog_search_local_fallback: bool = True
 
     @property
     def is_production(self) -> bool:
@@ -108,6 +115,8 @@ class Settings:
             errors.append("DATA_BACKEND must be json or postgres")
         if self.video_library_search_backend not in {"local", "elasticsearch", "disabled"}:
             errors.append("VIDEO_LIBRARY_SEARCH_BACKEND must be local, elasticsearch, or disabled")
+        if self.teacher_catalog_search_backend not in {"elasticsearch", "disabled"}:
+            errors.append("TEACHER_CATALOG_SEARCH_BACKEND must be elasticsearch or disabled")
         if self.is_production:
             if self.data_backend != "postgres":
                 errors.append("DATA_BACKEND must be postgres in production")
@@ -226,5 +235,33 @@ def get_settings() -> Settings:
         video_library_search_require_es_in_production=_get_bool(
             "VIDEO_LIBRARY_SEARCH_REQUIRE_ES_IN_PRODUCTION",
             Settings.video_library_search_require_es_in_production,
+        ),
+        teacher_catalog_search_enabled=_get_bool(
+            "TEACHER_CATALOG_SEARCH_ENABLED",
+            Settings.teacher_catalog_search_enabled,
+        ),
+        teacher_catalog_search_backend=_getenv(
+            "TEACHER_CATALOG_SEARCH_BACKEND",
+            Settings.teacher_catalog_search_backend,
+        ).lower(),
+        teacher_catalog_search_url=_getenv(
+            "TEACHER_CATALOG_SEARCH_URL",
+            _getenv("VIDEO_LIBRARY_SEARCH_URL", Settings.teacher_catalog_search_url),
+        ).rstrip("/"),
+        teacher_catalog_search_index=_getenv(
+            "TEACHER_CATALOG_SEARCH_INDEX",
+            Settings.teacher_catalog_search_index,
+        ),
+        teacher_catalog_search_analyzer=_getenv(
+            "TEACHER_CATALOG_SEARCH_ANALYZER",
+            Settings.teacher_catalog_search_analyzer,
+        ),
+        teacher_catalog_search_timeout_seconds=_get_float(
+            "TEACHER_CATALOG_SEARCH_TIMEOUT_SECONDS",
+            Settings.teacher_catalog_search_timeout_seconds,
+        ),
+        teacher_catalog_search_local_fallback=_get_bool(
+            "TEACHER_CATALOG_SEARCH_LOCAL_FALLBACK",
+            Settings.teacher_catalog_search_local_fallback,
         ),
     )

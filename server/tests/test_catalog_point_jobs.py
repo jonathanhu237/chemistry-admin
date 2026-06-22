@@ -113,6 +113,27 @@ def test_queue_es_hard_delete_runs_immediately() -> None:
     assert params["coalesce_with_open_job"] is False
 
 
+def test_queue_teacher_search_sync_job_uses_independent_target_and_allows_directories() -> None:
+    session = _FakeSession()
+
+    row = jobs.queue_teacher_search_sync_job(
+        session,
+        node_id="cat-dir-1",
+        action="upsert",
+        trigger_source="automatic",
+        soft=True,
+    )
+
+    assert row["node_id"] == "cat-dir-1"
+    assert row["job_type"] == "teacher_search_upsert"
+    params = _call_with_param(session, "job_type", "teacher_search_upsert")["params"]
+    assert params["placement_node_id"] == "cat-dir-1"
+    assert params["canonical_point_id"] is None
+    assert params["idempotency_key"] == "catalog-teacher-search:cat-dir-1:teacher_search_upsert:soft"
+    assert '"target_index": "teacher_catalog_search"' in params["payload"]
+    assert '"sync_mode": "soft"' in params["payload"]
+
+
 def test_mark_point_evidence_stale_does_not_block_or_auto_refresh_by_default(monkeypatch) -> None:
     session = _FakeSession()
 
@@ -170,6 +191,78 @@ def test_process_point_job_records_bge_unavailable_as_diagnostic_status(monkeypa
     assert calls[1]["kind"] == "job_failure"
     assert calls[1]["status"] == "unavailable"
     assert "BGE service is unreachable" in calls[1]["error"]
+
+
+def test_teacher_projection_failure_marks_only_teacher_search_state(monkeypatch) -> None:
+    calls: list[dict[str, Any]] = []
+    job = jobs.CatalogPointJob(
+        id="00000000-0000-0000-0000-000000000003",
+        node_id="cat-point-1",
+        job_type="teacher_search_upsert",
+        attempts=1,
+        payload={},
+    )
+
+    def fail_teacher(_job: jobs.CatalogPointJob) -> dict[str, Any]:
+        raise RuntimeError("teacher index is down")
+
+    monkeypatch.setattr(jobs, "_process_teacher_search_job", fail_teacher)
+    monkeypatch.setattr(jobs, "_mark_es_state_failure", lambda **kwargs: calls.append({"kind": "student_failure", **kwargs}))
+    monkeypatch.setattr(
+        "server.app.domains.catalog_tree.teacher_search.mark_teacher_search_state_failure",
+        lambda **kwargs: calls.append({"kind": "teacher_failure", **kwargs}),
+    )
+    monkeypatch.setattr(
+        jobs,
+        "fail_point_job",
+        lambda failed_job, error, status_value="failed", result=None: calls.append(
+            {"kind": "job_failure", "job_id": failed_job.id, "error": error, "status": status_value}
+        ),
+    )
+
+    jobs.process_point_job(job)
+
+    assert [call["kind"] for call in calls] == ["teacher_failure", "job_failure"]
+    assert calls[0]["node_id"] == "cat-point-1"
+    assert calls[0]["action"] == "upsert"
+    assert calls[1]["status"] == "failed"
+    assert "teacher index is down" in calls[1]["error"]
+
+
+def test_student_projection_failure_marks_only_student_search_state(monkeypatch) -> None:
+    calls: list[dict[str, Any]] = []
+    job = jobs.CatalogPointJob(
+        id="00000000-0000-0000-0000-000000000004",
+        node_id="cat-point-1",
+        job_type="es_upsert",
+        attempts=1,
+        payload={},
+    )
+
+    def fail_student(_job: jobs.CatalogPointJob) -> dict[str, Any]:
+        raise RuntimeError("student index is down")
+
+    monkeypatch.setattr(jobs, "_process_es_job", fail_student)
+    monkeypatch.setattr(jobs, "_mark_es_state_failure", lambda **kwargs: calls.append({"kind": "student_failure", **kwargs}))
+    monkeypatch.setattr(
+        "server.app.domains.catalog_tree.teacher_search.mark_teacher_search_state_failure",
+        lambda **kwargs: calls.append({"kind": "teacher_failure", **kwargs}),
+    )
+    monkeypatch.setattr(
+        jobs,
+        "fail_point_job",
+        lambda failed_job, error, status_value="failed", result=None: calls.append(
+            {"kind": "job_failure", "job_id": failed_job.id, "error": error, "status": status_value}
+        ),
+    )
+
+    jobs.process_point_job(job)
+
+    assert [call["kind"] for call in calls] == ["student_failure", "job_failure"]
+    assert calls[0]["node_id"] == "cat-point-1"
+    assert calls[0]["action"] == "upsert"
+    assert calls[1]["status"] == "failed"
+    assert "student index is down" in calls[1]["error"]
 
 
 def test_rag_runtime_gate_requires_configured_hybrid_bge() -> None:

@@ -91,7 +91,13 @@ export function CatalogTreeNodeList({
   statusFilter = "all",
   resetVersion = 0,
   refreshedChildrenParentId,
+  refreshedParent,
   refreshedChildren,
+  branchRefreshVersion = 0,
+  branchRefreshDirectoryIds = [],
+  revealNodeId,
+  revealPathIds = [],
+  revealVersion = 0,
 }: {
   nodes: CatalogNodeCard[];
   treeScopeKey: string;
@@ -110,17 +116,31 @@ export function CatalogTreeNodeList({
   statusFilter?: CatalogStatusFilter;
   resetVersion?: number;
   refreshedChildrenParentId?: string | null;
+  refreshedParent?: CatalogNodeCard;
   refreshedChildren?: CatalogNodeCard[];
+  branchRefreshVersion?: number;
+  branchRefreshDirectoryIds?: string[];
+  revealNodeId?: string | null;
+  revealPathIds?: string[];
+  revealVersion?: number;
 }) {
   const { message } = AntApp.useApp();
   const [treeData, setTreeData] = useState<CatalogTreeDataNode[]>([]);
   const [loadingDirectoryIds, setLoadingDirectoryIds] = useState<Set<string>>(() => new Set());
   const [refreshingTree, setRefreshingTree] = useState(false);
+  const treeDataRef = useRef<CatalogTreeDataNode[]>([]);
   const loadingDirectoryIdsRef = useRef<Set<string>>(new Set());
   const previousTreeScopeKeyRef = useRef(treeScopeKey);
   const previousResetVersionRef = useRef(resetVersion);
+  const previousBranchRefreshVersionRef = useRef(0);
+  const completedRevealVersionRef = useRef(0);
+  const inFlightRevealVersionRef = useRef(0);
   const [treeBoxRef, treeBoxSize] = useElementSize<HTMLDivElement>();
   const arboristRef = useRef<TreeApi<CatalogArboristNode> | null>(null);
+
+  useEffect(() => {
+    treeDataRef.current = treeData;
+  }, [treeData]);
 
   useEffect(() => {
     const scopeChanged = previousTreeScopeKeyRef.current !== treeScopeKey;
@@ -142,9 +162,9 @@ export function CatalogTreeNodeList({
       const refreshedNodes = refreshedChildren.map((child) =>
         toCatalogTreeNode(child, findCatalogTreeNode(previous, child.node_id)),
       );
-      return replaceCatalogTreeChildren(previous, refreshedChildrenParentId, refreshedNodes);
+      return replaceCatalogTreeChildren(previous, refreshedChildrenParentId, refreshedNodes, refreshedParent);
     });
-  }, [refreshedChildren, refreshedChildrenParentId]);
+  }, [refreshedChildren, refreshedChildrenParentId, refreshedParent]);
 
   const addRootItems: MenuProps["items"] = useMemo(
     () => [
@@ -152,20 +172,25 @@ export function CatalogTreeNodeList({
       { key: "point", icon: <FlaskConical size={14} />, label: "新建点位" },
       { type: "divider" },
       { key: "copy-directory", icon: <Copy size={14} />, label: "从已有目录复制到本章" },
-      { key: "copy-point", icon: <Copy size={14} />, label: "从已有实验复制到本章" },
+      { key: "copy-point", icon: <Copy size={14} />, label: "从已有实验引用到本章" },
     ],
     [],
   );
 
   const loadDirectory = useCallback(
     async (nodeId: string, options: { force?: boolean } = {}) => {
-      const current = findCatalogTreeNode(treeData, nodeId);
+      const current = findCatalogTreeNode(treeDataRef.current, nodeId);
       if (!current || current.kind === "point" || (!options.force && current.loaded) || loadingDirectoryIdsRef.current.has(nodeId)) return;
       loadingDirectoryIdsRef.current.add(nodeId);
       setLoadingDirectoryIds((previous) => new Set(previous).add(nodeId));
       try {
         const response = await listCatalogChildren(nodeId);
-        setTreeData((existing) => replaceCatalogTreeChildren(existing, nodeId, response.children.map((child) => toCatalogTreeNode(child))));
+        setTreeData((existing) => {
+          const refreshedNodes = response.children.map((child) =>
+            toCatalogTreeNode(child, findCatalogTreeNode(existing, child.node_id)),
+          );
+          return replaceCatalogTreeChildren(existing, nodeId, refreshedNodes, response.parent);
+        });
       } catch (caught) {
         message.error(errorMessage(caught));
       } finally {
@@ -177,8 +202,56 @@ export function CatalogTreeNodeList({
         loadingDirectoryIdsRef.current.delete(nodeId);
       }
     },
-    [message, treeData],
+    [message],
   );
+
+  const refreshLoadedDirectories = useCallback(
+    async (nodeIds: string[]) => {
+      const uniqueNodeIds = Array.from(new Set(nodeIds));
+      for (const nodeId of uniqueNodeIds) {
+        const current = findCatalogTreeNode(treeDataRef.current, nodeId);
+        if (!current || current.kind !== "directory" || !current.loaded) continue;
+        await loadDirectory(nodeId, { force: true });
+      }
+    },
+    [loadDirectory],
+  );
+
+  useEffect(() => {
+    if (previousBranchRefreshVersionRef.current === branchRefreshVersion) return;
+    previousBranchRefreshVersionRef.current = branchRefreshVersion;
+    if (!branchRefreshVersion || !branchRefreshDirectoryIds.length) return;
+    void refreshLoadedDirectories(branchRefreshDirectoryIds);
+  }, [branchRefreshDirectoryIds, branchRefreshVersion, refreshLoadedDirectories]);
+
+  const revealPathKey = revealPathIds.join("|");
+  useEffect(() => {
+    if (!revealNodeId || !revealVersion) return;
+    if (completedRevealVersionRef.current === revealVersion || inFlightRevealVersionRef.current === revealVersion) return;
+    const ancestorIds = revealPathKey.split("|").filter((nodeId) => nodeId && nodeId !== revealNodeId);
+    if (ancestorIds.length && !findCatalogTreeNode(treeData, ancestorIds[0])) return;
+    let cancelled = false;
+    inFlightRevealVersionRef.current = revealVersion;
+    const reveal = async () => {
+      for (const ancestorId of ancestorIds) {
+        await loadDirectory(ancestorId);
+        (arboristRef.current as unknown as { open?: (id: string) => void })?.open?.(ancestorId);
+      }
+      window.requestAnimationFrame(() => {
+        if (cancelled) return;
+        void arboristRef.current?.scrollTo(revealNodeId, "center");
+        arboristRef.current?.select(revealNodeId, { align: "center", focus: true });
+        arboristRef.current?.focus(revealNodeId, { scroll: false });
+        completedRevealVersionRef.current = revealVersion;
+        if (inFlightRevealVersionRef.current === revealVersion) inFlightRevealVersionRef.current = 0;
+      });
+    };
+    void reveal();
+    return () => {
+      cancelled = true;
+      if (inFlightRevealVersionRef.current === revealVersion) inFlightRevealVersionRef.current = 0;
+    };
+  }, [loadDirectory, revealNodeId, revealPathKey, revealVersion, treeData]);
 
   const refreshMoveBranches = useCallback(
     async (move: CatalogTreeOptimisticMove) => {

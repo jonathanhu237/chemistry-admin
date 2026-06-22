@@ -264,6 +264,7 @@ async def admin_catalog_search(
     q: str = Query(default="", max_length=200),
     chapter_id: str | None = None,
     limit: int = Query(default=80, ge=1, le=200),
+    status_filter: str = Query(default="all", max_length=40),
     user: AuthUser = Depends(require_teacher_console_user),
 ) -> dict[str, Any]:
-    return search_catalog_nodes(query=q, chapter_id=chapter_id, limit=limit)
+    return search_catalog_nodes(query=q, chapter_id=chapter_id, limit=limit, status_filter=status_filter)

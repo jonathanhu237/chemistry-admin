@@ -113,11 +113,45 @@ describe("CatalogTreeRow", () => {
     expect(screen.getByText("氧化性模块")).toBeInTheDocument();
     expect(screen.getByLabelText("展开目录")).toBeInTheDocument();
     expect(screen.getByLabelText("新建子节点")).toBeInTheDocument();
-    expect(screen.getByLabelText("共 3 个点位")).toHaveTextContent("3");
-    expect(screen.getByLabelText("节点状态：草稿")).toBeInTheDocument();
-    expect(container.querySelector(".catalog-sidebar-status-dot")).toHaveClass("is-draft");
+    expect(screen.getByLabelText("目录状态：共 3 个点位；草稿")).toHaveTextContent("3");
+    expect(container.querySelector(".catalog-sidebar-status-dot")).toHaveClass("is-ready");
     expect(container).not.toHaveTextContent("draft");
     expect(container.querySelector(".catalog-sidebar-switcher-spacer")).toBeNull();
+  });
+
+  it("renders directory pending count and status dot from the same aggregate badge", () => {
+    const { container } = renderRow({
+      catalogNode: node({
+        node_id: "dir-pending",
+        title: "氯的歧化反应",
+        node_kind: "directory",
+        status: "published",
+        descendant_point_count: 12,
+        node_status: {
+          primary_state: "needs_content",
+          primary_label: "缺内容",
+          primary_reason: "7 个后代点位缺内容",
+          core_readiness: {
+            content_fields: "not_applicable",
+            video: "not_applicable",
+            missing_fields: [],
+            descendant_action_count: 9,
+            descendant_status_counts: { needs_content: 7, draft: 2, ready: 3, published: 2 },
+            descendant_missing_field_counts: {},
+          },
+          visibility: { placement: "published", shared_content: "not_applicable", student_available: true },
+          async_consumption: { search_index: "not_applicable", ai_evidence: "not_applicable" },
+          conditions: [],
+        },
+      }),
+      isInternal: true,
+    });
+
+    const badge = screen.getByLabelText("目录状态：待处理：9 个点位（7 个缺内容，2 个草稿）");
+    expect(badge).toHaveTextContent("9");
+    expect(badge).toHaveClass("is-warning");
+    expect(container.querySelector(".catalog-sidebar-status-dot")).toHaveClass("is-warning");
+    expect(badge).not.toHaveTextContent("12");
   });
 
   it("toggles directory rows when the row body is clicked", () => {
@@ -152,7 +186,7 @@ describe("CatalogTreeRow", () => {
     expect(screen.getByLabelText("点位状态：已发布")).toBeInTheDocument();
     expect(screen.queryByLabelText("展开目录")).toBeNull();
     expect(screen.queryByLabelText("新建子节点")).toBeNull();
-    expect(screen.queryByLabelText(/共 \d+ 个点位/)).toBeNull();
+    expect(screen.queryByLabelText(/目录状态：共 \d+ 个点位/)).toBeNull();
     expect(container).not.toHaveTextContent("published");
     expect(container.querySelector(".catalog-sidebar-switcher-spacer")).not.toBeNull();
     expect(container.querySelector(".kind-point .catalog-sidebar-icon svg")).not.toBeNull();
@@ -201,7 +235,7 @@ describe("CatalogTreeRow", () => {
       isInternal: false,
     });
 
-    expect(container.querySelector(".catalog-sidebar-point-status")).toHaveClass("is-published");
+    expect(container.querySelector(".catalog-sidebar-point-status")).toHaveClass("is-ready");
     expect(container.querySelector(".catalog-sidebar-point-status")).not.toHaveClass("is-warning");
   });
 
@@ -238,8 +272,8 @@ describe("CatalogTreeRow", () => {
     expect(row?.children).toContain(copy);
     expect(row?.children).toContain(trailing);
     expect(copy).toHaveTextContent(title);
-    expect(trailing?.querySelector(".catalog-sidebar-count-slot")).toHaveTextContent("15");
-    expect(trailing?.querySelector(".catalog-sidebar-directory-status-slot")).not.toBeNull();
+    expect(trailing?.querySelector(".catalog-sidebar-directory-status-slot")).toHaveTextContent("15");
+    expect(trailing?.querySelector(".catalog-sidebar-directory-status-badge")).not.toBeNull();
     expect(trailing?.querySelector(".catalog-sidebar-primary-action-slot")).not.toBeNull();
     expect(trailing?.querySelector(".catalog-sidebar-more-slot")).not.toBeNull();
   });
@@ -249,7 +283,7 @@ describe("CatalogTreeRow", () => {
       catalogNode: node({ node_id: "dir-archived", title: "归档目录", node_kind: "directory", status: "archived" }),
     });
 
-    expect(screen.getByLabelText("节点状态：已归档")).toBeInTheDocument();
+    expect(screen.getByLabelText("目录状态：已归档")).toBeInTheDocument();
     expect(container).not.toHaveTextContent("archived");
   });
 });

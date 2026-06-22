@@ -81,10 +81,10 @@ export function useCatalogNodeDetail(nodeId?: string) {
   });
 }
 
-export function useCatalogSearch(query: string, chapterId?: string | null, enabled = true) {
+export function useCatalogSearch(query: string, chapterId?: string | null, enabled = true, statusFilter = "all") {
   return useQuery({
-    queryKey: ["catalog-search", query, chapterId],
-    queryFn: () => searchCatalogNodes(query, chapterId, 80),
+    queryKey: ["catalog-search", query, chapterId, statusFilter],
+    queryFn: () => searchCatalogNodes(query, chapterId, 80, statusFilter),
     enabled: enabled && query.trim().length >= 2,
   });
 }
@@ -124,6 +124,11 @@ export function useCatalogInvalidation() {
     void queryClient.invalidateQueries({ queryKey: ["catalog-media-assets"] });
     if (detail?.node.node_id) {
       void queryClient.invalidateQueries({ queryKey: ["catalog-node", detail.node.node_id] });
+      for (const item of detail.breadcrumbs || []) {
+        if (item.node_kind === "directory") {
+          void queryClient.invalidateQueries({ queryKey: ["catalog-children", item.node_id] });
+        }
+      }
       if (detail.node.parent_id) {
         void queryClient.invalidateQueries({ queryKey: ["catalog-children", detail.node.parent_id] });
       }
@@ -149,7 +154,7 @@ export function useCatalogMutations(message: MessageApi) {
   const copyNode = useMutation({
     mutationFn: ({ nodeId, payload }: { nodeId: string; payload: CatalogNodeCopyPayload }) => copyCatalogNode(nodeId, payload),
     onSuccess: (detail) => {
-      message.success("节点已复制为草稿");
+      message.success("节点已添加为草稿");
       invalidateCatalog(detail);
     },
     onError: (error) => message.error(errorMessage(error)),
@@ -271,10 +276,9 @@ export function useCatalogMutations(message: MessageApi) {
       void queryClient.invalidateQueries({ queryKey: ["catalog-validation", variables.nodeId] });
       void queryClient.invalidateQueries({ queryKey: ["catalog-search"] });
       void queryClient.invalidateQueries({ queryKey: ["catalog-point-ai-context", variables.nodeId] });
-      if (state.es_state?.sync_status === "synced") {
-        void queryClient.invalidateQueries({ queryKey: ["catalog-roots"] });
-        void queryClient.invalidateQueries({ queryKey: ["catalog-children"] });
-      }
+      void queryClient.invalidateQueries({ queryKey: ["catalog-roots"] });
+      void queryClient.invalidateQueries({ queryKey: ["catalog-chapter-summary"] });
+      void queryClient.invalidateQueries({ queryKey: ["catalog-children"] });
     },
     onError: (error) => message.error(errorMessage(error)),
   });

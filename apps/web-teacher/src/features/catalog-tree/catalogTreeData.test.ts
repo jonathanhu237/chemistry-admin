@@ -78,6 +78,21 @@ describe("catalog tree data helpers", () => {
     expect(next[0].children?.[0].id).toBe("point-a");
   });
 
+  it("updates the refreshed directory card while replacing its children", () => {
+    const tree = sampleTree();
+    const next = replaceCatalogTreeChildren(
+      tree,
+      "dir-b",
+      [toCatalogTreeNode(node({ node_id: "point-c", title: "P3 updated", node_kind: "point", parent_id: "dir-b" }))],
+      node({ node_id: "dir-b", title: "B updated", node_kind: "directory", parent_id: "dir-a", has_children: true, descendant_point_count: 2 }),
+    );
+    const refreshed = findCatalogTreeNode(next, "dir-b");
+
+    expect(refreshed?.name).toBe("B updated");
+    expect(refreshed?.catalogNode.descendant_point_count).toBe(2);
+    expect(refreshed?.children?.map((item) => item.name)).toEqual(["P3 updated"]);
+  });
+
   it("detects descendant moves", () => {
     expect(isCatalogTreeDescendant(sampleTree(), "dir-a", "point-c")).toBe(true);
     expect(isCatalogTreeDescendant(sampleTree(), "dir-b", "point-a")).toBe(false);

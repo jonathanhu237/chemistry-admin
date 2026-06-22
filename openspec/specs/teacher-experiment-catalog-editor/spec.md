@@ -86,9 +86,20 @@ The teacher admin console SHALL provide a catalog authoring workspace with a nav
 - **AND** selecting a node MUST open its editor without leaving the workspace.
 
 #### Scenario: Teacher searches the tree
-- **WHEN** a teacher searches by node title, alias, reagent, point text, or legacy code
-- **THEN** the tree MUST surface matching nodes and enough ancestors to preserve context
-- **AND** selecting a result MUST focus the matching node in the editor.
+- **WHEN** a teacher searches by node title, alias, reagent, point text, teacher note, or legacy code
+- **THEN** the workspace MUST show matching nodes in a search overlay anchored to the tree search input
+- **AND** the overlay MUST provide enough breadcrumb or ancestor context for each result
+- **AND** the overlay MUST NOT push the catalog tree downward or become a second in-flow tree.
+
+#### Scenario: Teacher selects a search result
+- **WHEN** a teacher selects a result from the search overlay
+- **THEN** the workspace MUST reveal the matching node in the existing catalog tree with enough ancestors expanded to preserve context
+- **AND** selecting the result MUST focus the matching node in the editor.
+
+#### Scenario: Search overlay is dismissed
+- **WHEN** the teacher clears the query, changes chapter, presses Escape, clicks outside the overlay, or selects a result
+- **THEN** the search overlay MUST close or reset appropriately
+- **AND** the underlying tree layout, scroll container, and selected editor state MUST remain stable.
 
 ### Requirement: In-context tree editing
 The teacher catalog tree SHALL support fast in-context creation, movement, ordering, and cleanup of directory and point nodes.

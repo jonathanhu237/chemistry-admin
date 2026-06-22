@@ -71,13 +71,15 @@ export function replaceCatalogTreeChildren(
   tree: CatalogArboristNode[],
   nodeId: string,
   children: CatalogArboristNode[],
+  parentNode?: CatalogNodeCard,
 ): CatalogArboristNode[] {
   return tree.map((item) => {
     if (item.id === nodeId) {
-      return { ...item, loaded: true, children };
+      const nextParent = parentNode ? toCatalogTreeNode(parentNode, item) : item;
+      return { ...nextParent, loaded: true, children };
     }
     if (!item.children?.length) return item;
-    return { ...item, children: replaceCatalogTreeChildren(item.children, nodeId, children) };
+    return { ...item, children: replaceCatalogTreeChildren(item.children, nodeId, children, parentNode) };
   });
 }
 

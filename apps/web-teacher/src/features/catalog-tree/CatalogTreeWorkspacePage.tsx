@@ -1,12 +1,13 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState, type KeyboardEvent, type ReactNode } from "react";
 import { App as AntApp, Button, Dropdown, Flex, Form, Input, Modal, Radio, Select, Tag, Typography } from "antd";
 import { DownOutlined, SearchOutlined } from "@ant-design/icons";
-import { ChevronDown, ChevronRight, FlaskConical, Folder, FolderOpen, RotateCcw } from "lucide-react";
+import { CheckCircle2, ChevronDown, ChevronRight, CircleAlert, CircleDashed, CircleX, FlaskConical, Folder, FolderOpen, RefreshCw, RotateCcw, TriangleAlert } from "lucide-react";
 
-import { listCatalogChildren, type CatalogChapterTreeSummary, type CatalogNodeCard, type CatalogNodeKind } from "../../api/catalogTree";
+import { listCatalogChildren, type CatalogChapterTreeSummary, type CatalogNodeCard, type CatalogNodeKind, type CatalogSearchMeta, type CatalogSearchResult } from "../../api/catalogTree";
 import { PageTitle } from "../../components/PageTitle";
 import { QueryState } from "../../components/QueryState";
 import { formatChapterTitle } from "../../lib/resourceUtils";
+import { CatalogStatusCompositeWarningIcon } from "./CatalogStatusCompositeWarningIcon";
 import { CatalogTreeEditor } from "./CatalogTreeEditor";
 import {
   useCatalogChapterTreeSummary,
@@ -20,10 +21,10 @@ import {
 import { CatalogTreeNodeList } from "./CatalogTreeNodeList";
 import {
   buildCatalogNodeCreatePayload,
+  catalogMissingFieldFilterOptions,
   catalogNodeKindLabel,
-  catalogStatusFilterOptions,
+  catalogPrimaryStatusFilterOptions,
   catalogStatusFilterCount,
-  matchesCatalogNodeStatusFilter,
 } from "./catalogTreeMappers";
 import type { CatalogNodeFormValues, CatalogStatusFilter } from "./catalogTreeMappers";
 import "./catalogTree.css";
@@ -62,15 +63,32 @@ function displaySummaryCount(summary: CatalogChapterTreeSummary | undefined, val
   return loading ? "..." : 0;
 }
 
+type CatalogStatusVisualTone = "neutral" | "error" | "warning" | "ready" | "success" | "sync";
+
+function catalogStatusVisual(value: CatalogStatusFilter | string): { tone: CatalogStatusVisualTone; icon: ReactNode } {
+  if (value === "blocked") return { tone: "error", icon: <CircleX size={13} strokeWidth={2.1} /> };
+  if (value === "needs_content" || value === "missing_principle" || value === "missing_phenomenon" || value === "missing_safety") {
+    return { tone: "warning", icon: <CatalogStatusCompositeWarningIcon kind="content" size={14} strokeWidth={2.1} /> };
+  }
+  if (value === "needs_video") {
+    return { tone: "warning", icon: <CatalogStatusCompositeWarningIcon kind="video" size={14} strokeWidth={2.1} /> };
+  }
+  if (value === "unpublished") return { tone: "ready", icon: <CircleAlert size={13} strokeWidth={2.1} /> };
+  if (value === "published") return { tone: "success", icon: <CheckCircle2 size={13} strokeWidth={2.1} /> };
+  if (value === "sync_attention") return { tone: "sync", icon: <RefreshCw size={13} strokeWidth={2.1} /> };
+  if (value === "actionable") return { tone: "warning", icon: <TriangleAlert size={13} strokeWidth={2.1} /> };
+  return { tone: "neutral", icon: <CircleDashed size={13} strokeWidth={2.1} /> };
+}
+
 function CatalogTreeOverview({ summary, loading }: { summary?: CatalogChapterTreeSummary; loading: boolean }) {
   const pointCounts = summary?.point_status_counts || {};
   const statusItems = [
     { key: "blocked", label: "异常", value: Number(pointCounts.blocked || 0), tone: "error" },
     { key: "needs_content", label: "缺内容", value: Number(pointCounts.needs_content || 0), tone: "warning" },
     { key: "needs_video", label: "缺视频", value: Number(pointCounts.needs_video || 0), tone: "warning" },
-    { key: "unpublished", label: "待发布", value: Number(pointCounts.ready || 0) + Number(pointCounts.draft || 0), tone: "info" },
+    { key: "unpublished", label: "待发布", value: Number(pointCounts.ready || 0) + Number(pointCounts.draft || 0), tone: "ready" },
     { key: "published", label: "已发布", value: Number(pointCounts.published || 0), tone: "success" },
-    { key: "sync_attention", label: "同步异常", value: Number(pointCounts.sync_attention || 0), tone: "warning" },
+    { key: "sync_attention", label: "同步异常", value: Number(pointCounts.sync_attention || 0), tone: "sync" },
   ];
   const primaryStats = [
     { label: "目录", value: displaySummaryCount(summary, summary?.directory_count, loading) },
@@ -92,6 +110,7 @@ function CatalogTreeOverview({ summary, loading }: { summary?: CatalogChapterTre
       <div className="catalog-tree-overview-statuses" aria-label="点位状态统计">
         {statusItems.map((item) => (
           <Tag key={item.key} className={`catalog-tree-overview-chip is-${item.tone}`}>
+            <span className="catalog-status-chip-icon" aria-hidden="true">{catalogStatusVisual(item.key).icon}</span>
             <span>{item.label}</span>
             <strong>{summary ? item.value : loading ? "..." : 0}</strong>
           </Tag>
@@ -110,25 +129,27 @@ function CatalogStatusFilterBar({
   summary?: CatalogChapterTreeSummary;
   onChange: (value: CatalogStatusFilter) => void;
 }) {
+  const renderChip = (option: { value: CatalogStatusFilter; label: string }, variant: "primary" | "secondary" = "primary") => {
+    const count = catalogStatusFilterCount(summary, option.value);
+    const selected = value === option.value;
+    return (
+      <button
+        key={option.value}
+        type="button"
+        role="radio"
+        aria-checked={selected}
+        className={`catalog-status-filter-chip${selected ? " is-active" : ""}${variant === "secondary" ? " is-secondary" : ""}`}
+        onClick={() => onChange(option.value)}
+      >
+        <span>{option.label}</span>
+        {count !== null ? <strong>{count}</strong> : null}
+      </button>
+    );
+  };
   return (
     <div className="catalog-status-filter" role="radiogroup" aria-label="点位状态筛选">
-      {catalogStatusFilterOptions.map((option) => {
-        const count = catalogStatusFilterCount(summary, option.value);
-        const selected = value === option.value;
-        return (
-          <button
-            key={option.value}
-            type="button"
-            role="radio"
-            aria-checked={selected}
-            className={selected ? "catalog-status-filter-chip is-active" : "catalog-status-filter-chip"}
-            onClick={() => onChange(option.value)}
-          >
-            <span>{option.label}</span>
-            {count !== null ? <strong>{count}</strong> : null}
-          </button>
-        );
-      })}
+      <div className="catalog-status-filter-row">{catalogPrimaryStatusFilterOptions.map((option) => renderChip(option))}</div>
+      <div className="catalog-status-filter-row is-secondary">{catalogMissingFieldFilterOptions.map((option) => renderChip(option, "secondary"))}</div>
     </div>
   );
 }
@@ -138,12 +159,160 @@ function kindIcon(kind: CatalogNodeKind) {
   return <Folder size={14} />;
 }
 
+function searchBackendNotice(meta?: CatalogSearchMeta) {
+  if (!meta) return "";
+  if (meta.backend === "postgres_fallback") return "有限搜索：ES 暂不可用，当前结果不包含同义词和结构化化学召回。";
+  if (meta.stale_hit_count) return `已隐藏 ${meta.stale_hit_count} 个过期搜索命中。`;
+  return "";
+}
+
+type CatalogSearchOverlayGroup = {
+  key: string;
+  label: string;
+  hint: string;
+  entries: Array<{ item: CatalogSearchResult; index: number }>;
+  emptyText?: string;
+};
+
+function searchScope(item: CatalogSearchResult) {
+  return item.search_scope || item.search_match?.search_scope || "all";
+}
+
+function groupSearchItemsByScope(items: CatalogSearchResult[], meta?: CatalogSearchMeta): CatalogSearchOverlayGroup[] {
+  const buckets: Record<string, CatalogSearchOverlayGroup["entries"]> = {
+    current_chapter: [],
+    other_chapter: [],
+    all: [],
+  };
+  items.forEach((item, index) => {
+    const scope = searchScope(item);
+    if (scope === "other_chapter") {
+      buckets.other_chapter.push({ item, index });
+      return;
+    }
+    if (scope === "current_chapter") {
+      buckets.current_chapter.push({ item, index });
+      return;
+    }
+    buckets.all.push({ item, index });
+  });
+  const countLabel = (scope: string, count: number) => {
+    const total = meta?.scope_totals?.[scope];
+    return total && total > count ? `${count}/${total}` : String(count);
+  };
+  const groups: CatalogSearchOverlayGroup[] = [];
+  const showCurrentChapterEmpty = Boolean(meta?.cross_chapter_enabled && !buckets.current_chapter.length && buckets.other_chapter.length);
+  if (buckets.current_chapter.length || showCurrentChapterEmpty) {
+    groups.push({
+      key: "current_chapter",
+      label: "本章",
+      hint: `${countLabel("current_chapter", buckets.current_chapter.length)} 个结果`,
+      entries: buckets.current_chapter,
+      emptyText: showCurrentChapterEmpty ? "本章暂无匹配，以下为跨章结果" : undefined,
+    });
+  }
+  if (buckets.other_chapter.length) {
+    groups.push({
+      key: "other_chapter",
+      label: "跨章",
+      hint: `${countLabel("other_chapter", buckets.other_chapter.length)} 个结果`,
+      entries: buckets.other_chapter,
+    });
+  }
+  if (buckets.all.length) {
+    groups.push({
+      key: "all",
+      label: "结果",
+      hint: `${countLabel("all", buckets.all.length)} 个结果`,
+      entries: buckets.all,
+    });
+  }
+  return groups;
+}
+
+function CatalogSearchOverlay({
+  open,
+  queryReady,
+  loading,
+  error,
+  items,
+  meta,
+  activeIndex,
+  selectedNodeId,
+  onActiveIndex,
+  onSelect,
+}: {
+  open: boolean;
+  queryReady: boolean;
+  loading: boolean;
+  error: unknown;
+  items: CatalogSearchResult[];
+  meta?: CatalogSearchMeta;
+  activeIndex: number;
+  selectedNodeId?: string | null;
+  onActiveIndex: (index: number) => void;
+  onSelect: (item: CatalogSearchResult) => void;
+}) {
+  if (!open || !queryReady) return null;
+  const notice = searchBackendNotice(meta);
+  const groups = groupSearchItemsByScope(items, meta);
+  return (
+    <div className="catalog-search-overlay" role="listbox" aria-label="目录搜索结果">
+      {notice ? <div className="catalog-search-overlay-notice">{notice}</div> : null}
+      {loading ? <div className="catalog-search-overlay-state">正在搜索...</div> : null}
+      {!loading && error ? <div className="catalog-search-overlay-state is-error">搜索暂时失败，请稍后重试。</div> : null}
+      {!loading && !error && !items.length ? <div className="catalog-search-overlay-state">没有匹配结果。</div> : null}
+      {!loading && !error && groups.length ? (
+        <div className="catalog-search-overlay-list">
+          {groups.map((group) => (
+            <section key={group.key} className="catalog-search-overlay-section" aria-label={group.label}>
+              <div className="catalog-search-overlay-section-header">
+                <span>{group.label}</span>
+                <em>{group.hint}</em>
+              </div>
+              {!group.entries.length && group.emptyText ? <div className="catalog-search-overlay-empty-row">{group.emptyText}</div> : null}
+              {group.entries.map(({ item, index }) => {
+                const statusLabel = item.node_status?.primary_label || item.node_status?.primary_state || item.status;
+                const breadcrumb = item.breadcrumb_path || (item.breadcrumbs || []).map((entry) => entry.title).join(" / ");
+                return (
+                  <button
+                    key={`${group.key}:${item.node_id}:${index}`}
+                    type="button"
+                    role="option"
+                    aria-selected={selectedNodeId === item.node_id || activeIndex === index}
+                    className={`catalog-search-overlay-row${activeIndex === index ? " is-active" : ""}${selectedNodeId === item.node_id ? " is-selected" : ""}`}
+                    onMouseEnter={() => onActiveIndex(index)}
+                    onClick={() => onSelect(item)}
+                  >
+                    <span className="catalog-search-overlay-kind" aria-hidden="true">{kindIcon(item.node_kind)}</span>
+                    <span className="catalog-search-overlay-main">
+                      <span className="catalog-search-overlay-title">{item.title}</span>
+                      <span className="catalog-search-overlay-breadcrumb">{breadcrumb || catalogNodeKindLabel(item.node_kind)}</span>
+                    </span>
+                    {item.search_match?.field_label ? <span className="catalog-search-overlay-match">{item.search_match.field_label}</span> : null}
+                    <span className={`catalog-search-overlay-status is-${item.node_status?.primary_state || item.status}`}>{statusLabel}</span>
+                  </button>
+                );
+              })}
+            </section>
+          ))}
+        </div>
+      ) : null}
+      {meta?.limited ? <div className="catalog-search-overlay-footer">只显示前 {items.length} 个结果，请继续输入以缩小范围。</div> : null}
+    </div>
+  );
+}
+
 function copyKindLabel(kind?: CatalogNodeKind) {
   return kind === "point" ? "实验" : "目录";
 }
 
+function copyOperationVerb(kind?: CatalogNodeKind) {
+  return kind === "point" ? "引用" : "复制";
+}
+
 function copyTitle(title: string) {
-  return `${title || "未命名节点"} 副本`;
+  return title || "未命名节点";
 }
 
 function toCopyDestinationNodes(nodes: CatalogNodeCard[]): CopyDestinationNode[] {
@@ -258,7 +427,7 @@ function CatalogCopyDestinationTree({
         <Folder size={16} />
         <span>章节根目录</span>
       </button>
-      {tree.length ? renderNodes(tree) : <Text type="secondary">当前章节还没有可选目录，可以复制到章节根目录。</Text>}
+      {tree.length ? renderNodes(tree) : <Text type="secondary">当前章节还没有可选目录，可以放到章节根目录。</Text>}
     </div>
   );
 }
@@ -269,6 +438,9 @@ export function CatalogTreeWorkspacePage() {
   const [selectedNodeId, setSelectedNodeId] = useState<string | null>(null);
   const [searchText, setSearchText] = useState("");
   const [statusFilter, setStatusFilter] = useState<CatalogStatusFilter>("all");
+  const [searchOverlayOpen, setSearchOverlayOpen] = useState(false);
+  const [activeSearchIndex, setActiveSearchIndex] = useState(0);
+  const [searchReveal, setSearchReveal] = useState<{ nodeId: string; pathIds: string[]; version: number } | null>(null);
   const [reuseSearchText, setReuseSearchText] = useState("");
   const [copySourceSearchText, setCopySourceSearchText] = useState("");
   const [createIntent, setCreateIntent] = useState<CreateIntent | null>(null);
@@ -276,6 +448,7 @@ export function CatalogTreeWorkspacePage() {
   const [copyChapterId, setCopyChapterId] = useState<string>();
   const [copyParentId, setCopyParentId] = useState<string | null>(null);
   const [workspaceResetVersion, setWorkspaceResetVersion] = useState(0);
+  const searchBoxRef = useRef<HTMLDivElement | null>(null);
   const [createForm] = Form.useForm<CatalogNodeFormValues>();
   const [copyForm] = Form.useForm<CopyFormValues>();
   const chapters = useCatalogChapters();
@@ -285,7 +458,12 @@ export function CatalogTreeWorkspacePage() {
   const selectedDetail = useCatalogNodeDetail(selectedNodeId || undefined);
   const selectedParentId = selectedDetail.data?.node.parent_id || undefined;
   const selectedSiblingChildren = useCatalogChildren(selectedParentId, Boolean(selectedParentId));
-  const search = useCatalogSearch(searchText, chapterId, searchText.trim().length >= 2);
+  const selectedBranchDirectoryIds = useMemo(
+    () => (selectedDetail.data?.breadcrumbs || []).filter((item) => item.node_kind === "directory").map((item) => item.node_id),
+    [selectedDetail.data?.breadcrumbs],
+  );
+  const searchReady = searchText.trim().length >= 2;
+  const search = useCatalogSearch(searchText, chapterId, searchReady, statusFilter);
   const reuseSearch = useCatalogSearch(
     reuseSearchText,
     null,
@@ -305,8 +483,32 @@ export function CatalogTreeWorkspacePage() {
   }, [chapterId, chapters.data]);
 
   useEffect(() => {
+    if (searchReveal?.nodeId) return;
     setSelectedNodeId(null);
-  }, [chapterId]);
+    setSearchText("");
+    setSearchOverlayOpen(false);
+    setActiveSearchIndex(0);
+  }, [chapterId, searchReveal?.nodeId]);
+
+  useEffect(() => {
+    if (!searchReady) {
+      setSearchOverlayOpen(false);
+      setActiveSearchIndex(0);
+      return;
+    }
+    setSearchOverlayOpen(true);
+    setActiveSearchIndex(0);
+  }, [chapterId, searchReady, searchText, statusFilter]);
+
+  useEffect(() => {
+    const handlePointerDown = (event: MouseEvent) => {
+      if (!searchBoxRef.current) return;
+      if (searchBoxRef.current.contains(event.target as Node)) return;
+      setSearchOverlayOpen(false);
+    };
+    document.addEventListener("mousedown", handlePointerDown);
+    return () => document.removeEventListener("mousedown", handlePointerDown);
+  }, []);
 
   useEffect(() => {
     if (createIntent) {
@@ -336,10 +538,14 @@ export function CatalogTreeWorkspacePage() {
     label: chapter.label,
   }));
   const rootItems = roots.data?.nodes || [];
-  const searchItems = useMemo(
-    () => (search.data?.items || []).filter((item) => matchesCatalogNodeStatusFilter(item, statusFilter)),
-    [search.data?.items, statusFilter],
-  );
+  const searchItems = search.data?.items || [];
+  useEffect(() => {
+    if (!searchItems.length) {
+      setActiveSearchIndex(0);
+      return;
+    }
+    setActiveSearchIndex((index) => Math.min(index, searchItems.length - 1));
+  }, [searchItems.length]);
   const siblingItems = selectedDetail.data?.node.parent_id ? selectedSiblingChildren.data?.children || [] : rootItems;
   const currentChapter = chapters.data?.find((chapter) => chapter.chapter_id === chapterId);
   const currentChapterLabel = currentChapter ? formatChapterTitle(currentChapter.chapter_title, currentChapter.chapter_id) : "未选择章节";
@@ -373,7 +579,7 @@ export function CatalogTreeWorkspacePage() {
       sourceKind: node.node_kind,
       sourceNode: node,
       targetChapterId: node.chapter_id,
-      targetParentId: node.parent_id || null,
+      targetParentId: node.node_kind === "point" ? null : node.parent_id || null,
     });
   };
 
@@ -445,9 +651,39 @@ export function CatalogTreeWorkspacePage() {
     }
   };
 
-  const selectNode = (node: CatalogNodeCard) => {
+  const selectNode = (node: CatalogNodeCard, revealPathIds?: string[]) => {
     if (node.chapter_id !== chapterId) setChapterId(node.chapter_id);
     setSelectedNodeId(node.node_id);
+    if (revealPathIds?.length) {
+      setSearchReveal({ nodeId: node.node_id, pathIds: revealPathIds, version: Date.now() });
+    }
+  };
+  const selectSearchResult = (node: CatalogSearchResult) => {
+    const pathIds = (node.breadcrumbs || []).map((item) => item.node_id);
+    setSearchOverlayOpen(false);
+    selectNode(node, pathIds);
+  };
+  const handleSearchKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
+    if (!searchOverlayOpen || !searchReady) return;
+    if (event.key === "Escape") {
+      setSearchOverlayOpen(false);
+      return;
+    }
+    if (!searchItems.length) return;
+    if (event.key === "ArrowDown") {
+      event.preventDefault();
+      setActiveSearchIndex((index) => Math.min(index + 1, searchItems.length - 1));
+      return;
+    }
+    if (event.key === "ArrowUp") {
+      event.preventDefault();
+      setActiveSearchIndex((index) => Math.max(index - 1, 0));
+      return;
+    }
+    if (event.key === "Enter") {
+      event.preventDefault();
+      selectSearchResult(searchItems[Math.min(activeSearchIndex, searchItems.length - 1)]);
+    }
   };
   const reusablePointResults = (reuseSearch.data?.items || []).filter((item) => item.node_kind === "point" && item.canonical_point_id);
   const copySourceResults = (copySourceSearch.data?.items || []).filter(
@@ -455,8 +691,12 @@ export function CatalogTreeWorkspacePage() {
   );
   const copyModalTitle =
     copyIntent?.mode === "fixed-source"
-      ? `复制当前${copyKindLabel(copyIntent.sourceKind)}`
-      : `从已有${copyKindLabel(copyIntent?.sourceKind)}复制到此处`;
+      ? `${copyOperationVerb(copyIntent.sourceKind)}当前${copyKindLabel(copyIntent.sourceKind)}`
+      : `从已有${copyKindLabel(copyIntent?.sourceKind)}${copyOperationVerb(copyIntent?.sourceKind)}到此处`;
+  const copySemanticsNote =
+    copyIntent?.sourceKind === "point"
+      ? "引用实验会在目标目录新增一个点位入口，复用同一个实验身份和视频资源；内容、视频后续统一管理，不会生成新的实验身份。"
+      : "复制目录会创建新的目录结构；目录中的实验点位会以引用方式复用原实验身份，内容和视频后续统一管理。";
   const copySourceLocked = copyIntent?.mode === "fixed-source";
   const copyTargetLocked = copyIntent?.mode === "fixed-target";
   const sourceSearchReady = copySourceSearchText.trim().length >= 2;
@@ -479,7 +719,7 @@ export function CatalogTreeWorkspacePage() {
     <div className="catalog-workspace">
       <PageTitle
         title="章节目录与点位工作台"
-        description="在当前章节下维护多级目录和视频点位，目录负责分组导航，点位负责学习内容。一个视频点位唯一对应一个视频资源。"
+        description="在当前章节下维护多级目录和视频点位，目录负责分组导航，点位负责学习内容。一个视频点位唯一对应一个视频资源；如需让同一视频在多个目录中统一管理，请引用已有点位，不要新建节点。"
         extra={
           <Button icon={<RotateCcw size={16} />} onClick={resetWorkspace}>
             重置工作台
@@ -514,17 +754,35 @@ export function CatalogTreeWorkspacePage() {
             </div>
           </Flex>
           <CatalogTreeOverview summary={chapterSummary.data} loading={chapterSummary.isFetching} />
-          <div className="catalog-tree-filterbar catalog-tree-searchbar">
-            <Input
+          <div className="catalog-tree-filterbar catalog-tree-searchbar" ref={searchBoxRef}>
+            <div className="catalog-tree-searchbox">
+              <Input
               prefix={<SearchOutlined />}
               value={searchText}
+              onFocus={() => {
+                if (searchReady) setSearchOverlayOpen(true);
+              }}
               onChange={(event) => setSearchText(event.target.value)}
-              placeholder="搜标题、学习内容、教学备注、旧实验 ID"
+              onKeyDown={handleSearchKeyDown}
+              placeholder="搜索标题、实验内容、教学备注、旧实验 ID"
               allowClear
             />
+              <CatalogSearchOverlay
+                open={searchOverlayOpen}
+                queryReady={searchReady}
+                loading={search.isFetching}
+                error={search.error}
+                items={searchItems}
+                meta={search.data?.meta}
+                activeIndex={activeSearchIndex}
+                selectedNodeId={selectedNodeId}
+                onActiveIndex={setActiveSearchIndex}
+                onSelect={selectSearchResult}
+              />
+            </div>
             <CatalogStatusFilterBar value={statusFilter} summary={chapterSummary.data} onChange={setStatusFilter} />
           </div>
-          {searchText.trim().length >= 2 ? (
+          {false && searchText.trim().length >= 2 ? (
             <div className="catalog-search-results catalog-tree-search-results">
               <QueryState loading={search.isFetching} error={search.error} empty={!searchItems.length}>
                 <Flex gap={8} wrap>
@@ -561,7 +819,13 @@ export function CatalogTreeWorkspacePage() {
             onChangeStatus={(node, action) => mutations.changeNodeStatus.mutate({ nodeId: node.node_id, action })}
             statusFilter={statusFilter}
             refreshedChildrenParentId={selectedParentId}
+            refreshedParent={selectedSiblingChildren.data?.parent}
             refreshedChildren={selectedSiblingChildren.data?.children}
+            branchRefreshVersion={selectedDetail.dataUpdatedAt}
+            branchRefreshDirectoryIds={selectedBranchDirectoryIds}
+            revealNodeId={searchReveal?.nodeId}
+            revealPathIds={searchReveal?.pathIds || []}
+            revealVersion={searchReveal?.version || 0}
           />
         </aside>
 
@@ -605,8 +869,8 @@ export function CatalogTreeWorkspacePage() {
                 <>
                   <div className="catalog-reuse-picker">
                     <div className="catalog-reuse-picker-copy">
-                      <Text strong>复用已有实验</Text>
-                      <Text type="secondary">搜索已有点位，选择后会把同一个实验同步添加到当前目录。</Text>
+                      <Text strong>引用已有实验</Text>
+                      <Text type="secondary">搜索已有点位，选择后会把同一个实验引用到当前目录。</Text>
                     </div>
                     <Input.Search
                       value={reuseSearchText}
@@ -636,8 +900,8 @@ export function CatalogTreeWorkspacePage() {
                   </div>
                   <Form.Item
                     name="canonical_point_id"
-                    label="同步实验 ID（可选）"
-                    extra="留空会创建一个新实验；选择或填写已有实验 ID 会把同一个实验添加到当前目录。"
+                    label="引用实验 ID（可选）"
+                    extra="留空会创建一个新实验；选择或填写已有实验 ID 会把同一个实验引用到当前目录。"
                   >
                     <Input placeholder="cat-canon-..." />
                   </Form.Item>
@@ -665,6 +929,9 @@ export function CatalogTreeWorkspacePage() {
         width={760}
       >
         <Form form={copyForm} layout="vertical">
+          <div className={`catalog-copy-semantics-note ${copyIntent?.sourceKind === "point" ? "is-point" : "is-directory"}`}>
+            {copySemanticsNote}
+          </div>
           <Form.Item label={`来源${copyKindLabel(copyIntent?.sourceKind)}`} required>
             <div className="catalog-copy-source-picker">
               {copyIntent?.sourceNode ? (
@@ -677,7 +944,7 @@ export function CatalogTreeWorkspacePage() {
                   <Tag>{catalogNodeKindLabel(copyIntent.sourceNode.node_kind)}</Tag>
                 </div>
               ) : (
-                <Text type="secondary">请先搜索并选择一个已有{copyKindLabel(copyIntent?.sourceKind)}作为复制来源。</Text>
+                <Text type="secondary">请先搜索并选择一个已有{copyKindLabel(copyIntent?.sourceKind)}作为{copyOperationVerb(copyIntent?.sourceKind)}来源。</Text>
               )}
               {copySourceLocked ? null : (
                 <>
@@ -716,7 +983,7 @@ export function CatalogTreeWorkspacePage() {
               )}
             </div>
           </Form.Item>
-          <Form.Item name="title" label="副本名称" rules={[{ required: true, message: "请输入副本名称" }]}>
+          <Form.Item name="title" label="节点名称" rules={[{ required: true, message: "请输入节点名称" }]}>
             <Input autoFocus={Boolean(copyIntent?.sourceNode)} />
           </Form.Item>
           {copyTargetLocked ? (

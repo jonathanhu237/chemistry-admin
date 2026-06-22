@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { Button, Form, Input, Modal, Radio, Space, Tag, Typography, type FormInstance } from "antd";
 import { CheckCircleOutlined, ExclamationCircleOutlined, LoadingOutlined, RobotOutlined } from "@ant-design/icons";
 import { Editor as MonacoEditor, loader, type BeforeMount } from "@monaco-editor/react";
@@ -16,6 +16,7 @@ import { AssistantMarkdownContent } from "../../lib/assistant-markdown";
 import type { CatalogMutations } from "./catalogTreeHooks";
 import {
   buildCatalogNodeUpdatePayload,
+  catalogMissingLearningFieldLabels,
   type CatalogNodeFormValues,
   type CatalogPointContentFormValues,
 } from "./catalogTreeMappers";
@@ -188,6 +189,15 @@ function principleModeLabel(mode: CatalogPointContentFormValues["principle_mode"
   return mode === "equation" ? "化学方程式" : "文字描述";
 }
 
+function RequiredFieldLabel({ children }: { children: string }) {
+  return (
+    <span className="catalog-required-field-label">
+      <span aria-hidden="true">*</span>
+      <strong>{children}</strong>
+    </span>
+  );
+}
+
 function CatalogEquationCodeEditor({
   value = "",
   onChange,
@@ -195,7 +205,7 @@ function CatalogEquationCodeEditor({
 }: {
   value?: string;
   onChange?: (value: string) => void;
-  placeholder?: string;
+  placeholder?: ReactNode;
 }) {
   const lineCount = value ? value.split(/\r?\n/).length : 1;
   const visibleLineCount = Math.max(4, lineCount);
@@ -227,6 +237,7 @@ export function CatalogNodeContentPanel({
   principleMode,
   mutations,
   onSavePointContent,
+  onLocalContentChange,
   variant = "panel",
 }: {
   detail: CatalogNodeDetail;
@@ -235,11 +246,14 @@ export function CatalogNodeContentPanel({
   principleMode?: string;
   mutations: CatalogMutations;
   onSavePointContent: (values: CatalogPointContentFormValues, options?: { silent?: boolean }) => Promise<void>;
+  onLocalContentChange?: () => void;
   variant?: "panel" | "task";
 }) {
   const { node } = detail;
   const equationText = Form.useWatch("reaction_equations_text", pointForm) || "";
   const principleText = Form.useWatch("principle_text", pointForm) || "";
+  const phenomenonExplanation = Form.useWatch("phenomenon_explanation", pointForm) || "";
+  const safetyNote = Form.useWatch("safety_note", pointForm) || "";
   const watchedPrincipleMode = Form.useWatch("principle_mode", pointForm) || principleMode || "text";
   const activePrincipleMode = watchedPrincipleMode as CatalogPointContentFormValues["principle_mode"];
   const [equationPreview, setEquationPreview] = useState<CatalogEquationPreviewResponse | null>(null);
@@ -255,6 +269,20 @@ export function CatalogNodeContentPanel({
   const [autoSaveError, setAutoSaveError] = useState("");
   const reviewModel = useMemo(() => buildEquationReviewModel(equationPreview, assistDrafts), [equationPreview, assistDrafts]);
   const hasEquationInput = Boolean(equationText.trim());
+  const localMissingFieldKeys = useMemo(() => {
+    const missing: Array<keyof typeof catalogMissingLearningFieldLabels> = [];
+    const hasPrinciple = activePrincipleMode === "equation" ? Boolean(equationText.trim()) : Boolean(principleText.trim());
+    if (!hasPrinciple) missing.push("principle");
+    if (!phenomenonExplanation.trim()) missing.push("phenomenon");
+    if (!safetyNote.trim()) missing.push("safety");
+    return missing;
+  }, [activePrincipleMode, equationText, phenomenonExplanation, principleText, safetyNote]);
+  const missingFieldKeys = localMissingFieldKeys;
+  const fieldTargetRefs = {
+    principle: useRef<HTMLDivElement | null>(null),
+    phenomenon: useRef<HTMLDivElement | null>(null),
+    safety: useRef<HTMLDivElement | null>(null),
+  };
   const autoSavePill = (
     <span className={`catalog-autosave-status is-${autoSaveStatus}`} title={contentAutoSaveDisplayTitle(autoSaveStatus, autoSaveError)}>
       {contentAutoSaveIcon(autoSaveStatus)}
@@ -267,6 +295,16 @@ export function CatalogNodeContentPanel({
       window.clearTimeout(autoSaveTimerRef.current);
       autoSaveTimerRef.current = null;
     }
+  };
+
+  const focusMissingField = (fieldKey: keyof typeof catalogMissingLearningFieldLabels) => {
+    const target = fieldTargetRefs[fieldKey].current;
+    if (!target) return;
+    target.scrollIntoView({ behavior: "smooth", block: "center" });
+    window.setTimeout(() => {
+      const focusable = target.querySelector<HTMLElement>("textarea, input, button, [tabindex]:not([tabindex='-1'])");
+      focusable?.focus();
+    }, 160);
   };
 
   const runAutoSave = async (version: number) => {
@@ -299,6 +337,7 @@ export function CatalogNodeContentPanel({
   };
 
   const scheduleAutoSave = () => {
+    onLocalContentChange?.();
     clearAutoSaveTimer();
     autoSaveVersionRef.current += 1;
     const version = autoSaveVersionRef.current;
@@ -498,10 +537,28 @@ export function CatalogNodeContentPanel({
             <Input.TextArea className="catalog-teacher-note" autoSize={{ minRows: 2, maxRows: 5 }} />
           </Form.Item>
         </section>
-        <section className="catalog-content-form-section catalog-content-principle-section">
+        <section className="catalog-content-form-section catalog-student-facing-section">
           <div className="catalog-content-section-heading">
             <div className="catalog-content-section-copy">
-              <Text strong>实验原理</Text>
+              <Text strong>学生可见内容</Text>
+              <Text type="secondary">实验原理、现象解释和安全提示会进入学生端学习卡片、搜索和题目证据链。</Text>
+            </div>
+          </div>
+          {missingFieldKeys.length ? (
+            <div className="catalog-missing-fields-guide" role="note" aria-label="缺失学生可见内容">
+              <ExclamationCircleOutlined />
+              <span>还缺 {missingFieldKeys.length} 项：</span>
+              {missingFieldKeys.map((fieldKey) => (
+                <button key={fieldKey} type="button" onClick={() => focusMissingField(fieldKey)}>
+                  {catalogMissingLearningFieldLabels[fieldKey]}
+                </button>
+              ))}
+            </div>
+          ) : null}
+          <div ref={fieldTargetRefs.principle} className="catalog-content-principle-section" data-missing-field-target="principle">
+          <div className="catalog-content-section-heading">
+            <div className="catalog-content-section-copy">
+              <RequiredFieldLabel>实验原理</RequiredFieldLabel>
               <Text type="secondary">
                 {activePrincipleMode === "equation" ? (
                   <>
@@ -513,6 +570,11 @@ export function CatalogNodeContentPanel({
               </Text>
             </div>
             <div className="catalog-content-section-actions">
+              {activePrincipleMode === "equation" ? (
+                <Button type="primary" icon={<RobotOutlined />} loading={assistLoading} onClick={() => void runEquationAssist()}>
+                  {hasEquationInput ? "AI 校对" : "AI 根据点位建议"}
+                </Button>
+              ) : null}
               <Radio.Group
                 optionType="button"
                 buttonStyle="solid"
@@ -523,11 +585,6 @@ export function CatalogNodeContentPanel({
                 <Radio.Button value="equation">化学方程式</Radio.Button>
                 <Radio.Button value="text">文字描述</Radio.Button>
               </Radio.Group>
-              {activePrincipleMode === "equation" ? (
-                <Button type="primary" icon={<RobotOutlined />} loading={assistLoading} onClick={() => void runEquationAssist()}>
-                  {hasEquationInput ? "AI 校对" : "AI 根据点位建议"}
-                </Button>
-              ) : null}
             </div>
           </div>
           {activePrincipleMode === "equation" ? (
@@ -541,7 +598,16 @@ export function CatalogNodeContentPanel({
                     </div>
                   </div>
                   <Form.Item name="reaction_equations_text" rules={[{ required: true, message: "请输入实验反应式，或切换为文字描述" }]}>
-                    <CatalogEquationCodeEditor placeholder={"例如：CL2+H2=HCL\nCl2 + 2KBr -> 2KCl + Br2\n氯气 + 氢气 = 氯化氢"} />
+                    <CatalogEquationCodeEditor
+                      placeholder={
+                        [
+                          <span className="catalog-equation-placeholder-label" key="label">例：</span>,
+                          <span className="catalog-equation-placeholder-lines" key="lines">
+                            {"Cl2 + 2KI -> 2KCl + I2 // 氯水氧化碘离子，溶液变棕黄\nBr2 + 2KI -> 2KBr + I2 // CCl4层呈紫红色，说明生成碘\nCl2 + 2NaOH -> NaCl + NaClO + H2O // 冷稀碱中歧化"}
+                          </span>,
+                        ]
+                      }
+                    />
                   </Form.Item>
                 </section>
                 <section className="catalog-equation-pane catalog-equation-preview-pane">
@@ -664,25 +730,32 @@ export function CatalogNodeContentPanel({
               </div>
             </div>
           ) : (
-            <Form.Item name="principle_text" label="文字原理" rules={[{ required: true, message: "请输入文字原理" }]}>
+            <Form.Item name="principle_text" rules={[{ required: true, message: "请输入文字原理" }]}>
               <Input.TextArea autoSize={{ minRows: 4, maxRows: 9 }} />
             </Form.Item>
           )}
-        </section>
-        <section className="catalog-content-form-section catalog-student-facing-section">
-          <div className="catalog-content-section-heading">
-            <div className="catalog-content-section-copy">
-              <Text strong>学生可见内容</Text>
-              <Text type="secondary">用于学生端学习卡片、搜索和题目证据链。</Text>
-            </div>
           </div>
           <div className="catalog-student-facing-grid">
-            <Form.Item name="phenomenon_explanation" label="现象解释" rules={[{ required: true, message: "请输入现象解释" }]}>
-              <Input.TextArea autoSize={{ minRows: 4, maxRows: 9 }} />
-            </Form.Item>
-            <Form.Item name="safety_note" label="安全提示" rules={[{ required: true, message: "请输入安全提示" }]}>
-              <Input.TextArea autoSize={{ minRows: 4, maxRows: 9 }} />
-            </Form.Item>
+            <div ref={fieldTargetRefs.phenomenon} data-missing-field-target="phenomenon">
+              <Form.Item
+                name="phenomenon_explanation"
+                label={<RequiredFieldLabel>现象解释</RequiredFieldLabel>}
+                required={false}
+                rules={[{ required: true, message: "请输入现象解释" }]}
+              >
+                <Input.TextArea autoSize={{ minRows: 4, maxRows: 9 }} />
+              </Form.Item>
+            </div>
+            <div ref={fieldTargetRefs.safety} data-missing-field-target="safety">
+              <Form.Item
+                name="safety_note"
+                label={<RequiredFieldLabel>安全提示</RequiredFieldLabel>}
+                required={false}
+                rules={[{ required: true, message: "请输入安全提示" }]}
+              >
+                <Input.TextArea autoSize={{ minRows: 4, maxRows: 9 }} />
+              </Form.Item>
+            </div>
           </div>
         </section>
       </Form>

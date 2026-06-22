@@ -5,6 +5,7 @@ import type { MediaAsset } from "./media";
 export type CatalogNodeKind = "directory" | "point";
 export type CatalogNodeStatus = "draft" | "published" | "archived";
 export type CatalogPrincipleMode = "equation" | "text";
+export type CatalogMissingLearningFieldKey = "principle" | "phenomenon" | "safety";
 export type CatalogNodePrimaryState =
   | "archived"
   | "blocked"
@@ -41,9 +42,12 @@ export type CatalogNodeStatusSummary = {
     content_fields: "complete" | "missing" | "not_applicable" | string;
     video: "present" | "absent" | "not_applicable" | string;
     video_label?: string;
+    missing_field_keys?: Array<CatalogMissingLearningFieldKey | string>;
+    missing_field_labels?: string[];
     missing_fields?: string[];
     descendant_action_count?: number;
     descendant_status_counts?: Record<string, number>;
+    descendant_missing_field_counts?: Record<CatalogMissingLearningFieldKey | string, number>;
   };
   visibility: {
     placement: CatalogNodeStatus | "missing" | "not_applicable" | string;
@@ -434,12 +438,47 @@ export type CatalogChapterTreeSummary = {
   missing_video_count: number;
   actionable_point_count: number;
   point_status_counts: Record<string, number>;
+  point_missing_field_counts?: Record<CatalogMissingLearningFieldKey | string, number>;
   directory_status_counts: Record<string, number>;
 };
 
 export type CatalogSearchResponse = {
   query: string;
-  items: CatalogNodeCard[];
+  items: CatalogSearchResult[];
+  meta?: CatalogSearchMeta;
+};
+
+export type CatalogSearchResult = CatalogNodeCard & {
+  breadcrumbs?: CatalogBreadcrumb[];
+  breadcrumb_path?: string;
+  search_scope?: "current_chapter" | "other_chapter" | "all" | string | null;
+  search_match?: {
+    field_label?: string | null;
+    backend?: "elasticsearch" | "postgres_fallback" | string;
+    score?: number | null;
+    primary_state?: string | null;
+    catalog_path?: string[];
+    search_scope?: "current_chapter" | "other_chapter" | "all" | string | null;
+  } | null;
+  stale_safe?: boolean;
+};
+
+export type CatalogSearchMeta = {
+  backend: "elasticsearch" | "postgres_fallback" | "unavailable" | string;
+  fallback_reason?: string | null;
+  index?: string | null;
+  mapping_version?: string | null;
+  synonyms_active?: boolean;
+  chemistry_recall_active?: boolean;
+  status_filter?: string;
+  chapter_id?: string | null;
+  total?: number;
+  returned?: number;
+  stale_hit_count?: number;
+  limited?: boolean;
+  scope_counts?: Record<string, number>;
+  scope_totals?: Record<string, number>;
+  cross_chapter_enabled?: boolean;
 };
 
 export type CatalogPreviewTokenResponse = {
@@ -617,9 +656,15 @@ export function runCatalogPointRagProbe(nodeId: string): Promise<CatalogPointRag
   return postJson<CatalogPointRagProbe>(`/api/admin/catalog/nodes/${encodeURIComponent(nodeId)}/rag-probe`, {});
 }
 
-export function searchCatalogNodes(query: string, chapterId?: string | null, limit = 80): Promise<CatalogSearchResponse> {
+export function searchCatalogNodes(
+  query: string,
+  chapterId?: string | null,
+  limit = 80,
+  statusFilter = "all",
+): Promise<CatalogSearchResponse> {
   const params = new URLSearchParams({ q: query, limit: String(limit) });
   if (chapterId) params.set("chapter_id", chapterId);
+  if (statusFilter && statusFilter !== "all") params.set("status_filter", statusFilter);
   return api<CatalogSearchResponse>(`/api/admin/catalog/search?${params.toString()}`);
 }
 

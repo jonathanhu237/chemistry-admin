@@ -12,6 +12,12 @@ from server.app.domains.catalog_tree.equations import list_reaction_equations, r
 
 NODE_KINDS = {"directory", "point"}
 POINT_KINDS = {"point"}
+MISSING_LEARNING_FIELD_LABELS = {
+    "principle": "实验原理",
+    "phenomenon": "现象解释",
+    "safety": "安全提示",
+}
+MISSING_LEARNING_FIELD_KEYS = tuple(MISSING_LEARNING_FIELD_LABELS.keys())
 
 
 def json_dump(value: Any) -> str:
@@ -204,6 +210,7 @@ def node_select(where_clause: str) -> str:
                   WHERE dt.node_kind = 'point'
                     AND dt.canonical_point_id IS NOT NULL
                     AND dpc.content_id IS NOT NULL
+                    AND COALESCE(dpc.content_status, '') = 'published'
                     AND NOT (
                       CASE
                         WHEN COALESCE(NULLIF(trim(dpc.principle_mode), ''), 'text') = 'equation'
@@ -216,10 +223,12 @@ def node_select(where_clause: str) -> str:
                     AND COALESCE(dmb.media_count, 0) = 0
                 ), 0),
                 'draft', COALESCE(COUNT(*) FILTER (
+                  WHERE FALSE
+                ), 0),
+                'ready', COALESCE(COUNT(*) FILTER (
                   WHERE dt.node_kind = 'point'
                     AND dt.canonical_point_id IS NOT NULL
                     AND dpc.content_id IS NOT NULL
-                    AND COALESCE(dmb.media_count, 0) > 0
                     AND NOT (
                       CASE
                         WHEN COALESCE(NULLIF(trim(dpc.principle_mode), ''), 'text') = 'equation'
@@ -229,13 +238,21 @@ def node_select(where_clause: str) -> str:
                       OR COALESCE(NULLIF(trim(dpc.phenomenon_explanation), ''), '') = ''
                       OR COALESCE(NULLIF(trim(dpc.safety_note), ''), '') = ''
                     )
-                    AND dt.status <> 'published'
+                    AND (
+                      COALESCE(dpc.content_status, '') <> 'published'
+                      OR (
+                        COALESCE(dpc.content_status, '') = 'published'
+                        AND COALESCE(dmb.media_count, 0) > 0
+                        AND dt.status <> 'published'
+                      )
+                    )
                 ), 0),
                 'sync_attention', COALESCE(COUNT(*) FILTER (
                   WHERE dt.node_kind = 'point'
                     AND dt.status = 'published'
                     AND dt.canonical_point_id IS NOT NULL
                     AND dpc.content_id IS NOT NULL
+                    AND COALESCE(dpc.content_status, '') = 'published'
                     AND COALESCE(dmb.media_count, 0) > 0
                     AND NOT (
                       CASE
@@ -249,6 +266,55 @@ def node_select(where_clause: str) -> str:
                     AND (
                       COALESCE(dsi.sync_status, '') IN ('failed', 'unavailable')
                       OR COALESCE(dev.evidence_status, '') IN ('failed', 'unavailable')
+                    )
+                ), 0),
+                'published', COALESCE(COUNT(*) FILTER (
+                  WHERE dt.node_kind = 'point'
+                    AND dt.status = 'published'
+                    AND dt.canonical_point_id IS NOT NULL
+                    AND dpc.content_id IS NOT NULL
+                    AND COALESCE(dpc.content_status, '') = 'published'
+                    AND COALESCE(dmb.media_count, 0) > 0
+                    AND NOT (
+                      CASE
+                        WHEN COALESCE(NULLIF(trim(dpc.principle_mode), ''), 'text') = 'equation'
+                          THEN COALESCE(NULLIF(trim(dpc.principle_equation), ''), '') = ''
+                        ELSE COALESCE(NULLIF(trim(dpc.principle_text), ''), '') = ''
+                      END
+                      OR COALESCE(NULLIF(trim(dpc.phenomenon_explanation), ''), '') = ''
+                      OR COALESCE(NULLIF(trim(dpc.safety_note), ''), '') = ''
+                    )
+                    AND NOT (
+                      COALESCE(dsi.sync_status, '') IN ('failed', 'unavailable')
+                      OR COALESCE(dev.evidence_status, '') IN ('failed', 'unavailable')
+                    )
+                ), 0),
+                'missing_principle', COALESCE(COUNT(*) FILTER (
+                  WHERE dt.node_kind = 'point'
+                    AND dt.canonical_point_id IS NOT NULL
+                    AND (
+                      dpc.content_id IS NULL
+                      OR CASE
+                        WHEN COALESCE(NULLIF(trim(dpc.principle_mode), ''), 'text') = 'equation'
+                          THEN COALESCE(NULLIF(trim(dpc.principle_equation), ''), '') = ''
+                        ELSE COALESCE(NULLIF(trim(dpc.principle_text), ''), '') = ''
+                      END
+                    )
+                ), 0),
+                'missing_phenomenon', COALESCE(COUNT(*) FILTER (
+                  WHERE dt.node_kind = 'point'
+                    AND dt.canonical_point_id IS NOT NULL
+                    AND (
+                      dpc.content_id IS NULL
+                      OR COALESCE(NULLIF(trim(dpc.phenomenon_explanation), ''), '') = ''
+                    )
+                ), 0),
+                'missing_safety', COALESCE(COUNT(*) FILTER (
+                  WHERE dt.node_kind = 'point'
+                    AND dt.canonical_point_id IS NOT NULL
+                    AND (
+                      dpc.content_id IS NULL
+                      OR COALESCE(NULLIF(trim(dpc.safety_note), ''), '') = ''
                     )
                 ), 0)
               )
@@ -383,15 +449,23 @@ def _principle_complete(content: dict[str, Any]) -> bool:
     return False
 
 
-def _missing_learning_fields(content: dict[str, Any]) -> list[str]:
+def _missing_learning_field_keys(content: dict[str, Any]) -> list[str]:
     missing: list[str] = []
     if not _principle_complete(content):
-        missing.append("原理")
+        missing.append("principle")
     if not clean(content.get("phenomenon_explanation")):
-        missing.append("现象解释")
+        missing.append("phenomenon")
     if not clean(content.get("safety_note")):
-        missing.append("安全提示")
+        missing.append("safety")
     return missing
+
+
+def _missing_learning_field_labels(keys: list[str]) -> list[str]:
+    return [MISSING_LEARNING_FIELD_LABELS[key] for key in keys if key in MISSING_LEARNING_FIELD_LABELS]
+
+
+def _missing_learning_fields(content: dict[str, Any]) -> list[str]:
+    return _missing_learning_field_labels(_missing_learning_field_keys(content))
 
 
 def _map_search_index_state(index_state: dict[str, Any] | None) -> str:
@@ -440,8 +514,15 @@ def _directory_node_status(node: dict[str, Any]) -> dict[str, Any]:
     needs_content = int(counts.get("needs_content") or 0)
     needs_video = int(counts.get("needs_video") or 0)
     draft = int(counts.get("draft") or 0)
+    ready = int(counts.get("ready") or 0)
+    published = int(counts.get("published") or 0)
     sync_attention = int(counts.get("sync_attention") or 0)
-    actionable_count = blocked + needs_content + needs_video + draft + sync_attention
+    descendant_missing_field_counts = {
+        "principle": int(counts.get("missing_principle") or 0),
+        "phenomenon": int(counts.get("missing_phenomenon") or 0),
+        "safety": int(counts.get("missing_safety") or 0),
+    }
+    actionable_count = blocked + needs_content + needs_video + ready + draft + sync_attention
     conditions: list[dict[str, Any]] = []
     if blocked:
         conditions.append(
@@ -491,6 +572,18 @@ def _directory_node_status(node: dict[str, Any]) -> dict[str, Any]:
                 action="筛选待发布点位",
             )
         )
+    if ready:
+        conditions.append(
+            _status_condition(
+                "directory_descendant_ready",
+                group="visibility",
+                severity="info",
+                status_value="ready",
+                reason=f"{ready} 个后代点位待发布",
+                message=f"目录下有 {ready} 个点位内容已可发布，但尚未学生可见。",
+                action="筛选待发布点位",
+            )
+        )
     if sync_attention:
         conditions.append(
             _status_condition(
@@ -518,6 +611,9 @@ def _directory_node_status(node: dict[str, Any]) -> dict[str, Any]:
     elif clean(node.get("status")) != "published":
         primary_state = "draft"
         primary_reason = "目录尚未发布"
+    elif ready or draft:
+        primary_state = "ready"
+        primary_reason = f"{ready + draft} 个后代点位待发布"
     elif sync_attention:
         primary_state = "sync_attention"
         primary_reason = f"{sync_attention} 个后代点位同步异常"
@@ -531,15 +627,20 @@ def _directory_node_status(node: dict[str, Any]) -> dict[str, Any]:
         "core_readiness": {
             "content_fields": "not_applicable",
             "video": "not_applicable",
+            "missing_field_keys": [],
+            "missing_field_labels": [],
             "missing_fields": [],
             "descendant_action_count": actionable_count,
             "descendant_status_counts": {
                 "blocked": blocked,
                 "needs_content": needs_content,
                 "needs_video": needs_video,
+                "ready": ready,
                 "draft": draft,
+                "published": published,
                 "sync_attention": sync_attention,
             },
+            "descendant_missing_field_counts": descendant_missing_field_counts,
         },
         "visibility": {
             "placement": clean(node.get("status")) or "draft",
@@ -566,7 +667,8 @@ def catalog_node_status_summary(
 
     content_source = _content_source(node, content)
     content_exists = _has_saved_content(node, content, content_source)
-    missing_fields = _missing_learning_fields(content_source)
+    missing_field_keys = _missing_learning_field_keys(content_source)
+    missing_fields = _missing_learning_field_labels(missing_field_keys)
     validation = validation if validation is not None else validate_node_payload(node, content if content_exists else None)
     placement_state = clean(node.get("status")) or "draft"
     shared_content_state = "missing"
@@ -747,6 +849,8 @@ def catalog_node_status_summary(
             "content_fields": "complete" if not missing_fields else "missing",
             "video": "present" if video_present else "absent",
             "video_label": "有视频" if video_present else "无视频",
+            "missing_field_keys": missing_field_keys,
+            "missing_field_labels": missing_fields,
             "missing_fields": missing_fields,
         },
         "visibility": {

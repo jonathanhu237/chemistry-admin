@@ -156,6 +156,7 @@ def test_chapter_tree_summary_counts_statuses_and_video_readiness() -> None:
 
     assert "def chapter_tree_summary" in nodes_source
     assert '"point_status_counts"' in nodes_source
+    assert '"point_missing_field_counts"' in nodes_source
     assert '"directory_status_counts"' in nodes_source
     assert '"video_binding_count"' in nodes_source
     assert '"playable_video_count"' in nodes_source
@@ -178,6 +179,11 @@ def test_catalog_node_select_counts_non_archived_descendant_points_recursively()
     assert "AS point_content_status" in query
     assert "AS evidence_state" in query
     assert "AS descendant_status_counts" in query
+    assert "'ready'" in query
+    assert "'published'" in query
+    assert "'missing_principle'" in query
+    assert "'missing_phenomenon'" in query
+    assert "'missing_safety'" in query
     assert "SELECT pc.node_id AS content_id" in query
     assert "SELECT pc.id AS content_id" not in query
     assert "AND dt.canonical_point_id IS NULL" in query
@@ -260,8 +266,10 @@ def test_node_status_prioritizes_missing_content_before_missing_video() -> None:
     )
 
     assert card["node_status"]["primary_state"] == "needs_content"
-    assert card["node_status"]["primary_reason"] == "缺少原理、现象解释、安全提示"
+    assert card["node_status"]["primary_reason"] == "缺少实验原理、现象解释、安全提示"
     assert card["node_status"]["core_readiness"]["content_fields"] == "missing"
+    assert card["node_status"]["core_readiness"]["missing_field_keys"] == ["principle", "phenomenon", "safety"]
+    assert card["node_status"]["core_readiness"]["missing_field_labels"] == ["实验原理", "现象解释", "安全提示"]
     assert card["node_status"]["core_readiness"]["video"] == "absent"
     assert card["node_status"]["visibility"]["student_available"] is False
     assert not any(condition["key"] == "experiment_video_missing" for condition in card["node_status"]["conditions"])
@@ -290,8 +298,23 @@ def test_node_status_prioritizes_missing_learning_fields_before_sync_state() -> 
     )
 
     assert card["node_status"]["primary_state"] == "needs_content"
+    assert card["node_status"]["primary_reason"] == "缺少现象解释、安全提示"
+    assert card["node_status"]["core_readiness"]["missing_field_keys"] == ["phenomenon", "safety"]
     assert card["node_status"]["core_readiness"]["missing_fields"] == ["现象解释", "安全提示"]
     assert card["node_status"]["async_consumption"]["search_index"] == "failed"
+
+
+def test_node_status_reports_single_missing_learning_field_key_and_label() -> None:
+    card = node_card(
+        _point_node(),
+        content=_complete_content(safety_note=""),
+        validation={"ok": True, "errors": [], "warnings": []},
+    )
+
+    assert card["node_status"]["primary_state"] == "needs_content"
+    assert card["node_status"]["primary_reason"] == "缺少安全提示"
+    assert card["node_status"]["core_readiness"]["missing_field_keys"] == ["safety"]
+    assert card["node_status"]["core_readiness"]["missing_field_labels"] == ["安全提示"]
 
 
 def test_node_status_escalates_published_sync_failure_to_attention() -> None:
@@ -346,7 +369,17 @@ def test_directory_node_status_aggregates_descendant_actionability() -> None:
             "display_order": 1,
             "has_children": True,
             "descendant_point_count": 5,
-            "descendant_status_counts": {"needs_content": 1, "needs_video": 2, "sync_attention": 1},
+            "descendant_status_counts": {
+                "needs_content": 1,
+                "needs_video": 2,
+                "ready": 3,
+                "draft": 1,
+                "published": 4,
+                "sync_attention": 1,
+                "missing_principle": 1,
+                "missing_phenomenon": 2,
+                "missing_safety": 3,
+            },
             "has_point_content": False,
             "media_count": 0,
             "published_media_count": 0,
@@ -355,8 +388,15 @@ def test_directory_node_status_aggregates_descendant_actionability() -> None:
     )
 
     assert card["node_status"]["primary_state"] == "needs_content"
-    assert card["node_status"]["core_readiness"]["descendant_action_count"] == 4
+    assert card["node_status"]["core_readiness"]["descendant_action_count"] == 8
+    assert card["node_status"]["core_readiness"]["descendant_status_counts"]["ready"] == 3
+    assert card["node_status"]["core_readiness"]["descendant_status_counts"]["published"] == 4
     assert card["node_status"]["core_readiness"]["descendant_status_counts"]["sync_attention"] == 1
+    assert card["node_status"]["core_readiness"]["descendant_missing_field_counts"] == {
+        "principle": 1,
+        "phenomenon": 2,
+        "safety": 3,
+    }
 
 
 def test_point_card_summary_is_derived_from_learning_content_when_node_summary_is_empty() -> None:
@@ -549,9 +589,19 @@ def test_catalog_point_placement_backend_contracts_are_explicit() -> None:
 
     assert "INSERT INTO experiment_catalog_points" in nodes_source
     assert "def copy_node" in nodes_source
+    copy_insert_source = nodes_source[nodes_source.index("def _insert_copied_node") : nodes_source.index("def _copy_node_tree")]
+    assert "new_canonical_point_id()" not in copy_insert_source
+    assert "INSERT INTO experiment_catalog_points" not in copy_insert_source
+    assert "_copy_point_resources" not in nodes_source
+    assert '"copy_reuses_canonical_point": True' in copy_insert_source
+    assert "def _assert_point_copy_target_available" in nodes_source
+    assert "目标目录已包含同一实验点位，请选择其他目录" in nodes_source
     assert "copied_from_node_id" in nodes_source
     assert "copy_root_source_node_id" in nodes_source
     assert "Directory cannot be copied into itself or its descendants" in nodes_source
+    assert "(:parent_id IS NULL AND parent_id IS NULL)" not in nodes_source
+    assert "AND parent_id IS NULL" in nodes_source
+    assert "AND parent_id = :parent_id" in nodes_source
     assert 'canonical_point_id = clean(data.get("canonical_point_id")) or None' in nodes_source
     assert "Canonical experiment point not found" in nodes_source
     assert "active_placements_for_canonical_point" in nodes_source

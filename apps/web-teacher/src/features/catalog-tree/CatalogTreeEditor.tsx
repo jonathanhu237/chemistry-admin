@@ -64,6 +64,7 @@ export function CatalogTreeEditor({
   const [videoPickerOpen, setVideoPickerOpen] = useState(false);
   const [previewFallbackUrl, setPreviewFallbackUrl] = useState("");
   const previousNodeIdRef = useRef<string | null>(null);
+  const dirtyPointContentNodeIdRef = useRef<string | null>(null);
   const node = detail?.node;
   const pointCapable = isPointCapable(node?.node_kind);
   const principleMode = Form.useWatch("principle_mode", pointForm);
@@ -77,9 +78,15 @@ export function CatalogTreeEditor({
     const nextNodeId = detail?.node.node_id || null;
     const selectedNodeChanged = previousNodeIdRef.current !== nextNodeId;
     previousNodeIdRef.current = nextNodeId;
+    if (selectedNodeChanged) {
+      dirtyPointContentNodeIdRef.current = null;
+    }
+    const shouldHydratePointContent = selectedNodeChanged || dirtyPointContentNodeIdRef.current !== nextNodeId;
     const timeout = window.setTimeout(() => {
       nodeForm.setFieldsValue(hydrateCatalogNodeForm(detail));
-      pointForm.setFieldsValue(hydrateCatalogPointContentForm(detail));
+      if (shouldHydratePointContent) {
+        pointForm.setFieldsValue(hydrateCatalogPointContentForm(detail));
+      }
       linksForm.setFieldsValue(hydrateCatalogRelatedLinksForm(detail));
     }, 0);
     setMoveParentId(detail?.node.parent_id || "");
@@ -91,6 +98,12 @@ export function CatalogTreeEditor({
     }
     return () => window.clearTimeout(timeout);
   }, [detail, linksForm, nodeForm, pointForm]);
+
+  const markPointContentLocalChange = () => {
+    if (node?.node_id) {
+      dirtyPointContentNodeIdRef.current = node.node_id;
+    }
+  };
 
   useEffect(() => {
     if (!pointCapable && (activeTab === "video" || activeTab === "related")) {
@@ -152,6 +165,7 @@ export function CatalogTreeEditor({
   const saveTaskPointContent = async (values: CatalogPointContentFormValues, options?: { silent?: boolean }) => {
     await savePointContent(values, options);
     pointForm.setFieldsValue(values);
+    markPointContentLocalChange();
   };
 
   const publishPointContentFromHeader = () => {
@@ -169,6 +183,7 @@ export function CatalogTreeEditor({
       point_title: nextTitle,
     };
     pointForm.setFieldsValue({ point_title: nextTitle });
+    markPointContentLocalChange();
     await savePointContent(nextValues);
   };
 
@@ -264,6 +279,7 @@ export function CatalogTreeEditor({
       principleMode={principleMode}
       mutations={mutations}
       onSavePointContent={savePointContent}
+      onLocalContentChange={markPointContentLocalChange}
     />
   );
   const allTabItems: NonNullable<TabsProps["items"]> = [
@@ -378,6 +394,7 @@ export function CatalogTreeEditor({
               principleMode={taskPrincipleMode}
               mutations={mutations}
               onSavePointContent={saveTaskPointContent}
+              onLocalContentChange={markPointContentLocalChange}
               variant="task"
             />
           </Modal>

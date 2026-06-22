@@ -73,6 +73,9 @@ Production deployments must set:
 - `VIDEO_LIBRARY_SEARCH_BOOTSTRAP_INDEX=true` when the backend or rebuild command should create the index mapping
 - `VIDEO_LIBRARY_SEARCH_LOCAL_FALLBACK=false` in production; local fallback is only for explicit local or test runs
 - `VIDEO_LIBRARY_SEARCH_REQUIRE_ES_IN_PRODUCTION=true` so startup/readiness fails when ES/IK is missing
+- `TEACHER_CATALOG_SEARCH_ENABLED=true` for teacher catalog authoring search
+- `TEACHER_CATALOG_SEARCH_BACKEND=elasticsearch`, `TEACHER_CATALOG_SEARCH_URL`, `TEACHER_CATALOG_SEARCH_INDEX=teacher-catalog-admin-search`, `TEACHER_CATALOG_SEARCH_ANALYZER`, and `TEACHER_CATALOG_SEARCH_TIMEOUT_SECONDS`
+- `TEACHER_CATALOG_SEARCH_LOCAL_FALLBACK=true` is acceptable for local authoring, but production operations should monitor fallback metadata because teacher synonyms and formula routes require ES
 
 Do not commit real `.env` files or secrets.
 
@@ -167,6 +170,28 @@ The chemistry search seed files live under `data/seed/search/`:
 - `chemical_stopwords.txt`: high-frequency workflow words that should carry less search meaning
 
 Admin point content edits write PostgreSQL first. Saving drafts queues a delete from search; publishing queues an upsert; unpublishing, archiving, video binding changes, or media asset archival queue the affected point for refresh. A failed ES write must leave the PostgreSQL content intact and visible in `experiment_catalog_point_search_index_state` for retry or full rebuild.
+
+## Teacher Catalog Search Operations
+
+Teacher catalog search is a separate PostgreSQL-to-Elasticsearch projection from the student video-library index. It indexes active directory nodes and point placements for teacher/admin authoring, including draft and unpublished nodes, teacher notes, legacy identifiers, status facets, path context, reaction equations, chemistry aliases, and formula routes. It must not share the `VIDEO_LIBRARY_SEARCH_INDEX` value or write teacher documents into `student-video-library`.
+
+One catalog fact can enqueue independent projection work:
+
+- student search job: `es_upsert` / `es_delete`, visible in `experiment_catalog_point_search_index_state`, limited to published student-visible point placement documents
+- teacher search job: `teacher_search_upsert` / `teacher_search_delete`, visible in `experiment_catalog_teacher_search_index_state`, covering active teacher-visible directory and point documents
+
+Failures are separate. A failed teacher search projection does not mark the student video-library projection failed, and a failed student projection should not hide teacher search if the teacher index is healthy.
+
+Rebuild or inspect the teacher search index:
+
+```powershell
+python scripts/rebuild_teacher_catalog_search_index.py --recreate
+python scripts/rebuild_teacher_catalog_search_index.py --dry-run
+python scripts/rebuild_teacher_catalog_search_index.py --diagnostics
+python scripts/validate_teacher_catalog_search.py
+```
+
+The admin catalog search endpoint returns metadata in each response indicating whether `elasticsearch` or `postgres_fallback` answered the query. Fallback responses are intentionally limited and should not be described as synonym or formula-aware search.
 
 Optional RAG reranking service:
 

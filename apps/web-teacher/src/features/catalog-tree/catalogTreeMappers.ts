@@ -1,5 +1,6 @@
 import type {
   CatalogChapterTreeSummary,
+  CatalogMissingLearningFieldKey,
   CatalogNodeCard,
   CatalogNodeCreatePayload,
   CatalogNodeDetail,
@@ -224,7 +225,7 @@ export function catalogStatusLabel(status: string): string {
 export function catalogStatusDotClass(status: string): string {
   if (status === "published") return "is-published";
   if (status === "archived") return "is-archived";
-  return "is-draft";
+  return "is-ready";
 }
 
 export type CatalogStatusFilter =
@@ -232,12 +233,27 @@ export type CatalogStatusFilter =
   | "actionable"
   | "blocked"
   | "needs_content"
+  | "missing_principle"
+  | "missing_phenomenon"
+  | "missing_safety"
   | "needs_video"
   | "unpublished"
   | "published"
   | "sync_attention";
 
-export const catalogStatusFilterOptions: Array<{ value: CatalogStatusFilter; label: string }> = [
+export const catalogMissingLearningFieldLabels: Record<CatalogMissingLearningFieldKey, string> = {
+  principle: "实验原理",
+  phenomenon: "现象解释",
+  safety: "安全提示",
+};
+
+const catalogMissingFieldFilterKeys: Record<Extract<CatalogStatusFilter, "missing_principle" | "missing_phenomenon" | "missing_safety">, CatalogMissingLearningFieldKey> = {
+  missing_principle: "principle",
+  missing_phenomenon: "phenomenon",
+  missing_safety: "safety",
+};
+
+export const catalogPrimaryStatusFilterOptions: Array<{ value: CatalogStatusFilter; label: string }> = [
   { value: "all", label: "全部" },
   { value: "actionable", label: "待处理" },
   { value: "blocked", label: "异常" },
@@ -246,6 +262,17 @@ export const catalogStatusFilterOptions: Array<{ value: CatalogStatusFilter; lab
   { value: "unpublished", label: "待发布" },
   { value: "published", label: "已发布" },
   { value: "sync_attention", label: "同步异常" },
+];
+
+export const catalogMissingFieldFilterOptions: Array<{ value: CatalogStatusFilter; label: string }> = [
+  { value: "missing_principle", label: "缺实验原理" },
+  { value: "missing_phenomenon", label: "缺现象解释" },
+  { value: "missing_safety", label: "缺安全提示" },
+];
+
+export const catalogStatusFilterOptions: Array<{ value: CatalogStatusFilter; label: string }> = [
+  ...catalogPrimaryStatusFilterOptions,
+  ...catalogMissingFieldFilterOptions,
 ];
 
 function isCatalogNodeDetail(value: CatalogNodeCard | CatalogNodeDetail): value is CatalogNodeDetail {
@@ -285,9 +312,12 @@ function fallbackStatusForNode(node: CatalogNodeCard): CatalogNodeStatusSummary 
       content_fields: hasContent ? "complete" : "missing",
       video: hasVideo ? "present" : "absent",
       video_label: hasVideo ? "有视频" : "无视频",
+      missing_field_keys: [],
+      missing_field_labels: [],
       missing_fields: [],
       descendant_action_count: 0,
       descendant_status_counts: {},
+      descendant_missing_field_counts: {},
     },
     visibility: {
       placement: node.status,
@@ -324,10 +354,12 @@ export function catalogNodePrimaryStateLabel(state: string): string {
 }
 
 export function catalogNodePrimaryStateClass(state: string): string {
-  if (state === "published" || state === "ready") return "is-published";
+  if (state === "published") return "is-published";
+  if (state === "ready") return "is-ready";
   if (state === "archived") return "is-archived";
   if (state === "blocked") return "is-error";
-  if (state === "needs_content" || state === "needs_video" || state === "sync_attention") return "is-warning";
+  if (state === "sync_attention") return "is-sync";
+  if (state === "needs_content" || state === "needs_video") return "is-warning";
   return "is-draft";
 }
 
@@ -391,6 +423,27 @@ export function catalogHeaderPrimaryAction(detail: CatalogNodeDetail): CatalogHe
   return { key: "preview-student", label: "预览学生端", tone: "primary" };
 }
 
+export function catalogMissingFieldKeys(status: CatalogNodeStatusSummary): CatalogMissingLearningFieldKey[] {
+  const explicitKeys = status.core_readiness.missing_field_keys || [];
+  const normalized = explicitKeys.filter((key): key is CatalogMissingLearningFieldKey => key === "principle" || key === "phenomenon" || key === "safety");
+  if (normalized.length) return normalized;
+  const legacyLabels = status.core_readiness.missing_field_labels || status.core_readiness.missing_fields || [];
+  return legacyLabels
+    .map((label) => {
+      if (label === "实验原理" || label === "原理") return "principle";
+      if (label === "现象解释") return "phenomenon";
+      if (label === "安全提示") return "safety";
+      return null;
+    })
+    .filter((key): key is CatalogMissingLearningFieldKey => Boolean(key));
+}
+
+function missingFieldFilterKey(filter: CatalogStatusFilter): CatalogMissingLearningFieldKey | null {
+  return filter === "missing_principle" || filter === "missing_phenomenon" || filter === "missing_safety"
+    ? catalogMissingFieldFilterKeys[filter]
+    : null;
+}
+
 export function catalogNodeActionCount(node: CatalogNodeCard): number {
   const status = resolveCatalogNodeStatus(node);
   const counts = status.core_readiness.descendant_status_counts || {};
@@ -398,9 +451,51 @@ export function catalogNodeActionCount(node: CatalogNodeCard): number {
     Number(counts.blocked || 0) +
     Number(counts.needs_content || 0) +
     Number(counts.needs_video || 0) +
+    Number(counts.ready || 0) +
     Number(counts.draft || 0) +
     Number(counts.sync_attention || 0);
   return node.node_kind === "directory" ? Math.max(Number(status.core_readiness.descendant_action_count ?? 0), aggregate) : 0;
+}
+
+export type CatalogDirectoryPendingPart = {
+  key: "blocked" | "needs_content" | "needs_video" | "draft" | "sync_attention";
+  label: string;
+  count: number;
+  severity: "error" | "warning" | "sync";
+};
+
+export function catalogNodeDirectoryPendingParts(node: CatalogNodeCard): CatalogDirectoryPendingPart[] {
+  if (node.node_kind !== "directory") return [];
+  const status = resolveCatalogNodeStatus(node);
+  const counts = status.core_readiness.descendant_status_counts || {};
+  const countFor = (key: string) => Number(counts[key] || 0);
+  const parts: CatalogDirectoryPendingPart[] = [
+    { key: "blocked", label: "阻断", count: countFor("blocked"), severity: "error" },
+    { key: "needs_content", label: "缺内容", count: countFor("needs_content"), severity: "warning" },
+    { key: "needs_video", label: "缺视频", count: countFor("needs_video"), severity: "warning" },
+    { key: "draft", label: "草稿", count: countFor("draft"), severity: "warning" },
+    { key: "sync_attention", label: "同步异常", count: countFor("sync_attention"), severity: "sync" },
+  ];
+  return parts.filter((item) => item.count > 0);
+}
+
+export function catalogNodeDirectoryPendingCount(node: CatalogNodeCard): number {
+  return catalogNodeDirectoryPendingParts(node).reduce((total, item) => total + item.count, 0);
+}
+
+export function catalogNodeDirectoryPendingLabel(node: CatalogNodeCard): string {
+  const parts = catalogNodeDirectoryPendingParts(node);
+  const total = parts.reduce((sum, item) => sum + item.count, 0);
+  if (!total) return "";
+  const detail = parts.map((item) => `${item.count} 个${item.label}`).join("，");
+  return `待处理：${total} 个点位（${detail}）`;
+}
+
+export function catalogNodeDirectoryPendingClass(node: CatalogNodeCard): string {
+  const parts = catalogNodeDirectoryPendingParts(node);
+  if (parts.some((item) => item.severity === "error")) return "is-error";
+  if (parts.some((item) => item.severity === "sync")) return "is-sync";
+  return parts.length ? "is-warning" : catalogStatusDotClass(node.status);
 }
 
 export function catalogNodeStatusTooltip(node: CatalogNodeCard | CatalogNodeDetail): string {
@@ -415,13 +510,30 @@ export function matchesCatalogNodeStatusFilter(node: CatalogNodeCard, filter: Ca
   const status = resolveCatalogNodeStatus(node);
   const state = status.primary_state;
   const counts = status.core_readiness.descendant_status_counts || {};
+  const missingFieldKey = missingFieldFilterKey(filter);
+  if (missingFieldKey) {
+    if (node.node_kind === "directory") {
+      const missingCounts = status.core_readiness.descendant_missing_field_counts || {};
+      return Number(missingCounts[missingFieldKey] || counts[`missing_${missingFieldKey}`] || 0) > 0;
+    }
+    return state === "needs_content" && catalogMissingFieldKeys(status).includes(missingFieldKey);
+  }
+  if (node.node_kind === "directory") {
+    if (filter === "published") return Number(counts.published || 0) > 0;
+    if (filter === "blocked") return Number(counts.blocked || 0) > 0;
+    if (filter === "unpublished") return Number(counts.draft || 0) > 0 || Number(counts.ready || 0) > 0;
+    if (filter === "needs_content") return Number(counts.needs_content || 0) > 0;
+    if (filter === "needs_video") return Number(counts.needs_video || 0) > 0;
+    if (filter === "sync_attention") return Number(counts.sync_attention || 0) > 0;
+    return catalogNodeActionCount(node) > 0;
+  }
   if (filter === "published") return state === "published";
-  if (filter === "blocked") return state === "blocked" || Number(counts.blocked || 0) > 0;
-  if (filter === "unpublished") return state === "draft" || state === "ready" || Number(counts.draft || 0) > 0 || Number(counts.ready || 0) > 0;
-  if (filter === "needs_content") return state === "needs_content" || Number(counts.needs_content || 0) > 0;
-  if (filter === "needs_video") return state === "needs_video" || Number(counts.needs_video || 0) > 0;
+  if (filter === "blocked") return state === "blocked";
+  if (filter === "unpublished") return state === "draft" || state === "ready";
+  if (filter === "needs_content") return state === "needs_content";
+  if (filter === "needs_video") return state === "needs_video";
   if (filter === "sync_attention") {
-    return state === "sync_attention" || Number(counts.sync_attention || 0) > 0;
+    return state === "sync_attention";
   }
   return (
     state === "blocked" ||
@@ -436,6 +548,8 @@ export function matchesCatalogNodeStatusFilter(node: CatalogNodeCard, filter: Ca
 export function catalogStatusFilterCount(summary: CatalogChapterTreeSummary | null | undefined, filter: CatalogStatusFilter): number | null {
   if (!summary) return null;
   const pointCounts = summary.point_status_counts || {};
+  const missingFieldKey = missingFieldFilterKey(filter);
+  if (missingFieldKey) return Number(summary.point_missing_field_counts?.[missingFieldKey] || 0);
   if (filter === "all") return summary.point_count;
   if (filter === "actionable") return summary.actionable_point_count;
   if (filter === "blocked") return Number(pointCounts.blocked || 0);

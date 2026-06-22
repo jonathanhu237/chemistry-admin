@@ -9,6 +9,7 @@ import {
   ChevronRight,
   CircleAlert,
   CircleDashed,
+  CircleX,
   Clipboard,
   Copy,
   Folder,
@@ -18,17 +19,22 @@ import {
   MoveDown,
   MoveUp,
   Plus,
+  RefreshCw,
   RotateCcw,
 } from "lucide-react";
 
 import type { CatalogNodeCard } from "../../api/catalogTree";
+import { CatalogStatusCompositeWarningIcon } from "./CatalogStatusCompositeWarningIcon";
 import type { CatalogArboristNode } from "./catalogTreeData";
 import {
-  catalogNodeActionCount,
   catalogNodeKindLabel,
+  catalogNodeDirectoryPendingClass,
+  catalogNodeDirectoryPendingCount,
+  catalogNodeDirectoryPendingLabel,
   catalogNodePrimaryStateClass,
-  catalogNodePrimaryStateLabel,
   catalogNodeStatusTooltip,
+  catalogStatusDotClass,
+  catalogStatusLabel,
   resolveCatalogNodeStatus,
 } from "./catalogTreeMappers";
 
@@ -57,7 +63,15 @@ function rowIcon(kind: CatalogNodeCard["node_kind"], open: boolean): ReactNode {
 }
 
 function primaryStatusIcon(state: string): ReactNode {
-  if (state === "blocked" || state === "needs_content" || state === "needs_video" || state === "sync_attention") {
+  if (state === "blocked") return <CircleX size={16} strokeWidth={1.9} />;
+  if (state === "needs_content") {
+    return <CatalogStatusCompositeWarningIcon kind="content" size={16} strokeWidth={1.9} />;
+  }
+  if (state === "needs_video") {
+    return <CatalogStatusCompositeWarningIcon kind="video" size={16} strokeWidth={1.9} />;
+  }
+  if (state === "sync_attention") return <RefreshCw size={16} strokeWidth={1.9} />;
+  if (state === "ready") {
     return <CircleAlert size={16} strokeWidth={1.9} />;
   }
   if (state === "draft") return <CircleDashed size={16} strokeWidth={1.9} />;
@@ -96,7 +110,7 @@ function buildMenuItems(node: CatalogNodeCard): MenuProps["items"] {
     {
       key: "copy-node",
       icon: actionIcon("copy-node"),
-      label: node.node_kind === "directory" ? "复制当前目录" : "复制当前实验",
+      label: node.node_kind === "directory" ? "复制当前目录" : "引用当前实验",
     },
     node.status === "archived"
       ? { key: "restore", icon: actionIcon("restore"), label: "恢复节点" }
@@ -188,7 +202,6 @@ export function CatalogTreeRow({
   const catalogNode = node.data.catalogNode;
   const nodeStatus = resolveCatalogNodeStatus(catalogNode);
   const primaryState = nodeStatus.primary_state;
-  const primaryStatusLabel = nodeStatus.primary_label || catalogNodePrimaryStateLabel(primaryState);
   const primaryStatusText = catalogNodeStatusTooltip(catalogNode);
   const [isPointerDragHover, setIsPointerDragHover] = useState(false);
   const dragNodes = Array.isArray((tree as { dragNodes?: unknown }).dragNodes) ? tree.dragNodes : [];
@@ -202,14 +215,20 @@ export function CatalogTreeRow({
         dragNode.data.catalogNode.chapter_id === catalogNode.chapter_id,
     );
   const isDirectoryDropHover = node.willReceiveDrop || (isPointerDragHover && canReceiveDirectoryHover);
-  const directoryActionCount = catalogNodeActionCount(catalogNode);
+  const directoryPendingCount = catalogNodeDirectoryPendingCount(catalogNode);
+  const directoryPendingLabel = catalogNodeDirectoryPendingLabel(catalogNode);
+  const directoryPendingClass = catalogNodeDirectoryPendingClass(catalogNode);
+  const descendantStatusCounts = nodeStatus.core_readiness.descendant_status_counts || {};
+  const directoryReadyCount = Number(descendantStatusCounts.ready || 0);
   const directoryPointCount = catalogNode.node_kind === "directory" && catalogNode.descendant_point_count > 0 ? catalogNode.descendant_point_count : 0;
-  const directoryCountLabel =
-    directoryActionCount > 0
-      ? { value: directoryActionCount, label: `${directoryActionCount} 个待处理点位` }
+  const directoryStatusBadge =
+    directoryPendingCount > 0
+      ? { value: directoryPendingCount, label: directoryPendingLabel, className: directoryPendingClass }
+      : directoryReadyCount > 0
+        ? { value: directoryReadyCount, label: `待发布：${directoryReadyCount} 个点位`, className: "is-ready" }
       : directoryPointCount > 0
-        ? { value: directoryPointCount, label: `共 ${directoryPointCount} 个点位` }
-        : null;
+        ? { value: directoryPointCount, label: `共 ${directoryPointCount} 个点位；${catalogStatusLabel(catalogNode.status)}`, className: catalogStatusDotClass(catalogNode.status) }
+        : { value: null, label: catalogStatusLabel(catalogNode.status), className: catalogStatusDotClass(catalogNode.status) };
   const menuItems = buildMenuItems(catalogNode);
   const shouldAutoExpandDropTarget = isDirectoryDropHover && node.isInternal && !node.isOpen;
 
@@ -301,20 +320,12 @@ export function CatalogTreeRow({
           </Text>
         </span>
         <span className="catalog-sidebar-trailing">
-          <span className="catalog-sidebar-slot catalog-sidebar-count-slot">
-            {directoryCountLabel ? (
-              <Tooltip title={directoryCountLabel.label}>
-                <span className={directoryActionCount > 0 ? "catalog-sidebar-count is-actionable" : "catalog-sidebar-count"} aria-label={directoryCountLabel.label}>
-                  {directoryCountLabel.value}
-                </span>
-              </Tooltip>
-            ) : null}
-          </span>
           <span className="catalog-sidebar-slot catalog-sidebar-directory-status-slot">
             {catalogNode.node_kind === "directory" ? (
-              <Tooltip title={primaryStatusText}>
-                <span className="catalog-sidebar-status" aria-label={`节点状态：${primaryStatusText}`}>
-                  <span className={`catalog-sidebar-status-dot ${catalogNodePrimaryStateClass(primaryState)}`} aria-hidden="true" />
+              <Tooltip title={directoryStatusBadge.label}>
+                <span className={`catalog-sidebar-directory-status-badge ${directoryStatusBadge.className}`} aria-label={`目录状态：${directoryStatusBadge.label}`}>
+                  {directoryStatusBadge.value !== null ? <span className="catalog-sidebar-directory-status-count">{directoryStatusBadge.value}</span> : null}
+                  <span className={`catalog-sidebar-status-dot ${directoryStatusBadge.className}`} aria-hidden="true" />
                 </span>
               </Tooltip>
             ) : null}
@@ -329,7 +340,7 @@ export function CatalogTreeRow({
                     { key: "add-point", icon: actionIcon("add-point"), label: "新建子点位" },
                     { type: "divider" },
                     { key: "copy-directory", icon: actionIcon("copy-directory"), label: "从已有目录复制到此目录" },
-                    { key: "copy-point", icon: actionIcon("copy-point"), label: "从已有实验复制到此目录" },
+                    { key: "copy-point", icon: actionIcon("copy-point"), label: "从已有实验引用到此目录" },
                   ],
                   onClick: ({ key }) => onAction(catalogNode, key as CatalogTreeRowAction),
                 }}

@@ -98,6 +98,7 @@ function CoreReadinessSection({ detail }: { detail: CatalogNodeDetail }) {
   const status = resolveCatalogNodeStatus(detail);
   const core = status.core_readiness;
   const counts = core.descendant_status_counts || {};
+  const missingFieldLabels = core.missing_field_labels || core.missing_fields || [];
   const isDirectory = detail.node.node_kind === "directory";
   return (
     <section className="catalog-node-status-card">
@@ -121,7 +122,7 @@ function CoreReadinessSection({ detail }: { detail: CatalogNodeDetail }) {
             <StatusTag value={core.video} />
           </Descriptions.Item>
           <Descriptions.Item label="缺失字段" span={2}>
-            {core.missing_fields?.length ? core.missing_fields.join("、") : "无"}
+            {missingFieldLabels.length ? missingFieldLabels.join("、") : "无"}
           </Descriptions.Item>
         </Descriptions>
       )}

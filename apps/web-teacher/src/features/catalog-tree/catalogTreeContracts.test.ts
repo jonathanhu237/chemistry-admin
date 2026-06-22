@@ -10,6 +10,7 @@ import previewWindowSource from "./CatalogPointPreviewWindow.tsx?raw";
 import editorSource from "./CatalogTreeEditor.tsx?raw";
 import rowSource from "./CatalogTreeRow.tsx?raw";
 import treeDataSource from "./catalogTreeData.ts?raw";
+import hooksSource from "./catalogTreeHooks.ts?raw";
 import treeSource from "./CatalogTreeNodeList.tsx?raw";
 import workspaceSource from "./CatalogTreeWorkspacePage.tsx?raw";
 import videoPanelSource from "./CatalogVideoPanel.tsx?raw";
@@ -80,8 +81,9 @@ describe("catalog tree UI contracts", () => {
 
   it("keeps chapter switching in the heading and resets stale node detail on chapter change", () => {
     expect(workspaceSource).toContain('className="catalog-chapter-switcher"');
+    expect(workspaceSource).toContain("if (searchReveal?.nodeId) return;");
     expect(workspaceSource).toContain("setSelectedNodeId(null);");
-    expect(workspaceSource).toContain("}, [chapterId]);");
+    expect(workspaceSource).toContain("}, [chapterId, searchReveal?.nodeId]);");
     expect(workspaceSource).toContain('treeScopeKey={chapterId || ""}');
     expect(workspaceSource).not.toContain("chapter-select");
     expect(workspaceSource).toContain("<Dropdown");
@@ -93,16 +95,55 @@ describe("catalog tree UI contracts", () => {
 
   it("shows chapter tree summary and counted status filters in the sidebar", () => {
     expect(catalogTreeApiSource).toContain("CatalogChapterTreeSummary");
+    expect(catalogTreeApiSource).toContain("CatalogMissingLearningFieldKey");
+    expect(catalogTreeApiSource).toContain("point_missing_field_counts");
     expect(catalogTreeApiSource).toContain("/summary");
     expect(workspaceSource).toContain("useCatalogChapterTreeSummary");
     expect(workspaceSource).toContain("CatalogTreeOverview");
     expect(workspaceSource).toContain("CatalogStatusFilterBar");
+    expect(workspaceSource).toContain("catalogPrimaryStatusFilterOptions");
+    expect(workspaceSource).toContain("catalogMissingFieldFilterOptions");
     expect(workspaceSource).toContain("catalogStatusFilterCount");
-    expect(workspaceSource).toContain("搜标题、学习内容、教学备注、旧实验 ID");
+    expect(workspaceSource).toContain("搜索标题、实验内容、教学备注、旧实验 ID");
     expect(workspaceSource).toContain('aria-label="章节资源统计"');
     expect(workspaceSource).toContain('aria-label="点位状态筛选"');
     expect(workspaceSource).toContain("待发布");
     expect(workspaceSource).not.toContain("未发布");
+  });
+
+  it("keeps teacher search as a floating ES-backed overlay instead of an in-flow tree rewrite", async () => {
+    // @ts-expect-error The frontend tsconfig intentionally omits Node types, but Vitest runs this contract in Node.
+    const { readFileSync } = await import("node:fs");
+    const cwd = (globalThis as unknown as { process: { cwd: () => string } }).process.cwd();
+    const styles = readFileSync(`${cwd}/src/features/catalog-tree/catalogTree.css`, "utf8");
+
+    expect(catalogTreeApiSource).toContain("CatalogSearchMeta");
+    expect(catalogTreeApiSource).toContain("CatalogSearchResult");
+    expect(catalogTreeApiSource).toContain("search_scope");
+    expect(catalogTreeApiSource).toContain("scope_totals");
+    expect(catalogTreeApiSource).toContain("params.set(\"status_filter\", statusFilter)");
+    expect(hooksSource).toContain('queryKey: ["catalog-search", query, chapterId, statusFilter]');
+    expect(hooksSource).toContain("searchCatalogNodes(query, chapterId, 80, statusFilter)");
+    expect(workspaceSource).toContain("CatalogSearchOverlay");
+    expect(workspaceSource).toContain("groupSearchItemsByScope");
+    expect(workspaceSource).toContain("current_chapter");
+    expect(workspaceSource).toContain("other_chapter");
+    expect(workspaceSource).toContain("useCatalogSearch(searchText, chapterId, searchReady, statusFilter)");
+    expect(workspaceSource).toContain("handleSearchKeyDown");
+    expect(workspaceSource).toContain("document.addEventListener(\"mousedown\"");
+    expect(workspaceSource).toContain("selectSearchResult");
+    expect(workspaceSource).toContain("setSearchReveal");
+    expect(workspaceSource).toContain("revealNodeId={searchReveal?.nodeId}");
+    expect(treeSource).toContain("revealNodeId");
+    expect(treeSource).toContain("revealPathIds");
+    expect(treeSource).toContain("arboristRef.current?.scrollTo(revealNodeId");
+    expect(treeSource).toContain("arboristRef.current?.select(revealNodeId");
+    expect(styles).toContain(".catalog-tree-searchbox");
+    expect(styles).toContain("position: relative");
+    expect(styles).toContain(".catalog-search-overlay");
+    expect(styles).toContain(".catalog-search-overlay-section-header");
+    expect(styles).toContain("position: absolute");
+    expect(styles).toContain("max-height");
   });
 
   it("resets tree open and loaded state at chapter boundaries and workspace resets", () => {
@@ -117,6 +158,18 @@ describe("catalog tree UI contracts", () => {
     expect(workspaceSource).toContain("resetVersion={workspaceResetVersion}");
     const resetWorkspaceBody = workspaceSource.slice(workspaceSource.indexOf("const resetWorkspace = () => {"), workspaceSource.indexOf("const openCreate"));
     expect(resetWorkspaceBody).not.toContain("setChapterId");
+  });
+
+  it("refreshes loaded ancestor branches when selected node detail changes", () => {
+    expect(workspaceSource).toContain("selectedBranchDirectoryIds");
+    expect(workspaceSource).toContain("selectedDetail.data?.breadcrumbs");
+    expect(workspaceSource).toContain("branchRefreshVersion={selectedDetail.dataUpdatedAt}");
+    expect(workspaceSource).toContain("branchRefreshDirectoryIds={selectedBranchDirectoryIds}");
+    expect(treeSource).toContain("treeDataRef");
+    expect(treeSource).toContain("previousBranchRefreshVersionRef");
+    expect(treeSource).toContain("refreshLoadedDirectories");
+    expect(treeSource).toContain("response.parent");
+    expect(treeDataSource).toContain("parentNode?: CatalogNodeCard");
   });
 
   it("keeps operational/debug fields out of default content panels", () => {
@@ -135,6 +188,16 @@ describe("catalog tree UI contracts", () => {
     expect(contentPanelSource).toContain("catalog-content-section-actions");
     expect(contentPanelSource).toContain("catalog-equation-preview-scroll");
     expect(contentPanelSource).toContain("catalog-student-facing-grid");
+    expect(contentPanelSource).toContain("catalog-missing-fields-guide");
+    expect(contentPanelSource).toContain("focusMissingField");
+    expect(contentPanelSource).toContain("fieldTargetRefs");
+    expect(contentPanelSource).toContain("还缺");
+    expect(contentPanelSource).toContain("catalogMissingLearningFieldLabels[fieldKey]");
+    expect(contentPanelSource).toContain("RequiredFieldLabel");
+    expect(contentPanelSource).toContain("<RequiredFieldLabel>实验原理</RequiredFieldLabel>");
+    expect(contentPanelSource).toContain("<RequiredFieldLabel>现象解释</RequiredFieldLabel>");
+    expect(contentPanelSource).toContain("<RequiredFieldLabel>安全提示</RequiredFieldLabel>");
+    expect(contentPanelSource.indexOf("<Text strong>学生可见内容</Text>")).toBeLessThan(contentPanelSource.indexOf("<RequiredFieldLabel>实验原理</RequiredFieldLabel>"));
     expect(contentPanelSource).toContain("handlePrincipleModeChange");
     expect(contentPanelSource).toContain("Modal.confirm");
     expect(contentPanelSource).toContain("确认切换");
@@ -176,6 +239,17 @@ describe("catalog tree UI contracts", () => {
     expect(contentPanelSource).not.toContain("catalog-equation-card");
     expect(contentPanelSource).not.toContain("catalog-equation-symbol-popover");
     expect(contentPanelSource).not.toContain("catalog-equation-toolbar");
+  });
+
+  it("guards point content hydration during local autosave transitions", () => {
+    expect(editorSource).toContain("dirtyPointContentNodeIdRef");
+    expect(editorSource).toContain("markPointContentLocalChange");
+    expect(editorSource).toContain("shouldHydratePointContent");
+    expect(editorSource).toContain("if (shouldHydratePointContent)");
+    expect(editorSource).toContain("dirtyPointContentNodeIdRef.current = null");
+    expect(contentPanelSource).toContain("onLocalContentChange?.()");
+    expect(contentPanelSource).toContain("commitPrincipleModeSwitch");
+    expect(contentPanelSource).toContain("scheduleAutoSave()");
   });
   it("keeps the video panel as a single active existing-media binding", async () => {
     // @ts-expect-error The frontend tsconfig intentionally omits Node types, but Vitest runs this contract in Node.
@@ -369,6 +443,7 @@ describe("catalog tree UI contracts", () => {
     expect(rowSource).toContain("catalog-sidebar-trailing");
     expect(rowSource).toContain("catalog-sidebar-status-dot");
     expect(rowSource).toContain("catalog-sidebar-point-status");
+    expect(rowSource).toContain("CatalogStatusCompositeWarningIcon");
     expect(rowSource).toContain("CatalogArboristModernDragPreview");
     expect(rowSource).toContain("offset || mouse");
     expect(rowSource).toContain("node.isDragging");
@@ -404,6 +479,7 @@ describe("catalog tree UI contracts", () => {
     expect(catalogTreeCssSource).toContain(".catalog-sidebar-status-dot.is-error");
     expect(catalogTreeCssSource).toContain(".catalog-sidebar-point-status.is-error");
     expect(catalogTreeCssSource).toContain(".catalog-editor-title-status.is-error");
+    expect(catalogTreeCssSource).toContain(".catalog-composite-warning-icon");
     expect(rowSource).toContain('boxSizing: "border-box"');
   });
 
@@ -427,32 +503,43 @@ describe("catalog tree UI contracts", () => {
     expect(treeSource).toContain("新建点位");
     expect(treeSource).not.toContain("新建根目录");
     expect(treeSource).not.toContain("新建根点位");
-    expect(workspaceSource).toContain("复用已有实验");
-    expect(workspaceSource).toContain("同步添加到当前目录");
+    expect(workspaceSource).toContain("引用已有实验");
+    expect(workspaceSource).toContain("引用到当前目录");
     expect(workspaceSource).toContain("canonical_point_id");
   });
 
   it("distinguishes fixed-source and fixed-target copy actions instead of exposing Node ID copying", () => {
     expect(rowSource).toContain('"copy-node"');
     expect(rowSource).toContain("复制当前目录");
-    expect(rowSource).toContain("复制当前实验");
+    expect(rowSource).toContain("引用当前实验");
     expect(rowSource).toContain("从已有目录复制到此目录");
-    expect(rowSource).toContain("从已有实验复制到此目录");
+    expect(rowSource).toContain("从已有实验引用到此目录");
     expect(rowSource).not.toContain("复制节点");
     expect(rowSource).not.toContain('"copy-id"');
     expect(rowSource).not.toContain("复制 Node ID");
     expect(treeSource).toContain("onCopyNode");
     expect(treeSource).toContain("onCopyInto");
     expect(treeSource).toContain("从已有目录复制到本章");
-    expect(treeSource).toContain("从已有实验复制到本章");
+    expect(treeSource).toContain("从已有实验引用到本章");
     expect(workspaceSource).toContain("copyIntent");
     expect(workspaceSource).toContain('"fixed-source"');
     expect(workspaceSource).toContain('"fixed-target"');
+    expect(workspaceSource).toContain('targetParentId: node.node_kind === "point" ? null : node.parent_id || null');
     expect(workspaceSource).toContain("copySourceSearchText");
     expect(workspaceSource).toContain("selectCopySource");
     expect(workspaceSource).toContain("来源");
     expect(workspaceSource).toContain("目标位置");
+    expect(workspaceSource).toContain("copySemanticsNote");
+    expect(workspaceSource).toContain("引用实验会在目标目录新增一个点位入口");
+    expect(workspaceSource).toContain("复制目录会创建新的目录结构");
+    expect(workspaceSource).toContain("请引用已有点位，不要新建节点");
     expect(workspaceSource).toContain("CatalogCopyDestinationTree");
+    expect(workspaceSource).toContain('return title || "未命名节点";');
+    expect(workspaceSource).toContain('label="节点名称"');
+    expect(workspaceSource).not.toContain("副本名称");
+    expect(workspaceSource).not.toContain("复制点位");
+    expect(workspaceSource).not.toContain("复制当前实验");
+    expect(workspaceSource).not.toContain("从已有实验复制");
     expect(catalogTreeApiSource).toContain("copyCatalogNode");
     expect(catalogTreeApiSource).toContain("/copy");
   });

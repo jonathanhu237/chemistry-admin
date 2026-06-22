@@ -13,6 +13,7 @@ from server.app.catalog_tree_schemas import (
     CatalogNodeUpdateRequest,
 )
 from server.app.domains.catalog_tree.common import (
+    MISSING_LEARNING_FIELD_KEYS,
     NODE_KINDS,
     active_placements_for_canonical_point,
     assert_kind_transition,
@@ -37,6 +38,7 @@ from server.app.domains.catalog_tree.common import (
 from server.app.domains.catalog_tree.directories import create_node_params, update_node_params
 from server.app.domains.catalog_tree.jobs import get_point_job_state, mark_point_evidence_stale, mark_subtree_evidence_stale
 from server.app.domains.catalog_tree.search_documents import queue_index_state, queue_subtree_point_indexes, search_preview_for_node
+from server.app.domains.catalog_tree.teacher_search import queue_subtree_teacher_indexes, queue_teacher_index_state, search_teacher_catalog_nodes
 from server.app.domains.errors import DomainHTTPException as HTTPException, domain_status as status
 from server.app.infrastructure.database import db_session
 
@@ -261,6 +263,7 @@ def create_node(*, payload: CatalogNodeCreateRequest, user: Any) -> dict[str, An
                 **card,
             },
         )
+        queue_teacher_index_state(session, node_id=node_id, action="upsert", soft=True)
     return get_node_detail(node_id=node_id)
 
 
@@ -295,20 +298,80 @@ def _copy_display_order(
     if not same_parent:
         return max_child_order(session, chapter_id=target_chapter_id, parent_id=target_parent_id) + 1
     after_order = int(source.get("display_order") or 0)
-    session.execute(
-        text(
-            """
-            UPDATE experiment_catalog_nodes
-            SET display_order = display_order + 1,
-                updated_at = now()
-            WHERE chapter_id = :chapter_id
-              AND ((:parent_id IS NULL AND parent_id IS NULL) OR parent_id = :parent_id)
-              AND display_order > :after_order
-            """
-        ),
-        {"chapter_id": target_chapter_id, "parent_id": target_parent_id, "after_order": after_order},
-    )
+    if target_parent_id is None:
+        session.execute(
+            text(
+                """
+                UPDATE experiment_catalog_nodes
+                SET display_order = display_order + 1,
+                    updated_at = now()
+                WHERE chapter_id = :chapter_id
+                  AND parent_id IS NULL
+                  AND display_order > :after_order
+                """
+            ),
+            {"chapter_id": target_chapter_id, "after_order": after_order},
+        )
+    else:
+        session.execute(
+            text(
+                """
+                UPDATE experiment_catalog_nodes
+                SET display_order = display_order + 1,
+                    updated_at = now()
+                WHERE chapter_id = :chapter_id
+                  AND parent_id = :parent_id
+                  AND display_order > :after_order
+                """
+            ),
+            {"chapter_id": target_chapter_id, "parent_id": target_parent_id, "after_order": after_order},
+        )
     return after_order + 1
+
+
+def _assert_point_copy_target_available(
+    session: Any,
+    *,
+    target_chapter_id: str,
+    target_parent_id: str | None,
+    canonical_point_id: str | None,
+) -> None:
+    if not canonical_point_id:
+        return
+    if target_parent_id is None:
+        existing = session.execute(
+            text(
+                """
+                SELECT id
+                FROM experiment_catalog_nodes
+                WHERE chapter_id = :chapter_id
+                  AND parent_id IS NULL
+                  AND node_kind = 'point'
+                  AND canonical_point_id = :canonical_point_id
+                  AND status <> 'archived'
+                LIMIT 1
+                """
+            ),
+            {"chapter_id": target_chapter_id, "canonical_point_id": canonical_point_id},
+        ).scalar_one_or_none()
+    else:
+        existing = session.execute(
+            text(
+                """
+                SELECT id
+                FROM experiment_catalog_nodes
+                WHERE chapter_id = :chapter_id
+                  AND parent_id = :parent_id
+                  AND node_kind = 'point'
+                  AND canonical_point_id = :canonical_point_id
+                  AND status <> 'archived'
+                LIMIT 1
+                """
+            ),
+            {"chapter_id": target_chapter_id, "parent_id": target_parent_id, "canonical_point_id": canonical_point_id},
+        ).scalar_one_or_none()
+    if existing:
+        raise HTTPException(status_code=status.HTTP_409_CONFLICT, detail="目标目录已包含同一实验点位，请选择其他目录")
 
 
 def _assert_copy_target_outside_source(session: Any, *, source: dict[str, Any], target_parent_id: str | None) -> None:
@@ -351,48 +414,16 @@ def _insert_copied_node(
 ) -> str:
     canonical_point_id = None
     if point_capable(source):
-        source_canonical_point_id = clean(source.get("canonical_point_id"))
-        if not source_canonical_point_id:
+        canonical_point_id = clean(source.get("canonical_point_id"))
+        if not canonical_point_id:
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Point placement has no canonical experiment point to copy")
         if clean(source.get("canonical_point_status")) == "archived":
             raise HTTPException(status_code=status.HTTP_409_CONFLICT, detail="Archived canonical experiment points cannot be copied")
-        canonical_point_id = new_canonical_point_id()
-        source_canonical = session.execute(
-            text(
-                """
-                SELECT id, summary, metadata
-                FROM experiment_catalog_points
-                WHERE id = :canonical_point_id
-                """
-            ),
-            {"canonical_point_id": source_canonical_point_id},
-        ).mappings().first()
-        source_metadata = source_canonical.get("metadata") if source_canonical and isinstance(source_canonical.get("metadata"), dict) else {}
-        session.execute(
-            text(
-                """
-                INSERT INTO experiment_catalog_points (
-                  id, title, summary, status, metadata, created_by, updated_by, updated_at
-                )
-                VALUES (
-                  :id, :title, :summary, 'draft', CAST(:metadata AS jsonb),
-                  CAST(:user_id AS uuid), CAST(:user_id AS uuid), now()
-                )
-                """
-            ),
-            {
-                "id": canonical_point_id,
-                "title": title,
-                "summary": source_canonical.get("summary") if source_canonical else source.get("summary") or "",
-                "metadata": json_dump(
-                    {
-                        **source_metadata,
-                        "copied_from_canonical_point_id": source_canonical_point_id,
-                        "copied_from_placement_node_id": source["node_id"],
-                    }
-                ),
-                "user_id": user.id,
-            },
+        _assert_point_copy_target_available(
+            session,
+            target_chapter_id=target_chapter_id,
+            target_parent_id=target_parent_id,
+            canonical_point_id=canonical_point_id,
         )
     node_id = new_node_id()
     metadata = source.get("metadata") if isinstance(source.get("metadata"), dict) else {}
@@ -401,6 +432,12 @@ def _insert_copied_node(
         "copied_from_node_id": source["node_id"],
         "copy_root_source_node_id": root_source_node_id,
     }
+    if canonical_point_id:
+        metadata = {
+            **metadata,
+            "copied_from_canonical_point_id": canonical_point_id,
+            "copy_reuses_canonical_point": True,
+        }
     session.execute(
         text(
             """
@@ -429,171 +466,7 @@ def _insert_copied_node(
             "user_id": user.id,
         },
     )
-    if canonical_point_id:
-        _copy_point_resources(
-            session,
-            source=source,
-            copied_node_id=node_id,
-            copied_canonical_point_id=canonical_point_id,
-            copied_title=title,
-            user=user,
-        )
     return node_id
-
-
-def _copy_point_resources(
-    session: Any,
-    *,
-    source: dict[str, Any],
-    copied_node_id: str,
-    copied_canonical_point_id: str,
-    copied_title: str,
-    user: Any,
-) -> None:
-    source_canonical_point_id = clean(source.get("canonical_point_id"))
-    content_result = session.execute(
-        text(
-            """
-            INSERT INTO experiment_catalog_point_content (
-              node_id, canonical_point_id, point_title, teacher_note, principle_mode, principle_equation, principle_text,
-              phenomenon_explanation, safety_note, content_status, created_by, updated_by, metadata, updated_at
-            )
-            SELECT
-              :copied_node_id,
-              :copied_canonical_point_id,
-              :copied_title,
-              pc.teacher_note,
-              pc.principle_mode,
-              pc.principle_equation,
-              pc.principle_text,
-              pc.phenomenon_explanation,
-              pc.safety_note,
-              'draft',
-              CAST(:user_id AS uuid),
-              CAST(:user_id AS uuid),
-              COALESCE(pc.metadata, '{}'::jsonb) || jsonb_build_object(
-                'copied_from_node_id', pc.node_id,
-                'copied_from_canonical_point_id', pc.canonical_point_id
-              ),
-              now()
-            FROM experiment_catalog_point_content pc
-            WHERE pc.canonical_point_id = :source_canonical_point_id
-               OR pc.node_id = :source_node_id
-            ORDER BY
-              CASE WHEN pc.canonical_point_id = :source_canonical_point_id THEN 0 ELSE 1 END,
-              CASE pc.content_status WHEN 'published' THEN 0 WHEN 'draft' THEN 1 ELSE 2 END,
-              pc.updated_at DESC
-            LIMIT 1
-            ON CONFLICT (node_id) DO UPDATE SET
-              canonical_point_id = EXCLUDED.canonical_point_id,
-              point_title = EXCLUDED.point_title,
-              teacher_note = EXCLUDED.teacher_note,
-              principle_mode = EXCLUDED.principle_mode,
-              principle_equation = EXCLUDED.principle_equation,
-              principle_text = EXCLUDED.principle_text,
-              phenomenon_explanation = EXCLUDED.phenomenon_explanation,
-              safety_note = EXCLUDED.safety_note,
-              content_status = 'draft',
-              metadata = experiment_catalog_point_content.metadata || EXCLUDED.metadata,
-              updated_by = EXCLUDED.updated_by,
-              updated_at = now()
-            """
-        ),
-        {
-            "copied_node_id": copied_node_id,
-            "copied_canonical_point_id": copied_canonical_point_id,
-            "copied_title": copied_title,
-            "source_canonical_point_id": source_canonical_point_id,
-            "source_node_id": source["node_id"],
-            "user_id": user.id,
-        },
-    )
-    if int(content_result.rowcount or 0) > 0:
-        session.execute(
-            text(
-                """
-                INSERT INTO experiment_catalog_point_reaction_equations (
-                  node_id, canonical_point_id, row_order, raw_text, canonical_display, canonical_mhchem, plain_search_text,
-                  formulae, aliases, reactants, products, participants, reaction_features, validation_status,
-                  warnings, errors, parser_version, migrated_from_principle_equation, metadata, updated_at
-                )
-                SELECT
-                  :copied_node_id,
-                  :copied_canonical_point_id,
-                  eq.row_order,
-                  eq.raw_text,
-                  eq.canonical_display,
-                  eq.canonical_mhchem,
-                  eq.plain_search_text,
-                  eq.formulae,
-                  eq.aliases,
-                  eq.reactants,
-                  eq.products,
-                  eq.participants,
-                  eq.reaction_features,
-                  eq.validation_status,
-                  eq.warnings,
-                  eq.errors,
-                  eq.parser_version,
-                  eq.migrated_from_principle_equation,
-                  COALESCE(eq.metadata, '{}'::jsonb) || jsonb_build_object(
-                    'copied_from_node_id', eq.node_id,
-                    'copied_from_canonical_point_id', eq.canonical_point_id
-                  ),
-                  now()
-                FROM experiment_catalog_point_reaction_equations eq
-                WHERE eq.canonical_point_id = :source_canonical_point_id
-                   OR eq.node_id = :source_node_id
-                ORDER BY eq.row_order, eq.created_at
-                ON CONFLICT (node_id, row_order) DO NOTHING
-                """
-            ),
-            {
-                "copied_node_id": copied_node_id,
-                "copied_canonical_point_id": copied_canonical_point_id,
-                "source_canonical_point_id": source_canonical_point_id,
-                "source_node_id": source["node_id"],
-            },
-        )
-    session.execute(
-        text(
-            """
-            INSERT INTO experiment_catalog_point_media_bindings (
-              node_id, canonical_point_id, source_placement_node_id, media_asset_id, title, binding_status, display_order,
-              metadata, created_by, updated_by, updated_at
-            )
-            SELECT
-              :copied_node_id,
-              :copied_canonical_point_id,
-              :copied_node_id,
-              mb.media_asset_id,
-              mb.title,
-              'published',
-              1,
-              COALESCE(mb.metadata, '{}'::jsonb) || jsonb_build_object(
-                'copied_from_node_id', mb.node_id,
-                'copied_from_canonical_point_id', mb.canonical_point_id
-              ),
-              CAST(:user_id AS uuid),
-              CAST(:user_id AS uuid),
-              now()
-            FROM experiment_catalog_point_media_bindings mb
-            JOIN media_assets ma ON ma.id = mb.media_asset_id
-            WHERE (mb.canonical_point_id = :source_canonical_point_id OR mb.node_id = :source_node_id)
-              AND mb.binding_status <> 'archived'
-              AND COALESCE(ma.lifecycle_status, 'active') = 'active'
-            ORDER BY mb.display_order, mb.created_at
-            ON CONFLICT (node_id, media_asset_id) DO NOTHING
-            """
-        ),
-        {
-            "copied_node_id": copied_node_id,
-            "copied_canonical_point_id": copied_canonical_point_id,
-            "source_canonical_point_id": source_canonical_point_id,
-            "source_node_id": source["node_id"],
-            "user_id": user.id,
-        },
-    )
 
 
 def _copy_node_tree(
@@ -673,6 +546,7 @@ def copy_node(*, node_id: str, payload: CatalogNodeCopyRequest, user: Any) -> di
             user=user,
         )
         _normalize_sibling_orders(session, chapter_id=target_chapter_id, parent_id=target_parent_id)
+        queue_subtree_teacher_indexes(session, node_id=copied_node_id, action="upsert", soft=True)
     return get_node_detail(node_id=copied_node_id)
 
 
@@ -738,11 +612,13 @@ def update_node(*, node_id: str, payload: CatalogNodeUpdateRequest, user: Any) -
             )
         if new_kind == "point" or node["node_kind"] == "point":
             if title_changed or kind_changed:
+                queue_teacher_index_state(session, node_id=node_id, action="upsert", soft=True)
                 if node["status"] == "published":
                     queue_index_state(session, node_id=node_id, action="upsert", soft=True)
                 mark_point_evidence_stale(session, node_id=node_id, reason="point_node_metadata_edited")
         else:
             if title_changed or kind_changed:
+                queue_subtree_teacher_indexes(session, node_id=node_id, action="upsert", soft=True)
                 queue_subtree_point_indexes(session, node_id=node_id, soft=True)
                 mark_subtree_evidence_stale(session, node_id=node_id, reason="directory_context_edited")
     return get_node_detail(node_id=node_id)
@@ -771,6 +647,7 @@ def move_node(*, node_id: str, payload: CatalogNodeMoveRequest, user: Any) -> di
             {"node_id": node_id, "parent_id": parent_id, "display_order": display_order, "user_id": user.id},
         )
         _normalize_sibling_orders(session, chapter_id=node["chapter_id"], parent_id=parent_id)
+        queue_subtree_teacher_indexes(session, node_id=node_id, action="upsert", soft=True)
         queue_subtree_point_indexes(session, node_id=node_id, soft=True)
         mark_subtree_evidence_stale(session, node_id=node_id, reason="catalog_path_moved")
     return get_node_detail(node_id=node_id)
@@ -808,6 +685,7 @@ def reorder_siblings(*, payload: CatalogNodeReorderRequest, user: Any) -> dict[s
         chapter_id, parent_id = next(iter(parents))
         _normalize_sibling_orders(session, chapter_id=str(chapter_id), parent_id=str(parent_id) if parent_id else None)
         for changed_node_id in node_ids:
+            queue_subtree_teacher_indexes(session, node_id=changed_node_id, action="upsert", soft=True)
             queue_subtree_point_indexes(session, node_id=changed_node_id, soft=True)
             mark_subtree_evidence_stale(session, node_id=changed_node_id, reason="catalog_order_changed")
     return {"updated": len(items)}
@@ -913,6 +791,11 @@ def set_node_status(*, node_id: str, payload: CatalogNodeStatusRequest, user: An
             {"status": new_status, "node_ids": node_ids, "user_id": user.id},
         )
         for changed_node_id in node_ids:
+            queue_subtree_teacher_indexes(
+                session,
+                node_id=changed_node_id,
+                action="delete" if action == "archive" else "upsert",
+            )
             queue_subtree_point_indexes(
                 session,
                 node_id=changed_node_id,
@@ -956,7 +839,17 @@ def validate_selected_node(session: Any, *, node_id: str, include_subtree: bool 
     return {"ok": not errors, "errors": errors, "warnings": warnings, "nodes": nodes}
 
 
-def search_catalog_nodes(*, query: str, chapter_id: str | None = None, limit: int = 80) -> dict[str, Any]:
+def search_catalog_nodes(
+    *,
+    query: str,
+    chapter_id: str | None = None,
+    limit: int = 80,
+    status_filter: str = "all",
+) -> dict[str, Any]:
+    return search_teacher_catalog_nodes(query=query, chapter_id=chapter_id, limit=limit, status_filter=status_filter)
+
+
+def _legacy_postgres_search_catalog_nodes(*, query: str, chapter_id: str | None = None, limit: int = 80) -> dict[str, Any]:
     term = f"%{clean(query)}%"
     filters = ["n.status <> 'archived'"]
     params: dict[str, Any] = {"term": term, "limit": limit}
@@ -1004,6 +897,7 @@ def chapter_tree_summary(*, chapter_id: str) -> dict[str, Any]:
     status_keys = ("blocked", "needs_content", "needs_video", "ready", "draft", "published", "sync_attention", "archived")
     point_status_counts = dict.fromkeys(status_keys, 0)
     directory_status_counts = dict.fromkeys(status_keys, 0)
+    point_missing_field_counts = dict.fromkeys(MISSING_LEARNING_FIELD_KEYS, 0)
     with db_session() as session:
         rows = (
             session.execute(
@@ -1038,6 +932,11 @@ def chapter_tree_summary(*, chapter_id: str) -> dict[str, Any]:
             continue
         point_count += 1
         point_status_counts[primary_state] += 1
+        core_readiness = status_summary.get("core_readiness") if isinstance(status_summary.get("core_readiness"), dict) else {}
+        missing_field_keys = core_readiness.get("missing_field_keys") if isinstance(core_readiness.get("missing_field_keys"), list) else []
+        for missing_field_key in missing_field_keys:
+            if missing_field_key in point_missing_field_counts:
+                point_missing_field_counts[missing_field_key] += 1
         if int(card.get("media_count") or 0) > 0:
             video_binding_count += 1
         if int(card.get("published_media_count") or 0) > 0:
@@ -1061,5 +960,6 @@ def chapter_tree_summary(*, chapter_id: str) -> dict[str, Any]:
         "missing_video_count": max(point_count - playable_video_count, 0),
         "actionable_point_count": actionable_point_count,
         "point_status_counts": point_status_counts,
+        "point_missing_field_counts": point_missing_field_counts,
         "directory_status_counts": directory_status_counts,
     }

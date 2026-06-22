@@ -7,6 +7,10 @@ import {
   buildCatalogRelatedLinksPayload,
   catalogHeaderPrimaryAction,
   catalogNodeActionCount,
+  catalogNodeDirectoryPendingClass,
+  catalogNodeDirectoryPendingCount,
+  catalogNodeDirectoryPendingLabel,
+  catalogNodeDirectoryPendingParts,
   catalogStatusColor,
   catalogStatusDotClass,
   catalogStatusFilterCount,
@@ -276,7 +280,7 @@ describe("catalog tree mappers", () => {
     expect(catalogStatusLabel("draft")).toBe("草稿");
     expect(catalogStatusLabel("archived")).toBe("已归档");
     expect(catalogStatusDotClass("published")).toBe("is-published");
-    expect(catalogStatusDotClass("draft")).toBe("is-draft");
+    expect(catalogStatusDotClass("draft")).toBe("is-ready");
     expect(catalogStatusDotClass("archived")).toBe("is-archived");
     expect(catalogStatusColor("draft")).toBe("default");
   });
@@ -291,6 +295,9 @@ describe("catalog tree mappers", () => {
       "待发布",
       "已发布",
       "同步异常",
+      "缺实验原理",
+      "缺现象解释",
+      "缺安全提示",
     ]);
   });
 
@@ -316,7 +323,8 @@ describe("catalog tree mappers", () => {
     } as unknown as CatalogNodeDetail;
 
     expect(resolveCatalogNodeStatus(detail).primary_state).toBe("sync_attention");
-    expect(catalogNodePrimaryStateClass("sync_attention")).toBe("is-warning");
+    expect(catalogNodePrimaryStateClass("ready")).toBe("is-ready");
+    expect(catalogNodePrimaryStateClass("sync_attention")).toBe("is-sync");
     expect(catalogNodePrimaryStateClass("blocked")).toBe("is-error");
     expect(catalogNodeStatusTooltip(detail)).toBe("同步异常：搜索或 AI 同步异常");
   });
@@ -459,7 +467,8 @@ describe("catalog tree mappers", () => {
           video: "not_applicable",
           missing_fields: [],
           descendant_action_count: 2,
-          descendant_status_counts: { needs_content: 2, needs_video: 0, sync_attention: 1 },
+          descendant_status_counts: { needs_content: 2, needs_video: 0, ready: 1, published: 3, sync_attention: 1 },
+          descendant_missing_field_counts: { principle: 1, phenomenon: 0, safety: 2 },
         },
         visibility: { placement: "published", shared_content: "not_applicable", student_available: true },
         async_consumption: { search_index: "not_applicable", ai_evidence: "not_applicable" },
@@ -471,7 +480,85 @@ describe("catalog tree mappers", () => {
     expect(matchesCatalogNodeStatusFilter(directory, "blocked")).toBe(false);
     expect(matchesCatalogNodeStatusFilter(directory, "needs_video")).toBe(false);
     expect(matchesCatalogNodeStatusFilter(directory, "sync_attention")).toBe(true);
-    expect(catalogNodeActionCount(directory)).toBe(3);
+    expect(matchesCatalogNodeStatusFilter(directory, "unpublished")).toBe(true);
+    expect(matchesCatalogNodeStatusFilter(directory, "published")).toBe(true);
+    expect(matchesCatalogNodeStatusFilter(directory, "missing_principle")).toBe(true);
+    expect(matchesCatalogNodeStatusFilter(directory, "missing_phenomenon")).toBe(false);
+    expect(matchesCatalogNodeStatusFilter(directory, "missing_safety")).toBe(true);
+    expect(catalogNodeActionCount(directory)).toBe(4);
+  });
+
+  it("builds directory row pending badges from actionable states without ready counts", () => {
+    const directory = {
+      node_id: "cat-dir-pending",
+      title: "Directory",
+      node_kind: "directory",
+      status: "published",
+      descendant_point_count: 12,
+      node_status: {
+        primary_state: "needs_content",
+        primary_label: "缺内容",
+        primary_reason: "7 个后代点位缺内容",
+        core_readiness: {
+          content_fields: "not_applicable",
+          video: "not_applicable",
+          missing_fields: [],
+          descendant_action_count: 14,
+          descendant_status_counts: {
+            blocked: 1,
+            needs_content: 7,
+            needs_video: 2,
+            draft: 3,
+            ready: 4,
+            published: 5,
+            sync_attention: 1,
+          },
+          descendant_missing_field_counts: {},
+        },
+        visibility: { placement: "published", shared_content: "not_applicable", student_available: true },
+        async_consumption: { search_index: "not_applicable", ai_evidence: "not_applicable" },
+        conditions: [],
+      },
+    } as never;
+
+    expect(catalogNodeDirectoryPendingParts(directory).map((item) => [item.key, item.count])).toEqual([
+      ["blocked", 1],
+      ["needs_content", 7],
+      ["needs_video", 2],
+      ["draft", 3],
+      ["sync_attention", 1],
+    ]);
+    expect(catalogNodeDirectoryPendingCount(directory)).toBe(14);
+    expect(catalogNodeDirectoryPendingLabel(directory)).toBe("待处理：14 个点位（1 个阻断，7 个缺内容，2 个缺视频，3 个草稿，1 个同步异常）");
+    expect(catalogNodeDirectoryPendingClass(directory)).toBe("is-error");
+  });
+
+  it("matches focused missing-field filters for direct points using structured keys", () => {
+    const point = {
+      node_id: "cat-point",
+      title: "Missing safety",
+      node_kind: "point",
+      status: "published",
+      node_status: {
+        primary_state: "needs_content",
+        primary_label: "缺内容",
+        primary_reason: "缺少安全提示",
+        core_readiness: {
+          content_fields: "missing",
+          video: "present",
+          missing_field_keys: ["safety"],
+          missing_field_labels: ["安全提示"],
+          missing_fields: ["安全提示"],
+        },
+        visibility: { placement: "published", shared_content: "draft", student_available: false },
+        async_consumption: { search_index: "idle", ai_evidence: "idle" },
+        conditions: [],
+      },
+    } as never;
+
+    expect(matchesCatalogNodeStatusFilter(point, "needs_content")).toBe(true);
+    expect(matchesCatalogNodeStatusFilter(point, "missing_safety")).toBe(true);
+    expect(matchesCatalogNodeStatusFilter(point, "missing_principle")).toBe(false);
   });
 
   it("matches unpublished filter for draft, ready, and aggregate unpublished states", () => {
@@ -504,7 +591,7 @@ describe("catalog tree mappers", () => {
           content_fields: "not_applicable",
           video: "not_applicable",
           missing_fields: [],
-          descendant_status_counts: { draft: 1 },
+          descendant_status_counts: { draft: 1, published: 0 },
         },
         visibility: { placement: "published", shared_content: "not_applicable", student_available: true },
         async_consumption: { search_index: "not_applicable", ai_evidence: "not_applicable" },
@@ -512,10 +599,32 @@ describe("catalog tree mappers", () => {
       },
     } as never;
 
-    expect(matchesCatalogNodeStatusFilter(draftNode, "unpublished")).toBe(true);
+    expect(matchesCatalogNodeStatusFilter(draftNode, "unpublished")).toBe(false);
     expect(matchesCatalogNodeStatusFilter(readyNode, "unpublished")).toBe(true);
     expect(matchesCatalogNodeStatusFilter(aggregateNode, "unpublished")).toBe(true);
-    expect(matchesCatalogNodeStatusFilter(aggregateNode, "published")).toBe(true);
+    expect(matchesCatalogNodeStatusFilter(aggregateNode, "published")).toBe(false);
+    const aggregatePublishedNode = {
+      node_id: "cat-aggregate-published",
+      title: "Published directory with published descendants",
+      node_kind: "directory",
+      status: "published",
+      node_status: {
+        primary_state: "published",
+        primary_label: "已发布",
+        primary_reason: "目录已发布",
+        core_readiness: {
+          content_fields: "not_applicable",
+          video: "not_applicable",
+          missing_fields: [],
+          descendant_status_counts: { draft: 0, ready: 0, published: 2 },
+        },
+        visibility: { placement: "published", shared_content: "not_applicable", student_available: true },
+        async_consumption: { search_index: "not_applicable", ai_evidence: "not_applicable" },
+        conditions: [],
+      },
+    } as never;
+
+    expect(matchesCatalogNodeStatusFilter(aggregatePublishedNode, "published")).toBe(true);
   });
 
   it("maps chapter summary counts to status filter chips", () => {
@@ -531,6 +640,11 @@ describe("catalog tree mappers", () => {
         published: 5,
         sync_attention: 1,
       },
+      point_missing_field_counts: {
+        principle: 4,
+        phenomenon: 2,
+        safety: 1,
+      },
     } as never;
 
     expect(catalogStatusFilterCount(summary, "all")).toBe(12);
@@ -538,6 +652,9 @@ describe("catalog tree mappers", () => {
     expect(catalogStatusFilterCount(summary, "blocked")).toBe(1);
     expect(catalogStatusFilterCount(summary, "unpublished")).toBe(5);
     expect(catalogStatusFilterCount(summary, "published")).toBe(5);
+    expect(catalogStatusFilterCount(summary, "missing_principle")).toBe(4);
+    expect(catalogStatusFilterCount(summary, "missing_phenomenon")).toBe(2);
+    expect(catalogStatusFilterCount(summary, "missing_safety")).toBe(1);
     expect(catalogStatusFilterCount(undefined, "all")).toBeNull();
   });
 });
