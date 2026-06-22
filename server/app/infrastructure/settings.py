@@ -86,6 +86,18 @@ class Settings:
     rag_rerank_top_k: int = 9
     rag_final_top_k: int = 5
     chemistry_rag_root: Path = Path("E:/chemistry-rag") if os.name == "nt" else Path("/chemistry-rag")
+    textbook_rag_enabled: bool = False
+    textbook_rag_elasticsearch_url: str = ""
+    textbook_rag_elasticsearch_index: str = "canonical-rag-chunks-qwen-v1"
+    textbook_rag_embedding_base_url: str = ""
+    textbook_rag_embedding_api_key: str = ""
+    textbook_rag_embedding_model: str = ""
+    textbook_rag_embedding_dimension: int = 1024
+    textbook_rag_rerank_base_url: str = ""
+    textbook_rag_rerank_api_key: str = ""
+    textbook_rag_rerank_model: str = ""
+    textbook_rag_min_rerank_score: float = 0.0
+    textbook_rag_timeout_seconds: float = 8.0
     video_library_search_enabled: bool = True
     video_library_search_backend: str = "local"
     video_library_search_url: str = ""
@@ -124,6 +136,17 @@ class Settings:
                     errors.append("AGENT_LLM_API_KEY is required when AGENT_LLM_PROVIDER is enabled")
                 if not self.agent_llm_model:
                     errors.append("AGENT_LLM_MODEL is required when AGENT_LLM_PROVIDER is enabled")
+            if self.textbook_rag_enabled:
+                if not self.textbook_rag_elasticsearch_url:
+                    errors.append("TEXTBOOK_RAG_ELASTICSEARCH_URL is required when textbook RAG is enabled")
+                if not self.textbook_rag_embedding_api_key:
+                    errors.append("TEXTBOOK_RAG_EMBEDDING_API_KEY is required when textbook RAG is enabled")
+                if not self.textbook_rag_embedding_model:
+                    errors.append("TEXTBOOK_RAG_EMBEDDING_MODEL is required when textbook RAG is enabled")
+                if not self.textbook_rag_rerank_api_key:
+                    errors.append("TEXTBOOK_RAG_RERANK_API_KEY is required when textbook RAG is enabled")
+                if not self.textbook_rag_rerank_model:
+                    errors.append("TEXTBOOK_RAG_RERANK_MODEL is required when textbook RAG is enabled")
             if self.video_library_search_enabled and self.video_library_search_require_es_in_production:
                 if self.video_library_search_backend != "elasticsearch":
                     errors.append("VIDEO_LIBRARY_SEARCH_BACKEND must be elasticsearch in production when video-library search is enabled")
@@ -181,6 +204,30 @@ def get_settings() -> Settings:
         rag_rerank_top_k=_get_int("RAG_RERANK_TOP_K", Settings.rag_rerank_top_k),
         rag_final_top_k=_get_int("RAG_FINAL_TOP_K", Settings.rag_final_top_k),
         chemistry_rag_root=Path(_getenv("CHEMISTRY_RAG_ROOT", str(Settings.chemistry_rag_root))),
+        textbook_rag_enabled=_get_bool("TEXTBOOK_RAG_ENABLED", Settings.textbook_rag_enabled),
+        textbook_rag_elasticsearch_url=_getenv("TEXTBOOK_RAG_ELASTICSEARCH_URL").rstrip("/"),
+        textbook_rag_elasticsearch_index=_getenv(
+            "TEXTBOOK_RAG_ELASTICSEARCH_INDEX",
+            Settings.textbook_rag_elasticsearch_index,
+        ),
+        textbook_rag_embedding_base_url=_getenv("TEXTBOOK_RAG_EMBEDDING_BASE_URL").rstrip("/"),
+        textbook_rag_embedding_api_key=_getenv("TEXTBOOK_RAG_EMBEDDING_API_KEY"),
+        textbook_rag_embedding_model=_getenv("TEXTBOOK_RAG_EMBEDDING_MODEL"),
+        textbook_rag_embedding_dimension=_get_int(
+            "TEXTBOOK_RAG_EMBEDDING_DIMENSION",
+            Settings.textbook_rag_embedding_dimension,
+        ),
+        textbook_rag_rerank_base_url=_getenv("TEXTBOOK_RAG_RERANK_BASE_URL").rstrip("/"),
+        textbook_rag_rerank_api_key=_getenv("TEXTBOOK_RAG_RERANK_API_KEY"),
+        textbook_rag_rerank_model=_getenv("TEXTBOOK_RAG_RERANK_MODEL"),
+        textbook_rag_min_rerank_score=_get_float(
+            "TEXTBOOK_RAG_MIN_RERANK_SCORE",
+            Settings.textbook_rag_min_rerank_score,
+        ),
+        textbook_rag_timeout_seconds=_get_float(
+            "TEXTBOOK_RAG_TIMEOUT_SECONDS",
+            Settings.textbook_rag_timeout_seconds,
+        ),
         video_library_search_enabled=_get_bool(
             "VIDEO_LIBRARY_SEARCH_ENABLED",
             Settings.video_library_search_enabled,

@@ -169,6 +169,28 @@ export function SettingsPage() {
         model: aiConfig.data.model,
         connection_check_interval_minutes: aiConfig.data.connection_check_interval_minutes,
         api_key: "",
+        textbook_rag: {
+          enabled: aiConfig.data.textbook_rag?.enabled || false,
+          elasticsearch_url: aiConfig.data.textbook_rag?.elasticsearch_url || "",
+          index_name: aiConfig.data.textbook_rag?.index_name || "canonical-rag-chunks-qwen-v1",
+          embedding_dimension: aiConfig.data.textbook_rag?.embedding_dimension || 1024,
+          keyword_top_k: aiConfig.data.textbook_rag?.keyword_top_k || 16,
+          vector_top_k: aiConfig.data.textbook_rag?.vector_top_k || 24,
+          rerank_top_k: aiConfig.data.textbook_rag?.rerank_top_k || 9,
+          final_top_k: aiConfig.data.textbook_rag?.final_top_k || 5,
+          min_rerank_score: aiConfig.data.textbook_rag?.min_rerank_score || 0,
+          timeout_seconds: aiConfig.data.textbook_rag?.timeout_seconds || 8,
+          embedding: {
+            base_url: aiConfig.data.textbook_rag?.embedding?.base_url || "",
+            model: aiConfig.data.textbook_rag?.embedding?.model || "",
+            api_key: "",
+          },
+          rerank: {
+            base_url: aiConfig.data.textbook_rag?.rerank?.base_url || "",
+            model: aiConfig.data.textbook_rag?.rerank?.model || "",
+            api_key: "",
+          },
+        },
       });
       aiFeatureForm.setFieldsValue({ enabled_features: aiConfig.data.enabled_features });
     }
@@ -208,20 +230,55 @@ export function SettingsPage() {
     onError: (error) => message.error(errorMessage(error)),
   });
   const saveAiConfig = useMutation({
-    mutationFn: (values: AIConfigurationUpdate & { api_key?: string }) => {
+    mutationFn: (values: AIConfigurationUpdate & { api_key?: string; textbook_rag?: NonNullable<AIConfigurationUpdate["textbook_rag"]> }) => {
       if (!aiConfig.data) {
         throw new Error("AI 接入配置尚未加载");
       }
+      const textbookRag = values.textbook_rag || undefined;
       const payload: AIConfigurationUpdate = {
         provider: "openai",
         base_url: values.base_url || "",
         model: values.model || "",
         connection_check_interval_minutes: values.connection_check_interval_minutes || 30,
         enabled_features: aiConfig.data.enabled_features,
+        chat_provider: {
+          provider: "openai",
+          base_url: values.base_url || "",
+          model: values.model || "",
+        },
       };
       const newSecret = String(values.api_key || "").trim();
       if (newSecret) {
         payload.api_key = newSecret;
+        payload.chat_provider = { ...payload.chat_provider!, api_key: newSecret };
+      }
+      if (textbookRag) {
+        const embeddingApiKey = String(textbookRag.embedding?.api_key || "").trim();
+        const rerankApiKey = String(textbookRag.rerank?.api_key || "").trim();
+        payload.textbook_rag = {
+          enabled: Boolean(textbookRag.enabled),
+          elasticsearch_url: textbookRag.elasticsearch_url || "",
+          index_name: textbookRag.index_name || "canonical-rag-chunks-qwen-v1",
+          embedding_dimension: Number(textbookRag.embedding_dimension || 1024),
+          keyword_top_k: Number(textbookRag.keyword_top_k || 16),
+          vector_top_k: Number(textbookRag.vector_top_k || 24),
+          rerank_top_k: Number(textbookRag.rerank_top_k || 9),
+          final_top_k: Number(textbookRag.final_top_k || 5),
+          min_rerank_score: Number(textbookRag.min_rerank_score || 0),
+          timeout_seconds: Number(textbookRag.timeout_seconds || 8),
+          embedding: {
+            provider: "openai",
+            base_url: textbookRag.embedding?.base_url || "",
+            model: textbookRag.embedding?.model || "",
+            ...(embeddingApiKey ? { api_key: embeddingApiKey } : {}),
+          },
+          rerank: {
+            provider: "openai",
+            base_url: textbookRag.rerank?.base_url || "",
+            model: textbookRag.rerank?.model || "",
+            ...(rerankApiKey ? { api_key: rerankApiKey } : {}),
+          },
+        };
       }
       return putJson<AIConfiguration>("/api/admin/ai-configuration", payload);
     },
@@ -230,7 +287,10 @@ export function SettingsPage() {
       void queryClient.invalidateQueries({ queryKey: ["ai-configuration"] });
       void queryClient.invalidateQueries({ queryKey: ["ai-configuration", "settings"] });
       void queryClient.invalidateQueries({ queryKey: ["learning-assistant-runtime"] });
-      aiConfigForm.setFieldsValue({ api_key: "" });
+      aiConfigForm.setFieldsValue({
+        api_key: "",
+        textbook_rag: { embedding: { api_key: "" }, rerank: { api_key: "" } },
+      });
     },
     onError: (error) => message.error(errorMessage(error)),
   });
@@ -458,7 +518,14 @@ export function SettingsPage() {
         <Form
           form={aiConfigForm}
           layout="vertical"
-          onFinish={(values) => saveAiConfig.mutate(values as AIConfigurationUpdate & { api_key?: string })}
+          onFinish={(values) =>
+            saveAiConfig.mutate(
+              values as AIConfigurationUpdate & {
+                api_key?: string;
+                textbook_rag?: NonNullable<AIConfigurationUpdate["textbook_rag"]>;
+              },
+            )
+          }
         >
           <Card title="OpenAI API 接入" className="settings-ai-config-card">
             {!canEditAiFeatures ? <Alert type="info" showIcon title="当前账号可查看 OpenAI API 配置，只有管理员可以修改。" className="section-alert" /> : null}
@@ -506,6 +573,80 @@ export function SettingsPage() {
               <Form.Item name="connection_check_interval_minutes" label="自动检测间隔（分钟）">
                 <InputNumber min={5} max={1440} precision={0} disabled={!canEditAiFeatures} className="full" />
               </Form.Item>
+            </div>
+            <div className="settings-section">
+              <Flex justify="space-between" align="center" gap={12}>
+                <div>
+                  <Text strong>教材 RAG 检索</Text>
+                  <Text type="secondary" className="block-text">
+                    用 Elasticsearch + Qwen Embedding/Rerank 为教师出题工作台提供教材证据。
+                  </Text>
+                </div>
+                <Form.Item name={["textbook_rag", "enabled"]} valuePropName="checked" noStyle>
+                  <Switch disabled={!canEditAiFeatures} />
+                </Form.Item>
+              </Flex>
+              <div className="settings-grid">
+                <Form.Item name={["textbook_rag", "elasticsearch_url"]} label="Elasticsearch URL">
+                  <Input disabled={!canEditAiFeatures} placeholder="http://elasticsearch:9200" />
+                </Form.Item>
+                <Form.Item name={["textbook_rag", "index_name"]} label="教材 chunk 索引">
+                  <Input disabled={!canEditAiFeatures} placeholder="canonical-rag-chunks-qwen-v1" />
+                </Form.Item>
+                <Form.Item name={["textbook_rag", "embedding", "model"]} label="Embedding 模型">
+                  <Input disabled={!canEditAiFeatures} placeholder="Qwen embedding model" />
+                </Form.Item>
+                <Form.Item name={["textbook_rag", "embedding", "base_url"]} label="Embedding Base URL">
+                  <Input disabled={!canEditAiFeatures} placeholder="Embedding API 地址" />
+                </Form.Item>
+                <Form.Item
+                  name={["textbook_rag", "embedding", "api_key"]}
+                  label={`Embedding API Key${
+                    aiConfig.data?.textbook_rag?.embedding?.api_key_configured
+                      ? `（已配置 ${aiConfig.data.textbook_rag.embedding.api_key_fingerprint || ""}）`
+                      : ""
+                  }`}
+                >
+                  <Input.Password disabled={!canEditAiFeatures} placeholder="留空则保留已有密钥" autoComplete="new-password" />
+                </Form.Item>
+                <Form.Item name={["textbook_rag", "embedding_dimension"]} label="向量维度">
+                  <InputNumber min={1} precision={0} disabled={!canEditAiFeatures} className="full" />
+                </Form.Item>
+                <Form.Item name={["textbook_rag", "rerank", "model"]} label="Rerank 模型">
+                  <Input disabled={!canEditAiFeatures} placeholder="Qwen rerank model" />
+                </Form.Item>
+                <Form.Item name={["textbook_rag", "rerank", "base_url"]} label="Rerank Base URL">
+                  <Input disabled={!canEditAiFeatures} placeholder="Rerank API 地址" />
+                </Form.Item>
+                <Form.Item
+                  name={["textbook_rag", "rerank", "api_key"]}
+                  label={`Rerank API Key${
+                    aiConfig.data?.textbook_rag?.rerank?.api_key_configured
+                      ? `（已配置 ${aiConfig.data.textbook_rag.rerank.api_key_fingerprint || ""}）`
+                      : ""
+                  }`}
+                >
+                  <Input.Password disabled={!canEditAiFeatures} placeholder="留空则保留已有密钥" autoComplete="new-password" />
+                </Form.Item>
+                <Form.Item name={["textbook_rag", "keyword_top_k"]} label="关键词召回 TopK">
+                  <InputNumber min={1} max={100} precision={0} disabled={!canEditAiFeatures} className="full" />
+                </Form.Item>
+                <Form.Item name={["textbook_rag", "vector_top_k"]} label="向量召回 TopK">
+                  <InputNumber min={1} max={100} precision={0} disabled={!canEditAiFeatures} className="full" />
+                </Form.Item>
+                <Form.Item name={["textbook_rag", "rerank_top_k"]} label="重排 TopK">
+                  <InputNumber min={1} max={100} precision={0} disabled={!canEditAiFeatures} className="full" />
+                </Form.Item>
+                <Form.Item name={["textbook_rag", "final_top_k"]} label="最终证据 TopK">
+                  <InputNumber min={1} max={30} precision={0} disabled={!canEditAiFeatures} className="full" />
+                </Form.Item>
+                <Form.Item name={["textbook_rag", "min_rerank_score"]} label="最小重排分">
+                  <InputNumber step={0.05} disabled={!canEditAiFeatures} className="full" />
+                </Form.Item>
+                <Form.Item name={["textbook_rag", "timeout_seconds"]} label="超时（秒）">
+                  <InputNumber min={0.5} max={60} step={0.5} disabled={!canEditAiFeatures} className="full" />
+                </Form.Item>
+              </div>
             </div>
             <div className="settings-card-actions">
               <Button

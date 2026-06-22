@@ -75,6 +75,8 @@ import {
   questionWorkbenchGateFromRuntime,
   reviewDecisionText,
   sourceRefLabel,
+  textbookSectionLabels,
+  workbenchEvidenceSectionsFromPackage,
 } from "./questionBankDisplay";
 import "./question-bank.css";
 
@@ -223,6 +225,7 @@ export function QuestionBanksPage() {
       ? [workbenchContext.selected_point]
       : assistantPointKeys.map((key) => ({ point_key: key, point_title: pointOptions.find((option) => option.value === key)?.label || key }))) || [];
   const workbenchEvidencePackage = workbenchContext.evidence_package;
+  const workbenchEvidenceSections = workbenchEvidenceSectionsFromPackage(workbenchEvidencePackage);
   const workbenchStatusTone = workbenchRagGate?.healthy === false ? "blocked" : questionWorkbenchGate.tone;
   const workbenchEvidenceSourceCount = workbenchEvidencePackage?.source_count ?? (workbenchContext.source_refs || []).length;
   const workbenchEvidenceTitle = workbenchRagGate?.healthy === false
@@ -920,6 +923,30 @@ export function QuestionBanksPage() {
                   ))}
                   {!(workbenchContext.source_refs || []).length ? <Tag>暂无来源片段</Tag> : null}
                 </Space>
+                {workbenchEvidenceSections.length ? (
+                  <div className="question-source-section">
+                    <Text strong>教材证据分组</Text>
+                    <Space orientation="vertical" size={8} className="full">
+                      {workbenchEvidenceSections.map((item) => (
+                        <div key={`${item.pointKey}-${item.section}`} className="question-evidence-row">
+                          <Text type="secondary">
+                            {item.pointTitle} · {textbookSectionLabels[item.section] || item.section}
+                          </Text>
+                          <div className="question-evidence-values">
+                            <Tag color={item.sufficient ? "green" : "orange"}>
+                              {item.sufficient ? `${item.sourceCount} 条证据` : item.missingReason || "证据不足"}
+                            </Tag>
+                            {item.sources.slice(0, 3).map((source: any, index: number) => (
+                              <Tag key={`${source.chunk_id || index}`} color="default">
+                                {sourceRefLabel(source)}
+                              </Tag>
+                            ))}
+                          </div>
+                        </div>
+                      ))}
+                    </Space>
+                  </div>
+                ) : null}
               </div>
 
               {workbenchOriginalQuestion?.metadata?.option_links?.length ? (

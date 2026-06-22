@@ -145,15 +145,60 @@ export type QuestionWorkbenchGateState = {
   tone: "ready" | "checking" | "blocked";
 };
 
+export const textbookSectionLabels: Record<string, string> = {
+  principle: "实验原理",
+  phenomenon: "现象解释",
+  safety: "安全提示",
+};
+
+export type WorkbenchEvidenceSection = {
+  pointKey: string;
+  pointTitle: string;
+  section: string;
+  sufficient: boolean;
+  sourceCount: number;
+  sources: Record<string, unknown>[];
+  missingReason: string;
+};
+
+function asRecord(value: unknown): Record<string, unknown> {
+  return value && typeof value === "object" && !Array.isArray(value) ? (value as Record<string, unknown>) : {};
+}
+
+export function workbenchEvidenceSectionsFromPackage(evidencePackage?: Record<string, unknown> | null): WorkbenchEvidenceSection[] {
+  const pointPackages = asRecord(evidencePackage?.point_packages);
+  return Object.entries(pointPackages).flatMap(([pointKey, rawPointPackage]) => {
+    const pointPackage = asRecord(rawPointPackage);
+    const point = asRecord(pointPackage.point);
+    const sections = asRecord(pointPackage.sections);
+    return Object.entries(sections).map(([section, rawSectionPackage]) => {
+      const sectionPackage = asRecord(rawSectionPackage);
+      const sources = Array.isArray(sectionPackage.sources)
+        ? sectionPackage.sources.map((source) => asRecord(source))
+        : [];
+      return {
+        pointKey,
+        pointTitle: String(point.point_title || pointKey),
+        section,
+        sufficient: Boolean(sectionPackage.sufficient),
+        sourceCount: sources.length,
+        sources,
+        missingReason: String(sectionPackage.missing_reason || ""),
+      };
+    });
+  });
+}
+
 export function questionWorkbenchGateFromRuntime(runtime?: LearningAssistantRuntime): QuestionWorkbenchGateState {
   const ragRuntime = runtime?.rag_runtime;
+  const textbookStatus = ragRuntime?.textbook_rag_status || "disabled";
   const bgeStatus = runtime?.bge_metrics?.ok
     ? "healthy"
     : runtime?.bge_status || (runtime?.bge_error ? "unreachable" : ragRuntime?.bge_service_required ? "checking" : "not_required");
-  const route = ragRuntime?.hybrid_bge_enabled
-    ? "来源检索正常"
+  const route = ragRuntime?.textbook_rag_enabled
+    ? `教材 RAG · ${ragRuntime.textbook_rag_index || "Qwen/ES"}`
     : ragRuntime?.rag_enabled
-      ? "基础来源检索"
+      ? "教材 RAG 未启用"
       : "来源检索关闭";
 
   if (!runtime || !ragRuntime) {
@@ -163,7 +208,7 @@ export function questionWorkbenchGateFromRuntime(runtime?: LearningAssistantRunt
       message: "正在确认来源检索状态，稍等一下再使用 AI 建议。",
       tagColor: "#356f9c",
       alertType: "info",
-      bgeStatus: "checking",
+      bgeStatus: textbookStatus || bgeStatus,
       route,
       tone: "checking",
     };
@@ -175,19 +220,29 @@ export function questionWorkbenchGateFromRuntime(runtime?: LearningAssistantRunt
       message: "来源检索还没开启，暂时不能让 AI 出题或修题。",
       tagColor: "#b42318",
       alertType: "error",
-      bgeStatus,
+      bgeStatus: textbookStatus || bgeStatus,
       route,
       tone: "blocked",
     };
   }
-  if (!ragRuntime.hybrid_bge_enabled) {
+  if (textbookStatus !== "healthy") {
+    const statusText: Record<string, string> = {
+      disabled: "教材 RAG 未启用",
+      elasticsearch_not_configured: "Elasticsearch 未配置",
+      embedding_not_configured: "Embedding 模型未配置",
+      rerank_not_configured: "Rerank 模型未配置",
+      index_missing: "教材 chunk 索引不存在",
+      index_stale: "教材 chunk 索引需要重建",
+      elasticsearch_unreachable: "Elasticsearch 连接不上",
+      elasticsearch_error: "Elasticsearch 检查失败",
+    };
     return {
       healthy: false,
       label: "AI 暂不可用",
-      message: "来源检索还没准备好，暂时不能使用 AI 建议。",
+      message: `${statusText[textbookStatus] || ragRuntime.textbook_rag_message || "教材 RAG 还没准备好"}，暂时不能使用 AI 建议。`,
       tagColor: "#b42318",
       alertType: "error",
-      bgeStatus,
+      bgeStatus: textbookStatus,
       route,
       tone: "blocked",
     };
@@ -199,36 +254,18 @@ export function questionWorkbenchGateFromRuntime(runtime?: LearningAssistantRunt
       message: "来源检索的扩展查询未开启，暂时不能使用 AI 建议。",
       tagColor: "#b42318",
       alertType: "error",
-      bgeStatus,
+      bgeStatus: textbookStatus,
       route,
       tone: "blocked",
-    };
-  }
-  if (bgeStatus !== "healthy") {
-    const statusText: Record<string, string> = {
-      checking: "正在检查来源检索服务",
-      degraded: "来源检索服务异常",
-      unreachable: "来源检索服务连接不上",
-      not_configured: "来源检索服务未配置",
-    };
-    return {
-      healthy: false,
-      label: bgeStatus === "checking" ? "正在检查" : "AI 暂不可用",
-      message: `${statusText[bgeStatus] || "来源检索还没准备好"}，稍后再使用 AI 建议。`,
-      tagColor: bgeStatus === "checking" ? "#356f9c" : "#b42318",
-      alertType: bgeStatus === "checking" ? "info" : "error",
-      bgeStatus,
-      route,
-      tone: bgeStatus === "checking" ? "checking" : "blocked",
     };
   }
   return {
     healthy: true,
     label: "AI 建议可用",
-    message: "会先读取当前实验和点位的来源片段，再生成出题/修题建议。",
+    message: "会先按点位三段式描述检索教材证据，再生成出题/修题建议。",
     tagColor: "#005826",
     alertType: "success",
-    bgeStatus,
+    bgeStatus: textbookStatus,
     route,
     tone: "ready",
   };

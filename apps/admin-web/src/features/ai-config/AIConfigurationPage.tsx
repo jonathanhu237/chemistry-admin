@@ -171,6 +171,8 @@ export function AIConfigurationPage() {
     { key: "course", title: "课程问答", description: "普通化学问题由模型回答，RAG 辅助", signal: "Answer" },
   ];
   const ragRuntime = assistantRuntime.data?.rag_runtime || aiConfig.data?.rag_runtime;
+  const textbookRag = aiConfig.data?.textbook_rag;
+  const textbookStatus = ragRuntime?.textbook_rag_status || "disabled";
   const bgeMetrics = assistantRuntime.data?.bge_metrics || null;
   const bgeProcess = bgeMetrics?.process;
   const bgeContainer = bgeMetrics?.container;
@@ -183,6 +185,13 @@ export function AIConfigurationPage() {
     : assistantRuntime.data?.bge_status || (assistantRuntime.data?.bge_error ? "unreachable" : ragRuntime?.bge_service_required ? "checking" : "not_required");
   const ragStatusMeta = (() => {
     if (!ragRuntime?.rag_enabled) return { label: "RAG 关闭", color: "default", tone: "idle", headline: "学生侧 RAG 未启用" };
+    if (ragRuntime.textbook_rag_enabled) {
+      if (textbookStatus === "healthy") return { label: "教材 RAG 可用", color: "#005826", tone: "good", headline: "Qwen/ES 教材 RAG 可用" };
+      if (textbookStatus === "index_stale" || textbookStatus === "index_missing") {
+        return { label: "索引待处理", color: "#b8892f", tone: "warn", headline: "教材 chunk 索引需要处理" };
+      }
+      return { label: "教材 RAG 异常", color: "#b42318", tone: "bad", headline: "教材 RAG 未就绪" };
+    }
     if (!ragRuntime.hybrid_bge_enabled) return { label: "Legacy", color: "#356f9c", tone: "legacy", headline: "关键词 RAG 运行中" };
     if (bgeStatus === "healthy") return { label: "Hybrid 可用", color: "#005826", tone: "good", headline: "Hybrid BGE RAG 可用" };
     if (bgeStatus === "degraded") return { label: "BGE 异常", color: "#b8892f", tone: "warn", headline: "BGE 已响应但状态异常" };
@@ -190,7 +199,9 @@ export function AIConfigurationPage() {
     if (bgeStatus === "unreachable") return { label: "不可达", color: "#b42318", tone: "bad", headline: "BGE 服务不可达" };
     return { label: "检测中", color: "#356f9c", tone: "legacy", headline: "BGE 服务检测中" };
   })();
-  const ragRouteSummary = ragRuntime?.hybrid_bge_enabled
+  const ragRouteSummary = ragRuntime?.textbook_rag_enabled
+    ? `教材 chunk · ${ragRuntime.textbook_rag_index || textbookRag?.index_name || "-"}`
+    : ragRuntime?.hybrid_bge_enabled
     ? "关键词召回 + BGE 向量召回 + BGE 重排"
     : ragRuntime?.rag_enabled
       ? "现有来源/关键词 RAG"
@@ -205,6 +216,11 @@ export function AIConfigurationPage() {
     ? `${bgeConfig?.embed_model || "-"} / ${bgeConfig?.rerank_model || "-"}`
     : "-";
   const configuredModel = aiConfig.data?.model || "-";
+  const textbookModelSummary = ragRuntime?.textbook_rag_models
+    ? `${ragRuntime.textbook_rag_models.embedding || "-"} / ${ragRuntime.textbook_rag_models.rerank || "-"}`
+    : textbookRag
+      ? `${textbookRag.embedding?.model || "-"} / ${textbookRag.rerank?.model || "-"}`
+      : "-";
 
   return (
     <Space orientation="vertical" size={18} className="full">
@@ -314,7 +330,11 @@ export function AIConfigurationPage() {
                   <div className="ai-rag-status-grid">
                     {[
                       { label: "学生 RAG", value: ragRuntime?.rag_enabled ? "已开启" : "已关闭", tone: ragRuntime?.rag_enabled ? "ok" : "muted" },
-                      { label: "BGE 实测", value: ragStatusMeta.label, tone: ragStatusMeta.tone === "bad" ? "bad" : ragStatusMeta.tone === "warn" ? "warn" : "ok" },
+                      {
+                        label: "教材 RAG",
+                        value: ragRuntime?.textbook_rag_enabled ? ragStatusMeta.label : "未启用",
+                        tone: ragStatusMeta.tone === "bad" ? "bad" : ragStatusMeta.tone === "warn" ? "warn" : ragRuntime?.textbook_rag_enabled ? "ok" : "muted",
+                      },
                       { label: "Query 生成", value: ragRuntime?.query_generation_enabled ? "已开启" : "未开启", tone: ragRuntime?.query_generation_enabled ? "ok" : "muted" },
                       { label: "最近检测", value: ragCheckedText, tone: assistantRuntime.data?.bge_error ? "bad" : "muted" },
                     ].map((item) => (
@@ -327,12 +347,26 @@ export function AIConfigurationPage() {
 
                   <div className="ai-rag-metric-grid">
                     <div>
-                      <span>召回 / 重排 / 返回</span>
-                      <strong>{ragRuntime ? `${ragRuntime.vector_top_k} / ${ragRuntime.rerank_top_k} / ${ragRuntime.final_top_k}` : "-"}</strong>
+                      <span>教材索引</span>
+                      <strong>{ragRuntime?.textbook_rag_index || textbookRag?.index_name || "-"}</strong>
                     </div>
                     <div>
-                      <span>服务地址</span>
-                      <strong>{ragRuntime?.bge_service_url || "-"}</strong>
+                      <span>Embedding / Rerank</span>
+                      <strong>{textbookModelSummary}</strong>
+                    </div>
+                    <div>
+                      <span>召回 / 重排 / 返回</span>
+                      <strong>
+                        {textbookRag
+                          ? `${textbookRag.vector_top_k} / ${textbookRag.rerank_top_k} / ${textbookRag.final_top_k}`
+                          : ragRuntime
+                            ? `${ragRuntime.vector_top_k} / ${ragRuntime.rerank_top_k} / ${ragRuntime.final_top_k}`
+                            : "-"}
+                      </strong>
+                    </div>
+                    <div>
+                      <span>ES 地址</span>
+                      <strong>{textbookRag?.elasticsearch_url || "-"}</strong>
                     </div>
                     <div>
                       <span>接口延迟</span>
@@ -363,11 +397,11 @@ export function AIConfigurationPage() {
                   </div>
 
                     <div className="ai-rag-model-panel">
-                    <span>模型 · 每 10 秒自动更新</span>
-                    <strong>{bgeModelSummary}</strong>
+                    <span>教材 RAG 模型 · 每 10 秒自动更新</span>
+                    <strong>{textbookModelSummary}</strong>
                     <small>
-                      {bgeConfig?.device ? `device=${bgeConfig.device}` : "BGE metrics 未返回设备信息"}
-                      {bgeConfig?.offline !== undefined ? ` · offline=${String(bgeConfig.offline)}` : ""}
+                      {ragRuntime?.textbook_rag_message || "教材 RAG 状态由后台配置和 Elasticsearch 索引共同决定。"}
+                      {bgeModelSummary !== "-" ? ` · Legacy BGE: ${bgeModelSummary}` : ""}
                     </small>
                   </div>
                 </section>

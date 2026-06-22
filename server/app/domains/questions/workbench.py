@@ -2,8 +2,6 @@ from __future__ import annotations
 
 import json
 import os
-import urllib.error
-import urllib.request
 from datetime import datetime, timezone
 from typing import Any
 
@@ -17,8 +15,7 @@ from server.app.experiment_admin_schemas import (
     WorkbenchMessageRequest,
     WorkbenchSessionRequest,
 )
-from server.app.hybrid_rag import retrieve_hybrid_context
-from server.app.domains.platform.settings import ai_feature_enabled, effective_ai_settings
+from server.app.domains.platform.settings import ai_feature_enabled, effective_ai_settings, get_ai_configuration_response
 from server.app.repositories import RepositoryProvider, get_repositories
 from server.app.retrieval import keyword_score
 from server.app.domains.catalog.experiments import (
@@ -27,7 +24,6 @@ from server.app.domains.catalog.experiments import (
     _list_experiment_video_resources,
 )
 from server.app.domains.questions.point_aware import (
-    _local_point_aware_suggestions,
     _select_suggestion_points,
     _try_openai_point_aware_suggestions,
     _unique_point_keys,
@@ -40,6 +36,7 @@ from server.app.domains.questions.bank import (
 from server.app.domains.questions.generation import _load_generation_sources
 from server.app.domains.assistant.rag_sources import _source_evidence_payload, _source_from_chunk
 from server.app.schemas import AgentAskRequest
+from server.app.domains.textbook_rag.retrieval import retrieve_textbook_evidence
 
 OBJECTIVE_TYPES = {"single_choice", "true_false", "fill_blank"}
 
@@ -53,75 +50,37 @@ def _json_array(value: Any) -> str:
 
 
 def _question_workbench_rag_gate() -> dict[str, Any]:
-    settings = get_settings()
-    rag_enabled = ai_feature_enabled("rag_access_enabled")
-    runtime = {
-        "rag_enabled": rag_enabled,
-        "hybrid_bge_enabled": bool(settings.rag_hybrid_bge_enabled),
-        "query_generation_enabled": bool(settings.rag_query_generation_enabled),
-        "bge_service_required": bool(rag_enabled and settings.rag_hybrid_bge_enabled),
-        "bge_service_url": settings.rag_bge_service_url,
-        "vector_top_k": int(settings.rag_vector_top_k),
-        "rerank_top_k": int(settings.rag_rerank_top_k),
-        "final_top_k": int(settings.rag_final_top_k),
-    }
+    ai_config = get_ai_configuration_response(can_edit=False, auto_check=False)
+    runtime_model = ai_config.rag_runtime
+    runtime = runtime_model.model_dump() if hasattr(runtime_model, "model_dump") else runtime_model.dict()
+    rag_enabled = bool(runtime.get("rag_enabled"))
+    textbook_status = str(runtime.get("textbook_rag_status") or "disabled")
 
-    def blocked(reason_code: str, message: str, *, bge_status: str = "not_required", bge_error: str | None = None) -> dict[str, Any]:
+    def blocked(reason_code: str, message: str) -> dict[str, Any]:
         return {
             "healthy": False,
             "status": "blocked",
             "reason_code": reason_code,
             "message": message,
             "rag_runtime": runtime,
-            "bge_status": bge_status,
-            "bge_error": bge_error,
-            "bge_metrics": None,
+            "retrieval_mode": "qwen_es_textbook_rag",
         }
 
     if not rag_enabled:
-        return blocked("rag_disabled", "RAG access is disabled; AI question workbench requires healthy RAG evidence.")
-    if not settings.rag_hybrid_bge_enabled:
-        return blocked("hybrid_bge_disabled", "Hybrid BGE RAG is disabled; AI question workbench requires reranked evidence.")
-    if not settings.rag_query_generation_enabled:
-        return blocked("query_generation_disabled", "RAG query generation is disabled; enable it before using AI question workbench.")
-    if not settings.rag_bge_service_url:
-        return blocked("bge_not_configured", "BGE service URL is not configured.", bge_status="not_configured")
-
-    try:
-        with urllib.request.urlopen(
-            f"{settings.rag_bge_service_url.rstrip('/')}/metrics",
-            timeout=min(max(1.0, float(settings.rag_bge_timeout_seconds)), 2.0),
-        ) as response:
-            metrics = json.loads(response.read().decode("utf-8"))
-    except (urllib.error.URLError, TimeoutError, OSError, ValueError) as exc:
+        return blocked("rag_disabled", "RAG access is disabled; AI question workbench requires healthy textbook evidence.")
+    if textbook_status != "healthy":
         return blocked(
-            "bge_unreachable",
-            "BGE service is unreachable; AI question workbench requires healthy rerank service.",
-            bge_status="unreachable",
-            bge_error=f"{exc.__class__.__name__}: {str(exc)[:160]}",
+            textbook_status or "textbook_rag_unhealthy",
+            str(runtime.get("textbook_rag_message") or "Textbook RAG is not healthy; AI question workbench is blocked."),
         )
-
-    if not isinstance(metrics, dict) or not metrics.get("ok"):
-        return {
-            "healthy": False,
-            "status": "blocked",
-            "reason_code": "bge_degraded",
-            "message": "BGE service responded but is not healthy; AI question workbench is blocked.",
-            "rag_runtime": runtime,
-            "bge_status": "degraded",
-            "bge_error": None,
-            "bge_metrics": metrics if isinstance(metrics, dict) else None,
-        }
 
     return {
         "healthy": True,
         "status": "healthy",
         "reason_code": "",
-        "message": "Hybrid BGE RAG is healthy; AI question workbench can use grounded evidence.",
+        "message": str(runtime.get("textbook_rag_message") or "Textbook RAG is healthy; AI question workbench can use grounded evidence."),
         "rag_runtime": runtime,
-        "bge_status": "healthy",
-        "bge_error": None,
-        "bge_metrics": metrics,
+        "retrieval_mode": "qwen_es_textbook_rag",
     }
 
 
@@ -238,11 +197,16 @@ def _teacher_point_content_context(session: Any, experiment_id: str, point_key: 
         session.execute(
             text(
                 """
-                SELECT principle_mode, principle_equation, principle_text,
-                       phenomenon_explanation, safety_note, content_status, updated_at
-                FROM experiment_point_learning_content
-                WHERE experiment_id = :experiment_id
-                  AND point_key = :point_key
+                SELECT evp.point_key, evp.point_title, evp.metadata AS point_metadata,
+                       plc.principle_mode, plc.principle_equation, plc.principle_text,
+                       plc.phenomenon_explanation, plc.safety_note, plc.content_status,
+                       plc.metadata AS content_metadata, plc.updated_at
+                FROM experiment_video_points evp
+                LEFT JOIN experiment_point_learning_content plc
+                  ON plc.experiment_id = evp.experiment_id
+                 AND plc.point_key = evp.point_key
+                WHERE evp.experiment_id = :experiment_id
+                  AND evp.point_key = :point_key
                 """
             ),
             {"experiment_id": experiment_id, "point_key": point_key},
@@ -253,15 +217,48 @@ def _teacher_point_content_context(session: Any, experiment_id: str, point_key: 
     if not row:
         return {"available": False, "content_status": "missing", "source_role": "student_page_context_only"}
     data = dict(row)
+    point_metadata = data.get("point_metadata") if isinstance(data.get("point_metadata"), dict) else {}
+    content_metadata = data.get("content_metadata") if isinstance(data.get("content_metadata"), dict) else {}
+    principle_text = data.get("principle_equation") if data.get("principle_mode") == "equation" else data.get("principle_text")
     return {
-        "available": data.get("content_status") == "published",
-        "content_status": data.get("content_status"),
-        "principle_mode": data.get("principle_mode"),
-        "principle_preview": data.get("principle_equation") if data.get("principle_mode") == "equation" else data.get("principle_text"),
+        "available": bool(data.get("content_status")),
+        "content_status": data.get("content_status") or "missing",
+        "point_key": data.get("point_key"),
+        "point_title": data.get("point_title"),
+        "point_metadata": point_metadata,
+        "content_metadata": content_metadata,
+        "textbook_chapter": point_metadata.get("textbook_chapter") or content_metadata.get("textbook_chapter"),
+        "textbook_experiment": point_metadata.get("textbook_experiment") or content_metadata.get("textbook_experiment"),
+        "textbook_folder_path": point_metadata.get("textbook_folder_path") or content_metadata.get("textbook_folder_path"),
+        "principle_mode": data.get("principle_mode") or "text",
+        "principle_text": principle_text,
+        "phenomenon_explanation": data.get("phenomenon_explanation"),
+        "safety_note": data.get("safety_note"),
+        "principle_preview": principle_text,
         "phenomenon_preview": data.get("phenomenon_explanation"),
         "safety_preview": data.get("safety_note"),
         "updated_at": data.get("updated_at"),
         "source_role": "student_page_context_only",
+    }
+
+
+def _point_context_for_textbook_rag(
+    *,
+    experiment: dict[str, Any],
+    point: dict[str, str],
+    teacher_point_content: dict[str, Any],
+) -> dict[str, Any]:
+    return {
+        "point_key": point.get("point_key"),
+        "point_title": point.get("point_title") or teacher_point_content.get("point_title") or point.get("point_key"),
+        "experiment_title": teacher_point_content.get("textbook_experiment") or experiment.get("title"),
+        "chapter": teacher_point_content.get("textbook_chapter") or "",
+        "folder_path": teacher_point_content.get("textbook_folder_path") or "",
+        "content": {
+            "principle_text": teacher_point_content.get("principle_text") or "",
+            "phenomenon_explanation": teacher_point_content.get("phenomenon_explanation") or "",
+            "safety_note": teacher_point_content.get("safety_note") or "",
+        },
     }
 
 
@@ -464,73 +461,57 @@ def _load_workbench_evidence_package(
 ) -> dict[str, Any]:
     chapter_ids = _workbench_chapter_ids(session, experiment, target_question)
     knowledge_point_ids = list((target_question or {}).get("related_knowledge_point_ids") or [])
-    evidence_prompt = _workbench_evidence_prompt(
-        experiment=experiment,
-        prompt=prompt,
-        target_question=target_question,
-        target_points=target_points,
-    )
     source_refs: list[dict[str, Any]] = []
-    trace: dict[str, Any] = {}
-    strategy = "hybrid_bge_rag"
+    point_packages: dict[str, Any] = {}
+    supported_sections: list[str] = []
+    missing_sections: list[str] = []
     fallback_reason = ""
-    if rag_gate and rag_gate.get("healthy"):
-        try:
-            settings = get_settings()
-            repositories = get_repositories()
-            request = AgentAskRequest(
-                user_role="teacher",
-                question=evidence_prompt,
-                chapter_id=chapter_ids[0] if chapter_ids else None,
-                experiment_id=str(experiment.get("id") or ""),
-                point_key=str((target_points or [{}])[0].get("point_key") or "") or None,
-                knowledge_point_ids=[str(item) for item in knowledge_point_ids if str(item).strip()],
-                allow_progress_lookup=False,
-                allow_rag_lookup=True,
-                max_answer_chars=0,
-            )
-            hybrid_result = retrieve_hybrid_context(
-                repositories=repositories,
-                question=evidence_prompt,
-                request=request,
-                settings=settings,
-                legacy_retrieve=lambda lookup_query, lookup_limit: _retrieve_workbench_context(
-                    repositories,
-                    lookup_query,
-                    request,
-                    limit=lookup_limit,
-                ),
-                query_generator=_workbench_query_generator(experiment=experiment, target_points=target_points),
-                limit=max(1, settings.rag_final_top_k),
-            )
-            trace = hybrid_result.trace
-            source_refs = _source_refs_from_hybrid_chunks(hybrid_result.chunks)
-            if not source_refs:
-                fallback_reason = "hybrid_empty"
-        except Exception as exc:
-            fallback_reason = f"{exc.__class__.__name__}: {str(exc)[:160]}"
-    else:
-        strategy = "canonical_evidence"
+    if not (rag_gate and rag_gate.get("healthy")):
         fallback_reason = "rag_gate_unhealthy"
-
-    if not source_refs:
-        strategy = "canonical_evidence_after_hybrid_fallback" if fallback_reason else "canonical_evidence"
-        source_refs = _load_workbench_source_refs(
-            session,
+    for point in target_points or []:
+        point_key = str(point.get("point_key") or "").strip()
+        if not point_key:
+            continue
+        teacher_point_content = _teacher_point_content_context(session, str(experiment.get("id") or ""), point_key)
+        point_context = _point_context_for_textbook_rag(
             experiment=experiment,
-            prompt=evidence_prompt,
-            target_question=target_question,
-            target_points=target_points,
+            point=point,
+            teacher_point_content=teacher_point_content,
         )
-
+        package = retrieve_textbook_evidence(point_context=point_context)
+        point_packages[point_key] = {
+            **package,
+            "point": point,
+            "teacher_point_content": teacher_point_content,
+        }
+        if package.get("ok"):
+            source_refs.extend(list(package.get("source_refs") or []))
+            supported_sections.extend([f"{point_key}:{section}" for section in package.get("supported_sections") or []])
+            missing_sections.extend([f"{point_key}:{section}" for section in package.get("missing_sections") or []])
+        else:
+            missing_sections.append(f"{point_key}:all")
+            fallback_reason = str(package.get("reason_code") or "textbook_evidence_missing")
+    seen: set[str] = set()
+    deduped_refs: list[dict[str, Any]] = []
+    for ref in source_refs:
+        chunk_id = str(ref.get("chunk_id") or "")
+        if chunk_id and chunk_id in seen:
+            continue
+        if chunk_id:
+            seen.add(chunk_id)
+        deduped_refs.append(ref)
+    source_refs = deduped_refs
     return {
-        "mode": trace.get("mode") or strategy,
+        "mode": "qwen_es_textbook_rag",
         "source_refs": source_refs,
         "source_count": len(source_refs),
+        "point_packages": point_packages,
+        "supported_sections": supported_sections,
+        "missing_sections": missing_sections,
         "diagnostics": {
             "rag_gate": rag_gate or {},
-            "rag_trace": trace,
-            "source_strategy": strategy,
+            "rag_trace": {},
+            "source_strategy": "qwen_es_textbook_rag",
             "fallback_reason": fallback_reason,
             "chapter_ids": chapter_ids,
             "knowledge_point_ids": knowledge_point_ids,
@@ -962,7 +943,7 @@ def send_question_workbench_message(*, payload: WorkbenchMessageRequest, session
                             "target_point_keys": target_point_keys,
                             "rag_gate": rag_gate,
                             "evidence_package": {
-                                "mode": evidence_package.get("mode") or "hybrid_bge_rag",
+                                "mode": evidence_package.get("mode") or "qwen_es_textbook_rag",
                                 "source_refs": [],
                                 "source_count": 0,
                                 "diagnostics": evidence_package.get("diagnostics") or {"rag_gate": rag_gate},
@@ -990,7 +971,7 @@ def send_question_workbench_message(*, payload: WorkbenchMessageRequest, session
             "source_boundaries": {
                 "teacher_point_content": "student_page_context_only",
                 "fixed_manual_reviewed_evidence": "experiment_video_point_evidence",
-                "supplemental_rag_evidence": evidence_package.get("mode") or "hybrid_bge_rag",
+                "supplemental_rag_evidence": evidence_package.get("mode") or "qwen_es_textbook_rag",
             },
             "last_prompt": payload.prompt,
         }
@@ -1023,23 +1004,26 @@ def send_question_workbench_message(*, payload: WorkbenchMessageRequest, session
                 point=selected_point,
                 target_question=target_question,
                 source_refs=source_refs,
+                evidence_package=evidence_package,
+                teacher_point_content=context_snapshot.get("teacher_point_content") if isinstance(context_snapshot.get("teacher_point_content"), dict) else {},
             )
-            mode = "openai_sdk" if generated else "local_template"
             if not generated:
-                generated = _local_point_aware_suggestions(
-                    request=suggestion_request,
-                    experiment=experiment,
-                    point=selected_point,
-                    target_question=target_question,
-                )
+                raise RuntimeError("Configured LLM did not return valid textbook-grounded question candidates.")
+            mode = "openai_sdk"
             assistant_turn = _insert_workbench_turn(
                 session,
                 session_id=session_id,
                 role="assistant",
                 content=f"已生成 {min(len(generated), payload.count)} 条候选，可继续追问或发布通过校验的版本。",
-                provider="openai" if mode == "openai_sdk" else "local",
+                provider="openai",
                 model=ai_settings.agent_llm_model or os.getenv("OPENAI_MODEL", ""),
-                metadata={"mode": mode, "source_ref_count": len(source_refs), "user_turn_id": str(user_turn["id"])},
+                metadata={
+                    "mode": mode,
+                    "source_ref_count": len(source_refs),
+                    "user_turn_id": str(user_turn["id"]),
+                    "supported_sections": evidence_package.get("supported_sections") or [],
+                    "missing_sections": evidence_package.get("missing_sections") or [],
+                },
             )
             generation_id = str(
                 session.execute(

@@ -38,6 +38,30 @@ export type PlatformSettingsResponse = {
   can_edit: boolean;
 };
 
+export type AIProviderRole = {
+  role: string;
+  provider: "openai";
+  base_url: string;
+  model: string;
+  api_key_configured: boolean;
+  api_key_fingerprint?: string | null;
+};
+
+export type TextbookRAGConfiguration = {
+  enabled: boolean;
+  elasticsearch_url: string;
+  index_name: string;
+  embedding: AIProviderRole;
+  rerank: AIProviderRole;
+  embedding_dimension: number;
+  keyword_top_k: number;
+  vector_top_k: number;
+  rerank_top_k: number;
+  final_top_k: number;
+  min_rerank_score: number;
+  timeout_seconds: number;
+};
+
 export type AIConfiguration = {
   provider: "openai";
   base_url: string;
@@ -112,7 +136,15 @@ export type AIConfiguration = {
     final_top_k: number;
     status: string;
     message: string;
+    textbook_rag_enabled?: boolean;
+    textbook_rag_status?: string;
+    textbook_rag_message?: string;
+    textbook_rag_index?: string;
+    textbook_rag_models?: Record<string, string>;
+    textbook_rag_diagnostics?: Record<string, unknown>;
   };
+  chat_provider?: AIProviderRole | null;
+  textbook_rag?: TextbookRAGConfiguration | null;
   can_edit: boolean;
 };
 
@@ -123,6 +155,36 @@ export type AIConfigurationUpdate = {
   connection_check_interval_minutes: number;
   api_key?: string | null;
   enabled_features: AIConfiguration["enabled_features"];
+  chat_provider?: {
+    provider: "openai";
+    base_url: string;
+    model: string;
+    api_key?: string | null;
+  } | null;
+  textbook_rag?: {
+    enabled: boolean;
+    elasticsearch_url: string;
+    index_name: string;
+    embedding: {
+      provider: "openai";
+      base_url: string;
+      model: string;
+      api_key?: string | null;
+    };
+    rerank: {
+      provider: "openai";
+      base_url: string;
+      model: string;
+      api_key?: string | null;
+    };
+    embedding_dimension: number;
+    keyword_top_k: number;
+    vector_top_k: number;
+    rerank_top_k: number;
+    final_top_k: number;
+    min_rerank_score: number;
+    timeout_seconds: number;
+  } | null;
 };
 
 export function getPlatformSettings(): Promise<PlatformSettingsResponse> {

@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 import json
+import urllib.error
+import urllib.request
 from dataclasses import replace
 from datetime import datetime, timedelta, timezone
 from typing import Any
@@ -106,6 +108,58 @@ class RAGRuntimeStatus(BaseModel):
     final_top_k: int = 5
     status: str = "disabled"
     message: str = ""
+    textbook_rag_enabled: bool = False
+    textbook_rag_status: str = "disabled"
+    textbook_rag_message: str = ""
+    textbook_rag_index: str = ""
+    textbook_rag_models: dict[str, str] = Field(default_factory=dict)
+    textbook_rag_diagnostics: dict[str, Any] = Field(default_factory=dict)
+
+
+class AIProviderRoleUpdate(BaseModel):
+    provider: str = Field(default="openai", pattern="^openai$")
+    base_url: str = ""
+    model: str = ""
+    api_key: str | None = None
+
+
+class AIProviderRoleResponse(BaseModel):
+    role: str
+    provider: str = "openai"
+    base_url: str = ""
+    model: str = ""
+    api_key_configured: bool = False
+    api_key_fingerprint: str | None = None
+
+
+class TextbookRAGConfigurationUpdate(BaseModel):
+    enabled: bool = False
+    elasticsearch_url: str = ""
+    index_name: str = "canonical-rag-chunks-qwen-v1"
+    embedding: AIProviderRoleUpdate = Field(default_factory=AIProviderRoleUpdate)
+    rerank: AIProviderRoleUpdate = Field(default_factory=AIProviderRoleUpdate)
+    embedding_dimension: int = Field(default=1024, ge=1)
+    keyword_top_k: int = Field(default=16, ge=1, le=100)
+    vector_top_k: int = Field(default=24, ge=1, le=100)
+    rerank_top_k: int = Field(default=9, ge=1, le=100)
+    final_top_k: int = Field(default=5, ge=1, le=30)
+    min_rerank_score: float = 0.0
+    timeout_seconds: float = Field(default=8.0, ge=0.5, le=60.0)
+
+
+class TextbookRAGConfigurationResponse(BaseModel):
+    enabled: bool = False
+    elasticsearch_url: str = ""
+    index_name: str = "canonical-rag-chunks-qwen-v1"
+    embedding: AIProviderRoleResponse
+    rerank: AIProviderRoleResponse
+    embedding_dimension: int = 1024
+    keyword_top_k: int = 16
+    vector_top_k: int = 24
+    rerank_top_k: int = 9
+    final_top_k: int = 5
+    min_rerank_score: float = 0.0
+    timeout_seconds: float = 8.0
 
 
 class AIConfigurationUpdate(BaseModel):
@@ -115,6 +169,8 @@ class AIConfigurationUpdate(BaseModel):
     api_key: str | None = None
     connection_check_interval_minutes: int = Field(default=30, ge=5, le=1440)
     enabled_features: AIEnabledFeatureScopes = Field(default_factory=AIEnabledFeatureScopes)
+    chat_provider: AIProviderRoleUpdate | None = None
+    textbook_rag: TextbookRAGConfigurationUpdate | None = None
 
 
 class AIStatusSummary(BaseModel):
@@ -146,6 +202,8 @@ class AIConfigurationResponse(BaseModel):
     status: AIStatusSummary
     student_ai_policy: StudentAIPolicyStatus = Field(default_factory=StudentAIPolicyStatus)
     rag_runtime: RAGRuntimeStatus = Field(default_factory=RAGRuntimeStatus)
+    chat_provider: AIProviderRoleResponse | None = None
+    textbook_rag: TextbookRAGConfigurationResponse | None = None
     can_edit: bool = False
 
 
@@ -177,11 +235,36 @@ def _defaults_for_key(key: str) -> dict[str, Any]:
     if key == LEARNING_SETTINGS_KEY:
         return _model_dump(LearningBehaviorSettings())
     if key == AI_CONFIGURATION_KEY:
+        settings = get_settings()
         return _model_dump(
             AIConfigurationUpdate(
                 provider="openai",
-                base_url=get_settings().agent_llm_base_url,
-                model=get_settings().agent_llm_model,
+                base_url=settings.agent_llm_base_url,
+                model=settings.agent_llm_model,
+                chat_provider=AIProviderRoleUpdate(
+                    base_url=settings.agent_llm_base_url,
+                    model=settings.agent_llm_model,
+                ),
+                textbook_rag=TextbookRAGConfigurationUpdate(
+                    enabled=settings.textbook_rag_enabled,
+                    elasticsearch_url=settings.textbook_rag_elasticsearch_url or settings.video_library_search_url,
+                    index_name=settings.textbook_rag_elasticsearch_index,
+                    embedding=AIProviderRoleUpdate(
+                        base_url=settings.textbook_rag_embedding_base_url,
+                        model=settings.textbook_rag_embedding_model,
+                    ),
+                    rerank=AIProviderRoleUpdate(
+                        base_url=settings.textbook_rag_rerank_base_url,
+                        model=settings.textbook_rag_rerank_model,
+                    ),
+                    embedding_dimension=settings.textbook_rag_embedding_dimension,
+                    keyword_top_k=settings.rag_keyword_top_k,
+                    vector_top_k=settings.rag_vector_top_k,
+                    rerank_top_k=settings.rag_rerank_top_k,
+                    final_top_k=settings.rag_final_top_k,
+                    min_rerank_score=settings.textbook_rag_min_rerank_score,
+                    timeout_seconds=settings.textbook_rag_timeout_seconds,
+                ),
             )
         )
     return {}
@@ -261,19 +344,118 @@ def save_learning_behavior_settings(
     return LearningBehaviorSettings(**value)
 
 
+def _as_bool(value: Any, default: bool = False) -> bool:
+    if value is None:
+        return default
+    if isinstance(value, bool):
+        return value
+    normalized = str(value).strip().lower()
+    if normalized in {"1", "true", "yes", "on"}:
+        return True
+    if normalized in {"0", "false", "no", "off"}:
+        return False
+    return default
+
+
+def _as_int(value: Any, default: int, *, minimum: int = 1, maximum: int | None = None) -> int:
+    try:
+        parsed = int(value)
+    except (TypeError, ValueError):
+        parsed = default
+    parsed = max(minimum, parsed)
+    if maximum is not None:
+        parsed = min(maximum, parsed)
+    return parsed
+
+
+def _as_float(value: Any, default: float, *, minimum: float | None = None, maximum: float | None = None) -> float:
+    try:
+        parsed = float(value)
+    except (TypeError, ValueError):
+        parsed = default
+    if minimum is not None:
+        parsed = max(minimum, parsed)
+    if maximum is not None:
+        parsed = min(maximum, parsed)
+    return parsed
+
+
+def _role_payload(stored: Any, *, base_url: str = "", model: str = "", api_key: str = "") -> dict[str, Any]:
+    payload = stored if isinstance(stored, dict) else {}
+    return {
+        "provider": "openai",
+        "base_url": str(payload.get("base_url") or base_url or "").strip().rstrip("/"),
+        "model": str(payload.get("model") or model or "").strip(),
+        "api_key": str(payload.get("api_key") or api_key or "").strip(),
+    }
+
+
+def _textbook_rag_payload(stored: Any, base: Settings) -> dict[str, Any]:
+    payload = stored if isinstance(stored, dict) else {}
+    embedding = _role_payload(
+        payload.get("embedding"),
+        base_url=base.textbook_rag_embedding_base_url,
+        model=base.textbook_rag_embedding_model,
+        api_key=base.textbook_rag_embedding_api_key,
+    )
+    rerank = _role_payload(
+        payload.get("rerank"),
+        base_url=base.textbook_rag_rerank_base_url,
+        model=base.textbook_rag_rerank_model,
+        api_key=base.textbook_rag_rerank_api_key,
+    )
+    return {
+        "enabled": _as_bool(payload.get("enabled"), base.textbook_rag_enabled),
+        "elasticsearch_url": str(
+            payload.get("elasticsearch_url")
+            or base.textbook_rag_elasticsearch_url
+            or base.video_library_search_url
+            or ""
+        ).strip().rstrip("/"),
+        "index_name": str(payload.get("index_name") or base.textbook_rag_elasticsearch_index).strip(),
+        "embedding": embedding,
+        "rerank": rerank,
+        "embedding_dimension": _as_int(
+            payload.get("embedding_dimension"),
+            base.textbook_rag_embedding_dimension,
+            minimum=1,
+        ),
+        "keyword_top_k": _as_int(payload.get("keyword_top_k"), base.rag_keyword_top_k, minimum=1, maximum=100),
+        "vector_top_k": _as_int(payload.get("vector_top_k"), base.rag_vector_top_k, minimum=1, maximum=100),
+        "rerank_top_k": _as_int(payload.get("rerank_top_k"), base.rag_rerank_top_k, minimum=1, maximum=100),
+        "final_top_k": _as_int(payload.get("final_top_k"), base.rag_final_top_k, minimum=1, maximum=30),
+        "min_rerank_score": _as_float(
+            payload.get("min_rerank_score"),
+            base.textbook_rag_min_rerank_score,
+        ),
+        "timeout_seconds": _as_float(
+            payload.get("timeout_seconds"),
+            base.textbook_rag_timeout_seconds,
+            minimum=0.5,
+            maximum=60.0,
+        ),
+    }
+
+
 def _effective_ai_configuration_payload() -> dict[str, Any]:
     base = get_settings()
     stored = _load_setting_value(AI_CONFIGURATION_KEY)
-    base_url = str(stored.get("base_url") or base.agent_llm_base_url).strip()
-    model = str(stored.get("model") or base.agent_llm_model).strip()
-    api_key = str(stored.get("api_key") or base.agent_llm_api_key or "").strip()
+    chat = _role_payload(
+        stored.get("chat_provider"),
+        base_url=str(stored.get("base_url") or base.agent_llm_base_url),
+        model=str(stored.get("model") or base.agent_llm_model),
+        api_key=str(stored.get("api_key") or base.agent_llm_api_key or ""),
+    )
     interval_minutes = _normalized_check_interval(stored.get("connection_check_interval_minutes"))
     features = stored.get("enabled_features") or {}
+    textbook_rag = _textbook_rag_payload(stored.get("textbook_rag"), base)
     return {
         "provider": "openai",
-        "base_url": base_url,
-        "model": model,
-        "api_key": api_key,
+        "base_url": chat["base_url"],
+        "model": chat["model"],
+        "api_key": chat["api_key"],
+        "chat_provider": chat,
+        "textbook_rag": textbook_rag,
         "connection_check_interval_minutes": interval_minutes,
         "enabled_features": _model_dump(AIEnabledFeatureScopes(**features)),
         "connection_check": stored.get("connection_check") if isinstance(stored.get("connection_check"), dict) else {},
@@ -286,6 +468,35 @@ def _api_key_fingerprint(api_key: str) -> str | None:
     if len(api_key) <= 8:
         return "********"
     return f"{api_key[:3]}...{api_key[-4:]}"
+
+
+def _role_response(role: str, payload: dict[str, Any]) -> AIProviderRoleResponse:
+    api_key = str(payload.get("api_key") or "")
+    return AIProviderRoleResponse(
+        role=role,
+        provider="openai",
+        base_url=str(payload.get("base_url") or ""),
+        model=str(payload.get("model") or ""),
+        api_key_configured=bool(api_key),
+        api_key_fingerprint=_api_key_fingerprint(api_key),
+    )
+
+
+def _textbook_rag_response(payload: dict[str, Any]) -> TextbookRAGConfigurationResponse:
+    return TextbookRAGConfigurationResponse(
+        enabled=bool(payload.get("enabled")),
+        elasticsearch_url=str(payload.get("elasticsearch_url") or ""),
+        index_name=str(payload.get("index_name") or ""),
+        embedding=_role_response("textbook_embedding", payload.get("embedding") or {}),
+        rerank=_role_response("textbook_rerank", payload.get("rerank") or {}),
+        embedding_dimension=int(payload.get("embedding_dimension") or 1024),
+        keyword_top_k=int(payload.get("keyword_top_k") or 16),
+        vector_top_k=int(payload.get("vector_top_k") or 24),
+        rerank_top_k=int(payload.get("rerank_top_k") or 9),
+        final_top_k=int(payload.get("final_top_k") or 5),
+        min_rerank_score=float(payload.get("min_rerank_score") or 0.0),
+        timeout_seconds=float(payload.get("timeout_seconds") or 8.0),
+    )
 
 
 def _agent_usage_trend(session: Any, range_key: str) -> dict[str, Any]:
@@ -393,11 +604,118 @@ def _student_ai_policy_status(effective: dict[str, Any], log_summary: dict[str, 
     )
 
 
-def _rag_runtime_status(features: dict[str, Any]) -> RAGRuntimeStatus:
+def _textbook_rag_runtime_status(textbook_rag: dict[str, Any], *, rag_enabled: bool) -> dict[str, Any]:
+    diagnostics: dict[str, Any] = {
+        "enabled": bool(textbook_rag.get("enabled")),
+        "elasticsearch_url_configured": bool(textbook_rag.get("elasticsearch_url")),
+        "embedding_configured": bool((textbook_rag.get("embedding") or {}).get("model"))
+        and bool((textbook_rag.get("embedding") or {}).get("api_key")),
+        "rerank_configured": bool((textbook_rag.get("rerank") or {}).get("model"))
+        and bool((textbook_rag.get("rerank") or {}).get("api_key")),
+    }
+    models = {
+        "embedding": str((textbook_rag.get("embedding") or {}).get("model") or ""),
+        "rerank": str((textbook_rag.get("rerank") or {}).get("model") or ""),
+    }
+    if not rag_enabled:
+        return {
+            "enabled": False,
+            "status": "disabled",
+            "message": "RAG 已关闭，教材 RAG 不会用于教师出题。",
+            "models": models,
+            "diagnostics": diagnostics,
+        }
+    if not textbook_rag.get("enabled"):
+        return {
+            "enabled": False,
+            "status": "disabled",
+            "message": "教材 RAG 未启用。",
+            "models": models,
+            "diagnostics": diagnostics,
+        }
+    if not textbook_rag.get("elasticsearch_url"):
+        return {
+            "enabled": True,
+            "status": "elasticsearch_not_configured",
+            "message": "教材 RAG 缺少 Elasticsearch 地址。",
+            "models": models,
+            "diagnostics": diagnostics,
+        }
+    if not diagnostics["embedding_configured"]:
+        return {
+            "enabled": True,
+            "status": "embedding_not_configured",
+            "message": "教材 RAG 缺少 Embedding 模型或密钥。",
+            "models": models,
+            "diagnostics": diagnostics,
+        }
+    if not diagnostics["rerank_configured"]:
+        return {
+            "enabled": True,
+            "status": "rerank_not_configured",
+            "message": "教材 RAG 缺少 Rerank 模型或密钥。",
+            "models": models,
+            "diagnostics": diagnostics,
+        }
+    try:
+        request = urllib.request.Request(
+            f"{str(textbook_rag['elasticsearch_url']).rstrip('/')}/{textbook_rag['index_name']}",
+            method="GET",
+        )
+        with urllib.request.urlopen(request, timeout=float(textbook_rag.get("timeout_seconds") or 8.0)) as response:
+            index_payload = json.loads(response.read().decode("utf-8"))
+        index_info = index_payload.get(textbook_rag["index_name"], {}) if isinstance(index_payload, dict) else {}
+        mappings = index_info.get("mappings") if isinstance(index_info, dict) else {}
+        meta = mappings.get("_meta") if isinstance(mappings, dict) else {}
+        diagnostics["index_exists"] = True
+        diagnostics["index_metadata"] = meta if isinstance(meta, dict) else {}
+    except urllib.error.HTTPError as exc:
+        diagnostics["index_exists"] = False
+        diagnostics["elasticsearch_error"] = f"HTTP {exc.code}"
+        return {
+            "enabled": True,
+            "status": "index_missing" if exc.code == 404 else "elasticsearch_error",
+            "message": "教材 RAG 索引不存在。" if exc.code == 404 else "教材 RAG Elasticsearch 检查失败。",
+            "models": models,
+            "diagnostics": diagnostics,
+        }
+    except (urllib.error.URLError, TimeoutError, OSError, ValueError, json.JSONDecodeError) as exc:
+        diagnostics["elasticsearch_error"] = f"{exc.__class__.__name__}: {str(exc)[:160]}"
+        return {
+            "enabled": True,
+            "status": "elasticsearch_unreachable",
+            "message": "教材 RAG Elasticsearch 不可达。",
+            "models": models,
+            "diagnostics": diagnostics,
+        }
+    meta = diagnostics.get("index_metadata") if isinstance(diagnostics.get("index_metadata"), dict) else {}
+    expected_model = str((textbook_rag.get("embedding") or {}).get("model") or "")
+    expected_dim = int(textbook_rag.get("embedding_dimension") or 0)
+    indexed_model = str(meta.get("embedding_model") or "")
+    indexed_dim = int(meta.get("embedding_dimension") or 0) if str(meta.get("embedding_dimension") or "").isdigit() else 0
+    if meta and (indexed_model != expected_model or (indexed_dim and indexed_dim != expected_dim)):
+        return {
+            "enabled": True,
+            "status": "index_stale",
+            "message": "教材 RAG 索引模型信息与当前 Embedding 配置不一致。",
+            "models": models,
+            "diagnostics": diagnostics,
+        }
+    return {
+        "enabled": True,
+        "status": "healthy",
+        "message": "教材 RAG 已配置，Elasticsearch 索引可访问。",
+        "models": models,
+        "diagnostics": diagnostics,
+    }
+
+
+def _rag_runtime_status(features: dict[str, Any], textbook_rag: dict[str, Any] | None = None) -> RAGRuntimeStatus:
     settings = get_settings()
     rag_enabled = bool(features.get("rag_access_enabled", True))
     hybrid_enabled = bool(settings.rag_hybrid_bge_enabled)
     bge_required = bool(rag_enabled and hybrid_enabled)
+    textbook_status = _textbook_rag_runtime_status(textbook_rag or {}, rag_enabled=rag_enabled)
     if not rag_enabled:
         status = "disabled"
         message = "RAG 已关闭，BGE CPU 服务无需启动。"
@@ -418,6 +736,12 @@ def _rag_runtime_status(features: dict[str, Any]) -> RAGRuntimeStatus:
         final_top_k=int(settings.rag_final_top_k),
         status=status,
         message=message,
+        textbook_rag_enabled=bool(textbook_status["enabled"]),
+        textbook_rag_status=str(textbook_status["status"]),
+        textbook_rag_message=str(textbook_status["message"]),
+        textbook_rag_index=str((textbook_rag or {}).get("index_name") or ""),
+        textbook_rag_models=textbook_status["models"],
+        textbook_rag_diagnostics=textbook_status["diagnostics"],
     )
 
 
@@ -650,14 +974,26 @@ def get_ai_configuration_response(can_edit: bool = False, auto_check: bool = Tru
             else None,
         ),
         student_ai_policy=_student_ai_policy_status(effective, log_summary),
-        rag_runtime=_rag_runtime_status(effective["enabled_features"]),
+        rag_runtime=_rag_runtime_status(effective["enabled_features"], effective.get("textbook_rag")),
+        chat_provider=_role_response("chat_completion", effective["chat_provider"]),
+        textbook_rag=_textbook_rag_response(effective["textbook_rag"]),
         can_edit=can_edit,
     )
 
 
 def save_ai_configuration(payload: AIConfigurationUpdate, user_id: str | None = None) -> AIConfigurationResponse:
     existing = _load_setting_value(AI_CONFIGURATION_KEY)
-    value = _model_dump(payload)
+    incoming = _model_dump(payload)
+    value = dict(existing)
+    value.update(
+        {
+            "provider": "openai",
+            "base_url": incoming.get("base_url") or "",
+            "model": incoming.get("model") or "",
+            "connection_check_interval_minutes": incoming.get("connection_check_interval_minutes"),
+            "enabled_features": incoming.get("enabled_features") or _model_dump(AIEnabledFeatureScopes()),
+        }
+    )
     value["provider"] = "openai"
     new_secret = (payload.api_key or "").strip()
     if new_secret:
@@ -666,6 +1002,67 @@ def save_ai_configuration(payload: AIConfigurationUpdate, user_id: str | None = 
         value["api_key"] = existing["api_key"]
     else:
         value.pop("api_key", None)
+    chat_incoming = incoming.get("chat_provider") if isinstance(incoming.get("chat_provider"), dict) else None
+    if chat_incoming is not None:
+        existing_chat = existing.get("chat_provider") if isinstance(existing.get("chat_provider"), dict) else {}
+        chat_value = {
+            "provider": "openai",
+            "base_url": str(chat_incoming.get("base_url") or value.get("base_url") or "").strip().rstrip("/"),
+            "model": str(chat_incoming.get("model") or value.get("model") or "").strip(),
+        }
+        chat_secret = str(chat_incoming.get("api_key") or "").strip()
+        if chat_secret:
+            chat_value["api_key"] = chat_secret
+        elif existing_chat.get("api_key"):
+            chat_value["api_key"] = existing_chat["api_key"]
+        elif value.get("api_key"):
+            chat_value["api_key"] = value["api_key"]
+        value["chat_provider"] = chat_value
+        value["base_url"] = chat_value["base_url"]
+        value["model"] = chat_value["model"]
+        if chat_value.get("api_key"):
+            value["api_key"] = chat_value["api_key"]
+    else:
+        existing_chat = existing.get("chat_provider") if isinstance(existing.get("chat_provider"), dict) else {}
+        chat_value = {
+            "provider": "openai",
+            "base_url": str(value.get("base_url") or "").strip().rstrip("/"),
+            "model": str(value.get("model") or "").strip(),
+        }
+        if new_secret:
+            chat_value["api_key"] = new_secret
+        elif existing_chat.get("api_key"):
+            chat_value["api_key"] = existing_chat["api_key"]
+        elif existing.get("api_key"):
+            chat_value["api_key"] = existing["api_key"]
+        value["chat_provider"] = chat_value
+    textbook_incoming = incoming.get("textbook_rag") if isinstance(incoming.get("textbook_rag"), dict) else None
+    if textbook_incoming is not None:
+        existing_textbook = existing.get("textbook_rag") if isinstance(existing.get("textbook_rag"), dict) else {}
+        textbook_value = {**existing_textbook, **textbook_incoming}
+        for role_name in ("embedding", "rerank"):
+            role_incoming = (
+                textbook_incoming.get(role_name)
+                if isinstance(textbook_incoming.get(role_name), dict)
+                else {}
+            )
+            existing_role = (
+                existing_textbook.get(role_name)
+                if isinstance(existing_textbook.get(role_name), dict)
+                else {}
+            )
+            role_value = {
+                "provider": "openai",
+                "base_url": str(role_incoming.get("base_url") or existing_role.get("base_url") or "").strip().rstrip("/"),
+                "model": str(role_incoming.get("model") or existing_role.get("model") or "").strip(),
+            }
+            role_secret = str(role_incoming.get("api_key") or "").strip()
+            if role_secret:
+                role_value["api_key"] = role_secret
+            elif existing_role.get("api_key"):
+                role_value["api_key"] = existing_role["api_key"]
+            textbook_value[role_name] = role_value
+        value["textbook_rag"] = textbook_value
     previous_effective = _effective_ai_configuration_payload()
     if (
         previous_effective.get("model") == value.get("model")
@@ -728,6 +1125,10 @@ def effective_ai_settings(base_settings: Settings | None = None) -> Settings:
         agent_llm_api_key=effective["api_key"],
         agent_llm_model=effective["model"],
     )
+
+
+def effective_textbook_rag_settings() -> dict[str, Any]:
+    return dict(_effective_ai_configuration_payload().get("textbook_rag") or {})
 
 
 def ai_feature_enabled(feature_name: str) -> bool:

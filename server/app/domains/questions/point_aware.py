@@ -316,6 +316,8 @@ def _try_openai_point_aware_suggestions(
     point: dict[str, str] | None,
     target_question: dict[str, Any] | None,
     source_refs: list[dict[str, Any]],
+    evidence_package: dict[str, Any] | None = None,
+    teacher_point_content: dict[str, Any] | None = None,
 ) -> list[dict[str, Any]] | None:
     settings = effective_ai_settings(get_settings())
     if settings.agent_llm_provider == "disabled":
@@ -359,6 +361,8 @@ def _try_openai_point_aware_suggestions(
                             "selected_point": point,
                             "original_question": target_question,
                             "source_refs": source_refs,
+                            "teacher_point_content": teacher_point_content or {},
+                            "evidence_package": evidence_package or {},
                         },
                         ensure_ascii=False,
                     ),
@@ -439,15 +443,14 @@ def create_point_aware_suggestions(
             point=selected_point,
             target_question=target_question,
             source_refs=source_refs,
+            evidence_package=evidence_package,
         )
-        mode = "openai_sdk" if generated else "local_template"
         if not generated:
-            generated = _local_point_aware_suggestions(
-                request=payload,
-                experiment=experiment,
-                point=selected_point,
-                target_question=target_question,
+            raise HTTPException(
+                status_code=status.HTTP_502_BAD_GATEWAY,
+                detail="Configured LLM did not return valid textbook-grounded question candidates.",
             )
+        mode = "openai_sdk"
         warning = "" if source_refs else "No source refs found; teacher review is required before publication."
         generation_id = str(
             session.execute(
