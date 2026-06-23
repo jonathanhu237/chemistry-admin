@@ -1,5 +1,5 @@
 import { useMemo, useRef, useState, type CSSProperties } from "react";
-import { Atom } from "lucide-react";
+import { Search } from "lucide-react";
 import { periodicElements } from "../../periodic";
 import type { AreaId } from "./periodicHelpers";
 import { areaInk, areaSwatches, periodicAreaByAreaId, periodicAreaIdForElement, periodicAreaOrder, periodicGridColumnForElement, periodicGridRowForPeriod, periodicLegendLabelByAreaId, periodicPeriodLabels } from "./periodicHelpers";
@@ -50,7 +50,7 @@ export function PeriodicTable({
           <h3>选择元素分区</h3>
         </div>
         <label className="periodic-search" aria-label="搜索元素">
-          <Atom size={15} />
+          <Search size={15} />
           <input
             value={searchQuery}
             aria-label="搜索元素"

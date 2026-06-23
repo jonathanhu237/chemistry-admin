@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import { Outlet, useLocation } from "@tanstack/react-router";
 import { LockKeyhole } from "lucide-react";
 import { assistantEnabled, defaultStudentAppConfig, feedbackEnabled, previewRouteBlocked } from "../appConfig";
@@ -11,14 +11,37 @@ import { StudentAppHeader } from "./StudentAppHeader";
 import { StudentBottomNav } from "./StudentBottomNav";
 import { PreviewInputRuntime } from "../preview/input/PreviewInputRuntime";
 import { MobileEmptyState } from "../../mobile/primitives";
+import { debugAtomKeyboardSnapshot, installStudentMobileDebugConsole } from "../../debug/mobileDebug";
 
 const rootHeaderMeta: Record<StudentRootRouteId, { title: string; subtitle: string }> = {
   home: { title: "首页", subtitle: "今日学习" },
   learn: { title: "学习", subtitle: "章节与元素周期表" },
-  ai: { title: "AI", subtitle: "学习助手中心" },
+  ai: { title: "Atom", subtitle: "学习助手中心" },
   assessment: { title: "测评", subtitle: "练习与学习报告" },
   profile: { title: "我的", subtitle: "账号与反馈" },
 };
+
+const ROOT_AI_COMPOSER_SELECTOR = ".ai-chat-panel.root .ai-chat-compose";
+
+function getVisualViewportHeight() {
+  if (typeof window === "undefined") return 0;
+  return Math.round(window.visualViewport?.height || window.innerHeight || document.documentElement.clientHeight || 0);
+}
+
+function getVisualViewportTop() {
+  if (typeof window === "undefined") return 0;
+  return Math.round(window.visualViewport?.offsetTop || 0);
+}
+
+function getKeyboardBottomInset(viewportHeight: number, viewportTop = 0) {
+  if (typeof window === "undefined" || !window.visualViewport) return 0;
+  const layoutHeight = Math.round(window.innerHeight || document.documentElement.clientHeight || viewportHeight);
+  return Math.max(0, Math.round(layoutHeight - viewportHeight - viewportTop));
+}
+
+function isRootAiComposerTarget(target: EventTarget | null) {
+  return typeof HTMLElement !== "undefined" && target instanceof HTMLElement && Boolean(target.closest(ROOT_AI_COMPOSER_SELECTOR));
+}
 
 export function AuthenticatedAppLayout() {
   const baseContext = useStudentShellBase();
@@ -32,12 +55,22 @@ export function AuthenticatedAppLayout() {
   const [posttestLoading, setPosttestLoading] = useState(false);
   const [posttestError, setPosttestError] = useState("");
   const [navCompressed, setNavCompressed] = useState(false);
+  const [rootComposerFocused, setRootComposerFocused] = useState(false);
+  const [visualViewportHeight, setVisualViewportHeight] = useState(getVisualViewportHeight);
+  const [visualViewportTop, setVisualViewportTop] = useState(getVisualViewportTop);
+  const [keyboardBottomInset, setKeyboardBottomInset] = useState(() => getKeyboardBottomInset(getVisualViewportHeight(), getVisualViewportTop()));
   const lastScrollY = useRef(0);
+  const focusDebugTimers = useRef<number[]>([]);
+  const maxVisualViewportHeight = useRef(0);
+  const rootKeyboardCompressed = useRef(false);
   const routeBlocked = previewRouteBlocked(appConfig, location.pathname);
   const previewMode = Boolean(baseContext.user.preview_mode || appConfig.preview_mode);
+  const isRootAiRoute = isRootRoute && activeRoot === "ai";
+  const keyboardActive = isRootAiRoute && rootComposerFocused;
 
   useEffect(() => {
     let cancelled = false;
+    void installStudentMobileDebugConsole();
     const refreshConfig = async () => {
       try {
         const response = await getStudentAppConfig();
@@ -86,6 +119,102 @@ export function AuthenticatedAppLayout() {
     };
   }, [isRootRoute, location.pathname]);
 
+  useEffect(() => {
+    rootKeyboardCompressed.current = false;
+    setRootComposerFocused(false);
+    debugAtomKeyboardSnapshot("route-change", { pathname: location.pathname, isRootAiRoute });
+  }, [location.pathname]);
+
+  useEffect(() => {
+    const updateVisualViewport = () => {
+      const nextHeight = getVisualViewportHeight();
+      const nextTop = getVisualViewportTop();
+      const nextBottomInset = getKeyboardBottomInset(nextHeight, nextTop);
+      setVisualViewportHeight(nextHeight);
+      setVisualViewportTop(nextTop);
+      setKeyboardBottomInset(nextBottomInset);
+      debugAtomKeyboardSnapshot("visual-viewport-update", {
+        nextHeight,
+        nextTop,
+        nextBottomInset,
+        isRootAiRoute,
+        rootComposerFocused,
+      });
+      if (!nextHeight) return;
+
+      maxVisualViewportHeight.current = Math.max(maxVisualViewportHeight.current, nextHeight);
+      const restoredGap = maxVisualViewportHeight.current - nextHeight;
+      if (isRootAiRoute && rootComposerFocused && window.visualViewport) {
+        if (restoredGap > 80) rootKeyboardCompressed.current = true;
+        if (rootKeyboardCompressed.current && restoredGap <= 24) {
+          rootKeyboardCompressed.current = false;
+          setRootComposerFocused(false);
+        }
+      }
+    };
+
+    updateVisualViewport();
+    window.addEventListener("resize", updateVisualViewport);
+    window.visualViewport?.addEventListener("resize", updateVisualViewport);
+    window.visualViewport?.addEventListener("scroll", updateVisualViewport);
+    return () => {
+      window.removeEventListener("resize", updateVisualViewport);
+      window.visualViewport?.removeEventListener("resize", updateVisualViewport);
+      window.visualViewport?.removeEventListener("scroll", updateVisualViewport);
+    };
+  }, [isRootAiRoute, rootComposerFocused]);
+
+  useEffect(() => {
+    if (!isRootAiRoute) {
+      setRootComposerFocused(false);
+      return;
+    }
+
+    const clearFocusDebugTimers = () => {
+      focusDebugTimers.current.forEach((timer) => window.clearTimeout(timer));
+      focusDebugTimers.current = [];
+    };
+    let blurFrame = 0;
+    const handleFocusIn = (event: FocusEvent) => {
+      if (isRootAiComposerTarget(event.target)) {
+        rootKeyboardCompressed.current = false;
+        setRootComposerFocused(true);
+        debugAtomKeyboardSnapshot("root-composer-focusin", { eventTarget: event.target instanceof HTMLElement ? event.target.tagName : "" });
+        clearFocusDebugTimers();
+        focusDebugTimers.current = [250, 600, 1000].map((delay) =>
+          window.setTimeout(() => debugAtomKeyboardSnapshot(`root-composer-focusin+${delay}ms`), delay),
+        );
+      }
+    };
+    const handleFocusOut = () => {
+      window.cancelAnimationFrame(blurFrame);
+      blurFrame = window.requestAnimationFrame(() => {
+        const stillInComposer = isRootAiComposerTarget(document.activeElement);
+        rootKeyboardCompressed.current = stillInComposer ? rootKeyboardCompressed.current : false;
+        setRootComposerFocused(stillInComposer);
+        debugAtomKeyboardSnapshot("root-composer-focusout", { stillInComposer });
+      });
+    };
+
+    document.addEventListener("focusin", handleFocusIn);
+    document.addEventListener("focusout", handleFocusOut);
+    return () => {
+      clearFocusDebugTimers();
+      window.cancelAnimationFrame(blurFrame);
+      document.removeEventListener("focusin", handleFocusIn);
+      document.removeEventListener("focusout", handleFocusOut);
+    };
+  }, [isRootAiRoute]);
+
+  useEffect(() => {
+    debugAtomKeyboardSnapshot("keyboard-active-change", {
+      keyboardActive,
+      visualViewportHeight,
+      visualViewportTop,
+      keyboardBottomInset,
+    });
+  }, [keyboardActive, keyboardBottomInset, visualViewportHeight, visualViewportTop]);
+
   const startAssessmentSession = useCallback(async () => {
     setPosttestLoading(true);
     setPosttestError("");
@@ -119,6 +248,16 @@ export function AuthenticatedAppLayout() {
 
   const headerMeta = activeRoot ? rootHeaderMeta[activeRoot] : null;
   const shouldRenderHeader = Boolean(headerMeta && !(isRootRoute && activeRoot === "ai"));
+  const shellStyle = useMemo(
+    () =>
+      ({
+        "--student-visual-viewport-height": visualViewportHeight ? `${visualViewportHeight}px` : "100dvh",
+        "--student-visual-viewport-top": `${visualViewportTop}px`,
+        "--student-keyboard-bottom-inset": `${keyboardBottomInset}px`,
+        "--student-keyboard-welcome-offset": `${Math.round(Math.max(44, Math.min(96, visualViewportHeight * 0.16 || 64)))}px`,
+      }) as CSSProperties,
+    [keyboardBottomInset, visualViewportHeight, visualViewportTop],
+  );
 
   return (
     <StudentRuntimeProvider value={runtime}>
@@ -129,9 +268,11 @@ export function AuthenticatedAppLayout() {
           isCatalogDetailRoute ? "catalog-detail-route" : "",
           activeRoot ? `root-${activeRoot}` : "",
           navCompressed && isRootRoute ? "nav-compressed" : "",
+          keyboardActive ? "keyboard-active" : "",
         ]
           .filter(Boolean)
           .join(" ")}
+        style={shellStyle}
         aria-label="学生学习应用"
       >
         {shouldRenderHeader && headerMeta ? <StudentAppHeader title={headerMeta.title} subtitle={headerMeta.subtitle} /> : null}

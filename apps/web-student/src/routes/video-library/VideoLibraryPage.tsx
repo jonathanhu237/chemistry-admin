@@ -1,6 +1,6 @@
 import { FormEvent, useEffect, useMemo, useState } from "react";
 import { useNavigate, useSearch } from "@tanstack/react-router";
-import { Bot, ChevronRight, FlaskConical, LoaderCircle, Search, Sparkles, Video, X } from "lucide-react";
+import { Atom, ChevronRight, FlaskConical, LoaderCircle, Search, Sparkles, Video, X } from "lucide-react";
 import type {
   StudentVideoLibraryResultItem,
   StudentVideoLibraryRouteTarget,
@@ -152,7 +152,7 @@ export function VideoLibraryPage() {
           <div>
             <p>实验视频学习</p>
             <h2>从现象、试剂和观察点进入实验</h2>
-            <span>结果都会跳转到可学习的章节、点位或 AI 解释，不停在纯文本列表。</span>
+            <span>结果都会跳转到可学习的章节、点位或 Atom 解释，不停在纯文本列表。</span>
           </div>
           <Video size={28} />
         </section>
@@ -258,7 +258,8 @@ function DefaultBrowse({
 }
 
 function VideoResultButton({ item, onClick }: { item: StudentVideoLibraryResultItem; onClick: () => void }) {
-  const icon = item.type === "ai_prompt" ? <Bot size={20} /> : item.type === "chapter_experiment" ? <FlaskConical size={20} /> : <Video size={20} />;
+  const icon = item.type === "ai_prompt" ? <Atom size={20} /> : item.type === "chapter_experiment" ? <FlaskConical size={20} /> : <Video size={20} />;
+  const actionLabel = item.type === "ai_prompt" ? "问问Atom" : item.action_label || "打开";
   return (
     <button className="video-result-card" type="button" onClick={onClick} disabled={!item.target}>
       <span className="video-result-icon">{icon}</span>
@@ -275,7 +276,7 @@ function VideoResultButton({ item, onClick }: { item: StudentVideoLibraryResultI
         ) : null}
       </span>
       <span className="video-result-action">
-        <small>{item.action_label || "打开"}</small>
+        <small>{actionLabel}</small>
         <ChevronRight size={17} />
       </span>
     </button>

@@ -13,7 +13,10 @@ describe("student device preview contracts", () => {
     expect(pageSource).toContain("preview_url");
     expect(pageSource).toContain("allowedPreviewUrl");
     expect(deviceFrameSource).toContain("VITE_STUDENT_APP_BASE_URL");
-    expect(deviceFrameSource).toContain("http://222.200.189.249:5173");
+    expect(deviceFrameSource).toContain("http://222.200.189.249:15173");
+    expect(pageSource).not.toContain("inferStudentAppBase");
+    expect(pageSource).not.toContain("Expected ${expectedOrigin}");
+    expect(pageSource).toContain('url.protocol !== "http:" && url.protocol !== "https:"');
     expect(pageSource).toContain("PreviewGestureSurface");
     expect(inputProtocolSource).toContain("previewTeacherOrigin");
   });

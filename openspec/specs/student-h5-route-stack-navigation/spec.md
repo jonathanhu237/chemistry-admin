@@ -22,8 +22,8 @@ The authenticated student H5 app SHALL expose five first-level root destinations
 
 #### Scenario: Student views root navigation
 - **WHEN** the authenticated student is on a root route
-- **THEN** the app MUST make root destinations available as bottom navigation entries labeled for `首页`, `学习`, `AI`, `测评`, and `我的`
-- **AND** the `AI` destination MUST be visually centered in the five-item navigation.
+- **THEN** the app MUST make root destinations available as bottom navigation entries labeled for `首页`, `学习`, `Atom`, `测评`, and `我的`
+- **AND** the `Atom` assistant destination MUST be visually centered in the five-item navigation.
 
 #### Scenario: Student taps bottom navigation
 - **WHEN** the student taps a bottom navigation entry
@@ -328,4 +328,3 @@ Student H5 navigation SHALL treat this arrow refinement as a visual/navigation-c
 - **WHEN** a student uses browser back, Android/WebView back, or the visible shared back arrow from a detail route
 - **THEN** the app MUST continue to restore the correct previous route state
 - **AND** the visual arrow standardization MUST NOT introduce duplicate history entries or bypass route-layer navigation.
-

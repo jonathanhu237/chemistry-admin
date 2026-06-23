@@ -743,18 +743,18 @@ const videoLibraryResponse: StudentVideoLibrarySearchResponse = {
     },
     {
       key: "ai",
-      title: "AI explanation",
+      title: "Atom explanation",
       summary: "Ask with context.",
       items: [
         {
           id: "ai_prompt:orange",
           type: "ai_prompt",
           title: "Explain orange layer",
-          subtitle: "AI learning assistant",
+          subtitle: "Atom 学习助手",
           snippet: "Explain the observed orange CCl4 layer.",
           score: 1,
-          badges: ["AI"],
-          action_label: "Ask AI",
+          badges: ["Atom"],
+          action_label: "Ask Atom",
           target: {
             kind: "ai_chat",
             route: "/ai/chat",
@@ -840,6 +840,36 @@ function expectBottomNavHidden() {
   expect(document.querySelector(".student-bottom-nav")).toBeNull();
 }
 
+function installVisualViewport(height: number, layoutHeight = height) {
+  const listeners: Record<string, Array<(event: Event) => void>> = {};
+  Object.defineProperty(window, "innerHeight", { configurable: true, value: layoutHeight });
+  const viewport = {
+    height,
+    width: 390,
+    offsetTop: 0,
+    offsetLeft: 0,
+    pageTop: 0,
+    pageLeft: 0,
+    scale: 1,
+    addEventListener: vi.fn((type: string, listener: EventListenerOrEventListenerObject | null) => {
+      if (typeof listener !== "function") return;
+      listeners[type] = [...(listeners[type] || []), listener];
+    }),
+    removeEventListener: vi.fn((type: string, listener: EventListenerOrEventListenerObject | null) => {
+      if (typeof listener !== "function") return;
+      listeners[type] = (listeners[type] || []).filter((item) => item !== listener);
+    }),
+  } as unknown as VisualViewport & { height: number };
+
+  Object.defineProperty(window, "visualViewport", { configurable: true, value: viewport });
+  return {
+    setHeight(nextHeight: number) {
+      viewport.height = nextHeight;
+      (listeners.resize || []).forEach((listener) => listener(new Event("resize")));
+    },
+  };
+}
+
 function answerVisibleAssessment() {
   document.querySelectorAll("article.question-card").forEach((card) => {
     const option = card.querySelector<HTMLButtonElement>("button.option");
@@ -871,6 +901,7 @@ describe("student app route stack", () => {
     window.sessionStorage.clear();
     window.localStorage.clear();
     window.history.replaceState({}, "", "/");
+    Object.defineProperty(window, "visualViewport", { configurable: true, value: undefined });
     Object.defineProperty(window, "scrollTo", { value: vi.fn(), writable: true });
     Object.defineProperty(window.HTMLMediaElement.prototype, "play", { value: vi.fn().mockResolvedValue(undefined), writable: true });
     Object.defineProperty(window.HTMLMediaElement.prototype, "pause", { value: vi.fn(), writable: true });
@@ -939,12 +970,15 @@ describe("student app route stack", () => {
       "assessment",
       "profile",
     ]);
+    expect(nav.querySelector('button[data-root="ai"] svg')?.getAttribute("class")).toContain("lucide-atom");
+    expect(nav.querySelector('button[data-root="ai"] span')).toHaveTextContent("Atom");
     await waitFor(() => expect(window.location.pathname).toBe("/home"));
     expect(activeRoot()).toBe("home");
 
     await waitFor(() => expect(apiMocks.getStudentHomeVideoFeed).toHaveBeenCalledWith(16));
     expect(screen.getByText("今天先看一个现象")).toBeInTheDocument();
     expect(screen.getByText("Orange layer observation")).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "问问Atom" }).querySelector("svg")?.getAttribute("class")).toContain("lucide-atom");
     fireEvent.click(screen.getByRole("button", { name: "搜索" }));
     await waitFor(() => expect(window.location.pathname).toBe("/video-library"));
     expectBottomNavHidden();
@@ -972,6 +1006,8 @@ describe("student app route stack", () => {
     expect(screen.getByText("元素周期表")).toBeInTheDocument();
     expect(screen.getByText("选择元素分区")).toBeInTheDocument();
     expect(screen.getByRole("textbox", { name: "搜索元素" })).toBeInTheDocument();
+    expect(document.querySelector(".periodic-search svg")?.getAttribute("class")).toContain("lucide-search");
+    expect(document.querySelector(".periodic-search svg")?.getAttribute("class")).not.toContain("lucide-atom");
     expect(document.querySelector(".learning-recommendation-card")).not.toBeNull();
     expect(document.querySelector(".chapter-entry-card")).toBeNull();
     fireEvent.click(document.querySelector<HTMLButtonElement>(".element-cell[title^='Cl ']")!);
@@ -1020,7 +1056,7 @@ describe("student app route stack", () => {
     expect(document.querySelector(".property-section-panel")).toBeNull();
     expect(document.querySelector(".finish-action")).toBeNull();
     expect(screen.queryByRole("button", { name: "选章节" })).not.toBeInTheDocument();
-    expect(screen.queryByRole("button", { name: "问 AI" })).not.toBeInTheDocument();
+    expect(screen.queryByRole("button", { name: "问问Atom" })).not.toBeInTheDocument();
     await waitFor(() => expect(document.querySelector(".catalog-node-card")).not.toBeNull());
     const catalogHeader = document.querySelector(".family-catalog-browser-head");
     expect(catalogHeader).not.toBeNull();
@@ -1061,7 +1097,7 @@ describe("student app route stack", () => {
     act(() => window.history.back());
     await waitFor(() => expect(window.location.pathname).toBe("/chapter/halogens-17"));
     expectBottomNavHidden();
-    expect(screen.queryByRole("button", { name: "问 AI" })).not.toBeInTheDocument();
+    expect(screen.queryByRole("button", { name: "问问Atom" })).not.toBeInTheDocument();
 
     await waitFor(() => expect(document.querySelector(".catalog-node-card-main")).not.toBeNull());
     const familyCatalogPath = window.location.pathname;
@@ -1104,7 +1140,7 @@ describe("student app route stack", () => {
     expect(new URLSearchParams(window.location.search).get("elementSymbol")).toBe("Cl");
     expectBottomNavHidden();
 
-    fireEvent.click(screen.getByRole("button", { name: "问 AI" }));
+    fireEvent.click(screen.getByRole("button", { name: "问问Atom" }));
     await waitFor(() => expect(window.location.pathname).toBe("/ai/chat"));
     expectBottomNavHidden();
     act(() => window.history.back());
@@ -1117,7 +1153,7 @@ describe("student app route stack", () => {
     await waitFor(() => expect(window.location.pathname).toBe("/assessment/report/posttest-session-e2e"));
     expectBottomNavHidden();
     await waitFor(() => expect(document.querySelector(".summary-ai-text ul.ai-md-list")).not.toBeNull());
-    fireEvent.click(screen.getByRole("button", { name: "问 AI" }));
+    fireEvent.click(screen.getByRole("button", { name: "问问Atom" }));
     await waitFor(() => expect(window.location.pathname).toBe("/ai/chat"));
     expectBottomNavHidden();
     act(() => window.history.back());
@@ -1310,7 +1346,7 @@ describe("student app route stack", () => {
     expect(document.querySelector(".student-app-shell")).toBeNull();
     expect(screen.getAllByText("Orange layer observation").length).toBeGreaterThan(0);
     expect(screen.queryByText("开始练习")).not.toBeInTheDocument();
-    expect(screen.queryByText("带着这个点位问 AI")).not.toBeInTheDocument();
+    expect(screen.queryByText("带着这个点位问问Atom")).not.toBeInTheDocument();
     expect(document.querySelector(".finish-action")).toBeNull();
     expect(apiMocks.submitStudentPosttest).not.toHaveBeenCalled();
     expect(apiMocks.submitStudentFeedback).not.toHaveBeenCalled();
@@ -1450,13 +1486,17 @@ describe("student app route stack", () => {
     expect(document.querySelector(".student-app-shell.root-ai > .student-app-header")).toBeNull();
     expect(document.querySelector(".student-app-shell.root-ai .student-route-content > .ai-root-page")).not.toBeNull();
     expect(document.querySelector(".ai-chat-panel.root")).not.toBeNull();
+    expect(document.querySelector(".ai-chat-panel.root .ai-root-star-shell")).toBeNull();
     expect(document.querySelector(".ai-chat-panel.root .ai-chat-head.root")).not.toBeNull();
-    expect(document.querySelector(".ai-chat-panel.root .ai-chat-empty.root")).not.toBeNull();
+    expect(document.querySelector(".ai-chat-panel.root .ai-chat-empty.root")).toBeNull();
+    expect(screen.getByText("从一个实验开始吧！")).toBeInTheDocument();
+    expect(document.querySelector(".ai-chat-panel.root .ai-root-welcome svg")?.getAttribute("class")).toContain("lucide-atom");
     expect(document.querySelector(".ai-chat-panel.root .ai-chat-compose textarea")).not.toBeNull();
     expect(document.querySelector(".ai-chat-panel.root .ai-chat-compose button")).not.toBeNull();
-    expect(screen.getByRole("textbox", { name: "向 AI 提问" })).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: "查看 AI 历史记录" })).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: "新建 AI 对话" })).toBeInTheDocument();
+    expect(screen.getByRole("textbox", { name: "向 Atom 提问" })).toBeInTheDocument();
+    expect(screen.getByPlaceholderText("问实验现象、步骤或原理")).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "查看 Atom 历史记录" })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "新建 Atom 对话" })).toBeInTheDocument();
     expect(document.querySelector(".ai-chat-panel.root .ai-root-actions .ai-history-action")).not.toBeNull();
     expect(document.querySelector(".ai-chat-panel.root .ai-root-actions .ai-new-chat-action")).not.toBeNull();
     expect(document.querySelector(".ai-starter-surface")).toBeNull();
@@ -1468,13 +1508,15 @@ describe("student app route stack", () => {
         .join(" "),
     ).not.toMatch(/上传|附件|模型|语音|图片/);
 
-    fireEvent.click(screen.getByRole("button", { name: "查看 AI 历史记录" }));
-    expect(await screen.findByRole("dialog", { name: "AI 历史记录" })).toHaveTextContent("还没有历史记录");
-    fireEvent.click(screen.getByRole("button", { name: "关闭 AI 历史记录" }));
+    fireEvent.click(screen.getByRole("button", { name: "查看 Atom 历史记录" }));
+    expect(await screen.findByRole("dialog", { name: "Atom 历史记录" })).toHaveTextContent("还没有历史记录");
+    fireEvent.click(screen.getByRole("button", { name: "关闭 Atom 历史记录" }));
 
-    fireEvent.change(screen.getByRole("textbox", { name: "向 AI 提问" }), {
+    fireEvent.change(screen.getByRole("textbox", { name: "向 Atom 提问" }), {
       target: { value: "为什么 CCl4 层会变橙色？" },
     });
+    expect(screen.queryByText("从一个实验开始吧！")).not.toBeInTheDocument();
+    expect(document.querySelector(".ai-chat-stream.root-empty")).toBeNull();
     fireEvent.click(screen.getByRole("button", { name: "发送问题" }));
     await waitFor(() => expect(apiMocks.streamStudentAssistantAsk).toHaveBeenCalledTimes(1));
     expect(apiMocks.streamStudentAssistantAsk).toHaveBeenLastCalledWith(
@@ -1486,18 +1528,20 @@ describe("student app route stack", () => {
       expect.any(Function),
     );
     await waitFor(() => expect(screen.getByText("Route answer")).toBeInTheDocument());
-    fireEvent.click(screen.getByRole("button", { name: "新建 AI 对话" }));
+    expect(screen.queryByText("从一个实验开始吧！")).not.toBeInTheDocument();
+    fireEvent.click(screen.getByRole("button", { name: "新建 Atom 对话" }));
     await waitFor(() => expect(screen.queryByText("Route answer")).not.toBeInTheDocument());
-    expect(document.querySelector(".ai-chat-panel.root .ai-chat-empty.root")).not.toBeNull();
+    expect(document.querySelector(".ai-chat-panel.root .ai-chat-empty.root")).toBeNull();
+    expect(screen.getByText("从一个实验开始吧！")).toBeInTheDocument();
 
     cleanup();
     await renderAuthenticatedApp("/ai");
-    fireEvent.click(screen.getByRole("button", { name: "查看 AI 历史记录" }));
-    await screen.findByRole("dialog", { name: "AI 历史记录" });
+    fireEvent.click(screen.getByRole("button", { name: "查看 Atom 历史记录" }));
+    await screen.findByRole("dialog", { name: "Atom 历史记录" });
     fireEvent.click(screen.getByText("为什么 CCl4 层会变橙色？").closest("button")!);
     await waitFor(() => expect(screen.getByText("Route answer")).toBeInTheDocument());
 
-    fireEvent.change(screen.getByRole("textbox", { name: "向 AI 提问" }), {
+    fireEvent.change(screen.getByRole("textbox", { name: "向 Atom 提问" }), {
       target: { value: "继续解释氧化还原关系" },
     });
     fireEvent.click(screen.getByRole("button", { name: "发送问题" }));
@@ -1512,6 +1556,69 @@ describe("student app route stack", () => {
       }),
       expect.any(Function),
     );
+  });
+
+  it("uses a visible-viewport keyboard layout only for the root Atom composer", async () => {
+    const viewport = installVisualViewport(760);
+    await renderAuthenticatedApp("/ai");
+
+    const shell = document.querySelector<HTMLElement>(".student-app-shell.root-route.root-ai");
+    const textarea = document.querySelector<HTMLTextAreaElement>(".ai-chat-panel.root .ai-chat-compose textarea");
+    const bottomNav = document.querySelector<HTMLElement>(".student-bottom-nav");
+    expect(shell).not.toBeNull();
+    expect(textarea).not.toBeNull();
+    expect(bottomNav).not.toBeNull();
+    expect(shell).not.toHaveClass("keyboard-active");
+    expect(shell?.style.getPropertyValue("--student-visual-viewport-height")).toBe("760px");
+    expect(shell?.style.getPropertyValue("--student-keyboard-bottom-inset")).toBe("0px");
+
+    Object.defineProperty(textarea!, "scrollHeight", { configurable: true, value: 140 });
+    fireEvent.change(textarea!, { target: { value: "Cl2 and KBr observation" } });
+    fireEvent.focusIn(textarea!);
+    viewport.setHeight(520);
+    await waitFor(() => expect(shell).toHaveClass("keyboard-active"));
+    await waitFor(() => expect(shell?.style.getPropertyValue("--student-visual-viewport-height")).toBe("520px"));
+    expect(shell?.style.getPropertyValue("--student-keyboard-bottom-inset")).toBe("240px");
+    expect(document.querySelector(".ai-chat-stream.root-empty .ai-root-welcome")).toBeNull();
+    expect(textarea).toHaveValue("Cl2 and KBr observation");
+    await waitFor(() => expect(textarea!.style.maxHeight).toBe(`${Math.floor(520 * 0.618)}px`));
+    expect(textarea!.style.height).toBe("140px");
+    expect(textarea!.style.overflowY).toBe("hidden");
+
+    const longQuestion = "Cl2 and KBr observation ".repeat(32);
+    Object.defineProperty(textarea!, "scrollHeight", { configurable: true, value: 520 });
+    fireEvent.change(textarea!, { target: { value: longQuestion } });
+    await waitFor(() => expect(textarea!.style.height).toBe(`${Math.floor(520 * 0.618)}px`));
+    expect(textarea).toHaveClass("is-scrollable");
+    expect(textarea!.style.overflowY).toBe("auto");
+
+    textarea!.blur();
+    fireEvent.focusOut(textarea!);
+    await waitFor(() => expect(shell).not.toHaveClass("keyboard-active"));
+    expect(textarea).toHaveValue(longQuestion);
+
+    fireEvent.focusIn(textarea!);
+    await waitFor(() => expect(shell).toHaveClass("keyboard-active"));
+    viewport.setHeight(500);
+    await waitFor(() => expect(shell?.style.getPropertyValue("--student-visual-viewport-height")).toBe("500px"));
+    viewport.setHeight(760);
+    await waitFor(() => expect(shell).not.toHaveClass("keyboard-active"));
+
+    fireEvent.focusIn(textarea!);
+    await waitFor(() => expect(shell).toHaveClass("keyboard-active"));
+    fireEvent.click(rootButton("learn"));
+    await waitFor(() => expect(window.location.pathname).toBe("/learn"));
+    expect(document.querySelector(".student-app-shell")).not.toHaveClass("keyboard-active");
+
+    cleanup();
+    await renderAuthenticatedApp("/ai/chat");
+    const detailShell = document.querySelector<HTMLElement>(".student-app-shell.detail-route");
+    const detailTextarea = document.querySelector<HTMLTextAreaElement>(".ai-chat-panel.detail .ai-chat-compose textarea");
+    expect(detailShell).not.toBeNull();
+    expect(detailTextarea).not.toBeNull();
+    fireEvent.focusIn(detailTextarea!);
+    expect(detailShell).not.toHaveClass("keyboard-active");
+    expect(document.querySelector(".student-bottom-nav")).toBeNull();
   });
 
   it("serves direct root and detail client routes with route-level navigation visibility", async () => {
@@ -1534,10 +1641,14 @@ describe("student app route stack", () => {
     expect(document.querySelector(".student-app-shell.root-route.root-ai")).not.toBeNull();
     expect(document.querySelector(".student-app-shell.root-ai > .student-app-header")).toBeNull();
     expect(document.querySelector(".ai-chat-panel.root")).not.toBeNull();
-    expect(document.querySelector(".ai-chat-panel.root .ai-chat-empty.root")).not.toBeNull();
-    expect(screen.getByRole("textbox", { name: "向 AI 提问" })).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: "查看 AI 历史记录" })).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: "新建 AI 对话" })).toBeInTheDocument();
+    expect(document.querySelector(".ai-chat-panel.root .ai-root-star-shell")).toBeNull();
+    expect(document.querySelector(".ai-chat-panel.root .ai-chat-empty.root")).toBeNull();
+    expect(screen.getByText("从一个实验开始吧！")).toBeInTheDocument();
+    expect(document.querySelector(".ai-chat-panel.root .ai-root-welcome svg")?.getAttribute("class")).toContain("lucide-atom");
+    expect(screen.getByRole("textbox", { name: "向 Atom 提问" })).toBeInTheDocument();
+    expect(screen.getByPlaceholderText("问实验现象、步骤或原理")).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "查看 Atom 历史记录" })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "新建 Atom 对话" })).toBeInTheDocument();
     cleanup();
 
     await renderAuthenticatedApp("/ai/chat");
@@ -1546,12 +1657,15 @@ describe("student app route stack", () => {
     expect(document.querySelector(".student-app-shell.detail-route")).not.toBeNull();
     expect(document.querySelector(".ai-root-page")).toBeNull();
     expect(document.querySelector(".ai-chat-panel.root")).toBeNull();
+    expect(document.querySelector(".ai-root-star-shell")).toBeNull();
+    expect(screen.queryByText("从一个实验开始吧！")).not.toBeInTheDocument();
     expect(document.querySelector(".ai-chat-panel.detail")).not.toBeNull();
+    expect(screen.getByPlaceholderText("围绕当前内容提问")).toBeInTheDocument();
     expect(document.querySelector(".ai-chat-panel.detail .ai-history-action")).toBeNull();
     expect(document.querySelector(".ai-chat-panel.detail .ai-new-chat-action")).toBeNull();
-    expect(screen.getByRole("textbox", { name: "向 AI 提问" })).toBeInTheDocument();
-    expect(screen.queryByRole("button", { name: "查看 AI 历史记录" })).not.toBeInTheDocument();
-    expect(screen.queryByRole("button", { name: "新建 AI 对话" })).not.toBeInTheDocument();
+    expect(screen.getByRole("textbox", { name: "向 Atom 提问" })).toBeInTheDocument();
+    expect(screen.queryByRole("button", { name: "查看 Atom 历史记录" })).not.toBeInTheDocument();
+    expect(screen.queryByRole("button", { name: "新建 Atom 对话" })).not.toBeInTheDocument();
     cleanup();
 
     await renderAuthenticatedApp("/video-library");
@@ -1619,7 +1733,7 @@ describe("student app route stack", () => {
     ]);
 
     await clickRoot("ai");
-    expect(screen.getByText("AI 学习助手暂未开放")).toBeInTheDocument();
+    expect(screen.getByText("Atom 学习助手暂未开放")).toBeInTheDocument();
     expect(document.querySelector(".ai-chat-panel")).toBeNull();
     cleanup();
 

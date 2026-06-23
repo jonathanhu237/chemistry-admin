@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useNavigate } from "@tanstack/react-router";
-import { Bot, ChevronRight, FlaskConical, LoaderCircle, Search, Video } from "lucide-react";
+import { Atom, ChevronRight, FlaskConical, LoaderCircle, Search, Video } from "lucide-react";
 import {
   errorMessage,
   getStudentHomeVideoFeed,
@@ -218,8 +218,8 @@ function HomeVideoFeedCard({ item, isActive, canUseAssistant, registerCard, onOp
             搜索相关
           </button>
           <button type="button" disabled={!canUseAssistant} onClick={() => onAsk(item)}>
-            <Bot size={15} />
-            问 AI
+            <Atom size={15} />
+            问问Atom
           </button>
         </div>
       </div>

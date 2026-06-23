@@ -114,7 +114,7 @@ export function createStudentAiHistoryId(): string {
 
 export function historyTitleFromMessages(messages: StudentAiChatMessage[]): string {
   const firstQuestion = messages.find((message) => message.role === "user" && message.content.trim())?.content.trim();
-  if (!firstQuestion) return "新的 AI 对话";
+  if (!firstQuestion) return "新的 Atom 对话";
   const compact = firstQuestion.replace(/\s+/g, " ");
   return compact.length > 28 ? `${compact.slice(0, 28)}...` : compact;
 }

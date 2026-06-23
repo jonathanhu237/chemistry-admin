@@ -18,7 +18,7 @@ export function StudentAiChatTab({
   onHistoryChange?: () => void;
 }) {
   return (
-    <section className={`learning-panel assistant-tab-panel ${variant}`} aria-label="AI 学习助手">
+    <section className={`learning-panel assistant-tab-panel ${variant}`} aria-label="Atom 学习助手">
       <StudentAiChatPanel
         context={context}
         onResetContext={onResetContext}

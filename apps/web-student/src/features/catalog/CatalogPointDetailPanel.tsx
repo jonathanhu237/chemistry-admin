@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import type { ReactNode } from "react";
-import { Atom, Bookmark, ClipboardList, Eye, FlaskConical, LoaderCircle, MessageCircle, MoreHorizontal, PlayCircle, ShieldAlert } from "lucide-react";
+import { Atom, Bookmark, ClipboardList, Eye, FlaskConical, LoaderCircle, MoreHorizontal, PlayCircle, ShieldAlert } from "lucide-react";
 
 import { buildReactionEquationRows } from "../../../../shared/reactionEquations";
 import type { StudentPointDetailResponse } from "../../api";
@@ -129,8 +129,8 @@ export function CatalogPointDetailPanel({
                   disabled={!assistantEnabled || !assistantContext}
                   onClick={() => assistantContext && onOpenAssistant(assistantContext)}
                 >
-                  <MessageCircle size={19} />
-                  <span>问 AI</span>
+                  <Atom size={19} />
+                  <span>问问Atom</span>
                 </button>
                 <button type="button" className="point-title-action" disabled={finishing} onClick={() => onFinishLearning(detail)}>
                   <ClipboardList size={19} />
@@ -220,7 +220,7 @@ function LearningContentSection({
 
 function PrincipleContentSection({ detail, body }: { detail: StudentPointDetailResponse; body: string }) {
   if (detail.principle_mode !== "equation") {
-    return <LearningContentSection title="实验原理" mode={detail.principle_mode} body={body} icon={<Atom size={18} />} className="principle-section" />;
+    return <LearningContentSection title="实验原理" mode={detail.principle_mode} body={body} icon={<FlaskConical size={18} />} className="principle-section" />;
   }
 
   const rows = buildReactionEquationRows({
@@ -233,7 +233,7 @@ function PrincipleContentSection({ detail, body }: { detail: StudentPointDetailR
   return (
     <section className="detail-section point-learning-section principle-section equation-mode">
       <h3>
-        <Atom size={18} />
+        <FlaskConical size={18} />
         <span>实验原理</span>
       </h3>
       {rows.length ? (

@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-import { Clock3, MessageCircle, Trash2, X } from "lucide-react";
+import { Atom, Clock3, Trash2, X } from "lucide-react";
 import { useStudentRuntime } from "../../app/shell/studentAppContext";
 import { defaultAssistantContext } from "../../features/assistant/assistantContext";
 import {
@@ -42,15 +42,15 @@ function AiHistoryPanel({
 }) {
   if (!open) return null;
   return (
-    <div className="ai-history-layer" role="dialog" aria-modal="true" aria-label="AI 历史记录">
-      <button type="button" className="ai-history-backdrop" onClick={onClose} aria-label="关闭 AI 历史记录背景" />
+    <div className="ai-history-layer" role="dialog" aria-modal="true" aria-label="Atom 历史记录">
+      <button type="button" className="ai-history-backdrop" onClick={onClose} aria-label="关闭 Atom 历史记录背景" />
       <section className="ai-history-sheet">
         <header className="ai-history-head">
           <div>
             <p>近期对话</p>
-            <h2>AI 历史记录</h2>
+            <h2>Atom 历史记录</h2>
           </div>
-          <button type="button" onClick={onClose} aria-label="关闭 AI 历史记录">
+          <button type="button" onClick={onClose} aria-label="关闭 Atom 历史记录">
             <X size={18} />
           </button>
         </header>
@@ -68,7 +68,7 @@ function AiHistoryPanel({
                       {formatHistoryTime(entry.updatedAt)}
                     </small>
                   </button>
-                  <button type="button" className="ai-history-delete" onClick={() => onDelete(entry.id)} aria-label="删除这条 AI 历史记录">
+                  <button type="button" className="ai-history-delete" onClick={() => onDelete(entry.id)} aria-label="删除这条 Atom 历史记录">
                     <Trash2 size={15} />
                   </button>
                 </article>
@@ -80,9 +80,9 @@ function AiHistoryPanel({
           </>
         ) : (
           <div className="ai-history-empty">
-            <MessageCircle size={18} />
+            <Atom size={18} />
             <strong>还没有历史记录</strong>
-            <span>从主 AI 页或课程上下文发起提问后，会保存在这里。</span>
+            <span>从主 Atom 页或课程上下文发起提问后，会保存在这里。</span>
           </div>
         )}
       </section>
@@ -128,7 +128,7 @@ export function AiRootPage() {
   };
 
   return (
-    <section className="ai-root-page" aria-label="AI 中心">
+    <section className="ai-root-page" aria-label="Atom 中心">
       {canUseAssistant ? (
         <>
           <StudentAiChatTab
@@ -151,8 +151,8 @@ export function AiRootPage() {
         </>
       ) : (
         <section className="learning-panel">
-          <MobileEmptyState className="empty-learning-card" icon={<MessageCircle size={20} />}>
-            <span>AI 学习助手暂未开放</span>
+          <MobileEmptyState className="empty-learning-card" icon={<Atom size={20} />}>
+            <span>Atom 学习助手暂未开放</span>
           </MobileEmptyState>
         </section>
       )}

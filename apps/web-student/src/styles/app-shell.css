@@ -3,6 +3,22 @@
   padding: 0;
 }
 
+.learning-shell:has(.student-app-shell.root-route.root-ai) {
+  height: 100dvh;
+  min-height: 100dvh;
+  overflow: hidden;
+  overscroll-behavior: none;
+  background:
+    radial-gradient(circle at 16% 20%, rgba(210, 155, 45, 0.13) 0, transparent 32%),
+    radial-gradient(circle at 78% 72%, rgba(0, 88, 38, 0.1) 0, transparent 42%),
+    linear-gradient(180deg, #fffdf6 0%, #f4f8f4 48%, #eef8f1 100%);
+  background-size: auto;
+}
+
+.learning-shell:has(.student-app-shell.root-route.root-ai)::before {
+  display: none;
+}
+
 .learning-panel {
   position: relative;
   z-index: var(--mobile-z-content);
@@ -141,6 +157,7 @@
   gap: 0;
   padding-bottom: 0;
   overflow: hidden;
+  overscroll-behavior: none;
 }
 
 .student-app-shell.root-route.root-ai .student-route-content {
@@ -150,6 +167,22 @@
   min-height: 0;
   padding: 0;
   overflow: hidden;
+}
+
+.student-app-shell.root-route.root-ai.keyboard-active {
+  position: fixed;
+  top: var(--student-visual-viewport-top, 0px);
+  right: 0;
+  bottom: var(--student-keyboard-bottom-inset, 0px);
+  left: 0;
+  align-content: stretch;
+  grid-template-rows: minmax(0, 1fr);
+  height: auto;
+  min-height: 0;
+}
+
+.student-app-shell.root-route.root-ai.keyboard-active .student-route-content {
+  height: 100%;
 }
 
 .student-app-shell.root-route.root-ai .ai-root-page {
@@ -222,7 +255,8 @@
   will-change: transform;
 }
 
-.student-app-shell.nav-compressed .student-bottom-nav {
+.student-app-shell.nav-compressed .student-bottom-nav,
+.student-app-shell.keyboard-active .student-bottom-nav {
   pointer-events: none;
   transform: translateY(calc(100% + 2px));
 }

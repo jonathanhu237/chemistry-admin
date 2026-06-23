@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { BarChart3, Bot, BookOpenCheck, CheckCircle2, FlaskConical, LoaderCircle, Sparkles } from "lucide-react";
+import { Atom, BarChart3, BookOpenCheck, CheckCircle2, FlaskConical, LoaderCircle } from "lucide-react";
 import { StudentPosttestReport, errorMessage, explainPosttestMistakes, generatePosttestAiSummary } from "../../api";
 import { MobileButton, MobileEmptyState } from "../../mobile/primitives";
 import { AiMarkdownBlock } from "../../shared/markdown/AiMarkdownBlock";
@@ -63,10 +63,10 @@ export function PosttestSummaryPanel({ report, onContinue }: { report: StudentPo
         <div>
           <p>学习总结</p>
           <h2>本轮实验报告</h2>
-          <AiMarkdownBlock className="summary-ai-text" text={aiSummaryLoading ? "正在生成 AI 学习总结..." : aiSummary} />
+          <AiMarkdownBlock className="summary-ai-text" text={aiSummaryLoading ? "正在生成 Atom 学习总结..." : aiSummary} />
           <em>
-            <Sparkles size={13} />
-            {aiSummarySource === "ai" ? "AI 总结" : "规则总结"}
+            <Atom size={13} />
+            {aiSummarySource === "ai" ? "Atom 总结" : "规则总结"}
           </em>
         </div>
       </section>
@@ -144,15 +144,15 @@ export function PosttestSummaryPanel({ report, onContinue }: { report: StudentPo
               loading={mistakeLoading}
               onClick={() => void explainMistakes()}
             >
-              {mistakeLoading ? <LoaderCircle className="spin" size={18} /> : <Bot size={18} />}
-              <span>{mistakeLoading ? "AI 正在讲解" : "AI 讲解错题"}</span>
+              {mistakeLoading ? <LoaderCircle className="spin" size={18} /> : <Atom size={18} />}
+              <span>{mistakeLoading ? "Atom 正在讲解" : "Atom 讲解错题"}</span>
             </MobileButton>
             {mistakeError ? <div className="form-error">{mistakeError}</div> : null}
             {mistakeAnswer ? (
               <div className="mistake-ai-answer">
                 <span>
-                  <Sparkles size={13} />
-                  AI 解答
+                  <Atom size={13} />
+                  Atom 解答
                 </span>
                 <AiMarkdownBlock text={mistakeAnswer} />
               </div>

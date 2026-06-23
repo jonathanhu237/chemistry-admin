@@ -285,6 +285,7 @@ function allowedOrigins(teacherOrigin: string): Set<string> {
   }
   origins.add(window.location.origin);
   if (window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost") {
+    origins.add(`${window.location.protocol}//${window.location.hostname}:15174`);
     origins.add(`${window.location.protocol}//${window.location.hostname}:5174`);
     origins.add(`${window.location.protocol}//${window.location.hostname}:4174`);
   }

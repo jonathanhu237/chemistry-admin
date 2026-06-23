@@ -1,5 +1,14 @@
-import { FormEvent, useEffect, useRef, useState } from "react";
-import { Bot, CheckCircle2, LoaderCircle, RotateCcw, Send, Sparkles, XCircle } from "lucide-react";
+import {
+  type ChangeEvent,
+  type CSSProperties,
+  type FormEvent,
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from "react";
+import { Atom, CheckCircle2, LoaderCircle, RotateCcw, Send, XCircle } from "lucide-react";
 import { StudentAssistantFinalMetadata, errorMessage, streamStudentAssistantAsk } from "../../api";
 import { MobileTextArea } from "../../mobile/primitives";
 import { AiMarkdownBlock } from "../../shared/markdown/AiMarkdownBlock";
@@ -68,6 +77,11 @@ function conversationHistory(messages: StudentAiChatMessage[]) {
   return messages.slice(-10).map(({ role, content }) => ({ role, content }));
 }
 
+const ROOT_COMPOSER_MIN_HEIGHT = 82;
+const ROOT_COMPOSER_MAX_HEIGHT_RATIO = 0.618;
+const DETAIL_COMPOSER_MIN_HEIGHT = 58;
+const DETAIL_COMPOSER_MAX_HEIGHT = 112;
+
 function RootHistoryIcon() {
   return (
     <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
@@ -109,6 +123,12 @@ export function StudentAiChatPanel({
   const [activeHistoryId, setActiveHistoryId] = useState<string | null>(null);
   const [activeHistoryCreatedAt, setActiveHistoryCreatedAt] = useState<string | undefined>();
   const streamRef = useRef<HTMLDivElement>(null);
+  const composerTextareaRef = useRef<HTMLTextAreaElement>(null);
+  const [composerTextareaMetrics, setComposerTextareaMetrics] = useState(() => ({
+    height: variant === "root" ? ROOT_COMPOSER_MIN_HEIGHT : DETAIL_COMPOSER_MIN_HEIGHT,
+    maxHeight: variant === "root" ? ROOT_COMPOSER_MIN_HEIGHT : DETAIL_COMPOSER_MAX_HEIGHT,
+    scrollable: false,
+  }));
 
   const contextPath = activeContext.catalog_path?.filter(Boolean).join(" / ") || "";
   const contextMeta = [
@@ -120,7 +140,58 @@ export function StudentAiChatPanel({
     .filter(Boolean)
     .join(" · ");
   const isRootVariant = variant === "root";
+  const hasComposerText = input.trim().length > 0;
+  const showRootWelcome = isRootVariant && !messages.length && !hasComposerText;
   const isGlobalContext = isGlobalAssistantContext(activeContext);
+  const composerPlaceholder = isRootVariant ? "问实验现象、步骤或原理" : "围绕当前内容提问";
+  const composerTextareaStyle: CSSProperties = {
+    height: `${composerTextareaMetrics.height}px`,
+    maxHeight: `${composerTextareaMetrics.maxHeight}px`,
+    overflowY: composerTextareaMetrics.scrollable ? "auto" : "hidden",
+  };
+
+  const syncComposerTextareaMetrics = useCallback(() => {
+    const textarea = composerTextareaRef.current;
+    if (!textarea) return;
+
+    const minHeight = isRootVariant ? ROOT_COMPOSER_MIN_HEIGHT : DETAIL_COMPOSER_MIN_HEIGHT;
+    const visualViewportHeight = window.visualViewport?.height || window.innerHeight || minHeight;
+    const panel = textarea.closest(".ai-chat-panel") as HTMLElement | null;
+    const panelHeight = panel?.getBoundingClientRect().height || 0;
+    const effectiveHeight = panelHeight > minHeight ? panelHeight : visualViewportHeight;
+    const maxHeight = isRootVariant
+      ? Math.max(minHeight, Math.floor(effectiveHeight * ROOT_COMPOSER_MAX_HEIGHT_RATIO))
+      : DETAIL_COMPOSER_MAX_HEIGHT;
+
+    const previousHeight = textarea.style.height;
+    textarea.style.height = "auto";
+    const naturalHeight = textarea.scrollHeight || minHeight;
+    textarea.style.height = previousHeight;
+
+    const nextHeight = Math.min(Math.max(naturalHeight, minHeight), maxHeight);
+    const nextScrollable = naturalHeight > maxHeight + 1;
+    setComposerTextareaMetrics((current) => {
+      if (current.height === nextHeight && current.maxHeight === maxHeight && current.scrollable === nextScrollable) return current;
+      return { height: nextHeight, maxHeight, scrollable: nextScrollable };
+    });
+  }, [isRootVariant]);
+
+  useLayoutEffect(() => {
+    syncComposerTextareaMetrics();
+  }, [input, loading, messages.length, syncComposerTextareaMetrics]);
+
+  useEffect(() => {
+    syncComposerTextareaMetrics();
+    const handleViewportChange = () => syncComposerTextareaMetrics();
+    window.addEventListener("resize", handleViewportChange);
+    window.visualViewport?.addEventListener("resize", handleViewportChange);
+    window.visualViewport?.addEventListener("scroll", handleViewportChange);
+    return () => {
+      window.removeEventListener("resize", handleViewportChange);
+      window.visualViewport?.removeEventListener("resize", handleViewportChange);
+      window.visualViewport?.removeEventListener("scroll", handleViewportChange);
+    };
+  }, [syncComposerTextareaMetrics]);
 
   useEffect(() => {
     if (historyEntry) {
@@ -245,7 +316,7 @@ export function StudentAiChatPanel({
             return;
           }
           if (event.event === "error") {
-            throw new Error(typeof event.message === "string" ? event.message : "AI 请求失败");
+            throw new Error(typeof event.message === "string" ? event.message : "Atom 请求失败");
           }
           if (event.event === "final") {
             finalMetadata = normalizeAssistantMetadata(event.response);
@@ -262,7 +333,7 @@ export function StudentAiChatPanel({
           }
         },
       );
-      if (!answer.trim()) answer = "AI 暂时没有生成有效回答。";
+      if (!answer.trim()) answer = "Atom 暂时没有生成有效回答。";
       const finalMessages: StudentAiChatMessage[] = [...baseMessages, userMessage, { role: "assistant", content: answer, metadata: finalMetadata }];
       setMessages(finalMessages);
       setStatus("ai");
@@ -283,15 +354,19 @@ export function StudentAiChatPanel({
     void submitQuestion();
   };
 
+  const handleComposerChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
+    setInput(event.target.value);
+  };
+
   return (
-    <section className={`ai-chat-panel ${variant}`} role="region" aria-label="AI 学习助手对话">
+    <section className={`ai-chat-panel ${variant}`} role="region" aria-label="Atom 学习助手对话">
       <header className={`ai-chat-head ${variant}`}>
         <div>
           <span>
-            <Sparkles size={14} />
-            {isRootVariant ? "课程 AI" : "当前上下文"}
+            <Atom size={14} />
+            {isRootVariant ? "课程 Atom" : "当前上下文"}
           </span>
-          <h2>{isRootVariant ? "AI 学习助手" : activeContext.context_title}</h2>
+          <h2>{isRootVariant ? "Atom 学习助手" : activeContext.context_title}</h2>
           <small>
             <b>{isRootVariant ? activeContext.context_title : contextMeta}</b>
             {isRootVariant && contextMeta ? <span>{contextMeta}</span> : null}
@@ -299,13 +374,13 @@ export function StudentAiChatPanel({
           </small>
         </div>
         {isRootVariant ? (
-          <div className="ai-root-actions" aria-label="AI 对话操作">
+          <div className="ai-root-actions" aria-label="Atom 对话操作">
             {onOpenHistory ? (
-              <button type="button" className="ai-root-icon-action ai-history-action" onClick={onOpenHistory} aria-label="查看 AI 历史记录">
+              <button type="button" className="ai-root-icon-action ai-history-action" onClick={onOpenHistory} aria-label="查看 Atom 历史记录">
                 <RootHistoryIcon />
               </button>
             ) : null}
-            <button type="button" className="ai-root-icon-action ai-new-chat-action" onClick={handleResetContext} aria-label="新建 AI 对话">
+            <button type="button" className="ai-root-icon-action ai-new-chat-action" onClick={handleResetContext} aria-label="新建 Atom 对话">
               <RootNewChatIcon />
             </button>
           </div>
@@ -316,12 +391,18 @@ export function StudentAiChatPanel({
         ) : null}
       </header>
 
-      <div className="ai-chat-stream" aria-live="polite" ref={streamRef}>
-        {!messages.length ? (
+      <div className={`ai-chat-stream${showRootWelcome ? " root-empty" : ""}`} aria-live="polite" ref={streamRef}>
+        {showRootWelcome ? (
+          <div className="ai-root-welcome">
+            <Atom size={47} strokeWidth={1.9} aria-hidden="true" />
+            <span>从一个实验开始吧！</span>
+          </div>
+        ) : null}
+        {!messages.length && !isRootVariant ? (
           <div className={`ai-chat-empty ${variant}`}>
-            <Sparkles size={18} />
-            <strong>{isRootVariant ? "今天想梳理哪块化学内容？" : "围绕当前页面继续问"}</strong>
-            <span>{isRootVariant ? "可以聊实验现象、方程式、复习疑点。" : activeContext.context_summary || "当前页面上下文会带入这次对话。"}</span>
+            <Atom size={18} />
+            <strong>围绕当前页面继续问</strong>
+            <span>{activeContext.context_summary || "当前页面上下文会带入这次对话。"}</span>
           </div>
         ) : null}
         {messages.map((message, index) => {
@@ -334,8 +415,8 @@ export function StudentAiChatPanel({
                 <>
                   <div className="ai-message-meta">
                     <span>
-                      <Bot size={14} />
-                      学习助手
+                      <Atom size={14} />
+                      Atom 学习助手
                     </span>
                     <em>
                       {isLastError ? <XCircle size={13} /> : isActiveAssistant ? <LoaderCircle className="spin" size={13} /> : <CheckCircle2 size={13} />}
@@ -375,13 +456,16 @@ export function StudentAiChatPanel({
 
       <form className="ai-chat-compose" onSubmit={handleSubmit}>
         <MobileTextArea
+          ref={composerTextareaRef}
+          className={composerTextareaMetrics.scrollable ? "is-scrollable" : undefined}
           value={input}
-          onChange={(event) => setInput(event.target.value)}
-          placeholder="随便问点什么"
-          aria-label="向 AI 提问"
+          onChange={handleComposerChange}
+          placeholder={composerPlaceholder}
+          aria-label="向 Atom 提问"
           rows={1}
           maxLength={1600}
           disabled={loading}
+          style={composerTextareaStyle}
         />
         <button type="submit" disabled={!input.trim() || loading} aria-label="发送问题">
           {loading ? <LoaderCircle className="spin" size={17} /> : <Send size={17} />}

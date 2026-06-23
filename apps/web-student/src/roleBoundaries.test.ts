@@ -79,6 +79,8 @@ describe("student console role boundaries", () => {
     expect(baseCssSource).toContain("scrollbar-width: none");
     expect(baseCssSource).toContain("html::-webkit-scrollbar");
     expect(baseCssSource).toContain("body::-webkit-scrollbar");
+    expect(baseCssSource).toMatch(/body\s*\{[^}]*min-height: 100vh;[^}]*min-height: 100dvh;/s);
+    expect(baseCssSource).toMatch(/\.app-shell\s*\{[^}]*min-height: 100vh;[^}]*min-height: 100dvh;/s);
   });
 
   it("scopes the simulated touch runtime to teacher preview infrastructure", async () => {
@@ -112,6 +114,43 @@ describe("student console role boundaries", () => {
     expect(appShellCssSource).not.toContain("opacity 180ms ease");
     expect(appShellCssSource).not.toContain("opacity: 0.14");
     expect(appShellCssSource).not.toContain("var(--mobile-bottom-nav-height) * 0.62");
+  });
+
+  it("keeps the root Atom composer keyboard layout scoped to the visible viewport", async () => {
+    // @ts-expect-error The frontend tsconfig intentionally omits Node types, but Vitest runs this contract in Node.
+    const { readFileSync } = await import("node:fs");
+    const cwd = (globalThis as unknown as { process: { cwd: () => string } }).process.cwd();
+    const appShellCssSource = readFileSync(`${cwd}/src/styles/app-shell.css`, "utf8");
+    const assistantCssSource = readFileSync(`${cwd}/src/styles/assistant.css`, "utf8");
+    const keyboardShellBlock = appShellCssSource.match(/\.student-app-shell\.root-route\.root-ai\.keyboard-active\s*\{[^}]*\}/)?.[0] || "";
+    const keyboardRouteContentBlock =
+      appShellCssSource.match(/\.student-app-shell\.root-route\.root-ai\.keyboard-active \.student-route-content\s*\{[^}]*\}/)?.[0] || "";
+    const keyboardPanelBlocks: string[] = [];
+    for (const match of assistantCssSource.matchAll(/\.student-app-shell\.root-route\.root-ai\.keyboard-active \.ai-chat-panel\.root\s*\{[^}]*\}/g)) {
+      keyboardPanelBlocks.push(match[0]);
+    }
+
+    expect(authenticatedAppLayoutSource).toContain("ROOT_AI_COMPOSER_SELECTOR");
+    expect(authenticatedAppLayoutSource).toContain("window.visualViewport?.height");
+    expect(authenticatedAppLayoutSource).toContain("\"keyboard-active\"");
+    expect(authenticatedAppLayoutSource).toContain("--student-visual-viewport-height");
+    expect(authenticatedAppLayoutSource).toContain("--student-keyboard-bottom-inset");
+    expect(appShellCssSource).toContain(".student-app-shell.keyboard-active .student-bottom-nav");
+    expect(appShellCssSource).toContain(".student-app-shell.root-route.root-ai.keyboard-active");
+    expect(appShellCssSource).toContain(".learning-shell:has(.student-app-shell.root-route.root-ai)");
+    expect(appShellCssSource).toContain(".learning-shell:has(.student-app-shell.root-route.root-ai)::before");
+    expect(appShellCssSource).toContain("overscroll-behavior: none;");
+    expect(keyboardShellBlock).toContain("position: fixed;");
+    expect(keyboardShellBlock).toContain("bottom: var(--student-keyboard-bottom-inset, 0px);");
+    expect(keyboardRouteContentBlock).toContain("height: 100%;");
+    expect(keyboardRouteContentBlock).not.toContain("--mobile-bottom-nav-height");
+    expect(keyboardPanelBlocks.some((block) => block.includes("padding-bottom: calc(12px + env(safe-area-inset-bottom, 0px));"))).toBe(
+      true,
+    );
+    expect(assistantCssSource).toContain(
+      ".student-app-shell.root-route.root-ai.keyboard-active .ai-chat-panel.root .ai-chat-stream.root-empty",
+    );
+    expect(assistantCssSource).toContain("padding-top: clamp(44px, var(--student-keyboard-welcome-offset, 64px), 96px);");
   });
 
   it("keeps the visible mobile bottom nav opaque and free of default focus boxes", async () => {

@@ -89,27 +89,44 @@ The student H5 assistant SHALL remain useful without loading optional experiment
 - **AND** it MUST NOT introduce a new backend starter-suggestion contract unless a later change explicitly adds one.
 
 ### Requirement: Grok-like root assistant visual target
-The student H5 `AI` root SHALL visually approximate the provided Grok-style mobile chat target while remaining consistent with the chemistry course visual system.
+The student H5 `AI` root SHALL learn the provided Grok-style mobile chat target's layout grammar and sizing rhythm while remaining a bright static chemistry-course interface.
 
 #### Scenario: Root assistant fills available phone space
 - **WHEN** the `AI` root renders at 360px to 430px CSS-pixel phone widths
-- **THEN** the assistant canvas MUST occupy the available route width and height without appearing as a floating card
-- **AND** the `/ai` root MUST NOT render the normal fixed root-page `StudentAppHeader` above the assistant canvas
+- **THEN** the assistant surface MUST occupy the available route width and height without appearing as a floating card
+- **AND** the `/ai` root MUST NOT render the normal fixed root-page `StudentAppHeader` above the assistant surface
 - **AND** the route content and root assistant panel MUST begin at the top of the student page frame while still respecting safe-area and bottom-navigation constraints
 - **AND** the chat composer MUST remain above the bottom navigation with visible separation.
 
+#### Scenario: Root layout follows Grok vertical rhythm
+- **WHEN** the root assistant first screen renders with no messages
+- **THEN** the screen MUST use a light top bar, a large calm middle space, and bottom-weighted interaction area
+- **AND** the empty first screen SHOULD show the Atom AI identity pictogram centered above the welcome line `从一个实验开始吧！`
+- **AND** the welcome group MUST NOT include a card frame, subtitle, or explanatory copy
+- **AND** the middle of the screen MUST remain mostly open rather than filled with cards, grids, explanations, or prompt stacks
+- **AND** root chat shortcuts, if introduced later, MUST use compact low-position chips rather than large centered cards.
+
 #### Scenario: Root assistant top identity is lightweight
 - **WHEN** the root assistant first screen renders
-- **THEN** the top identity area MUST render as a minimal chat-app title bar centered on `AI 学习助手` or an equivalent student-facing assistant name
-- **AND** the history and new-chat actions MUST appear as compact icon-only actions near the top-right of the chat canvas and inline with the title row
-- **AND** those actions MUST blend into the assistant canvas background rather than appearing as framed cards
+- **THEN** the top identity area MUST render as a minimal chat-app title bar centered on `Atom 学习助手`
+- **AND** the history and new-chat actions MUST appear as compact icon-only actions near the top-right of the chat surface and inline with the title row
+- **AND** those actions MUST blend into the assistant background rather than appearing as framed cards
+- **AND** the title row SHOULD stay close to a 52px to 56px visual height on common phone widths
 - **AND** the root top identity MUST NOT show the previous `课程 AI` label, duplicated context title, global-course description, or explanatory summary block
 - **AND** the identity area MUST NOT become a framed intro card.
 
+#### Scenario: Static learning-page background is used
+- **WHEN** the root assistant idle surface renders
+- **THEN** it SHOULD use a near-white paper-like static background inspired by the student learning pages
+- **AND** the background glow SHOULD reuse the student learning pages' warm paper, pale yellow-green, and light sage-green language rather than introducing a cold Tiffany or blue-mint wash
+- **AND** the root assistant MUST NOT render animated star, particle, meteor, or canvas background effects
+- **AND** the static background MUST sit behind all interactive content and not block scrolling, typing, sending, history, new-chat, or bottom navigation controls.
+
 #### Scenario: Context description is not duplicated on root
 - **WHEN** the root assistant first screen renders with no messages
-- **THEN** the page MUST NOT show a separate fixed header or descriptive intro section above the empty chat canvas
-- **AND** any first-screen starter copy MUST be limited to the low prompt block near the composer.
+- **THEN** the page MUST NOT show a separate fixed header or descriptive intro section above the empty chat surface
+- **AND** the root assistant MAY show the Atom AI identity pictogram above the single centered welcome line `从一个实验开始吧！`
+- **AND** the root assistant MUST NOT show a first-screen starter prompt card or explanatory copy block above the composer.
 
 #### Scenario: Student starts a new root chat
 - **WHEN** the student activates the root top-bar new-chat action
@@ -122,10 +139,34 @@ The student H5 `AI` root SHALL visually approximate the provided Grok-style mobi
 - **THEN** the composer MUST expose only supported text-entry and send controls
 - **AND** it MUST NOT show upload, attachment, model picker, microphone, voice waveform, image generation, or external X/Grok controls.
 
+#### Scenario: Root composer prompt matches experiment learning
+- **WHEN** the root assistant composer renders before the student types
+- **THEN** the placeholder SHOULD read `问实验现象、步骤或原理`
+- **AND** the placeholder MUST NOT use generic open-chat phrasing such as `随便问点什么`
+- **AND** contextual detail assistant routes SHOULD use a separate current-content placeholder rather than the root experiment-starting placeholder.
+
 #### Scenario: Send action is embedded in composer
 - **WHEN** the root assistant composer renders
 - **THEN** the send action MUST sit visually inside the composer container rather than as a separate external button beside it
+- **AND** the composer MUST read as a single rounded bottom chat capsule with a larger vertical presence than a standard form field
+- **AND** the root composer SHOULD target approximately 82px minimum height and a large rounded radius near 24px on common phone widths
+- **AND** the root composer SHOULD follow the reference page's spacing rhythm by using approximately 12px side margins from the phone surface and a compact 34px circular send action aligned to the bottom-right inside the capsule
 - **AND** the composer MUST still expose a clear text input area and one supported send action.
+
+#### Scenario: Root composer text-entry state replaces the empty welcome
+- **WHEN** the root assistant has no messages and the student has not entered text
+- **THEN** the Atom welcome pictogram and welcome phrase MAY occupy the empty chat stream
+- **WHEN** the student enters non-whitespace text into the root composer
+- **THEN** the textarea placeholder MUST disappear through normal textarea behavior
+- **AND** the Atom welcome group MUST disappear until the input is cleared or a new empty root chat is started.
+
+#### Scenario: Root composer grows before becoming scrollable
+- **WHEN** the student enters multi-line text in the root assistant composer
+- **THEN** the input capsule SHOULD grow upward with the content while the textarea's natural content height is at or below approximately `61.8%` of the effective chat panel height
+- **AND** the embedded send action MUST remain reachable inside the capsule
+- **WHEN** the natural content height would exceed approximately `61.8%` of the effective chat panel height
+- **THEN** the input capsule MUST stop growing
+- **AND** the textarea content MUST scroll vertically inside the capsule instead of expanding the page or hiding behind the soft keyboard.
 
 ### Requirement: Root AI chat history entry
 The student H5 AI root SHALL provide a history entry point for reviewing prior student AI conversations from the AI root page.

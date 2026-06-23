@@ -436,21 +436,35 @@ The student H5 mobile design system SHALL allow a family context header to colla
 - **THEN** the animation MUST be short, natural, and responsive to scroll
 - **AND** it MUST NOT use delayed follower behavior, idle timers, or continuous expensive re-rendering.
 
-### Requirement: Fullscreen assistant canvas layout
-The student H5 mobile design system SHALL support root-level fullscreen assistant canvases that are not visually framed as cards.
+### Requirement: Fullscreen assistant surface layout
+The student H5 mobile design system SHALL support root-level fullscreen assistant surfaces that are not visually framed as cards and carry a bright static course-themed background.
 
-#### Scenario: Assistant root uses full-bleed canvas
+#### Scenario: Assistant root uses full-bleed surface
 - **WHEN** the authenticated student opens the `AI` root on a 360px, 390px, or 430px CSS-pixel-wide viewport
 - **THEN** the assistant root MUST avoid a bordered floating panel/card appearance
-- **AND** it MUST avoid nested cards inside the first-screen assistant canvas
+- **AND** it MUST avoid nested cards inside the first-screen assistant surface
 - **AND** it MUST avoid horizontal page overflow
-- **AND** the root assistant canvas MUST be allowed to suppress the generic root app header so route content begins at the top of the phone page frame.
+- **AND** the root assistant surface MUST be allowed to suppress the generic root app header so route content begins at the top of the phone page frame.
+
+#### Scenario: Assistant root uses static learning-page background
+- **WHEN** a fullscreen assistant root uses a decorative background
+- **THEN** the background SHOULD be near-white or paper-like rather than dark
+- **AND** the background glow SHOULD stay aligned with the student learning page palette, using paper white, pale yellow-green, and light sage-green rather than cold blue-mint washes
+- **AND** the root assistant MUST NOT render animated star, particle, meteor, or canvas background effects
+- **AND** the static background MUST stay light enough that text, icons, composer borders, and bottom navigation remain readable.
+
+#### Scenario: Assistant root preserves bottom-weighted composition
+- **WHEN** the assistant root has no messages
+- **THEN** the top bar MUST remain visually light
+- **AND** the middle area MUST preserve large breathing room
+- **AND** primary interaction weight MUST sit near the bottom composer, following the reference layout's low-center gravity.
 
 #### Scenario: Root assistant title bar replaces generic page header
-- **WHEN** the `AI` root renders as a fullscreen assistant canvas
-- **THEN** the generic root page header MUST NOT reserve vertical space above the chat canvas
-- **AND** the assistant title, history action, new-chat action, and any top-level assistant identity MUST live inside the assistant canvas top bar
+- **WHEN** the `AI` root renders as a fullscreen assistant surface
+- **THEN** the generic root page header MUST NOT reserve vertical space above the chat surface
+- **AND** the assistant title, history action, new-chat action, and any top-level assistant identity MUST live inside the assistant surface top bar
 - **AND** root assistant top-bar actions MUST be icon-only controls that visually merge with the background rather than framed card buttons
+- **AND** the root assistant top bar SHOULD remain compact enough to behave like lightweight chat chrome rather than a page header
 - **AND** explanatory context copy such as global-course descriptions MUST NOT appear in that top bar.
 
 #### Scenario: Composer and bottom navigation coexist
@@ -458,6 +472,9 @@ The student H5 mobile design system SHALL support root-level fullscreen assistan
 - **THEN** the composer bottom edge MUST sit above the bottom navigation top edge
 - **AND** the send action MUST remain reachable by touch
 - **AND** the send action MUST be visually embedded within the composer container rather than placed as an external square button
+- **AND** the root composer SHOULD use a large rounded capsule form, approximately 82px tall with a radius near 24px on common phone widths
+- **AND** the root composer SHOULD keep reference-like 12px surface side margins and a compact approximately 34px circular send control seated near the capsule's bottom-right edge
+- **AND** the root composer placeholder SHOULD guide experiment learning, such as `问实验现象、步骤或原理`, rather than generic casual chat phrasing
 - **AND** the bottom navigation MUST NOT cover the active input, send button, starter prompt, or visible chat messages.
 
 #### Scenario: Root and detail assistant variants remain distinct
@@ -471,15 +488,17 @@ The student H5 mobile design system SHALL support sparse AI chat empty states wi
 
 #### Scenario: Empty chat uses low prompt placement
 - **WHEN** a root AI chat has no messages
-- **THEN** the first-screen prompt or starter copy MUST sit closer to the composer than to the top identity area
+- **THEN** the first screen MUST NOT show a starter prompt card or explanatory copy block above the composer
+- **AND** the first screen MAY show the Atom AI identity pictogram centered above one welcome phrase, such as `从一个实验开始吧！`, in the calm middle area
+- **AND** that welcome group MUST remain unframed without a card container, subtitle, or secondary explanatory line
 - **AND** the middle of the screen MUST remain visually calm and uncluttered
 - **AND** the UI MUST NOT fill the empty state with multiple stacked cards or dense prompt grids
-- **AND** the first screen MUST NOT include a separate explanatory assistant intro block above the calm middle canvas.
+- **AND** the first screen MUST NOT include a separate explanatory assistant intro block above the calm middle area.
 
 #### Scenario: Empty chat keeps course atmosphere
 - **WHEN** the sparse AI root empty state renders
 - **THEN** the visual treatment MAY use the existing chemistry green, subtle grid, and paper-like surface
-- **AND** those treatments MUST behave as background/canvas treatments rather than card borders around the whole assistant.
+- **AND** those treatments MUST behave as static background treatments rather than card borders around the whole assistant.
 
 ### Requirement: Branded edge-to-edge point video player controls
 The student H5 mobile design system SHALL support a branded, touch-safe, edge-to-edge point video player control layer for point video detail pages, and playable point videos SHALL use a single custom mobile shell rather than ArtPlayer's default visible chrome.

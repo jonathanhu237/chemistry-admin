@@ -779,7 +779,7 @@ export async function streamStudentAssistantAsk(
     const errorPayload = contentType.includes("application/json") ? await response.json() : await response.text();
     throw new ApiError(response.status, typeof errorPayload === "object" && errorPayload ? errorPayload.detail : errorPayload);
   }
-  if (!response.body) throw new Error("AI 响应流不可用");
+  if (!response.body) throw new Error("Atom 响应流不可用");
 
   const reader = response.body.getReader();
   const decoder = new TextDecoder();
