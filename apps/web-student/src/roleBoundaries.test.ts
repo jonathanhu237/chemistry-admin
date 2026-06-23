@@ -41,7 +41,9 @@ describe("student console role boundaries", () => {
     expect(apiSource).not.toContain("chunk_id?:");
     expect(assistantPanelSource).not.toContain("chunk_id");
     expect(assistantPanelSource).not.toContain("score");
-    expect(assistantPanelSource).toContain("引用资料");
+    expect(assistantPanelSource).toContain("safeAssistantSourceCount");
+    expect(assistantPanelSource).toContain("ai-message-citation");
+    expect(assistantPanelSource).toContain("Citation count");
     expect(assistantPanelSource).not.toMatch(/source\.(title|section)/);
   });
 
@@ -129,6 +131,10 @@ describe("student console role boundaries", () => {
     for (const match of assistantCssSource.matchAll(/\.student-app-shell\.root-route\.root-ai\.keyboard-active \.ai-chat-panel\.root\s*\{[^}]*\}/g)) {
       keyboardPanelBlocks.push(match[0]);
     }
+    const chatMessageBodyBlock = assistantCssSource.match(/\.ai-empty-bubble,\s*\.ai-message\s*\{[^}]*\}/)?.[0] || "";
+    const rootTextareaBlock = assistantCssSource.match(/\.ai-chat-panel\.root \.ai-chat-compose\.root textarea\s*\{[^}]*\}/)?.[0] || "";
+    const markdownBodyBlock = assistantCssSource.match(/\.ai-markdown\s*\{[^}]*\}/)?.[0] || "";
+    const markdownLineBlock = assistantCssSource.match(/\.ai-markdown \.ai-md-paragraph,\s*\.ai-markdown \.ai-md-list-item\s*\{[^}]*\}/)?.[0] || "";
 
     expect(authenticatedAppLayoutSource).toContain("ROOT_AI_COMPOSER_SELECTOR");
     expect(authenticatedAppLayoutSource).toContain("window.visualViewport?.height");
@@ -144,13 +150,153 @@ describe("student console role boundaries", () => {
     expect(keyboardShellBlock).toContain("bottom: var(--student-keyboard-bottom-inset, 0px);");
     expect(keyboardRouteContentBlock).toContain("height: 100%;");
     expect(keyboardRouteContentBlock).not.toContain("--mobile-bottom-nav-height");
-    expect(keyboardPanelBlocks.some((block) => block.includes("padding-bottom: calc(12px + env(safe-area-inset-bottom, 0px));"))).toBe(
+    expect(keyboardPanelBlocks.some((block) => block.includes("padding-bottom: calc(var(--ai-root-breathing-gap) + env(safe-area-inset-bottom, 0px));"))).toBe(
       true,
     );
+    expect(assistantCssSource).toContain("--ai-root-breathing-gap: 12px;");
     expect(assistantCssSource).toContain(
       ".student-app-shell.root-route.root-ai.keyboard-active .ai-chat-panel.root .ai-chat-stream.root-empty",
     );
     expect(assistantCssSource).toContain("padding-top: clamp(44px, var(--student-keyboard-welcome-offset, 64px), 96px);");
+    expect(assistantCssSource).toContain("grid-template-rows: 74px;");
+    expect(assistantCssSource).toContain("--ai-chat-body-font-size: var(--mobile-text-lg);");
+    expect(assistantCssSource).toContain("--ai-chat-body-line-height: 1.52;");
+    for (const block of [chatMessageBodyBlock, rootTextareaBlock, markdownBodyBlock]) {
+      expect(block).toContain("font-family: var(--mobile-font-family);");
+      expect(block).toContain("font-size: var(--ai-chat-body-font-size);");
+      expect(block).toContain("line-height: var(--ai-chat-body-line-height);");
+      expect(block).toContain("font-weight: 400;");
+      expect(block).toContain("letter-spacing: 0;");
+    }
+    expect(markdownLineBlock).toContain("line-height: var(--ai-chat-body-line-height);");
+    expect(assistantCssSource).not.toContain("font-size: 22px;");
+    expect(assistantCssSource).not.toContain("line-height: 1.65;");
+    expect(assistantPanelSource).toContain("measureRootCompactScrollHeight");
+    expect(assistantPanelSource).toContain("compactMeasureTextareaRef");
+    expect(assistantPanelSource).toContain("measureTextarea.rows = 1;");
+    expect(assistantPanelSource).toMatch(/className="ai-chat-compact-measure"[\s\S]*rows=\{1\}/);
+    expect(assistantCssSource).toContain(".ai-chat-compact-measure");
+  });
+
+  it("keeps the root Atom header veil layered without duplicating the root canvas background", async () => {
+    // @ts-expect-error The frontend tsconfig intentionally omits Node types, but Vitest runs this contract in Node.
+    const { readFileSync } = await import("node:fs");
+    const cwd = (globalThis as unknown as { process: { cwd: () => string } }).process.cwd();
+    const assistantCssSource = readFileSync(`${cwd}/src/styles/assistant.css`, "utf8");
+    const rootPanelBlock = assistantCssSource.match(/\.ai-chat-panel\.root\s*\{[^}]*\}/)?.[0] || "";
+    const emptyDraftPanelBlock =
+      assistantCssSource.match(/\.ai-chat-panel\.root\.root-state-empty,\s*\.ai-chat-panel\.root\.root-state-draft\s*\{[^}]*\}/)?.[0] || "";
+    const conversationPanelBlock = assistantCssSource.match(/\.ai-chat-panel\.root\.root-state-conversation\s*\{[^}]*\}/)?.[0] || "";
+    const rootLayerBlock =
+      assistantCssSource.match(/\.ai-chat-panel\.root \.ai-chat-stream,\s*\.ai-chat-panel\.root \.ai-quick-prompts,\s*\.ai-chat-panel\.root \.ai-chat-compose\s*\{[^}]*\}/)
+        ?.[0] || "";
+    const rootHeaderBlock = assistantCssSource.match(/\.ai-chat-panel\.root \.ai-chat-head\.root\s*\{[^}]*\}/)?.[0] || "";
+    const rootTitleBlock = assistantCssSource.match(/\.ai-chat-panel\.root \.ai-chat-head\.root h2\s*\{[^}]*\}/)?.[0] || "";
+    const rootVeilBlock = assistantCssSource.match(/\.ai-chat-panel\.root \.ai-chat-head\.root::before\s*\{[^}]*\}/)?.[0] || "";
+    const rootForegroundLayerBlock =
+      assistantCssSource.match(/\.ai-chat-panel\.root \.ai-chat-head\.root > div,\s*\.ai-chat-panel\.root \.ai-chat-head\.root \.ai-root-actions\s*\{[^}]*\}/)?.[0] ||
+      "";
+    const rootActionsBlocks: string[] = [];
+    for (const match of assistantCssSource.matchAll(/\.ai-chat-panel\.root \.ai-chat-head\.root \.ai-root-actions\s*\{[^}]*\}/g)) {
+      rootActionsBlocks.push(match[0]);
+    }
+    const rootActionsBlock = rootActionsBlocks.find((block) => block.includes("width: var(--ai-root-action-capsule-width);")) || "";
+    const rootActionButtonBlock = assistantCssSource.match(/\.ai-chat-panel\.root \.ai-chat-head\.root \.ai-root-icon-action\s*\{[^}]*\}/)?.[0] || "";
+    const rootStreamBlock = assistantCssSource.match(/\.ai-chat-panel\.root \.ai-chat-stream\s*\{[^}]*\}/)?.[0] || "";
+    const rootStreamScrollbarBlock = assistantCssSource.match(/\.ai-chat-panel\.root \.ai-chat-stream::\-webkit\-scrollbar\s*\{[^}]*\}/)?.[0] || "";
+    const emptyDraftStreamBlock =
+      assistantCssSource.match(/\.ai-chat-panel\.root\.root-state-empty \.ai-chat-stream,\s*\.ai-chat-panel\.root\.root-state-draft \.ai-chat-stream\s*\{[^}]*\}/)?.[0] || "";
+    const conversationStreamBlock = assistantCssSource.match(/\.ai-chat-panel\.root\.root-state-conversation \.ai-chat-stream\s*\{[^}]*\}/)?.[0] || "";
+
+    expect(assistantPanelSource).toContain("rootLayoutState");
+    expect(assistantPanelSource).toContain('"empty"');
+    expect(assistantPanelSource).toContain('"draft"');
+    expect(assistantPanelSource).toContain('"conversation"');
+    expect(assistantPanelSource).toContain('"is-empty"');
+    expect(assistantPanelSource).toContain('"has-draft"');
+    expect(assistantPanelSource).toContain('"has-messages"');
+    expect(assistantPanelSource).toContain("root-state-${rootLayoutState}");
+    expect(assistantPanelSource).toContain("data-root-layout");
+    expect(assistantPanelSource).toContain("data-root-state");
+    expect(rootPanelBlock).toContain("radial-gradient(circle at 16% 20%");
+    expect(rootPanelBlock).toContain("radial-gradient(circle at 78% 72%");
+    expect(rootPanelBlock).not.toContain("grid-template-rows");
+    expect(emptyDraftPanelBlock).toContain("grid-template-rows: var(--ai-root-header-overlay-height) minmax(0, 1fr) auto;");
+    expect(conversationPanelBlock).toContain("grid-template-rows: minmax(0, 1fr) auto auto;");
+    expect(rootLayerBlock).toContain(".ai-chat-panel.root .ai-chat-stream");
+    expect(rootLayerBlock).not.toContain(".ai-chat-head");
+    expect(assistantCssSource).not.toMatch(/\.ai-chat-panel\.root \.ai-chat-head,\s*\.ai-chat-panel\.root \.ai-chat-stream/);
+    expect(rootHeaderBlock).toContain("position: absolute;");
+    expect(rootHeaderBlock).toContain("top: 0;");
+    expect(rootHeaderBlock).toContain("right: var(--ai-root-inline);");
+    expect(rootHeaderBlock).toContain("left: var(--ai-root-inline);");
+    expect(rootHeaderBlock).toContain("z-index: var(--ai-root-header-z);");
+    expect(rootHeaderBlock).toContain("pointer-events: none;");
+    expect(rootHeaderBlock).not.toContain("radial-gradient");
+    expect(rootHeaderBlock).not.toMatch(/\bopacity\s*:/);
+    expect(rootTitleBlock).toContain("text-shadow: none;");
+    expect(rootTitleBlock).not.toMatch(/\bfilter\s*:/);
+    expect(rootVeilBlock).toContain("background: linear-gradient(");
+    expect(rootVeilBlock).toContain("var(--ai-root-header-veil-low) 82%");
+    expect(rootVeilBlock).toContain("var(--ai-root-header-veil-end) 100%");
+    expect(rootVeilBlock).not.toContain("radial-gradient");
+    expect(rootVeilBlock).not.toMatch(/\bopacity\s*:/);
+    expect(assistantCssSource).not.toMatch(/\.ai-chat-panel\.root \.ai-chat-head\.root::before\s*\{[^}]*backdrop-filter/s);
+    expect(rootForegroundLayerBlock).toContain("z-index: 1;");
+    expect(rootActionsBlock).toContain("width: var(--ai-root-action-capsule-width);");
+    expect(rootActionsBlock).toContain("height: var(--ai-root-action-capsule-height);");
+    expect(rootActionsBlock).toContain("border-radius: 999px;");
+    expect(rootActionsBlock).toContain("background: rgba(255, 255, 255, 0.78);");
+    expect(rootActionButtonBlock).toContain("flex: 1 1 0;");
+    expect(rootActionButtonBlock).toContain("min-width: var(--ai-root-action-cell-size);");
+    expect(rootStreamBlock).toContain("align-content: end;");
+    expect(rootStreamBlock).toContain("gap: var(--ai-root-flat-turn-gap);");
+    expect(rootStreamBlock).toContain("padding: 0;");
+    expect(rootStreamBlock).toContain("scrollbar-width: none;");
+    expect(rootStreamBlock).toContain("-ms-overflow-style: none;");
+    expect(rootStreamScrollbarBlock).toContain("width: 0;");
+    expect(rootStreamScrollbarBlock).toContain("height: 0;");
+    expect(rootStreamScrollbarBlock).toContain("display: none;");
+    expect(rootStreamBlock).not.toContain("var(--ai-root-header-overlay-height) + 8px");
+    expect(emptyDraftStreamBlock).toContain("grid-row: 2;");
+    expect(emptyDraftStreamBlock).toContain("overflow: hidden;");
+    expect(conversationStreamBlock).toContain("grid-row: 1;");
+    expect(conversationStreamBlock).toContain("align-content: start;");
+    expect(conversationStreamBlock).toContain("overflow: auto;");
+    expect(conversationStreamBlock).toContain("padding: calc(var(--ai-root-header-overlay-height) + 8px) 0 0;");
+    expect(conversationStreamBlock).toContain("scroll-padding-top: calc(var(--ai-root-header-overlay-height) + 8px);");
+    expect(assistantCssSource).toContain(".ai-chat-panel.root.root-state-conversation .ai-quick-prompts");
+    expect(assistantCssSource).toContain(".ai-chat-panel.root.root-state-conversation .ai-chat-compose");
+    expect(assistantCssSource).not.toContain(".ai-chat-panel.root.has-messages .ai-quick-prompts");
+    expect(assistantCssSource).not.toContain(".ai-chat-panel.root.has-messages .ai-chat-compose");
+    expect(assistantCssSource).toMatch(/\.ai-chat-panel\.root \.ai-chat-stream\.root-empty\s*\{[^}]*align-content: center;/s);
+    expect(assistantCssSource.match(/radial-gradient/g) ?? []).toHaveLength(2);
+  });
+
+  it("keeps root flat assistant replies scoped, action-delimited, and source-safe", async () => {
+    // @ts-expect-error The frontend tsconfig intentionally omits Node types, but Vitest runs this contract in Node.
+    const { readFileSync } = await import("node:fs");
+    const cwd = (globalThis as unknown as { process: { cwd: () => string } }).process.cwd();
+    const assistantCssSource = readFileSync(`${cwd}/src/styles/assistant.css`, "utf8");
+    const rootDoneBlock = assistantCssSource.match(/\.ai-chat-panel\.root \.ai-message\.assistant\.done\s*\{[^}]*\}/)?.[0] || "";
+    const actionRowBlock = assistantCssSource.match(/\.ai-chat-panel\.root \.ai-message-actions\s*\{[^}]*\}/)?.[0] || "";
+    const citationBlock = assistantCssSource.match(/\.ai-chat-panel\.root \.ai-message-citation\s*\{[^}]*\}/)?.[0] || "";
+
+    expect(assistantPanelSource).toContain("AssistantTurnActions");
+    expect(assistantPanelSource).toContain("safeAssistantSourceCount");
+    expect(assistantPanelSource).toContain("Mark Atom answer helpful");
+    expect(assistantPanelSource).toContain("Mark Atom answer unhelpful");
+    expect(assistantPanelSource).toContain("Copy Atom answer");
+    expect(assistantPanelSource).not.toMatch(/source\.(title|section|score|chunk_id)/);
+    expect(rootDoneBlock).toContain("max-width: none;");
+    expect(rootDoneBlock).toContain("border: 0;");
+    expect(rootDoneBlock).toContain("border-radius: 0;");
+    expect(rootDoneBlock).toContain("background: transparent;");
+    expect(rootDoneBlock).toContain("box-shadow: none;");
+    expect(rootDoneBlock).toContain("white-space: normal;");
+    expect(actionRowBlock).toContain("min-height: var(--ai-root-action-row-height);");
+    expect(citationBlock).toContain("white-space: nowrap;");
+    expect(assistantCssSource).not.toMatch(/(^|\n)\.ai-message\.assistant\.done\s*\{[^}]*background:\s*transparent;/s);
   });
 
   it("keeps the visible mobile bottom nav opaque and free of default focus boxes", async () => {

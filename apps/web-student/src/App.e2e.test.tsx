@@ -1478,6 +1478,38 @@ describe("student app route stack", () => {
   });
 
   it("renders the AI root as direct chat and restores local history for follow-up turns", async () => {
+    let finishSecondResponse: (() => void) | undefined;
+    apiMocks.streamStudentAssistantAsk.mockReset();
+    apiMocks.streamStudentAssistantAsk
+      .mockImplementationOnce(async (_payload, onEvent) => {
+        onEvent({ event: "delta", delta: "### Route answer\n\n- $\\ce{Cl2}$ oxidizes bromide." });
+        onEvent({
+          event: "final",
+          response: {
+            source_count: 1,
+            sources: [{ title: "Halogen evidence", chunk_id: "halogen" }],
+            suggested_prompts: ["继续观察什么现象？", "相关反应式是什么？"],
+          },
+        });
+      })
+      .mockImplementationOnce(async (_payload, onEvent) => {
+        onEvent({ event: "delta", delta: "### Follow-up answer\n\n- Oxidation relates to electron loss." });
+        await new Promise<void>((resolve) => {
+          finishSecondResponse = resolve;
+        });
+        onEvent({
+          event: "final",
+          response: {
+            source_count: 1,
+            sources: [{ title: "Oxidation evidence", chunk_id: "oxidation" }],
+            suggested_prompts: ["怎样判断氧化剂？"],
+          },
+        });
+      })
+      .mockImplementationOnce(async (_payload, onEvent) => {
+        onEvent({ event: "error", message: "Cannot read properties of undefined (reading 'length')" });
+      });
+
     await renderAuthenticatedApp("/ai");
 
     await waitFor(() => expect(window.location.pathname).toBe("/ai"));
@@ -1485,20 +1517,40 @@ describe("student app route stack", () => {
     expect(document.querySelector(".student-app-shell.root-route.root-ai")).not.toBeNull();
     expect(document.querySelector(".student-app-shell.root-ai > .student-app-header")).toBeNull();
     expect(document.querySelector(".student-app-shell.root-ai .student-route-content > .ai-root-page")).not.toBeNull();
-    expect(document.querySelector(".ai-chat-panel.root")).not.toBeNull();
+    const rootPanel = document.querySelector<HTMLElement>(".ai-chat-panel.root");
+    expect(rootPanel).not.toBeNull();
+    expect(rootPanel).toHaveClass("is-empty");
+    expect(rootPanel).toHaveClass("root-state-empty");
+    expect(rootPanel).toHaveAttribute("data-root-layout", "empty");
+    expect(rootPanel).toHaveAttribute("data-root-state", "empty");
     expect(document.querySelector(".ai-chat-panel.root .ai-root-star-shell")).toBeNull();
-    expect(document.querySelector(".ai-chat-panel.root .ai-chat-head.root")).not.toBeNull();
+    const rootHeader = document.querySelector<HTMLElement>(".ai-chat-panel.root .ai-chat-head.root");
+    expect(rootHeader).not.toBeNull();
+    expect(rootHeader?.querySelector("h2")).toHaveTextContent("Atom");
     expect(document.querySelector(".ai-chat-panel.root .ai-chat-empty.root")).toBeNull();
+    expect(rootPanel).toHaveClass("is-empty");
+    expect(rootPanel).toHaveClass("root-state-empty");
+    expect(rootPanel).toHaveAttribute("data-root-layout", "empty");
+    expect(rootPanel).toHaveAttribute("data-root-state", "empty");
     expect(screen.getByText("从一个实验开始吧！")).toBeInTheDocument();
     expect(document.querySelector(".ai-chat-panel.root .ai-root-welcome svg")?.getAttribute("class")).toContain("lucide-atom");
-    expect(document.querySelector(".ai-chat-panel.root .ai-chat-compose textarea")).not.toBeNull();
-    expect(document.querySelector(".ai-chat-panel.root .ai-chat-compose button")).not.toBeNull();
+    const rootComposer = document.querySelector<HTMLElement>(".ai-chat-panel.root .ai-chat-compose.root");
+    expect(rootComposer).not.toBeNull();
+    expect(rootComposer).toHaveClass("is-compact");
+    expect(document.querySelector(".ai-chat-panel.root .ai-chat-compose-input textarea")).not.toBeNull();
+    expect(document.querySelector(".ai-chat-panel.root .ai-chat-workbench")).not.toBeNull();
+    expect(document.querySelector(".ai-chat-panel.root .ai-context-action")).not.toBeNull();
+    expect(document.querySelector(".ai-chat-panel.root .ai-send-action")).not.toBeNull();
     expect(screen.getByRole("textbox", { name: "向 Atom 提问" })).toBeInTheDocument();
     expect(screen.getByPlaceholderText("问实验现象、步骤或原理")).toBeInTheDocument();
     expect(screen.getByRole("button", { name: "查看 Atom 历史记录" })).toBeInTheDocument();
     expect(screen.getByRole("button", { name: "新建 Atom 对话" })).toBeInTheDocument();
-    expect(document.querySelector(".ai-chat-panel.root .ai-root-actions .ai-history-action")).not.toBeNull();
-    expect(document.querySelector(".ai-chat-panel.root .ai-root-actions .ai-new-chat-action")).not.toBeNull();
+    expect(screen.getByRole("button", { name: "带入当前学习背景" })).toHaveAttribute("aria-pressed", "false");
+    const rootActions = document.querySelector<HTMLElement>(".ai-chat-panel.root .ai-chat-head.root .ai-root-actions");
+    expect(rootActions).not.toBeNull();
+    expect(rootActions?.querySelectorAll(".ai-root-icon-action")).toHaveLength(2);
+    expect(rootActions?.querySelector(".ai-history-action")).not.toBeNull();
+    expect(rootActions?.querySelector(".ai-new-chat-action")).not.toBeNull();
     expect(document.querySelector(".ai-starter-surface")).toBeNull();
     expect(document.querySelector(".ai-starter-card")).toBeNull();
     expect(document.querySelector('.ai-chat-panel.root input[type="file"]')).toBeNull();
@@ -1508,6 +1560,10 @@ describe("student app route stack", () => {
         .join(" "),
     ).not.toMatch(/上传|附件|模型|语音|图片/);
 
+    fireEvent.click(screen.getByRole("button", { name: "带入当前学习背景" }));
+    expect(screen.getByRole("button", { name: "带入当前学习背景" })).toHaveAttribute("aria-pressed", "true");
+    expect(screen.getByText("已带入当前学习背景")).toBeInTheDocument();
+
     fireEvent.click(screen.getByRole("button", { name: "查看 Atom 历史记录" }));
     expect(await screen.findByRole("dialog", { name: "Atom 历史记录" })).toHaveTextContent("还没有历史记录");
     fireEvent.click(screen.getByRole("button", { name: "关闭 Atom 历史记录" }));
@@ -1516,7 +1572,12 @@ describe("student app route stack", () => {
       target: { value: "为什么 CCl4 层会变橙色？" },
     });
     expect(screen.queryByText("从一个实验开始吧！")).not.toBeInTheDocument();
+    expect(rootPanel).toHaveClass("has-draft");
+    expect(rootPanel).toHaveClass("root-state-draft");
+    expect(rootPanel).toHaveAttribute("data-root-layout", "draft");
+    expect(rootPanel).toHaveAttribute("data-root-state", "draft");
     expect(document.querySelector(".ai-chat-stream.root-empty")).toBeNull();
+    expect(document.querySelector(".ai-chat-panel.root .ai-chat-stream.root-draft")).not.toBeNull();
     fireEvent.click(screen.getByRole("button", { name: "发送问题" }));
     await waitFor(() => expect(apiMocks.streamStudentAssistantAsk).toHaveBeenCalledTimes(1));
     expect(apiMocks.streamStudentAssistantAsk).toHaveBeenLastCalledWith(
@@ -1528,9 +1589,53 @@ describe("student app route stack", () => {
       expect.any(Function),
     );
     await waitFor(() => expect(screen.getByText("Route answer")).toBeInTheDocument());
+    expect(rootPanel).toHaveClass("has-messages");
+    expect(rootPanel).toHaveClass("root-state-conversation");
+    expect(rootPanel).toHaveAttribute("data-root-layout", "conversation");
+    expect(rootPanel).toHaveAttribute("data-root-state", "conversation");
+    expect(document.querySelector(".ai-chat-panel.root .ai-chat-stream.root-conversation")).not.toBeNull();
+    const rootUserMessage = document.querySelector<HTMLElement>(".ai-chat-panel.root .ai-message.user");
+    const routeAnswerMessage = Array.from(document.querySelectorAll<HTMLElement>(".ai-chat-panel.root .ai-message.assistant.done")).find((node) =>
+      node.textContent?.includes("Route answer"),
+    );
+    expect(rootUserMessage).not.toBeNull();
+    expect(rootUserMessage).toHaveClass("user");
+    expect(routeAnswerMessage).not.toBeNull();
+    expect(routeAnswerMessage).toHaveClass("assistant", "done");
+    expect(routeAnswerMessage?.querySelector(".ai-message-meta")).toBeNull();
+    expect(routeAnswerMessage?.querySelector(".ai-source-summary")).toBeNull();
+    expect(routeAnswerMessage?.querySelector(".ai-message-actions")).not.toBeNull();
+    expect(routeAnswerMessage?.querySelector(".ai-message-citation")).toHaveTextContent("1");
+    expect(routeAnswerMessage?.textContent).not.toContain("Halogen evidence");
+    expect(routeAnswerMessage?.textContent).not.toContain("halogen");
+    const helpfulButton = routeAnswerMessage?.querySelector<HTMLButtonElement>('button[aria-label="Mark Atom answer helpful"]');
+    const unhelpfulButton = routeAnswerMessage?.querySelector<HTMLButtonElement>('button[aria-label="Mark Atom answer unhelpful"]');
+    const copyButton = routeAnswerMessage?.querySelector<HTMLButtonElement>('button[aria-label="Copy Atom answer"]');
+    expect(helpfulButton).not.toBeNull();
+    expect(unhelpfulButton).not.toBeNull();
+    expect(copyButton).not.toBeNull();
+    fireEvent.click(helpfulButton!);
+    expect(helpfulButton).toHaveAttribute("aria-pressed", "true");
+    expect(unhelpfulButton).toHaveAttribute("aria-pressed", "false");
+    fireEvent.click(unhelpfulButton!);
+    expect(helpfulButton).toHaveAttribute("aria-pressed", "false");
+    expect(unhelpfulButton).toHaveAttribute("aria-pressed", "true");
+    const writeText = vi.fn().mockResolvedValue(undefined);
+    Object.defineProperty(navigator, "clipboard", { configurable: true, value: { writeText } });
+    fireEvent.click(copyButton!);
+    await waitFor(() => expect(writeText).toHaveBeenCalledWith("### Route answer\n\n- $\\ce{Cl2}$ oxidizes bromide."));
+    await waitFor(() => expect(routeAnswerMessage?.querySelector('button[aria-label="Atom answer copied"]')).not.toBeNull());
+    expect(screen.getByRole("button", { name: "继续观察什么现象？" })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "相关反应式是什么？" })).toBeInTheDocument();
+    expect(screen.queryByText("我应该先复习哪一块？")).not.toBeInTheDocument();
     expect(screen.queryByText("从一个实验开始吧！")).not.toBeInTheDocument();
     fireEvent.click(screen.getByRole("button", { name: "新建 Atom 对话" }));
     await waitFor(() => expect(screen.queryByText("Route answer")).not.toBeInTheDocument());
+    expect(rootPanel).toHaveClass("is-empty");
+    expect(rootPanel).toHaveClass("root-state-empty");
+    expect(rootPanel).toHaveAttribute("data-root-layout", "empty");
+    expect(rootPanel).toHaveAttribute("data-root-state", "empty");
+    expect(screen.queryByRole("button", { name: "继续观察什么现象？" })).not.toBeInTheDocument();
     expect(document.querySelector(".ai-chat-panel.root .ai-chat-empty.root")).toBeNull();
     expect(screen.getByText("从一个实验开始吧！")).toBeInTheDocument();
 
@@ -1540,15 +1645,13 @@ describe("student app route stack", () => {
     await screen.findByRole("dialog", { name: "Atom 历史记录" });
     fireEvent.click(screen.getByText("为什么 CCl4 层会变橙色？").closest("button")!);
     await waitFor(() => expect(screen.getByText("Route answer")).toBeInTheDocument());
+    expect(screen.getByRole("button", { name: "继续观察什么现象？" })).toBeInTheDocument();
 
-    fireEvent.change(screen.getByRole("textbox", { name: "向 Atom 提问" }), {
-      target: { value: "继续解释氧化还原关系" },
-    });
-    fireEvent.click(screen.getByRole("button", { name: "发送问题" }));
+    fireEvent.click(screen.getByRole("button", { name: "继续观察什么现象？" }));
     await waitFor(() => expect(apiMocks.streamStudentAssistantAsk).toHaveBeenCalledTimes(2));
     expect(apiMocks.streamStudentAssistantAsk).toHaveBeenLastCalledWith(
       expect.objectContaining({
-        question: "继续解释氧化还原关系",
+        question: "继续观察什么现象？",
         conversation_history: [
           { role: "user", content: "为什么 CCl4 层会变橙色？" },
           { role: "assistant", content: "### Route answer\n\n- $\\ce{Cl2}$ oxidizes bromide." },
@@ -1556,6 +1659,25 @@ describe("student app route stack", () => {
       }),
       expect.any(Function),
     );
+    expect(screen.queryByRole("button", { name: "继续观察什么现象？" })).not.toBeInTheDocument();
+    expect(screen.queryByRole("button", { name: "相关反应式是什么？" })).not.toBeInTheDocument();
+    await act(async () => {
+      finishSecondResponse?.();
+    });
+    await waitFor(() => expect(screen.getByText("Follow-up answer")).toBeInTheDocument());
+    expect(screen.queryByRole("button", { name: "继续观察什么现象？" })).not.toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "怎样判断氧化剂？" })).toBeInTheDocument();
+
+    fireEvent.change(screen.getByRole("textbox", { name: "向 Atom 提问" }), {
+      target: { value: "触发失败" },
+    });
+    fireEvent.click(screen.getByRole("button", { name: "发送问题" }));
+    await waitFor(() => expect(apiMocks.streamStudentAssistantAsk).toHaveBeenCalledTimes(3));
+    await waitFor(() => expect(screen.getByText("Cannot read properties of undefined (reading 'length')")).toBeInTheDocument());
+    const errorMessage = screen.getByText("Cannot read properties of undefined (reading 'length')").closest(".ai-message");
+    expect(errorMessage).toHaveClass("assistant", "error");
+    expect(errorMessage?.querySelector(".ai-message-actions")).toBeNull();
+    expect(screen.queryByRole("button", { name: "怎样判断氧化剂？" })).not.toBeInTheDocument();
   });
 
   it("uses a visible-viewport keyboard layout only for the root Atom composer", async () => {
@@ -1563,17 +1685,23 @@ describe("student app route stack", () => {
     await renderAuthenticatedApp("/ai");
 
     const shell = document.querySelector<HTMLElement>(".student-app-shell.root-route.root-ai");
+    const composer = document.querySelector<HTMLElement>(".ai-chat-panel.root .ai-chat-compose.root");
     const textarea = document.querySelector<HTMLTextAreaElement>(".ai-chat-panel.root .ai-chat-compose textarea");
     const bottomNav = document.querySelector<HTMLElement>(".student-bottom-nav");
     expect(shell).not.toBeNull();
+    expect(composer).not.toBeNull();
     expect(textarea).not.toBeNull();
     expect(bottomNav).not.toBeNull();
+    expect(composer).toHaveClass("is-compact");
     expect(shell).not.toHaveClass("keyboard-active");
     expect(shell?.style.getPropertyValue("--student-visual-viewport-height")).toBe("760px");
     expect(shell?.style.getPropertyValue("--student-keyboard-bottom-inset")).toBe("0px");
 
-    Object.defineProperty(textarea!, "scrollHeight", { configurable: true, value: 140 });
+    Object.defineProperty(textarea!, "scrollHeight", { configurable: true, value: 48 });
     fireEvent.change(textarea!, { target: { value: "Cl2 and KBr observation" } });
+    expect(document.querySelector(".ai-chat-panel.root")).toHaveClass("has-draft");
+    expect(document.querySelector(".ai-chat-panel.root")).toHaveClass("root-state-draft");
+    expect(document.querySelector(".ai-chat-panel.root")).toHaveAttribute("data-root-state", "draft");
     fireEvent.focusIn(textarea!);
     viewport.setHeight(520);
     await waitFor(() => expect(shell).toHaveClass("keyboard-active"));
@@ -1581,16 +1709,29 @@ describe("student app route stack", () => {
     expect(shell?.style.getPropertyValue("--student-keyboard-bottom-inset")).toBe("240px");
     expect(document.querySelector(".ai-chat-stream.root-empty .ai-root-welcome")).toBeNull();
     expect(textarea).toHaveValue("Cl2 and KBr observation");
-    await waitFor(() => expect(textarea!.style.maxHeight).toBe(`${Math.floor(520 * 0.618)}px`));
-    expect(textarea!.style.height).toBe("140px");
+    await waitFor(() => expect(composer).toHaveClass("is-compact"));
+    expect(textarea!.style.maxHeight).toBe("36px");
+    expect(textarea!.style.height).toBe("36px");
     expect(textarea!.style.overflowY).toBe("hidden");
+
+    Object.defineProperty(textarea!, "scrollHeight", { configurable: true, value: 140 });
+    fireEvent.change(textarea!, { target: { value: "Cl2 and KBr observation\nWhy does the organic layer change?" } });
+    await waitFor(() => expect(composer).toHaveClass("is-expanded"));
+    const expectedComposerMaxHeight = Math.floor(520 * 0.618);
+    const expectedComposerMaxInputHeight = expectedComposerMaxHeight - 13 - 56 - 10;
+    expect(textarea!.style.maxHeight).toBe(`${expectedComposerMaxInputHeight}px`);
+    expect(textarea!.style.height).toBe("140px");
+    expect(document.querySelector(".ai-chat-panel.root .ai-chat-workbench .ai-context-action")).not.toBeNull();
+    expect(document.querySelector(".ai-chat-panel.root .ai-chat-workbench .ai-send-action")).not.toBeNull();
 
     const longQuestion = "Cl2 and KBr observation ".repeat(32);
     Object.defineProperty(textarea!, "scrollHeight", { configurable: true, value: 520 });
     fireEvent.change(textarea!, { target: { value: longQuestion } });
-    await waitFor(() => expect(textarea!.style.height).toBe(`${Math.floor(520 * 0.618)}px`));
+    await waitFor(() => expect(textarea!.style.height).toBe(`${expectedComposerMaxInputHeight}px`));
+    expect(Number.parseInt(textarea!.style.height, 10) + 13 + 56 + 10).toBe(expectedComposerMaxHeight);
     expect(textarea).toHaveClass("is-scrollable");
     expect(textarea!.style.overflowY).toBe("auto");
+    expect(composer).toHaveClass("is-expanded");
 
     textarea!.blur();
     fireEvent.focusOut(textarea!);
@@ -1616,9 +1757,50 @@ describe("student app route stack", () => {
     const detailTextarea = document.querySelector<HTMLTextAreaElement>(".ai-chat-panel.detail .ai-chat-compose textarea");
     expect(detailShell).not.toBeNull();
     expect(detailTextarea).not.toBeNull();
+    expect(document.querySelector(".ai-chat-panel.detail .ai-context-action")).toBeNull();
+    expect(document.querySelector(".ai-chat-panel.detail .ai-chat-workbench")).toBeNull();
     fireEvent.focusIn(detailTextarea!);
     expect(detailShell).not.toHaveClass("keyboard-active");
     expect(document.querySelector(".student-bottom-nav")).toBeNull();
+  });
+
+  it("uses compact lane width to stabilize root composer boundary text", async () => {
+    const viewport = installVisualViewport(760);
+    await renderAuthenticatedApp("/ai");
+
+    const composer = document.querySelector<HTMLElement>(".ai-chat-panel.root .ai-chat-compose.root");
+    const textarea = document.querySelector<HTMLTextAreaElement>(".ai-chat-panel.root .ai-chat-compose-input textarea");
+    const compactMeasure = document.querySelector<HTMLTextAreaElement>(".ai-chat-panel.root .ai-chat-compact-measure");
+
+    expect(composer).not.toBeNull();
+    expect(textarea).not.toBeNull();
+    expect(compactMeasure).not.toBeNull();
+    expect(composer).toHaveClass("is-compact");
+    expect(compactMeasure!.rows).toBe(1);
+
+    Object.defineProperty(textarea!, "scrollHeight", { configurable: true, value: 36 });
+    Object.defineProperty(compactMeasure!, "scrollHeight", { configurable: true, value: 36 });
+    fireEvent.change(textarea!, { target: { value: "1" } });
+
+    await waitFor(() => expect(composer).toHaveClass("is-compact"));
+    expect(textarea!.style.height).toBe("36px");
+
+    Object.defineProperty(textarea!, "scrollHeight", { configurable: true, value: 36 });
+    Object.defineProperty(compactMeasure!, "scrollHeight", { configurable: true, value: 70 });
+    fireEvent.change(textarea!, { target: { value: "222222222223333333333333333333" } });
+
+    await waitFor(() => expect(composer).toHaveClass("is-expanded"));
+    expect(textarea!.style.height).toBe("68px");
+    expect(compactMeasure!.style.width).not.toBe("");
+
+    viewport.setHeight(520);
+    await waitFor(() => expect(composer).toHaveClass("is-expanded"));
+    expect(textarea!.style.height).toBe("68px");
+
+    Object.defineProperty(compactMeasure!, "scrollHeight", { configurable: true, value: 36 });
+    fireEvent.change(textarea!, { target: { value: "short question" } });
+    await waitFor(() => expect(composer).toHaveClass("is-compact"));
+    expect(textarea!.style.height).toBe("36px");
   });
 
   it("serves direct root and detail client routes with route-level navigation visibility", async () => {
@@ -1661,8 +1843,11 @@ describe("student app route stack", () => {
     expect(screen.queryByText("从一个实验开始吧！")).not.toBeInTheDocument();
     expect(document.querySelector(".ai-chat-panel.detail")).not.toBeNull();
     expect(screen.getByPlaceholderText("围绕当前内容提问")).toBeInTheDocument();
+    expect(document.querySelector(".ai-chat-panel.detail .ai-root-actions")).toBeNull();
     expect(document.querySelector(".ai-chat-panel.detail .ai-history-action")).toBeNull();
     expect(document.querySelector(".ai-chat-panel.detail .ai-new-chat-action")).toBeNull();
+    expect(document.querySelector(".ai-chat-panel.detail .ai-context-action")).toBeNull();
+    expect(document.querySelector(".ai-chat-panel.detail .ai-chat-workbench")).toBeNull();
     expect(screen.getByRole("textbox", { name: "向 Atom 提问" })).toBeInTheDocument();
     expect(screen.queryByRole("button", { name: "查看 Atom 历史记录" })).not.toBeInTheDocument();
     expect(screen.queryByRole("button", { name: "新建 Atom 对话" })).not.toBeInTheDocument();

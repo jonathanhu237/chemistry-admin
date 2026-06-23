@@ -491,6 +491,7 @@ export type AgentChatMessage = {
 
 export type StudentAssistantFinalMetadata = {
   source_count?: number;
+  suggested_prompts?: string[];
   sources?: Array<{
     title?: string | null;
     section?: string | null;

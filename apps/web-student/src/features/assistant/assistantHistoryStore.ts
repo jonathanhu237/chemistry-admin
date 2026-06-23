@@ -5,7 +5,10 @@ const STORAGE_KEY = "student-ai-chat-history:v1";
 const MAX_HISTORY_ENTRIES = 30;
 const MAX_STORED_MESSAGES = 40;
 
-export type StudentAiChatMessage = AgentChatMessage & { metadata?: StudentAssistantFinalMetadata };
+export type StudentAiChatMessage = AgentChatMessage & {
+  metadata?: StudentAssistantFinalMetadata;
+  state?: "error";
+};
 
 export type StudentAiHistorySource = "root" | "detail";
 

@@ -19,6 +19,7 @@ const studentId = process.env.STUDENT_H5_QA_STUDENT_ID || "";
 const password = process.env.STUDENT_H5_QA_PASSWORD || "";
 const allowAuthSkip = process.env.STUDENT_H5_QA_ALLOW_AUTH_SKIP === "1";
 const useMockApi = process.env.STUDENT_H5_QA_MOCK === "1";
+const aiRootOnly = process.env.STUDENT_H5_QA_ONLY_AI_ROOT === "1";
 
 const mockUser = {
   id: "mobile-qa-student",
@@ -31,6 +32,39 @@ const mockUser = {
   student_id: "20249999",
   class_id: "mobile-qa-class",
   class_name: "移动端测试班",
+};
+
+const mockRootAiHistoryEntry = {
+  id: "mobile-qa-root-ai-history",
+  title: "Restored Atom conversation",
+  contextTitle: "Atom Study Assistant",
+  contextType: "global",
+  contextSummary: "General chemistry assistant context",
+  source: "root",
+  context: {
+    context_type: "global",
+    context_title: "Atom Study Assistant",
+    context_summary: "General chemistry assistant context",
+    prompts: ["Explain the observation", "Give the equation"],
+  },
+  messages: [
+    { role: "user", content: "Explain a halogen displacement experiment." },
+    {
+      role: "assistant",
+      content: Array.from(
+        { length: 80 },
+        (_, index) =>
+          `Restored answer paragraph ${index + 1}: chlorine can oxidize bromide ions, so the observed color change must be explained with evidence.`,
+      ).join("\n\n"),
+      metadata: {
+        source_count: 1,
+        sources: [{ title: "safe source" }],
+        suggested_prompts: ["Compare iodine", "List safety steps"],
+      },
+    },
+  ],
+  createdAt: "2026-01-01T00:00:00.000Z",
+  updatedAt: "2026-01-01T00:00:00.000Z",
 };
 
 const mockCatalogDirectoryNode = {
@@ -926,6 +960,186 @@ async function loginIfConfigured(page) {
   return true;
 }
 
+async function assertRootAiFlatReply(page, label) {
+  await clickRoot(page, 'ai');
+  await page.locator('.ai-chat-panel.root').first().waitFor({ state: 'visible', timeout: 10000 });
+  await page.locator('.ai-chat-panel.root .ai-root-welcome').first().waitFor({ state: 'visible', timeout: 10000 });
+  const emptyState = await page.locator('.ai-chat-panel.root').first().evaluate((panel) => ({
+    rootLayout: panel.getAttribute('data-root-layout'),
+    rootState: panel.getAttribute('data-root-state'),
+    className: panel.className,
+    streamClassName: panel.querySelector('.ai-chat-stream')?.className || '',
+    streamPaddingTop: window.getComputedStyle(panel.querySelector('.ai-chat-stream')).paddingTop,
+    streamScrollPaddingTop: window.getComputedStyle(panel.querySelector('.ai-chat-stream')).scrollPaddingTop,
+  }));
+  if (
+    emptyState.rootLayout !== 'empty' ||
+    emptyState.rootState !== 'empty' ||
+    !emptyState.className.includes('root-state-empty') ||
+    emptyState.streamPaddingTop !== '0px'
+  ) {
+    throw new Error(label + ': root AI empty state hook is missing ' + JSON.stringify(emptyState));
+  }
+  await assertNoHorizontalOverflow(page, label + ': empty root AI');
+
+  const textbox = page.locator('.ai-chat-panel.root textarea').first();
+  await textbox.fill('CCl4 层颜色为什么会变化？');
+  const draftState = await page.locator('.ai-chat-panel.root').first().evaluate((panel) => ({
+    rootLayout: panel.getAttribute('data-root-layout'),
+    rootState: panel.getAttribute('data-root-state'),
+    className: panel.className,
+    streamClassName: panel.querySelector('.ai-chat-stream')?.className || '',
+    streamPaddingTop: window.getComputedStyle(panel.querySelector('.ai-chat-stream')).paddingTop,
+    streamScrollPaddingTop: window.getComputedStyle(panel.querySelector('.ai-chat-stream')).scrollPaddingTop,
+    welcomeCount: panel.querySelectorAll('.ai-root-welcome').length,
+  }));
+  if (
+    draftState.rootLayout !== 'draft' ||
+    draftState.rootState !== 'draft' ||
+    !draftState.className.includes('root-state-draft') ||
+    !draftState.streamClassName.includes('root-draft') ||
+    draftState.streamPaddingTop !== '0px' ||
+    draftState.welcomeCount !== 0
+  ) {
+    throw new Error(label + ': root AI draft state hook is missing ' + JSON.stringify(draftState));
+  }
+  await assertNoHorizontalOverflow(page, label + ': draft root AI');
+  await page.locator('.ai-chat-panel.root .ai-send-action').first().click();
+  const answer = page.locator('.ai-chat-panel.root .ai-message.assistant.done', { hasText: '回答思路' }).first();
+  await answer.waitFor({ state: 'visible', timeout: 15000 });
+
+  const metrics = await page.evaluate(() => {
+    const panel = document.querySelector('.ai-chat-panel.root');
+    const answerNode = document.querySelector('.ai-chat-panel.root .ai-message.assistant.done');
+    const userNode = document.querySelector('.ai-chat-panel.root .ai-message.user');
+    const actionRow = answerNode?.querySelector('.ai-message-actions');
+    const citation = answerNode?.querySelector('.ai-message-citation');
+    const composer = document.querySelector('.ai-chat-panel.root .ai-chat-compose.root');
+    const quickPrompts = document.querySelector('.ai-chat-panel.root .ai-quick-prompts');
+    const style = answerNode ? window.getComputedStyle(answerNode) : null;
+    const stream = panel?.querySelector('.ai-chat-stream');
+    const streamStyle = stream ? window.getComputedStyle(stream) : null;
+    const answerRect = answerNode?.getBoundingClientRect();
+    const userRect = userNode?.getBoundingClientRect();
+    const actionRect = actionRow?.getBoundingClientRect();
+    const citationRect = citation?.getBoundingClientRect();
+    const composerRect = composer?.getBoundingClientRect();
+    const quickRect = quickPrompts?.getBoundingClientRect();
+    return {
+      viewportWidth: window.innerWidth,
+      rootLayout: panel?.getAttribute('data-root-layout') || '',
+      rootState: panel?.getAttribute('data-root-state') || '',
+      panelClassName: panel?.className || '',
+      streamClassName: panel?.querySelector('.ai-chat-stream')?.className || '',
+      streamPaddingTop: streamStyle?.paddingTop || '',
+      streamScrollPaddingTop: streamStyle?.scrollPaddingTop || '',
+      panelText: panel?.textContent || '',
+      answerBackground: style?.backgroundColor || '',
+      answerBorderTopWidth: style?.borderTopWidth || '',
+      answerBoxShadow: style?.boxShadow || '',
+      answerWidth: answerRect?.width || 0,
+      userWidth: userRect?.width || 0,
+      userRight: userRect?.right || 0,
+      metaCount: answerNode?.querySelectorAll('.ai-message-meta').length || 0,
+      sourceSummaryCount: answerNode?.querySelectorAll('.ai-source-summary').length || 0,
+      actionCount: answerNode?.querySelectorAll('.ai-message-action').length || 0,
+      citationText: citation?.textContent || '',
+      actionBottom: actionRect?.bottom || 0,
+      citationRight: citationRect?.right || 0,
+      quickTop: quickRect?.top || 0,
+      composerTop: composerRect?.top || 0,
+    };
+  });
+
+  if (metrics.answerBackground !== 'rgba(0, 0, 0, 0)') {
+    throw new Error(label + ': root assistant answer is not transparent ' + metrics.answerBackground);
+  }
+  if (
+    metrics.rootLayout !== 'conversation' ||
+    metrics.rootState !== 'conversation' ||
+    !metrics.panelClassName.includes('root-state-conversation') ||
+    !metrics.streamClassName.includes('root-conversation') ||
+    metrics.streamPaddingTop === '0px' ||
+    metrics.streamScrollPaddingTop === 'auto'
+  ) {
+    throw new Error(label + ': root AI conversation state hook is missing ' + JSON.stringify(metrics));
+  }
+  if (metrics.answerBorderTopWidth !== '0px' || metrics.answerBoxShadow !== 'none') {
+    throw new Error(label + ': root assistant answer still has card chrome ' + JSON.stringify(metrics));
+  }
+  if (metrics.metaCount || metrics.sourceSummaryCount) {
+    throw new Error(label + ': flat answer rendered old meta/source summary ' + JSON.stringify(metrics));
+  }
+  if (metrics.actionCount !== 3 || !metrics.citationText.includes('1')) {
+    throw new Error(label + ': action row or citation count is missing ' + JSON.stringify(metrics));
+  }
+  if (metrics.panelText.includes('halogen-displacement')) {
+    throw new Error(label + ': raw chunk id leaked into student AI root');
+  }
+  if (metrics.answerWidth > metrics.viewportWidth || metrics.userWidth > metrics.viewportWidth * 0.9 || metrics.citationRight > metrics.viewportWidth + 1) {
+    throw new Error(label + ': AI root content overflows phone width ' + JSON.stringify(metrics));
+  }
+  if (metrics.quickTop && metrics.actionBottom && metrics.quickTop < metrics.actionBottom - 1) {
+    throw new Error(label + ': quick prompts overlap the assistant action row ' + JSON.stringify(metrics));
+  }
+  if (metrics.quickTop && metrics.composerTop && metrics.composerTop < metrics.quickTop - 1) {
+    throw new Error(label + ': composer overlaps quick prompts ' + JSON.stringify(metrics));
+  }
+  await assertNoHorizontalOverflow(page, label + ': answered root AI');
+  await assertNoOverlap(page, label + ': root AI controls', [
+    '.ai-chat-panel.root .ai-message-actions',
+    '.ai-chat-panel.root .ai-quick-prompts',
+    '.ai-chat-panel.root .ai-chat-compose.root',
+  ]);
+  await textbox.focus();
+  await assertNoHorizontalOverflow(page, label + ': focused root AI composer');
+  await textbox.blur();
+  await page.waitForTimeout(120);
+
+  await page.evaluate((entry) => {
+    window.localStorage.setItem("student-ai-chat-history:v1", JSON.stringify([entry]));
+  }, mockRootAiHistoryEntry);
+  await page.locator('.ai-chat-panel.root .ai-new-chat-action').first().click();
+  await page.locator('.ai-chat-panel.root .ai-root-welcome').first().waitFor({ state: 'visible', timeout: 10000 });
+  await page.locator('.ai-chat-panel.root .ai-history-action').first().click();
+  await page.locator('.ai-history-main', { hasText: 'Restored Atom conversation' }).first().click();
+  await page.locator('.ai-chat-panel.root .ai-message.assistant.done').first().waitFor({ state: 'visible', timeout: 10000 });
+  await page.locator('.ai-chat-panel.root .ai-chat-stream').first().evaluate((stream) => {
+    stream.scrollTop = 0;
+  });
+  const restoredState = await page.locator('.ai-chat-panel.root').first().evaluate((panel) => {
+    const stream = panel.querySelector('.ai-chat-stream');
+    const streamStyle = stream ? window.getComputedStyle(stream) : null;
+    return {
+      rootLayout: panel.getAttribute('data-root-layout'),
+      rootState: panel.getAttribute('data-root-state'),
+      className: panel.className,
+      streamClassName: stream?.className || '',
+      streamPaddingTop: streamStyle?.paddingTop || '',
+      streamScrollPaddingTop: streamStyle?.scrollPaddingTop || '',
+      streamScrollHeight: stream?.scrollHeight || 0,
+      streamClientHeight: stream?.clientHeight || 0,
+      textLength: panel.textContent?.length || 0,
+      assistantTextLength: panel.querySelector('.ai-message.assistant.done')?.textContent?.length || 0,
+      assistantHeight: panel.querySelector('.ai-message.assistant.done')?.getBoundingClientRect().height || 0,
+      messageCount: panel.querySelectorAll('.ai-message').length,
+    };
+  });
+  if (
+    restoredState.rootLayout !== 'conversation' ||
+    restoredState.rootState !== 'conversation' ||
+    !restoredState.className.includes('root-state-conversation') ||
+    !restoredState.streamClassName.includes('root-conversation') ||
+    restoredState.streamPaddingTop === '0px' ||
+    restoredState.streamScrollPaddingTop === 'auto' ||
+    restoredState.streamScrollHeight <= restoredState.streamClientHeight + 12 ||
+    restoredState.messageCount < 2
+  ) {
+    throw new Error(label + ': root AI restored history state is missing ' + JSON.stringify(restoredState));
+  }
+  await assertNoHorizontalOverflow(page, label + ': restored root AI');
+}
+
 async function checkAuthenticatedFlows(page, viewportName) {
   await assertNoHorizontalOverflow(page, viewportName + ': initial route');
   await page.locator('.student-app-shell').first().waitFor({ state: 'visible', timeout: 10000 });
@@ -945,6 +1159,11 @@ async function checkAuthenticatedFlows(page, viewportName) {
   for (const root of roots) {
     await clickRoot(page, root);
     await expectRootNav(page, root, viewportName + ': root /' + root);
+  }
+
+  if (useMockApi) {
+    await assertRootAiFlatReply(page, viewportName);
+    if (aiRootOnly) return;
   }
 
   await clickRoot(page, 'home');
@@ -982,15 +1201,16 @@ async function checkAuthenticatedFlows(page, viewportName) {
   if (rootChapterEntryCount > 0) {
     throw new Error(viewportName + ': learning root should not render selected-area chapter cards');
   }
-  await page.getByRole('button', { name: 'p区元素' }).click();
+  const pAreaButton = page.locator('.area-legend button').nth(1);
+  await pAreaButton.click();
   await page.waitForURL(/\/learn(?:[?#]|$)/, { timeout: 10000 });
   await expectRootNav(page, 'learn', viewportName + ': learning root after area popover opens');
-  const areaPopover = page.getByRole('dialog', { name: 'p区元素' });
+  const areaPopover = page.locator('.learning-area-popover').first();
   await areaPopover.waitFor({ state: 'visible', timeout: 10000 });
   await assertNoHorizontalOverflow(page, viewportName + ': learning area popover');
   await page.touchscreen.tap(Math.floor(page.viewportSize().width / 2), page.viewportSize().height - 110);
   await areaPopover.waitFor({ state: 'hidden', timeout: 10000 });
-  await page.getByRole('button', { name: 'p区元素' }).click();
+  await pAreaButton.click();
   await areaPopover.waitFor({ state: 'visible', timeout: 10000 });
   await areaPopover.locator('.chapter-entry-card').first().click();
   await page.waitForURL(/\/chapter\/halogens-17/, { timeout: 10000 });

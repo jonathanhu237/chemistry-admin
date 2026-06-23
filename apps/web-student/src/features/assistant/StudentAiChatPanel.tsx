@@ -8,8 +8,8 @@ import {
   useRef,
   useState,
 } from "react";
-import { Atom, CheckCircle2, LoaderCircle, RotateCcw, Send, XCircle } from "lucide-react";
-import { StudentAssistantFinalMetadata, errorMessage, streamStudentAssistantAsk } from "../../api";
+import { Atom, CheckCircle2, Copy, LoaderCircle, Plus, RotateCcw, Send, ThumbsDown, ThumbsUp, XCircle } from "lucide-react";
+import { type StudentAssistantStreamEvent, StudentAssistantFinalMetadata, errorMessage, streamStudentAssistantAsk } from "../../api";
 import { MobileTextArea } from "../../mobile/primitives";
 import { AiMarkdownBlock } from "../../shared/markdown/AiMarkdownBlock";
 import { defaultAssistantContext, type AssistantContext } from "./assistantContext";
@@ -34,6 +34,8 @@ type StudentAiChatPanelProps = {
   onHistoryChange?: () => void;
 };
 
+type AssistantTurnFeedback = "positive" | "negative";
+
 function assistantStreamPhaseLabel(status: string, hasAnswer: boolean): string {
   if (hasAnswer) return "正在生成回答";
   const text = String(status || "");
@@ -48,13 +50,155 @@ function normalizeAssistantMetadata(value: unknown): StudentAssistantFinalMetada
   return value as StudentAssistantFinalMetadata;
 }
 
+function suggestedPromptsFromMetadata(metadata?: StudentAssistantFinalMetadata): string[] {
+  const rawPrompts = metadata?.suggested_prompts;
+  if (!Array.isArray(rawPrompts)) return [];
+  const seen = new Set<string>();
+  const prompts: string[] = [];
+  for (const rawPrompt of rawPrompts) {
+    if (typeof rawPrompt !== "string") continue;
+    const prompt = rawPrompt.trim();
+    if (!prompt) continue;
+    const key = prompt.replace(/\s+/g, "").toLowerCase();
+    if (seen.has(key)) continue;
+    seen.add(key);
+    prompts.push(prompt);
+    if (prompts.length >= 5) break;
+  }
+  return prompts;
+}
+
+function latestSuggestedPrompts(messages: StudentAiChatMessage[], loading: boolean, status: string): string[] {
+  if (loading || status === "error") return [];
+  const latestAssistantMessage = [...messages].reverse().find((message) => message.role === "assistant");
+  if (latestAssistantMessage?.state === "error") return [];
+  return suggestedPromptsFromMetadata(latestAssistantMessage?.metadata);
+}
+
+function streamEventDebugSnapshot(event?: StudentAssistantStreamEvent): Record<string, unknown> | undefined {
+  if (!event) return undefined;
+  if (event.event === "delta") {
+    return {
+      event: event.event,
+      deltaLength: typeof event.delta === "string" ? event.delta.length : undefined,
+    };
+  }
+  if (event.event === "replace") {
+    return {
+      event: event.event,
+      answerLength: typeof event.answer === "string" ? event.answer.length : undefined,
+    };
+  }
+  if (event.event === "final" && event.response && typeof event.response === "object") {
+    const response = event.response as StudentAssistantFinalMetadata;
+    return {
+      event: event.event,
+      mode: typeof response.mode === "string" ? response.mode : undefined,
+      responseKeys: Object.keys(response),
+      answerLength: typeof response.answer === "string" ? response.answer.length : undefined,
+      suggestedPromptCount: Array.isArray(response.suggested_prompts) ? response.suggested_prompts.length : undefined,
+      sourceCount: typeof response.source_count === "number" ? response.source_count : undefined,
+    };
+  }
+  if (event.event === "error") {
+    return {
+      event: event.event,
+      message: typeof event.message === "string" ? event.message : undefined,
+    };
+  }
+  return { event: event.event };
+}
+
+function safeAssistantSourceCount(metadata?: StudentAssistantFinalMetadata): number {
+  if (typeof metadata?.source_count === "number" && Number.isFinite(metadata.source_count) && metadata.source_count > 0) {
+    return Math.floor(metadata.source_count);
+  }
+  return Array.isArray(metadata?.sources) ? metadata.sources.length : 0;
+}
+
+async function copyAssistantText(text: string): Promise<void> {
+  if (typeof navigator !== "undefined" && navigator.clipboard?.writeText) {
+    await navigator.clipboard.writeText(text);
+    return;
+  }
+  const textarea = document.createElement("textarea");
+  textarea.value = text;
+  textarea.setAttribute("readonly", "");
+  textarea.style.position = "fixed";
+  textarea.style.left = "-9999px";
+  textarea.style.top = "0";
+  document.body.appendChild(textarea);
+  textarea.select();
+  document.execCommand("copy");
+  textarea.remove();
+}
+
 function AssistantSourceSummary({ metadata }: { metadata?: StudentAssistantFinalMetadata }) {
-  const sources = Array.isArray(metadata?.sources) ? metadata.sources.slice(0, 3) : [];
-  const sourceCount = typeof metadata?.source_count === "number" ? metadata.source_count : sources.length;
-  if (!sourceCount && !sources.length) return null;
+  const sourceCount = safeAssistantSourceCount(metadata);
+  if (!sourceCount) return null;
   return (
     <div className="ai-source-summary">
-      <span>引用资料 {sourceCount || sources.length}</span>
+      <span>引用资料 {sourceCount}</span>
+    </div>
+  );
+}
+
+function AssistantTurnActions({
+  turnKey,
+  content,
+  metadata,
+  feedback,
+  copied,
+  onFeedback,
+  onCopy,
+}: {
+  turnKey: string;
+  content: string;
+  metadata?: StudentAssistantFinalMetadata;
+  feedback?: AssistantTurnFeedback;
+  copied: boolean;
+  onFeedback: (turnKey: string, feedback: AssistantTurnFeedback) => void;
+  onCopy: (turnKey: string, content: string) => Promise<void>;
+}) {
+  const sourceCount = safeAssistantSourceCount(metadata);
+  return (
+    <div className="ai-message-actions" aria-label="Atom answer actions">
+      <div className="ai-message-action-group">
+        <button
+          type="button"
+          className={`ai-message-action${feedback === "positive" ? " selected" : ""}`}
+          aria-label="Mark Atom answer helpful"
+          aria-pressed={feedback === "positive"}
+          title="Helpful"
+          onClick={() => onFeedback(turnKey, "positive")}
+        >
+          <ThumbsUp size={18} />
+        </button>
+        <button
+          type="button"
+          className={`ai-message-action${feedback === "negative" ? " selected" : ""}`}
+          aria-label="Mark Atom answer unhelpful"
+          aria-pressed={feedback === "negative"}
+          title="Unhelpful"
+          onClick={() => onFeedback(turnKey, "negative")}
+        >
+          <ThumbsDown size={18} />
+        </button>
+        <button
+          type="button"
+          className={`ai-message-action${copied ? " copied" : ""}`}
+          aria-label={copied ? "Atom answer copied" : "Copy Atom answer"}
+          title={copied ? "Copied" : "Copy"}
+          onClick={() => void onCopy(turnKey, content)}
+        >
+          <Copy size={18} />
+        </button>
+      </div>
+      {sourceCount > 0 ? (
+        <span className="ai-message-citation" aria-label={`Citation count ${sourceCount}`}>
+          引用资料 {sourceCount}
+        </span>
+      ) : null}
     </div>
   );
 }
@@ -77,10 +221,71 @@ function conversationHistory(messages: StudentAiChatMessage[]) {
   return messages.slice(-10).map(({ role, content }) => ({ role, content }));
 }
 
-const ROOT_COMPOSER_MIN_HEIGHT = 82;
+const ROOT_COMPOSER_COMPACT_INPUT_HEIGHT = 36;
+const ROOT_COMPOSER_COMPACT_THRESHOLD = 48;
+const ROOT_COMPOSER_CONTROL_SIZE = 42;
+const ROOT_COMPOSER_COMPACT_INLINE_PADDING = 14;
+const ROOT_COMPOSER_COMPACT_MEASURE_FALLBACK_WIDTH = 260;
+const ROOT_COMPOSER_COMPACT_MIN_TEXT_LANE_WIDTH = 80;
+const ROOT_COMPOSER_EXPANDED_PADDING_TOP = 13;
+const ROOT_COMPOSER_EXPANDED_PADDING_BOTTOM = 10;
+const ROOT_COMPOSER_EXPANDED_MIN_INPUT_HEIGHT = 68;
+const ROOT_COMPOSER_WORKBENCH_HEIGHT = 56;
 const ROOT_COMPOSER_MAX_HEIGHT_RATIO = 0.618;
 const DETAIL_COMPOSER_MIN_HEIGHT = 58;
 const DETAIL_COMPOSER_MAX_HEIGHT = 112;
+
+type ComposerTextareaMetrics = {
+  height: number;
+  maxHeight: number;
+  scrollable: boolean;
+  expanded: boolean;
+};
+
+function initialComposerTextareaMetrics(variant: StudentAiChatPanelVariant): ComposerTextareaMetrics {
+  if (variant === "root") {
+    return {
+      height: ROOT_COMPOSER_COMPACT_INPUT_HEIGHT,
+      maxHeight: ROOT_COMPOSER_COMPACT_INPUT_HEIGHT,
+      scrollable: false,
+      expanded: false,
+    };
+  }
+  return {
+    height: DETAIL_COMPOSER_MIN_HEIGHT,
+    maxHeight: DETAIL_COMPOSER_MAX_HEIGHT,
+    scrollable: false,
+    expanded: false,
+  };
+}
+
+function measureTextareaScrollHeight(textarea: HTMLTextAreaElement, minHeight: number) {
+  const previousHeight = textarea.style.height;
+  textarea.style.height = "auto";
+  const naturalHeight = textarea.scrollHeight || minHeight;
+  textarea.style.height = previousHeight;
+  return naturalHeight;
+}
+
+function measureRootCompactScrollHeight(
+  measureTextarea: HTMLTextAreaElement | null,
+  composer: HTMLFormElement | null,
+  value: string,
+  fallbackHeight: number,
+) {
+  if (!measureTextarea) return fallbackHeight;
+
+  const composerWidth = composer?.getBoundingClientRect().width || composer?.clientWidth || ROOT_COMPOSER_COMPACT_MEASURE_FALLBACK_WIDTH;
+  const compactTextLaneWidth = Math.max(
+    ROOT_COMPOSER_COMPACT_MIN_TEXT_LANE_WIDTH,
+    Math.floor(composerWidth - ROOT_COMPOSER_CONTROL_SIZE * 2 - ROOT_COMPOSER_COMPACT_INLINE_PADDING * 2),
+  );
+
+  measureTextarea.rows = 1;
+  measureTextarea.style.width = `${compactTextLaneWidth}px`;
+  measureTextarea.value = value;
+  return measureTextareaScrollHeight(measureTextarea, fallbackHeight);
+}
 
 function RootHistoryIcon() {
   return (
@@ -122,13 +327,15 @@ export function StudentAiChatPanel({
   const [activeContext, setActiveContext] = useState<AssistantContext>(context);
   const [activeHistoryId, setActiveHistoryId] = useState<string | null>(null);
   const [activeHistoryCreatedAt, setActiveHistoryCreatedAt] = useState<string | undefined>();
+  const [assistantTurnFeedback, setAssistantTurnFeedback] = useState<Record<string, AssistantTurnFeedback>>({});
+  const [copiedTurnKey, setCopiedTurnKey] = useState<string | null>(null);
   const streamRef = useRef<HTMLDivElement>(null);
+  const composerFormRef = useRef<HTMLFormElement>(null);
   const composerTextareaRef = useRef<HTMLTextAreaElement>(null);
-  const [composerTextareaMetrics, setComposerTextareaMetrics] = useState(() => ({
-    height: variant === "root" ? ROOT_COMPOSER_MIN_HEIGHT : DETAIL_COMPOSER_MIN_HEIGHT,
-    maxHeight: variant === "root" ? ROOT_COMPOSER_MIN_HEIGHT : DETAIL_COMPOSER_MAX_HEIGHT,
-    scrollable: false,
-  }));
+  const compactMeasureTextareaRef = useRef<HTMLTextAreaElement>(null);
+  const copyResetTimeoutRef = useRef<number | undefined>(undefined);
+  const [composerContextActive, setComposerContextActive] = useState(false);
+  const [composerTextareaMetrics, setComposerTextareaMetrics] = useState(() => initialComposerTextareaMetrics(variant));
 
   const contextPath = activeContext.catalog_path?.filter(Boolean).join(" / ") || "";
   const contextMeta = [
@@ -142,39 +349,71 @@ export function StudentAiChatPanel({
   const isRootVariant = variant === "root";
   const hasComposerText = input.trim().length > 0;
   const showRootWelcome = isRootVariant && !messages.length && !hasComposerText;
+  const rootLayoutState = isRootVariant ? (messages.length || loading ? "conversation" : hasComposerText ? "draft" : "empty") : "";
+  const rootLayoutSemanticState =
+    rootLayoutState === "empty" ? "is-empty" : rootLayoutState === "draft" ? "has-draft" : rootLayoutState === "conversation" ? "has-messages" : "";
+  const rootLayoutClassName = rootLayoutState ? ` root-state-${rootLayoutState} ${rootLayoutSemanticState}` : "";
   const isGlobalContext = isGlobalAssistantContext(activeContext);
+  const hasLearningBackgroundContext = Boolean(
+    activeContext.context_title ||
+      activeContext.context_summary ||
+      activeContext.experiment_id ||
+      activeContext.chapter_id ||
+      activeContext.point_node_id ||
+      activeContext.source_node_id ||
+      activeContext.catalog_path?.length,
+  );
+  const rootComposerMode = composerTextareaMetrics.expanded ? "is-expanded" : "is-compact";
   const composerPlaceholder = isRootVariant ? "问实验现象、步骤或原理" : "围绕当前内容提问";
   const composerTextareaStyle: CSSProperties = {
     height: `${composerTextareaMetrics.height}px`,
     maxHeight: `${composerTextareaMetrics.maxHeight}px`,
     overflowY: composerTextareaMetrics.scrollable ? "auto" : "hidden",
   };
+  const quickPrompts = latestSuggestedPrompts(messages, loading, status);
 
   const syncComposerTextareaMetrics = useCallback(() => {
     const textarea = composerTextareaRef.current;
     if (!textarea) return;
 
-    const minHeight = isRootVariant ? ROOT_COMPOSER_MIN_HEIGHT : DETAIL_COMPOSER_MIN_HEIGHT;
+    const minHeight = isRootVariant ? ROOT_COMPOSER_COMPACT_INPUT_HEIGHT : DETAIL_COMPOSER_MIN_HEIGHT;
     const visualViewportHeight = window.visualViewport?.height || window.innerHeight || minHeight;
     const panel = textarea.closest(".ai-chat-panel") as HTMLElement | null;
     const panelHeight = panel?.getBoundingClientRect().height || 0;
     const effectiveHeight = panelHeight > minHeight ? panelHeight : visualViewportHeight;
+
+    const naturalHeight = measureTextareaScrollHeight(textarea, minHeight);
+    const compactNaturalHeight = isRootVariant
+      ? measureRootCompactScrollHeight(compactMeasureTextareaRef.current, composerFormRef.current, input, naturalHeight)
+      : naturalHeight;
+
+    const textRequiresExpandedMode = input.trim().length > 0 && (input.includes("\n") || compactNaturalHeight > ROOT_COMPOSER_COMPACT_THRESHOLD);
+    const maxComposerHeight = Math.floor(effectiveHeight * ROOT_COMPOSER_MAX_HEIGHT_RATIO);
     const maxHeight = isRootVariant
-      ? Math.max(minHeight, Math.floor(effectiveHeight * ROOT_COMPOSER_MAX_HEIGHT_RATIO))
+      ? Math.max(
+          ROOT_COMPOSER_EXPANDED_MIN_INPUT_HEIGHT,
+          maxComposerHeight - ROOT_COMPOSER_EXPANDED_PADDING_TOP - ROOT_COMPOSER_WORKBENCH_HEIGHT - ROOT_COMPOSER_EXPANDED_PADDING_BOTTOM,
+        )
       : DETAIL_COMPOSER_MAX_HEIGHT;
-
-    const previousHeight = textarea.style.height;
-    textarea.style.height = "auto";
-    const naturalHeight = textarea.scrollHeight || minHeight;
-    textarea.style.height = previousHeight;
-
-    const nextHeight = Math.min(Math.max(naturalHeight, minHeight), maxHeight);
-    const nextScrollable = naturalHeight > maxHeight + 1;
+    const nextExpanded = isRootVariant ? textRequiresExpandedMode : false;
+    const nextHeight = nextExpanded
+      ? Math.min(Math.max(naturalHeight, ROOT_COMPOSER_EXPANDED_MIN_INPUT_HEIGHT), maxHeight)
+      : isRootVariant
+        ? ROOT_COMPOSER_COMPACT_INPUT_HEIGHT
+        : Math.min(Math.max(naturalHeight, minHeight), maxHeight);
+    const nextMaxHeight = nextExpanded || !isRootVariant ? maxHeight : ROOT_COMPOSER_COMPACT_INPUT_HEIGHT;
+    const nextScrollable = isRootVariant ? nextExpanded && naturalHeight > maxHeight + 1 : naturalHeight > maxHeight + 1;
     setComposerTextareaMetrics((current) => {
-      if (current.height === nextHeight && current.maxHeight === maxHeight && current.scrollable === nextScrollable) return current;
-      return { height: nextHeight, maxHeight, scrollable: nextScrollable };
+      if (
+        current.height === nextHeight &&
+        current.maxHeight === nextMaxHeight &&
+        current.scrollable === nextScrollable &&
+        current.expanded === nextExpanded
+      )
+        return current;
+      return { height: nextHeight, maxHeight: nextMaxHeight, scrollable: nextScrollable, expanded: nextExpanded };
     });
-  }, [isRootVariant]);
+  }, [input, isRootVariant]);
 
   useLayoutEffect(() => {
     syncComposerTextareaMetrics();
@@ -194,12 +433,21 @@ export function StudentAiChatPanel({
   }, [syncComposerTextareaMetrics]);
 
   useEffect(() => {
+    return () => {
+      if (copyResetTimeoutRef.current) window.clearTimeout(copyResetTimeoutRef.current);
+    };
+  }, []);
+
+  useEffect(() => {
     if (historyEntry) {
       setActiveContext(historyEntry.context);
       setMessages(historyEntry.messages);
       setInput("");
+      setComposerContextActive(false);
       setStatus("idle");
       setLoading(false);
+      setAssistantTurnFeedback({});
+      setCopiedTurnKey(null);
       setActiveHistoryId(historyEntry.id);
       setActiveHistoryCreatedAt(historyEntry.createdAt);
       return;
@@ -207,8 +455,11 @@ export function StudentAiChatPanel({
     setActiveContext(context);
     setMessages([]);
     setInput("");
+    setComposerContextActive(false);
     setStatus("idle");
     setLoading(false);
+    setAssistantTurnFeedback({});
+    setCopiedTurnKey(null);
     setActiveHistoryId(null);
     setActiveHistoryCreatedAt(undefined);
   }, [
@@ -256,8 +507,11 @@ export function StudentAiChatPanel({
     setActiveContext(defaultAssistantContext());
     setMessages([]);
     setInput("");
+    setComposerContextActive(false);
     setLoading(false);
     setStatus("idle");
+    setAssistantTurnFeedback({});
+    setCopiedTurnKey(null);
     setActiveHistoryId(null);
     setActiveHistoryCreatedAt(undefined);
     onResetContext();
@@ -276,6 +530,7 @@ export function StudentAiChatPanel({
     setActiveContext(requestContext);
     setMessages(nextMessages);
     setInput("");
+    setComposerContextActive(false);
     setLoading(true);
     setStatus("streaming");
     const initialHistory = persistConversation(nextMessages, requestContext, historyId, createdAt);
@@ -283,7 +538,10 @@ export function StudentAiChatPanel({
 
     let answer = "";
     let finalMetadata: StudentAssistantFinalMetadata | undefined;
+    let debugPhase = "before-stream";
+    let lastStreamEvent: StudentAssistantStreamEvent | undefined;
     try {
+      debugPhase = "stream-start";
       await streamStudentAssistantAsk(
         {
           ...requestContext,
@@ -291,11 +549,14 @@ export function StudentAiChatPanel({
           conversation_history: conversationHistory(baseMessages),
         },
         (event) => {
+          lastStreamEvent = event;
           if (event.event === "status" && typeof event.message === "string") {
+            debugPhase = "stream-status";
             setStatus(event.message);
             return;
           }
           if (event.event === "delta" && typeof event.delta === "string") {
+            debugPhase = "stream-delta";
             answer += event.delta;
             setMessages((current) => {
               const updated = [...current];
@@ -306,6 +567,7 @@ export function StudentAiChatPanel({
             return;
           }
           if (event.event === "replace" && typeof event.answer === "string") {
+            debugPhase = "stream-replace";
             answer = event.answer;
             setMessages((current) => {
               const updated = [...current];
@@ -316,9 +578,11 @@ export function StudentAiChatPanel({
             return;
           }
           if (event.event === "error") {
+            debugPhase = "stream-error-event";
             throw new Error(typeof event.message === "string" ? event.message : "Atom 请求失败");
           }
           if (event.event === "final") {
+            debugPhase = "stream-final";
             finalMetadata = normalizeAssistantMetadata(event.response);
             if (finalMetadata && typeof finalMetadata.text === "string" && !answer.trim()) {
               answer = finalMetadata.text;
@@ -330,17 +594,31 @@ export function StudentAiChatPanel({
               if (last?.role === "assistant") updated[updated.length - 1] = { ...last, content: answer || last.content, metadata: finalMetadata };
               return updated;
             });
+            debugPhase = "stream-final-state";
           }
         },
       );
+      debugPhase = "stream-complete";
       if (!answer.trim()) answer = "Atom 暂时没有生成有效回答。";
       const finalMessages: StudentAiChatMessage[] = [...baseMessages, userMessage, { role: "assistant", content: answer, metadata: finalMetadata }];
       setMessages(finalMessages);
       setStatus("ai");
+      debugPhase = "persist-final-history";
       persistConversation(finalMessages, requestContext, historyId, createdAtForFinal);
+      debugPhase = "done";
     } catch (requestError) {
+      const error = requestError instanceof Error ? requestError : undefined;
+      console.error("[atom-chat-error]", {
+        phase: debugPhase,
+        message: error?.message || String(requestError),
+        stack: error?.stack,
+        answerLength: answer.length,
+        hasFinalMetadata: Boolean(finalMetadata),
+        finalMetadataKeys: finalMetadata ? Object.keys(finalMetadata) : [],
+        lastEvent: streamEventDebugSnapshot(lastStreamEvent),
+      });
       const message = errorMessage(requestError);
-      const errorMessages: StudentAiChatMessage[] = [...baseMessages, userMessage, { role: "assistant", content: message }];
+      const errorMessages: StudentAiChatMessage[] = [...baseMessages, userMessage, { role: "assistant", content: message, state: "error" }];
       setStatus("error");
       setMessages(errorMessages);
       persistConversation(errorMessages, requestContext, historyId, createdAtForFinal);
@@ -358,8 +636,45 @@ export function StudentAiChatPanel({
     setInput(event.target.value);
   };
 
+  const handleComposerContextAction = () => {
+    if (!hasLearningBackgroundContext) {
+      setComposerContextActive(false);
+      composerTextareaRef.current?.focus();
+      return;
+    }
+    setComposerContextActive(true);
+    composerTextareaRef.current?.focus();
+  };
+
+  const handleAssistantTurnFeedback = useCallback((turnKey: string, feedback: AssistantTurnFeedback) => {
+    setAssistantTurnFeedback((current) => {
+      const next = { ...current };
+      if (next[turnKey] === feedback) {
+        delete next[turnKey];
+      } else {
+        next[turnKey] = feedback;
+      }
+      return next;
+    });
+  }, []);
+
+  const handleCopyAssistantTurn = useCallback(async (turnKey: string, content: string) => {
+    await copyAssistantText(content);
+    setCopiedTurnKey(turnKey);
+    if (copyResetTimeoutRef.current) window.clearTimeout(copyResetTimeoutRef.current);
+    copyResetTimeoutRef.current = window.setTimeout(() => {
+      setCopiedTurnKey((current) => (current === turnKey ? null : current));
+    }, 1600);
+  }, []);
+
   return (
-    <section className={`ai-chat-panel ${variant}`} role="region" aria-label="Atom 学习助手对话">
+    <section
+      className={`ai-chat-panel ${variant}${rootLayoutClassName}`}
+      data-root-layout={isRootVariant ? rootLayoutState : undefined}
+      data-root-state={rootLayoutState || undefined}
+      role="region"
+      aria-label="Atom 学习助手对话"
+    >
       <header className={`ai-chat-head ${variant}`}>
         <div>
           <span>
@@ -391,7 +706,7 @@ export function StudentAiChatPanel({
         ) : null}
       </header>
 
-      <div className={`ai-chat-stream${showRootWelcome ? " root-empty" : ""}`} aria-live="polite" ref={streamRef}>
+      <div className={`ai-chat-stream${showRootWelcome ? " root-empty" : ""}${rootLayoutState ? ` root-${rootLayoutState}` : ""}`} aria-live="polite" ref={streamRef}>
         {showRootWelcome ? (
           <div className="ai-root-welcome">
             <Atom size={47} strokeWidth={1.9} aria-hidden="true" />
@@ -407,13 +722,16 @@ export function StudentAiChatPanel({
         ) : null}
         {messages.map((message, index) => {
           const isActiveAssistant = message.role === "assistant" && loading && index === messages.length - 1;
-          const isLastError = message.role === "assistant" && status === "error" && index === messages.length - 1;
+          const isLastError = message.role === "assistant" && (message.state === "error" || (status === "error" && index === messages.length - 1));
           const assistantState = isLastError ? "error" : isActiveAssistant ? "running" : "done";
+          const messageKey = `${message.role}-${index}`;
+          const isRootFlatAssistant = isRootVariant && message.role === "assistant" && assistantState === "done";
           return (
-            <div className={`ai-message ${message.role} ${message.role === "assistant" ? assistantState : ""}`} key={`${message.role}-${index}`}>
+            <div className={`ai-message ${message.role} ${message.role === "assistant" ? assistantState : ""}`} key={messageKey}>
               {message.role === "assistant" ? (
                 <>
-                  <div className="ai-message-meta">
+                  {!isRootFlatAssistant ? (
+                    <div className="ai-message-meta">
                     <span>
                       <Atom size={14} />
                       Atom 学习助手
@@ -422,7 +740,8 @@ export function StudentAiChatPanel({
                       {isLastError ? <XCircle size={13} /> : isActiveAssistant ? <LoaderCircle className="spin" size={13} /> : <CheckCircle2 size={13} />}
                       {isLastError ? "失败" : isActiveAssistant ? "生成中" : "完成"}
                     </em>
-                  </div>
+                    </div>
+                  ) : null}
                   {isActiveAssistant ? (
                     <div className="ai-stream-progress">
                       <span aria-hidden="true">
@@ -434,7 +753,19 @@ export function StudentAiChatPanel({
                     </div>
                   ) : null}
                   {message.content.trim() ? <AiMarkdownBlock text={message.content} /> : isActiveAssistant ? <AssistantSkeleton /> : null}
-                  <AssistantSourceSummary metadata={message.metadata} />
+                  {isRootFlatAssistant ? (
+                    <AssistantTurnActions
+                      turnKey={messageKey}
+                      content={message.content}
+                      metadata={message.metadata}
+                      feedback={assistantTurnFeedback[messageKey]}
+                      copied={copiedTurnKey === messageKey}
+                      onFeedback={handleAssistantTurnFeedback}
+                      onCopy={handleCopyAssistantTurn}
+                    />
+                  ) : (
+                    <AssistantSourceSummary metadata={message.metadata} />
+                  )}
                 </>
               ) : (
                 message.content
@@ -444,9 +775,9 @@ export function StudentAiChatPanel({
         })}
       </div>
 
-      {messages.length && activeContext.prompts.length ? (
+      {quickPrompts.length ? (
         <div className="ai-quick-prompts" aria-label="快捷问题">
-          {activeContext.prompts.map((prompt) => (
+          {quickPrompts.map((prompt) => (
             <button type="button" key={prompt} disabled={loading} onClick={() => void submitQuestion(prompt)}>
               {prompt}
             </button>
@@ -454,23 +785,72 @@ export function StudentAiChatPanel({
         </div>
       ) : null}
 
-      <form className="ai-chat-compose" onSubmit={handleSubmit}>
-        <MobileTextArea
-          ref={composerTextareaRef}
-          className={composerTextareaMetrics.scrollable ? "is-scrollable" : undefined}
-          value={input}
-          onChange={handleComposerChange}
-          placeholder={composerPlaceholder}
-          aria-label="向 Atom 提问"
-          rows={1}
-          maxLength={1600}
-          disabled={loading}
-          style={composerTextareaStyle}
-        />
-        <button type="submit" disabled={!input.trim() || loading} aria-label="发送问题">
-          {loading ? <LoaderCircle className="spin" size={17} /> : <Send size={17} />}
-        </button>
-      </form>
+      {isRootVariant ? (
+        <form
+          ref={composerFormRef}
+          className={`ai-chat-compose root ${rootComposerMode}${loading ? " is-loading" : ""}`}
+          onSubmit={handleSubmit}
+        >
+          <div className="ai-chat-compose-input">
+            <MobileTextArea
+              ref={composerTextareaRef}
+              className={composerTextareaMetrics.scrollable ? "is-scrollable" : undefined}
+              value={input}
+              onChange={handleComposerChange}
+              placeholder={composerPlaceholder}
+              aria-label="向 Atom 提问"
+              rows={1}
+              maxLength={1600}
+              disabled={loading}
+              style={composerTextareaStyle}
+            />
+          </div>
+          <textarea
+            ref={compactMeasureTextareaRef}
+            className="ai-chat-compact-measure"
+            value={input}
+            readOnly
+            aria-hidden="true"
+            tabIndex={-1}
+            rows={1}
+          />
+          <div className="ai-chat-workbench" aria-label="Atom 输入工具">
+            <button
+              type="button"
+              className="ai-context-action"
+              onClick={handleComposerContextAction}
+              aria-label={hasLearningBackgroundContext ? "带入当前学习背景" : "当前没有可带入的学习背景"}
+              aria-pressed={composerContextActive}
+            >
+              <Plus size={24} />
+            </button>
+            <span className="ai-composer-context-status" role="status" aria-live="polite">
+              {composerContextActive ? "已带入当前学习背景" : ""}
+            </span>
+            <button type="submit" className="ai-send-action" disabled={!input.trim() || loading} aria-label="发送问题">
+              {loading ? <LoaderCircle className="spin" size={17} /> : <Send size={17} />}
+            </button>
+          </div>
+        </form>
+      ) : (
+        <form className="ai-chat-compose detail" onSubmit={handleSubmit}>
+          <MobileTextArea
+            ref={composerTextareaRef}
+            className={composerTextareaMetrics.scrollable ? "is-scrollable" : undefined}
+            value={input}
+            onChange={handleComposerChange}
+            placeholder={composerPlaceholder}
+            aria-label="向 Atom 提问"
+            rows={1}
+            maxLength={1600}
+            disabled={loading}
+            style={composerTextareaStyle}
+          />
+          <button type="submit" disabled={!input.trim() || loading} aria-label="发送问题">
+            {loading ? <LoaderCircle className="spin" size={17} /> : <Send size={17} />}
+          </button>
+        </form>
+      )}
     </section>
   );
 }
