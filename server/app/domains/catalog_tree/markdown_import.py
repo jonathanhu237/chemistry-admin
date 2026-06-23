@@ -19,7 +19,7 @@ from server.app.domains.experiment_points.textbook_import import normalize_impor
 from server.app.infrastructure.database import db_session
 
 POINT_MARKER_RE = re.compile(r"[（(](?:点位|重复点位\s*\d+)[）)]")
-HEADING_NUMBER_RE = re.compile(r"^\s*\d+[.、]\s*")
+HEADING_NUMBER_RE = re.compile(r"^\s*(?:\d+|[一二三四五六七八九十百〇零两]+)[.、]\s*")
 CHAPTER_RE = re.compile(r"^#\s*第\s*(\d+)\s*章\s*(.+?)\s*$")
 HEADING_RE = re.compile(r"^##\s+(.+?)\s*$")
 BULLET_RE = re.compile(r"^(\s*)-\s+(.+?)\s*$")
@@ -176,7 +176,7 @@ def parse_catalog_markdown(path: str | Path) -> list[MarkdownCatalogNode]:
 
         heading_match = HEADING_RE.match(line)
         if heading_match and current_chapter_id:
-            heading_title = heading_match.group(1).strip()
+            heading_title = clean_display_title(heading_match.group(1))
             if "暂无对应实验内容" in heading_title:
                 current_heading = None
                 stack = []
@@ -279,7 +279,7 @@ def parse_description_markdown(path: str | Path) -> list[MarkdownDescription]:
             current_experiment = ""
             continue
         if level == 3:
-            current_experiment = title
+            current_experiment = clean_display_title(title)
             continue
         if level != 4 or not current_chapter or not current_experiment:
             continue

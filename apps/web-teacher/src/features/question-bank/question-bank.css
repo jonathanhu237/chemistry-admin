@@ -5,6 +5,186 @@
   align-items: stretch;
 }
 
+.question-bank-catalog-page {
+  min-width: 0;
+}
+
+.question-bank-stat-grid {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.question-bank-catalog-layout {
+  display: grid;
+  grid-template-columns: minmax(320px, 0.78fr) minmax(0, 2.22fr);
+  gap: 18px;
+  align-items: start;
+}
+
+.question-catalog-panel {
+  position: sticky;
+  top: 78px;
+  max-height: calc(100vh - 104px);
+  overflow: hidden;
+}
+
+.question-catalog-panel .ant-card-body {
+  max-height: calc(100vh - 160px);
+  overflow: auto;
+}
+
+.question-catalog-chapter-line {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 8px 10px;
+  border: 1px solid var(--sysu-line);
+  border-radius: 8px;
+  background: var(--sysu-soft);
+}
+
+.question-catalog-panel .ant-tree {
+  background: transparent;
+}
+
+.question-catalog-panel .ant-tree-treenode {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 3px 0;
+}
+
+.question-catalog-panel .ant-tree-switcher,
+.question-catalog-panel .ant-tree-iconEle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  height: 28px;
+  min-height: 28px;
+  line-height: 28px;
+  margin: 0;
+  padding: 0;
+}
+
+.question-catalog-panel .ant-tree-iconEle .anticon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.question-catalog-panel .ant-tree-node-content-wrapper {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  flex: 1 1 auto;
+  height: 28px;
+  min-height: 28px;
+  line-height: 28px;
+  padding-block: 0;
+}
+
+.question-catalog-panel .ant-tree-title {
+  min-width: 0;
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  height: 28px;
+  line-height: 28px;
+}
+
+.question-catalog-tree-title {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 8px;
+  align-items: center;
+  width: 100%;
+  height: 28px;
+  min-width: 0;
+}
+
+.question-catalog-tree-name {
+  min-width: 0;
+  overflow: hidden;
+  color: var(--sysu-ink);
+  font-weight: 800;
+  line-height: 28px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.question-catalog-tree-title.is-point .question-catalog-tree-name {
+  font-weight: 700;
+}
+
+.question-catalog-tree-count {
+  flex: 0 0 auto;
+  color: var(--sysu-muted);
+  font-size: 12px;
+  line-height: 28px;
+}
+
+.question-point-workspace {
+  display: grid;
+  min-width: 0;
+  gap: 14px;
+}
+
+.question-point-header-card {
+  background:
+    linear-gradient(135deg, rgba(0, 88, 38, 0.055), rgba(255, 255, 255, 0.96)),
+    #fff;
+}
+
+.question-point-heading {
+  min-width: 0;
+}
+
+.question-point-heading h3 {
+  margin: 6px 0 8px;
+  line-height: 1.28;
+}
+
+.question-point-content-card .ant-card-body {
+  padding-top: 14px;
+}
+
+.question-point-content-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.question-point-content-grid section {
+  min-width: 0;
+  padding: 12px;
+  border: 1px solid var(--sysu-line);
+  border-radius: 8px;
+  background: var(--sysu-soft);
+}
+
+.block-text {
+  display: block;
+  margin-top: 6px;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  line-height: 1.65;
+}
+
+.question-bank-compact-select {
+  width: 116px;
+}
+
+.question-bank-catalog-search {
+  width: 260px;
+}
+
+.question-bank-draft-panel .ant-table-row,
+.question-bank-question-panel .ant-table-row {
+  cursor: pointer;
+}
+
 .question-chapter-panel {
   position: sticky;
   top: 78px;
@@ -550,4 +730,52 @@
   background:
     linear-gradient(135deg, rgba(0, 88, 38, 0.035), rgba(255, 255, 255, 0.96)),
     #fff;
+}
+
+@media (max-width: 1280px) {
+  .question-bank-stat-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .question-bank-catalog-layout,
+  .ai-workbench-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .question-catalog-panel {
+    position: static;
+    max-height: none;
+  }
+
+  .question-catalog-panel .ant-card-body {
+    max-height: 420px;
+  }
+
+  .question-point-content-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .question-bank-stat-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .question-catalog-chapter-line,
+  .question-workbench-status,
+  .question-workbench-status-copy {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .question-bank-catalog-search,
+  .question-bank-compact-select,
+  .ai-workbench-type-select {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .question-evidence-row {
+    grid-template-columns: 1fr;
+  }
 }

@@ -17,7 +17,7 @@ from server.app.domains.catalog.experiments import (
     _experiment_video_points,
     _list_experiment_video_resources,
 )
-from server.app.domains.questions.bank import _json, _json_array, _validate_question_payload
+from server.app.domains.questions.bank import _ensure_catalog_point_experiment, _json, _json_array, _validate_question_payload
 from server.app.domains.questions.point_identity import point_canonical_id, point_placement_id, unique_strings
 from server.app.domains.questions.generation import (
     CATALOG_NODE_EVIDENCE_REQUIRED_DETAIL,
@@ -592,20 +592,26 @@ def create_point_aware_suggestions(
     evidence_loader: EvidencePackageLoader,
 ) -> dict[str, Any]:
     with db_session() as session:
-        experiment = _ensure_experiment(session, payload.experiment_id)
+        requested_node_ids = _unique_point_node_ids(payload.point_node_ids, payload.point_node_id)
+        if requested_node_ids:
+            experiment = _ensure_catalog_point_experiment(session, requested_node_ids[0], actor_user_id=user.id)
+            experiment_id = str(experiment["id"])
+        else:
+            experiment = _ensure_experiment(session, payload.experiment_id)
+            experiment_id = payload.experiment_id
         target_question = None
         if payload.question_id:
             target_question = _load_question_for_point_aware_suggestion(session, payload.question_id)
-            if target_question.get("experiment_id") != payload.experiment_id:
+            if target_question.get("experiment_id") != experiment_id:
                 raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Question does not belong to experiment")
 
-        points = _experiment_video_points(experiment, _list_experiment_video_resources(payload.experiment_id))
+        points = _experiment_video_points(experiment, _list_experiment_video_resources(experiment_id))
         selected_points = _select_suggestion_points(
             points=points,
             point_keys=_unique_point_keys(payload.point_keys, payload.point_key, payload.point_node_ids, payload.point_node_id),
             target_question=target_question,
         )
-        selected_points = _attach_catalog_point_nodes(session, experiment_id=payload.experiment_id, points=selected_points)
+        selected_points = _attach_catalog_point_nodes(session, experiment_id=experiment_id, points=selected_points)
         selected_point = selected_points[0] if selected_points else None
         target_point_keys = _unique_point_keys([point.get("point_key") for point in selected_points], payload.point_key)
         target_point_node_ids = _unique_point_node_ids(selected_points, payload.point_node_ids, payload.point_node_id)
@@ -673,7 +679,7 @@ def create_point_aware_suggestions(
                     """
                 ),
                 {
-                    "experiment_id": payload.experiment_id,
+                    "experiment_id": experiment_id,
                     "prompt": payload.prompt,
                     "question_types": payload.question_types,
                     "difficulty": payload.difficulty,
@@ -738,7 +744,7 @@ def create_point_aware_suggestions(
                     ),
                     {
                         "generation_id": generation_id,
-                        "experiment_id": payload.experiment_id,
+                            "experiment_id": experiment_id,
                         "payload": _json(normalized or row_payload),
                         "errors": _json_array(errors),
                     },
@@ -757,7 +763,7 @@ def create_point_aware_suggestions(
         "drafts": drafts,
         "target": {
             "intent": payload.intent,
-            "experiment_id": payload.experiment_id,
+            "experiment_id": experiment_id,
             "question_id": payload.question_id,
             "point": selected_point,
             "points": selected_points,

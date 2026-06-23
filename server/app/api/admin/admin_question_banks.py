@@ -16,6 +16,7 @@ from server.app.domains.questions.bank import (
     export_question_bank,
     import_question_bank,
     list_chapter_questions,
+    list_catalog_question_bank,
     list_question_bank_chapters_overview,
     list_question_banks,
     list_questions,
@@ -72,9 +73,19 @@ async def admin_list_question_banks(
     return list_question_banks(experiment_id=experiment_id, chapter_id=chapter_id)
 
 
+@router.get("/question-banks/catalog")
+async def admin_list_catalog_question_bank(
+    chapter_id: str | None = None,
+    user: AuthUser = Depends(require_teacher_console_user),
+) -> dict[str, Any]:
+    return list_catalog_question_bank(chapter_id=chapter_id)
+
+
 @router.get("/question-banks/questions")
 async def admin_list_questions(
     experiment_id: str | None = None,
+    point_node_id: str | None = None,
+    canonical_point_id: str | None = None,
     question_type: str | None = None,
     difficulty: str | None = None,
     status_filter: str | None = None,
@@ -84,6 +95,8 @@ async def admin_list_questions(
 ) -> dict[str, Any]:
     return list_questions(
         experiment_id=experiment_id,
+        point_node_id=point_node_id,
+        canonical_point_id=canonical_point_id,
         question_type=question_type,
         difficulty=difficulty,
         status_filter=status_filter,

@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import hashlib
 import uuid
 from datetime import datetime, timezone
 from typing import Any
@@ -74,6 +75,137 @@ def _inc_count(target: dict[str, int], key: str, amount: int = 1) -> None:
 
 def _metadata(value: Any) -> dict[str, Any]:
     return value if isinstance(value, dict) else {}
+
+
+def catalog_experiment_id_for_root(root_node_id: str) -> str:
+    digest = hashlib.sha1(str(root_node_id or "").encode("utf-8")).hexdigest()[:24]
+    return f"catalog-exp-{digest}"
+
+
+def _catalog_node_path(session: Any, node_id: str) -> list[dict[str, Any]]:
+    rows = [
+        dict(row)
+        for row in session.execute(
+            text(
+                """
+                WITH RECURSIVE ancestors AS (
+                  SELECT id, parent_id, chapter_id, node_kind, title, display_order, 0 AS depth
+                  FROM experiment_catalog_nodes
+                  WHERE id = :node_id
+                  UNION ALL
+                  SELECT parent.id, parent.parent_id, parent.chapter_id, parent.node_kind,
+                         parent.title, parent.display_order, ancestors.depth + 1
+                  FROM experiment_catalog_nodes parent
+                  JOIN ancestors ON ancestors.parent_id = parent.id
+                )
+                SELECT id, parent_id, chapter_id, node_kind, title, display_order, depth
+                FROM ancestors
+                ORDER BY depth DESC
+                """
+            ),
+            {"node_id": node_id},
+        )
+        .mappings()
+        .all()
+    ]
+    return rows
+
+
+def _ensure_catalog_point_experiment(session: Any, point_node_id: str, actor_user_id: str | None = None) -> dict[str, Any]:
+    path = _catalog_node_path(session, point_node_id)
+    if not path:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Catalog point node not found")
+    point = path[-1]
+    if point.get("node_kind") != "point":
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Catalog question targets must be point nodes")
+    root = path[0]
+    chapter_id = str(point.get("chapter_id") or root.get("chapter_id") or "")
+    experiment_id = catalog_experiment_id_for_root(str(root["id"]))
+    code = f"CAT-{chapter_id}-{hashlib.sha1(str(root['id']).encode('utf-8')).hexdigest()[:8]}"
+    title = str(root.get("title") or point.get("title") or experiment_id)
+    summary = " / ".join(str(item.get("title") or "") for item in path if item.get("title"))
+    session.execute(
+        text(
+            """
+            INSERT INTO formal_experiments (
+              id, code, title, summary, status, display_order, metadata, published_at, updated_at
+            )
+            VALUES (
+              :id, :code, :title, :summary, 'published', :display_order,
+              CAST(:metadata AS jsonb), now(), now()
+            )
+            ON CONFLICT (id) DO UPDATE SET
+              title = EXCLUDED.title,
+              summary = EXCLUDED.summary,
+              status = 'published',
+              display_order = EXCLUDED.display_order,
+              metadata = COALESCE(formal_experiments.metadata, '{}'::jsonb) || EXCLUDED.metadata,
+              published_at = COALESCE(formal_experiments.published_at, EXCLUDED.published_at),
+              updated_at = now()
+            """
+        ),
+        {
+            "id": experiment_id,
+            "code": code,
+            "title": title,
+            "summary": summary,
+            "display_order": int(root.get("display_order") or 0),
+            "metadata": _json(
+                {
+                    "catalog_question_bank_compat": True,
+                    "catalog_root_node_id": root["id"],
+                    "catalog_root_title": title,
+                    "catalog_chapter_id": chapter_id,
+                    "created_for_point_node_id": point_node_id,
+                }
+            ),
+        },
+    )
+    if chapter_id:
+        session.execute(
+            text(
+                """
+                INSERT INTO experiment_chapter_bindings (
+                  experiment_id, chapter_id, coverage_type, notes, sort_order, updated_at
+                )
+                VALUES (
+                  :experiment_id, :chapter_id, 'primary', 'Catalog question bank compatibility binding',
+                  :sort_order, now()
+                )
+                ON CONFLICT (experiment_id, chapter_id) DO UPDATE SET
+                  coverage_type = EXCLUDED.coverage_type,
+                  notes = EXCLUDED.notes,
+                  sort_order = EXCLUDED.sort_order,
+                  updated_at = now()
+                """
+            ),
+            {
+                "experiment_id": experiment_id,
+                "chapter_id": chapter_id,
+                "sort_order": int(root.get("display_order") or 0),
+            },
+        )
+    return _ensure_experiment(session, experiment_id)
+
+
+def _question_node_ids(row: dict[str, Any]) -> list[str]:
+    metadata = _metadata(row.get("metadata"))
+    return _unique_strings(
+        row.get("source_placement_node_ids"),
+        row.get("primary_point_node_ids"),
+        metadata.get("source_placement_node_ids"),
+        metadata.get("primary_point_node_ids"),
+    )
+
+
+def _draft_node_ids(payload: dict[str, Any]) -> list[str]:
+    metadata = _metadata(payload.get("metadata"))
+    return _unique_strings(
+        payload.get("source_placement_node_ids"),
+        payload.get("primary_point_node_ids"),
+        metadata.get("source_placement_node_ids"),
+        metadata.get("primary_point_node_ids"),
+    )
 
 
 def _payload_point_node_ids(payload: dict[str, Any]) -> list[str]:
@@ -1006,9 +1138,291 @@ def list_question_banks(
     }
 
 
+def _list_catalog_question_bank_chapters(session: Any) -> list[dict[str, Any]]:
+    return [
+        dict(row)
+        for row in session.execute(
+            text(
+                """
+                SELECT c.id AS chapter_id, c.chapter_number, c.chapter_title, c.element_area,
+                       COUNT(n.id) FILTER (WHERE n.node_kind = 'point' AND n.status <> 'archived')::int AS point_count
+                FROM chapters c
+                JOIN experiment_catalog_nodes n ON n.chapter_id = c.id
+                WHERE n.status <> 'archived'
+                GROUP BY c.id, c.chapter_number, c.chapter_title, c.element_area
+                ORDER BY c.chapter_number NULLS LAST, c.id
+                """
+            )
+        )
+        .mappings()
+        .all()
+    ]
+
+
+def _catalog_question_type_counts() -> dict[str, int]:
+    return {"single_choice": 0, "true_false": 0, "fill_blank": 0}
+
+
+def _catalog_count_bucket() -> dict[str, Any]:
+    return {
+        "question_count": 0,
+        "published_count": 0,
+        "draft_count": 0,
+        "disabled_count": 0,
+        "choice_count": 0,
+        "true_false_count": 0,
+        "fill_blank_count": 0,
+        "draft_candidate_count": 0,
+        "rejected_candidate_count": 0,
+        "published_candidate_count": 0,
+        "question_type_counts": _catalog_question_type_counts(),
+    }
+
+
+def _add_question_count(bucket: dict[str, Any], question_type: str, status_value: str) -> None:
+    bucket["question_count"] += 1
+    if status_value == "published":
+        bucket["published_count"] += 1
+    elif status_value == "draft":
+        bucket["draft_count"] += 1
+    elif status_value == "disabled":
+        bucket["disabled_count"] += 1
+    if question_type == "single_choice":
+        bucket["choice_count"] += 1
+    elif question_type == "true_false":
+        bucket["true_false_count"] += 1
+    elif question_type == "fill_blank":
+        bucket["fill_blank_count"] += 1
+    if question_type in bucket["question_type_counts"]:
+        bucket["question_type_counts"][question_type] += 1
+
+
+def _add_draft_count(bucket: dict[str, Any], status_value: str) -> None:
+    if status_value == "draft":
+        bucket["draft_candidate_count"] += 1
+    elif status_value == "rejected":
+        bucket["rejected_candidate_count"] += 1
+    elif status_value == "published":
+        bucket["published_candidate_count"] += 1
+
+
+def list_catalog_question_bank(*, chapter_id: str | None = None) -> dict[str, Any]:
+    with db_session() as session:
+        chapters = _list_catalog_question_bank_chapters(session)
+        selected_chapter_id = chapter_id or (chapters[0]["chapter_id"] if chapters else None)
+        if selected_chapter_id and selected_chapter_id not in {chapter["chapter_id"] for chapter in chapters}:
+            raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Chapter not found")
+        chapter_filter = "AND n.chapter_id = :chapter_id" if selected_chapter_id else ""
+        nodes = [
+            dict(row)
+            for row in session.execute(
+                text(
+                    f"""
+                    SELECT n.id AS node_id,
+                           n.parent_id,
+                           n.chapter_id,
+                           n.node_kind,
+                           n.title,
+                           n.summary,
+                           n.status,
+                           n.display_order,
+                           n.canonical_point_id,
+                           cp.title AS canonical_point_title,
+                           pc.content_status,
+                           pc.principle_mode,
+                           pc.principle_equation,
+                           pc.principle_text,
+                           pc.phenomenon_explanation,
+                           pc.safety_note,
+                           COALESCE(media.media_count, 0)::int AS media_count,
+                           COALESCE(media.published_media_count, 0)::int AS published_media_count,
+                           COALESCE(evidence.evidence_status, 'missing') AS evidence_status,
+                           COALESCE(evidence.source_mode, 'none') AS evidence_source_mode
+                    FROM experiment_catalog_nodes n
+                    LEFT JOIN experiment_catalog_points cp ON cp.id = n.canonical_point_id
+                    LEFT JOIN experiment_catalog_point_content pc
+                      ON pc.node_id = n.id
+                    LEFT JOIN LATERAL (
+                      SELECT COUNT(*) AS media_count,
+                             COUNT(*) FILTER (WHERE binding_status = 'published') AS published_media_count
+                      FROM experiment_catalog_point_media_bindings mb
+                      WHERE mb.node_id = n.id AND mb.binding_status <> 'archived'
+                    ) media ON true
+                    LEFT JOIN LATERAL (
+                      SELECT evidence_status, source_mode
+                      FROM experiment_catalog_point_evidence_state state
+                      WHERE state.node_id = n.id OR (
+                        n.canonical_point_id IS NOT NULL AND state.canonical_point_id = n.canonical_point_id
+                      )
+                      ORDER BY state.updated_at DESC
+                      LIMIT 1
+                    ) evidence ON true
+                    WHERE n.status <> 'archived'
+                      {chapter_filter}
+                    ORDER BY n.chapter_id, COALESCE(n.parent_id, ''), n.display_order, n.id
+                    """
+                ),
+                {"chapter_id": selected_chapter_id},
+            )
+            .mappings()
+            .all()
+        ]
+        question_rows = [
+            dict(row)
+            for row in session.execute(
+                text(
+                    """
+                    SELECT id, question_type, status, primary_point_node_ids,
+                           primary_canonical_point_ids, source_placement_node_ids, metadata
+                    FROM experiment_questions
+                    WHERE status <> 'archived'
+                    """
+                )
+            )
+            .mappings()
+            .all()
+        ]
+        draft_rows = [
+            dict(row)
+            for row in session.execute(
+                text(
+                    """
+                    SELECT status, payload
+                    FROM experiment_question_drafts
+                    """
+                )
+            )
+            .mappings()
+            .all()
+        ]
+
+    node_by_id = {str(row["node_id"]): row for row in nodes}
+    children_by_parent: dict[str | None, list[str]] = {}
+    for row in nodes:
+        children_by_parent.setdefault(row.get("parent_id"), []).append(str(row["node_id"]))
+
+    path_cache: dict[str, list[str]] = {}
+
+    def path_titles(node_id: str) -> list[str]:
+        if node_id in path_cache:
+            return path_cache[node_id]
+        node = node_by_id[node_id]
+        parent_id = node.get("parent_id")
+        current = [str(node.get("title") or "")]
+        if parent_id and parent_id in node_by_id:
+            current = [*path_titles(str(parent_id)), *current]
+        path_cache[node_id] = current
+        return current
+
+    root_cache: dict[str, str] = {}
+
+    def root_node_id(node_id: str) -> str:
+        if node_id in root_cache:
+            return root_cache[node_id]
+        node = node_by_id[node_id]
+        parent_id = node.get("parent_id")
+        if parent_id and parent_id in node_by_id:
+            root_cache[node_id] = root_node_id(str(parent_id))
+        else:
+            root_cache[node_id] = node_id
+        return root_cache[node_id]
+
+    descendant_cache: dict[tuple[str, str], bool] = {}
+
+    def is_descendant_or_self(candidate_id: str, ancestor_id: str) -> bool:
+        key = (candidate_id, ancestor_id)
+        if key in descendant_cache:
+            return descendant_cache[key]
+        if candidate_id == ancestor_id:
+            descendant_cache[key] = True
+            return True
+        parent_id = node_by_id.get(candidate_id, {}).get("parent_id")
+        if not parent_id or parent_id not in node_by_id:
+            descendant_cache[key] = False
+            return False
+        result = is_descendant_or_self(str(parent_id), ancestor_id)
+        descendant_cache[key] = result
+        return result
+
+    counts_by_node: dict[str, dict[str, Any]] = {node_id: _catalog_count_bucket() for node_id in node_by_id}
+    for question in question_rows:
+        for node_id in _question_node_ids(question):
+            if node_id in counts_by_node:
+                _add_question_count(
+                    counts_by_node[node_id],
+                    str(question.get("question_type") or ""),
+                    str(question.get("status") or ""),
+                )
+    for draft in draft_rows:
+        payload = draft.get("payload") if isinstance(draft.get("payload"), dict) else {}
+        for node_id in _draft_node_ids(payload):
+            if node_id in counts_by_node:
+                _add_draft_count(counts_by_node[node_id], str(draft.get("status") or ""))
+
+    def aggregate(node_id: str) -> dict[str, Any]:
+        bucket = dict(counts_by_node[node_id])
+        bucket["question_type_counts"] = dict(counts_by_node[node_id]["question_type_counts"])
+        for child_id in children_by_parent.get(node_id, []):
+            child_bucket = aggregate(child_id)
+            for key, value in child_bucket.items():
+                if key == "question_type_counts":
+                    for type_key, type_count in value.items():
+                        bucket["question_type_counts"][type_key] = int(bucket["question_type_counts"].get(type_key) or 0) + int(type_count or 0)
+                elif isinstance(value, int):
+                    bucket[key] = int(bucket.get(key) or 0) + value
+        counts_by_node[node_id] = bucket
+        return bucket
+
+    for root_id in children_by_parent.get(None, []):
+        aggregate(root_id)
+
+    items: list[dict[str, Any]] = []
+    for node_id, row in node_by_id.items():
+        root_id = root_node_id(node_id)
+        point_count = 1 if row.get("node_kind") == "point" else 0
+        if row.get("node_kind") == "directory":
+            point_count = sum(
+                1
+                for candidate in node_by_id.values()
+                if candidate.get("node_kind") == "point" and is_descendant_or_self(str(candidate["node_id"]), node_id)
+            )
+        items.append(
+            {
+                **row,
+                "breadcrumb_titles": path_titles(node_id),
+                "root_node_id": root_id,
+                "experiment_id": catalog_experiment_id_for_root(root_id),
+                "descendant_point_count": point_count,
+                "counts": counts_by_node.get(node_id, _catalog_count_bucket()),
+            }
+        )
+
+    totals = _catalog_count_bucket()
+    point_items = [item for item in items if item.get("node_kind") == "point"]
+    for item in point_items:
+        bucket = item.get("counts") or {}
+        for key, value in bucket.items():
+            if key == "question_type_counts":
+                for type_key, type_count in value.items():
+                    totals["question_type_counts"][type_key] = int(totals["question_type_counts"].get(type_key) or 0) + int(type_count or 0)
+            elif isinstance(value, int):
+                totals[key] = int(totals.get(key) or 0) + value
+    totals["point_count"] = len(point_items)
+    totals["directory_count"] = len(items) - len(point_items)
+    return {
+        "chapters": chapters,
+        "chapter_id": selected_chapter_id,
+        "items": sorted(items, key=lambda item: (str(item.get("chapter_id") or ""), str(item.get("parent_id") or ""), int(item.get("display_order") or 0), str(item.get("node_id") or ""))),
+        "total": len(items),
+        "totals": totals,
+    }
+
+
 def list_questions(
     *,
     experiment_id: str | None = None,
+    point_node_id: str | None = None,
+    canonical_point_id: str | None = None,
     question_type: str | None = None,
     difficulty: str | None = None,
     status_filter: str | None = None,
@@ -1020,6 +1434,43 @@ def list_questions(
     if experiment_id:
         filters.append("q.experiment_id = :experiment_id")
         params["experiment_id"] = experiment_id
+    if point_node_id:
+        filters.append(
+            """
+            (
+              :point_node_id = ANY(q.source_placement_node_ids)
+              OR :point_node_id = ANY(q.primary_point_node_ids)
+              OR EXISTS (
+                SELECT 1
+                FROM jsonb_array_elements_text(
+                  COALESCE(
+                    q.metadata->'source_placement_node_ids',
+                    q.metadata->'primary_point_node_ids',
+                    '[]'::jsonb
+                  )
+                ) AS point_ids(value)
+                WHERE point_ids.value = :point_node_id
+              )
+            )
+            """
+        )
+        params["point_node_id"] = point_node_id
+    if canonical_point_id:
+        filters.append(
+            """
+            (
+              :canonical_point_id = ANY(q.primary_canonical_point_ids)
+              OR EXISTS (
+                SELECT 1
+                FROM jsonb_array_elements_text(
+                  COALESCE(q.metadata->'primary_canonical_point_ids', '[]'::jsonb)
+                ) AS canonical_ids(value)
+                WHERE canonical_ids.value = :canonical_point_id
+              )
+            )
+            """
+        )
+        params["canonical_point_id"] = canonical_point_id
     if question_type:
         filters.append("q.question_type = :question_type")
         params["question_type"] = question_type

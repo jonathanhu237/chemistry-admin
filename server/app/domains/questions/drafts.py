@@ -20,6 +20,8 @@ def list_question_drafts(
     *,
     generation_id: str | None = None,
     experiment_id: str | None = None,
+    point_node_id: str | None = None,
+    canonical_point_id: str | None = None,
 ) -> dict[str, Any]:
     filters = ["1 = 1"]
     params: dict[str, Any] = {}
@@ -29,6 +31,42 @@ def list_question_drafts(
     if experiment_id:
         filters.append("d.experiment_id = :experiment_id")
         params["experiment_id"] = experiment_id
+    if point_node_id:
+        filters.append(
+            """
+            EXISTS (
+              SELECT 1
+              FROM jsonb_array_elements_text(
+                COALESCE(
+                  d.payload->'source_placement_node_ids',
+                  d.payload->'primary_point_node_ids',
+                  d.payload->'metadata'->'source_placement_node_ids',
+                  d.payload->'metadata'->'primary_point_node_ids',
+                  '[]'::jsonb
+                )
+              ) AS point_ids(value)
+              WHERE point_ids.value = :point_node_id
+            )
+            """
+        )
+        params["point_node_id"] = point_node_id
+    if canonical_point_id:
+        filters.append(
+            """
+            EXISTS (
+              SELECT 1
+              FROM jsonb_array_elements_text(
+                COALESCE(
+                  d.payload->'primary_canonical_point_ids',
+                  d.payload->'metadata'->'primary_canonical_point_ids',
+                  '[]'::jsonb
+                )
+              ) AS canonical_ids(value)
+              WHERE canonical_ids.value = :canonical_point_id
+            )
+            """
+        )
+        params["canonical_point_id"] = canonical_point_id
     with db_session() as session:
         rows = [
             dict(row)

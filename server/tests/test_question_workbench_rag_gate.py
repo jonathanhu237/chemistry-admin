@@ -49,6 +49,32 @@ def test_question_workbench_rag_gate_allows_when_bge_metrics_are_ok(monkeypatch)
     assert gate["bge_metrics"]["service"] == "bge-rag"
 
 
+def test_question_workbench_rag_gate_allows_configured_textbook_rag_without_bge_probe(monkeypatch):
+    def fail_urlopen(*args, **kwargs):
+        raise AssertionError("BGE metrics endpoint should not be probed when textbook RAG is configured")
+
+    monkeypatch.setattr(question_workbench_service, "get_settings", lambda: _rag_gate_settings())
+    monkeypatch.setattr(question_workbench_service, "ai_feature_enabled", lambda name: True)
+    monkeypatch.setattr(
+        question_workbench_service,
+        "effective_textbook_rag_settings",
+        lambda: {
+            "enabled": True,
+            "elasticsearch_url": "http://es.local:9200",
+            "index_name": "canonical-rag-chunks-qwen-v1",
+            "embedding": {"model": "text-embedding-v4", "api_key": "configured"},
+            "rerank": {"model": "gte-rerank-v2", "api_key": "configured"},
+        },
+    )
+    monkeypatch.setattr(question_workbench_service.urllib.request, "urlopen", fail_urlopen)
+
+    gate = _question_workbench_rag_gate()
+
+    assert gate["healthy"] is True
+    assert gate["bge_status"] == "textbook_rag"
+    assert gate["bge_metrics"]["service"] == "qwen-es-textbook-rag"
+
+
 def test_question_workbench_rag_gate_blocks_degraded_bge_metrics(monkeypatch):
     class FakeResponse:
         def __enter__(self):

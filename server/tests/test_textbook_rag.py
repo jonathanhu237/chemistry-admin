@@ -4,6 +4,7 @@ from typing import Any
 
 from server.app.domains.textbook_rag.clients import QwenEmbeddingClient, QwenRerankClient, _extract_rerank_scores
 import server.app.domains.textbook_rag.clients as client_module
+from server.app.domains.textbook_rag.cache import retrieve_textbook_evidence_cached, textbook_evidence_cache_fingerprints
 from server.app.domains.textbook_rag.index import textbook_chunk_index_mapping
 from server.app.domains.textbook_rag.retrieval import build_section_queries, retrieve_textbook_evidence
 import server.app.domains.textbook_rag.retrieval as retrieval_module
@@ -81,6 +82,70 @@ def test_textbook_chunk_mapping_records_model_metadata() -> None:
     assert mapping["mappings"]["_meta"]["embedding_model"] == "qwen-embed"
     assert mapping["mappings"]["_meta"]["embedding_dimension"] == 1024
     assert mapping["mappings"]["properties"]["embedding"]["dims"] == 1024
+
+
+def test_textbook_evidence_cache_fingerprint_excludes_api_keys() -> None:
+    settings_a = _settings()
+    settings_b = {
+        **_settings(),
+        "embedding": {**_settings()["embedding"], "api_key": "different-embedding-key"},
+        "rerank": {**_settings()["rerank"], "api_key": "different-rerank-key"},
+    }
+    point_context = {
+        "point_title": "氯水 + KBr + CCl4",
+        "content": {"principle_text": "Cl2氧化Br-。"},
+    }
+
+    assert textbook_evidence_cache_fingerprints(
+        point_context=point_context,
+        settings=settings_a,
+        point_node_id="point-1",
+        canonical_point_id="canon-1",
+    ) == textbook_evidence_cache_fingerprints(
+        point_context=point_context,
+        settings=settings_b,
+        point_node_id="point-1",
+        canonical_point_id="canon-1",
+    )
+
+
+def test_cached_textbook_evidence_does_not_call_retriever_on_hit() -> None:
+    class FakeResult:
+        rowcount = 0
+
+        def __init__(self, row: dict[str, Any] | None) -> None:
+            self.row = row
+
+        def mappings(self) -> "FakeResult":
+            return self
+
+        def first(self) -> dict[str, Any] | None:
+            return self.row
+
+    class FakeSession:
+        def execute(self, *_: Any, **__: Any) -> FakeResult:
+            return FakeResult(
+                {
+                    "package": {"ok": True, "source_count": 1, "sections": {}, "diagnostics": {}},
+                    "created_at": "2026-06-23T00:00:00Z",
+                    "updated_at": "2026-06-23T00:00:00Z",
+                }
+            )
+
+    def fail_retriever(**_: Any) -> dict[str, Any]:
+        raise AssertionError("retriever should not run on cache hit")
+
+    package = retrieve_textbook_evidence_cached(
+        FakeSession(),
+        point_context={"point_title": "氯水 + KBr + CCl4", "content": {"principle_text": "Cl2氧化Br-。"}},
+        settings=_settings(),
+        point_node_id="point-1",
+        canonical_point_id="canon-1",
+        retrieve_fn=fail_retriever,
+    )
+
+    assert package["cache"]["hit"] is True
+    assert package["ok"] is True
 
 
 def test_build_section_queries_uses_three_part_content() -> None:

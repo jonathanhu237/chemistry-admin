@@ -26,7 +26,7 @@ def test_markdown_catalog_skips_placeholder_chapter(tmp_path: Path) -> None:
 
     nodes = parse_catalog_markdown(catalog)
 
-    assert [node.title for node in nodes] == ["一、氢气的制备与性质", "氢气的制备"]
+    assert [node.title for node in nodes] == ["氢气的制备与性质", "氢气的制备"]
 
 
 def test_markdown_import_matches_titles_containing_slashes(tmp_path: Path) -> None:
@@ -76,6 +76,10 @@ def test_markdown_import_matches_titles_containing_slashes(tmp_path: Path) -> No
     assert plan["ok"] is True
     assert plan["counts"]["matched_content_records"] == 1
     assert plan["counts"]["equation_content_records"] == 1
+    assert [node.title for node in plan["nodes"] if node.node_kind == "directory"] == [
+        "卤素的氧化性",
+        "氯水、溴水分别与H2S / Na2S反应",
+    ]
 
 
 def test_markdown_import_splits_sibling_duplicate_canonical_points(tmp_path: Path) -> None:

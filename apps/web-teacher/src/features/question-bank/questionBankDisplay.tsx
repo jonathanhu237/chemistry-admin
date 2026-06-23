@@ -33,20 +33,20 @@ function pointDisplayTitle(point: {
 }
 
 export function questionTypeLabel(type?: string) {
-  if (type === "single_choice") return "??";
-  if (type === "true_false") return "??";
-  if (type === "fill_blank") return "??";
+  if (type === "single_choice") return "选择";
+  if (type === "true_false") return "判断";
+  if (type === "fill_blank") return "填空";
   return type || "-";
 }
 
 export function coverageTagLabel(tag?: string) {
   const labels: Record<string, string> = {
-    experiment_purpose: "????",
-    true_false: "???",
-    single_choice: "???",
-    fill_blank: "???",
-    evidence_based: "???",
-    diagnostic: "???",
+    experiment_purpose: "实验目的",
+    true_false: "判断题",
+    single_choice: "选择题",
+    fill_blank: "填空题",
+    evidence_based: "证据题",
+    diagnostic: "诊断题",
   };
   return labels[String(tag || "")] || String(tag || "-").replace(/_/g, " ");
 }
