@@ -6,8 +6,8 @@ export function AssessmentHomePanel() {
     <section className="learning-panel assessment-home-panel" aria-label="测评">
       <MobileEmptyState className="empty-learning-card assessment-empty-state" icon={<ClipboardList size={20} />}>
         <div>
-          <strong>完成章节学习后进入后测</strong>
-          <small>完成后这里会显示报告和错题讲解。</small>
+          <strong>测评中心</strong>
+          <small>可以自动组卷，也可以自己选择实验练习。</small>
         </div>
       </MobileEmptyState>
     </section>

@@ -299,6 +299,13 @@ export type QuestionWorkbenchSession = {
   updated_at?: string;
 };
 
+export type ClearQuestionWorkbenchEvidenceCacheResponse = {
+  deleted_count: number;
+  point_node_ids: string[];
+  canonical_point_ids: string[];
+  session: QuestionWorkbenchSession;
+};
+
 export type QuestionRegenerationAudit = {
   catalog_point_count: number;
   covered_point_count: number;
@@ -329,8 +336,98 @@ export type QuestionBankListResponse = ApiList<QuestionBankSummary> & {
   regeneration_audit?: QuestionRegenerationAudit;
 };
 
+export type CatalogQuestionBankCounts = {
+  question_count: number;
+  published_count: number;
+  draft_count: number;
+  disabled_count: number;
+  choice_count: number;
+  true_false_count: number;
+  fill_blank_count: number;
+  draft_candidate_count: number;
+  rejected_candidate_count: number;
+  published_candidate_count: number;
+  question_type_counts: Record<Question["question_type"], number>;
+  point_count?: number;
+  directory_count?: number;
+};
+
+export type CatalogQuestionBankEvidenceRefreshResponse = {
+  chapter_id?: string | null;
+  point_node_id?: string | null;
+  force: boolean;
+  target_count: number;
+  queued_count: number;
+  skipped_count: number;
+  skipped: Array<{ node_id: string; reason: string }>;
+  job_ids: string[];
+  qwen_call_estimate: number;
+  processing_started: boolean;
+  process_limit: number;
+  rag_gate?: Record<string, unknown>;
+};
+
+export type CatalogQuestionBankNode = {
+  node_id: string;
+  parent_id?: string | null;
+  chapter_id: string;
+  node_kind: "directory" | "point";
+  title: string;
+  summary?: string | null;
+  status: string;
+  display_order: number;
+  canonical_point_id?: string | null;
+  canonical_point_title?: string | null;
+  content_status?: string | null;
+  principle_mode?: "equation" | "text" | string | null;
+  principle_equation?: string | null;
+  principle_text?: string | null;
+  phenomenon_explanation?: string | null;
+  safety_note?: string | null;
+  media_count: number;
+  published_media_count: number;
+  evidence_status: string;
+  evidence_source_mode: string;
+  breadcrumb_titles: string[];
+  root_node_id: string;
+  experiment_id: string;
+  descendant_point_count: number;
+  counts: CatalogQuestionBankCounts;
+};
+
+export type CatalogQuestionBankChapter = {
+  chapter_id: string;
+  chapter_number?: number | null;
+  chapter_title: string;
+  element_area?: string | null;
+  point_count: number;
+};
+
+export type CatalogQuestionBankResponse = ApiList<CatalogQuestionBankNode> & {
+  chapters: CatalogQuestionBankChapter[];
+  chapter_id?: string | null;
+  totals: CatalogQuestionBankCounts;
+};
+
 export function listQuestionBanks(): Promise<QuestionBankListResponse> {
   return api<QuestionBankListResponse>("/api/admin/question-banks");
+}
+
+export function listCatalogQuestionBank(chapterId?: string): Promise<CatalogQuestionBankResponse> {
+  const params = new URLSearchParams();
+  if (chapterId) params.set("chapter_id", chapterId);
+  const suffix = params.toString() ? `?${params.toString()}` : "";
+  return api<CatalogQuestionBankResponse>(`/api/admin/question-banks/catalog${suffix}`);
+}
+
+export function refreshCatalogQuestionBankEvidence(payload: {
+  chapter_id?: string | null;
+  point_node_id?: string | null;
+  force?: boolean;
+  process_now?: boolean;
+  process_limit?: number;
+}): Promise<CatalogQuestionBankEvidenceRefreshResponse> {
+  return postJson<CatalogQuestionBankEvidenceRefreshResponse>("/api/admin/question-banks/catalog/evidence-refresh", payload);
 }
 
 export function listQuestionBankQuestions(params: URLSearchParams): Promise<ApiList<Question>> {
@@ -347,6 +444,13 @@ export function getQuestionWorkbenchSession(sessionId: string): Promise<Question
 
 export function createQuestionWorkbenchSession(payload: unknown): Promise<QuestionWorkbenchSession> {
   return postJson<QuestionWorkbenchSession>("/api/admin/question-banks/workbench-sessions", payload);
+}
+
+export function clearQuestionWorkbenchEvidenceCache(sessionId: string): Promise<ClearQuestionWorkbenchEvidenceCacheResponse> {
+  return postJson<ClearQuestionWorkbenchEvidenceCacheResponse>(
+    `/api/admin/question-banks/workbench-sessions/${sessionId}/evidence-cache/clear`,
+    {},
+  );
 }
 
 export function streamQuestionWorkbench<T>(path: string, body: unknown, onEvent: Parameters<typeof postJsonStream<T>>[2]): Promise<void> {

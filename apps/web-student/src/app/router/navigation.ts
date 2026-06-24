@@ -193,10 +193,32 @@ export function navigateToAssessmentSession(navigate: NavigateLike, sessionId: s
   });
 }
 
-export function navigateToAssessmentReport(navigate: NavigateLike, sessionId: string, from: StudentDetailSource): void {
+export function navigateToAssessmentCustom(navigate: NavigateLike, from: StudentDetailSource = "assessment"): void {
+  void navigate({
+    to: "/assessment/custom",
+    search: compactSearch({ from }),
+  });
+}
+
+export function navigateToAssessmentReport(navigate: NavigateLike, reportId: string, from: StudentDetailSource): void {
+  void navigate({
+    to: "/assessment/reports/$reportId",
+    params: { reportId },
+    search: compactSearch({ from }),
+  });
+}
+
+export function navigateToLegacyAssessmentReport(navigate: NavigateLike, sessionId: string, from: StudentDetailSource): void {
   void navigate({
     to: "/assessment/report/$sessionId",
     params: { sessionId },
+    search: compactSearch({ from }),
+  });
+}
+
+export function navigateToProfileReports(navigate: NavigateLike, from: StudentDetailSource = "profile"): void {
+  void navigate({
+    to: "/profile/reports",
     search: compactSearch({ from }),
   });
 }

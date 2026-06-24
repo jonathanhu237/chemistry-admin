@@ -7,6 +7,7 @@ import type {
   PublicPosttestQuestion,
   PublicPretestQuestion,
   CatalogPreviewNodeResponse,
+  StudentAssessmentReport,
   StudentAppConfigResponse,
   StudentCatalogChapterResponse,
   StudentCatalogNodeResponse,
@@ -14,9 +15,9 @@ import type {
   StudentLearningHomeResponse,
   StudentLearningPageResponse,
   StudentPointDetailResponse,
-  StudentPosttestReport,
-  StudentPosttestResponse,
   StudentPretestResponse,
+  StudentSmartAssessmentReport,
+  StudentSmartAssessmentResponse,
   StudentVideoLibrarySearchResponse,
 } from "./api";
 
@@ -89,6 +90,15 @@ const apiMocks = vi.hoisted(() => ({
   searchStudentVideoLibrary: vi.fn(),
   startStudentPosttest: vi.fn(),
   submitStudentPosttest: vi.fn(),
+  getStudentAssessmentStatus: vi.fn(),
+  getStudentAssessmentReports: vi.fn(),
+  getStudentAssessmentReport: vi.fn(),
+  dismissStudentSmartBaselinePrompt: vi.fn(),
+  startStudentSmartAssessment: vi.fn(),
+  startStudentPointAssessment: vi.fn(),
+  submitStudentSmartAssessment: vi.fn(),
+  getStudentCustomAssessmentOptions: vi.fn(),
+  startStudentCustomAssessment: vi.fn(),
   generatePosttestAiSummary: vi.fn(),
   explainPosttestMistakes: vi.fn(),
   streamStudentAssistantAsk: vi.fn(),
@@ -128,6 +138,15 @@ vi.mock("./api", () => ({
   searchStudentVideoLibrary: apiMocks.searchStudentVideoLibrary,
   startStudentPosttest: apiMocks.startStudentPosttest,
   submitStudentPosttest: apiMocks.submitStudentPosttest,
+  getStudentAssessmentStatus: apiMocks.getStudentAssessmentStatus,
+  getStudentAssessmentReports: apiMocks.getStudentAssessmentReports,
+  getStudentAssessmentReport: apiMocks.getStudentAssessmentReport,
+  dismissStudentSmartBaselinePrompt: apiMocks.dismissStudentSmartBaselinePrompt,
+  startStudentSmartAssessment: apiMocks.startStudentSmartAssessment,
+  startStudentPointAssessment: apiMocks.startStudentPointAssessment,
+  submitStudentSmartAssessment: apiMocks.submitStudentSmartAssessment,
+  getStudentCustomAssessmentOptions: apiMocks.getStudentCustomAssessmentOptions,
+  startStudentCustomAssessment: apiMocks.startStudentCustomAssessment,
   generatePosttestAiSummary: apiMocks.generatePosttestAiSummary,
   explainPosttestMistakes: apiMocks.explainPosttestMistakes,
   streamStudentAssistantAsk: apiMocks.streamStudentAssistantAsk,
@@ -804,15 +823,50 @@ const posttestQuestions: PublicPosttestQuestion[] = [
   },
 ];
 
-const posttestResponse: StudentPosttestResponse = {
+const posttestResponse: StudentSmartAssessmentResponse = {
   status: "in_progress",
   session_id: "posttest-session-e2e",
-  experiments: [{ id: "EXP_19_1_01", code: "19-1-01", title: "Halogen displacement", parent_code: "19-1", parent_title: "Experiment 19-1 Halogens" }],
+  assessment_mode: "smart",
+  strategy: {
+    enabled: true,
+    question_count: 1,
+    untested_ratio_percent: 20,
+    weak_tendency_percent: 70,
+    max_questions_per_experiment: 2,
+    weak_curve: 2,
+    weak_max_bonus: 9,
+  },
+  composition: {
+    total_questions: 1,
+    target_question_count: 1,
+    untested_question_count: 1,
+    measured_question_count: 0,
+    untested_ratio_percent: 20,
+    weak_tendency_percent: 70,
+    max_questions_per_experiment: 2,
+    warnings: {},
+  },
+  experiments: [
+    {
+      id: "EXP_19_1_01",
+      code: "19-1-01",
+      title: "Halogen displacement",
+      parent_code: "19-1",
+      parent_title: "Experiment 19-1 Halogens",
+      mastery_score: null,
+      evidence_count: 1,
+      source: "untested",
+      question_count: 1,
+    },
+  ],
   questions: posttestQuestions,
 };
 
-const report: StudentPosttestReport = {
+const report: StudentSmartAssessmentReport = {
   session_id: "posttest-session-e2e",
+  assessment_mode: "smart",
+  strategy: posttestResponse.strategy,
+  composition: posttestResponse.composition,
   experiments: posttestResponse.experiments,
   correct_count: 1,
   total_count: 1,
@@ -836,6 +890,35 @@ const report: StudentPosttestReport = {
     },
   ],
   next_recommendation: "Review halogen displacement.",
+};
+
+const assessmentReport: StudentAssessmentReport = {
+  id: "assessment-report-e2e",
+  student_id: "20249999",
+  class_id: "class-1",
+  report_type: "smart",
+  source_session_id: report.session_id,
+  title: "智能测评报告",
+  score: report.score,
+  correct_count: report.correct_count,
+  total_count: report.total_count,
+  correct_rate: report.correct_rate,
+  wrong_count: report.wrong_answers.length,
+  completed_at: "2026-06-25T10:00:00Z",
+  summary: {
+    text: "### Study summary\n\n- Review **halogens**.",
+    source: "ai",
+    mode: "test",
+    generated_at: "2026-06-25T10:00:01Z",
+  },
+  mistake_explanation: {
+    text: "### Mistake explanation\n\n- Bromine in CCl4 is orange.",
+    source: "ai",
+    mode: "test",
+    generated_at: "2026-06-25T10:00:02Z",
+  },
+  prompt_snapshot: {},
+  payload: report,
 };
 
 function rootButton(root: string): HTMLButtonElement {
@@ -895,6 +978,24 @@ function answerVisibleAssessment() {
   });
 }
 
+function installStorageStub(name: "localStorage" | "sessionStorage") {
+  if (window[name]) return;
+  const store = new Map<string, string>();
+  Object.defineProperty(window, name, {
+    configurable: true,
+    value: {
+      get length() {
+        return store.size;
+      },
+      clear: () => store.clear(),
+      getItem: (key: string) => store.get(key) ?? null,
+      key: (index: number) => Array.from(store.keys())[index] ?? null,
+      removeItem: (key: string) => store.delete(key),
+      setItem: (key: string, value: string) => store.set(key, String(value)),
+    },
+  });
+}
+
 async function submitVisibleAssessment() {
   answerVisibleAssessment();
   const submitButton = screen.getByRole("button", { name: "提交答案" });
@@ -916,6 +1017,8 @@ describe("student app route stack", () => {
     apiMocks.authToken = "student-token";
     vi.clearAllMocks();
     artplayerInstances.length = 0;
+    installStorageStub("sessionStorage");
+    installStorageStub("localStorage");
     window.sessionStorage.clear();
     window.localStorage.clear();
     window.history.replaceState({}, "", "/");
@@ -943,6 +1046,20 @@ describe("student app route stack", () => {
     apiMocks.startStudentPretest.mockResolvedValue(completedPretestResponse);
     apiMocks.submitStudentPretest.mockResolvedValue({ status: "completed", stage: null, questions: [] } satisfies StudentPretestResponse);
     apiMocks.getStudentAppConfig.mockResolvedValue(appConfig);
+    apiMocks.getStudentAssessmentStatus.mockResolvedValue({
+      has_completed_smart_baseline: true,
+      has_open_assessment: false,
+      open_session_id: null,
+      open_assessment_mode: null,
+      smart_baseline_prompt_dismissed: false,
+    });
+    apiMocks.dismissStudentSmartBaselinePrompt.mockResolvedValue({
+      has_completed_smart_baseline: false,
+      has_open_assessment: false,
+      open_session_id: null,
+      open_assessment_mode: null,
+      smart_baseline_prompt_dismissed: true,
+    });
     apiMocks.getStudentHomeVideoFeed.mockResolvedValue(homeVideoFeedResponse);
     apiMocks.getStudentLearningHome.mockResolvedValue(learningHome);
     apiMocks.getStudentLearningPage.mockResolvedValue(learningPage);
@@ -966,6 +1083,31 @@ describe("student app route stack", () => {
     apiMocks.searchStudentVideoLibrary.mockResolvedValue(videoLibraryResponse);
     apiMocks.startStudentPosttest.mockResolvedValue(posttestResponse);
     apiMocks.submitStudentPosttest.mockResolvedValue({ status: "completed", report });
+    apiMocks.startStudentSmartAssessment.mockResolvedValue(posttestResponse);
+    apiMocks.startStudentPointAssessment.mockResolvedValue({ ...posttestResponse, assessment_mode: "point" });
+    apiMocks.submitStudentSmartAssessment.mockResolvedValue({ status: "completed", report, assessment_report: assessmentReport });
+    apiMocks.getStudentAssessmentReports.mockResolvedValue({ reports: [assessmentReport] });
+    apiMocks.getStudentAssessmentReport.mockResolvedValue(assessmentReport);
+    apiMocks.getStudentCustomAssessmentOptions.mockResolvedValue({
+      settings: {
+        enabled: true,
+        question_count_options: [5, 10, 15, 20],
+        default_question_count: 10,
+        max_question_count: 20,
+        max_questions_per_experiment: 3,
+      },
+      experiments: [
+        {
+          id: "EXP_19_1_01",
+          code: "19-1-01",
+          title: "Halogen displacement",
+          parent_code: "19-1",
+          parent_title: "Experiment 19-1 Halogens",
+          question_count: 1,
+        },
+      ],
+    });
+    apiMocks.startStudentCustomAssessment.mockResolvedValue({ ...posttestResponse, assessment_mode: "custom" });
     apiMocks.generatePosttestAiSummary.mockResolvedValue({ text: "### Study summary\n\n- Review **halogens**.", source: "ai", mode: "test", cached: true });
     apiMocks.explainPosttestMistakes.mockResolvedValue({ text: "### Mistake explanation\n\n- $\\ce{Br2}$ is orange.", source: "ai", mode: "test", cached: true });
     apiMocks.streamStudentAssistantAsk.mockImplementation(async (_payload, onEvent) => {
@@ -976,6 +1118,72 @@ describe("student app route stack", () => {
   });
 
   afterEach(() => cleanup());
+
+  it("prompts first-time students to start a smart baseline assessment", async () => {
+    apiMocks.getStudentAssessmentStatus
+      .mockResolvedValueOnce({
+        has_completed_smart_baseline: false,
+        has_open_assessment: false,
+        open_session_id: null,
+        open_assessment_mode: null,
+        smart_baseline_prompt_dismissed: false,
+      })
+      .mockResolvedValue({
+        has_completed_smart_baseline: true,
+        has_open_assessment: false,
+        open_session_id: null,
+        open_assessment_mode: null,
+        smart_baseline_prompt_dismissed: false,
+      });
+
+    await renderAuthenticatedApp("/");
+
+    expect(await screen.findByRole("dialog", { name: "先做一次智能测评" })).toBeInTheDocument();
+    fireEvent.click(screen.getByRole("button", { name: "去测评" }));
+
+    await waitFor(() => expect(apiMocks.startStudentSmartAssessment).toHaveBeenCalledTimes(1));
+    await waitFor(() => expect(window.location.pathname).toBe("/assessment/session/posttest-session-e2e"));
+  });
+
+  it("lets students permanently dismiss the smart baseline prompt", async () => {
+    apiMocks.getStudentAssessmentStatus.mockResolvedValue({
+      has_completed_smart_baseline: false,
+      has_open_assessment: false,
+      open_session_id: null,
+      open_assessment_mode: null,
+      smart_baseline_prompt_dismissed: false,
+    });
+
+    await renderAuthenticatedApp("/");
+
+    expect(await screen.findByRole("dialog", { name: "先做一次智能测评" })).toBeInTheDocument();
+    fireEvent.click(screen.getByRole("button", { name: "不再提醒" }));
+
+    await waitFor(() => expect(apiMocks.dismissStudentSmartBaselinePrompt).toHaveBeenCalledTimes(1));
+    await waitFor(() => expect(screen.queryByRole("dialog", { name: "先做一次智能测评" })).not.toBeInTheDocument());
+  });
+
+  it("starts point-scoped assessment from a completed learning point", async () => {
+    await renderAuthenticatedApp("/point/cat-point-halogen?from=chapter&chapterId=CH17");
+
+    await waitFor(() => expect(apiMocks.getStudentCatalogPointDetail).toHaveBeenCalledWith("cat-point-halogen"));
+    fireEvent.click(screen.getByRole("button", { name: "测一测" }));
+
+    await waitFor(() => expect(apiMocks.startStudentPointAssessment).toHaveBeenCalledWith("cat-point-halogen"));
+    await waitFor(() => expect(window.location.pathname).toBe("/assessment/session/posttest-session-e2e"));
+    expect((await screen.findAllByRole("region", { name: "点位测评" })).length).toBeGreaterThan(0);
+  });
+
+  it("tells students when a point assessment entry continues an unfinished assessment", async () => {
+    apiMocks.startStudentPointAssessment.mockResolvedValueOnce({ ...posttestResponse, assessment_mode: "smart" });
+
+    await renderAuthenticatedApp("/point/cat-point-halogen?from=chapter&chapterId=CH17");
+
+    fireEvent.click(screen.getByRole("button", { name: "测一测" }));
+
+    await waitFor(() => expect(window.location.pathname).toBe("/assessment/session/posttest-session-e2e"));
+    expect(await screen.findByText("你还有一轮未完成测评，已为你继续打开原测评。完成后再回到本点位测一测。")).toBeInTheDocument();
+  });
 
   it("drives roots, details, contextual AI, assessment, and feedback through URLs instead of tab state", async () => {
     await renderAuthenticatedApp("/");
@@ -1229,22 +1437,32 @@ describe("student app route stack", () => {
     await waitFor(() => expect(window.location.pathname).toBe("/assessment/session/posttest-session-e2e"));
     expectBottomNavHidden();
     await submitVisibleAssessment();
-    await waitFor(() => expect(window.location.pathname).toBe("/assessment/report/posttest-session-e2e"));
+    await waitFor(() => expect(window.location.pathname).toBe("/assessment/reports/assessment-report-e2e"));
     expectBottomNavHidden();
+    await waitFor(() => expect(apiMocks.getStudentAssessmentReport).toHaveBeenCalledWith("assessment-report-e2e"));
     await waitFor(() => expect(document.querySelector(".summary-ai-text ul.ai-md-list")).not.toBeNull());
     fireEvent.click(screen.getByRole("button", { name: "问问Atom" }));
     await waitFor(() => expect(window.location.pathname).toBe("/ai/chat"));
     expectBottomNavHidden();
     act(() => window.history.back());
-    await waitFor(() => expect(window.location.pathname).toBe("/assessment/report/posttest-session-e2e"));
+    await waitFor(() => expect(window.location.pathname).toBe("/assessment/reports/assessment-report-e2e"));
 
     fireEvent.click(screen.getByRole("button", { name: "继续学习" }));
     await waitFor(() => expect(window.location.pathname).toBe("/learn"));
     expect(activeRoot()).toBe("learn");
 
     await clickRoot("profile");
+    fireEvent.click(screen.getByRole("button", { name: /测评报告/ }));
+    await waitFor(() => expect(window.location.pathname).toBe("/profile/reports"));
+    await waitFor(() => expect(apiMocks.getStudentAssessmentReports).toHaveBeenCalled());
+    fireEvent.click(screen.getByRole("button", { name: /智能测评报告/ }));
+    await waitFor(() => expect(window.location.pathname).toBe("/assessment/reports/assessment-report-e2e"));
+    act(() => window.history.back());
+    await waitFor(() => expect(window.location.pathname).toBe("/profile/reports"));
+    act(() => window.history.back());
+    await waitFor(() => expect(window.location.pathname).toBe("/profile"));
     expect(screen.queryByRole("form", { name: "学生端反馈" })).not.toBeInTheDocument();
-    fireEvent.click(document.querySelector<HTMLButtonElement>(".profile-entry-card")!);
+    fireEvent.click(screen.getByRole("button", { name: /提交反馈/ }));
     await waitFor(() => expect(window.location.pathname).toBe("/feedback/new"));
     expectBottomNavHidden();
     fireEvent.click(screen.getByRole("button", { name: "内容问题" }));
@@ -1428,6 +1646,7 @@ describe("student app route stack", () => {
     expect(screen.queryByText("带着这个点位问问Atom")).not.toBeInTheDocument();
     expect(document.querySelector(".finish-action")).toBeNull();
     expect(apiMocks.submitStudentPosttest).not.toHaveBeenCalled();
+    expect(apiMocks.submitStudentSmartAssessment).not.toHaveBeenCalled();
     expect(apiMocks.submitStudentFeedback).not.toHaveBeenCalled();
   });
 
@@ -2290,7 +2509,7 @@ describe("student app route stack", () => {
     await waitFor(() => expect(window.location.pathname).toBe("/feedback/new"));
     expectBottomNavHidden();
     expect(screen.getByRole("form", { name: "学生端反馈" })).toBeInTheDocument();
-  });
+  }, 15_000);
 
   it("surfaces wrong durable route type failures from directory and point APIs", async () => {
     apiMocks.getStudentCatalogNode.mockRejectedValueOnce(new Error("Catalog node is not a directory"));

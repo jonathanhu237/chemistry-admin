@@ -1,4 +1,5 @@
 import { api, patchJson, postJson, putJson } from "./http";
+import type { CustomAssessmentSettings, SmartAssessmentSettings } from "./settings";
 
 export type ClassItem = {
   id: string;
@@ -39,6 +40,48 @@ export type RegistrationSettings = {
   source?: "system_default" | "class" | null;
 };
 
+export type SmartAssessmentStrategyResponse = {
+  strategy: SmartAssessmentSettings;
+  inherited_strategy: SmartAssessmentSettings;
+  source: "system_default" | "class";
+  has_override: boolean;
+  can_edit: boolean;
+};
+
+export type SmartAssessmentClassPreviewExperiment = {
+  id: string;
+  title: string;
+  candidate_point_count: number;
+  untested_point_count: number;
+  measured_point_count: number;
+  average_mastery_score?: number | null;
+  estimated_draw_tickets: number;
+  estimated_question_count: number;
+};
+
+export type SmartAssessmentClassPreviewResponse = {
+  strategy: SmartAssessmentSettings;
+  source: "system_default" | "class";
+  has_override: boolean;
+  class_student_count: number;
+  candidate_point_count: number;
+  measured_point_count: number;
+  untested_point_count: number;
+  target_question_count: number;
+  untested_target_count: number;
+  measured_target_count: number;
+  experiments: SmartAssessmentClassPreviewExperiment[];
+  warnings: Record<string, unknown>;
+};
+
+export type CustomAssessmentSettingsResponse = {
+  settings: CustomAssessmentSettings;
+  inherited_settings: CustomAssessmentSettings;
+  source: "system_default" | "class";
+  has_override: boolean;
+  can_edit: boolean;
+};
+
 export function listClasses(): Promise<ClassItem[]> {
   return api<ClassItem[]>("/api/admin/classes");
 }
@@ -61,6 +104,40 @@ export function updateClass(classId: string, values: { class_name?: string; desc
 
 export function updateRegistrationSettings(classId: string, values: Partial<RegistrationSettings>): Promise<RegistrationSettings> {
   return putJson<RegistrationSettings>(`/api/admin/classes/${classId}/registration-settings`, values);
+}
+
+export function getSmartAssessmentStrategy(classId: string): Promise<SmartAssessmentStrategyResponse> {
+  return api<SmartAssessmentStrategyResponse>(`/api/admin/classes/${classId}/smart-assessment-strategy`);
+}
+
+export function updateSmartAssessmentStrategy(
+  classId: string,
+  values: SmartAssessmentSettings,
+): Promise<SmartAssessmentStrategyResponse> {
+  return putJson<SmartAssessmentStrategyResponse>(`/api/admin/classes/${classId}/smart-assessment-strategy`, values);
+}
+
+export function clearSmartAssessmentStrategy(classId: string): Promise<SmartAssessmentStrategyResponse> {
+  return api<SmartAssessmentStrategyResponse>(`/api/admin/classes/${classId}/smart-assessment-strategy`, { method: "DELETE" });
+}
+
+export function getSmartAssessmentPreview(classId: string): Promise<SmartAssessmentClassPreviewResponse> {
+  return api<SmartAssessmentClassPreviewResponse>(`/api/admin/classes/${classId}/smart-assessment-preview`);
+}
+
+export function getCustomAssessmentSettings(classId: string): Promise<CustomAssessmentSettingsResponse> {
+  return api<CustomAssessmentSettingsResponse>(`/api/admin/classes/${classId}/custom-assessment-settings`);
+}
+
+export function updateCustomAssessmentSettings(
+  classId: string,
+  values: CustomAssessmentSettings,
+): Promise<CustomAssessmentSettingsResponse> {
+  return putJson<CustomAssessmentSettingsResponse>(`/api/admin/classes/${classId}/custom-assessment-settings`, values);
+}
+
+export function clearCustomAssessmentSettings(classId: string): Promise<CustomAssessmentSettingsResponse> {
+  return api<CustomAssessmentSettingsResponse>(`/api/admin/classes/${classId}/custom-assessment-settings`, { method: "DELETE" });
 }
 
 export function upsertRosterStudent(classId: string, studentId: string | null, values: unknown): Promise<RosterStudent> {

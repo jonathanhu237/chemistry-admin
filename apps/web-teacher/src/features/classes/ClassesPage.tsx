@@ -8,10 +8,14 @@ import {
   Flex,
   Form,
   Input,
+  InputNumber,
   Modal,
   Popconfirm,
+  Select,
+  Slider,
   Space,
   Statistic,
+  Switch,
   Table,
   Tabs,
   Tag,
@@ -31,7 +35,24 @@ import {
   TeamOutlined,
 } from "@ant-design/icons";
 
-import type { ClassItem, RegistrationSettings, RosterImportResult, RosterStudent } from "../../api/classes";
+import { getSmartAssessmentPreview } from "../../api/classes";
+import {
+  getClassAssessmentReportPrompts,
+  resetClassAssessmentReportPrompts,
+  updateClassAssessmentReportPrompts,
+  type AssessmentReportPromptSettings,
+  type AssessmentReportPromptSettingsResponse,
+} from "../../api/assessmentReports";
+import type {
+  ClassItem,
+  CustomAssessmentSettingsResponse,
+  RegistrationSettings,
+  RosterImportResult,
+  RosterStudent,
+  SmartAssessmentClassPreviewResponse,
+  SmartAssessmentStrategyResponse,
+} from "../../api/classes";
+import type { CustomAssessmentSettings, SmartAssessmentSettings } from "../../api/settings";
 import { api, patchJson, postJson, putJson } from "../../api/http";
 import { PageTitle } from "../../components/PageTitle";
 import { QueryState } from "../../components/QueryState";
@@ -40,6 +61,156 @@ import { statusTag } from "../../lib/status";
 import "./classes.css";
 
 const { Text, Title } = Typography;
+
+const defaultSmartAssessment: SmartAssessmentSettings = {
+  enabled: true,
+  question_count: 10,
+  untested_ratio_percent: 20,
+  weak_tendency_percent: 70,
+  max_questions_per_experiment: 2,
+  weak_curve: 2,
+  weak_max_bonus: 9,
+};
+
+const questionCountOptions = [5, 10, 15, 20].map((value) => ({ label: `${value} 题`, value }));
+
+const defaultCustomAssessment: CustomAssessmentSettings = {
+  enabled: true,
+  default_question_count: 10,
+  max_question_count: 20,
+  max_questions_per_experiment: 3,
+};
+
+function normalizeSmartAssessment(value: Partial<SmartAssessmentSettings> | undefined): SmartAssessmentSettings {
+  const clean = Object.fromEntries(Object.entries(value || {}).filter(([, item]) => item !== undefined)) as Partial<SmartAssessmentSettings>;
+  return { ...defaultSmartAssessment, ...clean };
+}
+
+function normalizeCustomAssessment(value: Partial<CustomAssessmentSettings> | undefined): CustomAssessmentSettings {
+  const clean = Object.fromEntries(Object.entries(value || {}).filter(([, item]) => item !== undefined)) as Partial<CustomAssessmentSettings>;
+  const merged = { ...defaultCustomAssessment, ...clean };
+  return {
+    ...merged,
+    default_question_count: Math.min(merged.default_question_count, merged.max_question_count),
+  };
+}
+
+function smartTickets(settings: SmartAssessmentSettings, mastery: number) {
+  const weakness = Math.max(0, Math.min(1, (100 - mastery) / 100));
+  return 1 + (settings.weak_tendency_percent / 100) * settings.weak_max_bonus * Math.pow(weakness, settings.weak_curve);
+}
+
+function ClassSmartCurve({ settings }: { settings: SmartAssessmentSettings }) {
+  const marks = [0, 25, 50, 75, 100];
+  const max = Math.max(...marks.map((mastery) => smartTickets(settings, mastery)));
+  return (
+    <div className="class-smart-curve">
+      {marks.map((mastery) => {
+        const tickets = smartTickets(settings, mastery);
+        return (
+          <div key={mastery}>
+            <span>{mastery}</span>
+            <b style={{ width: `${Math.max(8, (tickets / max) * 100)}%` }} />
+            <small>{tickets.toFixed(1)} 票</small>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+const previewWarningLabels: Record<string, string> = {
+  no_candidate_points: "题库暂无可用于测评的点位题",
+  underfilled_by_candidate_points: "候选点位少于目标题数",
+  untested_pool_underfilled: "未测点位不足，正式组卷会回填已测点位",
+  measured_pool_empty: "暂无已测点位，正式组卷会优先覆盖未测点位",
+  experiment_cap_underfilled: "实验题数上限可能导致题量不足",
+};
+
+function ClassSmartDataPreview({
+  preview,
+  loading,
+}: {
+  preview?: SmartAssessmentClassPreviewResponse;
+  loading?: boolean;
+}) {
+  if (!preview) {
+    return (
+      <div className="class-smart-data-preview">
+        <Text type="secondary">{loading ? "正在估算当前班级分布..." : "暂无班级预估数据"}</Text>
+      </div>
+    );
+  }
+  const topExperiments = preview.experiments.slice(0, 6);
+  const maxEstimated = Math.max(1, ...topExperiments.map((item) => item.estimated_question_count));
+  const warnings = Object.entries(preview.warnings || {})
+    .filter(([, active]) => Boolean(active))
+    .map(([key]) => previewWarningLabels[key] || key);
+  return (
+    <div className="class-smart-data-preview">
+      <Flex justify="space-between" align="flex-start" gap={12}>
+        <div>
+          <Text strong>当前班级数据预估</Text>
+          <Text type="secondary" className="block-text">
+            估算值用于理解策略，正式试卷仍会按题库可用性和会话抽样生成。
+          </Text>
+        </div>
+        <Tag color={preview.source === "class" ? "green" : "default"}>{preview.has_override ? "本班策略" : "继承策略"}</Tag>
+      </Flex>
+      <div className="class-smart-preview-stats">
+        <Statistic title="班级学生" value={preview.class_student_count} />
+        <Statistic title="候选点位" value={preview.candidate_point_count} />
+        <Statistic title="未测点位" value={preview.untested_point_count} />
+        <Statistic title="未测目标" value={`${preview.untested_target_count}/${preview.target_question_count}`} />
+      </div>
+      {topExperiments.length ? (
+        <div className="class-smart-preview-bars">
+          {topExperiments.map((item) => (
+            <div key={item.id} className="class-smart-preview-row">
+              <span>{item.title}</span>
+              <b style={{ width: `${Math.max(6, (item.estimated_question_count / maxEstimated) * 100)}%` }} />
+              <small>
+                约 {item.estimated_question_count.toFixed(1)} 题 · 未测 {item.untested_point_count} · 已测 {item.measured_point_count}
+              </small>
+            </div>
+          ))}
+        </div>
+      ) : null}
+      {warnings.length ? (
+        <div className="class-smart-preview-warnings">
+          {warnings.map((item) => (
+            <Tag key={item} color="gold">
+              {item}
+            </Tag>
+          ))}
+        </div>
+      ) : null}
+    </div>
+  );
+}
+
+function PercentSlider({
+  value = 0,
+  onChange,
+}: {
+  value?: number;
+  onChange?: (value: number) => void;
+}) {
+  const current = Math.max(0, Math.min(100, Number(value) || 0));
+  return (
+    <div className="percent-slider">
+      <Slider
+        min={0}
+        max={100}
+        step={5}
+        value={current}
+        tooltip={{ formatter: (next) => `${next ?? 0}%` }}
+        onChange={(next) => onChange?.(Array.isArray(next) ? next[0] : next)}
+      />
+      <strong>{current}%</strong>
+    </div>
+  );
+}
 
 export function ClassesPage() {
   const { message } = AntApp.useApp();
@@ -58,6 +229,9 @@ export function ClassesPage() {
   const [classForm] = Form.useForm();
   const [classSettingsForm] = Form.useForm();
   const [registrationForm] = Form.useForm();
+  const [smartAssessmentForm] = Form.useForm();
+  const [customAssessmentForm] = Form.useForm();
+  const [reportPromptForm] = Form.useForm();
   const [studentForm] = Form.useForm();
   const classes = useQuery({ queryKey: ["classes"], queryFn: () => api<ClassItem[]>("/api/admin/classes") });
   const selectedClass = (classes.data || []).find((item) => item.id === selectedClassId) || null;
@@ -71,11 +245,55 @@ export function ClassesPage() {
     queryFn: () => api<RegistrationSettings>(`/api/admin/classes/${selectedClassId}/registration-settings`),
     enabled: Boolean(selectedClassId),
   });
+  const smartAssessment = useQuery({
+    queryKey: ["class-smart-assessment-strategy", selectedClassId],
+    queryFn: () => api<SmartAssessmentStrategyResponse>(`/api/admin/classes/${selectedClassId}/smart-assessment-strategy`),
+    enabled: Boolean(selectedClassId),
+  });
+  const smartAssessmentPreview = useQuery({
+    queryKey: ["class-smart-assessment-preview", selectedClassId],
+    queryFn: () => getSmartAssessmentPreview(selectedClassId || ""),
+    enabled: Boolean(selectedClassId),
+  });
+  const customAssessment = useQuery({
+    queryKey: ["class-custom-assessment-settings", selectedClassId],
+    queryFn: () => api<CustomAssessmentSettingsResponse>(`/api/admin/classes/${selectedClassId}/custom-assessment-settings`),
+    enabled: Boolean(selectedClassId),
+  });
+  const reportPrompts = useQuery({
+    queryKey: ["class-assessment-report-prompts", selectedClassId],
+    queryFn: () => getClassAssessmentReportPrompts(selectedClassId || ""),
+    enabled: Boolean(selectedClassId),
+  });
   const defaultPasswordMode =
     Form.useWatch("default_password_mode", registrationForm) ||
     registration.data?.default_password_mode ||
     (registration.data?.has_default_password ? "shared" : "student_id");
   const classStatus = Form.useWatch("status", classSettingsForm) || selectedClass?.status || "active";
+  const watchedSmartQuestionCount = Form.useWatch("question_count", smartAssessmentForm);
+  const watchedSmartUntestedRatio = Form.useWatch("untested_ratio_percent", smartAssessmentForm);
+  const watchedSmartWeakTendency = Form.useWatch("weak_tendency_percent", smartAssessmentForm);
+  const watchedSmartMaxPerExperiment = Form.useWatch("max_questions_per_experiment", smartAssessmentForm);
+  const watchedSmartEnabled = Form.useWatch("enabled", smartAssessmentForm);
+  const watchedCustomDefaultCount = Form.useWatch("default_question_count", customAssessmentForm);
+  const watchedCustomMaxCount = Form.useWatch("max_question_count", customAssessmentForm);
+  const watchedCustomMaxPerExperiment = Form.useWatch("max_questions_per_experiment", customAssessmentForm);
+  const watchedCustomEnabled = Form.useWatch("enabled", customAssessmentForm);
+  const smartPreview = normalizeSmartAssessment({
+    ...(smartAssessment.data?.strategy || {}),
+    enabled: watchedSmartEnabled,
+    question_count: watchedSmartQuestionCount,
+    untested_ratio_percent: watchedSmartUntestedRatio,
+    weak_tendency_percent: watchedSmartWeakTendency,
+    max_questions_per_experiment: watchedSmartMaxPerExperiment,
+  });
+  const customPreview = normalizeCustomAssessment({
+    ...(customAssessment.data?.settings || {}),
+    enabled: watchedCustomEnabled,
+    default_question_count: watchedCustomDefaultCount,
+    max_question_count: watchedCustomMaxCount,
+    max_questions_per_experiment: watchedCustomMaxPerExperiment,
+  });
   const rosterRows = roster.data || [];
   const currentRoster = rosterRows.filter((row) => row.status !== "disabled");
   const disabledRoster = rosterRows.filter((row) => row.status === "disabled");
@@ -113,6 +331,24 @@ export function ClassesPage() {
       });
     }
   }, [registration.data, registrationForm]);
+
+  useEffect(() => {
+    if (smartAssessment.data) {
+      smartAssessmentForm.setFieldsValue(smartAssessment.data.strategy);
+    }
+  }, [smartAssessment.data, smartAssessmentForm]);
+
+  useEffect(() => {
+    if (customAssessment.data) {
+      customAssessmentForm.setFieldsValue(customAssessment.data.settings);
+    }
+  }, [customAssessment.data, customAssessmentForm]);
+
+  useEffect(() => {
+    if (reportPrompts.data) {
+      reportPromptForm.setFieldsValue(reportPrompts.data.settings);
+    }
+  }, [reportPromptForm, reportPrompts.data]);
 
   useEffect(() => {
     if (!studentOpen) return;
@@ -160,6 +396,80 @@ export function ClassesPage() {
     },
     onSuccess: () => {
       void queryClient.invalidateQueries({ queryKey: ["class-registration-settings", selectedClassId] });
+    },
+    onError: (error) => message.error(errorMessage(error)),
+  });
+
+  const updateSmartAssessment = useMutation({
+    mutationFn: (values: SmartAssessmentSettings) => {
+      if (!selectedClassId) throw new Error("请先选择班级");
+      return putJson<SmartAssessmentStrategyResponse>(`/api/admin/classes/${selectedClassId}/smart-assessment-strategy`, values);
+    },
+    onSuccess: () => {
+      void queryClient.invalidateQueries({ queryKey: ["class-smart-assessment-strategy", selectedClassId] });
+      void queryClient.invalidateQueries({ queryKey: ["class-smart-assessment-preview", selectedClassId] });
+    },
+    onError: (error) => message.error(errorMessage(error)),
+  });
+
+  const resetSmartAssessment = useMutation({
+    mutationFn: () => {
+      if (!selectedClassId) throw new Error("请先选择班级");
+      return api<SmartAssessmentStrategyResponse>(`/api/admin/classes/${selectedClassId}/smart-assessment-strategy`, { method: "DELETE" });
+    },
+    onSuccess: (response) => {
+      message.success("已恢复为全局智能组卷策略");
+      smartAssessmentForm.setFieldsValue(response.strategy);
+      void queryClient.invalidateQueries({ queryKey: ["class-smart-assessment-strategy", selectedClassId] });
+      void queryClient.invalidateQueries({ queryKey: ["class-smart-assessment-preview", selectedClassId] });
+    },
+    onError: (error) => message.error(errorMessage(error)),
+  });
+
+  const updateCustomAssessment = useMutation({
+    mutationFn: (values: CustomAssessmentSettings) => {
+      if (!selectedClassId) throw new Error("请先选择班级");
+      return putJson<CustomAssessmentSettingsResponse>(`/api/admin/classes/${selectedClassId}/custom-assessment-settings`, values);
+    },
+    onSuccess: () => {
+      void queryClient.invalidateQueries({ queryKey: ["class-custom-assessment-settings", selectedClassId] });
+    },
+    onError: (error) => message.error(errorMessage(error)),
+  });
+
+  const resetCustomAssessment = useMutation({
+    mutationFn: () => {
+      if (!selectedClassId) throw new Error("请先选择班级");
+      return api<CustomAssessmentSettingsResponse>(`/api/admin/classes/${selectedClassId}/custom-assessment-settings`, { method: "DELETE" });
+    },
+    onSuccess: (response) => {
+      message.success("已恢复为全局自主测评设置");
+      customAssessmentForm.setFieldsValue(response.settings);
+      void queryClient.invalidateQueries({ queryKey: ["class-custom-assessment-settings", selectedClassId] });
+    },
+    onError: (error) => message.error(errorMessage(error)),
+  });
+
+  const updateReportPrompts = useMutation({
+    mutationFn: (values: AssessmentReportPromptSettings) => {
+      if (!selectedClassId) throw new Error("请先选择班级");
+      return updateClassAssessmentReportPrompts(selectedClassId, values);
+    },
+    onSuccess: () => {
+      void queryClient.invalidateQueries({ queryKey: ["class-assessment-report-prompts", selectedClassId] });
+    },
+    onError: (error) => message.error(errorMessage(error)),
+  });
+
+  const resetReportPrompts = useMutation({
+    mutationFn: () => {
+      if (!selectedClassId) throw new Error("请先选择班级");
+      return resetClassAssessmentReportPrompts(selectedClassId);
+    },
+    onSuccess: (response: AssessmentReportPromptSettingsResponse) => {
+      message.success("已恢复继承全局报告 Prompt");
+      reportPromptForm.setFieldsValue(response.settings);
+      void queryClient.invalidateQueries({ queryKey: ["class-assessment-report-prompts", selectedClassId] });
     },
     onError: (error) => message.error(errorMessage(error)),
   });
@@ -222,12 +532,18 @@ export function ClassesPage() {
 
   const saveClassConfiguration = async () => {
     try {
-      const [classValues, registrationValues] = await Promise.all([
+      const [classValues, registrationValues, smartValues, customValues, reportPromptValues] = await Promise.all([
         classSettingsForm.validateFields(),
         registrationForm.validateFields(),
+        smartAssessmentForm.validateFields(),
+        customAssessmentForm.validateFields(),
+        reportPromptForm.validateFields(),
       ]);
       await updateClass.mutateAsync(classValues);
       await updateRegistration.mutateAsync(registrationValues);
+      await updateSmartAssessment.mutateAsync(normalizeSmartAssessment(smartValues as Partial<SmartAssessmentSettings>));
+      await updateCustomAssessment.mutateAsync(normalizeCustomAssessment(customValues as Partial<CustomAssessmentSettings>));
+      await updateReportPrompts.mutateAsync(reportPromptValues as AssessmentReportPromptSettings);
       message.success("班级设置已保存");
       setSettingsOpen(false);
     } catch (error) {
@@ -456,11 +772,20 @@ export function ClassesPage() {
         okText="保存设置"
         cancelText="取消"
         width={720}
-        confirmLoading={updateClass.isPending || updateRegistration.isPending}
+        confirmLoading={
+          updateClass.isPending ||
+          updateRegistration.isPending ||
+          updateSmartAssessment.isPending ||
+          updateCustomAssessment.isPending ||
+          updateReportPrompts.isPending
+        }
         onCancel={() => setSettingsOpen(false)}
         onOk={() => void saveClassConfiguration()}
       >
-        <QueryState loading={registration.isLoading} error={registration.error}>
+        <QueryState
+          loading={registration.isLoading || smartAssessment.isLoading || customAssessment.isLoading || reportPrompts.isLoading}
+          error={registration.error || smartAssessment.error || customAssessment.error || reportPrompts.error}
+        >
           <Space orientation="vertical" size={18} className="full">
             <div className="modal-section">
               <Text strong>班级基本信息</Text>
@@ -553,6 +878,157 @@ export function ClassesPage() {
                     <Input value="使用学生学号" disabled />
                   </Form.Item>
                 )}
+              </Form>
+            </div>
+
+            <div className="modal-section">
+              <Flex justify="space-between" align="flex-start" gap={12}>
+                <div>
+                  <Text strong>智能组卷策略</Text>
+                  <Text type="secondary" className="block-text">
+                    默认继承系统设置；保存后本班会使用这里的题量、未测比例和薄弱倾向。
+                  </Text>
+                </div>
+                <Space>
+                  <Tag color={smartAssessment.data?.has_override ? "green" : "default"}>
+                    {smartAssessment.data?.has_override ? "本班覆盖" : "全局默认"}
+                  </Tag>
+                  <Button size="small" loading={resetSmartAssessment.isPending} onClick={() => resetSmartAssessment.mutate()}>
+                    恢复默认
+                  </Button>
+                </Space>
+              </Flex>
+              <Form form={smartAssessmentForm} layout="vertical" className="modal-form">
+                <Flex justify="space-between" align="center" gap={12} className="class-smart-switch">
+                  <div>
+                    <Text strong>允许学生智能测评</Text>
+                    <Text type="secondary" className="block-text">
+                      关闭后本班学生无法从测评中心开始智能组卷。
+                    </Text>
+                  </div>
+                  <Form.Item name="enabled" valuePropName="checked" noStyle>
+                    <Switch />
+                  </Form.Item>
+                </Flex>
+                <div className="settings-grid class-smart-grid">
+                  <Form.Item name="question_count" label="测评题数" rules={[{ required: true, message: "请输入测评题数" }]}>
+                    <InputNumber min={1} max={50} precision={0} className="full" />
+                  </Form.Item>
+                  <Form.Item
+                    name="max_questions_per_experiment"
+                    label="每个实验最多题数"
+                    rules={[{ required: true, message: "请输入每个实验最多题数" }]}
+                  >
+                    <InputNumber min={1} max={10} precision={0} className="full" />
+                  </Form.Item>
+                </div>
+                <Form.Item name="untested_ratio_percent" label="未测点位纳入比例">
+                  <PercentSlider />
+                </Form.Item>
+                <Form.Item name="weak_tendency_percent" label="薄弱倾向">
+                  <PercentSlider />
+                </Form.Item>
+                <div className="settings-grid class-smart-grid">
+                  <Form.Item
+                    name="weak_curve"
+                    label="薄弱曲线系数"
+                    help="数值越大，系统越集中照顾低掌握度点位。"
+                    rules={[{ required: true, message: "请输入薄弱曲线系数" }]}
+                  >
+                    <InputNumber min={0.5} max={4} step={0.1} precision={1} className="full" />
+                  </Form.Item>
+                  <Form.Item
+                    name="weak_max_bonus"
+                    label="最大权重加成"
+                    help="控制 0 分点位相对 100 分点位最多可增加多少抽题票。"
+                    rules={[{ required: true, message: "请输入最大权重加成" }]}
+                  >
+                    <InputNumber min={1} max={20} step={0.5} precision={1} className="full" />
+                  </Form.Item>
+                </div>
+                <ClassSmartCurve settings={smartPreview} />
+                <ClassSmartDataPreview preview={smartAssessmentPreview.data} loading={smartAssessmentPreview.isLoading} />
+              </Form>
+            </div>
+            <div className="modal-section">
+              <Flex justify="space-between" align="flex-start" gap={12}>
+                <div>
+                  <Text strong>自主测评设置</Text>
+                  <Text type="secondary" className="block-text">
+                    默认继承系统设置；保存后本班学生可以按这里的题量规则自行选择实验练习。
+                  </Text>
+                </div>
+                <Space>
+                  <Tag color={customAssessment.data?.has_override ? "green" : "default"}>
+                    {customAssessment.data?.has_override ? "本班覆盖" : "全局默认"}
+                  </Tag>
+                  <Button size="small" loading={resetCustomAssessment.isPending} onClick={() => resetCustomAssessment.mutate()}>
+                    恢复默认
+                  </Button>
+                </Space>
+              </Flex>
+              <Form form={customAssessmentForm} layout="vertical" className="modal-form">
+                <Flex justify="space-between" align="center" gap={12} className="class-smart-switch">
+                  <div>
+                    <Text strong>允许学生自主测评</Text>
+                    <Text type="secondary" className="block-text">
+                      关闭后本班学生无法进入自选实验组卷。
+                    </Text>
+                  </div>
+                  <Form.Item name="enabled" valuePropName="checked" noStyle>
+                    <Switch />
+                  </Form.Item>
+                </Flex>
+                <div className="settings-grid class-smart-grid">
+                  <Form.Item name="default_question_count" label="默认题数" rules={[{ required: true, message: "请选择默认题数" }]}>
+                    <Select options={questionCountOptions} />
+                  </Form.Item>
+                  <Form.Item name="max_question_count" label="学生可选题量上限" rules={[{ required: true, message: "请选择题量上限" }]}>
+                    <Select options={questionCountOptions} />
+                  </Form.Item>
+                  <Form.Item
+                    name="max_questions_per_experiment"
+                    label="每个实验最多题数"
+                    rules={[{ required: true, message: "请输入每个实验最多题数" }]}
+                  >
+                    <InputNumber min={1} max={10} precision={0} className="full" />
+                  </Form.Item>
+                </div>
+                <Text type="secondary" className="block-text class-custom-note">
+                  学生端默认选中 {customPreview.default_question_count} 题，可选题量最高 {customPreview.max_question_count} 题；每个实验最多抽{" "}
+                  {customPreview.max_questions_per_experiment} 题。
+                </Text>
+              </Form>
+            </div>
+            <div className="modal-section">
+              <Flex justify="space-between" align="flex-start" gap={12}>
+                <div>
+                  <Text strong>测评报告 Prompt</Text>
+                  <Text type="secondary" className="block-text">
+                    默认继承系统设置；保存后本班报告生成会优先使用这里的总结和错题讲解 Prompt。
+                  </Text>
+                </div>
+                <Space>
+                  <Tag color={reportPrompts.data?.has_override ? "green" : "default"}>
+                    {reportPrompts.data?.has_override ? "本班覆盖" : "继承全局"}
+                  </Tag>
+                  <Button size="small" loading={resetReportPrompts.isPending} onClick={() => resetReportPrompts.mutate()}>
+                    恢复默认
+                  </Button>
+                </Space>
+              </Flex>
+              <div className="class-report-prompt-vars">
+                {(reportPrompts.data?.supported_variables || []).map((item) => (
+                  <Tag key={item}>{item}</Tag>
+                ))}
+              </div>
+              <Form form={reportPromptForm} layout="vertical" className="modal-form">
+                <Form.Item name="summary_prompt" label="报告总结 Prompt" rules={[{ required: true, message: "请输入报告总结 Prompt" }]}>
+                  <Input.TextArea rows={6} maxLength={6000} showCount className="fixed-textarea monospace-textarea" />
+                </Form.Item>
+                <Form.Item name="mistake_prompt" label="错题讲解 Prompt" rules={[{ required: true, message: "请输入错题讲解 Prompt" }]}>
+                  <Input.TextArea rows={6} maxLength={6000} showCount className="fixed-textarea monospace-textarea" />
+                </Form.Item>
               </Form>
             </div>
           </Space>

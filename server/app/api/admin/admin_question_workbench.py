@@ -12,6 +12,7 @@ from server.app.experiment_admin_schemas import WorkbenchMessageRequest, Workben
 from server.app.domains.platform.settings import ai_feature_enabled
 from server.app.domains.questions.workbench import (
     OBJECTIVE_TYPES,
+    clear_question_workbench_evidence_cache,
     create_question_workbench_session,
     get_question_workbench_session,
     publish_question_workbench_candidate,
@@ -41,6 +42,14 @@ async def admin_get_question_workbench_session(
     user: AuthUser = Depends(require_teacher_console_user),
 ) -> dict[str, Any]:
     return get_question_workbench_session(session_id=session_id)
+
+
+@router.post("/question-banks/workbench-sessions/{session_id}/evidence-cache/clear")
+async def admin_clear_question_workbench_evidence_cache(
+    session_id: str = Path(min_length=1),
+    user: AuthUser = Depends(require_teacher_console_user),
+) -> dict[str, Any]:
+    return clear_question_workbench_evidence_cache(session_id=session_id, user=user)
 
 
 @router.post("/question-banks/workbench-sessions/{session_id}/messages/stream")

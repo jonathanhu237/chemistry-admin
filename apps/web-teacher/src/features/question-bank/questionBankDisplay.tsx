@@ -33,20 +33,20 @@ function pointDisplayTitle(point: {
 }
 
 export function questionTypeLabel(type?: string) {
-  if (type === "single_choice") return "??";
-  if (type === "true_false") return "??";
-  if (type === "fill_blank") return "??";
+  if (type === "single_choice") return "选择";
+  if (type === "true_false") return "判断";
+  if (type === "fill_blank") return "填空";
   return type || "-";
 }
 
 export function coverageTagLabel(tag?: string) {
   const labels: Record<string, string> = {
-    experiment_purpose: "????",
-    true_false: "???",
-    single_choice: "???",
-    fill_blank: "???",
-    evidence_based: "???",
-    diagnostic: "???",
+    experiment_purpose: "实验目的",
+    true_false: "判断题",
+    single_choice: "选择题",
+    fill_blank: "填空题",
+    evidence_based: "证据题",
+    diagnostic: "诊断题",
   };
   return labels[String(tag || "")] || String(tag || "-").replace(/_/g, " ");
 }
@@ -218,15 +218,85 @@ export type QuestionWorkbenchGateState = {
   tone: "ready" | "checking" | "blocked";
 };
 
+export const textbookSectionLabels: Record<string, string> = {
+  principle: "实验原理",
+  phenomenon: "现象解释",
+  safety: "安全提示",
+};
+
+export type WorkbenchEvidenceSection = {
+  pointKey: string;
+  pointTitle: string;
+  section: string;
+  sufficient: boolean;
+  sourceCount: number;
+  sources: Record<string, unknown>[];
+  missingReason: string;
+};
+
+function asRecord(value: unknown): Record<string, unknown> {
+  return value && typeof value === "object" && !Array.isArray(value) ? (value as Record<string, unknown>) : {};
+}
+
+export function workbenchEvidenceSectionsFromPackage(evidencePackage?: Record<string, unknown> | null): WorkbenchEvidenceSection[] {
+  const pointPackages = asRecord(evidencePackage?.point_packages);
+  const fromPointPackages = Object.entries(pointPackages).flatMap(([pointKey, rawPointPackage]) => {
+    const pointPackage = asRecord(rawPointPackage);
+    const point = asRecord(pointPackage.point);
+    const sections = asRecord(pointPackage.sections);
+    return Object.entries(sections).map(([section, rawSectionPackage]) => {
+      const sectionPackage = asRecord(rawSectionPackage);
+      const sources = Array.isArray(sectionPackage.sources)
+        ? sectionPackage.sources.map((source) => asRecord(source))
+        : [];
+      return {
+        pointKey,
+        pointTitle: String(point.point_title || pointKey),
+        section,
+        sufficient: Boolean(sectionPackage.sufficient),
+        sourceCount: sources.length,
+        sources,
+        missingReason: String(sectionPackage.missing_reason || ""),
+      };
+    });
+  });
+  if (fromPointPackages.length) return fromPointPackages;
+  const sourceRefs = Array.isArray(evidencePackage?.source_refs)
+    ? evidencePackage.source_refs.map((source) => asRecord(source))
+    : [];
+  const grouped = new Map<string, WorkbenchEvidenceSection>();
+  sourceRefs.forEach((source) => {
+    const section = String(source.evidence_role || source.section || "supplemental");
+    const pointKey = String(source.point_node_id || source.canonical_point_id || "当前点位");
+    const key = `${pointKey}:${section}`;
+    const current =
+      grouped.get(key) ||
+      {
+        pointKey,
+        pointTitle: String(source.point_title || pointKey),
+        section,
+        sufficient: true,
+        sourceCount: 0,
+        sources: [],
+        missingReason: "",
+      };
+    current.sources.push(source);
+    current.sourceCount = current.sources.length;
+    grouped.set(key, current);
+  });
+  return Array.from(grouped.values());
+}
+
 export function questionWorkbenchGateFromRuntime(runtime?: LearningAssistantRuntime): QuestionWorkbenchGateState {
   const ragRuntime = runtime?.rag_runtime;
+  const textbookStatus = ragRuntime?.textbook_rag_status || "disabled";
   const bgeStatus = runtime?.bge_metrics?.ok
     ? "healthy"
     : runtime?.bge_status || (runtime?.bge_error ? "unreachable" : ragRuntime?.bge_service_required ? "checking" : "not_required");
-  const route = ragRuntime?.hybrid_bge_enabled
-    ? "来源检索正常"
+  const route = ragRuntime?.textbook_rag_enabled
+    ? `教材 RAG · ${ragRuntime.textbook_rag_index || "Qwen/ES"}`
     : ragRuntime?.rag_enabled
-      ? "基础来源检索"
+      ? "教材 RAG 未启用"
       : "来源检索关闭";
 
   if (!runtime || !ragRuntime) {
@@ -236,72 +306,21 @@ export function questionWorkbenchGateFromRuntime(runtime?: LearningAssistantRunt
       message: "正在确认来源检索状态，稍等一下再使用 AI 建议。",
       tagColor: "#356f9c",
       alertType: "info",
-      bgeStatus: "checking",
+      bgeStatus: textbookStatus || bgeStatus,
       route,
       tone: "checking",
     };
   }
-  if (!ragRuntime.rag_enabled) {
-    return {
-      healthy: false,
-      label: "AI 暂不可用",
-      message: "来源检索还没开启，暂时不能让 AI 出题或修题。",
-      tagColor: "#b42318",
-      alertType: "error",
-      bgeStatus,
-      route,
-      tone: "blocked",
-    };
-  }
-  if (!ragRuntime.hybrid_bge_enabled) {
-    return {
-      healthy: false,
-      label: "AI 暂不可用",
-      message: "来源检索还没准备好，暂时不能使用 AI 建议。",
-      tagColor: "#b42318",
-      alertType: "error",
-      bgeStatus,
-      route,
-      tone: "blocked",
-    };
-  }
-  if (!ragRuntime.query_generation_enabled) {
-    return {
-      healthy: false,
-      label: "AI 暂不可用",
-      message: "来源检索的扩展查询未开启，暂时不能使用 AI 建议。",
-      tagColor: "#b42318",
-      alertType: "error",
-      bgeStatus,
-      route,
-      tone: "blocked",
-    };
-  }
-  if (bgeStatus !== "healthy") {
-    const statusText: Record<string, string> = {
-      checking: "正在检查来源检索服务",
-      degraded: "来源检索服务异常",
-      unreachable: "来源检索服务连接不上",
-      not_configured: "来源检索服务未配置",
-    };
-    return {
-      healthy: false,
-      label: bgeStatus === "checking" ? "正在检查" : "AI 暂不可用",
-      message: `${statusText[bgeStatus] || "来源检索还没准备好"}，稍后再使用 AI 建议。`,
-      tagColor: bgeStatus === "checking" ? "#356f9c" : "#b42318",
-      alertType: bgeStatus === "checking" ? "info" : "error",
-      bgeStatus,
-      route,
-      tone: bgeStatus === "checking" ? "checking" : "blocked",
-    };
-  }
   return {
     healthy: true,
-    label: "AI 建议可用",
-    message: "会先读取当前实验和点位的来源片段，再生成出题/修题建议。",
+    label: "AI 出题可用",
+    message:
+      textbookStatus === "healthy"
+        ? "出题会读取已绑定教材证据；需要更新证据时可刷新本章或当前点位。"
+        : "出题只读取已绑定教材证据；刷新证据前需先检查 Qwen/ES 配置。",
     tagColor: "#005826",
     alertType: "success",
-    bgeStatus,
+    bgeStatus: textbookStatus,
     route,
     tone: "ready",
   };

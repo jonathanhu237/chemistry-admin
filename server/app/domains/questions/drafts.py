@@ -13,6 +13,7 @@ from server.app.domains.questions.bank import (
     _json_array,
     _validate_question_payload,
 )
+from server.app.domains.questions.duplicate_risk import attach_duplicate_risk_for_payload
 from server.app.domains.questions.generation import question_payload_has_catalog_evidence_lineage
 
 
@@ -20,6 +21,8 @@ def list_question_drafts(
     *,
     generation_id: str | None = None,
     experiment_id: str | None = None,
+    point_node_id: str | None = None,
+    canonical_point_id: str | None = None,
 ) -> dict[str, Any]:
     filters = ["1 = 1"]
     params: dict[str, Any] = {}
@@ -29,6 +32,42 @@ def list_question_drafts(
     if experiment_id:
         filters.append("d.experiment_id = :experiment_id")
         params["experiment_id"] = experiment_id
+    if point_node_id:
+        filters.append(
+            """
+            EXISTS (
+              SELECT 1
+              FROM jsonb_array_elements_text(
+                COALESCE(
+                  d.payload->'source_placement_node_ids',
+                  d.payload->'primary_point_node_ids',
+                  d.payload->'metadata'->'source_placement_node_ids',
+                  d.payload->'metadata'->'primary_point_node_ids',
+                  '[]'::jsonb
+                )
+              ) AS point_ids(value)
+              WHERE point_ids.value = :point_node_id
+            )
+            """
+        )
+        params["point_node_id"] = point_node_id
+    if canonical_point_id:
+        filters.append(
+            """
+            EXISTS (
+              SELECT 1
+              FROM jsonb_array_elements_text(
+                COALESCE(
+                  d.payload->'primary_canonical_point_ids',
+                  d.payload->'metadata'->'primary_canonical_point_ids',
+                  '[]'::jsonb
+                )
+              ) AS canonical_ids(value)
+              WHERE canonical_ids.value = :canonical_point_id
+            )
+            """
+        )
+        params["canonical_point_id"] = canonical_point_id
     with db_session() as session:
         rows = [
             dict(row)
@@ -57,7 +96,14 @@ def update_question_draft(
     draft_id: str,
 ) -> dict[str, Any]:
     normalized, errors = _validate_question_payload({**payload.payload, "status": "draft"})
+    draft_payload = normalized or {**payload.payload, "status": "draft"}
     with db_session() as session:
+        draft_payload = attach_duplicate_risk_for_payload(
+            session,
+            payload=draft_payload,
+            owner_kind="draft",
+            owner_id=draft_id,
+        )
         row = (
             session.execute(
                 text(
@@ -73,7 +119,7 @@ def update_question_draft(
                 ),
                 {
                     "id": draft_id,
-                    "payload": _json(normalized or payload.payload),
+                    "payload": _json(draft_payload),
                     "errors": _json_array(errors),
                     "status": payload.status,
                 },
@@ -102,6 +148,12 @@ def publish_question_draft(
         if draft["status"] != "draft":
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Only draft questions can be published")
         payload = dict(draft["payload"] or {})
+        payload = attach_duplicate_risk_for_payload(
+            session,
+            payload=payload,
+            owner_kind="draft",
+            owner_id=draft_id,
+        )
         if not question_payload_has_catalog_evidence_lineage(payload):
             raise HTTPException(
                 status_code=status.HTTP_400_BAD_REQUEST,
@@ -117,8 +169,14 @@ def publish_question_draft(
             generation_id=str(draft["generation_id"]),
         )
         session.execute(
-            text("UPDATE experiment_question_drafts SET status = 'published', updated_at = now() WHERE id = CAST(:id AS uuid)"),
-            {"id": draft_id},
+            text(
+                """
+                UPDATE experiment_question_drafts
+                SET payload = CAST(:payload AS jsonb), status = 'published', updated_at = now()
+                WHERE id = CAST(:id AS uuid)
+                """
+            ),
+            {"id": draft_id, "payload": _json(payload)},
         )
     return inserted
 

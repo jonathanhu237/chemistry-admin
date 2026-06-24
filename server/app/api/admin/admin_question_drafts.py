@@ -21,9 +21,16 @@ router = APIRouter(prefix="/api/admin", tags=["experiment-admin"])
 async def admin_list_question_drafts(
     generation_id: str | None = None,
     experiment_id: str | None = None,
+    point_node_id: str | None = None,
+    canonical_point_id: str | None = None,
     user: AuthUser = Depends(require_teacher_console_user),
 ) -> dict[str, Any]:
-    return list_question_drafts(generation_id=generation_id, experiment_id=experiment_id)
+    return list_question_drafts(
+        generation_id=generation_id,
+        experiment_id=experiment_id,
+        point_node_id=point_node_id,
+        canonical_point_id=canonical_point_id,
+    )
 
 
 @router.patch("/question-banks/drafts/{draft_id}")

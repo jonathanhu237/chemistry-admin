@@ -32,6 +32,12 @@ export function routeRoleForPath(pathname: string): StudentRouteRole {
 }
 
 export function fallbackRootPath(source?: string | null): string {
+  if (source === "assessment-custom" || source === "assessment-session" || source === "assessment-report") {
+    return rootPathById.assessment;
+  }
+  if (source === "profile-reports") {
+    return rootPathById.profile;
+  }
   if (source && rootIds.includes(source as StudentRootRouteId)) {
     return rootPathById[source as StudentRootRouteId];
   }

@@ -501,6 +501,18 @@
       "owner": "admin-api"
     },
     {
+      "method": "GET",
+      "path": "/api/admin/question-banks/catalog",
+      "name": "admin_list_catalog_question_bank",
+      "owner": "admin-api"
+    },
+    {
+      "method": "POST",
+      "path": "/api/admin/question-banks/catalog/evidence-refresh",
+      "name": "admin_refresh_catalog_question_bank_evidence",
+      "owner": "admin-api"
+    },
+    {
       "method": "POST",
       "path": "/api/admin/question-banks/assistant/preview",
       "name": "admin_question_bank_assistant_preview",
@@ -618,6 +630,12 @@
       "method": "GET",
       "path": "/api/admin/question-banks/workbench-sessions/{session_id}",
       "name": "admin_get_question_workbench_session",
+      "owner": "admin-api"
+    },
+    {
+      "method": "POST",
+      "path": "/api/admin/question-banks/workbench-sessions/{session_id}/evidence-cache/clear",
+      "name": "admin_clear_question_workbench_evidence_cache",
       "owner": "admin-api"
     },
     {

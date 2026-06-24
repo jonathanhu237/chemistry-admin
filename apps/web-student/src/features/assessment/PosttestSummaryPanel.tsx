@@ -1,13 +1,17 @@
 import { useEffect, useState } from "react";
-import { Atom, BarChart3, BookOpenCheck, CheckCircle2, FlaskConical, LoaderCircle } from "lucide-react";
-import { StudentPosttestReport, errorMessage, explainPosttestMistakes, generatePosttestAiSummary } from "../../api";
+import { Atom, BarChart3, BookOpenCheck, CheckCircle2, FlaskConical, LoaderCircle, Sparkles } from "lucide-react";
+import type { StudentSmartAssessmentReport } from "../../api";
+import { errorMessage, explainPosttestMistakes, generatePosttestAiSummary } from "../../api";
 import { MobileButton, MobileEmptyState } from "../../mobile/primitives";
 import { AiMarkdownBlock } from "../../shared/markdown/AiMarkdownBlock";
 import { stripExperimentPrefix } from "./assessmentText";
 import { answerLabel, formatPercent, formatScore } from "./assessmentFormat";
 
-export function PosttestSummaryPanel({ report, onContinue }: { report: StudentPosttestReport; onContinue: () => void }) {
+export function PosttestSummaryPanel({ report, onContinue }: { report: StudentSmartAssessmentReport; onContinue: () => void }) {
   const masteryChanges = report.mastery_changes.slice(0, 5);
+  const isCustom = report.assessment_mode === "custom";
+  const isPoint = report.assessment_mode === "point";
+  const targetCount = report.composition.requested_question_count || report.composition.target_question_count;
   const [aiSummary, setAiSummary] = useState(report.next_recommendation);
   const [aiSummaryLoading, setAiSummaryLoading] = useState(true);
   const [aiSummarySource, setAiSummarySource] = useState<"ai" | "fallback">("fallback");
@@ -62,10 +66,10 @@ export function PosttestSummaryPanel({ report, onContinue }: { report: StudentPo
         </span>
         <div>
           <p>学习总结</p>
-          <h2>本轮实验报告</h2>
+          <h2>{isCustom ? "自主测评报告" : isPoint ? "点位测评报告" : "智能测评报告"}</h2>
           <AiMarkdownBlock className="summary-ai-text" text={aiSummaryLoading ? "正在生成 Atom 学习总结..." : aiSummary} />
           <em>
-            <Atom size={13} />
+            {aiSummarySource === "ai" ? <Atom size={13} /> : <Sparkles size={13} />}
             {aiSummarySource === "ai" ? "Atom 总结" : "规则总结"}
           </em>
         </div>
@@ -73,7 +77,7 @@ export function PosttestSummaryPanel({ report, onContinue }: { report: StudentPo
 
       <section className="summary-grid">
         <div>
-          <span>后测正确率</span>
+          <span>测评正确率</span>
           <strong>{formatPercent(report.correct_rate)}</strong>
           <small>
             {report.correct_count}/{report.total_count} 题
@@ -88,17 +92,85 @@ export function PosttestSummaryPanel({ report, onContinue }: { report: StudentPo
         </div>
       </section>
 
+      <section className="summary-grid smart-composition-grid">
+        {isCustom ? (
+          <>
+            <div>
+              <span>自选实验</span>
+              <strong>{report.experiments.length}</strong>
+              <small>本轮选择范围</small>
+            </div>
+            <div>
+              <span>组卷题量</span>
+              <strong>{report.total_count}</strong>
+              <small>目标 {targetCount} 题</small>
+            </div>
+          </>
+        ) : isPoint ? (
+          <>
+            <div>
+              <span>测评点位</span>
+              <strong>{report.composition.selected_point_count || report.experiments.reduce((total, experiment) => total + (experiment.points?.length || 0), 0)}</strong>
+              <small>完成学习后测评</small>
+            </div>
+            <div>
+              <span>组卷题量</span>
+              <strong>{report.total_count}</strong>
+              <small>目标 {targetCount} 题</small>
+            </div>
+          </>
+        ) : (
+          <>
+            <div>
+              <span>未测点位</span>
+              <strong>{report.composition.untested_question_count}</strong>
+              <small>目标占比 {report.composition.untested_ratio_percent}%</small>
+            </div>
+            <div>
+              <span>薄弱点位</span>
+              <strong>{report.composition.measured_question_count}</strong>
+              <small>薄弱倾向 {report.composition.weak_tendency_percent}%</small>
+            </div>
+          </>
+        )}
+      </section>
+
       <section className="detail-section">
-        <h3>本轮实验</h3>
+        <h3>本轮组卷实验</h3>
         <div className="learned-list">
           {report.experiments.map((experiment) => (
             <div key={experiment.id}>
               <FlaskConical size={16} />
               <span>{stripExperimentPrefix(experiment.title)}</span>
+              <small>
+                {isCustom
+                  ? `自选实验 · 点位 ${experiment.points?.length || 0}`
+                  : isPoint
+                    ? `点位测评 · ${experiment.points?.length || 0} 个点位`
+                  : experiment.source === "untested"
+                    ? `未测点位 · ${experiment.points?.length || 0} 个`
+                    : `掌握度 ${formatScore(experiment.mastery_score)} · 点位 ${experiment.measured_point_count || 0}/${experiment.total_point_count || experiment.points?.length || 0}`}
+              </small>
             </div>
           ))}
         </div>
       </section>
+
+      {report.experiments.some((experiment) => experiment.points?.length) ? (
+        <section className="detail-section">
+          <h3>点位诊断</h3>
+          <div className="mastery-list">
+            {report.experiments.flatMap((experiment) =>
+              (experiment.points || []).slice(0, 4).map((point) => (
+                <div key={`${experiment.id}-${point.id}`}>
+                  <span>{point.title}</span>
+                  <strong>{point.mastery_score === null || point.mastery_score === undefined ? "未测" : formatScore(point.mastery_score)}</strong>
+                </div>
+              )),
+            )}
+          </div>
+        </section>
+      ) : null}
 
       {masteryChanges.length ? (
         <section className="detail-section">
@@ -106,7 +178,7 @@ export function PosttestSummaryPanel({ report, onContinue }: { report: StudentPo
           <div className="mastery-list">
             {masteryChanges.map((item) => (
               <div key={item.knowledge_point_id}>
-                <span>{item.content || item.knowledge_point_id}</span>
+                <span>{item.point_title || item.content || item.knowledge_point_id}</span>
                 <strong>
                   {formatScore(item.before_score)} → {formatScore(item.after_score)}
                 </strong>

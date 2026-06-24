@@ -12,9 +12,11 @@ import { PreviewCatalogPointPage } from "../../routes/learn/PreviewCatalogPointP
 import { AiRootPage } from "../../routes/ai/AiRootPage";
 import { AiChatPage } from "../../routes/ai/AiChatPage";
 import { AssessmentRootPage } from "../../routes/assessment/AssessmentRootPage";
+import { AssessmentCustomPage } from "../../routes/assessment/AssessmentCustomPage";
 import { AssessmentSessionPage } from "../../routes/assessment/AssessmentSessionPage";
 import { AssessmentReportPage } from "../../routes/assessment/AssessmentReportPage";
 import { ProfileRootPage } from "../../routes/profile/ProfileRootPage";
+import { ProfileReportsPage } from "../../routes/profile/ProfileReportsPage";
 import { FeedbackPage } from "../../routes/profile/FeedbackPage";
 import { UnifiedSearchPage } from "../../routes/search/UnifiedSearchPage";
 import { VideoLibraryPage } from "../../routes/video-library/VideoLibraryPage";
@@ -131,6 +133,13 @@ const assessmentRootRoute = createRoute({
   component: AssessmentRootPage,
 });
 
+const assessmentCustomRoute = createRoute({
+  getParentRoute: () => authenticatedRoute,
+  path: "/assessment/custom",
+  validateSearch: parseStudentRouteSearch,
+  component: AssessmentCustomPage,
+});
+
 const assessmentSessionRoute = createRoute({
   getParentRoute: () => authenticatedRoute,
   path: "/assessment/session/$sessionId",
@@ -145,10 +154,24 @@ const assessmentReportRoute = createRoute({
   component: AssessmentReportPage,
 });
 
+const assessmentPersistedReportRoute = createRoute({
+  getParentRoute: () => authenticatedRoute,
+  path: "/assessment/reports/$reportId",
+  validateSearch: parseStudentRouteSearch,
+  component: AssessmentReportPage,
+});
+
 const profileRoute = createRoute({
   getParentRoute: () => authenticatedRoute,
   path: "/profile",
   component: ProfileRootPage,
+});
+
+const profileReportsRoute = createRoute({
+  getParentRoute: () => authenticatedRoute,
+  path: "/profile/reports",
+  validateSearch: parseStudentRouteSearch,
+  component: ProfileReportsPage,
 });
 
 const feedbackRoute = createRoute({
@@ -175,9 +198,12 @@ const routeTree = rootRoute.addChildren([
     aiRoute,
     aiChatRoute,
     assessmentRootRoute,
+    assessmentCustomRoute,
     assessmentSessionRoute,
     assessmentReportRoute,
+    assessmentPersistedReportRoute,
     profileRoute,
+    profileReportsRoute,
     feedbackRoute,
   ]),
 ]);
