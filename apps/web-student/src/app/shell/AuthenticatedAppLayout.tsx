@@ -2,7 +2,7 @@ import { useCallback, useEffect, useMemo, useRef, useState, type CSSProperties }
 import { Outlet, useLocation, useNavigate } from "@tanstack/react-router";
 import { LockKeyhole, Search } from "lucide-react";
 import { assistantEnabled, defaultStudentAppConfig, feedbackEnabled, previewRouteBlocked } from "../appConfig";
-import { errorMessage, getStudentAppConfig, startStudentPosttest, type StudentAppConfigResponse } from "../../api";
+import { errorMessage, getStudentAppConfig, startStudentPosttest, type StudentAppConfigResponse, type StudentHomeVideoTopic } from "../../api";
 import { storePosttestSession } from "../router/assessmentSessionStore";
 import { navigateToVideoLibrary } from "../router/navigation";
 import { rootIdForPath, routeRoleForPath } from "../router/routeVisibility";
@@ -23,7 +23,24 @@ const rootHeaderMeta: Record<StudentRootRouteId, { title: string; subtitle: stri
   profile: { title: "我的", subtitle: "账号与反馈" },
 };
 
-const homeVideoTopics = ["推荐", "全部", "最新", "颜色变化", "沉淀", "气体", "分层", "褪色", "火焰", "放热", "卤素", "酸碱", "氧化还原"];
+const homeVideoTopics: Array<{ id: StudentHomeVideoTopic; label: string }> = [
+  { id: "discover", label: "发现" },
+  { id: "watch_later", label: "稍后学习" },
+  { id: "all", label: "全部" },
+  { id: "color_change", label: "颜色变化" },
+  { id: "precipitation", label: "沉淀生成" },
+  { id: "gas_generation", label: "气体生成" },
+  { id: "layer_extraction", label: "分层萃取" },
+  { id: "fading_bleaching", label: "褪色漂白" },
+  { id: "flame_light", label: "发光火焰" },
+  { id: "temperature_change", label: "温度变化" },
+  { id: "heating", label: "加热反应" },
+  { id: "test_paper", label: "试纸检验" },
+  { id: "indicator", label: "指示剂" },
+  { id: "crystallization", label: "晶体析出" },
+];
+
+type HomeChromeOverlayLock = "expanded" | "compressed";
 
 const ROOT_AI_COMPOSER_SELECTOR = ".ai-chat-panel.root .ai-chat-compose";
 
@@ -60,12 +77,14 @@ export function AuthenticatedAppLayout() {
   const [posttestLoading, setPosttestLoading] = useState(false);
   const [posttestError, setPosttestError] = useState("");
   const [navCompressed, setNavCompressed] = useState(false);
-  const [homeVideoTopic, setHomeVideoTopic] = useState(homeVideoTopics[0]);
+  const [homeChromeOverlayLock, setHomeChromeOverlayLock] = useState<HomeChromeOverlayLock | null>(null);
+  const [homeVideoTopic, setHomeVideoTopic] = useState<StudentHomeVideoTopic>(homeVideoTopics[0].id);
   const [rootComposerFocused, setRootComposerFocused] = useState(false);
   const [visualViewportHeight, setVisualViewportHeight] = useState(getVisualViewportHeight);
   const [visualViewportTop, setVisualViewportTop] = useState(getVisualViewportTop);
   const [keyboardBottomInset, setKeyboardBottomInset] = useState(() => getKeyboardBottomInset(getVisualViewportHeight(), getVisualViewportTop()));
   const lastScrollY = useRef(0);
+  const homeChromeOverlayLockRef = useRef<HomeChromeOverlayLock | null>(null);
   const focusDebugTimers = useRef<number[]>([]);
   const maxVisualViewportHeight = useRef(0);
   const rootKeyboardCompressed = useRef(false);
@@ -73,6 +92,19 @@ export function AuthenticatedAppLayout() {
   const previewMode = Boolean(baseContext.user.preview_mode || appConfig.preview_mode);
   const isRootAiRoute = isRootRoute && activeRoot === "ai";
   const keyboardActive = isRootAiRoute && rootComposerFocused;
+
+  const releaseHomeChromeForOverlay = useCallback(() => {
+    homeChromeOverlayLockRef.current = null;
+    setHomeChromeOverlayLock(null);
+    lastScrollY.current = window.scrollY;
+  }, []);
+
+  const lockHomeChromeForOverlay = useCallback(() => {
+    const nextLock: HomeChromeOverlayLock = navCompressed ? "compressed" : "expanded";
+    homeChromeOverlayLockRef.current = nextLock;
+    setHomeChromeOverlayLock(nextLock);
+    lastScrollY.current = window.scrollY;
+  }, [navCompressed]);
 
   useEffect(() => {
     let cancelled = false;
@@ -110,6 +142,10 @@ export function AuthenticatedAppLayout() {
 
     const handleScroll = () => {
       const nextScrollY = window.scrollY;
+      if (homeChromeOverlayLockRef.current) {
+        lastScrollY.current = nextScrollY;
+        return;
+      }
       const delta = nextScrollY - lastScrollY.current;
       if (nextScrollY < 64 || delta < -14) {
         setNavCompressed(false);
@@ -124,6 +160,11 @@ export function AuthenticatedAppLayout() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, [isRootRoute, location.pathname]);
+
+  useEffect(() => {
+    if (isRootRoute && activeRoot === "home") return;
+    releaseHomeChromeForOverlay();
+  }, [activeRoot, isRootRoute, releaseHomeChromeForOverlay]);
 
   useEffect(() => {
     rootKeyboardCompressed.current = false;
@@ -245,15 +286,32 @@ export function AuthenticatedAppLayout() {
       previewPolicy: appConfig.preview_policy,
       canUseAssistant: assistantEnabled(appConfig.features),
       canUseFeedback: feedbackEnabled(appConfig.features),
+      homeVideoTopic,
+      setHomeVideoTopic,
+      lockHomeChromeForOverlay,
+      releaseHomeChromeForOverlay,
       startAssessmentSession,
       posttestLoading,
       posttestError,
     }),
-    [appConfig, baseContext, configError, posttestError, posttestLoading, previewMode, startAssessmentSession],
+    [
+      appConfig,
+      baseContext,
+      configError,
+      homeVideoTopic,
+      lockHomeChromeForOverlay,
+      posttestError,
+      posttestLoading,
+      previewMode,
+      releaseHomeChromeForOverlay,
+      startAssessmentSession,
+    ],
   );
 
   const headerMeta = activeRoot ? rootHeaderMeta[activeRoot] : null;
   const shouldRenderHeader = Boolean(headerMeta && !(isRootRoute && activeRoot === "ai"));
+  const effectiveNavCompressed =
+    isRootRoute && (homeChromeOverlayLock === "compressed" || (homeChromeOverlayLock !== "expanded" && navCompressed));
   const shellStyle = useMemo(
     () =>
       ({
@@ -273,7 +331,8 @@ export function AuthenticatedAppLayout() {
           isRootRoute ? "root-route" : "detail-route",
           isCatalogDetailRoute ? "catalog-detail-route" : "",
           activeRoot ? `root-${activeRoot}` : "",
-          navCompressed && isRootRoute ? "nav-compressed" : "",
+          effectiveNavCompressed ? "nav-compressed" : "",
+          homeChromeOverlayLock === "expanded" ? "home-chrome-overlay-expanded" : "",
           keyboardActive ? "keyboard-active" : "",
         ]
           .filter(Boolean)
@@ -301,12 +360,12 @@ export function AuthenticatedAppLayout() {
                   {homeVideoTopics.map((topic) => (
                     <button
                       type="button"
-                      key={topic}
-                      className={topic === homeVideoTopic ? "active" : ""}
-                      aria-pressed={topic === homeVideoTopic}
-                      onClick={() => setHomeVideoTopic(topic)}
+                      key={topic.id}
+                      className={topic.id === homeVideoTopic ? "active" : ""}
+                      aria-pressed={topic.id === homeVideoTopic}
+                      onClick={() => setHomeVideoTopic(topic.id)}
                     >
-                      {topic}
+                      {topic.label}
                     </button>
                   ))}
                 </div>

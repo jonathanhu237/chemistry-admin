@@ -1,5 +1,5 @@
 import { createContext, useContext } from "react";
-import type { AuthUser, StudentAppConfigResponse, StudentPosttestResponse } from "../../api";
+import type { AuthUser, StudentAppConfigResponse, StudentHomeVideoTopic, StudentPosttestResponse } from "../../api";
 
 export type StudentShellBaseContextValue = {
   user: AuthUser;
@@ -13,6 +13,10 @@ export type StudentRuntimeContextValue = StudentShellBaseContextValue & {
   previewPolicy: StudentAppConfigResponse["preview_policy"];
   canUseAssistant: boolean;
   canUseFeedback: boolean;
+  homeVideoTopic: StudentHomeVideoTopic;
+  setHomeVideoTopic: (topic: StudentHomeVideoTopic) => void;
+  lockHomeChromeForOverlay: () => void;
+  releaseHomeChromeForOverlay: () => void;
   startAssessmentSession: () => Promise<StudentPosttestResponse | null>;
   posttestLoading: boolean;
   posttestError: string;

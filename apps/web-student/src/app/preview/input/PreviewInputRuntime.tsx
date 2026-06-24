@@ -297,6 +297,39 @@ function messageMatchesHandshake(message: PreviewInputMessage, origin: string, f
   return allowedOrigins(teacherOrigin).has(origin);
 }
 
+export function clearPreviewTextSelection(): void {
+  const selection = window.getSelection?.();
+  if (!selection || selection.rangeCount === 0) return;
+  selection.removeAllRanges();
+}
+
+function setInlineStyleProperty(element: HTMLElement, property: string, value: string): () => void {
+  const previousValue = element.style.getPropertyValue(property);
+  const previousPriority = element.style.getPropertyPriority(property);
+  element.style.setProperty(property, value);
+  return () => {
+    if (previousValue) {
+      element.style.setProperty(property, previousValue, previousPriority);
+    } else {
+      element.style.removeProperty(property);
+    }
+  };
+}
+
+function suppressPreviewTextSelection(): () => void {
+  const restoreDocumentUserSelect = setInlineStyleProperty(document.documentElement, "user-select", "none");
+  const restoreDocumentWebkitUserSelect = setInlineStyleProperty(document.documentElement, "-webkit-user-select", "none");
+  const restoreBodyUserSelect = document.body ? setInlineStyleProperty(document.body, "user-select", "none") : () => {};
+  const restoreBodyWebkitUserSelect = document.body ? setInlineStyleProperty(document.body, "-webkit-user-select", "none") : () => {};
+
+  return () => {
+    restoreBodyWebkitUserSelect();
+    restoreBodyUserSelect();
+    restoreDocumentWebkitUserSelect();
+    restoreDocumentUserSelect();
+  };
+}
+
 function releaseTargetForSequence(sequence: ActivePreviewInputSequence, point: PreviewInputPoint): Element | null {
   return sequence.pressTarget?.isConnected ? sequence.pressTarget : elementFromPreviewPoint(point);
 }
@@ -325,6 +358,8 @@ export function PreviewInputRuntime() {
     }
 
     const { frameId, teacherOrigin } = readPreviewInputHandshake();
+    const restoreTextSelectionSuppression = suppressPreviewTextSelection();
+    clearPreviewTextSelection();
 
     const clearLongPressTimer = () => {
       if (longPressTimerRef.current !== null) {
@@ -339,6 +374,7 @@ export function PreviewInputRuntime() {
     };
 
     const cancelActiveSequence = () => {
+      clearPreviewTextSelection();
       const activeSequence = activeSequenceRef.current;
       if (activeSequence) {
         const cancelTarget = releaseTargetForSequence(activeSequence, activeSequence.lastPoint);
@@ -361,6 +397,7 @@ export function PreviewInputRuntime() {
     const handleMessage = (event: MessageEvent) => {
       const message = parsePreviewInputMessage(event.data);
       if (!message || !messageMatchesHandshake(message, event.origin, frameId, teacherOrigin)) return;
+      clearPreviewTextSelection();
 
       if (message.type === "hover") return;
 
@@ -444,6 +481,7 @@ export function PreviewInputRuntime() {
       window.removeEventListener("message", handleMessage);
       window.removeEventListener("beforeunload", cancelActiveSequence);
       cancelActiveSequence();
+      restoreTextSelectionSuppression();
     };
   }, [enabled]);
 

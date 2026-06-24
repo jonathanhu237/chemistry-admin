@@ -11,6 +11,7 @@ import { PreviewCatalogNodePage } from "../../routes/learn/PreviewCatalogNodePag
 import { PreviewCatalogPointPage } from "../../routes/learn/PreviewCatalogPointPage";
 import { AiRootPage } from "../../routes/ai/AiRootPage";
 import { AiChatPage } from "../../routes/ai/AiChatPage";
+import { AiArtifactDetailPage } from "../../routes/ai/AiArtifactDetailPage";
 import { AssessmentRootPage } from "../../routes/assessment/AssessmentRootPage";
 import { AssessmentSessionPage } from "../../routes/assessment/AssessmentSessionPage";
 import { AssessmentReportPage } from "../../routes/assessment/AssessmentReportPage";
@@ -125,6 +126,13 @@ const aiChatRoute = createRoute({
   component: AiChatPage,
 });
 
+const aiArtifactRoute = createRoute({
+  getParentRoute: () => authenticatedRoute,
+  path: "/ai/artifact/$historyId/$messageId/$artifactId",
+  validateSearch: parseStudentRouteSearch,
+  component: AiArtifactDetailPage,
+});
+
 const assessmentRootRoute = createRoute({
   getParentRoute: () => authenticatedRoute,
   path: "/assessment",
@@ -174,6 +182,7 @@ const routeTree = rootRoute.addChildren([
     videoLibraryRoute,
     aiRoute,
     aiChatRoute,
+    aiArtifactRoute,
     assessmentRootRoute,
     assessmentSessionRoute,
     assessmentReportRoute,
