@@ -9,7 +9,9 @@ import {
   useState,
 } from "react";
 import { Atom, CheckCircle2, Copy, LoaderCircle, Plus, RotateCcw, Send, ThumbsDown, ThumbsUp, XCircle } from "lucide-react";
+import LottieImport, { type LottieRefCurrentProps } from "lottie-react";
 import { type StudentAssistantStreamEvent, StudentAssistantFinalMetadata, errorMessage, streamStudentAssistantAsk } from "../../api";
+import atomThinkingAnimation from "../../assets/lottie/atom-thinking.json";
 import { MobileTextArea } from "../../mobile/primitives";
 import { AiMarkdownBlock } from "../../shared/markdown/AiMarkdownBlock";
 import { defaultAssistantContext, type AssistantContext } from "./assistantContext";
@@ -23,6 +25,12 @@ import {
   upsertStudentAiHistory,
 } from "./assistantHistoryStore";
 
+const Lottie = (
+  typeof LottieImport === "function"
+    ? LottieImport
+    : (LottieImport as unknown as { default: typeof LottieImport }).default
+) as typeof LottieImport;
+
 export type StudentAiChatPanelVariant = "root" | "detail";
 
 type StudentAiChatPanelProps = {
@@ -35,14 +43,57 @@ type StudentAiChatPanelProps = {
 };
 
 type AssistantTurnFeedback = "positive" | "negative";
+type AssistantStreamPhaseKey = string;
+type AssistantVisibleThinking = {
+  source: "reasoning_summary" | "agent_trace";
+  message: string;
+  sequence?: number;
+};
+
+type AssistantStreamPhase = {
+  key: AssistantStreamPhaseKey;
+  label: string;
+};
+
+const ASSISTANT_THINKING_PHASE_MIN_VISIBLE_MS = 1400;
+const ASSISTANT_THINKING_TRANSITION_MS = 420;
+const ATOM_THINKING_LOTTIE_SPEED = 0.618;
+
+function assistantStreamPhase(status: string, hasAnswer: boolean): AssistantStreamPhase {
+  if (hasAnswer) return { key: "generating", label: "正在生成回答" };
+  const text = String(status || "");
+  if (text.includes("检索") || text.includes("课程") || text.includes("RAG") || text.includes("资料") || text.includes("证据")) {
+    return { key: "retrieval", label: "正在检索课程资料" };
+  }
+  if (text.includes("判断") || text.includes("安全") || text.includes("问题") || text.includes("策略")) {
+    return { key: "scope", label: "正在判断问题范围" };
+  }
+  if (text.includes("返回")) return { key: "returning", label: "正在返回学习建议" };
+  return { key: "generating", label: "正在生成回答" };
+}
 
 function assistantStreamPhaseLabel(status: string, hasAnswer: boolean): string {
-  if (hasAnswer) return "正在生成回答";
-  const text = String(status || "");
-  if (text.includes("检索") || text.includes("课程") || text.includes("RAG") || text.includes("资料")) return "正在检索课程资料";
-  if (text.includes("判断") || text.includes("安全") || text.includes("问题")) return "正在判断问题范围";
-  if (text.includes("返回")) return "正在返回学习建议";
-  return "正在生成回答";
+  return assistantStreamPhase(status, hasAnswer).label;
+}
+
+function normalizeVisibleThinkingEvent(event: StudentAssistantStreamEvent): AssistantVisibleThinking | null {
+  if (event.event !== "thinking") return null;
+  if (event.source !== "reasoning_summary" && event.source !== "agent_trace") return null;
+  const message = typeof event.message === "string" ? event.message.trim() : "";
+  if (!message || message.length > 48) return null;
+  return {
+    source: event.source,
+    message,
+    sequence: typeof event.sequence === "number" ? event.sequence : undefined,
+  };
+}
+
+function assistantVisibleThinkingPhase(thinking: AssistantVisibleThinking | null, status: string, hasAnswer: boolean): AssistantStreamPhase {
+  if (thinking) {
+    const sequenceKey = typeof thinking.sequence === "number" ? thinking.sequence : thinking.message;
+    return { key: `thinking-${thinking.source}-${sequenceKey}`, label: thinking.message };
+  }
+  return assistantStreamPhase(status, hasAnswer);
 }
 
 function normalizeAssistantMetadata(value: unknown): StudentAssistantFinalMetadata | undefined {
@@ -77,6 +128,15 @@ function latestSuggestedPrompts(messages: StudentAiChatMessage[], loading: boole
 
 function streamEventDebugSnapshot(event?: StudentAssistantStreamEvent): Record<string, unknown> | undefined {
   if (!event) return undefined;
+  if (event.event === "thinking") {
+    return {
+      event: event.event,
+      source: event.source,
+      phase: event.phase,
+      sequence: event.sequence,
+      messageLength: typeof event.message === "string" ? event.message.length : undefined,
+    };
+  }
   if (event.event === "delta") {
     return {
       event: event.event,
@@ -213,6 +273,147 @@ function AssistantSkeleton() {
   );
 }
 
+function usePrefersReducedMotion() {
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(() => {
+    if (typeof window === "undefined" || !window.matchMedia) return false;
+    return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  });
+
+  useEffect(() => {
+    if (typeof window === "undefined" || !window.matchMedia) return;
+    const media = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const handleChange = () => setPrefersReducedMotion(media.matches);
+    handleChange();
+    if (typeof media.addEventListener === "function") {
+      media.addEventListener("change", handleChange);
+      return () => media.removeEventListener("change", handleChange);
+    }
+    media.addListener(handleChange);
+    return () => media.removeListener(handleChange);
+  }, []);
+
+  return prefersReducedMotion;
+}
+
+function AtomThinkingMark() {
+  const prefersReducedMotion = usePrefersReducedMotion();
+  const atomLottieRef = useRef<LottieRefCurrentProps>(null);
+
+  useEffect(() => {
+    if (prefersReducedMotion) return;
+    atomLottieRef.current?.setSpeed(ATOM_THINKING_LOTTIE_SPEED);
+  }, [prefersReducedMotion]);
+
+  return (
+    <span className="ai-thinking-atom-mark" aria-hidden="true" data-motion={prefersReducedMotion ? "reduced" : "looping"}>
+      {prefersReducedMotion ? (
+        <Atom className="ai-thinking-atom-static" size={30} strokeWidth={2.15} />
+      ) : (
+        <Lottie
+          lottieRef={atomLottieRef}
+          className="ai-thinking-lottie"
+          animationData={atomThinkingAnimation}
+          loop
+          autoplay
+        />
+      )}
+    </span>
+  );
+}
+
+function AssistantThinkingLine({ phase }: { phase: AssistantStreamPhase }) {
+  const [currentPhase, setCurrentPhase] = useState(phase);
+  const [outgoingPhase, setOutgoingPhase] = useState<AssistantStreamPhase | null>(null);
+  const currentPhaseRef = useRef(phase);
+  const queuedPhaseRef = useRef<AssistantStreamPhase | null>(null);
+  const currentPhaseStartedRef = useRef(Date.now());
+  const clearOutgoingRef = useRef<number | null>(null);
+
+  const applyQueuedPhaseRef = useRef<number | null>(null);
+  const startPhaseTransition = useCallback((nextPhase: AssistantStreamPhase) => {
+    const previousPhase = currentPhaseRef.current;
+    if (nextPhase.key === previousPhase.key) {
+      if (nextPhase.label !== previousPhase.label) {
+        currentPhaseRef.current = nextPhase;
+        setCurrentPhase(nextPhase);
+      }
+      return;
+    }
+
+    if (clearOutgoingRef.current !== null) window.clearTimeout(clearOutgoingRef.current);
+    setOutgoingPhase(previousPhase);
+    currentPhaseRef.current = nextPhase;
+    currentPhaseStartedRef.current = Date.now();
+    setCurrentPhase(nextPhase);
+    clearOutgoingRef.current = window.setTimeout(() => {
+      setOutgoingPhase(null);
+      clearOutgoingRef.current = null;
+    }, ASSISTANT_THINKING_TRANSITION_MS);
+  }, []);
+
+  useEffect(() => {
+    const previousPhase = currentPhaseRef.current;
+    if (phase.key === previousPhase.key) {
+      queuedPhaseRef.current = null;
+      if (applyQueuedPhaseRef.current !== null) {
+        window.clearTimeout(applyQueuedPhaseRef.current);
+        applyQueuedPhaseRef.current = null;
+      }
+      if (phase.label !== previousPhase.label) {
+        currentPhaseRef.current = phase;
+        setCurrentPhase(phase);
+      }
+      return;
+    }
+
+    queuedPhaseRef.current = phase;
+    if (applyQueuedPhaseRef.current !== null) window.clearTimeout(applyQueuedPhaseRef.current);
+    const elapsed = Date.now() - currentPhaseStartedRef.current;
+    const remaining = Math.max(0, ASSISTANT_THINKING_PHASE_MIN_VISIBLE_MS - elapsed);
+    if (remaining === 0) {
+      queuedPhaseRef.current = null;
+      startPhaseTransition(phase);
+      return;
+    }
+
+    applyQueuedPhaseRef.current = window.setTimeout(() => {
+      applyQueuedPhaseRef.current = null;
+      const queuedPhase = queuedPhaseRef.current;
+      queuedPhaseRef.current = null;
+      if (queuedPhase) startPhaseTransition(queuedPhase);
+    }, remaining);
+  }, [phase.key, phase.label, startPhaseTransition]);
+
+  useEffect(() => {
+    return () => {
+      if (applyQueuedPhaseRef.current !== null) {
+        window.clearTimeout(applyQueuedPhaseRef.current);
+        applyQueuedPhaseRef.current = null;
+      }
+      if (clearOutgoingRef.current !== null) {
+        window.clearTimeout(clearOutgoingRef.current);
+        clearOutgoingRef.current = null;
+      }
+    };
+  }, []);
+
+  return (
+    <div className="ai-thinking-line" role="status" aria-live="polite" aria-atomic="true" aria-label={currentPhase.label}>
+      <AtomThinkingMark />
+      <span className="ai-thinking-text-stack" aria-hidden="true">
+        {outgoingPhase ? (
+          <span className="ai-thinking-text outgoing" key={`out-${outgoingPhase.key}`}>
+            {outgoingPhase.label}
+          </span>
+        ) : null}
+        <span className={`ai-thinking-text current${outgoingPhase ? " incoming" : ""}`} key={`current-${currentPhase.key}`}>
+          {currentPhase.label}
+        </span>
+      </span>
+    </div>
+  );
+}
+
 function historySourceForVariant(variant: StudentAiChatPanelVariant): StudentAiHistorySource {
   return variant === "detail" ? "detail" : "root";
 }
@@ -324,6 +525,7 @@ export function StudentAiChatPanel({
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState("idle");
+  const [activeThinking, setActiveThinking] = useState<AssistantVisibleThinking | null>(null);
   const [activeContext, setActiveContext] = useState<AssistantContext>(context);
   const [activeHistoryId, setActiveHistoryId] = useState<string | null>(null);
   const [activeHistoryCreatedAt, setActiveHistoryCreatedAt] = useState<string | undefined>();
@@ -445,6 +647,7 @@ export function StudentAiChatPanel({
       setInput("");
       setComposerContextActive(false);
       setStatus("idle");
+      setActiveThinking(null);
       setLoading(false);
       setAssistantTurnFeedback({});
       setCopiedTurnKey(null);
@@ -457,6 +660,7 @@ export function StudentAiChatPanel({
     setInput("");
     setComposerContextActive(false);
     setStatus("idle");
+    setActiveThinking(null);
     setLoading(false);
     setAssistantTurnFeedback({});
     setCopiedTurnKey(null);
@@ -510,6 +714,7 @@ export function StudentAiChatPanel({
     setComposerContextActive(false);
     setLoading(false);
     setStatus("idle");
+    setActiveThinking(null);
     setAssistantTurnFeedback({});
     setCopiedTurnKey(null);
     setActiveHistoryId(null);
@@ -533,6 +738,7 @@ export function StudentAiChatPanel({
     setComposerContextActive(false);
     setLoading(true);
     setStatus("streaming");
+    setActiveThinking(null);
     const initialHistory = persistConversation(nextMessages, requestContext, historyId, createdAt);
     const createdAtForFinal = initialHistory.createdAt;
 
@@ -550,6 +756,12 @@ export function StudentAiChatPanel({
         },
         (event) => {
           lastStreamEvent = event;
+          const visibleThinking = normalizeVisibleThinkingEvent(event);
+          if (visibleThinking) {
+            debugPhase = "stream-thinking";
+            setActiveThinking(visibleThinking);
+            return;
+          }
           if (event.event === "status" && typeof event.message === "string") {
             debugPhase = "stream-status";
             setStatus(event.message);
@@ -588,6 +800,7 @@ export function StudentAiChatPanel({
               answer = finalMetadata.text;
             }
             setStatus("ai");
+            setActiveThinking(null);
             setMessages((current) => {
               const updated = [...current];
               const last = updated[updated.length - 1];
@@ -603,6 +816,7 @@ export function StudentAiChatPanel({
       const finalMessages: StudentAiChatMessage[] = [...baseMessages, userMessage, { role: "assistant", content: answer, metadata: finalMetadata }];
       setMessages(finalMessages);
       setStatus("ai");
+      setActiveThinking(null);
       debugPhase = "persist-final-history";
       persistConversation(finalMessages, requestContext, historyId, createdAtForFinal);
       debugPhase = "done";
@@ -620,6 +834,7 @@ export function StudentAiChatPanel({
       const message = errorMessage(requestError);
       const errorMessages: StudentAiChatMessage[] = [...baseMessages, userMessage, { role: "assistant", content: message, state: "error" }];
       setStatus("error");
+      setActiveThinking(null);
       setMessages(errorMessages);
       persistConversation(errorMessages, requestContext, historyId, createdAtForFinal);
     } finally {
@@ -726,11 +941,13 @@ export function StudentAiChatPanel({
           const assistantState = isLastError ? "error" : isActiveAssistant ? "running" : "done";
           const messageKey = `${message.role}-${index}`;
           const isRootFlatAssistant = isRootVariant && message.role === "assistant" && assistantState === "done";
+          const isRootThinkingAssistant = isRootVariant && message.role === "assistant" && assistantState === "running";
+          const activePhase = isActiveAssistant ? assistantVisibleThinkingPhase(activeThinking, status, Boolean(message.content.trim())) : null;
           return (
             <div className={`ai-message ${message.role} ${message.role === "assistant" ? assistantState : ""}`} key={messageKey}>
               {message.role === "assistant" ? (
                 <>
-                  {!isRootFlatAssistant ? (
+                  {!isRootFlatAssistant && !isRootThinkingAssistant ? (
                     <div className="ai-message-meta">
                     <span>
                       <Atom size={14} />
@@ -742,7 +959,9 @@ export function StudentAiChatPanel({
                     </em>
                     </div>
                   ) : null}
-                  {isActiveAssistant ? (
+                  {isRootThinkingAssistant && activePhase ? (
+                    <AssistantThinkingLine phase={activePhase} />
+                  ) : isActiveAssistant ? (
                     <div className="ai-stream-progress">
                       <span aria-hidden="true">
                         <i />
@@ -752,7 +971,7 @@ export function StudentAiChatPanel({
                       <strong>{assistantStreamPhaseLabel(status, Boolean(message.content.trim()))}</strong>
                     </div>
                   ) : null}
-                  {message.content.trim() ? <AiMarkdownBlock text={message.content} /> : isActiveAssistant ? <AssistantSkeleton /> : null}
+                  {message.content.trim() ? <AiMarkdownBlock text={message.content} /> : isActiveAssistant && !isRootThinkingAssistant ? <AssistantSkeleton /> : null}
                   {isRootFlatAssistant ? (
                     <AssistantTurnActions
                       turnKey={messageKey}

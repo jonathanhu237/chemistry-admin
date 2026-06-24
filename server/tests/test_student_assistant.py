@@ -128,12 +128,27 @@ def test_student_assistant_followup_sanitizer_filters_guardrails_and_allows_part
                 "RAG trace 怎么看？",
                 "请在家具体步骤怎么做？",
                 "正确答案选哪个？",
+                "想了解 Ellingham 图的判读方法？",
+                "需要解析 Frost 图分析反应？",
+                "要不要继续看方程式？",
+                "Ellingham 图怎么判读？",
+                "Frost 图怎么分析？",
                 "相关反应式是什么？",
             ]
         }
     )
 
-    assert result == ["这个现象如何判断？", "相关反应式是什么？"]
+    assert result == ["这个现象如何判断？", "Ellingham 图怎么判读？", "Frost 图怎么分析？", "相关反应式是什么？"]
+
+
+def test_student_assistant_followup_prompt_locks_student_question_voice() -> None:
+    prompt = student_assistant_module._FOLLOWUP_SYSTEM_PROMPT
+
+    assert "sent verbatim as the student's next message" in prompt
+    assert "written in the student's voice" in prompt
+    assert "Ellingham图怎么判读？" in prompt
+    assert "想了解...？" in prompt
+    assert "需要解析...？" in prompt
 
 
 def test_posttest_review_context_allows_submitted_answer_explanation() -> None:

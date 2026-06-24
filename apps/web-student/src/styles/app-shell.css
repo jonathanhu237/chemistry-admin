@@ -44,6 +44,27 @@
   padding-bottom: var(--mobile-bottom-action-space);
 }
 
+.student-app-shell.root-route.root-home {
+  --home-app-header-height: 88px;
+  --student-app-header-gap: 0px;
+}
+
+.student-app-shell.root-route.root-home .student-app-header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  width: min(100%, var(--mobile-content-max));
+  margin: 0 auto;
+  transform: translate3d(0, 0, 0);
+  transition: transform 150ms ease;
+  will-change: transform;
+}
+
+.student-app-shell.root-route.root-home.nav-compressed .student-app-header {
+  transform: translate3d(0, -100%, 0);
+}
+
 .student-app-header {
   position: sticky;
   top: 0;
@@ -60,12 +81,55 @@
 }
 
 .student-app-header.has-actions {
+  gap: 0;
+}
+
+.student-app-header.has-brand {
+  align-items: center;
+  min-height: calc(58px + env(safe-area-inset-top, 0px));
+  padding-top: calc(9px + env(safe-area-inset-top, 0px));
+  padding-bottom: 9px;
+}
+
+.student-app-header.has-below {
+  row-gap: 7px;
+  padding-bottom: 8px;
+}
+
+.student-app-shell.root-route.root-home .student-app-header.has-below {
+  padding-top: 0;
+  padding-bottom: 8px;
+}
+
+.student-app-header-title-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: center;
+  min-width: 0;
+}
+
+.student-app-header.has-actions .student-app-header-title-row {
   grid-template-columns: minmax(0, 1fr) auto;
   gap: 10px;
 }
 
-.student-app-header > div:first-child {
+.student-app-header-title-row > div:first-child {
   min-width: 0;
+}
+
+.student-app-header-brand {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+
+.student-app-header-logo {
+  display: block;
+  width: min(224px, calc(100vw - 122px));
+  max-width: 100%;
+  height: 34px;
+  object-fit: contain;
+  object-position: left center;
 }
 
 .student-app-header p,
@@ -122,6 +186,70 @@
   transform: translateY(1px);
 }
 
+.student-app-header-icon-action {
+  display: inline-grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 999px;
+  padding: 0;
+  color: var(--green);
+  background: transparent;
+  cursor: pointer;
+}
+
+.student-app-header-icon-action svg {
+  width: 29px;
+  height: 29px;
+  color: currentColor;
+  stroke-width: 2.3;
+}
+
+.student-app-header-icon-action:active {
+  transform: translateY(1px);
+}
+
+.student-app-header-below {
+  grid-column: 1 / -1;
+  min-width: 0;
+}
+
+.home-video-topic-rail {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  min-width: 0;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+}
+
+.home-video-topic-rail::-webkit-scrollbar {
+  display: none;
+}
+
+.home-video-topic-rail button {
+  flex: 0 0 auto;
+  min-height: 28px;
+  border: 1px solid rgba(0, 88, 38, 0.14);
+  border-radius: 8px;
+  padding: 0 10px;
+  color: var(--green);
+  background: rgba(0, 88, 38, 0.06);
+  font-size: 12px;
+  font-weight: 900;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.home-video-topic-rail button.active {
+  border-color: var(--green);
+  color: #ffffff;
+  background: var(--green);
+  box-shadow: 0 8px 18px rgba(0, 88, 38, 0.16);
+}
+
 .app-config-hint {
   position: relative;
   z-index: var(--mobile-z-content);
@@ -133,6 +261,10 @@
   margin: 0 auto;
   padding: 0 18px;
   min-width: 0;
+}
+
+.student-app-shell.root-route.root-home .student-route-content {
+  padding: var(--home-app-header-height) 0 0;
 }
 
 .student-app-shell.root-route.root-learn {
@@ -613,49 +745,16 @@
   padding-bottom: calc(86px + env(safe-area-inset-bottom, 0px));
 }
 
-.home-feed-topbar {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  align-items: end;
-  gap: 12px;
-}
-
-.home-feed-topbar p,
-.home-feed-topbar h1 {
-  margin: 0;
-}
-
-.home-feed-topbar p {
-  color: var(--green);
-  font-size: 12px;
-  font-weight: 900;
-}
-
-.home-feed-topbar h1 {
-  margin-top: 4px;
-  color: var(--ink);
-  font-size: 23px;
-  line-height: 1.12;
-}
-
-.home-feed-topbar button,
 .home-video-actions button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgba(0, 88, 38, 0.16);
-  border-radius: 999px;
+  border: 0;
+  border-radius: 0;
   color: var(--green);
-  background: rgba(255, 253, 246, 0.92);
+  background: transparent;
   font-weight: 900;
   white-space: nowrap;
-}
-
-.home-feed-topbar button {
-  gap: 6px;
-  min-height: 38px;
-  padding: 0 12px;
-  box-shadow: 0 10px 24px rgba(21, 49, 34, 0.08);
 }
 
 .home-feed-banner {
@@ -671,20 +770,18 @@
 
 .home-video-feed {
   display: grid;
-  gap: 16px;
+  gap: 0;
+  width: 100%;
 }
 
 .home-video-card {
-  overflow: hidden;
-  border: 1px solid rgba(0, 88, 38, 0.14);
-  border-radius: 8px;
-  background: rgba(255, 253, 246, 0.95);
-  box-shadow: 0 14px 32px rgba(21, 49, 34, 0.1);
+  overflow: visible;
+  border-top: 1px solid rgba(0, 88, 38, 0.12);
+  background: transparent;
 }
 
 .home-video-card.is-active {
-  border-color: rgba(0, 105, 49, 0.28);
-  box-shadow: 0 17px 40px rgba(0, 88, 38, 0.16);
+  border-color: rgba(0, 88, 38, 0.18);
 }
 
 .home-video-media-button {
@@ -743,8 +840,8 @@
 
 .home-video-body {
   display: grid;
-  gap: 8px;
-  padding: 12px;
+  gap: 7px;
+  padding: 11px 18px 0;
 }
 
 .home-video-path,
@@ -783,37 +880,42 @@
 .home-video-badges {
   display: flex;
   flex-wrap: wrap;
-  gap: 7px;
+  gap: 10px;
 }
 
 .home-video-badges span {
   min-width: 0;
-  border-radius: 999px;
-  padding: 5px 8px;
   color: var(--green);
-  background: rgba(0, 88, 38, 0.09);
   font-size: 11px;
   font-weight: 900;
 }
 
 .home-video-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  padding-top: 2px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0;
+  margin: 3px -18px 0;
+  border-top: 1px solid rgba(0, 88, 38, 0.1);
+  border-bottom: 1px solid rgba(0, 88, 38, 0.12);
+  background: rgba(255, 253, 246, 0.54);
 }
 
 .home-video-actions button {
-  gap: 4px;
-  min-height: 34px;
-  padding: 0 10px;
+  gap: 5px;
+  min-width: 0;
+  min-height: 42px;
+  padding: 0 6px;
   font-size: 12px;
+  overflow: hidden;
+}
+
+.home-video-actions button + button {
+  border-left: 1px solid rgba(0, 88, 38, 0.1);
 }
 
 .home-video-actions button.primary {
-  border-color: rgba(0, 88, 38, 0.82);
-  color: #fffdf6;
-  background: var(--green);
+  color: var(--green);
+  background: transparent;
 }
 
 .home-video-actions button:disabled {

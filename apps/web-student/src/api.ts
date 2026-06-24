@@ -545,6 +545,7 @@ export type StudentFeedbackSubmitResponse = {
 
 export type StudentAssistantStreamEvent =
   | { event: "status"; message?: string }
+  | { event: "thinking"; source?: "reasoning_summary" | "agent_trace"; message?: string; phase?: string; sequence?: number }
   | { event: "delta"; delta?: string }
   | { event: "replace"; answer?: string }
   | { event: "final"; response?: StudentAssistantFinalMetadata | unknown }

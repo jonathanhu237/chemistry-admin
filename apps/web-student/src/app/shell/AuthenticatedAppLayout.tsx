@@ -1,9 +1,10 @@
 import { useCallback, useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
-import { Outlet, useLocation } from "@tanstack/react-router";
-import { LockKeyhole } from "lucide-react";
+import { Outlet, useLocation, useNavigate } from "@tanstack/react-router";
+import { LockKeyhole, Search } from "lucide-react";
 import { assistantEnabled, defaultStudentAppConfig, feedbackEnabled, previewRouteBlocked } from "../appConfig";
 import { errorMessage, getStudentAppConfig, startStudentPosttest, type StudentAppConfigResponse } from "../../api";
 import { storePosttestSession } from "../router/assessmentSessionStore";
+import { navigateToVideoLibrary } from "../router/navigation";
 import { rootIdForPath, routeRoleForPath } from "../router/routeVisibility";
 import type { StudentRootRouteId } from "../router/routeTypes";
 import { StudentRuntimeProvider, useStudentShellBase } from "./studentAppContext";
@@ -12,6 +13,7 @@ import { StudentBottomNav } from "./StudentBottomNav";
 import { PreviewInputRuntime } from "../preview/input/PreviewInputRuntime";
 import { MobileEmptyState } from "../../mobile/primitives";
 import { debugAtomKeyboardSnapshot, installStudentMobileDebugConsole } from "../../debug/mobileDebug";
+import sysuLogoNameGreenUrl from "../../assets/sysu-logo/sysu-logo-name-green.svg";
 
 const rootHeaderMeta: Record<StudentRootRouteId, { title: string; subtitle: string }> = {
   home: { title: "首页", subtitle: "今日学习" },
@@ -20,6 +22,8 @@ const rootHeaderMeta: Record<StudentRootRouteId, { title: string; subtitle: stri
   assessment: { title: "测评", subtitle: "练习与学习报告" },
   profile: { title: "我的", subtitle: "账号与反馈" },
 };
+
+const homeVideoTopics = ["推荐", "全部", "最新", "颜色变化", "沉淀", "气体", "分层", "褪色", "火焰", "放热", "卤素", "酸碱", "氧化还原"];
 
 const ROOT_AI_COMPOSER_SELECTOR = ".ai-chat-panel.root .ai-chat-compose";
 
@@ -44,6 +48,7 @@ function isRootAiComposerTarget(target: EventTarget | null) {
 }
 
 export function AuthenticatedAppLayout() {
+  const navigate = useNavigate();
   const baseContext = useStudentShellBase();
   const location = useLocation();
   const activeRoot = rootIdForPath(location.pathname);
@@ -55,6 +60,7 @@ export function AuthenticatedAppLayout() {
   const [posttestLoading, setPosttestLoading] = useState(false);
   const [posttestError, setPosttestError] = useState("");
   const [navCompressed, setNavCompressed] = useState(false);
+  const [homeVideoTopic, setHomeVideoTopic] = useState(homeVideoTopics[0]);
   const [rootComposerFocused, setRootComposerFocused] = useState(false);
   const [visualViewportHeight, setVisualViewportHeight] = useState(getVisualViewportHeight);
   const [visualViewportTop, setVisualViewportTop] = useState(getVisualViewportTop);
@@ -275,7 +281,41 @@ export function AuthenticatedAppLayout() {
         style={shellStyle}
         aria-label="学生学习应用"
       >
-        {shouldRenderHeader && headerMeta ? <StudentAppHeader title={headerMeta.title} subtitle={headerMeta.subtitle} /> : null}
+        {shouldRenderHeader && headerMeta ? (
+          activeRoot === "home" ? (
+            <StudentAppHeader
+              ariaLabel="学生端首页"
+              brand={<img className="student-app-header-logo" src={sysuLogoNameGreenUrl} alt="中山大学" />}
+              actions={
+                <button
+                  className="student-app-header-icon-action"
+                  type="button"
+                  aria-label="搜索实验视频"
+                  onClick={() => navigateToVideoLibrary(navigate, { from: "home" })}
+                >
+                  <Search size={29} />
+                </button>
+              }
+              below={
+                <div className="home-video-topic-rail" aria-label="实验视频推荐标签">
+                  {homeVideoTopics.map((topic) => (
+                    <button
+                      type="button"
+                      key={topic}
+                      className={topic === homeVideoTopic ? "active" : ""}
+                      aria-pressed={topic === homeVideoTopic}
+                      onClick={() => setHomeVideoTopic(topic)}
+                    >
+                      {topic}
+                    </button>
+                  ))}
+                </div>
+              }
+            />
+          ) : (
+            <StudentAppHeader title={headerMeta.title} subtitle={headerMeta.subtitle} />
+          )
+        ) : null}
         {configError ? <div className="form-hint app-config-hint">配置刷新失败，当前页面会继续使用上一次配置：{configError}</div> : null}
         <div className="student-route-content">
           {routeBlocked ? (

@@ -77,6 +77,17 @@ _MODEL_SKIP_MODES = {
     "assessment_hint",
     "needs_platform_evidence",
 }
+_FOLLOWUP_SYSTEM_PROMPT = (
+    "You generate next-turn chips for Atom, a student inorganic chemistry learning assistant. "
+    "The chips are shown to the student and, when tapped, are sent verbatim as the student's next message to Atom. "
+    "Return JSON only: an array of 3 to 5 concise Chinese questions written in the student's voice. "
+    "Each item must be 8 to 24 visible characters. "
+    "Use direct askable wording, for example 'Ellingham图怎么判读？' or 'Frost图怎么分析？'. "
+    "Do not write Atom's offer/choice wording such as '想了解...？', '需要解析...？', '要不要...？', '是否需要...？', or '我来...'. "
+    "Base the questions only on the current student context, latest question, completed answer, and recent history. "
+    "Do not include markdown, numbering, explanations, diagnostics, RAG/chunk/internal terms, unsafe private experiment operations, "
+    "direct live-assessment answers, or off-course topics."
+)
 _DIAGNOSTIC_PROMPT_TERMS = (
     "rag",
     "chunk",
@@ -129,6 +140,15 @@ _OFF_SCOPE_PROMPT_TERMS = (
     "\u7535\u5f71",
     "\u604b\u7231",
     "\u661f\u5ea7",
+)
+_ASSISTANT_OFFER_PROMPT_PATTERNS = tuple(
+    re.compile(pattern)
+    for pattern in (
+        r"^(?:想了解|想知道|想看|还想了解|继续了解)",
+        r"^需要(?:解析|分析|讲解|说明|了解|复习|我|帮你)",
+        r"^(?:是否需要|要不要|要继续|还需要)",
+        r"^(?:我来|让我|可以继续|可以再)",
+    )
 )
 
 
@@ -221,6 +241,11 @@ def _prompt_has_guardrail_issue(text: str) -> bool:
     return False
 
 
+def _prompt_uses_assistant_offer_voice(text: str) -> bool:
+    compact = re.sub(r"\s+", "", text)
+    return any(pattern.search(compact) for pattern in _ASSISTANT_OFFER_PROMPT_PATTERNS)
+
+
 def _sanitize_followup_prompts(value: Any) -> list[str]:
     raw_items = _parse_suggested_prompt_payload(value)
     suggestions: list[str] = []
@@ -239,6 +264,8 @@ def _sanitize_followup_prompts(value: Any) -> list[str]:
         if dedupe_key in seen:
             continue
         if _prompt_has_guardrail_issue(text_value):
+            continue
+        if _prompt_uses_assistant_offer_voice(text_value):
             continue
         seen.add(dedupe_key)
         suggestions.append(text_value)
@@ -280,14 +307,7 @@ async def _generate_followup_prompts(
         messages=[
             {
                 "role": "system",
-                "content": (
-                    "You generate next-turn chips for Atom, a student inorganic chemistry learning assistant. "
-                    "Return JSON only: an array of 3 to 5 concise Chinese follow-up questions. "
-                    "Each item must be 8 to 24 visible characters. "
-                    "Base the questions only on the current student context, latest question, completed answer, and recent history. "
-                    "Do not include markdown, numbering, explanations, diagnostics, RAG/chunk/internal terms, unsafe private experiment operations, "
-                    "direct live-assessment answers, or off-course topics."
-                ),
+                "content": _FOLLOWUP_SYSTEM_PROMPT,
             },
             {
                 "role": "user",

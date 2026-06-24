@@ -1,5 +1,5 @@
 import "@testing-library/jest-dom/vitest";
-import { act, cleanup, fireEvent, render, screen, waitFor } from "@testing-library/react";
+import { act, cleanup, fireEvent, render, screen, waitFor, within } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import App from "./App";
 import type {
@@ -135,6 +135,10 @@ vi.mock("./api", () => ({
   studentMediaUrl: (path: string) => path,
   previewMediaUrl: (path: string) => path,
   errorMessage: (error: unknown) => (error instanceof Error ? error.message : "request failed"),
+}));
+
+vi.mock("lottie-react", () => ({
+  default: ({ className }: { className?: string }) => <div className={className} data-testid="atom-thinking-lottie" />,
 }));
 
 vi.mock("artplayer", () => {
@@ -646,7 +650,7 @@ const homeVideoFeedResponse: StudentHomeVideoFeedResponse = {
       summary: "Chlorine water oxidizes bromide and produces an orange organic layer.",
       snippet: "Chlorine water + KBr + CCl4",
       catalog_path: ["Halogen displacement catalog", "Orange layer observation"],
-      badges: ["Halogens", "Experiment video"],
+      badges: ["Textbook chapter 13", "Experiment video"],
       reason: "catalog",
       video: {
         media_id: "media-halogen",
@@ -768,6 +772,20 @@ const videoLibraryResponse: StudentVideoLibrarySearchResponse = {
       ],
     },
   ],
+};
+
+const emptyVideoLibraryResponse: StudentVideoLibrarySearchResponse = {
+  ...videoLibraryResponse,
+  query: "zzz",
+  status: "empty",
+  message: "没有找到匹配的实验视频结果。",
+  total: 0,
+  browse: {
+    recommended: [],
+    recent: [],
+    chips: [],
+  },
+  groups: [],
 };
 
 const posttestQuestions: PublicPosttestQuestion[] = [
@@ -976,18 +994,48 @@ describe("student app route stack", () => {
     expect(activeRoot()).toBe("home");
 
     await waitFor(() => expect(apiMocks.getStudentHomeVideoFeed).toHaveBeenCalledWith(16));
-    expect(screen.getByText("今天先看一个现象")).toBeInTheDocument();
+    expect(screen.getByRole("img", { name: "中山大学" })).toBeInTheDocument();
+    expect(screen.queryByText("今天先看一个现象")).not.toBeInTheDocument();
+    const homeTopicRail = screen.getByLabelText("实验视频推荐标签");
+    expect(homeTopicRail).toHaveClass("home-video-topic-rail");
+    expect(within(homeTopicRail).getByRole("button", { name: "推荐" })).toHaveAttribute("aria-pressed", "true");
+    fireEvent.click(within(homeTopicRail).getByRole("button", { name: "最新" }));
+    expect(within(homeTopicRail).getByRole("button", { name: "推荐" })).toHaveAttribute("aria-pressed", "false");
+    expect(within(homeTopicRail).getByRole("button", { name: "最新" })).toHaveAttribute("aria-pressed", "true");
     expect(screen.getByText("Orange layer observation")).toBeInTheDocument();
     expect(screen.getByRole("button", { name: "问问Atom" }).querySelector("svg")?.getAttribute("class")).toContain("lucide-atom");
-    fireEvent.click(screen.getByRole("button", { name: "搜索" }));
+    fireEvent.click(screen.getByRole("button", { name: "搜索实验视频" }));
     await waitFor(() => expect(window.location.pathname).toBe("/video-library"));
     expectBottomNavHidden();
     await waitFor(() => expect(apiMocks.searchStudentVideoLibrary).toHaveBeenCalledWith(""));
     expect(screen.getByRole("search")).toBeInTheDocument();
+    await waitFor(() => expect(screen.getByLabelText("推荐视频")).toBeInTheDocument());
+    const videoLibraryRecommendations = screen.getByLabelText("推荐视频");
+    expect(within(videoLibraryRecommendations).getByText("Orange layer observation")).toBeInTheDocument();
+    expect(within(videoLibraryRecommendations).getByText("Halogen displacement catalog / Orange layer observation")).toBeInTheDocument();
+    const recommendedChapterTag = videoLibraryRecommendations.querySelector(".video-library-row-chapter-tag");
+    expect(recommendedChapterTag).toHaveTextContent("Group 17 Halogens");
+    expect(within(videoLibraryRecommendations).queryByText("Textbook chapter 13")).not.toBeInTheDocument();
+    expect(within(videoLibraryRecommendations).queryByText("Chlorine water + KBr + CCl4")).not.toBeInTheDocument();
+    expect(videoLibraryRecommendations.querySelector(".video-library-row-badges")).toBeNull();
+    expect(videoLibraryRecommendations.querySelector(".video-library-row-cover img")?.getAttribute("src")).toContain(
+      "/api/student/media/assets/media-halogen/thumbnail",
+    );
+    expect(screen.getByLabelText("推荐搜索")).toBeInTheDocument();
+    expect(screen.queryByText("常见实验线索")).not.toBeInTheDocument();
     fireEvent.change(screen.getByLabelText("搜索实验视频库"), { target: { value: "orange" } });
     await waitFor(() => expect(apiMocks.searchStudentVideoLibrary).toHaveBeenLastCalledWith("orange"));
-    fireEvent.click(document.querySelector<HTMLButtonElement>(".video-library-results .video-result-card")!);
+    await waitFor(() => expect(screen.getByText("关于“orange”的实验视频")).toBeInTheDocument());
+    await waitFor(() =>
+      expect(document.querySelector(".video-library-results .video-library-search-video-row .video-library-row-chapter-tag")).toHaveTextContent(
+        "Group 17 Halogens",
+      ),
+    );
+    expect(document.querySelector(".video-library-results .video-library-search-video-row.has-cover .video-library-row-cover img")).not.toBeNull();
+    expect(window.localStorage.getItem("student.videoLibrarySearch.history.v1")).toBeNull();
+    fireEvent.click(document.querySelector<HTMLButtonElement>(".video-library-results .video-library-search-video-row")!);
     await waitFor(() => expect(window.location.pathname).toBe("/point/cat-point-halogen"));
+    expect(JSON.parse(window.localStorage.getItem("student.videoLibrarySearch.history.v1") || "[]")).toEqual(["orange"]);
     expectBottomNavHidden();
     act(() => window.history.back());
     await waitFor(() => expect(window.location.pathname).toBe("/video-library"));
@@ -1073,13 +1121,22 @@ describe("student app route stack", () => {
     expect(new URLSearchParams(window.location.search).get("profileId")).toBe("halogens-17");
     expect(new URLSearchParams(window.location.search).get("chapterId")).toBe("CH17");
     expect(new URLSearchParams(window.location.search).get("elementSymbol")).toBe("Cl");
-    expect(screen.getByRole("searchbox", { name: "搜索内容" })).toBeInTheDocument();
-    fireEvent.change(screen.getByRole("searchbox", { name: "搜索内容" }), { target: { value: "Orange" } });
-    fireEvent.click(screen.getByRole("button", { name: "搜索" }));
-    await waitFor(() => expect(screen.getByText("搜索结果")).toBeInTheDocument());
+    expect(screen.getByRole("searchbox")).toBeInTheDocument();
+    fireEvent.change(screen.getByRole("searchbox"), { target: { value: "Orange" } });
+    await waitFor(() => expect(screen.getByText("关于“Orange”的学习结果")).toBeInTheDocument());
+    expect(screen.getByText("实验视频")).toBeInTheDocument();
+    expect(screen.getByText("目录结果")).toBeInTheDocument();
     await waitFor(() => expect(screen.getByText("Orange layer observation")).toBeInTheDocument());
-    expect(screen.getByText("父目录：Oxidation experiments")).toBeInTheDocument();
-    expect(screen.getByText("17族（Group 17 Halogens） / Halogen displacement catalog")).toBeInTheDocument();
+    expect(screen.getByText("Oxidation experiments")).toBeInTheDocument();
+    const searchResultSections = Array.from(document.querySelectorAll<HTMLElement>(".video-library-results .video-library-result-section"));
+    expect(searchResultSections).toHaveLength(2);
+    expect(searchResultSections[0].querySelector(".video-library-directory-row")).not.toBeNull();
+    expect(searchResultSections[1].querySelector(".video-library-search-video-row")).not.toBeNull();
+    fireEvent.click(screen.getByText("Oxidation experiments").closest("button")!);
+    await waitFor(() => expect(window.location.pathname).toBe("/catalog/cat-dir-oxidation"));
+    expect(new URLSearchParams(window.location.search).get("profileId")).toBe("halogens-17");
+    act(() => window.history.back());
+    await waitFor(() => expect(window.location.pathname).toBe("/search"));
     fireEvent.click(screen.getByText("Orange layer observation").closest("button")!);
     await waitFor(() => expect(window.location.pathname).toBe("/point/cat-point-halogen"));
     expect(new URLSearchParams(window.location.search).get("profileId")).toBe("halogens-17");
@@ -1475,6 +1532,266 @@ describe("student app route stack", () => {
       }),
     );
     expect(screen.queryByRole("dialog", { name: "预览模式提示" })).not.toBeInTheDocument();
+  });
+
+  it("renders video-library search history as committed rows without category cards", async () => {
+    window.localStorage.setItem("student.videoLibrarySearch.history.v1", JSON.stringify(["CCl4"]));
+
+    await renderAuthenticatedApp("/video-library");
+
+    await waitFor(() => expect(window.location.pathname).toBe("/video-library"));
+    await waitFor(() => expect(apiMocks.searchStudentVideoLibrary).toHaveBeenCalledWith(""));
+    await waitFor(() => expect(apiMocks.getStudentHomeVideoFeed).toHaveBeenCalledWith(6));
+
+    const historySection = screen.getByLabelText("搜索历史");
+    expect(within(historySection).getByRole("button", { name: /CCl4/ })).toBeInTheDocument();
+    expect(screen.getByLabelText("推荐视频")).toBeInTheDocument();
+    expect(screen.queryByText("常见实验线索")).not.toBeInTheDocument();
+
+    fireEvent.click(within(historySection).getByRole("button", { name: /CCl4/ }));
+
+    await waitFor(() => expect(apiMocks.searchStudentVideoLibrary).toHaveBeenLastCalledWith("CCl4"));
+    expect(JSON.parse(window.localStorage.getItem("student.videoLibrarySearch.history.v1") || "[]")).toEqual(["CCl4"]);
+  });
+
+  it("renders a plain empty message for empty video search results", async () => {
+    apiMocks.searchStudentVideoLibrary.mockImplementation((query = "") =>
+      Promise.resolve(query ? { ...emptyVideoLibraryResponse, query } : videoLibraryResponse),
+    );
+
+    await renderAuthenticatedApp("/video-library?q=zzz");
+
+    await waitFor(() => expect(screen.getByText("关于“zzz”的实验视频")).toBeInTheDocument());
+    expect(screen.getByText("这里什么都没有哦👀")).toBeInTheDocument();
+    expect(document.querySelector(".video-library-banner")).toBeNull();
+    expect(document.querySelector(".video-library-results .empty-learning-card")).toBeNull();
+  });
+
+  it("renders root Atom running turns as a flat thinking line with phase transitions", async () => {
+    let emitStreamEvent: ((event: { event: string; message?: string; delta?: string; response?: unknown }) => void) | undefined;
+    let finishResponse: (() => void) | undefined;
+    apiMocks.streamStudentAssistantAsk.mockReset();
+    apiMocks.streamStudentAssistantAsk.mockImplementationOnce(async (_payload, onEvent) => {
+      emitStreamEvent = onEvent;
+      onEvent({ event: "status", message: "正在判断问题类型与安全策略" });
+      await new Promise<void>((resolve) => {
+        finishResponse = resolve;
+      });
+      onEvent({
+        event: "final",
+        response: {
+          source_count: 1,
+          suggested_prompts: ["继续观察什么现象？"],
+        },
+      });
+    });
+
+    await renderAuthenticatedApp("/ai");
+
+    fireEvent.change(screen.getByRole("textbox", { name: "向 Atom 提问" }), {
+      target: { value: "为什么出现橙色有机层？" },
+    });
+    fireEvent.click(screen.getByRole("button", { name: "发送问题" }));
+    await waitFor(() => expect(apiMocks.streamStudentAssistantAsk).toHaveBeenCalledTimes(1));
+    await waitFor(() => expect(screen.getByRole("status", { name: "正在判断问题范围" })).toBeInTheDocument());
+
+    const runningMessage = document.querySelector<HTMLElement>(".ai-chat-panel.root .ai-message.assistant.running");
+    expect(runningMessage).not.toBeNull();
+    expect(runningMessage?.querySelector(".ai-thinking-line")).not.toBeNull();
+    const atomMark = runningMessage?.querySelector(".ai-thinking-atom-mark");
+    expect(atomMark?.getAttribute("aria-hidden")).toBe("true");
+    expect(atomMark?.getAttribute("data-motion")).toBe("looping");
+    expect(atomMark?.querySelector(".ai-thinking-lottie")).not.toBeNull();
+    expect(runningMessage?.querySelector(".ai-message-meta")).toBeNull();
+    expect(runningMessage?.querySelector(".ai-message-actions")).toBeNull();
+    expect(runningMessage?.querySelector(".ai-source-summary")).toBeNull();
+    expect(runningMessage?.querySelector(".ai-message-skeleton")).toBeNull();
+    expect(screen.queryByRole("button", { name: "继续观察什么现象？" })).not.toBeInTheDocument();
+    expect(screen.queryByText("正在判断问题类型与安全策略")).not.toBeInTheDocument();
+
+    act(() => {
+      emitStreamEvent?.({ event: "status", message: "正在检索课程证据" });
+    });
+    await waitFor(() => expect(screen.getByRole("status", { name: "正在检索课程资料" })).toBeInTheDocument(), { timeout: 2000 });
+    await waitFor(() => {
+      expect(runningMessage?.querySelector(".ai-thinking-text.outgoing")).toHaveTextContent("正在判断问题范围");
+      expect(runningMessage?.querySelector(".ai-thinking-text.current.incoming")).toHaveTextContent("正在检索课程资料");
+    });
+    expect(document.querySelectorAll(".ai-chat-panel.root .ai-thinking-line[role='status']")).toHaveLength(1);
+
+    act(() => {
+      emitStreamEvent?.({ event: "delta", delta: "### Streaming answer\n\n- The organic layer contains bromine." });
+    });
+    await waitFor(() => expect(screen.getByRole("status", { name: "正在生成回答" })).toBeInTheDocument(), { timeout: 2000 });
+    await waitFor(() => {
+      expect(runningMessage?.querySelector(".ai-thinking-text.outgoing")).toHaveTextContent("正在检索课程资料");
+      expect(runningMessage?.querySelector(".ai-thinking-text.current.incoming")).toHaveTextContent("正在生成回答");
+    });
+    await waitFor(() => expect(screen.getByText("Streaming answer")).toBeInTheDocument());
+
+    await act(async () => {
+      finishResponse?.();
+    });
+    await waitFor(() => expect(screen.getByText("Streaming answer")).toBeInTheDocument());
+    const completedMessage = Array.from(document.querySelectorAll<HTMLElement>(".ai-chat-panel.root .ai-message.assistant.done")).find((node) =>
+      node.textContent?.includes("Streaming answer"),
+    );
+    expect(completedMessage).not.toBeNull();
+    expect(completedMessage?.querySelector(".ai-thinking-line")).toBeNull();
+    expect(completedMessage?.querySelector(".ai-message-actions")).not.toBeNull();
+    expect(completedMessage?.querySelector(".ai-message-citation")).toHaveTextContent("1");
+    expect(screen.getByRole("button", { name: "继续观察什么现象？" })).toBeInTheDocument();
+  });
+
+  it("prioritizes visible thinking stream events without copying them into the answer", async () => {
+    let emitStreamEvent:
+      | ((event: { event: string; message?: string; source?: "reasoning_summary" | "agent_trace"; phase?: string; sequence?: number; delta?: string; response?: unknown }) => void)
+      | undefined;
+    let finishResponse: (() => void) | undefined;
+    apiMocks.streamStudentAssistantAsk.mockReset();
+    apiMocks.streamStudentAssistantAsk.mockImplementationOnce(async (_payload, onEvent) => {
+      emitStreamEvent = onEvent;
+      onEvent({ event: "status", message: "正在判断问题类型与安全策略" });
+      onEvent({ event: "thinking", source: "reasoning_summary", phase: "reasoning", sequence: 7, message: "正在分析实验现象" });
+      await new Promise<void>((resolve) => {
+        finishResponse = resolve;
+      });
+      onEvent({
+        event: "final",
+        response: {
+          source_count: 0,
+          suggested_prompts: [],
+        },
+      });
+    });
+
+    await renderAuthenticatedApp("/ai");
+
+    fireEvent.change(screen.getByRole("textbox", { name: "向 Atom 提问" }), {
+      target: { value: "请解释氧化还原实验现象" },
+    });
+    fireEvent.click(document.querySelector<HTMLButtonElement>(".ai-chat-panel.root .ai-send-action")!);
+    await waitFor(() => expect(apiMocks.streamStudentAssistantAsk).toHaveBeenCalledTimes(1));
+    await waitFor(() => expect(screen.getByRole("status", { name: "正在分析实验现象" })).toBeInTheDocument());
+    expect(screen.queryByRole("status", { name: "正在判断问题范围" })).not.toBeInTheDocument();
+
+    act(() => {
+      emitStreamEvent?.({ event: "delta", delta: "### Visible answer\n\n- Bromine makes the organic layer orange." });
+    });
+    await waitFor(() => expect(screen.getByText("Visible answer")).toBeInTheDocument());
+    expect(screen.getByRole("status", { name: "正在分析实验现象" })).toBeInTheDocument();
+
+    await act(async () => {
+      finishResponse?.();
+    });
+    await waitFor(() => expect(screen.getByText("Visible answer")).toBeInTheDocument());
+    const completedMessage = Array.from(document.querySelectorAll<HTMLElement>(".ai-chat-panel.root .ai-message.assistant.done")).find((node) =>
+      node.textContent?.includes("Visible answer"),
+    );
+    expect(completedMessage).not.toBeNull();
+    expect(completedMessage?.querySelector(".ai-thinking-line")).toBeNull();
+    expect(completedMessage?.textContent).not.toContain("正在分析实验现象");
+
+    const copyButton = completedMessage?.querySelector<HTMLButtonElement>('button[aria-label="Copy Atom answer"]');
+    const writeText = vi.fn().mockResolvedValue(undefined);
+    Object.defineProperty(navigator, "clipboard", { configurable: true, value: { writeText } });
+    fireEvent.click(copyButton!);
+    await waitFor(() => expect(writeText).toHaveBeenCalledWith("### Visible answer\n\n- Bromine makes the organic layer orange."));
+  });
+
+  it("keeps root Atom thinking status meaningful with reduced motion", async () => {
+    const originalMatchMedia = window.matchMedia;
+    const reducedMotionMedia = {
+      matches: true,
+      media: "(prefers-reduced-motion: reduce)",
+      onchange: null,
+      addEventListener: vi.fn(),
+      removeEventListener: vi.fn(),
+      addListener: vi.fn(),
+      removeListener: vi.fn(),
+      dispatchEvent: vi.fn(),
+    } as unknown as MediaQueryList;
+    Object.defineProperty(window, "matchMedia", { configurable: true, value: vi.fn().mockReturnValue(reducedMotionMedia) });
+
+    let finishResponse: (() => void) | undefined;
+    apiMocks.streamStudentAssistantAsk.mockReset();
+    apiMocks.streamStudentAssistantAsk.mockImplementationOnce(async (_payload, onEvent) => {
+      onEvent({ event: "status", message: "正在判断问题类型与安全策略" });
+      await new Promise<void>((resolve) => {
+        finishResponse = resolve;
+      });
+      onEvent({ event: "final", response: { source_count: 0, suggested_prompts: [] } });
+    });
+
+    try {
+      await renderAuthenticatedApp("/ai");
+
+      fireEvent.change(screen.getByRole("textbox", { name: "向 Atom 提问" }), {
+        target: { value: "先判断我的问题范围" },
+      });
+      fireEvent.click(screen.getByRole("button", { name: "发送问题" }));
+
+      await waitFor(() => expect(screen.getByRole("status", { name: "正在判断问题范围" })).toBeInTheDocument());
+      const atomMark = document.querySelector<HTMLElement>(".ai-chat-panel.root .ai-thinking-atom-mark");
+      expect(atomMark).not.toBeNull();
+      expect(atomMark?.getAttribute("aria-hidden")).toBe("true");
+      expect(atomMark?.getAttribute("data-motion")).toBe("reduced");
+      expect(atomMark?.querySelector(".ai-thinking-atom-static")).not.toBeNull();
+      expect(atomMark?.querySelector(".ai-thinking-lottie")).toBeNull();
+
+      await act(async () => {
+        finishResponse?.();
+      });
+    } finally {
+      cleanup();
+      Object.defineProperty(window, "matchMedia", { configurable: true, value: originalMatchMedia });
+    }
+  });
+
+  it("keeps the Atom thinking mark stable across common phone widths", async () => {
+    const viewports = [
+      { width: 360, height: 780 },
+      { width: 390, height: 844 },
+      { width: 430, height: 932 },
+    ];
+
+    for (const viewport of viewports) {
+      cleanup();
+      Object.defineProperty(window, "innerWidth", { configurable: true, value: viewport.width });
+      Object.defineProperty(window, "innerHeight", { configurable: true, value: viewport.height });
+      window.dispatchEvent(new Event("resize"));
+      window.localStorage.clear();
+      window.sessionStorage.clear();
+      window.history.replaceState({}, "", "/");
+
+      let finishResponse: (() => void) | undefined;
+      apiMocks.streamStudentAssistantAsk.mockReset();
+      apiMocks.streamStudentAssistantAsk.mockImplementationOnce(async (_payload, onEvent) => {
+        onEvent({ event: "status", message: "正在检索课程证据" });
+        await new Promise<void>((resolve) => {
+          finishResponse = resolve;
+        });
+        onEvent({ event: "final", response: { source_count: 0, suggested_prompts: [] } });
+      });
+
+      await renderAuthenticatedApp("/ai");
+      fireEvent.change(screen.getByRole("textbox", { name: "向 Atom 提问" }), {
+        target: { value: `检查 ${viewport.width}px 下的思考状态` },
+      });
+      fireEvent.click(screen.getByRole("button", { name: "发送问题" }));
+
+      await waitFor(() => expect(screen.getByRole("status", { name: "正在检索课程资料" })).toBeInTheDocument());
+      const thinkingLine = document.querySelector<HTMLElement>(".ai-chat-panel.root .ai-thinking-line");
+      const atomMark = thinkingLine?.querySelector<HTMLElement>(".ai-thinking-atom-mark");
+      expect(thinkingLine).not.toBeNull();
+      expect(atomMark).not.toBeNull();
+      expect(atomMark?.getAttribute("aria-hidden")).toBe("true");
+      expect(thinkingLine?.querySelector(".ai-thinking-text.current")).toHaveTextContent("正在检索课程资料");
+
+      await act(async () => {
+        finishResponse?.();
+      });
+    }
   });
 
   it("renders the AI root as direct chat and restores local history for follow-up turns", async () => {

@@ -86,6 +86,9 @@ class Settings:
     agent_llm_base_url: str = ""
     agent_llm_api_key: str = ""
     agent_llm_model: str = ""
+    agent_reasoning_summary_enabled: bool = False
+    agent_reasoning_summary_mode: str = "auto"
+    agent_reasoning_effort: str = "low"
     rag_hybrid_bge_enabled: bool = False
     rag_query_generation_enabled: bool = True
     rag_bge_service_url: str = "http://bge-rag:8010"
@@ -215,6 +218,18 @@ def get_settings() -> Settings:
         agent_llm_base_url=_getenv("AGENT_LLM_BASE_URL"),
         agent_llm_api_key=_getenv("AGENT_LLM_API_KEY"),
         agent_llm_model=_getenv("AGENT_LLM_MODEL"),
+        agent_reasoning_summary_enabled=_get_bool(
+            "AGENT_REASONING_SUMMARY_ENABLED",
+            Settings.agent_reasoning_summary_enabled,
+        ),
+        agent_reasoning_summary_mode=_getenv(
+            "AGENT_REASONING_SUMMARY_MODE",
+            Settings.agent_reasoning_summary_mode,
+        ).lower(),
+        agent_reasoning_effort=_getenv(
+            "AGENT_REASONING_EFFORT",
+            Settings.agent_reasoning_effort,
+        ).lower(),
         rag_hybrid_bge_enabled=_get_bool("RAG_HYBRID_BGE_ENABLED", Settings.rag_hybrid_bge_enabled),
         rag_query_generation_enabled=_get_bool("RAG_QUERY_GENERATION_ENABLED", Settings.rag_query_generation_enabled),
         rag_bge_service_url=_getenv("RAG_BGE_SERVICE_URL", Settings.rag_bge_service_url).rstrip("/"),

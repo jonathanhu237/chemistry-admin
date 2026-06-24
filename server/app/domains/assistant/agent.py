@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import os
 import json
+import re
 from typing import Any, AsyncIterator, Callable
 
 from server.app.domains.experiment_points.canonical_points import candidate_point_key as _candidate_point_key
@@ -55,6 +56,55 @@ from server.app.domains.catalog_tree.ai_context import (
     catalog_point_static_evidence_package,
     hydrate_static_evidence_sources,
 )
+
+VISIBLE_THINKING_MAX_CHARS = 40
+_THINKING_SOURCE_VALUES = {"reasoning_summary", "agent_trace"}
+_AGENT_TRACE_COPY: dict[str, tuple[str, str]] = {
+    "policy": ("policy", "正在判断问题范围"),
+    "context": ("retrieval", "正在整理课程上下文"),
+    "retrieval": ("retrieval", "正在检索课程资料"),
+    "knowledge": ("generation", "正在根据课程知识组织回答"),
+    "generation": ("generation", "正在组织回答"),
+    "fallback": ("fallback", "正在使用本地兜底生成回答"),
+}
+_THINKING_UNSAFE_TERMS = (
+    "chain-of-thought",
+    "chain of thought",
+    "reasoning_text",
+    "raw reasoning",
+    "system prompt",
+    "developer message",
+    "tool_calls",
+    "tool call",
+    "tool arguments",
+    "function_call",
+    "rag_trace",
+    "guardrail",
+    "policy_decision",
+    "classification",
+    "chunk_id",
+    "source_node_id",
+    "stack trace",
+    "traceback",
+    "exception",
+    "openai",
+    "provider",
+    "model=",
+    "思维链",
+    "系统提示",
+    "开发者消息",
+    "工具参数",
+    "策略码",
+    "策略标签",
+    "诊断",
+    "异常",
+    "堆栈",
+    "原始",
+    "教师端",
+    "管理端",
+)
+_CJK_TEXT_RE = re.compile(r"[\u3400-\u9fff]")
+_JSON_LIKE_RE = re.compile(r"[{}\[\]]")
 
 
 def _experiment_title(experiment: dict[str, Any] | None) -> str:
@@ -128,6 +178,88 @@ def _unique_texts(values: list[Any]) -> list[str]:
             seen.add(text)
             result.append(text)
     return result
+
+
+def _first_safe_thinking_segment(text: str) -> str:
+    for separator in ("。", "；", ";", "\n", "，", ",", "！", "!", "？", "?"):
+        if separator in text:
+            segment = text.split(separator, 1)[0].strip()
+            if 2 <= len(segment) <= VISIBLE_THINKING_MAX_CHARS:
+                return segment
+    return text
+
+
+def _sanitize_visible_thinking_message(message: Any) -> str:
+    text = " ".join(str(message or "").strip().split())
+    if not text:
+        return ""
+    text = re.sub(r"^```.*?```$", "", text, flags=re.S).strip()
+    text = re.sub(r"^[#>*\-\d\.\s]+", "", text).strip()
+    text = text.strip("`'\" ")
+    if not text or not _CJK_TEXT_RE.search(text):
+        return ""
+    lowered = text.lower()
+    if any(term in lowered or term in text for term in _THINKING_UNSAFE_TERMS):
+        return ""
+    if _JSON_LIKE_RE.search(text):
+        return ""
+    text = _first_safe_thinking_segment(text)
+    text = text.strip("：:，,。；; ")
+    if not (2 <= len(text) <= VISIBLE_THINKING_MAX_CHARS):
+        return ""
+    return text
+
+
+def _thinking_event(
+    *,
+    source: str,
+    message: Any,
+    phase: str | None = None,
+    sequence: int | None = None,
+) -> dict[str, Any] | None:
+    if source not in _THINKING_SOURCE_VALUES:
+        return None
+    safe_message = _sanitize_visible_thinking_message(message)
+    if not safe_message:
+        return None
+    event: dict[str, Any] = {
+        "event": "thinking",
+        "source": source,
+        "message": safe_message,
+    }
+    if phase:
+        event["phase"] = phase
+    if sequence is not None:
+        event["sequence"] = sequence
+    return event
+
+
+def _agent_trace_event(key: str, *, sequence: int | None = None) -> dict[str, Any] | None:
+    phase_message = _AGENT_TRACE_COPY.get(key)
+    if not phase_message:
+        return None
+    phase, message = phase_message
+    return _thinking_event(source="agent_trace", message=message, phase=phase, sequence=sequence)
+
+
+def _response_event_type(event: Any) -> str:
+    if isinstance(event, dict):
+        return str(event.get("type") or "")
+    return str(getattr(event, "type", "") or "")
+
+
+def _response_event_text(event: Any, key: str) -> str:
+    if isinstance(event, dict):
+        return str(event.get(key) or "")
+    return str(getattr(event, key, "") or "")
+
+
+def _response_event_sequence(event: Any) -> int | None:
+    value = event.get("sequence_number") if isinstance(event, dict) else getattr(event, "sequence_number", None)
+    try:
+        return int(value)
+    except (TypeError, ValueError):
+        return None
 
 
 def _sources_for_chunk_ids(context: AgentRunContext, chunk_ids: list[str]) -> tuple[list[RagSource], list[str]]:
@@ -619,7 +751,17 @@ async def run_agent_stream(
     )
 
     try:
+        thinking_sequence = 0
+
+        def next_trace_event(key: str) -> dict[str, Any] | None:
+            nonlocal thinking_sequence
+            thinking_sequence += 1
+            return _agent_trace_event(key, sequence=thinking_sequence)
+
         _build_point_evidence_package(context)
+        trace = next_trace_event("policy")
+        if trace:
+            yield trace
         yield {"event": "status", "message": "正在判断问题类型与安全策略"}
         context.policy_decision = await _policy_gate_decision(context, settings)
         _apply_policy_decision_to_classification(context)
@@ -628,32 +770,58 @@ async def run_agent_stream(
         if answer is None:
             answer_parts: list[str] = []
             if _sdk_enabled(settings):
+                for trace_key in ("context", "retrieval" if context.classification.get("allow_rag_lookup", True) else "knowledge"):
+                    trace = next_trace_event(trace_key)
+                    if trace:
+                        yield trace
                 yield {"event": "status", "message": "正在连接模型，开始流式生成"}
                 try:
-                    async for delta in _run_openai_chat_completion_stream(context, settings):
-                        if not delta:
-                            continue
-                        answer_parts.append(delta)
-                        yield {"event": "delta", "delta": delta}
+                    if _reasoning_summary_enabled(settings):
+                        trace = next_trace_event("generation")
+                        if trace:
+                            yield trace
+                        async for item in _run_openai_responses_stream(context, settings):
+                            if item.get("event") == "delta" and isinstance(item.get("delta"), str):
+                                answer_parts.append(item["delta"])
+                            yield item
+                    else:
+                        trace = next_trace_event("generation")
+                        if trace:
+                            yield trace
+                        async for delta in _run_openai_chat_completion_stream(context, settings):
+                            if not delta:
+                                continue
+                            answer_parts.append(delta)
+                            yield {"event": "delta", "delta": delta}
                     answer = "".join(answer_parts).strip()
                 except Exception as exc:
                     context.add_guardrail(
-                        "chat_completion_stream_fallback",
+                        "responses_reasoning_stream_fallback" if _reasoning_summary_enabled(settings) else "chat_completion_stream_fallback",
                         "fallback_to_local",
                         f"流式模型调用失败：{exc.__class__.__name__}",
                     )
                     yield {"event": "status", "message": "模型流式调用失败，已切换到本地兜底"}
+                    trace = next_trace_event("fallback")
+                    if trace:
+                        yield trace
                     context.mode = "local"
+                    answer_parts = []
                     answer = _run_local_agent(context)
                     for delta in _chunk_stream_text(answer):
                         yield {"event": "delta", "delta": delta}
             else:
                 yield {"event": "status", "message": "未配置可用模型，使用本地兜底回答"}
+                trace = next_trace_event("fallback")
+                if trace:
+                    yield trace
                 context.mode = "local"
                 answer = _run_local_agent(context)
                 for delta in _chunk_stream_text(answer):
                     yield {"event": "delta", "delta": delta}
         else:
+            trace = next_trace_event("generation")
+            if trace:
+                yield trace
             for delta in _chunk_stream_text(answer):
                 yield {"event": "delta", "delta": delta}
 
@@ -1012,6 +1180,119 @@ async def _run_openai_chat_completion(context: AgentRunContext, settings: Settin
     return str(content or "").strip()
 
 
+def _openai_answer_context_payload(context: AgentRunContext) -> tuple[dict[str, Any], str | None]:
+    curriculum = curriculum_lookup_tool(context, context.request.question)
+    evidence: list[dict[str, Any]] = []
+    if context.classification.get("allow_rag_lookup", True):
+        evidence = rag_search_tool(context, context.request.question).get("evidence") or []
+        if not evidence:
+            context.add_guardrail("rag_no_match", "answer_from_model_knowledge", "RAG did not return usable student evidence; answer from model chemistry knowledge.")
+    else:
+        context.add_guardrail("rag_lookup_disabled", "answer_from_model_knowledge", "Student RAG lookup was disabled for this turn.")
+
+    figure_evidence_items = _figure_evidence_items(context, evidence)
+    if context.classification.get("source_asset_request"):
+        context.mode = "source_asset_evidence"
+        return {}, _source_asset_answer(figure_evidence_items)
+
+    point_titles = [
+        point.get("content")
+        for point in curriculum.get("knowledge_points", [])
+        if point.get("content")
+    ][:5]
+    fixed_point_evidence = context.point_evidence.get("sources", []) if context.point_evidence else []
+    evidence_items = [
+        {
+            "source_file": item.get("source_file"),
+            "page_number": item.get("page_number"),
+            "text_preview": item.get("text_preview"),
+            "caption": item.get("caption"),
+            "content_type": item.get("content_type"),
+            "asset_count": len(item.get("assets") or []),
+            "markdown_images": item.get("markdown_images") or [],
+        }
+        for item in evidence[:5]
+    ]
+    return {
+        "question": context.request.question,
+        "chapter_id": context.request.chapter_id,
+        "experiment_id": context.request.experiment_id,
+        "knowledge_point_ids": context.request.knowledge_point_ids,
+        "conversation_history": _conversation_history_payload(context),
+        "related_knowledge_points": point_titles,
+        "point_context": context.point_evidence,
+        "fixed_point_evidence": fixed_point_evidence,
+        "rag_evidence": evidence_items,
+        "rag_figure_evidence": figure_evidence_items,
+        "source_figures_available": bool(figure_evidence_items),
+        "source_figure_count": len(figure_evidence_items),
+        "policy_decision": context.policy_decision.as_dict(),
+    }, None
+
+
+async def _run_openai_responses_stream(context: AgentRunContext, settings: Settings) -> AsyncIterator[dict[str, Any]]:
+    payload, direct_answer = _openai_answer_context_payload(context)
+    if direct_answer is not None:
+        for delta in _chunk_stream_text(direct_answer):
+            yield {"event": "delta", "delta": delta}
+        return
+
+    client = _openai_client(settings, timeout=30.0)
+    summary_buffer = ""
+    last_summary = ""
+    context.mode = "openai_responses_stream"
+    with client.responses.stream(
+        model=settings.agent_llm_model,
+        instructions=(
+            f"{_agent_instructions(context)}\n"
+            "Use the provided course context and evidence before general chemistry knowledge. "
+            "Answer the student in concise Chinese. "
+            "If reasoning summaries are produced, keep them high-level and student-safe."
+        ),
+        input=json.dumps(payload, ensure_ascii=False),
+        reasoning={
+            "summary": _reasoning_summary_mode(settings),
+            "effort": _reasoning_effort(settings),
+        },
+        temperature=0.2,
+    ) as stream:
+        for event in stream:
+            event_type = _response_event_type(event)
+            if event_type == "response.output_text.delta":
+                delta = _response_event_text(event, "delta")
+                if delta:
+                    yield {"event": "delta", "delta": delta}
+                continue
+            if event_type == "response.reasoning_summary_text.delta":
+                summary_buffer += _response_event_text(event, "delta")
+                thinking = _thinking_event(
+                    source="reasoning_summary",
+                    message=summary_buffer,
+                    phase="reasoning",
+                    sequence=_response_event_sequence(event),
+                )
+                if thinking and thinking["message"] != last_summary:
+                    last_summary = str(thinking["message"])
+                    yield thinking
+                continue
+            if event_type == "response.reasoning_summary_text.done":
+                summary_text = _response_event_text(event, "text") or summary_buffer
+                thinking = _thinking_event(
+                    source="reasoning_summary",
+                    message=summary_text,
+                    phase="reasoning",
+                    sequence=_response_event_sequence(event),
+                )
+                if thinking and thinking["message"] != last_summary:
+                    last_summary = str(thinking["message"])
+                    yield thinking
+                continue
+            if event_type in {"response.reasoning_text.delta", "response.reasoning_text.done"}:
+                continue
+            if event_type in {"response.error", "response.failed", "response.incomplete"}:
+                raise RuntimeError("responses stream failed")
+
+
 async def _run_openai_chat_completion_stream(context: AgentRunContext, settings: Settings) -> AsyncIterator[str]:
     from openai import OpenAI
 
@@ -1259,6 +1540,39 @@ def _sdk_enabled(settings: Settings) -> bool:
         settings.agent_llm_provider in {"openai", "openai_compatible"}
         and bool(settings.agent_llm_api_key or os.getenv("OPENAI_API_KEY"))
         and bool(settings.agent_llm_model)
+    )
+
+
+def _reasoning_summary_enabled(settings: Settings) -> bool:
+    if not _sdk_enabled(settings) or not bool(getattr(settings, "agent_reasoning_summary_enabled", False)):
+        return False
+    mode = str(getattr(settings, "agent_reasoning_summary_mode", "auto") or "auto").lower()
+    if mode in {"off", "none", "disabled", "false"}:
+        return False
+    provider = str(settings.agent_llm_provider or "").lower()
+    base_url = str(getattr(settings, "agent_llm_base_url", "") or "").strip()
+    if provider == "openai" and not base_url:
+        return True
+    return mode in {"force", "forced", "responses", "compatible"}
+
+
+def _reasoning_summary_mode(settings: Settings) -> str:
+    mode = str(getattr(settings, "agent_reasoning_summary_mode", "auto") or "auto").lower()
+    return mode if mode in {"auto", "concise", "detailed"} else "auto"
+
+
+def _reasoning_effort(settings: Settings) -> str:
+    effort = str(getattr(settings, "agent_reasoning_effort", "low") or "low").lower()
+    return effort if effort in {"minimal", "low", "medium", "high"} else "low"
+
+
+def _openai_client(settings: Settings, *, timeout: float):
+    from openai import OpenAI
+
+    return OpenAI(
+        api_key=settings.agent_llm_api_key or os.getenv("OPENAI_API_KEY"),
+        base_url=settings.agent_llm_base_url or None,
+        timeout=timeout,
     )
 
 

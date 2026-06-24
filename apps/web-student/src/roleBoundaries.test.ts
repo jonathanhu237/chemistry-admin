@@ -118,6 +118,38 @@ describe("student console role boundaries", () => {
     expect(appShellCssSource).not.toContain("var(--mobile-bottom-nav-height) * 0.62");
   });
 
+  it("keeps the home header quick-return on the passive nav-compressed pattern", async () => {
+    // @ts-expect-error The frontend tsconfig intentionally omits Node types, but Vitest runs this contract in Node.
+    const { readFileSync } = await import("node:fs");
+    const cwd = (globalThis as unknown as { process: { cwd: () => string } }).process.cwd();
+    const appShellCssSource = readFileSync(`${cwd}/src/styles/app-shell.css`, "utf8");
+    const homeHeaderBlock = appShellCssSource.match(/\.student-app-shell\.root-route\.root-home \.student-app-header\s*\{[^}]*\}/)?.[0] || "";
+    const homeCompressedBlock =
+      appShellCssSource.match(/\.student-app-shell\.root-route\.root-home\.nav-compressed \.student-app-header\s*\{[^}]*\}/)?.[0] || "";
+    const homeRouteContentBlock =
+      appShellCssSource.match(/\.student-app-shell\.root-route\.root-home \.student-route-content\s*\{[^}]*\}/)?.[0] || "";
+
+    expect(authenticatedAppLayoutSource).toContain('window.addEventListener("scroll", handleScroll, { passive: true });');
+    expect(authenticatedAppLayoutSource).toContain('navCompressed && isRootRoute ? "nav-compressed" : ""');
+    expect(authenticatedAppLayoutSource).not.toMatch(/addEventListener\("touchmove"|addEventListener\("wheel"/);
+    expect(authenticatedAppLayoutSource).not.toContain("preventDefault");
+    expect(authenticatedAppLayoutSource).not.toContain("window.scrollBy");
+    expect(authenticatedAppLayoutSource).not.toContain("home-title");
+    expect(authenticatedAppLayoutSource).not.toContain("setProperty(\"--home-title-height\"");
+    expect(appShellCssSource).not.toContain("animation-timeline");
+    expect(appShellCssSource).not.toContain("animation-range");
+    expect(appShellCssSource).not.toContain("@keyframes home-title-scroll-away");
+    expect(appShellCssSource).not.toContain("--home-title-height");
+    expect(appShellCssSource).toContain("--home-app-header-height: 88px;");
+    expect(homeHeaderBlock).toContain("position: fixed;");
+    expect(homeHeaderBlock).toContain("top: 0;");
+    expect(homeHeaderBlock).toContain("width: min(100%, var(--mobile-content-max));");
+    expect(homeHeaderBlock).toContain("margin: 0 auto;");
+    expect(homeHeaderBlock).toContain("transition: transform 150ms ease;");
+    expect(homeCompressedBlock).toContain("transform: translate3d(0, -100%, 0);");
+    expect(homeRouteContentBlock).toContain("padding: var(--home-app-header-height) 0 0;");
+  });
+
   it("keeps the root Atom composer keyboard layout scoped to the visible viewport", async () => {
     // @ts-expect-error The frontend tsconfig intentionally omits Node types, but Vitest runs this contract in Node.
     const { readFileSync } = await import("node:fs");
@@ -279,24 +311,78 @@ describe("student console role boundaries", () => {
     const cwd = (globalThis as unknown as { process: { cwd: () => string } }).process.cwd();
     const assistantCssSource = readFileSync(`${cwd}/src/styles/assistant.css`, "utf8");
     const rootDoneBlock = assistantCssSource.match(/\.ai-chat-panel\.root \.ai-message\.assistant\.done\s*\{[^}]*\}/)?.[0] || "";
+    const rootRunningBlock = assistantCssSource.match(/\.ai-chat-panel\.root \.ai-message\.assistant\.running\s*\{[^}]*\}/)?.[0] || "";
     const actionRowBlock = assistantCssSource.match(/\.ai-chat-panel\.root \.ai-message-actions\s*\{[^}]*\}/)?.[0] || "";
     const citationBlock = assistantCssSource.match(/\.ai-chat-panel\.root \.ai-message-citation\s*\{[^}]*\}/)?.[0] || "";
+    const thinkingLineBlock = assistantCssSource.match(/\.ai-chat-panel\.root \.ai-thinking-line\s*\{[^}]*\}/)?.[0] || "";
+    const thinkingAtomMarkBlock = assistantCssSource.match(/\.ai-chat-panel\.root \.ai-thinking-atom-mark\s*\{[^}]*\}/)?.[0] || "";
+    const thinkingLottieBlock = assistantCssSource.match(/\.ai-chat-panel\.root \.ai-thinking-lottie,\s*\.ai-chat-panel\.root \.ai-thinking-atom-static\s*\{[^}]*\}/)?.[0] || "";
+    const thinkingTextCurrentBlock = assistantCssSource.match(/\.ai-chat-panel\.root \.ai-thinking-text\.current\s*\{[^}]*\}/)?.[0] || "";
+    const thinkingTextIncomingBlock = assistantCssSource.match(/\.ai-chat-panel\.root \.ai-thinking-text\.current\.incoming\s*\{[^}]*\}/)?.[0] || "";
+    const thinkingTextOutgoingBlock = assistantCssSource.match(/\.ai-chat-panel\.root \.ai-thinking-text\.outgoing\s*\{[^}]*\}/)?.[0] || "";
 
     expect(assistantPanelSource).toContain("AssistantTurnActions");
+    expect(assistantPanelSource).toContain("AssistantThinkingLine");
+    expect(assistantPanelSource).toContain("AtomThinkingMark");
+    expect(assistantPanelSource).toContain("usePrefersReducedMotion");
+    expect(assistantPanelSource).toContain("lottie-react");
+    expect(assistantPanelSource).toContain("atom-thinking.json");
+    expect(assistantPanelSource).toContain("normalizeVisibleThinkingEvent");
+    expect(assistantPanelSource).toContain("assistantVisibleThinkingPhase(activeThinking, status, Boolean(message.content.trim()))");
+    expect(assistantPanelSource).toContain('event.event === "thinking"');
+    expect(assistantPanelSource).toContain("messageLength");
+    expect(assistantPanelSource).toContain("ASSISTANT_THINKING_PHASE_MIN_VISIBLE_MS = 1400");
+    expect(assistantPanelSource).toContain("ASSISTANT_THINKING_TRANSITION_MS = 420");
+    expect(assistantPanelSource).toContain("queuedPhaseRef");
+    expect(assistantPanelSource).toContain('"正在判断问题范围"');
+    expect(assistantPanelSource).toContain('"正在检索课程资料"');
+    expect(assistantPanelSource).toContain('"正在返回学习建议"');
+    expect(assistantPanelSource).toContain('"正在生成回答"');
     expect(assistantPanelSource).toContain("safeAssistantSourceCount");
     expect(assistantPanelSource).toContain("Mark Atom answer helpful");
     expect(assistantPanelSource).toContain("Mark Atom answer unhelpful");
     expect(assistantPanelSource).toContain("Copy Atom answer");
     expect(assistantPanelSource).not.toMatch(/source\.(title|section|score|chunk_id)/);
+    expect(assistantPanelSource).not.toContain("rag_trace");
+    expect(assistantPanelSource).not.toContain("tool_calls");
+    expect(assistantPanelSource).not.toContain("guardrail_decisions");
+    expect(assistantPanelSource).not.toContain("reasoning_text");
+    expect(assistantPanelSource).not.toContain("provider exploded");
     expect(rootDoneBlock).toContain("max-width: none;");
     expect(rootDoneBlock).toContain("border: 0;");
     expect(rootDoneBlock).toContain("border-radius: 0;");
     expect(rootDoneBlock).toContain("background: transparent;");
     expect(rootDoneBlock).toContain("box-shadow: none;");
     expect(rootDoneBlock).toContain("white-space: normal;");
+    expect(rootRunningBlock).toContain("max-width: none;");
+    expect(rootRunningBlock).toContain("border: 0;");
+    expect(rootRunningBlock).toContain("border-radius: 0;");
+    expect(rootRunningBlock).toContain("background: transparent;");
+    expect(rootRunningBlock).toContain("box-shadow: none;");
+    expect(rootRunningBlock).toContain("white-space: normal;");
+    expect(thinkingLineBlock).toContain("display: inline-flex;");
+    expect(thinkingLineBlock).toContain("min-height: calc(var(--ai-chat-body-font-size) * var(--ai-chat-body-line-height));");
+    expect(thinkingAtomMarkBlock).toContain("display: inline-flex;");
+    expect(thinkingAtomMarkBlock).toContain("flex: 0 0 32px;");
+    expect(thinkingAtomMarkBlock).toContain("width: 32px;");
+    expect(thinkingAtomMarkBlock).toContain("height: 32px;");
+    expect(thinkingAtomMarkBlock).toContain("color: var(--green);");
+    expect(thinkingLottieBlock).toContain("width: 32px;");
+    expect(thinkingLottieBlock).toContain("height: 32px;");
+    expect(thinkingTextCurrentBlock).toContain("animation: ai-thinking-text-in 260ms ease-out both;");
+    expect(thinkingTextIncomingBlock).toContain("animation: ai-thinking-text-in 260ms cubic-bezier(0.18, 0.9, 0.28, 1) 90ms both;");
+    expect(thinkingTextOutgoingBlock).toContain("animation: ai-thinking-text-out 140ms ease-in both;");
     expect(actionRowBlock).toContain("min-height: var(--ai-root-action-row-height);");
     expect(citationBlock).toContain("white-space: nowrap;");
     expect(assistantCssSource).not.toMatch(/(^|\n)\.ai-message\.assistant\.done\s*\{[^}]*background:\s*transparent;/s);
+    expect(assistantCssSource).not.toMatch(/(^|\n)\.ai-message\.assistant\.running\s*\{[^}]*background:\s*transparent;/s);
+    expect(assistantCssSource).not.toContain("ai-thinking-dots");
+    expect(assistantCssSource).not.toContain("@keyframes ai-thinking-dot");
+    expect(assistantCssSource).toContain("@keyframes ai-thinking-text-in");
+    expect(assistantCssSource).toContain("@keyframes ai-thinking-text-out");
+    expect(assistantCssSource).toContain("@media (prefers-reduced-motion: reduce)");
+    expect(assistantCssSource).toContain(".ai-chat-panel.root .ai-thinking-atom-mark");
+    expect(assistantCssSource).toContain(".ai-chat-panel.root .ai-thinking-text.outgoing");
   });
 
   it("keeps the visible mobile bottom nav opaque and free of default focus boxes", async () => {
@@ -489,7 +575,7 @@ describe("student console role boundaries", () => {
     expect(backArrowIconSource).not.toMatch(/base64|\\.png|\\.jpg|\\.jpeg|\\.webp/i);
     expect(pagebarSource).toContain("BackArrowIcon");
     expect(pagebarSource).not.toContain("ArrowLeft");
-    expect(unifiedSearchSource).toContain("BackArrowIcon");
+    expect(unifiedSearchSource).toContain("VideoLibraryPage");
     expect(unifiedSearchSource).not.toContain("ArrowLeft");
     expect(pagebarBlock).toContain("grid-template-columns: 38px minmax(0, 1fr);");
     expect(pagebarBlock).toContain("gap: 4px;");
@@ -506,7 +592,6 @@ describe("student console role boundaries", () => {
       "routes/learn/ChapterStudyPage.tsx",
       "routes/learn/CatalogDirectoryPage.tsx",
       "routes/learn/ElementDetailPage.tsx",
-      "routes/video-library/VideoLibraryPage.tsx",
       "routes/ai/AiChatPage.tsx",
       "routes/assessment/AssessmentSessionPage.tsx",
       "routes/assessment/AssessmentReportPage.tsx",
@@ -518,8 +603,12 @@ describe("student console role boundaries", () => {
       expect(source).not.toContain("ChevronLeft");
     });
 
-    expect(routeAndFeatureSources["./routes/search/UnifiedSearchPage.tsx"]).toContain("BackArrowIcon");
+    expect(routeAndFeatureSources["./routes/search/UnifiedSearchPage.tsx"]).toContain("VideoLibraryPage");
     expect(routeAndFeatureSources["./routes/search/UnifiedSearchPage.tsx"]).not.toContain("DetailPageFrame");
+    expect(routeAndFeatureSources["./routes/video-library/VideoLibraryPage.tsx"]).toContain("BackArrowIcon");
+    expect(routeAndFeatureSources["./routes/video-library/VideoLibraryPage.tsx"]).not.toContain("DetailPageFrame");
+    expect(routeAndFeatureSources["./routes/video-library/VideoLibraryPage.tsx"]).not.toContain("ArrowLeft");
+    expect(routeAndFeatureSources["./routes/video-library/VideoLibraryPage.tsx"]).not.toContain("ChevronLeft");
     expect(routeAndFeatureSources["./routes/learn/ExperimentPointPage.tsx"]).toContain("CatalogPointDetailPanel");
     expect(routeAndFeatureSources["./routes/learn/ExperimentPointPage.tsx"]).not.toContain("DetailPageFrame");
   });

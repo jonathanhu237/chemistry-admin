@@ -291,17 +291,6 @@ export function HomeRootPage() {
 
   return (
     <section className="learning-panel home-root-page" aria-label="实验视频首页">
-      <header className="home-feed-topbar">
-        <div>
-          <p>实验视频</p>
-          <h1>今天先看一个现象</h1>
-        </div>
-        <button type="button" onClick={() => navigateToVideoLibrary(navigate, { from: "home" })}>
-          <Search size={17} />
-          搜索
-        </button>
-      </header>
-
       {loading ? <LearningState icon={<LoaderCircle className="spin" size={23} />} text="正在加载实验视频" /> : null}
       {error ? <LearningState icon={<FlaskConical size={23} />} text={error} /> : null}
       {!loading && !error && feed?.message ? <div className={`home-feed-banner ${feed.status}`}>{feed.message}</div> : null}
