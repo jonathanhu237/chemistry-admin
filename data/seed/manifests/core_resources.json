@@ -1,6 +1,6 @@
 {
   "version": "production-core-resources-v1",
-  "generated_at": "2026-06-21T15:19:06.054324+00:00",
+  "generated_at": "2026-06-24T23:42:40.994206+00:00",
   "policy": "These files are the protected current system resources. Destructive cleanup must validate this manifest before deleting or moving historical artifacts.",
   "external_sources_mirrored": true,
   "expected_database_counts": {
@@ -12,8 +12,8 @@
     "experiment_catalog_directory_nodes": 176,
     "experiment_catalog_point_nodes": 393,
     "experiment_catalog_point_content_records": 76,
-    "experiment_question_banks": 0,
-    "experiment_questions": 0,
+    "experiment_question_banks": 54,
+    "experiment_questions": 1965,
     "source_documents": 2,
     "source_chunks": 3637,
     "chunk_embeddings": 3637,
@@ -29,8 +29,8 @@
       "source_path": null,
       "required": true,
       "kind": "json",
-      "size_bytes": 131900,
-      "sha256": "a999897d84566c8dde06ca4f37ae49db3b6e429db9911d6db5499a71a7dc51db",
+      "size_bytes": 128350,
+      "sha256": "30f855424d23c2b8807a60c33b560fc99af709e3d6e71ab50983116f4b17525f",
       "count": 77,
       "expected_count": 77
     },
@@ -97,8 +97,8 @@
       "source_path": "docs/实验目录_整理版.md",
       "required": true,
       "kind": "json",
-      "size_bytes": 676838,
-      "sha256": "3454369237c3f71689c3d8742f631a6493ab373b71ee4c6e325c328b62061ebb",
+      "size_bytes": 658653,
+      "sha256": "4237e68c6d079096fa652f9d4a6db65315e0880dc0842a357504200c6f75471b",
       "count": {
         "total_nodes": 569,
         "directory_nodes": 176,
@@ -139,14 +139,42 @@
       }
     },
     {
+      "id": "current_question_bank_seed",
+      "role": "Current generated and published question bank seed exported from the local DB",
+      "path": "data/seed/question_bank/current_question_bank_seed.json",
+      "source_path": "experiment_question_banks + experiment_questions",
+      "required": true,
+      "kind": "json",
+      "size_bytes": 18483829,
+      "sha256": "174d2ea6d719487854e412e1173d5f3b5c271d4c8da3df32d5f9f308af8b8425",
+      "count": {
+        "experiments": 54,
+        "questions": 1965,
+        "single_choice": 785,
+        "true_false": 785,
+        "fill_blank": 395,
+        "published_questions": 1965,
+        "generated_questions": 1965
+      },
+      "expected_counts": {
+        "experiments": 54,
+        "questions": 1965,
+        "single_choice": 785,
+        "true_false": 785,
+        "fill_blank": 395,
+        "published_questions": 1965,
+        "generated_questions": 1965
+      }
+    },
+    {
       "id": "chemical_search_aliases",
       "role": "Chemistry-aware video-library search formula alias dictionary",
       "path": "data/seed/search/chemical_aliases.json",
       "source_path": "data/seed/search/chemical_aliases.json",
       "required": true,
       "kind": "json",
-      "size_bytes": 469,
-      "sha256": "79fb62140460df513b85815b8bae433a52a49e225f6ec396319fb64acd95e552"
+      "size_bytes": 2005,
+      "sha256": "4271e108321cd68a9da6314feada9144a11b04ee65412f7b20af7f2f94de6bac"
     },
     {
       "id": "chemical_search_stopwords",
@@ -235,10 +263,10 @@
       "source_path": "data/seed/search/es_ik/analysis/chemistry_synonyms.txt",
       "required": true,
       "kind": "text",
-      "size_bytes": 1147,
-      "sha256": "01730ecf2869578ecae2fd51bb0243e0a34195793fe1442605d78a0aa4ef5a6a",
-      "count": 29,
-      "expected_count": 29
+      "size_bytes": 1698,
+      "sha256": "2fb6568567f166f98e090359fff415175d90f97c21549909ce286ccfe2a2c2f6",
+      "count": 42,
+      "expected_count": 42
     },
     {
       "id": "student_learning_profiles",
@@ -247,24 +275,24 @@
       "source_path": null,
       "required": true,
       "kind": "json",
-      "size_bytes": 88745,
-      "sha256": "e28cea5b211a6dec534b03c3eb7042bc8bf663e8ebf2636bc06a23dc191decd3",
+      "size_bytes": 99879,
+      "sha256": "21cb899d240d70cffca9d2ca827a7d298c00ec38127c5299272166f2a46cc466",
       "count": {
-        "profiles": 9,
-        "enabled_profiles": 9,
+        "profiles": 10,
+        "enabled_profiles": 10,
         "published_experiments": 77,
         "covered_experiments": 77,
         "uncovered_experiments": 0,
-        "profiles_without_experiments": 0,
+        "profiles_without_experiments": 1,
         "multi_profile_experiments": 17
       },
       "expected_counts": {
-        "profiles": 9,
-        "enabled_profiles": 9,
+        "profiles": 10,
+        "enabled_profiles": 10,
         "published_experiments": 77,
         "covered_experiments": 77,
         "uncovered_experiments": 0,
-        "profiles_without_experiments": 0
+        "profiles_without_experiments": 1
       }
     },
     {
@@ -360,8 +388,8 @@
       "source_path": "data/seed/experiment_catalog/catalog_tree.json",
       "required": true,
       "kind": "json",
-      "size_bytes": 958,
-      "sha256": "2f29c55bcf12457c73b5724ec380f478aac47b8bebec38f6b41d94074cfa8f9a",
+      "size_bytes": 927,
+      "sha256": "1e38722a83627b53aa2be2edb3acfbd7f127d6c4244708c887ae3bde824e47a5",
       "count": {
         "ok": true,
         "total_nodes": 569,

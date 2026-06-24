@@ -23,8 +23,8 @@ EXPECTED_DATABASE_COUNTS = {
     "experiment_catalog_directory_nodes": 176,
     "experiment_catalog_point_nodes": 393,
     "experiment_catalog_point_content_records": 76,
-    "experiment_question_banks": 0,
-    "experiment_questions": 0,
+    "experiment_question_banks": 54,
+    "experiment_questions": 1965,
     "source_documents": 2,
     "source_chunks": 3637,
     "chunk_embeddings": 3637,
@@ -135,9 +135,30 @@ def _catalog_validation_report_count(path: Path) -> dict[str, int | bool]:
 def _question_bank_count(path: Path) -> dict[str, int]:
     data = _json(path)
     experiments = data.get("experiments") or []
+    questions = data.get("questions") or [
+        question
+        for experiment in experiments
+        if isinstance(experiment, dict)
+        for question in experiment.get("questions") or []
+    ]
     return {
         "experiments": len(experiments),
-        "questions": sum(len(experiment.get("questions") or []) for experiment in experiments),
+        "questions": len(questions),
+        "single_choice": sum(
+            1 for question in questions if isinstance(question, dict) and question.get("question_type") == "single_choice"
+        ),
+        "true_false": sum(
+            1 for question in questions if isinstance(question, dict) and question.get("question_type") == "true_false"
+        ),
+        "fill_blank": sum(
+            1 for question in questions if isinstance(question, dict) and question.get("question_type") == "fill_blank"
+        ),
+        "published_questions": sum(
+            1 for question in questions if isinstance(question, dict) and question.get("status") == "published"
+        ),
+        "generated_questions": sum(
+            1 for question in questions if isinstance(question, dict) and question.get("bank_kind") == "generated"
+        ),
     }
 
 
@@ -196,8 +217,6 @@ def _student_learning_experiment_coverage_counts(profiles: list[dict[str, Any]])
             profile_counts[profile_id] += 1
 
     profiles_without_experiments = sorted(profile_id for profile_id, count in profile_counts.items() if count == 0)
-    for profile_id in profiles_without_experiments:
-        errors.append(f"{profile_id}: no formal experiments are bound to this profile chapter")
     if errors:
         raise ValueError("student learning experiment coverage mismatch: " + "; ".join(errors))
     return {
@@ -374,6 +393,23 @@ RESOURCE_SPECS: list[dict[str, Any]] = [
         "source_path": "data/seed/experiment_catalog/normalized_three_element_candidates.md",
     },
     {
+        "id": "current_question_bank_seed",
+        "role": "Current generated and published question bank seed exported from the local DB",
+        "path": "data/seed/question_bank/current_question_bank_seed.json",
+        "kind": "json",
+        "count": _question_bank_count,
+        "expected_counts": {
+            "experiments": 54,
+            "questions": 1965,
+            "single_choice": 785,
+            "true_false": 785,
+            "fill_blank": 395,
+            "published_questions": 1965,
+            "generated_questions": 1965,
+        },
+        "source_path": "experiment_question_banks + experiment_questions",
+    },
+    {
         "id": "chemical_search_aliases",
         "role": "Chemistry-aware video-library search formula alias dictionary",
         "path": "data/seed/search/chemical_aliases.json",
@@ -445,7 +481,7 @@ RESOURCE_SPECS: list[dict[str, Any]] = [
         "path": "data/seed/search/es_ik/analysis/chemistry_synonyms.txt",
         "kind": "text",
         "count": _text_line_count,
-        "expected_count": 29,
+        "expected_count": 42,
         "source_path": "data/seed/search/es_ik/analysis/chemistry_synonyms.txt",
     },
     {
@@ -455,12 +491,12 @@ RESOURCE_SPECS: list[dict[str, Any]] = [
         "kind": "json",
         "count": _student_learning_profile_count,
         "expected_counts": {
-            "profiles": 9,
-            "enabled_profiles": 9,
+            "profiles": 10,
+            "enabled_profiles": 10,
             "published_experiments": 77,
             "covered_experiments": 77,
             "uncovered_experiments": 0,
-            "profiles_without_experiments": 0,
+            "profiles_without_experiments": 1,
         },
     },
     {

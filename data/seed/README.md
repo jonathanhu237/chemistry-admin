@@ -7,6 +7,7 @@ Protected resource groups:
 - `formal_experiments.json`: 77 current formal experiments.
 - `knowledge_framework/`: 11 chapters, 133 knowledge units, 385 knowledge points, plus the reviewed curriculum source used to publish them.
 - `experiment_catalog/`: the current catalog-outline seed from `docs/实验目录_整理版.md`, with 569 nodes, 176 directories, 393 points, and 76 reviewed point-content records, including 71 equation-mode records and 122 structured reaction-equation rows.
+- `question_bank/current_question_bank_seed.json`: the current generated and published question-bank seed exported from the local database, with 54 experiments and 1965 point-bound questions.
 - `canonical_rag/`: mirrored canonical chunks and embeddings from `E:/chemistry-rag/data/rag_ready`, including 3637 chunks/embeddings.
 - `student_learning/`: explicit student-facing family and element learning profiles used by the H5 learning page; these display facts are curated seed data, not dynamically inferred from chunks.
 - `import_reports/`: current import/validation reports retained for auditability.
@@ -14,8 +15,8 @@ Protected resource groups:
 
 Retired legacy groups:
 
-- `experiment_points/`, `question_bank/`, and `point_evidence/` are no longer protected production seeds for the catalog-outline baseline.
-- Old question banks, old point identities, old video references, and old point-to-chunk bindings are invalid after reset.
+- `experiment_points/`, `point_evidence/`, and legacy files under `question_bank/` are no longer protected production seeds for the catalog-outline baseline.
+- Old question banks such as `question_bank/rebuilt_question_bank_merged_v1.json`, old point identities, old video references, and old point-to-chunk bindings are invalid after reset.
 - Canonical chunks and embeddings remain valid corpus data; only the retired point-to-chunk binding layer must be regenerated against catalog node ids or deterministic catalog seed keys.
 - Destructive cleanup may delete retired question-bank seed data, retired point-evidence seed data, and retired video-point seed artifacts. It must not delete `canonical_rag/`, source documents/chunks, embeddings, search dictionaries, or the current `experiment_catalog/` seed.
 
@@ -41,6 +42,12 @@ Validate the catalog outline seed and mapping report before import:
 
 ```bash
 python scripts/validate_experiment_catalog_seed.py --write-report
+```
+
+Regenerate the current DB-backed question-bank seed after intentionally changing the published generated question bank:
+
+```bash
+python scripts/export_question_bank_seed.py
 ```
 
 Regenerate the manifest only after intentionally replacing the protected seed resources:
