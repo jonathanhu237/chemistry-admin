@@ -177,6 +177,29 @@ type VideoLibraryDefaultVideo = {
   target?: StudentVideoLibraryRouteTarget | null;
 };
 
+type LearningSearchRow =
+  | {
+      kind: "directory";
+      key: string;
+      title: string;
+      subtitle: string;
+      eyebrow?: string;
+      item: StudentVideoLibraryResultItem;
+    }
+  | {
+      kind: "catalog-directory";
+      key: string;
+      title: string;
+      subtitle: string;
+      eyebrow?: string;
+      record: CatalogSearchRecord;
+    }
+  | {
+      kind: "video";
+      key: string;
+      item: VideoLibraryDefaultVideo;
+    };
+
 function learningChapterLabel(target: StudentVideoLibraryRouteTarget | null | undefined, profiles: StudentLearningProfileSummary[]): string {
   if (!target) return "";
   const profile =
@@ -222,6 +245,43 @@ function defaultVideoFromSearchResult(
     thumbnailUrl: thumbnailUrlForTarget(item.target, feedItems),
     target: item.target,
   };
+}
+
+function learningRowFromDirectoryResult(item: StudentVideoLibraryResultItem): LearningSearchRow {
+  return {
+    kind: "directory",
+    key: `directory:${item.target?.node_id || item.target?.chapter_id || item.id}`,
+    title: item.title,
+    subtitle: compactCatalogPath(item.target?.catalog_path) || item.subtitle || item.snippet,
+    item,
+  };
+}
+
+function learningRowFromCatalogRecord(record: CatalogSearchRecord, rootLabel: string, keyPrefix: string): LearningSearchRow {
+  const path = catalogRecordPath(record);
+  const eyebrow = catalogRecordParentLabel(record, rootLabel || "学习目录");
+  return {
+    kind: "catalog-directory",
+    key: `${keyPrefix}:${record.node.node_id}`,
+    title: record.node.title,
+    subtitle: path,
+    eyebrow,
+    record,
+  };
+}
+
+function learningRowFromVideo(item: VideoLibraryDefaultVideo, keyPrefix: string): LearningSearchRow {
+  return {
+    kind: "video",
+    key: `${keyPrefix}:${item.id}`,
+    item,
+  };
+}
+
+function learningRowIdentity(row: LearningSearchRow): string {
+  if (row.kind === "video") return `video:${row.item.target?.node_id || row.item.target?.placement_node_id || row.item.id}`;
+  if (row.kind === "catalog-directory") return `directory:${row.record.node.node_id}`;
+  return `directory:${row.item.target?.node_id || row.item.target?.chapter_id || row.item.id}`;
 }
 
 export function VideoLibraryPage({ scope = "video" }: { scope?: SearchScope }) {
@@ -403,6 +463,37 @@ export function VideoLibraryPage({ scope = "video" }: { scope?: SearchScope }) {
     });
     return rows.slice(0, DEFAULT_VIDEO_ROWS);
   }, [homeFeedItems, learningProfiles, payload?.browse.recommended]);
+  const learningResultRows = useMemo(() => {
+    if (!isLearningScope) return [];
+    const rows: LearningSearchRow[] = [
+      ...directoryResults.map(learningRowFromDirectoryResult),
+      ...catalogDirectoryResults.map((record) => learningRowFromCatalogRecord(record, learningRootLabel, "result-catalog")),
+      ...videoResults.map((item) => learningRowFromVideo(item, "result-video")),
+    ];
+    const seen = new Set<string>();
+    return rows.filter((row) => {
+      const key = learningRowIdentity(row);
+      if (seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    });
+  }, [catalogDirectoryResults, directoryResults, isLearningScope, learningRootLabel, videoResults]);
+  const learningDefaultRows = useMemo(() => {
+    if (!isLearningScope) return [];
+    const directoryRows = catalogRecords
+      .filter((record) => record.node.node_kind === "directory")
+      .slice(0, 3)
+      .map((record) => learningRowFromCatalogRecord(record, learningRootLabel, "default-catalog"));
+    const videoRows = defaultVideos.slice(0, Math.max(0, DEFAULT_VIDEO_ROWS - directoryRows.length)).map((item) => learningRowFromVideo(item, "default-video"));
+    const rows = [...directoryRows, ...videoRows];
+    const seen = new Set<string>();
+    return rows.filter((row) => {
+      const key = learningRowIdentity(row);
+      if (seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    });
+  }, [catalogRecords, defaultVideos, isLearningScope, learningRootLabel]);
   const recommendedTerms = useMemo(
     () =>
       (payload?.browse.chips || [])
@@ -412,10 +503,11 @@ export function VideoLibraryPage({ scope = "video" }: { scope?: SearchScope }) {
     [payload?.browse.chips],
   );
   const visibleHistory = history.slice(0, DEFAULT_HISTORY_ROWS);
+  const hasDefaultRecommendations = isLearningScope ? learningDefaultRows.length > 0 : defaultVideos.length > 0;
   const showDefaultBrowse =
-    !hasQuery && !error && (defaultVideos.length > 0 || recommendedTerms.length > 0 || visibleHistory.length > 0 || (!loading && Boolean(payload)));
+    !hasQuery && !error && (hasDefaultRecommendations || recommendedTerms.length > 0 || visibleHistory.length > 0 || (!loading && Boolean(payload)));
   const showLoadingState = loading && hasQuery && !payload;
-  const showErrorState = Boolean(error) && (hasQuery || defaultVideos.length === 0);
+  const showErrorState = Boolean(error) && (hasQuery || !hasDefaultRecommendations);
   const showPayloadBanner = Boolean(payload?.message && payload.status !== "ok" && payload.status !== "empty");
 
   const submitSearch = (event: FormEvent<HTMLFormElement>) => {
@@ -524,8 +616,8 @@ export function VideoLibraryPage({ scope = "video" }: { scope?: SearchScope }) {
               type="search"
               value={draft}
               onChange={(event) => setDraft(event.currentTarget.value)}
-              placeholder="搜实验现象、试剂、点位"
-              aria-label="搜索实验视频库"
+              placeholder={isLearningScope ? "搜目录、实验现象、试剂、点位" : "搜实验现象、试剂、点位"}
+              aria-label={isLearningScope ? "搜索知识点位" : "搜索实验视频库"}
             />
             {draft ? (
               <button className="video-library-clear" type="button" aria-label="清空搜索" onClick={() => setDraft("")}>
@@ -542,11 +634,15 @@ export function VideoLibraryPage({ scope = "video" }: { scope?: SearchScope }) {
 
         {showDefaultBrowse ? (
           <DefaultBrowse
+            scope={scope}
             history={visibleHistory}
             recommendedVideos={defaultVideos}
+            learningRows={learningDefaultRows}
             recommendedTerms={recommendedTerms}
             onUseQuery={useQuery}
             onOpenVideo={openDefaultVideo}
+            onOpenDirectory={openResult}
+            onOpenCatalogRecord={openCatalogRecord}
           />
         ) : null}
 
@@ -554,12 +650,10 @@ export function VideoLibraryPage({ scope = "video" }: { scope?: SearchScope }) {
           <SearchResults
             query={query.trim()}
             scope={scope}
+            learningRows={learningResultRows}
             videoResults={videoResults}
-            directoryResults={directoryResults}
-            catalogDirectoryResults={catalogDirectoryResults}
             catalogLoading={catalogLoading}
             catalogError={catalogError}
-            learningRootLabel={learningRootLabel}
             onOpenVideo={openSearchVideo}
             onOpenDirectory={openResult}
             onOpenCatalogRecord={openCatalogRecord}
@@ -573,32 +667,27 @@ export function VideoLibraryPage({ scope = "video" }: { scope?: SearchScope }) {
 function SearchResults({
   query,
   scope,
+  learningRows,
   videoResults,
-  directoryResults,
-  catalogDirectoryResults,
   catalogLoading,
   catalogError,
-  learningRootLabel,
   onOpenVideo,
   onOpenDirectory,
   onOpenCatalogRecord,
 }: {
   query: string;
   scope: SearchScope;
+  learningRows: LearningSearchRow[];
   videoResults: VideoLibraryDefaultVideo[];
-  directoryResults: StudentVideoLibraryResultItem[];
-  catalogDirectoryResults: CatalogSearchRecord[];
   catalogLoading: boolean;
   catalogError: string;
-  learningRootLabel: string;
   onOpenVideo: (item: VideoLibraryDefaultVideo) => void;
   onOpenDirectory: (item: StudentVideoLibraryResultItem) => void;
   onOpenCatalogRecord: (record: CatalogSearchRecord) => void;
 }) {
   const isLearningScope = scope === "learning";
-  const hasDirectoryResults = directoryResults.length > 0 || catalogDirectoryResults.length > 0;
-  const hasAnyResults = videoResults.length > 0 || hasDirectoryResults;
-  const heading = isLearningScope ? `关于“${query}”的学习结果` : `关于“${query}”的实验视频`;
+  const hasAnyResults = isLearningScope ? learningRows.length > 0 : videoResults.length > 0;
+  const heading = isLearningScope ? `关于“${query}”的知识点位` : `关于“${query}”的实验视频`;
 
   return (
     <section className="video-library-results" aria-live="polite" aria-label={isLearningScope ? "学习搜索结果" : "实验视频搜索结果"}>
@@ -606,26 +695,17 @@ function SearchResults({
         <h3>{heading}</h3>
       </div>
 
-      {isLearningScope && (hasDirectoryResults || catalogLoading || catalogError) ? (
-        <section className="video-library-result-section" aria-label="目录结果">
-          <h4>目录结果</h4>
-          {directoryResults.length || catalogDirectoryResults.length ? (
+      {isLearningScope ? (
+        <section className="video-library-result-section" aria-label="知识点位结果">
+          {learningRows.length ? (
             <div className="video-library-row-list">
-              {directoryResults.map((item) => (
-                <DirectoryResultRow
-                  key={item.id}
-                  title={item.title}
-                  subtitle={compactCatalogPath(item.target?.catalog_path) || item.subtitle || item.snippet}
-                  onClick={() => onOpenDirectory(item)}
-                />
-              ))}
-              {catalogDirectoryResults.map((record) => (
-                <DirectoryResultRow
-                  key={record.node.node_id}
-                  title={record.node.title}
-                  subtitle={catalogRecordPath(record)}
-                  eyebrow={catalogRecordParentLabel(record, learningRootLabel || "学习目录")}
-                  onClick={() => onOpenCatalogRecord(record)}
+              {learningRows.map((row) => (
+                <LearningSearchResultRow
+                  key={row.key}
+                  row={row}
+                  onOpenVideo={onOpenVideo}
+                  onOpenDirectory={onOpenDirectory}
+                  onOpenCatalogRecord={onOpenCatalogRecord}
                 />
               ))}
             </div>
@@ -643,9 +723,8 @@ function SearchResults({
         </section>
       ) : null}
 
-      {videoResults.length ? (
+      {!isLearningScope && videoResults.length ? (
         <section className="video-library-result-section" aria-label="实验视频">
-          {isLearningScope ? <h4>实验视频</h4> : null}
           <div className="video-library-row-list">
             {videoResults.map((item) => (
               <SearchVideoRow key={item.id} item={item} onClick={() => onOpenVideo(item)} />
@@ -659,6 +738,26 @@ function SearchResults({
       ) : null}
     </section>
   );
+}
+
+function LearningSearchResultRow({
+  row,
+  onOpenVideo,
+  onOpenDirectory,
+  onOpenCatalogRecord,
+}: {
+  row: LearningSearchRow;
+  onOpenVideo: (item: VideoLibraryDefaultVideo) => void;
+  onOpenDirectory: (item: StudentVideoLibraryResultItem) => void;
+  onOpenCatalogRecord: (record: CatalogSearchRecord) => void;
+}) {
+  if (row.kind === "video") {
+    return <SearchVideoRow item={row.item} onClick={() => onOpenVideo(row.item)} />;
+  }
+  if (row.kind === "catalog-directory") {
+    return <DirectoryResultRow title={row.title} subtitle={row.subtitle} eyebrow={row.eyebrow} onClick={() => onOpenCatalogRecord(row.record)} />;
+  }
+  return <DirectoryResultRow title={row.title} subtitle={row.subtitle} eyebrow={row.eyebrow} onClick={() => onOpenDirectory(row.item)} />;
 }
 
 function SearchVideoRow({ item, onClick }: { item: VideoLibraryDefaultVideo; onClick: () => void }) {
@@ -710,19 +809,29 @@ function DirectoryResultRow({
 }
 
 function DefaultBrowse({
+  scope,
   history,
   recommendedVideos,
+  learningRows,
   recommendedTerms,
   onUseQuery,
   onOpenVideo,
+  onOpenDirectory,
+  onOpenCatalogRecord,
 }: {
+  scope: SearchScope;
   history: string[];
   recommendedVideos: VideoLibraryDefaultVideo[];
+  learningRows: LearningSearchRow[];
   recommendedTerms: string[];
   onUseQuery: (query: string) => void;
   onOpenVideo: (item: VideoLibraryDefaultVideo) => void;
+  onOpenDirectory: (item: StudentVideoLibraryResultItem) => void;
+  onOpenCatalogRecord: (record: CatalogSearchRecord) => void;
 }) {
-  const showTerms = recommendedTerms.length > 0 && recommendedVideos.length < MIN_VIDEO_ROWS_BEFORE_HIDING_TERMS;
+  const isLearningScope = scope === "learning";
+  const recommendationCount = isLearningScope ? learningRows.length : recommendedVideos.length;
+  const showTerms = recommendedTerms.length > 0 && recommendationCount < MIN_VIDEO_ROWS_BEFORE_HIDING_TERMS;
   return (
     <section className="video-library-default">
       {history.length ? (
@@ -742,7 +851,26 @@ function DefaultBrowse({
         </section>
       ) : null}
 
-      {recommendedVideos.length ? (
+      {isLearningScope && learningRows.length ? (
+        <section className="video-library-default-section" aria-label="推荐内容">
+          <div className="video-library-simple-head">
+            <h3>推荐内容</h3>
+          </div>
+          <div className="video-library-row-list">
+            {learningRows.map((row) => (
+              <LearningSearchResultRow
+                key={row.key}
+                row={row}
+                onOpenVideo={onOpenVideo}
+                onOpenDirectory={onOpenDirectory}
+                onOpenCatalogRecord={onOpenCatalogRecord}
+              />
+            ))}
+          </div>
+        </section>
+      ) : null}
+
+      {!isLearningScope && recommendedVideos.length ? (
         <section className="video-library-default-section" aria-label="推荐视频">
           <div className="video-library-simple-head">
             <h3>推荐视频</h3>
@@ -772,9 +900,9 @@ function DefaultBrowse({
         </section>
       ) : null}
 
-      {!recommendedVideos.length && !recommendedTerms.length ? (
+      {!recommendationCount && !recommendedTerms.length ? (
         <MobileEmptyState className="empty-learning-card" icon={<FlaskConical size={20} />}>
-            <span>暂无可展示的实验视频内容。</span>
+            <span>{isLearningScope ? "暂无可推荐的学习内容。" : "暂无可展示的实验视频内容。"}</span>
         </MobileEmptyState>
       ) : null}
     </section>

@@ -3,58 +3,8 @@
   gap: 12px;
 }
 
-.learning-recommendation-card {
-  display: grid;
-  gap: 8px;
-  width: 100%;
-  border: 1px solid rgba(0, 88, 38, 0.16);
-  border-radius: 8px;
-  padding: 14px;
-  color: var(--ink);
-  background:
-    linear-gradient(135deg, rgba(255, 253, 246, 0.98), rgba(238, 248, 241, 0.92)),
-    #fffdf6;
-  box-shadow: 0 16px 38px rgba(21, 49, 34, 0.1);
-  text-align: left;
-  cursor: pointer;
-}
-
-.learning-recommendation-kicker,
-.learning-recommendation-action {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  width: fit-content;
-}
-
-.learning-recommendation-kicker {
-  color: var(--green);
-  font-size: 12px;
-  font-weight: 900;
-}
-
-.learning-recommendation-card strong {
-  overflow-wrap: anywhere;
-  font-size: 18px;
-  line-height: 1.18;
-}
-
-.learning-recommendation-card small {
-  color: var(--muted);
-  font-size: 12px;
-  font-weight: 800;
-  line-height: 1.35;
-}
-
-.learning-recommendation-action {
-  justify-self: end;
-  min-height: 30px;
-  border-radius: 8px;
-  padding: 0 10px;
-  color: #ffffff;
-  background: var(--green);
-  font-size: 12px;
-  font-weight: 900;
+.learning-entry-panel {
+  align-content: center;
 }
 
 .selection-head {

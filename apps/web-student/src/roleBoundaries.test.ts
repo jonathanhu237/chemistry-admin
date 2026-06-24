@@ -2,12 +2,14 @@ import { describe, expect, it } from "vitest";
 
 import apiSource from "./api.ts?raw";
 import appSource from "./App.tsx?raw";
+import studentBottomNavSource from "./app/shell/StudentBottomNav.tsx?raw";
 import authUtilsSource from "./features/auth/authUtils.ts?raw";
 import assistantPanelSource from "./features/assistant/StudentAiChatPanel.tsx?raw";
 import authenticatedAppLayoutSource from "./app/shell/AuthenticatedAppLayout.tsx?raw";
 import previewInputRuntimeSource from "./app/preview/input/PreviewInputRuntime.tsx?raw";
 import periodicTableSource from "./features/periodic-table/PeriodicTable.tsx?raw";
 import pointVideoPlayerSource from "./features/catalog/PointVideoPlayer.tsx?raw";
+import homeRootPageSource from "./routes/home/HomeRootPage.tsx?raw";
 import unifiedSearchSource from "./routes/search/UnifiedSearchPage.tsx?raw";
 import backArrowIconSource from "./shared/mobile/BackArrowIcon.tsx?raw";
 import pagebarSource from "./shared/mobile/PageBar.tsx?raw";
@@ -174,7 +176,9 @@ describe("student console role boundaries", () => {
     expect(authenticatedAppLayoutSource).toContain("--student-visual-viewport-height");
     expect(authenticatedAppLayoutSource).toContain("--student-keyboard-bottom-inset");
     expect(appShellCssSource).toContain(".student-app-shell.keyboard-active .student-bottom-nav");
+    expect(appShellCssSource).toContain(".student-app-shell.context-picker-active .student-bottom-nav");
     expect(appShellCssSource).toContain(".student-app-shell.root-route.root-ai.keyboard-active");
+    expect(assistantPanelSource).toContain("context-picker-active");
     expect(appShellCssSource).toContain(".learning-shell:has(.student-app-shell.root-route.root-ai)");
     expect(appShellCssSource).toContain(".learning-shell:has(.student-app-shell.root-route.root-ai)::before");
     expect(appShellCssSource).toContain("overscroll-behavior: none;");
@@ -220,7 +224,9 @@ describe("student console role boundaries", () => {
       assistantCssSource.match(/\.ai-chat-panel\.root\.root-state-empty,\s*\.ai-chat-panel\.root\.root-state-draft\s*\{[^}]*\}/)?.[0] || "";
     const conversationPanelBlock = assistantCssSource.match(/\.ai-chat-panel\.root\.root-state-conversation\s*\{[^}]*\}/)?.[0] || "";
     const rootLayerBlock =
-      assistantCssSource.match(/\.ai-chat-panel\.root \.ai-chat-stream,\s*\.ai-chat-panel\.root \.ai-quick-prompts,\s*\.ai-chat-panel\.root \.ai-chat-compose\s*\{[^}]*\}/)
+      assistantCssSource.match(
+        /\.ai-chat-panel\.root \.ai-chat-stream,\s*\.ai-chat-panel\.root \.ai-quick-prompts,[\s\S]*?\.ai-chat-panel\.root \.ai-chat-compose\s*\{[^}]*\}/,
+      )
         ?.[0] || "";
     const rootHeaderBlock = assistantCssSource.match(/\.ai-chat-panel\.root \.ai-chat-head\.root\s*\{[^}]*\}/)?.[0] || "";
     const rootTitleBlock = assistantCssSource.match(/\.ai-chat-panel\.root \.ai-chat-head\.root h2\s*\{[^}]*\}/)?.[0] || "";
@@ -337,7 +343,8 @@ describe("student console role boundaries", () => {
     expect(assistantPanelSource).toContain('"正在判断问题范围"');
     expect(assistantPanelSource).toContain('"正在检索课程资料"');
     expect(assistantPanelSource).toContain('"正在返回学习建议"');
-    expect(assistantPanelSource).toContain('"正在生成回答"');
+    expect(assistantPanelSource).toContain('"正在组织回答"');
+    expect(assistantPanelSource).toContain('"正在输出回答"');
     expect(assistantPanelSource).toContain("safeAssistantSourceCount");
     expect(assistantPanelSource).toContain("Mark Atom answer helpful");
     expect(assistantPanelSource).toContain("Mark Atom answer unhelpful");
@@ -385,22 +392,84 @@ describe("student console role boundaries", () => {
     expect(assistantCssSource).toContain(".ai-chat-panel.root .ai-thinking-text.outgoing");
   });
 
-  it("keeps the visible mobile bottom nav opaque and free of default focus boxes", async () => {
+  it("keeps the compact Atom-centered bottom nav opaque and free of default focus boxes", async () => {
     // @ts-expect-error The frontend tsconfig intentionally omits Node types, but Vitest runs this contract in Node.
     const { readFileSync } = await import("node:fs");
     const cwd = (globalThis as unknown as { process: { cwd: () => string } }).process.cwd();
     const appShellCssSource = readFileSync(`${cwd}/src/styles/app-shell.css`, "utf8");
+    const mobileTokensSource = readFileSync(`${cwd}/src/mobile/tokens.css`, "utf8");
     const bottomNavBlock = appShellCssSource.match(/\.student-bottom-nav\s*\{[^}]*\}/)?.[0] || "";
+    const bottomNavButtonBlock = appShellCssSource.match(/\.student-bottom-nav button\s*\{[^}]*\}/)?.[0] || "";
+    const bottomNavLabelBlock = appShellCssSource.match(/\.student-bottom-nav-label\s*\{[^}]*\}/)?.[0] || "";
+    const activeNavBlock = appShellCssSource.match(/\.student-bottom-nav button\.active\s*\{[^}]*\}/)?.[0] || "";
+    const atomLabelBlock = appShellCssSource.match(/\.student-bottom-nav button\[data-root="ai"\] \.student-bottom-nav-label\s*\{[^}]*\}/)?.[0] || "";
+    const atomIconBlock = appShellCssSource.match(/\.student-bottom-nav button\[data-root="ai"\] \.student-bottom-nav-icon\s*\{[^}]*\}/)?.[0] || "";
+    const activeAtomIconBlock =
+      appShellCssSource.match(/\.student-bottom-nav button\[data-root="ai"\]\.active \.student-bottom-nav-icon\s*\{[^}]*\}/)?.[0] || "";
 
+    expect(mobileTokensSource).toContain("--mobile-bottom-nav-height: 56px;");
+    expect(mobileTokensSource).toContain("--mobile-bottom-action-space: calc(var(--mobile-bottom-nav-height) + 18px + env(safe-area-inset-bottom));");
+    expect(studentBottomNavSource).toContain("student-bottom-nav-primary");
+    expect(studentBottomNavSource).toContain("student-bottom-nav-standard");
+    expect(studentBottomNavSource).toContain("aria-label={item.label}");
+    expect(studentBottomNavSource).toContain("data-root={item.id}");
+    expect(studentBottomNavSource).toContain("rootPathById[item.id]");
     expect(bottomNavBlock).toContain("height: calc(var(--mobile-bottom-nav-height) + env(safe-area-inset-bottom, 0px));");
     expect(bottomNavBlock).toContain("overflow: hidden;");
     expect(bottomNavBlock).toContain("background: #fffdf6;");
+    expect(bottomNavBlock).toContain("padding: 6px var(--mobile-chrome-inline) calc(6px + env(safe-area-inset-bottom, 0px)) var(--mobile-chrome-inline);");
     expect(bottomNavBlock).not.toContain("background: rgba(255, 253, 246");
     expect(bottomNavBlock).not.toContain("backdrop-filter: blur(18px)");
+    expect(bottomNavButtonBlock).toContain("display: flex;");
+    expect(bottomNavButtonBlock).toContain("min-height: var(--mobile-touch-md);");
+    expect(bottomNavButtonBlock).not.toContain("grid-template-rows: 24px auto;");
+    expect(bottomNavButtonBlock).not.toContain("min-height: 54px;");
+    expect(bottomNavLabelBlock).toContain("font-size: 17px;");
+    expect(bottomNavLabelBlock).toContain("white-space: nowrap;");
+    expect(activeNavBlock).toContain("color: var(--green);");
+    expect(activeNavBlock).toContain("background: transparent;");
+    expect(activeNavBlock).not.toContain("rgba(0, 88, 38, 0.1)");
+    expect(atomLabelBlock).toContain("clip: rect(0 0 0 0);");
+    expect(atomIconBlock).toContain("width: 64px;");
+    expect(atomIconBlock).toContain("height: 42px;");
+    expect(atomIconBlock).not.toContain("border:");
+    expect(atomIconBlock).toContain("border-radius: 16px;");
+    expect(atomIconBlock).toContain("color: var(--green);");
+    expect(atomIconBlock).toContain("background: rgba(0, 88, 38, 0.1);");
+    expect(activeAtomIconBlock).not.toContain("border-color:");
+    expect(activeAtomIconBlock).toContain("color: #ffffff;");
+    expect(activeAtomIconBlock).toContain("background: var(--green);");
     expect(appShellCssSource).toContain(".student-bottom-nav button:focus");
     expect(appShellCssSource).toContain("outline-style: none;");
     expect(appShellCssSource).toContain("outline-width: 0;");
     expect(appShellCssSource).toContain(".student-bottom-nav button:focus-visible");
+  });
+
+  it("keeps the home video action row compact, icon-led, and search-free", async () => {
+    // @ts-expect-error The frontend tsconfig intentionally omits Node types, but Vitest runs this contract in Node.
+    const { readFileSync } = await import("node:fs");
+    const cwd = (globalThis as unknown as { process: { cwd: () => string } }).process.cwd();
+    const appShellCssSource = readFileSync(`${cwd}/src/styles/app-shell.css`, "utf8");
+    const actionRowBlock = appShellCssSource.match(/\.home-video-actions\s*\{[^}]*\}/)?.[0] || "";
+    const iconGroupBlock = appShellCssSource.match(/\.home-video-icon-actions\s*\{[^}]*\}/)?.[0] || "";
+    const atomActionBlock = appShellCssSource.match(/\.home-video-icon-action\.atom\s*\{[^}]*\}/)?.[0] || "";
+
+    expect(homeRootPageSource).toContain("home-video-open-action");
+    expect(homeRootPageSource).toContain("home-video-icon-actions");
+    expect(homeRootPageSource).toContain("问问Atom：");
+    expect(homeRootPageSource).toContain("<ThumbsUp");
+    expect(homeRootPageSource).toContain("<Bookmark");
+    expect(homeRootPageSource).toContain("<Share2");
+    expect(homeRootPageSource).toContain("<MoreHorizontal");
+    expect(homeRootPageSource).not.toContain("搜索相关");
+    expect(homeRootPageSource).not.toContain("onSearch");
+    expect(actionRowBlock).toContain("display: flex;");
+    expect(actionRowBlock).toContain("justify-content: space-between;");
+    expect(actionRowBlock).not.toContain("grid-template-columns");
+    expect(iconGroupBlock).toContain("justify-content: flex-end;");
+    expect(iconGroupBlock).toContain("min-width: 0;");
+    expect(atomActionBlock).toContain("color: var(--green);");
+    expect(atomActionBlock).toContain("background: rgba(0, 88, 38, 0.11);");
   });
 
   it("locks the student periodic learning taxonomy without the removed combined area", () => {

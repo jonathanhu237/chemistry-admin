@@ -988,8 +988,13 @@ describe("student app route stack", () => {
       "assessment",
       "profile",
     ]);
-    expect(nav.querySelector('button[data-root="ai"] svg')?.getAttribute("class")).toContain("lucide-atom");
-    expect(nav.querySelector('button[data-root="ai"] span')).toHaveTextContent("Atom");
+    const ordinaryNavButtons = Array.from(nav.querySelectorAll('button:not([data-root="ai"])'));
+    expect(ordinaryNavButtons.every((button) => button.classList.contains("student-bottom-nav-standard"))).toBe(true);
+    const atomNavButton = nav.querySelector<HTMLButtonElement>('button[data-root="ai"]');
+    expect(atomNavButton).toHaveClass("student-bottom-nav-primary");
+    expect(atomNavButton).toHaveAttribute("aria-label", "Atom");
+    expect(atomNavButton?.querySelector(".student-bottom-nav-icon svg")?.getAttribute("class")).toContain("lucide-atom");
+    expect(atomNavButton?.querySelector(".student-bottom-nav-label")).toHaveTextContent("Atom");
     await waitFor(() => expect(window.location.pathname).toBe("/home"));
     expect(activeRoot()).toBe("home");
 
@@ -1003,7 +1008,22 @@ describe("student app route stack", () => {
     expect(within(homeTopicRail).getByRole("button", { name: "推荐" })).toHaveAttribute("aria-pressed", "false");
     expect(within(homeTopicRail).getByRole("button", { name: "最新" })).toHaveAttribute("aria-pressed", "true");
     expect(screen.getByText("Orange layer observation")).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: "问问Atom" }).querySelector("svg")?.getAttribute("class")).toContain("lucide-atom");
+    const homeVideoActions = screen.getByLabelText("视频操作：Orange layer observation");
+    expect(within(homeVideoActions).getByRole("button", { name: "查看实验：Orange layer observation" })).toHaveClass("home-video-open-action");
+    expect(within(homeVideoActions).getByRole("button", { name: "点赞：Orange layer observation" })).toHaveAttribute("aria-pressed", "false");
+    expect(within(homeVideoActions).getByRole("button", { name: "收藏：Orange layer observation" })).toHaveAttribute("aria-pressed", "false");
+    expect(within(homeVideoActions).getByRole("button", { name: "转发实验视频：Orange layer observation" })).toBeInTheDocument();
+    expect(within(homeVideoActions).getByRole("button", { name: "更多操作：Orange layer observation" })).toBeInTheDocument();
+    expect(within(homeVideoActions).queryByRole("button", { name: "搜索相关" })).not.toBeInTheDocument();
+    const homeAtomAction = within(homeVideoActions).getByRole("button", { name: "问问Atom：Orange layer observation" });
+    expect(homeAtomAction).toHaveClass("atom");
+    expect(homeAtomAction.querySelector("svg")?.getAttribute("class")).toContain("lucide-atom");
+    fireEvent.click(homeAtomAction);
+    await waitFor(() => expect(window.location.pathname).toBe("/ai/chat"));
+    expectBottomNavHidden();
+    act(() => window.history.back());
+    await waitFor(() => expect(window.location.pathname).toBe("/home"));
+    expect(activeRoot()).toBe("home");
     fireEvent.click(screen.getByRole("button", { name: "搜索实验视频" }));
     await waitFor(() => expect(window.location.pathname).toBe("/video-library"));
     expectBottomNavHidden();
@@ -1056,7 +1076,7 @@ describe("student app route stack", () => {
     expect(screen.getByRole("textbox", { name: "搜索元素" })).toBeInTheDocument();
     expect(document.querySelector(".periodic-search svg")?.getAttribute("class")).toContain("lucide-search");
     expect(document.querySelector(".periodic-search svg")?.getAttribute("class")).not.toContain("lucide-atom");
-    expect(document.querySelector(".learning-recommendation-card")).not.toBeNull();
+    expect(document.querySelector(".learning-recommendation-card")).toBeNull();
     expect(document.querySelector(".chapter-entry-card")).toBeNull();
     fireEvent.click(document.querySelector<HTMLButtonElement>(".element-cell[title^='Cl ']")!);
     await waitFor(() => expect(window.location.pathname).toBe("/chapter/halogens-17"));
@@ -1122,16 +1142,18 @@ describe("student app route stack", () => {
     expect(new URLSearchParams(window.location.search).get("chapterId")).toBe("CH17");
     expect(new URLSearchParams(window.location.search).get("elementSymbol")).toBe("Cl");
     expect(screen.getByRole("searchbox")).toBeInTheDocument();
+    await waitFor(() => expect(screen.getByLabelText("推荐内容")).toBeInTheDocument());
     fireEvent.change(screen.getByRole("searchbox"), { target: { value: "Orange" } });
-    await waitFor(() => expect(screen.getByText("关于“Orange”的学习结果")).toBeInTheDocument());
-    expect(screen.getByText("实验视频")).toBeInTheDocument();
-    expect(screen.getByText("目录结果")).toBeInTheDocument();
+    await waitFor(() => expect(screen.getByText("关于“Orange”的知识点位")).toBeInTheDocument());
+    expect(screen.queryByText("实验视频")).not.toBeInTheDocument();
+    expect(screen.queryByText("目录结果")).not.toBeInTheDocument();
     await waitFor(() => expect(screen.getByText("Orange layer observation")).toBeInTheDocument());
     expect(screen.getByText("Oxidation experiments")).toBeInTheDocument();
     const searchResultSections = Array.from(document.querySelectorAll<HTMLElement>(".video-library-results .video-library-result-section"));
-    expect(searchResultSections).toHaveLength(2);
+    expect(searchResultSections).toHaveLength(1);
+    expect(searchResultSections[0]).toHaveAttribute("aria-label", "知识点位结果");
     expect(searchResultSections[0].querySelector(".video-library-directory-row")).not.toBeNull();
-    expect(searchResultSections[1].querySelector(".video-library-search-video-row")).not.toBeNull();
+    expect(searchResultSections[0].querySelector(".video-library-search-video-row")).not.toBeNull();
     fireEvent.click(screen.getByText("Oxidation experiments").closest("button")!);
     await waitFor(() => expect(window.location.pathname).toBe("/catalog/cat-dir-oxidation"));
     expect(new URLSearchParams(window.location.search).get("profileId")).toBe("halogens-17");
@@ -1622,10 +1644,10 @@ describe("student app route stack", () => {
     act(() => {
       emitStreamEvent?.({ event: "delta", delta: "### Streaming answer\n\n- The organic layer contains bromine." });
     });
-    await waitFor(() => expect(screen.getByRole("status", { name: "正在生成回答" })).toBeInTheDocument(), { timeout: 2000 });
+    await waitFor(() => expect(screen.getByRole("status", { name: "正在输出回答" })).toBeInTheDocument(), { timeout: 2000 });
     await waitFor(() => {
       expect(runningMessage?.querySelector(".ai-thinking-text.outgoing")).toHaveTextContent("正在检索课程资料");
-      expect(runningMessage?.querySelector(".ai-thinking-text.current.incoming")).toHaveTextContent("正在生成回答");
+      expect(runningMessage?.querySelector(".ai-thinking-text.current.incoming")).toHaveTextContent("正在输出回答");
     });
     await waitFor(() => expect(screen.getByText("Streaming answer")).toBeInTheDocument());
 
@@ -1862,7 +1884,7 @@ describe("student app route stack", () => {
     expect(screen.getByPlaceholderText("问实验现象、步骤或原理")).toBeInTheDocument();
     expect(screen.getByRole("button", { name: "查看 Atom 历史记录" })).toBeInTheDocument();
     expect(screen.getByRole("button", { name: "新建 Atom 对话" })).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: "带入当前学习背景" })).toHaveAttribute("aria-pressed", "false");
+    expect(screen.getByRole("button", { name: "选择学习背景" })).toHaveAttribute("aria-pressed", "false");
     const rootActions = document.querySelector<HTMLElement>(".ai-chat-panel.root .ai-chat-head.root .ai-root-actions");
     expect(rootActions).not.toBeNull();
     expect(rootActions?.querySelectorAll(".ai-root-icon-action")).toHaveLength(2);
@@ -1877,9 +1899,11 @@ describe("student app route stack", () => {
         .join(" "),
     ).not.toMatch(/上传|附件|模型|语音|图片/);
 
-    fireEvent.click(screen.getByRole("button", { name: "带入当前学习背景" }));
-    expect(screen.getByRole("button", { name: "带入当前学习背景" })).toHaveAttribute("aria-pressed", "true");
-    expect(screen.getByText("已带入当前学习背景")).toBeInTheDocument();
+    fireEvent.click(screen.getByRole("button", { name: "选择学习背景" }));
+    expect(await screen.findByRole("dialog", { name: "选择学习背景" })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "选择学习背景" })).toHaveAttribute("aria-pressed", "true");
+    fireEvent.click(document.querySelector<HTMLButtonElement>(".atom-context-picker-close")!);
+    await waitFor(() => expect(screen.queryByRole("dialog", { name: "选择学习背景" })).not.toBeInTheDocument());
 
     fireEvent.click(screen.getByRole("button", { name: "查看 Atom 历史记录" }));
     expect(await screen.findByRole("dialog", { name: "Atom 历史记录" })).toHaveTextContent("还没有历史记录");
@@ -1995,6 +2019,72 @@ describe("student app route stack", () => {
     expect(errorMessage).toHaveClass("assistant", "error");
     expect(errorMessage?.querySelector(".ai-message-actions")).toBeNull();
     expect(screen.queryByRole("button", { name: "怎样判断氧化剂？" })).not.toBeInTheDocument();
+  });
+
+  it("binds one Atom root chat to a selected learning point from catalog or search", async () => {
+    apiMocks.streamStudentAssistantAsk.mockReset();
+    apiMocks.streamStudentAssistantAsk.mockImplementation(async (_payload, onEvent) => {
+      onEvent({ event: "delta", delta: "Point bound answer" });
+      onEvent({ event: "final", response: { source_count: 1 } });
+    });
+
+    await renderAuthenticatedApp("/ai");
+
+    fireEvent.click(screen.getByRole("button", { name: "选择学习背景" }));
+    expect(await screen.findByRole("dialog", { name: "选择学习背景" })).toBeInTheDocument();
+    const shell = document.querySelector<HTMLElement>(".student-app-shell.root-route.root-ai");
+    await waitFor(() => expect(shell).toHaveClass("context-picker-active"));
+    await waitFor(() => expect(apiMocks.getStudentLearningPage).toHaveBeenCalled());
+
+    fireEvent.click(await screen.findByRole("button", { name: /Group 17 Halogens/ }));
+    await waitFor(() => expect(apiMocks.getStudentChapterCatalog).toHaveBeenCalledWith("CH17"));
+    fireEvent.click(await screen.findByRole("button", { name: /Halogen displacement catalog/ }));
+    await waitFor(() => expect(apiMocks.getStudentCatalogNode).toHaveBeenLastCalledWith("cat-dir-halogen"));
+    fireEvent.click(await screen.findByRole("button", { name: /Oxidation experiments/ }));
+    await waitFor(() => expect(apiMocks.getStudentCatalogNode).toHaveBeenLastCalledWith("cat-dir-oxidation"));
+    fireEvent.click(await screen.findByRole("button", { name: /Orange layer observation/ }));
+    await waitFor(() => expect(shell).not.toHaveClass("context-picker-active"));
+
+    await waitFor(() => expect(screen.queryByRole("dialog", { name: "选择学习背景" })).not.toBeInTheDocument());
+    expect(screen.getByRole("region", { name: "已绑定学习背景" })).toHaveTextContent("Orange layer observation");
+    expect(screen.getByRole("button", { name: "更换学习背景" })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "移除学习背景" })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "选择学习背景" })).toHaveAttribute("aria-pressed", "true");
+
+    fireEvent.click(screen.getByRole("button", { name: "更换学习背景" }));
+    fireEvent.change(await screen.findByRole("searchbox", { name: "搜索可绑定点位" }), { target: { value: "CCl4" } });
+    await waitFor(() => expect(apiMocks.searchStudentVideoLibrary).toHaveBeenLastCalledWith("CCl4", 12));
+    fireEvent.click(await screen.findByRole("button", { name: /Orange layer observation/ }));
+
+    fireEvent.change(screen.getByRole("textbox", { name: "向 Atom 提问" }), {
+      target: { value: "这个点位为什么会出现橙色层？" },
+    });
+    fireEvent.click(screen.getByRole("button", { name: "发送问题" }));
+    await waitFor(() => expect(apiMocks.streamStudentAssistantAsk).toHaveBeenCalledTimes(1));
+    expect(apiMocks.streamStudentAssistantAsk).toHaveBeenLastCalledWith(
+      expect.objectContaining({
+        question: "这个点位为什么会出现橙色层？",
+        context_type: "learning_point",
+        context_title: "Orange layer observation",
+        chapter_id: "CH17",
+        point_node_id: "cat-point-halogen",
+        catalog_path: ["Halogen displacement catalog", "Orange layer observation"],
+        conversation_history: [],
+      }),
+      expect.any(Function),
+    );
+    expect(screen.getByRole("region", { name: "已绑定学习背景" })).toHaveTextContent("已绑定此点位");
+    expect(screen.queryByRole("button", { name: "移除学习背景" })).not.toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "已绑定学习背景，新建 Atom 对话后可更换" })).toBeInTheDocument();
+
+    fireEvent.click(screen.getByRole("button", { name: "查看 Atom 历史记录" }));
+    const historyDialog = await screen.findByRole("dialog", { name: "Atom 历史记录" });
+    fireEvent.click(within(historyDialog).getByText("这个点位为什么会出现橙色层？").closest("button")!);
+    await waitFor(() => expect(screen.getByRole("region", { name: "已绑定学习背景" })).toHaveTextContent("Orange layer observation"));
+
+    fireEvent.click(screen.getByRole("button", { name: "新建 Atom 对话" }));
+    await waitFor(() => expect(screen.queryByRole("region", { name: "已绑定学习背景" })).not.toBeInTheDocument());
+    expect(screen.getByRole("button", { name: "选择学习背景" })).toHaveAttribute("aria-pressed", "false");
   });
 
   it("uses a visible-viewport keyboard layout only for the root Atom composer", async () => {
@@ -2125,6 +2215,7 @@ describe("student app route stack", () => {
     await waitFor(() => expect(window.location.pathname).toBe("/learn"));
     expect(activeRoot()).toBe("learn");
     expect(document.querySelector(".periodic-grid")).not.toBeNull();
+    expect(document.querySelector(".learning-recommendation-card")).toBeNull();
     expect(document.querySelector(".chapter-entry-card")).toBeNull();
     cleanup();
 

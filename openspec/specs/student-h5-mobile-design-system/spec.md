@@ -576,17 +576,23 @@ The student H5 mobile design system SHALL support a branded, touch-safe, edge-to
 - **AND** no preview-only player controls or preview-only event paths MAY replace the student shell behavior.
 
 ### Requirement: Mobile home feed preserves horizontal video clarity
-The student H5 mobile design system SHALL support horizontal 16:9 video feed cards that remain clear and usable on phone viewports.
+The student H5 mobile design system SHALL support horizontal 16:9 video feed cards and compact action rows that remain clear, aligned, and usable on phone viewports.
 
 #### Scenario: Home feed renders on common phone widths
 - **WHEN** the home video feed is viewed at common phone widths from 360px to 430px CSS pixels
 - **THEN** video cards MUST fit the viewport without horizontal scrolling
-- **AND** title, catalog path, tags, actions, media controls, and bottom navigation MUST NOT overlap
+- **AND** title, catalog path, tags, action row, media controls, and bottom navigation MUST NOT overlap
+
+#### Scenario: Home video action row fits common phone widths
+- **WHEN** a home video card action row is viewed at common phone widths from 360px to 430px CSS pixels
+- **THEN** the left `查看实验` CTA and the right icon group MUST remain on one visual row without wrapping into an incoherent second line
+- **AND** the like, favorite or bookmark, share, Atom, and more controls MUST keep stable touch targets and accessible names
+- **AND** the Atom control MUST remain visually identifiable as the green highlighted product action without pushing adjacent icons out of view
 
 #### Scenario: Video card loads before playback
 - **WHEN** a feed card is not active or video metadata is still loading
 - **THEN** the card MUST preserve a stable 16:9 media box
-- **AND** poster, loading, or fallback states MUST NOT shift the surrounding feed layout
+- **AND** poster, loading, fallback states, or action-row icon states MUST NOT shift the surrounding feed layout
 
 #### Scenario: Feed reaches bottom navigation
 - **WHEN** the student scrolls near the bottom of the home feed
@@ -889,4 +895,38 @@ The student H5 mobile design system SHALL implement root-page header and navigat
 - **WHEN** mobile viewport QA runs for this change
 - **THEN** QA MUST cover the home root at 360x780, 390x844, and 430x932 CSS-pixel viewports where practical
 - **AND** QA MUST verify that downward scroll can compress the home header, upward scroll can restore it, and video feed scrolling remains smooth without visible control overlap.
+
+### Requirement: Compact Atom-centered bottom navigation
+The student H5 mobile design system SHALL provide a compact root bottom navigation bar that reserves less vertical space than the previous icon-plus-label bar while keeping fixed-control safe-area protection.
+
+#### Scenario: Compact bottom bar uses shared layout token
+- **WHEN** a root route renders the authenticated student bottom navigation
+- **THEN** the visible bar height MUST be controlled by the shared mobile bottom-navigation height token
+- **AND** the compact token value MUST be shorter than the previous `68px` bar height before safe-area inset is added
+- **AND** route-content bottom spacing and root page height formulas MUST continue to derive from that token rather than hardcoded per-page nav heights.
+
+#### Scenario: Ordinary destinations are text-forward
+- **WHEN** the bottom navigation renders the non-Atom root destinations
+- **THEN** `home`, `learn`, `assessment`, and `profile` MUST render as compact text-forward controls
+- **AND** their selected state MUST use a quiet active text treatment without a large filled active background block
+- **AND** their labels MUST remain readable and non-overlapping on supported phone widths from `360px` to `430px`.
+
+#### Scenario: Atom destination is the centered branded control
+- **WHEN** the bottom navigation renders the `ai` root destination
+- **THEN** the Atom destination MUST remain visually centered among the five root entries
+- **AND** it MUST render as a rounded rectangular or squircle control containing an Atom icon
+- **AND** its inactive state MUST be visually distinct from its active state
+- **AND** only the active `ai` root state MUST use the solid product-green control with a white Atom icon
+- **AND** the Atom control MUST stay within the bottom navigation bar instead of protruding as a floating action button.
+
+#### Scenario: Compact navigation remains touch and safe-area usable
+- **WHEN** the compact bottom navigation is shown in a mobile browser or WebView
+- **THEN** every root navigation entry MUST remain reachable by touch
+- **AND** the bar MUST account for `env(safe-area-inset-bottom)`
+- **AND** focus-visible styling MUST remain available without showing default browser focus boxes during normal pointer use.
+
+#### Scenario: Keyboard and detail-route rules continue to win
+- **WHEN** the root Atom composer enters keyboard-active layout
+- **THEN** the bottom navigation MUST continue to hide so it does not compete with the composer workbench
+- **AND** when any non-tab/detail route is open the bottom navigation MUST remain hidden according to route-stack semantics.
 

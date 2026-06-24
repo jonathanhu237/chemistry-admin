@@ -92,6 +92,7 @@
 
 .ai-chat-panel.root .ai-chat-stream,
 .ai-chat-panel.root .ai-quick-prompts,
+.ai-chat-panel.root .ai-bound-context-card,
 .ai-chat-panel.root .ai-chat-compose {
   position: relative;
   z-index: 1;
@@ -1422,6 +1423,7 @@
 .ai-chat-panel.root .ai-chat-compose.root button svg {
   width: 22px;
   height: 22px;
+  pointer-events: none;
 }
 
 .ai-chat-compose.root .ai-context-action {
@@ -1462,6 +1464,88 @@
 
 .ai-chat-compose.root.is-expanded .ai-send-action {
   flex: 0 0 var(--composer-control-size);
+}
+
+.ai-bound-context-card {
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 9px;
+  min-width: 0;
+  margin: 0 0 8px;
+  border: 1px solid rgba(0, 88, 38, 0.16);
+  border-radius: 8px;
+  padding: 9px 10px;
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: 0 10px 24px rgba(21, 49, 34, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.ai-bound-context-card.is-locked {
+  grid-template-columns: 34px minmax(0, 1fr);
+}
+
+.ai-bound-context-icon {
+  display: inline-grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  color: var(--green);
+  background: rgba(0, 88, 38, 0.08);
+}
+
+.ai-bound-context-copy {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+
+.ai-bound-context-copy span,
+.ai-bound-context-copy strong,
+.ai-bound-context-copy small {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ai-bound-context-copy span {
+  color: var(--green);
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.ai-bound-context-copy strong {
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+.ai-bound-context-copy small {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.ai-bound-context-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ai-bound-context-actions button {
+  display: inline-grid;
+  place-items: center;
+  min-width: 34px;
+  height: 34px;
+  border: 0;
+  border-radius: 8px;
+  padding: 0 9px;
+  color: var(--green);
+  background: rgba(0, 88, 38, 0.08);
+  font-size: 12px;
+  font-weight: 900;
 }
 
 .ai-history-layer {
@@ -1669,6 +1753,231 @@
   .ai-point-intents {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
+}
+
+.atom-context-picker-layer {
+  position: fixed;
+  inset: 0;
+  z-index: calc(var(--mobile-z-floating) + 5);
+  display: grid;
+  align-items: end;
+}
+
+.atom-context-picker-backdrop {
+  position: absolute;
+  inset: 0;
+  border: 0;
+  background: rgba(8, 18, 13, 0.28);
+}
+
+.atom-context-picker-sheet {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  gap: 10px;
+  width: 100%;
+  height: min(72dvh, 640px);
+  max-height: calc(var(--student-visual-viewport-height, 100dvh) - var(--ai-root-header-overlay-height, 70px) - 12px);
+  border: 1px solid rgba(0, 88, 38, 0.14);
+  border-radius: 8px 8px 0 0;
+  padding: 14px 14px calc(14px + env(safe-area-inset-bottom, 0px));
+  overflow: hidden;
+  background: #fffdf6;
+  box-shadow: 0 -18px 42px rgba(21, 49, 34, 0.18);
+}
+
+.student-app-shell.root-route.root-ai.keyboard-active .atom-context-picker-sheet {
+  height: min(72dvh, calc(var(--student-visual-viewport-height, 100dvh) - var(--ai-root-header-overlay-height, 70px) - 12px));
+}
+
+.atom-context-picker-head {
+  display: grid;
+  grid-template-columns: 38px minmax(0, 1fr) 38px;
+  align-items: center;
+  gap: 9px;
+  min-width: 0;
+}
+
+.atom-context-picker-head p,
+.atom-context-picker-head h2,
+.atom-context-picker-head small {
+  margin: 0;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.atom-context-picker-head p {
+  color: var(--green);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.atom-context-picker-head h2 {
+  margin-top: 2px;
+  color: var(--ink);
+  font-size: 18px;
+  line-height: 1.2;
+}
+
+.atom-context-picker-head small {
+  display: block;
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.atom-context-picker-nav,
+.atom-context-picker-close {
+  display: inline-grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border: 0;
+  border-radius: 8px;
+  color: var(--green);
+  background: rgba(0, 88, 38, 0.08);
+}
+
+.atom-context-picker-nav:disabled {
+  color: rgba(83, 101, 91, 0.42);
+  background: rgba(83, 101, 91, 0.08);
+}
+
+.atom-context-picker-body {
+  min-height: 0;
+  overflow: auto;
+  padding-right: 2px;
+}
+
+.atom-context-picker-list {
+  display: grid;
+  gap: 8px;
+}
+
+.atom-context-picker-row {
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr) 20px;
+  align-items: center;
+  gap: 9px;
+  width: 100%;
+  min-width: 0;
+  border: 1px solid rgba(0, 88, 38, 0.12);
+  border-radius: 8px;
+  padding: 9px 10px;
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.78);
+  text-align: left;
+}
+
+.atom-context-picker-row.selected {
+  border-color: rgba(0, 88, 38, 0.44);
+  background: rgba(0, 88, 38, 0.06);
+}
+
+.atom-context-picker-row-icon {
+  display: inline-grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  color: var(--green);
+  background: rgba(0, 88, 38, 0.08);
+}
+
+.atom-context-picker-row-copy {
+  display: grid;
+  gap: 3px;
+  min-width: 0;
+}
+
+.atom-context-picker-row-copy strong,
+.atom-context-picker-row-copy small,
+.atom-context-picker-row-copy em {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.atom-context-picker-row-copy strong,
+.atom-context-picker-row-copy small {
+  white-space: nowrap;
+}
+
+.atom-context-picker-row-copy strong {
+  font-size: 14px;
+  line-height: 1.25;
+}
+
+.atom-context-picker-row-copy small {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.atom-context-picker-row-copy em {
+  display: -webkit-box;
+  color: rgba(83, 101, 91, 0.86);
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 760;
+  line-height: 1.35;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.atom-context-picker-state {
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  min-height: 180px;
+  align-content: center;
+  color: var(--muted);
+  text-align: center;
+  font-size: 13px;
+  font-weight: 850;
+}
+
+.atom-context-picker-state button {
+  min-height: 34px;
+  border: 0;
+  border-radius: 8px;
+  padding: 0 12px;
+  color: white;
+  background: var(--green);
+  font-weight: 900;
+}
+
+.atom-context-picker-search {
+  display: grid;
+  grid-template-columns: 22px minmax(0, 1fr);
+  align-items: center;
+  gap: 8px;
+  min-height: 48px;
+  border: 1px solid rgba(0, 88, 38, 0.16);
+  border-radius: 999px;
+  padding: 0 14px;
+  color: var(--green);
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.42);
+}
+
+.atom-context-picker-search input {
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  color: var(--ink);
+  background: transparent;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.atom-context-picker-search input::placeholder {
+  color: rgba(83, 101, 91, 0.58);
 }
 
 @media (prefers-reduced-motion: reduce) {

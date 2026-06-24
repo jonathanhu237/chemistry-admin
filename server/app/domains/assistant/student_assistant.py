@@ -369,7 +369,7 @@ def _agent_request_for_chat(user: Any, payload: StudentAssistantAskRequest, *, a
         allow_progress_lookup=True,
         allow_rag_lookup=allow_rag_lookup,
         conversation_history=payload.conversation_history,
-        max_answer_chars=1200,
+        max_answer_chars=0,
     )
 
 

@@ -20,7 +20,14 @@ export function StudentBottomNav({ activeRoot }: { activeRoot: StudentRootRouteI
         <button
           key={item.id}
           type="button"
-          className={activeRoot === item.id ? "active" : ""}
+          className={[
+            "student-bottom-nav-item",
+            item.id === "ai" ? "student-bottom-nav-primary" : "student-bottom-nav-standard",
+            activeRoot === item.id ? "active" : "",
+          ]
+            .filter(Boolean)
+            .join(" ")}
+          aria-label={item.label}
           aria-current={activeRoot === item.id ? "page" : undefined}
           data-root={item.id}
           onClick={() => {
@@ -28,8 +35,10 @@ export function StudentBottomNav({ activeRoot }: { activeRoot: StudentRootRouteI
             window.requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: "auto" }));
           }}
         >
-          {item.icon}
-          <span>{item.label}</span>
+          <span className="student-bottom-nav-label">{item.label}</span>
+          <span className="student-bottom-nav-icon" aria-hidden="true">
+            {item.icon}
+          </span>
         </button>
       ))}
     </nav>

@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react";
-import { ArrowRight, FlaskConical, LoaderCircle, Sparkles } from "lucide-react";
+import { FlaskConical, LoaderCircle } from "lucide-react";
 import { StudentLearningPageResponse, errorMessage, getStudentLearningPage } from "../../api";
 import { LearningState } from "../../shared/mobile/LearningState";
 import { PeriodicTable } from "../periodic-table/PeriodicTable";
-import { periodicAreaByAreaId, periodicAreaIdForElement, periodicMetaForElement, profileAreaId, profileAreaIds, type AreaId } from "../periodic-table/periodicHelpers";
+import { periodicAreaIdForElement, periodicMetaForElement, profileAreaIds, type AreaId } from "../periodic-table/periodicHelpers";
 import type { PeriodicElementSearchMeta } from "../periodic-table/periodicSearch";
 import { LearningAreaPopover } from "./LearningAreaPopover";
-import { formatChapterEntryTitle, formatRecommendedAreaCueLabel } from "./learningFormat";
 
 type LearningProfileSummary = StudentLearningPageResponse["profiles"][number];
 type LearningProfileSelectOptions = { elementSymbol?: string };
@@ -69,11 +68,6 @@ export function LearningEntryPanel({
   }, []);
 
   const profiles = page?.profiles || [];
-  const recommendedProfileId = page?.recommended_profile_id || page?.active_profile?.profile_id || profiles[0]?.profile_id || "";
-  const recommendedProfile = profiles.find((profile) => profile.profile_id === recommendedProfileId) || profiles[0] || null;
-  const recommendedArea = recommendedProfile ? profileAreaId(recommendedProfile) : null;
-  const recommendedCueLabel = formatRecommendedAreaCueLabel(recommendedProfile);
-  const recommendedAreaLabel = recommendedArea ? periodicAreaByAreaId[recommendedArea] : null;
   const closeAreaPopover = () => {
     setSelectedArea(null);
     setAreaAnchorElement(null);
@@ -114,29 +108,6 @@ export function LearningEntryPanel({
             onSelectProfile={onSelectProfile}
           />
         </>
-      ) : null}
-      {!loading && !error && recommendedProfile ? (
-        <button
-          type="button"
-          className="learning-recommendation-card"
-          aria-label={`进入推荐学习 ${formatChapterEntryTitle(recommendedProfile)}`}
-          onClick={() => onSelectProfile(recommendedProfile)}
-        >
-          <span className="learning-recommendation-kicker">
-            <Sparkles size={15} />
-            智能推荐
-          </span>
-          <strong>{formatChapterEntryTitle(recommendedProfile)}</strong>
-          <small>
-            {[recommendedAreaLabel || recommendedCueLabel, recommendedProfile.element_symbols.join(" ")]
-              .filter(Boolean)
-              .join(" · ")}
-          </small>
-          <span className="learning-recommendation-action">
-            进入学习
-            <ArrowRight size={16} />
-          </span>
-        </button>
       ) : null}
     </section>
   );

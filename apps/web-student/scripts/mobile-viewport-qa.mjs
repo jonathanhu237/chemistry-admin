@@ -767,6 +767,12 @@ async function submitVisibleAssessment(page) {
 }
 
 async function clickRoot(page, root) {
+  const alreadyActive = await page.evaluate((rootId) => {
+    const active = document.querySelector(".student-bottom-nav button.active");
+    return window.location.pathname === "/" + rootId && active?.getAttribute("data-root") === rootId;
+  }, root);
+  if (alreadyActive) return;
+
   const tabButton = page.locator('.student-bottom-nav button[data-root="' + root + '"]').first();
   await tabButton.waitFor({ state: "visible", timeout: 10000 });
   await tabButton.click({ force: true });
@@ -1140,6 +1146,164 @@ async function assertRootAiFlatReply(page, label) {
   await assertNoHorizontalOverflow(page, label + ': restored root AI');
 }
 
+async function assertAtomContextPicker(page, label) {
+  await page.goto(baseUrl + '/ai', { waitUntil: 'networkidle' });
+  await ensureAuthenticatedShell(page);
+  await page.locator('.ai-chat-panel.root').first().waitFor({ state: 'visible', timeout: 10000 });
+  await page.locator('.ai-chat-panel.root .ai-new-chat-action').first().tap();
+  await page.locator('.ai-chat-panel.root .ai-root-welcome').first().waitFor({ state: 'visible', timeout: 10000 });
+  const contextButtonBox = await page.locator('.ai-chat-panel.root .ai-context-action').first().boundingBox();
+  if (!contextButtonBox) throw new Error(label + ': context action has no bounding box');
+  await page.touchscreen.tap(
+    Math.floor(contextButtonBox.x + contextButtonBox.width / 2),
+    Math.floor(contextButtonBox.y + contextButtonBox.height / 2),
+  );
+  const sheet = page.locator('.atom-context-picker-sheet').first();
+  try {
+    await sheet.waitFor({ state: 'visible', timeout: 10000 });
+  } catch (error) {
+    const debug = await page.evaluate(() => {
+      const button = document.querySelector('.ai-chat-panel.root .ai-context-action');
+      const buttonRect = button?.getBoundingClientRect();
+      const centerX = buttonRect ? buttonRect.left + buttonRect.width / 2 : 0;
+      const centerY = buttonRect ? buttonRect.top + buttonRect.height / 2 : 0;
+      const hit = buttonRect ? document.elementFromPoint(centerX, centerY) : null;
+      return {
+        url: window.location.href,
+        buttonAriaLabel: button?.getAttribute('aria-label') || '',
+        buttonPressed: button?.getAttribute('aria-pressed') || '',
+        buttonDisabled: button?.hasAttribute('disabled') || false,
+        buttonRect: buttonRect
+          ? {
+              left: buttonRect.left,
+              top: buttonRect.top,
+              right: buttonRect.right,
+              bottom: buttonRect.bottom,
+              width: buttonRect.width,
+              height: buttonRect.height,
+            }
+          : null,
+        hitClassName: hit instanceof HTMLElement ? hit.className : '',
+        hitTagName: hit?.tagName || '',
+        sheetCount: document.querySelectorAll('.atom-context-picker-sheet').length,
+        statusText: document.querySelector('.ai-composer-context-status')?.textContent || '',
+        rootClassName: document.querySelector('.ai-chat-panel.root')?.className || '',
+        messageCount: document.querySelectorAll('.ai-chat-panel.root .ai-message').length,
+      };
+    });
+    throw new Error(label + ': picker did not open after context action ' + JSON.stringify(debug), { cause: error });
+  }
+  await page.locator('.student-app-shell.context-picker-active').first().waitFor({ state: 'visible', timeout: 10000 });
+  await page.waitForFunction(() => {
+    const bottomNav = document.querySelector('.student-bottom-nav');
+    if (!bottomNav) return true;
+    const rect = bottomNav.getBoundingClientRect();
+    return window.getComputedStyle(bottomNav).pointerEvents === 'none' && rect.top >= window.innerHeight - 1;
+  });
+  await page.locator('.atom-context-picker-row').first().waitFor({ state: 'visible', timeout: 10000 });
+  await assertNoHorizontalOverflow(page, label + ': atom context picker catalog');
+
+  const catalogMetrics = await page.evaluate(() => {
+    const header = document.querySelector('.ai-chat-head.root')?.getBoundingClientRect();
+    const sheet = document.querySelector('.atom-context-picker-sheet')?.getBoundingClientRect();
+    const body = document.querySelector('.atom-context-picker-body')?.getBoundingClientRect();
+    const search = document.querySelector('.atom-context-picker-search')?.getBoundingClientRect();
+    const bottomNav = document.querySelector('.student-bottom-nav');
+    const bottomNavRect = bottomNav?.getBoundingClientRect();
+    const bottomNavStyle = bottomNav ? window.getComputedStyle(bottomNav) : null;
+    const rows = Array.from(document.querySelectorAll('.atom-context-picker-row')).map((row) => row.getBoundingClientRect());
+    return {
+      viewportWidth: window.innerWidth,
+      viewportHeight: window.innerHeight,
+      headerBottom: header?.bottom || 0,
+      sheetTop: sheet?.top || 0,
+      sheetBottom: sheet?.bottom || 0,
+      sheetHeight: sheet?.height || 0,
+      bodyHeight: body?.height || 0,
+      searchBottom: search?.bottom || 0,
+      bottomNavTop: bottomNavRect?.top || 0,
+      bottomNavPointerEvents: bottomNavStyle?.pointerEvents || '',
+      maxRowRight: rows.length ? Math.max(...rows.map((row) => row.right)) : 0,
+      minRowHeight: rows.length ? Math.min(...rows.map((row) => row.height)) : 0,
+    };
+  });
+  if (catalogMetrics.sheetTop < catalogMetrics.headerBottom - 1) {
+    throw new Error(label + ': picker covers Atom title/header ' + JSON.stringify(catalogMetrics));
+  }
+  if (catalogMetrics.sheetBottom > catalogMetrics.viewportHeight + 1 || catalogMetrics.searchBottom > catalogMetrics.viewportHeight + 1) {
+    throw new Error(label + ': picker search footer is outside viewport ' + JSON.stringify(catalogMetrics));
+  }
+  if (catalogMetrics.sheetHeight > Math.min(catalogMetrics.viewportHeight * 0.72, 640) + 2) {
+    throw new Error(label + ': picker exceeds half-height target ' + JSON.stringify(catalogMetrics));
+  }
+  if (catalogMetrics.bottomNavPointerEvents !== 'none' || catalogMetrics.bottomNavTop < catalogMetrics.viewportHeight - 1) {
+    throw new Error(label + ': bottom nav is visible while atom context picker is open ' + JSON.stringify(catalogMetrics));
+  }
+  if (catalogMetrics.bodyHeight < 80 || catalogMetrics.maxRowRight > catalogMetrics.viewportWidth + 1 || catalogMetrics.minRowHeight < 42) {
+    throw new Error(label + ': picker catalog rows are clipped or too small ' + JSON.stringify(catalogMetrics));
+  }
+
+  const searchInput = page.locator('.atom-context-picker-search input').first();
+  await searchInput.fill('orange');
+  await page.locator('.atom-context-picker-row.kind-point').first().waitFor({ state: 'visible', timeout: 10000 });
+  await searchInput.focus();
+  await assertNoHorizontalOverflow(page, label + ': atom context picker search');
+  const searchMetrics = await page.evaluate(() => {
+    const sheet = document.querySelector('.atom-context-picker-sheet')?.getBoundingClientRect();
+    const search = document.querySelector('.atom-context-picker-search')?.getBoundingClientRect();
+    const rows = Array.from(document.querySelectorAll('.atom-context-picker-row.kind-point')).map((row) => row.getBoundingClientRect());
+    return {
+      viewportWidth: window.innerWidth,
+      viewportHeight: window.innerHeight,
+      sheetBottom: sheet?.bottom || 0,
+      searchBottom: search?.bottom || 0,
+      maxRowRight: rows.length ? Math.max(...rows.map((row) => row.right)) : 0,
+      pointRows: rows.length,
+    };
+  });
+  if (
+    searchMetrics.sheetBottom > searchMetrics.viewportHeight + 1 ||
+    searchMetrics.searchBottom > searchMetrics.viewportHeight + 1 ||
+    searchMetrics.maxRowRight > searchMetrics.viewportWidth + 1 ||
+    searchMetrics.pointRows < 1
+  ) {
+    throw new Error(label + ': picker search mode geometry failed ' + JSON.stringify(searchMetrics));
+  }
+  await page.locator('.atom-context-picker-close').first().click();
+  await sheet.waitFor({ state: 'hidden', timeout: 10000 });
+  try {
+    await page.waitForFunction(() => {
+      const bottomNav = document.querySelector('.student-bottom-nav');
+      if (!bottomNav) return true;
+      const rect = bottomNav.getBoundingClientRect();
+      return window.getComputedStyle(bottomNav).pointerEvents !== 'none' && rect.top < window.innerHeight - 1;
+    });
+  } catch (error) {
+    const restoreMetrics = await page.evaluate(() => {
+      const bottomNav = document.querySelector('.student-bottom-nav');
+      const bottomNavRect = bottomNav?.getBoundingClientRect();
+      const bottomNavStyle = bottomNav ? window.getComputedStyle(bottomNav) : null;
+      const activeElement = document.activeElement;
+      return {
+        shellClassName: document.querySelector('.student-app-shell')?.className || '',
+        bottomNavRect: bottomNavRect
+          ? {
+              top: bottomNavRect.top,
+              bottom: bottomNavRect.bottom,
+              height: bottomNavRect.height,
+            }
+          : null,
+        bottomNavPointerEvents: bottomNavStyle?.pointerEvents || '',
+        activeTagName: activeElement?.tagName || '',
+        activeClassName: activeElement instanceof HTMLElement ? activeElement.className : '',
+        scrollY: window.scrollY,
+        viewportHeight: window.innerHeight,
+      };
+    });
+    throw new Error(label + ': bottom nav did not restore after atom context picker closed ' + JSON.stringify(restoreMetrics), { cause: error });
+  }
+}
+
 async function checkAuthenticatedFlows(page, viewportName) {
   await assertNoHorizontalOverflow(page, viewportName + ': initial route');
   await page.locator('.student-app-shell').first().waitFor({ state: 'visible', timeout: 10000 });
@@ -1162,6 +1326,7 @@ async function checkAuthenticatedFlows(page, viewportName) {
   }
 
   if (useMockApi) {
+    await assertAtomContextPicker(page, viewportName);
     await assertRootAiFlatReply(page, viewportName);
     if (aiRootOnly) return;
   }

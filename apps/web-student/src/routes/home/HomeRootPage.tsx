@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useNavigate } from "@tanstack/react-router";
-import { Atom, ChevronRight, FlaskConical, LoaderCircle, Search, Video } from "lucide-react";
+import { Atom, Bookmark, ChevronRight, FlaskConical, LoaderCircle, MoreHorizontal, Share2, ThumbsUp, Video } from "lucide-react";
 import {
   errorMessage,
   getStudentHomeVideoFeed,
@@ -9,7 +9,7 @@ import {
   type StudentHomeVideoFeedReason,
   type StudentHomeVideoFeedResponse,
 } from "../../api";
-import { navigateToAiChat, navigateToPoint, navigateToVideoLibrary } from "../../app/router/navigation";
+import { navigateToAiChat, navigateToPoint } from "../../app/router/navigation";
 import { type AssistantContext } from "../../features/assistant/assistantContext";
 import { MobileEmptyState } from "../../mobile/primitives";
 import { LearningState } from "../../shared/mobile/LearningState";
@@ -143,11 +143,12 @@ type HomeVideoFeedCardProps = {
   registerCard: (id: string, node: HTMLElement | null) => void;
   onOpen: (item: StudentHomeVideoFeedItem) => void;
   onAsk: (item: StudentHomeVideoFeedItem) => void;
-  onSearch: (item: StudentHomeVideoFeedItem) => void;
 };
 
-function HomeVideoFeedCard({ item, isActive, canUseAssistant, registerCard, onOpen, onAsk, onSearch }: HomeVideoFeedCardProps) {
+function HomeVideoFeedCard({ item, isActive, canUseAssistant, registerCard, onOpen, onAsk }: HomeVideoFeedCardProps) {
   const videoRef = useRef<HTMLVideoElement | null>(null);
+  const [liked, setLiked] = useState(false);
+  const [bookmarked, setBookmarked] = useState(false);
   const mediaUrl = item.video.stream_path ? studentMediaUrl(item.video.stream_path) : "";
   const posterUrl = item.video.thumbnail_path ? studentMediaUrl(item.video.thumbnail_path) : "";
   const duration = formatDuration(item.video.duration_seconds);
@@ -177,6 +178,16 @@ function HomeVideoFeedCard({ item, isActive, canUseAssistant, registerCard, onOp
     }
   }, [isActive, mediaUrl]);
 
+  const shareItem = useCallback(() => {
+    if (typeof navigator.share !== "function") return;
+    void navigator
+      .share({
+        title: item.title,
+        text: description || pathLabel || item.title,
+      })
+      .catch(() => undefined);
+  }, [description, item.title, pathLabel]);
+
   return (
     <article
       ref={(node) => registerCard(item.id, node)}
@@ -201,26 +212,58 @@ function HomeVideoFeedCard({ item, isActive, canUseAssistant, registerCard, onOp
 
       <div className="home-video-body">
         <p className="home-video-path">{pathLabel || "实验视频"}</p>
-        <h2 id={titleId}>{item.title}</h2>
+        <h2 id={titleId}>
+          <button type="button" className="home-video-title-button" onClick={() => onOpen(item)}>
+            {item.title}
+          </button>
+        </h2>
         {description ? <p className="home-video-description">{description}</p> : null}
         <div className="home-video-badges" aria-label="视频标签">
           {badges.map((badge) => (
             <span key={badge}>{badge}</span>
           ))}
         </div>
-        <div className="home-video-actions">
-          <button type="button" className="primary" onClick={() => onOpen(item)}>
-            查看实验
+        <div className="home-video-actions" aria-label={`视频操作：${item.title}`}>
+          <button type="button" className="home-video-open-action" onClick={() => onOpen(item)} aria-label={`查看实验：${item.title}`}>
+            <span>查看实验</span>
             <ChevronRight size={16} />
           </button>
-          <button type="button" onClick={() => onSearch(item)}>
-            <Search size={15} />
-            搜索相关
-          </button>
-          <button type="button" disabled={!canUseAssistant} onClick={() => onAsk(item)}>
-            <Atom size={15} />
-            问问Atom
-          </button>
+          <div className="home-video-icon-actions" aria-label="视频快捷操作">
+            <button
+              type="button"
+              className={`home-video-icon-action${liked ? " active" : ""}`}
+              aria-label={`${liked ? "取消点赞" : "点赞"}：${item.title}`}
+              aria-pressed={liked}
+              onClick={() => setLiked((current) => !current)}
+            >
+              <ThumbsUp size={20} />
+            </button>
+            <button
+              type="button"
+              className={`home-video-icon-action${bookmarked ? " active" : ""}`}
+              aria-label={`${bookmarked ? "取消收藏" : "收藏"}：${item.title}`}
+              aria-pressed={bookmarked}
+              onClick={() => setBookmarked((current) => !current)}
+            >
+              <Bookmark size={20} />
+            </button>
+            <button type="button" className="home-video-icon-action" aria-label={`转发实验视频：${item.title}`} onClick={shareItem}>
+              <Share2 size={20} />
+            </button>
+            <button
+              type="button"
+              className="home-video-icon-action atom"
+              disabled={!canUseAssistant}
+              onClick={() => onAsk(item)}
+              aria-label={`问问Atom：${item.title}`}
+            >
+              <Atom size={18} />
+              <span>Atom</span>
+            </button>
+            <button type="button" className="home-video-icon-action" aria-label={`更多操作：${item.title}`}>
+              <MoreHorizontal size={21} />
+            </button>
+          </div>
         </div>
       </div>
     </article>
@@ -274,13 +317,6 @@ export function HomeRootPage() {
     [navigate],
   );
 
-  const searchItem = useCallback(
-    (item: StudentHomeVideoFeedItem) => {
-      navigateToVideoLibrary(navigate, { from: "home", q: item.title });
-    },
-    [navigate],
-  );
-
   const askItem = useCallback(
     (item: StudentHomeVideoFeedItem) => {
       if (!canUseAssistant) return;
@@ -306,7 +342,6 @@ export function HomeRootPage() {
               registerCard={registerCard}
               onOpen={openItem}
               onAsk={askItem}
-              onSearch={searchItem}
             />
           ))}
         </div>

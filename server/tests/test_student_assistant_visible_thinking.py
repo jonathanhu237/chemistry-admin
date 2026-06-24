@@ -234,9 +234,65 @@ def test_run_agent_stream_uses_agent_trace_when_summary_is_disabled(monkeypatch)
     )
 
     thinking_sources = [event.get("source") for event in events if event.get("event") == "thinking"]
+    thinking_phases = [event.get("phase") for event in events if event.get("event") == "thinking"]
     assert "agent_trace" in thinking_sources
     assert "reasoning_summary" not in thinking_sources
+    assert "retrieval_decision" in thinking_phases
+    assert "retrieval_skip" in thinking_phases
+    assert "retrieval" not in thinking_phases
     assert [event.get("event") for event in events if event.get("event") in {"delta", "final"}] == ["delta", "final"]
+    assert all("retrieval_mode" not in str(event) for event in events if event.get("event") == "thinking")
+    assert all("rag_search" not in str(event) for event in events if event.get("event") == "thinking")
+
+
+def test_run_agent_stream_trace_shows_retrieval_when_selected(monkeypatch) -> None:
+    async def fake_policy_gate(_context, _settings):
+        return agent_module.StudentAIPolicyDecision(
+            mode="normal_answer",
+            reason="evidence request",
+            allowed_tools=("rag_search", "curriculum_lookup"),
+            retrieval_mode="dynamic_rag",
+            retrieval_reason="course evidence is useful",
+            retrieval_confidence=0.87,
+        )
+
+    async def fake_chat_stream(context, _settings):
+        context.record_tool(
+            "rag_search",
+            {"query": context.request.question},
+            {"evidence": [{"text_preview": "supporting course evidence"}]},
+        )
+        yield "model answer"
+
+    monkeypatch.setattr(agent_module, "_policy_gate_decision", fake_policy_gate)
+    monkeypatch.setattr(agent_module, "_run_openai_chat_completion_stream", fake_chat_stream)
+
+    settings = _settings(
+        agent_llm_provider="openai",
+        agent_llm_api_key="test-key",
+        agent_llm_model="gpt-test",
+        agent_reasoning_summary_enabled=False,
+    )
+    request = AgentAskRequest(question="Please cite the course material for permanganate oxidation.", allow_rag_lookup=True)
+    events = asyncio.run(
+        _collect_async(
+            run_agent_stream(
+                request,
+                repositories=_repositories(),
+                settings=settings,
+                policy=load_agent_policy(),
+            )
+        )
+    )
+
+    thinking_phases = [event.get("phase") for event in events if event.get("event") == "thinking"]
+    assert "retrieval_decision" in thinking_phases
+    assert "retrieval" in thinking_phases
+    assert "evidence_quality" in thinking_phases
+    assert "generation" in thinking_phases
+    assert all("dynamic_rag" not in str(event) for event in events if event.get("event") == "thinking")
+    final = next(event for event in events if event.get("event") == "final")
+    assert any(call["name"] == "rag_search" for call in final["response"]["tool_calls"])
 
 
 def test_run_agent_stream_falls_back_when_reasoning_summary_stream_fails(monkeypatch) -> None:

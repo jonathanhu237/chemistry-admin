@@ -2,19 +2,21 @@ import {
   type ChangeEvent,
   type CSSProperties,
   type FormEvent,
+  type PointerEvent,
   useCallback,
   useEffect,
   useLayoutEffect,
   useRef,
   useState,
 } from "react";
-import { Atom, CheckCircle2, Copy, LoaderCircle, Plus, RotateCcw, Send, ThumbsDown, ThumbsUp, XCircle } from "lucide-react";
+import { Atom, CheckCircle2, Copy, LoaderCircle, Plus, RotateCcw, Send, ThumbsDown, ThumbsUp, X, XCircle } from "lucide-react";
 import LottieImport, { type LottieRefCurrentProps } from "lottie-react";
 import { type StudentAssistantStreamEvent, StudentAssistantFinalMetadata, errorMessage, streamStudentAssistantAsk } from "../../api";
 import atomThinkingAnimation from "../../assets/lottie/atom-thinking.json";
 import { MobileTextArea } from "../../mobile/primitives";
 import { AiMarkdownBlock } from "../../shared/markdown/AiMarkdownBlock";
-import { defaultAssistantContext, type AssistantContext } from "./assistantContext";
+import { AtomContextPickerSheet } from "./AtomContextPickerSheet";
+import { assistantContextPathLabel, defaultAssistantContext, isPointAssistantContext, type AssistantContext } from "./assistantContext";
 import { assistantContextHint, assistantContextTypeLabel, isGlobalAssistantContext } from "./assistantStarter";
 import {
   buildStudentAiHistoryEntry,
@@ -60,7 +62,7 @@ const ASSISTANT_THINKING_TRANSITION_MS = 420;
 const ATOM_THINKING_LOTTIE_SPEED = 0.618;
 
 function assistantStreamPhase(status: string, hasAnswer: boolean): AssistantStreamPhase {
-  if (hasAnswer) return { key: "generating", label: "正在生成回答" };
+  if (hasAnswer) return { key: "outputting", label: "正在输出回答" };
   const text = String(status || "");
   if (text.includes("检索") || text.includes("课程") || text.includes("RAG") || text.includes("资料") || text.includes("证据")) {
     return { key: "retrieval", label: "正在检索课程资料" };
@@ -69,7 +71,7 @@ function assistantStreamPhase(status: string, hasAnswer: boolean): AssistantStre
     return { key: "scope", label: "正在判断问题范围" };
   }
   if (text.includes("返回")) return { key: "returning", label: "正在返回学习建议" };
-  return { key: "generating", label: "正在生成回答" };
+  return { key: "generating", label: "正在组织回答" };
 }
 
 function assistantStreamPhaseLabel(status: string, hasAnswer: boolean): string {
@@ -89,6 +91,7 @@ function normalizeVisibleThinkingEvent(event: StudentAssistantStreamEvent): Assi
 }
 
 function assistantVisibleThinkingPhase(thinking: AssistantVisibleThinking | null, status: string, hasAnswer: boolean): AssistantStreamPhase {
+  if (hasAnswer) return assistantStreamPhase(status, hasAnswer);
   if (thinking) {
     const sequenceKey = typeof thinking.sequence === "number" ? thinking.sequence : thinking.message;
     return { key: `thinking-${thinking.source}-${sequenceKey}`, label: thinking.message };
@@ -531,6 +534,7 @@ export function StudentAiChatPanel({
   const [activeHistoryCreatedAt, setActiveHistoryCreatedAt] = useState<string | undefined>();
   const [assistantTurnFeedback, setAssistantTurnFeedback] = useState<Record<string, AssistantTurnFeedback>>({});
   const [copiedTurnKey, setCopiedTurnKey] = useState<string | null>(null);
+  const [contextPickerOpen, setContextPickerOpen] = useState(false);
   const streamRef = useRef<HTMLDivElement>(null);
   const composerFormRef = useRef<HTMLFormElement>(null);
   const composerTextareaRef = useRef<HTMLTextAreaElement>(null);
@@ -556,15 +560,11 @@ export function StudentAiChatPanel({
     rootLayoutState === "empty" ? "is-empty" : rootLayoutState === "draft" ? "has-draft" : rootLayoutState === "conversation" ? "has-messages" : "";
   const rootLayoutClassName = rootLayoutState ? ` root-state-${rootLayoutState} ${rootLayoutSemanticState}` : "";
   const isGlobalContext = isGlobalAssistantContext(activeContext);
-  const hasLearningBackgroundContext = Boolean(
-    activeContext.context_title ||
-      activeContext.context_summary ||
-      activeContext.experiment_id ||
-      activeContext.chapter_id ||
-      activeContext.point_node_id ||
-      activeContext.source_node_id ||
-      activeContext.catalog_path?.length,
-  );
+  const boundPointContext = isRootVariant && isPointAssistantContext(activeContext) ? activeContext : null;
+  const hasSubmittedUserMessage = messages.some((message) => message.role === "user");
+  const contextBindingLocked = isRootVariant && (hasSubmittedUserMessage || loading);
+  const canEditBoundPoint = isRootVariant && Boolean(boundPointContext) && !contextBindingLocked;
+  const boundPointPath = boundPointContext ? assistantContextPathLabel(boundPointContext) : "";
   const rootComposerMode = composerTextareaMetrics.expanded ? "is-expanded" : "is-compact";
   const composerPlaceholder = isRootVariant ? "问实验现象、步骤或原理" : "围绕当前内容提问";
   const composerTextareaStyle: CSSProperties = {
@@ -641,11 +641,21 @@ export function StudentAiChatPanel({
   }, []);
 
   useEffect(() => {
+    if (!isRootVariant) return undefined;
+    const shell = composerFormRef.current?.closest(".student-app-shell");
+    shell?.classList.toggle("context-picker-active", contextPickerOpen);
+    return () => {
+      shell?.classList.remove("context-picker-active");
+    };
+  }, [contextPickerOpen, isRootVariant]);
+
+  useEffect(() => {
     if (historyEntry) {
       setActiveContext(historyEntry.context);
       setMessages(historyEntry.messages);
       setInput("");
       setComposerContextActive(false);
+      setContextPickerOpen(false);
       setStatus("idle");
       setActiveThinking(null);
       setLoading(false);
@@ -659,6 +669,7 @@ export function StudentAiChatPanel({
     setMessages([]);
     setInput("");
     setComposerContextActive(false);
+    setContextPickerOpen(false);
     setStatus("idle");
     setActiveThinking(null);
     setLoading(false);
@@ -712,6 +723,7 @@ export function StudentAiChatPanel({
     setMessages([]);
     setInput("");
     setComposerContextActive(false);
+    setContextPickerOpen(false);
     setLoading(false);
     setStatus("idle");
     setActiveThinking(null);
@@ -770,6 +782,8 @@ export function StudentAiChatPanel({
           if (event.event === "delta" && typeof event.delta === "string") {
             debugPhase = "stream-delta";
             answer += event.delta;
+            setStatus("outputting");
+            setActiveThinking(null);
             setMessages((current) => {
               const updated = [...current];
               const last = updated[updated.length - 1];
@@ -781,6 +795,8 @@ export function StudentAiChatPanel({
           if (event.event === "replace" && typeof event.answer === "string") {
             debugPhase = "stream-replace";
             answer = event.answer;
+            setStatus("outputting");
+            setActiveThinking(null);
             setMessages((current) => {
               const updated = [...current];
               const last = updated[updated.length - 1];
@@ -851,14 +867,50 @@ export function StudentAiChatPanel({
     setInput(event.target.value);
   };
 
+  const handleSelectPointContext = (nextContext: AssistantContext) => {
+    if (contextBindingLocked) {
+      setComposerContextActive(true);
+      setContextPickerOpen(false);
+      composerTextareaRef.current?.focus();
+      return;
+    }
+    setActiveContext(nextContext);
+    setComposerContextActive(false);
+    setContextPickerOpen(false);
+    composerTextareaRef.current?.focus();
+  };
+
+  const handleRemovePointContext = () => {
+    if (contextBindingLocked) return;
+    setActiveContext(defaultAssistantContext());
+    setComposerContextActive(false);
+    composerTextareaRef.current?.focus();
+  };
+
   const handleComposerContextAction = () => {
-    if (!hasLearningBackgroundContext) {
+    if (isRootVariant) {
+      if (contextBindingLocked) {
+        setComposerContextActive(true);
+        composerTextareaRef.current?.focus();
+        return;
+      }
+      setContextPickerOpen(true);
+      setComposerContextActive(false);
+      return;
+    }
+    if (!isPointAssistantContext(activeContext)) {
       setComposerContextActive(false);
       composerTextareaRef.current?.focus();
       return;
     }
     setComposerContextActive(true);
     composerTextareaRef.current?.focus();
+  };
+
+  const handleComposerContextPointerDown = (event: PointerEvent<HTMLButtonElement>) => {
+    if (!isRootVariant) return;
+    event.preventDefault();
+    handleComposerContextAction();
   };
 
   const handleAssistantTurnFeedback = useCallback((turnKey: string, feedback: AssistantTurnFeedback) => {
@@ -1004,6 +1056,29 @@ export function StudentAiChatPanel({
         </div>
       ) : null}
 
+      {boundPointContext ? (
+        <section className={`ai-bound-context-card${contextBindingLocked ? " is-locked" : " is-editable"}`} aria-label="已绑定学习背景">
+          <div className="ai-bound-context-icon" aria-hidden="true">
+            <Atom size={17} />
+          </div>
+          <div className="ai-bound-context-copy">
+            <span>{contextBindingLocked ? "已绑定此点位" : "将围绕这个点位提问"}</span>
+            <strong>{boundPointContext.context_title}</strong>
+            {boundPointPath ? <small>{boundPointPath}</small> : null}
+          </div>
+          {canEditBoundPoint ? (
+            <div className="ai-bound-context-actions">
+              <button type="button" onClick={() => setContextPickerOpen(true)} aria-label="更换学习背景">
+                更换
+              </button>
+              <button type="button" onClick={handleRemovePointContext} aria-label="移除学习背景">
+                <X size={15} />
+              </button>
+            </div>
+          ) : null}
+        </section>
+      ) : null}
+
       {isRootVariant ? (
         <form
           ref={composerFormRef}
@@ -1037,14 +1112,21 @@ export function StudentAiChatPanel({
             <button
               type="button"
               className="ai-context-action"
+              onPointerDown={handleComposerContextPointerDown}
               onClick={handleComposerContextAction}
-              aria-label={hasLearningBackgroundContext ? "带入当前学习背景" : "当前没有可带入的学习背景"}
-              aria-pressed={composerContextActive}
+              aria-label={contextBindingLocked ? "已绑定学习背景，新建 Atom 对话后可更换" : "选择学习背景"}
+              aria-pressed={Boolean(boundPointContext || contextPickerOpen || composerContextActive)}
             >
               <Plus size={24} />
             </button>
             <span className="ai-composer-context-status" role="status" aria-live="polite">
-              {composerContextActive ? "已带入当前学习背景" : ""}
+              {composerContextActive && contextBindingLocked
+                ? "已绑定此点位，新建对话后可更换"
+                : contextPickerOpen
+                  ? "正在选择学习背景"
+                  : boundPointContext
+                    ? "已选择学习背景"
+                    : ""}
             </span>
             <button type="submit" className="ai-send-action" disabled={!input.trim() || loading} aria-label="发送问题">
               {loading ? <LoaderCircle className="spin" size={17} /> : <Send size={17} />}
@@ -1070,6 +1152,9 @@ export function StudentAiChatPanel({
           </button>
         </form>
       )}
+      {isRootVariant && contextPickerOpen ? (
+        <AtomContextPickerSheet selectedContext={boundPointContext} onClose={() => setContextPickerOpen(false)} onSelect={handleSelectPointContext} />
+      ) : null}
     </section>
   );
 }
