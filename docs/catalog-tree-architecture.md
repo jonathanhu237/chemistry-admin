@@ -56,7 +56,7 @@ Catalog point ES sync and catalog-node evidence refresh are coordinated through 
 - `experiment_catalog_point_evidence_state` records missing, pending, running, succeeded, failed, stale, disabled, and unavailable evidence states.
 - `experiment_catalog_point_evidence_bindings` stores selected chunk bindings against `canonical_point_id` and canonical `source_chunks.id`; it never owns or deletes canonical chunks or embeddings. `source_placement_node_id` records where the refresh was triggered.
 - Point content edits, publication changes, moves, video binding changes, and related-point changes mark evidence stale and may enqueue refresh when `CATALOG_POINT_EVIDENCE_AUTO_REFRESH=true`.
-- RAG evidence refresh uses structured catalog point context and the configured BGE/RAG runtime. BGE unavailable or timeout failures are recorded on the job and evidence state while teacher saves remain committed.
+- RAG evidence refresh uses structured catalog point context and the configured external textbook RAG runtime. Elasticsearch, embedding, rerank, index-stale, or timeout failures are recorded on the job and evidence state while teacher saves remain committed.
 
 An external broker is justified only when throughput, distributed scheduling, or operational isolation requires it. The public job-state and manual trigger API should remain stable if that happens later.
 

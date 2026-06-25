@@ -15,7 +15,7 @@ CATALOG_TREE_SEED_PATH = CATALOG_SEED_DIR / "catalog_tree.json"
 CANONICAL_POINT_GROUPS_SEED_PATH = CATALOG_SEED_DIR / "canonical_point_groups.json"
 POINT_CONTENT_SEED_PATH = CATALOG_SEED_DIR / "point_content_seed.json"
 CATALOG_SEED_VALIDATION_REPORT_PATH = (
-    ROOT / "data" / "seed" / "import_reports" / "catalog_outline_seed_validation_report.json"
+    ROOT / "artifacts" / "catalog_outline_seed_validation_report.json"
 )
 
 EXPECTED_CATALOG_COUNTS = {
@@ -342,16 +342,9 @@ def reset_legacy_experiment_seed_data(session: Any) -> dict[str, int]:
         ("question_workbench_turns", "DELETE FROM experiment_question_workbench_turns"),
         ("question_workbench_sessions", "DELETE FROM experiment_question_workbench_sessions"),
         ("question_drafts", "DELETE FROM experiment_question_drafts"),
-        ("questions", "DELETE FROM experiment_questions"),
-        ("question_banks", "DELETE FROM experiment_question_banks"),
         ("question_generations", "DELETE FROM experiment_question_generations"),
         ("question_imports", "DELETE FROM experiment_question_imports"),
         ("legacy_point_evidence", "DELETE FROM experiment_video_point_evidence"),
-        ("catalog_search_state", "DELETE FROM experiment_catalog_point_search_index_state"),
-        ("catalog_point_jobs", "DELETE FROM experiment_catalog_point_jobs"),
-        ("catalog_point_evidence_bindings", "DELETE FROM experiment_catalog_point_evidence_bindings"),
-        ("catalog_point_evidence_state", "DELETE FROM experiment_catalog_point_evidence_state"),
-        ("catalog_media_bindings", "DELETE FROM experiment_catalog_point_media_bindings"),
         ("catalog_related_links", "DELETE FROM experiment_catalog_point_related_links"),
         ("catalog_reaction_equations", "DELETE FROM experiment_catalog_point_reaction_equations"),
         ("catalog_point_content", "DELETE FROM experiment_catalog_point_content"),
@@ -392,7 +385,7 @@ def import_catalog_seed(
     nodes: list[dict[str, Any]] | None = None,
     canonical_points: list[dict[str, Any]] | None = None,
     point_content: list[dict[str, Any]] | None = None,
-    reset: bool = True,
+    reset: bool = False,
 ) -> dict[str, Any]:
     nodes = nodes or load_catalog_seed()
     canonical_points = canonical_points or load_canonical_point_seed()
@@ -607,9 +600,13 @@ def import_catalog_seed(
         "preserved_resources": [
             "source_documents",
             "source_chunks",
-            "chunk_embeddings",
-            "data/seed/canonical_rag/**",
+            "data/seed/canonical_rag/chunks/**",
             "data/seed/search/**",
+            "experiment_question_banks",
+            "experiment_questions",
+            "experiment_catalog_point_evidence_state",
+            "experiment_catalog_point_evidence_bindings",
+            "experiment_catalog_point_media_bindings",
             "app_users",
             "roles/classes/courses",
             "media_assets",

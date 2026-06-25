@@ -1,6 +1,6 @@
 {
   "version": "production-core-resources-v1",
-  "generated_at": "2026-06-21T15:19:06.054324+00:00",
+  "generated_at": "2026-06-25T23:10:57.392338+00:00",
   "policy": "These files are the protected current system resources. Destructive cleanup must validate this manifest before deleting or moving historical artifacts.",
   "external_sources_mirrored": true,
   "expected_database_counts": {
@@ -12,11 +12,10 @@
     "experiment_catalog_directory_nodes": 176,
     "experiment_catalog_point_nodes": 393,
     "experiment_catalog_point_content_records": 76,
-    "experiment_question_banks": 0,
-    "experiment_questions": 0,
+    "experiment_question_banks": 54,
+    "experiment_questions": 1965,
     "source_documents": 2,
     "source_chunks": 3637,
-    "chunk_embeddings": 3637,
     "published_catalog_point_content_min": 76,
     "catalog_point_related_links_min": 0,
     "point_evidence_bindings_with_node": 0,
@@ -118,7 +117,7 @@
       "id": "experiment_catalog_point_content_seed",
       "role": "Reviewed catalog point-content seed with structured reaction equations for ES/search tests",
       "path": "data/seed/experiment_catalog/point_content_seed.json",
-      "source_path": "data/seed/experiment_catalog/normalized_three_element_candidates.md",
+      "source_path": null,
       "required": true,
       "kind": "json",
       "size_bytes": 178956,
@@ -147,8 +146,8 @@
       "source_path": "experiment_catalog_point_evidence_state + experiment_catalog_point_evidence_bindings",
       "required": true,
       "kind": "json",
-      "size_bytes": 503400,
-      "sha256": "8d7c3ba5a92de2a87b9ad7936e4a5aa645715c237e891b15f979fa036cf3a37b",
+      "size_bytes": 503363,
+      "sha256": "43836a9816bdefd3ef9b957312758acfcbce0f6812f2c7ffe8cde97814094fc2",
       "count": {
         "states": 1,
         "bindings": 9,
@@ -163,14 +162,44 @@
       }
     },
     {
+      "id": "current_catalog_node_question_bank_seed",
+      "role": "Current published catalog-node question bank seed",
+      "path": "data/seed/question_banks/current_catalog_node_question_bank_seed_v1.json",
+      "source_path": "experiment_question_banks + experiment_questions",
+      "required": true,
+      "kind": "json",
+      "size_bytes": 19130744,
+      "sha256": "173505806b6f286f5fe1d5dad2cb7d8ff2f2ff4a5698c3c5d2b0caad7fdb0c7f",
+      "count": {
+        "question_banks": 54,
+        "questions": 1965,
+        "published_banks": 54,
+        "published_questions": 1965,
+        "generated_banks": 54,
+        "questions_with_primary_point_nodes": 1965,
+        "questions_with_canonical_points": 1965,
+        "questions_with_source_refs": 1965
+      },
+      "expected_counts": {
+        "question_banks": 54,
+        "questions": 1965,
+        "published_banks": 54,
+        "published_questions": 1965,
+        "generated_banks": 54,
+        "questions_with_primary_point_nodes": 1965,
+        "questions_with_canonical_points": 1965,
+        "questions_with_source_refs": 1965
+      }
+    },
+    {
       "id": "chemical_search_aliases",
       "role": "Chemistry-aware video-library search formula alias dictionary",
       "path": "data/seed/search/chemical_aliases.json",
       "source_path": "data/seed/search/chemical_aliases.json",
       "required": true,
       "kind": "json",
-      "size_bytes": 469,
-      "sha256": "79fb62140460df513b85815b8bae433a52a49e225f6ec396319fb64acd95e552"
+      "size_bytes": 2005,
+      "sha256": "4271e108321cd68a9da6314feada9144a11b04ee65412f7b20af7f2f94de6bac"
     },
     {
       "id": "chemical_search_stopwords",
@@ -181,6 +210,23 @@
       "kind": "text",
       "size_bytes": 105,
       "sha256": "c45d769147b8875216d501bc28bfc64ece407447ce7cef5e703b1a26a88fb129"
+    },
+    {
+      "id": "chemical_search_vocabulary",
+      "role": "Runtime chemistry search vocabulary and retrieval facets",
+      "path": "data/seed/search/chemistry_vocabulary.json",
+      "source_path": "data/seed/search/chemistry_vocabulary.json",
+      "required": true,
+      "kind": "json",
+      "size_bytes": 4737,
+      "sha256": "e9bdd44f7ac056045763b7450f11a47ec0ac237391a83f5b75ef982f5d15bc9b",
+      "count": {
+        "categories": 5,
+        "strict_chemical_synonyms": 55,
+        "reagent_aliases": 30,
+        "phenomenon_terms": 30,
+        "property_terms": 19
+      }
     },
     {
       "id": "es_ik_chemistry_manifest",
@@ -259,10 +305,10 @@
       "source_path": "data/seed/search/es_ik/analysis/chemistry_synonyms.txt",
       "required": true,
       "kind": "text",
-      "size_bytes": 1147,
-      "sha256": "01730ecf2869578ecae2fd51bb0243e0a34195793fe1442605d78a0aa4ef5a6a",
-      "count": 29,
-      "expected_count": 29
+      "size_bytes": 1698,
+      "sha256": "2fb6568567f166f98e090359fff415175d90f97c21549909ce286ccfe2a2c2f6",
+      "count": 42,
+      "expected_count": 42
     },
     {
       "id": "student_learning_profiles",
@@ -271,24 +317,28 @@
       "source_path": null,
       "required": true,
       "kind": "json",
-      "size_bytes": 88745,
-      "sha256": "e28cea5b211a6dec534b03c3eb7042bc8bf663e8ebf2636bc06a23dc191decd3",
+      "size_bytes": 99879,
+      "sha256": "21cb899d240d70cffca9d2ca827a7d298c00ec38127c5299272166f2a46cc466",
       "count": {
-        "profiles": 9,
-        "enabled_profiles": 9,
+        "profiles": 10,
+        "enabled_profiles": 10,
         "published_experiments": 77,
         "covered_experiments": 77,
         "uncovered_experiments": 0,
-        "profiles_without_experiments": 0,
+        "profiles_without_experiments": 1,
+        "required_profiles_without_experiments": 0,
+        "optional_profiles_without_experiments": 1,
         "multi_profile_experiments": 17
       },
       "expected_counts": {
-        "profiles": 9,
-        "enabled_profiles": 9,
+        "profiles": 10,
+        "enabled_profiles": 10,
         "published_experiments": 77,
         "covered_experiments": 77,
         "uncovered_experiments": 0,
-        "profiles_without_experiments": 0
+        "profiles_without_experiments": 1,
+        "required_profiles_without_experiments": 0,
+        "optional_profiles_without_experiments": 1
       }
     },
     {
@@ -314,100 +364,6 @@
       "sha256": "4431d9526db7781c95cb793c823c54a74fc6c24a566dd0c883e06e01a9f0c21b",
       "count": 349,
       "expected_count": 349
-    },
-    {
-      "id": "canonical_embedding_row_map",
-      "role": "Canonical BGE embedding row map",
-      "path": "data/seed/canonical_rag/embeddings/canonical_base_v1/chunk_id_to_row.jsonl",
-      "source_path": "E:/chemistry-rag/data/rag_ready/embeddings/canonical_base_v1/chunk_id_to_row.jsonl",
-      "required": true,
-      "kind": "jsonl",
-      "size_bytes": 655264,
-      "sha256": "296405a7b517ab1762b788fa313ee8f3ae7056bf109cf6f607e252205e8261ab",
-      "count": 3637,
-      "expected_count": 3637
-    },
-    {
-      "id": "canonical_embedding_dense",
-      "role": "Canonical BGE dense embeddings",
-      "path": "data/seed/canonical_rag/embeddings/canonical_base_v1/dense.float32.npy",
-      "source_path": "E:/chemistry-rag/data/rag_ready/embeddings/canonical_base_v1/dense.float32.npy",
-      "required": true,
-      "kind": "npy",
-      "size_bytes": 14897280,
-      "sha256": "e86bdd83c51a654e0a8d17a90eb8371bc3c2c4816cc85d80708c06e83868ed5c",
-      "count": {
-        "rows": 3637,
-        "dimensions": 1024
-      },
-      "expected_counts": {
-        "rows": 3637,
-        "dimensions": 1024
-      }
-    },
-    {
-      "id": "canonical_embedding_sparse",
-      "role": "Canonical sparse embedding sidecar",
-      "path": "data/seed/canonical_rag/embeddings/canonical_base_v1/sparse.jsonl",
-      "source_path": "E:/chemistry-rag/data/rag_ready/embeddings/canonical_base_v1/sparse.jsonl",
-      "required": true,
-      "kind": "jsonl",
-      "size_bytes": 5320438,
-      "sha256": "c813c35340eef4393711567faef61131126f22623a0b305ca15c86cbeb91c9f5",
-      "count": 3637,
-      "expected_count": 3637
-    },
-    {
-      "id": "canonical_embedding_manifest",
-      "role": "Canonical embedding generation manifest",
-      "path": "data/seed/canonical_rag/embeddings/canonical_base_v1/embedding_manifest.json",
-      "source_path": "E:/chemistry-rag/data/rag_ready/embeddings/canonical_base_v1/embedding_manifest.json",
-      "required": true,
-      "kind": "json",
-      "size_bytes": 6058,
-      "sha256": "0270f47f816a36c30231d8d4ed8b5806634acad678d6f86369e5170dfc7a796d"
-    },
-    {
-      "id": "knowledge_framework_import_report",
-      "role": "Current experiment knowledge framework import report",
-      "path": "data/seed/import_reports/experiment_knowledge_framework_import_report.json",
-      "source_path": "artifacts/experiment_knowledge_framework_import_report.json",
-      "required": true,
-      "kind": "json",
-      "size_bytes": 771,
-      "sha256": "c490f40e11554e313ae1abe098d036871c29e086c560cea9924bf41e002d67ca"
-    },
-    {
-      "id": "catalog_outline_seed_validation_report",
-      "role": "Current catalog outline seed validation report",
-      "path": "data/seed/import_reports/catalog_outline_seed_validation_report.json",
-      "source_path": "data/seed/experiment_catalog/catalog_tree.json",
-      "required": true,
-      "kind": "json",
-      "size_bytes": 958,
-      "sha256": "2f29c55bcf12457c73b5724ec380f478aac47b8bebec38f6b41d94074cfa8f9a",
-      "count": {
-        "ok": true,
-        "total_nodes": 569,
-        "directory_nodes": 176,
-        "point_nodes": 393,
-        "point_content_records": 76,
-        "equation_content_records": 71,
-        "text_content_records": 5,
-        "reaction_equation_rows": 122,
-        "semantic_mapped_records": 76
-      },
-      "expected_counts": {
-        "ok": true,
-        "total_nodes": 569,
-        "directory_nodes": 176,
-        "point_nodes": 393,
-        "point_content_records": 76,
-        "equation_content_records": 71,
-        "text_content_records": 5,
-        "reaction_equation_rows": 122,
-        "semantic_mapped_records": 76
-      }
     }
   ]
 }

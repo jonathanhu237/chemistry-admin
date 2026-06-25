@@ -540,7 +540,7 @@ def import_textbook_catalog_workspace(
     catalog_path: str | Path,
     description_path: str | Path,
     dry_run: bool = True,
-    reset: bool = True,
+    reset: bool = False,
     publish: bool = True,
     user_id: str | None = None,
 ) -> dict[str, Any]:

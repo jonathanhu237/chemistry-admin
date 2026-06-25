@@ -9,8 +9,6 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Callable
 
-import numpy as np
-
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST_PATH = ROOT / "data" / "seed" / "manifests" / "core_resources.json"
 
@@ -23,11 +21,10 @@ EXPECTED_DATABASE_COUNTS = {
     "experiment_catalog_directory_nodes": 176,
     "experiment_catalog_point_nodes": 393,
     "experiment_catalog_point_content_records": 76,
-    "experiment_question_banks": 0,
-    "experiment_questions": 0,
+    "experiment_question_banks": 54,
+    "experiment_questions": 1965,
     "source_documents": 2,
     "source_chunks": 3637,
-    "chunk_embeddings": 3637,
     "published_catalog_point_content_min": 76,
     "catalog_point_related_links_min": 0,
     "point_evidence_bindings_with_node": 0,
@@ -132,6 +129,28 @@ def _catalog_point_textbook_evidence_seed_count(path: Path) -> dict[str, int]:
     }
 
 
+def _current_question_bank_seed_count(path: Path) -> dict[str, int]:
+    data = _json(path)
+    banks = data.get("question_banks") or []
+    questions = data.get("questions") or []
+    if not isinstance(banks, list) or not isinstance(questions, list):
+        raise ValueError(f"{path} must contain question_banks and questions lists")
+    return {
+        "question_banks": len(banks),
+        "questions": len(questions),
+        "published_banks": sum(1 for item in banks if isinstance(item, dict) and item.get("status") == "published"),
+        "published_questions": sum(1 for item in questions if isinstance(item, dict) and item.get("status") == "published"),
+        "generated_banks": sum(1 for item in banks if isinstance(item, dict) and item.get("bank_kind") == "generated"),
+        "questions_with_primary_point_nodes": sum(
+            1 for item in questions if isinstance(item, dict) and item.get("primary_point_node_ids")
+        ),
+        "questions_with_canonical_points": sum(
+            1 for item in questions if isinstance(item, dict) and item.get("primary_canonical_point_ids")
+        ),
+        "questions_with_source_refs": sum(1 for item in questions if isinstance(item, dict) and item.get("source_refs")),
+    }
+
+
 def _catalog_validation_report_count(path: Path) -> dict[str, int | bool]:
     data = _json(path)
     counts = data.get("counts") or {}
@@ -154,6 +173,21 @@ def _question_bank_count(path: Path) -> dict[str, int]:
     return {
         "experiments": len(experiments),
         "questions": sum(len(experiment.get("questions") or []) for experiment in experiments),
+    }
+
+
+def _chemistry_vocabulary_count(path: Path) -> dict[str, int]:
+    data = _json(path)
+    categories = data.get("categories") if isinstance(data, dict) else {}
+    if not isinstance(categories, dict):
+        raise ValueError(f"{path} categories must be an object")
+    strict = categories.get("strict_chemical_synonyms") or {}
+    return {
+        "categories": len(categories),
+        "strict_chemical_synonyms": len(strict) if isinstance(strict, dict) else 0,
+        "reagent_aliases": len(categories.get("reagent_aliases") or []),
+        "phenomenon_terms": len(categories.get("phenomenon_terms") or []),
+        "property_terms": len(categories.get("property_terms") or []),
     }
 
 
@@ -180,12 +214,15 @@ def _student_learning_experiment_coverage_counts(profiles: list[dict[str, Any]])
     enabled = [profile for profile in profiles if isinstance(profile, dict) and profile.get("enabled", True)]
     chapter_to_profile: dict[str, str] = {}
     profile_counts: dict[str, int] = defaultdict(int)
+    optional_profile_ids: set[str] = set()
     covered_experiment_ids: set[str] = set()
     multi_profile_experiment_count = 0
     errors: list[str] = []
 
     for profile in enabled:
         profile_id = str(profile.get("profile_id") or "<missing>")
+        if profile.get("coverage_optional") is True:
+            optional_profile_ids.add(profile_id)
         chapter_id = str(profile.get("chapter_id") or "").strip()
         if not chapter_id:
             errors.append(f"{profile_id}: missing chapter_id")
@@ -212,7 +249,13 @@ def _student_learning_experiment_coverage_counts(profiles: list[dict[str, Any]])
             profile_counts[profile_id] += 1
 
     profiles_without_experiments = sorted(profile_id for profile_id, count in profile_counts.items() if count == 0)
-    for profile_id in profiles_without_experiments:
+    required_profiles_without_experiments = [
+        profile_id for profile_id in profiles_without_experiments if profile_id not in optional_profile_ids
+    ]
+    optional_profiles_without_experiments = [
+        profile_id for profile_id in profiles_without_experiments if profile_id in optional_profile_ids
+    ]
+    for profile_id in required_profiles_without_experiments:
         errors.append(f"{profile_id}: no formal experiments are bound to this profile chapter")
     if errors:
         raise ValueError("student learning experiment coverage mismatch: " + "; ".join(errors))
@@ -221,6 +264,8 @@ def _student_learning_experiment_coverage_counts(profiles: list[dict[str, Any]])
         "covered_experiments": len(covered_experiment_ids),
         "uncovered_experiments": len(experiments) - len(covered_experiment_ids),
         "profiles_without_experiments": len(profiles_without_experiments),
+        "required_profiles_without_experiments": len(required_profiles_without_experiments),
+        "optional_profiles_without_experiments": len(optional_profiles_without_experiments),
         "multi_profile_experiments": multi_profile_experiment_count,
     }
 
@@ -309,14 +354,26 @@ def _student_learning_profile_count(path: Path) -> dict[str, int]:
     }
 
 
-def _embedding_dense_count(path: Path) -> dict[str, int]:
-    dense = np.load(path, mmap_mode="r")
-    if len(dense.shape) != 2:
-        raise ValueError(f"{path} is not a two-dimensional dense embedding matrix")
-    return {"rows": int(dense.shape[0]), "dimensions": int(dense.shape[1])}
-
-
 CountFn = Callable[[Path], int | dict[str, int] | None]
+
+ALLOWED_SEED_DOCS = {
+    "data/seed/README.md",
+    "data/seed/manifests/core_resources.json",
+}
+
+FORBIDDEN_SEED_PATHS = [
+    "data/seed/experiment_points",
+    "data/seed/point_evidence",
+    "data/seed/question_bank",
+    "data/seed/canonical_rag/embeddings",
+    "data/seed/import_reports",
+    "data/seed/manifests/legacy_cleanup_plan.json",
+    "data/seed/experiment_catalog/canonical_point_groups.json",
+    "data/seed/experiment_catalog/normalized_three_element_candidates.md",
+    "data/seed/experiment_catalog/normalized_three_element_node_mapping.json",
+    "data/seed/experiment_catalog/normalized_three_element_node_mapping.md",
+    "data/seed/experiment_catalog/three_element_chemistry_review.md",
+]
 
 
 RESOURCE_SPECS: list[dict[str, Any]] = [
@@ -387,7 +444,7 @@ RESOURCE_SPECS: list[dict[str, Any]] = [
             "unique_target_seed_keys": 76,
             "semantic_mapped_records": 76,
         },
-        "source_path": "data/seed/experiment_catalog/normalized_three_element_candidates.md",
+        "source_path": None,
     },
     {
         "id": "experiment_catalog_point_textbook_evidence_seed",
@@ -397,6 +454,24 @@ RESOURCE_SPECS: list[dict[str, Any]] = [
         "count": _catalog_point_textbook_evidence_seed_count,
         "expected_counts": {"states": 1, "bindings": 9, "unique_nodes": 1, "unique_chunks": 5},
         "source_path": "experiment_catalog_point_evidence_state + experiment_catalog_point_evidence_bindings",
+    },
+    {
+        "id": "current_catalog_node_question_bank_seed",
+        "role": "Current published catalog-node question bank seed",
+        "path": "data/seed/question_banks/current_catalog_node_question_bank_seed_v1.json",
+        "kind": "json",
+        "count": _current_question_bank_seed_count,
+        "expected_counts": {
+            "question_banks": 54,
+            "questions": 1965,
+            "published_banks": 54,
+            "published_questions": 1965,
+            "generated_banks": 54,
+            "questions_with_primary_point_nodes": 1965,
+            "questions_with_canonical_points": 1965,
+            "questions_with_source_refs": 1965,
+        },
+        "source_path": "experiment_question_banks + experiment_questions",
     },
     {
         "id": "chemical_search_aliases",
@@ -411,6 +486,14 @@ RESOURCE_SPECS: list[dict[str, Any]] = [
         "path": "data/seed/search/chemical_stopwords.txt",
         "kind": "text",
         "source_path": "data/seed/search/chemical_stopwords.txt",
+    },
+    {
+        "id": "chemical_search_vocabulary",
+        "role": "Runtime chemistry search vocabulary and retrieval facets",
+        "path": "data/seed/search/chemistry_vocabulary.json",
+        "kind": "json",
+        "count": _chemistry_vocabulary_count,
+        "source_path": "data/seed/search/chemistry_vocabulary.json",
     },
     {
         "id": "es_ik_chemistry_manifest",
@@ -470,7 +553,7 @@ RESOURCE_SPECS: list[dict[str, Any]] = [
         "path": "data/seed/search/es_ik/analysis/chemistry_synonyms.txt",
         "kind": "text",
         "count": _text_line_count,
-        "expected_count": 29,
+        "expected_count": 42,
         "source_path": "data/seed/search/es_ik/analysis/chemistry_synonyms.txt",
     },
     {
@@ -480,12 +563,14 @@ RESOURCE_SPECS: list[dict[str, Any]] = [
         "kind": "json",
         "count": _student_learning_profile_count,
         "expected_counts": {
-            "profiles": 9,
-            "enabled_profiles": 9,
+            "profiles": 10,
+            "enabled_profiles": 10,
             "published_experiments": 77,
             "covered_experiments": 77,
             "uncovered_experiments": 0,
-            "profiles_without_experiments": 0,
+            "profiles_without_experiments": 1,
+            "required_profiles_without_experiments": 0,
+            "optional_profiles_without_experiments": 1,
         },
     },
     {
@@ -505,66 +590,6 @@ RESOURCE_SPECS: list[dict[str, Any]] = [
         "count": _jsonl_count,
         "expected_count": 349,
         "source_path": "E:/chemistry-rag/data/rag_ready/chunks/textbook_experiment_chunks_v1.jsonl",
-    },
-    {
-        "id": "canonical_embedding_row_map",
-        "role": "Canonical BGE embedding row map",
-        "path": "data/seed/canonical_rag/embeddings/canonical_base_v1/chunk_id_to_row.jsonl",
-        "kind": "jsonl",
-        "count": _jsonl_count,
-        "expected_count": 3637,
-        "source_path": "E:/chemistry-rag/data/rag_ready/embeddings/canonical_base_v1/chunk_id_to_row.jsonl",
-    },
-    {
-        "id": "canonical_embedding_dense",
-        "role": "Canonical BGE dense embeddings",
-        "path": "data/seed/canonical_rag/embeddings/canonical_base_v1/dense.float32.npy",
-        "kind": "npy",
-        "count": _embedding_dense_count,
-        "expected_counts": {"rows": 3637, "dimensions": 1024},
-        "source_path": "E:/chemistry-rag/data/rag_ready/embeddings/canonical_base_v1/dense.float32.npy",
-    },
-    {
-        "id": "canonical_embedding_sparse",
-        "role": "Canonical sparse embedding sidecar",
-        "path": "data/seed/canonical_rag/embeddings/canonical_base_v1/sparse.jsonl",
-        "kind": "jsonl",
-        "count": _jsonl_count,
-        "expected_count": 3637,
-        "source_path": "E:/chemistry-rag/data/rag_ready/embeddings/canonical_base_v1/sparse.jsonl",
-    },
-    {
-        "id": "canonical_embedding_manifest",
-        "role": "Canonical embedding generation manifest",
-        "path": "data/seed/canonical_rag/embeddings/canonical_base_v1/embedding_manifest.json",
-        "kind": "json",
-        "source_path": "E:/chemistry-rag/data/rag_ready/embeddings/canonical_base_v1/embedding_manifest.json",
-    },
-    {
-        "id": "knowledge_framework_import_report",
-        "role": "Current experiment knowledge framework import report",
-        "path": "data/seed/import_reports/experiment_knowledge_framework_import_report.json",
-        "kind": "json",
-        "source_path": "artifacts/experiment_knowledge_framework_import_report.json",
-    },
-    {
-        "id": "catalog_outline_seed_validation_report",
-        "role": "Current catalog outline seed validation report",
-        "path": "data/seed/import_reports/catalog_outline_seed_validation_report.json",
-        "kind": "json",
-        "count": _catalog_validation_report_count,
-        "expected_counts": {
-            "ok": True,
-            "total_nodes": 569,
-            "directory_nodes": 176,
-            "point_nodes": 393,
-            "point_content_records": 76,
-            "equation_content_records": 71,
-            "text_content_records": 5,
-            "reaction_equation_rows": 122,
-            "semantic_mapped_records": 76,
-        },
-        "source_path": "data/seed/experiment_catalog/catalog_tree.json",
     },
 ]
 
@@ -612,6 +637,27 @@ def build_manifest() -> dict[str, Any]:
     }
 
 
+def _allowed_seed_files() -> set[str]:
+    return {str(spec["path"]) for spec in RESOURCE_SPECS} | ALLOWED_SEED_DOCS
+
+
+def validate_seed_tree() -> list[str]:
+    errors: list[str] = []
+    seed_root = ROOT / "data" / "seed"
+    for forbidden in FORBIDDEN_SEED_PATHS:
+        path = ROOT / forbidden
+        if path.exists():
+            errors.append(f"{forbidden}: forbidden retired/non-current seed path exists")
+    allowed = _allowed_seed_files()
+    for path in sorted(seed_root.rglob("*")):
+        if not path.is_file():
+            continue
+        relative = path.relative_to(ROOT).as_posix()
+        if relative not in allowed:
+            errors.append(f"{relative}: not in current seed whitelist")
+    return errors
+
+
 def _compare_count(entry: dict[str, Any], actual: Any, errors: list[str]) -> None:
     if "expected_count" in entry and actual != entry["expected_count"]:
         errors.append(f"{entry['id']}: expected count {entry['expected_count']}, got {actual}")
@@ -625,7 +671,7 @@ def _compare_count(entry: dict[str, Any], actual: Any, errors: list[str]) -> Non
                 errors.append(f"{entry['id']}.{key}: expected {expected}, got {actual.get(key)}")
 
 
-def validate_manifest(manifest_path: Path = MANIFEST_PATH) -> dict[str, Any]:
+def validate_manifest(manifest_path: Path = MANIFEST_PATH, *, check_seed_tree: bool = True) -> dict[str, Any]:
     if not manifest_path.exists():
         raise FileNotFoundError(manifest_path)
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
@@ -650,12 +696,15 @@ def validate_manifest(manifest_path: Path = MANIFEST_PATH) -> dict[str, Any]:
     extra = sorted(set(expected_by_id) - {spec["id"] for spec in RESOURCE_SPECS})
     for resource_id in extra:
         errors.append(f"{resource_id}: unknown resource remains in manifest")
+    if check_seed_tree:
+        errors.extend(validate_seed_tree())
     return {
         "ok": not errors,
         "errors": errors,
         "manifest": str(manifest_path),
         "resource_count": len(actual_entries),
         "expected_database_counts": EXPECTED_DATABASE_COUNTS,
+        "seed_whitelist_count": len(_allowed_seed_files()),
     }
 
 

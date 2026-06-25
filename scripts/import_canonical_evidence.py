@@ -8,7 +8,6 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-import numpy as np
 from sqlalchemy import text
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -22,9 +21,9 @@ DEFAULT_CHUNK_FILES = [
     SEED_RAG_DIR / "chunks" / "textbook_inorganic_lower_chunks_v1.jsonl",
     SEED_RAG_DIR / "chunks" / "textbook_experiment_chunks_v1.jsonl",
 ]
-DEFAULT_EMBEDDING_DIR = SEED_RAG_DIR / "embeddings" / "canonical_base_v1"
-EMBEDDING_MODEL = "BAAI/bge-m3"
-EMBEDDING_DIMENSION = 1024
+RETIRED_BGE_EMBEDDING_DIR = SEED_RAG_DIR / "embeddings" / "canonical_base_v1"
+RETIRED_BGE_EMBEDDING_MODEL = "BAAI/bge-m3"
+RETIRED_BGE_EMBEDDING_DIMENSION = 1024
 
 SOURCE_DOCUMENTS = {
     "textbook_inorganic_lower_v1": {
@@ -286,17 +285,19 @@ def _load_embedding_row_map(embedding_dir: Path) -> dict[str, int]:
     return mapping
 
 
-def _vector_literal(values: np.ndarray) -> str:
+def _vector_literal(values: Any) -> str:
     return "[" + ",".join(f"{float(value):.8g}" for value in values) + "]"
 
 
 def insert_embeddings(session: Any, chunks: list[dict[str, Any]], embedding_dir: Path) -> int:
+    import numpy as np
+
     dense_path = embedding_dir / "dense.float32.npy"
     if not dense_path.exists():
         raise FileNotFoundError(dense_path)
     row_map = _load_embedding_row_map(embedding_dir)
     dense = np.load(dense_path, mmap_mode="r")
-    if dense.shape != (len(row_map), EMBEDDING_DIMENSION):
+    if dense.shape != (len(row_map), RETIRED_BGE_EMBEDDING_DIMENSION):
         raise ValueError(f"Unexpected dense embedding shape: {dense.shape}")
 
     count = 0
@@ -321,8 +322,8 @@ def insert_embeddings(session: Any, chunks: list[dict[str, Any]], embedding_dir:
             {
                 "chunk_id": chunk_id,
                 "embedding": vector_literal,
-                "model": EMBEDDING_MODEL,
-                "dimension": EMBEDDING_DIMENSION,
+                "model": RETIRED_BGE_EMBEDDING_MODEL,
+                "dimension": RETIRED_BGE_EMBEDDING_DIMENSION,
                 "metadata": _json({"import_version": "canonical_base_v1", "embedding_dir": str(embedding_dir)}),
             },
         )
@@ -334,7 +335,7 @@ def import_canonical_evidence(
     *,
     chunk_files: list[Path],
     embedding_dir: Path,
-    skip_embeddings: bool,
+    include_bge_embeddings: bool,
     skip_migrations: bool,
 ) -> dict[str, Any]:
     if not skip_migrations:
@@ -344,31 +345,36 @@ def import_canonical_evidence(
         cleanup = cleanup_legacy_rows(session)
         document_count = insert_source_documents(session)
         chunk_count = insert_chunks(session, chunks)
-        embedding_count = 0 if skip_embeddings else insert_embeddings(session, chunks, embedding_dir)
-        if not skip_embeddings:
+        embedding_count = insert_embeddings(session, chunks, embedding_dir) if include_bge_embeddings else 0
+        if include_bge_embeddings:
             ensure_embedding_index(session)
     return {
         "imported_at": datetime.now(timezone.utc).isoformat(),
         "cleanup": cleanup,
         "source_documents": document_count,
         "source_chunks": chunk_count,
-        "chunk_embeddings": embedding_count,
-        "embedding_model": None if skip_embeddings else EMBEDDING_MODEL,
+        "optional_chunk_embeddings": embedding_count,
+        "embedding_model": RETIRED_BGE_EMBEDDING_MODEL if include_bge_embeddings else None,
     }
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Import canonical chemistry RAG evidence into Postgres.")
+    parser = argparse.ArgumentParser(description="Import canonical chemistry chunks into Postgres.")
     parser.add_argument("--chunk-file", action="append", type=Path, dest="chunk_files")
-    parser.add_argument("--embedding-dir", type=Path, default=DEFAULT_EMBEDDING_DIR)
-    parser.add_argument("--skip-embeddings", action="store_true")
+    parser.add_argument("--embedding-dir", type=Path, default=RETIRED_BGE_EMBEDDING_DIR)
+    parser.add_argument(
+        "--include-bge-embeddings",
+        action="store_true",
+        help="Optional retired local-BGE restore path for developer experiments; not a current production requirement.",
+    )
+    parser.add_argument("--skip-embeddings", action="store_true", help=argparse.SUPPRESS)
     parser.add_argument("--skip-migrations", action="store_true")
     args = parser.parse_args()
 
     result = import_canonical_evidence(
         chunk_files=args.chunk_files or DEFAULT_CHUNK_FILES,
         embedding_dir=args.embedding_dir,
-        skip_embeddings=args.skip_embeddings,
+        include_bge_embeddings=args.include_bge_embeddings and not args.skip_embeddings,
         skip_migrations=args.skip_migrations,
     )
     sys.stdout.buffer.write((json.dumps(result, ensure_ascii=False, indent=2) + "\n").encode("utf-8"))

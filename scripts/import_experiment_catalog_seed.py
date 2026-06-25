@@ -13,18 +13,28 @@ if str(ROOT) not in sys.path:
 from server.app.domains.catalog_tree.catalog_seed import import_catalog_seed
 from server.app.infrastructure.database import apply_migrations, db_session
 
-DEFAULT_IMPORT_REPORT = ROOT / "data" / "seed" / "import_reports" / "catalog_outline_seed_import_report.json"
+DEFAULT_IMPORT_REPORT = ROOT / "artifacts" / "catalog_outline_seed_import_report.json"
 
 
 def main() -> None:
     parser = argparse.ArgumentParser(
         description=(
-            "Reset retired experiment seed data and import the canonical catalog outline seed. "
-            "Canonical RAG chunks, embeddings, analyzer dictionaries, users, roles, courses, and media assets are preserved."
+            "Validate and upsert the canonical catalog outline seed. The default path preserves current "
+            "question banks, questions, catalog-node evidence, media bindings, canonical chunks, search "
+            "dictionaries, users, roles, courses, and student learning data."
         )
     )
     parser.add_argument("--skip-migrations", action="store_true")
-    parser.add_argument("--no-reset", action="store_true", help="Import without clearing retired legacy seed-derived rows.")
+    parser.add_argument(
+        "--reset-retired-legacy",
+        action="store_true",
+        help="Destructively clear only retired legacy seed-derived rows before importing.",
+    )
+    parser.add_argument(
+        "--no-reset",
+        action="store_true",
+        help=argparse.SUPPRESS,
+    )
     parser.add_argument("--dry-run", action="store_true", help="Validate only; do not write database rows.")
     parser.add_argument("--report", type=Path, default=DEFAULT_IMPORT_REPORT)
     args = parser.parse_args()
@@ -42,7 +52,7 @@ def main() -> None:
         apply_migrations()
 
     with db_session() as session:
-        result = import_catalog_seed(session, reset=not args.no_reset)
+        result = import_catalog_seed(session, reset=args.reset_retired_legacy and not args.no_reset)
 
     payload = {
         "report_type": "catalog_outline_seed_import_report",

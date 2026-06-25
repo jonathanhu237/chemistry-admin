@@ -214,7 +214,7 @@ def test_catalog_outline_reset_deletes_retired_seed_tables_but_preserves_canonic
 
 def test_question_generation_requires_fresh_catalog_node_evidence() -> None:
     legacy_package = {
-        "mode": "hybrid_bge_rag",
+        "mode": "qwen_es_textbook_rag",
         "source_refs": [{"chunk_id": "chunk-1"}],
         "target_point_node_ids": ["cat-outline-point-1"],
     }

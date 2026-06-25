@@ -24,7 +24,7 @@ Current system data is protected under `data/seed` and validated by:
 python scripts/validate_production_resources.py
 ```
 
-The manifest at `data/seed/manifests/core_resources.json` covers the formal experiment catalog, knowledge framework, current catalog-outline seed, semantic 30-example mapping report, canonical chunks, canonical embeddings, search dictionaries, student learning profiles, and current import reports. Retired legacy point inventory, old question-bank seed files, and old point-evidence bindings are intentionally outside the protected baseline.
+The manifest at `data/seed/manifests/core_resources.json` covers the formal experiment catalog, knowledge framework, current catalog tree/content/evidence seed, current catalog-node question-bank seed, canonical chunks, runtime search dictionaries including `chemistry_vocabulary.json`, ES/IK analyzer assets, student learning profiles, and the current manifest. Retired legacy point inventory, old question-bank seed files, old point-evidence bindings, generated reports, audit drafts, and local BGE embedding artifacts are intentionally outside the protected baseline.
 
 Destructive cleanup must run only after this validation passes. The cleanup script intentionally excludes `data/media` because uploaded media requires a database/UI consistency plan.
 
@@ -62,6 +62,10 @@ Production deployments must set:
 - `DATA_BACKEND=postgres`
 - `DATABASE_URL`
 - `MEDIA_ROOT`
+- `MAX_MEDIA_UPLOAD_MB` for the original video upload limit shown and enforced by the teacher video resource page
+- `VIDEO_DUPLICATE_DETECTION_COMMAND`, `VIDEO_DUPLICATE_DETECTION_COMPARE_COMMAND`, `VIDEO_DUPLICATE_DETECTION_ALGORITHM`, and `VIDEO_DUPLICATE_DETECTION_THRESHOLD` for worker duplicate checks
+- `VIDEO_DUPLICATE_DEFAULT_INTERVAL_SECONDS=3`, `VIDEO_DUPLICATE_MIN_SAMPLES=12`, and `VIDEO_DUPLICATE_MIN_INTERVAL_SECONDS=0.5` for the duplicate-focused vPDQ sampling defaults
+- `VIDEO_DUPLICATE_DURATION_TOLERANCE_RATIO=0.001`, `VIDEO_DUPLICATE_DURATION_TOLERANCE_FLOOR_SECONDS=0.5`, and `VIDEO_DUPLICATE_DURATION_TOLERANCE_CEILING_SECONDS=2.0` for near-equal duration gating
 - `API_PUBLIC_BASE_URL`
 - `FRONTEND_ALLOWED_ORIGINS`
 - `STUDENT_PREVIEW_APP_BASE_URL` pointing to the student H5 origin used inside teacher device preview if it differs from the default student service origin
@@ -100,7 +104,6 @@ docker compose up -d --build web-teacher
 docker compose up -d --build web-student
 docker compose up -d --build web-admin
 docker compose up -d --build video-worker
-docker compose --profile rag up -d --build bge-rag
 ```
 
 Reserve full-stack image rebuilds for initial setup, shared base-image or Compose-topology changes, multi-service dependency changes, release smoke checks, or explicitly requested full validation. Do not run `docker builder prune`, `docker buildx prune`, `docker system prune`, or no-cache rebuilds as routine development startup; use them only as documented recovery for cache corruption or disk pressure after service-scoped restart or rebuild has been tried.
@@ -117,6 +120,37 @@ Default Compose services:
 - `video-worker`: local video processing worker sharing `data/media`.
 
 The backend depends on the PostgreSQL and Elasticsearch health checks. The frontend services depend on backend health. If a production-like run swaps the search image, verify the replacement image provides the `ik_max_word` tokenizer before bootstrapping the `student-video-library` index.
+
+### Video-worker FFmpeg Archive Cache
+
+The `video-worker` image installs static `ffmpeg` and `ffprobe` binaries during Docker build. By default the Dockerfile can download the pinned archive from GitHub, but deployment environments do not have to rely on build-time GitHub reachability.
+
+For reproducible or network-restricted deployments, download the pinned archive on the host and place it in:
+
+```text
+server/vendor/ffmpeg/ffmpeg-N-125136-gb57ff00bcf-linux64-gpl.tar.xz
+```
+
+Expected SHA-256:
+
+```text
+e73c0658d2b778e92d5367d3b47368c86f1589ae93764ea74cdca9e213fbba59
+```
+
+Then build normally:
+
+```powershell
+docker compose build video-worker
+docker compose up -d video-worker
+```
+
+The Dockerfile copies `server/vendor/ffmpeg/` into the `ffmpeg` build stage, verifies `FFMPEG_SHA256`, and only falls back to `FFMPEG_URL` when no local `*.tar.xz` archive exists. If multiple archives are present, select one explicitly:
+
+```powershell
+docker compose build --build-arg FFMPEG_LOCAL_ARCHIVE=ffmpeg-N-125136-gb57ff00bcf-linux64-gpl.tar.xz video-worker
+```
+
+See `docs/local_video_processing.md` for the video pipeline, NVENC probe, and CPU fallback details.
 
 The Compose Postgres service is available to other containers as `postgres:5432`. Its host binding defaults to `127.0.0.1:15432` to avoid collisions with a developer's local Postgres. Host-side scripts and validation defaults should use `postgresql+psycopg://chemistry:chemistry@127.0.0.1:15432/chemistry_exam`. Override `POSTGRES_HOST_PORT` only when the host port is known to be free.
 
@@ -137,7 +171,7 @@ Student video-library search is a PostgreSQL-to-Elasticsearch projection. Postgr
 
 Elasticsearch stores derived published placement documents only. Directory nodes contribute ancestor category text to descendant point documents but never become standalone results. A canonical experiment with multiple published placements produces multiple ES documents that share `canonical_point_id` and differ by `placement_node_id`, chapter, and path. Teacher-only notes, raw media-library uploads that are not bound to published points, video resource titles, media asset titles, original file names, media ids, playback paths, thumbnail paths, upload/processing status, `source_chunks`, and `experiment_video_point_evidence` must stay out of the student video-library index. The only allowed media-derived readiness signals are `has_video` and `video_count`, where `video_count` is a 0/1 readiness flag because one video point has one current video resource. Do not edit ES documents by hand and do not treat ES hit sources as student page content.
 
-The current catalog seed comes from `docs/实验目录_整理版.md`: 569 visible catalog nodes, 176 directory nodes, 393 point placements, and 357 canonical experiment points. Chapter 21 has no seeded catalog content. Reviewed exact duplicate leaves such as `Na2SiO3 + CO2`, `Al2(SO4)3 + NH3·H2O + NaOH`, and `BeSO4 + NH3·H2O + NaOH` are represented as multiple placements targeting one canonical point. The corrected sibling points `NaClO + MnSO₄` and `NaClO + 品红溶液` remain distinct canonical points. The 30 smoke examples in `docs/30点位例子.txt` are imported as published point content for semantically matched catalog point placements and canonical points, and can be indexed without legacy AI evidence. Each example records a `semantic_mapping` report with title/path/reagent evidence, top candidates, reviewed override details when candidates are ambiguous, and known wording corrections such as `NaClO + 品红溶液`.
+The current catalog seed comes from `data/seed/experiment_catalog/catalog_tree.json`: 569 visible catalog nodes, 176 directory nodes, 393 point placements, and 357 canonical experiment points. Chapter 21 has no seeded catalog content. Reviewed exact duplicate leaves such as `Na2SiO3 + CO2`, `Al2(SO4)3 + NH3·H2O + NaOH`, and `BeSO4 + NH3·H2O + NaOH` are represented as multiple placements targeting one canonical point. The corrected sibling points `NaClO + MnSO₄` and `NaClO + 品红溶液` remain distinct canonical points. The current point-content seed imports 76 reviewed records for catalog point placements and canonical points, including 71 equation-mode records and 122 structured reaction-equation rows.
 
 Catalog authoring only binds existing media assets to canonical experiment points through the selected placement. New uploads are owned by the media library workflow and then selected from the catalog editor after processing.
 
@@ -198,19 +232,15 @@ python scripts/validate_teacher_catalog_search.py
 
 The admin catalog search endpoint returns metadata in each response indicating whether `elasticsearch` or `postgres_fallback` answered the query. Fallback responses are intentionally limited and should not be described as synonym or formula-aware search.
 
-Optional RAG reranking service:
+External textbook RAG:
 
-```powershell
-docker compose --profile rag up -d --build bge-rag
-```
-
-The `rag` profile expects local BGE model files mounted at `E:/models/BAAI` and exposes `/health` on port `8010`.
+Textbook RAG is configured through `TEXTBOOK_RAG_*` environment variables or the teacher AI settings page. It uses the configured Elasticsearch index plus external OpenAI-compatible embedding and rerank providers. There is no local `bge-rag` Compose profile, model mount, or port `8010` health check.
 
 ## Media Lifecycle Operations
 
 `data/media` is operational upload state, not protected seed data. It can be backed up, archived, or cleaned only with database consistency in mind because `media_assets`, catalog point video bindings, legacy `media_bindings`, processing jobs, and review rows may still reference local files.
 
-Teacher deletion in `/videos` is a DB lifecycle archive: the asset becomes `lifecycle_status='archived'`, a `media_asset_archived` event is recorded, and the catalog-owned handler archives affected point video bindings while leaving point content, equations, related links, questions, assessments, and publication state intact. Upload/processing status remains separate from lifecycle status.
+Teacher deletion in `/videos` is destructive resource deletion, not archive retention. The backend first makes the asset unavailable with `lifecycle_status='tombstoned'`, cancels queued/running media processing jobs, removes point video bindings while leaving point content, equations, related links, questions, assessments, and publication state intact, removes duplicate-candidate references, and then deletes source/playback/thumbnail/rendition/fingerprint/temp artifacts under `MEDIA_ROOT` with path containment checks. If physical cleanup partially fails, the asset remains unavailable and stores cleanup diagnostics for maintenance.
 
 Inspect the current media lifecycle state with a dry run:
 
@@ -218,7 +248,7 @@ Inspect the current media lifecycle state with a dry run:
 python scripts/media_lifecycle_cleanup.py --json --limit 500 --orphan-limit 200
 ```
 
-The script reports asset dependency counts, missing files, existing referenced files, and unreferenced orphan files. Database-backed asset file deletion is allowed only for archived or tombstoned asset rows:
+The script reports asset dependency counts, missing files, existing referenced files, and unreferenced orphan files. Database-backed maintenance file deletion is allowed only for archived or tombstoned asset rows:
 
 ```powershell
 python scripts/media_lifecycle_cleanup.py --delete-asset-files
@@ -232,7 +262,7 @@ Only unreferenced orphan files under `MEDIA_ROOT` may be removed directly:
 python scripts/media_lifecycle_cleanup.py --delete-orphans --limit 500 --orphan-limit 200
 ```
 
-Before deleting media for production, back up any media that should remain available, archive assets through the media lifecycle path, confirm affected point bindings were archived, and confirm the admin UI shows missing or partial files intentionally instead of broken playback links. See `docs/production-media-cleanup.md` for the detailed cleanup procedure.
+Before manual media cleanup in production, back up any media that should remain available, delete teacher resources through the `/videos` delete flow or deliberately tombstone old archived assets, confirm affected point bindings no longer point at deleted media, and confirm the admin UI shows unavailable or missing files intentionally instead of broken playback links. See `docs/production-media-cleanup.md` for the detailed cleanup procedure.
 
 ## One-Command Validation
 
@@ -243,7 +273,7 @@ python scripts/validate_production_readiness.py --install-frontend
 ```
 
 The command checks protected resources, video-library ES/IK readiness, experiment point identity validation, OpenSpec strict validation, backend import smoke, backend tests, `web-admin` typecheck/build, `web-teacher` typecheck/tests/build, `web-student` typecheck/tests/build, and the teacher build chunk report.
-The default OpenSpec target is `backend-slim-domain-architecture`; use `--change <name>` to validate a different active or historical change.
+The default OpenSpec target is `prune-seed-to-current-runtime-data`; use `--change <name>` to validate a different active or historical change.
 The backend stage also runs:
 
 ```powershell
@@ -301,13 +331,14 @@ The student H5 mobile route-stack QA defaults to `http://127.0.0.1:5173` through
 
 ## Local Smoke Tests
 
-After rebuilding the backend and optional RAG service, verify the runtime before handoff:
+After rebuilding the backend, verify the runtime before handoff:
 
 ```powershell
-docker compose --profile rag up -d --build backend bge-rag
+docker compose up -d --build backend
 Invoke-RestMethod http://localhost:8000/health
-Invoke-RestMethod http://localhost:8010/health
 ```
+
+For textbook RAG readiness, check `/api/admin/learning-assistant/runtime` or the teacher AI settings page. Healthy status requires the external Elasticsearch index, embedding provider, rerank provider, and index metadata to match the configured model and dimension.
 
 Run representative authenticated API checks:
 
@@ -344,8 +375,11 @@ python scripts/import_experiment_knowledge_framework.py --skip-migrations
 python scripts/generate_experiment_catalog_seed.py
 python scripts/validate_experiment_catalog_seed.py --write-report
 python scripts/import_experiment_catalog_seed.py --skip-migrations
+python scripts/seed_catalog_point_evidence.py import
+python scripts/seed_current_question_bank.py import --skip-migrations
 python scripts/rebuild_video_library_index.py --recreate
 python scripts/validate_production_resources.py
+python scripts/seed_current_question_bank.py validate
 python scripts/validate_experiment_points.py
 ```
 
@@ -355,9 +389,9 @@ Expected protected baseline counts:
 - 11 chapters, 133 units, 385 knowledge points
 - 569 catalog nodes: 176 directories and 393 point placements
 - 357 canonical experiment points
-- 30 semantically mapped published catalog point-content smoke examples; ES rebuild may produce more than 30 placement documents when a sampled canonical point has multiple active placements
-- 0 question banks and 0 questions
-- 3637 canonical chunks and embeddings
+- 76 published catalog point-content seed records
+- 54 published generated question banks and 1,965 published questions
+- 3637 canonical source chunks
 - 0 legacy point evidence bindings
 
 ## Database Backup And Restore
@@ -387,9 +421,9 @@ python scripts/rebuild_video_library_index.py --recreate
 python scripts/validate_video_library_search.py
 ```
 
-If the ES volume is corrupted or intentionally cleared, keep PostgreSQL and protected seed data intact, recreate the index, and run the rebuild command. Do not delete `source_chunks`, `chunk_embeddings`, or `data/seed/canonical_rag/**`; those canonical corpus resources remain valid. Old `experiment_video_point_evidence` rows and `data/seed/point_evidence/manual_reviewed_point_evidence.jsonl` are retired point-to-chunk bindings and must not be treated as current AI/question-bank evidence.
+If the ES volume is corrupted or intentionally cleared, keep PostgreSQL and protected seed data intact, recreate the index, and run the rebuild command. Do not delete `source_documents`, `source_chunks`, or `data/seed/canonical_rag/chunks/**`; those canonical corpus resources remain valid. Old `experiment_video_point_evidence` rows and old `data/seed/point_evidence/**` files are retired point-to-chunk bindings and must not be treated as current AI/question-bank evidence.
 
-Catalog point ES sync and catalog-node evidence refresh use PostgreSQL-backed jobs in `experiment_catalog_point_jobs`. `experiment_catalog_point_search_index_state` is the ES projection status; `experiment_catalog_point_evidence_state` and `experiment_catalog_point_evidence_bindings` are the fallback/static evidence status and selected chunk bindings. These job tables may be retried or cleared with catalog-node awareness, but canonical `source_chunks`, `chunk_embeddings`, source documents, and the authoritative catalog seed remain protected data. Redis/Rabbit/Celery/RQ should be introduced only after throughput or distributed scheduling requirements justify changing the worker backend.
+Catalog point ES sync and catalog-node evidence refresh use PostgreSQL-backed jobs in `experiment_catalog_point_jobs`. `experiment_catalog_point_search_index_state` is the ES projection status; `experiment_catalog_point_evidence_state` and `experiment_catalog_point_evidence_bindings` are the fallback/static evidence status and selected chunk bindings. These job tables may be retried with catalog-node awareness, but default catalog seed import must preserve current question banks, questions, catalog-node evidence state/bindings, media bindings, source documents, source chunks, search dictionaries, and the authoritative catalog seed. Redis/Rabbit/Celery/RQ should be introduced only after throughput or distributed scheduling requirements justify changing the worker backend.
 
 ## Search Rollback Notes
 
@@ -398,7 +432,7 @@ If the point editor or search projection must be rolled back during a release:
 - Disable or hide the admin catalog point editor at the frontend/API routing layer while keeping catalog point tables in place.
 - Set `VIDEO_LIBRARY_SEARCH_ENABLED=false` only as an emergency product rollback; production readiness should fail until ES/IK search is restored for normal releases.
 - Clear or recreate the ES index with `python scripts/rebuild_video_library_index.py --recreate` after the issue is fixed.
-- Never roll back by deleting canonical chunks or embeddings; those are protected corpus resources, not search projection cache. Legacy manual-reviewed point evidence is retired and should not be restored as current point evidence.
+- Never roll back by deleting canonical chunks or source documents; those are protected corpus resources, not search projection cache. Local BGE embeddings and legacy manual-reviewed point evidence are retired and should not be restored as current point evidence.
 
 Local developers may set `VIDEO_LIBRARY_SEARCH_BACKEND=local` and `VIDEO_LIBRARY_SEARCH_LOCAL_FALLBACK=true` only for isolated fallback tests. Production-like development should run `docker compose up elasticsearch backend` and use the same ES/IK projection path as production.
 

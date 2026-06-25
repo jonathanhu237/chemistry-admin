@@ -16,7 +16,7 @@ if str(ROOT) not in sys.path:
 
 from scripts.validate_production_resources import MANIFEST_PATH, validate_manifest
 
-DEFAULT_REPORT = ROOT / "data" / "seed" / "manifests" / "legacy_cleanup_plan.json"
+DEFAULT_REPORT = ROOT / "artifacts" / "current-seed-cleanup-plan.json"
 
 TARGETS = [
     {
@@ -42,12 +42,52 @@ TARGETS = [
     {
         "path": "data/seed/question_bank",
         "category": "retired_legacy_question_bank_seed",
-        "reason": "The current baseline intentionally keeps experiment question banks empty until catalog-node evidence is regenerated.",
+        "reason": "The current baseline uses data/seed/question_banks/current_catalog_node_question_bank_seed_v1.json instead of retired legacy question-bank seed artifacts.",
     },
     {
         "path": "data/seed/point_evidence",
         "category": "retired_legacy_point_evidence_seed",
-        "reason": "Old point-to-chunk bindings are invalid; canonical chunks and embeddings remain protected separately.",
+        "reason": "Old point-to-chunk bindings are invalid; canonical chunks remain protected separately.",
+    },
+    {
+        "path": "data/seed/canonical_rag/embeddings",
+        "category": "retired_local_bge_embedding_seed",
+        "reason": "Local BGE dense/sparse embeddings are no longer current seed data.",
+    },
+    {
+        "path": "data/seed/import_reports",
+        "category": "generated_import_validation_reports",
+        "reason": "Generated import and validation reports are not current runtime seed data.",
+    },
+    {
+        "path": "data/seed/manifests/legacy_cleanup_plan.json",
+        "category": "generated_cleanup_plan",
+        "reason": "Cleanup plans are generated into artifacts, not protected seed data.",
+    },
+    {
+        "path": "data/seed/experiment_catalog/canonical_point_groups.json",
+        "category": "historical_catalog_generation_audit",
+        "reason": "Canonical grouping audit was a generation artifact; catalog_tree.json already carries current canonical ids.",
+    },
+    {
+        "path": "data/seed/experiment_catalog/normalized_three_element_candidates.md",
+        "category": "historical_catalog_generation_audit",
+        "reason": "Normalized three-element draft is not current runtime seed data.",
+    },
+    {
+        "path": "data/seed/experiment_catalog/normalized_three_element_node_mapping.json",
+        "category": "historical_catalog_generation_audit",
+        "reason": "Semantic node mapping is not current runtime seed data.",
+    },
+    {
+        "path": "data/seed/experiment_catalog/normalized_three_element_node_mapping.md",
+        "category": "historical_catalog_generation_audit",
+        "reason": "Semantic node mapping report is not current runtime seed data.",
+    },
+    {
+        "path": "data/seed/experiment_catalog/three_element_chemistry_review.md",
+        "category": "historical_catalog_generation_audit",
+        "reason": "Chemistry review notes are not current runtime seed data.",
     },
     {
         "path": "artifacts/playwright",
@@ -57,7 +97,7 @@ TARGETS = [
     {
         "path": "artifacts/experiment_knowledge_framework_import_report.json",
         "category": "historical_import_report_copy",
-        "reason": "Current import report is protected in data/seed/import_reports.",
+        "reason": "Generated import reports belong in artifacts and are not protected seed data.",
     },
     {
         "path": ".tmp",
@@ -172,7 +212,7 @@ def _target_entry(path: Path, *, category: str, reason: str, source: str) -> dic
 
 
 def build_plan(manifest_path: Path = MANIFEST_PATH) -> dict[str, Any]:
-    validation = validate_manifest(manifest_path)
+    validation = validate_manifest(manifest_path, check_seed_tree=False)
     if not validation["ok"]:
         raise ValueError("Protected resources are invalid:\n" + "\n".join(validation["errors"]))
     protected = _protected_paths(manifest_path)

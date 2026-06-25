@@ -20,7 +20,12 @@ def main() -> None:
     parser.add_argument("--descriptions", required=True, help="Path to 元素性质实验点位描述汇总.md")
     parser.add_argument("--apply", action="store_true", help="Apply changes. Omit for dry-run.")
     parser.add_argument("--skip-migrations", action="store_true")
-    parser.add_argument("--no-reset", action="store_true", help="Do not clear catalog/question derived data before import.")
+    parser.add_argument(
+        "--reset-retired-legacy",
+        action="store_true",
+        help="Destructively clear only retired legacy seed-derived rows before import.",
+    )
+    parser.add_argument("--no-reset", action="store_true", help=argparse.SUPPRESS)
     parser.add_argument("--draft", action="store_true", help="Import nodes and point content as draft instead of published.")
     parser.add_argument("--user-id", help="Optional app user UUID for created_by/updated_by metadata.")
     args = parser.parse_args()
@@ -32,7 +37,7 @@ def main() -> None:
         catalog_path=Path(args.catalog),
         description_path=Path(args.descriptions),
         dry_run=not args.apply,
-        reset=not args.no_reset,
+        reset=args.reset_retired_legacy and not args.no_reset,
         publish=not args.draft,
         user_id=args.user_id,
     )

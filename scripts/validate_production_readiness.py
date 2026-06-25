@@ -19,7 +19,7 @@ FRONTENDS = [
     ("web-teacher frontend", WEB_TEACHER_DIR, True),
     ("web-student frontend", WEB_STUDENT_DIR, True),
 ]
-DEFAULT_CHANGE = "split-web-admin-teacher-student-consoles"
+DEFAULT_CHANGE = "prune-seed-to-current-runtime-data"
 
 
 @dataclass
@@ -152,6 +152,12 @@ def _stages(args: argparse.Namespace) -> list[Stage]:
             Stage(
                 "protected resource manifest",
                 [sys.executable, "scripts/validate_production_resources.py"],
+            )
+        )
+        stages.append(
+            Stage(
+                "current question-bank seed validation",
+                [sys.executable, "scripts/seed_current_question_bank.py", "validate"],
             )
         )
         stages.append(

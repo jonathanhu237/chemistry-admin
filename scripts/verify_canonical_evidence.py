@@ -15,9 +15,6 @@ from server.app.infrastructure.database import db_session
 
 EXPECTED_SOURCE_DOCUMENTS = 2
 EXPECTED_SOURCE_CHUNKS = 3637
-EXPECTED_EMBEDDINGS = 3637
-EXPECTED_BANKS = 0
-EXPECTED_EXPERIMENT_QUESTIONS = 0
 
 
 def _scalar(session: Any, sql: str) -> int:
@@ -29,7 +26,7 @@ def verify() -> dict[str, Any]:
         counts = {
             "source_documents": _scalar(session, "SELECT COUNT(*) FROM source_documents"),
             "source_chunks": _scalar(session, "SELECT COUNT(*) FROM source_chunks"),
-            "chunk_embeddings": _scalar(session, "SELECT COUNT(*) FROM chunk_embeddings"),
+            "optional_chunk_embeddings": _scalar(session, "SELECT COUNT(*) FROM chunk_embeddings"),
             "legacy_links": _scalar(session, "SELECT COUNT(*) FROM links"),
             "legacy_questions": _scalar(session, "SELECT COUNT(*) FROM questions"),
             "legacy_resources": _scalar(session, "SELECT COUNT(*) FROM resources"),
@@ -70,24 +67,106 @@ def verify() -> dict[str, Any]:
                 )
                 """,
             ),
+            "question_banks_without_experiment": _scalar(
+                session,
+                """
+                SELECT COUNT(*)
+                FROM experiment_question_banks
+                WHERE experiment_id IS NULL OR btrim(experiment_id) = ''
+                """,
+            ),
+            "questions_without_experiment": _scalar(
+                session,
+                """
+                SELECT COUNT(*)
+                FROM experiment_questions
+                WHERE experiment_id IS NULL OR btrim(experiment_id) = ''
+                """,
+            ),
+            "questions_without_bank": _scalar(
+                session,
+                """
+                SELECT COUNT(*)
+                FROM experiment_questions q
+                WHERE q.bank_id IS NULL
+                  OR NOT EXISTS (
+                    SELECT 1
+                    FROM experiment_question_banks b
+                    WHERE b.id = q.bank_id
+                  )
+                """,
+            ),
+            "questions_without_point_nodes": _scalar(
+                session,
+                """
+                SELECT COUNT(*)
+                FROM experiment_questions
+                WHERE COALESCE(array_length(primary_point_node_ids, 1), 0) = 0
+                """,
+            ),
+            "questions_without_canonical_points": _scalar(
+                session,
+                """
+                SELECT COUNT(*)
+                FROM experiment_questions
+                WHERE COALESCE(array_length(primary_canonical_point_ids, 1), 0) = 0
+                """,
+            ),
+            "questions_with_missing_point_nodes": _scalar(
+                session,
+                """
+                WITH refs AS (
+                  SELECT q.id AS question_id, unnest(q.primary_point_node_ids) AS node_id
+                  FROM experiment_questions q
+                  WHERE q.primary_point_node_ids IS NOT NULL
+                )
+                SELECT COUNT(*)
+                FROM refs
+                LEFT JOIN experiment_catalog_nodes n ON n.id = refs.node_id
+                WHERE n.id IS NULL
+                """,
+            ),
+            "questions_with_missing_canonical_points": _scalar(
+                session,
+                """
+                WITH refs AS (
+                  SELECT q.id AS question_id, unnest(q.primary_canonical_point_ids) AS canonical_point_id
+                  FROM experiment_questions q
+                  WHERE q.primary_canonical_point_ids IS NOT NULL
+                )
+                SELECT COUNT(*)
+                FROM refs
+                LEFT JOIN experiment_catalog_points p ON p.id = refs.canonical_point_id
+                WHERE p.id IS NULL
+                """,
+            ),
         }
 
     errors: list[str] = []
     expected_counts = {
         "source_documents": EXPECTED_SOURCE_DOCUMENTS,
         "source_chunks": EXPECTED_SOURCE_CHUNKS,
-        "chunk_embeddings": EXPECTED_EMBEDDINGS,
         "legacy_links": 0,
         "legacy_questions": 0,
         "legacy_resources": 0,
-        "experiment_question_banks": EXPECTED_BANKS,
-        "experiment_questions": EXPECTED_EXPERIMENT_QUESTIONS,
     }
     for key, expected in expected_counts.items():
         actual = counts.get(key)
         if actual != expected:
             errors.append(f"{key}: expected {expected}, got {actual}")
-    for key in ["old_chunk_ids", "old_courseware_documents", "questions_without_source_refs", "questions_with_missing_chunks"]:
+    for key in [
+        "old_chunk_ids",
+        "old_courseware_documents",
+        "questions_without_source_refs",
+        "questions_with_missing_chunks",
+        "question_banks_without_experiment",
+        "questions_without_experiment",
+        "questions_without_bank",
+        "questions_without_point_nodes",
+        "questions_without_canonical_points",
+        "questions_with_missing_point_nodes",
+        "questions_with_missing_canonical_points",
+    ]:
         if checks[key] != 0:
             errors.append(f"{key}: expected 0, got {checks[key]}")
     if checks["canonical_chunks"] != EXPECTED_SOURCE_CHUNKS:
