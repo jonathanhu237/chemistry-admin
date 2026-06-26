@@ -10,9 +10,9 @@ import {
   useState,
 } from "react";
 import { useNavigate } from "@tanstack/react-router";
-import { Atom, CheckCircle2, Copy, FlaskConical, LoaderCircle, Plus, RotateCcw, Send, ThumbsDown, ThumbsUp, X, XCircle } from "lucide-react";
+import { Atom, CheckCircle2, Copy, FlaskConical, LoaderCircle, Plus, RotateCcw, Send, Square, ThumbsDown, ThumbsUp, X, XCircle } from "lucide-react";
 import LottieImport, { type LottieRefCurrentProps } from "lottie-react";
-import { type StudentAssistantStreamEvent, StudentAssistantFinalMetadata, errorMessage, streamStudentAssistantAsk } from "../../api";
+import { type StudentAssistantStreamEvent, StudentAssistantFinalMetadata, errorMessage, isStudentAssistantStreamAbort, streamStudentAssistantAsk } from "../../api";
 import atomThinkingVariant1Animation from "../../assets/lottie/atom-thinking-variant-1.json";
 import atomThinkingVariant2Animation from "../../assets/lottie/atom-thinking-variant-2.json";
 import atomThinkingAnimation from "../../assets/lottie/atom-thinking.json";
@@ -35,6 +35,7 @@ import {
   clearActiveStudentAiHistoryId,
   createStudentAiHistoryId,
   createStudentAiMessageId,
+  deleteStudentAiHistory,
   saveActiveStudentAiHistoryId,
   sanitizeStudentAiHistoryTitle,
   type StudentAiChatMessage,
@@ -661,6 +662,8 @@ export function StudentAiChatPanel({
   const copyResetTimeoutRef = useRef<number | undefined>(undefined);
   const rootGlowExitTimeoutRef = useRef<number | undefined>(undefined);
   const previousRootFirstResponseLoadingRef = useRef(false);
+  const activeStreamRef = useRef<{ id: string; controller: AbortController } | null>(null);
+  const manualStopStreamIdRef = useRef<string | null>(null);
   const [composerContextActive, setComposerContextActive] = useState(false);
   const [composerTextareaMetrics, setComposerTextareaMetrics] = useState(() => initialComposerTextareaMetrics(fullControls ? "root" : variant));
   const [rootGlowExitActive, setRootGlowExitActive] = useState(false);
@@ -715,6 +718,18 @@ export function StudentAiChatPanel({
     usesModernAtomSurface && boundPointContext && !hasComposerText && !hasSubmittedUserMessage && !loading ? boundContextStarterPrompts(boundPointContext) : [];
   const showBoundStarterPrompts = !suggestedQuickPrompts.length && boundStarterQuickPrompts.length > 0;
   const quickPrompts = suggestedQuickPrompts.length ? suggestedQuickPrompts : boundStarterQuickPrompts;
+
+  const abortActiveStream = useCallback(() => {
+    const stream = activeStreamRef.current;
+    if (!stream) return;
+    activeStreamRef.current = null;
+    stream.controller.abort();
+  }, []);
+
+  const isActiveStream = useCallback((streamId: string, controller: AbortController) => {
+    const active = activeStreamRef.current;
+    return Boolean(active && active.id === streamId && active.controller === controller && !controller.signal.aborted);
+  }, []);
 
   const updateLatestAssistantContent = useCallback((content: string) => {
     setMessages((current) => {
@@ -795,11 +810,12 @@ export function StudentAiChatPanel({
 
   useEffect(() => {
     return () => {
+      abortActiveStream();
       if (copyResetTimeoutRef.current) window.clearTimeout(copyResetTimeoutRef.current);
       if (rootGlowExitTimeoutRef.current) window.clearTimeout(rootGlowExitTimeoutRef.current);
       stopSmoothAnswer();
     };
-  }, [stopSmoothAnswer]);
+  }, [abortActiveStream, stopSmoothAnswer]);
 
   useEffect(() => {
     if (!usesModernAtomSurface) {
@@ -845,6 +861,7 @@ export function StudentAiChatPanel({
   }, [contextPickerOpen, usesModernAtomSurface]);
 
   useEffect(() => {
+    abortActiveStream();
     if (historyEntry) {
       setActiveContext(historyEntry.context);
       setMessages(historyEntry.messages);
@@ -876,6 +893,7 @@ export function StudentAiChatPanel({
     setActiveHistoryCreatedAt(undefined);
   }, [
     historyEntry?.id,
+    abortActiveStream,
     context.context_type,
     context.context_title,
     context.experiment_id,
@@ -919,6 +937,7 @@ export function StudentAiChatPanel({
   };
 
   const handleResetContext = () => {
+    abortActiveStream();
     setActiveContext(resetContext || defaultAssistantContext());
     setMessages([]);
     setInput("");
@@ -936,9 +955,48 @@ export function StudentAiChatPanel({
     onResetContext();
   };
 
+  const handleStopGeneration = () => {
+    const stoppingStreamId = activeStreamRef.current?.id || null;
+    if (stoppingStreamId) manualStopStreamIdRef.current = stoppingStreamId;
+    abortActiveStream();
+    const flushedAnswer = flushSmoothAnswer();
+    const stoppedMessages = (() => {
+      if (!messages.length) return messages;
+      const next = [...messages];
+      const lastIndex = next.length - 1;
+      const last = next[lastIndex];
+      if (last?.role === "assistant") {
+        const nextContent = flushedAnswer || last.content;
+        if (!nextContent.trim()) return next.slice(0, lastIndex);
+        next[lastIndex] = { ...last, content: nextContent };
+      }
+      return next;
+    })();
+    setMessages(stoppedMessages);
+    setLoading(false);
+    setStatus(stoppedMessages.some((message) => message.role === "assistant") ? "ai" : "idle");
+    setActiveThinking(null);
+    if (activeHistoryId) {
+      if (stoppedMessages.length) {
+        persistConversation(stoppedMessages, activeContext, activeHistoryId, activeHistoryCreatedAt);
+      } else {
+        deleteStudentAiHistory(activeHistoryId);
+        clearActiveStudentAiHistoryId();
+        setActiveHistoryId(null);
+        setActiveHistoryCreatedAt(undefined);
+        onHistoryChange?.();
+      }
+    }
+    composerTextareaRef.current?.focus();
+  };
+
   const submitQuestion = async (questionText?: string, overrideContext?: AssistantContext) => {
     const question = (questionText || input).trim();
     if (!question || loading) return;
+    abortActiveStream();
+    const streamId = createStudentAiHistoryId();
+    const streamController = new AbortController();
+    activeStreamRef.current = { id: streamId, controller: streamController };
     const requestContext = overrideContext || activeContext;
     const baseMessages = messages;
     const userMessage: StudentAiChatMessage = { id: createStudentAiMessageId("user"), role: "user", content: question };
@@ -975,6 +1033,7 @@ export function StudentAiChatPanel({
           conversation_history: conversationHistory(baseMessages),
         },
         (event) => {
+          if (!isActiveStream(streamId, streamController)) return;
           lastStreamEvent = event;
           const visibleThinking = normalizeVisibleThinkingEvent(event);
           if (visibleThinking) {
@@ -1027,7 +1086,9 @@ export function StudentAiChatPanel({
             debugPhase = "stream-final-state";
           }
         },
+        { signal: streamController.signal },
       );
+      if (!isActiveStream(streamId, streamController)) return;
       debugPhase = "stream-complete";
       if (!answer.trim()) answer = "Atom 暂时没有生成有效回答。";
       answer = flushSmoothAnswer(answer);
@@ -1044,6 +1105,33 @@ export function StudentAiChatPanel({
       persistConversation(finalMessages, requestContext, historyId, createdAtForFinal, generatedHistoryTitle);
       debugPhase = "done";
     } catch (requestError) {
+      const streamStillCurrent = activeStreamRef.current?.id === streamId && activeStreamRef.current.controller === streamController;
+      if (streamController.signal.aborted || isStudentAssistantStreamAbort(requestError)) {
+        const isManualStop = manualStopStreamIdRef.current === streamId;
+        stopSmoothAnswer();
+        if (!isManualStop) {
+          if (baseMessages.length) {
+            upsertStudentAiHistory(
+              buildStudentAiHistoryEntry({
+                id: historyId,
+                context: requestContext,
+                messages: baseMessages,
+                source: historySourceForVariant(variant),
+                createdAt: createdAtForFinal,
+              }),
+            );
+          } else {
+            deleteStudentAiHistory(historyId);
+          }
+        }
+        if (streamStillCurrent) {
+          setMessages(baseMessages);
+          setStatus(baseMessages.length ? "ai" : "idle");
+          setActiveThinking(null);
+        }
+        return;
+      }
+      if (!streamStillCurrent) return;
       const error = requestError instanceof Error ? requestError : undefined;
       console.error("[atom-chat-error]", {
         phase: debugPhase,
@@ -1062,7 +1150,13 @@ export function StudentAiChatPanel({
       setMessages(errorMessages);
       persistConversation(errorMessages, requestContext, historyId, createdAtForFinal);
     } finally {
-      setLoading(false);
+      if (manualStopStreamIdRef.current === streamId) {
+        manualStopStreamIdRef.current = null;
+      }
+      if (activeStreamRef.current?.id === streamId && activeStreamRef.current.controller === streamController) {
+        activeStreamRef.current = null;
+        setLoading(false);
+      }
     }
   };
 
@@ -1383,8 +1477,14 @@ export function StudentAiChatPanel({
                     ? "已选择学习背景"
                     : ""}
             </span>
-            <button type="submit" className="ai-send-action" disabled={!input.trim() || loading} aria-label="发送问题">
-              {loading ? <LoaderCircle className="spin" size={17} /> : <Send size={17} />}
+            <button
+              type={loading ? "button" : "submit"}
+              className="ai-send-action"
+              disabled={!loading && !input.trim()}
+              aria-label={loading ? "停止生成" : "发送问题"}
+              onClick={loading ? handleStopGeneration : undefined}
+            >
+              {loading ? <Square size={14} fill="currentColor" strokeWidth={2.3} /> : <Send size={17} />}
             </button>
           </div>
         </form>
@@ -1402,8 +1502,13 @@ export function StudentAiChatPanel({
             disabled={loading}
             style={composerTextareaStyle}
           />
-          <button type="submit" disabled={!input.trim() || loading} aria-label="发送问题">
-            {loading ? <LoaderCircle className="spin" size={17} /> : <Send size={17} />}
+          <button
+            type={loading ? "button" : "submit"}
+            disabled={!loading && !input.trim()}
+            aria-label={loading ? "停止生成" : "发送问题"}
+            onClick={loading ? handleStopGeneration : undefined}
+          >
+            {loading ? <Square size={14} fill="currentColor" strokeWidth={2.3} /> : <Send size={17} />}
           </button>
         </form>
       )}

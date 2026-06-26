@@ -5,6 +5,9 @@ ENV PYTHONUNBUFFERED=1
 
 ARG FFMPEG_URL=https://github.com/BtbN/FFmpeg-Builds/releases/download/autobuild-2026-06-20-13-30/ffmpeg-N-125136-gb57ff00bcf-linux64-gpl.tar.xz
 ARG FFMPEG_SHA256=e73c0658d2b778e92d5367d3b47368c86f1589ae93764ea74cdca9e213fbba59
+ARG FFMPEG_LOCAL_ARCHIVE=
+
+COPY server/vendor/ffmpeg/ /opt/ffmpeg-cache/
 
 RUN python - <<'PY'
 import hashlib
@@ -19,25 +22,37 @@ from pathlib import Path
 
 url = os.environ.get("FFMPEG_URL") or "https://github.com/BtbN/FFmpeg-Builds/releases/download/autobuild-2026-06-20-13-30/ffmpeg-N-125136-gb57ff00bcf-linux64-gpl.tar.xz"
 expected_sha256 = (os.environ.get("FFMPEG_SHA256") or "").removeprefix("sha256:").strip()
+local_archive = os.environ.get("FFMPEG_LOCAL_ARCHIVE", "").strip()
+cache_dir = Path("/opt/ffmpeg-cache")
 archive = Path(tempfile.gettempdir()) / "ffmpeg.tar.xz"
 extract_dir = Path(tempfile.gettempdir()) / "ffmpeg"
 extract_dir.mkdir(parents=True, exist_ok=True)
 
-request = urllib.request.Request(url, headers={"User-Agent": "chemistry-admin-video-worker-build"})
-last_error = None
-for attempt in range(1, 6):
-    try:
-        with urllib.request.urlopen(request, timeout=120) as response, archive.open("wb") as file:
-            shutil.copyfileobj(response, file)
-        last_error = None
+local_candidates = []
+if local_archive:
+    local_candidates.append(cache_dir / local_archive)
+local_candidates.extend(sorted(cache_dir.glob("*.tar.xz")))
+
+for candidate in local_candidates:
+    if candidate.is_file():
+        shutil.copy2(candidate, archive)
         break
-    except Exception as exc:
-        last_error = exc
-        if archive.exists():
-            archive.unlink()
-        time.sleep(min(attempt * 3, 15))
-if last_error is not None:
-    raise last_error
+else:
+    request = urllib.request.Request(url, headers={"User-Agent": "chemistry-admin-video-worker-build"})
+    last_error = None
+    for attempt in range(1, 6):
+        try:
+            with urllib.request.urlopen(request, timeout=120) as response, archive.open("wb") as file:
+                shutil.copyfileobj(response, file)
+            last_error = None
+            break
+        except Exception as exc:
+            last_error = exc
+            if archive.exists():
+                archive.unlink()
+            time.sleep(min(attempt * 3, 15))
+    if last_error is not None:
+        raise last_error
 
 if expected_sha256:
     actual_sha256 = hashlib.sha256(archive.read_bytes()).hexdigest()

@@ -81,6 +81,20 @@ export function CatalogPointDetailPanel({
   }, [loadPointDetail, nodeId]);
 
   const video = detail?.videos[0] || null;
+  const subtitleTracks = useMemo(
+    () =>
+      (video?.subtitle_tracks || [])
+        .filter((track) => track.stream_path)
+        .map((track) => ({
+          id: track.id,
+          kind: track.kind,
+          language_code: track.language_code,
+          label: track.label,
+          is_default: track.is_default,
+          streamUrl: resolveMediaUrl(track.stream_path),
+        })),
+    [resolveMediaUrl, video],
+  );
   const principleText =
     detail?.principle_mode === "equation"
       ? buildReactionEquationRows({
@@ -213,6 +227,7 @@ export function CatalogPointDetailPanel({
           <PointVideoPlayer
             src={video?.stream_path ? resolveMediaUrl(video.stream_path) : null}
             poster={video?.thumbnail_path ? resolveMediaUrl(video.thumbnail_path) : null}
+            subtitleTracks={subtitleTracks}
             emptyReason={detail.no_video_reason}
             onBack={onBack}
           />

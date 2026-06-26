@@ -19,6 +19,8 @@ PHASE_PROGRESS = {
     "transcoding": 60,
     "fingerprinting": 78,
     "comparing": 90,
+    "analysis_failed": 100,
+    "duplicate_detection_failed": 100,
     "ready": 100,
     "failed": 0,
 }
@@ -30,10 +32,23 @@ class WorkerJob:
     media_asset_id: str
     attempts: int
     job_type: str = PROCESSING_JOB_TYPE
+    metadata: dict[str, Any] | None = None
 
     @property
     def preserves_ready_playback(self) -> bool:
-        return self.job_type == "backfill_legacy_video"
+        return self.job_type == "backfill_legacy_video" or self.retry_scope in {"duplicate_detection", "similarity"}
+
+    @property
+    def retry_scope(self) -> str | None:
+        return str((self.metadata or {}).get("retry_scope") or "") or None
+
+    @property
+    def duplicate_detection_only(self) -> bool:
+        return self.retry_scope in {"duplicate_detection", "similarity"}
+
+    @property
+    def similarity_only(self) -> bool:
+        return self.duplicate_detection_only
 
 
 def relative_media_path(path: Path) -> str:
@@ -66,7 +81,7 @@ def claim_next_job(worker_id: str) -> WorkerJob | None:
                       FOR UPDATE SKIP LOCKED
                       LIMIT 1
                     )
-                    RETURNING id, media_asset_id, attempts, job_type
+                    RETURNING id, media_asset_id, attempts, job_type, metadata
                     """
                 ),
                 {"worker_id": worker_id},
@@ -81,6 +96,7 @@ def claim_next_job(worker_id: str) -> WorkerJob | None:
         media_asset_id=str(row["media_asset_id"]),
         attempts=int(row["attempts"]),
         job_type=str(row["job_type"] or PROCESSING_JOB_TYPE),
+        metadata=dict(row["metadata"] or {}),
     )
 
 
@@ -110,7 +126,7 @@ def update_phase(job: WorkerJob, phase: str, progress: int | None = None, metada
                 """
                 UPDATE media_assets
                 SET upload_status = CASE
-                      WHEN :preserve_ready_playback THEN upload_status
+                      WHEN :preserve_ready_playback OR upload_status = 'ready' THEN upload_status
                       ELSE 'processing'
                     END,
                     processing_phase = :phase,
@@ -118,6 +134,7 @@ def update_phase(job: WorkerJob, phase: str, progress: int | None = None, metada
                     updated_at = now()
                 WHERE id = CAST(:asset_id AS uuid)
                   AND upload_status <> 'replaced'
+                  AND COALESCE(lifecycle_status, 'active') = 'active'
                 """
             ),
             {
@@ -129,8 +146,62 @@ def update_phase(job: WorkerJob, phase: str, progress: int | None = None, metada
         )
 
 
-def fail_job(job: WorkerJob, error: str) -> None:
+def mark_asset_playback_ready(
+    job: WorkerJob,
+    *,
+    phase: str = "fingerprinting",
+    progress: int | None = None,
+    metadata: dict[str, Any] | None = None,
+) -> None:
+    next_progress = PHASE_PROGRESS.get(phase, progress or 100) if progress is None else progress
+    with db_session() as session:
+        session.execute(
+            text(
+                """
+                UPDATE media_processing_jobs
+                SET phase = :phase,
+                    progress = :progress,
+                    metadata = metadata || CAST(:metadata AS jsonb),
+                    updated_at = now()
+                WHERE id = CAST(:job_id AS uuid)
+                """
+            ),
+            {
+                "job_id": job.id,
+                "phase": phase,
+                "progress": next_progress,
+                "metadata": json_param(metadata or {}),
+            },
+        )
+        session.execute(
+            text(
+                """
+                UPDATE media_assets
+                SET upload_status = 'ready',
+                    processing_phase = :phase,
+                    processing_progress = :progress,
+                    error_reason = NULL,
+                    processed_at = COALESCE(processed_at, now()),
+                    updated_at = now()
+                WHERE id = CAST(:asset_id AS uuid)
+                  AND upload_status <> 'replaced'
+                  AND COALESCE(lifecycle_status, 'active') = 'active'
+                """
+            ),
+            {
+                "asset_id": job.media_asset_id,
+                "phase": phase,
+                "progress": next_progress,
+            },
+        )
+
+
+def fail_job(job: WorkerJob, error: str, *, preserve_ready_playback: bool | None = None) -> None:
     message = error[:1000]
+    preserve_playback = job.preserves_ready_playback if preserve_ready_playback is None else preserve_ready_playback
+    asset_phase = "duplicate_detection_failed" if preserve_playback else "failed"
+    asset_progress = PHASE_PROGRESS[asset_phase]
+    asset_error_reason = None if preserve_playback else message
     with db_session() as session:
         session.execute(
             text(
@@ -152,21 +223,24 @@ def fail_job(job: WorkerJob, error: str) -> None:
                 """
                 UPDATE media_assets
                 SET upload_status = CASE
-                      WHEN :preserve_ready_playback THEN upload_status
+                      WHEN :preserve_ready_playback THEN 'ready'
                       ELSE 'failed'
                     END,
-                    processing_phase = 'failed',
-                    processing_progress = 0,
+                    processing_phase = :asset_phase,
+                    processing_progress = :asset_progress,
                     error_reason = :error_reason,
                     updated_at = now()
                 WHERE id = CAST(:asset_id AS uuid)
                   AND upload_status <> 'replaced'
+                  AND COALESCE(lifecycle_status, 'active') = 'active'
                 """
             ),
             {
                 "asset_id": job.media_asset_id,
-                "error_reason": message,
-                "preserve_ready_playback": job.preserves_ready_playback,
+                "asset_phase": asset_phase,
+                "asset_progress": asset_progress,
+                "error_reason": asset_error_reason,
+                "preserve_ready_playback": preserve_playback,
             },
         )
 
@@ -200,6 +274,7 @@ def finish_job(job: WorkerJob, outputs: dict[str, Any]) -> None:
                     updated_at = now()
                 WHERE id = CAST(:asset_id AS uuid)
                   AND upload_status <> 'replaced'
+                  AND COALESCE(lifecycle_status, 'active') = 'active'
                 """
             ),
             {"asset_id": job.media_asset_id},
@@ -213,7 +288,8 @@ def load_processing_asset(asset_id: str) -> dict[str, Any]:
                 text(
                     """
                     SELECT id, title, original_file_name, relative_path, source_relative_path,
-                           checksum_sha256, mime_type, file_size_bytes
+                           playback_relative_path,
+                           checksum_sha256, mime_type, file_size_bytes, duration_seconds
                     FROM media_assets
                     WHERE id = CAST(:asset_id AS uuid)
                     """
@@ -244,6 +320,7 @@ def persist_video_probe(asset_id: str, metadata: dict[str, Any]) -> None:
                     metadata = metadata || CAST(:metadata AS jsonb),
                     updated_at = now()
                 WHERE id = CAST(:asset_id AS uuid)
+                  AND COALESCE(lifecycle_status, 'active') = 'active'
                 """
             ),
             {
@@ -314,6 +391,7 @@ def persist_learning_rendition(asset_id: str, rendition: Path, metadata: dict[st
                     playback_mime_type = 'video/mp4',
                     updated_at = now()
                 WHERE id = CAST(:asset_id AS uuid)
+                  AND COALESCE(lifecycle_status, 'active') = 'active'
                 """
             ),
             {"asset_id": asset_id, "playback_relative_path": relative_path},
@@ -378,6 +456,7 @@ def persist_video_fingerprint(
 
 
 def persist_duplicate_candidate(asset_id: str, match: dict[str, Any]) -> None:
+    metadata = {"source": "video_worker", **dict(match.get("metadata") or {})}
     with db_session() as session:
         session.execute(
             text(
@@ -403,7 +482,7 @@ def persist_duplicate_candidate(asset_id: str, match: dict[str, Any]) -> None:
                 "candidate_asset_id": match["candidate_asset_id"],
                 "score": match["score"],
                 "algorithm": match["algorithm"],
-                "metadata": json_param({"source": "video_worker"}),
+                "metadata": json_param(metadata),
             },
         )
 
@@ -457,7 +536,12 @@ def queue_legacy_backfill(limit: int = 200) -> int:
     return len(rows)
 
 
-def enqueue_processing_job(asset_id: str, *, metadata: dict[str, Any] | None = None) -> dict[str, Any]:
+def enqueue_processing_job(
+    asset_id: str,
+    *,
+    metadata: dict[str, Any] | None = None,
+    preserve_ready_playback: bool = False,
+) -> dict[str, Any]:
     with db_session() as session:
         row = (
             session.execute(
@@ -487,15 +571,19 @@ def enqueue_processing_job(asset_id: str, *, metadata: dict[str, Any] | None = N
             text(
                 """
                 UPDATE media_assets
-                SET upload_status = 'processing',
+                SET upload_status = CASE
+                      WHEN :preserve_ready_playback AND upload_status = 'ready' THEN 'ready'
+                      ELSE 'processing'
+                    END,
                     processing_phase = 'queued',
                     processing_progress = 0,
                     updated_at = now()
                 WHERE id = CAST(:asset_id AS uuid)
                   AND upload_status <> 'replaced'
+                  AND COALESCE(lifecycle_status, 'active') = 'active'
                 """
             ),
-            {"asset_id": asset_id},
+            {"asset_id": asset_id, "preserve_ready_playback": preserve_ready_playback},
         )
     return dict(row)
 
@@ -520,8 +608,17 @@ def active_media_processing_status(limit: int = 200) -> dict[str, Any]:
                       ORDER BY created_at DESC
                       LIMIT 1
                     ) mpj ON true
-                    WHERE ma.upload_status IN ('pending', 'processing', 'failed')
-                      AND COALESCE(ma.lifecycle_status, 'active') = 'active'
+                    WHERE COALESCE(ma.lifecycle_status, 'active') = 'active'
+                      AND (
+                        ma.upload_status IN ('pending', 'processing', 'failed')
+                        OR (
+                          ma.upload_status = 'ready'
+                          AND (
+                            mpj.status IN ('queued', 'processing')
+                            OR ma.processing_phase IN ('analysis_failed', 'duplicate_detection_failed')
+                          )
+                        )
+                      )
                     ORDER BY ma.updated_at DESC
                     LIMIT :limit
                     """
@@ -540,7 +637,7 @@ def retry_media_processing(asset_id: str) -> dict[str, Any]:
             session.execute(
                 text(
                     """
-                    SELECT id
+                    SELECT id, upload_status, processing_phase, playback_relative_path
                     FROM media_assets
                     WHERE id = CAST(:asset_id AS uuid)
                       AND COALESCE(lifecycle_status, 'active') = 'active'
@@ -553,4 +650,12 @@ def retry_media_processing(asset_id: str) -> dict[str, Any]:
         )
     if not asset:
         raise ValueError("Media asset not found")
-    return enqueue_processing_job(asset_id, metadata={"source": "admin_retry"})
+    duplicate_detection_only = (
+        asset.get("upload_status") == "ready"
+        and asset.get("processing_phase") in {"analysis_failed", "duplicate_detection_failed"}
+        and bool(asset.get("playback_relative_path"))
+    )
+    metadata = {"source": "admin_retry"}
+    if duplicate_detection_only:
+        metadata["retry_scope"] = "duplicate_detection"
+    return enqueue_processing_job(asset_id, metadata=metadata, preserve_ready_playback=duplicate_detection_only)

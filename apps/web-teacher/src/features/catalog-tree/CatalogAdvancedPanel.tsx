@@ -45,7 +45,7 @@ function displayLabel(value?: string | null) {
     static_catalog_node_evidence: "静态目录点证据",
     dynamic_rag_catalog_node_evidence: "动态 RAG 目录点证据",
     catalog_node_evidence: "目录点证据",
-    hybrid_bge_rag: "混合 BGE RAG",
+    hybrid_bge_rag: "外部教材 RAG",
     runtime_health: "运行健康度",
     hybrid_candidates: "混合召回候选",
     reranked_candidates: "重排候选",

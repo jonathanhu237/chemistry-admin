@@ -16,6 +16,10 @@ apps/web-teacher/dist/
 apps/web-student/dist/
 data/media/
 *.log
+server/vendor/ffmpeg/*.tar.xz
+!server/vendor/ffmpeg/.gitkeep
+apps/*-old/
+artifacts/recovery/
 
 # Admin repository extraction exclusions
 .codex/*

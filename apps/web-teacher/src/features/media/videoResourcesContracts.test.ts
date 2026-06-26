@@ -2,41 +2,8 @@ import { describe, expect, it } from "vitest";
 import mediaApiSource from "../../api/media.ts?raw";
 import videoResourcesSource from "./VideoResourcesPage.tsx?raw";
 
-describe("video resource lifecycle contracts", () => {
-  it("archives stored assets through media lifecycle APIs without catalog binding calls", () => {
-    expect(mediaApiSource).toContain("type MediaAssetArchivePlan");
-    expect(mediaApiSource).toContain("type MediaAssetArchiveResult");
-    expect(mediaApiSource).toContain("getMediaAssetArchivePlan");
-    expect(mediaApiSource).toContain('"/api/admin/media/assets/" + assetId + "/archive-plan"');
-    expect(mediaApiSource).toContain('"/api/admin/media/assets/" + assetId + "/archive"');
-
-    expect(videoResourcesSource).toContain("getMediaAssetArchivePlan(asset.id)");
-    expect(videoResourcesSource).toContain("archiveMediaAsset(assetId, reason)");
-    expect(videoResourcesSource).toContain('reason: "teacher_video_resource_archive"');
-    expect(videoResourcesSource).toContain("catalog_binding_count");
-    expect(videoResourcesSource).toContain("catalog_bindings");
-    expect(videoResourcesSource).toContain("student_visible_catalog_binding_count");
-    expect(videoResourcesSource).toContain("renderAssetActions(asset)");
-    expect(videoResourcesSource).toContain("confirmArchiveAsset(asset)");
-    expect(videoResourcesSource).toContain("setPreviewAsset(null)");
-    expect(videoResourcesSource).toContain('queryKey: ["media-assets"]');
-    expect(videoResourcesSource).not.toContain("/api/admin/catalog");
-    expect(videoResourcesSource).not.toContain("setMediaBindingStatus");
-    expect(videoResourcesSource).not.toContain("deleteMediaBinding");
-  });
-
-  it("keeps pending upload queue removal separate from stored asset archive", () => {
-    expect(videoResourcesSource).toContain("uploadItems.filter((candidate) => candidate.id !== item.id)");
-    expect(videoResourcesSource).toContain("setUploadItems(nextItems)");
-    expect(videoResourcesSource).toContain("archiveAsset = useMutation");
-    expect(videoResourcesSource).toContain("renderAssetActions(asset)");
-    expect(videoResourcesSource).toContain("asset.lifecycle_status === \"archived\"");
-    expect(videoResourcesSource).toContain("<DeleteOutlined />");
-    expect(videoResourcesSource).not.toContain("archiveMediaAsset(item.id");
-    expect(videoResourcesSource).not.toContain("getMediaAssetArchivePlan(item.id");
-  });
-
-  it("loads upload policy before accepting large local videos", () => {
+describe("video resource page contracts", () => {
+  it("loads upload policy before accepting oversized local videos", () => {
     expect(mediaApiSource).toContain("type MediaUploadPolicy");
     expect(mediaApiSource).toContain("getMediaUploadPolicy");
     expect(mediaApiSource).toContain('"/api/admin/media/upload-policy"');
@@ -48,29 +15,83 @@ describe("video resource lifecycle contracts", () => {
     expect(videoResourcesSource).toContain("const canStartUpload = uploadPolicyReady");
   });
 
-  it("shows playback savings and original upload limit as separate metrics", () => {
-    expect(videoResourcesSource).toContain('title="学生播放源空间"');
-    expect(videoResourcesSource).toContain(" / 节省");
-    expect(videoResourcesSource).toContain('title="原始视频大小限制"');
-    expect(videoResourcesSource).not.toContain('title="已节省空间"');
+  it("stops preview video playback when the preview modal closes", () => {
+    expect(videoResourcesSource).toContain("const previewVideoRef = useRef<HTMLVideoElement | null>(null)");
+    expect(videoResourcesSource).toContain("const closePreviewModal = () =>");
+    expect(videoResourcesSource).toContain("video.pause()");
+    expect(videoResourcesSource).toContain('video.removeAttribute("src")');
+    expect(videoResourcesSource).toContain("video.load()");
+    expect(videoResourcesSource).toContain("onCancel={closePreviewModal}");
+    expect(videoResourcesSource).toContain("ref={previewVideoRef}");
   });
 
-  it("keeps file too large failures out of missing-file retry handling", () => {
-    expect(mediaApiSource).toContain('"policy_rejected"');
-    expect(videoResourcesSource).toContain('asset.error_reason === "file_too_large"');
-    expect(videoResourcesSource).toContain('asset.upload_status === "failed" && asset.error_reason !== "file_too_large"');
-    expect(videoResourcesSource).toContain('mediaErrorReasonText("file_too_large")');
+  it("exposes subtitle track APIs and browser-loadable stream URLs", () => {
+    expect(mediaApiSource).toContain("type MediaSubtitleTrack");
+    expect(mediaApiSource).toContain("subtitle_tracks?: MediaSubtitleTrack[]");
+    expect(mediaApiSource).toContain("listMediaSubtitleTracks");
+    expect(mediaApiSource).toContain("uploadMediaSubtitleTrack");
+    expect(mediaApiSource).toContain("updateMediaSubtitleTrack");
+    expect(mediaApiSource).toContain("deleteMediaSubtitleTrack");
+    expect(mediaApiSource).toContain("retryMediaSubtitleTrack");
+    expect(mediaApiSource).toContain("getMediaSubtitleTrackStreamUrl");
+    expect(mediaApiSource).toContain("/subtitle-tracks");
+    expect(mediaApiSource).toContain("access_token=");
   });
 
-  it("requires archive impact confirmation copy before removing bound point videos", () => {
-    expect(videoResourcesSource).toContain("modal.confirm");
-    expect(videoResourcesSource).toContain("catalog_binding_count ? \"warning\" : \"info\"");
-    expect(videoResourcesSource).toContain("point_title || item.placement_node_id");
-    expect(videoResourcesSource).toContain('(item.catalog_path || []).join(" / ")');
-    expect(videoResourcesSource).toContain("active_processing_job_count");
-    expect(videoResourcesSource).toContain("archived_binding_count");
-    expect(videoResourcesSource).toContain("\u70b9\u4f4d\u6587\u5b57\u5185\u5bb9\u3001\u9898\u76ee\u3001\u53d1\u5e03\u72b6\u6001\u4e0d\u4f1a\u88ab\u5220\u9664");
-    expect(videoResourcesSource).toContain("\u5c06\u79fb\u9664 ${plan.catalog_binding_count} \u4e2a\u70b9\u4f4d\u89c6\u9891\u7ed1\u5b9a");
-    expect(videoResourcesSource).not.toContain("mutations.bindMedia");
+  it("renders and manages external subtitle tracks without mutating the video asset", () => {
+    expect(videoResourcesSource).toContain("renderSubtitlePanel");
+    expect(videoResourcesSource).toContain("uploadSubtitle(asset");
+    expect(videoResourcesSource).toContain("updateMediaSubtitleTrack(asset.id, track.id, { is_default: true })");
+    expect(videoResourcesSource).toContain("retryMediaSubtitleTrack(asset.id, track.id)");
+    expect(videoResourcesSource).toContain("deleteMediaSubtitleTrack(asset.id, track.id)");
+    expect(videoResourcesSource).toContain("不会删除视频、学生播放源或目录绑定");
+    expect(videoResourcesSource).toContain("不会烧录或携带内嵌字幕");
+    expect(videoResourcesSource).not.toContain("deleteMediaAsset(asset.id, track.id");
+    expect(videoResourcesSource).not.toContain("archiveMediaAsset(asset.id, track.id");
+  });
+
+  it("renders ready subtitle tracks in the teacher preview video element", () => {
+    expect(videoResourcesSource).toContain("previewSubtitleTracks.map");
+    expect(videoResourcesSource).toContain("<track");
+    expect(videoResourcesSource).toContain('kind={track.kind === "captions" ? "captions" : "subtitles"}');
+    expect(videoResourcesSource).toContain('srcLang={track.language_code || "und"}');
+    expect(videoResourcesSource).toContain('label={track.label || track.language_code || "字幕"}');
+    expect(videoResourcesSource).toContain("src={track.streamUrl}");
+    expect(videoResourcesSource).toContain("default={Boolean(track.is_default) || undefined}");
+  });
+
+  it("keeps subtitle errors separate from primary video processing state", () => {
+    expect(videoResourcesSource).toContain("track.error_reason");
+    expect(videoResourcesSource).toContain('track.status === "failed"');
+    expect(videoResourcesSource).toContain("处理失败");
+    expect(videoResourcesSource).toContain("retrySubtitle(asset, track)");
+    expect(videoResourcesSource).toContain("previewUrl ? (");
+    expect(videoResourcesSource).toContain("renderSubtitlePanel(previewAsset)");
+  });
+
+  it("links subtitle files to upload queue items before the video asset exists", () => {
+    expect(videoResourcesSource).toContain("clientLinkId");
+    expect(videoResourcesSource).toContain("linkedSubtitles: []");
+    expect(videoResourcesSource).toContain("addLinkedSubtitle");
+    expect(videoResourcesSource).toContain("updateLinkedSubtitle");
+    expect(videoResourcesSource).toContain("removeLinkedSubtitle");
+    expect(videoResourcesSource).toContain("subtitleUploadAccept");
+    expect(videoResourcesSource).toContain("外挂字幕会在视频入库后单独绑定");
+  });
+
+  it("uploads linked subtitles only after video finalization returns a media asset", () => {
+    expect(videoResourcesSource).toContain("uploadLinkedSubtitlesForAsset(asset, item)");
+    expect(videoResourcesSource).toContain('body.append("client_link_id", item.clientLinkId)');
+    expect(videoResourcesSource).toContain("await uploadMediaSubtitleTrack(asset.id, body)");
+    expect(videoResourcesSource).toContain('const asset = await postJson<MediaAsset>("/api/admin/media/assets/complete-upload"');
+    expect(videoResourcesSource).toContain('const asset = JSON.parse(xhr.responseText || "{}") as MediaAsset');
+  });
+
+  it("requires an explicit duplicate reuse choice before mutating an existing asset with linked subtitles", () => {
+    expect(videoResourcesSource).toContain("attachLinkedSubtitlesToDuplicate");
+    expect(videoResourcesSource).toContain("markLinkedSubtitlesSkipped");
+    expect(videoResourcesSource).toContain("只复用视频");
+    expect(videoResourcesSource).toContain("复用并添加字幕");
+    expect(videoResourcesSource).not.toContain("if (precheck.duplicateAsset) await uploadLinkedSubtitlesForAsset");
   });
 });

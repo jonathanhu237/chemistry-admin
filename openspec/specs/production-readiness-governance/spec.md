@@ -9,21 +9,21 @@ The platform SHALL define a versioned manifest for every current core resource r
 
 #### Scenario: Current resources are registered
 - **GIVEN** the production-readiness manifest is generated or checked
-- **WHEN** it lists protected core resources after the catalog outline seed replacement
-- **THEN** it MUST include the canonical structured experiment catalog seed, the 30 mapped point-content example seed, the knowledge framework, canonical chunks, canonical embeddings, ES analyzer dictionaries, and current import/validation reports
+- **WHEN** it lists protected core resources after the current seed boundary cleanup
+- **THEN** it MUST include the structured experiment catalog seed, the 76-record point-content seed, the catalog point textbook evidence seed, the current catalog-node question-bank seed, the knowledge framework, canonical textbook chunk JSONL files, chemistry search dictionaries including `chemistry_vocabulary.json`, ES analyzer dictionaries, student learning profiles, and current manifests
 - **AND** each entry MUST record semantic role, path or source location, required status, item count where applicable, byte size, and SHA256 where applicable.
 
 #### Scenario: Retired resources are encountered
-- **GIVEN** old point inventory files, old point-aware question-bank seed files, old manually reviewed point evidence files, or old video-point evidence artifacts remain under historical paths
+- **GIVEN** old point inventory files, old point-aware question-bank seed files, old manually reviewed point evidence files, old video-point evidence artifacts, local BGE embedding artifacts, generated import reports, generated validation reports, or audit drafts remain under historical paths
 - **WHEN** cleanup classification or production validation runs
 - **THEN** those retired resources MUST NOT be classified as protected current core data
-- **AND** they MAY be archived or removed according to cleanup policy after the new protected resources validate.
+- **AND** they MUST be removed from the current seed tree after the new protected resources validate.
 
 #### Scenario: Canonical retrieval corpus is encountered
-- **GIVEN** canonical chunks and chunk embeddings remain under current production resource paths
+- **GIVEN** canonical textbook chunks remain under current production resource paths
 - **WHEN** cleanup classification or production validation runs
-- **THEN** those corpus resources MUST remain classified as protected current core data
-- **AND** they MUST NOT be deleted merely because old point evidence bindings are retired.
+- **THEN** those chunk resources MUST remain classified as protected current core data
+- **AND** local BGE dense embeddings, sparse embeddings, embedding row maps, embedding manifests, and `chunk_embeddings` row counts MUST NOT be required as protected current core data.
 
 ### Requirement: Destructive Cleanup Guard
 
@@ -85,22 +85,23 @@ The repository SHALL provide a documented validation chain that proves the produ
 
 #### Scenario: Maintainer validates the baseline
 - **GIVEN** a maintainer runs the production-readiness validation command or documented command set
-- **WHEN** validation completes after the catalog outline seed replacement
-- **THEN** it MUST check OpenSpec strict validation, protected resource manifests, catalog seed counts, 30-example content mapping, backend tests, frontend typecheck, frontend tests, frontend build, and core data counts
+- **WHEN** validation completes after the current seed boundary cleanup
+- **THEN** it MUST check OpenSpec strict validation, protected current resource manifests, catalog seed counts, 76-record point-content seed mapping, current catalog-node question-bank seed counts and references, canonical chunk counts, runtime search dictionaries, backend tests, frontend typecheck, frontend tests, frontend build, and core data counts
 - **AND** it MUST report failures with enough detail to identify the broken stage.
 
 #### Scenario: Fresh rebuild is verified
-- **GIVEN** an empty database and the declared production resources are available
+- **GIVEN** an empty database and the declared current production resources are available
 - **WHEN** the documented restore/import path is executed
 - **THEN** the platform MUST recreate the current chapter-scoped experiment catalog tree from the structured seed
-- **AND** it MUST recreate the 30 mapped point-content examples
-- **AND** it MUST preserve or import canonical chunks and embeddings
-- **AND** it MUST leave the retired experiment question bank and retired point evidence bindings empty or absent.
+- **AND** it MUST recreate the 76 reviewed point-content seed records
+- **AND** it MUST recreate canonical `source_documents` and `source_chunks` from canonical chunk JSONL files
+- **AND** it MUST recreate the current 54-bank / 1,965-question catalog-node question-bank baseline
+- **AND** it MUST leave retired old point inventory, old manual point evidence bindings, old rebuilt question-bank seed data, and local BGE embedding seed artifacts absent.
 
 #### Scenario: Legacy protected counts are checked
-- **GIVEN** validation code still contains old expected counts for 300 video points, 77 question banks, 2,310 questions, or 300 point evidence bindings
+- **GIVEN** validation code still contains old expected counts for 300 video points, 30 point-content examples, 77 old question banks, 2,310 old questions, 300 old point evidence bindings, 3,637 BGE `chunk_embeddings`, or BGE dense/sparse files
 - **WHEN** the production-readiness validation command runs
-- **THEN** validation MUST fail until those old protected counts are removed or replaced by catalog-outline seed expectations
+- **THEN** validation MUST fail until those old protected counts are removed or replaced by current seed expectations
 - **AND** the failure MUST identify the outdated baseline expectation.
 
 ### Requirement: Production Operations Baseline
@@ -119,17 +120,17 @@ Production hardening SHALL document and validate the operational basics needed f
 - **THEN** they can find environment variable examples, Docker service expectations, health checks, backup/restore notes, validation commands, and default ports for `web-admin`, `web-teacher`, and `web-student`.
 
 ### Requirement: Retired seed documentation
-Production operations documentation SHALL explain the intentional retirement of legacy experiment seed resources.
+Production operations documentation SHALL explain the intentional retirement of legacy experiment seed resources without preserving historical generation artifacts as operational guidance.
 
 #### Scenario: Maintainer reads production seed documentation
 - **WHEN** a maintainer reads the seed or production operations documentation after this change
-- **THEN** the documentation MUST state that old question-bank seeds, old video point inventory, old video references, and old point evidence bindings are invalid for the current catalog baseline
-- **AND** it MUST state that canonical chunks and embeddings remain valid retrieval corpus resources.
+- **THEN** the documentation MUST state that old question-bank seeds, old video point inventory, old video references, old point evidence bindings, BGE embedding seed artifacts, and generated audit/report files are invalid for the current seed baseline
+- **AND** it MUST state that canonical textbook chunks remain valid current corpus resources while local BGE embeddings and `chunk_embeddings` counts are not current restore requirements.
 
 #### Scenario: Maintainer looks for question-bank regeneration instructions
-- **WHEN** a maintainer searches the documentation for the new question-bank baseline
-- **THEN** the documentation MUST state that the current bank is empty until fresh catalog-node evidence and a future generation workflow create a replacement
-- **AND** it MUST NOT instruct maintainers to import the retired 2,310-question bank as a current baseline.
+- **WHEN** a maintainer searches the documentation for the current question-bank baseline
+- **THEN** the documentation MUST state that the current baseline is the catalog-node question-bank seed exported from 54 published banks and 1,965 published questions
+- **AND** it MUST NOT instruct maintainers to import the retired 2,310-question bank or treat the current bank as empty.
 
 ### Requirement: Release governance distinguishes API and frontend origins
 Production readiness governance SHALL distinguish backend API origin, student frontend origin, teacher frontend origin, and platform operations frontend origin.
@@ -202,3 +203,29 @@ Production readiness governance SHALL treat media asset archive state as part of
 - **WHEN** a destructive database rebuild or migration is used to introduce media lifecycle state
 - **THEN** validation MUST document which media records, bindings, lifecycle events, and derived ES states were reset or rebuilt
 - **AND** protected seed resources, users, roles, analyzer dictionaries, and canonical retrieval corpus resources MUST remain protected.
+
+### Requirement: Local RAG sidecar is not a protected production resource
+Production readiness governance SHALL preserve current corpus and index resources while excluding local BGE sidecar runtime artifacts from protected production resources.
+
+#### Scenario: Protected resources are registered
+- **WHEN** the production-readiness manifest is generated or checked
+- **THEN** canonical chunks, canonical embedding/index artifacts, ES analyzer dictionaries, and current import/validation reports MUST remain protected current resources
+- **AND** local BGE model directories, local BGE Dockerfiles, sidecar images, and local RAG profile commands MUST NOT be classified as required production resources.
+
+#### Scenario: Cleanup classification runs
+- **WHEN** cleanup classification encounters local BGE model caches or sidecar build artifacts outside protected seed/resource paths
+- **THEN** they MUST NOT be treated as current protected application resources
+- **AND** cleanup MUST still refuse to delete protected canonical corpus resources.
+
+### Requirement: Production operations exclude local RAG sidecar deployment
+Production operations documentation and validation SHALL direct operators to configure external textbook RAG APIs rather than deploy a local RAG service.
+
+#### Scenario: Maintainer reads deployment instructions
+- **WHEN** a maintainer reads Docker Compose or production operations documentation
+- **THEN** the docs MUST describe external embedding/rerank provider configuration and textbook Elasticsearch index readiness
+- **AND** they MUST NOT include supported commands to start `bge-rag`, use a `rag` Compose profile, or mount local BGE model paths.
+
+#### Scenario: Compose smoke runs
+- **WHEN** production-like Compose smoke validation runs
+- **THEN** it MUST verify the remaining default application services
+- **AND** it MUST NOT require a local RAG sidecar to be running before the stack is considered healthy.

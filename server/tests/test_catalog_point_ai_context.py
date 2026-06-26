@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 from contextlib import contextmanager
-from types import SimpleNamespace
 from typing import Any
 
 from server.app.domains.catalog_tree import ai_context
@@ -36,13 +35,12 @@ class _EvidenceSession:
         return _Result()
 
 
-def test_static_evidence_missing_is_fallback_absence_not_ai_block() -> None:
+def test_static_evidence_missing_is_catalog_node_evidence_absence() -> None:
     payload = ai_context.build_static_evidence_payload(_EvidenceSession(), node_id="cat-point-1")
 
-    assert payload["status"] == "missing_fallback_evidence"
+    assert payload["status"] == "missing_catalog_node_evidence"
     assert payload["static_fallback_missing"] is True
-    assert payload["ai_consumable_without_static_binding"] is True
-    assert "Dynamic RAG" in payload["message"]
+    assert payload["ai_consumable_without_static_binding"] is False
 
 
 def test_static_evidence_payload_marks_stale_binding_with_chunk_metadata() -> None:
@@ -82,7 +80,7 @@ def test_static_evidence_payload_marks_stale_binding_with_chunk_metadata() -> No
         node_id="cat-point-1",
     )
 
-    assert payload["status"] == "stale_fallback_evidence"
+    assert payload["status"] == "stale_catalog_node_evidence"
     assert payload["selected_chunk_ids"] == ["chunk-1"]
     assert payload["bindings"][0]["chunk_id"] == "chunk-1"
     assert payload["bindings"][0]["source_title"] == "source.md"
@@ -119,35 +117,33 @@ def test_dynamic_rag_probe_returns_queries_counts_evidence_and_rerank(monkeypatc
         lambda context: (["chlorine bleaching evidence"], {"status": "generated", "provider": "test", "field_contributors": context["field_contributors"]}),
     )
     monkeypatch.setattr(ai_context, "_safe_runtime_health", lambda: {"healthy": True, "status": "healthy"})
-    monkeypatch.setattr(ai_context, "get_settings", lambda: SimpleNamespace(rag_final_top_k=2))
-    monkeypatch.setattr(ai_context, "get_repositories", lambda: object())
+    monkeypatch.setattr(ai_context, "effective_textbook_rag_settings", lambda: {"enabled": True})
     monkeypatch.setattr(
         ai_context,
-        "retrieve_hybrid_context",
-        lambda **_kwargs: SimpleNamespace(
-            chunks=[
+        "retrieve_point_textbook_evidence",
+        lambda **_kwargs: {
+            "mode": "qwen_es_textbook_rag",
+            "source_refs": [
                 {
                     "chunk_id": "chunk-1",
                     "source_file": "source.md",
                     "page_number": 4,
-                    "text": "Chlorine water bleaches colored solution by oxidation.",
+                    "text_preview": "Chlorine water bleaches colored solution by oxidation.",
+                    "rerank_score": 0.96,
                 }
             ],
-            trace={
-                "mode": "hybrid_bge_rerank",
-                "candidate_counts": {"keyword": 1, "vector": 1, "merged": 1, "final": 1},
-                "final_evidence": [{"chunk_id": "chunk-1", "rank": 1, "score": 0.8, "rerank_score": 0.96, "source": "vector"}],
-                "rerank_scores": [{"chunk_id": "chunk-1", "rerank_score": 0.96}],
-                "fallbacks": [],
-            },
-        ),
+            "candidate_diagnostics": {"principle": [{"chunk_id": "chunk-1"}]},
+            "diagnostics": {"sections": {"principle": {"source_count": 1}}},
+            "supported_sections": ["principle"],
+            "missing_sections": [],
+        },
     )
 
     result = ai_context.catalog_point_rag_probe(node_id="cat-point-1")
 
     assert result["ok"] is True
     assert result["generated_queries"] == ["chlorine bleaching evidence"]
-    assert result["candidate_counts"]["final"] == 1
+    assert result["candidate_counts"]["principle"] == 1
     assert result["final_evidence"][0]["chunk_id"] == "chunk-1"
     assert result["final_evidence"][0]["rerank_score"] == 0.96
     assert result["query_strategy"]["fields_used"] == ["title", "catalog_path", "normalized_equations"]
@@ -165,12 +161,12 @@ def test_dynamic_rag_probe_failure_reports_stage_without_evidence(monkeypatch) -
     monkeypatch.setattr(
         ai_context,
         "_safe_runtime_health",
-        lambda: {"healthy": False, "status": "unavailable", "reason_code": "bge_not_configured", "message": "BGE service URL is not configured"},
-    )
-    monkeypatch.setattr(
-        ai_context,
-        "retrieve_hybrid_context",
-        lambda **_kwargs: (_ for _ in ()).throw(AssertionError("RAG should not run when runtime is unhealthy")),
+        lambda: {
+            "healthy": False,
+            "status": "elasticsearch_not_configured",
+            "reason_code": "elasticsearch_not_configured",
+            "message": "External textbook RAG Elasticsearch URL is not configured",
+        },
     )
 
     result = ai_context.catalog_point_rag_probe(node_id="cat-point-1")
@@ -178,4 +174,4 @@ def test_dynamic_rag_probe_failure_reports_stage_without_evidence(monkeypatch) -
     assert result["ok"] is False
     assert result["failed_stage"] == "runtime_health"
     assert result["final_evidence"] == []
-    assert result["runtime_health"]["reason_code"] == "bge_not_configured"
+    assert result["runtime_health"]["reason_code"] == "elasticsearch_not_configured"

@@ -1,4 +1,4 @@
-from __future__ import annotations
+﻿from __future__ import annotations
 
 from typing import Annotated
 
@@ -13,6 +13,7 @@ from server.app.domains.student_learning.point_detail import (
 from server.app.domains.catalog_tree.tree import (
     student_media_asset_file,
     student_media_thumbnail_file,
+    student_media_subtitle_file,
 )
 from server.app.student_learning_schemas import (
     StudentLearningPageResponse,
@@ -58,4 +59,15 @@ def student_media_thumbnail(
 ) -> FileResponse:
     _student_from_query_token(access_token)
     path, media_type, filename = student_media_thumbnail_file(asset_id)
+    return FileResponse(path, media_type=media_type, filename=filename)
+
+
+@router.get("/media/assets/{asset_id}/subtitle-tracks/{track_id}/stream", include_in_schema=False)
+def student_media_subtitle_stream(
+    asset_id: Annotated[str, Path(min_length=1)],
+    track_id: Annotated[str, Path(min_length=1)],
+    access_token: Annotated[str, Query(min_length=1)],
+) -> FileResponse:
+    _student_from_query_token(access_token)
+    path, media_type, filename = student_media_subtitle_file(asset_id, track_id)
     return FileResponse(path, media_type=media_type, filename=filename)

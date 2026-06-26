@@ -156,6 +156,7 @@ vi.mock("./api", () => ({
   generatePosttestAiSummary: apiMocks.generatePosttestAiSummary,
   explainPosttestMistakes: apiMocks.explainPosttestMistakes,
   streamStudentAssistantAsk: apiMocks.streamStudentAssistantAsk,
+  isStudentAssistantStreamAbort: (error: unknown) => error instanceof DOMException && error.name === "AbortError",
   submitStudentFeedback: apiMocks.submitStudentFeedback,
   studentMediaUrl: (path: string) => path,
   previewMediaUrl: (path: string) => path,
@@ -1041,6 +1042,16 @@ function assistantMessageContaining(text: string, state?: "running" | "done") {
   return (
     Array.from(document.querySelectorAll<HTMLElement>(selector)).find((node) => node.textContent?.includes(text)) || null
   );
+}
+
+function createDeferred<T>() {
+  let resolve!: (value: T | PromiseLike<T>) => void;
+  let reject!: (reason?: unknown) => void;
+  const promise = new Promise<T>((promiseResolve, promiseReject) => {
+    resolve = promiseResolve;
+    reject = promiseReject;
+  });
+  return { promise, resolve, reject };
 }
 
 describe("student app route stack", () => {
@@ -2119,6 +2130,93 @@ describe("student app route stack", () => {
     expect(document.querySelector(".video-library-results .empty-learning-card")).toBeNull();
   });
 
+  it("waits for the learning search recommendation snapshot before rendering recommended content", async () => {
+    const directoryLoad = createDeferred<StudentCatalogNodeResponse>();
+    apiMocks.getStudentCatalogNode.mockImplementation((nodeId: string) => {
+      if (nodeId === "cat-dir-halogen") return directoryLoad.promise;
+      return Promise.resolve(nodeId === "cat-dir-oxidation" ? catalogNestedDirectory : catalogDirectory);
+    });
+
+    await renderAuthenticatedApp("/search?from=chapter&profileId=halogens-17&chapterId=CH17&elementSymbol=Cl");
+
+    expect(await screen.findByRole("searchbox", { name: "搜索知识点位" })).toBeInTheDocument();
+    expect(screen.getByText("正在整理推荐内容")).toBeInTheDocument();
+    expect(screen.queryByLabelText("推荐内容")).not.toBeInTheDocument();
+    expect(screen.queryByText("Halogen displacement catalog")).not.toBeInTheDocument();
+
+    await act(async () => {
+      directoryLoad.resolve(catalogDirectory);
+      await directoryLoad.promise;
+    });
+
+    const recommendations = await screen.findByLabelText("推荐内容");
+    expect(within(recommendations).getAllByText("Halogen displacement catalog").length).toBeGreaterThan(0);
+    expect(within(recommendations).getByText("Orange layer observation")).toBeInTheDocument();
+  });
+
+  it("ignores late default recommendation responses after the learning search query changes", async () => {
+    const defaultSearch = createDeferred<StudentVideoLibrarySearchResponse>();
+    apiMocks.searchStudentVideoLibrary.mockImplementation((query = "") =>
+      query ? Promise.resolve({ ...videoLibraryResponse, query }) : defaultSearch.promise,
+    );
+
+    await renderAuthenticatedApp("/search?from=chapter&profileId=halogens-17&chapterId=CH17&elementSymbol=Cl");
+
+    const searchbox = await screen.findByRole("searchbox", { name: "搜索知识点位" });
+    expect(screen.getByText("正在整理推荐内容")).toBeInTheDocument();
+
+    fireEvent.change(searchbox, { target: { value: "Orange" } });
+
+    await waitFor(() => expect(apiMocks.searchStudentVideoLibrary).toHaveBeenLastCalledWith("Orange"));
+    await waitFor(() => expect(screen.getByText("关于“Orange”的知识点位")).toBeInTheDocument());
+
+    await act(async () => {
+      defaultSearch.resolve(videoLibraryResponse);
+      await defaultSearch.promise;
+    });
+
+    expect(screen.queryByLabelText("推荐内容")).not.toBeInTheDocument();
+    expect(screen.getByText("关于“Orange”的知识点位")).toBeInTheDocument();
+  });
+
+  it("keeps scoped learning recommendations contextual with a stable fallback cover", async () => {
+    const offScopeRecommendation: StudentVideoLibrarySearchResponse["browse"]["recommended"][number] = {
+      ...videoLibraryResponse.browse.recommended[0],
+      id: "video_point:cat-point-sodium",
+      title: "Sodium flame test",
+      subtitle: "s-block metals",
+      target: {
+        ...videoLibraryResponse.browse.recommended[0].target!,
+        node_id: "cat-point-sodium",
+        profile_id: "alkali-alkaline-earth",
+        chapter_id: "CH18",
+        catalog_path: ["s-block metals", "Sodium flame test"],
+        element_symbol: "Na",
+        point_title: "Sodium flame test",
+      },
+    };
+    apiMocks.getStudentHomeVideoFeed.mockResolvedValue({ ...homeVideoFeedResponse, items: [] });
+    apiMocks.searchStudentVideoLibrary.mockResolvedValue({
+      ...videoLibraryResponse,
+      browse: {
+        ...videoLibraryResponse.browse,
+        recommended: [...videoLibraryResponse.browse.recommended, offScopeRecommendation],
+        chips: [],
+      },
+    });
+
+    await renderAuthenticatedApp("/search?from=chapter&profileId=halogens-17&chapterId=CH17&elementSymbol=Cl");
+
+    const recommendations = await screen.findByLabelText("推荐内容");
+    expect(within(recommendations).getByText("Orange layer observation")).toBeInTheDocument();
+    expect(within(recommendations).queryByText("Sodium flame test")).not.toBeInTheDocument();
+
+    const videoRow = within(recommendations).getByText("Orange layer observation").closest(".video-library-search-video-row");
+    expect(videoRow).toHaveClass("has-cover");
+    expect(videoRow?.querySelector(".video-library-row-cover.fallback")).not.toBeNull();
+    expect(videoRow?.querySelector(".video-library-row-cover img")).toBeNull();
+  });
+
   it("renders root Atom running turns as a flat thinking line with phase transitions", async () => {
     let emitStreamEvent: ((event: { event: string; message?: string; delta?: string; response?: unknown }) => void) | undefined;
     let finishResponse: (() => void) | undefined;
@@ -2193,6 +2291,109 @@ describe("student app route stack", () => {
     expect(completedMessage?.querySelector(".ai-message-actions")).not.toBeNull();
     expect(completedMessage?.querySelector(".ai-message-citation")).toHaveTextContent("1");
     expect(screen.getByRole("button", { name: "继续观察什么现象？" })).toBeInTheDocument();
+  });
+
+  it("aborts the active Atom stream when starting a new chat and ignores stale events", async () => {
+    let signal: AbortSignal | undefined;
+    let abortedStreamCompleted = false;
+    apiMocks.streamStudentAssistantAsk.mockReset();
+    apiMocks.streamStudentAssistantAsk.mockImplementationOnce(async (_payload, onEvent, options?: { signal?: AbortSignal }) => {
+      signal = options?.signal;
+      await new Promise<void>((resolve) => {
+        signal?.addEventListener("abort", () => resolve(), { once: true });
+      });
+      onEvent({ event: "delta", delta: "Stale answer after reset" });
+      onEvent({ event: "final", response: { source_count: 0, suggested_prompts: ["Stale prompt"] } });
+      abortedStreamCompleted = true;
+    });
+
+    await renderAuthenticatedApp("/ai");
+
+    fireEvent.change(screen.getByRole("textbox", { name: "向 Atom 提问" }), {
+      target: { value: "为什么出现橙色有机层？" },
+    });
+    fireEvent.click(screen.getByRole("button", { name: "发送问题" }));
+    await waitFor(() => expect(apiMocks.streamStudentAssistantAsk).toHaveBeenCalledTimes(1));
+    expect(signal).toBeInstanceOf(AbortSignal);
+    expect(signal?.aborted).toBe(false);
+
+    fireEvent.click(screen.getByRole("button", { name: "新建 Atom 对话" }));
+
+    await waitFor(() => expect(signal?.aborted).toBe(true));
+    await waitFor(() => expect(abortedStreamCompleted).toBe(true));
+    expect(screen.queryByText("Stale answer after reset")).not.toBeInTheDocument();
+    expect(screen.queryByRole("button", { name: "Stale prompt" })).not.toBeInTheDocument();
+    expect(document.querySelector(".ai-chat-panel.root")).toHaveClass("is-empty");
+    expect(screen.getByText("从一个实验开始吧！")).toBeInTheDocument();
+  });
+
+  it("stops the active Atom stream from the loading send button", async () => {
+    let signal: AbortSignal | undefined;
+    let abortedStreamCompleted = false;
+    apiMocks.streamStudentAssistantAsk.mockReset();
+    apiMocks.streamStudentAssistantAsk.mockImplementationOnce(async (_payload, onEvent, options?: { signal?: AbortSignal }) => {
+      signal = options?.signal;
+      onEvent({ event: "delta", delta: "Partial stopped answer" });
+      await new Promise<void>((resolve) => {
+        signal?.addEventListener("abort", () => resolve(), { once: true });
+      });
+      onEvent({ event: "delta", delta: "Late stopped answer" });
+      onEvent({ event: "final", response: { source_count: 0, suggested_prompts: ["Late stopped prompt"] } });
+      abortedStreamCompleted = true;
+    });
+
+    await renderAuthenticatedApp("/ai");
+
+    const textarea = document.querySelector<HTMLTextAreaElement>(".ai-chat-panel.root .ai-chat-compose textarea");
+    const sendButton = document.querySelector<HTMLButtonElement>(".ai-chat-panel.root .ai-send-action");
+    expect(textarea).not.toBeNull();
+    expect(sendButton).not.toBeNull();
+    fireEvent.change(textarea!, {
+      target: { value: "Stop this Atom answer" },
+    });
+    fireEvent.click(sendButton!);
+    await waitFor(() => expect(apiMocks.streamStudentAssistantAsk).toHaveBeenCalledTimes(1));
+    expect(signal).toBeInstanceOf(AbortSignal);
+    expect(signal?.aborted).toBe(false);
+
+    const stopButton = screen.getByRole("button", { name: "停止生成" });
+    expect(stopButton).toBeEnabled();
+    fireEvent.click(stopButton);
+
+    await waitFor(() => expect(signal?.aborted).toBe(true));
+    await waitFor(() => expect(abortedStreamCompleted).toBe(true));
+    await waitFor(() => expect(screen.queryByRole("button", { name: "停止生成" })).not.toBeInTheDocument());
+    expect(screen.queryByText("Late stopped answer")).not.toBeInTheDocument();
+    expect(screen.queryByRole("button", { name: "Late stopped prompt" })).not.toBeInTheDocument();
+    expect(document.querySelector<HTMLButtonElement>(".ai-chat-panel.root .ai-send-action")).toHaveAttribute("aria-label", "发送问题");
+  });
+
+  it("aborts the active Atom stream when leaving the Atom root route", async () => {
+    let signal: AbortSignal | undefined;
+    let lateEventDelivered = false;
+    apiMocks.streamStudentAssistantAsk.mockReset();
+    apiMocks.streamStudentAssistantAsk.mockImplementationOnce(async (_payload, onEvent, options?: { signal?: AbortSignal }) => {
+      signal = options?.signal;
+      await new Promise<void>((resolve) => {
+        signal?.addEventListener("abort", () => resolve(), { once: true });
+      });
+      onEvent({ event: "delta", delta: "Late route event" });
+      lateEventDelivered = true;
+    });
+
+    await renderAuthenticatedApp("/ai");
+
+    fireEvent.change(screen.getByRole("textbox", { name: "向 Atom 提问" }), {
+      target: { value: "请解释氧化还原实验现象" },
+    });
+    fireEvent.click(screen.getByRole("button", { name: "发送问题" }));
+    await waitFor(() => expect(apiMocks.streamStudentAssistantAsk).toHaveBeenCalledTimes(1));
+
+    await clickRoot("home");
+
+    await waitFor(() => expect(signal?.aborted).toBe(true));
+    await waitFor(() => expect(lateEventDelivered).toBe(true));
+    expect(screen.queryByText("Late route event")).not.toBeInTheDocument();
   });
 
   it("prioritizes visible thinking stream events without copying them into the answer", async () => {
@@ -2533,6 +2734,7 @@ describe("student app route stack", () => {
         conversation_history: [],
       }),
       expect.any(Function),
+      expect.objectContaining({ signal: expect.any(AbortSignal) }),
     );
     await waitFor(() => expect(screen.getByText("Route answer")).toBeInTheDocument());
     await waitFor(() => {
@@ -2610,6 +2812,7 @@ describe("student app route stack", () => {
         ],
       }),
       expect.any(Function),
+      expect.objectContaining({ signal: expect.any(AbortSignal) }),
     );
     expect(screen.queryByRole("button", { name: "继续观察什么现象？" })).not.toBeInTheDocument();
     expect(screen.queryByRole("button", { name: "相关反应式是什么？" })).not.toBeInTheDocument();
@@ -2799,6 +3002,7 @@ describe("student app route stack", () => {
         conversation_history: [],
       }),
       expect.any(Function),
+      expect.objectContaining({ signal: expect.any(AbortSignal) }),
     );
     expect(screen.queryByRole("region", { name: "已绑定学习背景" })).not.toBeInTheDocument();
     expect(document.querySelector(".ai-bound-context-card")).toBeNull();
@@ -2891,6 +3095,7 @@ describe("student app route stack", () => {
         conversation_history: [],
       }),
       expect.any(Function),
+      expect.objectContaining({ signal: expect.any(AbortSignal) }),
     );
     const firstPayload = apiMocks.streamStudentAssistantAsk.mock.calls[0]?.[0] as { conversation_history?: unknown[] };
     expect(JSON.stringify(firstPayload.conversation_history || [])).not.toContain("Seeded oxidizer");

@@ -12,6 +12,15 @@ StudentHomeVideoFeedStatus = Literal["ok", "empty"]
 StudentHomeVideoFeedReason = Literal["catalog", "recommended", "recent", "weakness"]
 
 
+class StudentHomeVideoSubtitleTrack(BaseModel):
+    id: str
+    kind: str = "subtitles"
+    language_code: str = "und"
+    label: str = ""
+    is_default: bool = False
+    stream_path: str
+
+
 class StudentHomeVideoMedia(BaseModel):
     media_id: str
     title: str = ""
@@ -19,6 +28,7 @@ class StudentHomeVideoMedia(BaseModel):
     stream_path: str
     thumbnail_path: str | None = None
     duration_seconds: float | None = None
+    subtitle_tracks: list[StudentHomeVideoSubtitleTrack] = Field(default_factory=list)
 
 
 class StudentHomeVideoFeedItem(BaseModel):

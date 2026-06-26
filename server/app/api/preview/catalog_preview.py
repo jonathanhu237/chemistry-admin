@@ -1,4 +1,4 @@
-from __future__ import annotations
+﻿from __future__ import annotations
 
 from typing import Annotated
 
@@ -6,7 +6,7 @@ from fastapi import APIRouter, Path, Query
 from fastapi.responses import FileResponse
 
 from server.app.catalog_tree_schemas import CatalogPreviewNodeResponse, StudentPointDetailResponse
-from server.app.domains.catalog_tree.files import preview_media_asset_file, preview_media_thumbnail_file
+from server.app.domains.catalog_tree.files import preview_media_asset_file, preview_media_thumbnail_file, preview_media_subtitle_file
 from server.app.domains.catalog_tree.preview import assert_preview_media_scope, preview_catalog_node, preview_point_detail
 
 
@@ -46,4 +46,15 @@ def preview_media_thumbnail(
 ) -> FileResponse:
     node_id = assert_preview_media_scope(asset_id=asset_id, preview_token=preview_token)
     path, media_type, filename = preview_media_thumbnail_file(asset_id, node_id=node_id)
+    return FileResponse(path, media_type=media_type, filename=filename)
+
+
+@router.get("/media/assets/{asset_id}/subtitle-tracks/{track_id}/stream", include_in_schema=False)
+def preview_media_subtitle_stream(
+    asset_id: Annotated[str, Path(min_length=1)],
+    track_id: Annotated[str, Path(min_length=1)],
+    preview_token: Annotated[str, Query(min_length=1)],
+) -> FileResponse:
+    node_id = assert_preview_media_scope(asset_id=asset_id, preview_token=preview_token)
+    path, media_type, filename = preview_media_subtitle_file(asset_id, track_id, node_id=node_id)
     return FileResponse(path, media_type=media_type, filename=filename)

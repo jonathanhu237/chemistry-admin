@@ -4,11 +4,11 @@
 TBD - created by archiving change add-chemistry-point-retrieval-monitoring. Update Purpose after archive.
 ## Requirements
 ### Requirement: Intelligent monitoring page covers AI, RAG, ES, and chemistry retrieval
-The teacher console SHALL provide a monitoring surface that summarizes AI provider health, RAG/BGE health, Elasticsearch search health, dictionary asset health, and chemistry retrieval readiness.
+The teacher console SHALL provide a monitoring surface that summarizes AI provider health, external textbook RAG health, Elasticsearch search health, dictionary asset health, and chemistry retrieval readiness.
 
 #### Scenario: Teacher opens global monitoring
 - **WHEN** an authenticated teacher opens the intelligent monitoring page
-- **THEN** the page MUST show separate status sections for AI provider connectivity, RAG/BGE runtime, ES index health, and chemistry dictionary assets
+- **THEN** the page MUST show separate status sections for AI provider connectivity, external textbook RAG runtime, ES index health, and chemistry dictionary assets
 - **AND** it MUST show the effective backend configuration such as whether search is using Elasticsearch, local fallback, disabled mode, or an unavailable service.
 
 #### Scenario: Monitoring data is partially unavailable
@@ -18,7 +18,7 @@ The teacher console SHALL provide a monitoring surface that summarizes AI provid
 
 #### Scenario: Student accesses monitoring data
 - **WHEN** a student calls student-facing APIs or opens student H5 pages
-- **THEN** the system MUST NOT expose raw monitoring data, ES internals, dictionary file hashes, generated query diagnostics, job payloads, rerank traces, or analyzer tokens.
+- **THEN** the system MUST NOT expose raw monitoring data, ES internals, dictionary file hashes, generated query diagnostics, job payloads, rerank traces, analyzer tokens, or external provider diagnostics.
 
 ### Requirement: Chemistry dictionaries are categorized and inspectable
 The monitoring surface SHALL distinguish strict chemical synonyms from reagent/formulation aliases, condition terms, phenomenon terms, property terms, IK custom dictionaries, and stopwords.

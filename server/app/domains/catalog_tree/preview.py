@@ -1,4 +1,4 @@
-from __future__ import annotations
+﻿from __future__ import annotations
 
 from datetime import datetime, timezone
 from typing import Any, TypedDict
@@ -7,6 +7,7 @@ from sqlalchemy import text
 
 from server.app.domains.catalog_tree.common import breadcrumbs, clean, get_content, get_node, node_card, node_select, point_capable, row_dict
 from server.app.domains.catalog_tree.related_links import related_links
+from server.app.domains.media.subtitles import preview_ready_subtitle_tracks
 from server.app.domains.errors import DomainHTTPException as HTTPException, domain_status as status
 from server.app.infrastructure.database import db_session
 from server.app.security import AuthError, create_access_token, decode_access_token
@@ -174,6 +175,7 @@ def _preview_videos(session: Any, node_id: str, token: str) -> list[dict[str, An
             "mime_type": row["mime_type"],
             "stream_path": f"/api/preview/media/assets/{row['media_id']}/stream?preview_token={token}",
             "thumbnail_path": f"/api/preview/media/assets/{row['media_id']}/thumbnail?preview_token={token}" if row["has_thumbnail"] else None,
+            "subtitle_tracks": preview_ready_subtitle_tracks(str(row["media_id"]), preview_token=token),
         }
         for row in rows
     ]

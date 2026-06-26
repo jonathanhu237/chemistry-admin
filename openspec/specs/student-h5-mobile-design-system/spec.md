@@ -995,3 +995,183 @@ The student H5 mobile design system SHALL support a phone-safe bottom-sheet patt
 - **AND** QA MUST verify title two-line protection, metadata one-line truncation, absence of green pill metadata chips, presence of at most one overflow trigger per card, overflow sheet reachability, safe-area spacing, and absence of page-level horizontal overflow
 - **AND** QA MUST verify that tapping media or text opens point detail while tapping overflow opens the menu without navigating
 
+### Requirement: Mobile table viewers use touch-safe detail surfaces
+The student H5 mobile design system SHALL provide table detail surfaces that fit phone viewports and support touch interaction without conflicting with app shell safe areas.
+
+#### Scenario: Table detail renders on common phone widths
+- **WHEN** a student opens an AI table detail view at 360px, 390px, or 430px viewport width
+- **THEN** the page MUST keep all navigation, table controls, and detail content inside the visible mobile canvas
+- **AND** it MUST NOT create page-level horizontal overflow.
+
+#### Scenario: Table detail uses safe touch controls
+- **WHEN** the table detail view renders action controls such as back, zoom, fit, reset, or row close
+- **THEN** each interactive control MUST have a touch target suitable for mobile use
+- **AND** controls MUST remain visually aligned with the Atom student mobile style.
+
+#### Scenario: Detail page coexists with app chrome
+- **WHEN** the AI table detail route is active
+- **THEN** the detail content MUST respect top and bottom safe areas
+- **AND** the bottom navigation MUST NOT cover the table reader, row reader, or zoom controls.
+
+### Requirement: Mobile table viewers communicate overflow without permanent scrollbar chrome
+The student H5 mobile design system SHALL make table overflow discoverable while preserving a polished mobile visual style.
+
+#### Scenario: Table content extends beyond the visible area
+- **WHEN** a table has offscreen columns or rows inside the detail viewer
+- **THEN** the surface MUST provide visual overflow affordances such as edge fades, shadows, peeking content, or control state
+- **AND** the surface MUST allow the student to reach the hidden content through touch interaction.
+
+#### Scenario: Scrollbars are visually hidden
+- **WHEN** scrollbar chrome is hidden for table polish
+- **THEN** horizontal and vertical scrolling or panning MUST remain functional
+- **AND** tests or QA checks MUST verify that hidden scrollbars do not disable table exploration.
+
+#### Scenario: Small table detail opens
+- **WHEN** the table has only a few rows or columns
+- **THEN** the detail surface MUST size to the useful content instead of stretching into a large empty grid
+- **AND** the page MUST avoid a blank lower panel that makes the viewer feel unfinished.
+
+### Requirement: Mobile table viewers support readable learning density
+The student H5 mobile design system SHALL render dense AI table content in a way that supports both comparison and focused reading.
+
+#### Scenario: Table cells contain long Chinese text
+- **WHEN** a table cell contains long Chinese explanations, experiment observations, or judgment text
+- **THEN** the viewer MUST wrap and space text so it remains readable in row reading mode
+- **AND** it MUST avoid clipping important words behind fixed columns, controls, or page edges.
+
+#### Scenario: Table cells contain formulas
+- **WHEN** a table cell contains math or mhchem formula output
+- **THEN** the viewer MUST keep formula content readable in the row reading surface
+- **AND** formulas MUST NOT overlap adjacent labels, controls, or cells.
+
+#### Scenario: Table visual style is rendered
+- **WHEN** an AI table detail page is displayed
+- **THEN** the table surface MUST use lightweight grid lines, subtle header treatment, and restrained spacing
+- **AND** it MUST NOT resemble a heavy admin data grid or spreadsheet editor.
+
+### Requirement: Mobile table viewer QA covers AI rich table interactions
+The student H5 mobile design system SHALL include verification coverage for AI table detail interactions and mobile layout.
+
+#### Scenario: Automated or scripted viewport QA runs
+- **WHEN** mobile viewport QA is run for the student H5 app
+- **THEN** it MUST include an AI-generated wide chemistry table artifact at 360px, 390px, and 430px widths
+- **AND** it MUST verify that the page has no document-level horizontal overflow.
+
+#### Scenario: Interaction QA runs
+- **WHEN** interaction QA is performed for the AI table detail viewer
+- **THEN** it MUST cover opening the detail view, panning or scrolling the table, using zoom controls, opening a row reader, closing the row reader, and returning to chat
+- **AND** it MUST verify that the bottom app chrome does not obscure the active table interaction.
+
+### Requirement: AI artifact canvas uses an infinite-grid workspace
+The student H5 mobile design system SHALL support an AI artifact detail canvas pattern where the grid is the workspace itself and artifacts are placed directly on that workspace.
+
+#### Scenario: Canvas detail page renders
+- **WHEN** an AI artifact detail page renders at 360px, 390px, or 430px CSS-pixel phone widths
+- **THEN** the page MUST show a continuous grid workspace across the available detail viewport
+- **AND** the workspace MUST read as the primary surface rather than as decorative wallpaper behind a card
+- **AND** the artifact MUST be visually placed on the grid.
+
+#### Scenario: Canvas-native artifact avoids nested card styling
+- **WHEN** a canvas-native artifact such as a Mermaid flowchart renders in the AI artifact detail page
+- **THEN** the artifact area MUST NOT use an inner card, rounded rectangle panel, framed preview box, opaque page strip, or duplicated background surface as its primary container
+- **AND** the grid workspace MUST remain visible around and behind the artifact wherever artifact transparency allows.
+
+#### Scenario: Table artifact needs local readability
+- **WHEN** a table artifact renders in the AI artifact detail canvas
+- **THEN** the table MAY use local cell fills, header tint, and hairline borders for readability
+- **AND** those table treatments MUST remain bounded to the table object itself
+- **AND** the page MUST NOT add a large table-card background that hides the surrounding canvas grid.
+
+### Requirement: AI artifact canvas chrome floats above the workspace
+The student H5 mobile design system SHALL layer artifact detail navigation and controls as floating chrome above the canvas workspace rather than as content inside the transformed artifact.
+
+#### Scenario: Header overlays the canvas
+- **WHEN** the AI artifact canvas page shows a back action, title, or secondary label
+- **THEN** those controls MUST float above the workspace layer
+- **AND** any readability veil MUST fade over the real grid workspace instead of painting an opaque or mismatched header background.
+
+#### Scenario: Tool controls remain reachable
+- **WHEN** the artifact canvas page shows zoom, fit, reset, or artifact-specific controls
+- **THEN** the controls MUST stay outside the transformed artifact layer
+- **AND** the controls MUST respect phone safe areas, rounded screen corners, and the hidden-bottom-navigation detail-route layout
+- **AND** the controls MUST provide accessible names and visible focus states.
+
+#### Scenario: Canvas content passes under chrome
+- **WHEN** the student pans or zooms an artifact near the top or side of the detail page
+- **THEN** the artifact and grid MUST remain visually continuous beneath translucent chrome
+- **AND** the chrome MUST NOT create a hard opaque strip that makes the canvas appear cut off.
+
+### Requirement: AI artifact canvas gestures are mobile-safe
+The student H5 mobile design system SHALL make AI artifact canvas pan and zoom interactions touch-friendly without creating page-level overflow or trapping the student in the canvas.
+
+#### Scenario: Student pans or zooms an artifact
+- **WHEN** the student drags, pinches, or uses explicit controls inside an AI artifact canvas detail page
+- **THEN** the artifact transform MUST stay scoped to the canvas workspace
+- **AND** the document MUST NOT gain horizontal page overflow
+- **AND** floating back and reset controls MUST remain reachable.
+
+#### Scenario: Reduced motion is enabled
+- **WHEN** the browser or device indicates reduced motion preferences
+- **THEN** nonessential canvas transform animations MUST be disabled or shortened
+- **AND** pan, zoom, fit, reset, and back navigation MUST remain functional.
+
+#### Scenario: Mobile QA verifies canvas behavior
+- **WHEN** mobile viewport QA runs for the student AI artifact canvas change
+- **THEN** it MUST cover at least one Mermaid flowchart artifact and one Markdown table artifact at 360px, 390px, and 430px widths
+- **AND** it MUST verify visible grid workspace, reachable controls, hidden bottom navigation, no page-level horizontal overflow, and absence of the previous inner artifact card for Mermaid detail.
+
+### Requirement: Mobile detail routes support rich-content inspection
+The student H5 mobile design system SHALL support second-level rich-content inspection pages for AI-generated learning artifacts without breaking phone route, safe-area, or bottom-navigation behavior.
+
+#### Scenario: Rich-content detail route opens on a phone viewport
+- **WHEN** a student opens an AI table or Mermaid detail view at 360px to 430px CSS-pixel phone widths
+- **THEN** the detail view MUST fit within the phone viewport width
+- **AND** it MUST avoid page-level horizontal scrolling
+- **AND** it MUST keep back/navigation controls reachable.
+
+#### Scenario: Bottom navigation would conflict
+- **WHEN** an AI rich-content detail route is active
+- **THEN** the authenticated bottom navigation MUST be hidden or otherwise prevented from intercepting touches
+- **AND** the viewer content MUST account for bottom safe-area insets and browser chrome.
+
+#### Scenario: Detail controls are shown
+- **WHEN** a rich-content detail view shows close, back, zoom, fit, reset, font-size, or scroll controls
+- **THEN** each control MUST have a phone-appropriate hit area
+- **AND** controls MUST have visible focus states and accessible names
+- **AND** controls MUST not overlap artifact content in a way that prevents reading or dragging.
+
+### Requirement: Mobile pan and scroll surfaces preserve gesture ownership
+The student H5 mobile design system SHALL allow nested pan/zoom and table-scroll surfaces while preserving predictable route and page gestures.
+
+#### Scenario: Diagram viewer handles pan and zoom
+- **WHEN** a student drags or pinches inside an AI Mermaid detail viewer
+- **THEN** the gesture MAY be captured by the viewer to inspect the diagram
+- **AND** the gesture capture MUST be scoped to the diagram interaction region
+- **AND** exiting the detail view MUST restore normal page scrolling and navigation behavior.
+
+#### Scenario: Table viewer handles scrolling
+- **WHEN** a student scrolls inside an AI table detail viewer
+- **THEN** horizontal and vertical table scrolling MUST remain available
+- **AND** hidden scrollbar styling MUST NOT disable native touch, pointer, wheel, keyboard, or programmatic scrolling
+- **AND** the route itself MUST not acquire accidental page-level horizontal overflow.
+
+#### Scenario: Viewer is embedded in desktop preview
+- **WHEN** the student H5 app is viewed inside a desktop teacher preview or iframe
+- **THEN** rich-content detail viewers SHOULD keep phone-canvas scrollbar chrome visually quiet
+- **AND** hiding scrollbar chrome MUST be scoped to the viewer surface rather than disabling global document scrolling.
+
+### Requirement: Mobile QA covers AI rich-content viewers
+The student H5 mobile design system SHALL include repeatable QA evidence for AI rich-content table and Mermaid viewers.
+
+#### Scenario: Rich-content mobile QA runs
+- **WHEN** implementation tasks for AI rich-content viewing are completed
+- **THEN** QA MUST cover 360x780, 390x844, and 430x932 CSS-pixel viewports where practical
+- **AND** QA MUST include at least one wide chemistry comparison table
+- **AND** QA MUST include at least one tall or wide Mermaid chemistry flowchart
+- **AND** QA MUST verify no page-level horizontal overflow, reachable controls, readable artifact content, and correct back navigation.
+
+#### Scenario: Reduced-motion QA runs
+- **WHEN** mobile QA or focused tests cover the Mermaid pan/zoom viewer
+- **THEN** reduced-motion behavior MUST be checked through CSS or browser emulation where practical
+- **AND** the viewer MUST remain usable without relying on animated transitions.
+

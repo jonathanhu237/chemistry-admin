@@ -50,17 +50,13 @@ services:
       DATABASE_URL: postgresql+psycopg://chemistry:chemistry@postgres:5432/chemistry_exam
       MEDIA_ROOT: /app/data/media
       API_PUBLIC_BASE_URL: http://127.0.0.1:8000
-      FRONTEND_ALLOWED_ORIGINS: ${FRONTEND_ALLOWED_ORIGINS:-http://222.200.189.249:15173,http://localhost:15173,http://127.0.0.1:15173,http://localhost:15174,http://127.0.0.1:15174,http://localhost:15175,http://127.0.0.1:15175}
+      FRONTEND_ALLOWED_ORIGINS: ${FRONTEND_ALLOWED_ORIGINS:-http://222.200.189.249:15173,http://localhost:15173,http://127.0.0.1:15173,http://localhost:15174,http://127.0.0.1:15174,http://localhost:15175,http://127.0.0.1:15175,http://222.200.189.249:15176,http://localhost:15176,http://127.0.0.1:15176,http://localhost:15177,http://127.0.0.1:15177}
       STUDENT_PREVIEW_APP_BASE_URL: ${STUDENT_PREVIEW_APP_BASE_URL:-http://222.200.189.249:15173}
       STUDENT_PREVIEW_ALLOWED_ORIGINS: ${STUDENT_PREVIEW_ALLOWED_ORIGINS:-}
       STUDENT_PREVIEW_TICKET_EXPIRE_MINUTES: "10"
       STUDENT_PREVIEW_SESSION_EXPIRE_MINUTES: "240"
       TUS_UPLOAD_DIR: tus
       TUS_PUBLIC_ENDPOINT: http://127.0.0.1:10980/files/
-      RAG_HYBRID_BGE_ENABLED: "true"
-      RAG_BGE_SERVICE_URL: http://bge-rag:8010
-      RAG_BGE_TIMEOUT_SECONDS: "60"
-      RAG_RERANK_TOP_K: "9"
       CHEMISTRY_RAG_ROOT: /chemistry-rag
       WEB_ADMIN_ACCESS_TOKEN: ${WEB_ADMIN_ACCESS_TOKEN:-dev-only-web-admin-token-change-me}
       VIDEO_LIBRARY_SEARCH_ENABLED: "true"
@@ -148,31 +144,47 @@ services:
       timeout: 5s
       retries: 12
 
-  bge-rag:
-    profiles:
-      - rag
-    image: chemistry-admin-bge-rag:8a8c8613ef43
+  web-student-old:
+    image: chemistry-admin-web-student-old:legacy
     build:
       context: .
-      dockerfile: server/Dockerfile.bge-rag
+      dockerfile: server/Dockerfile.frontend
+      args:
+        APP_DIR: apps/web-student-old
     environment:
-      BGE_EMBED_MODEL: /models/BAAI/bge-m3
-      BGE_RERANK_MODEL: /models/BAAI/bge-reranker-v2-m3
-      BGE_DEVICE: cpu
-      BGE_USE_FP16: "false"
-      BGE_RERANK_MAX_LENGTH: "512"
-      BGE_WARMUP_ON_STARTUP: "true"
-      HF_HUB_OFFLINE: "1"
-      TRANSFORMERS_OFFLINE: "1"
+      BACKEND_UPSTREAM: http://backend:8000
+      FRAME_ANCESTORS: "'self'"
     ports:
-      - "8010:8010"
-    volumes:
-      - E:/models/BAAI:/models/BAAI:ro
+      - "${WEB_STUDENT_OLD_HOST_BIND:-222.200.189.249}:${WEB_STUDENT_OLD_HOST_PORT:-15176}:80"
+    depends_on:
+      backend:
+        condition: service_healthy
     healthcheck:
-      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8010/health', timeout=2).read()"]
-      interval: 15s
-      timeout: 10s
-      retries: 20
+      test: ["CMD-SHELL", "wget -q -O - http://127.0.0.1/health >/dev/null"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+
+  web-teacher-old:
+    image: chemistry-admin-web-teacher-old:legacy
+    build:
+      context: .
+      dockerfile: server/Dockerfile.frontend
+      args:
+        APP_DIR: apps/web-teacher-old
+    environment:
+      BACKEND_UPSTREAM: http://backend:8000
+      FRAME_ANCESTORS: "'self'"
+    ports:
+      - "${WEB_TEACHER_OLD_HOST_BIND:-127.0.0.1}:${WEB_TEACHER_OLD_HOST_PORT:-15177}:80"
+    depends_on:
+      backend:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "wget -q -O - http://127.0.0.1/health >/dev/null"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
 
   tusd:
     image: tusproject/tusd:v2@sha256:9c61565fccd2689b052aa78e52d9558f309e98f6320960746f225d2fd73a35e3
@@ -192,6 +204,7 @@ services:
     build:
       context: .
       dockerfile: server/Dockerfile.video-worker
+    gpus: all
     env_file:
       - .env
     environment:
@@ -205,11 +218,19 @@ services:
       VIDEO_LEARNING_CRF: 24
       VIDEO_LEARNING_MAX_FPS: 30
       VIDEO_LEARNING_TRANSCODE_THRESHOLD_MB: 300
-      VIDEO_SIMILARITY_ALGORITHM: vpdq-threatexchange-1.2.16
-      VIDEO_SIMILARITY_COMMAND: python -m server.app.video_similarity vpdq-signature "{input}" "{output}"
-      VIDEO_SIMILARITY_COMPARE_COMMAND: python -m server.app.video_similarity vpdq-compare "{current}" "{candidate}"
-      VIDEO_SIMILARITY_THRESHOLD: 0.86
-      VIDEO_VPDQ_SECONDS_PER_HASH: 1
+      VIDEO_TRANSCODE_ACCELERATION: auto
+      VIDEO_DUPLICATE_DETECTION_ALGORITHM: vpdq-threatexchange-1.2.16
+      VIDEO_DUPLICATE_DETECTION_COMMAND: python -m server.app.video_similarity vpdq-signature "{input}" "{output}" "{seconds_per_hash}"
+      VIDEO_DUPLICATE_DETECTION_COMPARE_COMMAND: python -m server.app.video_similarity vpdq-compare "{current}" "{candidate}"
+      VIDEO_DUPLICATE_DETECTION_THRESHOLD: 0.95
+      VIDEO_DUPLICATE_DEFAULT_INTERVAL_SECONDS: 3
+      VIDEO_DUPLICATE_MIN_SAMPLES: 12
+      VIDEO_DUPLICATE_MIN_INTERVAL_SECONDS: 0.5
+      VIDEO_DUPLICATE_DURATION_TOLERANCE_RATIO: 0.001
+      VIDEO_DUPLICATE_DURATION_TOLERANCE_FLOOR_SECONDS: 0.5
+      VIDEO_DUPLICATE_DURATION_TOLERANCE_CEILING_SECONDS: 2.0
+      NVIDIA_DRIVER_CAPABILITIES: compute,utility,video
+      NVIDIA_VISIBLE_DEVICES: all
     volumes:
       - ./data/media:/app/data/media
     depends_on:
@@ -219,4 +240,3 @@ services:
 volumes:
   postgres_data:
   elasticsearch_data:
-  bge_models:

@@ -82,24 +82,24 @@ export function lastRequestText(status?: AIConfiguration["status"]) {
 
 export function ragStatus(aiConfig?: AIConfiguration, assistantRuntime?: LearningAssistantRuntime) {
   const runtime = assistantRuntime?.rag_runtime || aiConfig?.rag_runtime;
-  const metrics = assistantRuntime?.bge_metrics || null;
-  const status = metrics?.ok
-    ? "healthy"
-    : assistantRuntime?.bge_status ||
-      (assistantRuntime?.bge_error ? "unreachable" : runtime?.bge_service_required ? "checking" : "not_required");
+  const status = assistantRuntime?.textbook_rag_status || runtime?.textbook_rag_status || runtime?.status || "disabled";
   if (!runtime?.rag_enabled) return { label: "RAG 关闭", color: "default", tone: "idle" as MonitorTone, headline: "学生侧 RAG 未启用" };
-  if (!runtime.hybrid_bge_enabled) return { label: "Legacy", color: "#356f9c", tone: "legacy" as MonitorTone, headline: "关键词 RAG 运行中" };
-  if (status === "healthy") return { label: "Hybrid 可用", color: "#005826", tone: "good" as MonitorTone, headline: "Hybrid BGE RAG 可用" };
-  if (status === "degraded") return { label: "BGE 异常", color: "#b8892f", tone: "warn" as MonitorTone, headline: "BGE 已响应但状态异常" };
-  if (status === "not_configured") return { label: "未配置", color: "#b42318", tone: "bad" as MonitorTone, headline: "BGE 服务地址未配置" };
-  if (status === "unreachable") return { label: "不可达", color: "#b42318", tone: "bad" as MonitorTone, headline: "BGE 服务不可达" };
-  return { label: "检测中", color: "#356f9c", tone: "legacy" as MonitorTone, headline: "BGE 服务检测中" };
+  if (status === "healthy") return { label: "教材 RAG 可用", color: "#005826", tone: "good" as MonitorTone, headline: "外部教材 RAG 可用" };
+  if (status === "disabled") return { label: "未启用", color: "default", tone: "idle" as MonitorTone, headline: runtime?.textbook_rag_message || "外部教材 RAG 未启用" };
+  if (status === "index_stale") return { label: "索引需更新", color: "#b8892f", tone: "warn" as MonitorTone, headline: runtime?.textbook_rag_message || "教材 RAG 索引需更新" };
+  if (status === "elasticsearch_not_configured" || status === "embedding_not_configured" || status === "rerank_not_configured" || status === "index_missing") {
+    return { label: "配置缺失", color: "#b42318", tone: "bad" as MonitorTone, headline: runtime?.textbook_rag_message || "教材 RAG 配置不完整" };
+  }
+  if (status === "elasticsearch_unreachable" || status === "elasticsearch_error") {
+    return { label: "ES 不可达", color: "#b42318", tone: "bad" as MonitorTone, headline: runtime?.textbook_rag_message || "教材 RAG Elasticsearch 不可达" };
+  }
+  return { label: "需检查", color: "#b8892f", tone: "warn" as MonitorTone, headline: runtime?.textbook_rag_message || "教材 RAG 状态需检查" };
 }
 
 export function ragRouteSummary(aiConfig?: AIConfiguration, assistantRuntime?: LearningAssistantRuntime) {
   const runtime = assistantRuntime?.rag_runtime || aiConfig?.rag_runtime;
-  if (runtime?.hybrid_bge_enabled) return "关键词召回 + BGE 向量召回 + BGE 重排";
-  if (runtime?.rag_enabled) return "现有来源/关键词 RAG";
+  if (runtime?.rag_enabled && runtime?.textbook_rag_enabled) return `外部教材 RAG · ${runtime.textbook_rag_index || "Qwen/ES"}`;
+  if (runtime?.rag_enabled) return "外部教材 RAG 未启用";
   return "RAG 已关闭";
 }
 
@@ -171,7 +171,7 @@ export function buildHealthTiles(args: {
     },
     {
       key: "rag",
-      label: "RAG/BGE",
+      label: "教材 RAG",
       status: rag.label,
       value: ragRouteSummary(args.aiConfig, args.assistantRuntime),
       tone: rag.tone,
@@ -250,8 +250,8 @@ export function buildAttentionItems(args: {
     items.push({
       key: "rag-status",
       module: "rag",
-      title: "RAG/BGE 状态需关注",
-      detail: args.assistantRuntime?.bge_error || rag.headline,
+      title: "教材 RAG 状态需关注",
+      detail: args.assistantRuntime?.textbook_rag_error || rag.headline,
       tone: rag.tone,
     });
   }

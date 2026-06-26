@@ -213,7 +213,7 @@ export type QuestionWorkbenchGateState = {
   message: string;
   tagColor: string;
   alertType: "success" | "info" | "warning" | "error";
-  bgeStatus: string;
+  textbookStatus: string;
   route: string;
   tone: "ready" | "checking" | "blocked";
 };
@@ -289,10 +289,7 @@ export function workbenchEvidenceSectionsFromPackage(evidencePackage?: Record<st
 
 export function questionWorkbenchGateFromRuntime(runtime?: LearningAssistantRuntime): QuestionWorkbenchGateState {
   const ragRuntime = runtime?.rag_runtime;
-  const textbookStatus = ragRuntime?.textbook_rag_status || "disabled";
-  const bgeStatus = runtime?.bge_metrics?.ok
-    ? "healthy"
-    : runtime?.bge_status || (runtime?.bge_error ? "unreachable" : ragRuntime?.bge_service_required ? "checking" : "not_required");
+  const textbookStatus = runtime?.textbook_rag_status || ragRuntime?.textbook_rag_status || "disabled";
   const route = ragRuntime?.textbook_rag_enabled
     ? `教材 RAG · ${ragRuntime.textbook_rag_index || "Qwen/ES"}`
     : ragRuntime?.rag_enabled
@@ -306,7 +303,7 @@ export function questionWorkbenchGateFromRuntime(runtime?: LearningAssistantRunt
       message: "正在确认来源检索状态，稍等一下再使用 AI 建议。",
       tagColor: "#356f9c",
       alertType: "info",
-      bgeStatus: textbookStatus || bgeStatus,
+      textbookStatus,
       route,
       tone: "checking",
     };
@@ -320,7 +317,7 @@ export function questionWorkbenchGateFromRuntime(runtime?: LearningAssistantRunt
         : "出题只读取已绑定教材证据；刷新证据前需先检查 Qwen/ES 配置。",
     tagColor: "#005826",
     alertType: "success",
-    bgeStatus: textbookStatus,
+    textbookStatus,
     route,
     tone: "ready",
   };

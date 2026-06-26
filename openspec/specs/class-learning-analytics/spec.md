@@ -200,3 +200,51 @@ The admin feedback workflow SHALL expose feedback attachment counts and attachme
 - **WHEN** an admin opens a feedback record with attachments
 - **THEN** the detail response MUST include attachment metadata sufficient for display or download authorization
 - **AND** the system MUST enforce existing feedback visibility rules before returning attachment metadata or files.
+
+### Requirement: Teacher analytics include assessment report history
+Teacher-facing student learning analytics SHALL include durable assessment report history for accessible students.
+
+#### Scenario: Teacher opens an individual student report
+- **WHEN** a teacher opens an individual student report for a class they can access
+- **THEN** the backend SHALL include the student's durable assessment reports or provide a linked endpoint to list them
+- **AND** the console SHALL distinguish pretest, smart assessment, custom assessment, and point assessment reports.
+
+#### Scenario: Teacher opens a report from student analytics
+- **WHEN** a teacher selects an assessment report from a student's report history
+- **THEN** the console SHALL render the persisted report snapshot
+- **AND** it SHALL not require recomputing report text or regenerating LLM output.
+
+### Requirement: Teacher report display is structured-first
+The teacher console SHALL present assessment reports as structured learning records before generated prose.
+
+#### Scenario: Teacher scans a report list
+- **WHEN** the teacher views report history
+- **THEN** each report list item SHALL expose report type, completion time, score or correctness, and wrong-answer count
+- **AND** it SHALL avoid showing long generated text in the list.
+
+#### Scenario: Teacher reviews report detail
+- **WHEN** the teacher opens report detail
+- **THEN** score, correctness, involved experiments or points, mastery changes where available, and wrong answers SHALL be visible before generated summary or explanation text
+- **AND** generated summary and wrong-answer explanation SHALL be available but folded or secondary by default.
+
+### Requirement: Legacy teacher exposes learning scores and BKT mastery
+The legacy teacher frontend SHALL expose teacher-readable class and student learning scores that close the BKT feedback loop.
+
+#### Scenario: Legacy teacher reviews class learning scores
+- **WHEN** a teacher opens legacy class analytics for a class with student assessment or mastery evidence
+- **THEN** the old UI MUST show class-level learning score, experiment completion, assessment score, mastery or weak-point summaries where available
+- **AND** it MUST connect those metrics to BKT mastery or experiment learning progress
+- **AND** it MUST NOT require intelligent monitoring or RAG diagnostics to understand the class state
+
+#### Scenario: Legacy teacher reviews an individual student
+- **WHEN** a teacher opens a legacy student learning report
+- **THEN** the old UI MUST show that student's assessment outcomes, mastery state, weak experiment points, recent learning activity, and recommended follow-up where available
+- **AND** it MUST use teacher-facing learning-score language rather than Atom assistant, Agent, or retrieval-diagnostic language
+
+### Requirement: Legacy analytics use shared assessment and mastery records
+The legacy teacher frontend SHALL read analytics from the shared backend records used by current class analytics.
+
+#### Scenario: Student completes assessment in old or current frontend
+- **WHEN** a student completes an assessment in either current or old student frontend
+- **THEN** the old teacher analytics view MUST be able to reflect the resulting shared score and mastery records when the teacher has access to that class
+- **AND** the old teacher view MUST NOT depend on old-only analytics tables or duplicated student score imports

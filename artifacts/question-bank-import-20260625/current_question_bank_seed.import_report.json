@@ -1,0 +1,29 @@
+{
+  "import_id": "7864a6fb-05cf-4c51-885c-acb9a3a064d9",
+  "source_file": "E:\\chemistry-admin\\artifacts\\question-bank-import-20260625\\current_question_bank_seed.transformed.json",
+  "source_sha256": "698c2f1810e7bc404ce1cb677f8e01b9e06c8cd69696ada458fe620d8889217e",
+  "bank_kind": "generated",
+  "bank_status": "published",
+  "question_status": "published",
+  "created_or_confirmed_experiments": 54,
+  "deleted_existing_generated_questions": 1965,
+  "inserted_questions": 1965,
+  "type_counts": {
+    "fill_blank": 395,
+    "single_choice": 785,
+    "true_false": 785
+  },
+  "manual_corrections": [
+    {
+      "reason": "Known catalog correction: hypochlorite sibling points must remain distinct; exported seed labels two old placements as NaClO + MnSO₄.",
+      "old_point_node_id": "cat-md-ch13-50fb03a39be2d6b9a5",
+      "new_point_node_id": "cat-outline-ch13-e97d7e5395a8f8c6",
+      "new_canonical_point_id": "cat-canon-seed-005beb2f4c4f",
+      "title_replacement": {
+        "from": "NaClO + MnSO₄",
+        "to": "NaClO + 品红溶液"
+      },
+      "patched_question_count": 5
+    }
+  ]
+}

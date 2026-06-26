@@ -169,17 +169,22 @@ The student H5 `AI` root SHALL learn the provided Grok-style mobile chat target'
 - **AND** the textarea content MUST scroll vertically inside the capsule instead of expanding the page or hiding behind the soft keyboard.
 
 ### Requirement: Root AI chat history entry
-The student H5 AI root SHALL provide a history entry point for reviewing prior student AI conversations from the AI root page.
+The student H5 AI root and focused Atom detail routes SHALL provide a history entry point for reviewing prior student AI conversations without requiring backend chat-session storage.
 
 #### Scenario: Student opens history from AI root
 - **WHEN** an authenticated student opens the `/ai` root route
-- **THEN** the page MUST show a student-readable history action in the root chat top area
+- **THEN** the page MUST show a student-readable history action in the Atom chat top area
 - **AND** activating the action MUST open a history list, panel, or sheet without leaving the AI root route.
 
-#### Scenario: Contextual chat omits history entry
-- **WHEN** a student opens the contextual `/ai/chat` detail route from another page
-- **THEN** the contextual chat page MUST NOT show the root history action
-- **AND** history review MUST remain reachable by returning to the `/ai` root route.
+#### Scenario: Student opens history from focused detail chat
+- **WHEN** a student opens the contextual `/ai/chat` detail route
+- **THEN** the page MUST show the same student-readable Atom history action
+- **AND** activating the action MUST open the local Atom history list without promoting the route into the `/ai` root tab.
+
+#### Scenario: Student restores history on either Atom route
+- **WHEN** the student selects a local history entry from the Atom history list on `/ai` or `/ai/chat`
+- **THEN** the current Atom surface MUST restore the saved conversation turns and saved active context
+- **AND** follow-up questions MUST send recent restored turns as `conversation_history`.
 
 ### Requirement: First-round local conversation history
 The student H5 AI chat SHALL persist first-round conversation history in client-side browser storage without requiring a backend chat-session migration.
@@ -189,20 +194,20 @@ The student H5 AI chat SHALL persist first-round conversation history in client-
 - **THEN** the app MUST create or update a local history entry for that conversation
 - **AND** the entry MUST include enough information to restore visible user and assistant turns.
 
-#### Scenario: Contextual chat is saved without exposing local history chrome
+#### Scenario: Contextual detail chat is saved and restorable
 - **WHEN** a student sends a question from `/ai/chat`
-- **THEN** the app MAY save the contextual conversation into the same local history store
-- **AND** the contextual page MUST still omit the root history action.
+- **THEN** the app MUST create or update a local history entry in the same Atom history store
+- **AND** the entry MUST include enough saved context to restore the context chip, visible turns, and follow-up request behavior.
 
 #### Scenario: Student restores a local history entry
-- **WHEN** a student selects a history entry from the `/ai` root history list
-- **THEN** the root chat shell MUST restore the saved conversation turns
+- **WHEN** a student selects a history entry from the Atom history list
+- **THEN** the current Atom chat shell MUST restore the saved conversation turns
 - **AND** follow-up questions MUST send recent restored turns as `conversation_history`.
 
 #### Scenario: No local history exists
 - **WHEN** the student opens the history panel and no local conversations are available
 - **THEN** the app MUST show an empty state that explains there are no recent AI conversations
-- **AND** the student MUST be able to return to the root chat composer.
+- **AND** the student MUST be able to return to the current Atom composer.
 
 ### Requirement: History rows identify context
 The student H5 AI history SHALL identify whether a conversation was global or contextual without exposing teacher/admin diagnostics.
@@ -732,4 +737,590 @@ The student H5 Atom root assistant SHALL make the selected point binding underst
 - **WHEN** the root chat has submitted at least one user message with a selected point context
 - **THEN** the selected-point chip MUST communicate that the chat is bound to that point
 - **AND** the app MUST require a new chat before binding a different point.
+
+### Requirement: Atom history generated first-turn title
+The student H5 Atom assistant SHALL support an optional sanitized `conversation_title` final metadata field for first-turn local history entries while preserving the existing local fallback title behavior.
+
+#### Scenario: First turn saves generated title
+- **WHEN** a student sends the first question in an Atom conversation and the final assistant metadata includes a valid `conversation_title`
+- **THEN** the app MUST save that title on the same local history entry for the conversation
+- **AND** the history row MUST display the generated title instead of the raw first-question truncation.
+
+#### Scenario: Generated title is requested only for first turn
+- **WHEN** the backend prepares final metadata for an assistant response whose request has empty `conversation_history`
+- **THEN** the backend MUST attempt to include a concise student-readable `conversation_title` in the final metadata
+- **AND** the title MUST be based on the latest student question, completed answer, active assistant context, and safe recent metadata inputs available to the existing final-metadata generation path.
+
+#### Scenario: Follow-up turns do not rename history
+- **WHEN** a student sends a follow-up question in a restored or ongoing Atom conversation
+- **THEN** the backend MUST NOT require a new `conversation_title` for that turn
+- **AND** the frontend MUST keep the existing local history title unless the conversation is still using the first-turn fallback and receives a valid first-turn title for the same history entry.
+
+#### Scenario: Missing or invalid generated title falls back
+- **WHEN** the final metadata omits `conversation_title`, metadata generation fails, or the returned title is invalid
+- **THEN** the app MUST keep using the existing local fallback title derived from the conversation messages
+- **AND** the chat answer, history persistence, and follow-up prompts MUST continue normally.
+
+#### Scenario: Generated title stays out of answer and request history
+- **WHEN** a generated `conversation_title` is accepted for a local history entry
+- **THEN** the app MUST NOT append it to visible assistant answer text, copied answer text, visible thinking, source summaries, quick prompt chips, or backend `conversation_history`
+- **AND** restoring the history entry MUST continue sending only recent `{ role, content }` turns as conversation history.
+
+#### Scenario: Legacy local history remains readable
+- **WHEN** the app reads an existing local history entry that does not contain a generated title
+- **THEN** the app MUST continue to render the entry with its stored title or the existing message-derived fallback
+- **AND** no localStorage migration or backend chat-session record MUST be required.
+
+### Requirement: Student assistant distinguishes streaming and completed answer rendering
+The student H5 AI assistant SHALL route active and completed assistant answer content through the appropriate Markdown rendering mode while preserving the existing chat state model.
+
+#### Scenario: Active answer turn is the only streaming Markdown turn
+- **WHEN** the assistant is loading and the latest visible message is an assistant answer with non-empty content
+- **THEN** only that latest assistant answer MUST use the streaming Markdown renderer
+- **AND** earlier assistant answers MUST remain completed static Markdown turns
+- **AND** user messages MUST remain plain user-authored chat bubbles.
+
+#### Scenario: Final completion converts answer to stable turn
+- **WHEN** the active assistant turn completes successfully
+- **THEN** the visible assistant message MUST become a completed static Markdown turn
+- **AND** successful root replies MUST continue using the established flat root assistant answer surface and action row
+- **AND** contextual detail replies MUST continue using the established contextual assistant surface.
+
+#### Scenario: Local history is renderer-agnostic
+- **WHEN** a root or detail assistant conversation is saved to local history
+- **THEN** the stored messages MUST include plain message content and supported metadata only
+- **AND** stored messages MUST NOT include Streamdown component state, smooth-stream scheduler state, animation flags, Mermaid render output, or DOM-derived content.
+
+#### Scenario: Follow-up prompt behavior is unchanged
+- **WHEN** the latest assistant turn is still streaming
+- **THEN** dynamic follow-up prompt chips MUST remain hidden or disabled according to existing loading behavior
+- **WHEN** the turn completes successfully
+- **THEN** dynamic follow-up prompt chips MUST still be derived only from the latest successful final metadata.
+
+### Requirement: Root first-answer visual state survives modern streaming
+The student H5 Atom root assistant SHALL preserve the approved first-answer background glow behavior while changing answer text rendering.
+
+#### Scenario: First submitted root answer is waiting
+- **WHEN** the `/ai` root has exactly the first user turn and an active first assistant turn waiting or streaming
+- **THEN** the approved dynamic background glow MUST remain tied to the first-answer loading state
+- **AND** switching the answer body to Streamdown MUST NOT prematurely remove or restart the glow.
+
+#### Scenario: First answer completes
+- **WHEN** the first root assistant answer finishes and the assistant turn becomes completed
+- **THEN** the glow MUST still perform the established rapid disappearance behavior
+- **AND** subsequent completed chat content MUST render on the theme background without recurring glow interference.
+
+#### Scenario: Empty and draft root states remain static
+- **WHEN** the root assistant is on the welcome screen or the student is editing the first message before submission
+- **THEN** the background MUST remain in the established static state
+- **AND** Streamdown or smooth-stream code MUST NOT introduce background animation before the first answer is actually waiting.
+
+### Requirement: Assistant stream state handles smoothing without changing API semantics
+The student H5 AI assistant SHALL integrate smooth answer display as frontend state only and SHALL NOT change request or response contracts.
+
+#### Scenario: Request payload is unchanged
+- **WHEN** the student submits a question after this change
+- **THEN** the frontend MUST call the existing student assistant stream endpoint with the existing active `AssistantContext`, question, and `conversation_history` fields
+- **AND** it MUST NOT require a new backend payload field for smoothing or renderer mode.
+
+#### Scenario: Stream events keep existing meanings
+- **WHEN** the frontend receives `status`, `thinking`, `delta`, `replace`, `final`, or `error` events
+- **THEN** each event MUST keep its established semantic meaning
+- **AND** smoothing MUST only affect how `delta` or replacement answer text is released to the visible answer body.
+
+#### Scenario: User sends a follow-up after smoothed answer
+- **WHEN** the student sends a follow-up after a smoothed rich Markdown answer completes
+- **THEN** `conversation_history` MUST include the final plain answer text
+- **AND** it MUST NOT include partially displayed text, omitted timer buffers, or rendered HTML.
+
+#### Scenario: New chat clears active smoothing state
+- **WHEN** the student activates the new-chat action or resets context
+- **THEN** any active smoothing timer, raw answer buffer, display buffer, and streaming renderer state for the previous turn MUST be cleared
+- **AND** the new chat MUST begin from the established empty or contextual state.
+
+### Requirement: Student assistant rich Markdown remains mobile layout-safe
+The student H5 AI assistant SHALL contain rich Markdown inside the assistant route without breaking mobile chat ergonomics.
+
+#### Scenario: Rich answer appears on root flat canvas
+- **WHEN** a root assistant answer contains tables, formulas, task lists, or Mermaid diagrams
+- **THEN** the content MUST remain visually part of the flat answer turn
+- **AND** it MUST not reintroduce a white card shell around the entire completed root assistant answer.
+
+#### Scenario: Rich answer appears on contextual route
+- **WHEN** a contextual assistant answer contains tables, formulas, task lists, or Mermaid diagrams
+- **THEN** the content MUST remain within the contextual assistant message boundary
+- **AND** it MUST not inherit root-only flat reply spacing unless explicitly scoped.
+
+#### Scenario: Rich content reaches the bottom area
+- **WHEN** a long rich Markdown answer scrolls near the composer and bottom navigation
+- **THEN** tables, formula scroll containers, Mermaid containers, and plugin controls MUST not overlap the composer or bottom navigation
+- **AND** the student MUST be able to continue scrolling, reading, and typing.
+
+#### Scenario: Keyboard-active chat remains usable
+- **WHEN** the soft keyboard is active while rich Markdown content exists in the conversation
+- **THEN** the composer MUST remain reachable according to the existing keyboard-aware layout
+- **AND** rich Markdown overflow containers MUST not steal layout height in a way that hides the input field.
+
+### Requirement: AI table detail uses a mobile table reader
+The student H5 Atom assistant SHALL render completed AI-generated Markdown table artifacts in a dedicated mobile table reader instead of a bare desktop-style grid.
+
+#### Scenario: Student opens a completed table artifact
+- **WHEN** a student opens a table artifact from a completed assistant answer
+- **THEN** the app MUST show the table in the existing route-backed artifact detail flow
+- **AND** the detail view MUST provide a polished mobile table reader surface with table canvas and row reading affordances.
+
+#### Scenario: Other rich artifacts remain unchanged
+- **WHEN** a student opens a Mermaid artifact from a completed assistant answer
+- **THEN** the app MUST continue to use the existing Mermaid detail viewer behavior
+- **AND** the table reader changes MUST NOT alter Mermaid rendering, Mermaid pan/zoom controls, or Mermaid fallback behavior.
+
+#### Scenario: Table artifact cannot be resolved
+- **WHEN** the table artifact id no longer maps to a table in the local assistant message history
+- **THEN** the app MUST show the existing student-safe unavailable state
+- **AND** it MUST NOT expose route internals, parser diagnostics, stack traces, or hidden artifact metadata.
+
+### Requirement: AI table canvas supports touch exploration
+The student H5 Atom assistant SHALL provide a touch-friendly canvas mode for wide AI-generated tables so students can inspect table structure on mobile screens.
+
+#### Scenario: Student explores a wide table
+- **WHEN** the table detail view contains more columns or cell width than the mobile viewport can comfortably display
+- **THEN** the viewer MUST allow the student to drag or scroll within the table area to inspect offscreen cells
+- **AND** the page itself MUST NOT gain horizontal document overflow.
+
+#### Scenario: Student zooms the table canvas
+- **WHEN** the student pinches the table canvas or uses explicit zoom controls
+- **THEN** the viewer MUST scale the table content within the detail surface
+- **AND** it MUST provide explicit controls for zoom in, zoom out, fit, and reset.
+
+#### Scenario: Student needs table context while exploring
+- **WHEN** the student pans or zooms a table in canvas mode
+- **THEN** the viewer MUST preserve enough header or first-column context for the student to understand which row and column they are inspecting
+- **AND** it MUST provide row reading mode as a non-transformed fallback for exact text reading.
+
+#### Scenario: Reduced motion is enabled
+- **WHEN** the device or browser indicates reduced motion preferences
+- **THEN** table canvas transitions MUST avoid nonessential animation
+- **AND** zoom/reset state changes MUST remain functional.
+
+### Requirement: AI table row reading preserves chemistry Markdown
+The student H5 Atom assistant SHALL let students focus a single AI table row as labeled fields while preserving the existing chemistry Markdown rendering stack.
+
+#### Scenario: Student opens a row reader
+- **WHEN** the student taps or activates a row in the table detail view
+- **THEN** the viewer MUST open a focused row reading surface
+- **AND** the first column value MUST be presented as the row title when available
+- **AND** each remaining cell MUST be presented with its column header as the field label.
+
+#### Scenario: Row cells contain chemistry content
+- **WHEN** a row cell contains Markdown, GFM emphasis, inline math, block math, or mhchem syntax
+- **THEN** the row reader MUST render that cell through the existing static AI Markdown rendering path
+- **AND** formulas such as `\\ce{Cl2 + 2Br- -> 2Cl- + Br2}` MUST be readable without leaking raw renderer implementation details.
+
+#### Scenario: Student closes the row reader
+- **WHEN** the student closes the focused row reading surface
+- **THEN** the viewer MUST return to the same table detail artifact
+- **AND** the selected row state MUST remain local UI state only.
+
+### Requirement: AI table detail preserves assistant answer boundaries
+The student H5 Atom assistant SHALL keep enhanced table viewer state separate from assistant messages, copying, and backend conversation history.
+
+#### Scenario: Student copies an assistant answer with a table
+- **WHEN** the student copies a completed assistant answer that contains a table artifact
+- **THEN** the copied content MUST be the original plain assistant Markdown answer
+- **AND** it MUST NOT include table reader labels, row reader labels, route ids, row ids, zoom state, rendered HTML, or control text.
+
+#### Scenario: Student asks a follow-up after using table detail
+- **WHEN** the student opens table detail, pans or zooms the table, opens a row reader, and then asks a follow-up
+- **THEN** the backend request MUST continue to send `conversation_history` as plain `{ role, content }` turns only
+- **AND** it MUST NOT include table viewer state, rendered table HTML, pan/zoom transforms, or artifact metadata.
+
+#### Scenario: Table rendering fails
+- **WHEN** the enhanced table reader cannot render a parsed table
+- **THEN** the app MUST show a student-safe fallback that preserves access to the original table content when possible
+- **AND** it MUST NOT present development diagnostics as normal answer text.
+
+### Requirement: AI artifact details use one canvas detail page
+The student H5 Atom assistant SHALL render completed AI-generated table and Mermaid artifacts through one route-backed second-level canvas detail page model.
+
+#### Scenario: Student opens a completed rich artifact
+- **WHEN** a student opens a completed assistant answer's table or Mermaid artifact detail
+- **THEN** the app MUST use the existing route-backed artifact detail flow
+- **AND** the detail page MUST use the shared AI artifact canvas shell for both table and Mermaid artifact kinds
+- **AND** the page title or accessible heading MUST identify whether the student is viewing a table detail or flowchart detail.
+
+#### Scenario: Artifact detail remains a second-level destination
+- **WHEN** a student is viewing an AI artifact detail page
+- **THEN** the page MUST behave as a second-level/detail route
+- **AND** the bottom navigation MUST remain hidden according to the existing route-stack rules
+- **AND** the back action MUST return to the assistant route or history context that opened the artifact when that context is still available.
+
+#### Scenario: Inline previews remain normal answer content
+- **WHEN** a completed assistant answer contains a table or Mermaid artifact
+- **THEN** the inline chat answer MUST remain readable without requiring navigation
+- **AND** the inline artifact affordance MUST open the shared canvas detail page
+- **AND** inline chat preview styles MUST NOT inherit the full-page canvas grid or floating detail controls.
+
+### Requirement: AI Mermaid detail renders as a canvas object
+The student H5 Atom assistant SHALL render completed Mermaid flowchart artifacts directly on the artifact canvas workspace instead of inside an inner card or framed panel.
+
+#### Scenario: Student opens a Mermaid flowchart detail
+- **WHEN** a student opens a Mermaid artifact detail from a completed assistant answer
+- **THEN** the flowchart MUST render as a transparent canvas object on the detail workspace grid
+- **AND** the detail view MUST NOT wrap the flowchart in an inner rounded card, bordered panel, framed preview box, or duplicated page background surface.
+
+#### Scenario: Student explores a Mermaid flowchart
+- **WHEN** the Mermaid flowchart is larger than the visible phone viewport
+- **THEN** the viewer MUST allow the student to pan the canvas and zoom the flowchart with touch gestures
+- **AND** the viewer MUST provide explicit controls for zoom in, zoom out, fit-to-view, and reset
+- **AND** those controls MUST remain outside the transformed Mermaid SVG layer.
+
+#### Scenario: Mermaid detail cannot render
+- **WHEN** the Mermaid artifact cannot be rendered from the completed assistant Markdown
+- **THEN** the detail page MUST show a student-safe fallback
+- **AND** it MUST NOT expose raw exceptions, parser internals, route internals, RAG traces, guardrail details, or backend diagnostics as normal student-facing text.
+
+### Requirement: AI table detail adapts to the canvas page
+The student H5 Atom assistant SHALL render completed Markdown table artifacts inside the same AI artifact canvas detail page while preserving table readability and row reading mode.
+
+#### Scenario: Student opens a table artifact detail
+- **WHEN** a student opens a completed assistant answer's table artifact detail
+- **THEN** the table MUST render inside the shared AI artifact canvas shell
+- **AND** the table content MUST be placed as an artifact object on the workspace rather than inside a stretched blank card or page-filling framed panel
+- **AND** the table object MUST size to useful table content instead of creating large empty table-detail space.
+
+#### Scenario: Table content remains readable on the canvas
+- **WHEN** a table contains dense Chinese text, Markdown emphasis, GFM content, KaTeX math, or mhchem chemistry syntax
+- **THEN** the table detail MUST preserve readable cells, table header context, and row/column relationships
+- **AND** table cell rendering MUST continue to use the existing static AI Markdown rendering path where rich chemistry content is rendered.
+
+#### Scenario: Student reads one table row
+- **WHEN** the student activates a row in the table detail page
+- **THEN** the viewer MUST provide the existing focused row reading mode
+- **AND** the row reader MUST remain an exact-reading surface that is not distorted by the current canvas zoom transform
+- **AND** closing the row reader MUST return to the same table artifact detail page.
+
+### Requirement: AI artifact canvas preserves assistant boundaries
+The student H5 Atom assistant SHALL keep canvas detail state separate from assistant messages, copied answer text, local history content, and backend conversation history.
+
+#### Scenario: Student copies an answer after opening artifact detail
+- **WHEN** the student opens table or Mermaid detail, pans or zooms the artifact, and then copies the assistant answer
+- **THEN** the copied content MUST be the original plain assistant Markdown answer
+- **AND** it MUST NOT include artifact route ids, canvas labels, zoom values, pan transforms, row-reader state, rendered SVG, rendered HTML, or detail control text.
+
+#### Scenario: Student asks a follow-up after using artifact detail
+- **WHEN** the student opens artifact detail, changes zoom or pan state, returns to chat, and asks a follow-up question
+- **THEN** the backend request MUST continue to send `conversation_history` as plain `{ role, content }` turns only
+- **AND** it MUST NOT include artifact metadata, rendered table DOM, rendered Mermaid SVG, canvas state, route state, row ids, or control labels.
+
+#### Scenario: Local history restores a previous answer
+- **WHEN** a student restores a local assistant history entry containing completed table or Mermaid artifacts
+- **THEN** the inline completed answer MUST still be able to open the shared artifact canvas detail page
+- **AND** any initial canvas transform or row-reader state MUST be recomputed locally rather than restored from assistant message content.
+
+### Requirement: Atom detail route supports full conversation controls
+The student H5 Atom assistant SHALL expose the same core Atom conversation controls on the focused `/ai/chat` detail route that it exposes on the `/ai` root route, while preserving detail-route navigation semantics.
+
+#### Scenario: Student opens focused Atom detail chat
+- **WHEN** a student opens `/ai/chat` from a point, video, chapter, assessment, history handoff, or future supported learning scene
+- **THEN** the page MUST render a modern Atom conversation surface rather than the legacy contextual assistant card layout
+- **AND** the page MUST expose supported Atom controls for local history, new chat, free-form asking, send, and context selection.
+
+#### Scenario: Detail chat keeps route role
+- **WHEN** `/ai/chat` renders with full Atom controls
+- **THEN** the route MUST remain a second-level detail route
+- **AND** the bottom navigation MUST remain hidden
+- **AND** source-aware back behavior MUST continue to return to the opening source.
+
+#### Scenario: Detail chat does not duplicate old context cards
+- **WHEN** `/ai/chat` has an active or seeded context
+- **THEN** the context MUST be represented through the Atom composer context chip or equivalent modern Atom binding affordance
+- **AND** the page MUST NOT also render the old standalone "current context" card as a parallel context surface.
+
+### Requirement: Atom route seed becomes editable context binding
+The student H5 Atom assistant SHALL treat a contextual route seed as an editable initial context before the first submitted user turn.
+
+#### Scenario: Detail route opens with contextKey
+- **WHEN** `/ai/chat` opens with a valid `contextKey`
+- **THEN** the resolved `AssistantContext` MUST seed the current Atom chat's context chip
+- **AND** the student MUST be able to ask immediately using that seeded context.
+
+#### Scenario: Seeded context is editable before first send
+- **WHEN** a seeded context is visible and the chat has no submitted user message
+- **THEN** the student MUST be able to remove or replace the seeded context
+- **AND** replacing the context MUST update the context used for the first submitted question.
+
+#### Scenario: Restored history overrides route seed
+- **WHEN** the student restores a local Atom history entry while on `/ai/chat`
+- **THEN** the restored history entry's saved context MUST become the active chat context
+- **AND** the original route seed MUST NOT overwrite the restored context until the student starts a new chat.
+
+#### Scenario: New chat reseeds from current route when available
+- **WHEN** the student activates new chat from `/ai/chat`
+- **THEN** visible turns, draft text, loading state, generated suggestions, and active local history id MUST be cleared
+- **AND** if the route still has a valid opening context seed, the fresh chat SHOULD show that seed as an editable context chip
+- **AND** if no valid route seed exists, the fresh chat MUST use the default global Atom context.
+
+### Requirement: Atom context binding locks after first user turn
+The student H5 Atom assistant SHALL enforce one bound context per chat after the first submitted user message across root and focused detail entry points.
+
+#### Scenario: Selected context before first send
+- **WHEN** the current Atom chat has a selected context and no submitted user message
+- **THEN** the context chip MUST communicate the selected learning background
+- **AND** the chip MUST allow removal or replacement before submission.
+
+#### Scenario: Selected context after first send
+- **WHEN** the current Atom chat has submitted at least one user message with a selected context
+- **THEN** the context chip MUST communicate that the chat is bound to that context
+- **AND** the app MUST NOT silently replace or remove that bound context inside the same chat
+- **AND** the student MUST start a new chat before binding a different context.
+
+#### Scenario: Global chat remains valid
+- **WHEN** the student submits from an Atom chat without selecting a context
+- **THEN** the assistant request MUST use the current global or restored context
+- **AND** the UI MUST NOT require context selection before asking.
+
+### Requirement: Atom first-turn context prompts are separate from follow-up prompts
+The student H5 Atom assistant SHALL use context-start prompts for selected-context empty chats and keep them distinct from model-generated post-answer follow-up prompts.
+
+#### Scenario: Empty selected-context chat shows start prompts
+- **WHEN** an Atom chat has a selected experiment or point context
+- **AND** no user message has been submitted
+- **THEN** the app SHOULD show compact first-turn prompt options tied to that context
+- **AND** those prompts SHOULD include student-facing directions such as observation, phenomenon explanation, principle, design reason, comparison, or common mistakes.
+
+#### Scenario: Start prompt is selected
+- **WHEN** the student activates a first-turn context prompt
+- **THEN** the app MUST submit a concrete question using the currently selected context
+- **AND** the selected context MUST become locked for that chat after submission.
+
+#### Scenario: Post-answer suggestions remain latest-turn metadata
+- **WHEN** a successful assistant turn returns sanitized `suggested_prompts`
+- **THEN** those prompts MUST remain post-answer next-turn suggestions
+- **AND** they MUST NOT be confused with the empty-chat context-start prompt stack.
+
+### Requirement: Student assistant cancels obsolete streams
+The student H5 Atom assistant SHALL cancel any active assistant stream when that stream is no longer the active visible turn.
+
+#### Scenario: Student leaves an active assistant route
+- **WHEN** a student assistant stream is active
+- **AND** the student leaves the route, the assistant component unmounts, or the teacher preview iframe destroys the student page
+- **THEN** the frontend MUST abort the active stream request
+- **AND** late events from that stream MUST NOT update React state after unmount.
+
+#### Scenario: Student starts a new chat while streaming
+- **WHEN** a student activates the Atom new-chat action while an answer is still streaming
+- **THEN** the frontend MUST abort the active stream request
+- **AND** the new empty chat state MUST NOT receive answer deltas, final metadata, or error events from the cancelled stream.
+
+#### Scenario: Student resets or clears context while streaming
+- **WHEN** a student resets the assistant context, clears the selected point, restores a different history entry, or otherwise replaces the active conversation while an answer is still streaming
+- **THEN** the frontend MUST abort the obsolete stream
+- **AND** the resulting active context and visible conversation MUST remain internally consistent.
+
+#### Scenario: Student submits a replacement request
+- **WHEN** the UI permits a new student assistant submission before the previous stream has completed
+- **THEN** the previous request MUST be cancelled before the new stream becomes active
+- **AND** only the newest active stream MUST be allowed to update the latest assistant turn.
+
+### Requirement: Student cancellation is not shown as an assistant failure
+The student H5 Atom assistant SHALL distinguish user-initiated cancellation from a real assistant error.
+
+#### Scenario: Browser abort is caught
+- **WHEN** the frontend catches an abort caused by its own `AbortController`
+- **THEN** it MUST stop the loading state for the cancelled turn
+- **AND** it MUST NOT show a student-facing error bubble, toast, or failed-answer copy solely because of the abort.
+
+#### Scenario: Cancelled stream has no final event
+- **WHEN** a cancelled stream ends before receiving a successful `final` event
+- **THEN** the frontend MUST NOT persist that turn as a completed local history entry
+- **AND** it MUST NOT attach stale `suggested_prompts`, stale `conversation_title`, or stale final metadata to the active chat.
+
+#### Scenario: Real stream error occurs while connected
+- **WHEN** a student assistant stream fails for a non-abort reason while the page is still active
+- **THEN** the frontend MUST keep the existing student-safe error behavior
+- **AND** the implementation MUST NOT hide real assistant failures as cancellation.
+
+### Requirement: Student stream helper supports abort signals
+The student H5 API stream helper SHALL accept an optional cancellation signal without breaking existing call sites.
+
+#### Scenario: Signal is provided
+- **WHEN** `streamStudentAssistantAsk` is called with an abort signal
+- **THEN** the helper MUST pass that signal to `fetch`
+- **AND** reader cleanup MUST stop reading the response body when the signal is aborted.
+
+#### Scenario: Signal is omitted
+- **WHEN** an existing caller uses `streamStudentAssistantAsk` without a signal
+- **THEN** the helper MUST continue to stream successful SSE events with the existing callback contract.
+
+### Requirement: Legacy student profile excludes Atom assistant surfaces
+The legacy student frontend SHALL not expose Atom or student AI assistant surfaces.
+
+#### Scenario: Legacy student navigation is rendered
+- **WHEN** an authenticated student opens `web-student-old`
+- **THEN** root navigation MUST NOT include an Atom, AI, assistant, chat, or learning-assistant tab
+- **AND** the old product MUST NOT provide visible routes equivalent to `/ai`, `/ai/chat`, or `/ai/artifact`
+
+#### Scenario: Legacy student opens learning or video detail
+- **WHEN** a student opens a legacy learning page, video feed item, point detail, search page, assessment page, or report page
+- **THEN** the page MUST NOT show Atom ask buttons, contextual AI actions, AI prompt chips, assistant composer controls, or Atom model cards
+- **AND** any current-product contextual assistant handoff MUST be omitted or replaced by BKT/learning-resource actions in the old product
+
+#### Scenario: Stale old student URL targets an assistant route
+- **WHEN** a student manually enters or follows a stale old-product URL for an assistant route
+- **THEN** the old product MUST redirect to a safe old route or render a controlled not-found state
+- **AND** it MUST NOT mount the current Atom assistant shell
+
+### Requirement: Legacy student reports avoid assistant branding
+The legacy student frontend SHALL present assessment explanations and learning suggestions without Atom or RAG branding.
+
+#### Scenario: Legacy student views an assessment report
+- **WHEN** a student opens a legacy assessment or posttest report
+- **THEN** report copy MUST use BKT, mastery, mistake review, learning suggestion, or teacher-reviewed explanation wording
+- **AND** it MUST NOT label summaries, suggestions, explanations, or source notes as Atom, RAG, Agent, or AI chat output
+
+### Requirement: Completed AI answers expose rich-content detail viewing
+The student H5 Atom assistant SHALL let students open completed AI-generated table and Mermaid artifacts into a mobile detail viewer while preserving inline chat readability.
+
+#### Scenario: Completed answer contains a GFM table
+- **WHEN** a completed assistant answer contains a rendered GFM table
+- **THEN** the inline chat answer MUST continue to render the table preview in place
+- **AND** the table preview MUST expose a touch-friendly detail affordance
+- **AND** activating the affordance MUST open a student AI rich-content detail view for that table.
+
+#### Scenario: Completed answer contains a Mermaid diagram
+- **WHEN** a completed assistant answer contains a rendered Mermaid flowchart or graph
+- **THEN** the inline chat answer MUST continue to render the diagram preview in place
+- **AND** the Mermaid preview MUST expose a touch-friendly detail affordance
+- **AND** activating the affordance MUST open a student AI rich-content detail view for that diagram.
+
+#### Scenario: Answer is still streaming
+- **WHEN** the latest assistant answer is still streaming or has incomplete Markdown
+- **THEN** the custom route-backed rich-content detail affordance SHOULD remain hidden or disabled
+- **AND** partial tables or partial Mermaid blocks MUST NOT be opened as final rich-content artifacts
+- **AND** any Streamdown-native active-turn controls MUST NOT corrupt the final completed-answer viewer state.
+
+#### Scenario: Inline preview remains usable
+- **WHEN** the student does not open the detail view
+- **THEN** inline tables and Mermaid previews MUST remain readable and scrollable within the chat surface
+- **AND** the detail affordance MUST NOT obscure table cells, diagram labels, formulas, the assistant action row, follow-up chips, or the composer.
+
+### Requirement: AI rich-content artifacts are identified from local Markdown history
+The student H5 Atom assistant SHALL identify table and Mermaid detail artifacts from plain Markdown chat history rather than persisted rendered HTML or SVG.
+
+#### Scenario: New assistant messages are created
+- **WHEN** the frontend creates user and assistant messages for a student AI conversation
+- **THEN** it MAY attach local-only message identifiers for UI routing
+- **AND** those identifiers MUST NOT be sent to the backend as part of `conversation_history`.
+
+#### Scenario: Rich artifact route opens
+- **WHEN** a rich-content detail route is opened with a history id, message id, and artifact id
+- **THEN** the app MUST read the local AI history entry
+- **AND** it MUST locate the assistant message by message id or a documented legacy fallback
+- **AND** it MUST derive the target table or Mermaid artifact from the message's plain Markdown content.
+
+#### Scenario: Legacy history lacks message identifiers
+- **WHEN** a restored local AI history entry was created before message ids existed
+- **THEN** the app MUST continue to render the conversation
+- **AND** it SHOULD derive stable local fallback ids from the history entry and message position
+- **AND** opening rich content SHOULD work when the target message and artifact can be unambiguously resolved.
+
+#### Scenario: Artifact cannot be resolved
+- **WHEN** the requested history entry, assistant message, or artifact cannot be found
+- **THEN** the rich-content detail view MUST show a student-safe fallback state
+- **AND** the student MUST have a clear back action
+- **AND** the UI MUST NOT expose parser internals, local-storage keys, stack traces, raw route params, or implementation diagnostics.
+
+### Requirement: Table detail viewer supports mobile reading
+The student H5 Atom assistant SHALL render AI-generated table details as a read-only mobile table reader optimized for comparison and inspection.
+
+#### Scenario: Student opens a table detail
+- **WHEN** a student opens a table artifact detail view
+- **THEN** the view MUST render the table content as a read-only learning artifact
+- **AND** it MUST preserve semantic table structure where practical
+- **AND** it MUST provide enough spacing and contrast for chemistry-learning prose, formulas, and observations.
+
+#### Scenario: Table is wider than the phone viewport
+- **WHEN** the table width exceeds the available detail-view width
+- **THEN** horizontal scrolling MUST remain available
+- **AND** persistent desktop scrollbar chrome SHOULD be hidden in phone preview contexts
+- **AND** hiding scrollbar chrome MUST NOT disable touch, pointer, wheel, keyboard, or programmatic scrolling.
+
+#### Scenario: Table has many rows
+- **WHEN** the table extends vertically beyond the visible detail area
+- **THEN** vertical scrolling MUST remain available
+- **AND** table header cells SHOULD remain visible through sticky header behavior where it improves reading
+- **AND** the detail header and controls MUST NOT cover table content.
+
+#### Scenario: First column provides row labels
+- **WHEN** the first column contains row labels, steps, reagents, or comparison categories
+- **THEN** the table detail viewer MAY keep the first column sticky
+- **AND** sticky first-column behavior MUST NOT overlap formulas, hide adjacent content, or create unreadable stacked cells.
+
+### Requirement: Mermaid detail viewer supports pan and zoom
+The student H5 Atom assistant SHALL render AI-generated Mermaid diagrams in a detail viewer that supports mobile pan, zoom, fit, and reset interactions.
+
+#### Scenario: Student opens a Mermaid detail
+- **WHEN** a student opens a Mermaid artifact detail view
+- **THEN** the app MUST render the diagram as SVG using the Atom assistant Mermaid theme
+- **AND** the diagram MUST remain sharp when zoomed
+- **AND** the view MUST provide drag or pan inspection for diagrams larger than the visible area.
+
+#### Scenario: Student uses touch gestures
+- **WHEN** the student's browser supports touch gestures
+- **THEN** the Mermaid detail viewer SHOULD support pinch-to-zoom and drag-to-pan inside the diagram area
+- **AND** the gesture handling MUST remain scoped to the viewer area
+- **AND** normal page back/navigation behavior MUST remain available.
+
+#### Scenario: Student uses explicit controls
+- **WHEN** the Mermaid detail viewer renders
+- **THEN** it MUST provide explicit controls for zooming in, zooming out, and fitting or resetting the diagram
+- **AND** each control MUST have a phone-appropriate hit target and accessible name
+- **AND** the controls MUST remain readable over the light Atom viewer surface.
+
+#### Scenario: Reduced motion is requested
+- **WHEN** the device or browser requests reduced motion
+- **THEN** pan/zoom functionality MUST remain available
+- **AND** animated transform transitions SHOULD be reduced or disabled.
+
+#### Scenario: Mermaid rendering fails
+- **WHEN** the Mermaid source cannot be rendered
+- **THEN** the detail viewer MUST show a student-safe fallback for the diagram
+- **AND** it MUST NOT expose raw stack traces, Mermaid parser internals, or development diagnostics as ordinary student content.
+
+### Requirement: Rich-content viewer preserves assistant privacy and copy boundaries
+The student H5 Atom assistant SHALL keep rich-content viewer controls separate from answer content, backend history, copied text, and student-safe role boundaries.
+
+#### Scenario: Student copies an assistant answer
+- **WHEN** the student activates the answer copy action on a message that contains rich-content controls
+- **THEN** the copied text MUST contain the original assistant answer Markdown
+- **AND** it MUST NOT include rendered table controls, Mermaid viewer controls, hidden route ids, HTML, SVG, pan/zoom state, parser diagnostics, or detail-view labels.
+
+#### Scenario: Conversation history is sent to backend
+- **WHEN** a follow-up assistant request sends recent conversation history
+- **THEN** each history item MUST include only the expected role and content fields
+- **AND** it MUST NOT include local message ids, artifact ids, route params, rendered HTML, rendered SVG, zoom state, or detail-view UI state.
+
+#### Scenario: Role-boundary metadata is present
+- **WHEN** assistant metadata includes sources, retrieval details, guardrail decisions, tool traces, or other internal fields
+- **THEN** the rich-content viewer MUST NOT expose those fields as visible student content
+- **AND** it MUST NOT make those fields available through table, Mermaid, copy, route, or fallback UI.
+
+### Requirement: Rich-content detail navigation preserves chat context
+The student H5 Atom assistant SHALL open rich-content detail views without losing the student's chat context, root/detail route semantics, or local history.
+
+#### Scenario: Rich content opens from the root AI route
+- **WHEN** the student opens a rich artifact from `/ai`
+- **THEN** the app MUST navigate to a student detail route or equivalent route-backed second-level view
+- **AND** the route MUST hide the root bottom navigation according to detail-route rules
+- **AND** the back action MUST return the student to the root AI conversation.
+
+#### Scenario: Rich content opens from contextual AI chat
+- **WHEN** the student opens a rich artifact from contextual `/ai/chat`
+- **THEN** the app MUST preserve enough source context to return the student to the contextual chat flow
+- **AND** the detail viewer MUST NOT introduce the root history action or root-only empty-state chrome.
+
+#### Scenario: New chat is started after returning
+- **WHEN** the student returns from a rich-content detail view and starts a new chat
+- **THEN** the existing new-chat behavior MUST continue to clear visible turns and context binding according to the established root/detail rules
+- **AND** the rich-content route state MUST NOT keep stale artifact content alive in the new chat.
 

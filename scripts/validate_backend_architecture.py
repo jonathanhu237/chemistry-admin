@@ -72,6 +72,46 @@ CATALOG_FORBIDDEN_SNIPPETS = (
     "node_kind IN ('point', 'hybrid')",
     'node_kind IN ("point", "hybrid")',
 )
+RETIRED_LOCAL_RAG_PATHS = [
+    APP_ROOT / "bge_service.py",
+    APP_ROOT / "hybrid_rag.py",
+    REPO_ROOT / "server" / "Dockerfile.bge-rag",
+    REPO_ROOT / "requirements-bge.txt",
+]
+RETIRED_LOCAL_RAG_IMPORTS = (
+    "server.app.hybrid_rag",
+    "server.app.bge_service",
+)
+
+RETIRED_SEED_PATHS = [
+    REPO_ROOT / "data" / "seed" / "experiment_points",
+    REPO_ROOT / "data" / "seed" / "point_evidence",
+    REPO_ROOT / "data" / "seed" / "question_bank",
+    REPO_ROOT / "data" / "seed" / "canonical_rag" / "embeddings",
+    REPO_ROOT / "data" / "seed" / "import_reports",
+    REPO_ROOT / "data" / "seed" / "manifests" / "legacy_cleanup_plan.json",
+    REPO_ROOT / "data" / "seed" / "experiment_catalog" / "canonical_point_groups.json",
+    REPO_ROOT / "data" / "seed" / "experiment_catalog" / "normalized_three_element_candidates.md",
+    REPO_ROOT / "data" / "seed" / "experiment_catalog" / "normalized_three_element_node_mapping.json",
+    REPO_ROOT / "data" / "seed" / "experiment_catalog" / "normalized_three_element_node_mapping.md",
+    REPO_ROOT / "data" / "seed" / "experiment_catalog" / "three_element_chemistry_review.md",
+]
+RETIRED_SEED_SCRIPT_PATHS = [
+    REPO_ROOT / "scripts" / "point_aware_question_bank.py",
+    REPO_ROOT / "scripts" / "import_manual_reviewed_point_evidence.py",
+    REPO_ROOT / "scripts" / "import_experiment_question_bank.py",
+    REPO_ROOT / "scripts" / "manual_review_video_point_evidence.py",
+    REPO_ROOT / "scripts" / "refine_video_point_trusted_evidence.py",
+]
+PROTECTED_DEFAULT_RESET_TABLES = (
+    "experiment_question_banks",
+    "experiment_questions",
+    "experiment_catalog_point_evidence_state",
+    "experiment_catalog_point_evidence_bindings",
+    "experiment_catalog_point_media_bindings",
+    "source_documents",
+    "source_chunks",
+)
 
 
 @dataclass(frozen=True)
@@ -90,7 +130,7 @@ def _python_files(root: Path) -> Iterable[Path]:
 
 
 def _imports(path: Path) -> list[str]:
-    tree = ast.parse(path.read_text(encoding="utf-8"), filename=str(path))
+    tree = ast.parse(path.read_text(encoding="utf-8-sig"), filename=str(path))
     imports: list[str] = []
     for node in ast.walk(tree):
         if isinstance(node, ast.Import):
@@ -207,7 +247,7 @@ def validate_catalog_tree_boundaries() -> list[Violation]:
     for path in CATALOG_LIVE_PATHS:
         files = [path] if path.is_file() else _python_files(path)
         for file in files:
-            text_value = file.read_text(encoding="utf-8")
+            text_value = file.read_text(encoding="utf-8-sig")
             for snippet in CATALOG_FORBIDDEN_SNIPPETS:
                 if snippet in text_value:
                     violations.append(Violation(file, f"retired catalog tree live path snippet is present: {snippet}"))
@@ -218,6 +258,39 @@ def validate_catalog_tree_boundaries() -> list[Violation]:
     return violations
 
 
+def validate_retired_local_rag_removed() -> list[Violation]:
+    violations: list[Violation] = []
+    for path in RETIRED_LOCAL_RAG_PATHS:
+        if path.exists():
+            violations.append(Violation(path, "retired local BGE/RAG sidecar artifact must not exist"))
+    for path in _python_files(APP_ROOT):
+        for module in _imports(path):
+            matched = _matches(module, RETIRED_LOCAL_RAG_IMPORTS)
+            if matched:
+                violations.append(Violation(path, f"retired local BGE/RAG runtime import is present: {module}"))
+    return violations
+
+
+def validate_current_seed_boundary() -> list[Violation]:
+    violations: list[Violation] = []
+    for path in [*RETIRED_SEED_PATHS, *RETIRED_SEED_SCRIPT_PATHS]:
+        if path.exists():
+            violations.append(Violation(path, "retired seed artifact or legacy script must not exist"))
+    catalog_seed = APP_ROOT / "domains" / "catalog_tree" / "catalog_seed.py"
+    if catalog_seed.exists():
+        source = catalog_seed.read_text(encoding="utf-8-sig")
+        signature = "def import_catalog_seed("
+        if signature in source:
+            after_signature = source.split(signature, 1)[1].split(") ->", 1)[0]
+            if "reset: bool = False" not in after_signature:
+                violations.append(Violation(catalog_seed, "catalog seed import must default to reset=False"))
+        reset_function = source.split("def reset_legacy_experiment_seed_data", 1)[-1]
+        for table in PROTECTED_DEFAULT_RESET_TABLES:
+            if f"DELETE FROM {table}" in reset_function:
+                violations.append(Violation(catalog_seed, f"default legacy reset deletes protected current table: {table}"))
+    return violations
+
+
 def validate() -> list[Violation]:
     return [
         *validate_import_boundaries(),
@@ -225,6 +298,8 @@ def validate() -> list[Violation]:
         *validate_fastapi_tool_entrypoint(),
         *validate_route_inventory(),
         *validate_catalog_tree_boundaries(),
+        *validate_retired_local_rag_removed(),
+        *validate_current_seed_boundary(),
     ]
 
 

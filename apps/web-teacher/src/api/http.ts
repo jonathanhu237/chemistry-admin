@@ -64,6 +64,7 @@ export async function postJsonStream<T>(
   path: string,
   body: unknown,
   onEvent: (event: JsonStreamEvent<T>) => void | Promise<void>,
+  options: { signal?: AbortSignal } = {},
 ): Promise<void> {
   const headers = new Headers();
   headers.set("Accept", "text/event-stream");
@@ -72,7 +73,8 @@ export async function postJsonStream<T>(
   if (authToken) {
     headers.set("Authorization", `Bearer ${authToken}`);
   }
-  const response = await fetch(`${apiBase}${path}`, { method: "POST", body: JSON.stringify(body), headers });
+  let reader: ReadableStreamDefaultReader<Uint8Array> | undefined;
+  const response = await fetch(`${apiBase}${path}`, { method: "POST", body: JSON.stringify(body), headers, signal: options.signal });
   if (response.status === 401) {
     setAuthToken("");
   }
@@ -85,24 +87,42 @@ export async function postJsonStream<T>(
     throw new ApiError(response.status, "当前浏览器不支持流式响应读取");
   }
 
-  const reader = response.body.getReader();
-  const decoder = new TextDecoder();
-  let buffer = "";
+  reader = response.body.getReader();
+  const abortReader = () => {
+    void reader?.cancel().catch(() => undefined);
+  };
+  options.signal?.addEventListener("abort", abortReader, { once: true });
+  try {
+    const decoder = new TextDecoder();
+    let buffer = "";
 
-  while (true) {
-    const { done, value } = await reader.read();
-    buffer += decoder.decode(value || new Uint8Array(), { stream: !done });
-    const blocks = buffer.split(/\r?\n\r?\n/);
-    buffer = blocks.pop() || "";
-    for (const block of blocks) {
-      const event = parseSseBlock(block);
+    while (true) {
+      if (options.signal?.aborted) {
+        await reader.cancel().catch(() => undefined);
+        break;
+      }
+      const { done, value } = await reader.read();
+      buffer += decoder.decode(value || new Uint8Array(), { stream: !done });
+      const blocks = buffer.split(/\r?\n\r?\n/);
+      buffer = blocks.pop() || "";
+      for (const block of blocks) {
+        const event = parseSseBlock(block);
+        if (event) await onEvent(event as JsonStreamEvent<T>);
+      }
+      if (done) break;
+    }
+
+    if (!options.signal?.aborted) {
+      const event = parseSseBlock(buffer);
       if (event) await onEvent(event as JsonStreamEvent<T>);
     }
-    if (done) break;
+  } finally {
+    options.signal?.removeEventListener("abort", abortReader);
   }
+}
 
-  const event = parseSseBlock(buffer);
-  if (event) await onEvent(event as JsonStreamEvent<T>);
+export function isJsonStreamAbort(error: unknown): boolean {
+  return error instanceof DOMException && error.name === "AbortError";
 }
 
 export function postJson<T>(path: string, body: unknown): Promise<T> {

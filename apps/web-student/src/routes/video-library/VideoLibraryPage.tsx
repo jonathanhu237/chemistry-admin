@@ -212,6 +212,26 @@ type LearningSearchRow =
       item: VideoLibraryDefaultVideo;
     };
 
+type LearningRecommendationContext = {
+  isScoped: boolean;
+  profileId: string;
+  chapterId: string;
+  sourceNodeId: string;
+  catalogPath: string;
+  elementSymbol: string;
+};
+
+type DefaultBrowseSnapshot = {
+  key: string;
+  recommendedVideos: VideoLibraryDefaultVideo[];
+  learningRows: LearningSearchRow[];
+  recommendedTerms: string[];
+};
+
+function makeLoadKey(parts: Record<string, string | boolean>): string {
+  return JSON.stringify(parts);
+}
+
 function learningChapterLabel(target: StudentVideoLibraryRouteTarget | null | undefined, profiles: StudentLearningProfileSummary[]): string {
   if (!target) return "";
   const profile =
@@ -296,6 +316,26 @@ function learningRowIdentity(row: LearningSearchRow): string {
   return `directory:${row.item.target?.node_id || row.item.target?.chapter_id || row.item.id}`;
 }
 
+function targetMatchesLearningContext(target: StudentVideoLibraryRouteTarget | null | undefined, context: LearningRecommendationContext): boolean {
+  if (!context.isScoped) return true;
+  if (!target) return false;
+  if (context.profileId && target.profile_id === context.profileId) return true;
+  if (context.chapterId && target.chapter_id === context.chapterId) return true;
+  if (
+    context.sourceNodeId &&
+    [target.node_id, target.placement_node_id, target.canonical_point_id, target.source_node_id].some((id) => id === context.sourceNodeId)
+  ) {
+    return true;
+  }
+  if (context.elementSymbol && target.element_symbol === context.elementSymbol) return true;
+  if (context.catalogPath) {
+    const requestedPath = context.catalogPath.toLowerCase();
+    const targetPath = (target.catalog_path || []).join(" / ").toLowerCase();
+    if (targetPath && (targetPath.includes(requestedPath) || requestedPath.includes(targetPath))) return true;
+  }
+  return false;
+}
+
 export function VideoLibraryPage({ scope = "video" }: { scope?: SearchScope }) {
   const navigate = useNavigate();
   const search = useSearch({ strict: false }) as StudentRouteSearch;
@@ -308,12 +348,19 @@ export function VideoLibraryPage({ scope = "video" }: { scope?: SearchScope }) {
   const [draft, setDraft] = useState(query);
   const [history, setHistory] = useState<string[]>(() => readVideoLibrarySearchHistory(historyStorageKey));
   const [payload, setPayload] = useState<StudentVideoLibrarySearchResponse | null>(null);
+  const [payloadKey, setPayloadKey] = useState("");
   const [homeFeedItems, setHomeFeedItems] = useState<StudentHomeVideoFeedItem[]>([]);
+  const [homeFeedKey, setHomeFeedKey] = useState("");
+  const [feedLoading, setFeedLoading] = useState(false);
   const [learningPage, setLearningPage] = useState<StudentLearningPageResponse | null>(null);
+  const [learningPageKey, setLearningPageKey] = useState("");
+  const [learningLoading, setLearningLoading] = useState(false);
   const [catalogRecords, setCatalogRecords] = useState<CatalogSearchRecord[]>([]);
+  const [catalogRecordsKey, setCatalogRecordsKey] = useState("");
   const [chapterTitle, setChapterTitle] = useState("");
   const [catalogLoading, setCatalogLoading] = useState(false);
   const [catalogError, setCatalogError] = useState("");
+  const [defaultBrowseSnapshot, setDefaultBrowseSnapshot] = useState<DefaultBrowseSnapshot | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const hasQuery = query.trim().length > 0;
@@ -327,6 +374,31 @@ export function VideoLibraryPage({ scope = "video" }: { scope?: SearchScope }) {
     : [];
   const catalogChapterIdsKey = catalogChapterIds.join("|");
   const learningRootLabel = hasScopedLearningContext && learningPage?.active_profile ? formatChapterEntryTitle(learningPage.active_profile) : chapterTitle || "全部章节";
+  const payloadRequestKey = query;
+  const homeFeedRequestKey = hasQuery ? "query" : "default";
+  const learningPageRequestKey = isLearningScope ? compactText(search.profileId) || "__root__" : "__video__";
+  const catalogRecordsRequestKey = isLearningScope ? catalogChapterIdsKey || "__none__" : "__video__";
+  const defaultBrowseRequestKey = makeLoadKey({
+    scope,
+    query: query.trim(),
+    profileId: compactText(search.profileId),
+    chapterId: compactText(search.chapterId),
+    activeChapterId: compactText(activeChapterId),
+    sourceNodeId: compactText(search.sourceNodeId),
+    catalogPath: compactText(search.catalogPath),
+    elementSymbol: compactText(search.elementSymbol),
+  });
+  const learningRecommendationContext = useMemo<LearningRecommendationContext>(
+    () => ({
+      isScoped: isLearningScope && hasScopedLearningContext,
+      profileId: compactText(search.profileId),
+      chapterId: compactText(search.chapterId || activeChapterId),
+      sourceNodeId: compactText(search.sourceNodeId),
+      catalogPath: compactText(search.catalogPath),
+      elementSymbol: compactText(search.elementSymbol),
+    }),
+    [activeChapterId, hasScopedLearningContext, isLearningScope, search.catalogPath, search.chapterId, search.elementSymbol, search.profileId, search.sourceNodeId],
+  );
 
   const routeSearchForQuery = (nextQuery: string) =>
     compactSearch({
@@ -356,14 +428,21 @@ export function VideoLibraryPage({ scope = "video" }: { scope?: SearchScope }) {
 
   useEffect(() => {
     let cancelled = false;
+    const requestKey = payloadRequestKey;
     setLoading(true);
     setError("");
+    setPayloadKey("");
     searchStudentVideoLibrary(query)
       .then((response) => {
-        if (!cancelled) setPayload(response);
+        if (cancelled) return;
+        setPayload(response);
+        setPayloadKey(requestKey);
       })
       .catch((requestError) => {
-        if (!cancelled) setError(errorMessage(requestError));
+        if (cancelled) return;
+        setPayload(null);
+        setPayloadKey(requestKey);
+        setError(errorMessage(requestError));
       })
       .finally(() => {
         if (!cancelled) setLoading(false);
@@ -371,35 +450,55 @@ export function VideoLibraryPage({ scope = "video" }: { scope?: SearchScope }) {
     return () => {
       cancelled = true;
     };
-  }, [query]);
+  }, [payloadRequestKey, query]);
 
   useEffect(() => {
     let cancelled = false;
+    const requestKey = homeFeedRequestKey;
+    setFeedLoading(true);
+    setHomeFeedKey("");
     getStudentHomeVideoFeed(hasQuery ? 16 : DEFAULT_VIDEO_ROWS)
       .then((response) => {
-        if (!cancelled) setHomeFeedItems(response.items || []);
+        if (cancelled) return;
+        setHomeFeedItems(response.items || []);
+        setHomeFeedKey(requestKey);
       })
       .catch(() => {
-        if (!cancelled) setHomeFeedItems([]);
+        if (cancelled) return;
+        setHomeFeedItems([]);
+        setHomeFeedKey(requestKey);
+      })
+      .finally(() => {
+        if (!cancelled) setFeedLoading(false);
       });
     return () => {
       cancelled = true;
     };
-  }, [hasQuery]);
+  }, [hasQuery, homeFeedRequestKey]);
 
   useEffect(() => {
+    const requestKey = learningPageRequestKey;
     let cancelled = false;
+    setLearningLoading(true);
+    setLearningPageKey("");
     getStudentLearningPage(isLearningScope ? search.profileId : undefined)
       .then((response) => {
-        if (!cancelled) setLearningPage(response);
+        if (cancelled) return;
+        setLearningPage(response);
+        setLearningPageKey(requestKey);
       })
       .catch(() => {
-        if (!cancelled) setLearningPage(null);
+        if (cancelled) return;
+        setLearningPage(null);
+        setLearningPageKey(requestKey);
+      })
+      .finally(() => {
+        if (!cancelled) setLearningLoading(false);
       });
     return () => {
       cancelled = true;
     };
-  }, [isLearningScope, search.profileId]);
+  }, [isLearningScope, learningPageRequestKey, search.profileId]);
 
   useEffect(() => {
     const chapterIds = catalogChapterIdsKey ? catalogChapterIdsKey.split("|").filter(Boolean) : [];
@@ -407,20 +506,28 @@ export function VideoLibraryPage({ scope = "video" }: { scope?: SearchScope }) {
       setCatalogRecords([]);
       setChapterTitle("");
       setCatalogError("");
+      setCatalogRecordsKey(catalogRecordsRequestKey);
       setCatalogLoading(false);
       return;
     }
     let cancelled = false;
+    const requestKey = catalogRecordsRequestKey;
     setCatalogLoading(true);
     setCatalogError("");
+    setCatalogRecordsKey("");
     buildCatalogSearchIndexes(chapterIds)
       .then(({ chapterTitle: nextChapterTitle, records }) => {
         if (cancelled) return;
         setChapterTitle(nextChapterTitle);
         setCatalogRecords(records);
+        setCatalogRecordsKey(requestKey);
       })
       .catch((requestError) => {
-        if (!cancelled) setCatalogError(errorMessage(requestError));
+        if (cancelled) return;
+        setCatalogRecords([]);
+        setChapterTitle("");
+        setCatalogError(errorMessage(requestError));
+        setCatalogRecordsKey(requestKey);
       })
       .finally(() => {
         if (!cancelled) setCatalogLoading(false);
@@ -428,9 +535,14 @@ export function VideoLibraryPage({ scope = "video" }: { scope?: SearchScope }) {
     return () => {
       cancelled = true;
     };
-  }, [catalogChapterIdsKey, isLearningScope]);
+  }, [catalogChapterIdsKey, catalogRecordsRequestKey, isLearningScope]);
 
-  const searchItems = useMemo(() => payload?.groups.flatMap((group) => group.items) || [], [payload]);
+  const payloadReady = payloadKey === payloadRequestKey && !loading;
+  const homeFeedReady = homeFeedKey === homeFeedRequestKey && !feedLoading;
+  const learningPageReady = learningPageKey === learningPageRequestKey && !learningLoading;
+  const catalogRecordsReady = catalogRecordsKey === catalogRecordsRequestKey && !catalogLoading;
+  const activePayload = payloadKey === payloadRequestKey ? payload : null;
+  const searchItems = useMemo(() => activePayload?.groups.flatMap((group) => group.items) || [], [activePayload]);
   const videoResultItems = useMemo(() => {
     const seen = new Set<string>();
     return searchItems.filter((item) => {
@@ -455,7 +567,7 @@ export function VideoLibraryPage({ scope = "video" }: { scope?: SearchScope }) {
     });
   }, [isLearningScope, searchItems]);
   const catalogDirectoryResults = useMemo(() => {
-    if (!isLearningScope || !hasQuery) return [];
+    if (!isLearningScope || !hasQuery || !catalogRecordsReady) return [];
     const loweredQuery = query.trim().toLowerCase();
     const directoryById = new Map(catalogRecords.filter((record) => record.node.node_kind === "directory").map((record) => [record.node.node_id, record]));
     const seen = new Set<string>();
@@ -469,20 +581,21 @@ export function VideoLibraryPage({ scope = "video" }: { scope?: SearchScope }) {
       results.push(directoryRecord);
     });
     return results.slice(0, 10);
-  }, [catalogRecords, hasQuery, isLearningScope, query]);
+  }, [catalogRecords, catalogRecordsReady, hasQuery, isLearningScope, query]);
   const defaultVideos = useMemo(() => {
     const seen = new Set<string>();
     const rows = [
       ...homeFeedItems.map((item) => defaultVideoFromFeed(item, learningProfiles)),
-      ...(payload?.browse.recommended || []).map((item) => defaultVideoFromSearchResult(item, learningProfiles, homeFeedItems)),
+      ...(activePayload?.browse.recommended || []).map((item) => defaultVideoFromSearchResult(item, learningProfiles, homeFeedItems)),
     ].filter((item) => {
+      if (isLearningScope && !targetMatchesLearningContext(item.target, learningRecommendationContext)) return false;
       const key = item.target?.node_id || item.target?.placement_node_id || item.title;
       if (!key || seen.has(key)) return false;
       seen.add(key);
       return true;
     });
     return rows.slice(0, DEFAULT_VIDEO_ROWS);
-  }, [homeFeedItems, learningProfiles, payload?.browse.recommended]);
+  }, [activePayload?.browse.recommended, homeFeedItems, isLearningScope, learningProfiles, learningRecommendationContext]);
   const learningResultRows = useMemo(() => {
     if (!isLearningScope) return [];
     const rows: LearningSearchRow[] = [
@@ -516,19 +629,53 @@ export function VideoLibraryPage({ scope = "video" }: { scope?: SearchScope }) {
   }, [catalogRecords, defaultVideos, isLearningScope, learningRootLabel]);
   const recommendedTerms = useMemo(
     () =>
-      (payload?.browse.chips || [])
+      (activePayload?.browse.chips || [])
         .map((chip) => compactText(chip.query || chip.label))
         .filter((term, index, source) => Boolean(term) && source.indexOf(term) === index)
         .slice(0, 6),
-    [payload?.browse.chips],
+    [activePayload?.browse.chips],
   );
+  useEffect(() => {
+    if (hasQuery) {
+      setDefaultBrowseSnapshot(null);
+      return;
+    }
+    const sourcesReady = payloadReady && homeFeedReady && learningPageReady && (!isLearningScope || catalogRecordsReady);
+    if (!sourcesReady) {
+      setDefaultBrowseSnapshot((current) => (current?.key === defaultBrowseRequestKey ? current : null));
+      return;
+    }
+    setDefaultBrowseSnapshot({
+      key: defaultBrowseRequestKey,
+      recommendedVideos: defaultVideos,
+      learningRows: learningDefaultRows,
+      recommendedTerms,
+    });
+  }, [
+    catalogRecordsReady,
+    defaultBrowseRequestKey,
+    defaultVideos,
+    hasQuery,
+    homeFeedReady,
+    isLearningScope,
+    learningDefaultRows,
+    learningPageReady,
+    payloadReady,
+    recommendedTerms,
+  ]);
   const visibleHistory = history.slice(0, DEFAULT_HISTORY_ROWS);
-  const hasDefaultRecommendations = isLearningScope ? learningDefaultRows.length > 0 : defaultVideos.length > 0;
+  const activeDefaultSnapshot = !hasQuery && defaultBrowseSnapshot?.key === defaultBrowseRequestKey ? defaultBrowseSnapshot : null;
+  const snapshotRecommendedVideos = activeDefaultSnapshot?.recommendedVideos || [];
+  const snapshotLearningRows = activeDefaultSnapshot?.learningRows || [];
+  const snapshotRecommendedTerms = activeDefaultSnapshot?.recommendedTerms || [];
+  const hasDefaultRecommendations = isLearningScope ? snapshotLearningRows.length > 0 : snapshotRecommendedVideos.length > 0;
   const showDefaultBrowse =
-    !hasQuery && !error && (hasDefaultRecommendations || recommendedTerms.length > 0 || visibleHistory.length > 0 || (!loading && Boolean(payload)));
-  const showLoadingState = loading && hasQuery && !payload;
-  const showErrorState = Boolean(error) && (hasQuery || !hasDefaultRecommendations);
-  const showPayloadBanner = Boolean(payload?.message && payload.status !== "ok" && payload.status !== "empty");
+    !hasQuery && Boolean(activeDefaultSnapshot) && (hasDefaultRecommendations || snapshotRecommendedTerms.length > 0 || visibleHistory.length > 0 || Boolean(activeDefaultSnapshot));
+  const searchResultsReady = hasQuery && payloadReady && learningPageReady && (!isLearningScope || catalogRecordsReady);
+  const showSearchLoadingState = hasQuery && !searchResultsReady && !error;
+  const showDefaultLoadingState = !hasQuery && !activeDefaultSnapshot;
+  const showErrorState = Boolean(error) && hasQuery;
+  const showPayloadBanner = Boolean(activePayload?.message && activePayload.status !== "ok" && activePayload.status !== "empty");
 
   const submitSearch = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -648,17 +795,18 @@ export function VideoLibraryPage({ scope = "video" }: { scope?: SearchScope }) {
         </form>
       </header>
       <section className="video-library-page" aria-label="实验视频库">
-        {showPayloadBanner ? <div className={`video-library-banner ${payload?.status}`}>{payload?.message}</div> : null}
-        {showLoadingState ? <LearningState icon={<LoaderCircle className="spin" size={23} />} text="正在检索实验视频库" /> : null}
+        {showPayloadBanner ? <div className={`video-library-banner ${activePayload?.status}`}>{activePayload?.message}</div> : null}
+        {showSearchLoadingState ? <LearningState icon={<LoaderCircle className="spin" size={23} />} text="正在检索实验视频库" /> : null}
+        {showDefaultLoadingState ? <LearningState icon={<LoaderCircle className="spin" size={23} />} text="正在整理推荐内容" /> : null}
         {showErrorState ? <LearningState icon={<FlaskConical size={23} />} text={error} /> : null}
 
         {showDefaultBrowse ? (
           <DefaultBrowse
             scope={scope}
             history={visibleHistory}
-            recommendedVideos={defaultVideos}
-            learningRows={learningDefaultRows}
-            recommendedTerms={recommendedTerms}
+            recommendedVideos={snapshotRecommendedVideos}
+            learningRows={snapshotLearningRows}
+            recommendedTerms={snapshotRecommendedTerms}
             onUseQuery={useQuery}
             onOpenVideo={openDefaultVideo}
             onOpenDirectory={openResult}
@@ -666,13 +814,13 @@ export function VideoLibraryPage({ scope = "video" }: { scope?: SearchScope }) {
           />
         ) : null}
 
-        {!loading && !error && payload && hasQuery ? (
+        {searchResultsReady && !error && activePayload ? (
           <SearchResults
             query={query.trim()}
             scope={scope}
             learningRows={learningResultRows}
             videoResults={videoResults}
-            catalogLoading={catalogLoading}
+            catalogLoading={isLearningScope && !catalogRecordsReady}
             catalogError={catalogError}
             onOpenVideo={openSearchVideo}
             onOpenDirectory={openResult}
@@ -762,17 +910,19 @@ function SearchResults({
 
 function LearningSearchResultRow({
   row,
+  reserveVideoCover = false,
   onOpenVideo,
   onOpenDirectory,
   onOpenCatalogRecord,
 }: {
   row: LearningSearchRow;
+  reserveVideoCover?: boolean;
   onOpenVideo: (item: VideoLibraryDefaultVideo) => void;
   onOpenDirectory: (item: StudentVideoLibraryResultItem) => void;
   onOpenCatalogRecord: (record: CatalogSearchRecord) => void;
 }) {
   if (row.kind === "video") {
-    return <SearchVideoRow item={row.item} onClick={() => onOpenVideo(row.item)} />;
+    return <SearchVideoRow item={row.item} reserveCover={reserveVideoCover} onClick={() => onOpenVideo(row.item)} />;
   }
   if (row.kind === "catalog-directory") {
     return <DirectoryResultRow title={row.title} subtitle={row.subtitle} eyebrow={row.eyebrow} onClick={() => onOpenCatalogRecord(row.record)} />;
@@ -780,10 +930,11 @@ function LearningSearchResultRow({
   return <DirectoryResultRow title={row.title} subtitle={row.subtitle} eyebrow={row.eyebrow} onClick={() => onOpenDirectory(row.item)} />;
 }
 
-function SearchVideoRow({ item, onClick }: { item: VideoLibraryDefaultVideo; onClick: () => void }) {
+function SearchVideoRow({ item, reserveCover = false, onClick }: { item: VideoLibraryDefaultVideo; reserveCover?: boolean; onClick: () => void }) {
   const path = item.subtitle || item.snippet || "实验视频";
+  const hasCoverSlot = reserveCover || Boolean(item.thumbnailUrl);
   return (
-    <button className={`video-library-search-video-row${item.thumbnailUrl ? " has-cover" : ""}`} type="button" onClick={onClick} disabled={!item.target}>
+    <button className={`video-library-search-video-row${hasCoverSlot ? " has-cover" : ""}`} type="button" onClick={onClick} disabled={!item.target}>
       <span className="video-library-row-icon">
         <Video size={25} />
       </span>
@@ -792,9 +943,9 @@ function SearchVideoRow({ item, onClick }: { item: VideoLibraryDefaultVideo; onC
         <small>{path}</small>
         {item.chapterLabel ? <span className="video-library-row-chapter-tag">{item.chapterLabel}</span> : null}
       </span>
-      {item.thumbnailUrl ? (
-        <span className="video-library-row-cover" aria-hidden="true">
-          <img src={item.thumbnailUrl} alt="" loading="lazy" />
+      {hasCoverSlot ? (
+        <span className={`video-library-row-cover${item.thumbnailUrl ? "" : " fallback"}`} aria-hidden="true">
+          {item.thumbnailUrl ? <img src={item.thumbnailUrl} alt="" loading="lazy" /> : <Video size={20} />}
         </span>
       ) : null}
       <ArrowUpLeft className="video-library-row-arrow" size={27} />
@@ -881,6 +1032,7 @@ function DefaultBrowse({
               <LearningSearchResultRow
                 key={row.key}
                 row={row}
+                reserveVideoCover
                 onOpenVideo={onOpenVideo}
                 onOpenDirectory={onOpenDirectory}
                 onOpenCatalogRecord={onOpenCatalogRecord}
@@ -932,7 +1084,7 @@ function DefaultBrowse({
 function RecommendedVideoRow({ item, onClick }: { item: VideoLibraryDefaultVideo; onClick: () => void }) {
   const path = item.subtitle || item.snippet || "实验视频";
   return (
-    <button className={`video-library-recommend-row${item.thumbnailUrl ? " has-cover" : ""}`} type="button" onClick={onClick} disabled={!item.target}>
+    <button className="video-library-recommend-row has-cover" type="button" onClick={onClick} disabled={!item.target}>
       <span className="video-library-row-icon">
         <Video size={25} />
       </span>
@@ -941,11 +1093,9 @@ function RecommendedVideoRow({ item, onClick }: { item: VideoLibraryDefaultVideo
         <small>{path}</small>
         {item.chapterLabel ? <span className="video-library-row-chapter-tag">{item.chapterLabel}</span> : null}
       </span>
-      {item.thumbnailUrl ? (
-        <span className="video-library-row-cover" aria-hidden="true">
-          <img src={item.thumbnailUrl} alt="" loading="lazy" />
-        </span>
-      ) : null}
+      <span className={`video-library-row-cover${item.thumbnailUrl ? "" : " fallback"}`} aria-hidden="true">
+        {item.thumbnailUrl ? <img src={item.thumbnailUrl} alt="" loading="lazy" /> : <Video size={20} />}
+      </span>
       <ArrowUpLeft className="video-library-row-arrow" size={27} />
     </button>
   );

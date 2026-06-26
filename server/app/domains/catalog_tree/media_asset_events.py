@@ -86,3 +86,63 @@ def handle_media_asset_archived(
         "affected_placement_node_ids": placement_ids,
         "archived_binding_ids": [str(row["binding_id"]) for row in rows],
     }
+
+
+def handle_media_asset_deleted(
+    session: Any,
+    *,
+    media_asset_id: str,
+    actor_user_id: str | None,
+    reason: str | None,
+) -> dict[str, Any]:
+    rows = [
+        dict(row)
+        for row in session.execute(
+            text(
+                """
+                UPDATE experiment_catalog_point_media_bindings
+                SET binding_status = 'archived',
+                    metadata = COALESCE(metadata, '{}'::jsonb) || jsonb_build_object(
+                      'archived_reason', 'media_asset_deleted',
+                      'deleted_media_asset_id', CAST(:media_asset_id AS text),
+                      'deleted_by', CAST(:actor_user_id AS text),
+                      'delete_reason', CAST(:reason AS text),
+                      'previous_binding_status', binding_status
+                    ),
+                    updated_by = CAST(:actor_user_id AS uuid),
+                    updated_at = now()
+                WHERE media_asset_id = CAST(:media_asset_id AS uuid)
+                  AND binding_status <> 'archived'
+                RETURNING id AS binding_id, node_id, canonical_point_id, source_placement_node_id
+                """
+            ),
+            {
+                "media_asset_id": media_asset_id,
+                "actor_user_id": actor_user_id,
+                "reason": reason,
+            },
+        )
+        .mappings()
+        .all()
+    ]
+    placement_ids = _affected_placement_ids(session, rows)
+    for placement_node_id in placement_ids:
+        queue_index_state(
+            session,
+            node_id=placement_node_id,
+            action="upsert",
+            trigger_source="system",
+        )
+        mark_point_evidence_stale(
+            session,
+            node_id=placement_node_id,
+            reason="media_asset_deleted",
+            trigger_source="system",
+        )
+    return {
+        "status": "succeeded",
+        "deleted_binding_count": len(rows),
+        "affected_placement_count": len(placement_ids),
+        "affected_placement_node_ids": placement_ids,
+        "deleted_binding_ids": [str(row["binding_id"]) for row in rows],
+    }

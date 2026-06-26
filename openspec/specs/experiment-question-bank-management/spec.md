@@ -306,21 +306,8 @@ The teacher-facing point-aware question-bank page SHALL expose AI add and repair
 - **THEN** the page SHALL show draft suggestions with validation status
 - **AND** the teacher SHALL be able to publish or reject each draft without leaving the point-aware question-bank workflow.
 
-### Requirement: Catalog reset leaves default experiment question bank empty
-The system SHALL treat the legacy default experiment question bank as invalid after the canonical catalog seed replacement.
-
-#### Scenario: Catalog seed replacement runs
-- **WHEN** the canonical catalog seed replacement resets seed-derived experiment data
-- **THEN** it MUST remove or disable legacy experiment question banks and questions that were generated from old formal experiment and old point identities
-- **AND** it MUST NOT preserve the old 2,310-question bank as current, draft, review, or candidate seed data.
-
-#### Scenario: Teacher opens question bank after reset
-- **WHEN** a teacher opens the experiment question bank page before a new evidence-backed bank is generated
-- **THEN** the page MUST represent the current bank as empty for the affected experiment catalog scope
-- **AND** it MUST NOT imply old question coverage is still valid.
-
 ### Requirement: New question-bank generation depends on catalog-node evidence
-The system SHALL require fresh catalog-node source evidence before creating a new default experiment question bank.
+The system SHALL require fresh catalog-node source evidence before creating or replacing catalog-node default question-bank content.
 
 #### Scenario: Question generation is requested for the new catalog
 - **WHEN** an administrator or teacher requests default question-bank generation for the new experiment catalog
@@ -330,5 +317,119 @@ The system SHALL require fresh catalog-node source evidence before creating a ne
 #### Scenario: Evidence has not been regenerated
 - **WHEN** a question-bank generation workflow has no fresh catalog-node evidence for the requested point scope
 - **THEN** it MUST block or mark generation as unavailable
-- **AND** it MUST NOT fall back to legacy point keys, legacy reviewed bank artifacts, or old point evidence bindings.
+- **AND** it MUST NOT fall back to legacy point keys, legacy reviewed bank artifacts, old point evidence bindings, local BGE embeddings, or ungrounded generation.
+
+#### Scenario: Current seed already exists
+- **WHEN** the current catalog-node question-bank seed has been imported
+- **THEN** new generation MUST be treated as an explicit replacement or additive workflow with validation
+- **AND** it MUST NOT erase or supersede the current seed baseline merely because catalog seed import runs.
+
+### Requirement: Teacher-visible duplicate risk hints
+The teacher question-bank management UI SHALL show concise duplicate-risk hints for draft questions without blocking teacher publication.
+
+#### Scenario: Draft has duplicate risk
+- **WHEN** a draft in the teacher review list has duplicate-risk metadata indicating possible duplication
+- **THEN** the UI SHALL show a teacher-readable duplicate-risk tag
+- **AND** it SHALL show the count and brief summary of similar same-point questions.
+
+#### Scenario: Teacher publishes risky draft
+- **WHEN** a teacher attempts to publish a draft with duplicate-risk metadata indicating possible duplication
+- **THEN** the UI SHALL include the duplicate-risk warning in the publish confirmation
+- **AND** the teacher SHALL still be able to confirm publication.
+
+#### Scenario: Draft has no duplicate risk
+- **WHEN** a draft has no detected duplicate risk
+- **THEN** the UI SHALL NOT show duplicate-risk warnings for that draft.
+
+### Requirement: Question bank evidence refresh controls
+The question-bank management page SHALL expose teacher-controlled textbook evidence refresh actions for the current chapter and selected point.
+
+#### Scenario: Teacher views evidence refresh readiness
+- **WHEN** a teacher opens the question-bank management page
+- **THEN** the page SHALL show evidence refresh service readiness separately from AI question-generation readiness
+- **AND** evidence refresh readiness SHALL describe Qwen embedding, Elasticsearch textbook index, and Qwen rerank availability.
+
+#### Scenario: Teacher views generation readiness
+- **WHEN** a teacher selects a point in the question-bank page
+- **THEN** the page SHALL show whether AI generation is available for that point based on final chat service availability and fresh or partial selected evidence bindings
+- **AND** it SHALL not claim generation is unavailable merely because Qwen refresh dependencies are currently down.
+
+#### Scenario: Teacher refreshes current chapter evidence
+- **WHEN** a teacher clicks refresh current chapter evidence
+- **THEN** the page SHALL show a confirmation that includes affected point count, skipped fresh point count, estimated maximum Qwen embedding calls, estimated maximum Qwen rerank calls, and that DeepSeek will not be called
+- **AND** the refresh SHALL start only after teacher confirmation.
+
+#### Scenario: Teacher refreshes selected point evidence
+- **WHEN** a teacher clicks refresh selected point evidence
+- **THEN** the page SHALL show a confirmation for that point
+- **AND** the backend SHALL enqueue evidence refresh for the selected point.
+
+#### Scenario: Refresh progress is visible
+- **WHEN** chapter or point evidence refresh jobs are pending, running, or complete
+- **THEN** the page SHALL show point-level evidence status and chapter-level summary counts
+- **AND** it SHALL distinguish succeeded, partial, missing, stale, failed, pending, and running evidence states.
+
+### Requirement: Question bank generation consumes prepared evidence
+Question-bank AI generation SHALL require prepared point evidence and SHALL not hide Qwen retrieval work inside the generate action.
+
+#### Scenario: Teacher generates questions for a prepared point
+- **WHEN** the selected point has fresh or partial selected textbook evidence
+- **THEN** the AI workbench SHALL allow generation when the final chat-generation service is available
+- **AND** generation SHALL use selected evidence bindings and point three-part content.
+
+#### Scenario: Teacher generates questions for an unprepared point
+- **WHEN** the selected point lacks usable selected evidence
+- **THEN** the page SHALL block opening or sending generation prompts
+- **AND** it SHALL show an action to refresh selected point or current chapter evidence.
+
+#### Scenario: Teacher inspects evidence basis
+- **WHEN** a teacher or administrator expands point evidence details
+- **THEN** the page SHALL show selected evidence by section and MAY show candidate diagnostics
+- **AND** candidate diagnostics SHALL be presented as inspection data rather than generation evidence.
+
+### Requirement: Legacy teacher preserves AI question generation and review loop
+The legacy teacher frontend SHALL keep AI-assisted objective question generation with teacher review before publication.
+
+#### Scenario: Legacy teacher generates questions
+- **WHEN** a teacher requests AI-generated objective questions from a selected experiment, point, or chapter context in `web-teacher-old`
+- **THEN** the system MUST produce teacher-reviewable draft questions using the shared backend workflow
+- **AND** the teacher MUST be able to accept, reject, or request revision before any draft becomes student-facing
+- **AND** the old UI MUST present this as `AI出题` or equivalent teacher-facing wording
+
+#### Scenario: Legacy teacher reviews generated question evidence
+- **WHEN** a generated or repaired question includes source grounding metadata
+- **THEN** the old UI MAY show teacher-readable `教材依据`, `实验资料依据`, `出题依据`, or source-reference wording
+- **AND** it MUST NOT show visible labels such as `RAG evidence`, `chunk`, `embedding`, `rerank`, `Qwen`, `BGE`, provider metadata, raw prompt traces, or retrieval diagnostics
+
+### Requirement: Legacy question bank remains objective and BKT-compatible
+The legacy teacher frontend SHALL present the question bank as the assessment source for BKT mastery and smart assessment composition.
+
+#### Scenario: Legacy teacher opens question bank
+- **WHEN** a teacher opens the old question bank page
+- **THEN** the page MUST organize questions by experiment, video point, chapter, or legacy teaching unit as appropriate for the shared data
+- **AND** it MUST show objective question type, answer, explanation, status, point/experiment binding, and review state where available
+- **AND** it MUST make clear that accepted questions feed student testing, mastery calculation, and smart assessment composition
+
+#### Scenario: Legacy teacher publishes or rejects a draft
+- **WHEN** a teacher publishes or rejects a draft AI-generated question
+- **THEN** the action MUST update the shared question-bank workflow according to current backend rules
+- **AND** the old UI MUST NOT create old-only question ids or old-only seed artifacts
+
+### Requirement: Current catalog-node question bank seed baseline
+The system SHALL treat the accepted published catalog-node question bank as current seed data.
+
+#### Scenario: Current bank is exported as seed
+- **WHEN** the default question-bank seed export runs
+- **THEN** it MUST export 54 published generated banks and 1,965 published questions
+- **AND** it MUST preserve current experiment references, current bank ids, primary catalog point node ids, primary canonical point ids, source references, objective payloads, publication status, and generation lineage.
+
+#### Scenario: Current bank is restored
+- **WHEN** a fresh environment imports current production seed data
+- **THEN** it MUST restore the current catalog-node question-bank baseline
+- **AND** teacher question-bank browsing MUST show the restored current questions rather than an empty bank.
+
+#### Scenario: Retired bank artifact is encountered
+- **WHEN** the retired `rebuilt_question_bank_merged_v1` bank or any seed row keyed only by old `experiment_id + point_key` identity is encountered
+- **THEN** the system MUST reject it as current seed data
+- **AND** it MUST NOT import it as published, draft, review, demo, or candidate question-bank content.
 

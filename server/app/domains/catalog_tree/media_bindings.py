@@ -19,6 +19,7 @@ from server.app.domains.catalog_tree.search_documents import queue_index_state
 from server.app.domains.catalog_tree.teacher_search import queue_teacher_index_state
 from server.app.domains.errors import DomainHTTPException as HTTPException, domain_status as status
 from server.app.infrastructure.database import db_session
+from server.app.domains.media.subtitles import student_ready_subtitle_tracks
 
 
 def media_bindings(session: Any, node_id: str) -> list[dict[str, Any]]:
@@ -125,6 +126,7 @@ def student_videos(session: Any, node_id: str) -> list[dict[str, Any]]:
             "mime_type": row["mime_type"],
             "stream_path": f"/api/student/media/assets/{row['media_id']}/stream",
             "thumbnail_path": f"/api/student/media/assets/{row['media_id']}/thumbnail" if row["has_thumbnail"] else None,
+            "subtitle_tracks": student_ready_subtitle_tracks(str(row["media_id"])),
         }
         for row in rows
     ]

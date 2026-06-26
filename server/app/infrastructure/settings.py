@@ -66,10 +66,18 @@ class Settings:
     video_learning_crf: int = 24
     video_learning_max_fps: int = 30
     video_learning_transcode_threshold_mb: int = 300
+    video_transcode_acceleration: str = "auto"
     video_similarity_command: str = ""
     video_similarity_compare_command: str = ""
-    video_similarity_algorithm: str = "external-video-similarity"
+    video_similarity_algorithm: str = "external-video-duplicate-detection"
     video_similarity_threshold: float = 0.86
+    video_duplicate_detection_threshold: float = 0.95
+    video_duplicate_detection_duration_tolerance_ratio: float = 0.001
+    video_duplicate_detection_duration_tolerance_floor_seconds: float = 0.5
+    video_duplicate_detection_duration_tolerance_ceiling_seconds: float = 2.0
+    video_duplicate_detection_default_interval_seconds: float = 3.0
+    video_duplicate_detection_min_samples: int = 12
+    video_duplicate_detection_min_interval_seconds: float = 0.5
     auth_secret_key: str = "dev-only-secret"
     access_token_expire_minutes: int = 720
     web_admin_access_token: str = ""
@@ -82,6 +90,7 @@ class Settings:
     student_preview_ticket_expire_minutes: int = 10
     student_preview_session_expire_minutes: int = 240
     max_media_upload_mb: int = 1024
+    max_media_subtitle_upload_mb: int = 10
     agent_llm_provider: str = "disabled"
     agent_llm_base_url: str = ""
     agent_llm_api_key: str = ""
@@ -89,13 +98,8 @@ class Settings:
     agent_reasoning_summary_enabled: bool = False
     agent_reasoning_summary_mode: str = "auto"
     agent_reasoning_effort: str = "low"
-    rag_hybrid_bge_enabled: bool = False
     rag_query_generation_enabled: bool = True
-    rag_bge_service_url: str = "http://bge-rag:8010"
-    rag_bge_timeout_seconds: float = 8.0
     rag_keyword_top_k: int = 16
-    rag_vector_top_k: int = 24
-    rag_rerank_top_k: int = 9
     rag_final_top_k: int = 5
     catalog_point_evidence_auto_refresh: bool = False
     chemistry_rag_root: Path = Path("E:/chemistry-rag") if os.name == "nt" else Path("/chemistry-rag")
@@ -106,6 +110,10 @@ class Settings:
     textbook_rag_embedding_api_key: str = ""
     textbook_rag_embedding_model: str = ""
     textbook_rag_embedding_dimension: int = 1024
+    textbook_rag_keyword_top_k: int = 16
+    textbook_rag_vector_top_k: int = 24
+    textbook_rag_rerank_top_k: int = 9
+    textbook_rag_final_top_k: int = 5
     textbook_rag_rerank_base_url: str = ""
     textbook_rag_rerank_api_key: str = ""
     textbook_rag_rerank_model: str = ""
@@ -140,6 +148,8 @@ class Settings:
             errors.append("VIDEO_LIBRARY_SEARCH_BACKEND must be local, elasticsearch, or disabled")
         if self.teacher_catalog_search_backend not in {"elasticsearch", "disabled"}:
             errors.append("TEACHER_CATALOG_SEARCH_BACKEND must be elasticsearch or disabled")
+        if self.video_transcode_acceleration not in {"auto", "cpu", "nvenc"}:
+            errors.append("VIDEO_TRANSCODE_ACCELERATION must be auto, cpu, or nvenc")
         if self.is_production:
             if self.data_backend != "postgres":
                 errors.append("DATA_BACKEND must be postgres in production")
@@ -216,13 +226,51 @@ def get_settings() -> Settings:
             "VIDEO_LEARNING_TRANSCODE_THRESHOLD_MB",
             Settings.video_learning_transcode_threshold_mb,
         ),
-        video_similarity_command=_getenv("VIDEO_SIMILARITY_COMMAND", Settings.video_similarity_command),
-        video_similarity_compare_command=_getenv(
-            "VIDEO_SIMILARITY_COMPARE_COMMAND",
-            Settings.video_similarity_compare_command,
+        video_transcode_acceleration=_getenv(
+            "VIDEO_TRANSCODE_ACCELERATION",
+            Settings.video_transcode_acceleration,
+        ).lower(),
+        video_similarity_command=_getenv(
+            "VIDEO_DUPLICATE_DETECTION_COMMAND",
+            _getenv("VIDEO_SIMILARITY_COMMAND", Settings.video_similarity_command),
         ),
-        video_similarity_algorithm=_getenv("VIDEO_SIMILARITY_ALGORITHM", Settings.video_similarity_algorithm),
+        video_similarity_compare_command=_getenv(
+            "VIDEO_DUPLICATE_DETECTION_COMPARE_COMMAND",
+            _getenv("VIDEO_SIMILARITY_COMPARE_COMMAND", Settings.video_similarity_compare_command),
+        ),
+        video_similarity_algorithm=_getenv(
+            "VIDEO_DUPLICATE_DETECTION_ALGORITHM",
+            _getenv("VIDEO_SIMILARITY_ALGORITHM", Settings.video_similarity_algorithm),
+        ),
         video_similarity_threshold=_get_float("VIDEO_SIMILARITY_THRESHOLD", Settings.video_similarity_threshold),
+        video_duplicate_detection_threshold=_get_float(
+            "VIDEO_DUPLICATE_DETECTION_THRESHOLD",
+            _get_float("VIDEO_SIMILARITY_THRESHOLD", Settings.video_duplicate_detection_threshold),
+        ),
+        video_duplicate_detection_duration_tolerance_ratio=_get_float(
+            "VIDEO_DUPLICATE_DURATION_TOLERANCE_RATIO",
+            Settings.video_duplicate_detection_duration_tolerance_ratio,
+        ),
+        video_duplicate_detection_duration_tolerance_floor_seconds=_get_float(
+            "VIDEO_DUPLICATE_DURATION_TOLERANCE_FLOOR_SECONDS",
+            Settings.video_duplicate_detection_duration_tolerance_floor_seconds,
+        ),
+        video_duplicate_detection_duration_tolerance_ceiling_seconds=_get_float(
+            "VIDEO_DUPLICATE_DURATION_TOLERANCE_CEILING_SECONDS",
+            Settings.video_duplicate_detection_duration_tolerance_ceiling_seconds,
+        ),
+        video_duplicate_detection_default_interval_seconds=_get_float(
+            "VIDEO_DUPLICATE_DEFAULT_INTERVAL_SECONDS",
+            _get_float("VIDEO_VPDQ_SECONDS_PER_HASH", Settings.video_duplicate_detection_default_interval_seconds),
+        ),
+        video_duplicate_detection_min_samples=_get_int(
+            "VIDEO_DUPLICATE_MIN_SAMPLES",
+            Settings.video_duplicate_detection_min_samples,
+        ),
+        video_duplicate_detection_min_interval_seconds=_get_float(
+            "VIDEO_DUPLICATE_MIN_INTERVAL_SECONDS",
+            Settings.video_duplicate_detection_min_interval_seconds,
+        ),
         auth_secret_key=_getenv("AUTH_SECRET_KEY", Settings.auth_secret_key),
         access_token_expire_minutes=_get_int("ACCESS_TOKEN_EXPIRE_MINUTES", Settings.access_token_expire_minutes),
         web_admin_access_token=_getenv("WEB_ADMIN_ACCESS_TOKEN", Settings.web_admin_access_token),
@@ -237,6 +285,7 @@ def get_settings() -> Settings:
             Settings.student_preview_session_expire_minutes,
         ),
         max_media_upload_mb=_get_int("MAX_MEDIA_UPLOAD_MB", Settings.max_media_upload_mb),
+        max_media_subtitle_upload_mb=_get_int("MAX_MEDIA_SUBTITLE_UPLOAD_MB", Settings.max_media_subtitle_upload_mb),
         agent_llm_provider=_getenv("AGENT_LLM_PROVIDER", Settings.agent_llm_provider).lower(),
         agent_llm_base_url=_getenv("AGENT_LLM_BASE_URL"),
         agent_llm_api_key=_getenv("AGENT_LLM_API_KEY"),
@@ -253,13 +302,8 @@ def get_settings() -> Settings:
             "AGENT_REASONING_EFFORT",
             Settings.agent_reasoning_effort,
         ).lower(),
-        rag_hybrid_bge_enabled=_get_bool("RAG_HYBRID_BGE_ENABLED", Settings.rag_hybrid_bge_enabled),
         rag_query_generation_enabled=_get_bool("RAG_QUERY_GENERATION_ENABLED", Settings.rag_query_generation_enabled),
-        rag_bge_service_url=_getenv("RAG_BGE_SERVICE_URL", Settings.rag_bge_service_url).rstrip("/"),
-        rag_bge_timeout_seconds=_get_float("RAG_BGE_TIMEOUT_SECONDS", Settings.rag_bge_timeout_seconds),
         rag_keyword_top_k=_get_int("RAG_KEYWORD_TOP_K", Settings.rag_keyword_top_k),
-        rag_vector_top_k=_get_int("RAG_VECTOR_TOP_K", Settings.rag_vector_top_k),
-        rag_rerank_top_k=_get_int("RAG_RERANK_TOP_K", Settings.rag_rerank_top_k),
         rag_final_top_k=_get_int("RAG_FINAL_TOP_K", Settings.rag_final_top_k),
         catalog_point_evidence_auto_refresh=_get_bool(
             "CATALOG_POINT_EVIDENCE_AUTO_REFRESH",
@@ -278,6 +322,22 @@ def get_settings() -> Settings:
         textbook_rag_embedding_dimension=_get_int(
             "TEXTBOOK_RAG_EMBEDDING_DIMENSION",
             Settings.textbook_rag_embedding_dimension,
+        ),
+        textbook_rag_keyword_top_k=_get_int(
+            "TEXTBOOK_RAG_KEYWORD_TOP_K",
+            Settings.textbook_rag_keyword_top_k,
+        ),
+        textbook_rag_vector_top_k=_get_int(
+            "TEXTBOOK_RAG_VECTOR_TOP_K",
+            Settings.textbook_rag_vector_top_k,
+        ),
+        textbook_rag_rerank_top_k=_get_int(
+            "TEXTBOOK_RAG_RERANK_TOP_K",
+            Settings.textbook_rag_rerank_top_k,
+        ),
+        textbook_rag_final_top_k=_get_int(
+            "TEXTBOOK_RAG_FINAL_TOP_K",
+            Settings.textbook_rag_final_top_k,
         ),
         textbook_rag_rerank_base_url=_getenv("TEXTBOOK_RAG_RERANK_BASE_URL").rstrip("/"),
         textbook_rag_rerank_api_key=_getenv("TEXTBOOK_RAG_RERANK_API_KEY"),

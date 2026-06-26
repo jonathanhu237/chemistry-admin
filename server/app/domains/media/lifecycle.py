@@ -1,17 +1,21 @@
 from __future__ import annotations
 
+import shutil
 from typing import Any
 
 from sqlalchemy import text
 
 from server.app.domains.media.assets import list_media_assets, media_asset_file_summary
-from server.app.domains.media.files import json_param
+from server.app.domains.media.files import json_param, resolve_media_relative
 from server.app.infrastructure.database import db_session
 from server.app.infrastructure.settings import get_settings
 
 
 ACTIVE_LIFECYCLE_STATUS = "active"
 ARCHIVED_LIFECYCLE_STATUS = "archived"
+TOMBSTONED_LIFECYCLE_STATUS = "tombstoned"
+DELETE_REASON_DEFAULT = "teacher_video_resource_delete"
+ACTIVE_PROCESSING_STATUSES = {"queued", "processing"}
 
 
 def _row_dict(row: Any) -> dict[str, Any]:
@@ -46,7 +50,28 @@ def _asset_row(session: Any, asset_id: str) -> dict[str, Any] | None:
                          ) ORDER BY mr.kind)
                          FROM media_renditions mr
                          WHERE mr.media_asset_id = media_assets.id
-                       ), '[]'::jsonb) AS renditions
+                       ), '[]'::jsonb) AS renditions,
+                       COALESCE((
+                         SELECT jsonb_agg(jsonb_build_object(
+                           'id', mst.id,
+                           'media_asset_id', mst.media_asset_id,
+                           'language_code', mst.language_code,
+                           'label', mst.label,
+                           'kind', mst.kind,
+                           'source_format', mst.source_format,
+                           'source_relative_path', mst.source_relative_path,
+                           'webvtt_relative_path', mst.webvtt_relative_path,
+                           'file_size_bytes', mst.file_size_bytes,
+                           'status', mst.status,
+                           'is_default', mst.is_default,
+                           'error_reason', mst.error_reason,
+                           'metadata', mst.metadata,
+                           'created_at', mst.created_at,
+                           'updated_at', mst.updated_at
+                         ) ORDER BY mst.is_default DESC, mst.label, mst.created_at)
+                         FROM media_subtitle_tracks mst
+                         WHERE mst.media_asset_id = media_assets.id
+                       ), '[]'::jsonb) AS subtitle_tracks
                 FROM media_assets
                 WHERE id = CAST(:asset_id AS uuid)
                 """
@@ -212,6 +237,26 @@ def _rendition_rows(session: Any, asset_id: str) -> list[dict[str, Any]]:
     return [dict(row) for row in rows]
 
 
+def _subtitle_track_rows(session: Any, asset_id: str) -> list[dict[str, Any]]:
+    rows = (
+        session.execute(
+            text(
+                """
+                SELECT id, media_asset_id, language_code, label, kind, source_format,
+                       source_relative_path, webvtt_relative_path, file_size_bytes,
+                       status, is_default, error_reason, metadata, created_at, updated_at
+                FROM media_subtitle_tracks
+                WHERE media_asset_id = CAST(:asset_id AS uuid)
+                ORDER BY is_default DESC, label, created_at
+                """
+            ),
+            {"asset_id": asset_id},
+        )
+        .mappings()
+        .all()
+    )
+    return [dict(row) for row in rows]
+
 def _fingerprint_rows(session: Any, asset_id: str) -> list[dict[str, Any]]:
     rows = (
         session.execute(
@@ -254,6 +299,152 @@ def _duplicate_candidate_rows(session: Any, asset_id: str) -> list[dict[str, Any
     return [dict(row) for row in rows]
 
 
+def _media_artifact_status(kind: str, relative_path: str) -> dict[str, Any]:
+    entry: dict[str, Any] = {
+        "kind": kind,
+        "kinds": [kind],
+        "relative_path": relative_path,
+        "path_safe": False,
+        "exists": False,
+        "path_type": "missing",
+        "file_size_bytes": None,
+        "error": None,
+    }
+    try:
+        path = resolve_media_relative(relative_path)
+        entry["path_safe"] = True
+    except ValueError as exc:
+        entry["error"] = str(exc)
+        entry["path_type"] = "unsafe"
+        return entry
+    try:
+        if path.is_file():
+            entry["exists"] = True
+            entry["path_type"] = "file"
+            entry["file_size_bytes"] = path.stat().st_size
+        elif path.is_dir():
+            entry["exists"] = True
+            entry["path_type"] = "directory"
+        elif path.exists():
+            entry["exists"] = True
+            entry["path_type"] = "other"
+    except OSError as exc:
+        entry["error"] = exc.__class__.__name__
+    return entry
+
+
+def _delete_artifact_entries(
+    asset: dict[str, Any],
+    *,
+    processing_jobs: list[dict[str, Any]],
+    fingerprints: list[dict[str, Any]],
+    subtitle_tracks: list[dict[str, Any]] | None = None,
+) -> list[dict[str, Any]]:
+    by_path: dict[str, dict[str, Any]] = {}
+
+    def add(kind: str, relative_path: Any) -> None:
+        value = str(relative_path or "").strip().replace("\\", "/")
+        if not value:
+            return
+        if value in by_path:
+            if kind not in by_path[value]["kinds"]:
+                by_path[value]["kinds"].append(kind)
+            return
+        by_path[value] = _media_artifact_status(kind, value)
+
+    for media_file in asset.get("media_files") or []:
+        relative_path = media_file.get("relative_path")
+        for kind in media_file.get("kinds") or [media_file.get("kind") or "media"]:
+            add(str(kind), relative_path)
+    for subtitle_track in subtitle_tracks or []:
+        add("subtitle:source", subtitle_track.get("source_relative_path"))
+        add("subtitle:webvtt", subtitle_track.get("webvtt_relative_path"))
+    for fingerprint in fingerprints:
+        add(
+            f"fingerprint:{fingerprint.get('algorithm') or 'unknown'}",
+            fingerprint.get("relative_path"),
+        )
+    for job in processing_jobs:
+        if str(job.get("status") or "") not in ACTIVE_PROCESSING_STATUSES:
+            continue
+        job_id = str(job.get("id") or "").strip()
+        if job_id:
+            add(f"processing-temp:{job.get('job_type') or 'unknown'}", f"tmp/{job_id}")
+    return sorted(by_path.values(), key=lambda item: item["relative_path"])
+
+
+def _delete_artifacts(artifacts: list[dict[str, Any]]) -> dict[str, Any]:
+    results: list[dict[str, Any]] = []
+    deleted_count = 0
+    deleted_bytes = 0
+    skipped_missing_count = 0
+    failed: list[dict[str, Any]] = []
+    ordered = sorted(artifacts, key=lambda item: 1 if item.get("path_type") == "directory" else 0)
+    for artifact in ordered:
+        relative_path = str(artifact.get("relative_path") or "").strip()
+        result = {
+            "relative_path": relative_path,
+            "kinds": artifact.get("kinds") or [artifact.get("kind") or "media"],
+            "status": "pending",
+            "error": None,
+            "file_size_bytes": artifact.get("file_size_bytes"),
+        }
+        try:
+            path = resolve_media_relative(relative_path)
+        except ValueError as exc:
+            result["status"] = "failed"
+            result["error"] = str(exc)
+            failed.append(result)
+            results.append(result)
+            continue
+        try:
+            if not path.exists():
+                result["status"] = "missing"
+                skipped_missing_count += 1
+            elif path.is_file():
+                size = path.stat().st_size
+                path.unlink()
+                result["status"] = "deleted"
+                result["file_size_bytes"] = size
+                deleted_count += 1
+                deleted_bytes += size
+            elif path.is_dir():
+                shutil.rmtree(path)
+                result["status"] = "deleted"
+                deleted_count += 1
+            else:
+                result["status"] = "failed"
+                result["error"] = "unsupported_path_type"
+                failed.append(result)
+        except OSError as exc:
+            result["status"] = "failed"
+            result["error"] = f"{exc.__class__.__name__}: {str(exc)[:400]}"
+            failed.append(result)
+        results.append(result)
+    return {
+        "status": "failed" if failed else "succeeded",
+        "artifact_count": len(artifacts),
+        "deleted_artifact_count": deleted_count,
+        "deleted_bytes": deleted_bytes,
+        "skipped_missing_count": skipped_missing_count,
+        "failed_artifact_count": len(failed),
+        "failed_artifacts": failed,
+        "artifacts": results,
+    }
+
+
+def _cleanup_diagnostics(cleanup: dict[str, Any]) -> dict[str, Any]:
+    return {
+        "status": cleanup.get("status"),
+        "artifact_count": int(cleanup.get("artifact_count") or 0),
+        "deleted_artifact_count": int(cleanup.get("deleted_artifact_count") or 0),
+        "deleted_bytes": int(cleanup.get("deleted_bytes") or 0),
+        "skipped_missing_count": int(cleanup.get("skipped_missing_count") or 0),
+        "failed_artifact_count": int(cleanup.get("failed_artifact_count") or 0),
+        "failed_artifacts": cleanup.get("failed_artifacts") or [],
+    }
+
+
 def _archive_plan_for_session(session: Any, asset_id: str) -> dict[str, Any]:
     asset = _asset_row(session, asset_id)
     if not asset:
@@ -263,6 +454,7 @@ def _archive_plan_for_session(session: Any, asset_id: str) -> dict[str, Any]:
     processing_jobs = _processing_rows(session, asset_id)
     renditions = _rendition_rows(session, asset_id)
     fingerprints = _fingerprint_rows(session, asset_id)
+    subtitle_tracks = _subtitle_track_rows(session, asset_id)
     duplicate_candidates = _duplicate_candidate_rows(session, asset_id)
     active_processing_jobs = [
         item for item in processing_jobs if str(item.get("status") or "") in {"queued", "processing"}
@@ -279,12 +471,14 @@ def _archive_plan_for_session(session: Any, asset_id: str) -> dict[str, Any]:
         "active_processing_job_count": len(active_processing_jobs),
         "rendition_count": len(renditions),
         "fingerprint_count": len(fingerprints),
+        "subtitle_track_count": len(subtitle_tracks),
         "duplicate_candidate_count": len(duplicate_candidates),
         "catalog_bindings": catalog_bindings,
         "legacy_generic_bindings": legacy_bindings,
         "processing_jobs": processing_jobs,
         "renditions": renditions,
         "fingerprints": fingerprints,
+        "subtitle_tracks": subtitle_tracks,
         "duplicate_candidates": duplicate_candidates,
         "file_state": {
             "state": asset.get("file_state"),
@@ -306,6 +500,68 @@ def media_asset_archive_plan(asset_id: str) -> dict[str, Any]:
         return _archive_plan_for_session(session, asset_id)
 
 
+def _delete_plan_for_session(session: Any, asset_id: str) -> dict[str, Any]:
+    asset = _asset_row(session, asset_id)
+    if not asset:
+        raise ValueError("Media asset not found")
+    catalog_bindings = _catalog_binding_rows(session, asset_id)
+    legacy_bindings = _legacy_binding_rows(session, asset_id)
+    processing_jobs = _processing_rows(session, asset_id)
+    renditions = _rendition_rows(session, asset_id)
+    fingerprints = _fingerprint_rows(session, asset_id)
+    subtitle_tracks = _subtitle_track_rows(session, asset_id)
+    duplicate_candidates = _duplicate_candidate_rows(session, asset_id)
+    active_processing_jobs = [
+        item for item in processing_jobs if str(item.get("status") or "") in ACTIVE_PROCESSING_STATUSES
+    ]
+    student_visible_count = sum(1 for item in catalog_bindings if item.get("student_visible"))
+    artifacts = _delete_artifact_entries(asset, processing_jobs=processing_jobs, fingerprints=fingerprints, subtitle_tracks=subtitle_tracks)
+    lifecycle_status = asset.get("lifecycle_status") or ACTIVE_LIFECYCLE_STATUS
+    return {
+        "asset": asset,
+        "can_delete": lifecycle_status == ACTIVE_LIFECYCLE_STATUS,
+        "already_deleted": lifecycle_status == TOMBSTONED_LIFECYCLE_STATUS,
+        "catalog_binding_count": len(catalog_bindings),
+        "student_visible_catalog_binding_count": student_visible_count,
+        "legacy_generic_binding_count": len(legacy_bindings),
+        "processing_job_count": len(processing_jobs),
+        "active_processing_job_count": len(active_processing_jobs),
+        "rendition_count": len(renditions),
+        "fingerprint_count": len(fingerprints),
+        "subtitle_track_count": len(subtitle_tracks),
+        "duplicate_candidate_count": len(duplicate_candidates),
+        "delete_artifact_count": len(artifacts),
+        "existing_delete_artifact_count": sum(1 for item in artifacts if item.get("exists")),
+        "unsafe_delete_artifact_count": sum(1 for item in artifacts if not item.get("path_safe")),
+        "catalog_bindings": catalog_bindings,
+        "legacy_generic_bindings": legacy_bindings,
+        "processing_jobs": processing_jobs,
+        "active_processing_jobs": active_processing_jobs,
+        "renditions": renditions,
+        "fingerprints": fingerprints,
+        "subtitle_tracks": subtitle_tracks,
+        "duplicate_candidates": duplicate_candidates,
+        "delete_artifacts": artifacts,
+        "file_state": {
+            "state": asset.get("file_state"),
+            "primary_file_available": asset.get("primary_file_available"),
+            "existing_file_count": asset.get("existing_file_count"),
+            "missing_file_count": asset.get("missing_file_count"),
+            "media_files": asset.get("media_files") or [],
+        },
+        "message": (
+            "Point content remains, but active point video bindings for this asset will be removed and local media files will be deleted."
+            if catalog_bindings
+            else "This asset can be deleted without changing point video bindings; local media files will be removed."
+        ),
+    }
+
+
+def media_asset_delete_plan(asset_id: str) -> dict[str, Any]:
+    with db_session() as session:
+        return _delete_plan_for_session(session, asset_id)
+
+
 def _archive_summary(plan: dict[str, Any]) -> dict[str, Any]:
     return {
         "catalog_binding_count": int(plan.get("catalog_binding_count") or 0),
@@ -315,7 +571,26 @@ def _archive_summary(plan: dict[str, Any]) -> dict[str, Any]:
         "active_processing_job_count": int(plan.get("active_processing_job_count") or 0),
         "rendition_count": int(plan.get("rendition_count") or 0),
         "fingerprint_count": int(plan.get("fingerprint_count") or 0),
+        "subtitle_track_count": int(plan.get("subtitle_track_count") or 0),
         "duplicate_candidate_count": int(plan.get("duplicate_candidate_count") or 0),
+        "file_state": plan.get("file_state") or {},
+    }
+
+
+def _delete_summary(plan: dict[str, Any]) -> dict[str, Any]:
+    return {
+        "catalog_binding_count": int(plan.get("catalog_binding_count") or 0),
+        "student_visible_catalog_binding_count": int(plan.get("student_visible_catalog_binding_count") or 0),
+        "legacy_generic_binding_count": int(plan.get("legacy_generic_binding_count") or 0),
+        "processing_job_count": int(plan.get("processing_job_count") or 0),
+        "active_processing_job_count": int(plan.get("active_processing_job_count") or 0),
+        "rendition_count": int(plan.get("rendition_count") or 0),
+        "fingerprint_count": int(plan.get("fingerprint_count") or 0),
+        "subtitle_track_count": int(plan.get("subtitle_track_count") or 0),
+        "duplicate_candidate_count": int(plan.get("duplicate_candidate_count") or 0),
+        "delete_artifact_count": int(plan.get("delete_artifact_count") or 0),
+        "existing_delete_artifact_count": int(plan.get("existing_delete_artifact_count") or 0),
+        "unsafe_delete_artifact_count": int(plan.get("unsafe_delete_artifact_count") or 0),
         "file_state": plan.get("file_state") or {},
     }
 
@@ -456,6 +731,231 @@ def archive_media_asset(*, asset_id: str, actor_user_id: str | None, reason: str
         }
 
 
+def delete_media_asset(*, asset_id: str, actor_user_id: str | None, reason: str | None = None) -> dict[str, Any]:
+    delete_reason = reason or DELETE_REASON_DEFAULT
+    with db_session() as session:
+        plan = _delete_plan_for_session(session, asset_id)
+        asset = plan["asset"]
+        lifecycle_status = asset.get("lifecycle_status") or ACTIVE_LIFECYCLE_STATUS
+        if lifecycle_status != ACTIVE_LIFECYCLE_STATUS:
+            return {
+                "deleted": False,
+                "already_deleted": lifecycle_status == TOMBSTONED_LIFECYCLE_STATUS,
+                "asset_id": str(asset["id"]),
+                "plan": plan,
+                "catalog_cleanup": {"status": "skipped", "reason": "asset_not_active"},
+                "file_cleanup": {"status": "skipped", "reason": "asset_not_active"},
+            }
+        summary = _delete_summary(plan)
+        session.execute(
+            text(
+                """
+                UPDATE media_assets
+                SET lifecycle_status = 'tombstoned',
+                    archived_at = now(),
+                    archived_by = CAST(:actor_user_id AS uuid),
+                    archive_reason = :reason,
+                    archive_metadata = COALESCE(archive_metadata, '{}'::jsonb) || CAST(:archive_metadata AS jsonb),
+                    processing_phase = 'deleted',
+                    processing_progress = 0,
+                    error_reason = 'media_asset_deleted',
+                    updated_at = now()
+                WHERE id = CAST(:asset_id AS uuid)
+                  AND COALESCE(lifecycle_status, 'active') = 'active'
+                """
+            ),
+            {
+                "asset_id": asset_id,
+                "actor_user_id": actor_user_id,
+                "reason": delete_reason,
+                "archive_metadata": json_param({"delete_summary": summary, "delete_cleanup_status": "pending"}),
+            },
+        )
+        cancelled_job_rows = (
+            session.execute(
+                text(
+                    """
+                    UPDATE media_processing_jobs
+                    SET status = 'cancelled',
+                        phase = 'cancelled',
+                        progress = 0,
+                        error_reason = COALESCE(error_reason, 'media_asset_deleted'),
+                        finished_at = COALESCE(finished_at, now()),
+                        updated_at = now()
+                    WHERE media_asset_id = CAST(:asset_id AS uuid)
+                      AND status IN ('queued', 'processing')
+                    RETURNING id
+                    """
+                ),
+                {"asset_id": asset_id},
+            )
+            .mappings()
+            .all()
+        )
+        legacy_binding_rows = (
+            session.execute(
+                text(
+                    """
+                    UPDATE media_bindings
+                    SET status = 'archived',
+                        metadata = COALESCE(metadata, '{}'::jsonb) || jsonb_build_object(
+                          'archived_reason', 'media_asset_deleted',
+                          'deleted_media_asset_id', CAST(:asset_id AS text),
+                          'deleted_by', CAST(:actor_user_id AS text),
+                          'delete_reason', CAST(:reason AS text),
+                          'previous_status', status
+                        ),
+                        updated_at = now()
+                    WHERE media_asset_id = CAST(:asset_id AS uuid)
+                      AND status <> 'archived'
+                    RETURNING id
+                    """
+                ),
+                {"asset_id": asset_id, "actor_user_id": actor_user_id, "reason": delete_reason},
+            )
+            .mappings()
+            .all()
+        )
+        catalog_cleanup: dict[str, Any]
+        try:
+            from server.app.domains.catalog_tree.media_asset_events import handle_media_asset_deleted
+
+            catalog_cleanup = handle_media_asset_deleted(
+                session,
+                media_asset_id=asset_id,
+                actor_user_id=actor_user_id,
+                reason=delete_reason,
+            )
+        except Exception as exc:  # noqa: BLE001 - tombstone must survive handler diagnostics.
+            catalog_cleanup = {"status": "failed", "error": f"{exc.__class__.__name__}: {str(exc)[:900]}"}
+        duplicate_candidate_rows = (
+            session.execute(
+                text(
+                    """
+                    DELETE FROM media_duplicate_candidates
+                    WHERE media_asset_id = CAST(:asset_id AS uuid)
+                       OR candidate_asset_id = CAST(:asset_id AS uuid)
+                    RETURNING id
+                    """
+                ),
+                {"asset_id": asset_id},
+            )
+            .mappings()
+            .all()
+        )
+        fingerprint_rows = (
+            session.execute(
+                text(
+                    """
+                    DELETE FROM media_video_fingerprints
+                    WHERE media_asset_id = CAST(:asset_id AS uuid)
+                    RETURNING id
+                    """
+                ),
+                {"asset_id": asset_id},
+            )
+            .mappings()
+            .all()
+        )
+        rendition_rows = (
+            session.execute(
+                text(
+                    """
+                    DELETE FROM media_renditions
+                    WHERE media_asset_id = CAST(:asset_id AS uuid)
+                    RETURNING id
+                    """
+                ),
+                {"asset_id": asset_id},
+            )
+            .mappings()
+            .all()
+        )
+        subtitle_track_rows = (
+            session.execute(
+                text(
+                    """
+                    DELETE FROM media_subtitle_tracks
+                    WHERE media_asset_id = CAST(:asset_id AS uuid)
+                    RETURNING id
+                    """
+                ),
+                {"asset_id": asset_id},
+            )
+            .mappings()
+            .all()
+        )
+        session.execute(
+            text(
+                """
+                UPDATE media_assets
+                SET archive_metadata = COALESCE(archive_metadata, '{}'::jsonb) || CAST(:archive_metadata AS jsonb),
+                    updated_at = now()
+                WHERE id = CAST(:asset_id AS uuid)
+                """
+            ),
+            {
+                "asset_id": asset_id,
+                "archive_metadata": json_param(
+                    {
+                        "delete_db_cleanup": {
+                            "cancelled_processing_jobs": len(cancelled_job_rows),
+                            "legacy_generic_binding_count": len(legacy_binding_rows),
+                            "catalog_cleanup": catalog_cleanup,
+                            "duplicate_candidate_count": len(duplicate_candidate_rows),
+                            "fingerprint_count": len(fingerprint_rows),
+                            "rendition_count": len(rendition_rows),
+                            "subtitle_track_count": len(subtitle_track_rows),
+                        }
+                    }
+                ),
+            },
+        )
+        db_cleanup = {
+            "cancelled_processing_jobs": len(cancelled_job_rows),
+            "legacy_generic_binding_count": len(legacy_binding_rows),
+            "catalog_cleanup": catalog_cleanup,
+            "duplicate_candidate_count": len(duplicate_candidate_rows),
+            "fingerprint_count": len(fingerprint_rows),
+            "rendition_count": len(rendition_rows),
+            "subtitle_track_count": len(subtitle_track_rows),
+        }
+    file_cleanup = _delete_artifacts(plan.get("delete_artifacts") or [])
+    cleanup_diagnostics = _cleanup_diagnostics(file_cleanup)
+    with db_session() as session:
+        session.execute(
+            text(
+                """
+                UPDATE media_assets
+                SET archive_metadata = COALESCE(archive_metadata, '{}'::jsonb) || CAST(:archive_metadata AS jsonb),
+                    error_reason = CASE
+                      WHEN :cleanup_failed THEN 'media_asset_delete_cleanup_failed'
+                      ELSE error_reason
+                    END,
+                    updated_at = now()
+                WHERE id = CAST(:asset_id AS uuid)
+                  AND lifecycle_status = 'tombstoned'
+                """
+            ),
+            {
+                "asset_id": asset_id,
+                "cleanup_failed": bool(cleanup_diagnostics["failed_artifact_count"]),
+                "archive_metadata": json_param({"delete_cleanup_status": cleanup_diagnostics["status"], "delete_cleanup": cleanup_diagnostics}),
+            },
+        )
+    return {
+        "deleted": True,
+        "already_deleted": False,
+        "asset_id": str(asset["id"]),
+        "lifecycle_status": TOMBSTONED_LIFECYCLE_STATUS,
+        "plan": plan,
+        "db_cleanup": db_cleanup,
+        "catalog_cleanup": catalog_cleanup,
+        "cancelled_processing_jobs": db_cleanup["cancelled_processing_jobs"],
+        "file_cleanup": file_cleanup,
+    }
+
+
 def media_dependency_counts(limit: int) -> dict[str, dict[str, int]]:
     with db_session() as session:
         rows = session.execute(
@@ -493,6 +993,10 @@ def media_dependency_counts(limit: int) -> dict[str, dict[str, int]]:
                          WHERE mvf.media_asset_id = ma.id
                        ) AS fingerprint_count,
                        (
+                         SELECT COUNT(*) FROM media_subtitle_tracks mst
+                         WHERE mst.media_asset_id = ma.id
+                       ) AS subtitle_count,
+                       (
                          SELECT COUNT(*) FROM media_duplicate_candidates mdc
                          WHERE mdc.media_asset_id = ma.id
                             OR mdc.candidate_asset_id = ma.id
@@ -513,6 +1017,7 @@ def media_dependency_counts(limit: int) -> dict[str, dict[str, int]]:
             "processing_job_count": int(row["processing_job_count"] or 0),
             "rendition_count": int(row["rendition_count"] or 0),
             "fingerprint_count": int(row["fingerprint_count"] or 0),
+            "subtitle_count": int(row["subtitle_count"] or 0),
             "duplicate_candidate_count": int(row["duplicate_candidate_count"] or 0),
         }
         for row in rows
@@ -549,6 +1054,10 @@ def media_referenced_paths() -> set[str]:
                 SELECT thumbnail_relative_path AS path FROM media_assets WHERE thumbnail_relative_path IS NOT NULL
                 UNION
                 SELECT relative_path AS path FROM media_renditions WHERE relative_path IS NOT NULL
+                UNION
+                SELECT source_relative_path AS path FROM media_subtitle_tracks WHERE source_relative_path IS NOT NULL
+                UNION
+                SELECT webvtt_relative_path AS path FROM media_subtitle_tracks WHERE webvtt_relative_path IS NOT NULL
                 """
             )
         ).scalars().all()

@@ -39,6 +39,24 @@
       "owner": "admin-api"
     },
     {
+      "method": "DELETE",
+      "path": "/api/admin/assessment-report-prompts",
+      "name": "admin_reset_assessment_report_prompts",
+      "owner": "admin-api"
+    },
+    {
+      "method": "GET",
+      "path": "/api/admin/assessment-report-prompts",
+      "name": "admin_get_assessment_report_prompts",
+      "owner": "admin-api"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/admin/assessment-report-prompts",
+      "name": "admin_update_assessment_report_prompts",
+      "owner": "admin-api"
+    },
+    {
       "method": "GET",
       "path": "/api/admin/catalog/chapters/{chapter_id}/roots",
       "name": "admin_catalog_chapter_roots",
@@ -52,14 +70,14 @@
     },
     {
       "method": "POST",
-      "path": "/api/admin/catalog/equations/preview",
-      "name": "admin_catalog_preview_equations",
+      "path": "/api/admin/catalog/equations/assist",
+      "name": "admin_catalog_assist_equations",
       "owner": "admin-api"
     },
     {
       "method": "POST",
-      "path": "/api/admin/catalog/equations/assist",
-      "name": "admin_catalog_assist_equations",
+      "path": "/api/admin/catalog/equations/preview",
+      "name": "admin_catalog_preview_equations",
       "owner": "admin-api"
     },
     {
@@ -94,6 +112,12 @@
     },
     {
       "method": "GET",
+      "path": "/api/admin/catalog/nodes/{node_id}/ai-context",
+      "name": "admin_catalog_point_ai_context",
+      "owner": "admin-api"
+    },
+    {
+      "method": "GET",
       "path": "/api/admin/catalog/nodes/{node_id}/children",
       "name": "admin_catalog_node_children",
       "owner": "admin-api"
@@ -102,6 +126,18 @@
       "method": "POST",
       "path": "/api/admin/catalog/nodes/{node_id}/copy",
       "name": "admin_catalog_copy_node",
+      "owner": "admin-api"
+    },
+    {
+      "method": "GET",
+      "path": "/api/admin/catalog/nodes/{node_id}/job-state",
+      "name": "admin_catalog_point_job_state",
+      "owner": "admin-api"
+    },
+    {
+      "method": "POST",
+      "path": "/api/admin/catalog/nodes/{node_id}/jobs/{action}",
+      "name": "admin_catalog_trigger_point_job",
       "owner": "admin-api"
     },
     {
@@ -129,6 +165,18 @@
       "owner": "admin-api"
     },
     {
+      "method": "POST",
+      "path": "/api/admin/catalog/nodes/{node_id}/preview-token",
+      "name": "admin_catalog_node_preview_token",
+      "owner": "admin-api"
+    },
+    {
+      "method": "POST",
+      "path": "/api/admin/catalog/nodes/{node_id}/rag-probe",
+      "name": "admin_catalog_point_rag_probe",
+      "owner": "admin-api"
+    },
+    {
       "method": "PUT",
       "path": "/api/admin/catalog/nodes/{node_id}/related-links",
       "name": "admin_catalog_replace_related_links",
@@ -141,39 +189,9 @@
       "owner": "admin-api"
     },
     {
-      "method": "POST",
-      "path": "/api/admin/catalog/nodes/{node_id}/preview-token",
-      "name": "admin_catalog_node_preview_token",
-      "owner": "admin-api"
-    },
-    {
       "method": "GET",
       "path": "/api/admin/catalog/nodes/{node_id}/validation",
       "name": "admin_catalog_validate_node",
-      "owner": "admin-api"
-    },
-    {
-      "method": "GET",
-      "path": "/api/admin/catalog/nodes/{node_id}/job-state",
-      "name": "admin_catalog_point_job_state",
-      "owner": "admin-api"
-    },
-    {
-      "method": "GET",
-      "path": "/api/admin/catalog/nodes/{node_id}/ai-context",
-      "name": "admin_catalog_point_ai_context",
-      "owner": "admin-api"
-    },
-    {
-      "method": "POST",
-      "path": "/api/admin/catalog/nodes/{node_id}/rag-probe",
-      "name": "admin_catalog_point_rag_probe",
-      "owner": "admin-api"
-    },
-    {
-      "method": "POST",
-      "path": "/api/admin/catalog/nodes/{node_id}/jobs/{action}",
-      "name": "admin_catalog_trigger_point_job",
       "owner": "admin-api"
     },
     {
@@ -207,6 +225,42 @@
       "owner": "admin-api"
     },
     {
+      "method": "DELETE",
+      "path": "/api/admin/classes/{class_id}/assessment-report-prompts",
+      "name": "admin_clear_class_assessment_report_prompts",
+      "owner": "admin-api"
+    },
+    {
+      "method": "GET",
+      "path": "/api/admin/classes/{class_id}/assessment-report-prompts",
+      "name": "admin_get_class_assessment_report_prompts",
+      "owner": "admin-api"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/admin/classes/{class_id}/assessment-report-prompts",
+      "name": "admin_update_class_assessment_report_prompts",
+      "owner": "admin-api"
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/admin/classes/{class_id}/custom-assessment-settings",
+      "name": "admin_clear_class_custom_assessment_settings",
+      "owner": "admin-api"
+    },
+    {
+      "method": "GET",
+      "path": "/api/admin/classes/{class_id}/custom-assessment-settings",
+      "name": "admin_get_class_custom_assessment_settings",
+      "owner": "admin-api"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/admin/classes/{class_id}/custom-assessment-settings",
+      "name": "admin_update_class_custom_assessment_settings",
+      "owner": "admin-api"
+    },
+    {
       "method": "GET",
       "path": "/api/admin/classes/{class_id}/registration-settings",
       "name": "admin_get_class_registration_settings",
@@ -232,6 +286,30 @@
     },
     {
       "method": "GET",
+      "path": "/api/admin/classes/{class_id}/smart-assessment-preview",
+      "name": "admin_get_class_smart_assessment_preview",
+      "owner": "admin-api"
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/admin/classes/{class_id}/smart-assessment-strategy",
+      "name": "admin_clear_class_smart_assessment_strategy",
+      "owner": "admin-api"
+    },
+    {
+      "method": "GET",
+      "path": "/api/admin/classes/{class_id}/smart-assessment-strategy",
+      "name": "admin_get_class_smart_assessment_strategy",
+      "owner": "admin-api"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/admin/classes/{class_id}/smart-assessment-strategy",
+      "name": "admin_update_class_smart_assessment_strategy",
+      "owner": "admin-api"
+    },
+    {
+      "method": "GET",
       "path": "/api/admin/classes/{class_id}/students",
       "name": "admin_list_roster_students",
       "owner": "admin-api"
@@ -252,6 +330,18 @@
       "method": "PATCH",
       "path": "/api/admin/classes/{class_id}/students/{student_id}",
       "name": "admin_update_roster_student",
+      "owner": "admin-api"
+    },
+    {
+      "method": "GET",
+      "path": "/api/admin/classes/{class_id}/students/{student_id}/assessment-reports",
+      "name": "admin_list_student_assessment_reports",
+      "owner": "admin-api"
+    },
+    {
+      "method": "GET",
+      "path": "/api/admin/classes/{class_id}/students/{student_id}/assessment-reports/{report_id}",
+      "name": "admin_get_student_assessment_report",
       "owner": "admin-api"
     },
     {
@@ -417,6 +507,18 @@
       "owner": "admin-api"
     },
     {
+      "method": "POST",
+      "path": "/api/admin/media/assets/{asset_id}/delete",
+      "name": "admin_delete_media_asset",
+      "owner": "admin-api"
+    },
+    {
+      "method": "GET",
+      "path": "/api/admin/media/assets/{asset_id}/delete-plan",
+      "name": "admin_media_asset_delete_plan",
+      "owner": "admin-api"
+    },
+    {
       "method": "GET",
       "path": "/api/admin/media/assets/{asset_id}/file",
       "name": "admin_get_media_asset_file",
@@ -438,6 +540,42 @@
       "method": "GET",
       "path": "/api/admin/media/assets/{asset_id}/stream",
       "name": "admin_stream_media_asset_file",
+      "owner": "admin-api"
+    },
+    {
+      "method": "GET",
+      "path": "/api/admin/media/assets/{asset_id}/subtitle-tracks",
+      "name": "admin_list_media_subtitle_tracks",
+      "owner": "admin-api"
+    },
+    {
+      "method": "POST",
+      "path": "/api/admin/media/assets/{asset_id}/subtitle-tracks",
+      "name": "admin_create_media_subtitle_track",
+      "owner": "admin-api"
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/admin/media/assets/{asset_id}/subtitle-tracks/{track_id}",
+      "name": "admin_delete_media_subtitle_track",
+      "owner": "admin-api"
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/admin/media/assets/{asset_id}/subtitle-tracks/{track_id}",
+      "name": "admin_update_media_subtitle_track",
+      "owner": "admin-api"
+    },
+    {
+      "method": "POST",
+      "path": "/api/admin/media/assets/{asset_id}/subtitle-tracks/{track_id}/retry",
+      "name": "admin_retry_media_subtitle_track",
+      "owner": "admin-api"
+    },
+    {
+      "method": "GET",
+      "path": "/api/admin/media/assets/{asset_id}/subtitle-tracks/{track_id}/stream",
+      "name": "admin_stream_media_subtitle_track",
       "owner": "admin-api"
     },
     {
@@ -507,6 +645,12 @@
       "owner": "admin-api"
     },
     {
+      "method": "POST",
+      "path": "/api/admin/question-banks/assistant/preview",
+      "name": "admin_question_bank_assistant_preview",
+      "owner": "admin-api"
+    },
+    {
       "method": "GET",
       "path": "/api/admin/question-banks/catalog",
       "name": "admin_list_catalog_question_bank",
@@ -516,12 +660,6 @@
       "method": "POST",
       "path": "/api/admin/question-banks/catalog/evidence-refresh",
       "name": "admin_refresh_catalog_question_bank_evidence",
-      "owner": "admin-api"
-    },
-    {
-      "method": "POST",
-      "path": "/api/admin/question-banks/assistant/preview",
-      "name": "admin_question_bank_assistant_preview",
       "owner": "admin-api"
     },
     {
@@ -748,6 +886,18 @@
     },
     {
       "method": "GET",
+      "path": "/api/chapters",
+      "name": "api_chapters",
+      "owner": "runtime"
+    },
+    {
+      "method": "POST",
+      "path": "/api/experiment-questions/submit",
+      "name": "submit_experiment_questions",
+      "owner": "student-api"
+    },
+    {
+      "method": "GET",
       "path": "/api/preview/catalog/nodes/{node_id}",
       "name": "preview_catalog_node_route",
       "owner": "student-api"
@@ -766,6 +916,12 @@
     },
     {
       "method": "GET",
+      "path": "/api/preview/media/assets/{asset_id}/subtitle-tracks/{track_id}/stream",
+      "name": "preview_media_subtitle_stream",
+      "owner": "student-api"
+    },
+    {
+      "method": "GET",
       "path": "/api/preview/media/assets/{asset_id}/thumbnail",
       "name": "preview_media_thumbnail",
       "owner": "student-api"
@@ -778,14 +934,188 @@
     },
     {
       "method": "GET",
-      "path": "/api/chapters",
-      "name": "api_chapters",
-      "owner": "runtime"
+      "path": "/api/student/app-config",
+      "name": "student_app_config",
+      "owner": "student-api"
+    },
+    {
+      "method": "GET",
+      "path": "/api/student/assessment-reports",
+      "name": "student_list_assessment_reports",
+      "owner": "student-api"
+    },
+    {
+      "method": "GET",
+      "path": "/api/student/assessment-reports/{report_id}",
+      "name": "student_get_assessment_report",
+      "owner": "student-api"
     },
     {
       "method": "POST",
-      "path": "/api/experiment-questions/submit",
-      "name": "submit_experiment_questions",
+      "path": "/api/student/assessment/baseline-prompt-dismiss",
+      "name": "dismiss_baseline_prompt",
+      "owner": "student-api"
+    },
+    {
+      "method": "GET",
+      "path": "/api/student/assessment/status",
+      "name": "assessment_status",
+      "owner": "student-api"
+    },
+    {
+      "method": "POST",
+      "path": "/api/student/assistant/ask/stream",
+      "name": "stream_assistant_answer",
+      "owner": "student-api"
+    },
+    {
+      "method": "POST",
+      "path": "/api/student/assistant/posttest-mistakes",
+      "name": "posttest_mistakes",
+      "owner": "student-api"
+    },
+    {
+      "method": "POST",
+      "path": "/api/student/assistant/posttest-summary",
+      "name": "posttest_summary",
+      "owner": "student-api"
+    },
+    {
+      "method": "GET",
+      "path": "/api/student/catalog/nodes/{node_id}",
+      "name": "student_catalog_node_route",
+      "owner": "student-api"
+    },
+    {
+      "method": "GET",
+      "path": "/api/student/catalog/points/{node_id}",
+      "name": "student_point_detail_route",
+      "owner": "student-api"
+    },
+    {
+      "method": "GET",
+      "path": "/api/student/chapters/{chapter_id}/catalog",
+      "name": "student_chapter_catalog_route",
+      "owner": "student-api"
+    },
+    {
+      "method": "GET",
+      "path": "/api/student/custom-assessment/options",
+      "name": "custom_assessment_options",
+      "owner": "student-api"
+    },
+    {
+      "method": "POST",
+      "path": "/api/student/custom-assessment/start",
+      "name": "start_custom_assessment",
+      "owner": "student-api"
+    },
+    {
+      "method": "POST",
+      "path": "/api/student/feedback",
+      "name": "submit_student_feedback_endpoint",
+      "owner": "student-api"
+    },
+    {
+      "method": "GET",
+      "path": "/api/student/home-video-feed",
+      "name": "student_home_video_feed_route",
+      "owner": "student-api"
+    },
+    {
+      "method": "GET",
+      "path": "/api/student/learning-home",
+      "name": "learning_home",
+      "owner": "student-api"
+    },
+    {
+      "method": "GET",
+      "path": "/api/student/learning-page",
+      "name": "learning_page",
+      "owner": "student-api"
+    },
+    {
+      "method": "GET",
+      "path": "/api/student/media/assets/{asset_id}/stream",
+      "name": "student_media_stream",
+      "owner": "student-api"
+    },
+    {
+      "method": "GET",
+      "path": "/api/student/media/assets/{asset_id}/subtitle-tracks/{track_id}/stream",
+      "name": "student_media_subtitle_stream",
+      "owner": "student-api"
+    },
+    {
+      "method": "GET",
+      "path": "/api/student/media/assets/{asset_id}/thumbnail",
+      "name": "student_media_thumbnail",
+      "owner": "student-api"
+    },
+    {
+      "method": "POST",
+      "path": "/api/student/point-assessment/start",
+      "name": "start_point_assessment",
+      "owner": "student-api"
+    },
+    {
+      "method": "POST",
+      "path": "/api/student/posttest/start",
+      "name": "start_posttest",
+      "owner": "student-api"
+    },
+    {
+      "method": "POST",
+      "path": "/api/student/posttest/submit",
+      "name": "submit_posttest",
+      "owner": "student-api"
+    },
+    {
+      "method": "POST",
+      "path": "/api/student/pretest/start",
+      "name": "start_pretest",
+      "owner": "student-api"
+    },
+    {
+      "method": "POST",
+      "path": "/api/student/pretest/submit",
+      "name": "submit_pretest_stage",
+      "owner": "student-api"
+    },
+    {
+      "method": "POST",
+      "path": "/api/student/smart-assessment/start",
+      "name": "start_smart_assessment",
+      "owner": "student-api"
+    },
+    {
+      "method": "POST",
+      "path": "/api/student/smart-assessment/submit",
+      "name": "submit_smart_assessment",
+      "owner": "student-api"
+    },
+    {
+      "method": "GET",
+      "path": "/api/student/video-library/search",
+      "name": "video_library_search",
+      "owner": "student-api"
+    },
+    {
+      "method": "GET",
+      "path": "/api/student/video-saves/favorite/feed",
+      "name": "favorite_video_feed",
+      "owner": "student-api"
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/student/video-saves/{save_type}",
+      "name": "remove_student_video_save",
+      "owner": "student-api"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/student/video-saves/{save_type}",
+      "name": "save_student_video",
       "owner": "student-api"
     },
     {
@@ -865,114 +1195,6 @@
       "path": "/api/web-admin/teacher-accounts/{account_id}/reset-password",
       "name": "web_admin_reset_teacher_account_password",
       "owner": "web-admin-api"
-    },
-    {
-      "method": "GET",
-      "path": "/api/student/app-config",
-      "name": "student_app_config",
-      "owner": "student-api"
-    },
-    {
-      "method": "GET",
-      "path": "/api/student/home-video-feed",
-      "name": "student_home_video_feed_route",
-      "owner": "student-api"
-    },
-    {
-      "method": "POST",
-      "path": "/api/student/assistant/ask/stream",
-      "name": "stream_assistant_answer",
-      "owner": "student-api"
-    },
-    {
-      "method": "POST",
-      "path": "/api/student/assistant/posttest-mistakes",
-      "name": "posttest_mistakes",
-      "owner": "student-api"
-    },
-    {
-      "method": "POST",
-      "path": "/api/student/assistant/posttest-summary",
-      "name": "posttest_summary",
-      "owner": "student-api"
-    },
-    {
-      "method": "GET",
-      "path": "/api/student/catalog/nodes/{node_id}",
-      "name": "student_catalog_node_route",
-      "owner": "student-api"
-    },
-    {
-      "method": "GET",
-      "path": "/api/student/catalog/points/{node_id}",
-      "name": "student_point_detail_route",
-      "owner": "student-api"
-    },
-    {
-      "method": "GET",
-      "path": "/api/student/chapters/{chapter_id}/catalog",
-      "name": "student_chapter_catalog_route",
-      "owner": "student-api"
-    },
-    {
-      "method": "POST",
-      "path": "/api/student/feedback",
-      "name": "submit_student_feedback_endpoint",
-      "owner": "student-api"
-    },
-    {
-      "method": "GET",
-      "path": "/api/student/learning-home",
-      "name": "learning_home",
-      "owner": "student-api"
-    },
-    {
-      "method": "GET",
-      "path": "/api/student/learning-page",
-      "name": "learning_page",
-      "owner": "student-api"
-    },
-    {
-      "method": "GET",
-      "path": "/api/student/media/assets/{asset_id}/stream",
-      "name": "student_media_stream",
-      "owner": "student-api"
-    },
-    {
-      "method": "GET",
-      "path": "/api/student/media/assets/{asset_id}/thumbnail",
-      "name": "student_media_thumbnail",
-      "owner": "student-api"
-    },
-    {
-      "method": "POST",
-      "path": "/api/student/posttest/start",
-      "name": "start_posttest",
-      "owner": "student-api"
-    },
-    {
-      "method": "POST",
-      "path": "/api/student/posttest/submit",
-      "name": "submit_posttest",
-      "owner": "student-api"
-    },
-    {
-      "method": "POST",
-      "path": "/api/student/pretest/start",
-      "name": "start_pretest",
-      "owner": "student-api"
-    },
-    {
-      "method": "POST",
-      "path": "/api/student/pretest/submit",
-      "name": "submit_pretest_stage",
-      "owner": "student-api"
-    },
-    {
-      "method": "GET",
-      "path": "/api/student/video-library/search",
-      "name": "video_library_search",
-      "owner": "student-api"
     },
     {
       "method": "GET",

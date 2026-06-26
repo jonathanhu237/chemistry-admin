@@ -134,10 +134,8 @@ export type AIConfiguration = {
   };
   rag_runtime?: {
     rag_enabled: boolean;
-    hybrid_bge_enabled: boolean;
-    bge_service_required: boolean;
-    bge_service_url: string;
     query_generation_enabled: boolean;
+    keyword_top_k: number;
     vector_top_k: number;
     rerank_top_k: number;
     final_top_k: number;

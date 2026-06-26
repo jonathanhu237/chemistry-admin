@@ -110,6 +110,7 @@ def test_media_archive_plan_reports_catalog_binding_impact(monkeypatch):
     )
     monkeypatch.setattr(media_lifecycle, "_rendition_rows", lambda _session, _asset_id: [{"id": "rendition-1"}])
     monkeypatch.setattr(media_lifecycle, "_fingerprint_rows", lambda _session, _asset_id: [{"id": "fingerprint-1"}])
+    monkeypatch.setattr(media_lifecycle, "_subtitle_track_rows", lambda _session, _asset_id: [])
     monkeypatch.setattr(media_lifecycle, "_duplicate_candidate_rows", lambda _session, _asset_id: [{"id": "candidate-1"}])
 
     plan = media_lifecycle._archive_plan_for_session(session, "asset-1")
@@ -121,6 +122,7 @@ def test_media_archive_plan_reports_catalog_binding_impact(monkeypatch):
     assert plan["active_processing_job_count"] == 1
     assert plan["rendition_count"] == 1
     assert plan["fingerprint_count"] == 1
+    assert plan["subtitle_track_count"] == 0
     assert plan["duplicate_candidate_count"] == 1
     assert "Point content remains" in plan["message"]
 
@@ -145,6 +147,7 @@ def test_media_archive_plan_for_unbound_asset_is_low_impact(monkeypatch):
     monkeypatch.setattr(media_lifecycle, "_processing_rows", lambda _session, _asset_id: [])
     monkeypatch.setattr(media_lifecycle, "_rendition_rows", lambda _session, _asset_id: [])
     monkeypatch.setattr(media_lifecycle, "_fingerprint_rows", lambda _session, _asset_id: [])
+    monkeypatch.setattr(media_lifecycle, "_subtitle_track_rows", lambda _session, _asset_id: [])
     monkeypatch.setattr(media_lifecycle, "_duplicate_candidate_rows", lambda _session, _asset_id: [])
 
     plan = media_lifecycle._archive_plan_for_session(session, "asset-2")
@@ -152,7 +155,145 @@ def test_media_archive_plan_for_unbound_asset_is_low_impact(monkeypatch):
     assert plan["can_archive"] is True
     assert plan["catalog_binding_count"] == 0
     assert plan["active_processing_job_count"] == 0
+    assert plan["subtitle_track_count"] == 0
     assert "without changing point video bindings" in plan["message"]
+
+
+def test_media_delete_plan_reports_processing_bindings_and_artifacts(monkeypatch, tmp_path):
+    session = object()
+    source = tmp_path / "originals" / "asset-3" / "source.mkv"
+    fingerprint = tmp_path / "fingerprints" / "asset-3" / "video-signature.bin"
+    subtitle_source = tmp_path / "subtitles" / "asset-3" / "track-1" / "source.srt"
+    subtitle_webvtt = tmp_path / "subtitles" / "asset-3" / "track-1" / "track.vtt"
+    tmp_dir = tmp_path / "tmp" / "job-1"
+    source.parent.mkdir(parents=True)
+    fingerprint.parent.mkdir(parents=True)
+    subtitle_source.parent.mkdir(parents=True)
+    tmp_dir.mkdir(parents=True)
+    source.write_bytes(b"source")
+    fingerprint.write_bytes(b"fingerprint")
+    subtitle_source.write_bytes(b"subtitle-source")
+    subtitle_webvtt.write_bytes(b"subtitle-webvtt")
+
+    def resolve(relative_path: str):
+        path = (tmp_path / relative_path).resolve()
+        if tmp_path.resolve() != path and tmp_path.resolve() not in path.parents:
+            raise ValueError("Media path escapes media root")
+        return path
+
+    monkeypatch.setattr(media_lifecycle, "resolve_media_relative", resolve)
+    monkeypatch.setattr(
+        media_lifecycle,
+        "_asset_row",
+        lambda _session, _asset_id: {
+            "id": "asset-3",
+            "lifecycle_status": "active",
+            "file_state": "available",
+            "primary_file_available": True,
+            "existing_file_count": 1,
+            "missing_file_count": 0,
+            "media_files": [{"relative_path": "originals/asset-3/source.mkv", "kinds": ["source", "relative"]}],
+        },
+    )
+    monkeypatch.setattr(
+        media_lifecycle,
+        "_catalog_binding_rows",
+        lambda _session, _asset_id: [{"binding_id": "binding-1", "student_visible": True}],
+    )
+    monkeypatch.setattr(media_lifecycle, "_legacy_binding_rows", lambda _session, _asset_id: [{"binding_id": "legacy-1"}])
+    monkeypatch.setattr(
+        media_lifecycle,
+        "_processing_rows",
+        lambda _session, _asset_id: [
+            {"id": "job-1", "job_type": "process_uploaded_video", "status": "processing"},
+            {"id": "job-2", "job_type": "process_uploaded_video", "status": "ready"},
+        ],
+    )
+    monkeypatch.setattr(media_lifecycle, "_rendition_rows", lambda _session, _asset_id: [{"id": "rendition-1"}])
+    monkeypatch.setattr(
+        media_lifecycle,
+        "_fingerprint_rows",
+        lambda _session, _asset_id: [
+            {"id": "fingerprint-1", "algorithm": "vpdq", "relative_path": "fingerprints/asset-3/video-signature.bin"}
+        ],
+    )
+    monkeypatch.setattr(
+        media_lifecycle,
+        "_subtitle_track_rows",
+        lambda _session, _asset_id: [
+            {
+                "id": "subtitle-1",
+                "source_relative_path": "subtitles/asset-3/track-1/source.srt",
+                "webvtt_relative_path": "subtitles/asset-3/track-1/track.vtt",
+            }
+        ],
+    )
+    monkeypatch.setattr(media_lifecycle, "_duplicate_candidate_rows", lambda _session, _asset_id: [{"id": "candidate-1"}])
+
+    plan = media_lifecycle._delete_plan_for_session(session, "asset-3")
+
+    assert plan["can_delete"] is True
+    assert plan["catalog_binding_count"] == 1
+    assert plan["student_visible_catalog_binding_count"] == 1
+    assert plan["legacy_generic_binding_count"] == 1
+    assert plan["active_processing_job_count"] == 1
+    assert plan["rendition_count"] == 1
+    assert plan["fingerprint_count"] == 1
+    assert plan["subtitle_track_count"] == 1
+    assert plan["duplicate_candidate_count"] == 1
+    assert plan["delete_artifact_count"] == 5
+    assert plan["existing_delete_artifact_count"] == 5
+    assert {item["relative_path"] for item in plan["delete_artifacts"]} == {
+        "originals/asset-3/source.mkv",
+        "fingerprints/asset-3/video-signature.bin",
+        "subtitles/asset-3/track-1/source.srt",
+        "subtitles/asset-3/track-1/track.vtt",
+        "tmp/job-1",
+    }
+    assert "local media files will be deleted" in plan["message"]
+
+
+def test_delete_artifacts_refuses_unsafe_paths_and_reports_diagnostics(monkeypatch, tmp_path):
+    safe_file = tmp_path / "originals" / "asset-4" / "source.mp4"
+    safe_file.parent.mkdir(parents=True)
+    safe_file.write_bytes(b"video")
+
+    def resolve(relative_path: str):
+        if relative_path.startswith("../"):
+            raise ValueError("Media path escapes media root")
+        return (tmp_path / relative_path).resolve()
+
+    monkeypatch.setattr(media_lifecycle, "resolve_media_relative", resolve)
+
+    cleanup = media_lifecycle._delete_artifacts(
+        [
+            {"relative_path": "originals/asset-4/source.mp4", "kinds": ["source"], "path_type": "file"},
+            {"relative_path": "../escape.mp4", "kinds": ["source"], "path_type": "unsafe"},
+        ]
+    )
+    diagnostics = media_lifecycle._cleanup_diagnostics(cleanup)
+
+    assert safe_file.exists() is False
+    assert cleanup["status"] == "failed"
+    assert diagnostics["deleted_artifact_count"] == 1
+    assert diagnostics["failed_artifact_count"] == 1
+    assert diagnostics["failed_artifacts"][0]["relative_path"] == "../escape.mp4"
+
+
+def test_delete_media_asset_orchestration_contracts_are_destructive() -> None:
+    source = Path("server/app/domains/media/lifecycle.py").read_text(encoding="utf-8")
+
+    assert "def delete_media_asset" in source
+    assert "lifecycle_status = 'tombstoned'" in source
+    assert "status = 'cancelled'" in source
+    assert "DELETE FROM media_duplicate_candidates" in source
+    assert "DELETE FROM media_video_fingerprints" in source
+    assert "DELETE FROM media_renditions" in source
+    assert "DELETE FROM media_subtitle_tracks" in source
+    assert "subtitle_track_count" in source
+    assert "handle_media_asset_deleted" in source
+    assert "_delete_artifacts(plan.get(\"delete_artifacts\") or [])" in source
+    assert "media_asset_delete_cleanup_failed" in source
 
 
 def test_media_cleanup_action_only_allows_db_file_cleanup_after_archive():

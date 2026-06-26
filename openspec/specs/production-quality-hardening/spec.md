@@ -19,19 +19,20 @@ The admin frontend SHALL classify heavyweight production build output into named
 - **THEN** the route loads the same feature behavior and data as before, with only an acceptable loading state added at the route boundary
 
 ### Requirement: FastAPI Apps Use Lifespan Startup
-The backend FastAPI applications SHALL use lifespan startup/shutdown hooks instead of deprecated `on_event` handlers while preserving existing startup behavior.
+The backend FastAPI applications SHALL use lifespan startup/shutdown hooks instead of deprecated `on_event` handlers while preserving existing startup behavior for supported runtime applications.
 
 #### Scenario: Admin service startup behavior is preserved
 - **WHEN** the admin service starts
-- **THEN** it performs the configured database startup check, ensures the media root exists, registers the same routers/static admin routes, and returns the same `/health` response as before
+- **THEN** it performs the configured database startup check, ensures the media root exists, registers the same routers/static admin routes, and returns the same `/health` response as before.
 
-#### Scenario: BGE service warmup behavior is preserved
-- **WHEN** the BGE service starts with warmup enabled
-- **THEN** it triggers the same background warmup flow and exposes equivalent warmup status through `/health` and `/metrics`
+#### Scenario: Retired BGE app is absent
+- **WHEN** backend FastAPI app modules are inspected after local sidecar retirement
+- **THEN** no supported FastAPI app dedicated to local BGE embedding/rerank service MUST remain
+- **AND** validation MUST NOT require preserving BGE warmup behavior.
 
 #### Scenario: Deprecation warnings are removed
 - **WHEN** backend tests or import smoke checks exercise the FastAPI app modules
-- **THEN** FastAPI `on_event` deprecation warnings are not emitted by project startup code
+- **THEN** FastAPI `on_event` deprecation warnings are not emitted by project startup code.
 
 ### Requirement: Media Cleanup Preserves Database And UI Consistency
 The system SHALL manage local media cleanup as a database/file lifecycle operation and MUST NOT delete media files independently from related media records and bindings.

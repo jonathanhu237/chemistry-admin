@@ -136,22 +136,27 @@ The workbench SHALL be verified with Python Playwright against the teacher-visib
 - **AND** it SHALL assert that original context, multi-turn chat, and candidate controls do not visibly collapse into a detached one-shot generation drawer.
 
 ### Requirement: RAG-gated workbench access
-The system SHALL require a healthy RAG runtime before a teacher can start or continue AI-assisted question creation or repair in the point-aware question workbench.
+The system SHALL require a healthy external textbook RAG runtime before a teacher can start or continue AI-assisted question creation or repair in the point-aware question workbench.
 
 #### Scenario: Teacher opens AI creation when RAG is healthy
-- **WHEN** a teacher selects an experiment or experiment point and the RAG runtime is enabled, hybrid BGE is enabled, query generation is enabled, and BGE health is healthy
+- **WHEN** a teacher selects an experiment or experiment point and external textbook RAG is enabled, Elasticsearch index metadata is valid, embedding configuration is ready, and rerank configuration is ready
 - **THEN** the workbench SHALL allow the teacher to start an AI create session
-- **AND** it SHALL show that generated candidates will use reranked evidence.
+- **AND** it SHALL show that generated candidates will use textbook evidence from the configured external RAG runtime.
 
 #### Scenario: Teacher opens AI repair when RAG is unhealthy
-- **WHEN** a teacher selects AI repair for an existing question while RAG is disabled, BGE is unreachable, or query generation is disabled
+- **WHEN** a teacher selects AI repair for an existing question while textbook RAG is disabled, Elasticsearch is unavailable, the textbook index is missing or stale, embedding is not configured, or rerank is not configured
 - **THEN** the workbench SHALL prevent starting the AI repair session
 - **AND** it SHALL show the missing RAG condition in teacher-readable language.
 
 #### Scenario: Teacher sends a prompt after RAG becomes unhealthy
-- **WHEN** a teacher has an open workbench session and sends a follow-up prompt after the RAG runtime is no longer healthy
+- **WHEN** a teacher has an open workbench session and sends a follow-up prompt after the external textbook RAG runtime is no longer healthy
 - **THEN** the backend SHALL reject candidate generation
 - **AND** the UI SHALL preserve prior turns and candidates while showing the gate failure.
+
+#### Scenario: Legacy local RAG is unavailable
+- **WHEN** external textbook RAG is unhealthy
+- **THEN** the workbench MUST NOT suggest starting `bge-rag`, enabling hybrid BGE, or using local model files as remediation
+- **AND** it MUST NOT fall back to local-template generation that creates publishable candidates.
 
 ### Requirement: Evidence-first workbench context
 The workbench SHALL show the selected experiment, target point context, source evidence package, and RAG health before or alongside teacher prompts.
@@ -166,9 +171,10 @@ The workbench SHALL show the selected experiment, target point context, source e
 - **THEN** the workbench SHALL derive target points from the question's bound primary point metadata
 - **AND** the teacher prompt SHALL refine intent without directly editing the original question structure.
 
-#### Scenario: Workbench shows evidence diagnostics
-- **WHEN** a workbench session has source references or retrieval diagnostics
-- **THEN** the workbench SHALL show the evidence package, source count, and whether the evidence came from reranked RAG or static fallback context.
+#### Scenario: Workbench shows sectioned evidence diagnostics
+- **WHEN** a workbench session has textbook RAG source references or retrieval diagnostics
+- **THEN** the workbench SHALL show the evidence package grouped by principle, phenomenon, and safety section
+- **AND** it SHALL show source count, missing sections, retrieval mode, and whether the evidence came from Qwen-reranked textbook chunks.
 
 ### Requirement: Teacher prompt controls intent, not structure mutation
 The workbench SHALL treat teacher text as refinement instructions for AI-generated candidates rather than direct mutation of published question structure.
@@ -182,3 +188,52 @@ The workbench SHALL treat teacher text as refinement instructions for AI-generat
 - **WHEN** an AI candidate lacks deterministic answer shape, point bindings, source audit, lineage, or required option diagnostics
 - **THEN** the workbench SHALL prevent publication
 - **AND** it SHALL guide the teacher to request another AI revision.
+
+### Requirement: Duplicate-aware candidate generation
+The point-aware AI question workbench SHALL annotate generated candidates with same-point duplicate-risk metadata.
+
+#### Scenario: Candidate is generated
+- **WHEN** the workbench stores a generated candidate and its backing draft
+- **THEN** the backend SHALL evaluate duplicate risk against published questions, active drafts, and earlier candidates in the same generation batch for the same point
+- **AND** it SHALL store the duplicate-risk result in the draft payload metadata.
+
+#### Scenario: Teacher edits a draft candidate
+- **WHEN** a teacher saves edits to a workbench draft candidate
+- **THEN** the backend SHALL recompute duplicate risk for the edited payload
+- **AND** the updated draft SHALL retain the latest duplicate-risk result.
+
+#### Scenario: Candidate is published
+- **WHEN** a teacher publishes a workbench candidate or its backing draft
+- **THEN** the backend SHALL refresh duplicate-risk metadata before publication
+- **AND** it SHALL allow publication even when duplicate risk is present.
+
+### Requirement: Generation uses precomputed evidence only
+The workbench SHALL use precomputed selected evidence bindings as the only textbook evidence source for AI candidate generation.
+
+#### Scenario: Selected evidence exists
+- **WHEN** selected point evidence bindings are fresh or partial
+- **THEN** the backend SHALL build the workbench evidence package from those bindings
+- **AND** it SHALL call the final chat-generation model with that evidence.
+
+#### Scenario: Selected evidence is unavailable
+- **WHEN** selected point evidence bindings are missing, stale, failed, disabled, or unavailable
+- **THEN** the backend SHALL block generation
+- **AND** it SHALL NOT fall back to live Qwen embedding, Elasticsearch recall, or Qwen rerank.
+
+#### Scenario: Candidate diagnostics exist
+- **WHEN** candidate evidence diagnostics exist for the selected point
+- **THEN** the backend MAY expose those diagnostics in admin inspection payloads
+- **AND** it SHALL NOT send candidate-only chunks to the final chat-generation model.
+
+### Requirement: Current authoring controls are preserved
+The workbench SHALL keep the current teacher-facing add and repair controls while changing the evidence source behind generation.
+
+#### Scenario: Teacher starts add-mode generation
+- **WHEN** a teacher starts add-mode AI generation from the current question-bank workflow
+- **THEN** the workbench SHALL preserve the existing selectable objective question types and count behavior
+- **AND** it SHALL send selected type and count intent along with textbook evidence to the LLM.
+
+#### Scenario: Teacher starts repair-mode generation
+- **WHEN** a teacher starts repair-mode AI generation from an existing question
+- **THEN** the workbench SHALL remain anchored to the original question, original question type, point bindings, source audit, and repair lineage
+- **AND** it SHALL generate repair candidates rather than mutating the published question directly.

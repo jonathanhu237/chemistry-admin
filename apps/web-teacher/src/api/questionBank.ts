@@ -2,7 +2,6 @@ import type { ApiList } from "./common";
 import { api, postJson, postJsonStream } from "./http";
 import type { Experiment } from "./experiments";
 import type { AIConfiguration } from "./settings";
-import type { LearningAssistantRuntime } from "./learningAssistant";
 
 export type QuestionBankSummary = Experiment & {
   banks: Array<{
@@ -272,9 +271,9 @@ export type QuestionWorkbenchSession = {
       reason_code?: string;
       message?: string;
       rag_runtime?: AIConfiguration["rag_runtime"];
-      bge_status?: LearningAssistantRuntime["bge_status"];
-      bge_error?: string | null;
-      bge_metrics?: LearningAssistantRuntime["bge_metrics"];
+      textbook_rag_status?: string;
+      textbook_rag_error?: string | null;
+      textbook_rag_diagnostics?: Record<string, unknown>;
       [key: string]: unknown;
     };
     evidence_package?: {

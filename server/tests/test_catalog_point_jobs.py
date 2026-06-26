@@ -156,7 +156,7 @@ def test_worker_claim_uses_database_locking_to_avoid_duplicate_execution() -> No
     assert "attempts < max_attempts" in source
 
 
-def test_process_point_job_records_bge_unavailable_as_diagnostic_status(monkeypatch) -> None:
+def test_process_point_job_records_textbook_rag_unavailable_as_diagnostic_status(monkeypatch) -> None:
     calls: list[dict[str, Any]] = []
     job = jobs.CatalogPointJob(
         id="00000000-0000-0000-0000-000000000002",
@@ -167,7 +167,7 @@ def test_process_point_job_records_bge_unavailable_as_diagnostic_status(monkeypa
     )
 
     def raise_unavailable(_job: jobs.CatalogPointJob) -> dict[str, Any]:
-        raise jobs.CatalogPointJobUnavailable("BGE service is unreachable")
+        raise jobs.CatalogPointJobUnavailable("External textbook RAG is unreachable")
 
     monkeypatch.setattr(jobs, "_process_rag_evidence_refresh", raise_unavailable)
     monkeypatch.setattr(
@@ -190,7 +190,7 @@ def test_process_point_job_records_bge_unavailable_as_diagnostic_status(monkeypa
     assert calls[0]["evidence_status"] == "unavailable"
     assert calls[1]["kind"] == "job_failure"
     assert calls[1]["status"] == "unavailable"
-    assert "BGE service is unreachable" in calls[1]["error"]
+    assert "External textbook RAG is unreachable" in calls[1]["error"]
 
 
 def test_teacher_projection_failure_marks_only_teacher_search_state(monkeypatch) -> None:
@@ -270,11 +270,7 @@ def test_rag_runtime_gate_requires_configured_textbook_rag(monkeypatch) -> None:
         "Settings",
         (),
         {
-            "rag_hybrid_bge_enabled": False,
             "rag_query_generation_enabled": True,
-            "rag_bge_service_url": "",
-            "rag_vector_top_k": 24,
-            "rag_rerank_top_k": 9,
             "rag_final_top_k": 5,
         },
     )()

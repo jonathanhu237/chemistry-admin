@@ -1,6 +1,24 @@
-import type { ApiList } from "./common";
+﻿import type { ApiList } from "./common";
 import { apiBase, api, patchJson, postJson } from "./http";
 import { getAuthToken } from "./auth";
+
+export type MediaSubtitleTrack = {
+  id: string;
+  media_asset_id: string;
+  language_code: string;
+  label: string;
+  kind: "subtitles" | "captions" | string;
+  source_format?: "vtt" | "srt" | string;
+  file_size_bytes?: number | null;
+  status: "processing" | "ready" | "failed" | string;
+  is_default?: boolean;
+  error_reason?: string | null;
+  metadata?: Record<string, unknown>;
+  created_at?: string;
+  updated_at?: string;
+  reused_existing?: boolean;
+};
+
 
 export type MediaAsset = {
   id: string;
@@ -43,6 +61,7 @@ export type MediaAsset = {
   processing_job?: MediaProcessingJob | null;
   renditions?: MediaRendition[];
   duplicate_candidates?: MediaDuplicateCandidate[];
+  subtitle_tracks?: MediaSubtitleTrack[];
 };
 
 export type MediaFileEntry = {
@@ -145,6 +164,60 @@ export type MediaAssetArchiveResult = {
   };
 };
 
+export type MediaAssetDeleteArtifact = {
+  kind?: string;
+  kinds?: string[];
+  relative_path: string;
+  path_safe?: boolean;
+  exists?: boolean;
+  path_type?: string;
+  file_size_bytes?: number | null;
+  error?: string | null;
+};
+
+export type MediaAssetDeletePlan = {
+  asset: MediaAsset;
+  can_delete: boolean;
+  already_deleted: boolean;
+  catalog_binding_count: number;
+  student_visible_catalog_binding_count: number;
+  legacy_generic_binding_count: number;
+  processing_job_count: number;
+  active_processing_job_count: number;
+  rendition_count: number;
+  fingerprint_count: number;
+  duplicate_candidate_count: number;
+  delete_artifact_count: number;
+  existing_delete_artifact_count: number;
+  unsafe_delete_artifact_count: number;
+  catalog_bindings: MediaArchiveCatalogBinding[];
+  delete_artifacts?: MediaAssetDeleteArtifact[];
+  message: string;
+};
+
+export type MediaAssetDeleteResult = {
+  deleted: boolean;
+  already_deleted: boolean;
+  asset_id: string;
+  lifecycle_status?: string;
+  cancelled_processing_jobs?: number;
+  plan: MediaAssetDeletePlan;
+  catalog_cleanup?: {
+    status?: string;
+    deleted_binding_count?: number;
+    affected_placement_count?: number;
+    affected_placement_node_ids?: string[];
+    error?: string;
+  };
+  file_cleanup?: {
+    status?: string;
+    artifact_count?: number;
+    deleted_artifact_count?: number;
+    failed_artifact_count?: number;
+    failed_artifacts?: MediaAssetDeleteArtifact[];
+  };
+};
+
 export function listMediaAssets(limit = 200): Promise<ApiList<MediaAsset>> {
   return api<ApiList<MediaAsset>>(`/api/admin/media/assets?limit=${limit}`);
 }
@@ -197,6 +270,38 @@ export function archiveMediaAsset(assetId: string, reason?: string): Promise<Med
   return postJson<MediaAssetArchiveResult>("/api/admin/media/assets/" + assetId + "/archive", { reason });
 }
 
+export function getMediaAssetDeletePlan(assetId: string): Promise<MediaAssetDeletePlan> {
+  return api<MediaAssetDeletePlan>("/api/admin/media/assets/" + assetId + "/delete-plan");
+}
+
+export function deleteMediaAsset(assetId: string, reason?: string): Promise<MediaAssetDeleteResult> {
+  return postJson<MediaAssetDeleteResult>("/api/admin/media/assets/" + assetId + "/delete", { reason });
+}
+
 export function updateMediaDuplicateCandidate(id: string, status: string): Promise<unknown> {
   return patchJson("/api/admin/media/duplicate-candidates/" + id, { status });
+}
+
+export function listMediaSubtitleTracks(assetId: string): Promise<ApiList<MediaSubtitleTrack>> {
+  return api<ApiList<MediaSubtitleTrack>>(`/api/admin/media/assets/${assetId}/subtitle-tracks`);
+}
+
+export function uploadMediaSubtitleTrack(assetId: string, payload: FormData): Promise<MediaSubtitleTrack> {
+  return api<MediaSubtitleTrack>(`/api/admin/media/assets/${assetId}/subtitle-tracks`, { method: "POST", body: payload });
+}
+
+export function updateMediaSubtitleTrack(assetId: string, trackId: string, payload: Partial<Pick<MediaSubtitleTrack, "language_code" | "label" | "kind" | "is_default">>): Promise<MediaSubtitleTrack> {
+  return patchJson<MediaSubtitleTrack>(`/api/admin/media/assets/${assetId}/subtitle-tracks/${trackId}`, payload);
+}
+
+export function deleteMediaSubtitleTrack(assetId: string, trackId: string): Promise<{ deleted: boolean }> {
+  return api<{ deleted: boolean }>(`/api/admin/media/assets/${assetId}/subtitle-tracks/${trackId}`, { method: "DELETE" });
+}
+
+export function retryMediaSubtitleTrack(assetId: string, trackId: string): Promise<MediaSubtitleTrack> {
+  return postJson<MediaSubtitleTrack>(`/api/admin/media/assets/${assetId}/subtitle-tracks/${trackId}/retry`, {});
+}
+
+export function getMediaSubtitleTrackStreamUrl(assetId: string, trackId: string, accessToken: string): string {
+  return `${apiBase}/api/admin/media/assets/${assetId}/subtitle-tracks/${trackId}/stream?access_token=${encodeURIComponent(accessToken)}`;
 }

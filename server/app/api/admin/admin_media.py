@@ -19,7 +19,21 @@ from server.app.domains.media.assets import (
     precheck_exact_duplicate,
 )
 from server.app.domains.media.files import media_upload_policy
-from server.app.domains.media.lifecycle import archive_media_asset, media_asset_archive_plan
+from server.app.domains.media.subtitles import (
+    SubtitleValidationError,
+    create_subtitle_track,
+    delete_subtitle_track,
+    list_subtitle_tracks,
+    retry_subtitle_track_normalization,
+    subtitle_track_file,
+    update_subtitle_track,
+)
+from server.app.domains.media.lifecycle import (
+    archive_media_asset,
+    delete_media_asset,
+    media_asset_archive_plan,
+    media_asset_delete_plan,
+)
 from server.app.domains.media.bindings import (
     create_media_binding,
     delete_media_binding,
@@ -65,6 +79,17 @@ class MediaAssetArchiveRequest(BaseModel):
     reason: str | None = Field(default=None, max_length=500)
 
 
+class MediaAssetDeleteRequest(BaseModel):
+    reason: str | None = Field(default=None, max_length=500)
+
+
+class MediaSubtitleTrackUpdateRequest(BaseModel):
+    language_code: str | None = Field(default=None, min_length=2, max_length=35)
+    label: str | None = Field(default=None, min_length=1, max_length=80)
+    kind: str | None = Field(default=None, pattern="^(subtitles|captions)$")
+    is_default: bool | None = None
+
+
 class MediaUploadPolicyResponse(BaseModel):
     max_media_upload_mb: int
     max_media_upload_bytes: int
@@ -74,6 +99,13 @@ class MediaUploadPolicyResponse(BaseModel):
 def _media_upload_policy_error(exc: MediaUploadPolicyError) -> HTTPException:
     return HTTPException(status_code=status.HTTP_413_REQUEST_ENTITY_TOO_LARGE, detail=exc.detail())
 
+
+
+def _subtitle_error(exc: SubtitleValidationError) -> HTTPException:
+    code = status.HTTP_404_NOT_FOUND if exc.reason in {"media_asset_not_found", "subtitle_track_not_found", "subtitle_file_not_found"} else status.HTTP_400_BAD_REQUEST
+    if exc.reason == "subtitle_file_too_large":
+        code = status.HTTP_413_REQUEST_ENTITY_TOO_LARGE
+    return HTTPException(status_code=code, detail=exc.detail)
 
 def _media_asset_file_response(asset_id: str) -> FileResponse:
     with db_session() as session:
@@ -245,6 +277,103 @@ async def admin_stream_media_asset_thumbnail(
     return _media_asset_thumbnail_response(asset_id)
 
 
+
+@router.get("/media/assets/{asset_id}/subtitle-tracks")
+async def admin_list_media_subtitle_tracks(
+    asset_id: str = Path(min_length=1),
+    user: AuthUser = Depends(require_teacher_console_user),
+) -> dict[str, Any]:
+    return {"items": list_subtitle_tracks(asset_id)}
+
+
+@router.post("/media/assets/{asset_id}/subtitle-tracks")
+async def admin_create_media_subtitle_track(
+    asset_id: str = Path(min_length=1),
+    file: UploadFile = File(...),
+    language_code: str = Form("und"),
+    label: str | None = Form(default=None),
+    kind: str = Form("subtitles"),
+    is_default: bool = Form(False),
+    client_link_id: str | None = Form(default=None),
+    user: AuthUser = Depends(require_teacher_console_user),
+) -> dict[str, Any]:
+    content = await file.read()
+    try:
+        return create_subtitle_track(
+            asset_id=asset_id,
+            filename=file.filename or "subtitle.vtt",
+            content=content,
+            content_type=file.content_type,
+            language_code=language_code,
+            label=label,
+            kind=kind,
+            is_default=is_default,
+            uploaded_by=user.id,
+            metadata={"client_link_id": client_link_id} if client_link_id else {},
+        )
+    except SubtitleValidationError as exc:
+        raise _subtitle_error(exc) from exc
+
+
+@router.patch("/media/assets/{asset_id}/subtitle-tracks/{track_id}")
+async def admin_update_media_subtitle_track(
+    payload: MediaSubtitleTrackUpdateRequest,
+    asset_id: str = Path(min_length=1),
+    track_id: str = Path(min_length=1),
+    user: AuthUser = Depends(require_teacher_console_user),
+) -> dict[str, Any]:
+    try:
+        return update_subtitle_track(
+            asset_id=asset_id,
+            track_id=track_id,
+            language_code=payload.language_code,
+            label=payload.label,
+            kind=payload.kind,
+            is_default=payload.is_default,
+        )
+    except SubtitleValidationError as exc:
+        raise _subtitle_error(exc) from exc
+
+
+@router.delete("/media/assets/{asset_id}/subtitle-tracks/{track_id}")
+async def admin_delete_media_subtitle_track(
+    asset_id: str = Path(min_length=1),
+    track_id: str = Path(min_length=1),
+    user: AuthUser = Depends(require_teacher_console_user),
+) -> dict[str, Any]:
+    try:
+        return delete_subtitle_track(asset_id=asset_id, track_id=track_id)
+    except SubtitleValidationError as exc:
+        raise _subtitle_error(exc) from exc
+
+
+@router.post("/media/assets/{asset_id}/subtitle-tracks/{track_id}/retry")
+async def admin_retry_media_subtitle_track(
+    asset_id: str = Path(min_length=1),
+    track_id: str = Path(min_length=1),
+    user: AuthUser = Depends(require_teacher_console_user),
+) -> dict[str, Any]:
+    try:
+        return retry_subtitle_track_normalization(asset_id=asset_id, track_id=track_id)
+    except SubtitleValidationError as exc:
+        raise _subtitle_error(exc) from exc
+
+
+@router.get("/media/assets/{asset_id}/subtitle-tracks/{track_id}/stream", include_in_schema=False)
+async def admin_stream_media_subtitle_track(
+    asset_id: str = Path(min_length=1),
+    track_id: str = Path(min_length=1),
+    access_token: str = Query(min_length=1),
+) -> FileResponse:
+    user = get_user_from_access_token(access_token)
+    if not is_teacher_console_role(user.role):
+        raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Insufficient permissions")
+    try:
+        path, media_type, filename = subtitle_track_file(asset_id, track_id)
+    except SubtitleValidationError as exc:
+        raise _subtitle_error(exc) from exc
+    return FileResponse(path, media_type=media_type, filename=filename)
+
 @router.post("/media/assets/{asset_id}/retry-processing")
 async def admin_retry_media_asset_processing(
     asset_id: str = Path(min_length=1),
@@ -275,6 +404,29 @@ async def admin_archive_media_asset(
 ) -> dict[str, Any]:
     try:
         return archive_media_asset(asset_id=asset_id, actor_user_id=user.id, reason=payload.reason)
+    except ValueError as exc:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=str(exc)) from exc
+
+
+@router.get("/media/assets/{asset_id}/delete-plan")
+async def admin_media_asset_delete_plan(
+    asset_id: str = Path(min_length=1),
+    user: AuthUser = Depends(require_teacher_console_user),
+) -> dict[str, Any]:
+    try:
+        return media_asset_delete_plan(asset_id)
+    except ValueError as exc:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=str(exc)) from exc
+
+
+@router.post("/media/assets/{asset_id}/delete")
+async def admin_delete_media_asset(
+    payload: MediaAssetDeleteRequest,
+    asset_id: str = Path(min_length=1),
+    user: AuthUser = Depends(require_teacher_console_user),
+) -> dict[str, Any]:
+    try:
+        return delete_media_asset(asset_id=asset_id, actor_user_id=user.id, reason=payload.reason)
     except ValueError as exc:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=str(exc)) from exc
 

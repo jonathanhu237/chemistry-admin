@@ -11,6 +11,7 @@ The current application is treated as three coupled engineering surfaces plus a 
 - student H5 frontend: `apps/web-student`
 - teacher console frontend: `apps/web-teacher`
 - platform operations frontend: `apps/web-admin`
+- optional legacy competition frontends: `apps/web-student-old` and `apps/web-teacher-old`
 - backend service: `server/app`
 - required Compose and validation scripts: `docker-compose.yml` and `scripts/`
 
@@ -63,6 +64,7 @@ Production deployments must set:
 - `DATABASE_URL`
 - `MEDIA_ROOT`
 - `MAX_MEDIA_UPLOAD_MB` for the original video upload limit shown and enforced by the teacher video resource page
+- `MAX_MEDIA_SUBTITLE_UPLOAD_MB` for external `.srt` / `.vtt` subtitle track uploads
 - `VIDEO_DUPLICATE_DETECTION_COMMAND`, `VIDEO_DUPLICATE_DETECTION_COMPARE_COMMAND`, `VIDEO_DUPLICATE_DETECTION_ALGORITHM`, and `VIDEO_DUPLICATE_DETECTION_THRESHOLD` for worker duplicate checks
 - `VIDEO_DUPLICATE_DEFAULT_INTERVAL_SECONDS=3`, `VIDEO_DUPLICATE_MIN_SAMPLES=12`, and `VIDEO_DUPLICATE_MIN_INTERVAL_SECONDS=0.5` for the duplicate-focused vPDQ sampling defaults
 - `VIDEO_DUPLICATE_DURATION_TOLERANCE_RATIO=0.001`, `VIDEO_DUPLICATE_DURATION_TOLERANCE_FLOOR_SECONDS=0.5`, and `VIDEO_DUPLICATE_DURATION_TOLERANCE_CEILING_SECONDS=2.0` for near-equal duration gating
@@ -96,6 +98,14 @@ python scripts/deploy_compose_stack.py
 
 The deploy script runs `docker compose up -d --build --remove-orphans` for the canonical default services, then performs the Compose smoke validation. This intentionally removes obsolete service containers such as the historical `admin-web` and `student-web` after the product split.
 
+For the lower-level BKT competition demo, include the optional legacy frontends:
+
+```powershell
+python scripts/deploy_compose_stack.py --include-legacy
+```
+
+This adds `web-student-old` and `web-teacher-old` without adding a second backend, database, seed corpus, media store, question bank, mastery table, or analytics import.
+
 For routine development after the stack already exists, rebuild and recreate only the service that owns the changed code or configuration:
 
 ```powershell
@@ -116,6 +126,8 @@ Default Compose services:
 - `web-student`: student H5 frontend service at `http://127.0.0.1:5173`, serving SPA routes from its own nginx runtime and proxying `/api/*` to `backend:8000`.
 - `web-teacher`: teacher console service at `http://127.0.0.1:5174`, serving canonical root routes such as `/login`, `/overview`, `/experiments`, and `/videos` from its own nginx runtime and proxying `/api/*` to `backend:8000`.
 - `web-admin`: platform operations service at `http://127.0.0.1:5175`, serving the teacher-account management workbench and proxying `/api/*` to `backend:8000`.
+- `web-student-old`: optional legacy student frontend, default Compose endpoint `http://222.200.189.249:15176`, serving old SPA routes and proxying `/api/*` to `backend:8000`.
+- `web-teacher-old`: optional legacy teacher frontend, default Compose endpoint `http://127.0.0.1:15177`, serving old SPA routes and proxying `/api/*` to `backend:8000`.
 - `tusd`: resumable upload receiver sharing `data/media`.
 - `video-worker`: local video processing worker sharing `data/media`.
 
@@ -152,9 +164,19 @@ docker compose build --build-arg FFMPEG_LOCAL_ARCHIVE=ffmpeg-N-125136-gb57ff00bc
 
 See `docs/local_video_processing.md` for the video pipeline, NVENC probe, and CPU fallback details.
 
+### Video Subtitle Operations
+
+Generated student playback videos intentionally do not carry subtitles. The worker strips embedded subtitle, attachment, and data streams from the generated MP4; operators should not expect MKV/MP4 embedded subtitles to appear on the student side automatically.
+
+Teachers attach external subtitle tracks to video assets. First-pass supported inputs are `.srt` and `.vtt`; the backend normalizes served tracks to WebVTT and enforces `MAX_MEDIA_SUBTITLE_UPLOAD_MB`. `.ass` and `.ssa` are rejected unless a future change adds a styled-subtitle renderer or an explicit burn-in workflow.
+
+Student and teacher preview players load subtitles through browser-native `<track>` elements. Because `<track>` cannot send custom authorization headers, subtitle stream URLs must stay compatible with existing cookie/session auth or token query parameters, and must return `text/vtt; charset=utf-8`. Keep `API_PUBLIC_BASE_URL`, frontend origins, preview-token settings, and CORS policy aligned when deploying student and teacher frontends on different origins.
+
 The Compose Postgres service is available to other containers as `postgres:5432`. Its host binding defaults to `127.0.0.1:15432` to avoid collisions with a developer's local Postgres. Host-side scripts and validation defaults should use `postgresql+psycopg://chemistry:chemistry@127.0.0.1:15432/chemistry_exam`. Override `POSTGRES_HOST_PORT` only when the host port is known to be free.
 
 Frontend host bindings default to `127.0.0.1:5173` for `web-student`, `127.0.0.1:5174` for `web-teacher`, and `127.0.0.1:5175` for `web-admin`. Override `WEB_STUDENT_HOST_PORT`, `WEB_TEACHER_HOST_PORT`, or `WEB_ADMIN_HOST_PORT` only when the host port is already occupied. Rollback for this topology uses git or deployment rollback; do not restore backend SPA fallbacks as a compatibility layer.
+
+Legacy frontend host bindings default to `222.200.189.249:15176` for `web-student-old` and `127.0.0.1:15177` for `web-teacher-old`. Override `WEB_STUDENT_OLD_HOST_BIND`, `WEB_STUDENT_OLD_HOST_PORT`, `WEB_TEACHER_OLD_HOST_BIND`, or `WEB_TEACHER_OLD_HOST_PORT` only for host-port conflicts or demo-network constraints.
 
 Teacher student-device preview loads the real `web-student` app in an iframe owned by `web-teacher`. In production-like deployments, keep `STUDENT_PREVIEW_APP_BASE_URL`, `STUDENT_PREVIEW_ALLOWED_ORIGINS`, and the student frontend `frame-ancestors` policy aligned so only the expected teacher origin can embed the student app.
 
@@ -240,7 +262,9 @@ Textbook RAG is configured through `TEXTBOOK_RAG_*` environment variables or the
 
 `data/media` is operational upload state, not protected seed data. It can be backed up, archived, or cleaned only with database consistency in mind because `media_assets`, catalog point video bindings, legacy `media_bindings`, processing jobs, and review rows may still reference local files.
 
-Teacher deletion in `/videos` is destructive resource deletion, not archive retention. The backend first makes the asset unavailable with `lifecycle_status='tombstoned'`, cancels queued/running media processing jobs, removes point video bindings while leaving point content, equations, related links, questions, assessments, and publication state intact, removes duplicate-candidate references, and then deletes source/playback/thumbnail/rendition/fingerprint/temp artifacts under `MEDIA_ROOT` with path containment checks. If physical cleanup partially fails, the asset remains unavailable and stores cleanup diagnostics for maintenance.
+Teacher deletion in `/videos` is destructive resource deletion, not archive retention. The backend first makes the asset unavailable with `lifecycle_status='tombstoned'`, cancels queued/running media processing jobs, removes point video bindings while leaving point content, equations, related links, questions, assessments, and publication state intact, removes subtitle track records/artifacts, removes duplicate-candidate references, and then deletes source/playback/thumbnail/rendition/subtitle/fingerprint/temp artifacts under `MEDIA_ROOT` with path containment checks. If physical cleanup partially fails, the asset remains unavailable and stores cleanup diagnostics for maintenance.
+
+Deleting only a subtitle track is a separate, narrow operation. It removes that track's source/WebVTT artifacts and metadata, but does not delete or archive the media asset, student playback file, point bindings, duplicate fingerprints, or thumbnail.
 
 Inspect the current media lifecycle state with a dry run:
 

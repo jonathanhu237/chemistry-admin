@@ -27,8 +27,23 @@ export type VideoUploadState = {
   note?: string;
 };
 
+export type LinkedSubtitleUploadStatus = "pending" | "uploading" | "ready" | "error" | "skipped";
+
+export type LinkedSubtitleUpload = {
+  id: string;
+  file: File;
+  languageCode: string;
+  label: string;
+  kind: "subtitles" | "captions";
+  isDefault: boolean;
+  status: LinkedSubtitleUploadStatus;
+  error?: string;
+  trackId?: string;
+};
+
 export type VideoUploadQueueItem = {
   id: string;
+  clientLinkId: string;
   file: File;
   title: string;
   status: VideoUploadStage;
@@ -38,6 +53,7 @@ export type VideoUploadQueueItem = {
   totalBytes: number;
   checksum?: string;
   duplicateAsset?: MediaAsset | null;
+  linkedSubtitles: LinkedSubtitleUpload[];
   error?: string;
   note?: string;
 };
@@ -82,8 +98,10 @@ export const processingPhaseLabels: Record<string, string> = {
   probing: "读取元数据",
   thumbnailing: "生成缩略图",
   transcoding: "生成学生播放源",
-  fingerprinting: "生成相似度签名",
-  comparing: "比对相似视频",
+  fingerprinting: "生成重复检测签名",
+  comparing: "比对重复视频",
+  analysis_failed: "重复检测失败",
+  duplicate_detection_failed: "重复检测失败",
   ready: "已就绪",
   failed: "处理失败",
 };
@@ -123,6 +141,23 @@ export function mediaErrorReasonText(reason?: string | null): string {
 
 export function processingProgressValue(asset?: MediaAsset | null): number {
   return Math.max(0, Math.min(100, Number(asset?.processing_progress ?? asset?.processing_job?.progress ?? 0)));
+}
+
+export function isBackgroundAnalysisActive(asset?: MediaAsset | null): boolean {
+  if (!asset?.playback_relative_path) return false;
+  const phase = asset.processing_job?.phase || asset.processing_phase;
+  return asset.processing_job?.status === "processing" && ["fingerprinting", "comparing"].includes(String(phase || ""));
+}
+
+export function isBackgroundAnalysisFailed(asset?: MediaAsset | null): boolean {
+  if (!asset?.playback_relative_path) return false;
+  const jobError = String(asset.processing_job?.error_reason || "");
+  return (
+    asset.processing_phase === "analysis_failed" ||
+    asset.processing_phase === "duplicate_detection_failed" ||
+    (asset.processing_job?.status === "failed" &&
+      (jobError.startsWith("Duplicate detection failed:") || jobError.startsWith("Similarity analysis failed:")))
+  );
 }
 
 export function formatDurationSeconds(value?: number | null): string {

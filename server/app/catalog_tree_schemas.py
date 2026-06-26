@@ -221,12 +221,22 @@ class StudentCatalogNodeResponse(BaseModel):
     children: list[CatalogNodeCard] = Field(default_factory=list)
 
 
+class StudentVideoSubtitleTrack(BaseModel):
+    id: str
+    kind: str = "subtitles"
+    language_code: str = "und"
+    label: str = ""
+    is_default: bool = False
+    stream_path: str
+
+
 class StudentPointVideo(BaseModel):
     media_id: str
     title: str
     mime_type: str | None = None
     stream_path: str | None = None
     thumbnail_path: str | None = None
+    subtitle_tracks: list[StudentVideoSubtitleTrack] = Field(default_factory=list)
 
 
 class StudentRelatedPoint(BaseModel):

@@ -5,7 +5,7 @@ from server.app.domains.catalog_tree.common import (
     content_publication_errors as _content_publication_errors,
     validate_node_payload,
 )
-from server.app.domains.catalog_tree.files import student_media_asset_file, student_media_thumbnail_file
+from server.app.domains.catalog_tree.files import student_media_asset_file, student_media_thumbnail_file, student_media_subtitle_file
 from server.app.domains.catalog_tree.media_bindings import bind_existing_media, set_media_binding_status
 from server.app.domains.catalog_tree.nodes import (
     chapter_tree_summary,
@@ -55,6 +55,7 @@ __all__ = [
     "student_chapter_catalog",
     "student_media_asset_file",
     "student_media_thumbnail_file",
+    "student_media_subtitle_file",
     "student_point_detail",
     "student_search_document_for_node",
     "update_node",

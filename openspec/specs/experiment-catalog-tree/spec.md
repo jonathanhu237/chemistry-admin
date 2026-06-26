@@ -232,15 +232,20 @@ The system SHALL retire legacy experiment-parent write paths and old seed-derive
 - **THEN** the system MUST not process the write as an authoritative path
 - **AND** tests MUST verify application code uses catalog-node APIs.
 
-#### Scenario: Legacy seed data is reset
-- **WHEN** the new catalog seed replacement runs against a database containing legacy formal experiments, experiment video points, point content, media bindings, evidence bindings, or question-bank rows
-- **THEN** the seed/import process MAY delete or replace those legacy seed-derived rows without preserving old-to-new audit mappings
-- **AND** the resulting catalog tree MUST be rebuilt from the structured canonical outline seed.
+#### Scenario: Catalog seed import runs
+- **WHEN** the current catalog seed import runs against a database containing current catalog-node data
+- **THEN** the seed/import process MUST validate and upsert current catalog tree and point-content seed rows by default
+- **AND** it MUST NOT delete current question banks, questions, catalog-node evidence state, catalog-node evidence bindings, current catalog media bindings, users, roles, courses, source documents, source chunks, search dictionaries, or student learning seed data.
+
+#### Scenario: Explicit destructive legacy cleanup runs
+- **WHEN** a separately named destructive legacy cleanup operation runs
+- **THEN** it MAY delete retired legacy experiment video points, legacy point content, old point evidence, old old-to-new audit maps, and retired seed-derived artifacts after protected current resources validate
+- **AND** it MUST exclude current catalog-node question-bank data, current catalog-node evidence seed data, current media bindings, canonical chunks, and runtime search dictionaries from the default delete scope.
 
 #### Scenario: Non-seed resources exist
-- **WHEN** the destructive seed replacement runs
-- **THEN** it MUST preserve canonical RAG chunks, chunk embeddings, analyzer dictionaries, users, roles, courses, and other non-seed platform resources
-- **AND** it MUST document which seed-derived tables are intentionally reset.
+- **WHEN** a destructive legacy cleanup runs
+- **THEN** it MUST preserve canonical RAG chunks, analyzer dictionaries, users, roles, courses, current media assets, current question-bank seed data, and other current platform resources
+- **AND** it MUST document which retired legacy tables or paths are intentionally reset.
 
 ### Requirement: Authoritative docs catalog seed
 The system SHALL treat the updated experiment catalog docs as the authoritative seed source for catalog structure.
@@ -264,37 +269,19 @@ The system SHALL treat the updated experiment catalog docs as the authoritative 
 The system SHALL use catalog node identities as the only authoritative point identity after seed replacement.
 
 #### Scenario: Legacy point evidence is removed from seed baseline
-- **WHEN** the catalog seed reset runs
-- **THEN** old point-to-chunk bindings keyed by legacy `(experiment_id, point_key)` MUST be cleared or marked retired
-- **AND** canonical `source_chunks` and embeddings MUST remain available as the candidate evidence corpus.
+- **WHEN** current seed cleanup runs
+- **THEN** old point-to-chunk bindings keyed by legacy `(experiment_id, point_key)` MUST be deleted or left absent from current seed data
+- **AND** canonical `source_chunks` MUST remain available as current corpus data.
 
 #### Scenario: Legacy question bank is removed from seed baseline
-- **WHEN** the catalog seed reset runs
-- **THEN** old question-bank seed data that depends on invalid legacy point identity MUST be cleared or made inactive
-- **AND** the system MUST treat the new default question bank as empty until catalog-node evidence regeneration succeeds.
+- **WHEN** current seed cleanup runs
+- **THEN** old question-bank seed data that depends on invalid legacy point identity MUST be deleted or left absent
+- **AND** the system MUST treat the current default question bank as the catalog-node question-bank seed, not as empty.
 
 #### Scenario: Validation checks legacy identity leakage
-- **WHEN** production resource validation runs after the seed reset
-- **THEN** it MUST fail if active point evidence or generated question seed rows still depend only on legacy `(experiment_id, point_key)` identity
-- **AND** it MUST accept references keyed by catalog node id or stable catalog seed key.
-
-### Requirement: Sample point seed maps examples to catalog nodes
-The system SHALL map the 30 sample point examples to real catalog point nodes rather than importing them as detached examples.
-
-#### Scenario: Sample title is short or ambiguous
-- **WHEN** a sample point example contains only a short title, reagent phrase, or main-number block
-- **THEN** the mapper MUST match it against catalog path, leaf title, known reagent names, teacher note, and point content context
-- **AND** it MUST NOT assume that the main-number block alone identifies the correct node.
-
-#### Scenario: Sample mapping is ambiguous
-- **WHEN** two or more catalog point nodes remain plausible matches for one sample
-- **THEN** the mapping process MUST require an explicit override or review record
-- **AND** it MUST NOT silently bind the sample to an arbitrary node.
-
-#### Scenario: Corrected sample wording is used
-- **WHEN** a known sample wording correction exists, such as `NaClO + 品红溶液`
-- **THEN** the seed mapping MUST use the corrected wording for matching and reporting
-- **AND** validation MUST surface the correction so future runs do not reintroduce the old typo.
+- **WHEN** production resource validation runs after the seed cleanup
+- **THEN** it MUST fail if active point evidence or current question seed rows still depend only on legacy `(experiment_id, point_key)` identity
+- **AND** it MUST accept references keyed by catalog node id, canonical point id, or stable catalog seed key.
 
 ### Requirement: Directories remain first-class catalog content
 The catalog tree SHALL preserve directory nodes as first-class teacher-managed navigation content.
@@ -349,25 +336,6 @@ The catalog seed SHALL preserve the corrected chapter 13 hypochlorite entries as
 - **WHEN** the catalog seed validation checks chapter 13 `五、卤素含氧酸盐的氧化性 / 次氯酸盐的氧化性`
 - **THEN** it MUST find a point node titled `NaClO + MnSO₄`
 - **AND** it MUST find a separate sibling point node titled `NaClO + 品红溶液`.
-
-### Requirement: Seeded point content examples
-The system SHALL seed the 30 point-content examples from `docs/30点位例子.txt` by explicit mapping to catalog point nodes.
-
-#### Scenario: Example content seed is validated
-- **WHEN** the point-content example seed is validated
-- **THEN** every example MUST resolve to exactly one catalog point node
-- **AND** the 30 examples MUST resolve to 30 unique point nodes.
-
-#### Scenario: Example content is imported
-- **WHEN** a mapped example is imported
-- **THEN** its `实验原理` MUST be stored as text-mode principle content for the mapped point node
-- **AND** its `现象解释` MUST be stored as the phenomenon explanation
-- **AND** its `安全提示` MUST be stored as the safety note.
-
-#### Scenario: ES smoke content is indexed
-- **WHEN** the 30 mapped example points are imported in an indexable status
-- **THEN** the student search document builder MUST index their student-facing principle, phenomenon, and safety content
-- **AND** it MUST NOT require legacy experiment video point evidence to index those fields.
 
 ### Requirement: Hybrid and shortcut live semantics are removed
 The system SHALL remove live hybrid and shortcut semantics from catalog tree behavior.
@@ -607,3 +575,21 @@ The teacher catalog workbench SHALL keep `缺内容` as a coarse workflow filter
 - **WHEN** the teacher selects `缺内容`
 - **THEN** the tree or result surface MUST include points missing at least one required student-visible learning field
 - **AND** it MUST not require the teacher to pick a specific missing field first.
+
+### Requirement: Seeded current catalog point content
+The system SHALL seed current catalog point content from the reviewed 76-record point-content seed.
+
+#### Scenario: Current point content seed is validated
+- **WHEN** the point-content seed is validated
+- **THEN** every record MUST resolve to exactly one current catalog point node and one current canonical point id
+- **AND** validation MUST confirm 76 records, 71 equation-mode records, 5 text-mode records, and 122 reaction equation rows.
+
+#### Scenario: Current point content is imported
+- **WHEN** current point content seed is imported
+- **THEN** equation-mode records MUST populate structured reaction equations, phenomenon explanation, and safety note for the mapped point node
+- **AND** text-mode records MUST populate text principle content, phenomenon explanation, and safety note for the mapped point node.
+
+#### Scenario: Current point content drives student search
+- **WHEN** current point content is imported in an indexable status
+- **THEN** student search document builders MUST index the student-facing principle, phenomenon, safety, catalog title, and catalog path content
+- **AND** indexing MUST NOT require old experiment video point evidence, old 30-example content, or local BGE embeddings.

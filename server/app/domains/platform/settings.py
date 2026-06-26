@@ -99,12 +99,10 @@ class StudentAIPolicyStatus(BaseModel):
 
 class RAGRuntimeStatus(BaseModel):
     rag_enabled: bool = True
-    hybrid_bge_enabled: bool = False
-    bge_service_required: bool = False
-    bge_service_url: str = ""
     query_generation_enabled: bool = True
+    keyword_top_k: int = 16
     vector_top_k: int = 24
-    rerank_top_k: int = 24
+    rerank_top_k: int = 9
     final_top_k: int = 5
     status: str = "disabled"
     message: str = ""
@@ -270,10 +268,10 @@ def _defaults_for_key(key: str) -> dict[str, Any]:
                         model=settings.textbook_rag_rerank_model,
                     ),
                     embedding_dimension=settings.textbook_rag_embedding_dimension,
-                    keyword_top_k=settings.rag_keyword_top_k,
-                    vector_top_k=settings.rag_vector_top_k,
-                    rerank_top_k=settings.rag_rerank_top_k,
-                    final_top_k=settings.rag_final_top_k,
+                    keyword_top_k=settings.textbook_rag_keyword_top_k,
+                    vector_top_k=settings.textbook_rag_vector_top_k,
+                    rerank_top_k=settings.textbook_rag_rerank_top_k,
+                    final_top_k=settings.textbook_rag_final_top_k,
                     min_rerank_score=settings.textbook_rag_min_rerank_score,
                     timeout_seconds=settings.textbook_rag_timeout_seconds,
                 ),
@@ -432,10 +430,10 @@ def _textbook_rag_payload(stored: Any, base: Settings) -> dict[str, Any]:
             base.textbook_rag_embedding_dimension,
             minimum=1,
         ),
-        "keyword_top_k": _as_int(payload.get("keyword_top_k"), base.rag_keyword_top_k, minimum=1, maximum=100),
-        "vector_top_k": _as_int(payload.get("vector_top_k"), base.rag_vector_top_k, minimum=1, maximum=100),
-        "rerank_top_k": _as_int(payload.get("rerank_top_k"), base.rag_rerank_top_k, minimum=1, maximum=100),
-        "final_top_k": _as_int(payload.get("final_top_k"), base.rag_final_top_k, minimum=1, maximum=30),
+        "keyword_top_k": _as_int(payload.get("keyword_top_k"), base.textbook_rag_keyword_top_k, minimum=1, maximum=100),
+        "vector_top_k": _as_int(payload.get("vector_top_k"), base.textbook_rag_vector_top_k, minimum=1, maximum=100),
+        "rerank_top_k": _as_int(payload.get("rerank_top_k"), base.textbook_rag_rerank_top_k, minimum=1, maximum=100),
+        "final_top_k": _as_int(payload.get("final_top_k"), base.textbook_rag_final_top_k, minimum=1, maximum=30),
         "min_rerank_score": _as_float(
             payload.get("min_rerank_score"),
             base.textbook_rag_min_rerank_score,
@@ -725,33 +723,30 @@ def _textbook_rag_runtime_status(textbook_rag: dict[str, Any], *, rag_enabled: b
 def _rag_runtime_status(features: dict[str, Any], textbook_rag: dict[str, Any] | None = None) -> RAGRuntimeStatus:
     settings = get_settings()
     rag_enabled = bool(features.get("rag_access_enabled", True))
-    hybrid_enabled = bool(settings.rag_hybrid_bge_enabled)
-    bge_required = bool(rag_enabled and hybrid_enabled)
-    textbook_status = _textbook_rag_runtime_status(textbook_rag or {}, rag_enabled=rag_enabled)
+    textbook_config = textbook_rag or {}
+    textbook_status = _textbook_rag_runtime_status(textbook_config, rag_enabled=rag_enabled)
     if not rag_enabled:
         status = "disabled"
-        message = "RAG 已关闭，BGE CPU 服务无需启动。"
-    elif hybrid_enabled:
-        status = "bge_configured"
-        message = "Hybrid BGE RAG 已启用，后端会通过独立 BGE 服务进行向量召回与重排。"
+        message = "RAG access is disabled by AI feature settings."
+    elif textbook_status.get("status") == "healthy":
+        status = "external_textbook_rag"
+        message = "External textbook RAG is healthy."
     else:
-        status = "legacy"
-        message = "当前使用现有来源/关键词 RAG，未启用 BGE sidecar。"
+        status = str(textbook_status.get("status") or "external_textbook_rag_unavailable")
+        message = str(textbook_status.get("message") or "External textbook RAG is not ready.")
     return RAGRuntimeStatus(
         rag_enabled=rag_enabled,
-        hybrid_bge_enabled=hybrid_enabled,
-        bge_service_required=bge_required,
-        bge_service_url=settings.rag_bge_service_url,
         query_generation_enabled=bool(settings.rag_query_generation_enabled),
-        vector_top_k=int(settings.rag_vector_top_k),
-        rerank_top_k=int(settings.rag_rerank_top_k),
-        final_top_k=int(settings.rag_final_top_k),
+        keyword_top_k=int(textbook_config.get("keyword_top_k") or settings.textbook_rag_keyword_top_k),
+        vector_top_k=int(textbook_config.get("vector_top_k") or settings.textbook_rag_vector_top_k),
+        rerank_top_k=int(textbook_config.get("rerank_top_k") or settings.textbook_rag_rerank_top_k),
+        final_top_k=int(textbook_config.get("final_top_k") or settings.textbook_rag_final_top_k),
         status=status,
         message=message,
         textbook_rag_enabled=bool(textbook_status["enabled"]),
         textbook_rag_status=str(textbook_status["status"]),
         textbook_rag_message=str(textbook_status["message"]),
-        textbook_rag_index=str((textbook_rag or {}).get("index_name") or ""),
+        textbook_rag_index=str(textbook_config.get("index_name") or ""),
         textbook_rag_models=textbook_status["models"],
         textbook_rag_diagnostics=textbook_status["diagnostics"],
     )

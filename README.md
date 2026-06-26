@@ -7,6 +7,7 @@ It includes:
 - React + Ant Design platform operations frontend in `apps/web-admin`
 - React + Ant Design teacher console frontend in `apps/web-teacher`
 - React student H5 frontend in `apps/web-student`
+- optional legacy competition frontends in `apps/web-student-old` and `apps/web-teacher-old`
 - FastAPI admin backend in `server`
 - database migrations in `server/migrations`
 - admin bootstrap/import scripts in `scripts`
@@ -41,6 +42,10 @@ Set-Location ../web-teacher
 npm install
 Set-Location ../web-student
 npm install
+Set-Location ../web-student-old
+npm install
+Set-Location ../web-teacher-old
+npm install
 ```
 
 Run the admin backend:
@@ -70,7 +75,16 @@ Set-Location apps/web-student
 npm run dev
 ```
 
-The student H5 runs at `http://127.0.0.1:5173/`, the teacher console runs at `http://127.0.0.1:5174/login`, and the platform operations console runs at `http://127.0.0.1:5175/`. All three proxy `/api` to the backend.
+Run the optional legacy competition frontends:
+
+```powershell
+Set-Location apps/web-student-old
+npm run dev
+Set-Location ../web-teacher-old
+npm run dev
+```
+
+The student H5 runs at `http://127.0.0.1:5173/`, the teacher console runs at `http://127.0.0.1:5174/login`, and the platform operations console runs at `http://127.0.0.1:5175/`. The optional legacy student and teacher dev servers run at `http://127.0.0.1:5176/` and `http://127.0.0.1:5177/`. All frontend dev servers proxy `/api` to the backend.
 The platform operations console uses the backend `WEB_ADMIN_ACCESS_TOKEN` value as its login token; it does not use an `app_users` username/password session.
 
 ## Production-Style Local Run
@@ -87,7 +101,15 @@ For Docker Compose, adjust secrets and database settings, then deploy the defaul
 python scripts/deploy_compose_stack.py
 ```
 
-The default Compose stack is the production-style application unit: Postgres, Elasticsearch with IK analysis, the FastAPI backend API, independent `web-student`, `web-teacher`, and `web-admin` frontend services, tusd uploads, and the local video worker. The optional RAG service is behind the `rag` profile.
+The default Compose stack is the production-style application unit: Postgres, Elasticsearch with IK analysis, the FastAPI backend API, independent `web-student`, `web-teacher`, and `web-admin` frontend services, tusd uploads, and the local video worker. Textbook RAG is accessed through the configured external provider APIs and Elasticsearch index; there is no local RAG sidecar service in Compose.
+
+To include the legacy BKT competition profile in the Compose run:
+
+```powershell
+python scripts/deploy_compose_stack.py --include-legacy
+```
+
+This adds `web-student-old` at `222.200.189.249:15176` and `web-teacher-old` at `127.0.0.1:15177`. Both old services share the same backend, database, seed data, media, question bank, BKT/mastery records, and analytics as the current products.
 
 For routine development after the stack already exists, rebuild only the service that owns your change:
 
@@ -96,8 +118,8 @@ docker compose up -d --build backend
 docker compose up -d --build web-teacher
 docker compose up -d --build web-student
 docker compose up -d --build web-admin
+docker compose up -d --build web-student-old web-teacher-old
 docker compose up -d --build video-worker
-docker compose --profile rag up -d --build bge-rag
 ```
 
 Do not clear Docker build cache or run no-cache/full-stack rebuilds as normal startup. Use cache prune only as an explicit recovery step for cache corruption or disk pressure.

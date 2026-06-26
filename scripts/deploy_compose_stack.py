@@ -21,6 +21,7 @@ DEFAULT_SERVICES = [
     "tusd",
     "video-worker",
 ]
+LEGACY_SERVICES = ["web-student-old", "web-teacher-old"]
 
 
 def _run(command: list[str]) -> None:
@@ -41,30 +42,29 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Deploy the default chemistry platform Docker Compose stack.")
     parser.add_argument("--skip-build", action="store_true", help="Reuse existing images instead of rebuilding.")
     parser.add_argument("--keep-orphans", action="store_true", help="Do not remove obsolete Compose service containers.")
-    parser.add_argument("--with-rag", action="store_true", help="Also deploy the optional bge-rag profile service.")
     parser.add_argument("--skip-smoke", action="store_true", help="Skip post-deploy Compose smoke validation.")
     parser.add_argument("--skip-index-rebuild", action="store_true", help="Skip video-library index rebuild during smoke.")
+    parser.add_argument("--include-legacy", action="store_true", help="Also start and smoke-test the legacy competition frontend services.")
     args = parser.parse_args()
 
     _run(["docker", "compose", "config", "--quiet"])
 
     up_command = ["docker", "compose"]
-    if args.with_rag:
-        up_command.extend(["--profile", "rag"])
     up_command.extend(["up", "-d"])
     if not args.skip_build:
         up_command.append("--build")
     if not args.keep_orphans:
         up_command.append("--remove-orphans")
-    up_command.extend(DEFAULT_SERVICES)
-    if args.with_rag:
-        up_command.append("bge-rag")
+    services = [*DEFAULT_SERVICES, *(LEGACY_SERVICES if args.include_legacy else [])]
+    up_command.extend(services)
     _run(up_command)
 
     if not args.skip_smoke:
         smoke_command = [sys.executable, "scripts/validate_compose_stack.py", "--skip-up"]
         if args.skip_index_rebuild:
             smoke_command.append("--skip-index-rebuild")
+        if args.include_legacy:
+            smoke_command.append("--include-legacy")
         _run(smoke_command)
 
     _run(["docker", "compose", "ps"])

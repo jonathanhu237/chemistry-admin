@@ -16,7 +16,12 @@ from server.app.experiment_admin_schemas import (
     WorkbenchMessageRequest,
     WorkbenchSessionRequest,
 )
-from server.app.domains.platform.settings import ai_feature_enabled, effective_ai_settings
+from server.app.domains.platform.settings import (
+    _textbook_rag_runtime_status,
+    ai_feature_enabled,
+    effective_ai_settings,
+    effective_textbook_rag_settings,
+)
 from server.app.domains.catalog.experiments import (
     _ensure_experiment,
     _experiment_video_points,
@@ -63,25 +68,35 @@ def _json_array(value: Any) -> str:
 def _question_workbench_rag_gate() -> dict[str, Any]:
     settings = effective_ai_settings(get_settings())
     assistant_enabled = ai_feature_enabled("question_bank_assistant")
+    rag_access_enabled = ai_feature_enabled("rag_access_enabled")
+    textbook_runtime = _textbook_rag_runtime_status(
+        effective_textbook_rag_settings(),
+        rag_enabled=rag_access_enabled,
+    )
     runtime = {
         "question_bank_assistant_enabled": assistant_enabled,
+        "rag_access_enabled": rag_access_enabled,
         "agent_llm_provider": settings.agent_llm_provider,
         "agent_llm_base_url_configured": bool(settings.agent_llm_base_url),
         "agent_llm_model": settings.agent_llm_model,
         "agent_llm_api_key_configured": bool(settings.agent_llm_api_key),
-        "evidence_source": "precomputed_catalog_node_evidence",
+        "evidence_source": "external_textbook_rag",
+        "textbook_rag_status": textbook_runtime.get("status"),
+        "textbook_rag_message": textbook_runtime.get("message"),
+        "textbook_rag_models": textbook_runtime.get("models") or {},
+        "textbook_rag_diagnostics": textbook_runtime.get("diagnostics") or {},
     }
 
-    def blocked(reason_code: str, message: str, *, bge_status: str = "not_required", bge_error: str | None = None) -> dict[str, Any]:
+    def blocked(reason_code: str, message: str) -> dict[str, Any]:
         return {
             "healthy": False,
             "status": "blocked",
             "reason_code": reason_code,
             "message": message,
             "rag_runtime": runtime,
-            "bge_status": bge_status,
-            "bge_error": bge_error,
-            "bge_metrics": None,
+            "textbook_rag_status": textbook_runtime.get("status"),
+            "textbook_rag_error": message,
+            "textbook_rag_diagnostics": textbook_runtime.get("diagnostics") or {},
         }
 
     if not assistant_enabled:
@@ -90,15 +105,20 @@ def _question_workbench_rag_gate() -> dict[str, Any]:
         return blocked("llm_disabled", "大语言模型未启用，暂时不能使用 AI 出题。")
     if not settings.agent_llm_model or not settings.agent_llm_api_key:
         return blocked("llm_not_configured", "DeepSeek/OpenAI 兼容模型或 API Key 尚未配置，暂时不能使用 AI 出题。")
+    if textbook_runtime.get("status") != "healthy":
+        return blocked(
+            str(textbook_runtime.get("status") or "textbook_rag_unavailable"),
+            str(textbook_runtime.get("message") or "External textbook RAG is not ready."),
+        )
     return {
         "healthy": True,
         "status": "healthy",
         "reason_code": "",
-        "message": "AI 出题模型已配置；出题将只读取预绑定教材证据。",
-        "rag_runtime": {**runtime, "textbook_rag_status": "precomputed_required"},
-        "bge_status": "not_required",
-        "bge_error": None,
-        "bge_metrics": {"ok": True, "service": "precomputed-catalog-node-evidence"},
+        "message": "AI 出题模型和外部教材 RAG 已配置。",
+        "rag_runtime": runtime,
+        "textbook_rag_status": "healthy",
+        "textbook_rag_error": None,
+        "textbook_rag_diagnostics": textbook_runtime.get("diagnostics") or {},
     }
 
 
@@ -894,7 +914,7 @@ def send_question_workbench_message(*, payload: WorkbenchMessageRequest, session
                             "target_canonical_point_ids": target_canonical_point_ids,
                             "rag_gate": rag_gate,
                             "evidence_package": {
-                                "mode": evidence_package.get("mode") or "hybrid_bge_rag",
+                                "mode": evidence_package.get("mode") or "qwen_es_textbook_rag",
                                 "source_refs": source_refs,
                                 "source_count": len(source_refs),
                                 "diagnostics": evidence_package.get("diagnostics") or {"rag_gate": rag_gate},
@@ -931,7 +951,7 @@ def send_question_workbench_message(*, payload: WorkbenchMessageRequest, session
             "source_boundaries": {
                 "teacher_point_content": "student_page_context_only",
                 "catalog_node_evidence": "required_fresh_catalog_node_evidence",
-                "supplemental_rag_evidence": evidence_package.get("mode") or "hybrid_bge_rag",
+                "supplemental_rag_evidence": evidence_package.get("mode") or "qwen_es_textbook_rag",
             },
             "last_prompt": payload.prompt,
         }

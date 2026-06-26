@@ -55,63 +55,9 @@ export type LearningAssistantResponse = {
 export type LearningAssistantRuntime = {
   checked_at: string;
   rag_runtime?: AIConfiguration["rag_runtime"];
-  bge_status?: "not_required" | "checking" | "healthy" | "degraded" | "unreachable" | "not_configured" | string;
-  bge_error?: string | null;
-  bge_metrics?: {
-    ok?: boolean;
-    service?: string;
-    request_ms?: number;
-    config?: {
-      embed_model?: string;
-      rerank_model?: string;
-      device?: string;
-      use_fp16?: boolean;
-      rerank_backend?: string;
-      rerank_max_length?: number;
-      offline?: boolean;
-      [key: string]: unknown;
-    };
-    models?: {
-      embed_loaded?: boolean;
-      rerank_loaded?: boolean;
-      [key: string]: unknown;
-    };
-    requests?: {
-      embed?: number;
-      rerank?: number;
-      [key: string]: unknown;
-    };
-    process?: {
-      uptime_seconds?: number;
-      cpu_user_seconds?: number;
-      cpu_system_seconds?: number;
-      memory_rss_mb?: number | null;
-      memory_high_water_mb?: number | null;
-      thread_count?: number | null;
-      [key: string]: unknown;
-    };
-    container?: {
-      memory_current_mb?: number | null;
-      memory_limit_mb?: number | null;
-      cpu_usage_seconds?: number | null;
-      cpu_user_seconds?: number | null;
-      cpu_system_seconds?: number | null;
-      cpu_throttled_seconds?: number | null;
-      [key: string]: unknown;
-    };
-    warmup?: {
-      enabled?: boolean;
-      status?: "disabled" | "not_started" | "running" | "succeeded" | "failed" | string;
-      trigger?: string | null;
-      started_at?: string | null;
-      finished_at?: string | null;
-      duration_ms?: number | null;
-      error?: string | null;
-      models_ready?: boolean;
-      [key: string]: unknown;
-    };
-    [key: string]: unknown;
-  } | null;
+  textbook_rag_status?: string;
+  textbook_rag_error?: string | null;
+  textbook_rag_diagnostics?: Record<string, unknown>;
 };
 
 export function getLearningAssistantRuntime(): Promise<LearningAssistantRuntime> {

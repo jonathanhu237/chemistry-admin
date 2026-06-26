@@ -5,6 +5,7 @@ import {
   App as AntApp,
   Button,
   Card,
+  Checkbox,
   Descriptions,
   Divider,
   Empty,
@@ -30,6 +31,7 @@ import {
   CloudUploadOutlined,
   DeleteOutlined,
   EyeOutlined,
+  FileTextOutlined,
   PauseCircleOutlined,
   PlayCircleOutlined,
   ReloadOutlined,
@@ -39,8 +41,17 @@ import {
 import type Uppy from "@uppy/core";
 
 import type { ApiList } from "../../api/common";
-import type { MediaAsset, MediaDuplicatePrecheck } from "../../api/media";
-import { archiveMediaAsset, getMediaAssetArchivePlan, getMediaUploadPolicy } from "../../api/media";
+import type { MediaAsset, MediaDuplicatePrecheck, MediaSubtitleTrack } from "../../api/media";
+import {
+  archiveMediaAsset,
+  deleteMediaSubtitleTrack,
+  getMediaAssetArchivePlan,
+  getMediaSubtitleTrackStreamUrl,
+  getMediaUploadPolicy,
+  retryMediaSubtitleTrack,
+  updateMediaSubtitleTrack,
+  uploadMediaSubtitleTrack,
+} from "../../api/media";
 import { getAuthToken } from "../../api/auth";
 import { api, apiBase, patchJson, postJson } from "../../api/http";
 import { AuthenticatedImage } from "../../components/AuthenticatedImage";
@@ -71,11 +82,34 @@ import {
   uploadStepCurrent,
   videoTitleFromFile,
 } from "./mediaHelpers";
-import type { VideoUploadQueueItem, VideoUploadStage, VideoUploadState } from "./mediaHelpers";
+import type { LinkedSubtitleUpload, VideoUploadQueueItem, VideoUploadStage, VideoUploadState } from "./mediaHelpers";
 import { isPreviewableVideo, mediaAssetTime, mediaAssetType } from "../../lib/resourceUtils";
 import "./media.css";
 
 const { Text, Title } = Typography;
+const subtitleUploadAccept = ".srt,.vtt,text/vtt,application/x-subrip";
+const subtitleFilePattern = /\.(srt|vtt)$/i;
+
+function inferredSubtitleLanguage(fileName: string): string {
+  const lower = fileName.toLowerCase();
+  if (/(^|[._-])(zh|zh-cn|chs|sc)([._-]|$)/.test(lower)) return "zh-CN";
+  if (/(^|[._-])(zh-tw|cht|tc)([._-]|$)/.test(lower)) return "zh-TW";
+  if (/(^|[._-])(en|eng)([._-]|$)/.test(lower)) return "en";
+  if (/(^|[._-])(ja|jpn)([._-]|$)/.test(lower)) return "ja";
+  return "zh-CN";
+}
+
+function subtitleLabelFromFile(file: File): string {
+  return file.name.replace(/\.[^.]+$/, "").trim() || file.name;
+}
+
+function linkedSubtitleStatusText(status: LinkedSubtitleUpload["status"]): string {
+  if (status === "uploading") return "上传字幕中";
+  if (status === "ready") return "已绑定";
+  if (status === "error") return "字幕失败";
+  if (status === "skipped") return "未添加";
+  return "等待视频";
+}
 
 function MediaThumbnail({ asset, compact = false }: { asset: MediaAsset; compact?: boolean }) {
   const src = asset.thumbnail_relative_path ? apiBase + "/api/admin/media/assets/" + asset.id + "/thumbnail" : null;
@@ -118,6 +152,12 @@ export function VideoResourcesPage() {
   const [previewPosterUrl, setPreviewPosterUrl] = useState<string>();
   const [previewLoading, setPreviewLoading] = useState(false);
   const [previewError, setPreviewError] = useState("");
+  const [subtitleLanguage, setSubtitleLanguage] = useState("zh-CN");
+  const [subtitleLabel, setSubtitleLabel] = useState("");
+  const [subtitleKind, setSubtitleKind] = useState<"subtitles" | "captions">("subtitles");
+  const [subtitleDefault, setSubtitleDefault] = useState(true);
+  const [subtitleBusy, setSubtitleBusy] = useState(false);
+  const previewVideoRef = useRef<HTMLVideoElement | null>(null);
   const uppyRef = useRef<Uppy | null>(null);
   const uppyFileIdRef = useRef("");
   const xhrRef = useRef<XMLHttpRequest | null>(null);
@@ -179,6 +219,25 @@ export function VideoResourcesPage() {
       return rightTime - leftTime;
     });
   }, [assetItems, keyword, sortKey, statusFilter]);
+  const previewSubtitleTracks = useMemo(() => {
+    if (!previewAsset) return [];
+    const token = getAuthToken();
+    if (!token) return [];
+    return (previewAsset.subtitle_tracks || [])
+      .filter((track) => track.status === "ready")
+      .map((track) => ({
+        ...track,
+        streamUrl: getMediaSubtitleTrackStreamUrl(previewAsset.id, track.id, token),
+      }));
+  }, [previewAsset]);
+
+  useEffect(() => {
+    if (!previewAsset) return;
+    const latest = assetItems.find((asset) => asset.id === previewAsset.id);
+    if (latest && latest !== previewAsset) {
+      setPreviewAsset(latest);
+    }
+  }, [assetItems, previewAsset]);
 
   useEffect(() => {
     uploadItemsRef.current = uploadItems;
@@ -243,6 +302,16 @@ export function VideoResourcesPage() {
     void queryClient.invalidateQueries({ queryKey: ["media-assets"] });
   };
 
+  const closePreviewModal = () => {
+    const video = previewVideoRef.current;
+    if (video) {
+      video.pause();
+      video.removeAttribute("src");
+      video.load();
+    }
+    setPreviewAsset(null);
+  };
+
   const disposeUploadClient = () => {
     uppyRef.current?.destroy();
     uppyRef.current = null;
@@ -266,6 +335,7 @@ export function VideoResourcesPage() {
 
   const makeUploadQueueItem = (file: File, id?: string): VideoUploadQueueItem => ({
     id: id || `${file.name}-${file.size}-${file.lastModified}-${Math.random().toString(36).slice(2)}`,
+    clientLinkId: `${file.name}-${file.size}-${file.lastModified}-${Math.random().toString(36).slice(2)}`,
     file,
     title: videoTitleFromFile(file),
     status: "pending",
@@ -273,12 +343,63 @@ export function VideoResourcesPage() {
     progress: 0,
     uploadedBytes: 0,
     totalBytes: file.size,
+    linkedSubtitles: [],
   });
 
   const updateUploadItem = (itemId: string, patch: Partial<VideoUploadQueueItem>) => {
     const nextItems = uploadItemsRef.current.map((item) => (item.id === itemId ? { ...item, ...patch } : item));
     uploadItemsRef.current = nextItems;
     setUploadItems(nextItems);
+  };
+
+  const addLinkedSubtitle = (itemId: string, file: File) => {
+    if (!subtitleFilePattern.test(file.name)) {
+      message.error("字幕只支持 .srt 或 .vtt 文件");
+      return;
+    }
+    const current = uploadItemsRef.current.find((item) => item.id === itemId);
+    if (!current) return;
+    const linkedSubtitle: LinkedSubtitleUpload = {
+      id: `${file.name}-${file.size}-${file.lastModified}-${Math.random().toString(36).slice(2)}`,
+      file,
+      languageCode: inferredSubtitleLanguage(file.name),
+      label: subtitleLabelFromFile(file),
+      kind: "subtitles",
+      isDefault: !(current.linkedSubtitles || []).some((subtitle) => subtitle.isDefault),
+      status: "pending",
+    };
+    updateUploadItem(itemId, { linkedSubtitles: [...(current.linkedSubtitles || []), linkedSubtitle] });
+  };
+
+  const updateLinkedSubtitle = (
+    itemId: string,
+    subtitleId: string,
+    patch: Partial<LinkedSubtitleUpload>,
+  ) => {
+    const current = uploadItemsRef.current.find((item) => item.id === itemId);
+    if (!current) return;
+    updateUploadItem(itemId, {
+      linkedSubtitles: (current.linkedSubtitles || []).map((subtitle) =>
+        subtitle.id === subtitleId ? { ...subtitle, ...patch } : subtitle,
+      ),
+    });
+  };
+
+  const removeLinkedSubtitle = (itemId: string, subtitleId: string) => {
+    const current = uploadItemsRef.current.find((item) => item.id === itemId);
+    if (!current) return;
+    updateUploadItem(itemId, {
+      linkedSubtitles: (current.linkedSubtitles || []).filter((subtitle) => subtitle.id !== subtitleId),
+    });
+  };
+
+  const markLinkedSubtitlesSkipped = (item: VideoUploadQueueItem) => {
+    updateUploadItem(item.id, {
+      linkedSubtitles: (item.linkedSubtitles || []).map((subtitle) =>
+        subtitle.status === "ready" ? subtitle : { ...subtitle, status: "skipped", error: undefined },
+      ),
+      note: "已复用已有视频；本次选择的字幕未添加到已有资源。",
+    });
   };
 
   const setActiveUploadItemState = (itemId: string, patch: Partial<VideoUploadQueueItem>) => {
@@ -407,6 +528,7 @@ export function VideoResourcesPage() {
       note: asset.upload_status === "ready" ? "已复用已有视频" : "已进入后台处理",
     });
     invalidateVideoData();
+    return asset;
   };
 
   const uploadItemWithTus = async (item: VideoUploadQueueItem, checksum?: string) => {
@@ -453,7 +575,12 @@ export function VideoResourcesPage() {
       });
       uppy.on("upload-success", (file, response) => {
         const uploadUrl = response.uploadURL || (file as unknown as { uploadURL?: string }).uploadURL;
-        void finalizeResumableUpload(item, uploadUrl, checksum).then(() => settle(resolve)).catch((error) => settle(() => reject(error)));
+        void finalizeResumableUpload(item, uploadUrl, checksum)
+          .then(async (asset) => {
+            await uploadLinkedSubtitlesForAsset(asset, item);
+            settle(resolve);
+          })
+          .catch((error) => settle(() => reject(error)));
       });
       void uppy.upload().catch((error) => settle(() => reject(error)));
     });
@@ -492,7 +619,7 @@ export function VideoResourcesPage() {
             note: asset.upload_status === "ready" ? "已复用已有视频" : "已进入后台处理",
           });
           invalidateVideoData();
-          resolve();
+          void uploadLinkedSubtitlesForAsset(asset, item).then(() => resolve()).catch((error) => reject(error));
         } else {
           reject(new Error(xhr.responseText || "HTTP " + xhr.status));
         }
@@ -538,6 +665,19 @@ export function VideoResourcesPage() {
     }
     if (uploadItems.length === 1 && !uploadItems[0].title.trim()) {
       message.warning("请输入视频标题");
+      return;
+    }
+    const invalidLinkedSubtitle = uploadItems.find((item) =>
+      (item.linkedSubtitles || []).some(
+        (subtitle) =>
+          !subtitleFilePattern.test(subtitle.file.name) ||
+          !subtitle.languageCode.trim() ||
+          !subtitle.label.trim() ||
+          !["subtitles", "captions"].includes(subtitle.kind),
+      ),
+    );
+    if (invalidLinkedSubtitle) {
+      message.error("请先检查队列中的字幕文件、语言、标签和类型");
       return;
     }
     cancelBatchRef.current = false;
@@ -605,6 +745,123 @@ export function VideoResourcesPage() {
     invalidateVideoData();
   };
 
+  const refreshSubtitleData = async () => {
+    await queryClient.invalidateQueries({ queryKey: ["media-assets"] });
+  };
+
+  const uploadLinkedSubtitlesForAsset = async (asset: MediaAsset, item: VideoUploadQueueItem) => {
+    const linkedSubtitles = item.linkedSubtitles || [];
+    if (!linkedSubtitles.length) return;
+    for (const subtitle of linkedSubtitles) {
+      if (cancelBatchRef.current || subtitle.status === "ready") continue;
+      if (!subtitleFilePattern.test(subtitle.file.name)) {
+        updateLinkedSubtitle(item.id, subtitle.id, { status: "error", error: "字幕只支持 .srt 或 .vtt 文件" });
+        continue;
+      }
+      updateLinkedSubtitle(item.id, subtitle.id, { status: "uploading", error: undefined });
+      try {
+        const body = new FormData();
+        body.append("file", subtitle.file);
+        body.append("language_code", subtitle.languageCode.trim() || "und");
+        body.append("label", subtitle.label.trim() || subtitleLabelFromFile(subtitle.file));
+        body.append("kind", subtitle.kind);
+        body.append("is_default", String(subtitle.isDefault));
+        body.append("client_link_id", item.clientLinkId);
+        const track = await uploadMediaSubtitleTrack(asset.id, body);
+        updateLinkedSubtitle(item.id, subtitle.id, { status: "ready", trackId: track.id, error: undefined });
+      } catch (error) {
+        updateLinkedSubtitle(item.id, subtitle.id, { status: "error", error: errorMessage(error) });
+        message.error(`字幕 ${subtitle.file.name} 添加失败：${errorMessage(error)}`);
+      }
+    }
+    try {
+      await refreshSubtitleData();
+    } catch {
+      // The video upload is already finalized; a refresh failure should not make it look failed.
+    }
+  };
+
+  const attachLinkedSubtitlesToDuplicate = async (item: VideoUploadQueueItem) => {
+    if (!item.duplicateAsset) return;
+    await uploadLinkedSubtitlesForAsset(item.duplicateAsset, item);
+    updateUploadItem(item.id, {
+      status: "complete",
+      note: "已复用已有视频，并按本次选择添加字幕轨道。",
+    });
+  };
+
+  const uploadSubtitle = async (asset: MediaAsset, file: File) => {
+    if (!/\.(srt|vtt)$/i.test(file.name)) {
+      message.error("只支持上传 .srt 或 .vtt 字幕文件");
+      return;
+    }
+    setSubtitleBusy(true);
+    try {
+      const body = new FormData();
+      body.append("file", file);
+      body.append("language_code", subtitleLanguage.trim() || "und");
+      body.append("label", subtitleLabel.trim() || file.name.replace(/\.[^.]+$/, ""));
+      body.append("kind", subtitleKind);
+      body.append("is_default", String(subtitleDefault));
+      await uploadMediaSubtitleTrack(asset.id, body);
+      message.success("字幕已上传");
+      setSubtitleLabel("");
+      await refreshSubtitleData();
+    } catch (error) {
+      message.error(errorMessage(error));
+    } finally {
+      setSubtitleBusy(false);
+    }
+  };
+
+  const setSubtitleAsDefault = async (asset: MediaAsset, track: MediaSubtitleTrack) => {
+    setSubtitleBusy(true);
+    try {
+      await updateMediaSubtitleTrack(asset.id, track.id, { is_default: true });
+      message.success("已设为默认字幕");
+      await refreshSubtitleData();
+    } catch (error) {
+      message.error(errorMessage(error));
+    } finally {
+      setSubtitleBusy(false);
+    }
+  };
+
+  const retrySubtitle = async (asset: MediaAsset, track: MediaSubtitleTrack) => {
+    setSubtitleBusy(true);
+    try {
+      await retryMediaSubtitleTrack(asset.id, track.id);
+      message.success("已重试字幕处理");
+      await refreshSubtitleData();
+    } catch (error) {
+      message.error(errorMessage(error));
+    } finally {
+      setSubtitleBusy(false);
+    }
+  };
+
+  const removeSubtitle = (asset: MediaAsset, track: MediaSubtitleTrack) => {
+    modal.confirm({
+      title: "删除字幕？",
+      content: `只会删除字幕「${track.label || track.language_code}」，不会删除视频、学生播放源或目录绑定。`,
+      okText: "删除字幕",
+      okButtonProps: { danger: true },
+      cancelText: "取消",
+      onOk: async () => {
+        setSubtitleBusy(true);
+        try {
+          await deleteMediaSubtitleTrack(asset.id, track.id);
+          message.success("字幕已删除");
+          await refreshSubtitleData();
+        } catch (error) {
+          message.error(errorMessage(error));
+        } finally {
+          setSubtitleBusy(false);
+        }
+      },
+    });
+  };
+
   const retryProcessing = useMutation({
     mutationFn: (assetId: string) => postJson("/api/admin/media/assets/" + assetId + "/retry-processing", {}),
     onSuccess: () => {
@@ -629,7 +886,7 @@ export function VideoResourcesPage() {
     onSuccess: (result) => {
       const removed = result.catalog_cleanup?.archived_binding_count ?? result.plan.catalog_binding_count ?? 0;
       message.success(removed ? `视频资源已归档，已移除 ${removed} 个点位视频绑定` : "视频资源已归档");
-      if (previewAsset?.id === result.asset_id) setPreviewAsset(null);
+      if (previewAsset?.id === result.asset_id) closePreviewModal();
       invalidateVideoData();
     },
     onError: (error) => message.error(errorMessage(error)),
@@ -782,6 +1039,93 @@ export function VideoResourcesPage() {
           <Text type="secondary" className="block-text">后台用 FFmpeg 生成或确认的学生观看文件；这里会显示体积、分辨率和节省比例。</Text>
           <Text>{rendition ? formatBytes(rendition.file_size_bytes) + " · " + formatResolution(rendition) + (savedPercent ? " · 节省 " + savedPercent + "%" : " · 未明显压缩") : "未生成或仍在处理中"}</Text>
         </div>
+      </div>
+    );
+  };
+
+  const subtitleStatusTag = (track: MediaSubtitleTrack) => {
+    if (track.status === "ready") return <Tag color={track.is_default ? "#005826" : "green"}>{track.is_default ? "默认字幕" : "就绪"}</Tag>;
+    if (track.status === "failed") return <Tag color="red">处理失败</Tag>;
+    return <Tag color="#356f9c">处理中</Tag>;
+  };
+
+  const renderSubtitlePanel = (asset: MediaAsset) => {
+    const tracks = asset.subtitle_tracks || [];
+    return (
+      <div className="video-subtitle-panel">
+        <Flex justify="space-between" align="start" gap={12} wrap="wrap">
+          <div>
+            <Text strong>外挂字幕</Text>
+            <Text type="secondary" className="block-text">
+              学生播放源不会烧录或携带内嵌字幕；需要字幕时，请上传独立的 SRT/VTT 轨道。
+            </Text>
+          </div>
+          <Upload
+            accept=".srt,.vtt,text/vtt"
+            showUploadList={false}
+            beforeUpload={(file) => {
+              void uploadSubtitle(asset, file as File);
+              return false;
+            }}
+          >
+            <Button icon={<FileTextOutlined />} loading={subtitleBusy}>上传字幕</Button>
+          </Upload>
+        </Flex>
+        <div className="video-subtitle-controls">
+          <Input
+            size="small"
+            value={subtitleLanguage}
+            onChange={(event) => setSubtitleLanguage(event.target.value)}
+            placeholder="语言，如 zh-CN"
+          />
+          <Input
+            size="small"
+            value={subtitleLabel}
+            onChange={(event) => setSubtitleLabel(event.target.value)}
+            placeholder="标签，留空用文件名"
+          />
+          <Select
+            size="small"
+            value={subtitleKind}
+            onChange={setSubtitleKind}
+            options={[
+              { value: "subtitles", label: "字幕" },
+              { value: "captions", label: "字幕/听障说明" },
+            ]}
+          />
+          <Checkbox checked={subtitleDefault} onChange={(event) => setSubtitleDefault(event.target.checked)}>设为默认</Checkbox>
+        </div>
+        {tracks.length ? (
+          <div className="video-subtitle-list">
+            {tracks.map((track) => (
+              <div key={track.id} className="video-subtitle-item">
+                <div className="video-subtitle-copy">
+                  <Space size={6} wrap>
+                    <Text strong>{track.label || track.language_code || "未命名字幕"}</Text>
+                    {subtitleStatusTag(track)}
+                    <Tag>{track.language_code || "und"}</Tag>
+                    <Tag>{track.source_format || "vtt"}</Tag>
+                  </Space>
+                  {track.error_reason ? <Text type="danger" className="block-text">{track.error_reason}</Text> : null}
+                  <Text type="secondary" className="block-text">
+                    {track.file_size_bytes ? formatBytes(track.file_size_bytes) + " · " : ""}{track.kind === "captions" ? "captions" : "subtitles"}
+                  </Text>
+                </div>
+                <Space size={6} wrap>
+                  {track.status === "ready" && !track.is_default ? (
+                    <Button size="small" onClick={() => void setSubtitleAsDefault(asset, track)} disabled={subtitleBusy}>设默认</Button>
+                  ) : null}
+                  {track.status === "failed" ? (
+                    <Button size="small" icon={<ReloadOutlined />} onClick={() => void retrySubtitle(asset, track)} disabled={subtitleBusy}>重试</Button>
+                  ) : null}
+                  <Button size="small" danger icon={<DeleteOutlined />} onClick={() => removeSubtitle(asset, track)} disabled={subtitleBusy}>删除</Button>
+                </Space>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description="暂无外挂字幕" />
+        )}
       </div>
     );
   };
@@ -996,6 +1340,80 @@ export function VideoResourcesPage() {
                         <Text strong>{index + 1}. {item.title || videoTitleFromFile(item.file)}</Text>
                         <Text type="secondary" className="block-text">{item.file.name} · {formatBytes(item.file.size)}</Text>
                         {item.duplicateAsset ? <Text type="secondary" className="block-text">复用：{item.duplicateAsset.title}</Text> : null}
+                        <div className="video-upload-linked-subtitles">
+                          <Flex align="center" justify="space-between" gap={8} wrap="wrap">
+                            <Text type="secondary"><FileTextOutlined /> 外挂字幕会在视频入库后单独绑定</Text>
+                            <Upload
+                              accept={subtitleUploadAccept}
+                              showUploadList={false}
+                              disabled={batchRunning || uploadFinished}
+                              beforeUpload={(file) => {
+                                addLinkedSubtitle(item.id, file as File);
+                                return false;
+                              }}
+                            >
+                              <Button size="small" icon={<FileTextOutlined />} disabled={batchRunning || uploadFinished}>关联字幕</Button>
+                            </Upload>
+                          </Flex>
+                          {(item.linkedSubtitles || []).map((subtitle) => (
+                            <div key={subtitle.id} className="video-upload-linked-subtitle">
+                              <Text strong ellipsis>{subtitle.file.name}</Text>
+                              <Input
+                                size="small"
+                                value={subtitle.languageCode}
+                                disabled={batchRunning || uploadFinished}
+                                onChange={(event) => updateLinkedSubtitle(item.id, subtitle.id, { languageCode: event.target.value })}
+                              />
+                              <Input
+                                size="small"
+                                value={subtitle.label}
+                                disabled={batchRunning || uploadFinished}
+                                onChange={(event) => updateLinkedSubtitle(item.id, subtitle.id, { label: event.target.value })}
+                              />
+                              <Select
+                                size="small"
+                                value={subtitle.kind}
+                                disabled={batchRunning || uploadFinished}
+                                options={[
+                                  { value: "subtitles", label: "字幕" },
+                                  { value: "captions", label: "说明字幕" },
+                                ]}
+                                onChange={(kind) => updateLinkedSubtitle(item.id, subtitle.id, { kind })}
+                              />
+                              <Checkbox
+                                checked={subtitle.isDefault}
+                                disabled={batchRunning || uploadFinished}
+                                onChange={(event) => {
+                                  if (!event.target.checked) {
+                                    updateLinkedSubtitle(item.id, subtitle.id, { isDefault: false });
+                                    return;
+                                  }
+                                  updateUploadItem(item.id, {
+                                    linkedSubtitles: (item.linkedSubtitles || []).map((candidate) => ({
+                                      ...candidate,
+                                      isDefault: candidate.id === subtitle.id,
+                                    })),
+                                  });
+                                }}
+                              >
+                                默认
+                              </Checkbox>
+                              <Tag color={subtitle.status === "error" ? "red" : subtitle.status === "ready" ? "green" : subtitle.status === "skipped" ? "default" : "#356f9c"}>
+                                {linkedSubtitleStatusText(subtitle.status)}
+                              </Tag>
+                              {!batchRunning && !uploadFinished ? (
+                                <Button size="small" danger icon={<DeleteOutlined />} onClick={() => removeLinkedSubtitle(item.id, subtitle.id)}>移除</Button>
+                              ) : null}
+                              {subtitle.error ? <Text type="danger" className="video-upload-linked-subtitle-error">{subtitle.error}</Text> : null}
+                            </div>
+                          ))}
+                          {item.duplicateAsset && (item.linkedSubtitles || []).some((subtitle) => ["pending", "error", "skipped"].includes(subtitle.status)) && !batchRunning ? (
+                            <Space size={8} wrap>
+                              <Button size="small" onClick={() => markLinkedSubtitlesSkipped(item)}>只复用视频</Button>
+                              <Button size="small" type="primary" onClick={() => void attachLinkedSubtitlesToDuplicate(item)}>复用并添加字幕</Button>
+                            </Space>
+                          ) : null}
+                        </div>
                       </div>
                       <div className="video-upload-queue-state">
                         <Tag color={item.status === "error" ? "red" : ["duplicate", "processing", "complete"].includes(item.status) ? "green" : itemActive ? "#b8892f" : "default"}>{uploadQueueItemText(item)}</Tag>
@@ -1053,8 +1471,8 @@ export function VideoResourcesPage() {
           </Space>
         ) : "视频预览"}
         open={Boolean(previewAsset)}
-        onCancel={() => setPreviewAsset(null)}
-        footer={[<Button key="close" onClick={() => setPreviewAsset(null)}>关闭</Button>]}
+        onCancel={closePreviewModal}
+        footer={[<Button key="close" onClick={closePreviewModal}>关闭</Button>]}
         width={1040}
       >
         {previewAsset ? (
@@ -1069,7 +1487,20 @@ export function VideoResourcesPage() {
             ) : null}
             <div className="video-preview-layout">
               <div className="video-preview-stage">
-                {previewLoading ? <Spin /> : previewError ? <Alert type="error" showIcon title={previewError} /> : previewUrl ? <video controls preload="metadata" className="video-preview-player" src={previewUrl} poster={previewPosterUrl} /> : <Alert type="info" showIcon title="该视频当前不可预览" description="只有上传状态为就绪的视频可以在线播放。" />}
+                {previewLoading ? <Spin /> : previewError ? <Alert type="error" showIcon title={previewError} /> : previewUrl ? (
+                  <video ref={previewVideoRef} controls preload="metadata" className="video-preview-player" src={previewUrl} poster={previewPosterUrl}>
+                    {previewSubtitleTracks.map((track) => (
+                      <track
+                        key={track.id}
+                        kind={track.kind === "captions" ? "captions" : "subtitles"}
+                        srcLang={track.language_code || "und"}
+                        label={track.label || track.language_code || "字幕"}
+                        src={track.streamUrl}
+                        default={Boolean(track.is_default) || undefined}
+                      />
+                    ))}
+                  </video>
+                ) : <Alert type="info" showIcon title="该视频当前不可预览" description="只有上传状态为就绪的视频可以在线播放。" />}
               </div>
               <Descriptions
                 size="small"
@@ -1089,6 +1520,7 @@ export function VideoResourcesPage() {
               />
             </div>
             {renderVersionPanel(previewAsset)}
+            {renderSubtitlePanel(previewAsset)}
             {previewAsset.upload_status !== "ready" ? <Progress percent={processingProgressValue(previewAsset)} status={previewAsset.upload_status === "failed" ? "exception" : "active"} format={() => processingPhaseText(previewAsset)} /> : null}
             {previewAsset.error_reason ? <Alert type="error" showIcon title={previewAsset.error_reason} /> : null}
             {renderDuplicateCandidates(previewAsset)}

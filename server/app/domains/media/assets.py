@@ -39,7 +39,7 @@ class MediaUploadPolicyError(ValueError):
     def detail(self) -> dict[str, Any]:
         return {
             "reason": self.reason,
-            "message": f"原始视频超过大小限制，当前限制 {self.max_media_upload_mb} MB。",
+            "message": f"原始资源超过上传大小限制，当前上限 {self.max_media_upload_mb} MB。",
             "filename": self.filename,
             "file_size_bytes": self.file_size_bytes,
             "max_media_upload_mb": self.max_media_upload_mb,
@@ -50,7 +50,7 @@ class MediaUploadPolicyError(ValueError):
 def row_dict(row: Any) -> dict[str, Any]:
     item = dict(row)
     item["lifecycle_status"] = item.get("lifecycle_status") or "active"
-    for key in ("renditions", "duplicate_candidates", "processing_job"):
+    for key in ("renditions", "duplicate_candidates", "subtitle_tracks", "processing_job"):
         if item.get(key) is None:
             item[key] = [] if key != "processing_job" else None
     return item
@@ -97,6 +97,9 @@ def asset_file_entries(asset: dict[str, Any]) -> list[dict[str, Any]]:
     add("thumbnail", asset.get("thumbnail_relative_path"))
     for rendition in asset.get("renditions") or []:
         add(f"rendition:{rendition.get('kind') or 'unknown'}", rendition.get("relative_path"))
+    for track in asset.get("subtitle_tracks") or []:
+        add("subtitle:source", track.get("source_relative_path"))
+        add("subtitle:webvtt", track.get("webvtt_relative_path"))
     return list(by_path.values())
 
 
@@ -492,6 +495,27 @@ def list_media_assets(
                              FROM media_renditions mr
                              WHERE mr.media_asset_id = media_assets.id
                            ), '[]'::jsonb) AS renditions,
+                           COALESCE((
+                             SELECT jsonb_agg(jsonb_build_object(
+                               'id', mst.id,
+                               'media_asset_id', mst.media_asset_id,
+                               'language_code', mst.language_code,
+                               'label', mst.label,
+                               'kind', mst.kind,
+                               'source_format', mst.source_format,
+                               'source_relative_path', mst.source_relative_path,
+                               'webvtt_relative_path', mst.webvtt_relative_path,
+                               'file_size_bytes', mst.file_size_bytes,
+                               'status', mst.status,
+                               'is_default', mst.is_default,
+                               'error_reason', mst.error_reason,
+                               'metadata', mst.metadata,
+                               'created_at', mst.created_at,
+                               'updated_at', mst.updated_at
+                             ) ORDER BY mst.is_default DESC, mst.label, mst.created_at)
+                             FROM media_subtitle_tracks mst
+                             WHERE mst.media_asset_id = media_assets.id
+                           ), '[]'::jsonb) AS subtitle_tracks,
                            COALESCE((
                              SELECT jsonb_agg(jsonb_build_object(
                                'id', mdc.id,

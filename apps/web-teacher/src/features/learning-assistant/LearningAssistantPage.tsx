@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect, useMemo, useRef, useState } from "react";
+import { lazy, Suspense, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { ReactNode } from "react";
 import { useQuery } from "@tanstack/react-query";
 import {
@@ -34,7 +34,7 @@ import type { Experiment } from "../../api/experiments";
 import type { AIConfiguration } from "../../api/settings";
 import type { LearningAssistantAskRequest, LearningAssistantResponse, LearningAssistantRuntime, LearningAssistantSource } from "../../api/learningAssistant";
 import { getAuthToken } from "../../api/auth";
-import { api, apiBase, postJsonStream } from "../../api/http";
+import { api, apiBase, isJsonStreamAbort, postJsonStream } from "../../api/http";
 import { AIGlowButton } from "../../components/AIGlowButton";
 import { PageTitle } from "../../components/PageTitle";
 import { QueryState } from "../../components/QueryState";
@@ -410,19 +410,12 @@ function traceNumber(value: unknown): number | undefined {
   return Number.isFinite(parsed) ? parsed : undefined;
 }
 
-function warmupStatusColor(status?: string) {
-  if (status === "succeeded") return "#005826";
-  if (status === "running") return "blue";
-  if (status === "failed") return "red";
-  return "default";
-}
-
 function sourceKindLabel(value: unknown): string {
   const source = String(value || "");
   const labels: Record<string, string> = {
     keyword: "关键词召回",
     keyword_generated: "生成 Query 关键词",
-    vector: "BGE 向量召回",
+    vector: "外部向量召回",
   };
   return labels[source] || source || "未知来源";
 }
@@ -499,6 +492,7 @@ export function LearningAssistantPage() {
   const [starterIntentId, setStarterIntentId] = useState<string>(learningAssistantPointIntents[0].id);
   const [activePointContext, setActivePointContext] = useState<LearningAssistantPointContext | null>(null);
   const chatListRef = useRef<HTMLDivElement | null>(null);
+  const activeDebugStreamRef = useRef<{ id: string; controller: AbortController } | null>(null);
   const chapters = useChapters();
   const experiments = useExperiments("?limit=200");
   const selectedChapterId = (Form.useWatch("chapter_id", form) as string | undefined) || "CH13";
@@ -514,17 +508,33 @@ export function LearningAssistantPage() {
   });
   const selectedTurn = turns.find((turn) => turn.id === selectedTurnId) || turns.at(-1);
 
+  const abortActiveDebugStream = useCallback(() => {
+    const stream = activeDebugStreamRef.current;
+    if (!stream) return;
+    activeDebugStreamRef.current = null;
+    stream.controller.abort();
+  }, []);
+
+  const isActiveDebugStream = useCallback((streamId: string, controller: AbortController) => {
+    const active = activeDebugStreamRef.current;
+    return Boolean(active && active.id === streamId && active.controller === controller && !controller.signal.aborted);
+  }, []);
+
   useEffect(() => {
     chatListRef.current?.scrollTo({ top: chatListRef.current.scrollHeight, behavior: "smooth" });
   }, [turns]);
 
+  useEffect(() => () => abortActiveDebugStream(), [abortActiveDebugStream]);
+
   useEffect(() => {
+    abortActiveDebugStream();
+    setAssistantStreaming(false);
     setStarterExperimentId(null);
     setStarterPointKey(null);
     setStarterIntentId(learningAssistantPointIntents[0].id);
     setActivePointContext(null);
     setChatDraft("");
-  }, [selectedChapterId]);
+  }, [abortActiveDebugStream, selectedChapterId]);
 
   const starterExperiments = useMemo(
     () => assistantChapterExperiments(experimentItems, selectedChapterId),
@@ -584,6 +594,10 @@ export function LearningAssistantPage() {
       return;
     }
     const contextForRequest = pointContext ?? activePointContext;
+    abortActiveDebugStream();
+    const streamController = new AbortController();
+    const streamId = `${Date.now()}-${Math.random().toString(16).slice(2)}`;
+    activeDebugStreamRef.current = { id: streamId, controller: streamController };
     const payload: LearningAssistantAskRequest = {
       question,
       student_id: values.student_id?.trim() || null,
@@ -597,7 +611,7 @@ export function LearningAssistantPage() {
       max_answer_chars: 0,
     };
 
-    const turnId = `${Date.now()}-${Math.random().toString(16).slice(2)}`;
+    const turnId = streamId;
     const nextTurn: LearningAssistantTurn = {
       id: turnId,
       question: payload.question,
@@ -621,6 +635,7 @@ export function LearningAssistantPage() {
         answer?: string;
         response?: LearningAssistantResponse;
       }>("/api/admin/learning-assistant/ask/stream", payload, ({ event, data }) => {
+        if (!isActiveDebugStream(streamId, streamController)) return;
         if (event === "status") {
           setTurns((current) => current.map((turn) => (
             turn.id === turnId ? { ...turn, streamStatus: String(data.message || "学习助手正在生成") } : turn
@@ -656,14 +671,26 @@ export function LearningAssistantPage() {
         if (event === "error") {
           throw new Error(String(data.message || "学习助手生成失败"));
         }
-      });
+      }, { signal: streamController.signal });
     } catch (error) {
+      const streamStillCurrent = activeDebugStreamRef.current?.id === streamId && activeDebugStreamRef.current.controller === streamController;
+      if (streamController.signal.aborted || isJsonStreamAbort(error)) {
+        if (streamStillCurrent) {
+          setTurns((current) => current.filter((turn) => turn.id !== turnId));
+          setSelectedTurnId((current) => (current === turnId ? null : current));
+        }
+        return;
+      }
+      if (!streamStillCurrent) return;
       setTurns((current) => current.map((turn) => (
         turn.id === turnId ? { ...turn, status: "error", error: errorMessage(error), streamStatus: "" } : turn
       )));
       message.error(errorMessage(error));
     } finally {
-      setAssistantStreaming(false);
+      if (activeDebugStreamRef.current?.id === streamId && activeDebugStreamRef.current.controller === streamController) {
+        activeDebugStreamRef.current = null;
+        setAssistantStreaming(false);
+      }
     }
   };
 
@@ -701,17 +728,7 @@ export function LearningAssistantPage() {
   const retrievalConfidence = traceNumber(retrievalDecision.confidence);
   const connectionStatus = aiConfig.data?.status.connectivity_status || "not_configured";
   const ragRuntime = assistantRuntime.data?.rag_runtime || aiConfig.data?.rag_runtime;
-  const bgeMetrics = assistantRuntime.data?.bge_metrics || null;
-  const bgeStatus = assistantRuntime.data?.bge_status
-    || (assistantRuntime.data?.bge_error
-      ? "unreachable"
-      : bgeMetrics?.ok
-        ? "healthy"
-        : bgeMetrics
-          ? "degraded"
-          : ragRuntime?.bge_service_required
-            ? "checking"
-            : "not_required");
+  const textbookRagStatus = assistantRuntime.data?.textbook_rag_status || ragRuntime?.textbook_rag_status || ragRuntime?.status || "disabled";
   const latestRagTrace = getRagTraceLatest(response);
   const pointContextTrace = traceRecord(response?.rag_trace || {}, "point_context");
   const pointContextEnabled = pointContextTrace.enabled === true || Boolean(pointContextTrace.point_key || pointContextTrace.requested_point_key);
@@ -736,12 +753,13 @@ export function LearningAssistantPage() {
   const traceTimings = traceRecord(latestRagTrace, "timings_ms");
   const traceCounts = traceRecord(latestRagTrace, "candidate_counts");
   const finalEvidence = traceRecords(latestRagTrace, "final_evidence");
-  const keywordTotalCount = traceNumber(traceCounts.keyword_total);
-  const vectorCount = traceNumber(traceCounts.vector);
-  const mergedCount = traceNumber(traceCounts.merged);
-  const rerankPoolCount = traceNumber(traceCounts.rerank_pool);
-  const finalEvidenceCount = traceNumber(traceCounts.final);
-  const traceReranked = latestRagTrace.rerank_applied === true || latestRagTrace.mode === "hybrid_bge_rerank";
+  const keywordTotalCount = traceNumber(traceCounts.keyword ?? traceCounts.keyword_total);
+  const uniqueCandidateCount = traceNumber(traceCounts.unique ?? traceCounts.merged);
+  const finalEvidenceCount = traceNumber(traceCounts.final) ?? finalEvidence.length;
+  const traceReranked = latestRagTrace.rerank_applied === true;
+  const traceTotalMs = traceTimings.total ?? traceTimings.total_ms;
+  const traceQueryMs = traceTimings.query_generation ?? traceTimings.query_generation_ms;
+  const traceKeywordMs = traceTimings.keyword_recall ?? traceTimings.keyword_recall_ms_total;
   const hasLatestRagTrace = Object.keys(latestRagTrace).length > 0;
   const retrievalRagEmptyState = (() => {
     if (!response || !retrievalMode || hasLatestRagTrace) return "";
@@ -773,17 +791,15 @@ export function LearningAssistantPage() {
   };
   const ragHealthMeta = (() => {
     if (!ragRuntime?.rag_enabled) return { value: "关闭", tone: "muted" };
-    if (!ragRuntime.hybrid_bge_enabled) return { value: "健康", tone: "ok" };
-    if (bgeStatus === "healthy") return { value: "健康", tone: "ok" };
-    if (bgeStatus === "checking") return { value: "检测中", tone: "warn" };
-    if (bgeStatus === "degraded") return { value: "降级", tone: "warn" };
-    if (bgeStatus === "unreachable" || bgeStatus === "not_configured") return { value: "异常", tone: "bad" };
-    return { value: "待检测", tone: "warn" };
+    if (textbookRagStatus === "healthy") return { value: "健康", tone: "ok" };
+    if (textbookRagStatus === "disabled") return { value: "未启用", tone: "muted" };
+    if (textbookRagStatus === "index_stale") return { value: "需更新", tone: "warn" };
+    return { value: "异常", tone: "bad" };
   })();
   const ragModeMeta = (() => {
     if (!ragRuntime?.rag_enabled) return { value: "关闭", tone: "muted" };
-    if (ragRuntime.hybrid_bge_enabled) return { value: "混合", tone: "ok" };
-    return { value: "关键词", tone: "warn" };
+    if (ragRuntime.textbook_rag_enabled) return { value: "外部", tone: "ok" };
+    return { value: "未启用", tone: "warn" };
   })();
   const assistantStatusChips = [
     {
@@ -864,11 +880,13 @@ export function LearningAssistantPage() {
               <Button
                 size="small"
                 onClick={() => {
+                  abortActiveDebugStream();
+                  setAssistantStreaming(false);
                   setTurns([]);
                   setSelectedTurnId(null);
                   setActivePointContext(null);
                 }}
-                disabled={!turns.length || assistantStreaming}
+                disabled={!turns.length}
               >
                 清空
               </Button>
@@ -1242,7 +1260,7 @@ export function LearningAssistantPage() {
               </div>
 
               <div>
-                <Text strong>补充 RAG 查询与重排</Text>
+                <Text strong>补充 RAG 查询与证据选择</Text>
                 {retrievalRagEmptyState ? (
                   <Alert
                     showIcon
@@ -1255,7 +1273,7 @@ export function LearningAssistantPage() {
                   <Descriptions.Item label="模式">{String(latestRagTrace.mode || "-")}</Descriptions.Item>
                   <Descriptions.Item label="最终排序">
                     <Tag color={traceReranked ? "#005826" : "default"}>
-                      {traceReranked ? "BGE reranker 已重排" : String(latestRagTrace.final_sort || "未使用重排")}
+                      {traceReranked ? "外部 reranker 已重排" : String(latestRagTrace.final_sort || "关键词得分")}
                     </Tag>
                     {traceReranked ? <Text type="secondary">来源证据按 final_evidence.rank 展示</Text> : null}
                   </Descriptions.Item>
@@ -1277,35 +1295,23 @@ export function LearningAssistantPage() {
                 <div className="assistant-trace-metrics">
                   <div>
                     <span>总耗时</span>
-                    <strong>{formatTraceMs(traceTimings.total_ms)}</strong>
+                    <strong>{formatTraceMs(traceTotalMs)}</strong>
                   </div>
                   <div>
                     <span>Query 生成</span>
-                    <strong>{formatTraceMs(traceTimings.query_generation_ms)}</strong>
+                    <strong>{formatTraceMs(traceQueryMs)}</strong>
                   </div>
                   <div>
-                    <span>BGE Embedding</span>
-                    <strong>{formatTraceMs(traceTimings.bge_embed_ms_total)}</strong>
-                  </div>
-                  <div>
-                    <span>向量召回</span>
-                    <strong>{formatTraceMs(traceTimings.vector_recall_ms_total)}</strong>
-                  </div>
-                  <div>
-                    <span>BGE Rerank</span>
-                    <strong>{formatTraceMs(traceTimings.bge_rerank_ms)}</strong>
+                    <span>关键词召回</span>
+                    <strong>{formatTraceMs(traceKeywordMs)}</strong>
                   </div>
                   <div>
                     <span>候选池</span>
                     <strong>
-                      {mergedCount === undefined
+                      {uniqueCandidateCount === undefined
                         ? "-"
-                        : `${keywordTotalCount || 0} + ${vectorCount || 0} → ${mergedCount}`}
+                        : `${keywordTotalCount || 0} → ${uniqueCandidateCount}`}
                     </strong>
-                  </div>
-                  <div>
-                    <span>重排池</span>
-                    <strong>{rerankPoolCount === undefined ? "-" : String(rerankPoolCount)}</strong>
                   </div>
                   <div>
                     <span>最终证据</span>

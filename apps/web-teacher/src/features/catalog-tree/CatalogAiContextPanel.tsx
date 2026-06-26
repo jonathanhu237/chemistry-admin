@@ -55,7 +55,7 @@ function displayLabel(value?: unknown) {
     catalog_node_evidence: "目录点证据",
     static_catalog_node_evidence: "静态目录点证据",
     dynamic_rag_catalog_node_evidence: "真实 RAG 目录点证据",
-    hybrid_bge_rag: "混合 BGE RAG",
+    hybrid_bge_rag: "外部教材 RAG",
     generated: "已生成",
     deterministic_catalog_context_query: "目录点上下文兜底查询",
     runtime_health: "运行健康度",

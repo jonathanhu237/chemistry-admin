@@ -19,8 +19,12 @@ def _float_env(name: str, default: float) -> float:
         return default
 
 
-def _signature(input_path: Path, output_path: Path) -> None:
-    seconds_per_hash = _float_env("VIDEO_VPDQ_SECONDS_PER_HASH", 1.0)
+def _signature(input_path: Path, output_path: Path, seconds_per_hash: float | None = None) -> None:
+    if seconds_per_hash is None:
+        seconds_per_hash = _float_env(
+            "VIDEO_DUPLICATE_DEFAULT_INTERVAL_SECONDS",
+            _float_env("VIDEO_VPDQ_SECONDS_PER_HASH", 3.0),
+        )
     signal = VPDQSignal.hash_from_file(input_path, seconds_per_hash=seconds_per_hash)
     output_path.parent.mkdir(parents=True, exist_ok=True)
     output_path.write_text(signal, encoding="utf-8")
@@ -54,12 +58,13 @@ def _compare(current_path: Path, candidate_path: Path) -> None:
 
 
 def main(argv: list[str] | None = None) -> int:
-    parser = argparse.ArgumentParser(description="Video similarity helpers backed by Meta vPDQ.")
+    parser = argparse.ArgumentParser(description="Video duplicate-detection helpers backed by Meta vPDQ.")
     subparsers = parser.add_subparsers(dest="command", required=True)
 
     signature_parser = subparsers.add_parser("vpdq-signature")
     signature_parser.add_argument("input", type=Path)
     signature_parser.add_argument("output", type=Path)
+    signature_parser.add_argument("seconds_per_hash", type=float, nargs="?")
 
     compare_parser = subparsers.add_parser("vpdq-compare")
     compare_parser.add_argument("current", type=Path)
@@ -67,7 +72,7 @@ def main(argv: list[str] | None = None) -> int:
 
     args = parser.parse_args(argv)
     if args.command == "vpdq-signature":
-        _signature(args.input, args.output)
+        _signature(args.input, args.output, args.seconds_per_hash)
         return 0
     if args.command == "vpdq-compare":
         _compare(args.current, args.candidate)

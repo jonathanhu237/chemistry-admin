@@ -220,12 +220,22 @@ export type StudentCatalogNodeResponse = {
   children: StudentCatalogNodeCard[];
 };
 
+export type StudentVideoSubtitleTrack = {
+  id: string;
+  kind: "subtitles" | "captions" | string;
+  language_code: string;
+  label: string;
+  is_default?: boolean;
+  stream_path: string;
+};
+
 export type StudentPointVideo = {
   media_id: string;
   title: string;
   mime_type?: string | null;
   stream_path?: string | null;
   thumbnail_path?: string | null;
+  subtitle_tracks?: StudentVideoSubtitleTrack[];
 };
 
 export type StudentRelatedPoint = {
@@ -425,6 +435,7 @@ export type StudentHomeVideoMedia = {
   stream_path: string;
   thumbnail_path?: string | null;
   duration_seconds?: number | null;
+  subtitle_tracks?: StudentVideoSubtitleTrack[];
 };
 
 export type StudentHomeVideoFeedItem = {
@@ -1009,13 +1020,16 @@ function parseSseBlock(block: string): StudentAssistantStreamEvent | null {
 export async function streamStudentAssistantAsk(
   payload: StudentAssistantAskRequest,
   onEvent: (event: StudentAssistantStreamEvent) => void,
+  options: { signal?: AbortSignal } = {},
 ): Promise<void> {
   const headers = new Headers({ "Content-Type": "application/json" });
   if (authToken) headers.set("Authorization", `Bearer ${authToken}`);
+  let reader: ReadableStreamDefaultReader<Uint8Array> | undefined;
   const response = await fetch(`${apiBase}/api/student/assistant/ask/stream`, {
     method: "POST",
     headers,
     body: JSON.stringify(payload),
+    signal: options.signal,
   });
   if (response.status === 401) setAuthToken("");
   if (!response.ok) {
@@ -1025,22 +1039,40 @@ export async function streamStudentAssistantAsk(
   }
   if (!response.body) throw new Error("Atom 响应流不可用");
 
-  const reader = response.body.getReader();
-  const decoder = new TextDecoder();
-  let buffer = "";
-  while (true) {
-    const { value, done } = await reader.read();
-    buffer += decoder.decode(value || new Uint8Array(), { stream: !done });
-    const blocks = buffer.split("\n\n");
-    buffer = blocks.pop() || "";
-    for (const block of blocks) {
-      const event = parseSseBlock(block);
+  reader = response.body.getReader();
+  const abortReader = () => {
+    void reader?.cancel().catch(() => undefined);
+  };
+  options.signal?.addEventListener("abort", abortReader, { once: true });
+  try {
+    const decoder = new TextDecoder();
+    let buffer = "";
+    while (true) {
+      if (options.signal?.aborted) {
+        await reader.cancel().catch(() => undefined);
+        break;
+      }
+      const { value, done } = await reader.read();
+      buffer += decoder.decode(value || new Uint8Array(), { stream: !done });
+      const blocks = buffer.split("\n\n");
+      buffer = blocks.pop() || "";
+      for (const block of blocks) {
+        const event = parseSseBlock(block);
+        if (event) onEvent(event);
+      }
+      if (done) break;
+    }
+    if (!options.signal?.aborted) {
+      const event = parseSseBlock(buffer);
       if (event) onEvent(event);
     }
-    if (done) break;
+  } finally {
+    options.signal?.removeEventListener("abort", abortReader);
   }
-  const event = parseSseBlock(buffer);
-  if (event) onEvent(event);
+}
+
+export function isStudentAssistantStreamAbort(error: unknown): boolean {
+  return error instanceof DOMException && error.name === "AbortError";
 }
 
 export function studentLogin(studentId: string, password: string): Promise<LoginResponse> {

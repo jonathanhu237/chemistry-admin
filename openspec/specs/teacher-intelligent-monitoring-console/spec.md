@@ -4,16 +4,16 @@
 TBD - created by archiving change refactor-ai-rag-es-monitoring-ux. Update Purpose after archive.
 ## Requirements
 ### Requirement: First-screen health overview
-The teacher intelligent monitoring console SHALL render a first-screen overview that summarizes AI, RAG, ES, dictionary, outbox, and guardrail health before detailed diagnostics.
+The teacher intelligent monitoring console SHALL render a first-screen overview that summarizes AI, external textbook RAG, ES, dictionary, outbox, and guardrail health before detailed diagnostics.
 
 #### Scenario: Teacher opens intelligent monitoring
-- **WHEN** an authenticated teacher-console user opens the `智能监控` route
-- **THEN** the page SHALL show a compact health overview for OpenAI, RAG/BGE, Elasticsearch, dictionary assets, outbox/index sync, and student AI guardrails without requiring vertical scrolling on a normal desktop viewport
+- **WHEN** an authenticated teacher-console user opens the intelligent monitoring route
+- **THEN** the page SHALL show a compact health overview for OpenAI, external textbook RAG, Elasticsearch, dictionary assets, outbox/index sync, and student AI guardrails without requiring vertical scrolling on a normal desktop viewport
 - **AND** each health item SHALL expose a status label, status tone, and the most important supporting value such as model, backend, mapping version, synced count, or recent error count.
 
 #### Scenario: A subsystem has a warning or error
 - **WHEN** any monitored subsystem reports warning, error, stale, failed, unavailable, missing, or degraded state
-- **THEN** the overview SHALL surface the condition in a `需要关注` or equivalent attention area
+- **THEN** the overview SHALL surface the condition in an attention area
 - **AND** the attention item SHALL identify the affected subsystem and provide a direct path to the corresponding detail module.
 
 #### Scenario: All subsystems are healthy
@@ -53,17 +53,21 @@ The OpenAI module SHALL monitor provider connectivity and usage while keeping cr
 - **AND** it MAY provide a link to the existing settings or credential-management surface instead of performing configuration inline.
 
 ### Requirement: RAG runtime monitoring module
-The RAG module SHALL monitor RAG/BGE runtime health separately from OpenAI provider health.
+The RAG module SHALL monitor external textbook RAG runtime health separately from OpenAI provider health.
 
 #### Scenario: RAG module opens
 - **WHEN** the teacher opens the `RAG` module
-- **THEN** the module SHALL show student RAG enabled state, BGE service status, query generation state, retrieval/rerank/final counts, service URL, request latency, model load state, memory, uptime, warmup state, model paths, and recent check time
-- **AND** it SHALL distinguish legacy keyword RAG, Hybrid BGE RAG, disabled RAG, and unreachable BGE states.
+- **THEN** the module SHALL show student RAG enabled state, textbook RAG enabled state, Elasticsearch URL/index readiness, embedding provider configured state, rerank provider configured state, model metadata, request latency, and recent check time
+- **AND** it SHALL distinguish disabled, not configured, index missing, index stale, external provider failure, and healthy states.
 
-#### Scenario: BGE sidecar is unavailable
-- **WHEN** BGE metrics or warmup checks return an error
+#### Scenario: External RAG provider is unavailable
+- **WHEN** Elasticsearch, embedding API, or rerank API checks return an error
 - **THEN** the RAG module SHALL show the error locally inside the RAG module
 - **AND** the overview SHALL show only the summarized attention item with a path back to the RAG module.
+
+#### Scenario: Local BGE sidecar fields are absent
+- **WHEN** the RAG module renders after local sidecar retirement
+- **THEN** it MUST NOT show BGE service URL, BGE warmup state, BGE model load state, sidecar memory, sidecar uptime, or local BGE model paths.
 
 ### Requirement: ES retrieval diagnostics workbench
 The ES retrieval module SHALL provide a focused workbench for explaining point-search query behavior.
@@ -148,3 +152,24 @@ The intelligent monitoring console SHALL keep operational diagnostics restricted
 - **WHEN** an authenticated teacher-console user opens diagnostic modules
 - **THEN** the console MAY show teacher/operator diagnostic metadata
 - **AND** sensitive raw details SHALL still be hidden behind explicit secondary actions rather than default visible page content.
+
+### Requirement: Legacy teacher profile excludes intelligent monitoring
+The legacy teacher frontend SHALL not expose the intelligent monitoring console or AI/RAG/ES diagnostic modules.
+
+#### Scenario: Legacy teacher navigation is rendered
+- **WHEN** an authenticated teacher opens `web-teacher-old`
+- **THEN** navigation MUST NOT include intelligent monitoring, learning assistant, AI/RAG/ES monitoring, OpenAI monitoring, RAG runtime monitoring, ES retrieval diagnostics, dictionary/outbox diagnostics, guardrail diagnostics, or trend diagnostics
+- **AND** old teacher routes MUST NOT make those pages reachable through visible old navigation
+
+#### Scenario: Legacy teacher manually enters monitoring URL
+- **WHEN** a teacher manually enters an old-product URL that corresponds to intelligent monitoring or diagnostic modules
+- **THEN** the old product MUST redirect to a safe old teacher route or show a controlled not-found state
+- **AND** it MUST NOT mount the current diagnostic console inside `web-teacher-old`
+
+### Requirement: Current monitoring remains available outside legacy profile
+The legacy exclusion SHALL not remove the current intelligent monitoring console from the current teacher/admin products.
+
+#### Scenario: Current teacher opens monitoring
+- **WHEN** an authenticated teacher opens the current `web-teacher` product
+- **THEN** the current intelligent monitoring behavior MUST remain available according to the existing capability
+- **AND** legacy route hiding MUST be scoped to `web-teacher-old`

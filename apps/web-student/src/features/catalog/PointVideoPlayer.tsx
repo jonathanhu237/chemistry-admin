@@ -23,6 +23,15 @@ type PlayerShellState = {
   isFullscreenWeb: boolean;
 };
 
+export type PointVideoSubtitleTrack = {
+  id: string;
+  kind?: string | null;
+  language_code?: string | null;
+  label?: string | null;
+  is_default?: boolean | null;
+  streamUrl: string;
+};
+
 const initialShellState: PlayerShellState = {
   isReady: false,
   isPlaying: false,
@@ -101,11 +110,13 @@ function progressPercent(currentTime: number, duration: number) {
 export function PointVideoPlayer({
   src,
   poster,
+  subtitleTracks = [],
   emptyReason,
   onBack,
 }: {
   src?: string | null;
   poster?: string | null;
+  subtitleTracks?: PointVideoSubtitleTrack[];
   emptyReason?: string | null;
   onBack: () => void;
 }) {
@@ -205,6 +216,20 @@ export function PointVideoPlayer({
     art.video.removeAttribute("controls");
     art.video.setAttribute("playsinline", "");
     art.video.setAttribute("webkit-playsinline", "");
+    const trackElements = subtitleTracks
+      .filter((track) => track.streamUrl)
+      .map((track) => {
+        const element = document.createElement("track");
+        element.kind = track.kind === "captions" ? "captions" : "subtitles";
+        element.src = track.streamUrl;
+        element.srclang = track.language_code || "und";
+        element.label = track.label || track.language_code || "字幕";
+        if (track.is_default) {
+          element.default = true;
+        }
+        art.video.appendChild(element);
+        return element;
+      });
 
     const sync = () => syncShellState(art);
     const syncAndKeepActive = () => {
@@ -259,6 +284,7 @@ export function PointVideoPlayer({
       art.off("video:error", syncAndKeepActive);
       art.off("seek", sync);
       art.off("fullscreenWeb", sync);
+      trackElements.forEach((element) => element.remove());
       clearHideTimer();
       art.destroy(false);
       if (artRef.current === art) {
@@ -269,7 +295,7 @@ export function PointVideoPlayer({
       setIsChromeActive(false);
       setShellState(initialShellState);
     };
-  }, [clearHideTimer, poster, scheduleChromeHide, src, syncShellState]);
+  }, [clearHideTimer, poster, scheduleChromeHide, src, subtitleTracks, syncShellState]);
 
   const shouldIgnoreShellActivation = (target: EventTarget | null) =>
     target instanceof Element && target.closest(".point-youtube-control, .point-youtube-progress-hit");

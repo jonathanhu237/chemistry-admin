@@ -34,7 +34,7 @@ The admin debug console SHALL stream assistant answers and render Markdown witho
 - **AND** any admin-requested length control SHALL be explicit in the request or admin settings.
 
 ### Requirement: Turn-level diagnostics inspector
-The system SHALL expose guardrail, classification, retrieval-decision, tool-call, RAG, source, and raw response diagnostics for each assistant turn.
+The system SHALL expose guardrail, classification, retrieval-decision, tool-call, external RAG, source, and raw response diagnostics for each assistant turn.
 
 #### Scenario: Admin selects a completed turn
 - **WHEN** the admin selects a completed assistant turn
@@ -47,7 +47,7 @@ The system SHALL expose guardrail, classification, retrieval-decision, tool-call
 
 #### Scenario: Retrieval diagnostics are available
 - **WHEN** a turn uses RAG
-- **THEN** the inspector SHALL show the generated retrieval queries, recall sources, rerank scores when available, and final evidence selected for the answer.
+- **THEN** the inspector SHALL show generated retrieval queries, recall sources, external rerank scores when available, final evidence selected for the answer, and the external textbook RAG stage that produced the evidence.
 
 #### Scenario: Retrieval is skipped by decision
 - **WHEN** a turn skips dynamic RAG because the retrieval decision selected ordinary model-knowledge answering or fixed evidence only
@@ -55,14 +55,14 @@ The system SHALL expose guardrail, classification, retrieval-decision, tool-call
 - **AND** it SHALL NOT show stale retrieval diagnostics from a previous turn.
 
 #### Scenario: Runtime performance is available
-- **WHEN** hybrid BGE RAG is enabled
-- **THEN** the debug console SHALL show whether the optional BGE service is reachable
-- **AND** it SHALL show useful runtime metrics such as model loaded state, container memory, process/container CPU time, request counts, and service probe latency when available.
+- **WHEN** external textbook RAG diagnostics are available
+- **THEN** the debug console SHALL show Elasticsearch index readiness, embedding provider configured state, rerank provider configured state, request latency, model metadata, and recent check time when available
+- **AND** it SHALL NOT show local BGE service URL, local model path, warmup state, sidecar memory, or sidecar uptime.
 
-#### Scenario: BGE warmup status is available
-- **WHEN** the optional BGE service is configured to warm up on startup
-- **THEN** the debug console SHALL show whether warmup is disabled, not started, running, succeeded, or failed
-- **AND** it SHALL show warmup duration or error details when available.
+#### Scenario: External RAG is unavailable
+- **WHEN** external textbook RAG is disabled, misconfigured, stale, or unreachable
+- **THEN** the debug console SHALL show the unavailable stage and teacher-readable remediation context
+- **AND** it SHALL not imply that starting a local BGE sidecar can fix the runtime.
 
 #### Scenario: Retrieval diagnostics are unavailable
 - **WHEN** a turn does not use RAG or diagnostics are not returned
@@ -137,3 +137,34 @@ The admin debug console SHALL present empty-chat video-point prompt suggestions 
 - **WHEN** the admin changes the chapter before starting a chat
 - **THEN** the prompt suggestions SHALL update to the new chapter's experiment video points
 - **AND** suggestions from the previous chapter SHALL NOT be submitted accidentally.
+
+### Requirement: Debug console cancels obsolete streams
+The teacher/admin learning-assistant debug console SHALL cancel active assistant streams that no longer belong to the current page session state.
+
+#### Scenario: Admin leaves the debug console while streaming
+- **WHEN** an admin or teacher leaves the learning-assistant debug console while an answer is still streaming
+- **THEN** the frontend MUST abort the active debug stream request
+- **AND** late stream events MUST NOT update the unmounted page.
+
+#### Scenario: Admin clears the conversation while streaming
+- **WHEN** an admin clears the debug console conversation while an answer is still streaming
+- **THEN** the frontend MUST abort the active debug stream request
+- **AND** the cleared conversation MUST NOT receive later answer deltas, final diagnostics, success messages, or error messages from the cancelled stream.
+
+#### Scenario: Admin starts a replacement debug run
+- **WHEN** the debug console permits a new assistant run before the previous stream completes
+- **THEN** the previous stream MUST be aborted before the replacement run becomes active
+- **AND** the replacement run MUST maintain independent turn and diagnostics state.
+
+### Requirement: Debug stream helper supports abort signals
+The teacher/admin SSE helper SHALL accept an optional cancellation signal without breaking existing debug-console streaming behavior.
+
+#### Scenario: Debug signal is provided
+- **WHEN** the debug console starts a stream with an abort signal
+- **THEN** the shared teacher frontend SSE helper MUST pass that signal to `fetch`
+- **AND** reader cleanup MUST stop consuming the response body after abort.
+
+#### Scenario: Debug abort is caught
+- **WHEN** a debug stream rejects because the console intentionally aborted it
+- **THEN** the page MUST NOT show a success notification, provider failure notification, or stale diagnostics for that cancelled turn
+- **AND** real non-abort stream failures MUST continue to use the existing admin-safe error behavior.

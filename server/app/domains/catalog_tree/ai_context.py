@@ -16,19 +16,17 @@ from server.app.domains.catalog_tree.common import (
 from server.app.domains.catalog_tree.jobs import (
     _catalog_point_context as build_catalog_point_context,
     _catalog_point_queries as build_catalog_point_queries,
-    _legacy_retrieve_catalog_context as legacy_retrieve_catalog_context,
     _rag_runtime_gate as catalog_rag_runtime_gate,
-    _source_refs_from_chunks as source_refs_from_chunks,
     get_point_job_state,
 )
 from server.app.domains.catalog_tree.media_bindings import student_videos
 from server.app.domains.catalog_tree.related_links import related_links
 from server.app.domains.errors import DomainHTTPException as HTTPException, domain_status as status
-from server.app.hybrid_rag import retrieve_hybrid_context
+from server.app.domains.platform.settings import effective_textbook_rag_settings
+from server.app.domains.textbook_rag.evidence import retrieve_point_textbook_evidence
 from server.app.infrastructure.database import db_session
 from server.app.infrastructure.settings import get_settings
-from server.app.repositories import RepositoryProvider, get_repositories
-from server.app.schemas import AgentAskRequest
+from server.app.repositories import RepositoryProvider
 
 
 def catalog_point_ai_context(*, node_id: str) -> dict[str, Any]:
@@ -87,7 +85,7 @@ def catalog_point_ai_context(*, node_id: str) -> dict[str, Any]:
             "primary_path": True,
             "probe_available": bool(runtime_health.get("healthy")),
             "runtime_health": runtime_health,
-            "note": "Dynamic RAG can consume structured catalog point context when runtime policy and BGE health allow it.",
+            "note": "Dynamic RAG consumes structured catalog point context through the external textbook RAG runtime.",
         },
         "job_state": job_state,
     }
@@ -129,59 +127,51 @@ def catalog_point_rag_probe(*, node_id: str) -> dict[str, Any]:
             query_strategy=query_strategy,
         )
 
-    settings = get_settings()
-    repositories = get_repositories()
-    prompt = queries[0]
-
-    def query_generator(_question: str) -> tuple[list[str], dict[str, Any]]:
-        return queries, query_trace
-
-    request = AgentAskRequest(
-        user_role="teacher",
-        question=prompt,
-        chapter_id=context.get("chapter_id"),
-        point_node_id=node_id,
-        catalog_path=context.get("catalog_path") or [],
-        allow_progress_lookup=False,
-        allow_rag_lookup=True,
-        max_answer_chars=0,
-    )
+    textbook_settings = effective_textbook_rag_settings()
+    selected_per_section = int(textbook_settings.get("selected_per_section") or 3)
+    candidate_per_section = int(textbook_settings.get("candidate_per_section") or 20)
     try:
-        result = retrieve_hybrid_context(
-            repositories=repositories,
-            question=prompt,
-            request=request,
-            settings=settings,
-            legacy_retrieve=lambda lookup_query, lookup_limit: legacy_retrieve_catalog_context(
-                repositories,
-                context=context,
-                query=lookup_query,
-                limit=lookup_limit,
-            ),
-            query_generator=query_generator,
-            limit=max(1, int(settings.rag_final_top_k)),
+        result = retrieve_point_textbook_evidence(
+            catalog_context=context,
+            settings=textbook_settings,
+            selected_per_section=selected_per_section,
+            candidate_per_section=candidate_per_section,
         )
     except Exception as exc:
         return _probe_failure(
             node_id=node_id,
-            failed_stage="rag_recall_or_rerank",
+            failed_stage="external_textbook_rag",
             reason=f"{exc.__class__.__name__}: {str(exc)[:240]}",
             runtime_health=runtime_health,
             generated_queries=queries,
             query_strategy=query_strategy,
         )
 
-    final_evidence = _final_evidence_payload(result.chunks, result.trace)
+    final_evidence = [item for item in result.get("source_refs") or [] if isinstance(item, dict)]
+    trace = {
+        "mode": result.get("mode") or "qwen_es_textbook_rag",
+        "source_boundary": "qwen_es_textbook_rag",
+        "textbook_rag": result.get("diagnostics") or {},
+        "supported_sections": result.get("supported_sections") or [],
+        "missing_sections": result.get("missing_sections") or [],
+        "selected_per_section": selected_per_section,
+        "candidate_per_section": candidate_per_section,
+    }
     if not final_evidence:
         return _probe_failure(
             node_id=node_id,
-            failed_stage="recall",
-            reason="RAG completed but selected no usable source chunks for this catalog point.",
+            failed_stage="evidence_selection",
+            reason=str(result.get("message") or "External textbook RAG completed but selected no usable source chunks for this catalog point."),
             runtime_health=runtime_health,
             generated_queries=queries,
             query_strategy=query_strategy,
-            trace=result.trace,
+            trace=trace,
         )
+    candidate_diagnostics = result.get("candidate_diagnostics") if isinstance(result.get("candidate_diagnostics"), dict) else {}
+    candidate_counts = {
+        section: len(candidates) if isinstance(candidates, list) else 0
+        for section, candidates in candidate_diagnostics.items()
+    }
     return {
         "ok": True,
         "node_id": node_id,
@@ -190,12 +180,12 @@ def catalog_point_rag_probe(*, node_id: str) -> dict[str, Any]:
         "runtime_health": runtime_health,
         "generated_queries": queries,
         "query_strategy": query_strategy,
-        "recall_source": result.trace.get("mode"),
-        "candidate_counts": result.trace.get("candidate_counts") or {},
+        "recall_source": trace["mode"],
+        "candidate_counts": candidate_counts,
         "final_evidence": final_evidence,
-        "rerank_scores": result.trace.get("rerank_scores") or [],
-        "fallbacks": result.trace.get("fallbacks") or [],
-        "trace": result.trace,
+        "rerank_scores": [item.get("rerank_score") for item in final_evidence if item.get("rerank_score") is not None],
+        "fallbacks": [],
+        "trace": trace,
     }
 
 
@@ -345,29 +335,6 @@ def _probe_failure(
         "fallbacks": (trace or {}).get("fallbacks") or [],
         "trace": trace or {},
     }
-
-
-def _final_evidence_payload(chunks: list[dict[str, Any]], trace: dict[str, Any]) -> list[dict[str, Any]]:
-    trace_by_chunk = {
-        str(item.get("chunk_id")): item
-        for item in trace.get("final_evidence") or []
-        if isinstance(item, dict) and item.get("chunk_id")
-    }
-    result: list[dict[str, Any]] = []
-    for index, ref in enumerate(source_refs_from_chunks(chunks), start=1):
-        chunk_id = str(ref.get("chunk_id") or "")
-        scored = trace_by_chunk.get(chunk_id, {})
-        result.append(
-            {
-                **ref,
-                "rank": scored.get("rank") or index,
-                "score": scored.get("score"),
-                "rerank_score": scored.get("rerank_score"),
-                "recall_source": scored.get("source"),
-                "query": scored.get("query"),
-            }
-        )
-    return result
 
 
 def _evidence_state(session: Any, *, node_id: str) -> dict[str, Any]:

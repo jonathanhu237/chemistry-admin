@@ -135,3 +135,70 @@ def preview_media_thumbnail_file(asset_id: str, *, node_id: str) -> tuple[Path, 
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Media thumbnail not found")
     path = _safe_media_path(str(row["thumbnail_relative_path"]), not_found_detail="Media thumbnail not found")
     return path, "image/jpeg", f"{asset_id}.jpg"
+
+
+def student_media_subtitle_file(asset_id: str, track_id: str) -> tuple[Path, str, str]:
+    with db_session() as session:
+        row = session.execute(
+            text(
+                """
+                SELECT st.id,
+                       st.webvtt_relative_path,
+                       st.language_code,
+                       st.label
+                FROM media_subtitle_tracks st
+                JOIN media_assets ma ON ma.id = st.media_asset_id
+                JOIN experiment_catalog_point_media_bindings mb ON mb.media_asset_id = ma.id
+                JOIN experiment_catalog_nodes n ON n.id = mb.node_id
+                WHERE st.id = CAST(:track_id AS uuid)
+                  AND st.media_asset_id = CAST(:asset_id AS uuid)
+                  AND st.status = 'ready'
+                  AND st.webvtt_relative_path IS NOT NULL
+                  AND ma.upload_status = 'ready'
+                  AND COALESCE(ma.lifecycle_status, 'active') = 'active'
+                  AND mb.binding_status <> 'archived'
+                  AND n.node_kind = 'point'
+                  AND n.status = 'published'
+                LIMIT 1
+                """
+            ),
+            {"asset_id": asset_id, "track_id": track_id},
+        ).mappings().first()
+    if not row:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Media subtitle not found")
+    path = _safe_media_path(str(row["webvtt_relative_path"]), not_found_detail="Media subtitle not found")
+    return path, "text/vtt; charset=utf-8", f"{asset_id}-{row.get('language_code') or 'und'}.vtt"
+
+
+def preview_media_subtitle_file(asset_id: str, track_id: str, *, node_id: str) -> tuple[Path, str, str]:
+    with db_session() as session:
+        row = session.execute(
+            text(
+                """
+                SELECT st.id,
+                       st.webvtt_relative_path,
+                       st.language_code,
+                       st.label
+                FROM media_subtitle_tracks st
+                JOIN media_assets ma ON ma.id = st.media_asset_id
+                JOIN experiment_catalog_point_media_bindings mb ON mb.media_asset_id = ma.id
+                JOIN experiment_catalog_nodes n ON n.id = :node_id
+                WHERE st.id = CAST(:track_id AS uuid)
+                  AND st.media_asset_id = CAST(:asset_id AS uuid)
+                  AND st.status = 'ready'
+                  AND st.webvtt_relative_path IS NOT NULL
+                  AND ma.upload_status = 'ready'
+                  AND COALESCE(ma.lifecycle_status, 'active') = 'active'
+                  AND mb.binding_status <> 'archived'
+                  AND n.node_kind = 'point'
+                  AND ((n.canonical_point_id IS NOT NULL AND mb.canonical_point_id = n.canonical_point_id)
+                    OR mb.node_id = :node_id)
+                LIMIT 1
+                """
+            ),
+            {"asset_id": asset_id, "track_id": track_id, "node_id": node_id},
+        ).mappings().first()
+    if not row:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Media subtitle not found")
+    path = _safe_media_path(str(row["webvtt_relative_path"]), not_found_detail="Media subtitle not found")
+    return path, "text/vtt; charset=utf-8", f"{asset_id}-{row.get('language_code') or 'und'}.vtt"

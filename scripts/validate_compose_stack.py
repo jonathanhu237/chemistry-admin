@@ -16,6 +16,8 @@ if hasattr(sys.stdout, "reconfigure"):
 
 ROOT = Path(__file__).resolve().parents[1]
 REQUIRED_SERVICES = {"backend", "elasticsearch", "postgres", "tusd", "video-worker", "web-admin", "web-student", "web-teacher"}
+LEGACY_SERVICES = {"web-student-old", "web-teacher-old"}
+RETIRED_SERVICES = {"bge-rag"}
 ES_ANALYZER_ASSET_PATHS = [
     "/usr/share/elasticsearch/config/analysis-ik/IKAnalyzer.cfg.xml",
     "/usr/share/elasticsearch/config/analysis-ik/custom/hit_stopwords.dic",
@@ -79,13 +81,21 @@ def _compose_port(service: str, port: int) -> str:
     return line
 
 
-def _assert_required_services_running() -> None:
+def _assert_required_services_running(required_services: set[str]) -> None:
     completed = _run(["docker", "compose", "ps", "--services", "--status", "running"])
     running = {line.strip() for line in completed.stdout.splitlines() if line.strip()}
-    missing = sorted(REQUIRED_SERVICES - running)
+    missing = sorted(required_services - running)
     if missing:
         raise SystemExit("Required Compose services are not running: " + ", ".join(missing))
-    print("Required Compose services running: " + ", ".join(sorted(REQUIRED_SERVICES)))
+    print("Required Compose services running: " + ", ".join(sorted(required_services)))
+
+
+def _assert_no_retired_services_configured() -> None:
+    completed = _run(["docker", "compose", "config", "--services"])
+    configured = {line.strip() for line in completed.stdout.splitlines() if line.strip()}
+    retired = sorted(RETIRED_SERVICES & configured)
+    if retired:
+        raise SystemExit("Retired Compose services are still configured: " + ", ".join(retired))
 
 
 def _wait_json(url: str, *, label: str, timeout_seconds: int = 120) -> object:
@@ -155,23 +165,29 @@ def main() -> None:
     parser.add_argument("--keep-orphans", action="store_true", help="Do not remove obsolete Compose service containers.")
     parser.add_argument("--skip-up", action="store_true", help="Validate already-running Compose services without starting them.")
     parser.add_argument("--skip-index-rebuild", action="store_true", help="Skip rebuilding the video-library search index.")
+    parser.add_argument("--include-legacy", action="store_true", help="Include web-student-old and web-teacher-old in service and frontend smoke checks.")
     args = parser.parse_args()
 
+    required_services = REQUIRED_SERVICES | (LEGACY_SERVICES if args.include_legacy else set())
+
     _run(["docker", "compose", "config", "--quiet"])
+    _assert_no_retired_services_configured()
     if not args.skip_up:
-        command = ["docker", "compose", "up", "-d", *sorted(REQUIRED_SERVICES)]
+        command = ["docker", "compose", "up", "-d", *sorted(required_services)]
         if args.build:
             command.insert(4, "--build")
         if not args.keep_orphans:
             command.insert(4 if not args.build else 5, "--remove-orphans")
         _run(command)
-    _assert_required_services_running()
+    _assert_required_services_running(required_services)
 
     elasticsearch_url = "http://" + _compose_port("elasticsearch", 9200)
     backend_url = "http://" + _compose_port("backend", 8000)
     web_student_url = "http://" + _compose_port("web-student", 80)
     web_teacher_url = "http://" + _compose_port("web-teacher", 80)
     web_admin_url = "http://" + _compose_port("web-admin", 80)
+    web_student_old_url = "http://" + _compose_port("web-student-old", 80) if args.include_legacy else ""
+    web_teacher_old_url = "http://" + _compose_port("web-teacher-old", 80) if args.include_legacy else ""
 
     _run(["docker", "compose", "exec", "-T", "postgres", "pg_isready", "-U", "chemistry", "-d", "chemistry_exam"])
     _wait_json(f"{elasticsearch_url}/_cluster/health", label="Elasticsearch")
@@ -187,6 +203,13 @@ def main() -> None:
     _wait_status(f"{web_student_url}/api/auth/me", label="web-student API proxy", expected={401})
     _wait_status(f"{web_teacher_url}/api/auth/me", label="web-teacher API proxy", expected={401})
     _wait_status(f"{web_admin_url}/api/web-admin/session", label="web-admin API proxy", expected={401, 503})
+    if args.include_legacy:
+        _wait_status(f"{web_student_old_url}/", label="web-student-old root", expected={200})
+        _wait_status(f"{web_student_old_url}/assessment", label="web-student-old deep route", expected={200})
+        _wait_status(f"{web_student_old_url}/api/auth/me", label="web-student-old API proxy", expected={401})
+        _wait_status(f"{web_teacher_old_url}/", label="web-teacher-old root", expected={200})
+        _wait_status(f"{web_teacher_old_url}/scores", label="web-teacher-old deep route", expected={200})
+        _wait_status(f"{web_teacher_old_url}/api/auth/me", label="web-teacher-old API proxy", expected={401})
 
     _run(["docker", "compose", "exec", "-T", "backend", "python", "scripts/apply_migrations.py"])
     if not args.skip_index_rebuild:
