@@ -1,0 +1,473 @@
+:root {
+  --legacy-sysu-red: #740003;
+  --legacy-red-700: #8f1116;
+  --legacy-red-050: #fff4f3;
+  --legacy-ink: #201a1a;
+  --legacy-muted: #6b5a5a;
+  --legacy-line: #eadede;
+  --legacy-paper: #fffdfb;
+  --legacy-bg: #f6f2ee;
+  --legacy-gold: #c79a37;
+  font-family:
+    "Microsoft YaHei",
+    "PingFang SC",
+    "Noto Sans CJK SC",
+    system-ui,
+    sans-serif;
+  color: var(--legacy-ink);
+  background: var(--legacy-bg);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 960px;
+  background:
+    linear-gradient(135deg, rgba(116, 0, 3, 0.08), transparent 34%),
+    var(--legacy-bg);
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: 8px;
+  font-size: 30px;
+  letter-spacing: 0;
+}
+
+h2 {
+  margin-bottom: 10px;
+  font-size: 18px;
+  letter-spacing: 0;
+}
+
+p {
+  color: var(--legacy-muted);
+  line-height: 1.7;
+}
+
+.legacy-teacher-shell {
+  display: grid;
+  grid-template-columns: 250px minmax(0, 1fr);
+  min-height: 100vh;
+}
+
+.legacy-sidebar {
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  height: 100vh;
+  padding: 24px 18px;
+  border-right: 1px solid rgba(255, 255, 255, 0.18);
+  background: var(--legacy-sysu-red);
+  color: #fff;
+  box-shadow: 8px 0 22px rgba(75, 0, 2, 0.16);
+}
+
+.legacy-sidebar-emblem {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+
+.legacy-sidebar-logo {
+  width: 192px;
+  max-height: 54px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+
+.legacy-sidebar strong {
+  border-top: 1px solid rgba(255, 255, 255, 0.24);
+  padding-top: 14px;
+  font-size: 18px;
+  line-height: 1.45;
+}
+
+.legacy-sidebar nav {
+  display: grid;
+  gap: 8px;
+}
+
+.legacy-sidebar nav button {
+  min-height: 42px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  padding: 8px 12px;
+  text-align: left;
+  font-weight: 800;
+}
+
+.legacy-sidebar nav button.active {
+  background: #fff;
+  color: var(--legacy-sysu-red);
+}
+
+.legacy-teacher-main {
+  min-width: 0;
+}
+
+.legacy-teacher-header {
+  position: sticky;
+  top: 0;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 66px;
+  padding: 12px 28px;
+  border-bottom: 1px solid var(--legacy-line);
+  background: rgba(255, 253, 251, 0.96);
+  box-shadow: 0 2px 10px rgba(75, 0, 2, 0.08);
+}
+
+.legacy-teacher-header div {
+  display: grid;
+  gap: 2px;
+}
+
+.legacy-teacher-header span,
+.eyebrow {
+  color: var(--legacy-sysu-red);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.text-button {
+  border: 0;
+  background: transparent;
+  color: var(--legacy-sysu-red);
+  font-weight: 800;
+}
+
+.legacy-teacher-page {
+  padding: 26px;
+}
+
+.legacy-page-head,
+.legacy-card,
+.legacy-list-panel,
+.legacy-table,
+.legacy-teacher-login-card {
+  border: 1px solid var(--legacy-line);
+  background: var(--legacy-paper);
+  box-shadow: 0 10px 24px rgba(75, 0, 2, 0.08);
+}
+
+.legacy-page-head {
+  margin-bottom: 18px;
+  border-top: 5px solid var(--legacy-sysu-red);
+  padding: 18px 20px;
+}
+
+.legacy-metric-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.legacy-metric {
+  border: 1px solid var(--legacy-line);
+  background: #fff;
+  padding: 14px;
+}
+
+.legacy-metric span {
+  display: block;
+  color: var(--legacy-muted);
+  font-size: 13px;
+}
+
+.legacy-metric strong {
+  display: block;
+  margin-top: 4px;
+  color: var(--legacy-sysu-red);
+  font-size: 26px;
+}
+
+.legacy-flow {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.legacy-flow span {
+  position: relative;
+  min-height: 48px;
+  border: 1px solid #ead3b2;
+  background: #fff8e8;
+  color: #7a4c00;
+  padding: 10px;
+  text-align: center;
+  font-weight: 800;
+}
+
+.legacy-panel-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.legacy-card {
+  padding: 16px;
+}
+
+.legacy-question-layout {
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+  gap: 16px;
+}
+
+.legacy-list-panel {
+  align-self: start;
+  padding: 14px;
+}
+
+.legacy-list-panel button {
+  display: grid;
+  width: 100%;
+  gap: 4px;
+  border: 1px solid var(--legacy-line);
+  background: #fff;
+  margin-top: 8px;
+  padding: 10px;
+  text-align: left;
+}
+
+.legacy-list-panel button.active {
+  border-color: var(--legacy-sysu-red);
+  background: var(--legacy-red-050);
+  color: var(--legacy-sysu-red);
+}
+
+.legacy-list-panel small,
+.legacy-table-row small {
+  color: var(--legacy-muted);
+}
+
+.legacy-workbench {
+  display: grid;
+  gap: 14px;
+}
+
+label {
+  display: grid;
+  gap: 6px;
+  color: var(--legacy-ink);
+  font-weight: 800;
+}
+
+input,
+select,
+textarea {
+  min-height: 40px;
+  border: 1px solid #d8c8c8;
+  background: #fff;
+  padding: 8px 10px;
+}
+
+textarea {
+  min-height: 116px;
+  resize: vertical;
+}
+
+.primary-button {
+  min-height: 42px;
+  border: 1px solid var(--legacy-sysu-red);
+  background: var(--legacy-sysu-red);
+  color: #fff;
+  padding: 8px 16px;
+  font-weight: 800;
+}
+
+.secondary-button {
+  min-height: 42px;
+  border: 1px solid #d8c8c8;
+  background: #fff;
+  color: var(--legacy-sysu-red);
+  padding: 8px 16px;
+  font-weight: 800;
+}
+
+.secondary-button:disabled {
+  opacity: 0.65;
+}
+
+.legacy-admin-search {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 92px auto;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 14px;
+  border: 1px solid var(--legacy-line);
+  background: var(--legacy-paper);
+  padding: 12px;
+}
+
+.primary-button:disabled {
+  opacity: 0.65;
+}
+
+.legacy-review-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.legacy-review-actions button {
+  min-height: 36px;
+  border: 1px solid #d8c8c8;
+  background: #fff;
+  color: var(--legacy-sysu-red);
+  padding: 6px 12px;
+  font-weight: 800;
+}
+
+.legacy-error,
+.legacy-success {
+  margin: 12px 0;
+  padding: 10px 12px;
+}
+
+.legacy-error {
+  border: 1px solid #e3b5b5;
+  background: #fff4f3;
+  color: #8f1116;
+}
+
+.legacy-success {
+  border: 1px solid #cfe3cf;
+  background: #f4fff4;
+  color: #2d6a2d;
+}
+
+.legacy-table {
+  overflow: hidden;
+}
+
+.legacy-table-head,
+.legacy-table-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 110px 110px 110px;
+  gap: 10px;
+  padding: 10px 12px;
+}
+
+.legacy-table-head {
+  background: var(--legacy-red-050);
+  color: var(--legacy-sysu-red);
+  font-weight: 800;
+}
+
+.legacy-table-row {
+  border-top: 1px solid var(--legacy-line);
+}
+
+.legacy-table-row span:first-child {
+  display: grid;
+  gap: 3px;
+}
+
+.legacy-table-head.cols-5,
+.legacy-table-row.cols-5 {
+  grid-template-columns: minmax(0, 1.6fr) 90px 80px 100px 90px;
+}
+
+.legacy-table-head.cols-4,
+.legacy-table-row.cols-4 {
+  grid-template-columns: minmax(0, 1.6fr) 110px 110px 130px;
+}
+
+.legacy-table-head.cols-recommend,
+.legacy-table-row.cols-recommend {
+  grid-template-columns: minmax(220px, 1.5fr) minmax(220px, 1fr) 70px 100px 120px;
+}
+
+.legacy-recommend-table .legacy-table-row {
+  align-items: center;
+}
+
+.legacy-pill {
+  display: inline-block;
+  border: 1px solid #ead3b2;
+  background: #fff8e8;
+  color: var(--legacy-sysu-red);
+  padding: 4px 8px;
+  font-size: 12px;
+}
+
+.legacy-empty-row {
+  border-top: 1px solid var(--legacy-line);
+  color: var(--legacy-muted);
+  padding: 18px;
+  text-align: center;
+}
+
+.legacy-table.compact .legacy-table-head,
+.legacy-table.compact .legacy-table-row {
+  font-size: 14px;
+}
+
+.legacy-teacher-login,
+.legacy-teacher-loading {
+  display: grid;
+  min-height: 100vh;
+  place-items: center;
+  padding: 28px;
+}
+
+.legacy-teacher-login-card {
+  width: min(480px, 100%);
+  padding: 30px;
+}
+
+.legacy-teacher-login-card img {
+  width: 300px;
+  max-width: 82%;
+  margin-bottom: 22px;
+}
+
+.legacy-teacher-login-card form {
+  display: grid;
+  gap: 14px;
+  margin-top: 18px;
+}
+
+@media (max-width: 1100px) {
+  body {
+    min-width: 820px;
+  }
+
+  .legacy-metric-grid,
+  .legacy-panel-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .legacy-flow {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}

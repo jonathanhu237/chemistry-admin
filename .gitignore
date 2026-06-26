@@ -19,6 +19,14 @@ data/media/
 server/vendor/ffmpeg/*.tar.xz
 !server/vendor/ffmpeg/.gitkeep
 apps/*-old/
+!apps/web-student-old/
+!apps/web-student-old/**
+!apps/web-teacher-old/
+!apps/web-teacher-old/**
+apps/web-student-old/node_modules/
+apps/web-student-old/dist/
+apps/web-teacher-old/node_modules/
+apps/web-teacher-old/dist/
 artifacts/recovery/
 
 # Admin repository extraction exclusions
